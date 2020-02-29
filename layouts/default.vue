@@ -19,11 +19,12 @@
         <v-container
           v-for="(item, i) in items"
           :key="i"
-          :to="item.to"
-          router
-          exact
         >
-          <v-list-item>
+          <v-list-item
+            :to="item.to"
+            router
+            exact
+          >
             <v-list-item-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-action>
@@ -61,34 +62,34 @@ export default {
         {
           icon: 'mdi-apps',
           title: '東京都最新感染動向',
-          to: '/'
+          to: '/dashboard'
         },
         {
           icon: 'mdi-chart-bubble',
           title: '症状が心配な方へ',
-          to: '/inspire',
+          to: '/chart',
           divider: true
         },
         {
           icon: 'mdi-account-child',
           title: 'お子さんをお持ちのみなさんへ',
-          to: '/inspire',
+          to: '/forparents',
         },
         {
           icon: 'mdi-chart-bubble',
           title: '都民の皆さんへ',
-          to: '/inspire',
+          to: '/forcitizen',
         },
         {
           icon: 'mdi-chart-bubble',
           title: '企業の皆さんへ',
-          to: '/inspire',
+          to: '/forenterprize',
           divider: true
         },
         {
           icon: 'mdi-chart-bubble',
           title: '公式発表',
-          to: '/inspire',
+          to: '/announcement',
         },
       ],
       title: 'Vuetify.js'
