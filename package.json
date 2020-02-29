@@ -5,10 +5,10 @@
   "author": "osoken",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
-    "build": "nuxt build",
-    "start": "cross-env NODE_ENV=production node server/index.js",
-    "generate": "nuxt generate",
+    "dev": "cross-env NODE_ENV=development nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "cross-env NODE_ENV=production nuxt-ts start",
+    "generate": "nuxt-ts generate",
     "test": "jest"
   },
   "dependencies": {
