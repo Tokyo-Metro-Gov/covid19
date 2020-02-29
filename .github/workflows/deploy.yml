@@ -24,8 +24,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - run: yarn ci
-      - run: yarn test
+      - run: npm ci
+      - run: npm test
       - run: yarn run generate
 
       - name: deploy
