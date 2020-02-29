@@ -1,7 +1,7 @@
 <template>
   <v-list-item
-    :to="isInternalLink(link) && link"
-    :href="!isInternalLink(link) && link"
+    :to="isInternalLink(link) ? link : ''"
+    :href="!isInternalLink(link) ? link : ''"
     router
     exact
   >
