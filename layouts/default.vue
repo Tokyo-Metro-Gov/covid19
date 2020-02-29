@@ -106,7 +106,7 @@ export default {
           to: '/announcement',
         },
       ],
-      title: 'Vuetify.js'
+      title: 'Covid-19'
     }
   }
 }
