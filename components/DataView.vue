@@ -5,7 +5,7 @@
       {{ title }}
     </v-toolbar-title>
     <v-spacer></v-spacer>
-    <slot name="button">button</slot>
+    <slot name="button"></slot>
   </v-toolbar>
   <v-card-text>
     <slot></slot>
