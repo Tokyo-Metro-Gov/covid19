@@ -3,7 +3,11 @@
     <v-navigation-drawer
       permanent
       app
-      width=360
+      v-model="drawer"
+      :mini-variant="miniVariant"
+      :clipped="clipped"
+      width=320
+      mini-variant-width= 60
     >
       <v-list>
         <v-list-item>
@@ -52,7 +56,14 @@
     </v-navigation-drawer>
     <v-app-bar
       app
+      :clipped-left="clipped"
     >
+      <v-btn
+        icon
+        @click.stop="miniVariant = !miniVariant"
+      >
+        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
+      </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
     </v-app-bar>
@@ -68,6 +79,9 @@
 export default {
   data () {
     return {
+      miniVariant: false,
+      clipped: false,
+      drawer: false,
       menu: {
         title: 'TOKYO METROPOLITAN GOVERNMENT',
         subtitle: 'Covid-19 Operation Dashboard'
