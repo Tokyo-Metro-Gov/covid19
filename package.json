@@ -22,14 +22,15 @@
     "vue-chartjs": "^3.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9",
+    "@nuxt/typescript-build": "^0.5.8",
     "@nuxtjs/vuetify": "^1.0.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "prettier": "^1.19.1",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-jest": "^24.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "jest": "^24.1.0",
+    "nodemon": "^1.18.9",
+    "prettier": "^1.19.1",
     "vue-jest": "^4.0.0-0"
   }
 }
