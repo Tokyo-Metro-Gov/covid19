@@ -46,6 +46,7 @@ module.exports = {
   */
   buildModules: [
     '@nuxtjs/vuetify',
+    '@nuxt/typescript-build'
   ],
   /*
   ** Nuxt.js modules
