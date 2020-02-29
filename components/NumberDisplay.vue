@@ -1,8 +1,5 @@
 <template>
 <data-view :title="title">
-  <template v-slot:button>
-    aaa
-  </template>
   {{ `${number} ${unit}` }}
 </data-view>
 </template>
