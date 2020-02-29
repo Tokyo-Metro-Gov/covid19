@@ -25,21 +25,8 @@
           :key="i"
         >
           <v-list-item
-            v-if="item.to"
-            :to="item.to"
-            router
-            exact
-          >
-            <v-list-item-action>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.title" />
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item
-            v-else
-            :href="item.href"
+            :to="isInternalLink(item.href) && item.href"
+            :href="!isInternalLink(item.href) && item.href"
             router
             exact
           >
@@ -90,7 +77,7 @@ export default {
         {
           icon: 'mdi-apps',
           title: '東京都最新感染動向',
-          to: '/'
+          href: '/'
         },
         {
           icon: 'mdi-chart-bubble',
@@ -101,26 +88,31 @@ export default {
         {
           icon: 'mdi-account-child',
           title: 'お子さんをお持ちのみなさんへ',
-          to: '/forparents',
+          href: '/forparents',
         },
         {
           icon: 'mdi-chart-bubble',
           title: '都民の皆さんへ',
-          to: '/forcitizen',
+          href: '/forcitizen',
         },
         {
           icon: 'mdi-chart-bubble',
           title: '企業の皆さんへ',
-          to: '/forenterprize',
+          href: '/forenterprize',
           divider: true
         },
         {
           icon: 'mdi-chart-bubble',
           title: '公式発表',
-          to: '/announcement',
+          href: '/announcement',
         },
       ],
       title: 'Covid-19'
+    }
+  },
+  methods: {
+    isInternalLink (path) {
+      return !/^https?:\/\//.test(path)
     }
   }
 }
