@@ -76,7 +76,7 @@ export default {
         {
           icon: 'mdi-apps',
           title: '東京都最新感染動向',
-          to: '/dashboard'
+          to: '/'
         },
         {
           icon: 'mdi-chart-bubble',
