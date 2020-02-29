@@ -36,6 +36,10 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    {
+      src: '@/plugins/vue-chart.js',
+      ssr: true,
+    },
   ],
   /*
   ** Nuxt.js dev-modules
