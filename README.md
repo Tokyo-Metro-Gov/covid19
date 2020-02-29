@@ -19,4 +19,18 @@ $ npm run start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Deployment
+
+If `master` branch is updated, the modification will be automatically applied to `gh-pages` branch.
+`Netlify` will also update the [production site](https://covid19-tokyo.netlify.com/).
+
+`master` ブランチがアップデートされると、自動的に `gh-pages` に反映されます。そして、`Netlify` 経由で [本番サイト](https://covid19-tokyo.netlify.com/) が更新されます。
+
+## Contribution
+
+All contributions are welcome!
+Please see our issues.
+
+## License
+
+MIT
