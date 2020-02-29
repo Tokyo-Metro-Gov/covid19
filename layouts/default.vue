@@ -24,19 +24,12 @@
           v-for="(item, i) in items"
           :key="i"
         >
-          <v-list-item
-            :to="isInternalLink(item.href) && item.href"
-            :href="!isInternalLink(item.href) && item.href"
-            router
-            exact
+          <ListItem
+            :link="item.link"
+            :icon="item.icon"
+            :title="item.title"
           >
-            <v-list-item-action>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.title" />
-            </v-list-item-content>
-          </v-list-item>
+          </ListItem>
           <v-divider v-show="item.divider"></v-divider>
         </v-container>
       </v-list>
@@ -63,7 +56,12 @@
 </template>
 
 <script>
+import ListItem from '@/components/ListItem'
+
 export default {
+  components: {
+    ListItem
+  },
   data () {
     return {
       miniVariant: false,
@@ -77,42 +75,37 @@ export default {
         {
           icon: 'mdi-apps',
           title: '東京都最新感染動向',
-          href: '/'
+          link: '/'
         },
         {
           icon: 'mdi-chart-bubble',
           title: '症状が心配な方へ',
-          href: 'https://www.google.com',
+          link: 'https://www.google.com',
           divider: true
         },
         {
           icon: 'mdi-account-child',
           title: 'お子さんをお持ちのみなさんへ',
-          href: '/forparents',
+          link: '/forparents',
         },
         {
           icon: 'mdi-chart-bubble',
           title: '都民の皆さんへ',
-          href: '/forcitizen',
+          link: '/forcitizen',
         },
         {
           icon: 'mdi-chart-bubble',
           title: '企業の皆さんへ',
-          href: '/forenterprize',
+          link: '/forenterprize',
           divider: true
         },
         {
           icon: 'mdi-chart-bubble',
           title: '公式発表',
-          href: '/announcement',
+          link: '/announcement',
         },
       ],
       title: 'Covid-19'
-    }
-  },
-  methods: {
-    isInternalLink (path) {
-      return !/^https?:\/\//.test(path)
     }
   }
 }
