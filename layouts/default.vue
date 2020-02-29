@@ -21,7 +21,21 @@
           :key="i"
         >
           <v-list-item
+            v-if="item.to"
             :to="item.to"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" />
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item
+            v-else
+            :href="item.href"
             router
             exact
           >
@@ -67,7 +81,7 @@ export default {
         {
           icon: 'mdi-chart-bubble',
           title: '症状が心配な方へ',
-          to: '/chart',
+          href: 'https://www.google.com',
           divider: true
         },
         {
