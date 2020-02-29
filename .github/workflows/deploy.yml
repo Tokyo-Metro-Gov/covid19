@@ -19,14 +19,14 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@v1
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-yarn-
 
-      - run: npm ci
-      - run: npm test
-      - run: npm run generate
+      - run: yarn ci
+      - run: yarn test
+      - run: yarn run generate
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
