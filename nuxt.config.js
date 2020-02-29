@@ -48,6 +48,10 @@ module.exports = {
     '@nuxtjs/vuetify',
     '@nuxt/typescript-build'
   ],
+  typescript: {
+    typeCheck: true,
+    ignoreNotFoundWarnings: true
+  },
   /*
   ** Nuxt.js modules
   */
