@@ -24,8 +24,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - run: npm ci
-      - run: npm test
+      - run: yarn install --frozen-lockfile
+      - run: yarn run test
       - run: yarn run generate
 
       - name: deploy
