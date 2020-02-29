@@ -1,6 +1,6 @@
 # covid19
 
-> covid19
+Covid 19 website
 
 ## Build Setup
 
