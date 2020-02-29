@@ -3,7 +3,11 @@
     <v-navigation-drawer
       permanent
       app
-      width=360
+      v-model="drawer"
+      :mini-variant="miniVariant"
+      :clipped="clipped"
+      width=320
+      mini-variant-width= 60
     >
       <v-list>
         <v-list-item>
@@ -20,39 +24,26 @@
           v-for="(item, i) in items"
           :key="i"
         >
-          <v-list-item
-            v-if="item.to"
-            :to="item.to"
-            router
-            exact
+          <ListItem
+            :link="item.link"
+            :icon="item.icon"
+            :title="item.title"
           >
-            <v-list-item-action>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.title" />
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item
-            v-else
-            :href="item.href"
-            router
-            exact
-          >
-            <v-list-item-action>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.title" />
-            </v-list-item-content>
-          </v-list-item>
+          </ListItem>
           <v-divider v-show="item.divider"></v-divider>
         </v-container>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
       app
+      :clipped-left="clipped"
     >
+      <v-btn
+        icon
+        @click.stop="miniVariant = !miniVariant"
+      >
+        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
+      </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
     </v-app-bar>
@@ -65,9 +56,17 @@
 </template>
 
 <script>
+import ListItem from '@/components/ListItem'
+
 export default {
+  components: {
+    ListItem
+  },
   data () {
     return {
+      miniVariant: false,
+      clipped: false,
+      drawer: false,
       menu: {
         title: 'TOKYO METROPOLITAN GOVERNMENT',
         subtitle: 'Covid-19 Operation Dashboard'
@@ -76,37 +75,37 @@ export default {
         {
           icon: 'mdi-apps',
           title: '東京都最新感染動向',
-          to: '/dashboard'
+          link: '/'
         },
         {
           icon: 'mdi-chart-bubble',
           title: '症状が心配な方へ',
-          href: 'https://www.google.com',
+          link: 'https://www.google.com',
           divider: true
         },
         {
           icon: 'mdi-account-child',
           title: 'お子さんをお持ちのみなさんへ',
-          to: '/forparents',
+          link: '/forparents',
         },
         {
           icon: 'mdi-chart-bubble',
           title: '都民の皆さんへ',
-          to: '/forcitizen',
+          link: '/forcitizen',
         },
         {
           icon: 'mdi-chart-bubble',
           title: '企業の皆さんへ',
-          to: '/forenterprize',
+          link: '/forenterprize',
           divider: true
         },
         {
           icon: 'mdi-chart-bubble',
           title: '公式発表',
-          to: '/announcement',
+          link: '/announcement',
         },
       ],
-      title: 'Vuetify.js'
+      title: 'Covid-19'
     }
   }
 }
