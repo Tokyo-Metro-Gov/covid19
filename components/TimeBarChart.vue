@@ -24,15 +24,6 @@ export default {
   },
   computed: {
     displayData() {
-      console.log({
-          labels: this.chartData.map(function(d) {return d.label;}),
-          datasets: [{
-              label: this.dataKind,
-              data: this.chartData.map(function(d) {return d.transition;}),
-              backgroundColor: 'green',
-              borderWidth: 1
-          }]
-        });
       if (this.dataKind === 'transition') {
         return {
           labels: this.chartData.map(function(d) {return d.label;}),
