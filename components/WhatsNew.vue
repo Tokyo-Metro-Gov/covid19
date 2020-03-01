@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  props: ['date', 'url', 'text']
+  props: ['date', 'url', 'text'],
 }
 </script>
 

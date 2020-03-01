@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  props: ['url', 'text', 'btnText']
+  props: ['url', 'text', 'btnText'],
 }
 </script>
 

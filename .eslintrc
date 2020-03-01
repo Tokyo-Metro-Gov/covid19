@@ -3,13 +3,5 @@
     "@nuxtjs/eslint-config-typescript",
     "prettier",
     "plugin:prettier/recommended"
-  ],
-  "rules": {
-    "vue/max-attributes-per-line": "off",
-    "vue/html-self-closing": ["error", {
-      "html": {
-        "void": "always"
-      }
-    }]
-  }
+  ]
 }
