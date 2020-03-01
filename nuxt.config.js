@@ -1,6 +1,6 @@
 const colors = require('vuetify/es5/util/colors').default
 
-const routerBase = process.env.URL_BASE !== 0 ? {
+const routerBase = process.env.URL_BASE !== undefined ? {
   router: {
     base: `/${process.env.URL_BASE}`
   }
