@@ -11,7 +11,7 @@
       </h1>
     </div>
     <v-divider />
-    <div class="d-none d-sm-block" :class="{open: isNaviOpen}">
+    <div class="d-none d-sm-block" :class="{open: isNaviOpen && isMobile}">
       <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="isNaviOpen=false">mdi-close</v-icon>
       <v-list :flat="true">
         <v-container
@@ -99,8 +99,19 @@ export default {
           divider: true
         }
       ],
-      title: 'Covid-19'
+      isMobile: false,
     }
+  },
+  methods: {
+    handleResize: function() {
+      this.isMobile = window.innerWidth < 600;
+    }
+  },
+  mounted: function () {
+    window.addEventListener('resize', this.handleResize)
+  },
+  beforeDestroy: function () {
+    window.removeEventListener('resize', this.handleResize)
   }
 }
 </script>
