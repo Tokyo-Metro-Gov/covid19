@@ -5,13 +5,15 @@
   "author": "osoken",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
-    "build": "nuxt build",
-    "start": "cross-env NODE_ENV=production node server/index.js",
-    "generate": "nuxt generate",
-    "test": "jest"
+    "dev": "cross-env NODE_ENV=development nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "cross-env NODE_ENV=production nuxt-ts start",
+    "generate": "nuxt-ts generate",
+    "test": "jest",
+    "lint": "eslint --ext .ts,.js,.vue ."
   },
   "dependencies": {
+    "@nuxt/typescript-runtime": "^0.3.10",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
@@ -22,14 +24,18 @@
     "vue-chartjs": "^3.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9",
+    "@nuxt/typescript-build": "^0.5.8",
+    "@nuxtjs/eslint-config-typescript": "^1.0.2",
     "@nuxtjs/vuetify": "^1.0.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "prettier": "^1.19.1",
+    "@types/chart.js": "^2.9.14",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-jest": "^24.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "jest": "^24.1.0",
+    "nodemon": "^1.18.9",
+    "prettier": "^1.19.1",
     "vue-jest": "^4.0.0-0"
   }
 }
