@@ -13,9 +13,9 @@
     />
     <StaticInfo
       class="mb-4"
-      url="#"
-      text="自分の症状に不安や心配があればまずは電話相談をどうぞ"
-      btn-text="相談の手順を見る"
+      :url="'/flow'"
+      :text="'自分の症状に不安や心配があればまずは電話相談をどうぞ'"
+      :btn-text="'相談の手順を見る'"
     />
     <v-row>
       <v-col xs12 sm6 md4>
@@ -27,9 +27,9 @@
       </v-col>
       <v-col xs12 sm6 md4>
         <time-bar-chart
-          :title="'コールセンター相談件数'"
+          title="コールセンター相談件数"
           :chart-data="contacts"
-          :chart-option="{}"
+          :chart-option="option"
         />
       </v-col>
       <v-col xs12 sm6 md4>
@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import PageHeader from '@/components/PageHeader.vue'
 import moment from 'moment'
+import PageHeader from '@/components/PageHeader.vue'
 import NumberDisplay from '@/components/NumberDisplay.vue'
 import { SHEET_URL } from '@/constants.js'
 import TimeBarChart from '@/components/TimeBarChart.vue'
@@ -62,14 +62,6 @@ export default {
     WhatsNew,
     StaticInfo,
     DataTable
-  },
-  data() {
-    return {
-      headerItem: {
-        icon: 'mdi-chart-timeline-variant',
-        title: '最新感染動向'
-      },
-    }
   },
   async asyncData({ $axios }) {
     const res =
@@ -120,6 +112,50 @@ export default {
       contacts
     }
     return data
+  },
+  data() {
+    return {
+      headerItem: {
+        icon: 'mdi-chart-timeline-variant',
+        title: '最新感染動向'
+      },
+      option: {
+        responsive: true,
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [
+            {
+              stacked: true,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: '#808080'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              location: 'bottom',
+              stacked: true,
+              gridLines: {
+                display: true,
+                color: '#E5E5E5'
+              },
+              ticks: {
+                suggestedMin: 0,
+                maxTicksLimit: 8,
+                fontColor: '#808080'
+              }
+            }
+          ]
+        }
+      }
+    }
   }
 }
 </script>
