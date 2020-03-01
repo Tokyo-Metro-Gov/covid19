@@ -20,6 +20,6 @@
     border: 1px solid #D9D9D9;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, .15);
     border-radius: 4px;
-    padding: .5em 1em;
+    padding: .7em 1em;
   }
 </style>
