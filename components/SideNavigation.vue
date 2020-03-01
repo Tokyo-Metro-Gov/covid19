@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="SideNavigation-Outer">
     <div class="SideNavigation-Container">
+      <v-icon>mdi-menu</v-icon>
       <div class="SideNavigation-Logo">
         <img src="/logo.svg" />
       </div>
@@ -10,7 +11,7 @@
       </h1>
       <v-divider />
     </div>
-    <v-list>
+    <v-list class="d-none d-sm-block">
       <v-container v-for="(item, i) in items" :key="i">
         <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
         <v-divider v-show="item.divider" />
@@ -24,7 +25,6 @@ export default {
   components: {
     ListItem
   },
-  props: ['clipped', 'miniVariant', 'drawer'],
   data() {
     return {
       items: [
@@ -80,6 +80,10 @@ export default {
 }
 </script>
 <style>
+.SideNavigation-Outer {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+}
 .SideNavigation-Container {
   padding: 20px 0 0 20px;
 }
