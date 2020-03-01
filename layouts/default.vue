@@ -1,8 +1,14 @@
 <template>
   <v-app class="app">
     <div class="d-sm-flex">
-      <SideNavigation @openNavi="hideContents" @closeNavi="showContents" :isMobile="isMobile" />
-      <div class="mainContainer px-4" :class="{hide: isMobile && isContentsHide}">
+      <SideNavigation
+        @openNavi="showNavi"
+        @closeNavi="hideNavi"
+        :isMobile="isMobile"
+        :isNaviOpen="isNaviOpen"
+        :class="{open: isMobile && isNaviOpen}"
+      />
+      <div class="mainContainer px-4">
         <v-container>
           <nuxt />
         </v-container>
@@ -19,7 +25,7 @@ export default {
   },
   data() {
     return {
-      isContentsHide: false,
+      isNaviOpen: false,
       isMobile: false,
     }
   },
@@ -27,11 +33,11 @@ export default {
     handleResize: function() {
       this.isMobile = window.innerWidth < 600;
     },
-    hideContents: function(){
-      this.isContentsHide = true;
+    showNavi: function(){
+      this.isNaviOpen = true;
     },
-    showContents: function(){
-      this.isContentsHide = false;
+    hideNavi: function(){
+      this.isNaviOpen = false;
     }
   },
   mounted() {
@@ -54,7 +60,7 @@ export default {
   overflow-y: auto;
   height: 100vh;
 }
-.hide {
-  display: none;
+.open {
+  height: 100vh;
 }
 </style>
