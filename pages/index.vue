@@ -27,9 +27,9 @@
       </v-col>
       <v-col xs12 sm6 md4>
         <time-bar-chart
-          :title="'コールセンター相談件数'"
+          title="コールセンター相談件数"
           :chart-data="contacts"
-          :chart-option="{}"
+          :chart-option="option"
         />
       </v-col>
       <v-col xs12 sm6 md4>
@@ -118,6 +118,42 @@ export default {
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: '最新感染動向'
+      },
+      option: {
+        responsive: true,
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [
+            {
+              stacked: true,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: '#808080'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              location: 'bottom',
+              stacked: true,
+              gridLines: {
+                display: true,
+                color: '#E5E5E5'
+              },
+              ticks: {
+                suggestedMin: 0,
+                maxTicksLimit: 8,
+                fontColor: '#808080'
+              }
+            }
+          ]
+        }
       }
     }
   }
