@@ -2,11 +2,11 @@
   <div>
     <div class="SideNavigation-Container">
       <div class="SideNavigation-Logo">
-        <img src="/logo.svg" >
+        <img src="/logo.svg" />
       </div>
       <h1 class="SideNavigation-Heading">
         東京都公式
-        <br >COVID19対策サイト
+        <br />COVID19対策サイト
       </h1>
       <v-divider />
     </div>

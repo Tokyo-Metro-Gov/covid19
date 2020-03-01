@@ -15,7 +15,11 @@
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
-      <page-header :icon="headerItem.icon" :title="headerItem.title" date="YYYY/MM/DD HH:MM" />
+      <page-header
+        :icon="headerItem.icon"
+        :title="headerItem.title"
+        date="YYYY/MM/DD HH:MM"
+      />
     </v-app-bar>
     <v-content>
       <v-container>
@@ -25,13 +29,11 @@
   </v-app>
 </template>
 <script>
-import ListItem from '@/components/ListItem'
-import PageHeader from '@/components/PageHeader';
+import PageHeader from '@/components/PageHeader'
 import SideNavigation from '@/components/SideNavigation'
 
 export default {
   components: {
-    ListItem,
     PageHeader,
     SideNavigation
   },
