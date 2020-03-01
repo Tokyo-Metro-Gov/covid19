@@ -1,11 +1,12 @@
 <template>
   <v-card class="DataView">
     <v-toolbar flat class="DataView-Header">
-      <v-toolbar-title class="DataView-Title">
-        {{ title }}
-      </v-toolbar-title>
-      <v-spacer />
-      <slot name="button" />
+      <div class="DataView-TitleContainer">
+        <v-toolbar-title class="DataView-Title">
+          {{ title }}
+        </v-toolbar-title>
+        <slot name="button" />
+      </div>
     </v-toolbar>
     <v-card-text>
       <slot />
@@ -51,6 +52,10 @@ export default class DataView extends Vue {
   @include card-container();
   &-Header {
     background-color: transparent !important;
+    height: auto !important;
+  }
+  &-TitleContainer {
+    padding: 14px 0 8px;
   }
   &-Title {
     @include card-h2();
@@ -63,5 +68,8 @@ export default class DataView extends Vue {
     @include font-size(12);
     color: $gray-3 !important;
   }
+}
+.v-toolbar__content {
+  height: auto !important;
 }
 </style>

@@ -30,6 +30,7 @@ export default {
 
 <style lang="scss">
 .DataSelector {
+  margin-top: 2px;
   border: 1px solid $gray-4;
   background-color: $white;
   &-Button {
