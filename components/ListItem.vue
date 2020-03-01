@@ -10,13 +10,13 @@
     style="color: transparent"
   >
     <v-list-item-action v-if="icon" class="ListItem-IconContainer">
-      <v-icon :class="['ListItem-Icon', isActive(icon)]" size="20">
+      <v-icon :class="['ListItem-Icon', isActive(link)]" size="20">
         {{ icon }}
       </v-icon>
     </v-list-item-action>
     <v-list-item-content class="ListItem-TextContainer">
       <v-list-item-title
-        :class="['ListItem-Text', isActive(icon)]"
+        :class="['ListItem-Text', isActive(link)]"
         v-text="title"
       />
     </v-list-item-content>
@@ -57,8 +57,8 @@ export default class ListItem extends Vue {
     return !/^https?:\/\//.test(path)
   }
 
-  isActive(icon: string): string | undefined {
-    if (icon === 'mdi-chart-timeline-variant') {
+  isActive(link: string): string | undefined {
+    if (link === this.$route.path) {
       return 'isActive'
     }
   }
