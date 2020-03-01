@@ -2,16 +2,26 @@
   <div class="staticInfoOuter">
     <a :href="url">{{ text }}</a>
     <div class="btnOuter">
-      <span @click="location.href=url" class="btn">
+      <span class="btn" @click="location.href = url">
         {{ btnText }}
       </span>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  props: ['url', 'text', 'btnText'],
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+
+@Component
+export default class StaticInfo extends Vue {
+  @Prop({ default: '', required: false })
+  url!: string
+
+  @Prop({ default: '', required: false })
+  text!: string
+
+  @Prop({ default: '', required: false })
+  btnText!: string
 }
 </script>
 
