@@ -29,43 +29,49 @@ export default {
     return {
       items: [
         {
-          icon: 'mdi-chart-timeline-variant',
-          title: '最新感染動向',
+          icon: 'mdi-apps',
+          title: '東京都最新感染動向',
           link: '/'
         },
         {
-          icon: 'mdi-human',
-          title: '感染症が心配な方へ',
-          link: 'https://www.google.com',
+          icon: 'mdi-chart-bubble',
+          title: '症状が心配な方へ',
+          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
           divider: true
         },
         {
-          icon: 'mdi-baby-carriage',
-          title: 'お子様をお持ちの皆さんへ',
-          link: '/forparents'
+          icon: 'mdi-account-child',
+          title: 'お子さんをお持ちのみなさんへ',
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'
         },
         {
-          icon: 'mdi-account-multiple',
+          icon: 'mdi-chart-bubble',
           title: '都民の皆さんへ',
-          link: '/forcitizen'
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'
         },
         {
-          icon: 'mdi-domain',
+          icon: 'mdi-chart-bubble',
           title: '企業の皆さんへ',
-          link: '/forenterprize',
+          link:
+            'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html',
           divider: true
         },
         {
           title: '公式発表',
-          link: '/announcement'
+          link:
+            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         },
         {
-          title: '東京都公式ホームページ',
-          link: '/announcement'
+          title: '公式ホームページ',
+          link:
+            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         },
         {
           title: 'このサイトについて',
-          link: '/announcement'
+          link:
+            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         }
       ],
       title: 'Covid-19'
