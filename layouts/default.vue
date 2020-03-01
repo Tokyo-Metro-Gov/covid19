@@ -6,7 +6,7 @@
       app
       :mini-variant="miniVariant"
       :clipped="clipped"
-      width="320"
+      width="220"
       mini-variant-width="60"
     >
       <SideNavigation />
