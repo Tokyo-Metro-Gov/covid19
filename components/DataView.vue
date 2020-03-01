@@ -1,7 +1,7 @@
 <template>
-  <v-card>
-    <v-toolbar flat class="CardHeader">
-      <v-toolbar-title class="CardTitle">
+  <v-card class="DataView">
+    <v-toolbar flat class="DataView-Header">
+      <v-toolbar-title class="DataView-Title">
         {{ title }}
       </v-toolbar-title>
       <v-spacer />
@@ -45,3 +45,15 @@ export default class DataView extends Vue {
   @Prop() private lastUpdateDate!: Date
 }
 </script>
+
+<style lang="scss">
+.DataView {
+  @include card-container();
+  &-Header {
+    background-color: transparent !important;
+  }
+  &-Title {
+    @include card-h2();
+  }
+}
+</style>
