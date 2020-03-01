@@ -21,10 +21,17 @@ $ yarn generate
 
 ## Deployment
 
-If `master` branch is updated, the modification will be automatically applied to `gh-pages` branch.
-`Netlify` will also update the [production site](https://covid19-tokyo.netlify.com/).
+`master` ブランチがアップデートされると、自動的に `gh-pages-production` に反映されます。そして、本番サイト https://covid19-tokyo.netlify.com/ が更新されます。
 
-`master` ブランチがアップデートされると、自動的に `gh-pages` に反映されます。そして、`Netlify` 経由で [本番サイト](https://covid19-tokyo.netlify.com/) が更新されます。
+`staging` ブランチがアップデートされると、自動的に `gh-pages` に反映されます。そして、ステージングサイト https://stg-covid19-tokyo.netlify.com/ が更新されます。
+
+
+If `master` branch is updated, the modification will be automatically applied to `gh-pages-production` branch.
+`Netlify` will also update the production site https://covid19-tokyo.netlify.com/ .
+
+If `staging` branch is updated, the modification will be automatically applied to `gh-pages` branch.
+`Netlify` will also update the staging site https://stg-covid19-tokyo.netlify.com/ .
+
 
 ## Contribution
 
