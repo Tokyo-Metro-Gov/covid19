@@ -3,16 +3,11 @@
 }
 
 body {
-  background-color: #F8F9FA;
+  background-color: $gray-5;
 }
 
 img {
   max-width: 100%;
   height: auto;
   vertical-align: bottom;
-}
-
-a {
-  color: $link;
-  text-decoration: none;
 }

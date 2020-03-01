@@ -1,32 +1,26 @@
 <template>
   <div class="SideNavigation">
     <div class="SideNavigation-HeadingContainer d-flex d-sm-block">
-      <v-icon class="d-inline-block d-sm-none mr-4" @click="isNaviOpen = true">
-        mdi-menu
-      </v-icon>
+      <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">mdi-menu</v-icon>
       <div class="SideNavigation-Logo mr-4">
         <img src="/logo.svg" />
       </div>
       <h1 class="SideNavigation-Heading">
         東京都公式
-        <br />COVID19対策サイト
+        <br />COVID-19対策サイト
       </h1>
     </div>
     <v-divider />
-    <div class="d-none d-sm-block" :class="{ open: isNaviOpen && isMobile }">
-      <v-icon
-        class="d-inline-block d-sm-none mx-4 mt-6"
-        @click="isNaviOpen = false"
-      >
-        mdi-close
-      </v-icon>
+    <div class="d-none d-sm-block" :class="{open: isNaviOpen && isMobile}">
+      <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="closeNavi">mdi-close</v-icon>
       <v-list :flat="true">
         <v-container
           v-for="(item, i) in items"
           :key="i"
           class="SideNavigation-ListItemContainer"
+          @click="closeNavi"
         >
-          <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
+          <ListItem :link="item.link" :icon="item.icon" :title="item.title" :isMobile="isMobile" />
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
@@ -53,9 +47,18 @@ export default {
   components: {
     ListItem
   },
+  props: {
+    isMobile: {
+      type: Boolean,
+      required: true,
+    },
+    isNaviOpen: {
+      type: Boolean,
+      required: true,
+    }
+  },
   data() {
     return {
-      isNaviOpen: false,
       items: [
         {
           icon: 'mdi-chart-timeline-variant',
@@ -106,19 +109,15 @@ export default {
           link: '/about',
           divider: true
         }
-      ],
-      isMobile: false
+      ]
     }
   },
-  mounted() {
-    window.addEventListener('resize', this.handleResize)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleResize)
-  },
   methods: {
-    handleResize() {
-      this.isMobile = window.innerWidth < 600
+    openNavi: function(){
+      this.$emit('openNavi');
+    },
+    closeNavi: function(){
+      this.$emit('closeNavi');
     }
   }
 }
@@ -127,6 +126,7 @@ export default {
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
+  flex: 0 1 200px;
   background: #fff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {

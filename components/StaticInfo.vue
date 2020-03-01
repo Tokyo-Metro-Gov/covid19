@@ -45,9 +45,7 @@ export default class StaticInfo extends Vue {
   box-shadow: $shadow;
   border-radius: 4px;
   padding: 0.5em 1em;
-  > span {
-    @include text-link();
-  }
+  @include text-link();
   &-Button {
     flex: 1 0 auto;
     text-align: right;
