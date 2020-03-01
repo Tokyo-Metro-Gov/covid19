@@ -18,6 +18,7 @@
           v-for="(item, i) in items"
           :key="i"
           class="SideNavigation-ListItemContainer"
+          @click="closeNavi"
         >
           <ListItem :link="item.link" :icon="item.icon" :title="item.title" :isMobile="isMobile" />
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
