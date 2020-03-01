@@ -29,6 +29,6 @@ export default {
   border-radius: 4px;
   color: #00a040;
   font-size: 0.875rem;
-  padding: 0.5em;
+  padding: 0.3em 0.5em;
 }
 </style>
