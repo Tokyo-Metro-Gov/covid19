@@ -9,22 +9,7 @@
       width="320"
       mini-variant-width="60"
     >
-      <v-list>
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class="title">
-              {{ menu.title }}
-            </v-list-item-title>
-            <v-list-item-subtitle class="subtitle">
-              {{ menu.subtitle }}
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-        <v-container v-for="(item, i) in items" :key="i">
-          <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
-          <v-divider v-show="item.divider" />
-        </v-container>
-      </v-list>
+      <SideNavigation />
     </v-navigation-drawer>
     <v-app-bar app :clipped-left="clipped">
       <v-btn icon @click.stop="miniVariant = !miniVariant">
@@ -40,13 +25,11 @@
     </v-content>
   </v-app>
 </template>
-
 <script>
-import ListItem from '@/components/ListItem'
-
+import SideNavigation from '@/components/SideNavigation'
 export default {
   components: {
-    ListItem
+    SideNavigation
   },
   data() {
     return {
@@ -66,29 +49,37 @@ export default {
         {
           icon: 'mdi-chart-bubble',
           title: '症状が心配な方へ',
-          link: 'https://www.google.com',
+          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
           divider: true
         },
         {
           icon: 'mdi-account-child',
           title: 'お子さんをお持ちのみなさんへ',
-          link: '/forparents'
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'
         },
         {
           icon: 'mdi-chart-bubble',
           title: '都民の皆さんへ',
-          link: '/forcitizen'
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'
         },
         {
           icon: 'mdi-chart-bubble',
           title: '企業の皆さんへ',
-          link: '/forenterprize',
+          link:
+            'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html',
           divider: true
         },
         {
-          icon: 'mdi-chart-bubble',
           title: '公式発表',
-          link: '/announcement'
+          link:
+            '/https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
+        },
+        {
+          title: '公式ホームページ',
+          link:
+            '/https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         }
       ],
       title: 'Covid-19'
