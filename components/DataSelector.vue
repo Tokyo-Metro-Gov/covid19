@@ -4,10 +4,10 @@
     class="DataSelector"
     @change="$emit('input', $event)"
   >
-    <v-btn v-ripple="false" :value="'transition'" class="DataSelector-Button">
+    <v-btn v-ripple="false" value="transition" class="DataSelector-Button">
       推移
     </v-btn>
-    <v-btn v-ripple="false" :value="'cummulative'" class="DataSelector-Button">
+    <v-btn v-ripple="false" value="cummulative" class="DataSelector-Button">
       累積
     </v-btn>
   </v-btn-toggle>
@@ -18,7 +18,13 @@
 <script>
 export default {
   name: 'DataSelector',
-  props: ['value']
+  props: {
+    value: {
+      type: String,
+      required: false,
+      default: ''
+    }
+  }
 }
 </script>
 
