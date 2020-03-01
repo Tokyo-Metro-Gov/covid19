@@ -21,6 +21,10 @@
       </v-container>
     </v-list>
     <div class="SideNavigation-Footer">
+      <div class="SideNavigation-SocialLinkContainer">
+        <img src="/line.png" />
+        <img src="/twitter.png" />
+      </div>
       <small class="SideNavigation-Copyright">
         Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.
       </small>
@@ -117,8 +121,18 @@ export default {
     left: 0;
     padding: 20px;
   }
+  &-SocialLinkContainer {
+    display: flex;
+    & img {
+      width: 30px;
+      &:first-of-type {
+        margin-right: 10px;
+      }
+    }
+  }
   &-Copyright {
     display: block;
+    margin-top: 10px;
     font-size: 8px;
     line-height: 11px;
     color: $gray-1;
