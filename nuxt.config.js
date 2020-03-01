@@ -33,7 +33,8 @@ module.exports = {
     {
       src: '@/plugins/vue-chart.js',
       ssr: true
-    }
+    },
+    '@/plugins/datetime-formatter.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -54,7 +55,8 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    ['@nuxtjs/moment', ['ja']]
   ],
   /*
   ** Axios module configuration
