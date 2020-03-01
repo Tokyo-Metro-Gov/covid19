@@ -1,10 +1,24 @@
 <template>
   <div>
-    <whats-new class="mb-4" date="2020年2月29日" url="#" text="新型コロナウイルスに関連した患者の発生について（第37報）"/>
-    <StaticInfo class="mb-4" url="#" text="自分の症状に不安や心配があればまずは電話相談をどうぞ" btn-text="相談の手順を見る" />
+    <whats-new
+      class="mb-4"
+      date="2020年2月29日"
+      url="#"
+      text="新型コロナウイルスに関連した患者の発生について（第37報）"
+    />
+    <StaticInfo
+      class="mb-4"
+      url="#"
+      text="自分の症状に不安や心配があればまずは電話相談をどうぞ"
+      btn-text="相談の手順を見る"
+    />
     <v-row>
       <v-col xs12 sm6 md4>
-        <number-display :title="'本日の感染者'" :number="patients" :unit="'人'" />
+        <number-display
+          :title="'本日の感染者'"
+          :number="patients"
+          :unit="'人'"
+        />
       </v-col>
       <v-col xs12 sm6 md4>
         <time-bar-chart
@@ -21,8 +35,9 @@
 import NumberDisplay from '@/components/NumberDisplay.vue'
 import { SHEET_URL } from '@/constants.js'
 import TimeBarChart from '@/components/TimeBarChart.vue'
-import WhatsNew from '@/components/WhatsNew.vue';
-import StaticInfo from '@/components/StaticInfo.vue';
+import WhatsNew from '@/components/WhatsNew.vue'
+import StaticInfo from '@/components/StaticInfo.vue'
+import Data from '@/dist/data/data.json'
 
 export default {
   components: {
@@ -32,7 +47,10 @@ export default {
     StaticInfo
   },
   async asyncData({ $axios }) {
-    const res = await $axios.$get(SHEET_URL)
+    const res =
+      process.env.NODE_ENV !== 'production'
+        ? await $axios.$get(SHEET_URL)
+        : Data
     const today = new Date()
     let cumSum = 0
     const contacts = []
