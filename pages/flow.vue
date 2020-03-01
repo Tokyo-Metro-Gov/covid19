@@ -11,14 +11,19 @@
         <img src="/flowing-pc.png" alt="相談のフロー" class="only-pc" />
         <img src="/flowing-sp.png" alt="相談のフロー" class="only-sp" />
       </div>
-      <div class="Flow-Card-Button">
-        <span>
-          詳細を見る(東京都福祉保健局)
-          <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="15">
-            mdi-open-in-new
-          </v-icon>
-        </span>
-      </div>
+      <a
+        href="'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'"
+        target="'_blank'"
+      >
+        <div class="Flow-Card-Button">
+          <span>
+            詳細を見る(東京都福祉保健局)
+            <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="15">
+              mdi-open-in-new
+            </v-icon>
+          </span>
+        </div>
+      </a>
     </div>
   </div>
 </template>
