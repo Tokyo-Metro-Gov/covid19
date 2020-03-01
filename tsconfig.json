@@ -1,4 +1,3 @@
-// tsconfig.json
 {
   "compilerOptions": {
     "target": "es2018", // for Optional Chaining & Nullish Coalescing
