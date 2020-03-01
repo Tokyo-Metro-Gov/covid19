@@ -9,8 +9,7 @@
   </v-btn-toggle>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
 export default {

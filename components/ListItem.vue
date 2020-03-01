@@ -18,7 +18,7 @@
 export default {
   props: ['link', 'icon', 'title'],
   methods: {
-    isInternalLink (path) {
+    isInternalLink(path) {
       return !/^https?:\/\//.test(path)
     }
   }
