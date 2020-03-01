@@ -1,8 +1,9 @@
 <template>
   <div class="Flow">
-    <h1 class="Flow-Heading">
-      感染症が心配な方へ
-    </h1>
+    <div class="Flow-Heading">
+      <CovidIcon />
+      <h1>感染症が心配な方へ</h1>
+    </div>
     <div class="Flow-Card">
       <h2>
         新型コロナウイルス感染症にかかる相談窓口について
@@ -28,16 +29,36 @@
   </div>
 </template>
 
+<script>
+import CovidIcon from '@/static/covid.svg'
+
+export default {
+  components: { CovidIcon }
+}
+</script>
+
 <style lang="scss">
 .Flow {
   padding: 20px;
   margin-bottom: 20px;
   background-color: $gray-5;
   &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
+    display: flex;
+    align-items: center;
     margin-bottom: 12px;
+    > svg {
+      width: 30px;
+      height: 30px;
+      > path:not(:first-of-type) {
+        fill: $gray-2;
+      }
+    }
+    > h1 {
+      @include font-size(30);
+      font-weight: normal;
+      color: $gray-2;
+      margin-left: 4px;
+    }
   }
   &-Card {
     @include card-container();
