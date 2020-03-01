@@ -2,7 +2,7 @@
   <v-app>
     <div class="d-sm-flex">
       <SideNavigation />
-      <div>
+      <div class="mainContainer px-4">
         <page-header
           :icon="headerItem.icon"
           :title="headerItem.title"
@@ -36,3 +36,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.mainContainer {
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+</style>

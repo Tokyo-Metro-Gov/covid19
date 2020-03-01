@@ -1,17 +1,18 @@
 <template>
   <div class="SideNavigation">
-    <div class="SideNavigation-HeadingContainer">
-      <v-icon>mdi-menu</v-icon>
-      <div class="SideNavigation-Logo">
+    <div class="SideNavigation-HeadingContainer d-flex d-sm-block">
+      <v-icon class="d-inline-block d-sm-none mr-4" @click="isNaviOpen=true">mdi-menu</v-icon>
+      <div class="SideNavigation-Logo mr-4">
         <img src="/logo.svg" />
       </div>
       <h1 class="SideNavigation-Heading">
         東京都公式
         <br />COVID19対策サイト
       </h1>
-      <v-divider />
     </div>
-    <v-list :flat="true" class="d-none d-sm-block">
+    <v-divider />
+    <v-list :flat="true" class="d-none d-sm-block" :class="{open: isNaviOpen}">
+      <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="isNaviOpen=false">mdi-close</v-icon>
       <v-container
         v-for="(item, i) in items"
         :key="i"
@@ -44,6 +45,7 @@ export default {
   },
   data() {
     return {
+      isNaviOpen: false,
       items: [
         {
           icon: 'mdi-chart-timeline-variant',
@@ -81,9 +83,13 @@ export default {
             'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         },
         {
-          title: '公式ホームページ',
+          title: '東京都公式ホームページ',
           link:
             'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
+        },
+        {
+          title: '知事からのメッセージ',
+          link: '/#'
         },
         {
           title: 'このサイトについて',
@@ -99,28 +105,22 @@ export default {
 
 <style lang="scss" scoped>
 .SideNavigation {
-  min-height: calc(100vh - 140px);
-  margin-bottom: 140px;
-  background: #FFFFFF;
+  background: #FFF;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
-    padding: 20px 20px 0;
+    padding: 1.25em 0 1.25em 1.25em;
+    align-items: center;
   }
   &-ListItemContainer {
     padding: 2px 20px;
   }
   &-Logo {
-    margin-top: 20px;
     width: 110px;
-    box-sizing: border-box;
-    & img {
-      width: 100%;
-    }
   }
   &-Heading {
-    margin: 8px 0 30px;
     font-size: 13px;
     color: #898989;
+    padding: 0.5em 0;
   }
   &-Divider {
     margin: 12px 0;
@@ -149,5 +149,13 @@ export default {
     color: $gray-1;
     font-weight: bold;
   }
+}
+.open {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block !important;
+  width: 100%;
+  z-index: 100;
 }
 </style>
