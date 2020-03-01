@@ -26,8 +26,7 @@ jobs:
       - run: yarn run generate
       - run: ./pull_datasource.sh
       - run: pip install selenium
-      - run: python -m http.server --directory ./dist 3000  &
-      - run: python ui-test/screenshot.py
+      - run: (python3 -m http.server --directory ./dist 8000 &)  ; python3 ./ui-test/screenshot.py
       - name: Upload screenshot
         uses: actions/upload-artifact@v1
         with:
