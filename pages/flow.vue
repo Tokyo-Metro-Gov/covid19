@@ -4,9 +4,12 @@
       感染症が心配な方へ
     </h1>
     <div class="Flow-Card">
-      <h2 clsss="Flow-Card-Heading">
+      <h2>
         新型コロナウイルス感染症にかかる相談窓口について
       </h2>
+      <div class="Flow-Card-Images">
+        <img src="/flowing-pc.png" alt="相談のフロー" />
+      </div>
       <div class="Flow-Card-Button">
         <span>
           詳細を見る(東京都福祉保健局)
@@ -33,16 +36,22 @@
     @include card-container();
     padding: 20px;
     margin-bottom: 20px;
-    &-Heading {
+    > h2 {
       @include card-h1();
       margin-bottom: 12px;
+    }
+    &-Images {
+      text-align: center;
+      > img {
+        margin: 18px auto;
+      }
     }
     &-Button {
       flex: 1 0 auto;
       text-align: center;
-      margin-top: 30px;
+      margin-top: 12px;
       > span {
-        @include button-text;
+        @include button-text();
       }
       &-ExternalLinkIcon {
         margin-left: 2px;
