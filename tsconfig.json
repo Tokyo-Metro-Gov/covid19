@@ -9,6 +9,7 @@
       "esnext.asynciterable",
       "dom"
     ],
+    "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
