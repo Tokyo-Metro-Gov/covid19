@@ -26,12 +26,11 @@
         </v-container>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar app :clipped-left="clipped">
+    <v-app-bar app :flat="flat" :clipped-left="clipped">
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
+      <page-header :icon="items[0].icon" :title="items[0].title" date="YYYY/MM/DD HH:MM" />
     </v-app-bar>
     <v-content>
       <v-container>
@@ -43,24 +42,27 @@
 
 <script>
 import ListItem from '@/components/ListItem'
+import PageHeader from '@/components/PageHeader';
 
 export default {
   components: {
-    ListItem
+    ListItem,
+    PageHeader,
   },
   data() {
     return {
       miniVariant: false,
       clipped: false,
       drawer: false,
+      flat: true,
       menu: {
         title: 'TOKYO METROPOLITAN GOVERNMENT',
         subtitle: 'Covid-19 Operation Dashboard'
       },
       items: [
         {
-          icon: 'mdi-apps',
-          title: '東京都最新感染動向',
+          icon: 'mdi-chart-timeline-variant',
+          title: '最新感染動向',
           link: '/'
         },
         {
