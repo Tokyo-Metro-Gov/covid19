@@ -5,7 +5,7 @@
     :href="isInternalLink(url) ? '' : url"
     class="StaticInfo"
   >
-    <a>{{ text }}</a>
+    <span>{{ text }}</span>
     <div v-if="btnText" class="StaticInfo-Button">
       <span>
         {{ btnText }}
@@ -45,9 +45,7 @@ export default class StaticInfo extends Vue {
   box-shadow: $shadow;
   border-radius: 4px;
   padding: 0.5em 1em;
-  > a {
-    @include text-link();
-  }
+  @include text-link();
   &-Button {
     flex: 1 0 auto;
     text-align: right;
