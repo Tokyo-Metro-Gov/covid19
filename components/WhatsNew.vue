@@ -25,6 +25,5 @@ export default {
 }
 .time {
   flex: 0 0 auto;
-  padding: 0.5em 1em;
 }
 </style>
