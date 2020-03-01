@@ -1,5 +1,5 @@
 <template>
-  <v-btn-toggle :value="value" v-on:change="$emit('input', $event)">
+  <v-btn-toggle :value="value" @change="$emit('input', $event)">
     <v-btn :value="'transition'">
       推移
     </v-btn>
@@ -14,6 +14,7 @@
 
 <script>
 export default {
-  props: [ 'value' ]
+  name: 'DataSelector',
+  props: ['value']
 }
 </script>

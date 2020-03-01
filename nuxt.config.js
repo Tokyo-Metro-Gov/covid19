@@ -1,10 +1,10 @@
 const colors = require('vuetify/es5/util/colors').default
 
-const routerBase = process.env.URL_BASE !== void 0 ? {
+const routerBase = process.env.URL_BASE !== 0 ? {
   router: {
     base: `/${process.env.URL_BASE}`
   }
-}: {}
+} : {}
 
 module.exports = {
   mode: 'universal',
@@ -38,8 +38,8 @@ module.exports = {
   plugins: [
     {
       src: '@/plugins/vue-chart.js',
-      ssr: true,
-    },
+      ssr: true
+    }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -60,7 +60,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Axios module configuration
@@ -89,15 +89,15 @@ module.exports = {
       }
     }
   },
-  /*
-  ** Build configuration
-  */
-  build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-    }
-  },
+  // /*
+  // ** Build configuration
+  // */
+  // build: {
+  //   /*
+  //   ** You can extend webpack config here
+  //   */
+  //   extend (config, ctx) {
+  //   }
+  // },
   ...routerBase
 }

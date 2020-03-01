@@ -1,7 +1,7 @@
 <template>
-<data-view :title="title">
-  {{ `${number} ${unit}` }}
-</data-view>
+  <data-view :title="title">
+    {{ `${number} ${unit}` }}
+  </data-view>
 </template>
 
 <style>
