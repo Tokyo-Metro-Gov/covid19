@@ -40,48 +40,6 @@ export default {
         title: 'TOKYO METROPOLITAN GOVERNMENT',
         subtitle: 'Covid-19 Operation Dashboard'
       },
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: '東京都最新感染動向',
-          link: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: '症状が心配な方へ',
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
-          divider: true
-        },
-        {
-          icon: 'mdi-account-child',
-          title: 'お子さんをお持ちのみなさんへ',
-          link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: '都民の皆さんへ',
-          link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: '企業の皆さんへ',
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html',
-          divider: true
-        },
-        {
-          title: '公式発表',
-          link:
-            '/https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
-        },
-        {
-          title: '公式ホームページ',
-          link:
-            '/https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
-        }
-      ],
       title: 'Covid-19'
     }
   }
