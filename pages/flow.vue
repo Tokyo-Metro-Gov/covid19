@@ -8,7 +8,8 @@
         新型コロナウイルス感染症にかかる相談窓口について
       </h2>
       <div class="Flow-Card-Images">
-        <img src="/flowing-pc.png" alt="相談のフロー" />
+        <img src="/flowing-pc.png" alt="相談のフロー" class="only-pc" />
+        <img src="/flowing-sp.png" alt="相談のフロー" class="only-sp" />
       </div>
       <div class="Flow-Card-Button">
         <span>
@@ -26,6 +27,7 @@
 .Flow {
   padding: 20px;
   margin-bottom: 20px;
+  background-color: $gray-5;
   &-Heading {
     @include font-size(30);
     font-weight: normal;
@@ -43,7 +45,11 @@
     &-Images {
       text-align: center;
       > img {
+        width: 100%;
         margin: 18px auto;
+        &.only-sp {
+          margin: 0 auto;
+        }
       }
     }
     &-Button {
@@ -58,6 +64,24 @@
         color: $green-1 !important;
       }
     }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .only-sp {
+    display: block;
+  }
+  .only-pc {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .only-sp {
+    display: none;
+  }
+  .only-pc {
+    display: block;
   }
 }
 </style>
