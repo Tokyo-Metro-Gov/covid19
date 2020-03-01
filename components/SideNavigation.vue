@@ -1,6 +1,6 @@
 <template>
   <div class="SideNavigation">
-    <div class="SideNavigation-HeadingContainer d-flex d-sm-block">
+    <div class="SideNavigation-HeadingContainer d-flex d-sm-block">s
       <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">mdi-menu</v-icon>
       <div class="SideNavigation-Logo mr-4">
         <img src="/logo.svg" />
@@ -42,6 +42,7 @@
 </template>
 <script>
 import ListItem from '@/components/ListItem'
+
 export default {
   components: {
     ListItem
@@ -65,9 +66,9 @@ export default {
           link: '/'
         },
         {
-          icon: 'mdi-human',
+          icon: 'covid',
           title: '感染症が心配な方へ',
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
+          link: '/flow',
           divider: true
         },
         {
@@ -126,7 +127,7 @@ export default {
 .SideNavigation {
   position: relative;
   flex: 0 1 200px;
-  background: #FFF;
+  background: #fff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
@@ -174,6 +175,6 @@ export default {
   display: block !important;
   width: 100%;
   z-index: 100;
-  background-color: #FFF;
+  background-color: #fff;
 }
 </style>
