@@ -2,11 +2,11 @@
   <div>
     <div class="SideNavigation-Container">
       <div class="SideNavigation-Logo">
-        <img src="/logo.svg">
+        <img src="/logo.svg" >
       </div>
       <h1 class="SideNavigation-Heading">
         東京都公式
-        <br>COVID19対策サイト
+        <br >COVID19対策サイト
       </h1>
       <v-divider />
     </div>
@@ -29,30 +29,30 @@ export default {
     return {
       items: [
         {
-          icon: 'mdi-apps',
-          title: '東京都最新感染動向',
+          icon: 'mdi-chart-timeline-variant',
+          title: '最新感染動向',
           link: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: '症状が心配な方へ',
+          icon: 'mdi-human',
+          title: '感染症が心配な方へ',
           link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
           divider: true
         },
         {
-          icon: 'mdi-account-child',
-          title: 'お子さんをお持ちのみなさんへ',
+          icon: 'mdi-baby-carriage',
+          title: 'お子様をお持ちの皆さんへ',
           link:
             'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-account-multiple',
           title: '都民の皆さんへ',
           link:
             'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-domain',
           title: '企業の皆さんへ',
           link:
             'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html',
