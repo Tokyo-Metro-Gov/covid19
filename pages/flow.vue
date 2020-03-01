@@ -1,13 +1,54 @@
 <template>
-  <v-layout>
-    <v-flex class="text-center">
-      <img src="/flowing.png" alt="相談手順の画像" class="flow-image" />
-    </v-flex>
-  </v-layout>
+  <div class="Flow">
+    <h1 class="Flow-Heading">
+      感染症が心配な方へ
+    </h1>
+    <div class="Flow-Card">
+      <h2 clsss="Flow-Card-Heading">
+        新型コロナウイルス感染症にかかる相談窓口について
+      </h2>
+      <div class="Flow-Card-Button">
+        <span>
+          詳細を見る(東京都福祉保健局)
+          <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="15">
+            mdi-open-in-new
+          </v-icon>
+        </span>
+      </div>
+    </div>
+  </div>
 </template>
 
-<style>
-.flow-image {
-  max-width: 80%;
+<style lang="scss">
+.Flow {
+  padding: 20px;
+  margin-bottom: 20px;
+  &-Heading {
+    @include font-size(30);
+    font-weight: normal;
+    color: $gray-2;
+    margin-bottom: 12px;
+  }
+  &-Card {
+    @include card-container();
+    padding: 20px;
+    margin-bottom: 20px;
+    &-Heading {
+      @include card-h1();
+      margin-bottom: 12px;
+    }
+    &-Button {
+      flex: 1 0 auto;
+      text-align: center;
+      margin-top: 30px;
+      > span {
+        @include button-text;
+      }
+      &-ExternalLinkIcon {
+        margin-left: 2px;
+        color: $green-1 !important;
+      }
+    }
+  }
 }
 </style>
