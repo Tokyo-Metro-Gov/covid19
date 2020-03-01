@@ -20,28 +20,14 @@
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-        <v-container
-          v-for="(item, i) in items"
-          :key="i"
-        >
-          <ListItem
-            :link="item.link"
-            :icon="item.icon"
-            :title="item.title"
-          />
+        <v-container v-for="(item, i) in items" :key="i">
+          <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
           <v-divider v-show="item.divider" />
         </v-container>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      app
-      :flat="flat"
-      :clipped-left="clipped"
-    >
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
+    <v-app-bar app :flat="flat" :clipped-left="clipped">
+      <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
       <page-header :icon="items[0].icon" :title="items[0].title" date="YYYY/MM/DD HH:MM" />
@@ -63,7 +49,7 @@ export default {
     ListItem,
     PageHeader,
   },
-  data () {
+  data() {
     return {
       miniVariant: false,
       clipped: false,

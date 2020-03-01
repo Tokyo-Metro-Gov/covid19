@@ -9,13 +9,28 @@
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "test": "jest",
-    "lint": "eslint --ext .ts,.js,.vue ."
+    "test": "jest"
+  },
+  "lint-staged": {
+    "**/*.{vue,js,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "**/*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.3.10",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/moment": "^1.6.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "chart.js": "^2.9.3",
     "cross-env": "^5.2.0",
@@ -34,7 +49,9 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
     "jest": "^24.1.0",
+    "lint-staged": "^10.0.8",
     "nodemon": "^1.18.9",
     "prettier": "^1.19.1",
     "vue-jest": "^4.0.0-0"
