@@ -8,7 +8,7 @@
       </v-col>
       <v-col xs12 sm6 md4>
         <time-bar-chart
-          :title="'test'"
+          :title="'コールセンター相談件数'"
           :chart-data="contacts"
           :chart-option="{}"
         />
