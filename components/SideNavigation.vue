@@ -11,7 +11,11 @@
       <v-divider />
     </div>
     <v-list>
-      <v-container v-for="(item, i) in items" :key="i">
+      <v-container
+        v-for="(item, i) in items"
+        :key="i"
+        class="SideNavigation-ListItemContainer"
+      >
         <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
         <v-divider v-show="item.divider" />
       </v-container>
@@ -24,7 +28,6 @@ export default {
   components: {
     ListItem
   },
-  props: ['clipped', 'miniVariant', 'drawer'],
   data() {
     return {
       items: [
@@ -79,21 +82,26 @@ export default {
   }
 }
 </script>
-<style>
-.SideNavigation-Container {
-  padding: 20px 0 0 20px;
-}
-.SideNavigation-Logo {
-  margin-top: 20px;
-  width: 110px;
-  box-sizing: border-box;
-}
-.SideNavigation-Logo img {
-  width: 100%;
-}
-.SideNavigation-Heading {
-  margin: 13px 0 30px;
-  font-size: 13px;
-  color: #898989;
+<style lang="scss" scoped>
+.SideNavigation {
+  &-Container {
+    padding: 20px 20px 0;
+  }
+  &-ListItemContainer {
+    padding: 4px 20px;
+  }
+  &-Logo {
+    margin-top: 20px;
+    width: 110px;
+    box-sizing: border-box;
+    & img {
+      width: 100%;
+    }
+  }
+  &-Heading {
+    margin: 13px 0 30px;
+    font-size: 13px;
+    color: #898989;
+  }
 }
 </style>
