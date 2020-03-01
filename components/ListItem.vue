@@ -14,13 +14,32 @@
   </v-list-item>
 </template>
 
-<script>
-export default {
-  props: ['link', 'icon', 'title'],
-  methods: {
-    isInternalLink(path) {
-      return !/^https?:\/\//.test(path)
-    }
+
+<script lang="ts">
+import { Vue, Prop, Component } from 'vue-property-decorator'
+
+@Component
+export default class ListItem extends Vue {
+  @Prop({
+    default: '',
+    required: false
+  })
+  link!: string;
+
+  @Prop({
+    default: '',
+    required: false
+  })
+  icon!: string
+
+  @Prop({
+    default: '',
+    required: false
+  })
+  title!: string
+
+  isInternalLink (path: string): boolean {
+    return !/^https?:\/\//.test(path)
   }
 }
 </script>
