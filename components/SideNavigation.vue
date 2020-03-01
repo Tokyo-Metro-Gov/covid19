@@ -11,29 +11,31 @@
       </h1>
     </div>
     <v-divider />
-    <v-list :flat="true" class="d-none d-sm-block" :class="{open: isNaviOpen}">
+    <div class="d-none d-sm-block" :class="{open: isNaviOpen}">
       <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="isNaviOpen=false">mdi-close</v-icon>
-      <v-container
-        v-for="(item, i) in items"
-        :key="i"
-        class="SideNavigation-ListItemContainer"
-      >
-        <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
-        <v-divider v-show="item.divider" class="SideNavigation-Divider" />
-      </v-container>
-    </v-list>
-    <div class="SideNavigation-Footer">
-      <div class="SideNavigation-SocialLinkContainer">
-        <a href="https://line.me/R/ti/p/%40822sysfc#~">
-          <img src="/line.png" />
-        </a>
-        <a href="https://twitter.com/tocho_koho">
-          <img src="/twitter.png" />
-        </a>
+      <v-list :flat="true">
+        <v-container
+          v-for="(item, i) in items"
+          :key="i"
+          class="SideNavigation-ListItemContainer"
+        >
+          <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
+          <v-divider v-show="item.divider" class="SideNavigation-Divider" />
+        </v-container>
+      </v-list>
+      <div class="SideNavigation-Footer">
+        <div class="SideNavigation-SocialLinkContainer">
+          <a href="https://line.me/R/ti/p/%40822sysfc#~">
+            <img src="/line.png" />
+          </a>
+          <a href="https://twitter.com/tocho_koho">
+            <img src="/twitter.png" />
+          </a>
+        </div>
+        <small class="SideNavigation-Copyright">
+          Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.
+        </small>
       </div>
-      <small class="SideNavigation-Copyright">
-        Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.
-      </small>
     </div>
   </div>
 </template>
@@ -105,6 +107,7 @@ export default {
 
 <style lang="scss" scoped>
 .SideNavigation {
+  position: relative;
   background: #FFF;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
@@ -126,10 +129,6 @@ export default {
     margin: 12px 0;
   }
   &-Footer {
-    background-color: #fff;
-    position: absolute;
-    bottom: 0;
-    left: 0;
     padding: 20px;
   }
   &-SocialLinkContainer {
@@ -157,5 +156,6 @@ export default {
   display: block !important;
   width: 100%;
   z-index: 100;
+  background-color: #FFF;
 }
 </style>
