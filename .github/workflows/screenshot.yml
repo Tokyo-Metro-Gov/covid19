@@ -1,6 +1,10 @@
 name: screenshot
 
-on: pull_request
+# on: pull_request
+on:
+  push:
+    branches:
+      - dummy
 
 jobs:
   screenshot:
