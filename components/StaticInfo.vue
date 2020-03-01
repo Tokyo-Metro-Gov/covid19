@@ -25,7 +25,7 @@ export default class StaticInfo extends Vue {
 }
 </script>
 
-<style>
+<style lang="scss">
 .staticInfoOuter {
   display: flex;
   justify-content: space-between;
@@ -42,12 +42,6 @@ export default class StaticInfo extends Vue {
   text-align: right;
 }
 .btn {
-  display: inline-block;
-  border: 1px solid #00b849;
-  border-radius: 4px;
-  color: #00a040;
-  font-size: 0.875rem;
-  padding: 0.3em 0.5em;
-  cursor: pointer;
+  @include button-text('sm');
 }
 </style>

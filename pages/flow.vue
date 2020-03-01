@@ -57,7 +57,7 @@
       text-align: center;
       margin-top: 12px;
       > span {
-        @include button-text();
+        @include button-text('md');
       }
       &-ExternalLinkIcon {
         margin-left: 2px;
