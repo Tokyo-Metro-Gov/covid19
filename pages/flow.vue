@@ -13,8 +13,8 @@
         <img src="/flowing-sp.png" alt="相談のフロー" class="only-sp" />
       </div>
       <a
-        href="'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'"
-        target="'_blank'"
+        href="https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html"
+        target="_blank"
       >
         <div class="Flow-Card-Button">
           <span>
