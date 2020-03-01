@@ -95,7 +95,7 @@ export default {
         },
         {
           title: 'このサイトについて',
-          link: '/#',
+          link: '/about',
           divider: true
         }
       ],
