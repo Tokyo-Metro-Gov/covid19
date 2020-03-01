@@ -1,13 +1,10 @@
-name: production deploy
+name: screenshot 
 
-on:
-  push:
-    branches:
-      - master
+on: push
 
 jobs:
-  deploy:
-    runs-on: ubuntu-18.04
+  screenshot:
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -26,12 +23,12 @@ jobs:
 
       - run: yarn install --frozen-lockfile
       - run: yarn run test
+      - run: yarn run generate
       - run: ./pull_datasource.sh
-      - run: yarn run generate --fail-on-page-error
-
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - run: pip install selenium
+      - run: (python -m http.server --directory ./dist 8000 &)  ; python ./ui-test/screenshot.py
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: production
+          name: screenshots
+          path: screenshots
