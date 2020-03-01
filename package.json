@@ -9,11 +9,12 @@
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint --ext .ts,.js,.vue ."
   },
   "lint-staged": {
-    "*.{.vue|.ts|.js}": [
-      "eslint --fix",
+    "*.{vue|ts|js|json}": [
+      "eslint --ext",
       "git add"
     ]
   },
