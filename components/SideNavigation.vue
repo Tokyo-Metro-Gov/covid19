@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="SideNavigation-Container">
+  <div class="SideNavigation">
+    <div class="SideNavigation-HeadingContainer">
       <div class="SideNavigation-Logo">
         <img src="/logo.svg" />
       </div>
@@ -97,7 +97,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .SideNavigation {
-  &-Container {
+  min-height: calc(100vh - 140px);
+  margin-bottom: 140px;
+  &-HeadingContainer {
     padding: 20px 20px 0;
   }
   &-ListItemContainer {
@@ -120,6 +122,7 @@ export default {
     margin: 12px 0;
   }
   &-Footer {
+    background-color: #fff;
     position: absolute;
     bottom: 0;
     left: 0;
