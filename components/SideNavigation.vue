@@ -104,7 +104,7 @@ export default {
     }
   }
   &-Heading {
-    margin: 13px 0 30px;
+    margin: 8px 0 30px;
     font-size: 13px;
     color: #898989;
   }
@@ -121,6 +121,8 @@ export default {
     display: block;
     font-size: 8px;
     line-height: 11px;
+    color: $gray-1;
+    font-weight: bold;
   }
 }
 </style>

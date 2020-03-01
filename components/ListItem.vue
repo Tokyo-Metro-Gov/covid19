@@ -3,13 +3,14 @@
     v-ripple="false"
     :to="isInternalLink(link) ? link : ''"
     :href="!isInternalLink(link) ? link : ''"
+    :target="!isInternalLink(link) ? '_brank' : ''"
     router
     exact
     class="ListItem-Container"
     style="color: transparent"
   >
     <v-list-item-action v-if="icon" class="ListItem-IconContainer">
-      <v-icon :class="isActive(icon)" size="20">
+      <v-icon :class="['ListItem-Icon', isActive(icon)]" size="20">
         {{ icon }}
       </v-icon>
     </v-list-item-action>
@@ -67,7 +68,7 @@ export default class ListItem extends Vue {
 <style lang="scss">
 .ListItem {
   &-Container {
-    min-height: 32px;
+    min-height: 30px;
     padding: 0;
     color: transparent !important;
     &:hover {
@@ -76,9 +77,13 @@ export default class ListItem extends Vue {
   }
   &-Text {
     font-size: 12px;
+    color: $gray-1;
   }
   &-IconContainer {
     margin: 8px 3px 8px 0 !important;
+  }
+  &-Icon {
+    color: $gray-2 !important;
   }
   &-TextContainer {
     display: inline-block;
