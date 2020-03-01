@@ -1,11 +1,5 @@
 const colors = require('vuetify/es5/util/colors').default
 
-const routerBase = process.env.URL_BASE !== 0 ? {
-  router: {
-    base: `/${process.env.URL_BASE}`
-  }
-} : {}
-
 module.exports = {
   mode: 'universal',
   /*
@@ -87,5 +81,4 @@ module.exports = {
   //   extend (config, ctx) {
   //   }
   // },
-  ...routerBase
 }
