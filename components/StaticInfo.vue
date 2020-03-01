@@ -1,6 +1,12 @@
 <template>
   <div class="staticInfoOuter">
-    <a :href="url">{{ text }}</a>
+    <component
+      :is="isInternalLink(url) ? 'nuxt-link' : 'a'"
+      :to="isInternalLink(url) ? url : ''"
+      :href="isInternalLink(url) ? '' : url"
+    >
+      {{ text }}
+    </component>
     <div class="btn">
       {{ btnText }}
     </div>
@@ -9,7 +15,12 @@
 
 <script>
 export default {
-  props: ['url', 'text', 'btnText']
+  props: ['url', 'text', 'btnText'],
+  methods: {
+    isInternalLink(path) {
+      return !/^https?:\/\//.test(path)
+    }
+  }
 }
 </script>
 
