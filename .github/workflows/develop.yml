@@ -1,9 +1,9 @@
-name: production deploy
+name: staging deploy
 
 on:
   push:
     branches:
-      - master
+      - develop
 
 jobs:
   deploy:
@@ -33,3 +33,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          publish_branch: gh-pages-staging
