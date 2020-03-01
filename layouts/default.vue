@@ -16,11 +16,13 @@
   </v-app>
 </template>
 <script>
-import PageHeader from '@/components/PageHeader'
+import ListItem from '@/components/ListItem'
+import PageHeader from '@/components/PageHeader';
 import SideNavigation from '@/components/SideNavigation'
 
 export default {
   components: {
+    ListItem,
     PageHeader,
     SideNavigation
   },
