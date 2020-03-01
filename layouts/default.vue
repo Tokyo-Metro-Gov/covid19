@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="app">
     <div class="d-sm-flex">
       <SideNavigation />
       <div class="mainContainer px-4">
@@ -36,6 +36,9 @@ export default {
 </script>
 
 <style>
+.app {
+  background-color: inherit !important;
+}
 .mainContainer {
   flex: 1 1 auto;
   overflow: hidden;
