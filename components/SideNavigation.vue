@@ -20,6 +20,11 @@
         <v-divider v-show="item.divider" class="SideNavigation-Divider" />
       </v-container>
     </v-list>
+    <div class="SideNavigation-Footer">
+      <small class="SideNavigation-Copyright">
+        Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.
+      </small>
+    </div>
   </div>
 </template>
 <script>
@@ -105,6 +110,17 @@ export default {
   }
   &-Divider {
     margin: 12px 0;
+  }
+  &-Footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+  }
+  &-Copyright {
+    display: block;
+    font-size: 8px;
+    line-height: 11px;
   }
 }
 </style>
