@@ -11,6 +11,17 @@
     "generate": "nuxt-ts generate",
     "test": "jest"
   },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.3.10",
     "@nuxtjs/axios": "^5.3.6",
