@@ -1,7 +1,7 @@
 <template>
   <v-app class="app">
     <div class="d-sm-flex">
-      <SideNavigation />
+      <SideNavigation class="navi" />
       <div class="mainContainer px-4">
         <page-header
           :icon="headerItem.icon"
@@ -39,8 +39,13 @@ export default {
 .app {
   background-color: inherit !important;
 }
+.navi {
+  flex: 1 1 200px;
+}
 .mainContainer {
   flex: 1 1 auto;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
 }
 </style>
