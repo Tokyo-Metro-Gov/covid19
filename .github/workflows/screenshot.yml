@@ -1,9 +1,9 @@
-name: production deploy
+name: screenshot 
 
 on: push
 
 jobs:
-  deploy:
+  screenshot:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
