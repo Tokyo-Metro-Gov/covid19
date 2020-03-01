@@ -1,5 +1,10 @@
 <template>
   <div>
+    <page-header
+      :icon="headerItem.icon"
+      :title="headerItem.title"
+      date="YYYY/MM/DD HH:MM"
+    />
     <whats-new
       class="mb-4"
       date="2020年2月29日"
@@ -39,6 +44,7 @@
 </template>
 
 <script>
+import PageHeader from '@/components/PageHeader.vue'
 import moment from 'moment'
 import NumberDisplay from '@/components/NumberDisplay.vue'
 import { SHEET_URL } from '@/constants.js'
@@ -50,11 +56,20 @@ import DataTable from '@/components/DataTable.vue'
 
 export default {
   components: {
+    PageHeader,
     NumberDisplay,
     TimeBarChart,
     WhatsNew,
     StaticInfo,
     DataTable
+  },
+  data() {
+    return {
+      headerItem: {
+        icon: 'mdi-chart-timeline-variant',
+        title: '最新感染動向'
+      },
+    }
   },
   async asyncData({ $axios }) {
     const res =
