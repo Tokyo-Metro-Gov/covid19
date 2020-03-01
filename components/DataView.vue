@@ -1,7 +1,7 @@
 <template>
   <v-card>
-    <v-toolbar>
-      <v-toolbar-title>
+    <v-toolbar flat class="CardTitleBar">
+      <v-toolbar-title class="CardTitle">
         {{ title }}
       </v-toolbar-title>
       <v-spacer />
@@ -14,10 +14,15 @@
 </template>
 
 <style>
+.CardTitleBar {
+}
 </style>
 
-<script>
-export default {
-  props: ['title']
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class DataView extends Vue {
+  @Prop() private title!: string;
 }
 </script>
