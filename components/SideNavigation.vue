@@ -10,14 +10,14 @@
       </h1>
       <v-divider />
     </div>
-    <v-list>
+    <v-list :flat="true">
       <v-container
         v-for="(item, i) in items"
         :key="i"
         class="SideNavigation-ListItemContainer"
       >
         <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
-        <v-divider v-show="item.divider" />
+        <v-divider v-show="item.divider" class="SideNavigation-Divider" />
       </v-container>
     </v-list>
   </div>
@@ -73,8 +73,8 @@ export default {
         },
         {
           title: 'このサイトについて',
-          link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
+          link: '/#',
+          divider: true
         }
       ],
       title: 'Covid-19'
@@ -88,7 +88,7 @@ export default {
     padding: 20px 20px 0;
   }
   &-ListItemContainer {
-    padding: 4px 20px;
+    padding: 2px 20px;
   }
   &-Logo {
     margin-top: 20px;
@@ -102,6 +102,9 @@ export default {
     margin: 13px 0 30px;
     font-size: 13px;
     color: #898989;
+  }
+  &-Divider {
+    margin: 12px 0;
   }
 }
 </style>
