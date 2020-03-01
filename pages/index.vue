@@ -13,9 +13,9 @@
     />
     <StaticInfo
       class="mb-4"
-      url="#"
-      text="自分の症状に不安や心配があればまずは電話相談をどうぞ"
-      btn-text="相談の手順を見る"
+      :url="'/flow'"
+      :text="'自分の症状に不安や心配があればまずは電話相談をどうぞ'"
+      :btn-text="'相談の手順を見る'"
     />
     <v-row>
       <v-col xs12 sm6 md4>
