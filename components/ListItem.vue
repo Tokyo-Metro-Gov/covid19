@@ -24,7 +24,7 @@
     </v-list-item-action>
     <v-list-item-content class="ListItem-TextContainer">
       <v-list-item-title
-        :class="['ListItem-Text', isActive(link)]"
+        :class="['ListItem-Text', isActive(link), isMobile ? 'mobile' : 'desktop']"
         v-text="title"
       />
     </v-list-item-content>
@@ -63,6 +63,12 @@ export default class ListItem extends Vue {
     required: false
   })
   title!: string
+
+  @Prop({
+    default: false,
+    required: true
+  })
+  isMobile!: boolean
 
   isInternalLink(path: string): boolean {
     return !/^https?:\/\//.test(path)
@@ -120,7 +126,6 @@ export default class ListItem extends Vue {
     }
   }
   &-Text {
-    font-size: 12px;
     color: $gray-1;
   }
   &-IconContainer {
@@ -153,5 +158,11 @@ svg.isActive {
   > path:not(:first-of-type) {
     fill: $green-1;
   }
+}
+.desktop {
+  font-size: 0.75rem;
+}
+.mobile {
+  font-size: 1.25rem;
 }
 </style>
