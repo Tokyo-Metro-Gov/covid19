@@ -4,8 +4,7 @@
   </data-view>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
 import DataView from '@/components/DataView.vue'

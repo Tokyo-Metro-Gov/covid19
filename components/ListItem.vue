@@ -14,6 +14,7 @@
   </v-list-item>
 </template>
 
+
 <script lang="ts">
 import { Vue, Prop, Component } from 'vue-property-decorator'
 
