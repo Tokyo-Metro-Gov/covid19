@@ -3,14 +3,15 @@ import os
 
 os.mkdir('screenshots')
 
-def capture(browser, path):
-	driver = getattr(webdriver, browser)()
-	driver.set_window_size(1280, 720)
-	driver.get("http://localhost:8000"+path)
-	driver.save_screenshot('screenshots/'+browser+'.png')
+SIZES = [[320,480],[375,812],[768,1024],[1024,768],[1920,1080]]
 PATHS = ['/']
 BROWSERS = ['Chrome', 'Firefox']
 
 for browser in BROWSERS:
-	for path in PATHS:
-		capture(browser,path)
+	driver = getattr(webdriver, browser)()
+	for size in SIZES:
+		driver.set_window_size(size[0], size[1])
+		for path in PATHS:
+			driver.get("http://localhost:8000"+path)
+			driver.save_screenshot('screenshots/'+browser+'_'+size[0]+'x'+size[1]+'_'+path.replace('/', '_')+'.png')
+		
