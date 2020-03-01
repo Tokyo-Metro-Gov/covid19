@@ -1,6 +1,6 @@
-import Vue from 'vue';
-import { Doughnut, Bar, mixins } from 'vue-chartjs';
-const { reactiveProp } = mixins;
+import Vue from 'vue'
+import { Doughnut, Bar, mixins } from 'vue-chartjs'
+const { reactiveProp } = mixins
 
 Vue.component('doughnut-chart', {
   extends: Doughnut,
@@ -8,13 +8,13 @@ Vue.component('doughnut-chart', {
   props: {
     options: {
       type: Object,
-      default: () => {},
-    },
+      default: () => {}
+    }
   },
   mounted() {
-    this.renderChart(this.chartData, this.options);
-  },
-});
+    this.renderChart(this.chartData, this.options)
+  }
+})
 
 Vue.component('bar', {
   extends: Bar,
@@ -22,10 +22,10 @@ Vue.component('bar', {
   props: {
     options: {
       type: Object,
-      default: () => {},
-    },
+      default: () => {}
+    }
   },
   mounted() {
-    this.renderChart(this.chartData, this.options);
+    this.renderChart(this.chartData, this.options)
   }
-});
+})
