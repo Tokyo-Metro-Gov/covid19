@@ -11,8 +11,7 @@
       <slot />
     </v-card-text>
     <v-footer class="CardFooter">
-      <!-- prettier-ignore -->
-      {{ lastUpdateDate | format - date }} 更新
+      {{ lastUpdateDate || format - date }} 更新
     </v-footer>
   </v-card>
 </template>
