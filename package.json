@@ -33,7 +33,9 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
     "jest": "^24.1.0",
+    "lint-staged": "^10.0.8",
     "nodemon": "^1.18.9",
     "prettier": "^1.19.1",
     "vue-jest": "^4.0.0-0"
