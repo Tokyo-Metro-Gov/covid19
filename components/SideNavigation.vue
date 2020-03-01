@@ -1,7 +1,9 @@
 <template>
   <div class="SideNavigation">
     <div class="SideNavigation-HeadingContainer d-flex d-sm-block">
-      <v-icon class="d-inline-block d-sm-none mr-4" @click="isNaviOpen=true">mdi-menu</v-icon>
+      <v-icon class="d-inline-block d-sm-none mr-4" @click="isNaviOpen = true">
+        mdi-menu
+      </v-icon>
       <div class="SideNavigation-Logo mr-4">
         <img src="/logo.svg" />
       </div>
@@ -11,8 +13,13 @@
       </h1>
     </div>
     <v-divider />
-    <div class="d-none d-sm-block" :class="{open: isNaviOpen && isMobile}">
-      <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="isNaviOpen=false">mdi-close</v-icon>
+    <div class="d-none d-sm-block" :class="{ open: isNaviOpen && isMobile }">
+      <v-icon
+        class="d-inline-block d-sm-none mx-4 mt-6"
+        @click="isNaviOpen = false"
+      >
+        mdi-close
+      </v-icon>
       <v-list :flat="true">
         <v-container
           v-for="(item, i) in items"
@@ -41,6 +48,7 @@
 </template>
 <script>
 import ListItem from '@/components/ListItem'
+
 export default {
   components: {
     ListItem
@@ -55,9 +63,9 @@ export default {
           link: '/'
         },
         {
-          icon: 'mdi-human',
+          icon: 'covid',
           title: '感染症が心配な方へ',
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
+          link: '/flow',
           divider: true
         },
         {
@@ -99,19 +107,19 @@ export default {
           divider: true
         }
       ],
-      isMobile: false,
+      isMobile: false
     }
   },
-  methods: {
-    handleResize: function() {
-      this.isMobile = window.innerWidth < 600;
-    }
-  },
-  mounted: function () {
+  mounted() {
     window.addEventListener('resize', this.handleResize)
   },
-  beforeDestroy: function () {
+  beforeDestroy() {
     window.removeEventListener('resize', this.handleResize)
+  },
+  methods: {
+    handleResize() {
+      this.isMobile = window.innerWidth < 600
+    }
   }
 }
 </script>
@@ -119,7 +127,7 @@ export default {
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  background: #FFF;
+  background: #fff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
@@ -167,6 +175,6 @@ export default {
   display: block !important;
   width: 100%;
   z-index: 100;
-  background-color: #FFF;
+  background-color: #fff;
 }
 </style>
