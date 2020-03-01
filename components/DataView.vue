@@ -10,7 +10,7 @@
     <v-card-text>
       <slot />
     </v-card-text>
-    <v-footer class="CardFooter">
+    <v-footer class="DataView-Footer">
       {{ lastUpdateDate | datetimeFormatter }} 更新
     </v-footer>
   </v-card>
@@ -54,6 +54,14 @@ export default class DataView extends Vue {
   }
   &-Title {
     @include card-h2();
+  }
+  &-Footer {
+    background-color: $white !important;
+    text-align: right;
+    margin: 2px 4px 12px;
+    flex-direction: row-reverse;
+    @include font-size(12);
+    color: $gray-3 !important;
   }
 }
 </style>
