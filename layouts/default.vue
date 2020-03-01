@@ -25,7 +25,7 @@ export default {
   background-color: inherit !important;
 }
 .navi {
-  flex: 1 1 200px;
+  flex: 0 1 200px;
 }
 .mainContainer {
   flex: 1 1 auto;
