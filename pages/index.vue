@@ -82,22 +82,24 @@ export default {
       })
     const patients = {
       headers: [
-        {text: '日付', value: '日付'},
-        {text: '居住地', value: '居住地'},
-        {text: '年代', value: '年代'},
-        {text: '性別', value: '性別'},
+        { text: '日付', value: '日付' },
+        { text: '居住地', value: '居住地' },
+        { text: '年代', value: '年代' },
+        { text: '性別', value: '性別' }
       ],
       datasets: []
-    };
+    }
     res.patients.forEach(function(d) {
       patients.datasets.push({
-        '日付': moment(d['リリース日']).format('MM/DD'),
-        '居住地': d['居住地'],
-        '年代': d['年代'],
-        '性別': d['性別']
+        日付: moment(d['リリース日']).format('MM/DD'),
+        居住地: d['居住地'],
+        年代: d['年代'],
+        性別: d['性別']
       })
-    });
-    patients.datasets.sort(function(a, b) {return a === b?0:(a < b?1:-1);})
+    })
+    patients.datasets.sort(function(a, b) {
+      return a === b ? 0 : a < b ? 1 : -1
+    })
     const data = {
       patients,
       contacts

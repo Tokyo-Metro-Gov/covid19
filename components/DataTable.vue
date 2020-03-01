@@ -6,10 +6,10 @@
     <v-data-table
       :headers="chartData.headers"
       :items="chartData.datasets"
-      :items-per-page=-1
+      :items-per-page="-1"
       :hide-default-footer="true"
-      :height=200
-    ></v-data-table>
+      :height="200"
+    />
   </data-view>
 </template>
 
@@ -21,8 +21,14 @@ import DataView from '@/components/DataView.vue'
 export default {
   components: { DataView },
   props: {
-    title: String,
-    chartData: Object
+    title: {
+      type: String,
+      default: ''
+    },
+    chartData: {
+      type: Object,
+      default: () => {}
+    }
   }
 }
 </script>
