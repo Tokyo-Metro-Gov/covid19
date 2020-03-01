@@ -15,7 +15,7 @@
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
-      <page-header :icon="items[0].icon" :title="items[0].title" date="YYYY/MM/DD HH:MM" />
+      <page-header icon="mdi-chart-timeline-variant" title="最新感染動向" date="YYYY/MM/DD HH:MM" />
     </v-app-bar>
     <v-content>
       <v-container>
