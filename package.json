@@ -9,14 +9,14 @@
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "test": "jest",
-    "lint": "eslint --ext .ts,.js,.vue ."
+    "test": "jest"
   },
   "lint-staged": {
-    "*.{vue|ts|js|json}": [
-      "eslint --ext",
+    "**/*.{vue,js,ts,tsx}": [
+      "eslint --fix",
       "git add"
-    ]
+    ],
+    "{*.{json,md}}": ["prettier --write", "git add"]
   },
   "husky": {
     "hooks": {
