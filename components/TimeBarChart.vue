@@ -17,7 +17,7 @@ export default {
   components: { DataView, DataSelector },
   props: {
     title: String,
-    chartData: Object,
+    chartData: Array,
     chartOption: Object
   },
   data() {
