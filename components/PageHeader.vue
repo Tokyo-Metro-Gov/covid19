@@ -1,11 +1,11 @@
 <template>
-  <div class="header">
-    <h1 class="pageTitle">
+  <div class="header mx-4 mt-8 mb-4">
+    <h2 class="pageTitle">
       <v-icon size="40" class="mr-2">
         {{ icon }}
       </v-icon>
       {{ title }}
-    </h1>
+    </h2>
     <div class="date">
       <span>最終更新 </span><time>{{ date }}</time>
     </div>
@@ -21,8 +21,8 @@ export default {
 <style>
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
+  flex-wrap: wrap;
 }
 .pageTitle {
   display: flex;
