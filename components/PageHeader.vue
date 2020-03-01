@@ -1,12 +1,12 @@
 <template>
   <div class="header">
     <h1 class="pageTitle">
-      <v-icon size="40" class="mr-2">
+      <v-icon v-if="icon" size="40" class="mr-2">
         {{ icon }}
       </v-icon>
       {{ title }}
     </h1>
-    <div class="date">
+    <div v-if="date" class="date">
       <span>最終更新 </span><time>{{ date }}</time>
     </div>
   </div>

@@ -11,16 +11,6 @@
     >
       <SideNavigation />
     </v-navigation-drawer>
-    <v-app-bar app :flat="flat" :clipped-left="clipped">
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <page-header
-        :icon="headerItem.icon"
-        :title="headerItem.title"
-        date="YYYY/MM/DD HH:MM"
-      />
-    </v-app-bar>
     <v-content>
       <v-container>
         <nuxt />
@@ -29,20 +19,16 @@
   </v-app>
 </template>
 <script>
-import PageHeader from '@/components/PageHeader'
+
 import SideNavigation from '@/components/SideNavigation'
 
 export default {
   components: {
-    PageHeader,
     SideNavigation
   },
   data() {
     return {
-      headerItem: {
-        icon: 'mdi-chart-timeline-variant',
-        title: '最新感染動向'
-      },
+
       miniVariant: false,
       clipped: false,
       drawer: false,

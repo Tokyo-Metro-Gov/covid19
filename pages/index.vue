@@ -1,6 +1,16 @@
 <template>
   <div>
-    <whats-new
+    <v-app-bar app :flat="flat" :clipped-left="clipped">
+      <v-btn icon @click.stop="miniVariant = !miniVariant">
+        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
+      </v-btn>
+      <page-header
+        :icon="headerItem.icon"
+        :title="headerItem.title"
+        :date="date"
+      />
+    </v-app-bar>
+    <WhatsNew
       class="mb-4"
       date="2020年2月29日"
       url="#"
@@ -37,13 +47,15 @@ import { SHEET_URL } from '@/constants.js'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
+import PageHeader from '@/components/PageHeader'
 
 export default {
   components: {
     NumberDisplay,
     TimeBarChart,
     WhatsNew,
-    StaticInfo
+    StaticInfo,
+    PageHeader
   },
   async asyncData({ $axios }) {
     const res = await $axios.$get(SHEET_URL)
@@ -67,6 +79,11 @@ export default {
         }
       })
     const data = {
+      headerItem: {
+        icon: 'mdi-chart-timeline-variant',
+        title: '最新感染動向'
+      },
+      date: 'YYYY-MM-DD HH:ii:ss',
       patients: res.patients ? res.patients.length : 0,
       contacts
     }
