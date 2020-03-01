@@ -13,32 +13,32 @@
 
 <style>
 .TheNumber {
-  font-family: Hiragino Sans;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 60px;
-  line-height: 90px;
-  /* identical to box height */
+font-family: Hiragino Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 60px;
+line-height: 90px;
+/* identical to box height */
 
-  text-align: center;
+text-align: center;
 
-  /* gray/2 */
+/* gray/2 */
 
-  color: #4d4d4d;
+color: #4D4D4D;
 }
 .TheUnit {
-  font-family: Hiragino Sans;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 40px;
-  line-height: 90px;
-  /* identical to box height */
+font-family: Hiragino Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 40px;
+line-height: 90px;
+/* identical to box height */
 
-  text-align: center;
+text-align: center;
 
-  /* gray/2 */
+/* gray/2 */
 
-  color: #4d4d4d;
+color: #4D4D4D;
 }
 </style>
 
