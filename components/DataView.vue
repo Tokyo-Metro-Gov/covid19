@@ -11,7 +11,7 @@
       <slot />
     </v-card-text>
     <v-footer class="CardFooter">
-      {{ lastUpdateDate || format - date }} 更新
+      {{ lastUpdateDate | datetimeFormatter }} 更新
     </v-footer>
   </v-card>
 </template>
@@ -42,9 +42,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component
 export default class DataView extends Vue {
   @Prop() private title!: string
-  @Prop({
-    default: new Date()
-  })
-  private lastUpdateDate!: Date
+  @Prop() private lastUpdateDate!: Date
 }
 </script>
