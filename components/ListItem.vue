@@ -73,6 +73,18 @@ export default class ListItem extends Vue {
     color: transparent !important;
     &:hover {
       color: transparent !important;
+      & .ListItem-Text {
+        font-weight: 600;
+      }
+      & .ListItem-Icon {
+        color: $gray-1 !important;
+        &.isActive {
+          color: $green-1 !important;
+        }
+      }
+      & .ListItem-ExternalLinkIcon {
+        color: $gray-1 !important;
+      }
     }
   }
   &-Text {
@@ -91,7 +103,7 @@ export default class ListItem extends Vue {
   }
   &-ExternalLinkIcon {
     margin-left: 2px;
-    color: #808080 !important;
+    color: $gray-3 !important;
   }
 }
 .isActive {
