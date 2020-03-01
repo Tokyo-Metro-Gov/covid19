@@ -52,7 +52,8 @@ module.exports = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    ['@nuxtjs/moment', ['ja']]
+    ['@nuxtjs/moment', ['ja']],
+    'nuxt-svg-loader'
   ],
   /*
    ** Axios module configuration
