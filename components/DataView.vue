@@ -42,9 +42,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component
 export default class DataView extends Vue {
   @Prop() private title!: string
-  @Prop({
-    default: new Date()
-  })
-  private lastUpdateDate!: Date
+  @Prop() private lastUpdateDate!: Date
 }
 </script>
