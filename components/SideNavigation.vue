@@ -46,10 +46,18 @@ export default {
   components: {
     ListItem
   },
-  props: ['isMobile'],
+  props: {
+    isMobile: {
+      type: Boolean,
+      required: true,
+    },
+    isNaviOpen: {
+      type: Boolean,
+      required: true,
+    }
+  },
   data() {
     return {
-      isNaviOpen: false,
       items: [
         {
           icon: 'mdi-chart-timeline-variant',
@@ -105,11 +113,9 @@ export default {
   },
   methods: {
     openNavi: function(){
-      this.isNaviOpen = true;
       this.$emit('openNavi');
     },
     closeNavi: function(){
-      this.isNaviOpen = false;
       this.$emit('closeNavi');
     }
   }
