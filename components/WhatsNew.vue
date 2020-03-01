@@ -1,14 +1,14 @@
 <template>
   <div class="whatsNewOuter">
     <v-icon>mdi-information</v-icon>
-    <time class="time px-2">{{ date }}</time>
+    <time class="px-2">{{ date }}</time>
     <a :href="url">{{ text }}</a>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['date', 'url', 'text'],
+  props: ['date', 'url', 'text']
 }
 </script>
 
@@ -16,14 +16,10 @@ export default {
 .whatsNewOuter {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   background: #fff;
   border: 1px solid #d9d9d9;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   padding: 0.7em 1em;
-}
-.time {
-  flex: 0 0 auto;
 }
 </style>

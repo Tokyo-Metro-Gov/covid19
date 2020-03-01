@@ -9,18 +9,10 @@
     class="ListItem-Container"
     style="color: transparent"
   >
-    <v-list-item-action class="ListItem-IconContainer">
-      <v-icon
-        v-if="checkIconType(icon) === 'material'"
-        :class="['ListItem-Icon', isActive(link)]"
-        size="20"
-      >
+    <v-list-item-action v-if="icon" class="ListItem-IconContainer">
+      <v-icon :class="['ListItem-Icon', isActive(link)]" size="20">
         {{ icon }}
       </v-icon>
-      <CovidIcon
-        v-else-if="checkIconType(icon) === 'original'"
-        :class="['ListItem-Icon', isActive(link)]"
-      />
     </v-list-item-action>
     <v-list-item-content class="ListItem-TextContainer">
       <v-list-item-title
@@ -40,11 +32,8 @@
 
 <script lang="ts">
 import { Vue, Prop, Component } from 'vue-property-decorator'
-import CovidIcon from '@/static/covid.svg'
 
-@Component({
-  components: { CovidIcon }
-})
+@Component
 export default class ListItem extends Vue {
   @Prop({
     default: '',
@@ -73,15 +62,6 @@ export default class ListItem extends Vue {
       return 'isActive'
     }
   }
-
-  checkIconType(icon?: string): 'material' | 'original' | 'none' {
-    if (!icon) return 'none'
-    if (icon.startsWith('mdi')) {
-      return 'material'
-    } else {
-      return 'original'
-    }
-  }
 }
 </script>
 
@@ -105,18 +85,6 @@ export default class ListItem extends Vue {
       & .ListItem-ExternalLinkIcon {
         color: $gray-1 !important;
       }
-      & .ListItem-IconContainer {
-        > svg {
-          > path:not(:first-of-type) {
-            fill: $gray-1;
-          }
-        }
-        > svg.isActive {
-          > path:not(:first-of-type) {
-            fill: $green-1;
-          }
-        }
-      }
     }
   }
   &-Text {
@@ -125,13 +93,6 @@ export default class ListItem extends Vue {
   }
   &-IconContainer {
     margin: 8px 3px 8px 0 !important;
-    > svg {
-      > path:not(:first-of-type) {
-        fill: $gray-2;
-      }
-      width: 20px;
-      height: 20px;
-    }
   }
   &-Icon {
     color: $gray-2 !important;
@@ -148,10 +109,5 @@ export default class ListItem extends Vue {
 .isActive {
   color: $green-1 !important;
   font-weight: 600;
-}
-svg.isActive {
-  > path:not(:first-of-type) {
-    fill: $green-1;
-  }
 }
 </style>

@@ -24,7 +24,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['~assets/global.scss'],
+  css: [],
   /*
    ** Plugins to load before mounting the App
    */
@@ -52,8 +52,7 @@ module.exports = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    ['@nuxtjs/moment', ['ja']],
-    'nuxt-svg-loader'
+    ['@nuxtjs/moment', ['ja']]
   ],
   /*
    ** Axios module configuration

@@ -1,18 +1,17 @@
 <template>
-  <v-card class="DataView">
-    <v-toolbar flat class="DataView-Header">
-      <div class="DataView-TitleContainer">
-        <v-toolbar-title class="DataView-Title">
-          {{ title }}
-        </v-toolbar-title>
-        <slot name="button" />
-      </div>
+  <v-card>
+    <v-toolbar flat class="CardHeader">
+      <v-toolbar-title class="CardTitle">
+        {{ title }}
+      </v-toolbar-title>
+      <v-spacer />
+      <slot name="button" />
     </v-toolbar>
     <v-card-text>
       <slot />
     </v-card-text>
-    <v-footer class="DataView-Footer">
-      {{ lastUpdateDate | datetimeFormatter }} 更新
+    <v-footer class="CardFooter">
+      {{ lastUpdateDate || format - date }} 更新
     </v-footer>
   </v-card>
 </template>
@@ -43,33 +42,9 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component
 export default class DataView extends Vue {
   @Prop() private title!: string
-  @Prop() private lastUpdateDate!: Date
+  @Prop({
+    default: new Date()
+  })
+  private lastUpdateDate!: Date
 }
 </script>
-
-<style lang="scss">
-.DataView {
-  @include card-container();
-  &-Header {
-    background-color: transparent !important;
-    height: auto !important;
-  }
-  &-TitleContainer {
-    padding: 14px 0 8px;
-  }
-  &-Title {
-    @include card-h2();
-  }
-  &-Footer {
-    background-color: $white !important;
-    text-align: right;
-    margin: 2px 4px 12px;
-    flex-direction: row-reverse;
-    @include font-size(12);
-    color: $gray-3 !important;
-  }
-}
-.v-toolbar__content {
-  height: auto !important;
-}
-</style>

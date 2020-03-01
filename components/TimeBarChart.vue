@@ -3,7 +3,7 @@
     <template v-slot:button>
       <data-selector v-model="dataKind" />
     </template>
-    <bar :chart-data="displayData" :options="chartOption" :height="240" />
+    <bar :chart-data="displayData" :options="chartOption" />
   </data-view>
 </template>
 
@@ -16,21 +16,9 @@ import DataSelector from '@/components/DataSelector.vue'
 export default {
   components: { DataView, DataSelector },
   props: {
-    title: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    chartData: {
-      type: Array,
-      required: false,
-      default: () => []
-    },
-    chartOption: {
-      type: Object,
-      required: false,
-      default: () => {}
-    }
+    title: String,
+    chartData: Object,
+    chartOption: Object
   },
   data() {
     return {
@@ -50,8 +38,8 @@ export default {
               data: this.chartData.map(d => {
                 return d.transition
               }),
-              backgroundColor: '#00B849',
-              borderWidth: 0
+              backgroundColor: 'green',
+              borderWidth: 1
             }
           ]
         }
@@ -66,8 +54,8 @@ export default {
             data: this.chartData.map(d => {
               return d.cummulative
             }),
-            backgroundColor: '#00B849',
-            borderWidth: 0
+            backgroundColor: 'green',
+            borderWidth: 1
           }
         ]
       }

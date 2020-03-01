@@ -1,13 +1,9 @@
 <template>
-  <v-btn-toggle
-    :value="value"
-    class="DataSelector"
-    @change="$emit('input', $event)"
-  >
-    <v-btn v-ripple="false" value="transition" class="DataSelector-Button">
+  <v-btn-toggle :value="value" @change="$emit('input', $event)">
+    <v-btn :value="'transition'">
       推移
     </v-btn>
-    <v-btn v-ripple="false" value="cummulative" class="DataSelector-Button">
+    <v-btn :value="'cummulative'">
       累積
     </v-btn>
   </v-btn-toggle>
@@ -18,37 +14,6 @@
 <script>
 export default {
   name: 'DataSelector',
-  props: {
-    value: {
-      type: String,
-      required: false,
-      default: ''
-    }
-  }
+  props: ['value']
 }
 </script>
-
-<style lang="scss">
-.DataSelector {
-  margin-top: 2px;
-  border: 1px solid $gray-4;
-  background-color: $white;
-  &-Button {
-    border: none !important;
-    margin: 2px;
-    border-radius: 4px !important;
-    height: 24px !important;
-    font-size: 12px !important;
-    color: $gray-1 !important;
-    background-color: $white !important;
-    &::before {
-      background-color: inherit;
-    }
-  }
-
-  & .v-btn--active {
-    background-color: $gray-2 !important;
-    color: $white !important;
-  }
-}
-</style>

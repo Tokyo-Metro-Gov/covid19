@@ -1,11 +1,11 @@
 <template>
-  <div class="header ma-4">
-    <h2 class="pageTitle">
+  <div class="header">
+    <h1 class="pageTitle">
       <v-icon size="40" class="mr-2">
         {{ icon }}
       </v-icon>
       {{ title }}
-    </h2>
+    </h1>
     <div class="date">
       <span>最終更新 </span><time>{{ date }}</time>
     </div>
@@ -14,15 +14,15 @@
 
 <script>
 export default {
-  props: ['title', 'icon', 'date'],
+  props: ['title', 'icon', 'date']
 }
 </script>
 
 <style>
 .header {
   display: flex;
+  justify-content: space-between;
   align-items: flex-end;
-  flex-wrap: wrap;
 }
 .pageTitle {
   display: flex;
