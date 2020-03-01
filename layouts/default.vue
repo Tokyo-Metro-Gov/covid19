@@ -1,13 +1,13 @@
 <template>
   <v-app dark>
     <v-navigation-drawer
+      v-model="drawer"
       permanent
       app
-      v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
-      width=320
-      mini-variant-width= 60
+      width="320"
+      mini-variant-width="60"
     >
       <v-list>
         <v-list-item>
@@ -28,9 +28,8 @@
             :link="item.link"
             :icon="item.icon"
             :title="item.title"
-          >
-          </ListItem>
-          <v-divider v-show="item.divider"></v-divider>
+          />
+          <v-divider v-show="item.divider" />
         </v-container>
       </v-list>
     </v-navigation-drawer>
@@ -86,12 +85,12 @@ export default {
         {
           icon: 'mdi-account-child',
           title: 'お子さんをお持ちのみなさんへ',
-          link: '/forparents',
+          link: '/forparents'
         },
         {
           icon: 'mdi-chart-bubble',
           title: '都民の皆さんへ',
-          link: '/forcitizen',
+          link: '/forcitizen'
         },
         {
           icon: 'mdi-chart-bubble',
@@ -102,8 +101,8 @@ export default {
         {
           icon: 'mdi-chart-bubble',
           title: '公式発表',
-          link: '/announcement',
-        },
+          link: '/announcement'
+        }
       ],
       title: 'Covid-19'
     }
