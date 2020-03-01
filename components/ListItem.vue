@@ -5,7 +5,7 @@
     router
     exact
   >
-    <v-list-item-action>
+    <v-list-item-action v-if="icon">
       <v-icon>{{ icon }}</v-icon>
     </v-list-item-action>
     <v-list-item-content>
@@ -13,7 +13,6 @@
     </v-list-item-content>
   </v-list-item>
 </template>
-
 
 <script lang="ts">
 import { Vue, Prop, Component } from 'vue-property-decorator'
@@ -24,7 +23,7 @@ export default class ListItem extends Vue {
     default: '',
     required: false
   })
-  link!: string;
+  link!: string
 
   @Prop({
     default: '',
@@ -38,7 +37,7 @@ export default class ListItem extends Vue {
   })
   title!: string
 
-  isInternalLink (path: string): boolean {
+  isInternalLink(path: string): boolean {
     return !/^https?:\/\//.test(path)
   }
 }
