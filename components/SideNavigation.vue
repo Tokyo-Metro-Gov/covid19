@@ -1,6 +1,6 @@
 <template>
   <div class="SideNavigation">
-    <div class="SideNavigation-HeadingContainer d-flex d-sm-block">s
+    <div class="SideNavigation-HeadingContainer d-flex d-sm-block">
       <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">mdi-menu</v-icon>
       <div class="SideNavigation-Logo mr-4">
         <img src="/logo.svg" />
