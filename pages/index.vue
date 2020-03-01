@@ -26,29 +26,34 @@ import StaticInfo from '@/components/StaticInfo.vue';
 
 export default {
   components: {
-    NumberDisplay, TimeBarChart, WhatsNew, StaticInfo
+    NumberDisplay,
+    TimeBarChart,
+    WhatsNew,
+    StaticInfo
   },
-  async asyncData ({ $axios }) {
+  async asyncData({ $axios }) {
     const res = await $axios.$get(SHEET_URL)
     const today = new Date()
     let cumSum = 0
     const contacts = []
-    res.contacts.filter(function (d) {
-      return new Date(d['日付']) < today
-    }).forEach(function (d) {
-      const dt = new Date(d['日付'])
-      const v = parseInt(d['小計'])
-      if (!isNaN(v)) {
-        cumSum += v
-        contacts.push({
-          label: `${dt.getMonth() + 1}/${dt.getDate()}`,
-          transition: v,
-          cummulative: cumSum
-        })
-      }
-    })
+    res.contacts
+      .filter(function(d) {
+        return new Date(d['日付']) < today
+      })
+      .forEach(function(d) {
+        const dt = new Date(d['日付'])
+        const v = parseInt(d['小計'])
+        if (!isNaN(v)) {
+          cumSum += v
+          contacts.push({
+            label: `${dt.getMonth() + 1}/${dt.getDate()}`,
+            transition: v,
+            cummulative: cumSum
+          })
+        }
+      })
     const data = {
-      patients: (res.patients ? res.patients.length : 0),
+      patients: res.patients ? res.patients.length : 0,
       contacts
     }
     return data
