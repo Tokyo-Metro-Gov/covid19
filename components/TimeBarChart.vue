@@ -7,8 +7,7 @@
   </data-view>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
 import DataView from '@/components/DataView.vue'
@@ -21,32 +20,44 @@ export default {
     chartData: Object,
     chartOption: Object
   },
-  data () {
+  data() {
     return {
       dataKind: 'transition'
     }
   },
   computed: {
-    displayData () {
+    displayData() {
       if (this.dataKind === 'transition') {
         return {
-          labels: this.chartData.map(function (d) { return d.label }),
-          datasets: [{
-            label: this.dataKind,
-            data: this.chartData.map(function (d) { return d.transition }),
-            backgroundColor: 'green',
-            borderWidth: 1
-          }]
+          labels: this.chartData.map(d => {
+            return d.label
+          }),
+          datasets: [
+            {
+              label: this.dataKind,
+              data: this.chartData.map(d => {
+                return d.transition
+              }),
+              backgroundColor: 'green',
+              borderWidth: 1
+            }
+          ]
         }
       }
       return {
-        labels: this.chartData.map(function (d) { return d.label }),
-        datasets: [{
-          label: this.dataKind,
-          data: this.chartData.map(function (d) { return d.cummulative }),
-          backgroundColor: 'green',
-          borderWidth: 1
-        }]
+        labels: this.chartData.map(d => {
+          return d.label
+        }),
+        datasets: [
+          {
+            label: this.dataKind,
+            data: this.chartData.map(d => {
+              return d.cummulative
+            }),
+            backgroundColor: 'green',
+            borderWidth: 1
+          }
+        ]
       }
     }
   }
