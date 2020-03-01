@@ -7,19 +7,19 @@
 </template>
 
 <script>
-export default {
-  props: ['date', 'url', 'text']
-}
+  export default {
+    props: ['date', 'url', 'text'],
+  }
 </script>
 
 <style>
-.whatsNewOuter {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border: 1px solid #d9d9d9;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  padding: 0.7em 1em;
-}
+  .whatsNewOuter {
+    display: flex;
+    align-items: center;
+    background: #FFF;
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    padding: .5em 1em;
+  }
 </style>
