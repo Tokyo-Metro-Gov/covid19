@@ -16,7 +16,7 @@
       <v-col xs12 sm6 md4>
         <number-display
           :title="'本日の感染者'"
-          :number="patients"
+          :number="patients.datasets.length"
           :unit="'人'"
         />
       </v-col>
@@ -27,24 +27,34 @@
           :chart-option="{}"
         />
       </v-col>
+      <v-col xs12 sm6 md4>
+        <data-table
+          :title="'感染者データ'"
+          :chart-data="patients"
+          :chart-option="{}"
+        />
+      </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
+import moment from 'moment'
 import NumberDisplay from '@/components/NumberDisplay.vue'
 import { SHEET_URL } from '@/constants.js'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/dist/data/data.json'
+import DataTable from '@/components/DataTable.vue'
 
 export default {
   components: {
     NumberDisplay,
     TimeBarChart,
     WhatsNew,
-    StaticInfo
+    StaticInfo,
+    DataTable
   },
   async asyncData({ $axios }) {
     const res =
@@ -70,8 +80,28 @@ export default {
           })
         }
       })
+    const patients = {
+      headers: [
+        { text: '日付', value: '日付' },
+        { text: '居住地', value: '居住地' },
+        { text: '年代', value: '年代' },
+        { text: '性別', value: '性別' }
+      ],
+      datasets: []
+    }
+    res.patients.forEach(function(d) {
+      patients.datasets.push({
+        日付: moment(d['リリース日']).format('MM/DD'),
+        居住地: d['居住地'],
+        年代: d['年代'],
+        性別: d['性別']
+      })
+    })
+    patients.datasets.sort(function(a, b) {
+      return a === b ? 0 : a < b ? 1 : -1
+    })
     const data = {
-      patients: res.patients ? res.patients.length : 0,
+      patients,
       contacts
     }
     return data
