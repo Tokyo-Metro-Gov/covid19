@@ -9,8 +9,18 @@
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "test": "jest",
-    "lint": "eslint --ext .ts,.js,.vue ."
+    "test": "jest"
+  },
+  "lint-staged": {
+    "*.{.vue|.ts|.js}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.3.10",
