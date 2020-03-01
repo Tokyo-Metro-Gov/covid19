@@ -13,12 +13,19 @@
         {{ icon }}
       </v-icon>
     </v-list-item-action>
-    <v-list-item-content>
+    <v-list-item-content class="ListItem-TextContainer">
       <v-list-item-title
         :class="['ListItem-Text', isActive(icon)]"
         v-text="title"
       />
     </v-list-item-content>
+    <v-icon
+      v-if="!isInternalLink(link)"
+      class="ListItem-ExternalLinkIcon"
+      size="12"
+    >
+      mdi-open-in-new
+    </v-icon>
   </v-list-item>
 </template>
 
@@ -60,6 +67,7 @@ export default class ListItem extends Vue {
 <style lang="scss">
 .ListItem {
   &-Container {
+    min-height: 32px;
     padding: 0;
     color: transparent !important;
     &:hover {
@@ -70,7 +78,15 @@ export default class ListItem extends Vue {
     font-size: 12px;
   }
   &-IconContainer {
-    margin: 8px 6px 8px 0 !important;
+    margin: 8px 3px 8px 0 !important;
+  }
+  &-TextContainer {
+    display: inline-block;
+    flex: none;
+  }
+  &-ExternalLinkIcon {
+    margin-left: 2px;
+    color: #808080 !important;
   }
 }
 .isActive {
