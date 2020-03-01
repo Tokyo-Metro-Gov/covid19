@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import PageHeader from '@/components/PageHeader.vue'
 import moment from 'moment'
+import PageHeader from '@/components/PageHeader.vue'
 import NumberDisplay from '@/components/NumberDisplay.vue'
 import { SHEET_URL } from '@/constants.js'
 import TimeBarChart from '@/components/TimeBarChart.vue'
@@ -62,14 +62,6 @@ export default {
     WhatsNew,
     StaticInfo,
     DataTable
-  },
-  data() {
-    return {
-      headerItem: {
-        icon: 'mdi-chart-timeline-variant',
-        title: '最新感染動向'
-      },
-    }
   },
   async asyncData({ $axios }) {
     const res =
@@ -120,6 +112,14 @@ export default {
       contacts
     }
     return data
+  },
+  data() {
+    return {
+      headerItem: {
+        icon: 'mdi-chart-timeline-variant',
+        title: '最新感染動向'
+      }
+    }
   }
 }
 </script>
