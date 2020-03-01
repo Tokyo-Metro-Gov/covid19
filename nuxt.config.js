@@ -1,5 +1,3 @@
-const colors = require('vuetify/es5/util/colors').default
-
 module.exports = {
   mode: 'universal',
   /*
@@ -68,7 +66,7 @@ module.exports = {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {}
-  },
+  }
   // /*
   // ** Build configuration
   // */
