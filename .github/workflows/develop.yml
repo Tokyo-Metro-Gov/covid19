@@ -26,8 +26,8 @@ jobs:
 
       - run: yarn install --frozen-lockfile
       - run: yarn run test
-      - run: yarn run generate
       - run: ./pull_datasource.sh
+      - run: yarn run generate
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
