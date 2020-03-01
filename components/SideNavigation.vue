@@ -22,8 +22,12 @@
     </v-list>
     <div class="SideNavigation-Footer">
       <div class="SideNavigation-SocialLinkContainer">
-        <img src="/line.png" />
-        <img src="/twitter.png" />
+        <a href="https://line.me/R/ti/p/%40822sysfc#~">
+          <img src="/line.png" />
+        </a>
+        <a href="https://twitter.com/tocho_koho">
+          <img src="/twitter.png" />
+        </a>
       </div>
       <small class="SideNavigation-Copyright">
         Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.
