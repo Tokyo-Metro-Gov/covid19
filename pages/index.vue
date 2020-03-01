@@ -37,6 +37,7 @@ import { SHEET_URL } from '@/constants.js'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
+import Data from '@/dist/data/data.json'
 
 export default {
   components: {
@@ -46,7 +47,10 @@ export default {
     StaticInfo
   },
   async asyncData({ $axios }) {
-    const res = await $axios.$get(SHEET_URL)
+    const res =
+      process.env.NODE_ENV !== 'production'
+        ? await $axios.$get(SHEET_URL)
+        : Data
     const today = new Date()
     let cumSum = 0
     const contacts = []
