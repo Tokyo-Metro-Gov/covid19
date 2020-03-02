@@ -13,21 +13,6 @@
   </v-btn-toggle>
 </template>
 
-<style></style>
-
-<script>
-export default {
-  name: 'DataSelector',
-  props: {
-    value: {
-      type: String,
-      required: false,
-      default: ''
-    }
-  }
-}
-</script>
-
 <style lang="scss">
 .DataSelector {
   margin-top: 2px;
@@ -52,3 +37,16 @@ export default {
   }
 }
 </style>
+
+<script>
+export default {
+  name: 'DataSelector',
+  props: {
+    value: {
+      type: String,
+      required: false,
+      default: ''
+    }
+  }
+}
+</script>

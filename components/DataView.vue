@@ -1,39 +1,31 @@
 <template>
   <v-card class="DataView">
-    <v-toolbar flat class="DataView-Header">
+    <v-toolbar flat>
       <div class="DataView-TitleContainer">
-        <v-toolbar-title class="DataView-Title">
+        <v-toolbar-title>
           {{ title }}
         </v-toolbar-title>
         <slot name="button" />
       </div>
     </v-toolbar>
-    <v-card-text>
+    <v-card-text class="DataView-CardText">
       <slot />
     </v-card-text>
-    <v-footer class="DataView-Footer">
+    <v-footer absolute class="DataView-Footer">
       2020/3/2 08:00 更新
     </v-footer>
   </v-card>
 </template>
 
 <style>
-.CardHeader {
-  font-family: Hiragino Sans;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 36px;
-  color: #4d4d4d;
+.DataView {
+  height: 100%;
 }
-.CardFooter {
-  font-family: Hiragino Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 10px;
-  line-height: 15px;
-
-  color: #808080;
+.DataView-CardText {
+  margin-bottom: 46px;
+}
+.DataView-Footer {
+  margin: 4px 0px 12px !important;
 }
 </style>
 
