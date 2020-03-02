@@ -33,19 +33,19 @@
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
-      <div class="SideNavigation-Footer">
-        <div class="SideNavigation-SocialLinkContainer">
-          <a href="https://line.me/R/ti/p/%40822sysfc#~">
-            <img src="/line.png" />
-          </a>
-          <a href="https://twitter.com/tokyo_bousai">
-            <img src="/twitter.png" />
-          </a>
-        </div>
-        <small class="SideNavigation-Copyright">
-          Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.
-        </small>
+    </div>
+    <div class="SideNavigation-Footer">
+      <div class="SideNavigation-SocialLinkContainer">
+        <a href="https://line.me/R/ti/p/%40822sysfc#~">
+          <img src="/line.png" />
+        </a>
+        <a href="https://twitter.com/tokyo_bousai">
+          <img src="/twitter.png" />
+        </a>
       </div>
+      <small class="SideNavigation-Copyright">
+        Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.
+      </small>
     </div>
   </div>
 </template>
@@ -163,7 +163,10 @@ export default {
     margin: 12px 0;
   }
   &-Footer {
+    position: absolute;
+    bottom: 0;
     padding: 20px;
+    background-color: $white;
   }
   &-SocialLinkContainer {
     display: flex;
