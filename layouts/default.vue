@@ -2,7 +2,7 @@
   <v-app class="app">
     <div class="loader" v-if="loading">
       <img src="/logo.svg" />
-      <scale-loader color="#000000" />
+      <scale-loader color="#00A040" />
     </div>
     <div class="d-sm-flex" v-else>
       <SideNavigation class="navi" />
@@ -44,5 +44,16 @@ export default {
   overflow-x: hidden;
   overflow-y: auto;
   height: 100vh;
+}
+.loader {
+  height: 200px;
+  width: 150px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  img {
+    margin-bottom: 20px;
+  }
 }
 </style>
