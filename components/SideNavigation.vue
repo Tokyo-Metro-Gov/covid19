@@ -96,8 +96,7 @@ export default {
         {
           icon: 'mdi-domain',
           title: '企業の皆様・はたらく皆様へ',
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html',
+          link: '/worker',
           divider: true
         },
         {
