@@ -3,9 +3,8 @@
     <h2 v-if="title" class="TextCard-Heading">
       {{ title }}
     </h2>
-    <p class="TextCard-Body">
-      {{ body }}
-    </p>
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <p class="TextCard-Body" v-html="body" />
   </div>
 </template>
 
@@ -38,10 +37,9 @@ export default class TextCard extends Vue {
     margin-bottom: 12px;
   }
   &-Body {
-    @include body-text();
-    margin-top: -20px;
-    margin-bottom: 0px !important;
-    white-space: pre-line;
+    * {
+      @include body-text();
+    }
   }
 }
 </style>
