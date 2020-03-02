@@ -20,7 +20,7 @@
     <v-row>
       <v-col xs12 sm6 md4>
         <number-display
-          :title="'本日の感染者'"
+          :title="'本日の陽性患者発表者数'"
           :number="patients.datasets.length"
           :unit="'人'"
         />
@@ -151,7 +151,7 @@ export default {
     return {
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '最新感染動向'
+        title: '都内の最新動向'
       },
       option: {
         responsive: true,
