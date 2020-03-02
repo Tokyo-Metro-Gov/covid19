@@ -65,6 +65,18 @@ function readPatients() : array
 }
 function patientsSummary(array $patients) : array {
     $temp = [];
+    $begin = Carbon::parse('2020-01-24');
+    while(true) {
+
+        if ($begin->diffInDays(Carbon::now()) == 0) {
+            break;
+        } else {
+            $temp[$begin->addDay()->format('Y-m-d').'T08:00:00.000Z'] =0;
+
+        }
+
+    }
+
     foreach ($patients as $row) {
 
         if(!isset($temp[$row['リリース日']])) {
@@ -72,7 +84,7 @@ function patientsSummary(array $patients) : array {
         }
         $temp[$row['リリース日']] ++;
     }
-
+  var_dump($temp);
     $result = [];
     foreach ($temp as $key => $value) {
         $result[] = [
@@ -109,7 +121,7 @@ function readCallCenter() : array
     return $result;
 }
 $patients = readPatients();
-$patients_summary = patientsSummary($patients);
+$patients_summary = patientsSummary($patients['dataset']);
 $contacts = readContacts();
 
 
