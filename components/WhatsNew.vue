@@ -1,6 +1,8 @@
 <template>
   <div class="whatsNewOuter">
-    <v-icon size="18">mdi-information</v-icon>
+    <v-icon size="18">
+      mdi-information
+    </v-icon>
     <time class="time px-2">{{ date }}</time>
     <a :href="url" class="link">{{ text }}</a>
   </div>
@@ -8,7 +10,20 @@
 
 <script>
 export default {
-  props: ['date', 'url', 'text'],
+  props: {
+    date: {
+      type: String,
+      required: true
+    },
+    text: {
+      type: String,
+      required: true
+    },
+    url: {
+      type: String,
+      required: true
+    }
+  }
 }
 </script>
 
