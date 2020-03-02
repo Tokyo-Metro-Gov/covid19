@@ -40,6 +40,22 @@
       </v-col>
       <v-col xs12 sm6 md4 class="DataCard">
         <time-bar-chart
+          title="退院者数"
+          :chart-data="dischargesDataset"
+          :chart-option="option"
+          :date="Data.discharges.date"
+        />
+      </v-col>
+      <v-col xs12 sm6 md4>
+        <data-table
+          :title="'退院者の属性'"
+          :chart-data="discharges"
+          :chart-option="{}"
+          :date="Data.discharges.date"
+        />
+      </v-col>
+      <v-col xs12 sm6 md4>
+        <time-bar-chart
           title="新型コロナコールセンター相談件数"
           :chart-data="contacts"
           :chart-option="option"
@@ -130,10 +146,78 @@ export default {
       return a === b ? 0 : a < b ? 1 : -1
     })
 
+    // 退院者グラフ
+    const dischargesDataset = []
+    let subTotal = 0
+    Data.discharges_summary.data
+      .filter(function(d) {
+        return new Date(d['日付']) < today
+      })
+      .forEach(function(d) {
+        const dt = new Date(d['日付'])
+        const v = parseInt(d['小計'])
+        if (!isNaN(v)) {
+          subTotal += v
+          dischargesDataset.push({
+            label: `${dt.getMonth() + 1}/${dt.getDate()}`,
+            transition: v,
+            cummulative: subTotal
+          })
+        }
+      })
+
+    // 退院者数
+    const discharges = {
+      headers: [
+        { text: '日付', value: '日付' },
+        { text: '居住地', value: '居住地' },
+        { text: '年代', value: '年代' },
+        { text: '性別', value: '性別' }
+      ],
+      datasets: []
+    }
+    Data.discharges.data.forEach(function(d) {
+      discharges.datasets.push({
+        日付: moment(d['リリース日']).format('MM/DD'),
+        居住地: d['居住地'],
+        年代: d['年代'],
+        性別: d['性別']
+      })
+    })
+    discharges.datasets.sort(function(a, b) {
+      return a === b ? 0 : a < b ? 1 : -1
+    })
+
+    // 死亡者数
+    const fatalities = {
+      headers: [
+        { text: '日付', value: '日付' },
+        { text: '居住地', value: '居住地' },
+        { text: '年代', value: '年代' },
+        { text: '性別', value: '性別' }
+      ],
+      datasets: []
+    }
+    Data.patients.data
+      .filter(patient => patient['備考'] === '死亡')
+      .forEach(d =>
+        fatalities.datasets.push({
+          日付: moment(d['リリース日']).format('MM/DD'),
+          居住地: d['居住地'],
+          年代: d['年代'],
+          性別: d['性別']
+        })
+      )
+    fatalities.datasets.sort(function(a, b) {
+      return a === b ? 0 : a < b ? 1 : -1
+    })
+
     const data = {
       Data,
       patients,
       patientsDataset,
+      discharges,
+      dischargesDataset,
       contacts,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
