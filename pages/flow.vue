@@ -92,22 +92,20 @@ export default {
     }
   }
 }
-
-@media screen and (max-width: 480px) {
+@include largerThan($small) {
   .only-sp {
-    display: block;
+    display: none;
   }
   .only-pc {
-    display: none;
+    display: block;
   }
 }
-
-@media screen and (min-width: 481px) {
+@include lessThan($small) {
   .only-sp {
-    display: none;
+    display: block;
   }
   .only-pc {
-    display: block;
+    display: none;
   }
 }
 </style>
