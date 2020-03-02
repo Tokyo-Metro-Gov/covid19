@@ -17,8 +17,8 @@
       :text="'自分の症状に不安や心配があればまずは電話相談をどうぞ'"
       :btn-text="'相談の手順を見る'"
     />
-    <v-row>
-      <v-col xs12 sm6 md4>
+    <v-row class="ma-0">
+      <v-col xs12 sm6 md4 class="pa-0 pb-5">
         <time-bar-chart
           title="陽性患者数"
           :chart-data="patientsDataset"
@@ -26,7 +26,7 @@
           :date="Data.patients.date"
         />
       </v-col>
-      <v-col xs12 sm6 md4>
+      <v-col xs12 sm6 md4 class="pa-0 pb-5">
         <data-table
           :title="'陽性患者の属性'"
           :chart-data="patients"
@@ -34,7 +34,7 @@
           :date="Data.patients.date"
         />
       </v-col>
-      <v-col xs12 sm6 md4>
+      <v-col xs12 sm6 md4 class="pa-0 pb-5">
         <time-bar-chart
           title="コールセンター相談件数"
           :chart-data="contacts"
@@ -42,7 +42,7 @@
           :date="Data.contacts.date"
         />
       </v-col>
-      <v-col xs12 sm6 md4>
+      <v-col xs12 sm6 md4 class="pa-0 pb-5">
         <data-table
           :title="'死亡者データ'"
           :chart-data="fatalities"
