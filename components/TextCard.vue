@@ -39,9 +39,6 @@ export default class TextCard extends Vue {
   &-Body {
     * {
       @include body-text();
-      margin-top: -20px;
-      margin-bottom: 0px !important;
-      white-space: pre-line;
     }
   }
 }
