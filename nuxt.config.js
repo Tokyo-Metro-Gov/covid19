@@ -24,7 +24,10 @@ module.exports = {
       { hid: 'og:description', property: 'og:description', content: '東京都公式 新型コロナウイルス対策サイト' },
       { hid: 'og:image', property: 'og:image', content: 'https://example.com/ogp.png' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png'}
+    ]
   },
   /*
    ** Customize the progress-bar color

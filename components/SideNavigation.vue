@@ -1,18 +1,20 @@
 <template>
   <div class="SideNavigation">
-    <div class="SideNavigation-HeadingContainer d-flex d-sm-block">
+    <div to="/" class="SideNavigation-HeadingContainer d-flex d-sm-block">
       <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">
         mdi-menu
       </v-icon>
-      <div class="SideNavigation-Logo mr-4">
-        <img src="/logo.svg" />
-      </div>
-      <h1 class="SideNavigation-Heading">
-        東京都公式
-        <br />新型コロナウイルス対策サイト
-      </h1>
+      <nuxt-link to="/" class="SideNavigation-HeadingLink">
+        <div class="SideNavigation-Logo mr-4">
+          <img src="/logo.svg" />
+        </div>
+        <h1 class="SideNavigation-Heading">
+          東京都公式
+          <br />新型コロナウイルス対策サイト
+        </h1>
+      </nuxt-link>
     </div>
-    <v-divider />
+    <v-divider class="SideNavigation-HeadingDivider" />
     <div class="d-none d-sm-block" :class="{ open: isNaviOpen && isMobile }">
       <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="closeNavi">
         mdi-close
@@ -38,7 +40,7 @@
           <a href="https://line.me/R/ti/p/%40822sysfc#~">
             <img src="/line.png" />
           </a>
-          <a href="https://twitter.com/tocho_koho">
+          <a href="https://twitter.com/tokyo_bousai">
             <img src="/twitter.png" />
           </a>
         </div>
@@ -82,19 +84,18 @@ export default {
         },
         {
           icon: 'mdi-baby-carriage',
-          title: 'お子様をお持ちの皆さんへ',
+          title: 'お子様をお持ちの皆様へ',
           link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'
+            'https://www.kyoiku.metro.tokyo.lg.jp/press/press_release/2020/release20200228_02.html'
         },
         {
           icon: 'mdi-account-multiple',
-          title: '都民の皆さんへ',
-          link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'
+          title: '都民の皆様へ',
+          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
         },
         {
           icon: 'mdi-domain',
-          title: '企業の皆さんへ',
+          title: '企業の皆様・はたらく皆様へ',
           link:
             'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html',
           divider: true
@@ -142,22 +143,35 @@ export default {
     padding: 1.25em 0 1.25em 1.25em;
     align-items: center;
   }
+  &-HeadingLink {
+    display: flex;
+    text-decoration: none;
+  }
   &-ListItemContainer {
     padding: 2px 20px;
   }
   &-Logo {
+    margin-top: 20px;
     width: 110px;
   }
   &-Heading {
+    margin-top: 8px;
     font-size: 13px;
     color: #898989;
     padding: 0.5em 0;
+    text-decoration: none;
+  }
+  &-HeadingDivider {
+    margin: 0px 20px 4px;
   }
   &-Divider {
     margin: 12px 0;
   }
   &-Footer {
+    position: absolute;
+    bottom: 0;
     padding: 20px;
+    background-color: $white;
   }
   &-SocialLinkContainer {
     display: flex;

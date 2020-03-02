@@ -2,6 +2,7 @@
   <v-btn-toggle
     :value="value"
     class="DataSelector"
+    mandatory
     @change="$emit('input', $event)"
   >
     <v-btn v-ripple="false" value="transition" class="DataSelector-Button">
@@ -12,21 +13,6 @@
     </v-btn>
   </v-btn-toggle>
 </template>
-
-<style></style>
-
-<script>
-export default {
-  name: 'DataSelector',
-  props: {
-    value: {
-      type: String,
-      required: false,
-      default: ''
-    }
-  }
-}
-</script>
 
 <style lang="scss">
 .DataSelector {
@@ -52,3 +38,16 @@ export default {
   }
 }
 </style>
+
+<script>
+export default {
+  name: 'DataSelector',
+  props: {
+    value: {
+      type: String,
+      required: false,
+      default: ''
+    }
+  }
+}
+</script>
