@@ -49,6 +49,9 @@ export default {
     color: $gray-2;
     font-weight: normal;
     margin-top: 28px;
+    @include lessThan($small) {
+      margin-top: 12px;
+    }
   }
   &-BodyContainer {
     margin-top: 12px;
@@ -65,7 +68,8 @@ export default {
   &-Button {
     @include button-text('md');
     text-decoration: none;
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
     font-weight: bold;
   }
 }
