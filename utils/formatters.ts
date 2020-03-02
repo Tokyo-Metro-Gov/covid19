@@ -1,16 +1,16 @@
-type DataType = {
+type GraphDataType = {
   日付: Date
   小計: number
 }[]
 
-type ReturnType = {
+type GraphReturnType = {
   label: string
   transition: number
   cummulative: number
 }[]
 
-export const formatTransition = (data: DataType): ReturnType => {
-  const dataArray: ReturnType = []
+export const formatGraph = (data: GraphDataType): GraphReturnType => {
+  const graphData: GraphReturnType = []
   const today = new Date()
   let patSum = 0
   data
@@ -20,12 +20,12 @@ export const formatTransition = (data: DataType): ReturnType => {
       const subTotal = d['小計']
       if (!isNaN(subTotal)) {
         patSum += subTotal
-        dataArray.push({
+        graphData.push({
           label: `${date.getMonth() + 1}/${date.getDate()}`,
           transition: subTotal,
           cummulative: patSum
         })
       }
     })
-  return dataArray
+  return graphData
 }
