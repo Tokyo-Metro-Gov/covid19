@@ -19,7 +19,7 @@ type TableDataType = {
   日付: string
   居住地: DataType['居住地']
   年代: DataType['年代']
-  性別: DataType['性別']
+  性別: DataType['性別'] | '不明'
 }
 
 type TableDateType = {
