@@ -9,6 +9,7 @@
       :items-per-page="-1"
       :hide-default-footer="true"
       :height="200"
+      :fixed-header="true"
       class="cardTable"
     />
   </data-view>
