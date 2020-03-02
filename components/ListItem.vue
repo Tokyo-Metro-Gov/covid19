@@ -100,7 +100,7 @@ export default class ListItem extends Vue {
     &:hover {
       color: transparent !important;
       & .ListItem-Text {
-        font-weight: 600;
+        font-weight: bold;
       }
       & .ListItem-Icon {
         color: $gray-1 !important;
