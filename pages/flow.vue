@@ -9,8 +9,8 @@
         新型コロナウイルス感染症にかかる相談窓口について
       </h2>
       <div class="Flow-Card-Images">
-        <img src="/flowing-pc.png" alt="相談のフロー" class="only-pc" />
-        <img src="/flowing-sp.png" alt="相談のフロー" class="only-sp" />
+        <img src="/flow.png" alt="相談のフロー" class="only-pc" />
+        <img src="/flow_sp.png" alt="相談のフロー" class="only-sp" />
       </div>
       <a
         href="https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html"
