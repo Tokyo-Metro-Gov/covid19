@@ -31,7 +31,10 @@ function readContacts() : array
             ];
         }
     }
-    return $result;
+    return [
+      'date' => $sheet->getCell("H1")->getValue(),
+      'data' => $result
+    ];
 }
 
 function readPatients() : array
@@ -61,11 +64,26 @@ function readPatients() : array
             ];
         }
     }
-    return $result;
+    return [
+      'date' => $sheet->getCell("M1")->getValue(),
+      'data' => $result
+    ];
 }
 function patientsSummary(array $patients) : array {
     $temp = [];
-    foreach ($patients as $row) {
+    $begin = Carbon::parse('2020-01-24');
+    while(true) {
+
+        if ($begin->diffInDays(Carbon::now()) == 0) {
+            break;
+        } else {
+            $temp[$begin->addDay()->format('Y-m-d').'T08:00:00.000Z'] =0;
+
+        }
+
+    }
+
+    foreach ($patients['data'] as $row) {
 
         if(!isset($temp[$row['リリース日']])) {
             $temp[$row['リリース日']] = 0;
@@ -80,34 +98,12 @@ function patientsSummary(array $patients) : array {
             '小計' => $value,
         ];
     }
-    return $result;
+  return [
+    'date' => $patients['date'],
+    'data' => $result
+  ];
 }
-function readCallCenter() : array
-{
-    $reader = new PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-    $spreadsheet = $reader->load('downloads/コールセンター相談件数-RAW.xlsx');
-    $sheet = $spreadsheet->getSheetByName("Sheet1");
-    $data = $sheet->rangeToArray("A2:E100");
-    $result = [];
-    foreach ($data as $row) {
-        if (isset($row[0],$row[1],$row[2],$row[3],$row[4])) {
-            $date = '2019-'.str_replace(['月', '日'], ['-', ''], $row[0]);
-            $carbon = Carbon::parse($date);
-            $result[] = [
-                '日付' =>  $carbon->format('Y-m-d').'T08:00:00.000Z',
-                'date' => $carbon->format('Y-m-d'),
-                '曜日' => $row[1],
-                'w' => $carbon->format('w'),
-                '9-13時' => $row[2],
-                '13-17時' => $row[3],
-                '17-21時' => $row[4],
-                '小計' => $row[2]+$row[3]+$row[4],
-                '累積' => $row[2]+$row[3]+$row[4] + ($result[count($result)-1]['累積'] ?? 0)
-            ];
-        }
-    }
-    return $result;
-}
+
 $patients = readPatients();
 $patients_summary = patientsSummary($patients);
 $contacts = readContacts();
