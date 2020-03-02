@@ -95,9 +95,9 @@ export default class ListItem extends Vue {
     if (!icon) return 'none'
     if (icon.startsWith('mdi')) {
       return 'material'
-    } else if (icon.includes('covid')) {
+    } else if (icon === 'covid') {
       return 'covid'
-    } else if (icon.includes('parent')) {
+    } else if (icon === 'parent') {
       return 'parent'
     } else {
       return 'others'
