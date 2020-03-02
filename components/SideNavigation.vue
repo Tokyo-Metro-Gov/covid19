@@ -1,17 +1,19 @@
 <template>
   <div class="SideNavigation">
-    <div class="SideNavigation-HeadingContainer d-flex d-sm-block">
-      <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">
-        mdi-menu
-      </v-icon>
-      <div class="SideNavigation-Logo mr-4">
-        <img src="/logo.svg" />
+    <a href='/'>
+      <div class="SideNavigation-HeadingContainer d-flex d-sm-block">
+        <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">
+          mdi-menu
+        </v-icon>
+        <div class="SideNavigation-Logo mr-4">
+          <img src="/logo.svg" />
+        </div>
+        <h1 class="SideNavigation-Heading">
+          東京都公式
+          <br />新型コロナウイルス対策サイト
+        </h1>
       </div>
-      <h1 class="SideNavigation-Heading">
-        東京都公式
-        <br />新型コロナウイルス対策サイト
-      </h1>
-    </div>
+    </a>
     <v-divider />
     <div class="d-none d-sm-block" :class="{ open: isNaviOpen && isMobile }">
       <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="closeNavi">
@@ -38,7 +40,7 @@
           <a href="https://line.me/R/ti/p/%40822sysfc#~">
             <img src="/line.png" />
           </a>
-          <a href="https://twitter.com/tocho_koho">
+          <a href="https://twitter.com/tokyo_bousai">
             <img src="/twitter.png" />
           </a>
         </div>
@@ -82,19 +84,19 @@ export default {
         },
         {
           icon: 'mdi-baby-carriage',
-          title: 'お子様をお持ちの皆さんへ',
+          title: 'お子様をお持ちの皆様へ',
           link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'
+            'https://www.kyoiku.metro.tokyo.lg.jp/press/press_release/2020/release20200228_02.html'
         },
         {
           icon: 'mdi-account-multiple',
-          title: '都民の皆さんへ',
+          title: '都民の皆様へ',
           link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'
+            'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
         },
         {
           icon: 'mdi-domain',
-          title: '企業の皆さんへ',
+          title: '企業の皆様・はたらく皆様へ',
           link:
             'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html',
           divider: true
