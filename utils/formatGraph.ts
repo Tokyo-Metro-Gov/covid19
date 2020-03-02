@@ -1,16 +1,16 @@
-type GraphDataType = {
+type DataType = {
   日付: Date
   小計: number
-}[]
+}
 
-type GraphReturnType = {
+type GraphDataType = {
   label: string
   transition: number
   cummulative: number
-}[]
+}
 
-export default (data: GraphDataType): GraphReturnType => {
-  const graphData: GraphReturnType = []
+export default (data: DataType[]) => {
+  const graphData: GraphDataType[] = []
   const today = new Date()
   let patSum = 0
   data
