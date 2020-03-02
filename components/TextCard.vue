@@ -40,6 +40,10 @@ export default class TextCard extends Vue {
     * {
       @include body-text();
     }
+    a {
+      word-break: break-all;
+      color: $link;
+    }
   }
 }
 </style>
