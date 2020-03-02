@@ -144,7 +144,10 @@ export default {
     align-items: center;
   }
   &-HeadingLink {
-    display: flex;
+    @include lessThan(600) {
+      display: flex;
+      align-items: center;
+    }
     text-decoration: none;
   }
   &-ListItemContainer {
