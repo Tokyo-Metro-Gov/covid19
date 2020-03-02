@@ -14,7 +14,7 @@
     <StaticInfo
       class="mb-4"
       :url="'/flow'"
-      :text="'自分の症状に不安や心配があればまずは電話相談をどうぞ'"
+      :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
       :btn-text="'相談の手順を見る'"
     />
     <v-row>
@@ -36,7 +36,7 @@
       </v-col>
       <v-col xs12 sm6 md4>
         <time-bar-chart
-          title="コールセンター相談件数"
+          title="新型コロナコールセンター相談件数"
           :chart-data="contacts"
           :chart-option="option"
           :date="Data.contacts.date"
@@ -165,7 +165,7 @@ export default {
       fatalities,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '最新感染動向',
+        title: '都内の最新感染動向',
         date: Data.lastUpdate
       },
       option: {
