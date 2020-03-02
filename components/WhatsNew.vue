@@ -1,14 +1,29 @@
 <template>
-  <div class="whatsNewOuter">
-    <v-icon size="18">mdi-information</v-icon>
+  <a class="whatsNewOuter" :href="url">
+    <v-icon size="18" class="whatsNewOuter-Icon">
+      mdi-information
+    </v-icon>
     <time class="time px-2">{{ date }}</time>
-    <a :href="url" class="link">{{ text }}</a>
-  </div>
+    <span class="link">{{ text }}</span>
+  </a>
 </template>
 
 <script>
 export default {
-  props: ['date', 'url', 'text'],
+  props: {
+    date: {
+      type: String,
+      required: true
+    },
+    text: {
+      type: String,
+      required: true
+    },
+    url: {
+      type: String,
+      required: true
+    }
+  }
 }
 </script>
 
@@ -23,11 +38,17 @@ export default {
   border-radius: 4px;
   padding: 0.7em 1em;
   @include font-size(14);
+  text-decoration: none;
+  &-Icon {
+    color: $gray-2 !important;
+  }
 }
 .link {
   @include text-link();
 }
 .time {
   flex: 0 0 auto;
+  color: $gray-1;
+  font-weight: bold;
 }
 </style>
