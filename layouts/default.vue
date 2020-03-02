@@ -5,7 +5,13 @@
       <scale-loader color="#00A040" />
     </div>
     <div class="d-sm-flex" v-else>
-      <SideNavigation class="navi" />
+      <SideNavigation
+        @openNavi="showNavi"
+        @closeNavi="hideNavi"
+        :isMobile="isMobile"
+        :isNaviOpen="isNaviOpen"
+        :class="{open: isMobile && isNaviOpen}"
+      />
       <div class="mainContainer px-4">
         <v-container>
           <nuxt />
@@ -24,20 +30,41 @@ export default {
   },
   data() {
     return {
-      loading: true
+      isNaviOpen: false,
+      isMobile: false,
+      loading: true,
+    }
+  },
+  methods:{
+    handleResize: function() {
+      this.isMobile = window.innerWidth < 600;
+    },
+    showNavi: function(){
+      this.isNaviOpen = true;
+    },
+    hideNavi: function(){
+      this.isNaviOpen = false;
     }
   },
   mounted() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
     this.loading = false
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize);
   }
 }
 </script>
-<style>
+<style lang="scss">
 .app {
   background-color: inherit !important;
 }
 .navi {
   flex: 0 1 200px;
+}
+.open {
+  height: 100vh;
 }
 .mainContainer {
   flex: 1 1 auto;
