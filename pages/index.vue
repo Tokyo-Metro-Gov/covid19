@@ -19,16 +19,9 @@
     />
     <v-row>
       <v-col xs12 sm6 md4>
-        <number-display
-          :title="'本日の陽性患者発表者数'"
-          :number="patients.datasets.length"
-          :unit="'人'"
-        />
-      </v-col>
-      <v-col xs12 sm6 md4>
         <time-bar-chart
-          title="コールセンター相談件数"
-          :chart-data="contacts"
+          title="感染者数"
+          :chart-data="patientsDataset"
           :chart-option="option"
         />
       </v-col>
@@ -37,6 +30,13 @@
           :title="'感染者データ'"
           :chart-data="patients"
           :chart-option="{}"
+        />
+      </v-col>
+      <v-col xs12 sm6 md4>
+        <time-bar-chart
+          title="コールセンター相談件数"
+          :chart-data="contacts"
+          :chart-option="option"
         />
       </v-col>
       <v-col xs12 sm6 md4>
@@ -53,7 +53,6 @@
 <script>
 import moment from 'moment'
 import PageHeader from '@/components/PageHeader.vue'
-import NumberDisplay from '@/components/NumberDisplay.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
@@ -63,7 +62,6 @@ import DataTable from '@/components/DataTable.vue'
 export default {
   components: {
     PageHeader,
-    NumberDisplay,
     TimeBarChart,
     WhatsNew,
     StaticInfo,
@@ -74,7 +72,7 @@ export default {
     let cumSum = 0
     // 相談件数
     const contacts = []
-    Data.contacts
+    Data.contacts.data
       .filter(function(d) {
         return new Date(d['日付']) < today
       })
@@ -90,6 +88,25 @@ export default {
           })
         }
       })
+    // 感染者数グラフ
+    const patientsDataset = []
+    let patSum = 0
+    Data.patients_summary.data
+      .filter(function(d) {
+        return new Date(d['日付']) < today
+      })
+      .forEach(function(d) {
+        const dt = new Date(d['日付'])
+        const v = parseInt(d['小計'])
+        if (!isNaN(v)) {
+          patSum += v
+          patientsDataset.push({
+            label: `${dt.getMonth() + 1}/${dt.getDate()}`,
+            transition: v,
+            cummulative: patSum
+          })
+        }
+      })
     // 感染者数
     const patients = {
       headers: [
@@ -100,7 +117,7 @@ export default {
       ],
       datasets: []
     }
-    Data.patients.forEach(function(d) {
+    Data.patients.data.forEach(function(d) {
       patients.datasets.push({
         日付: moment(d['リリース日']).format('MM/DD'),
         居住地: d['居住地'],
@@ -121,7 +138,7 @@ export default {
       ],
       datasets: []
     }
-    Data.patients
+    Data.patients.data
       .filter(patient => patient['備考'] === '死亡')
       .forEach(d =>
         fatalities.datasets.push({
@@ -137,6 +154,7 @@ export default {
 
     const data = {
       patients,
+      patientsDataset,
       contacts,
       fatalities,
       headerItem: {
