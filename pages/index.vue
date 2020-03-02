@@ -3,7 +3,7 @@
     <page-header
       :icon="headerItem.icon"
       :title="headerItem.title"
-      date="2020/3/2 08:00"
+      :date="headerItem.date"
     />
     <whats-new
       class="mb-4"
@@ -159,7 +159,8 @@ export default {
       fatalities,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '最新感染動向'
+        title: '最新感染動向',
+        date: '2020/03/02 08:00'
       },
       option: {
         responsive: true,
