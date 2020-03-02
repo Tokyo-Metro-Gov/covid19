@@ -71,7 +71,7 @@ function readPatients() : array
 }
 function patientsSummary(array $patients) : array {
     $temp = [];
-    $begin = Carbon::parse('2020-01-24');
+    $begin = Carbon::parse('2020-01-23');
     while(true) {
 
         if ($begin->diffInDays(Carbon::now()) == 0) {
