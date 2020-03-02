@@ -1,25 +1,35 @@
 <template>
   <div class="SideNavigation">
     <div class="SideNavigation-HeadingContainer d-flex d-sm-block">
-      <v-icon class="d-inline-block d-sm-none mr-4" @click="isNaviOpen=true">mdi-menu</v-icon>
+      <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">
+        mdi-menu
+      </v-icon>
       <div class="SideNavigation-Logo mr-4">
         <img src="/logo.svg" />
       </div>
       <h1 class="SideNavigation-Heading">
         東京都公式
-        <br />COVID19対策サイト
+        <br />新型コロナウイルス対策サイト
       </h1>
     </div>
     <v-divider />
-    <div class="d-none d-sm-block" :class="{open: isNaviOpen && isMobile}">
-      <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="isNaviOpen=false">mdi-close</v-icon>
+    <div class="d-none d-sm-block" :class="{ open: isNaviOpen && isMobile }">
+      <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="closeNavi">
+        mdi-close
+      </v-icon>
       <v-list :flat="true">
         <v-container
           v-for="(item, i) in items"
           :key="i"
           class="SideNavigation-ListItemContainer"
+          @click="closeNavi"
         >
-          <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
+          <ListItem
+            :link="item.link"
+            :icon="item.icon"
+            :title="item.title"
+            :is-mobile="isMobile"
+          />
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
@@ -41,23 +51,33 @@
 </template>
 <script>
 import ListItem from '@/components/ListItem'
+
 export default {
   components: {
     ListItem
   },
+  props: {
+    isMobile: {
+      type: Boolean,
+      required: true
+    },
+    isNaviOpen: {
+      type: Boolean,
+      required: true
+    }
+  },
   data() {
     return {
-      isNaviOpen: false,
       items: [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: '最新感染動向',
+          title: '都内の最新動向',
           link: '/'
         },
         {
-          icon: 'mdi-human',
-          title: '感染症が心配な方へ',
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
+          icon: 'covid',
+          title: '新型コロナウイルス感染症が心配なときに',
+          link: '/flow',
           divider: true
         },
         {
@@ -98,20 +118,16 @@ export default {
           link: '/about',
           divider: true
         }
-      ],
-      isMobile: false,
+      ]
     }
   },
   methods: {
-    handleResize: function() {
-      this.isMobile = window.innerWidth < 600;
+    openNavi() {
+      this.$emit('openNavi')
+    },
+    closeNavi() {
+      this.$emit('closeNavi')
     }
-  },
-  mounted: function () {
-    window.addEventListener('resize', this.handleResize)
-  },
-  beforeDestroy: function () {
-    window.removeEventListener('resize', this.handleResize)
   }
 }
 </script>
@@ -119,7 +135,8 @@ export default {
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  background: #FFF;
+  flex: 0 1 200px;
+  background: #fff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
@@ -167,6 +184,6 @@ export default {
   display: block !important;
   width: 100%;
   z-index: 100;
-  background-color: #FFF;
+  background-color: #fff;
 }
 </style>

@@ -9,14 +9,22 @@
     class="ListItem-Container"
     style="color: transparent"
   >
-    <v-list-item-action v-if="icon" class="ListItem-IconContainer">
-      <v-icon :class="['ListItem-Icon', isActive(link)]" size="20">
+    <v-list-item-action class="ListItem-IconContainer">
+      <v-icon
+        v-if="checkIconType(icon) === 'material'"
+        :class="['ListItem-Icon', isActive(link)]"
+        size="20"
+      >
         {{ icon }}
       </v-icon>
+      <CovidIcon
+        v-else-if="checkIconType(icon) === 'original'"
+        :class="['ListItem-Icon', isActive(link)]"
+      />
     </v-list-item-action>
     <v-list-item-content class="ListItem-TextContainer">
       <v-list-item-title
-        :class="['ListItem-Text', isActive(link)]"
+        :class="['ListItem-Text', isActive(link), isMobile ? 'mobile' : 'desktop']"
         v-text="title"
       />
     </v-list-item-content>
@@ -32,8 +40,11 @@
 
 <script lang="ts">
 import { Vue, Prop, Component } from 'vue-property-decorator'
+import CovidIcon from '@/static/covid.svg'
 
-@Component
+@Component({
+  components: { CovidIcon }
+})
 export default class ListItem extends Vue {
   @Prop({
     default: '',
@@ -53,6 +64,12 @@ export default class ListItem extends Vue {
   })
   title!: string
 
+  @Prop({
+    default: false,
+    required: true
+  })
+  isMobile!: boolean
+
   isInternalLink(path: string): boolean {
     return !/^https?:\/\//.test(path)
   }
@@ -60,6 +77,15 @@ export default class ListItem extends Vue {
   isActive(link: string): string | undefined {
     if (link === this.$route.path) {
       return 'isActive'
+    }
+  }
+
+  checkIconType(icon?: string): 'material' | 'original' | 'none' {
+    if (!icon) return 'none'
+    if (icon.startsWith('mdi')) {
+      return 'material'
+    } else {
+      return 'original'
     }
   }
 }
@@ -85,14 +111,32 @@ export default class ListItem extends Vue {
       & .ListItem-ExternalLinkIcon {
         color: $gray-1 !important;
       }
+      & .ListItem-IconContainer {
+        > svg {
+          > path:not(:first-of-type) {
+            fill: $gray-1;
+          }
+        }
+        > svg.isActive {
+          > path:not(:first-of-type) {
+            fill: $green-1;
+          }
+        }
+      }
     }
   }
   &-Text {
-    font-size: 12px;
     color: $gray-1;
   }
   &-IconContainer {
     margin: 8px 3px 8px 0 !important;
+    > svg {
+      > path:not(:first-of-type) {
+        fill: $gray-2;
+      }
+      width: 20px;
+      height: 20px;
+    }
   }
   &-Icon {
     color: $gray-2 !important;
@@ -109,5 +153,16 @@ export default class ListItem extends Vue {
 .isActive {
   color: $green-1 !important;
   font-weight: 600;
+}
+svg.isActive {
+  > path:not(:first-of-type) {
+    fill: $green-1;
+  }
+}
+.desktop {
+  font-size: 0.75rem;
+}
+.mobile {
+  font-size: 1.25rem;
 }
 </style>

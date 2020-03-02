@@ -1,43 +1,57 @@
 <template>
-  <div class="staticInfoOuter">
-    <a :href="url">{{ text }}</a>
-    <div class="btnOuter">
-      <span @click="location.href=url" class="btn">
+  <component
+    :is="isInternalLink(url) ? 'nuxt-link' : 'a'"
+    :to="isInternalLink(url) ? url : ''"
+    :href="isInternalLink(url) ? '' : url"
+    class="StaticInfo"
+  >
+    <span>{{ text }}</span>
+    <div v-if="btnText" class="StaticInfo-Button">
+      <span>
         {{ btnText }}
       </span>
     </div>
-  </div>
+  </component>
 </template>
 
-<script>
-export default {
-  props: ['url', 'text', 'btnText'],
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+
+@Component
+export default class StaticInfo extends Vue {
+  @Prop({ default: '', required: false })
+  url!: string
+
+  @Prop({ default: '', required: false })
+  text!: string
+
+  @Prop({ default: '', required: false })
+  btnText!: string
+
+  isInternalLink(path: string): boolean {
+    return !/^https?:\/\//.test(path)
+  }
 }
 </script>
 
-<style>
-.staticInfoOuter {
+<style lang="scss">
+.StaticInfo {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background: #fff;
-  border: 1px solid #d9d9d9;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+  background-color: $white;
+  border: 1px solid $gray-4;
+  box-shadow: $shadow;
   border-radius: 4px;
   padding: 0.5em 1em;
-}
-.btnOuter {
-  flex: 1 0 auto;
-  text-align: right;
-}
-.btn {
-  display: inline-block;
-  border: 1px solid #00b849;
-  border-radius: 4px;
-  color: #00a040;
-  font-size: 0.875rem;
-  padding: 0.3em 0.5em;
-  cursor: pointer;
+  @include text-link();
+  &-Button {
+    flex: 1 0 auto;
+    text-align: right;
+    > span {
+      @include button-text('sm');
+    }
+  }
 }
 </style>
