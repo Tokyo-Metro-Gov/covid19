@@ -1,18 +1,22 @@
 <template>
-  <v-app dark>
-    <h1 v-if="error.statusCode === 404">
-      {{ pageNotFound }}
+  <div class="Error">
+    <h1 class="Error-Heading">
+      {{ headingTitle }}
     </h1>
-    <h1 v-else>
-      {{ otherError }}
-    </h1>
-    <NuxtLink to="/">
-      Home page
-    </NuxtLink>
-  </v-app>
+    <div class="Error-BodyContainer">
+      <p class="Error-Body">
+        アクセスしようとしたページが見つかりませんでした。<br />ページが移動または削除されたか、URLの入力間違いの可能性があります。
+      </p>
+      <div class="Error-ButtonContainer">
+        <NuxtLink to="/" class="Error-Button">
+          トップページへ戻る
+        </NuxtLink>
+      </div>
+    </div>
+  </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   layout: 'empty',
   props: {
@@ -23,22 +27,46 @@ export default {
   },
   data() {
     return {
-      pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
+      pageNotFound: 'このページはご利用いただけません',
+      otherError: '現在ご利用できません'
     }
   },
-  head() {
-    const title =
-      this.error.statusCode === 404 ? this.pageNotFound : this.otherError
-    return {
-      title
+  computed: {
+    isNotFound(): boolean {
+      return this.error.statusCode === 404
+    },
+    headingTitle(): string {
+      return this.isNotFound ? this.pageNotFound : this.otherError
     }
   }
 }
 </script>
 
-<style scoped>
-h1 {
-  font-size: 20px;
+<style lang="scss" scoped>
+.Error {
+  &-Heading {
+    @include font-size(30);
+    color: $gray-2;
+    font-weight: normal;
+    margin-top: 28px;
+  }
+  &-BodyContainer {
+    margin-top: 12px;
+    @include card-container();
+    padding: 20px;
+  }
+  &-Body {
+    @include body-text();
+  }
+  &-ButtonContainer {
+    margin-top: 24px;
+    text-align: center;
+  }
+  &-Button {
+    @include button-text('md');
+    text-decoration: none;
+    width: 300px;
+    font-weight: bold;
+  }
 }
 </style>
