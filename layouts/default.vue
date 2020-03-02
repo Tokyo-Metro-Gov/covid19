@@ -58,6 +58,8 @@ export default {
 </script>
 <style lang="scss">
 .app {
+  max-width: 1440px;
+  margin: 0 auto;
   background-color: inherit !important;
 }
 .navi {
