@@ -85,6 +85,10 @@ export default {
       @include font-size(20);
       font-weight: 600;
       text-decoration: none;
+      color: $green-1 !important;
+      &:hover {
+        color: $white !important;
+      }
       &-ExternalLinkIcon {
         margin-left: 2px;
         color: $green-1 !important;
