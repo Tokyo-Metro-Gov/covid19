@@ -1,5 +1,5 @@
 <template>
-  <div class="header ma-4">
+  <div class="header mb-3">
     <h2 class="pageTitle">
       <v-icon size="40" class="mr-2">
         {{ icon }}

@@ -38,7 +38,6 @@ export default {
 </script>
 <style lang="scss">
 .Parent {
-  background-color: $gray-5;
   &-Heading {
     @include font-size(30);
     font-weight: normal;
