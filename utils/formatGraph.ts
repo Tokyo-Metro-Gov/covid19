@@ -9,7 +9,7 @@ type GraphReturnType = {
   cummulative: number
 }[]
 
-export const formatGraph = (data: GraphDataType): GraphReturnType => {
+export default (data: GraphDataType): GraphReturnType => {
   const graphData: GraphReturnType = []
   const today = new Date()
   let patSum = 0

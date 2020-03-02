@@ -21,7 +21,7 @@
       <v-col xs12 sm6 md4>
         <time-bar-chart
           title="陽性患者数"
-          :chart-data="patientsDataset"
+          :chart-data="patientsGraph"
           :chart-option="option"
           :date="Data.patients.date"
         />
@@ -29,7 +29,7 @@
       <v-col xs12 sm6 md4>
         <data-table
           :title="'陽性患者の属性'"
-          :chart-data="patients"
+          :chart-data="patientsTable"
           :chart-option="{}"
           :date="Data.patients.date"
         />
@@ -37,7 +37,7 @@
       <v-col xs12 sm6 md4>
         <time-bar-chart
           title="退院者数"
-          :chart-data="dischargesDataset"
+          :chart-data="dischargesGraph"
           :chart-option="option"
           :date="Data.discharges.date"
         />
@@ -45,7 +45,7 @@
       <v-col xs12 sm6 md4>
         <data-table
           :title="'退院者の属性'"
-          :chart-data="discharges"
+          :chart-data="dischargesTable"
           :chart-option="{}"
           :date="Data.discharges.date"
         />
@@ -53,7 +53,7 @@
       <v-col xs12 sm6 md4>
         <time-bar-chart
           title="コールセンター相談件数"
-          :chart-data="contacts"
+          :chart-data="contactsGraph"
           :chart-option="option"
           :date="Data.contacts.date"
         />
@@ -61,7 +61,7 @@
       <v-col xs12 sm6 md4>
         <data-table
           :title="'死亡者データ'"
-          :chart-data="fatalities"
+          :chart-data="fatalitiesTable"
           :chart-option="{}"
           :date="Data.patients.date"
         />
@@ -71,14 +71,14 @@
 </template>
 
 <script>
-import moment from 'moment'
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import DataTable from '@/components/DataTable.vue'
-import { formatGraph } from '@/utils/formatters'
+import formatGraph from '@/utils/formatGraph'
+import formatTable from '@/utils/formatTable'
 
 export default {
   components: {
@@ -89,89 +89,29 @@ export default {
     DataTable
   },
   data() {
-    // 相談件数
-    const contacts = formatGraph(Data.contacts.data)
     // 感染者数グラフ
-    const patientsDataset = formatGraph(Data.patients_summary.data)
-    // 退院者グラフ
-    const dischargesDataset = formatGraph(Data.discharges_summary.data)
-
+    const patientsGraph = formatGraph(Data.patients_summary.data)
     // 感染者数
-    const patients = {
-      headers: [
-        { text: '日付', value: '日付' },
-        { text: '居住地', value: '居住地' },
-        { text: '年代', value: '年代' },
-        { text: '性別', value: '性別' }
-      ],
-      datasets: []
-    }
-    Data.patients.data.forEach(function(d) {
-      patients.datasets.push({
-        日付: moment(d['リリース日']).format('MM/DD'),
-        居住地: d['居住地'],
-        年代: d['年代'],
-        性別: d['性別']
-      })
-    })
-    patients.datasets.sort(function(a, b) {
-      return a === b ? 0 : a < b ? 1 : -1
-    })
-
+    const patientsTable = formatTable(Data.patients.data)
+    // 退院者グラフ
+    const dischargesGraph = formatGraph(Data.discharges_summary.data)
     // 退院者数
-    const discharges = {
-      headers: [
-        { text: '日付', value: '日付' },
-        { text: '居住地', value: '居住地' },
-        { text: '年代', value: '年代' },
-        { text: '性別', value: '性別' }
-      ],
-      datasets: []
-    }
-    Data.discharges.data.forEach(function(d) {
-      discharges.datasets.push({
-        日付: moment(d['リリース日']).format('MM/DD'),
-        居住地: d['居住地'],
-        年代: d['年代'],
-        性別: d['性別']
-      })
-    })
-    discharges.datasets.sort(function(a, b) {
-      return a === b ? 0 : a < b ? 1 : -1
-    })
-
+    const dischargesTable = formatTable(Data.discharges.data)
+    // 相談件数
+    const contactsGraph = formatGraph(Data.contacts.data)
     // 死亡者数
-    const fatalities = {
-      headers: [
-        { text: '日付', value: '日付' },
-        { text: '居住地', value: '居住地' },
-        { text: '年代', value: '年代' },
-        { text: '性別', value: '性別' }
-      ],
-      datasets: []
-    }
-    Data.patients.data
-      .filter(patient => patient['備考'] === '死亡')
-      .forEach(d =>
-        fatalities.datasets.push({
-          日付: moment(d['リリース日']).format('MM/DD'),
-          居住地: d['居住地'],
-          年代: d['年代'],
-          性別: d['性別']
-        })
-      )
-    fatalities.datasets.sort(function(a, b) {
-      return a === b ? 0 : a < b ? 1 : -1
-    })
+    const fatalitiesTable = formatTable(
+      Data.patients.data.filter(patient => patient['備考'] === '死亡')
+    )
 
     const data = {
       Data,
-      patients,
-      patientsDataset,
-      discharges,
-      dischargesDataset,
-      contacts,
-      fatalities,
+      patientsTable,
+      patientsGraph,
+      dischargesTable,
+      dischargesGraph,
+      contactsGraph,
+      fatalitiesTable,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: '最新感染動向',
