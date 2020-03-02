@@ -35,8 +35,7 @@ export default {
       type: String,
       required: true,
       default: ''
-    },
-
+    }
   },
   data() {
     return {
