@@ -78,7 +78,7 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import DataTable from '@/components/DataTable.vue'
-import { formatTransition } from '@/utils/formatters'
+import { formatGraph } from '@/utils/formatters'
 
 export default {
   components: {
@@ -90,11 +90,11 @@ export default {
   },
   data() {
     // 相談件数
-    const contacts = formatTransition(Data.contacts.data)
+    const contacts = formatGraph(Data.contacts.data)
     // 感染者数グラフ
-    const patientsDataset = formatTransition(Data.patients_summary.data)
+    const patientsDataset = formatGraph(Data.patients_summary.data)
     // 退院者グラフ
-    const dischargesDataset = formatTransition(Data.discharges_summary.data)
+    const dischargesDataset = formatGraph(Data.discharges_summary.data)
 
     // 感染者数
     const patients = {
