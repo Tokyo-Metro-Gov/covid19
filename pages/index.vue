@@ -72,7 +72,7 @@ export default {
     let cumSum = 0
     // 相談件数
     const contacts = []
-    Data.contacts
+    Data.contacts.data
       .filter(function(d) {
         return new Date(d['日付']) < today
       })
@@ -91,7 +91,7 @@ export default {
     // 感染者数グラフ
     const patientsDataset = []
     let patSum = 0
-    Data.patients_summary
+    Data.patients_summary.data
       .filter(function(d) {
         return new Date(d['日付']) < today
       })
@@ -117,7 +117,7 @@ export default {
       ],
       datasets: []
     }
-    Data.patients.forEach(function(d) {
+    Data.patients.data.forEach(function(d) {
       patients.datasets.push({
         日付: moment(d['リリース日']).format('MM/DD'),
         居住地: d['居住地'],
@@ -138,7 +138,7 @@ export default {
       ],
       datasets: []
     }
-    Data.patients
+    Data.patients.data
       .filter(patient => patient['備考'] === '死亡')
       .forEach(d =>
         fatalities.datasets.push({
