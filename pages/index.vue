@@ -78,6 +78,7 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import DataTable from '@/components/DataTable.vue'
+import { formatTransition } from '@/utils/formatters'
 
 export default {
   components: {
@@ -88,45 +89,12 @@ export default {
     DataTable
   },
   data() {
-    const today = new Date()
-    let cumSum = 0
     // 相談件数
-    const contacts = []
-    Data.contacts.data
-      .filter(function(d) {
-        return new Date(d['日付']) < today
-      })
-      .forEach(function(d) {
-        const dt = new Date(d['日付'])
-        const v = parseInt(d['小計'])
-        if (!isNaN(v)) {
-          cumSum += v
-          contacts.push({
-            label: `${dt.getMonth() + 1}/${dt.getDate()}`,
-            transition: v,
-            cummulative: cumSum
-          })
-        }
-      })
+    const contacts = formatTransition(Data.contacts.data)
     // 感染者数グラフ
-    const patientsDataset = []
-    let patSum = 0
-    Data.patients_summary.data
-      .filter(function(d) {
-        return new Date(d['日付']) < today
-      })
-      .forEach(function(d) {
-        const dt = new Date(d['日付'])
-        const v = parseInt(d['小計'])
-        if (!isNaN(v)) {
-          patSum += v
-          patientsDataset.push({
-            label: `${dt.getMonth() + 1}/${dt.getDate()}`,
-            transition: v,
-            cummulative: patSum
-          })
-        }
-      })
+    const patientsDataset = formatTransition(Data.patients_summary.data)
+    // 退院者グラフ
+    const dischargesDataset = formatTransition(Data.discharges_summary.data)
 
     // 感染者数
     const patients = {
@@ -149,26 +117,6 @@ export default {
     patients.datasets.sort(function(a, b) {
       return a === b ? 0 : a < b ? 1 : -1
     })
-
-    // 退院者グラフ
-    const dischargesDataset = []
-    let subTotal = 0
-    Data.discharges_summary.data
-      .filter(function(d) {
-        return new Date(d['日付']) < today
-      })
-      .forEach(function(d) {
-        const dt = new Date(d['日付'])
-        const v = parseInt(d['小計'])
-        if (!isNaN(v)) {
-          subTotal += v
-          dischargesDataset.push({
-            label: `${dt.getMonth() + 1}/${dt.getDate()}`,
-            transition: v,
-            cummulative: subTotal
-          })
-        }
-      })
 
     // 退院者数
     const discharges = {
