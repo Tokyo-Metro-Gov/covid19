@@ -1,6 +1,6 @@
 <template>
   <div class="SideNavigation">
-    <a href="/" class="SideNavigation-HeadingContainer d-flex d-sm-block">
+    <nuxt-link to="/" class="SideNavigation-HeadingContainer d-flex d-sm-block">
       <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">
         mdi-menu
       </v-icon>
@@ -11,7 +11,7 @@
         東京都公式
         <br />新型コロナウイルス対策サイト
       </h1>
-    </a>
+    </nuxt-link>
     <v-divider class="SideNavigation-HeadingDivider" />
     <div class="d-none d-sm-block" :class="{ open: isNaviOpen && isMobile }">
       <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="closeNavi">
