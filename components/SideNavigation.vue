@@ -1,17 +1,19 @@
 <template>
   <div class="SideNavigation">
-    <nuxt-link to="/" class="SideNavigation-HeadingContainer d-flex d-sm-block">
+    <div to="/" class="SideNavigation-HeadingContainer d-flex d-sm-block">
       <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">
         mdi-menu
       </v-icon>
-      <div class="SideNavigation-Logo mr-4">
-        <img src="/logo.svg" />
-      </div>
-      <h1 class="SideNavigation-Heading">
-        東京都公式
-        <br />新型コロナウイルス対策サイト
-      </h1>
-    </nuxt-link>
+      <nuxt-link to="/" class="SideNavigation-HeadingLink">
+        <div class="SideNavigation-Logo mr-4">
+          <img src="/logo.svg" />
+        </div>
+        <h1 class="SideNavigation-Heading">
+          東京都公式
+          <br />新型コロナウイルス対策サイト
+        </h1>
+      </nuxt-link>
+    </div>
     <v-divider class="SideNavigation-HeadingDivider" />
     <div class="d-none d-sm-block" :class="{ open: isNaviOpen && isMobile }">
       <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="closeNavi">
@@ -140,6 +142,9 @@ export default {
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
     align-items: center;
+  }
+  &-HeadingLink {
+    display: flex;
     text-decoration: none;
   }
   &-ListItemContainer {
