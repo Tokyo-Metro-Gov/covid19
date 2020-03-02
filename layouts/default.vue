@@ -13,7 +13,7 @@
         :class="{open: isMobile && isNaviOpen}"
       />
       <div class="mainContainer">
-        <v-container class="px-4">
+        <v-container class="pa-0">
           <nuxt />
         </v-container>
       </div>
