@@ -1,18 +1,21 @@
-name: screenshot 
+name: screenshot
 
-on: push
+# on: pull_request
+on:
+  push:
+    branches:
+      - dummy
 
 jobs:
   screenshot:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-
+      - run: cp ui-test\dummy.json dist\data/\data.json
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: '10.x'
-
       - name: Cache dependencies
         uses: actions/cache@v1
         with:
@@ -24,7 +27,6 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run test
       - run: yarn run generate
-      - run: ./pull_datasource.sh
       - run: pip install selenium
       - run: (python -m http.server --directory ./dist 8000 &)  ; python ./ui-test/screenshot.py
       - name: Upload screenshot

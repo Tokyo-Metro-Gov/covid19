@@ -1,7 +1,13 @@
 <template>
   <v-app class="app">
     <div class="d-sm-flex">
-      <SideNavigation class="navi" />
+      <SideNavigation
+        @openNavi="showNavi"
+        @closeNavi="hideNavi"
+        :isMobile="isMobile"
+        :isNaviOpen="isNaviOpen"
+        :class="{open: isMobile && isNaviOpen}"
+      />
       <div class="mainContainer px-4">
         <v-container>
           <nuxt />
@@ -16,6 +22,30 @@ import SideNavigation from '@/components/SideNavigation'
 export default {
   components: {
     SideNavigation
+  },
+  data() {
+    return {
+      isNaviOpen: false,
+      isMobile: false,
+    }
+  },
+  methods:{
+    handleResize: function() {
+      this.isMobile = window.innerWidth < 600;
+    },
+    showNavi: function(){
+      this.isNaviOpen = true;
+    },
+    hideNavi: function(){
+      this.isNaviOpen = false;
+    }
+  },
+  mounted() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize);
   }
 }
 </script>
@@ -24,13 +54,13 @@ export default {
 .app {
   background-color: inherit !important;
 }
-.navi {
-  flex: 0 1 200px;
-}
 .mainContainer {
   flex: 1 1 auto;
   overflow-x: hidden;
   overflow-y: auto;
+  height: 100vh;
+}
+.open {
   height: 100vh;
 }
 </style>

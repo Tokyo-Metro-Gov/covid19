@@ -1,5 +1,5 @@
 // ==================
-// color 
+// color
 $green-1: #00A040;
 $green-2: #00B849;
 $green-3: #00D154;
@@ -17,6 +17,28 @@ $link: #006CA8;
 $shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
 
 // ==================
+// break-points
+$huge: 1440;
+$large: 1170;
+$medium: 768;
+$small: 450;
+
+// ==================
+// media-query
+@mixin largerThan($width) {
+	@media screen and (min-width: $width + 1 + px) {
+		@content;
+	}
+}
+
+@mixin lessThan($width) {
+	@media screen and (max-width: $width + px) {
+		@content;
+	}
+}
+
+
+// ==================
 // font-size
 @mixin font-size($size, $base: 16) {
   font-size: $size + px;
@@ -25,12 +47,12 @@ $shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
 @mixin card-h1 {
   @include font-size(24);
   color: $gray-2;
-  font-weight: bold; 
+  font-weight: bold;
 }
 @mixin card-h2 {
   @include font-size(19);
   color: $gray-2;
-  font-weight: bold; 
+  font-weight: bold;
 }
 @mixin body-text {
   @include font-size(16);
@@ -50,11 +72,33 @@ $shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   }
 }
 
+@mixin button-text($size: 'md') {
+  @if ($size == 'sm') {
+    padding: 4px 8px;
+  } @else {
+    padding: 8px 36px;
+  }
+  @include font-size(14);
+  display: inline-block;
+  border-radius: 4px;
+  background-color: $white;
+  border: 1px solid $green-2;;
+  color:$green-1;
+  cursor: pointer;
+  &:hover {
+    background-color: $green-1;
+    color: $white;
+    > i {
+      color: $white !important;
+    }
+  }
+}
+
 // ===================
 // card
 @mixin card-container {
   background-color: $white;
   box-shadow: $shadow;
-  border: 0.5px solid $gray-4;
+  border: 0.5px solid $gray-4 !important;
   border-radius: 4px;
 }

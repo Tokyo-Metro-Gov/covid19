@@ -13,23 +13,23 @@
     />
     <StaticInfo
       class="mb-4"
-      url="#"
-      text="自分の症状に不安や心配があればまずは電話相談をどうぞ"
-      btn-text="相談の手順を見る"
+      :url="'/flow'"
+      :text="'自分の症状に不安や心配があればまずは電話相談をどうぞ'"
+      :btn-text="'相談の手順を見る'"
     />
     <v-row>
       <v-col xs12 sm6 md4>
         <number-display
-          :title="'本日の感染者'"
+          :title="'本日の陽性患者発表者数'"
           :number="patients.datasets.length"
           :unit="'人'"
         />
       </v-col>
       <v-col xs12 sm6 md4>
         <time-bar-chart
-          :title="'コールセンター相談件数'"
+          title="コールセンター相談件数"
           :chart-data="contacts"
-          :chart-option="{}"
+          :chart-option="option"
         />
       </v-col>
       <v-col xs12 sm6 md4>
@@ -39,13 +39,20 @@
           :chart-option="{}"
         />
       </v-col>
+      <v-col xs12 sm6 md4>
+        <data-table
+          :title="'死亡者データ'"
+          :chart-data="fatalities"
+          :chart-option="{}"
+        />
+      </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
-import PageHeader from '@/components/PageHeader.vue'
 import moment from 'moment'
+import PageHeader from '@/components/PageHeader.vue'
 import NumberDisplay from '@/components/NumberDisplay.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
@@ -65,6 +72,7 @@ export default {
   data() {
     const today = new Date()
     let cumSum = 0
+    // 相談件数
     const contacts = []
     Data.contacts
       .filter(function(d) {
@@ -82,6 +90,7 @@ export default {
           })
         }
       })
+    // 感染者数
     const patients = {
       headers: [
         { text: '日付', value: '日付' },
@@ -102,13 +111,74 @@ export default {
     patients.datasets.sort(function(a, b) {
       return a === b ? 0 : a < b ? 1 : -1
     })
+    // 死亡者数
+    const fatalities = {
+      headers: [
+        { text: '日付', value: '日付' },
+        { text: '居住地', value: '居住地' },
+        { text: '年代', value: '年代' },
+        { text: '性別', value: '性別' }
+      ],
+      datasets: []
+    }
+    Data.patients
+      .filter(patient => patient['備考'] === '死亡')
+      .forEach(d =>
+        fatalities.datasets.push({
+          日付: moment(d['リリース日']).format('MM/DD'),
+          居住地: d['居住地'],
+          年代: d['年代'],
+          性別: d['性別']
+        })
+      )
+    fatalities.datasets.sort(function(a, b) {
+      return a === b ? 0 : a < b ? 1 : -1
+    })
+
     const data = {
       patients,
       contacts,
+      fatalities,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: '最新感染動向'
       },
+      option: {
+        responsive: true,
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [
+            {
+              stacked: true,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: '#808080'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              location: 'bottom',
+              stacked: true,
+              gridLines: {
+                display: true,
+                color: '#E5E5E5'
+              },
+              ticks: {
+                suggestedMin: 0,
+                maxTicksLimit: 8,
+                fontColor: '#808080'
+              }
+            }
+          ]
+        }
+      }
     }
     return data
   }

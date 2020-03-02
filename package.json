@@ -1,8 +1,8 @@
 {
   "name": "covid19",
   "version": "1.0.0",
-  "description": "covid19",
-  "author": "osoken",
+  "description": "東京都公式 新型コロナウイルス対策サイト",
+  "author": "東京都",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt-ts",
@@ -49,6 +49,7 @@
     "jest": "^24.1.0",
     "lint-staged": "^10.0.8",
     "nodemon": "^1.18.9",
+    "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.19.1",
     "vue-jest": "^4.0.0-0"
   }
