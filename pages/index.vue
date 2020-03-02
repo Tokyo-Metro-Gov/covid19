@@ -3,7 +3,7 @@
     <page-header
       :icon="headerItem.icon"
       :title="headerItem.title"
-      date="YYYY/MM/DD HH:MM"
+      date="2020/3/2 08:00"
     />
     <whats-new
       class="mb-4"
