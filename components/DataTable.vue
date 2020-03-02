@@ -16,8 +16,6 @@
 </template>
 
 <style lang="scss">
-@import '../assets/variables';
-
 .cardTable {
   &.v-data-table {
     th {
