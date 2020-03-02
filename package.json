@@ -33,7 +33,8 @@
     "express": "^4.16.4",
     "nuxt": "^2.0.0",
     "vue-chartjs": "^3.5.0",
-    "vue-property-decorator": "^8.4.0"
+    "vue-property-decorator": "^8.4.0",
+    "vue-spinner": "^1.0.3"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.5.8",

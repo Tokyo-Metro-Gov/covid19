@@ -1,13 +1,11 @@
 <template>
   <v-app class="app">
-    <div class="d-sm-flex">
-      <SideNavigation
-        @openNavi="showNavi"
-        @closeNavi="hideNavi"
-        :isMobile="isMobile"
-        :isNaviOpen="isNaviOpen"
-        :class="{open: isMobile && isNaviOpen}"
-      />
+    <div class="loader" v-if="loading">
+      <img src="/logo.svg" />
+      <scale-loader color="#000000" />
+    </div>
+    <div class="d-sm-flex" v-else>
+      <SideNavigation class="navi" />
       <div class="mainContainer px-4">
         <v-container>
           <nuxt />
@@ -17,50 +15,34 @@
   </v-app>
 </template>
 <script>
+import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation'
-
 export default {
   components: {
-    SideNavigation
+    ScaleLoader,
+    SideNavigation,
   },
   data() {
     return {
-      isNaviOpen: false,
-      isMobile: false,
-    }
-  },
-  methods:{
-    handleResize: function() {
-      this.isMobile = window.innerWidth < 600;
-    },
-    showNavi: function(){
-      this.isNaviOpen = true;
-    },
-    hideNavi: function(){
-      this.isNaviOpen = false;
+      loading: true
     }
   },
   mounted() {
-    window.addEventListener('resize', this.handleResize);
-    this.handleResize();
-  },
-  destroyed() {
-    window.removeEventListener('resize', this.handleResize);
+    this.loading = false
   }
 }
 </script>
-
 <style>
 .app {
   background-color: inherit !important;
+}
+.navi {
+  flex: 0 1 200px;
 }
 .mainContainer {
   flex: 1 1 auto;
   overflow-x: hidden;
   overflow-y: auto;
-  height: 100vh;
-}
-.open {
   height: 100vh;
 }
 </style>
