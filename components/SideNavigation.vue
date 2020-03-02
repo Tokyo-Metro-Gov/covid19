@@ -1,18 +1,22 @@
 <template>
   <div class="SideNavigation">
     <div class="SideNavigation-HeadingContainer d-flex d-sm-block">
-      <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">mdi-menu</v-icon>
+      <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">
+        mdi-menu
+      </v-icon>
       <div class="SideNavigation-Logo mr-4">
         <img src="/logo.svg" />
       </div>
       <h1 class="SideNavigation-Heading">
         東京都公式
-        <br />COVID-19対策サイト
+        <br />新型コロナウイルス対策サイト
       </h1>
     </div>
     <v-divider />
-    <div class="d-none d-sm-block" :class="{open: isNaviOpen && isMobile}">
-      <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="closeNavi">mdi-close</v-icon>
+    <div class="d-none d-sm-block" :class="{ open: isNaviOpen && isMobile }">
+      <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="closeNavi">
+        mdi-close
+      </v-icon>
       <v-list :flat="true">
         <v-container
           v-for="(item, i) in items"
@@ -20,7 +24,12 @@
           class="SideNavigation-ListItemContainer"
           @click="closeNavi"
         >
-          <ListItem :link="item.link" :icon="item.icon" :title="item.title" :isMobile="isMobile" />
+          <ListItem
+            :link="item.link"
+            :icon="item.icon"
+            :title="item.title"
+            :is-mobile="isMobile"
+          />
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
@@ -50,11 +59,11 @@ export default {
   props: {
     isMobile: {
       type: Boolean,
-      required: true,
+      required: true
     },
     isNaviOpen: {
       type: Boolean,
-      required: true,
+      required: true
     }
   },
   data() {
@@ -62,12 +71,12 @@ export default {
       items: [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: '最新感染動向',
+          title: '都内の最新動向',
           link: '/'
         },
         {
           icon: 'covid',
-          title: '感染症が心配な方へ',
+          title: '新型コロナウイルス感染症が心配なときに',
           link: '/flow',
           divider: true
         },
@@ -113,11 +122,11 @@ export default {
     }
   },
   methods: {
-    openNavi: function(){
-      this.$emit('openNavi');
+    openNavi() {
+      this.$emit('openNavi')
     },
-    closeNavi: function(){
-      this.$emit('closeNavi');
+    closeNavi() {
+      this.$emit('closeNavi')
     }
   }
 }
