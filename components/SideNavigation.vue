@@ -1,20 +1,18 @@
 <template>
   <div class="SideNavigation">
-    <a href='/'>
-      <div class="SideNavigation-HeadingContainer d-flex d-sm-block">
-        <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">
-          mdi-menu
-        </v-icon>
-        <div class="SideNavigation-Logo mr-4">
-          <img src="/logo.svg" />
-        </div>
-        <h1 class="SideNavigation-Heading">
-          東京都公式
-          <br />新型コロナウイルス対策サイト
-        </h1>
+    <a href="/" class="SideNavigation-HeadingContainer d-flex d-sm-block">
+      <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">
+        mdi-menu
+      </v-icon>
+      <div class="SideNavigation-Logo mr-4">
+        <img src="/logo.svg" />
       </div>
+      <h1 class="SideNavigation-Heading">
+        東京都公式
+        <br />新型コロナウイルス対策サイト
+      </h1>
     </a>
-    <v-divider />
+    <v-divider class="SideNavigation-HeadingDivider" />
     <div class="d-none d-sm-block" :class="{ open: isNaviOpen && isMobile }">
       <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="closeNavi">
         mdi-close
@@ -91,8 +89,7 @@ export default {
         {
           icon: 'mdi-account-multiple',
           title: '都民の皆様へ',
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
+          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
         },
         {
           icon: 'mdi-domain',
@@ -143,17 +140,24 @@ export default {
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
     align-items: center;
+    text-decoration: none;
   }
   &-ListItemContainer {
     padding: 2px 20px;
   }
   &-Logo {
+    margin-top: 20px;
     width: 110px;
   }
   &-Heading {
+    margin-top: 8px;
     font-size: 13px;
     color: #898989;
     padding: 0.5em 0;
+    text-decoration: none;
+  }
+  &-HeadingDivider {
+    margin: 0px 20px 4px;
   }
   &-Divider {
     margin: 12px 0;
