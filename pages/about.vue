@@ -69,7 +69,6 @@ export default {
 
 <style lang="scss">
 .About {
-  background-color: $gray-5;
   &-Heading {
     @include font-size(30);
     font-weight: normal;
