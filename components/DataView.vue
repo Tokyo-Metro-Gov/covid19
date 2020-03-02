@@ -1,5 +1,5 @@
 <template>
-  <v-card class="DataView">
+  <v-card class="DataView pa-1">
     <v-toolbar flat>
       <div class="DataView-TitleContainer">
         <v-toolbar-title>
