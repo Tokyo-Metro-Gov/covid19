@@ -1,24 +1,28 @@
 <template>
-  <div>
+  <div class="MainPage">
     <page-header
       :icon="headerItem.icon"
       :title="headerItem.title"
       :date="headerItem.date"
     />
-    <whats-new
-      class="mb-4"
-      date="2020年2月29日"
-      url="#"
-      text="新型コロナウイルスに関連した患者の発生について（第37報）"
-    />
-    <StaticInfo
-      class="mb-4"
-      :url="'/flow'"
-      :text="'自分の症状に不安や心配があればまずは電話相談をどうぞ'"
-      :btn-text="'相談の手順を見る'"
-    />
-    <v-row>
-      <v-col xs12 sm6 md4>
+    <div class="InfoBanner">
+      <whats-new
+        class="mb-4"
+        date="2020年2月29日"
+        url="#"
+        text="新型コロナウイルスに関連した患者の発生について（第37報）"
+      />
+    </div>
+    <div class="InfoBanner">
+      <StaticInfo
+        class="mb-4"
+        :url="'/flow'"
+        :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
+        :btn-text="'相談の手順を見る'"
+      />
+    </div>
+    <v-row class="DataBlock">
+      <v-col xs12 sm6 md4 class="DataCard">
         <time-bar-chart
           title="陽性患者数"
           :chart-data="patientsDataset"
@@ -26,7 +30,7 @@
           :date="Data.patients.date"
         />
       </v-col>
-      <v-col xs12 sm6 md4>
+      <v-col xs12 sm6 md4 class="DataCard">
         <data-table
           :title="'陽性患者の属性'"
           :chart-data="patients"
@@ -34,7 +38,7 @@
           :date="Data.patients.date"
         />
       </v-col>
-      <v-col xs12 sm6 md4>
+      <v-col xs12 sm6 md4 class="DataCard">
         <time-bar-chart
           title="退院者数"
           :chart-data="dischargesDataset"
@@ -52,18 +56,10 @@
       </v-col>
       <v-col xs12 sm6 md4>
         <time-bar-chart
-          title="コールセンター相談件数"
+          title="新型コロナコールセンター相談件数"
           :chart-data="contacts"
           :chart-option="option"
           :date="Data.contacts.date"
-        />
-      </v-col>
-      <v-col xs12 sm6 md4>
-        <data-table
-          :title="'死亡者データ'"
-          :chart-data="fatalities"
-          :chart-option="{}"
-          :date="Data.patients.date"
         />
       </v-col>
     </v-row>
@@ -223,10 +219,9 @@ export default {
       discharges,
       dischargesDataset,
       contacts,
-      fatalities,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '最新感染動向',
+        title: '都内の最新感染動向',
         date: Data.lastUpdate
       },
       option: {
@@ -270,3 +265,19 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.MainPage {
+  padding: 0 10px;
+  .InfoBanner {
+    padding: 10px;
+  }
+  .DataBlock {
+    margin: 20px 0;
+    .DataCard {
+      margin-bottom: 20px;
+      padding: 0 10px;
+    }
+  }
+}
+</style>

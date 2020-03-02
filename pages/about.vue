@@ -55,7 +55,7 @@ export default {
         {
           title: 'ソースコードについて',
           body:
-            '本サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。詳しくは、GitHub リポジトリ をご確認ください。'
+            '本サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。詳しくは、<a href="https://github.com/tokyo-metropolitan-gov/covid19/" target="_blank">GitHub リポジトリ</a> をご確認ください。'
         },
         {
           title: 'お問い合わせ先',
