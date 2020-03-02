@@ -83,7 +83,7 @@ export default {
           divider: true
         },
         {
-          icon: 'mdi-baby-carriage',
+          icon: 'parent',
           title: 'お子様をお持ちの皆様へ',
           link: '/parent'
         },
