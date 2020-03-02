@@ -9,7 +9,7 @@
     class="ListItem-Container"
     style="color: transparent"
   >
-    <v-list-item-action class="ListItem-IconContainer">
+    <v-list-item-action v-if="icon" class="ListItem-IconContainer">
       <v-icon
         v-if="checkIconType(icon) === 'material'"
         :class="['ListItem-Icon', isActive(link)]"
@@ -24,7 +24,11 @@
     </v-list-item-action>
     <v-list-item-content class="ListItem-TextContainer">
       <v-list-item-title
-        :class="['ListItem-Text', isActive(link), isMobile ? 'mobile' : 'desktop']"
+        :class="[
+          'ListItem-Text',
+          isActive(link),
+          isMobile ? 'mobile' : 'desktop'
+        ]"
         v-text="title"
       />
     </v-list-item-content>
@@ -100,7 +104,7 @@ export default class ListItem extends Vue {
     &:hover {
       color: transparent !important;
       & .ListItem-Text {
-        font-weight: 600;
+        font-weight: bold;
       }
       & .ListItem-Icon {
         color: $gray-1 !important;

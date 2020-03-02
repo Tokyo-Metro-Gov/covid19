@@ -1,6 +1,10 @@
 <template>
   <v-app class="app">
-    <div class="d-sm-flex">
+    <div class="loader" v-if="loading">
+      <img src="/logo.svg" />
+      <scale-loader color="#00A040" />
+    </div>
+    <div class="d-sm-flex" v-else>
       <SideNavigation
         @openNavi="showNavi"
         @closeNavi="hideNavi"
@@ -17,16 +21,18 @@
   </v-app>
 </template>
 <script>
+import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation'
-
 export default {
   components: {
-    SideNavigation
+    ScaleLoader,
+    SideNavigation,
   },
   data() {
     return {
       isNaviOpen: false,
       isMobile: false,
+      loading: true,
     }
   },
   methods:{
@@ -43,16 +49,22 @@ export default {
   mounted() {
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
+    this.loading = false
   },
   destroyed() {
     window.removeEventListener('resize', this.handleResize);
   }
 }
 </script>
-
-<style>
+<style lang="scss">
 .app {
   background-color: inherit !important;
+}
+.navi {
+  flex: 0 1 200px;
+}
+.open {
+  height: 100vh;
 }
 .mainContainer {
   flex: 1 1 auto;
@@ -60,7 +72,15 @@ export default {
   overflow-y: auto;
   height: 100vh;
 }
-.open {
-  height: 100vh;
+.loader {
+  height: 200px;
+  width: 150px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  img {
+    margin-bottom: 20px;
+  }
 }
 </style>

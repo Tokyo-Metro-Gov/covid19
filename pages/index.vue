@@ -3,7 +3,7 @@
     <page-header
       :icon="headerItem.icon"
       :title="headerItem.title"
-      date="YYYY/MM/DD HH:MM"
+      :date="headerItem.date"
     />
     <whats-new
       class="mb-4"
@@ -19,10 +19,19 @@
     />
     <v-row>
       <v-col xs12 sm6 md4>
-        <number-display
-          :title="'本日の陽性患者発表者数'"
-          :number="patients.datasets.length"
-          :unit="'人'"
+        <time-bar-chart
+          title="陽性患者数"
+          :chart-data="patientsDataset"
+          :chart-option="option"
+          :date="Data.patients.date"
+        />
+      </v-col>
+      <v-col xs12 sm6 md4>
+        <data-table
+          :title="'陽性患者の属性'"
+          :chart-data="patients"
+          :chart-option="{}"
+          :date="Data.patients.date"
         />
       </v-col>
       <v-col xs12 sm6 md4>
@@ -30,13 +39,7 @@
           title="コールセンター相談件数"
           :chart-data="contacts"
           :chart-option="option"
-        />
-      </v-col>
-      <v-col xs12 sm6 md4>
-        <data-table
-          :title="'感染者データ'"
-          :chart-data="patients"
-          :chart-option="{}"
+          :date="Data.contacts.date"
         />
       </v-col>
       <v-col xs12 sm6 md4>
@@ -44,6 +47,7 @@
           :title="'死亡者データ'"
           :chart-data="fatalities"
           :chart-option="{}"
+          :date="Data.patients.date"
         />
       </v-col>
     </v-row>
@@ -53,33 +57,26 @@
 <script>
 import moment from 'moment'
 import PageHeader from '@/components/PageHeader.vue'
-import NumberDisplay from '@/components/NumberDisplay.vue'
-import { SHEET_URL } from '@/constants.js'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
-import Data from '@/dist/data/data.json'
+import Data from '@/data/data.json'
 import DataTable from '@/components/DataTable.vue'
 
 export default {
   components: {
     PageHeader,
-    NumberDisplay,
     TimeBarChart,
     WhatsNew,
     StaticInfo,
     DataTable
   },
-  async asyncData({ $axios }) {
-    const res =
-      process.env.NODE_ENV !== 'production'
-        ? await $axios.$get(SHEET_URL)
-        : Data
+  data() {
     const today = new Date()
     let cumSum = 0
     // 相談件数
     const contacts = []
-    res.contacts
+    Data.contacts.data
       .filter(function(d) {
         return new Date(d['日付']) < today
       })
@@ -95,6 +92,26 @@ export default {
           })
         }
       })
+    // 感染者数グラフ
+    const patientsDataset = []
+    let patSum = 0
+    Data.patients_summary.data
+      .filter(function(d) {
+        return new Date(d['日付']) < today
+      })
+      .forEach(function(d) {
+        const dt = new Date(d['日付'])
+        const v = parseInt(d['小計'])
+        if (!isNaN(v)) {
+          patSum += v
+          patientsDataset.push({
+            label: `${dt.getMonth() + 1}/${dt.getDate()}`,
+            transition: v,
+            cummulative: patSum
+          })
+        }
+      })
+
     // 感染者数
     const patients = {
       headers: [
@@ -105,7 +122,7 @@ export default {
       ],
       datasets: []
     }
-    res.patients.forEach(function(d) {
+    Data.patients.data.forEach(function(d) {
       patients.datasets.push({
         日付: moment(d['リリース日']).format('MM/DD'),
         居住地: d['居住地'],
@@ -126,7 +143,7 @@ export default {
       ],
       datasets: []
     }
-    res.patients
+    Data.patients.data
       .filter(patient => patient['備考'] === '死亡')
       .forEach(d =>
         fatalities.datasets.push({
@@ -141,17 +158,15 @@ export default {
     })
 
     const data = {
+      Data,
       patients,
+      patientsDataset,
       contacts,
-      fatalities
-    }
-    return data
-  },
-  data() {
-    return {
+      fatalities,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '都内の最新動向'
+        title: '最新感染動向',
+        date: Data.lastUpdate
       },
       option: {
         responsive: true,
@@ -190,6 +205,7 @@ export default {
         }
       }
     }
+    return data
   }
 }
 </script>
