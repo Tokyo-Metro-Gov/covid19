@@ -83,10 +83,9 @@ export default {
           divider: true
         },
         {
-          icon: 'mdi-baby-carriage',
+          icon: 'parent',
           title: 'お子様をお持ちの皆様へ',
-          link:
-            'https://www.kyoiku.metro.tokyo.lg.jp/press/press_release/2020/release20200228_02.html'
+          link: '/parent'
         },
         {
           icon: 'mdi-account-multiple',
