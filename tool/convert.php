@@ -4,7 +4,14 @@ use Carbon\Carbon;
 
 
 
-
+function formatDate(string $date) :string
+{
+    if (preg_match('#(\d+/\d+/\d+)/ (\d+:\d+)#', $date, $maches)) {
+      return $maches[1].' '.$maches[2];
+    } else {
+      throw new Exception('Can not parse date:'.$date);
+    }
+}
 
 function readContacts() : array
 {
@@ -32,7 +39,7 @@ function readContacts() : array
         }
     }
     return [
-      'date' => $sheet->getCell("H1")->getValue(),
+      'date' => formatDate($sheet->getCell("H1")->getValue()),
       'data' => $result
     ];
 }
@@ -65,7 +72,7 @@ function readPatients() : array
         }
     }
     return [
-      'date' => $sheet->getCell("M1")->getValue(),
+      'date' => formatDate($sheet->getCell("M1")->getValue()),
       'data' => $result
     ];
 }
@@ -108,9 +115,19 @@ $patients = readPatients();
 $patients_summary = patientsSummary($patients);
 $contacts = readContacts();
 
+$data = compact([
+  'contacts',
+  'patients',
+  'patients_summary',
+]);
+$lastUpdate = '';
+$lastTime = 0;
+foreach ($data as $arr) {
+    $timestamp = Carbon::parse($arr['date'])->format('YmdHis');
+    if ($lastTime <= $timestamp) {
+      $lastUpdate = $arr['date'];
+    }
+}
+$data['lastUpdate'] = $lastUpdate;
 
-file_put_contents(__DIR__.'/../data/data.json', json_encode(compact([
-    'contacts',
-    'patients',
-    'patients_summary',
-]),JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK));
+file_put_contents(__DIR__.'/../data/data.json', json_encode($data,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK));
