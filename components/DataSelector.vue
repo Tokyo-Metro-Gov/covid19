@@ -2,6 +2,7 @@
   <v-btn-toggle
     :value="value"
     class="DataSelector"
+    mandatory
     @change="$emit('input', $event)"
   >
     <v-btn v-ripple="false" value="transition" class="DataSelector-Button">
