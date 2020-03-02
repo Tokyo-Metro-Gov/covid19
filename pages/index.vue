@@ -20,14 +20,14 @@
     <v-row>
       <v-col xs12 sm6 md4>
         <time-bar-chart
-          title="感染者数"
+          title="陽性患者数"
           :chart-data="patientsDataset"
           :chart-option="option"
         />
       </v-col>
       <v-col xs12 sm6 md4>
         <data-table
-          :title="'感染者データ'"
+          :title="'陽性患者の属性'"
           :chart-data="patients"
           :chart-option="{}"
         />
