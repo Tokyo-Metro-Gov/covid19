@@ -25,18 +25,14 @@ export default {
       default: null
     }
   },
-  data() {
-    return {
-      pageNotFound: 'このページはご利用いただけません',
-      otherError: '現在ご利用できません'
-    }
-  },
   computed: {
     isNotFound(): boolean {
-      return this.error.statusCode === 404
+      return (this as any).error.statusCode === 404
     },
     headingTitle(): string {
-      return this.isNotFound ? this.pageNotFound : this.otherError
+      return this.isNotFound
+        ? 'このページはご利用いただけません'
+        : '現在ご利用できません'
     }
   }
 }
