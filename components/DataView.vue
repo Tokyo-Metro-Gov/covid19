@@ -12,7 +12,7 @@
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
-      {{ lastUpdateDate | datetimeFormatter }} 更新
+      2020/3/2 08:00 更新
     </v-footer>
   </v-card>
 </template>
