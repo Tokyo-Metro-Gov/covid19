@@ -18,7 +18,11 @@
         {{ icon }}
       </v-icon>
       <CovidIcon
-        v-else-if="checkIconType(icon) === 'original'"
+        v-else-if="checkIconType(icon) === 'covid'"
+        :class="['ListItem-Icon', isActive(link)]"
+      />
+      <ParentIcon
+        v-else-if="checkIconType(icon) === 'parent'"
         :class="['ListItem-Icon', isActive(link)]"
       />
     </v-list-item-action>
@@ -45,9 +49,10 @@
 <script lang="ts">
 import { Vue, Prop, Component } from 'vue-property-decorator'
 import CovidIcon from '@/static/covid.svg'
+import ParentIcon from '@/static/parent.svg'
 
 @Component({
-  components: { CovidIcon }
+  components: { CovidIcon, ParentIcon }
 })
 export default class ListItem extends Vue {
   @Prop({
@@ -84,12 +89,18 @@ export default class ListItem extends Vue {
     }
   }
 
-  checkIconType(icon?: string): 'material' | 'original' | 'none' {
+  checkIconType(
+    icon?: string
+  ): 'none' | 'material' | 'covid' | 'parent' | 'others' {
     if (!icon) return 'none'
     if (icon.startsWith('mdi')) {
       return 'material'
+    } else if (icon === 'covid') {
+      return 'covid'
+    } else if (icon === 'parent') {
+      return 'parent'
     } else {
-      return 'original'
+      return 'others'
     }
   }
 }
