@@ -2,7 +2,7 @@
   <div class="Flow">
     <div class="Flow-Heading">
       <CovidIcon />
-      <h1>感染症が心配な方へ</h1>
+      <h1>新型コロナウイルス感染症が心配なときに</h1>
     </div>
     <div class="Flow-Card">
       <h2>
