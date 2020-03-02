@@ -27,7 +27,7 @@ type TableDateType = {
   datasets: TableDataType[]
 }
 
-export default (data: DataType[]): TableDateType => {
+export default (data: DataType[]) => {
   const tableDate: TableDateType = {
     headers,
     datasets: []
