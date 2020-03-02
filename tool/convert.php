@@ -15,7 +15,7 @@ function readContacts() : array
     $result = [];
     foreach ($data as $row) {
         if (isset($row[0],$row[1],$row[2],$row[3],$row[4])) {
-            $date = '2019-'.str_replace(['月', '日'], ['-', ''], $row[0]);
+            $date = '2020-'.str_replace(['月', '日'], ['-', ''], $row[0]);
             $carbon = Carbon::parse($date);
             $result[] = [
                 '日付' =>  $carbon->format('Y-m-d').'T08:00:00.000Z',
@@ -48,7 +48,7 @@ function readPatients() : array
     foreach ($data as $row) {
 
         if (isset($row[0],$row[1],$row[2],$row[3],$row[4],$row[5])) {
-            $date = '2019-'.str_replace(['月', '日'], ['-', ''], $row[1]);
+            $date = '2020-'.str_replace(['月', '日'], ['-', ''], $row[1]);
             $carbon = Carbon::parse($date);
             $result[] = [
                 'リリース日' =>  $carbon->format('Y-m-d').'T08:00:00.000Z',
@@ -86,7 +86,7 @@ function patientsSummary(array $patients) : array {
     foreach ($patients['data'] as $row) {
 
         if(!isset($temp[$row['リリース日']])) {
-            $temp[$row['リリース日']] = 0;
+            echo 'error'.$row['リリース日'];
         }
         $temp[$row['リリース日']] ++;
     }
