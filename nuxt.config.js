@@ -19,10 +19,10 @@ module.exports = {
       },
       { hid: 'og:site_name', property: 'og:site_name', content: '東京都公式 新型コロナウイルス対策サイト' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:url', property: 'og:url', content: 'https://example.com' },
+      { hid: 'og:url', property: 'og:url', content: 'https://stopcovid19.metro.tokyo.lg.jp' },
       { hid: 'og:title', property: 'og:title', content: '東京都公式 新型コロナウイルス対策サイト' },
       { hid: 'og:description', property: 'og:description', content: '東京都公式 新型コロナウイルス対策サイト' },
-      { hid: 'og:image', property: 'og:image', content: 'https://example.com/ogp.png' },
+      { hid: 'og:image', property: 'og:image', content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
