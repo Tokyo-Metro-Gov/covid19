@@ -73,7 +73,7 @@ export default {
       items: [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: '都内の最新動向',
+          title: '都内の最新感染動向',
           link: '/'
         },
         {
