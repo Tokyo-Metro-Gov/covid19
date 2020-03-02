@@ -26,6 +26,7 @@
         />
       </v-col>
       <v-col xs12 sm6 md4>
+        > k
         <time-bar-chart
           title="コールセンター相談件数"
           :chart-data="contacts"
