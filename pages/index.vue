@@ -23,6 +23,7 @@
           title="感染者数"
           :chart-data="patientsDataset"
           :chart-option="option"
+          :date="Data.patients.date"
         />
       </v-col>
       <v-col xs12 sm6 md4>
@@ -30,6 +31,7 @@
           :title="'感染者データ'"
           :chart-data="patients"
           :chart-option="{}"
+          :date="Data.patients.date"
         />
       </v-col>
       <v-col xs12 sm6 md4>
@@ -37,6 +39,7 @@
           title="コールセンター相談件数"
           :chart-data="contacts"
           :chart-option="option"
+          :date="Data.contacts.date"
         />
       </v-col>
       <v-col xs12 sm6 md4>
@@ -44,6 +47,7 @@
           :title="'死亡者データ'"
           :chart-data="fatalities"
           :chart-option="{}"
+          :date="Data.patients.date"
         />
       </v-col>
     </v-row>
@@ -107,6 +111,7 @@ export default {
           })
         }
       })
+
     // 感染者数
     const patients = {
       headers: [
@@ -153,6 +158,7 @@ export default {
     })
 
     const data = {
+      Data,
       patients,
       patientsDataset,
       contacts,
@@ -160,7 +166,7 @@ export default {
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: '最新感染動向',
-        date: '2020/03/02 08:00'
+        date: Data.lastUpdate
       },
       option: {
         responsive: true,
