@@ -47,11 +47,10 @@
 import PageHeader from '@/components/PageHeader.vue'
 import moment from 'moment'
 import NumberDisplay from '@/components/NumberDisplay.vue'
-import { SHEET_URL } from '@/constants.js'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
-import Data from '@/dist/data/data.json'
+import Data from '@/data/data.json'
 import DataTable from '@/components/DataTable.vue'
 
 export default {
@@ -64,22 +63,10 @@ export default {
     DataTable
   },
   data() {
-    return {
-      headerItem: {
-        icon: 'mdi-chart-timeline-variant',
-        title: '最新感染動向'
-      },
-    }
-  },
-  async asyncData({ $axios }) {
-    const res =
-      process.env.NODE_ENV !== 'production'
-        ? await $axios.$get(SHEET_URL)
-        : Data
     const today = new Date()
     let cumSum = 0
     const contacts = []
-    res.contacts
+    Data.contacts
       .filter(function(d) {
         return new Date(d['日付']) < today
       })
@@ -104,7 +91,7 @@ export default {
       ],
       datasets: []
     }
-    res.patients.forEach(function(d) {
+    Data.patients.forEach(function(d) {
       patients.datasets.push({
         日付: moment(d['リリース日']).format('MM/DD'),
         居住地: d['居住地'],
@@ -117,7 +104,11 @@ export default {
     })
     const data = {
       patients,
-      contacts
+      contacts,
+      headerItem: {
+        icon: 'mdi-chart-timeline-variant',
+        title: '最新感染動向'
+      },
     }
     return data
   }
