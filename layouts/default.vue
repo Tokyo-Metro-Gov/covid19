@@ -12,8 +12,8 @@
         :isNaviOpen="isNaviOpen"
         :class="{open: isMobile && isNaviOpen}"
       />
-      <div class="mainContainer px-4">
-        <v-container>
+      <div class="mainContainer">
+        <v-container class="pa-0">
           <nuxt />
         </v-container>
       </div>
