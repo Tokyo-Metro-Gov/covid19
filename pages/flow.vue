@@ -15,15 +15,12 @@
       <a
         href="https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html"
         target="_blank"
+        class="Flow-Card-Button"
       >
-        <div class="Flow-Card-Button">
-          <span>
-            詳細を見る(東京都福祉保健局)
-            <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="15">
-              mdi-open-in-new
-            </v-icon>
-          </span>
-        </div>
+        詳細を見る(東京都福祉保健局)
+        <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
+          mdi-open-in-new
+        </v-icon>
       </a>
     </div>
   </div>
@@ -61,6 +58,8 @@ export default {
     }
   }
   &-Card {
+    display: flex;
+    flex-direction: column;
     @include card-container();
     padding: 20px;
     margin-bottom: 20px;
@@ -79,12 +78,13 @@ export default {
       }
     }
     &-Button {
-      flex: 1 0 auto;
-      text-align: center;
-      margin-top: 12px;
-      > span {
-        @include button-text('md');
-      }
+      @include button-text('md');
+      margin: 12px auto 0;
+      height: 80px;
+      line-height: 60px;
+      @include font-size(20);
+      font-weight: 600;
+      text-decoration: none;
       &-ExternalLinkIcon {
         margin-left: 2px;
         color: $green-1 !important;
