@@ -4,7 +4,10 @@
       {{ title }}
     </h2>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <p class="TextCard-Body" v-html="body" />
+    <p v-if="body" class="TextCard-Body" v-html="body" />
+    <p class="TextCard-Body">
+      <slot />
+    </p>
   </div>
 </template>
 
@@ -21,7 +24,7 @@ export default class TextCard extends Vue {
 
   @Prop({
     default: '',
-    required: true
+    required: false
   })
   body!: string
 }
