@@ -119,7 +119,7 @@ export default {
         {
           title: '東京都公式ホームページ',
           link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html',
+            'https://www.metro.tokyo.lg.jp/',
           divider: true
         },
       ]
