@@ -1,8 +1,8 @@
 <template>
   <div class="Parent">
-    <h1 class="Parent-Heading">
+    <h2 class="Parent-Heading">
       臨時休校中の新型コロナウイルス感染症対応についてのお願い
-    </h1>
+    </h2>
     <div v-for="(item, i) in items" :key="i">
       <TextCard :title="item.title" :body="item.body" />
     </div>
