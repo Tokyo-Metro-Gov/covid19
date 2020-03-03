@@ -112,6 +112,13 @@ export default class ListItem extends Vue {
     min-height: 30px;
     padding: 0;
     color: transparent !important;
+    & .ListItem-TextContainer {
+      max-width: calc(100% - 20px);
+    }
+    & .ListItem-Text {
+      overflow: visible;
+      white-space: normal;
+    }
     &:hover {
       color: transparent !important;
       & .ListItem-Text {
