@@ -36,9 +36,7 @@ export default {
 
 <style lang="scss">
 .Flow {
-  padding: 20px;
   margin-bottom: 20px;
-  background-color: $gray-5;
   &-Heading {
     display: flex;
     align-items: center;
