@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date" :info="info">
+  <data-view :title="title" :date="date">
     <template v-slot:button>
       <span />
     </template>
@@ -12,6 +12,13 @@
       :fixed-header="true"
       class="cardTable"
     />
+    <template v-slot:infoPanel>
+      <data-view-basic-info-panel
+        :lText=info.lText
+        :sText=info.sText
+        :unit=info.unit
+      />
+    </template>
   </data-view>
 </template>
 
@@ -52,9 +59,10 @@
 
 <script>
 import DataView from '@/components/DataView.vue'
+import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
 export default {
-  components: { DataView },
+  components: { DataView, DataViewBasicInfoPanel },
   props: {
     title: {
       type: String,

@@ -1,9 +1,16 @@
 <template>
-  <data-view :title="title" :date="date" :info="info">
+  <data-view :title="title" :date="date">
     <template v-slot:button>
       <data-selector v-model="dataKind" />
     </template>
     <bar :chart-data="displayData" :options="chartOption" :height="240" />
+    <template v-slot:infoPanel>
+      <data-view-basic-info-panel
+        :lText=displayInfo.lText
+        :sText=displayInfo.sText
+        :unit=displayInfo.unit
+      />
+    </template>
   </data-view>
 </template>
 
@@ -12,9 +19,10 @@
 <script>
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
+import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
 export default {
-  components: { DataView, DataSelector },
+  components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
       type: String,
@@ -36,10 +44,10 @@ export default {
       required: true,
       default: ''
     },
-    info: {
-      type: Object,
+    unit: {
+      type: String,
       required: false,
-      default: () => {}
+      default: ''
     }
   },
   data() {
@@ -48,6 +56,22 @@ export default {
     }
   },
   computed: {
+    displayInfo() {
+      if (this.dataKind === 'transition') {
+        const diff = this.chartData[this.chartData.length - 1].transition -
+          this.chartData[this.chartData.length - 2].transition
+        return {
+          lText: `${(diff < 0 ? '':'+')}${diff}`,
+          sText: '前日比',
+          unit: this.unit
+        }
+      }
+      return {
+        lText: this.chartData[this.chartData.length - 1].cummulative,
+        sText: `${this.chartData[this.chartData.length - 1].label} の累計`,
+        unit: this.unit
+      }
+    },
     displayData() {
       if (this.dataKind === 'transition') {
         return {
