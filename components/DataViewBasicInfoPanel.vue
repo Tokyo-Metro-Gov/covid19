@@ -28,7 +28,7 @@
       display: inline-block;
       font-size: 12px;
       line-height: 12px;
-      color: #808080;
+      color: $gray-3;
     }
   }
 }
