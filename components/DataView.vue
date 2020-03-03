@@ -7,6 +7,15 @@
         </v-toolbar-title>
         <slot name="button" />
       </div>
+      <v-spacer />
+      <div v-if="info" class="DataView-DataInfo">
+        <span class="DataView-DataInfo-summary">
+
+          {{info.lText}}<small class="DataView-DataInfo-summary-unit">{{info.unit}}</small>
+        </span>
+        <br />
+        <small class="DataView-DataView-DataInfo-date">{{info.sText}}</small>
+      </div>
     </v-toolbar>
     <v-card-text class="DataView-CardText">
       <slot />
@@ -22,10 +31,29 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 export default class DataView extends Vue {
   @Prop() private title!: string
   @Prop() private date!: string
+  @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
 }
 </script>
 
 <style lang="scss">
+.DataView {
+  &-DataInfo {
+    &-summary {
+      font-family: Hiragino Sans;
+      font-style: normal;
+      font-size: 30px;
+      line-height: 30px;
+      &-unit {
+        font-size: 0.6em;
+      }
+    }
+    &-date {
+      font-size: 12px;
+      line-height: 12px;
+      color: #808080;
+    }
+  }
+}
 .DataView {
   @include card-container();
   height: 100%;
@@ -41,6 +69,7 @@ export default class DataView extends Vue {
   }
   &-CardText {
     margin-bottom: 46px;
+    margin-top: 20px;
   }
   &-Footer {
     background-color: $white !important;
@@ -52,6 +81,6 @@ export default class DataView extends Vue {
   }
 }
 .v-toolbar__content {
-  height: auto !important;
+  height: 80px !important;
 }
 </style>

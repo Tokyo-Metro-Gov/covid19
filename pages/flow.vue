@@ -2,7 +2,7 @@
   <div class="Flow">
     <div class="Flow-Heading">
       <CovidIcon />
-      <h1>新型コロナウイルス感染症が心配なときに</h1>
+      <h2 class="Flow-Heading-Title">新型コロナウイルス感染症が心配なときに</h2>
     </div>
     <div class="Flow-Card">
       <h2>
@@ -143,11 +143,11 @@ export default {
         fill: $gray-2;
       }
     }
-    > h1 {
+    &-Title {
       @include font-size(30);
       font-weight: normal;
       color: $gray-2;
-      margin-left: 4px;
+      margin-left: 8px;
     }
   }
   &-Card {

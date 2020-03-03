@@ -1,8 +1,8 @@
 <template>
   <div class="About">
-    <h1 class="About-Heading">
+    <h2 class="About-Heading">
       当サイトについて
-    </h1>
+    </h2>
     <TextCard>
       当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。<br />
       <br />
@@ -71,7 +71,7 @@
       当サイトで公表しているデータは、東京都オープンデータサイト(準備中)より誰でも自由にダウンロードが可能です。
     </TextCard>
 
-    <TextCard title="お問い合わせ先">
+    <TextCard title="お問い合わせ先（都の㏋サイトポリシーについて）">
       東京都生活文化局広報広聴部広報課<br />
       電話　
       <a href="tel:03-5388-308">03-5388-3085</a>
