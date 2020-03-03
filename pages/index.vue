@@ -23,7 +23,7 @@
           title="陽性患者数"
           :chart-data="patientsGraph"
           :chart-option="option"
-          :date="Data.patients.date"
+          :date="Data.lastUpdate"
         />
       </v-col>
       <v-col xs12 sm6 md4 class="DataCard">
@@ -31,7 +31,7 @@
           :title="'陽性患者の属性'"
           :chart-data="patientsTable"
           :chart-option="{}"
-          :date="Data.patients.date"
+          :date="Data.lastUpdate"
         />
       </v-col>
       <v-col xs12 sm6 md4 class="DataCard">
@@ -39,7 +39,7 @@
           title="退院者数"
           :chart-data="dischargesGraph"
           :chart-option="option"
-          :date="Data.discharges.date"
+          :date="Data.lastUpdate"
         />
       </v-col>
       <v-col xs12 sm6 md4 class="DataCard">
@@ -47,7 +47,7 @@
           :title="'退院者の属性'"
           :chart-data="dischargesTable"
           :chart-option="{}"
-          :date="Data.discharges.date"
+          :date="Data.lastUpdate"
         />
       </v-col>
       <v-col xs12 sm6 md4 class="DataCard">
@@ -55,7 +55,7 @@
           title="新型コロナコールセンター相談件数"
           :chart-data="contactsGraph"
           :chart-option="option"
-          :date="Data.contacts.date"
+          :date="Data.lastUpdate"
         />
       </v-col>
     </v-row>
