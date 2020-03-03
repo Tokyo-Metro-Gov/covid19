@@ -5,22 +5,18 @@
       :title="headerItem.title"
       :date="headerItem.date"
     />
-    <div class="InfoBanner">
-      <whats-new
-        class="mb-4"
-        date="2020年2月29日"
-        url="#"
-        text="新型コロナウイルスに関連した患者の発生について（第37報）"
-      />
-    </div>
-    <div class="InfoBanner">
-      <StaticInfo
-        class="mb-4"
-        :url="'/flow'"
-        :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
-        :btn-text="'相談の手順を見る'"
-      />
-    </div>
+    <whats-new
+      class="mb-4"
+      date="2020年2月29日"
+      url="#"
+      text="新型コロナウイルスに関連した患者の発生について（第37報）"
+    />
+    <StaticInfo
+      class="mb-4"
+      :url="'/flow'"
+      :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
+      :btn-text="'相談の手順を見る'"
+    />
     <v-row class="DataBlock">
       <v-col xs12 sm6 md4 class="DataCard">
         <time-bar-chart
@@ -46,7 +42,7 @@
           :date="Data.discharges.date"
         />
       </v-col>
-      <v-col xs12 sm6 md4>
+      <v-col xs12 sm6 md4 class="DataCard">
         <data-table
           :title="'退院者の属性'"
           :chart-data="dischargesTable"
@@ -54,7 +50,7 @@
           :date="Data.discharges.date"
         />
       </v-col>
-      <v-col xs12 sm6 md4>
+      <v-col xs12 sm6 md4 class="DataCard">
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
           :chart-data="contactsGraph"
@@ -156,15 +152,10 @@ export default {
 
 <style lang="scss" scoped>
 .MainPage {
-  padding: 0 10px;
-  .InfoBanner {
-    padding: 10px;
-  }
   .DataBlock {
-    margin: 20px 0;
+    margin: 20px -12px;
     .DataCard {
       margin-bottom: 20px;
-      padding: 0 10px;
     }
   }
 }
