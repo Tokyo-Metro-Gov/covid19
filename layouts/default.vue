@@ -77,6 +77,11 @@ export default {
     overflow-y: auto;
     height: 100vh;
   }
+  @include lessThan($small) {
+    .container {
+      padding-top: 16px !important;
+    }
+  }
 }
 .loader {
   height: 200px;
