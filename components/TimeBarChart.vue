@@ -67,7 +67,9 @@ export default {
         }
       }
       return {
-        lText: this.chartData[this.chartData.length - 1].cummulative,
+        lText: this.chartData[
+          this.chartData.length - 1
+        ].cummulative.toLocaleString(),
         sText: `${this.chartData[this.chartData.length - 1].label} の累計`,
         unit: this.unit
       }
