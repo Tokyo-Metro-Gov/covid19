@@ -24,6 +24,7 @@
           :chart-data="patientsGraph"
           :chart-option="option"
           :date="Data.lastUpdate"
+          :info="diffInfoOfPatients"
         />
       </v-col>
       <v-col xs12 sm6 md4 class="DataCard">
@@ -32,6 +33,7 @@
           :chart-data="patientsTable"
           :chart-option="{}"
           :date="Data.lastUpdate"
+          :info="sumInfoOfPatients"
         />
       </v-col>
 
@@ -81,6 +83,20 @@ export default {
       Data.patients.data.filter(patient => patient['備考'] === '死亡')
     )
 
+    const diffInfoOfPatients = {
+      lText:
+        '+' +
+        (patientsGraph[patientsGraph.length - 1].cummulative -
+          patientsGraph[patientsGraph.length - 2].cummulative),
+      sText: '前日比',
+      unit: '人'
+    }
+    const sumInfoOfPatients = {
+      lText: patientsGraph[patientsGraph.length-1].cummulative,
+      sText: patientsGraph[patientsGraph.length-1].label +'の累計',
+      unit: '人'
+    }
+
     const data = {
       Data,
       patientsTable,
@@ -88,6 +104,8 @@ export default {
       dischargesTable,
       dischargesGraph,
       contactsGraph,
+      diffInfoOfPatients,
+      sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: '都内の最新感染動向',

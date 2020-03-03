@@ -99,7 +99,7 @@ export default {
           divider: true
         },
         {
-          title: '公式発表',
+          title: '東京都新型コロナウイルス感染症対策本部報',
           link:
             'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         },
@@ -108,20 +108,20 @@ export default {
           link:
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
         },
-        {
-          title: '東京都公式ホームページ',
-          link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
-        },
-        {
+        /* {
           title: '知事からのメッセージ',
           link: '/#'
-        },
+        }, */
         {
           title: '当サイトについて',
           link: '/about',
+        },
+        {
+          title: '東京都公式ホームページ',
+          link:
+            'https://www.metro.tokyo.lg.jp/',
           divider: true
-        }
+        },
       ]
     }
   },

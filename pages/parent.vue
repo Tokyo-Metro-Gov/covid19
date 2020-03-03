@@ -1,8 +1,8 @@
 <template>
   <div class="Parent">
-    <h1 class="Parent-Heading">
+    <h2 class="Parent-Heading">
       臨時休校中の新型コロナウイルス感染症対応についてのお願い
-    </h1>
+    </h2>
     <div v-for="(item, i) in items" :key="i">
       <TextCard :title="item.title" :body="item.body" />
     </div>
@@ -29,7 +29,7 @@ export default {
         },
         {
           title: '3 その他',
-          body: '〇  詳細は、各学校からの通知をご確認ください。'
+          body: '〇  詳細は、各学校からのお知らせ等をご確認ください。'
         }
       ]
     }

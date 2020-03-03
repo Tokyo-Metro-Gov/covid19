@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date">
+  <data-view :title="title" :date="date" :info="info">
     <template v-slot:button>
       <data-selector v-model="dataKind" />
     </template>
@@ -35,6 +35,11 @@ export default {
       type: String,
       required: true,
       default: ''
+    },
+    info: {
+      type: Object,
+      required: false,
+      default: () => {}
     }
   },
   data() {
