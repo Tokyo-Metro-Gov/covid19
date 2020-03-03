@@ -32,6 +32,7 @@ export default class DataView extends Vue {
 .DataView {
   &-DataInfo {
     &-summary {
+      font-weight: 600;
       color: $gray-2;
       font-family: Hiragino Sans;
       font-style: normal;
@@ -63,6 +64,7 @@ export default class DataView extends Vue {
   &-TitleContainer {
     padding: 14px 0 8px;
     color: $gray-2;
+    font-weight: 600;
   }
   &-Title {
     @include card-h2();
