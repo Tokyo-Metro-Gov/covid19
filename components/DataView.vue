@@ -13,7 +13,9 @@
     <v-card-text class="DataView-CardText">
       <slot />
     </v-card-text>
-    <v-footer class="DataView-Footer"> {{ date }} 更新 </v-footer>
+    <v-footer class="DataView-Footer">
+{{ date }} 更新
+</v-footer>
   </v-card>
 </template>
 
@@ -36,14 +38,19 @@ export default class DataView extends Vue {
       font-style: normal;
       font-size: 30px;
       line-height: 30px;
+      text-align: right;
       &-unit {
         font-size: 0.6em;
+        width: 100%;
+        display: inline-block;
       }
     }
     &-date {
       font-size: 12px;
       line-height: 12px;
       color: #808080;
+      width: 100%;
+      display: inline-block;
     }
   }
 }
@@ -75,5 +82,8 @@ export default class DataView extends Vue {
 }
 .v-toolbar__content {
   height: 80px !important;
+}
+.v-toolbar__title {
+  white-space: inherit;
 }
 </style>
