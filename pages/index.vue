@@ -34,22 +34,7 @@
           :date="Data.patients.date"
         />
       </v-col>
-      <v-col xs12 sm6 md4 class="DataCard">
-        <time-bar-chart
-          title="退院者数"
-          :chart-data="dischargesGraph"
-          :chart-option="option"
-          :date="Data.discharges.date"
-        />
-      </v-col>
-      <v-col xs12 sm6 md4 class="DataCard">
-        <data-table
-          :title="'退院者の属性'"
-          :chart-data="dischargesTable"
-          :chart-option="{}"
-          :date="Data.discharges.date"
-        />
-      </v-col>
+  
       <v-col xs12 sm6 md4 class="DataCard">
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
