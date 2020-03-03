@@ -15,18 +15,6 @@
   </v-card>
 </template>
 
-<style>
-.DataView {
-  height: 100%;
-}
-.DataView-CardText {
-  margin-bottom: 46px;
-}
-.DataView-Footer {
-  margin: 4px 0px 12px !important;
-}
-</style>
-
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
@@ -40,6 +28,7 @@ export default class DataView extends Vue {
 <style lang="scss">
 .DataView {
   @include card-container();
+  height: 100%;
   &-Header {
     background-color: transparent !important;
     height: auto !important;
@@ -49,6 +38,9 @@ export default class DataView extends Vue {
   }
   &-Title {
     @include card-h2();
+  }
+  &-CardText {
+    margin-bottom: 46px;
   }
   &-Footer {
     background-color: $white !important;
