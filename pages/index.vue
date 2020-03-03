@@ -45,6 +45,14 @@
           :date="Data.lastUpdate"
         />
       </v-col>
+      <v-col xs12 sm6 md4 class="DataCard">
+        <time-bar-chart
+          title="帰国者・接触者電話相談センター相談件数"
+          :chart-data="querentsGraph"
+          :chart-option="option"
+          :date="Data.lastUpdate"
+        />
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -78,6 +86,8 @@ export default {
     const dischargesTable = formatTable(Data.discharges.data)
     // 相談件数
     const contactsGraph = formatGraph(Data.contacts.data)
+    // 帰国者・接触者電話相談センター相談件数
+    const querentsGraph = formatGraph(Data.querents.data)
     // 死亡者数
     const fatalitiesTable = formatTable(
       Data.patients.data.filter(patient => patient['備考'] === '死亡')
@@ -104,6 +114,7 @@ export default {
       dischargesTable,
       dischargesGraph,
       contactsGraph,
+      querentsGraph,
       diffInfoOfPatients,
       sumInfoOfPatients,
       headerItem: {
