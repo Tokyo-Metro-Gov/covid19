@@ -110,18 +110,18 @@ export default {
         },
         {
           title: '知事からのメッセージ',
-          link: 'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+          link:
+            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
         },
         {
           title: '当サイトについて',
-          link: '/about',
+          link: '/about'
         },
         {
           title: '東京都公式ホームページ',
-          link:
-            'https://www.metro.tokyo.lg.jp/',
+          link: 'https://www.metro.tokyo.lg.jp/',
           divider: true
-        },
+        }
       ]
     }
   },
@@ -169,6 +169,9 @@ export default {
   }
   &-HeadingDivider {
     margin: 0px 20px 4px;
+    @include lessThan(600) {
+      display: none;
+    }
   }
   &-Divider {
     margin: 12px 0;
