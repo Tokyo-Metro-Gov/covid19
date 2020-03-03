@@ -1,9 +1,7 @@
 <template>
   <div class="SideNavigation">
     <div to="/" class="SideNavigation-HeadingContainer d-flex d-sm-block">
-      <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">
-        mdi-menu
-      </v-icon>
+      <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">mdi-menu</v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo mr-4">
           <img src="/logo.svg" />
@@ -16,9 +14,7 @@
     </div>
     <v-divider class="SideNavigation-HeadingDivider" />
     <div class="d-none d-sm-block" :class="{ open: isNaviOpen && isMobile }">
-      <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="closeNavi">
-        mdi-close
-      </v-icon>
+      <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="closeNavi">mdi-close</v-icon>
       <v-list :flat="true">
         <v-container
           v-for="(item, i) in items"
@@ -26,12 +22,7 @@
           class="SideNavigation-ListItemContainer"
           @click="closeNavi"
         >
-          <ListItem
-            :link="item.link"
-            :icon="item.icon"
-            :title="item.title"
-            :is-mobile="isMobile"
-          />
+          <ListItem :link="item.link" :icon="item.icon" :title="item.title" :is-mobile="isMobile" />
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
@@ -44,9 +35,9 @@
             <img src="/twitter.png" />
           </a>
         </div>
-        <small class="SideNavigation-Copyright">
-          Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.
-        </small>
+        <small
+          class="SideNavigation-Copyright"
+        >Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.</small>
       </div>
     </div>
   </div>
@@ -110,18 +101,18 @@ export default {
         },
         {
           title: '知事からのメッセージ',
-          link: 'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+          link:
+            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
         },
         {
           title: '当サイトについて',
-          link: '/about',
+          link: '/about'
         },
         {
           title: '東京都公式ホームページ',
-          link:
-            'https://www.metro.tokyo.lg.jp/',
+          link: 'https://www.metro.tokyo.lg.jp/',
           divider: true
-        },
+        }
       ]
     }
   },
@@ -139,7 +130,7 @@ export default {
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  flex: 0 1 200px;
+  flex: 0 1 220px;
   background: #fff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
