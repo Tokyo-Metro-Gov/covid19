@@ -118,7 +118,7 @@ export default {
           link: '/#'
         },
         {
-          title: 'このサイトについて',
+          title: '当サイトについて',
           link: '/about',
           divider: true
         }
