@@ -6,9 +6,9 @@
     <bar :chart-data="displayData" :options="chartOption" :height="240" />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
-        :lText=displayInfo.lText
-        :sText=displayInfo.sText
-        :unit=displayInfo.unit
+        :l-text="displayInfo.lText"
+        :s-text="displayInfo.sText"
+        :unit="displayInfo.unit"
       />
     </template>
   </data-view>
@@ -58,10 +58,11 @@ export default {
   computed: {
     displayInfo() {
       if (this.dataKind === 'transition') {
-        const diff = this.chartData[this.chartData.length - 1].transition -
+        const diff =
+          this.chartData[this.chartData.length - 1].transition -
           this.chartData[this.chartData.length - 2].transition
         return {
-          lText: `${(diff < 0 ? '':'+')}${diff}`,
+          lText: `${diff < 0 ? '' : '+'}${diff}`,
           sText: '前日比',
           unit: this.unit
         }
