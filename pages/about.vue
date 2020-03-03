@@ -1,8 +1,8 @@
 <template>
   <div class="About">
-    <h1 class="About-Heading">
+    <h2 class="About-Heading">
       このサイトについて
-    </h1>
+    </h2>
     <TextCard>
       このサイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。<br />
       <br />
