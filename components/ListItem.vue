@@ -178,6 +178,6 @@ svg.isActive {
   font-size: 0.75rem;
 }
 .mobile {
-  font-size: 1.25rem;
+  font-size: 0.85rem;
 }
 </style>
