@@ -68,6 +68,7 @@ function readPatients() : array
                 '属性' => $row[6],
                 '備考' => $row[7],
                 '補足' => $row[8],
+                '退院' => $row[9]
             ];
         }
     }
@@ -111,14 +112,66 @@ function patientsSummary(array $patients) : array {
   ];
 }
 
-$patients = readPatients();
-$patients_summary = patientsSummary($patients);
+
+function discharges(array $patients) : array {
+  $result =[];
+  foreach ($patients['data'] as $row) {
+    if ($row['退院'] == '〇') {
+      $result[] = $row;
+    }
+  }
+
+  return [
+    'date' => $patients['date'],
+    'data' => $result
+  ];
+}
+
+
+function dischargesSummary(array $patients) : array {
+  $temp = [];
+  $begin = Carbon::parse('2020-01-23');
+  while(true) {
+    if ($begin->diffInDays(Carbon::now()) == 0) {
+      break;
+    } else {
+      $temp[$begin->addDay()->format('Y-m-d').'T08:00:00.000Z'] =0;
+
+    }
+
+  }
+  foreach ($patients['data'] as $row) {
+    if ($row['退院'] == '〇') {
+      $temp[$row['リリース日']] ++;
+    }
+  }
+
+  $result = [];
+  foreach ($temp as $key => $value) {
+    $result[] = [
+      '日付' => $key,
+      '小計' => $value,
+    ];
+  }
+  return [
+    'date' => $patients['date'],
+    'data' => $result
+  ];
+}
+
 $contacts = readContacts();
 
+
+$patients = readPatients();
+$patients_summary = patientsSummary($patients);
+$discharges_summary = dischargesSummary($patients);
+$discharges = discharges($patients);
 $data = compact([
   'contacts',
   'patients',
   'patients_summary',
+  'discharges_summary',
+  'discharges'
 ]);
 $lastUpdate = '';
 $lastTime = 0;
