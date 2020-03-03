@@ -9,7 +9,7 @@
         新型コロナウイルス感染症にかかる相談窓口について
       </h2>
       <div class="Flow-Card-Images">
-        <img src="/flow.png" alt="相談のフロー" class="only-pc" />
+        <DesktopFlowSvg class="only-pc" />
         <img src="/flow_sp.png" alt="相談のフロー" class="only-sp" />
       </div>
       <a
@@ -28,9 +28,9 @@
 
 <script>
 import CovidIcon from '@/static/covid.svg'
-
+import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
 export default {
-  components: { CovidIcon }
+  components: { CovidIcon, DesktopFlowSvg}
 }
 </script>
 
