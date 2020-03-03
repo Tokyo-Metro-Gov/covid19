@@ -8,7 +8,7 @@
       :items="chartData.datasets"
       :items-per-page="-1"
       :hide-default-footer="true"
-      :height="200"
+      :height="456"
       :fixed-header="true"
       class="cardTable"
     />
@@ -54,6 +54,17 @@
       }
     }
   }
+  &.v-data-table {
+    position: relative;
+    width: 100%;
+    padding-top: 59.8739% !important;
+  }
+  .v-data-table__wrapper {
+    top:0;
+    height: 100% !important;
+    width: 100%;
+    position: absolute;
+  }
 }
 </style>
 
@@ -81,6 +92,6 @@ export default {
         required: false,
         default: () => {}
     }
-  }
+  },
 }
 </script>
