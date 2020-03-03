@@ -1,8 +1,8 @@
 <template>
   <div class="DataView-DataInfo">
     <span class="DataView-DataInfo-summary">
-
-      {{ lText }}<small class="DataView-DataInfo-summary-unit">{{ unit }}</small>
+      {{ lText
+      }}<small class="DataView-DataInfo-summary-unit">{{ unit }}</small>
     </span>
     <br />
     <small class="DataView-DataView-DataInfo-date">{{ sText }}</small>
@@ -12,7 +12,10 @@
 <style lang="scss">
 .DataView {
   &-DataInfo {
+    margin-top: 20px;
+    text-align: right;
     &-summary {
+      display: inline-block;
       font-family: Hiragino Sans;
       font-style: normal;
       font-size: 30px;
@@ -22,6 +25,7 @@
       }
     }
     &-date {
+      display: inline-block;
       font-size: 12px;
       line-height: 12px;
       color: #808080;
