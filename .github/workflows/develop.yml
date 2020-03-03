@@ -1,4 +1,4 @@
-name: staging deploy
+name: build check
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - staging
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -27,7 +27,6 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run test
       - run: yarn run generate --fail-on-page-error
-
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
