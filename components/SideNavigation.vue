@@ -108,10 +108,10 @@ export default {
           link:
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
         },
-        /* {
+        {
           title: '知事からのメッセージ',
-          link: '/#'
-        }, */
+          link: 'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+        },
         {
           title: '当サイトについて',
           link: '/about',
