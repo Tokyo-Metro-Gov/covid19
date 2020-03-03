@@ -47,8 +47,7 @@ export default {
       if (this.dataKind === 'transition') {
         return {
           labels: this.chartData.map(d => {
-            let dates = d.label.split("/");
-            return dates[0]+'月' + dates[1] +'日';
+            return d.label
           }),
           datasets: [
             {
@@ -64,8 +63,7 @@ export default {
       }
       return {
         labels: this.chartData.map(d => {
-          let dates = d.label.split("/");
-          return dates[0]+'月' + dates[1] +'日';
+          return d.label
         }),
         datasets: [
           {
