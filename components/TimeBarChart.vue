@@ -6,9 +6,9 @@
     <bar :chart-data="displayData" :options="chartOption" :height="240" />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
-        :lText=displayInfo.lText
-        :sText=displayInfo.sText
-        :unit=displayInfo.unit
+        :l-text="displayInfo.lText"
+        :s-text="displayInfo.sText"
+        :unit="displayInfo.unit"
       />
     </template>
   </data-view>
@@ -59,13 +59,17 @@ export default {
     displayInfo() {
       if (this.dataKind === 'transition') {
         return {
-          lText: `+${this.chartData[this.chartData.length - 1].transition}`,
+          lText: `+${this.chartData[
+            this.chartData.length - 1
+          ].transition.toLocaleString()}`,
           sText: '前日比',
           unit: this.unit
         }
       }
       return {
-        lText: this.chartData[this.chartData.length - 1].cummulative,
+        lText: this.chartData[
+          this.chartData.length - 1
+        ].cummulative.toLocaleString(),
         sText: `${this.chartData[this.chartData.length - 1].label} の累計`,
         unit: this.unit
       }
