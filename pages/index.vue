@@ -24,7 +24,7 @@
           :chart-data="patientsGraph"
           :chart-option="option"
           :date="Data.lastUpdate"
-          :info="diffInfoOfPatients"
+          :unit="'人'"
         />
       </v-col>
       <v-col xs12 sm6 md4 class="DataCard">
@@ -43,6 +43,7 @@
           :chart-data="contactsGraph"
           :chart-option="option"
           :date="Data.lastUpdate"
+          :unit="'件'"
         />
       </v-col>
       <v-col xs12 sm6 md4 class="DataCard">
@@ -51,6 +52,7 @@
           :chart-data="querentsGraph"
           :chart-option="option"
           :date="Data.lastUpdate"
+          :unit="'件'"
         />
       </v-col>
     </v-row>
@@ -93,14 +95,6 @@ export default {
       Data.patients.data.filter(patient => patient['備考'] === '死亡')
     )
 
-    const diffInfoOfPatients = {
-      lText:
-        '+' +
-        (patientsGraph[patientsGraph.length - 1].cummulative -
-          patientsGraph[patientsGraph.length - 2].cummulative),
-      sText: '前日比',
-      unit: '人'
-    }
     const sumInfoOfPatients = {
       lText: patientsGraph[patientsGraph.length - 1].cummulative,
       sText: patientsGraph[patientsGraph.length - 1].label + 'の累計',
@@ -115,7 +109,6 @@ export default {
       dischargesGraph,
       contactsGraph,
       querentsGraph,
-      diffInfoOfPatients,
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
