@@ -94,6 +94,15 @@ export default {
         date: Data.lastUpdate
       },
       option: {
+        tooltips:{
+          displayColors:false,
+          callbacks:{
+            label: function (tooltipItem, data){
+              let labelText = tooltipItem.value + "人";
+              return labelText;
+            }
+          }
+        },
         responsive: true,
         legend: {
           display: false
