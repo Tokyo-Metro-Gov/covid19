@@ -178,7 +178,8 @@ $lastTime = 0;
 foreach ($data as $arr) {
     $timestamp = Carbon::parse($arr['date'])->format('YmdHis');
     if ($lastTime <= $timestamp) {
-      $lastUpdate = $arr['date'];
+      $lastTime = $timestamp;
+      $lastUpdate = Carbon::parse($arr['date'])->addDay()->format('Y/n/d 8:00');
     }
 }
 $data['lastUpdate'] = $lastUpdate;
