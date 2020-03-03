@@ -59,7 +59,9 @@ export default {
     displayInfo() {
       if (this.dataKind === 'transition') {
         return {
-          lText: `+${this.chartData[this.chartData.length - 1].transition}`,
+          lText: `+${this.chartData[
+            this.chartData.length - 1
+          ].transition.toLocaleString()}`,
           sText: '前日比',
           unit: this.unit
         }
