@@ -113,8 +113,8 @@ export default {
           link: '/#'
         }, */
         {
-          title: 'このサイトについて',
-          link: '/about'
+          title: '当サイトについて',
+          link: '/about',
         },
         {
           title: '東京都公式ホームページ',
