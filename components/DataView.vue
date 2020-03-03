@@ -32,6 +32,7 @@ export default class DataView extends Vue {
 .DataView {
   &-DataInfo {
     &-summary {
+      color: $gray-2;
       font-family: Hiragino Sans;
       font-style: normal;
       font-size: 30px;
