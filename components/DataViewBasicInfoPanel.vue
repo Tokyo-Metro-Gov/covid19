@@ -1,32 +1,13 @@
 <template>
-  <v-card class="DataView pa-1">
-    <v-toolbar flat>
-      <div class="DataView-TitleContainer">
-        <v-toolbar-title>
-          {{ title }}
-        </v-toolbar-title>
-        <slot name="button" />
-      </div>
-      <v-spacer />
-      <slot name="infoPanel" />
-    </v-toolbar>
-    <v-card-text class="DataView-CardText">
-      <slot />
-    </v-card-text>
-    <v-footer class="DataView-Footer"> {{ date }} 更新 </v-footer>
-  </v-card>
+  <div class="DataView-DataInfo">
+    <span class="DataView-DataInfo-summary">
+
+      {{ lText }}<small class="DataView-DataInfo-summary-unit">{{ unit }}</small>
+    </span>
+    <br />
+    <small class="DataView-DataView-DataInfo-date">{{ sText }}</small>
+  </div>
 </template>
-
-<script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
-
-@Component
-export default class DataView extends Vue {
-  @Prop() private title!: string
-  @Prop() private date!: string
-  @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
-}
-</script>
 
 <style lang="scss">
 .DataView {
@@ -77,3 +58,14 @@ export default class DataView extends Vue {
   height: 80px !important;
 }
 </style>
+
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+
+@Component
+export default class DataView extends Vue {
+  @Prop() private lText!: string
+  @Prop() private sText!: string
+  @Prop() private unit!: string
+}
+</script>
