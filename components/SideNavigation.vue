@@ -174,8 +174,6 @@ export default {
     margin: 12px 0;
   }
   &-Footer {
-    position: absolute;
-    bottom: 0;
     padding: 20px;
     background-color: $white;
   }

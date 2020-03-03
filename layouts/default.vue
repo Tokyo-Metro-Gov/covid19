@@ -12,7 +12,7 @@
         :isNaviOpen="isNaviOpen"
         :class="{open: isMobile && isNaviOpen}"
       />
-      <div class="mainContainer">
+      <div class="mainContainer" :class="{open: isMobile && isNaviOpen}">
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
@@ -66,13 +66,17 @@ export default {
   flex: 0 1 200px;
 }
 .open {
+  overflow-x: hidden;
+  overflow-y: auto;
   height: 100vh;
 }
 .mainContainer {
   flex: 1 1 auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-  height: 100vh;
+  @include largerThan(600) {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
+  }
 }
 .loader {
   height: 200px;
