@@ -76,7 +76,7 @@ $small: 450;
   @if ($size == 'sm') {
     padding: 4px 8px;
   } @else {
-    padding: 8px 36px;
+    padding: 24px 36px;
   }
   @include font-size(14);
   display: inline-block;
