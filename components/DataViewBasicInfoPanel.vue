@@ -5,7 +5,7 @@
       }}<small class="DataView-DataInfo-summary-unit">{{ unit }}</small>
     </span>
     <br />
-    <small class="DataView-DataView-DataInfo-date">{{ sText }}</small>
+    <small class="DataView-DataInfo-date">{{ sText }}</small>
   </div>
 </template>
 
