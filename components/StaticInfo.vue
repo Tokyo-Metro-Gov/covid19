@@ -52,6 +52,9 @@ export default class StaticInfo extends Vue {
     > span {
       @include button-text('sm');
     }
+    @include lessThan($small) {
+      margin-top: 4px;
+    }
   }
 }
 </style>
