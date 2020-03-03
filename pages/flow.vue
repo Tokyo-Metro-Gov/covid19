@@ -20,7 +20,7 @@
             <img src="/flow/sp/sp_flow_01_02@2x.png" alt="流行地域への渡航・居住歴がある方　ご本人か濃厚接触をした方／呼吸器症状かつ発熱37.5℃以上" />
           </div>
           <div>
-            <a href="#sodan"><img src="/flow/sp/sp_flow_01_02_03_nav@2x.png" alt="新型コロナ受診相談窓口へ" /></a>
+            <a href="#consult"><img src="/flow/sp/sp_flow_01_02_03_nav@2x.png" alt="新型コロナ受診相談窓口へ" /></a>
           </div>
         </div>
         <div class="Flow-Card-Parts">
@@ -28,7 +28,7 @@
             <img src="/flow/sp/sp_flow_02@2x.png" alt="一般の方／風邪のような症状・発熱37.5℃以上・強いだるさ・息苦しさ／４日以上続いている" />
           </div>
           <div>
-            <a href="#sodan"><img src="/flow/sp/sp_flow_01_02_03_nav@2x.png" alt="新型コロナ受診相談窓口へ" /></a>
+            <a href="#consult"><img src="/flow/sp/sp_flow_01_02_03_nav@2x.png" alt="新型コロナ受診相談窓口へ" /></a>
           </div>
         </div>
         <div class="Flow-Card-Parts">
@@ -36,7 +36,7 @@
             <img src="/flow/sp/sp_flow_03@2x.png" alt="ご高齢な方・基礎疾患のある方・妊娠中の方／風邪のような症状・発熱37.5℃以上・強いだるさ・息苦しさ／２日以上続いている" />
           </div>
           <div>
-            <a href="#sodan"><img src="/flow/sp/sp_flow_01_02_03_nav@2x.png" alt="新型コロナ受診相談窓口へ" /></a>
+            <a href="#consult"><img src="/flow/sp/sp_flow_01_02_03_nav@2x.png" alt="新型コロナ受診相談窓口へ" /></a>
           </div>
         </div>
         <div class="Flow-Card-Parts">
@@ -47,10 +47,10 @@
             <a href="tel:0570550571"><img src="/flow/sp/sp_flow_tel_01@2x.png" alt="0570-550571" /></a>
           </div>
           <div class="mt-4">
-            <a href="#sodan"><img src="/flow/sp/sp_flow_04_nav@2x.png" alt="専門的な助言が必要な場合"></a>
+            <a href="#consult"><img src="/flow/sp/sp_flow_04_nav@2x.png" alt="専門的な助言が必要な場合"></a>
           </div>
         </div>
-        <div class="Flow-Card-Parts Flat" id="sodan">
+        <div class="Flow-Card-Parts Flat" id="consult">
           <h3 class="SodanHeader Title">新型コロナ受診相談窓口</h3>
           <p class="SodanHeader">帰国者・接触者電話相談センター</p>
           <div class="SodanHeader">
@@ -80,28 +80,28 @@
           </div>
           <div class="Col2Btn">
             <div class="mx-1 mb-5">
-              <a href="#jushinfuyo"><img src="/flow/sp/sp_flow_06_nav_01@2x.png" alt="検査の必要なし" /></a>
+              <a href="#not_required"><img src="/flow/sp/sp_flow_06_nav_01@2x.png" alt="検査の必要なし" /></a>
             </div>
             <div class="mx-1 mb-5">
-              <a href="#kensa"><img src="/flow/sp/sp_flow_06_nav_02@2x.png" alt="検査の必要あり" /></a>
+              <a href="#pcr"><img src="/flow/sp/sp_flow_06_nav_02@2x.png" alt="検査の必要あり" /></a>
             </div>
           </div>
-          <div class="mx-2 mb-5" id="kensa">
+          <div class="mx-2 mb-5" id="pcr">
             <img src="/flow/sp/sp_flow_06_02@2x.png" alt="PCR検査　東京都健康安全研究センター等" />
           </div>
           <div class="Col2Btn">
             <div class="mx-1 mb-5">
-              <a href="#jushinfuyo"><img src="/flow/sp/sp_flow_06_nav_03@2x.png" alt="陰性" /></a>
+              <a href="#not_required"><img src="/flow/sp/sp_flow_06_nav_03@2x.png" alt="陰性" /></a>
             </div>
             <div class="mx-1 mb-5">
-              <a href="#nyuin"><img src="/flow/sp/sp_flow_06_nav_04@2x.png" alt="陽性" /></a>
+              <a href="#hospitalized"><img src="/flow/sp/sp_flow_06_nav_04@2x.png" alt="陽性" /></a>
             </div>
           </div>
-          <div class="mx-2" id="jushinfuyo">
+          <div class="mx-2" id="not_required">
             <img src="/flow/sp/sp_flow_06_03@2x.png" alt="新型コロナ外来受診が不要と判断された場合／自宅で安静に過ごす・一般の医療機関を受診／症状が良くならない場合は新型コロナ受診相談窓口に相談" />
           </div>
         </div>
-        <div class="Flow-Card-Parts" id="nyuin">
+        <div class="Flow-Card-Parts" id="hospitalized">
           <div class="Smaller">
             <img src="/flow/sp/sp_flow_06@2x.png" alt="入院となります／感染症指定医療機関等" />
           </div>
