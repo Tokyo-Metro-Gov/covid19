@@ -1,10 +1,10 @@
 name: screenshot
 
-# on: pull_request
-on:
-  push:
-    branches:
-      - dummy
+on: pull_request
+#on:
+#  push:
+#    branches:
+#      - dummy
 
 jobs:
   screenshot:
@@ -27,8 +27,13 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run test
       - run: yarn run generate
+      - name: Upload dist
+        uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist
       - run: pip install selenium
-      - run: (python -m http.server --directory ./dist 8000 &)  ; python ./ui-test/screenshot.py
+      - run: timeout 300 (python -m http.server --directory ./dist 8000 &)  ; python ./ui-test/screenshot.py
       - name: Upload screenshot
         uses: actions/upload-artifact@v1
         with:
