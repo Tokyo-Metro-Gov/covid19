@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
   mode: 'universal',
   /*
@@ -70,7 +71,7 @@ module.exports = {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxtjs/vuetify', '@nuxt/typescript-build'],
+  buildModules: ['@nuxtjs/vuetify', '@nuxt/typescript-build', '@nuxtjs/google-analytics'],
   typescript: {
     typeCheck: true,
     ignoreNotFoundWarnings: true
@@ -99,6 +100,9 @@ module.exports = {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {}
+  },
+  googleAnalytics: {
+    id: 'UA-159417676-1'
   }
   // /*
   // ** Build configuration
