@@ -118,7 +118,6 @@ export default class ListItem extends Vue {
     & .ListItem-Text {
       overflow: visible;
       white-space: normal;
-      line-height: 1.4;
     }
     &:hover {
       color: transparent !important;
@@ -183,7 +182,7 @@ svg.isActive {
   }
 }
 .desktop {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
 }
 .mobile {
   font-size: 0.85rem;
