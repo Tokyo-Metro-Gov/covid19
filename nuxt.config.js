@@ -46,13 +46,12 @@ module.exports = {
       src: '@/plugins/vue-chart.js',
       ssr: true
     },
-    '@/plugins/datetime-formatter.js',
-    { src: '~plugins/ga.js', mode: 'client' }
+    '@/plugins/datetime-formatter.js'
   ],
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxtjs/vuetify', '@nuxt/typescript-build'],
+  buildModules: ['@nuxtjs/vuetify', '@nuxt/typescript-build', '@nuxtjs/google-analytics'],
   typescript: {
     typeCheck: true,
     ignoreNotFoundWarnings: true
@@ -81,6 +80,9 @@ module.exports = {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {}
+  },
+  googleAnalytics: {
+    id: 'UA-159417676-1'
   }
   // /*
   // ** Build configuration
