@@ -84,6 +84,6 @@ export default class DataView extends Vue {
   height: 80px !important;
 }
 .v-toolbar__title {
-  white-space: inherit;
+  white-space: inherit!;
 }
 </style>
