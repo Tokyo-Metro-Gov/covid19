@@ -10,7 +10,7 @@
         </div>
         <h1 class="SideNavigation-Heading">
           東京都
-          <br />新型コロナウイルス感染症対策本部
+          <br />新型コロナウイルス対策サイト
         </h1>
       </nuxt-link>
     </div>

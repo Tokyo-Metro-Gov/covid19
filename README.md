@@ -1,6 +1,6 @@
-# 東京都 新型コロナウイルス感染症対策本部
+# 東京都 新型コロナウイルス対策サイト
 
-![東京都 新型コロナウイルス感染症対策本部](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)
+![東京都 新型コロナウイルス対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)
 
 
 ## How to Contribute / 貢献の仕方
