@@ -1,8 +1,8 @@
 <template>
   <div class="Worker">
-    <h1 class="Worker-Heading">
+    <h2 class="Worker-Heading">
       企業の皆様・はたらく皆様へ
-    </h1>
+    </h2>
     <div v-for="(item, i) in items" :key="i">
       <TextCard :title="item.title" :body="item.body" />
     </div>
