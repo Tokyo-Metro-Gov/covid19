@@ -70,9 +70,11 @@ export default {
 }
 .mainContainer {
   flex: 1 1 auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-  height: 100vh;
+  @include largerThan(600) {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
+  }
 }
 .loader {
   height: 200px;
