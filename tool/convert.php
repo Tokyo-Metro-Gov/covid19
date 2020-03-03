@@ -23,7 +23,7 @@ function readContacts() : array
   $data = $sheet->rangeToArray("A2:E100");
   $result = [];
   foreach ($data as $row) {
-    if (isset($row[0],$row[1],$row[2],$row[3],$row[4])) {
+    if (isset($row[0],$row[4])) {
       $date = '2020-'.str_replace(['月', '日'], ['-', ''], $row[0]);
       $carbon = Carbon::parse($date);
       $result[] = [
