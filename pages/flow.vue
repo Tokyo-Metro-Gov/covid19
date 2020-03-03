@@ -183,7 +183,7 @@ export default {
       .SodanHeader {
         text-align: center;
         &.Title {
-          @include font-size(20);
+          @include font-size(24);
         }
       }
       .SodanChip {
