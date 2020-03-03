@@ -61,6 +61,7 @@ export default class DataView extends Vue {
   }
   &-TitleContainer {
     padding: 14px 0 8px;
+    color: $gray-2;
   }
   &-Title {
     @include card-h2();
