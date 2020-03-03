@@ -13,35 +13,71 @@ function formatDate(string $date) :string
     }
 }
 
+
+
 function readContacts() : array
 {
-    $reader = new PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-    $spreadsheet = $reader->load('downloads/コールセンター相談件数-RAW.xlsx');
-    $sheet = $spreadsheet->getSheetByName("Sheet1");
-    $data = $sheet->rangeToArray("A2:E100");
-    $result = [];
-    foreach ($data as $row) {
-        if (isset($row[0],$row[1],$row[2],$row[3],$row[4])) {
-            $date = '2020-'.str_replace(['月', '日'], ['-', ''], $row[0]);
-            $carbon = Carbon::parse($date);
-            $result[] = [
-                '日付' =>  $carbon->format('Y-m-d').'T08:00:00.000Z',
-                'date' => $carbon->format('Y-m-d'),
-                'short_date' => $carbon->format('m/d'),
-                '曜日' => $row[1],
-                'w' => $carbon->format('w'),
-                '9-13時' => $row[2],
-                '13-17時' => $row[3],
-                '17-21時' => $row[4],
-                '小計' => $row[2]+$row[3]+$row[4],
-                //'累積' => $row[2]+$row[3]+$row[4] + ($result[count($result)-1]['累積'] ?? 0)
-            ];
-        }
+  $reader = new PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+  $spreadsheet = $reader->load('downloads/コールセンター相談件数-RAW.xlsx');
+  $sheet = $spreadsheet->getSheetByName("Sheet1");
+  $data = $sheet->rangeToArray("A2:E100");
+  $result = [];
+  foreach ($data as $row) {
+    if (isset($row[0],$row[1],$row[2],$row[3],$row[4])) {
+      $date = '2020-'.str_replace(['月', '日'], ['-', ''], $row[0]);
+      $carbon = Carbon::parse($date);
+      $result[] = [
+        '日付' =>  $carbon->format('Y-m-d').'T08:00:00.000Z',
+        'date' => $carbon->format('Y-m-d'),
+        'short_date' => $carbon->format('m/d'),
+        '曜日' => $row[1],
+        'w' => $carbon->format('w'),
+        '9-13時' => $row[2]?? 0,
+        '13-17時' => $row[3]?? 0,
+        '17-21時' => $row[4]?? 0,
+        '小計' => $row[2]+$row[3]+$row[4],
+        //'累積' => $row[2]+$row[3]+$row[4] + ($result[count($result)-1]['累積'] ?? 0)
+      ];
     }
-    return [
-      'date' => formatDate($sheet->getCell("H1")->getValue()),
-      'data' => $result
-    ];
+  }
+  return [
+    'date' => formatDate($sheet->getCell("H1")->getValue()),
+    'data' => $result
+  ];
+}
+
+/*
+ * 取り急ぎreadContactsからコピペ
+ * 過渡期がすぎたら共通処理にしたい。→マクロ入ってる
+ */
+function readQuerents() : array
+{
+  $reader = new PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+  $spreadsheet = $reader->load('downloads/帰国者・接触者センター相談件数-RAW.xlsx');
+  $sheet = $spreadsheet->getSheetByName("RAW");
+  $data = $sheet->rangeToArray("A2:D100");
+  $result = [];
+  foreach ($data as $row) {
+    if (isset($row[0],$row[3])) {
+      $date = '2020-'.str_replace(['月', '日'], ['-', ''], $row[0]);
+
+      $carbon = Carbon::parse($date);
+      $result[] = [
+        '日付' =>  $carbon->format('Y-m-d').'T08:00:00.000Z',
+        'date' => $carbon->format('Y-m-d'),
+        'short_date' => $carbon->format('m/d'),
+        '曜日' => $row[1],
+        'w' => $carbon->format('w'),
+        '9-17時' => $row[2] ?? 0,
+        '17-翌9時' => $row[3] ?? 0,
+        '小計' => $row[2]+$row[3],
+      ];
+    }
+  }
+  return [
+    'date' => formatDate($sheet->getCell("H1")->getValue()),
+    'data' => $result
+  ];
 }
 
 function readPatients() : array
@@ -160,7 +196,7 @@ function dischargesSummary(array $patients) : array {
 }
 
 $contacts = readContacts();
-
+$querents = readQuerents();
 
 $patients = readPatients();
 $patients_summary = patientsSummary($patients);
@@ -168,6 +204,7 @@ $discharges_summary = dischargesSummary($patients);
 $discharges = discharges($patients);
 $data = compact([
   'contacts',
+  'querents',
   'patients',
   'patients_summary',
   'discharges_summary',
