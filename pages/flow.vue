@@ -80,8 +80,6 @@ export default {
     &-Button {
       @include button-text('md');
       margin: 12px auto 0;
-      height: 80px;
-      line-height: 60px;
       @include font-size(20);
       font-weight: 600;
       text-decoration: none;
