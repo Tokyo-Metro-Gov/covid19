@@ -86,7 +86,8 @@ export default {
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   img {
-    margin-bottom: 20px;
+    display: block;
+    margin: 0 auto 20px;
   }
 }
 </style>
