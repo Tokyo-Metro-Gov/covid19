@@ -113,9 +113,7 @@ export default {
           displayColors:false,
           callbacks:{
             label: function (tooltipItem, data){
-              let d = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.datasetIndex];
-              let labelText = d + "人"
-              ;
+              let labelText = tooltipItem.value + "人";
               return labelText;
             }
           }
