@@ -58,11 +58,8 @@ export default {
   computed: {
     displayInfo() {
       if (this.dataKind === 'transition') {
-        const diff =
-          this.chartData[this.chartData.length - 1].transition -
-          this.chartData[this.chartData.length - 2].transition
         return {
-          lText: `${diff < 0 ? '' : '+'}${diff}`,
+          lText: `+${this.chartData[this.chartData.length - 1].transition}`,
           sText: '前日比',
           unit: this.unit
         }
