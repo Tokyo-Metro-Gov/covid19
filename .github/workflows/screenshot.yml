@@ -11,7 +11,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cp ui-test\dummy.json dist\data/\data.json
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
