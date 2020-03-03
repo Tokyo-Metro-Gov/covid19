@@ -13,6 +13,7 @@
 .DataView {
   &-DataInfo {
     margin-top: 20px;
+    text-align: right;
     &-summary {
       display: inline-block;
       font-family: Hiragino Sans;
@@ -24,6 +25,7 @@
       }
     }
     &-date {
+      display: inline-block;
       font-size: 12px;
       line-height: 12px;
       color: #808080;
