@@ -39,10 +39,10 @@ export default class DataView extends Vue {
       font-size: 30px;
       line-height: 30px;
       text-align: right;
+      white-space: nowrap;
       &-unit {
         font-size: 0.6em;
         width: 100%;
-        display: inline-block;
       }
     }
     &-date {
