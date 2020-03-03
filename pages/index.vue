@@ -7,9 +7,9 @@
     />
     <whats-new
       class="mb-4"
-      date="2020年3月2日"
-      url="https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html"
-      text="新型コロナウイルスに関連した患者の発生について（第53報）"
+      date="2020年3月3日"
+      url="https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/03/28.html"
+      text="新型コロナウイルスに関連した患者の発生について（第65報）"
     />
     <StaticInfo
       class="mb-4"
@@ -92,8 +92,8 @@ export default {
       unit: '人'
     }
     const sumInfoOfPatients = {
-      lText: patientsGraph[patientsGraph.length-1].cummulative,
-      sText: patientsGraph[patientsGraph.length-1].label +'の累計',
+      lText: patientsGraph[patientsGraph.length - 1].cummulative,
+      sText: patientsGraph[patientsGraph.length - 1].label + 'の累計',
       unit: '人'
     }
 
@@ -112,12 +112,12 @@ export default {
         date: Data.lastUpdate
       },
       option: {
-        tooltips:{
-          displayColors:false,
-          callbacks:{
-            label: function (tooltipItem, data){
-              let labelText = tooltipItem.value + "人";
-              return labelText;
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            label(tooltipItem, data) {
+              const labelText = tooltipItem.value + '人'
+              return labelText
             }
           }
         },
