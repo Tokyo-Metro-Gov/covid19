@@ -9,8 +9,10 @@
           <img src="/logo.svg" />
         </div>
         <h1 class="SideNavigation-Heading">
-          東京都
-          <br />新型コロナウイルス対策サイト
+          <span class="SideNavigation-HeadingTitle">東京都<br /></span>
+          新型コロナウイルス<br
+            class="SideNavigation-HeadingMobileBreak"
+          />対策サイト
         </h1>
       </nuxt-link>
     </div>
@@ -110,18 +112,18 @@ export default {
         },
         {
           title: '知事からのメッセージ',
-          link: 'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+          link:
+            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
         },
         {
           title: '当サイトについて',
-          link: '/about',
+          link: '/about'
         },
         {
           title: '東京都公式ホームページ',
-          link:
-            'https://www.metro.tokyo.lg.jp/',
+          link: 'https://www.metro.tokyo.lg.jp/',
           divider: true
-        },
+        }
       ]
     }
   },
@@ -139,12 +141,15 @@ export default {
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  flex: 0 1 200px;
+  flex: 0 1 220px;
   background: #fff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
     align-items: center;
+    @include lessThan(600) {
+      padding: 7px 0 7px 20px;
+    }
   }
   &-HeadingLink {
     @include lessThan(600) {
@@ -159,6 +164,9 @@ export default {
   &-Logo {
     margin-top: 20px;
     width: 110px;
+    @include lessThan(600) {
+      margin-top: 0;
+    }
   }
   &-Heading {
     margin-top: 8px;
@@ -166,9 +174,26 @@ export default {
     color: #898989;
     padding: 0.5em 0;
     text-decoration: none;
+    @include lessThan(600) {
+      margin-top: 0;
+    }
+  }
+  &-HeadingTitle {
+    @include lessThan($small) {
+      display: none;
+    }
+  }
+  &-HeadingMobileBreak {
+    display: none;
+    @include lessThan($small) {
+      display: inline;
+    }
   }
   &-HeadingDivider {
     margin: 0px 20px 4px;
+    @include lessThan(600) {
+      display: none;
+    }
   }
   &-Divider {
     margin: 12px 0;
