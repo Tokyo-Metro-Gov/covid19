@@ -1,7 +1,7 @@
 <template>
-  <data-view :title="title" :date="date">
+  <data-view :title="title" :date="date" :info="info">
     <template v-slot:button>
-      {{ `${chartData.datasets.length} 人` }}
+      <span />
     </template>
     <v-data-table
       :headers="chartData.headers"
@@ -65,8 +65,13 @@ export default {
       default: () => {}
     },
     date: {
-      type:String,
+      type: String,
       default: ''
+    },
+    info: {
+        type: Object,
+        required: false,
+        default: () => {}
     }
   }
 }
