@@ -7,9 +7,9 @@
     />
     <whats-new
       class="mb-4"
-      date="2020年2月29日"
-      url="#"
-      text="新型コロナウイルスに関連した患者の発生について（第37報）"
+      date="2020年3月2日"
+      url="https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html"
+      text="新型コロナウイルスに関連した患者の発生について（第53報）"
     />
     <StaticInfo
       class="mb-4"
@@ -34,7 +34,7 @@
           :date="Data.patients.date"
         />
       </v-col>
-  
+
       <v-col xs12 sm6 md4 class="DataCard">
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
