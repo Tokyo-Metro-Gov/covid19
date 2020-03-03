@@ -9,8 +9,8 @@
           <img src="/logo.svg" />
         </div>
         <h1 class="SideNavigation-Heading">
-          東京都公式
-          <br />新型コロナウイルス対策サイト
+          東京都
+          <br />新型コロナウイルス感染症対策本部
         </h1>
       </nuxt-link>
     </div>
@@ -102,6 +102,11 @@ export default {
           title: '公式発表',
           link:
             'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
+        },
+        {
+          title: '【東京都主催等】中止又は延期するイベント・説明会等',
+          link:
+            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
         },
         {
           title: '東京都公式ホームページ',
