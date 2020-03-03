@@ -10,6 +10,7 @@
       :hide-default-footer="true"
       :height="200"
       :fixed-header="true"
+      :mobile-breakpoint="0"
       class="cardTable"
     />
     <template v-slot:infoPanel>
@@ -77,9 +78,9 @@ export default {
       default: ''
     },
     info: {
-        type: Object,
-        required: false,
-        default: () => {}
+      type: Object,
+      required: false,
+      default: () => {}
     }
   }
 }
