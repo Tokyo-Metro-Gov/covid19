@@ -31,14 +31,14 @@ img {
     }
   }
   .Flow-Card {
-    >.only-pc {
-      orphans: 10;
-    }
     >.only-sp {
       display: none;
     }
     >.Flow-Card-Button {
       display: none;
     }
+  }
+  .v-data-table__wrapper {
+  	height: 100% !important;
   }
 }
