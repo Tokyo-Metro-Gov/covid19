@@ -91,9 +91,10 @@ export default {
     // 帰国者・接触者電話相談センター相談件数
     const querentsGraph = formatGraph(Data.querents.data)
     // 死亡者数
-    const fatalitiesTable = formatTable(
-      Data.patients.data.filter(patient => patient['備考'] === '死亡')
-    )
+    // #MEMO: 今後使う可能性あるので一時コメントアウト
+    // const fatalitiesTable = formatTable(
+    //   Data.patients.data.filter(patient => patient['備考'] === '死亡')
+    // )
 
     const sumInfoOfPatients = {
       lText: patientsGraph[
@@ -121,7 +122,7 @@ export default {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem, data) {
+            label(tooltipItem) {
               const labelText = tooltipItem.value + '人'
               return labelText
             }
