@@ -34,6 +34,11 @@ export default {
         }
       ]
     }
+  },
+  head() {
+    return {
+      title: '企業の皆様・はたらく皆様へ'
+    }
   }
 }
 </script>
