@@ -44,6 +44,9 @@
           <a href="https://twitter.com/tokyo_bousai">
             <img src="/twitter.png" />
           </a>
+          <a href="https://github.com/tokyo-metropolitan-gov/covid19">
+            <img src="/github.png" />
+          </a>
         </div>
         <small class="SideNavigation-Copyright">
           Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.
