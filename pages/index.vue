@@ -5,16 +5,7 @@
       :title="headerItem.title"
       :date="headerItem.date"
     />
-    <TextCard title="最新のニュース">
-      <div v-for="(item, i) in newsItems" :key="i">
-        <whats-new
-          class="mb-4"
-          :date="item.date"
-          :url="item.url"
-          :text="item.text"
-        />
-      </div>
-    </TextCard>
+    <whats-new class="mb-4" :items="newsItems" />
     <StaticInfo
       class="mb-4"
       :url="'/flow'"
@@ -126,12 +117,12 @@ export default {
       },
       newsItems: [
         {
-          date: "2020年3月3日",
-          url: "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/03/28.html",
-          text: "新型コロナウイルスに関連した患者の発生について（第65報）"
+          date: "2020/03/04",
+          url: "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/04/20.html",
+          text: "新型コロナウイルス感染症への対応に伴う都内公立学校の臨時休業措置状況について（第66報）"
         },
         {
-          date: "2020年3月3日",
+          date: "2020/03/03",
           url: "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/03/28.html",
           text: "新型コロナウイルスに関連した患者の発生について（第65報）"
         },
