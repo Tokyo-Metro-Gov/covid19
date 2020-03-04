@@ -75,23 +75,6 @@
     "Government official website": "東京都公式ホームページ",
     "Message from Governor Koike": "知事からのメッセージ",
     "About us": "当サイトについて"
-  },
-  "en": {
-    "Tokyo": "Tokyo",
-    "COVID-19": "COVID-19",
-    "Measures site": "measures site",
-    "Tokyo Metropolitan Government": "Tokyo Metropolitan Government",
-    "Tokyo COVID-19 Task Force": "Tokyo COVID-19 Task Force",
-    "The latest updates": "The latest updates",
-    "If you have any symptoms": "If you have any symptoms",
-    "for Families with children": "for Families with children",
-    "for Citizens": "for Citizens",
-    "for Enterprises and Employees": "for Enterprises and Employees",
-    "Official statements from Task Force": "Official statements from Task Force",
-    "Cancelled public events": "Cancelled public events",
-    "Government official website": "Government official website",
-    "Message from Governor Koike": "Message from Governor Koike",
-    "About us": "About us"
   }
 }
 </i18n>
