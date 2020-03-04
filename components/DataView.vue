@@ -10,7 +10,7 @@
       <v-spacer />
       <slot name="infoPanel" />
     </v-toolbar>
-    <v-card-text class="DataView-CardText">
+    <v-card-text :class="$vuetify.breakpoint.xs ? 'DataView-CardTextForXS' : 'DataView-CardText'">
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer"> {{ date }} 更新 </v-footer>
@@ -76,7 +76,11 @@ export default class DataView extends Vue {
   }
   &-CardText {
     margin-bottom: 46px;
-    margin-top: 20px;
+    margin-top: 35px;
+  }
+  &-CardTextForXS {
+    margin-bottom: 46px;
+    margin-top: 50px;
   }
   &-Footer {
     background-color: $white !important;
