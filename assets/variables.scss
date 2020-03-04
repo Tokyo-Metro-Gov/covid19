@@ -24,10 +24,6 @@ $medium: 768;
 $small: 450;
 
 // ==================
-// side-navigation
-$sp-navigation-height: 64px;
-
-// ==================
 // media-query
 @mixin largerThan($width) {
 	@media screen and (min-width: $width + 1 + px) {
