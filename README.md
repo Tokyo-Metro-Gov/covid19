@@ -36,10 +36,10 @@ $ yarn dev
 `staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト https://stg-covid19-tokyo.netlify.com/ が更新されます。
 
 
-When `master` branch is updated, the HTML files will automatically be built onto `production` branch,
+When `master` branch is updated, the HTML files will be automatically built onto `production` branch,
 and then the production site (https://stopcovid19.metro.tokyo.lg.jp/) will be also updated.
 
-When `staging` branch is updated, the HTML files will automatically be built onto `gh-pages` branch,
+When `staging` branch is updated, the HTML files will be automatically built onto `gh-pages` branch,
 and then the staging site (https://stg-covid19-tokyo.netlify.com/) will be also updated.
 
 
