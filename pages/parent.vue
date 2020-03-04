@@ -50,4 +50,7 @@ export default {
     margin-bottom: 12px;
   }
 }
+a {
+  @include text-link();
+}
 </style>
