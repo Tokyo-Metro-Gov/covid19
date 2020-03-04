@@ -9,7 +9,7 @@
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" />
+          <img src="/logo.svg" :alt="$t('Tokyo')" />
         </div>
         <h1 class="SideNavigation-Heading">
           <span class="SideNavigation-HeadingTitle">
@@ -44,10 +44,10 @@
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a href="https://line.me/R/ti/p/%40822sysfc#~">
-            <img src="/line.png" />
+            <img src="/line.png" alt="LINE" />
           </a>
           <a href="https://twitter.com/tokyo_bousai">
-            <img src="/twitter.png" />
+            <img src="/twitter.png" alt="Twitter" />
           </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
