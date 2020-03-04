@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 use Carbon\Carbon;
-
+use Tightenco\Collect\Support\Collection;
 
 
 function formatDate(string $date) :string
@@ -13,14 +13,19 @@ function formatDate(string $date) :string
     }
 }
 
+function xlsxToArray(string $path, string $sheet, string $range)
+{
+  $reader = new PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+  $spreadsheet = $reader->load($path);
+  $sheet = $spreadsheet->getSheetByName($sheet);
+  return new Collection($sheet->rangeToArray($range));
+}
 
 
 function readContacts() : array
 {
-  $reader = new PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-  $spreadsheet = $reader->load('downloads/コールセンター相談件数-RAW.xlsx');
-  $sheet = $spreadsheet->getSheetByName("Sheet1");
-  $data = $sheet->rangeToArray("A2:E100");
+
+  $data = xlsxToArray('downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'A2:E100');
   $result = [];
   foreach ($data as $row) {
     if (isset($row[0],$row[4])) {
@@ -36,12 +41,11 @@ function readContacts() : array
         '13-17時' => $row[3]?? 0,
         '17-21時' => $row[4]?? 0,
         '小計' => $row[2]+$row[3]+$row[4],
-        //'累積' => $row[2]+$row[3]+$row[4] + ($result[count($result)-1]['累積'] ?? 0)
       ];
     }
   }
   return [
-    'date' => formatDate($sheet->getCell("H1")->getValue()),
+    'date' => xlsxToArray('downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'H1')[0][0],
     'data' => $result
   ];
 }
@@ -52,10 +56,7 @@ function readContacts() : array
  */
 function readQuerents() : array
 {
-  $reader = new PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-  $spreadsheet = $reader->load('downloads/帰国者・接触者センター相談件数-RAW.xlsx');
-  $sheet = $spreadsheet->getSheetByName("RAW");
-  $data = $sheet->rangeToArray("A2:D100");
+  $data = xlsxToArray('downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'A2:D100');
   $result = [];
   foreach ($data as $row) {
     if (isset($row[0],$row[3])) {
@@ -75,19 +76,14 @@ function readQuerents() : array
     }
   }
   return [
-    'date' => formatDate($sheet->getCell("H1")->getValue()),
+    'date' => xlsxToArray('downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'H1')[0][0],
     'data' => $result
   ];
 }
 
 function readPatients() : array
 {
-    $reader = new PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-    $spreadsheet = $reader->load('downloads/東京都患者発生発表数-RAW.xlsx');
-    $sheet = $spreadsheet->getSheetByName("RAW");
-    $data = $sheet->rangeToArray("A2:J100");
-    $result = [];
-
+    $data = xlsxToArray('downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'A2:J100');
     foreach ($data as $row) {
 
         if (isset($row[0],$row[1],$row[2],$row[3],$row[4],$row[5])) {
@@ -109,7 +105,7 @@ function readPatients() : array
         }
     }
     return [
-      'date' => formatDate($sheet->getCell("M1")->getValue()),
+      'date' => xlsxToArray('downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'M1')[0][0],
       'data' => $result
     ];
 }
@@ -212,8 +208,9 @@ $data = compact([
 ]);
 $lastUpdate = '';
 $lastTime = 0;
-foreach ($data as $arr) {
-    $timestamp = Carbon::parse($arr['date'])->format('YmdHis');
+foreach ($data as &$arr) {
+    $arr['date'] = formatDate($arr['date']);
+    $timestamp = Carbon::parse()->format('YmdHis');
     if ($lastTime <= $timestamp) {
       $lastTime = $timestamp;
       $lastUpdate = Carbon::parse($arr['date'])->addDay()->format('Y/n/d 8:00');
