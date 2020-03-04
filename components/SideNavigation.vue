@@ -51,7 +51,7 @@
           </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
-          Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.
+          Copyright © 2020 Tokyo Metropolitan Government. All Rights Reserved
         </small>
       </div>
     </div>
@@ -150,8 +150,8 @@ export default {
       ]
     },
     isClass() {
-      return item => item.title.charAt(0) === '【' ? 'kerningLeft' : ''
-    },
+      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
+    }
   },
   methods: {
     openNavi() {
