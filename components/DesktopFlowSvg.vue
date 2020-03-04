@@ -928,20 +928,20 @@
         </g>
       </g>
       <g transform="translate(0 -19)">
-        <g transform="translate(19 5)">
-          <a xlink:href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html" target="_blank">
-            <text class="c" transform="translate(803 311)" style="">
-              <tspan x="0" y="0">各保健所の電話番号は</tspan>
-              <tspan x="0" y="22">福祉保健局HPへ</tspan>
-            </text>
-          </a>
-          <g transform="translate(927 318)">
-            <path class="d" d="M0,0H19V19H0Z" />
-            <path class="ao"
-                  d="M15.667,15.667H4.583V4.583h5.542V3H4.583A1.583,1.583,0,0,0,3,4.583V15.667A1.583,1.583,0,0,0,4.583,17.25H15.667a1.588,1.588,0,0,0,1.583-1.583V10.125H15.667ZM11.708,3V4.583H14.55L6.768,12.365l1.116,1.116L15.667,5.7V8.542H17.25V3Z"
-                  transform="translate(-0.625 -0.625)" />
+        <a xlink:href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html" target="_blank">
+          <g transform="translate(19 5)">
+              <text class="c" transform="translate(803 311)" style="">
+                <tspan x="0" y="0">各保健所の電話番号は</tspan>
+                <tspan x="0" y="22">福祉保健局HPへ</tspan>
+              </text>
+              <g transform="translate(927 318)">
+                <path class="d" d="M0,0H19V19H0Z" />
+                <path class="ao"
+                      d="M15.667,15.667H4.583V4.583h5.542V3H4.583A1.583,1.583,0,0,0,3,4.583V15.667A1.583,1.583,0,0,0,4.583,17.25H15.667a1.588,1.588,0,0,0,1.583-1.583V10.125H15.667ZM11.708,3V4.583H14.55L6.768,12.365l1.116,1.116L15.667,5.7V8.542H17.25V3Z"
+                      transform="translate(-0.625 -0.625)" />
+              </g>
           </g>
-        </g>
+        </a>
       </g>
       <text class="an" transform="translate(633 679)">
         <tspan x="-79.555" y="0">0570-550571</tspan>
