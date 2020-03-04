@@ -13,7 +13,10 @@
     <v-card-text class="DataView-CardText">
       <slot />
     </v-card-text>
-    <v-footer class="DataView-Footer"> {{ date }} 更新 </v-footer>
+    <v-footer class="DataView-Footer">
+      <a class="OpenDataLink" :href="url" target="_blank">オープンデータへのリンク</a>
+      <span>{{ date }} 更新</span>
+    </v-footer>
   </v-card>
 </template>
 
