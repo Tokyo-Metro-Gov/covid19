@@ -50,14 +50,24 @@ export default {
   margin: 5px;
   font-size: 14px;
 
+  @include lessThan($medium) {
+    flex-wrap: wrap;
+  }
+
   &-time {
     flex: 0 0 90px;
+    @include lessThan($medium) {
+      flex: 0 0 100%;
+    }
     color: $gray-1;
   }
 
   &-link {
     flex: 0 1 auto;
     @include text-link();
+    @include lessThan($medium) {
+      padding-left: 15px;
+    }
   }
 }
 </style>
