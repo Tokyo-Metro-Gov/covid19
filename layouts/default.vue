@@ -1,19 +1,19 @@
 <template>
   <v-app class="app">
-    <div class="loader" v-if="loading">
-      <img src="/logo.svg" alt="東京都" />
+    <div v-if="loading" class="loader">
+      <img src="/logo.svg" />
       <scale-loader color="#00A040" />
     </div>
-    <div class="appContainer" v-else>
+    <div v-else class="appContainer">
       <div class="naviContainer">
         <SideNavigation
+          :is-navi-open="isNaviOpen"
+          :class="{ open: isNaviOpen }"
           @openNavi="showNavi"
           @closeNavi="hideNavi"
-          :isNaviOpen="isNaviOpen"
-          :class="{open: isNaviOpen}"
         />
       </div>
-      <div class="mainContainer" :class="{open: isNaviOpen}">
+      <div class="mainContainer" :class="{ open: isNaviOpen }">
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
@@ -27,31 +27,40 @@ import SideNavigation from '@/components/SideNavigation'
 export default {
   components: {
     ScaleLoader,
-    SideNavigation,
-  },
-  head() {
-    return {
-      link: [
-        { rel: 'canonical', href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}` },
-      ],
-    };
+    SideNavigation
   },
   data() {
     return {
       isNaviOpen: false,
-      loading: true,
-    }
-  },
-  methods:{
-    showNavi: function(){
-      this.isNaviOpen = true;
-    },
-    hideNavi: function(){
-      this.isNaviOpen = false;
+      loading: true
     }
   },
   mounted() {
     this.loading = false
+  },
+  methods: {
+    showNavi() {
+      this.isNaviOpen = true
+    },
+    hideNavi() {
+      this.isNaviOpen = false
+    }
+  },
+  head() {
+    return {
+      link: [
+        {
+          rel: 'canonical',
+          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+        }
+      ]
+    }
+  },
+  head() {
+    const { htmlAttrs } = this.$nuxtI18nSeo()
+    return {
+      htmlAttrs
+    }
   }
 }
 </script>
