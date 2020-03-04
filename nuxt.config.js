@@ -43,6 +43,26 @@ module.exports = {
         hid: 'og:image',
         property: 'og:image',
         content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@tokyo_bousai'
+      },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: '@tokyo_bousai'
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
       }
     ],
     link: [
