@@ -1,8 +1,7 @@
 <template>
   <div class="DataView-DataInfo">
     <span class="DataView-DataInfo-summary">
-      {{ lText
-      }}
+      {{ lText }}
       <small class="DataView-DataInfo-summary-unit">{{ unit }}</small>
     </span>
     <br />
@@ -26,6 +25,7 @@
       }
     }
     &-date {
+      white-space: nowrap;
       display: inline-block;
       font-size: 12px;
       line-height: 12px;
