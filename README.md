@@ -14,8 +14,8 @@ All contributions are welcome!
 Please check [How to contribute](https://github.com/tokyo-metropolitan-gov/covid19/wiki/How-to-contribute) for details.
 
 ## License / ライセンス
-本ソフトウェアは、MITライセンスの元提供されています。
-This software is released under the MIT License,
+本ソフトウェアは、MITライセンスの元提供されています。 
+This software is released under the MIT License.
 
 ## For Developers / 開発者向け情報
 
