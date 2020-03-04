@@ -44,17 +44,17 @@
       Google Analyticsの利用規約及びプライバシーポリシーに関する説明については、Google Analyticsのサイトをご覧ください。<br />
       <ul>
         <li>
-          <a href="https://marketingplatform.google.com/about/analytics/terms/jp" target="_blank">
+          <a href="https://marketingplatform.google.com/about/analytics/terms/jp" target="_blank" rel="noopener">
             Google Analytics利用規約
           </a>
         </li>
         <li>
-          <a href="https://policies.google.com/privacy?hl=ja" target="_blank">
+          <a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noopener">
             Googleのプライバシーポリシー
           </a>
         </li>
         <li>
-          <a href="https://support.google.com/analytics/answer/6004245" target="_blank">
+          <a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener">
             Google Analyticsに関する詳細情報
           </a>
         </li>
