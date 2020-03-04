@@ -4,15 +4,14 @@
       <img src="/logo.svg" />
       <scale-loader color="#00A040" />
     </div>
-    <div class="d-sm-flex" v-else>
+    <div class="appContainer" v-else>
       <SideNavigation
         @openNavi="showNavi"
         @closeNavi="hideNavi"
-        :isMobile="isMobile"
         :isNaviOpen="isNaviOpen"
-        :class="{open: isMobile && isNaviOpen}"
+        :class="{open: isNaviOpen}"
       />
-      <div class="mainContainer" :class="{open: isMobile && isNaviOpen}">
+      <div class="mainContainer" :class="{open: isNaviOpen}">
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
@@ -31,14 +30,10 @@ export default {
   data() {
     return {
       isNaviOpen: false,
-      isMobile: false,
       loading: true,
     }
   },
   methods:{
-    handleResize: function() {
-      this.isMobile = window.innerWidth < 600;
-    },
     showNavi: function(){
       this.isNaviOpen = true;
     },
@@ -47,12 +42,7 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('resize', this.handleResize);
-    this.handleResize();
     this.loading = false
-  },
-  destroyed() {
-    window.removeEventListener('resize', this.handleResize);
   }
 }
 </script>
@@ -61,6 +51,11 @@ export default {
   max-width: 1440px;
   margin: 0 auto;
   background-color: inherit !important;
+}
+.appContainer {
+  @include largerThan($small) {
+    display: flex;
+  }
 }
 .navi {
   flex: 0 1 200px;
@@ -72,7 +67,7 @@ export default {
 }
 .mainContainer {
   flex: 1 1 auto;
-  @include largerThan(600) {
+  @include largerThan($small) {
     overflow-x: hidden;
     overflow-y: auto;
     height: 100vh;
