@@ -30,6 +30,7 @@ $ yarn dev
 
 **docker compose を使う場合**
 ```bash 
+# serve with hot reload at localhost:3000
 $ docker-compose up
 ```
 
