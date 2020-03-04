@@ -12,7 +12,7 @@
     "test": "echo 'skip tests (there is no test)'"
   },
   "lint-staged": {
-    "*.js": [
+    "*.{js,ts,scss,css,vue}": [
       "eslint --fix",
       "git add"
     ]
