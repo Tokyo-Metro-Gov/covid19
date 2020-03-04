@@ -1,9 +1,9 @@
-name: development deploy
+name: staging deploy
 
 on:
   push:
     branches:
-      - development
+      - staging
 
 jobs:
   deploy:
@@ -34,4 +34,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          publish_branch: dev-pages

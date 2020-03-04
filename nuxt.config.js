@@ -140,5 +140,8 @@ module.exports = {
     "Scope": "/",
     "start_url": "/",
     "splash_pages": null
-  }
+  },
+  generate: {
+    fallback: true
+  },
 }
