@@ -103,7 +103,7 @@ module.exports = {
   },
   googleAnalytics: {
     id: 'UA-159417676-1'
-  }
+  },
   // /*
   // ** Build configuration
   // */
@@ -114,4 +114,13 @@ module.exports = {
   //   extend (config, ctx) {
   //   }
   // },
+  manifest: {
+    "name": "東京都 新型コロナウイルス対策サイト",
+    "theme_color": "#00a040",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "Scope": "/",
+    "start_url": "/",
+    "splash_pages": null
+  }
 }
