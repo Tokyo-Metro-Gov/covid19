@@ -71,10 +71,10 @@
       当サイトで公表しているデータは、東京都オープンデータサイト(準備中)より誰でも自由にダウンロードが可能です。
     </TextCard>
 
-    <TextCard title="お問い合わせ先（都の㏋サイトポリシーについて）">
+    <TextCard title="お問い合わせ先（都のHPサイトポリシーについて）">
       東京都生活文化局広報広聴部広報課<br />
       電話　
-      <a href="tel:03-5388-308">03-5388-3085</a>
+      <a href="tel:03-5388-3085">03-5388-3085</a>
     </TextCard>
   </div>
 </template>
@@ -85,6 +85,11 @@ import TextCard from '@/components/TextCard.vue'
 export default {
   components: {
     TextCard
+  },
+  head() {
+    return {
+      title: '当サイトについて'
+    }
   }
 }
 </script>

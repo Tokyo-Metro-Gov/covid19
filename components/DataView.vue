@@ -1,6 +1,6 @@
 <template>
   <v-card class="DataView pa-1">
-    <v-toolbar flat>
+    <v-toolbar flat class="DataView-content">
       <div class="DataView-TitleContainer">
         <v-toolbar-title>
           {{ title }}
@@ -32,6 +32,8 @@ export default class DataView extends Vue {
 .DataView {
   &-DataInfo {
     &-summary {
+      font-weight: 600;
+      color: $gray-2;
       font-family: Hiragino Sans;
       font-style: normal;
       font-size: 30px;
@@ -55,12 +57,19 @@ export default class DataView extends Vue {
 .DataView {
   @include card-container();
   height: 100%;
+  &-content {
+    .v-toolbar__content {
+      align-items: start;
+    }
+  }
   &-Header {
     background-color: transparent !important;
     height: auto !important;
   }
   &-TitleContainer {
     padding: 14px 0 8px;
+    color: $gray-2;
+    font-weight: 600;
   }
   &-Title {
     @include card-h2();

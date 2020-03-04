@@ -18,40 +18,40 @@
       :btn-text="'相談の手順を見る'"
     />
     <v-row class="DataBlock">
-      <v-col xs12 sm6 md4 class="DataCard">
+      <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="陽性患者数"
           :chart-data="patientsGraph"
           :chart-option="option"
-          :date="Data.lastUpdate"
+          :date="Data.patients.date"
           :unit="'人'"
         />
       </v-col>
-      <v-col xs12 sm6 md4 class="DataCard">
+      <v-col cols="12" md="6" class="DataCard">
         <data-table
           :title="'陽性患者の属性'"
           :chart-data="patientsTable"
           :chart-option="{}"
-          :date="Data.lastUpdate"
+          :date="Data.patients.date"
           :info="sumInfoOfPatients"
         />
       </v-col>
 
-      <v-col xs12 sm6 md4 class="DataCard">
+      <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
           :chart-data="contactsGraph"
           :chart-option="option"
-          :date="Data.lastUpdate"
+          :date="Data.contacts.date"
           :unit="'件'"
         />
       </v-col>
-      <v-col xs12 sm6 md4 class="DataCard">
+      <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="帰国者・接触者電話相談センター相談件数"
           :chart-data="querentsGraph"
           :chart-option="option"
-          :date="Data.lastUpdate"
+          :date="Data.querents.date"
           :unit="'件'"
         />
       </v-col>
@@ -91,12 +91,15 @@ export default {
     // 帰国者・接触者電話相談センター相談件数
     const querentsGraph = formatGraph(Data.querents.data)
     // 死亡者数
-    const fatalitiesTable = formatTable(
-      Data.patients.data.filter(patient => patient['備考'] === '死亡')
-    )
+    // #MEMO: 今後使う可能性あるので一時コメントアウト
+    // const fatalitiesTable = formatTable(
+    //   Data.patients.data.filter(patient => patient['備考'] === '死亡')
+    // )
 
     const sumInfoOfPatients = {
-      lText: patientsGraph[patientsGraph.length - 1].cummulative,
+      lText: patientsGraph[
+        patientsGraph.length - 1
+      ].cummulative.toLocaleString(),
       sText: patientsGraph[patientsGraph.length - 1].label + 'の累計',
       unit: '人'
     }
@@ -119,7 +122,7 @@ export default {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem, data) {
+            label(tooltipItem) {
               const labelText = tooltipItem.value + '人'
               return labelText
             }
@@ -162,6 +165,11 @@ export default {
       }
     }
     return data
+  },
+  head() {
+    return {
+      title: '都内の最新感染動向'
+    }
   }
 }
 </script>
