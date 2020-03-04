@@ -1,5 +1,5 @@
 <template>
-  <a class="whatsNewOuter" :href="url" target="_blank">
+  <a class="whatsNewOuter" :href="url" target="_blank" rel="noopener">
     <v-icon size="18" class="whatsNewOuter-Icon">
       mdi-information
     </v-icon>
