@@ -11,3 +11,34 @@ img {
   height: auto;
   vertical-align: bottom;
 }
+
+@media print {
+  .SideNavigation {
+	>.SideNavigation-HeadingDivider {
+      display: none;
+    }
+    >.sp-none {
+      >.v-list {
+        display: none;
+      }
+      >.SideNavigation-Footer {
+        padding-top: 0;
+        padding-bottom: 0;
+        >.SideNavigation-SocialLinkContainer {
+          display: none;
+        }
+      }
+    }
+  }
+  .Flow-Card {
+    >.only-pc {
+      orphans: 10;
+    }
+    >.only-sp {
+      display: none;
+    }
+    >.Flow-Card-Button {
+      display: none;
+    }
+  }
+}
