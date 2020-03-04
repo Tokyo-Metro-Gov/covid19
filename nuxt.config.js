@@ -100,10 +100,10 @@ module.exports = {
             iso: 'en-US'
           }
         ],
-        formatFallbackMessages: true,
         defaultLocale: 'ja',
         vueI18n: {
-          fallbackLocale: 'ja'
+          fallbackLocale: 'ja',
+          formatFallbackMessages: true
         },
         vueI18nLoader: true
       }
