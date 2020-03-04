@@ -183,11 +183,20 @@ export default {
   flex: 0 0 220px;
   background: #fff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+  @include lessThan($small) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+  }
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
     align-items: center;
     @include lessThan($small) {
       padding: 7px 0 7px 20px;
+      height: $sp-navigation-height;
     }
   }
   &-HeadingIcon {

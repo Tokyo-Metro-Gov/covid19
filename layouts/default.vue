@@ -74,7 +74,7 @@ export default {
   }
   @include lessThan($small) {
     .container {
-      padding-top: 16px !important;
+      padding-top: $sp-navigation-height + 16px !important;
     }
   }
 }
