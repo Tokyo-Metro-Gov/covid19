@@ -148,9 +148,7 @@ export default {
           divider: true
         }
       ]
-    }
-  },
-  computed: {
+    },
     isClass() {
       return item => item.title.charAt(0) === '【' ? 'kerningLeft' : ''
     },

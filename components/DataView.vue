@@ -32,7 +32,6 @@ export default class DataView extends Vue {
 .DataView {
   &-DataInfo {
     &-summary {
-      font-weight: 600;
       color: $gray-2;
       font-family: Hiragino Sans;
       font-style: normal;
@@ -58,6 +57,7 @@ export default class DataView extends Vue {
   @include card-container();
   height: 100%;
   &-content {
+    height: auto !important;
     .v-toolbar__content {
       align-items: start;
     }
@@ -69,7 +69,6 @@ export default class DataView extends Vue {
   &-TitleContainer {
     padding: 14px 0 8px;
     color: $gray-2;
-    font-weight: 600;
   }
   &-Title {
     @include card-h2();
@@ -88,7 +87,7 @@ export default class DataView extends Vue {
   }
 }
 .v-toolbar__content {
-  height: 80px !important;
+  height: auto !important;
 }
 .v-toolbar__title {
   white-space: inherit !important;
