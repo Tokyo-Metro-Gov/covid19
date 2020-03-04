@@ -46,7 +46,6 @@ export default class DataView extends Vue {
       font-style: normal;
       font-size: 30px;
       line-height: 30px;
-      text-align: right;
       white-space: nowrap;
       &-unit {
         font-size: 0.6em;
@@ -88,11 +87,18 @@ export default class DataView extends Vue {
   }
   &-Footer {
     background-color: $white !important;
-    text-align: right;
     margin: 2px 4px 12px;
-    flex-direction: row-reverse;
     @include font-size(12);
     color: $gray-3 !important;
+    justify-content: space-between;
+
+    .OpenDataLink {
+      text-decoration: none;
+
+      .ExternalLinkIcon {
+        vertical-align: text-bottom;
+      }
+    }
   }
 }
 .v-toolbar__content {
