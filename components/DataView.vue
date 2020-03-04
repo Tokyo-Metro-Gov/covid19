@@ -80,7 +80,7 @@ export default class DataView extends Vue {
   }
   &-CardTextForXS {
     margin-bottom: 46px;
-    margin-top: 50px;
+    margin-top: 70px;
   }
   &-Footer {
     background-color: $white !important;
