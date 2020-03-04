@@ -23,7 +23,7 @@
           title="陽性患者数"
           :chart-data="patientsGraph"
           :chart-option="option"
-          :date="Data.lastUpdate"
+          :date="Data.patients.date"
           :unit="'人'"
         />
       </v-col>
@@ -32,7 +32,7 @@
           :title="'陽性患者の属性'"
           :chart-data="patientsTable"
           :chart-option="{}"
-          :date="Data.lastUpdate"
+          :date="Data.patients.date"
           :info="sumInfoOfPatients"
         />
       </v-col>
@@ -42,7 +42,7 @@
           title="新型コロナコールセンター相談件数"
           :chart-data="contactsGraph"
           :chart-option="option"
-          :date="Data.lastUpdate"
+          :date="Data.contacts.date"
           :unit="'件'"
         />
       </v-col>
@@ -51,7 +51,7 @@
           title="帰国者・接触者電話相談センター相談件数"
           :chart-data="querentsGraph"
           :chart-option="option"
-          :date="Data.lastUpdate"
+          :date="Data.querents.date"
           :unit="'件'"
         />
       </v-col>
