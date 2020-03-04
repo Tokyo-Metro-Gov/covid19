@@ -16,7 +16,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: '東京都 新型コロナウイルス対策サイト'
+        content: '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
       },
       {
         hid: 'og:site_name',
@@ -37,7 +37,7 @@ module.exports = {
       {
         hid: 'og:description',
         property: 'og:description',
-        content: '東京都 新型コロナウイルス対策サイト'
+        content: '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
       },
       {
         hid: 'og:image',
