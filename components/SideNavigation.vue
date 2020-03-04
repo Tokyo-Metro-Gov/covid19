@@ -45,7 +45,7 @@
             <img src="/twitter.png" />
           </a>
         </div>
-        <small class="SideNavigation-Copyright">
+        <small class="SideNavigation-Copyright" lang="en">
           Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.
         </small>
       </div>
