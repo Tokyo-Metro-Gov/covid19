@@ -125,7 +125,12 @@
 import CovidIcon from '@/static/covid.svg'
 import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
 export default {
-  components: { CovidIcon, DesktopFlowSvg}
+  components: { CovidIcon, DesktopFlowSvg},
+  head() {
+    return {
+      title: '新型コロナウイルス感染症が心配なときに'
+    }
+  }
 }
 </script>
 
