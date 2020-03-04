@@ -8,15 +8,15 @@ module.exports = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: '東京都 新型コロナウイルス対策サイト',
+    titleTemplate: '%s | 東京都 新型コロナウイルス対策サイト',
+    title: '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: '東京都 新型コロナウイルス対策サイト'
+        content: '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
       },
       {
         hid: 'og:site_name',
@@ -37,7 +37,7 @@ module.exports = {
       {
         hid: 'og:description',
         property: 'og:description',
-        content: '東京都 新型コロナウイルス対策サイト'
+        content: '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
       },
       {
         hid: 'og:image',
@@ -86,6 +86,24 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     ['@nuxtjs/moment', ['ja']],
+    [
+      'nuxt-i18n',
+      {
+        strategy: 'no_prefix',
+        locales: [
+          {
+            code: 'ja',
+            iso: 'ja_JP'
+          }
+        ],
+        formatFallbackMessages: true,
+        defaultLocale: 'ja',
+        vueI18n: {
+          fallbackLocale: 'ja'
+        },
+        vueI18nLoader: true
+      }
+    ],
     'nuxt-svg-loader'
   ],
   /*
@@ -103,7 +121,7 @@ module.exports = {
   },
   googleAnalytics: {
     id: 'UA-159417676-1'
-  }
+  },
   // /*
   // ** Build configuration
   // */
@@ -114,4 +132,16 @@ module.exports = {
   //   extend (config, ctx) {
   //   }
   // },
+  manifest: {
+    "name": "東京都 新型コロナウイルス対策サイト",
+    "theme_color": "#00a040",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "Scope": "/",
+    "start_url": "/",
+    "splash_pages": null
+  },
+  generate: {
+    fallback: true
+  },
 }

@@ -65,7 +65,7 @@ $small: 450;
 // button
 @mixin text-link {
   @include font-size(14);
-  color: $link;
+  color: $link !important;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
