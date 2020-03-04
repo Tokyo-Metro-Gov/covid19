@@ -94,10 +94,6 @@ module.exports = {
           {
             code: 'ja',
             iso: 'ja_JP'
-          },
-          {
-            code: 'en',
-            iso: 'en-US'
           }
         ],
         formatFallbackMessages: true,
