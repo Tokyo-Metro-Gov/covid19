@@ -47,7 +47,7 @@ export default class DataView extends Vue {
     &-date {
       font-size: 12px;
       line-height: 12px;
-      color: #808080;
+      color: $gray-3;
       width: 100%;
       display: inline-block;
     }
