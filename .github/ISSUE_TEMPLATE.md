@@ -1,3 +1,6 @@
+- [ ] バグ / Bug
+- [ ] 改善提案 / Suggestions for improvement
+
 ## 起こっている問題 / Occurred problem
 * xxxx(できるだけ簡潔に/as concise as possible)
 
