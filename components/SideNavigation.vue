@@ -33,6 +33,7 @@
         <v-container
           v-for="(item, i) in items"
           :key="i"
+          :class="isClass(item)"
           class="SideNavigation-ListItemContainer"
           @click="closeNavi"
         >
@@ -147,7 +148,10 @@ export default {
           divider: true
         }
       ]
-    }
+    },
+    isClass() {
+      return item => item.title.charAt(0) === '【' ? 'kerningLeft' : ''
+    },
   },
   methods: {
     openNavi() {
@@ -163,7 +167,7 @@ export default {
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  flex: 0 0 220px;
+  height: 100%;
   background: #fff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
@@ -245,7 +249,7 @@ export default {
     display: block;
     margin-top: 10px;
     font-size: 8px;
-    line-height: 11px;
+    line-height: 1.2;
     color: $gray-1;
     font-weight: bold;
   }
@@ -261,11 +265,6 @@ export default {
     background-color: #fff;
   }
 }
-@include largerThan($huge) {
-  .SideNavigation {
-    min-width: 325px;
-  }
-}
 @include lessThan($small) {
   .sp-flex {
     display: flex;
@@ -276,5 +275,8 @@ export default {
   .sp-none {
     display: none;
   }
+}
+.kerningLeft {
+  text-indent: -.5em;
 }
 </style>
