@@ -94,10 +94,6 @@ module.exports = {
           {
             code: 'ja',
             iso: 'ja_JP'
-          },
-          {
-            code: 'en',
-            iso: 'en-US'
           }
         ],
         formatFallbackMessages: true,
@@ -144,5 +140,8 @@ module.exports = {
     "Scope": "/",
     "start_url": "/",
     "splash_pages": null
-  }
+  },
+  generate: {
+    fallback: true
+  },
 }

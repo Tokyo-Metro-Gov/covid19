@@ -30,6 +30,7 @@
         <v-container
           v-for="(item, i) in items"
           :key="i"
+          :class="isClass(item)"
           class="SideNavigation-ListItemContainer"
           @click="closeNavi"
         >
@@ -72,23 +73,6 @@
     "Government official website": "東京都公式ホームページ",
     "Message from Governor Koike": "知事からのメッセージ",
     "About us": "当サイトについて"
-  },
-  "en": {
-    "Tokyo": "Tokyo",
-    "COVID-19": "COVID-19",
-    "Measures site": "measures site",
-    "Tokyo Metropolitan Government": "Tokyo Metropolitan Government",
-    "Tokyo COVID-19 Task Force": "Tokyo COVID-19 Task Force",
-    "The latest updates": "The latest updates",
-    "If you have any symptoms": "If you have any symptoms",
-    "for Families with children": "for Families with children",
-    "for Citizens": "for Citizens",
-    "for Enterprises and Employees": "for Enterprises and Employees",
-    "Official statements from Task Force": "Official statements from Task Force",
-    "Cancelled public events": "Cancelled public events",
-    "Government official website": "Government official website",
-    "Message from Governor Koike": "Message from Governor Koike",
-    "About us": "About us"
   }
 }
 </i18n>
@@ -161,7 +145,10 @@ export default {
           divider: true
         }
       ]
-    }
+    },
+    isClass() {
+      return item => item.title.charAt(0) === '【' ? 'kerningLeft' : ''
+    },
   },
   methods: {
     openNavi() {
@@ -177,7 +164,7 @@ export default {
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  flex: 0 0 220px;
+  height: 100%;
   background: #fff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
@@ -257,7 +244,7 @@ export default {
     display: block;
     margin-top: 10px;
     font-size: 8px;
-    line-height: 11px;
+    line-height: 1.2;
     color: $gray-1;
     font-weight: bold;
   }
@@ -273,11 +260,6 @@ export default {
     background-color: #fff;
   }
 }
-@include largerThan($huge) {
-  .SideNavigation {
-    min-width: 325px;
-  }
-}
 @include largerThan($small) {
   .pc-none {
     display: none;
@@ -290,5 +272,8 @@ export default {
   .sp-none {
     display: none;
   }
+}
+.kerningLeft {
+  text-indent: -.5em;
 }
 </style>
