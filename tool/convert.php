@@ -3,7 +3,20 @@ require 'vendor/autoload.php';
 use Carbon\Carbon;
 use Tightenco\Collect\Support\Collection;
 
+function makeDateArray($begin) : Collection{
+  $begin = Carbon::parse($begin);
+  $dates = [];
+  while(true) {
 
+    if ($begin->diffInDays(Carbon::now()) == 0) {
+      break;
+    } else {
+      $dates[$begin->addDay()->format('Y-m-d').'T08:00:00.000Z'] =0;
+
+    }
+  }
+  return new Collection($dates);
+}
 function formatDate(string $date) :string
 {
     if (preg_match('#(\d+/\d+/\d+)/ (\d+:\d+)#', $date, $maches)) {
@@ -13,40 +26,54 @@ function formatDate(string $date) :string
     }
 }
 
-function xlsxToArray(string $path, string $sheet, string $range)
+function xlsxToArray(string $path, string $sheet_name, string $range, $header_range = null)
 {
   $reader = new PhpOffice\PhpSpreadsheet\Reader\Xlsx();
   $spreadsheet = $reader->load($path);
-  $sheet = $spreadsheet->getSheetByName($sheet);
-  return new Collection($sheet->rangeToArray($range));
+  $sheet = $spreadsheet->getSheetByName($sheet_name);
+  $data =  new Collection($sheet->rangeToArray($range));
+  $data = $data->map(function ($row) {
+    return new Collection($row);
+  });
+  if ($header_range !== null) {
+      $headers = xlsxToArray($path, $sheet_name, $header_range)[0];
+      // TODO check same columns length
+      return $data->map(function ($row) use($headers){
+          return $row->mapWithKeys(function ($cell, $idx) use($headers){
+
+            return [
+              $headers[$idx] => $cell
+            ];
+        });
+      });
+  }
+
+  return $data;
 }
 
 
 function readContacts() : array
 {
 
-  $data = xlsxToArray('downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'A2:E100');
-  $result = [];
-  foreach ($data as $row) {
-    if (isset($row[0],$row[4])) {
-      $date = '2020-'.str_replace(['月', '日'], ['-', ''], $row[0]);
-      $carbon = Carbon::parse($date);
-      $result[] = [
-        '日付' =>  $carbon->format('Y-m-d').'T08:00:00.000Z',
-        'date' => $carbon->format('Y-m-d'),
-        'short_date' => $carbon->format('m/d'),
-        '曜日' => $row[1],
-        'w' => $carbon->format('w'),
-        '9-13時' => $row[2]?? 0,
-        '13-17時' => $row[3]?? 0,
-        '17-21時' => $row[4]?? 0,
-        '小計' => $row[2]+$row[3]+$row[4],
-      ];
-    }
-  }
+  $data = xlsxToArray('downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'A2:E100', 'A1:E1');
   return [
     'date' => xlsxToArray('downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'H1')[0][0],
-    'data' => $result
+    'data' => $data->filter(function ($row) {
+        return $row['曜日'] && $row['17-21時'];
+      })->map(function ($row) {
+      $date = '2020-'.str_replace(['月', '日'], ['-', ''], $row['日付']);
+      $carbon = Carbon::parse($date);
+      $row['日付'] = $carbon->format('Y-m-d').'T08:00:00.000Z';
+      $row['date'] = $carbon->format('Y-m-d');
+      $row['w'] = $carbon->format('w');
+      $row['short_date'] = $carbon->format('m/d');
+      $row['小計'] = array_sum([
+        $row['9-13時'] ?? 0,
+        $row['13-17時'] ?? 0,
+        $row['17-21時'] ?? 0,
+      ]);
+      return $row;
+    })
   ];
 }
 
@@ -56,148 +83,90 @@ function readContacts() : array
  */
 function readQuerents() : array
 {
-  $data = xlsxToArray('downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'A2:D100');
-  $result = [];
-  foreach ($data as $row) {
-    if (isset($row[0],$row[3])) {
-      $date = '2020-'.str_replace(['月', '日'], ['-', ''], $row[0]);
+  $data = xlsxToArray('downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'A2:D100', 'A1:D1');
 
-      $carbon = Carbon::parse($date);
-      $result[] = [
-        '日付' =>  $carbon->format('Y-m-d').'T08:00:00.000Z',
-        'date' => $carbon->format('Y-m-d'),
-        'short_date' => $carbon->format('m/d'),
-        '曜日' => $row[1],
-        'w' => $carbon->format('w'),
-        '9-17時' => $row[2] ?? 0,
-        '17-翌9時' => $row[3] ?? 0,
-        '小計' => $row[2]+$row[3],
-      ];
-    }
-  }
   return [
     'date' => xlsxToArray('downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'H1')[0][0],
-    'data' => $result
+    'data' => $data->filter(function ($row) {
+
+      return $row['曜日'] && $row['17-翌9時'];
+    })->map(function ($row) {
+      $date = '2020-'.str_replace(['月', '日'], ['-', ''], $row['日付']);
+      $carbon = Carbon::parse($date);
+      $row['日付'] = $carbon->format('Y-m-d').'T08:00:00.000Z';
+      $row['date'] = $carbon->format('Y-m-d');
+      $row['w'] = $carbon->format('w');
+      $row['short_date'] = $carbon->format('m/d');
+      $row['小計'] = array_sum([
+        $row['9-17時'] ?? 0,
+        $row['17-翌9時'] ?? 0,
+      ]);
+      return $row;
+    })->values()
   ];
 }
 
 function readPatients() : array
 {
-    $data = xlsxToArray('downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'A2:J100');
-    foreach ($data as $row) {
+    $data = xlsxToArray('downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'A2:J100', 'A1:J1');
 
-        if (isset($row[0],$row[1],$row[2],$row[3],$row[4],$row[5])) {
-            $date = '2020-'.str_replace(['月', '日'], ['-', ''], $row[1]);
-            $carbon = Carbon::parse($date);
-            $result[] = [
-                'リリース日' =>  $carbon->format('Y-m-d').'T08:00:00.000Z',
-                'date' => $carbon->format('Y-m-d'),
-                '曜日' => $row[2],
-                'w' => $carbon->format('w'),
-                '居住地' => $row[3],
-                '年代' => $row[4],
-                '性別' => $row[5],
-                '属性' => $row[6],
-                '備考' => $row[7],
-                '補足' => $row[8],
-                '退院' => $row[9]
-            ];
-        }
-    }
     return [
       'date' => xlsxToArray('downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'M1')[0][0],
-      'data' => $result
+      'data' => $data->filter(function ($row) {
+        return $row['リリース日'];
+      })->map(function ($row) {
+        $date = '2020-'.str_replace(['月', '日'], ['-', ''], $row['リリース日']);
+        $carbon = Carbon::parse($date);
+        $row['リリース日'] = $carbon->format('Y-m-d').'T08:00:00.000Z';
+        $row['date'] = $carbon->format('Y-m-d');
+        $row['w'] = $carbon->format('w');
+        $row['short_date'] = $carbon->format('m/d');
+        return $row;
+      })
     ];
 }
-function patientsSummary(array $patients) : array {
-    $temp = [];
-    $begin = Carbon::parse('2020-01-23');
-    while(true) {
+function createSummary(array $patients) {
+  $dates = makeDateArray('2020-01-23');
 
-        if ($begin->diffInDays(Carbon::now()) == 0) {
-            break;
-        } else {
-            $temp[$begin->addDay()->format('Y-m-d').'T08:00:00.000Z'] =0;
-
-        }
-
-    }
-
-    foreach ($patients['data'] as $row) {
-
-        if(!isset($temp[$row['リリース日']])) {
-            echo 'error'.$row['リリース日'];
-        }
-        $temp[$row['リリース日']] ++;
-    }
-
-    $result = [];
-    foreach ($temp as $key => $value) {
-        $result[] = [
-            '日付' => $key,
-            '小計' => $value,
-        ];
-    }
   return [
     'date' => $patients['date'],
-    'data' => $result
+    'data' => $dates->map(function ($val, $key) {
+      return [
+        '日付' => $key,
+        '小計' => $val
+      ];
+    })->merge($patients['data']->groupBy('リリース日')->map(function ($group, $key) {
+      return [
+        '日付' => $key,
+        '小計' => $group->count()
+      ];
+    }))->values()
   ];
+
+
 }
 
 
 function discharges(array $patients) : array {
-  $result =[];
-  foreach ($patients['data'] as $row) {
-    if ($row['退院'] == '〇') {
-      $result[] = $row;
-    }
-  }
 
   return [
     'date' => $patients['date'],
-    'data' => $result
+    'data' => $patients['data']->filter(function ($row) {
+      return $row['退院'] === '〇';
+    })->values()
   ];
 }
 
 
-function dischargesSummary(array $patients) : array {
-  $temp = [];
-  $begin = Carbon::parse('2020-01-23');
-  while(true) {
-    if ($begin->diffInDays(Carbon::now()) == 0) {
-      break;
-    } else {
-      $temp[$begin->addDay()->format('Y-m-d').'T08:00:00.000Z'] =0;
-
-    }
-
-  }
-  foreach ($patients['data'] as $row) {
-    if ($row['退院'] == '〇') {
-      $temp[$row['リリース日']] ++;
-    }
-  }
-
-  $result = [];
-  foreach ($temp as $key => $value) {
-    $result[] = [
-      '日付' => $key,
-      '小計' => $value,
-    ];
-  }
-  return [
-    'date' => $patients['date'],
-    'data' => $result
-  ];
-}
 
 $contacts = readContacts();
 $querents = readQuerents();
 
 $patients = readPatients();
-$patients_summary = patientsSummary($patients);
-$discharges_summary = dischargesSummary($patients);
+$patients_summary = createSummary($patients);
+
 $discharges = discharges($patients);
+$discharges_summary = createSummary($discharges);
 $data = compact([
   'contacts',
   'querents',
@@ -208,7 +177,7 @@ $data = compact([
 ]);
 $lastUpdate = '';
 $lastTime = 0;
-foreach ($data as &$arr) {
+foreach ($data as $key => &$arr) {
     $arr['date'] = formatDate($arr['date']);
     $timestamp = Carbon::parse()->format('YmdHis');
     if ($lastTime <= $timestamp) {
