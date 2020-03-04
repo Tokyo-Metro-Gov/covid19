@@ -2,10 +2,11 @@
   <div class="DataView-DataInfo">
     <span class="DataView-DataInfo-summary">
       {{ lText
-      }}<small class="DataView-DataInfo-summary-unit">{{ unit }}</small>
+      }}
+      <small class="DataView-DataInfo-summary-unit">{{ unit }}</small>
     </span>
     <br />
-    <small class="DataView-DataView-DataInfo-date">{{ sText }}</small>
+    <small class="DataView-DataInfo-date">{{ sText }}</small>
   </div>
 </template>
 
@@ -28,7 +29,7 @@
       display: inline-block;
       font-size: 12px;
       line-height: 12px;
-      color: #808080;
+      color: $gray-3;
     }
   }
 }
@@ -59,7 +60,7 @@
   }
 }
 .v-toolbar__content {
-  height: 80px !important;
+  height: auto !important;
 }
 </style>
 

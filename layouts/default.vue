@@ -4,15 +4,16 @@
       <img src="/logo.svg" />
       <scale-loader color="#00A040" />
     </div>
-    <div class="d-sm-flex" v-else>
-      <SideNavigation
-        @openNavi="showNavi"
-        @closeNavi="hideNavi"
-        :isMobile="isMobile"
-        :isNaviOpen="isNaviOpen"
-        :class="{open: isMobile && isNaviOpen}"
-      />
-      <div class="mainContainer" :class="{open: isMobile && isNaviOpen}">
+    <div class="appContainer" v-else>
+      <div class="naviContainer">
+        <SideNavigation
+          @openNavi="showNavi"
+          @closeNavi="hideNavi"
+          :isNaviOpen="isNaviOpen"
+          :class="{open: isNaviOpen}"
+        />
+      </div>
+      <div class="mainContainer" :class="{open: isNaviOpen}">
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
@@ -31,14 +32,10 @@ export default {
   data() {
     return {
       isNaviOpen: false,
-      isMobile: false,
       loading: true,
     }
   },
   methods:{
-    handleResize: function() {
-      this.isMobile = window.innerWidth < 600;
-    },
     showNavi: function(){
       this.isNaviOpen = true;
     },
@@ -47,12 +44,7 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('resize', this.handleResize);
-    this.handleResize();
     this.loading = false
-  },
-  destroyed() {
-    window.removeEventListener('resize', this.handleResize);
   }
 }
 </script>
@@ -62,8 +54,30 @@ export default {
   margin: 0 auto;
   background-color: inherit !important;
 }
-.navi {
-  flex: 0 1 200px;
+.appContainer {
+  position: relative;
+  @include largerThan($small) {
+    display: grid;
+    grid-template-columns: 240px auto;
+  }
+  @include largerThan($huge) {
+    grid-template-columns: 325px auto;
+  }
+}
+@include largerThan($small) {
+  .naviContainer {
+    grid-column: 1/2;
+    position: fixed;
+    top: 0;
+    overflow-y: auto;
+    width: 240px;
+    height: 100vh;
+  }
+}
+@include largerThan($huge) {
+  .naviContainer {
+    width: 325px;
+  }
 }
 .open {
   overflow-x: hidden;
@@ -71,11 +85,12 @@ export default {
   height: 100vh;
 }
 .mainContainer {
-  flex: 1 1 auto;
-  @include largerThan(600) {
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: 100vh;
+  grid-column: 2/3;
+  overflow: hidden;
+  @include lessThan($small) {
+    .container {
+      padding-top: 16px !important;
+    }
   }
 }
 .loader {

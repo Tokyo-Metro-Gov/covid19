@@ -9,7 +9,7 @@
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "test": "jest"
+    "test": "echo 'skip tests (there is no test)'"
   },
   "lint-staged": {
     "*.js": [
@@ -32,6 +32,7 @@
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "nuxt": "^2.0.0",
+    "nuxt-i18n": "^6.6.0",
     "vue-chartjs": "^3.5.0",
     "vue-property-decorator": "^8.4.0",
     "vue-spinner": "^1.0.3"

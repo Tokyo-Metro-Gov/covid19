@@ -18,7 +18,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .header {
   display: flex;
   align-items: flex-end;
@@ -31,6 +31,9 @@ export default {
   line-height: 1;
   font-weight: normal;
   margin: 0 0.5em 0 0;
+  @include lessThan($small) {
+    font-size: 1.25rem;
+  }
 }
 .date {
   font-size: 0.875rem;
