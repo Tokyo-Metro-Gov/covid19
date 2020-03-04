@@ -64,7 +64,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
-export default class DataView extends Vue {
+export default class DataViewBasicInfoPanel extends Vue {
   @Prop() private lText!: string
   @Prop() private sText!: string
   @Prop() private unit!: string
