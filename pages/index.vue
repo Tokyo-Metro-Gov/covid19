@@ -164,6 +164,11 @@ export default {
       }
     }
     return data
+  },
+  head() {
+    return {
+      title: '都内の最新感染動向'
+    }
   }
 }
 </script>
