@@ -29,13 +29,13 @@ $ yarn dev
 
 ### ステージング/本番環境への反映
 
-`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://covid19-tokyo.netlify.com/ が更新されます。
+`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.metro.tokyo.lg.jp/ が更新されます。
 
 `staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト https://stg-covid19-tokyo.netlify.com/ が更新されます。
 
 
 If `master` branch is updated, the script will build html files to `production` branch.
-`Netlify` will also update the production site https://covid19-tokyo.netlify.com/ .
+`Netlify` will also update the production site https://stopcovid19.metro.tokyo.lg.jp/ .
 
 If `staging` branch is updated, the script will build html files to `gh-pages` branch.
 `Netlify` will also update the staging site https://stg-covid19-tokyo.netlify.com/ .
