@@ -106,6 +106,58 @@ function readQuerents() : array
   ];
 }
 
+
+function readPatientsV2() : array
+{
+  $data = xlsxToArray('downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'A2:J100', 'A1:J1');
+  $base_data = $data->filter(function ($row) {
+    return $row['リリース日'];
+  })->map(function ($row) {
+    $date = '2020-'.str_replace(['月', '日'], ['-', ''], $row['リリース日']);
+    $carbon = Carbon::parse($date);
+    $row['リリース日'] = $carbon->format('Y-m-d').'T08:00:00.000Z';
+    $row['date'] = $carbon->format('Y-m-d');
+    $row['w'] = $carbon->format('w');
+    $row['short_date'] = $carbon->format('m/d');
+    return $row;
+  });
+
+  return [
+    'date' => xlsxToArray('downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'M1')[0][0],
+    'data' => [
+      '感染者数' => makeDateArray('2020-01-24')->merge($base_data->groupBy('リリース日')->map(function ($rows) {
+        return $rows->count();
+      })),
+      '退院者数' => makeDateArray('2020-01-24')->merge($base_data->filter(function ($row) {
+        return $row['退院'] === '〇' && !preg_match('/死亡$/', trim($row['備考']));
+      })->groupBy('リリース日')->map(function ($rows) {
+        return $rows->count();
+      })),
+      '死亡者数' => makeDateArray('2020-01-24')->merge($base_data->filter(function ($row) {
+        return preg_match('/死亡$/', trim($row['備考']));
+      })->groupBy('リリース日')->map(function ($rows) {
+        return $rows->count();
+      })),
+      '軽症' => makeDateArray('2020-01-24')->merge($base_data->filter(function ($row) {
+        return $row['退院'] !== '〇' && trim($row['備考']) == '';
+      })->groupBy('リリース日')->map(function ($rows) {
+        return $rows->count();
+      })),
+      '中等症' => makeDateArray('2020-01-24')->merge($base_data->filter(function ($row) {
+        return $row['退院'] !== '〇' && preg_match('/中等症$/', trim($row['備考']));
+      })->groupBy('リリース日')->map(function ($rows) {
+        return $rows->count();
+      })),
+      '重症' => makeDateArray('2020-01-24')->merge($base_data->filter(function ($row) {
+        return $row['退院'] !== '〇' && preg_match('/重症$/', trim($row['備考']));
+      })->groupBy('リリース日')->map(function ($rows) {
+        return $rows->count();
+      }))
+
+    ]
+  ];
+}
+
 function readPatients() : array
 {
     $data = xlsxToArray('downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'A2:J100', 'A1:J1');
@@ -191,6 +243,7 @@ $querents = readQuerents();
 
 $patients = readPatients();
 $patients_summary = createSummary($patients);
+$better_patients_summary = readPatientsV2();
 
 $discharges = discharges($patients);
 $discharges_summary = createSummary($discharges);
@@ -206,7 +259,8 @@ $data = compact([
   'discharges_summary',
   'discharges',
   'inspections',
-  'inspections_summary'
+  'inspections_summary',
+  'better_patients_summary'
 ]);
 $lastUpdate = '';
 $lastTime = 0;
@@ -219,5 +273,41 @@ foreach ($data as $key => &$arr) {
     }
 }
 $data['lastUpdate'] = $lastUpdate;
+
+$data['main_summary'] = [
+  'attr' => '検査実施人数',
+  'value' => xlsxToArray('downloads/検査実施サマリ.xlsx', '検査実施サマリ', 'A2')[0][0],
+  'children' => [
+    [
+      'attr' => '陽性患者数',
+      'value' => $better_patients_summary['data']['感染者数']->sum(),
+      'children' => [
+        [
+          'attr' => '入院中',
+          'value' => $better_patients_summary['data']['感染者数']->sum() - $better_patients_summary['data']['退院者数']->sum() - $better_patients_summary['data']['死亡者数']->sum(),
+          'children' => [
+            [
+              'attr' => '軽症・中等症',
+              'value' => $better_patients_summary['data']['軽症']->sum() + $better_patients_summary['data']['中等症']->sum()
+            ],
+            [
+              'attr' => '重症',
+              'value' => $better_patients_summary['data']['重症']->sum()
+            ]
+          ]
+        ],
+        [
+          'attr' => '退院',
+          'value' => $better_patients_summary['data']['退院者数']->sum()
+        ],
+        [
+          'attr' => '死亡',
+          'value' => $better_patients_summary['data']['死亡者数']->sum()
+        ]
+
+      ]
+    ]
+  ]
+];
 
 file_put_contents(__DIR__.'/../data/data.json', json_encode($data,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK));
