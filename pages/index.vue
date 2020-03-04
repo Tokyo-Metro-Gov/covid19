@@ -5,12 +5,16 @@
       :title="headerItem.title"
       :date="headerItem.date"
     />
-    <whats-new
-      class="mb-4"
-      date="2020年3月3日"
-      url="https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/03/28.html"
-      text="新型コロナウイルスに関連した患者の発生について（第65報）"
-    />
+    <TextCard title="最新のニュース">
+      <div v-for="(item, i) in newsItems" :key="i">
+        <whats-new
+          class="mb-4"
+          :date="item.date"
+          :url="item.url"
+          :text="item.text"
+        />
+      </div>
+    </TextCard>
     <StaticInfo
       class="mb-4"
       :url="'/flow'"
@@ -68,6 +72,7 @@ import Data from '@/data/data.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
+import TextCard from '@/components/TextCard.vue'
 
 export default {
   components: {
@@ -75,7 +80,8 @@ export default {
     TimeBarChart,
     WhatsNew,
     StaticInfo,
-    DataTable
+    DataTable,
+    TextCard
   },
   data() {
     // 感染者数グラフ
@@ -118,6 +124,18 @@ export default {
         title: '都内の最新感染動向',
         date: Data.lastUpdate
       },
+      newsItems: [
+        {
+          date: "2020年3月3日",
+          url: "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/03/28.html",
+          text: "新型コロナウイルスに関連した患者の発生について（第65報）"
+        },
+        {
+          date: "2020年3月3日",
+          url: "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/03/28.html",
+          text: "新型コロナウイルスに関連した患者の発生について（第65報）"
+        },
+      ],
       option: {
         tooltips: {
           displayColors: false,
