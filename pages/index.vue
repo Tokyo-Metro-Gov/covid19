@@ -63,7 +63,6 @@ import Data from '@/data/data.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
-import TextCard from '@/components/TextCard.vue'
 
 export default {
   components: {
@@ -71,8 +70,7 @@ export default {
     TimeBarChart,
     WhatsNew,
     StaticInfo,
-    DataTable,
-    TextCard
+    DataTable
   },
   data() {
     // 感染者数グラフ
