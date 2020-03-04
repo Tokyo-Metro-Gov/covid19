@@ -21,12 +21,18 @@ This software is released under the MIT License,
 
 ### 環境構築の手順
 
+**yarn を使う場合**
 ``` bash
 # install dependencies
 $ yarn install
 
 # serve with hot reload at localhost:3000
 $ yarn dev
+```
+
+**docker compose を使う場合**
+```bash 
+$ docker-compose up
 ```
 
 ### ステージング/本番環境への反映

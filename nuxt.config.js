@@ -141,7 +141,12 @@ module.exports = {
     "start_url": "/",
     "splash_pages": null
   },
-  generate: {
-    fallback: true
-  },
+  // /*
+  // ** hot read configuration for docker
+  // */
+  watchers: {
+    webpack: {
+      poll: true
+    }
+  }
 }
