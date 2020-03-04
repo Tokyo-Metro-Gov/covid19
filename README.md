@@ -30,7 +30,7 @@ $ yarn install
 $ yarn dev
 ```
 
-### Deployment to Staiging & Production Envs / ステージング・本番環境への反映
+### Deployment to Staiging & Production Environments / ステージング・本番環境への反映
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.metro.tokyo.lg.jp/ が更新されます。
 
@@ -44,5 +44,4 @@ and then the production site (https://stopcovid19.metro.tokyo.lg.jp/) will be al
 
 When `staging` branch is updated, the HTML files will be automatically built onto `gh-pages` branch,
 and then the staging site (https://stg-covid19-tokyo.netlify.com/) will be also updated.
-
 
