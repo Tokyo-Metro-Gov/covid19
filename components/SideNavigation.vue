@@ -229,4 +229,9 @@ export default {
   z-index: 100;
   background-color: #fff;
 }
+@include largerThan($huge) {
+  .SideNavigation {
+    min-width: 325px;
+  }
+}
 </style>
