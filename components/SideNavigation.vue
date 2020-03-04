@@ -1,10 +1,7 @@
 <template>
   <div class="SideNavigation">
     <div class="SideNavigation-HeadingContainer sp-flex">
-      <v-icon
-        class="SideNavigation-HeadingIcon sp-inline-flex"
-        @click="openNavi"
-      >
+      <v-icon class="SideNavigation-HeadingIcon pc-none" @click="openNavi">
         mdi-menu
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
@@ -24,7 +21,7 @@
     <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
-        class="SideNavigation-ListContainerIcon sp-inline-flex"
+        class="SideNavigation-ListContainerIcon pc-none"
         @click="closeNavi"
       >
         mdi-close
@@ -191,7 +188,6 @@ export default {
     }
   }
   &-HeadingIcon {
-    display: none;
     margin-right: 16px;
   }
   &-HeadingLink {
@@ -202,7 +198,6 @@ export default {
     text-decoration: none;
   }
   &-ListContainerIcon {
-    display: none;
     margin: 24px 16px 0;
   }
   &-ListItemContainer {
@@ -283,12 +278,14 @@ export default {
     min-width: 325px;
   }
 }
+@include largerThan($small) {
+  .pc-none {
+    display: none;
+  }
+}
 @include lessThan($small) {
   .sp-flex {
     display: flex;
-  }
-  .sp-inline-flex {
-    display: inline-flex;
   }
   .sp-none {
     display: none;
