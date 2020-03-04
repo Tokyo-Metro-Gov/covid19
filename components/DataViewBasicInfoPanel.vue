@@ -46,10 +46,6 @@
   &-Title {
     @include card-h2();
   }
-  &-CardText {
-    margin-bottom: 46px;
-    margin-top: 20px;
-  }
   &-Footer {
     background-color: $white !important;
     text-align: right;
