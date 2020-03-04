@@ -168,7 +168,7 @@ export default {
 .SideNavigation {
   position: relative;
   height: 100%;
-  background: #fff;
+  background: $white;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
@@ -262,7 +262,7 @@ export default {
     display: block !important;
     width: 100%;
     z-index: 100;
-    background-color: #fff;
+    background-color: $white;
   }
 }
 @include lessThan($small) {
@@ -277,6 +277,6 @@ export default {
   }
 }
 .kerningLeft {
-  text-indent: -.5em;
+  text-indent: -0.5em;
 }
 </style>
