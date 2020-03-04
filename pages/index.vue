@@ -115,7 +115,7 @@ export default {
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '都内の最新感染動向',
+        title: 'これでnetlifyでビルド＆プレビューできるはずです',
         date: Data.lastUpdate
       },
       option: {
