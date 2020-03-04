@@ -1,7 +1,7 @@
 ## 起こっている問題 / Occurred problem
 * xxxx(できるだけ簡潔に/as concise as possible)
 
-#### スクリーンショット / Screenshot
+## スクリーンショット / Screenshot
 <!-- バグであればdeveloper toolからコンソールも合わせて添付 -->
 
 ## 期待する見せ方・挙動 / Expected behavior
@@ -13,5 +13,5 @@
 2. xxx
 3. xxx
 
-### 動作環境・ブラウザ / Environment
+## 動作環境・ブラウザ / Environment
 *
