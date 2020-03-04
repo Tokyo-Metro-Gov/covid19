@@ -25,6 +25,7 @@
         <v-container
           v-for="(item, i) in items"
           :key="i"
+          :class="isClass(item)"
           class="SideNavigation-ListItemContainer"
           @click="closeNavi"
         >
@@ -121,6 +122,11 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    isClass() {
+      return item => item.title.charAt(0) === '【' ? 'kerningLeft' : ''
+    },
   },
   methods: {
     openNavi() {
@@ -249,5 +255,8 @@ export default {
   .sp-none {
     display: none;
   }
+}
+.kerningLeft {
+  text-indent: -.5em;
 }
 </style>
