@@ -29,6 +29,13 @@ export default {
     ScaleLoader,
     SideNavigation,
   },
+  head() {
+    return {
+      link: [
+        { rel: 'canonical', href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}` },
+      ],
+    };
+  },
   data() {
     return {
       isNaviOpen: false,
