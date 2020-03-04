@@ -187,6 +187,7 @@ export default {
     position: sticky;
     position: -webkit-sticky;
     top: 0;
+    z-index: 100;
   }
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
