@@ -122,5 +122,13 @@ module.exports = {
     "Scope": "/",
     "start_url": "/",
     "splash_pages": null
+  },
+  // /*
+  // ** hot read configuration for docker
+  // */
+  watchers: {
+    webpack: {
+      poll: true
+    }
   }
 }
