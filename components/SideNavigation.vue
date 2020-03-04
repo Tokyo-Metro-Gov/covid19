@@ -2,7 +2,7 @@
   <div class="SideNavigation">
     <div class="SideNavigation-HeadingContainer sp-flex">
       <v-icon
-        class="SideNavigation-HeadingIcon sp-inline-block"
+        class="SideNavigation-HeadingIcon sp-inline-flex"
         @click="openNavi"
       >
         mdi-menu
@@ -24,7 +24,7 @@
     <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
-        class="SideNavigation-ListContainerIcon sp-inline-block"
+        class="SideNavigation-ListContainerIcon sp-inline-flex"
         @click="closeNavi"
       >
         mdi-close
@@ -287,8 +287,8 @@ export default {
   .sp-flex {
     display: flex;
   }
-  .sp-inline-block {
-    display: inline-block;
+  .sp-inline-flex {
+    display: inline-flex;
   }
   .sp-none {
     display: none;
