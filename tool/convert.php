@@ -147,7 +147,6 @@ function createSummary(array $patients) {
 
 }
 
-
 function discharges(array $patients) : array {
 
   return [
@@ -158,6 +157,34 @@ function discharges(array $patients) : array {
   ];
 }
 
+function readInspections() : array{
+  $data = xlsxToArray('downloads/検査実施日別状況.xlsx', '入力シート', 'A2:J100', 'A1:J1');
+  $data = $data->filter(function ($row) {
+    return $row['疑い例検査'] !== null;
+  });
+  return [
+    'date' => '2020/3/5/ 00:00', //TODO 現在のエクセルに更新日付がないので変更する必要あり
+    'data' => $data
+  ];
+}
+
+function readInspectionsSummary(array $inspections) : array
+{
+  return [
+    'date' => $inspections['date'],
+    'data' => [
+      '都内' => $inspections['data']->map(function ($row) {
+        return str_replace(' ', '', $row['（小計①）']);
+      }),
+      'その他' => $inspections['data']->map(function ($row) {
+        return str_replace(' ', '', $row['（小計②）']);
+      }),
+    ],
+    'labels' =>$inspections['data']->map(function ($row) {
+        return Carbon::parse($row['判明日'])->format('n/j');
+    })
+  ];
+}
 
 
 $contacts = readContacts();
@@ -168,13 +195,19 @@ $patients_summary = createSummary($patients);
 
 $discharges = discharges($patients);
 $discharges_summary = createSummary($discharges);
+
+$inspections =readInspections();
+$inspections_summary =readInspectionsSummary($inspections);
+
 $data = compact([
   'contacts',
   'querents',
   'patients',
   'patients_summary',
   'discharges_summary',
-  'discharges'
+  'discharges',
+  'inspections',
+  'inspections_summary'
 ]);
 $lastUpdate = '';
 $lastTime = 0;
