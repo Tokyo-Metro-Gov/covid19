@@ -17,9 +17,9 @@ Please check [How to contribute](https://github.com/tokyo-metropolitan-gov/covid
 本ソフトウェアは、MITライセンスの元提供されています。
 This software is released under the MIT License,
 
-## 開発者向け情報
+## For Developers / 開発者向け情報
 
-### 環境構築の手順
+### How to Set Up Environments / 環境構築の手順
 
 **yarn を使う場合**
 ``` bash
@@ -30,12 +30,7 @@ $ yarn install
 $ yarn dev
 ```
 
-**docker compose を使う場合**
-```bash 
-$ docker-compose up
-```
-
-### ステージング/本番環境への反映
+### Deployment to Staiging & Production Envs / ステージング・本番環境への反映
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.metro.tokyo.lg.jp/ が更新されます。
 
@@ -44,13 +39,10 @@ $ docker-compose up
 `development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-covid19-tokyo.netlify.com/ が更新されます。
 
 
-If `master` branch is updated, the script will build html files to `production` branch.
-It will also update the production site https://stopcovid19.metro.tokyo.lg.jp/ .
+When `master` branch is updated, the HTML files will automatically be built onto `production` branch,
+and then the production site (https://stopcovid19.metro.tokyo.lg.jp/) will be also updated.
 
-If `staging` branch is updated, the script will build html files to `gh-pages` branch.
-It will also update the staging site https://stg-covid19-tokyo.netlify.com/ .
-
-If `development` branch is updated, the script will build html files to `dev-pages` branch.
-It will also update the development site https://dev-covid19-tokyo.netlify.com/ .
+When `staging` branch is updated, the HTML files will automatically be built onto `gh-pages` branch,
+and then the staging site (https://stg-covid19-tokyo.netlify.com/) will be also updated.
 
 
