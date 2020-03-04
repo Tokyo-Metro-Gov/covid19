@@ -180,7 +180,6 @@ export default {
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  flex: 0 0 220px;
   background: #fff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
@@ -262,7 +261,7 @@ export default {
     display: block;
     margin-top: 10px;
     font-size: 8px;
-    line-height: 11px;
+    line-height: 1.2;
     color: $gray-1;
     font-weight: bold;
   }
@@ -276,11 +275,6 @@ export default {
     width: 100%;
     z-index: 100;
     background-color: #fff;
-  }
-}
-@include largerThan($huge) {
-  .SideNavigation {
-    min-width: 325px;
   }
 }
 @include lessThan($small) {
