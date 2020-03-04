@@ -63,6 +63,7 @@ import Data from '@/data/data.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
+import News from '@/data/news.json'
 
 export default {
   components: {
@@ -113,18 +114,7 @@ export default {
         title: '都内の最新感染動向',
         date: Data.lastUpdate
       },
-      newsItems: [
-        {
-          date: "2020/03/04",
-          url: "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/04/20.html",
-          text: "新型コロナウイルス感染症への対応に伴う都内公立学校の臨時休業措置状況について（第66報）"
-        },
-        {
-          date: "2020/03/03",
-          url: "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/03/28.html",
-          text: "新型コロナウイルスに関連した患者の発生について（第65報）"
-        },
-      ],
+      newsItems: News.newsItems,
       option: {
         tooltips: {
           displayColors: false,
