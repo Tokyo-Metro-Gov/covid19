@@ -18,7 +18,7 @@
       :btn-text="'相談の手順を見る'"
     />
     <v-row class="DataBlock">
-      <v-col xs12 sm6 md4 class="DataCard">
+      <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="陽性患者数"
           :chart-data="patientsGraph"
@@ -27,7 +27,7 @@
           :unit="'人'"
         />
       </v-col>
-      <v-col xs12 sm6 md4 class="DataCard">
+      <v-col cols="12" md="6" class="DataCard">
         <data-table
           :title="'陽性患者の属性'"
           :chart-data="patientsTable"
@@ -37,7 +37,7 @@
         />
       </v-col>
 
-      <v-col xs12 sm6 md4 class="DataCard">
+      <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
           :chart-data="contactsGraph"
@@ -46,7 +46,7 @@
           :unit="'件'"
         />
       </v-col>
-      <v-col xs12 sm6 md4 class="DataCard">
+      <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="帰国者・接触者電話相談センター相談件数"
           :chart-data="querentsGraph"
