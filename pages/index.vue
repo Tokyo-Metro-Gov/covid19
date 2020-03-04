@@ -161,7 +161,8 @@ export default {
               }
             }
           ]
-        }
+        },
+        maintainAspectRatio: false,
       }
     }
     return data
