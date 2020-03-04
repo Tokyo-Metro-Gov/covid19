@@ -95,10 +95,10 @@ module.exports = {
             iso: 'ja_JP'
           }
         ],
-        formatFallbackMessages: true,
         defaultLocale: 'ja',
         vueI18n: {
-          fallbackLocale: 'ja'
+          fallbackLocale: 'ja',
+          formatFallbackMessages: true
         },
         vueI18nLoader: true
       }
