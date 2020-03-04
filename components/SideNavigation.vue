@@ -45,7 +45,7 @@
             <img src="/twitter.png" />
           </a>
           <a href="https://github.com/tokyo-metropolitan-gov/covid19">
-            <img src="/github.png" />
+            <img src="/github.png" alt="GitHub" />
           </a>
         </div>
         <small class="SideNavigation-Copyright">
