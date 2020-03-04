@@ -30,8 +30,7 @@
       <v-list-item-title
         :class="[
           'ListItem-Text',
-          isActive(link),
-          isMobile ? 'mobile' : 'desktop'
+          isActive(link)
         ]"
         v-text="title"
       />
@@ -73,12 +72,6 @@ export default class ListItem extends Vue {
   })
   title!: string
 
-  @Prop({
-    default: false,
-    required: true
-  })
-  isMobile!: boolean
-
   isInternalLink(path: string): boolean {
     return !/^https?:\/\//.test(path)
   }
@@ -118,6 +111,7 @@ export default class ListItem extends Vue {
     & .ListItem-Text {
       overflow: visible;
       white-space: normal;
+      font-size: 0.85rem;
     }
     &:hover {
       color: transparent !important;
@@ -180,11 +174,5 @@ svg.isActive {
   > path:not(:first-of-type) {
     fill: $green-1;
   }
-}
-.desktop {
-  font-size: 0.85rem;
-}
-.mobile {
-  font-size: 0.85rem;
 }
 </style>

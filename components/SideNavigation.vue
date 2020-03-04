@@ -1,11 +1,11 @@
 <template>
   <div class="SideNavigation">
-    <div to="/" class="SideNavigation-HeadingContainer d-flex d-sm-block">
-      <v-icon class="d-inline-block d-sm-none mr-4" @click="openNavi">
+    <div class="SideNavigation-HeadingContainer sp-flex">
+      <v-icon class="SideNavigation-HeadingIcon sp-inline-block" @click="openNavi">
         mdi-menu
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
-        <div class="SideNavigation-Logo mr-4">
+        <div class="SideNavigation-Logo">
           <img src="/logo.svg" />
         </div>
         <h1 class="SideNavigation-Heading">
@@ -17,8 +17,8 @@
       </nuxt-link>
     </div>
     <v-divider class="SideNavigation-HeadingDivider" />
-    <div class="d-none d-sm-block" :class="{ open: isNaviOpen && isMobile }">
-      <v-icon class="d-inline-block d-sm-none mx-4 mt-6" @click="closeNavi">
+    <div class="sp-none" :class="{ open: isNaviOpen }">
+      <v-icon class="SideNavigation-ListContainerIcon sp-inline-block" @click="closeNavi">
         mdi-close
       </v-icon>
       <v-list :flat="true">
@@ -32,7 +32,6 @@
             :link="item.link"
             :icon="item.icon"
             :title="item.title"
-            :is-mobile="isMobile"
           />
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
@@ -61,10 +60,6 @@ export default {
     ListItem
   },
   props: {
-    isMobile: {
-      type: Boolean,
-      required: true
-    },
     isNaviOpen: {
       type: Boolean,
       required: true
@@ -141,30 +136,38 @@ export default {
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  flex: 0 1 220px;
+  flex: 0 0 220px;
   background: #fff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
     align-items: center;
-    @include lessThan(600) {
+    @include lessThan($small) {
       padding: 7px 0 7px 20px;
     }
   }
+  &-HeadingIcon {
+    display: none;
+    margin-right: 16px;
+  }
   &-HeadingLink {
-    @include lessThan(600) {
+    @include lessThan($small) {
       display: flex;
       align-items: center;
     }
     text-decoration: none;
   }
+  &-ListContainerIcon {
+    display: none;
+    margin: 24px 16px 0;
+  }
   &-ListItemContainer {
     padding: 2px 20px;
   }
   &-Logo {
-    margin-top: 20px;
+    margin: 20px 16px 0 0;
     width: 110px;
-    @include lessThan(600) {
+    @include lessThan($small) {
       margin-top: 0;
     }
   }
@@ -174,7 +177,7 @@ export default {
     color: #898989;
     padding: 0.5em 0;
     text-decoration: none;
-    @include lessThan(600) {
+    @include lessThan($small) {
       margin-top: 0;
     }
   }
@@ -191,7 +194,7 @@ export default {
   }
   &-HeadingDivider {
     margin: 0px 20px 4px;
-    @include lessThan(600) {
+    @include lessThan($small) {
       display: none;
     }
   }
@@ -221,17 +224,30 @@ export default {
   }
 }
 .open {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block !important;
-  width: 100%;
-  z-index: 100;
-  background-color: #fff;
+  @include lessThan($small) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block !important;
+    width: 100%;
+    z-index: 100;
+    background-color: #fff;
+  }
 }
 @include largerThan($huge) {
   .SideNavigation {
     min-width: 325px;
+  }
+}
+@include lessThan($small) {
+  .sp-flex {
+    display: flex;
+  }
+  .sp-inline-block {
+    display: inline-block;
+  }
+  .sp-none {
+    display: none;
   }
 }
 </style>
