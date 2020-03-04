@@ -60,7 +60,7 @@
   }
 }
 .v-toolbar__content {
-  height: 80px !important;
+  height: auto !important;
 }
 </style>
 
