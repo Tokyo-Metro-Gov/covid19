@@ -25,7 +25,7 @@
           :chart-option="option"
           :date="Data.patients.date"
           :unit="'人'"
-          :url="'https://example.com/陽性患者数'"
+          :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -35,7 +35,7 @@
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
-          :url="'https://example.com/陽性患者の属性'"
+          :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
         />
       </v-col>
 
@@ -46,7 +46,7 @@
           :chart-option="option"
           :date="Data.contacts.date"
           :unit="'件'"
-          :url="'https://example.com/新型コロナコールセンター相談件数'"
+          :url="''"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -56,7 +56,7 @@
           :chart-option="option"
           :date="Data.querents.date"
           :unit="'件'"
-          :url="'https://example.com/帰国者・接触者電話相談センター相談件数'"
+          :url="''"
         />
       </v-col>
     </v-row>
