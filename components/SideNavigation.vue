@@ -183,12 +183,6 @@ export default {
   flex: 0 0 220px;
   background: #fff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
-  @include lessThan($small) {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    z-index: 100;
-  }
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
     align-items: center;
@@ -275,12 +269,12 @@ export default {
 }
 .open {
   @include lessThan($small) {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     display: block !important;
     width: 100%;
-    z-index: 100;
+    z-index: z-index-of(opened-side-navigation);
     background-color: #fff;
   }
 }
