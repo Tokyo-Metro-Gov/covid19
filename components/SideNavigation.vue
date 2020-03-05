@@ -3,8 +3,8 @@
     <div class="SideNavigation-HeadingContainer sp-flex">
       <v-icon
         class="SideNavigation-HeadingIcon sp-inline-block"
-        @click="openNavi"
         :aria-label="$t('Navi Open')"
+        @click="openNavi"
       >
         mdi-menu
       </v-icon>
@@ -13,12 +13,7 @@
           <img src="/logo.svg" :alt="$t('Tokyo')" />
         </div>
         <h1 class="SideNavigation-Heading">
-          <span class="SideNavigation-HeadingTitle">
-            {{ $t('Tokyo') }}<br />
-          </span>
-          {{ $t('COVID-19') }}<br class="SideNavigation-HeadingMobileBreak" />{{
-            $t('Measures site')
-          }}
+          {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
         </h1>
       </nuxt-link>
     </div>
@@ -26,8 +21,8 @@
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
         class="SideNavigation-ListContainerIcon sp-inline-block"
-        @click="closeNavi"
         :aria-label="$t('Navi Close')"
+        @click="closeNavi"
       >
         mdi-close
       </v-icon>
@@ -45,15 +40,24 @@
       </v-list>
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a href="https://line.me/R/ti/p/%40822sysfc" target="_blank" rel="noopener">
+          <a
+            href="https://line.me/R/ti/p/%40822sysfc"
+            target="_blank"
+            rel="noopener"
+          >
             <img src="/line.png" alt="LINE" />
           </a>
-          <a href="https://twitter.com/tokyo_bousai" target="_blank" rel="noopener">
+          <a
+            href="https://twitter.com/tokyo_bousai"
+            target="_blank"
+            rel="noopener"
+          >
             <img src="/twitter.png" alt="Twitter" />
           </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights Reserved.
+          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
+          Reserved.
         </small>
       </div>
     </div>
@@ -66,7 +70,7 @@
     "Navi Open": "サイドメニュー項目を開く",
     "Navi Close": "サイドメニュー項目を閉じる",
     "Tokyo": "東京都",
-    "COVID-19": "新型コロナウイルス",
+    "COVID-19": "新型コロナウイルス感染症",
     "Measures site": "対策サイト",
     "Tokyo Metropolitan Government": "東京都",
     "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
@@ -154,8 +158,8 @@ export default {
       ]
     },
     isClass() {
-      return item => item.title.charAt(0) === '【' ? 'kerningLeft' : ''
-    },
+      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
+    }
   },
   methods: {
     openNavi() {
@@ -214,17 +218,6 @@ export default {
     text-decoration: none;
     @include lessThan($small) {
       margin-top: 0;
-    }
-  }
-  &-HeadingTitle {
-    @include lessThan($small) {
-      display: none;
-    }
-  }
-  &-HeadingMobileBreak {
-    display: none;
-    @include lessThan($small) {
-      display: inline;
     }
   }
   &-HeadingDivider {
