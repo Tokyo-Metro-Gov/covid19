@@ -1,9 +1,9 @@
 <template>
-  <data-view :title="title" :date="date" :url="url">
+  <data-view :title="title" :date="date">
     <template v-slot:button>
       <data-selector v-model="dataKind" />
     </template>
-    <bar :chart-data="displayData" :options="displayOption" :height="240" />
+    <bar :chart-data="displayData" :options="options" :height="240" />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -14,12 +14,40 @@
   </data-view>
 </template>
 
-<style></style>
-
 <script>
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+
+function cumulative(array) {
+  const cumulativeArray = []
+  let patSum = 0
+  array.forEach(d => {
+    patSum += d
+    cumulativeArray.push(patSum)
+  })
+  return cumulativeArray
+}
+
+function sum(array) {
+  return array.reduce((acc, cur) => {
+    return acc + cur
+  })
+}
+
+function pickLastNumber(chartDataArray) {
+  return chartDataArray.map(array => {
+    return array[array.length - 1]
+  })
+}
+
+function cumulativeSum(chartDataArray) {
+  return chartDataArray.map(array => {
+    return array.reduce((acc, cur) => {
+      return acc + cur
+    })
+  })
+}
 
 export default {
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
@@ -39,12 +67,17 @@ export default {
       required: true,
       default: ''
     },
-    unit: {
-      type: String,
+    items: {
+      type: Array,
       required: false,
-      default: ''
+      default: () => []
     },
-    url: {
+    labels: {
+      type: Array,
+      required: false,
+      default: () => []
+    },
+    unit: {
       type: String,
       required: false,
       default: ''
@@ -56,76 +89,54 @@ export default {
     }
   },
   computed: {
-    displayCumulativeRatio() {
-      const lastDay = this.chartData.slice(-1)[0].cumulative
-      const lastDayBefore = this.chartData.slice(-2)[0].cumulative
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore).toLocaleString()
-    },
-    displayTransitionRatio() {
-      const lastDay = this.chartData.slice(-1)[0].transition
-      const lastDayBefore = this.chartData.slice(-2)[0].transition
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore).toLocaleString()
-    },
     displayInfo() {
       if (this.dataKind === 'transition') {
         return {
-          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `実績値（前日比：${this.displayTransitionRatio} ${this.unit}）`,
+          lText: sum(pickLastNumber(this.chartData)).toLocaleString(),
+          sText: `${this.labels[this.labels.length - 1]} の合計`,
           unit: this.unit
         }
       }
       return {
-        lText: this.chartData[
-          this.chartData.length - 1
-        ].cumulative.toLocaleString(),
-        sText: `${this.chartData.slice(-1)[0].label} 累計値（前日比：${
-          this.displayCumulativeRatio
-        } ${this.unit}）`,
+        lText: sum(cumulativeSum(this.chartData)).toLocaleString(),
+        sText: `${this.labels[this.labels.length - 1]} の全体累計`,
         unit: this.unit
       }
     },
     displayData() {
+      const colorArray = ['#00A040', '#00D154']
       if (this.dataKind === 'transition') {
         return {
-          labels: this.chartData.map(d => {
-            return d.label
-          }),
-          datasets: [
-            {
-              label: this.dataKind,
-              data: this.chartData.map(d => {
-                return d.transition
-              }),
-              backgroundColor: '#00B849',
+          labels: this.labels,
+          datasets: this.chartData.map((item, index) => {
+            return {
+              label: this.items[index],
+              data: item,
+              backgroundColor: colorArray[index],
               borderWidth: 0
             }
-          ]
+          })
         }
       }
       return {
-        labels: this.chartData.map(d => {
-          return d.label
-        }),
-        datasets: [
-          {
-            label: this.dataKind,
-            data: this.chartData.map(d => {
-              return d.cumulative
-            }),
-            backgroundColor: '#00B849',
+        labels: this.labels,
+        datasets: this.chartData.map((item, index) => {
+          return {
+            label: this.items[index],
+            data: cumulative(item),
+            backgroundColor: colorArray[index],
             borderWidth: 0
           }
-        ]
+        })
       }
     },
-    displayOption() {
-      const unit = this.unit
+    options() {
       return {
         tooltips: {
           displayColors: false,
           callbacks: {
             label(tooltipItem) {
-              const labelText = tooltipItem.value + unit
+              const labelText = tooltipItem.value + '人'
               return labelText
             }
           }
@@ -133,7 +144,7 @@ export default {
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-          display: false
+          display: true
         },
         scales: {
           xAxes: [
@@ -165,18 +176,6 @@ export default {
             }
           ]
         }
-      }
-    }
-  },
-  methods: {
-    formatDayBeforeRatio(dayBeforeRatio) {
-      switch (Math.sign(dayBeforeRatio)) {
-        case 1:
-          return `+${dayBeforeRatio}`
-        case -1:
-          return `${dayBeforeRatio}`
-        default:
-          return `${dayBeforeRatio}`
       }
     }
   }
