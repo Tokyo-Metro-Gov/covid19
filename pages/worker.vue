@@ -1,8 +1,11 @@
 <template>
   <div class="Worker">
-    <h2 class="Worker-Heading">
-      企業の皆様・はたらく皆様へ
-    </h2>
+    <div class="Worker-Heading">
+      <v-icon>mdi-domain</v-icon>
+      <h2 class="Worker-Heading-Title">
+        企業の皆様・はたらく皆様へ
+      </h2>
+    </div>
     <div v-for="(item, i) in items" :key="i">
       <TextCard :title="item.title" :body="item.body" />
     </div>
@@ -45,10 +48,22 @@ export default {
 <style lang="scss">
 .Worker {
   &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
+    display: flex;
+    align-items: center;
     margin-bottom: 12px;
+    > svg {
+      width: 30px;
+      height: 30px;
+      > path:not(:first-of-type) {
+        fill: $gray-2;
+      }
+    }
+    &-Title {
+      @include font-size(30);
+      font-weight: normal;
+      color: $gray-2;
+      margin-left: 8px;
+    }
   }
 }
 a {

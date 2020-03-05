@@ -1,8 +1,11 @@
 <template>
   <div class="Parent">
-    <h2 class="Parent-Heading">
-      臨時休校中の新型コロナウイルス感染症対応についてのお願い
-    </h2>
+    <div class="Parent-Heading">
+      <parent-icon />
+      <h2 class="Parent-Heading-Title">
+        臨時休校中の新型コロナウイルス感染症対応についてのお願い
+      </h2>
+    </div>
     <div v-for="(item, i) in items" :key="i">
       <TextCard :title="item.title" :body="item.body" />
     </div>
@@ -10,8 +13,10 @@
 </template>
 <script lang="ts">
 import TextCard from '@/components/TextCard.vue'
+import ParentIcon from '@/static/parent.svg'
 export default {
   components: {
+    ParentIcon,
     TextCard
   },
   data() {
@@ -44,10 +49,22 @@ export default {
 <style lang="scss">
 .Parent {
   &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
+    display: flex;
+    align-items: center;
     margin-bottom: 12px;
+    > svg {
+      width: 30px;
+      height: 30px;
+      > path:not(:first-of-type) {
+        fill: $gray-2;
+      }
+    }
+    &-Title {
+      @include font-size(30);
+      font-weight: normal;
+      color: $gray-2;
+      margin-left: 8px;
+    }
   }
 }
 a {
