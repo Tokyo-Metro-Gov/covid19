@@ -38,18 +38,27 @@ $ docker-compose up
 
 ### Deployment to Staging & Production Environments / ステージング・本番環境への反映
 
+#### 日本語(Japanese)
+
+##### 本番サイト
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.metro.tokyo.lg.jp/ が更新されます。
 
+##### ステージングサイト
 `staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト https://stg-covid19-tokyo.netlify.com/ が更新されます。
 
+##### 開発用サイト
 `development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-covid19-tokyo.netlify.com/ が更新されます。
 
+#### English
 
+##### Production Site
 When `master` branch is updated, the HTML files will be automatically built onto `production` branch,
 and then the production site (https://stopcovid19.metro.tokyo.lg.jp/) will be also updated.
 
+##### Staging Site
 When `staging` branch is updated, the HTML files will be automatically built onto `gh-pages` branch,
 and then the staging site (https://stg-covid19-tokyo.netlify.com/) will be also updated.
 
+##### Development Site
 When `development` branch is updated, the HTML files will be automatically built onto `dev-pages` branch,
 and then the development site (https://dev-covid19-tokyo.netlify.com/) will be also updated.
