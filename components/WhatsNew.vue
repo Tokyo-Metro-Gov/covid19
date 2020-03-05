@@ -66,7 +66,7 @@ export default {
     flex: 0 1 auto;
     @include text-link();
     @include lessThan($medium) {
-      padding-left: 15px;
+      padding-left: 8px;
     }
   }
 }
