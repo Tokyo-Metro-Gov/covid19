@@ -38,11 +38,6 @@ export default {
       default: ''
     }
   },
-  data() {
-    return {
-      dataKind: 'transition'
-    }
-  },
   computed: {
     displayData() {
       const colors = ['#a6e29f', '#63c765', '#008b41']
