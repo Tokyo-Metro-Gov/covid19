@@ -13,6 +13,12 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 All contributions are welcome!
 Please check [How to contribute](./.github/CONTRIBUTING_EN.md) for details.
 
+## Code of Conduct / 行動原則
+
+詳しくは[サイト構築にあたっての行動原則](./.github/CODE_OF_CONDUCT.md)を御覧ください。
+
+Please check [Code of conduct for developers](./.github/CODE_OF_CONDUCT_EN.md) for details.
+
 ## License / ライセンス
 本ソフトウェアは、MITライセンスの元提供されています。
 This software is released under the MIT License.
