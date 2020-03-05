@@ -4,7 +4,7 @@
       <v-icon
         class="SideNavigation-HeadingIcon sp-inline-block"
         @click="openNavi"
-        aria-label="サイドメニュー項目を開く"
+        :aria-label="$t('Navi')"
       >
         mdi-menu
       </v-icon>
@@ -62,6 +62,7 @@
 <i18n>
 {
   "ja": {
+    "Navi": "サイドメニュー項目を開く",
     "Tokyo": "東京都",
     "COVID-19": "新型コロナウイルス",
     "Measures site": "対策サイト",
