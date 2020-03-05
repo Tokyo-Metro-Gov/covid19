@@ -7,7 +7,7 @@
       最新のお知らせ
     </h2>
     <div v-for="(item, i) in items" :key="i">
-      <a class="WhatsNew-item" :href="item.url" target="_blank">
+      <a class="WhatsNew-item" :href="item.url" target="_blank" rel="noopener">
         <time class="WhatsNew-item-time px-2">{{ item.date }}</time>
         <span class="WhatsNew-item-link">{{ item.text }}</span>
       </a>
@@ -68,7 +68,7 @@ export default {
     flex: 0 1 auto;
     @include text-link();
     @include lessThan($medium) {
-      padding-left: 15px;
+      padding-left: 8px;
     }
   }
 }
