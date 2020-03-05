@@ -5,12 +5,7 @@
       :title="headerItem.title"
       :date="headerItem.date"
     />
-    <whats-new
-      class="mb-4"
-      date="2020年3月3日"
-      url="https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/03/28.html"
-      text="新型コロナウイルスに関連した患者の発生について（第65報）"
-    />
+    <whats-new class="mb-4" :items="newsItems" />
     <StaticInfo
       class="mb-4"
       :url="'/flow'"
@@ -92,6 +87,7 @@ import MetroData from '@/data/metro.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
+import News from '@/data/news.json'
 import SvgCard from '@/components/SvgCard.vue'
 
 export default {
@@ -156,6 +152,7 @@ export default {
         title: '都内の最新感染動向',
         date: Data.lastUpdate
       },
+      newsItems: News.newsItems,
       option: {
         tooltips: {
           displayColors: false,
