@@ -19,6 +19,13 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
+        <svg-card
+          :title="'検査陽性者の状況'"
+          :src-url="'confirmed-cases-table.svg'"
+          :date="'2020/3/4 19:30 '"
+        />
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="陽性患者数"
           :chart-data="patientsGraph"
@@ -53,14 +60,6 @@
           :chart-option="option"
           :date="Data.querents.date"
           :unit="'件'"
-        />
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <vertical-bar-chart
-          title="都営地下鉄の利用者数の推移"
-          :chart-data="metroGraph"
-          :chart-option="metroGraphOption"
-          :date="metroGraph.date"
         />
       </v-col>
     </v-row>
