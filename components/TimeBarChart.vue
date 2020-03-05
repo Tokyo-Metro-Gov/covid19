@@ -131,6 +131,7 @@ export default {
           }
         },
         responsive: true,
+        maintainAspectRatio: false,
         legend: {
           display: false
         },
