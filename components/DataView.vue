@@ -10,7 +10,11 @@
       <v-spacer />
       <slot name="infoPanel" />
     </v-toolbar>
-    <v-card-text :class="$vuetify.breakpoint.xs ? 'DataView-CardTextForXS' : 'DataView-CardText'">
+    <v-card-text
+      :class="
+        $vuetify.breakpoint.xs ? 'DataView-CardTextForXS' : 'DataView-CardText'
+      "
+    >
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
