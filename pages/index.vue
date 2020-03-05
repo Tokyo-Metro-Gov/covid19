@@ -9,7 +9,7 @@
       class="mb-4"
       date="2020年3月5日"
       url="https://www.2020games.metro.tokyo.lg.jp/news/2020/0305_3108.html"
-      text="マスク及び消毒液の寄贈について "
+      text="マスク及び消毒液の寄贈しました！"
     />
     <StaticInfo
       class="mb-4"
