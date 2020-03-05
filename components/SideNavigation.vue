@@ -49,6 +49,9 @@
           <a href="https://twitter.com/tokyo_bousai">
             <img src="/twitter.png" />
           </a>
+          <a href="https://www.facebook.com/tochokoho">
+            <img src="/facebook.png" />
+          </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
           Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.
