@@ -21,12 +21,19 @@ This software is released under the MIT License.
 
 ### How to Set Up Environments / 環境構築の手順
 
+**Use yarn / yarn を使う場合**
 ``` bash
 # install dependencies
 $ yarn install
 
 # serve with hot reload at localhost:3000
 $ yarn dev
+```
+
+**Use docker / docker compose を使う場合**
+```bash 
+# serve with hot reload at localhost:3000
+$ docker-compose up
 ```
 
 ### Deployment to Staging & Production Environments / ステージング・本番環境への反映
