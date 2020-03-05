@@ -69,16 +69,6 @@ export default class DataView extends Vue {
   flex-flow: column;
   justify-content: space-between;
   height: 100%;
-  &-content {
-    height: auto !important;
-    .v-toolbar__content {
-      align-items: start;
-    }
-  }
-  &-Header {
-    background-color: transparent !important;
-    height: auto !important;
-  }
   &-TitleContainer {
     display: flex;
     flex-flow: column;
@@ -107,8 +97,5 @@ export default class DataView extends Vue {
     @include font-size(12);
     color: $gray-3 !important;
   }
-}
-.v-toolbar__content {
-  height: auto !important;
 }
 </style>
