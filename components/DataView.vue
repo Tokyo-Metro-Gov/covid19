@@ -10,10 +10,17 @@
       <v-spacer />
       <slot name="infoPanel" />
     </v-toolbar>
-    <v-card-text class="DataView-CardText">
+    <v-card-text :class="$vuetify.breakpoint.xs ? 'DataView-CardTextForXS' : 'DataView-CardText'">
       <slot />
     </v-card-text>
-    <v-footer class="DataView-Footer"> {{ date }} 更新 </v-footer>
+    <v-footer class="DataView-Footer">
+      <time :datetime="date">{{ date }} 更新</time>
+      <a v-if="url" class="OpenDataLink" :href="url" target="_blank">オープンデータへのリンク
+        <v-icon class="ExternalLinkIcon" size="15">
+          mdi-open-in-new
+        </v-icon>
+      </a>
+    </v-footer>
   </v-card>
 </template>
 
@@ -24,6 +31,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 export default class DataView extends Vue {
   @Prop() private title!: string
   @Prop() private date!: string
+  @Prop() private url!: string
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
 }
 </script>
@@ -37,7 +45,6 @@ export default class DataView extends Vue {
       font-style: normal;
       font-size: 30px;
       line-height: 30px;
-      text-align: right;
       white-space: nowrap;
       &-unit {
         font-size: 0.6em;
@@ -47,7 +54,7 @@ export default class DataView extends Vue {
     &-date {
       font-size: 12px;
       line-height: 12px;
-      color: #808080;
+      color: $gray-3;
       width: 100%;
       display: inline-block;
     }
@@ -75,15 +82,25 @@ export default class DataView extends Vue {
   }
   &-CardText {
     margin-bottom: 46px;
-    margin-top: 20px;
+    margin-top: 35px;
+  }
+  &-CardTextForXS {
+    margin-bottom: 46px;
+    margin-top: 70px;
   }
   &-Footer {
     background-color: $white !important;
-    text-align: right;
     margin: 2px 4px 12px;
-    flex-direction: row-reverse;
     @include font-size(12);
     color: $gray-3 !important;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    .OpenDataLink {
+      text-decoration: none;
+      .ExternalLinkIcon {
+        vertical-align: text-bottom;
+      }
+    }
   }
 }
 .v-toolbar__content {
