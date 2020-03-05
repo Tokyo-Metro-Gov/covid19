@@ -1,7 +1,7 @@
 <template>
   <v-app class="app">
     <div class="loader" v-if="loading">
-      <img src="/logo.svg" />
+      <img src="/logo.svg" alt="東京都" />
       <scale-loader color="#00A040" />
     </div>
     <div class="appContainer" v-else>

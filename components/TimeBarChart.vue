@@ -56,13 +56,21 @@ export default {
     }
   },
   computed: {
+    displayCumulativeRatio() {
+      const lastDay = this.chartData.slice(-1)[0].cummulative
+      const lastDayBefore = this.chartData.slice(-2)[0].cummulative
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore).toLocaleString()
+    },
+    displayTransitionRatio() {
+      const lastDay = this.chartData.slice(-1)[0].transition
+      const lastDayBefore = this.chartData.slice(-2)[0].transition
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore).toLocaleString()
+    },
     displayInfo() {
       if (this.dataKind === 'transition') {
         return {
-          lText: `+${this.chartData[
-            this.chartData.length - 1
-          ].transition.toLocaleString()}`,
-          sText: '前日比',
+          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
+          sText: `実績値（前日比：${this.displayTransitionRatio} ${this.unit}）`,
           unit: this.unit
         }
       }
@@ -70,7 +78,7 @@ export default {
         lText: this.chartData[
           this.chartData.length - 1
         ].cummulative.toLocaleString(),
-        sText: `${this.chartData[this.chartData.length - 1].label} の累計`,
+        sText: `${this.chartData.slice(-1)[0].label} 累計値（前日比：${this.displayCumulativeRatio} ${this.unit}）`,
         unit: this.unit
       }
     },
@@ -106,6 +114,20 @@ export default {
             borderWidth: 0
           }
         ]
+      }
+    }
+  },
+  methods: {
+    formatDayBeforeRatio(dayBeforeRatio) {
+      switch (Math.sign(dayBeforeRatio)) {
+        case 1:
+          return `+${dayBeforeRatio}`
+          break
+        case -1:
+          return `${dayBeforeRatio}`
+          break
+        default:
+          return `${dayBeforeRatio}`
       }
     }
   }
