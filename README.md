@@ -31,7 +31,10 @@ $ yarn dev
 ```
 
 **Use docker / docker compose を使う場合**
-```bash 
+```bash
+# Please run after checkout this repository
+$ docker-compose build
+$ docker-compose run --rm app yarn install
 # serve with hot reload at localhost:3000
 $ docker-compose up
 ```
