@@ -465,7 +465,7 @@
         <tspan x="-174.777" y="0">発症前</tspan>
         <tspan class="u" y="0">2</tspan>
         <tspan y="0">週間以内</tspan>
-        <tspan class="q" y="0">の出来ごとと症状</tspan>
+        <tspan class="q" y="0">の出来事と症状</tspan>
       </text>
       <text class="v" transform="translate(179 95)">
         <tspan x="-111.9" y="0">「新型コロナウイルス感染者」と</tspan>

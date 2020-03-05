@@ -14,7 +14,7 @@
       <div class="only-sp">
         <div class="Flow-Card-Parts">
           <div class="mb-5">
-            <img src="/flow/sp/sp_flow_01_01@2x.png" alt="発症前２週間以内の出来ごとと症状／「新型コロナウイルス感染者」と濃厚接触をした方／発熱または呼吸器症状" />
+            <img src="/flow/sp/sp_flow_01_01@2x.png" alt="発症前２週間以内の出来事と症状／「新型コロナウイルス感染者」と濃厚接触をした方／発熱または呼吸器症状" />
           </div>
           <div class="mx-2 mb-5">
             <img src="/flow/sp/sp_flow_01_02@2x.png" alt="流行地域への渡航・居住歴がある方　ご本人か濃厚接触をした方／呼吸器症状かつ発熱37.5℃以上" />
