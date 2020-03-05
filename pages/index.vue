@@ -105,7 +105,7 @@ export default {
     // 帰国者・接触者電話相談センター相談件数
     const querentsGraph = formatGraph(Data.querents.data)
     // 都営地下鉄の利用者数の推移
-    const metroGraph = MetroData.datasets
+    const metroGraph = MetroData
     // 死亡者数
     // #MEMO: 今後使う可能性あるので一時コメントアウト
     // const fatalitiesTable = formatTable(
