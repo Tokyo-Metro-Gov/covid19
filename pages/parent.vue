@@ -25,7 +25,7 @@ export default {
         {
           title: '2 感染症を疑う場合の対応',
           body:
-            '〇　風邪の症状や、37.5度以上の発熱が４日以上続いている、強いだるさ（倦怠感）、息苦しさ（呼吸困難）がある場合は、各保健所にご相談ください。<br />〇  「新型コロナウイルス感染症にかかる相談窓口について」（東京都福祉保健局）<br /><a href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html" target="_blank" rel="noopener">https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html</a>'
+            '〇　風邪の症状や、37.5度以上の発熱が４日以上続いている、強いだるさ（倦怠感）、息苦しさ（呼吸困難）がある場合は、各保健所にご相談ください。<br /><a href="https://www.fukushihoken.metro.tokyo.lg.jp/smph/shisetsu/hc.html" target="_blank" rel="noopener">https://www.fukushihoken.metro.tokyo.lg.jp/smph/shisetsu/hc.html</a><br />〇  「新型コロナウイルス感染症にかかる相談窓口について」（東京都福祉保健局）<br /><a href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html" target="_blank" rel="noopener">https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html</a>'
         },
         {
           title: '3 その他',
