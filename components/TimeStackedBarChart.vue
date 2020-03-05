@@ -107,7 +107,7 @@ export default {
       const colorArray = ['#00A040', '#00D154']
       if (this.dataKind === 'transition') {
         return {
-          labels: this.labels.map(v => v.replace(/(\w+)\/(\w+)/, '$1月$2月')),
+          labels: this.labels.map(v => v.replace(/(\w+)\/(\w+)/, '$1月$2日')),
           datasets: this.chartData.map((item, index) => {
             return {
               label: this.items[index],
@@ -119,7 +119,7 @@ export default {
         }
       }
       return {
-        labels: this.labels.map(v => v.replace(/(\w+)\/(\w+)/, '$1月$2月')),
+        labels: this.labels.map(v => v.replace(/(\w+)\/(\w+)/, '$1月$2日')),
         datasets: this.chartData.map((item, index) => {
           return {
             label: this.items[index],
