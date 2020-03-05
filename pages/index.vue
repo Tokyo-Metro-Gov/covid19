@@ -60,7 +60,7 @@
           title="都営地下鉄の利用者数の推移"
           :chart-data="metroGraph"
           :chart-option="metroGraphOption"
-          :date="Data.querents.date"
+          :date="metroGraph.date"
         />
       </v-col>
     </v-row>
