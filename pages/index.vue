@@ -33,10 +33,10 @@
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
-        <data-table
+        <property-table-chart
           :title="'陽性患者の属性'"
-          :chart-data="patientsTable"
-          :chart-option="{}"
+          :property-data="propertyData"
+          :chart-option="propertyOption"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
           :url="
@@ -93,7 +93,7 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
-import DataTable from '@/components/DataTable.vue'
+import PropertyTableChart from '@/components/PropertyTableChart.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
@@ -109,7 +109,7 @@ export default {
     TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
-    DataTable,
+    PropertyTableChart
     SvgCard,
     ConfirmedCasesTable
   },
@@ -117,7 +117,7 @@ export default {
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
     // 感染者数
-    const patientsTable = formatTable(Data.patients.data)
+    const propertyData = formatTable(Data.patients.data)
     // 退院者グラフ
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
     // 退院者数
@@ -156,7 +156,7 @@ export default {
 
     const data = {
       Data,
-      patientsTable,
+      propertyData,
       patientsGraph,
       dischargesTable,
       dischargesGraph,
@@ -226,6 +226,53 @@ export default {
               return `${metroGraph.base_period}の利用者数との相対値: ${percentage}`
             }
           }
+        }
+      },
+      propertyOption: {
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            label(tooltipItem, data) {
+              const labelText =
+                (data.datasets[tooltipItem.datasetIndex].label || '') +
+                ' ' +
+                tooltipItem.value +
+                '人'
+              return labelText
+            }
+          }
+        },
+        responsive: true,
+        ticks: {
+          fontSize: 10
+        },
+        scales: {
+          // NOTE: <horizontal-bar> に変えたい場合、`xAxes` と `yAxes` を交換してください
+          xAxes: [
+            {
+              stacked: true,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                fontSize: 15,
+                fontColor: '#808080'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              location: 'bottom',
+              stacked: true,
+              gridLines: {
+                display: true,
+                color: '#E5E5E5'
+              },
+              ticks: {
+                fontColor: '#808080'
+              }
+            }
+          ]
         }
       }
     }

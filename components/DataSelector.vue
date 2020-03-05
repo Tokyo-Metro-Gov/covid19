@@ -5,11 +5,19 @@
     mandatory
     @change="$emit('input', $event)"
   >
-    <v-btn v-ripple="false" value="transition" class="DataSelector-Button">
-      日別
+    <v-btn
+      v-ripple="false"
+      :value="btnData[0].attr"
+      class="DataSelector-Button"
+    >
+      {{ btnData[0].text }}
     </v-btn>
-    <v-btn v-ripple="false" value="cumulative" class="DataSelector-Button">
-      累計
+    <v-btn
+      v-ripple="false"
+      :value="btnData[1].attr"
+      class="DataSelector-Button"
+    >
+      {{ btnData[1].text }}
     </v-btn>
   </v-btn-toggle>
 </template>
@@ -47,6 +55,24 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    displayType: {
+      type: String,
+      required: true,
+      default: 'time'
+    }
+  },
+  computed: {
+    btnData() {
+      return this.displayType === 'time'
+        ? [
+            { attr: 'transition', text: '日別' },
+            { attr: 'cumulative', text: '累计' }
+          ]
+        : [
+            { attr: 'table', text: 'テーブル' },
+            { attr: 'graph', text: 'グラフ' }
+          ]
     }
   }
 }

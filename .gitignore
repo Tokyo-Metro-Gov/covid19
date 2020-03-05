@@ -93,3 +93,6 @@ sw.*
 
 # Netlify
 .netlify
+
+# auto-generated crash report
+report.*.json

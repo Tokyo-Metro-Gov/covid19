@@ -75,6 +75,7 @@ export default {
     },
     date: {
       type: String,
+      required: true,
       default: ''
     },
     info: {
