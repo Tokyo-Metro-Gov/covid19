@@ -129,6 +129,111 @@ export default {
         icon: 'mdi-chart-timeline-variant',
         title: '都内の最新感染動向',
         date: Data.lastUpdate
+      },
+      option: {
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            label(tooltipItem) {
+              const labelText = tooltipItem.value + '人'
+              return labelText
+            }
+          }
+        },
+        responsive: true,
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [
+            {
+              stacked: true,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: '#808080'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              location: 'bottom',
+              stacked: true,
+              gridLines: {
+                display: true,
+                color: '#E5E5E5'
+              },
+              ticks: {
+                suggestedMin: 0,
+                maxTicksLimit: 8,
+                fontColor: '#808080'
+              }
+            }
+          ]
+        }
+      },
+      metroGraphOption: {
+        responsive: true,
+        legend: {
+          display: true
+        },
+        scales: {
+          xAxes: [
+            {
+              position: 'bottom',
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: '#808080'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 10,
+                fontColor: '#808080',
+                callback(value) {
+                  // 基準値を100としたときの相対値
+                  return (value / 100).toFixed(2)
+                }
+              }
+            }
+          ]
+        },
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            title(tooltipItems, _) {
+              const label = tooltipItems[0].label
+              return `期間: ${label}`
+            },
+            label(tooltipItem, data) {
+              const index = tooltipItem.index
+              const currentData = data.datasets[tooltipItem.datasetIndex]
+              const percentage = `${currentData.data[index]}%`
+
+              if (index > 0) {
+                const prevPeriod = data.labels[index - 1]
+                return `${prevPeriod}の利用者数との相対値: ${percentage}`
+              } else {
+                return `${percentage}`
+              }
+            }
+          }
+        }
       }
     }
     return data
