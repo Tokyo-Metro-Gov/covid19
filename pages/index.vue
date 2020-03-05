@@ -121,8 +121,14 @@ export default {
     // 都営地下鉄の利用者数の推移
     const metroGraph = MetroData
     // 検査実施日別状況
-    const inspectionsGraph = [Data.inspections_summary.data['都内'], Data.inspections_summary.data['その他']]
-    const inspectionsItems = ['都内発生（疑い例・接触者調査）', 'その他（チャーター便・クルーズ便）']
+    const inspectionsGraph = [
+      Data.inspections_summary.data['都内'],
+      Data.inspections_summary.data['その他']
+    ]
+    const inspectionsItems = [
+      '都内発生（疑い例・接触者調査）',
+      'その他（チャーター便・クルーズ便）'
+    ]
     const inspectionsLabels = Data.inspections_summary.labels
     // 死亡者数
     // #MEMO: 今後使う可能性あるので一時コメントアウト
