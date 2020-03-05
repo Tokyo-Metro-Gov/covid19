@@ -61,7 +61,6 @@
           :chart-data="metroGraph"
           :chart-option="metroGraphOption"
           :date="Data.querents.date"
-          :unit="'件'"
         />
       </v-col>
     </v-row>
@@ -133,41 +132,16 @@ export default {
         title: '都内の最新感染動向',
         date: Data.lastUpdate
       },
-      metroGraphOption: {
-        responsive: true,
-        legend: {
-          display: true
-        },
-        scales: {
-          xAxes: [
-            {
-              position: 'bottom',
-              stacked: false,
-              gridLines: {
-                display: true
-              },
-              ticks: {
-                fontSize: 10,
-                maxTicksLimit: 20,
-                fontColor: '#808080'
-              }
-            }
-          ]
-        },
+      option: {
         tooltips: {
+          displayColors: false,
           callbacks: {
-            label(tooltipItem, data) {
-              const index = tooltipItem.index
-              const datasetIndex = tooltipItem.datasetIndex
-              const currentData = data.datasets[datasetIndex]
-              const label = currentData.label
-              const value = currentData.data[index]
-              return `${label}: ${value}%`
+            label(tooltipItem) {
+              const labelText = tooltipItem.value + '人'
+              return labelText
             }
           }
-        }
-      },
-      option: {
+        },
         responsive: true,
         legend: {
           display: false
@@ -201,6 +175,40 @@ export default {
               }
             }
           ]
+        }
+      },
+      metroGraphOption: {
+        responsive: true,
+        legend: {
+          display: true
+        },
+        scales: {
+          xAxes: [
+            {
+              position: 'bottom',
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: '#808080'
+              }
+            }
+          ]
+        },
+        tooltips: {
+          callbacks: {
+            label(tooltipItem, data) {
+              const index = tooltipItem.index
+              const datasetIndex = tooltipItem.datasetIndex
+              const currentData = data.datasets[datasetIndex]
+              const label = currentData.label
+              const value = currentData.data[index]
+              return `${label}: ${value}%`
+            }
+          }
         }
       }
     }
