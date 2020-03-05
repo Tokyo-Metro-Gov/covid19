@@ -37,6 +37,6 @@ export default {
 }
 .date {
   font-size: 0.875rem;
-  color: #808080;
+  color: $gray-3;
 }
 </style>

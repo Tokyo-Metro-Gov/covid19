@@ -9,7 +9,6 @@ module.exports = {
       prefix: 'og: http://ogp.me/ns#'
     },
     titleTemplate: '%s | 東京都 新型コロナウイルス対策サイト',
-    title: '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -94,16 +93,12 @@ module.exports = {
           {
             code: 'ja',
             iso: 'ja_JP'
-          },
-          {
-            code: 'en',
-            iso: 'en-US'
           }
         ],
-        formatFallbackMessages: true,
         defaultLocale: 'ja',
         vueI18n: {
-          fallbackLocale: 'ja'
+          fallbackLocale: 'ja',
+          formatFallbackMessages: true
         },
         vueI18nLoader: true
       }
@@ -144,5 +139,16 @@ module.exports = {
     "Scope": "/",
     "start_url": "/",
     "splash_pages": null
+  },
+  generate: {
+    fallback: true
+  },
+  // /*
+  // ** hot read configuration for docker
+  // */
+  watchers: {
+    webpack: {
+      poll: true
+    }
   }
 }
