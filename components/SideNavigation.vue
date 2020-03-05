@@ -3,8 +3,8 @@
     <div class="SideNavigation-HeadingContainer sp-flex">
       <v-icon
         class="SideNavigation-HeadingIcon sp-inline-block"
-        @click="openNavi"
         :aria-label="$t('Navi Open')"
+        @click="openNavi"
       >
         mdi-menu
       </v-icon>
@@ -26,8 +26,8 @@
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
         class="SideNavigation-ListContainerIcon sp-inline-block"
-        @click="closeNavi"
         :aria-label="$t('Navi Close')"
+        @click="closeNavi"
       >
         mdi-close
       </v-icon>
@@ -45,15 +45,24 @@
       </v-list>
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a href="https://line.me/R/ti/p/%40822sysfc" target="_blank" rel="noopener">
+          <a
+            href="https://line.me/R/ti/p/%40822sysfc"
+            target="_blank"
+            rel="noopener"
+          >
             <img src="/line.png" alt="LINE" />
           </a>
-          <a href="https://twitter.com/tokyo_bousai" target="_blank" rel="noopener">
+          <a
+            href="https://twitter.com/tokyo_bousai"
+            target="_blank"
+            rel="noopener"
+          >
             <img src="/twitter.png" alt="Twitter" />
           </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights Reserved.
+          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
+          Reserved.
         </small>
       </div>
     </div>
@@ -154,8 +163,8 @@ export default {
       ]
     },
     isClass() {
-      return item => item.title.charAt(0) === '【' ? 'kerningLeft' : ''
-    },
+      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
+    }
   },
   methods: {
     openNavi() {
@@ -260,8 +269,9 @@ export default {
 }
 .open {
   @include lessThan($small) {
-    position: absolute;
+    position: fixed;
     top: 0;
+    bottom: 0;
     left: 0;
     display: block !important;
     width: 100%;
