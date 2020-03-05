@@ -52,8 +52,8 @@ export default {
   },
   computed: {
     displayCumulativeRatio() {
-      const lastDay = this.chartData.slice(-1)[0].cummulative
-      const lastDayBefore = this.chartData.slice(-2)[0].cummulative
+      const lastDay = this.chartData.slice(-1)[0].cumulative
+      const lastDayBefore = this.chartData.slice(-2)[0].cumulative
       return this.formatDayBeforeRatio(lastDay - lastDayBefore).toLocaleString()
     },
     displayTransitionRatio() {
