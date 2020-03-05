@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date">
+  <data-view :title="title" :date="date" :url="url">
     <template v-slot:button>
       <span />
     </template>
@@ -15,9 +15,9 @@
     />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
-        :lText=info.lText
-        :sText=info.sText
-        :unit=info.unit
+        :l-text="info.lText"
+        :s-text="info.sText"
+        :unit="info.unit"
       />
     </template>
   </data-view>
@@ -81,6 +81,11 @@ export default {
       type: Object,
       required: false,
       default: () => {}
+    },
+    url: {
+      type: String,
+      required: false,
+      default: ''
     }
   }
 }

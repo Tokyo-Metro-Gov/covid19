@@ -1,17 +1,19 @@
 <template>
   <v-app class="app">
-    <div class="loader" v-if="loading">
-      <img src="/logo.svg" />
+    <div v-if="loading" class="loader">
+      <img src="/logo.svg" alt="東京都" />
       <scale-loader color="#00A040" />
     </div>
-    <div class="appContainer" v-else>
-      <SideNavigation
-        @openNavi="showNavi"
-        @closeNavi="hideNavi"
-        :isNaviOpen="isNaviOpen"
-        :class="{open: isNaviOpen}"
-      />
-      <div class="mainContainer" :class="{open: isNaviOpen}">
+    <div v-else class="appContainer">
+      <div class="naviContainer">
+        <SideNavigation
+          :is-navi-open="isNaviOpen"
+          :class="{ open: isNaviOpen }"
+          @openNavi="showNavi"
+          @closeNavi="hideNavi"
+        />
+      </div>
+      <div class="mainContainer" :class="{ open: isNaviOpen }">
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
@@ -25,24 +27,37 @@ import SideNavigation from '@/components/SideNavigation'
 export default {
   components: {
     ScaleLoader,
-    SideNavigation,
+    SideNavigation
+  },
+  head() {
+    return {
+      link: [
+        { rel: 'canonical', href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}` },
+      ],
+    };
   },
   data() {
     return {
       isNaviOpen: false,
-      loading: true,
-    }
-  },
-  methods:{
-    showNavi: function(){
-      this.isNaviOpen = true;
-    },
-    hideNavi: function(){
-      this.isNaviOpen = false;
+      loading: true
     }
   },
   mounted() {
     this.loading = false
+  },
+  methods: {
+    showNavi() {
+      this.isNaviOpen = true
+    },
+    hideNavi() {
+      this.isNaviOpen = false
+    }
+  },
+  head() {
+    const { htmlAttrs } = this.$nuxtI18nSeo()
+    return {
+      htmlAttrs
+    }
   }
 }
 </script>
@@ -53,8 +68,13 @@ export default {
   background-color: inherit !important;
 }
 .appContainer {
+  position: relative;
   @include largerThan($small) {
-    display: flex;
+    display: grid;
+    grid-template-columns: 240px auto;
+  }
+  @include largerThan($huge) {
+    grid-template-columns: 325px auto;
   }
 }
 @include lessThan($small) {
@@ -65,8 +85,20 @@ export default {
     z-index: z-index-of(sp-navigation);
   }
 }
-.navi {
-  flex: 0 1 200px;
+@include largerThan($small) {
+  .naviContainer {
+    grid-column: 1/2;
+    position: fixed;
+    top: 0;
+    overflow-y: auto;
+    width: 240px;
+    height: 100vh;
+  }
+}
+@include largerThan($huge) {
+  .naviContainer {
+    width: 325px;
+  }
 }
 .open {
   overflow-x: hidden;
@@ -74,12 +106,8 @@ export default {
   height: 100vh;
 }
 .mainContainer {
-  flex: 1 1 auto;
-  @include largerThan($small) {
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: 100vh;
-  }
+  grid-column: 2/3;
+  overflow: hidden;
   @include lessThan($small) {
     .container {
       padding-top: 16px !important;
