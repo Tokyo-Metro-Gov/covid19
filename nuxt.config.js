@@ -67,8 +67,7 @@ const config = {
     {
       src: '@/plugins/vue-chart.js',
       ssr: true
-    },
-    '@/plugins/datetime-formatter.js'
+    }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -87,7 +86,6 @@ const config = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    ['@nuxtjs/moment', ['ja']],
     [
       'nuxt-i18n',
       {
