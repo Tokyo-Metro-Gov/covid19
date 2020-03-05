@@ -462,7 +462,7 @@
       </g>
       <rect class="s" height="163" transform="translate(372 63)" width="1" />
       <text class="t" transform="translate(430 49)">
-        <tspan x="-174.777" y="0">発症前</tspan>
+        <tspan x="-174.777" y="0">ここ</tspan>
         <tspan class="u" y="0">2</tspan>
         <tspan y="0">週間以内</tspan>
         <tspan class="q" y="0">の出来ごとと症状</tspan>
