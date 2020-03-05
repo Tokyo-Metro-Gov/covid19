@@ -27,7 +27,9 @@
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="'人'"
-          :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+          :url="
+            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+          "
           :source="
             '東京オープンデータカタログサイト 「東京都 新型コロナウイルス患者発表者数」'
           "
@@ -40,7 +42,9 @@
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
-          :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+          :url="
+            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+          "
           :source="
             '東京オープンデータカタログサイト 「東京都 新型コロナウイルス患者発表者数」'
           "
