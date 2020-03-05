@@ -14,8 +14,8 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
-        <svg-card :title="'検査陽性者の状況'" :date="'2020/3/4 19:30 '">
-          <confirmed-cases-table />
+        <svg-card title="検査陽性者の状況" :date="'2020/3/4 19:30 '">
+          <confirmed-cases-table aria-label="検査陽性者の状況" />
         </svg-card>
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
