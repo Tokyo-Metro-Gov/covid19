@@ -22,7 +22,6 @@
         <time-bar-chart
           title="陽性患者数"
           :chart-data="patientsGraph"
-          :chart-option="option"
           :date="Data.patients.date"
           :unit="'人'"
         />
@@ -41,7 +40,6 @@
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
           :chart-data="contactsGraph"
-          :chart-option="option"
           :date="Data.contacts.date"
           :unit="'件'"
         />
@@ -50,7 +48,6 @@
         <time-bar-chart
           title="帰国者・接触者電話相談センター相談件数"
           :chart-data="querentsGraph"
-          :chart-option="option"
           :date="Data.querents.date"
           :unit="'件'"
         />
@@ -117,51 +114,6 @@ export default {
         icon: 'mdi-chart-timeline-variant',
         title: '都内の最新感染動向',
         date: Data.lastUpdate
-      },
-      option: {
-        tooltips: {
-          displayColors: false,
-          callbacks: {
-            label(tooltipItem) {
-              const labelText = tooltipItem.value + '人'
-              return labelText
-            }
-          }
-        },
-        responsive: true,
-        legend: {
-          display: false
-        },
-        scales: {
-          xAxes: [
-            {
-              stacked: true,
-              gridLines: {
-                display: false
-              },
-              ticks: {
-                fontSize: 10,
-                maxTicksLimit: 20,
-                fontColor: '#808080'
-              }
-            }
-          ],
-          yAxes: [
-            {
-              location: 'bottom',
-              stacked: true,
-              gridLines: {
-                display: true,
-                color: '#E5E5E5'
-              },
-              ticks: {
-                suggestedMin: 0,
-                maxTicksLimit: 8,
-                fontColor: '#808080'
-              }
-            }
-          ]
-        }
       }
     }
     return data
