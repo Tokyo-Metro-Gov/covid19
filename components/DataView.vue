@@ -2,7 +2,7 @@
   <v-card class="DataView pa-1">
     <div class="DataView-Content">
       <div class="DataView-TitleContainer">
-        <div class="DataView-Title2">
+        <div class="DataView-Title">
           {{ title }}
         </div>
         <div>
@@ -85,12 +85,11 @@ export default class DataView extends Vue {
     padding: 14px 0 8px;
     color: $gray-2;
   }
-  &-Title2 {
+  &-Title {
     font-size: 1.25rem;
     line-height: 1.5;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: wrap;
   }
   &-CardText {
     margin-bottom: 46px;
