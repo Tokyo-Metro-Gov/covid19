@@ -170,6 +170,10 @@ export default {
         }
       },
       option: {
+        responsive: true,
+        legend: {
+          display: false
+        },
         scales: {
           xAxes: [
             {
