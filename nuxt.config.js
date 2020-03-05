@@ -9,7 +9,6 @@ module.exports = {
       prefix: 'og: http://ogp.me/ns#'
     },
     titleTemplate: '%s | 東京都 新型コロナウイルス対策サイト',
-    title: '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -144,4 +143,12 @@ module.exports = {
   generate: {
     fallback: true
   },
+  // /*
+  // ** hot read configuration for docker
+  // */
+  watchers: {
+    webpack: {
+      poll: true
+    }
+  }
 }

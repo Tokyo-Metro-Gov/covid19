@@ -1,0 +1,14 @@
+{
+    "editor.renderControlCharacters": true,
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "eslint.format.enable": true,
+    "eslint.packageManager": "yarn",
+    "eslint.workingDirectories": ["./"],
+    "eslint.validate": [
+      "javascript",
+      "vue"
+    ]
+  }
