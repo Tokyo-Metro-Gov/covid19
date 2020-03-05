@@ -8,7 +8,7 @@
 ## How to Contribute / 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
 
-詳しくは[How to contribute](./.github/CONTRIBUTING.md)を御覧ください。
+詳しくは[貢献の仕方](./.github/CONTRIBUTING.md)を御覧ください。
 
 All contributions are welcome!
 Please check [How to contribute](./.github/CONTRIBUTING_EN.md) for details.
