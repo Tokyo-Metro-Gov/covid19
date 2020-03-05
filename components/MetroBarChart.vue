@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     displayData() {
-      const colors = ['#a6e29f', '#63c765', '#008b41']
+      const colors = ['#E6AC73', '#E6E68A', '#00B849']
       return {
         labels: this.chartData.datasets.map(d => d.label),
         datasets: this.chartData.labels.map((label, i) => {
