@@ -60,7 +60,7 @@
             <div class="SodanHeijitsu">
               <dt class="Heijitsu">平日（日中）</dt>
               <dd>
-                <a class="Link" href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html" target="_blank">
+                <a class="Link" href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html" target="_blank" rel="noopener">
                   各保健所の電話番号は福祉保健局HPへ
                   <v-icon size="16">
                     mdi-open-in-new
@@ -110,6 +110,7 @@
       <a
         href="https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html"
         target="_blank"
+        rel="nopenner"
         class="Flow-Card-Button"
       >
         詳細を見る(東京都福祉保健局)
