@@ -92,10 +92,23 @@ export default {
     width: 325px;
   }
 }
+@include lessThan($small) {
+  .naviContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 65px;
+    width: 100%;
+    z-index: 100;
+  }
+  .mainContainer {
+    margin-top: 65px;
+  }
+}
 .open {
   overflow-x: hidden;
   overflow-y: auto;
-  height: 100vh;
+  height: 100vh !important;
 }
 .mainContainer {
   grid-column: 2/3;
