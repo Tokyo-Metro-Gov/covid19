@@ -21,6 +21,7 @@ This software is released under the MIT License.
 
 ### How to Set Up Environments / 環境構築の手順
 
+**Use yarn / yarn を使う場合**
 ``` bash
 # install dependencies
 $ yarn install
@@ -29,7 +30,13 @@ $ yarn install
 $ yarn dev
 ```
 
-### Deployment to Staiging & Production Environments / ステージング・本番環境への反映
+**Use docker / docker compose を使う場合**
+```bash 
+# serve with hot reload at localhost:3000
+$ docker-compose up
+```
+
+### Deployment to Staging & Production Environments / ステージング・本番環境への反映
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.metro.tokyo.lg.jp/ が更新されます。
 
