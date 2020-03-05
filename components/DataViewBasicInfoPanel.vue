@@ -52,9 +52,6 @@
     color: $gray-3 !important;
   }
 }
-.v-toolbar__content {
-  height: auto !important;
-}
 </style>
 
 <script lang="ts">
