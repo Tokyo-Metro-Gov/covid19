@@ -1,6 +1,6 @@
 <template>
   <data-view class="SvgCard" :title="title" :date="date">
-    <slot :aria-label="title" />
+    <slot />
   </data-view>
 </template>
 
