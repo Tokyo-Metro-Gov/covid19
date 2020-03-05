@@ -14,12 +14,16 @@
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
+      <span v-if="url">
+        出典:
+        <a class="OpenDataLink" :href="url" target="_blank">
+          <v-icon class="ExternalLinkIcon" size="15">
+            mdi-open-in-new
+          </v-icon>
+          {{ source }}
+        </a>
+      </span>
       <time :datetime="date">{{ date }} 更新</time>
-      <a v-if="url" class="OpenDataLink" :href="url" target="_blank">オープンデータへのリンク
-        <v-icon class="ExternalLinkIcon" size="15">
-          mdi-open-in-new
-        </v-icon>
-      </a>
     </v-footer>
   </v-card>
 </template>
@@ -32,6 +36,7 @@ export default class DataView extends Vue {
   @Prop() private title!: string
   @Prop() private date!: string
   @Prop() private url!: string
+  @Prop() private source!: string
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
 }
 </script>
