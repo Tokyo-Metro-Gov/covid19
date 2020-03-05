@@ -29,7 +29,7 @@ $ yarn install
 $ yarn dev
 ```
 
-### Deployment to Staiging & Production Environments / ステージング・本番環境への反映
+### Deployment to Staging & Production Environments / ステージング・本番環境への反映
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.metro.tokyo.lg.jp/ が更新されます。
 
