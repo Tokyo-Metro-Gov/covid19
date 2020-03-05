@@ -1,7 +1,7 @@
 <template>
   <data-view :title="title" :date="date">
     <p class="MetroGraph-Desc">
-      基準値を100としたときの相対値
+      {{ chartData.base_period }}の利用者数*の平均値を100としたときの相対値
       <br />
       *都営地下鉄4路線の自動改札出場数
     </p>

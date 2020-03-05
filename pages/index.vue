@@ -223,16 +223,10 @@ export default {
               return `期間: ${label}`
             },
             label(tooltipItem, data) {
-              const index = tooltipItem.index
               const currentData = data.datasets[tooltipItem.datasetIndex]
-              const percentage = `${currentData.data[index]}%`
+              const percentage = `${currentData.data[tooltipItem.index]}%`
 
-              if (index > 0) {
-                const prevPeriod = data.labels[index - 1]
-                return `${prevPeriod}の利用者数との相対値: ${percentage}`
-              } else {
-                return `${percentage}`
-              }
+              return `${metroGraph.base_period}の利用者数との相対値: ${percentage}`
             }
           }
         }
