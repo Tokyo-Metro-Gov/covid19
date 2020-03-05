@@ -56,10 +56,12 @@
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
-        <svg-card
-          :title="'検査陽性者の状況'"
-          :src-url="'confirmed-cases-table.svg'"
-          :date="'2020/3/4 19:30 '"
+        <vertical-bar-chart
+          title="都営地下鉄の利用者数の推移"
+          :chart-data="metroGraph"
+          :chart-option="metroGraphOption"
+          :date="Data.querents.date"
+          :unit="'件'"
         />
       </v-col>
     </v-row>
@@ -69,9 +71,11 @@
 <script>
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
+import VerticalBarChart from '@/components/VerticalBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
+import MetroData from '@/data/metro.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
@@ -81,6 +85,7 @@ export default {
   components: {
     PageHeader,
     TimeBarChart,
+    VerticalBarChart,
     WhatsNew,
     StaticInfo,
     DataTable,
@@ -99,6 +104,8 @@ export default {
     const contactsGraph = formatGraph(Data.contacts.data)
     // 帰国者・接触者電話相談センター相談件数
     const querentsGraph = formatGraph(Data.querents.data)
+    // 都営地下鉄の利用者数の推移
+    const metroGraph = MetroData.datasets
     // 死亡者数
     // #MEMO: 今後使う可能性あるので一時コメントアウト
     // const fatalitiesTable = formatTable(
@@ -121,13 +128,14 @@ export default {
       dischargesGraph,
       contactsGraph,
       querentsGraph,
+      metroGraph,
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: '都内の最新感染動向',
         date: Data.lastUpdate
       },
-      option: {
+      metroGraphOption: {
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -140,7 +148,9 @@ export default {
         responsive: true,
         legend: {
           display: false
-        },
+        }
+      },
+      option: {
         scales: {
           xAxes: [
             {
