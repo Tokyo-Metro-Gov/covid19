@@ -43,9 +43,6 @@
   &-TitleContainer {
     padding: 14px 0 8px;
   }
-  &-Title {
-    @include card-h2();
-  }
   &-Footer {
     background-color: $white !important;
     text-align: right;
