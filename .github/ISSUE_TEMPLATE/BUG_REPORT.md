@@ -1,5 +1,6 @@
-- [ ] バグ / Bug
-- [ ] 改善提案 / Suggestions for improvement
+---
+labels: bug
+---
 
 ## 起こっている問題 / Occurred problem
 * xxxx(できるだけ簡潔に/as concise as possible)
