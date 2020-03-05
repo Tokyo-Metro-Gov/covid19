@@ -62,6 +62,7 @@ export default class DataView extends Vue {
 }
 .DataView {
   @include card-container();
+  position: relative;
   height: 100%;
   &-content {
     height: auto !important;
@@ -89,6 +90,10 @@ export default class DataView extends Vue {
     margin-top: 70px;
   }
   &-Footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-color: $white !important;
     margin: 2px 4px 12px;
     @include font-size(12);
