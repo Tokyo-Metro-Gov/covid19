@@ -104,7 +104,7 @@ export default {
       }
     },
     displayData() {
-      const colorArray = ['#00A040', '#00D154']
+      const colorArray = ['#00B849', '#B8E6E6']
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
