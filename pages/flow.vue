@@ -216,11 +216,15 @@
 <script>
 import CovidIcon from '@/static/covid.svg'
 import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
+import Meta from '@/assets/mixins/meta'
 export default {
   components: { CovidIcon, DesktopFlowSvg },
-  head() {
+  mixins: [Meta],
+  data() {
     return {
-      title: '新型コロナウイルス感染症が心配なときに'
+      meta: {
+        title: '新型コロナウイルス感染症が心配なときに'
+      }
     }
   }
 }

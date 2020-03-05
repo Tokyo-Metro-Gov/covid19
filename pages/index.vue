@@ -97,6 +97,7 @@ import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import News from '@/data/news.json'
 import SvgCard from '@/components/SvgCard.vue'
+import Meta from '@/assets/mixins/meta'
 
 export default {
   components: {
@@ -109,6 +110,7 @@ export default {
     DataTable,
     SvgCard
   },
+  mixins: [Meta],
   data() {
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
@@ -265,14 +267,12 @@ export default {
             }
           }
         }
+      },
+      meta: {
+        title: '都内の最新感染動向'
       }
     }
     return data
-  },
-  head() {
-    return {
-      title: '都内の最新感染動向'
-    }
   }
 }
 </script>

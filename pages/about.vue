@@ -115,14 +115,18 @@
 
 <script lang="ts">
 import TextCard from '@/components/TextCard.vue'
+import Meta from '@/assets/mixins/meta'
 
 export default {
   components: {
     TextCard
   },
-  head() {
+  mixins: [Meta],
+  data() {
     return {
-      title: '当サイトについて'
+      meta: {
+        title: '当サイトについて'
+      }
     }
   }
 }

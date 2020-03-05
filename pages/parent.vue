@@ -10,10 +10,12 @@
 </template>
 <script lang="ts">
 import TextCard from '@/components/TextCard.vue'
+import Meta from '@/assets/mixins/meta'
 export default {
   components: {
     TextCard
   },
+  mixins: [Meta],
   data() {
     return {
       items: [
@@ -31,12 +33,10 @@ export default {
           title: '3 その他',
           body: '〇  詳細は、各学校からのお知らせ等をご確認ください。'
         }
-      ]
-    }
-  },
-  head() {
-    return {
-      title: 'お子様をお持ちの皆様へ'
+      ],
+      meta: {
+        title: 'お子様をお持ちの皆様へ'
+      }
     }
   }
 }
