@@ -5,6 +5,39 @@
       <scale-loader color="#00A040" />
     </div>
     <v-container v-else>
+      <v-row align="center" class="PrintMeta">
+        <v-col :cols="12" :sm="6">
+          <div class="PrintMeta-HeadingWrapper">
+            <div class="PrintMeta-Logo">
+              <img src="/logo.svg" alt="東京都" />
+            </div>
+            <h1 class="PrintMeta-Heading">
+              新型コロナウイルス感染症<br />対策サイト
+            </h1>
+          </div>
+        </v-col>
+        <v-col :cols="12" :sm="6">
+          <v-card class="d-flex flex-row" flat tile color="transparent">
+            <v-spacer />
+            <v-card
+              class="PrintMeta-QR flex-shrink-0"
+              flat
+              tile
+              color="transparent"
+            >
+              <img src="/site-qr.svg" alt="QRコード" />
+            </v-card>
+            <v-card class="flex-shrink-0" flat tile color="transparent">
+              <p class="PrintMeta-Text">
+                ※最新の情報はWebページをご覧ください
+              </p>
+              <p class="PrintMeta-Link">
+                https://stopcovid19.metro.tokyo.lg.jp/
+              </p>
+            </v-card>
+          </v-card>
+        </v-col>
+      </v-row>
       <nuxt />
     </v-container>
   </v-app>
@@ -48,16 +81,47 @@ export default {
   margin: 0 auto;
   background-color: inherit !important;
 }
-.loader {
-  height: 200px;
-  width: 150px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
-  img {
-    display: block;
-    margin: 0 auto 20px;
+</style>
+
+<style lang="scss" scoped>
+.PrintMeta {
+  margin-bottom: 1em;
+  &-HeadingWrapper {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  &-Logo {
+    margin: 0 16px 0 0;
+    width: 110px;
+  }
+  &-Heading {
+    font-size: 13px;
+    color: #898989;
+    padding: 0.5em 0;
+    text-decoration: none;
+  }
+  &-QR {
+    height: 60px;
+    width: 60px;
+    margin-right: 1em;
+
+    img {
+      max-width: 100%;
+    }
+  }
+  &-Text {
+    font-size: 13px;
+    color: gray;
+    margin-bottom: 0;
+    padding-top: 1em;
+    width: max-content;
+  }
+  &-Link {
+    font-size: 13px;
+    color: gray;
+    margin-bottom: 0;
+    width: max-content;
   }
 }
 </style>
