@@ -4,12 +4,13 @@
       <v-icon
         class="SideNavigation-HeadingIcon sp-inline-block"
         @click="openNavi"
+        :aria-label="$t('Navi Open')"
       >
         mdi-menu
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" />
+          <img src="/logo.svg" :alt="$t('Tokyo')" />
         </div>
         <h1 class="SideNavigation-Heading">
           {{ $t('COVID-19') }}<br /><br class="SideNavigation-HeadingMobileBreak" />{{
@@ -23,6 +24,7 @@
       <v-icon
         class="SideNavigation-ListContainerIcon sp-inline-block"
         @click="closeNavi"
+        :aria-label="$t('Navi Close')"
       >
         mdi-close
       </v-icon>
@@ -40,15 +42,15 @@
       </v-list>
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a href="https://line.me/R/ti/p/%40822sysfc#~">
-            <img src="/line.png" />
+          <a href="https://line.me/R/ti/p/%40822sysfc" target="_blank" rel="noopener">
+            <img src="/line.png" alt="LINE" />
           </a>
-          <a href="https://twitter.com/tokyo_bousai">
-            <img src="/twitter.png" />
+          <a href="https://twitter.com/tokyo_bousai" target="_blank" rel="noopener">
+            <img src="/twitter.png" alt="Twitter" />
           </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
-          Copyright (C) 2020 Tokyo Metropolitan Government. All Rights Reserved.
+          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights Reserved.
         </small>
       </div>
     </div>
@@ -58,6 +60,8 @@
 <i18n>
 {
   "ja": {
+    "Navi Open": "サイドメニュー項目を開く",
+    "Navi Close": "サイドメニュー項目を閉じる",
     "Tokyo": "東京都",
     "COVID-19": "新型コロナウイルス感染症",
     "Measures site": "対策サイト",
@@ -67,8 +71,8 @@
     "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
     "for Families with children": "お子様をお持ちの皆様へ",
     "for Citizens": "都民の皆様へ",
-    "for Enterprises and Employees": "企業の皆様・働く皆様へ",
-    "Official statements from Task Force": "東京都新型コロナイルス感染症対策本部報",
+    "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
+    "Official statements from Task Force": "東京都新型コロナウイルス感染症対策本部報",
     "Cancelled public events": "【東京都主催等】中止または延期するイベント・説明会等",
     "Government official website": "東京都公式ホームページ",
     "Message from Governor Koike": "知事からのメッセージ",
@@ -165,7 +169,7 @@ export default {
 .SideNavigation {
   position: relative;
   height: 100%;
-  background: #fff;
+  background: $white;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
@@ -259,7 +263,7 @@ export default {
     display: block !important;
     width: 100%;
     z-index: 100;
-    background-color: #fff;
+    background-color: $white;
   }
 }
 @include lessThan($small) {
@@ -274,6 +278,6 @@ export default {
   }
 }
 .kerningLeft {
-  text-indent: -.5em;
+  text-indent: -0.5em;
 }
 </style>
