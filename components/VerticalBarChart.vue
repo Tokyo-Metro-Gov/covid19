@@ -18,9 +18,9 @@ export default {
       default: ''
     },
     chartData: {
-      type: Array,
+      type: Object,
       required: false,
-      default: () => []
+      default: () => {}
     },
     chartOption: {
       type: Object,
@@ -45,23 +45,14 @@ export default {
   },
   computed: {
     displayData() {
-      return this.myd()
-    }
-  },
-  mounted() {
-    console.log(this.myd())
-  },
-  methods: {
-    myd() {
+      const colors = ['#a6e29f', '#63c765', '#008b41']
       return {
-        labels: this.chartData.map(d => {
-          return d.label
-        }),
-        datasets: this.chartData.map(d => {
+        labels: this.chartData.datasets.map(d => d.label),
+        datasets: this.chartData.labels.map((label, i) => {
           return {
-            label: d.label,
-            data: d.data,
-            backgroundColor: '#00B849',
+            label,
+            data: this.chartData.datasets.map(d => d.data[i]),
+            backgroundColor: colors[i],
             borderWidth: 0
           }
         })
