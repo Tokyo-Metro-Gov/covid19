@@ -9,7 +9,7 @@
     <StaticInfo
       class="mb-4"
       :url="'/flow'"
-      :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
+      :text="'自分や家族の症状に不安や心配があれば、まずは電話相談をどうぞ'"
       :btn-text="'相談の手順を見る'"
     />
     <v-row class="DataBlock">
@@ -27,7 +27,9 @@
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="'人'"
-          :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+          :url="
+            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+          "
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -37,7 +39,9 @@
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
-          :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+          :url="
+            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+          "
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
