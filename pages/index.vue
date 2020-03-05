@@ -55,6 +55,13 @@
           :unit="'件'"
         />
       </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <svg-card
+          :title="'検査陽性者の状況'"
+          :src-url="'confirmed-cases-table.svg'"
+          :date="'2020/3/4 19:30 '"
+        />
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -68,6 +75,7 @@ import Data from '@/data/data.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
+import SvgCard from '@/components/SvgCard.vue'
 
 export default {
   components: {
@@ -75,7 +83,8 @@ export default {
     TimeBarChart,
     WhatsNew,
     StaticInfo,
-    DataTable
+    DataTable,
+    SvgCard
   },
   data() {
     // 感染者数グラフ
