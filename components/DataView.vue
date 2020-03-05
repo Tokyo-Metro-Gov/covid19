@@ -10,7 +10,11 @@
       <v-spacer />
       <slot name="infoPanel" />
     </v-toolbar>
-    <v-card-text :class="$vuetify.breakpoint.xs ? 'DataView-CardTextForXS' : 'DataView-CardText'">
+    <v-card-text
+      :class="
+        $vuetify.breakpoint.xs ? 'DataView-CardTextForXS' : 'DataView-CardText'
+      "
+    >
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer"> {{ date }} 更新 </v-footer>
@@ -55,6 +59,9 @@ export default class DataView extends Vue {
 }
 .DataView {
   @include card-container();
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
   height: 100%;
   &-content {
     height: auto !important;
