@@ -143,4 +143,12 @@ module.exports = {
   generate: {
     fallback: true
   },
+  // /*
+  // ** hot read configuration for docker
+  // */
+  watchers: {
+    webpack: {
+      poll: true
+    }
+  }
 }
