@@ -72,7 +72,7 @@ export default {
       return {
         lText: this.chartData[
           this.chartData.length - 1
-        ].cummulative.toLocaleString(),
+        ].cumulative.toLocaleString(),
         sText: `${this.chartData.slice(-1)[0].label} 累計値（前日比：${
           this.displayCumulativeRatio
         } ${this.unit}）`,
@@ -105,7 +105,7 @@ export default {
           {
             label: this.dataKind,
             data: this.chartData.map(d => {
-              return d.cummulative
+              return d.cumulative
             }),
             backgroundColor: '#00B849',
             borderWidth: 0
