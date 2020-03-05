@@ -6,7 +6,7 @@
       :date="headerItem.date"
     />
     <whats-new class="mb-4" :items="newsItems" />
-    <StaticInfo
+    <static-info
       class="mb-4"
       :url="'/flow'"
       :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
