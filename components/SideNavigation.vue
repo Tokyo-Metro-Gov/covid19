@@ -13,9 +13,7 @@
           <img src="/logo.svg" :alt="$t('Tokyo')" />
         </div>
         <h1 class="SideNavigation-Heading">
-          {{ $t('COVID-19') }}<br class="SideNavigation-HeadingMobileBreak" />{{
-            $t('Measures site')
-          }}
+          {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
         </h1>
       </nuxt-link>
     </div>
