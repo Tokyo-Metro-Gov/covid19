@@ -136,18 +136,32 @@ export default {
         date: Data.lastUpdate
       },
       metroGraphOption: {
-        tooltips: {
-          displayColors: false,
-          callbacks: {
-            label(tooltipItem) {
-              const labelText = tooltipItem.value + '人'
-              return labelText
-            }
-          }
-        },
         responsive: true,
         legend: {
-          display: false
+          display: true
+        },
+        scales: {
+          xAxes: [
+            {
+              position: 'top',
+              stacked: false,
+              gridLines: {
+                display: true
+              }
+            }
+          ]
+        },
+        tooltips: {
+          callbacks: {
+            label(tooltipItem, data) {
+              const index = tooltipItem.index
+              const datasetIndex = tooltipItem.datasetIndex
+              const currentData = data.datasets[datasetIndex]
+              const label = currentData.label
+              const value = currentData.data[index]
+              return `${label}: ${value}%`
+            }
+          }
         }
       },
       option: {
