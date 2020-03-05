@@ -80,7 +80,7 @@
     "for Citizens": "都民の皆様へ",
     "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
     "Official statements from Task Force": "東京都新型コロナウイルス感染症対策本部報",
-    "Cancelled public events": "【東京都主催等】中止または延期するイベント・説明会等",
+    "Cancelled public events": "東京都主催等 中止又は延期するイベント等",
     "Government official website": "東京都公式ホームページ",
     "Message from Governor Koike": "知事からのメッセージ",
     "About us": "当サイトについて"
