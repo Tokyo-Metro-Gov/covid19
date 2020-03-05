@@ -3,8 +3,8 @@
     <div class="SideNavigation-HeadingContainer sp-flex">
       <v-icon
         class="SideNavigation-HeadingIcon sp-inline-block"
-        @click="openNavi"
         :aria-label="$t('Navi')"
+        @click="openNavi"
       >
         mdi-menu
       </v-icon>
@@ -44,15 +44,16 @@
       </v-list>
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a href="https://line.me/R/ti/p/%40822sysfc">
+          <a href="https://line.me/R/ti/p/%40822sysfc#~" target="_blank">
             <img src="/line.png" alt="LINE" />
           </a>
-          <a href="https://twitter.com/tokyo_bousai">
+          <a href="https://twitter.com/tokyo_bousai" target="_blank">
             <img src="/twitter.png" alt="Twitter" />
           </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights Reserved.
+          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
+          Reserved.
         </small>
       </div>
     </div>
@@ -152,8 +153,8 @@ export default {
       ]
     },
     isClass() {
-      return item => item.title.charAt(0) === '【' ? 'kerningLeft' : ''
-    },
+      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
+    }
   },
   methods: {
     openNavi() {
