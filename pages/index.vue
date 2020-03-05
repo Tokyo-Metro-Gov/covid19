@@ -143,10 +143,15 @@ export default {
         scales: {
           xAxes: [
             {
-              position: 'top',
+              position: 'bottom',
               stacked: false,
               gridLines: {
                 display: true
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: '#808080'
               }
             }
           ]
