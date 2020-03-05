@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date">
+  <data-view :title="title" :date="date" :url="url">
     <template v-slot:button>
       <span />
     </template>
@@ -8,7 +8,7 @@
       :items="chartData.datasets"
       :items-per-page="-1"
       :hide-default-footer="true"
-      :height="300"
+      :height="240"
       :fixed-header="true"
       :mobile-breakpoint="0"
       class="cardTable"
@@ -81,6 +81,11 @@ export default {
       type: Object,
       required: false,
       default: () => {}
+    },
+    url: {
+      type: String,
+      required: false,
+      default: ''
     }
   }
 }
