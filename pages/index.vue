@@ -287,9 +287,14 @@ export default {
 <style lang="scss" scoped>
 .MainPage {
   .DataBlock {
-    margin: 20px -12px;
+    margin: 20px -8px;
     .DataCard {
-      margin-bottom: 20px;
+      @include largerThan($medium) {
+        padding: 10px;
+      }
+      @include lessThan($small) {
+        padding: 4px 8px;
+      }
     }
   }
 }
