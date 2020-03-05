@@ -196,6 +196,23 @@ export default {
                 fontColor: '#808080'
               }
             }
+          ],
+          yAxes: [
+            {
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 10,
+                fontColor: '#808080',
+                callback(value) {
+                  // 基準値を100としたときの相対値
+                  return (value / 100).toFixed(2)
+                }
+              }
+            }
           ]
         },
         tooltips: {

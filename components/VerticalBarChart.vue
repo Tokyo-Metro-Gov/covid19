@@ -1,10 +1,25 @@
 <template>
   <data-view :title="title" :date="date">
     <bar :chart-data="displayData" :options="chartOption" :height="240" />
+    <template v-slot:button>
+      <p class="MetroGraph-Desc">
+        基準値を100としたときの相対値
+        <br />
+        *都営地下鉄4路線の自動改札出場数
+      </p>
+    </template>
   </data-view>
 </template>
 
-<style></style>
+<style lang="scss">
+.MetroGraph {
+  &-Desc {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #808080;
+  }
+}
+</style>
 
 <script>
 import DataView from '@/components/DataView.vue'
