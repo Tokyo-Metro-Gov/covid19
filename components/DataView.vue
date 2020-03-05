@@ -1,6 +1,6 @@
 <template>
   <v-card class="DataView pa-1">
-    <v-toolbar flat class="DataView-content">
+    <v-toolbar flat :class="$vuetify.breakpoint.xs ? 'DataView-contentForXS' : 'DataView-content'">
       <div class="DataView-TitleContainer">
         <v-toolbar-title>
           {{ title }}
@@ -66,6 +66,13 @@ export default class DataView extends Vue {
   height: 100%;
   &-content {
     height: auto !important;
+    min-height: 80px;
+    .v-toolbar__content {
+      align-items: start;
+    }
+  }
+  &-contentForXS {
+    height: auto !important;
     .v-toolbar__content {
       align-items: start;
     }
@@ -82,12 +89,12 @@ export default class DataView extends Vue {
     @include card-h2();
   }
   &-CardText {
-    margin-bottom: 46px;
-    margin-top: 35px;
+    margin-bottom: 28px;
+    margin-top: 0px;
   }
   &-CardTextForXS {
-    margin-bottom: 46px;
-    margin-top: 70px;
+    margin-bottom: 36px;
+    // margin-top: 8px;
   }
   &-Footer {
     position: absolute;
