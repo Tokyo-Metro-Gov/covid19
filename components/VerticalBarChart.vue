@@ -31,11 +31,6 @@ export default {
       type: String,
       required: true,
       default: ''
-    },
-    unit: {
-      type: String,
-      required: false,
-      default: ''
     }
   },
   computed: {
