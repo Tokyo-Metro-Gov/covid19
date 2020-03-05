@@ -1,13 +1,20 @@
 <template>
   <div class="WhatsNew">
     <h2 class="WhatsNew-heading">
-      <v-icon size="24" class="WhatsNew-heading-icon">mdi-information</v-icon>
+      <v-icon size="24" class="WhatsNew-heading-icon">
+        mdi-information
+      </v-icon>
       最新のお知らせ
     </h2>
     <div v-for="(item, i) in items" :key="i">
       <a class="WhatsNew-item" :href="item.url" target="_blank">
         <time class="WhatsNew-item-time px-2">{{ item.date }}</time>
-        <span class="WhatsNew-item-link">{{ item.text }}</span>
+        <span class="WhatsNew-item-link">
+          {{ item.text }}
+          <v-icon size="14" class="WhatsNew-ExternalLink-icon">
+            mdi-open-in-new
+          </v-icon>
+        </span>
       </a>
     </div>
   </div>
@@ -25,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss">
-.WhatsNew{
+.WhatsNew {
   @include card-container();
   padding: 10px;
   margin-bottom: 20px;
