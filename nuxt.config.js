@@ -68,6 +68,10 @@ const config = {
       src: '@/plugins/vue-chart.js',
       ssr: true
     },
+    { 
+      src: '@/plugins/axe',
+      ssr: true
+    },
     '@/plugins/datetime-formatter.js'
   ],
   /*
