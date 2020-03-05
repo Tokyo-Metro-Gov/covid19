@@ -20,7 +20,8 @@ function makeDateArray($begin) : Collection{
 function formatDate(string $date) :string
 {
     if (preg_match('#(\d+/\d+/\d+)/ (\d+:\d+)#', $date, $maches)) {
-      return $maches[1].' '.$maches[2];
+      $carbon = Carbon::parse($maches[1].' '.$maches[2]);
+      return $carbon->format('Y/m/d H:i');
     } else {
       throw new Exception('Can not parse date:'.$date);
     }
@@ -269,7 +270,7 @@ foreach ($data as $key => &$arr) {
     $timestamp = Carbon::parse()->format('YmdHis');
     if ($lastTime <= $timestamp) {
       $lastTime = $timestamp;
-      $lastUpdate = Carbon::parse($arr['date'])->addDay()->format('Y/n/d 8:00');
+      $lastUpdate = Carbon::parse($arr['date'])->addDay()->format('Y/m/d 8:00');
     }
 }
 $data['lastUpdate'] = $lastUpdate;

@@ -1,8 +1,8 @@
-# 東京都 新型コロナウイルス対策サイト
+# 東京都 新型コロナウイルス感染症対策サイト
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
-![東京都 新型コロナウイルス対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)
+![東京都 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)
 
 
 ## How to Contribute / 貢献の仕方
@@ -11,7 +11,7 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 詳しくは[How to contribute](https://github.com/tokyo-metropolitan-gov/covid19/wiki/How-to-contribute)を御覧ください。
 
 All contributions are welcome!
-Please check [How to contribute](https://github.com/tokyo-metropolitan-gov/covid19/wiki/How-to-contribute) for details.
+Please check [How to contribute](https://github.com/tokyo-metropolitan-gov/covid19/wiki/How-to-contribute%5BEnglish%5D) for details.
 
 ## License / ライセンス
 本ソフトウェアは、MITライセンスの元提供されています。 
@@ -31,7 +31,10 @@ $ yarn dev
 ```
 
 **Use docker / docker compose を使う場合**
-```bash 
+```bash
+# Please run after checkout this repository
+$ docker-compose build
+$ docker-compose run --rm app yarn install
 # serve with hot reload at localhost:3000
 $ docker-compose up
 ```
