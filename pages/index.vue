@@ -5,12 +5,7 @@
       :title="headerItem.title"
       :date="headerItem.date"
     />
-    <whats-new
-      class="mb-4"
-      date="2020年3月3日"
-      url="https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/03/28.html"
-      text="新型コロナウイルスに関連した患者の発生について（第65報）"
-    />
+    <whats-new class="mb-4" :items="newsItems" />
     <StaticInfo
       class="mb-4"
       :url="'/flow'"
@@ -92,6 +87,7 @@ import MetroData from '@/data/metro.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
+import News from '@/data/news.json'
 import SvgCard from '@/components/SvgCard.vue'
 
 export default {
@@ -121,8 +117,14 @@ export default {
     // 都営地下鉄の利用者数の推移
     const metroGraph = MetroData
     // 検査実施日別状況
-    const inspectionsGraph = [Data.inspections_summary.data['都内'], Data.inspections_summary.data['その他']]
-    const inspectionsItems = ['都内発生（疑い例・接触者調査）', 'その他（チャーター便・クルーズ便）']
+    const inspectionsGraph = [
+      Data.inspections_summary.data['都内'],
+      Data.inspections_summary.data['その他']
+    ]
+    const inspectionsItems = [
+      '都内発生（疑い例・接触者調査）',
+      'その他（チャーター便・クルーズ便）'
+    ]
     const inspectionsLabels = Data.inspections_summary.labels
     // 死亡者数
     // #MEMO: 今後使う可能性あるので一時コメントアウト
@@ -156,6 +158,7 @@ export default {
         title: '都内の最新感染動向',
         date: Data.lastUpdate
       },
+      newsItems: News.newsItems,
       option: {
         tooltips: {
           displayColors: false,
