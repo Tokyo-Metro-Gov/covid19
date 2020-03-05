@@ -9,7 +9,6 @@ module.exports = {
       prefix: 'og: http://ogp.me/ns#'
     },
     titleTemplate: '%s | 東京都 新型コロナウイルス対策サイト',
-    title: '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
