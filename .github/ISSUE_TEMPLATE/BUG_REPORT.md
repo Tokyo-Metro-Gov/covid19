@@ -1,5 +1,8 @@
-- [ ] バグ / Bug
-- [ ] 改善提案 / Suggestions for improvement
+---
+name: 'バグ報告'
+about: '既存のWebサイトに不具合がある場合・更新しなければならないタスクなどはこちら'
+labels: bug
+---
 
 ## 起こっている問題 / Occurred problem
 * xxxx(できるだけ簡潔に/as concise as possible)
