@@ -15,9 +15,9 @@
     />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
-        :lText=info.lText
-        :sText=info.sText
-        :unit=info.unit
+        :l-text="info.lText"
+        :s-text="info.sText"
+        :unit="info.unit"
       />
     </template>
   </data-view>

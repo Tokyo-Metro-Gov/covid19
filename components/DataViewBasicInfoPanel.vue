@@ -1,8 +1,7 @@
 <template>
   <div class="DataView-DataInfo">
     <span class="DataView-DataInfo-summary">
-      {{ lText
-      }}
+      {{ lText }}
       <small class="DataView-DataInfo-summary-unit">{{ unit }}</small>
     </span>
     <br />
@@ -26,6 +25,7 @@
       }
     }
     &-date {
+      white-space: nowrap;
       display: inline-block;
       font-size: 12px;
       line-height: 12px;
@@ -52,7 +52,7 @@
   }
 }
 .v-toolbar__content {
-  height: 80px !important;
+  height: auto !important;
 }
 </style>
 
@@ -60,7 +60,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
-export default class DataView extends Vue {
+export default class DataViewBasicInfoPanel extends Vue {
   @Prop() private lText!: string
   @Prop() private sText!: string
   @Prop() private unit!: string
