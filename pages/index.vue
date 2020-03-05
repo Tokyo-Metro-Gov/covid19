@@ -99,7 +99,7 @@ export default {
     const sumInfoOfPatients = {
       lText: patientsGraph[
         patientsGraph.length - 1
-      ].cummulative.toLocaleString(),
+      ].cumulative.toLocaleString(),
       sText: patientsGraph[patientsGraph.length - 1].label + 'の累計',
       unit: '人'
     }
