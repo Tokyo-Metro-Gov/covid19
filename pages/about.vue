@@ -36,25 +36,42 @@
       <br />
       ただし、クッキーを受け入れない設定をされている場合は、当サイトの機能が正常に動作しない場合がございます。
     </TextCard>
-    <TextCard title="GoogleAnalytics の利用について">
-      当サイトでは、サービス向上やWebサイトの改善のためにGoogle Inc.の提供するアクセス分析のツールであるGoogle Analyticsを利用した計測を行っております。<br />
-      Google Analyticsは、当サイトが発行するクッキー(Cookie)を利用して、個人を特定する情報を含まずにWebサイトの利用データ（アクセス状況、トラフィック、閲覧環境など）を収集しております。クッキー(Cookie)の利用に関してはGoogleのプライバシーポリシーと規約に基づいております。<br />
+    <TextCard title="Google Analyticsの利用について">
+      当サイトでは、サービス向上やWebサイトの改善のためにGoogle
+      Inc.の提供するアクセス分析のツールであるGoogle
+      Analyticsを利用した計測を行っております。<br />
+      Google
+      Analyticsは、当サイトが発行するクッキー(Cookie)を利用して、個人を特定する情報を含まずにWebサイトの利用データ（アクセス状況、トラフィック、閲覧環境など）を収集しております。クッキー(Cookie)の利用に関してはGoogleのプライバシーポリシーと規約に基づいております。<br />
       取得したデータはWebサイト利用状況の分析、サイト運営者へのレポートの作成、その他のサービスの提供に関わる目的に限り、これを使用します。<br />
       <br />
-      Google Analyticsの利用規約及びプライバシーポリシーに関する説明については、Google Analyticsのサイトをご覧ください。<br />
+      Google
+      Analyticsの利用規約及びプライバシーポリシーに関する説明については、Google
+      Analyticsのサイトをご覧ください。<br />
       <ul>
         <li>
-          <a href="https://marketingplatform.google.com/about/analytics/terms/jp" target="_blank">
+          <a
+            href="https://marketingplatform.google.com/about/analytics/terms/jp"
+            target="_blank"
+            rel="noopener"
+          >
             Google Analytics利用規約
           </a>
         </li>
         <li>
-          <a href="https://policies.google.com/privacy?hl=ja" target="_blank">
+          <a
+            href="https://policies.google.com/privacy?hl=ja"
+            target="_blank"
+            rel="noopener"
+          >
             Googleのプライバシーポリシー
           </a>
         </li>
         <li>
-          <a href="https://support.google.com/analytics/answer/6004245" target="_blank">
+          <a
+            href="https://support.google.com/analytics/answer/6004245"
+            target="_blank"
+            rel="noopener"
+          >
             Google Analyticsに関する詳細情報
           </a>
         </li>
@@ -68,12 +85,25 @@
       当サイトに掲載されている情報は、予告なしに変更又は削除することがあります。
     </TextCard>
     <TextCard title="データについて">
-      当サイトで公表しているデータは、東京都オープンデータサイト(準備中)より誰でも自由にダウンロードが可能です。
+      本サイトで公表しているデータは、<a
+        href="https://portal.data.metro.tokyo.lg.jp/"
+        target="_blank"
+        rel="noopener"
+        >東京都オープンデータカタログサイト</a
+      >より誰でも自由にダウンロードが可能です。（データは順次追加予定です）
+    </TextCard>
+    <TextCard title="ソースコードについて">
+      本サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。詳しくは、<a
+        href="https://github.com/tokyo-metropolitan-gov/covid19"
+        target="_blank"
+        rel="noopener"
+        >GitHub リポジトリ</a
+      >をご確認ください。
     </TextCard>
 
     <TextCard title="お問い合わせ先（都のHPサイトポリシーについて）">
       東京都生活文化局広報広聴部広報課<br />
-      電話　
+      電話
       <a href="tel:03-5388-3085">03-5388-3085</a>
     </TextCard>
   </div>
@@ -102,5 +132,9 @@ export default {
     color: $gray-2;
     margin-bottom: 12px;
   }
+}
+
+a {
+  @include text-link();
 }
 </style>

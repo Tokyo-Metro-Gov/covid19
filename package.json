@@ -1,7 +1,7 @@
 {
   "name": "covid19",
   "version": "1.0.0",
-  "description": "東京都 新型コロナウイルス対策サイト",
+  "description": "東京都 新型コロナウイルス感染症対策サイト",
   "author": "東京都",
   "private": true,
   "scripts": {
@@ -9,10 +9,11 @@
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "test": "echo 'skip tests (there is no test)'"
+    "test": "echo 'skip tests (there is no test)'",
+    "lint": "eslint './**/*.{js,ts,vue}' --fix"
   },
   "lint-staged": {
-    "*.js": [
+    "*.{js,ts,scss,css,vue}": [
       "eslint --fix",
       "git add"
     ]
@@ -38,6 +39,7 @@
     "vue-spinner": "^1.0.3"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.0",
     "@nuxt/typescript-build": "^0.5.8",
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
     "@nuxtjs/google-analytics": "^2.2.3",
@@ -52,6 +54,7 @@
     "jest": "^24.1.0",
     "lint-staged": "^10.0.8",
     "nodemon": "^1.18.9",
+    "nuxt-purgecss": "^0.2.1",
     "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.19.1",
     "vue-jest": "^4.0.0-0"
