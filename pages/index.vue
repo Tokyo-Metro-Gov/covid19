@@ -14,11 +14,12 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
-        <svg-card
-          :title="'検査陽性者の状況'"
-          :src-url="'confirmed-cases-table.svg'"
-          :date="'2020/3/4 19:30 '"
-        />
+        <svg-card title="検査陽性者の状況" :date="headerItem.date">
+          <confirmed-cases-table
+            aria-label="検査陽性者の状況"
+            v-bind="confirmedCases"
+          />
+        </svg-card>
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
@@ -91,8 +92,10 @@ import MetroData from '@/data/metro.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
+import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import News from '@/data/news.json'
 import SvgCard from '@/components/SvgCard.vue'
+import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
 
 export default {
   components: {
@@ -103,7 +106,8 @@ export default {
     WhatsNew,
     StaticInfo,
     DataTable,
-    SvgCard
+    SvgCard,
+    ConfirmedCasesTable
   },
   data() {
     // 感染者数グラフ
@@ -135,6 +139,8 @@ export default {
     // const fatalitiesTable = formatTable(
     //   Data.patients.data.filter(patient => patient['備考'] === '死亡')
     // )
+    // 検査陽性者の状況
+    const confirmedCases = formatConfirmedCases(Data.main_summary)
 
     const sumInfoOfPatients = {
       lText: patientsGraph[
@@ -156,6 +162,7 @@ export default {
       inspectionsGraph,
       inspectionsItems,
       inspectionsLabels,
+      confirmedCases,
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
