@@ -56,7 +56,7 @@
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
-        <vertical-bar-chart
+        <metro-bar-chart
           title="都営地下鉄の利用者数の推移"
           :chart-data="metroGraph"
           :chart-option="metroGraphOption"
@@ -70,7 +70,7 @@
 <script>
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
-import VerticalBarChart from '@/components/VerticalBarChart.vue'
+import MetroBarChart from '@/components/MetroBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
@@ -83,7 +83,7 @@ export default {
   components: {
     PageHeader,
     TimeBarChart,
-    VerticalBarChart,
+    MetroBarChart,
     WhatsNew,
     StaticInfo,
     DataTable
