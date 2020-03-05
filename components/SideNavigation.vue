@@ -3,7 +3,7 @@
     <div class="SideNavigation-HeadingContainer sp-flex">
       <v-icon
         class="SideNavigation-HeadingIcon sp-inline-block"
-        :aria-label="$t('Navi')"
+        :aria-label="$t('Navi Open')"
         @click="openNavi"
       >
         mdi-menu
@@ -26,6 +26,7 @@
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
         class="SideNavigation-ListContainerIcon sp-inline-block"
+        :aria-label="$t('Navi Close')"
         @click="closeNavi"
       >
         mdi-close
@@ -63,7 +64,8 @@
 <i18n>
 {
   "ja": {
-    "Navi": "サイドメニュー項目を開く",
+    "Navi Open": "サイドメニュー項目を開く",
+    "Navi Close": "サイドメニュー項目を閉じる",
     "Tokyo": "東京都",
     "COVID-19": "新型コロナウイルス",
     "Measures site": "対策サイト",
