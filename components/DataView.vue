@@ -2,7 +2,10 @@
   <v-card class="DataView pa-1">
     <div class="DataView-Inner">
       <div class="DataView-Content">
-        <div class="DataView-TitleContainer">
+        <div
+          class="DataView-TitleContainer"
+          :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
+        >
           <div class="DataView-Title">
             {{ title }}
           </div>
@@ -54,6 +57,9 @@ export default class DataView extends Vue {
     padding: 0 20px;
   }
   &-DataInfo {
+    position: absolute;
+    top: 0;
+    right: 20px;
     &-summary {
       color: $gray-2;
       font-family: Hiragino Sans;
@@ -87,6 +93,9 @@ export default class DataView extends Vue {
     flex-flow: column;
     padding: 14px 0 8px;
     color: $gray-2;
+    &.with-infoPanel {
+      width: calc(100% - 11em);
+    }
   }
   &-Title {
     font-size: 1.25rem;
