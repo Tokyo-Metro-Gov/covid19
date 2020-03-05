@@ -14,12 +14,12 @@
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
+      <span>{{ date }} 更新</span>
       <a v-if="url" class="OpenDataLink" :href="url" target="_blank">オープンデータへのリンク
         <v-icon class="ExternalLinkIcon" size="15">
           mdi-open-in-new
         </v-icon>
       </a>
-      <span>{{ date }} 更新</span>
     </v-footer>
   </v-card>
 </template>
@@ -91,10 +91,9 @@ export default class DataView extends Vue {
     @include font-size(12);
     color: $gray-3 !important;
     justify-content: space-between;
-
+    flex-direction: row-reverse;
     .OpenDataLink {
       text-decoration: none;
-
       .ExternalLinkIcon {
         vertical-align: text-bottom;
       }
