@@ -11,7 +11,7 @@
   </data-view>
 </template>
 
-<style>
+<style lang="scss" scoped>
 .TheNumber {
   font-family: Hiragino Sans;
   font-style: normal;
@@ -21,10 +21,7 @@
   /* identical to box height */
 
   text-align: center;
-
-  /* gray/2 */
-
-  color: #4d4d4d;
+  color: $gray-2;
 }
 .TheUnit {
   font-family: Hiragino Sans;
@@ -35,10 +32,7 @@
   /* identical to box height */
 
   text-align: center;
-
-  /* gray/2 */
-
-  color: #4d4d4d;
+  color: $gray-2;
 }
 </style>
 

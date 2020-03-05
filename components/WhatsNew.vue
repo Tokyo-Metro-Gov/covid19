@@ -1,5 +1,5 @@
 <template>
-  <a class="whatsNewOuter" :href="url" target="_blank">
+  <a class="whatsNewOuter" :href="url" target="_blank" rel="noopener">
     <v-icon size="18" class="whatsNewOuter-Icon">
       mdi-information
     </v-icon>
@@ -32,8 +32,8 @@ export default {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  background: #fff;
-  border: 1px solid #d9d9d9;
+  background: $white;
+  border: 1px solid $gray-4;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   padding: 0.7em 1em;

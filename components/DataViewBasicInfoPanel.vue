@@ -1,8 +1,7 @@
 <template>
   <div class="DataView-DataInfo">
     <span class="DataView-DataInfo-summary">
-      {{ lText
-      }}
+      {{ lText }}
       <small class="DataView-DataInfo-summary-unit">{{ unit }}</small>
     </span>
     <br />
@@ -26,6 +25,7 @@
       }
     }
     &-date {
+      white-space: nowrap;
       display: inline-block;
       font-size: 12px;
       line-height: 12px;
@@ -46,10 +46,6 @@
   &-Title {
     @include card-h2();
   }
-  &-CardText {
-    margin-bottom: 46px;
-    margin-top: 20px;
-  }
   &-Footer {
     background-color: $white !important;
     text-align: right;
@@ -68,7 +64,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
-export default class DataView extends Vue {
+export default class DataViewBasicInfoPanel extends Vue {
   @Prop() private lText!: string
   @Prop() private sText!: string
   @Prop() private unit!: string
