@@ -140,9 +140,9 @@
     <text
       class="green text"
       transform="translate(207 100)"
-      :dx="getAdjustX(退院)"
+      :dx="getAdjustX(重症)"
     >
-      <tspan>{{ 退院 }}</tspan>
+      <tspan>{{ 重症 }}</tspan>
       <tspan class="unit" dx="-3">人</tspan>
     </text>
     <text
@@ -156,9 +156,9 @@
     <text
       class="green text"
       transform="translate(304 100)"
-      :dx="getAdjustX(退院2)"
+      :dx="getAdjustX(退院)"
     >
-      <tspan>{{ 退院2 }}</tspan>
+      <tspan>{{ 退院 }}</tspan>
       <tspan class="unit" dx="-3">人</tspan>
     </text>
     <path
@@ -176,9 +176,9 @@ export default {
       陽性物数: 39,
       入院中: 23,
       軽症中等症: 18,
-      退院: 5,
+      重症: 5,
       死亡: 1,
-      退院2: 15
+      退院: 15
     }
   },
   methods: {
