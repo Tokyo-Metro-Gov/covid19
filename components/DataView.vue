@@ -32,7 +32,7 @@
               target="_blank"
               rel="noopener"
             >
-              {{ $t('オープンデータを入手') }}
+              {{ source }}
               <v-icon
                 class="ExternalLinkIcon"
                 size="15"
@@ -180,6 +180,10 @@ export default Vue.extend({
       default: ''
     },
     url: {
+      type: String,
+      default: ''
+    },
+    source: {
       type: String,
       default: ''
     }
