@@ -29,13 +29,6 @@ export default {
     ScaleLoader,
     SideNavigation
   },
-  head() {
-    return {
-      link: [
-        { rel: 'canonical', href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}` },
-      ],
-    };
-  },
   data() {
     return {
       isNaviOpen: false,
@@ -51,6 +44,16 @@ export default {
     },
     hideNavi() {
       this.isNaviOpen = false
+    }
+  },
+  head() {
+    return {
+      link: [
+        {
+          rel: 'canonical',
+          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+        }
+      ]
     }
   },
   head() {
@@ -84,7 +87,7 @@ export default {
     top: 0;
     overflow-y: auto;
     width: 240px;
-    height: 100vh;
+    height: 100%;
   }
 }
 @include largerThan($huge) {
@@ -95,7 +98,6 @@ export default {
 .open {
   overflow-x: hidden;
   overflow-y: auto;
-  height: 100vh;
 }
 .mainContainer {
   grid-column: 2/3;
