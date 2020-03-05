@@ -5,10 +5,10 @@
   "author": "東京都",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nuxt-ts",
-    "build": "nuxt-ts build",
-    "start": "cross-env NODE_ENV=production nuxt-ts start",
-    "generate": "nuxt-ts generate",
+    "dev": "cross-env NODE_ENV=development nuxt",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production nuxt start",
+    "generate": "nuxt generate",
     "test": "echo 'skip tests (there is no test)'",
     "lint": "eslint './**/*.{js,ts,vue}' --fix"
   },
