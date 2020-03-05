@@ -69,7 +69,7 @@ export default {
       return {
         lText: this.chartData[
           this.chartData.length - 1
-        ].cummulative.toLocaleString(),
+        ].cumulative.toLocaleString(),
         sText: `${this.chartData[this.chartData.length - 1].label} の累計`,
         unit: this.unit
       }
@@ -100,7 +100,7 @@ export default {
           {
             label: this.dataKind,
             data: this.chartData.map(d => {
-              return d.cummulative
+              return d.cumulative
             }),
             backgroundColor: '#00B849',
             borderWidth: 0
