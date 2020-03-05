@@ -15,7 +15,10 @@
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
         <svg-card title="検査陽性者の状況" :date="'2020/3/4 19:30 '">
-          <confirmed-cases-table aria-label="検査陽性者の状況" />
+          <confirmed-cases-table
+            aria-label="検査陽性者の状況"
+            v-bind="confirmedCases"
+          />
         </svg-card>
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -85,6 +88,7 @@ import MetroData from '@/data/metro.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
+import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import News from '@/data/news.json'
 import SvgCard from '@/components/SvgCard.vue'
 import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
@@ -131,6 +135,8 @@ export default {
     // const fatalitiesTable = formatTable(
     //   Data.patients.data.filter(patient => patient['備考'] === '死亡')
     // )
+    // 検査陽性者の状況
+    const confirmedCases = formatConfirmedCases(Data.main_summary)
 
     const sumInfoOfPatients = {
       lText: patientsGraph[
@@ -152,6 +158,7 @@ export default {
       inspectionsGraph,
       inspectionsItems,
       inspectionsLabels,
+      confirmedCases,
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
