@@ -245,6 +245,9 @@ export default {
       font-weight: normal;
       color: $gray-2;
       margin-left: 8px;
+      @include lessThan($medium) {
+        @include font-size(20);
+      }
     }
   }
   &-Card {
