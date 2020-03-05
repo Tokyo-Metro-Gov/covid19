@@ -1,24 +1,28 @@
 <template>
   <v-card class="DataView pa-1">
-    <div class="DataView-Content">
-      <div class="DataView-TitleContainer">
-        <div class="DataView-Title">
-          {{ title }}
+    <div class="DataView-Inner">
+      <div class="DataView-Content">
+        <div class="DataView-TitleContainer">
+          <div class="DataView-Title">
+            {{ title }}
+          </div>
+          <div>
+            <slot name="button" />
+          </div>
         </div>
-        <div>
-          <slot name="button" />
-        </div>
+        <slot name="infoPanel" />
       </div>
-      <slot name="infoPanel" />
+      <v-card-text
+        :class="
+          $vuetify.breakpoint.xs
+            ? 'DataView-CardTextForXS'
+            : 'DataView-CardText'
+        "
+      >
+        <slot />
+      </v-card-text>
+      <v-footer class="DataView-Footer"> {{ date }} 更新 </v-footer>
     </div>
-    <v-card-text
-      :class="
-        $vuetify.breakpoint.xs ? 'DataView-CardTextForXS' : 'DataView-CardText'
-      "
-    >
-      <slot />
-    </v-card-text>
-    <v-footer class="DataView-Footer"> {{ date }} 更新 </v-footer>
   </v-card>
 </template>
 
@@ -64,11 +68,12 @@ export default class DataView extends Vue {
   }
 }
 .DataView {
-  @include card-container();
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-  height: 100%;
+  &-Inner {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100%;
+  }
   &-TitleContainer {
     display: flex;
     flex-flow: column;
