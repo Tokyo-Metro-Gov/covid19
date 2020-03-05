@@ -55,7 +55,15 @@ export default {
   },
   mounted() {
     this.loading = false
-    window.print()
+    window.addEventListener('load', this.print)
+  },
+  beforeDestroy() {
+    window.removeEventListener('load', this.print)
+  },
+  methods: {
+    print() {
+      window.print()
+    }
   },
   head() {
     return {
@@ -80,6 +88,18 @@ export default {
 .app-print {
   margin: 0 auto;
   background-color: inherit !important;
+}
+.loader {
+  height: 200px;
+  width: 150px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  img {
+    display: block;
+    margin: 0 auto 20px;
+  }
 }
 </style>
 
