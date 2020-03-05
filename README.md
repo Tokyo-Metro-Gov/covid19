@@ -29,6 +29,16 @@ $ yarn install
 $ yarn dev
 ```
 
+### How to Set Up Environments Using Docker / Dockerを利用しての環境構築の手順
+
+```bash
+# Please install docker and docker-compose
+$ docker-compose build
+
+# serve with hot reload at localhost:3000
+$ docker-compose up -d
+```
+
 ### Deployment to Staiging & Production Environments / ステージング・本番環境への反映
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.metro.tokyo.lg.jp/ が更新されます。
