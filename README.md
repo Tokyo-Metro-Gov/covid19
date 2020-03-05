@@ -2,7 +2,7 @@
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
-![東京都 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)
+[![東京都 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
 
 ## How to Contribute / 貢献の仕方
@@ -14,7 +14,7 @@ All contributions are welcome!
 Please check [How to contribute](https://github.com/tokyo-metropolitan-gov/covid19/wiki/How-to-contribute%5BEnglish%5D) for details.
 
 ## License / ライセンス
-本ソフトウェアは、MITライセンスの元提供されています。 
+本ソフトウェアは、MITライセンスの元提供されています。
 This software is released under the MIT License.
 
 ## For Developers / 開発者向け情報
