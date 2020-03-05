@@ -51,6 +51,10 @@
     @include font-size(12);
     color: $gray-3 !important;
   }
+  &-CardText {
+    margin-bottom: 46px;
+    margin-top: 20px;
+  }
 }
 </style>
 

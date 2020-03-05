@@ -1,5 +1,8 @@
+import purgecss from '@fullhuman/postcss-purgecss'
+// import { Configuration } from '@nuxt/types'
+
 /* eslint-disable */
-module.exports = {
+const config = {
   mode: 'universal',
   /*
    ** Headers of the page
@@ -8,7 +11,7 @@ module.exports = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | 東京都 新型コロナウイルス対策サイト',
+    titleTemplate: '%s | 東京都 新型コロナウイルス感染症対策サイト',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -20,7 +23,7 @@ module.exports = {
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: '東京都 新型コロナウイルス対策サイト'
+        content: '東京都 新型コロナウイルス感染症対策サイト'
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -31,7 +34,7 @@ module.exports = {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: '東京都 新型コロナウイルス対策サイト'
+        content: '東京都 新型コロナウイルス感染症対策サイト'
       },
       {
         hid: 'og:description',
@@ -103,7 +106,8 @@ module.exports = {
         vueI18nLoader: true
       }
     ],
-    'nuxt-svg-loader'
+    'nuxt-svg-loader',
+    'nuxt-purgecss'
   ],
   /*
    ** Axios module configuration
@@ -131,8 +135,19 @@ module.exports = {
   //   extend (config, ctx) {
   //   }
   // },
+  build: {
+    postcss: {
+      plugins: [
+        purgecss({
+          content: ['./pages/**/*.vue', './layouts/**/*.vue', './components/**/*.vue', './node_modules/vuetify/dist/vuetify.js', './node_modules/vue-spinner/src/ScaleLoader.vue'],
+          whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
+          whitelistPatterns: [/(col|row)/],
+        })
+      ]
+    }
+  },
   manifest: {
-    "name": "東京都 新型コロナウイルス対策サイト",
+    "name": "東京都 新型コロナウイルス感染症対策サイト",
     "theme_color": "#00a040",
     "background_color": "#ffffff",
     "display": "standalone",
@@ -152,3 +167,5 @@ module.exports = {
     }
   }
 }
+
+export default config
