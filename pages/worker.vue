@@ -20,7 +20,7 @@ export default {
         {
           title: '中小企業者等特別相談窓口',
           body:
-            '<a href="https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html" target="_blank" rel="noopener">https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html</a> <br />資金繰りに関する相談、経営に関する相談（東京都産業労働局 報道発表）'
+            '<a href="https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html" target="_blank" rel="noopener">https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html</a> <br />資金繰りに関する相談、経営に関する相談（東京都産業労働局　報道発表）'
         },
         {
           title: '緊急労働相談ダイヤル',
