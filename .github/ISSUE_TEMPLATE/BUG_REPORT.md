@@ -1,5 +1,5 @@
 ---
-name: 'バグ報告'
+name: 'バグ報告 / Bug report'
 about: '既存のWebサイトに不具合がある場合・更新しなければならないタスクなどはこちら'
 labels: bug
 ---
