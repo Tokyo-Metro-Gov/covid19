@@ -26,7 +26,9 @@
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="'人'"
-          :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+          :url="
+            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+          "
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -36,7 +38,9 @@
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
-          :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+          :url="
+            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+          "
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -121,8 +125,14 @@ export default {
     // 都営地下鉄の利用者数の推移
     const metroGraph = MetroData
     // 検査実施日別状況
-    const inspectionsGraph = [Data.inspections_summary.data['都内'], Data.inspections_summary.data['その他']]
-    const inspectionsItems = ['都内発生（疑い例・接触者調査）', 'その他（チャーター便・クルーズ便）']
+    const inspectionsGraph = [
+      Data.inspections_summary.data['都内'],
+      Data.inspections_summary.data['その他']
+    ]
+    const inspectionsItems = [
+      '都内発生（疑い例・接触者調査）',
+      'その他（チャーター便・クルーズ便）'
+    ]
     const inspectionsLabels = Data.inspections_summary.labels
     // 死亡者数
     // #MEMO: 今後使う可能性あるので一時コメントアウト
