@@ -14,7 +14,7 @@
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
-      <a class="OpenDataLink" :href="url" target="_blank">オープンデータへのリンク
+      <a v-if="url" class="OpenDataLink" :href="url" target="_blank">オープンデータへのリンク
         <v-icon class="ExternalLinkIcon" size="15">
           mdi-open-in-new
         </v-icon>
