@@ -53,6 +53,7 @@ export default {
     align-items: center;
     margin-bottom: 12px;
     > svg {
+      min-width: 30px;
       width: 30px;
       height: 30px;
       > path:not(:first-of-type) {
