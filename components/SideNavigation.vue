@@ -12,10 +12,7 @@
           <img src="/logo.svg" />
         </div>
         <h1 class="SideNavigation-Heading">
-          <span class="SideNavigation-HeadingTitle">
-            {{ $t('Tokyo') }}<br />
-          </span>
-          {{ $t('COVID-19') }}<br class="SideNavigation-HeadingMobileBreak" />{{
+          {{ $t('COVID-19') }}<br /><br class="SideNavigation-HeadingMobileBreak" />{{
             $t('Measures site')
           }}
         </h1>
@@ -62,7 +59,7 @@
 {
   "ja": {
     "Tokyo": "東京都",
-    "COVID-19": "新型コロナウイルス",
+    "COVID-19": "新型コロナウイルス感染症",
     "Measures site": "対策サイト",
     "Tokyo Metropolitan Government": "東京都",
     "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
