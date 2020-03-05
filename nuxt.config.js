@@ -86,6 +86,24 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     ['@nuxtjs/moment', ['ja']],
+    [
+      'nuxt-i18n',
+      {
+        strategy: 'no_prefix',
+        locales: [
+          {
+            code: 'ja',
+            iso: 'ja_JP'
+          }
+        ],
+        formatFallbackMessages: true,
+        defaultLocale: 'ja',
+        vueI18n: {
+          fallbackLocale: 'ja'
+        },
+        vueI18nLoader: true
+      }
+    ],
     'nuxt-svg-loader'
   ],
   /*
@@ -122,6 +140,9 @@ module.exports = {
     "Scope": "/",
     "start_url": "/",
     "splash_pages": null
+  },
+  generate: {
+    fallback: true
   },
   // /*
   // ** hot read configuration for docker

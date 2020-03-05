@@ -3,7 +3,7 @@
     v-ripple="false"
     :to="isInternalLink(link) ? link : ''"
     :href="!isInternalLink(link) ? link : ''"
-    :target="!isInternalLink(link) ? '_brank' : ''"
+    :target="!isInternalLink(link) ? '_blank' : ''"
     router
     exact
     class="ListItem-Container"
