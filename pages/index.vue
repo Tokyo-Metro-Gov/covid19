@@ -199,14 +199,23 @@ export default {
           ]
         },
         tooltips: {
+          displayColors: false,
           callbacks: {
+            title(tooltipItems, _) {
+              const label = tooltipItems[0].label
+              return `期間: ${label}`
+            },
             label(tooltipItem, data) {
               const index = tooltipItem.index
-              const datasetIndex = tooltipItem.datasetIndex
-              const currentData = data.datasets[datasetIndex]
-              const label = currentData.label
-              const value = currentData.data[index]
-              return `${label}: ${value}%`
+              const currentData = data.datasets[tooltipItem.datasetIndex]
+              const percentage = `${currentData.data[index]}%`
+
+              if (index > 0) {
+                const prevPeriod = data.labels[index - 1]
+                return `${prevPeriod}の利用者数との相対値: ${percentage}`
+              } else {
+                return `${percentage}`
+              }
             }
           }
         }
