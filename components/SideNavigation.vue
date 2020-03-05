@@ -4,6 +4,7 @@
       <v-icon
         class="SideNavigation-HeadingIcon sp-inline-block"
         @click="openNavi"
+        aria-label="サイドメニュー項目を開く"
       >
         mdi-menu
       </v-icon>
