@@ -57,6 +57,14 @@ export default {
     display: flex;
   }
 }
+@include lessThan($small) {
+  .naviContainer {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: z-index-of(sp-navigation);
+  }
+}
 .navi {
   flex: 0 1 200px;
 }
