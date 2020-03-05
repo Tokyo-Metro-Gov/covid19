@@ -3,7 +3,7 @@
     <template v-slot:button>
       <data-selector v-model="dataKind" />
     </template>
-    <bar :chart-data="displayData" :options="chartOption" :height="240" />
+    <bar :chart-data="displayData" :options="displayOption" :height="240" />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -33,11 +33,6 @@ export default {
       type: Array,
       required: false,
       default: () => []
-    },
-    chartOption: {
-      type: Object,
-      required: false,
-      default: () => {}
     },
     date: {
       type: String,
@@ -78,7 +73,9 @@ export default {
         lText: this.chartData[
           this.chartData.length - 1
         ].cummulative.toLocaleString(),
-        sText: `${this.chartData.slice(-1)[0].label} 累計値（前日比：${this.displayCumulativeRatio} ${this.unit}）`,
+        sText: `${this.chartData.slice(-1)[0].label} 累計値（前日比：${
+          this.displayCumulativeRatio
+        } ${this.unit}）`,
         unit: this.unit
       }
     },
@@ -115,6 +112,54 @@ export default {
           }
         ]
       }
+    },
+    displayOption() {
+      const unit = this.unit
+      return {
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            label(tooltipItem) {
+              const labelText = tooltipItem.value + unit
+              return labelText
+            }
+          }
+        },
+        responsive: true,
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [
+            {
+              stacked: true,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: '#808080'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              location: 'bottom',
+              stacked: true,
+              gridLines: {
+                display: true,
+                color: '#E5E5E5'
+              },
+              ticks: {
+                suggestedMin: 0,
+                maxTicksLimit: 8,
+                fontColor: '#808080'
+              }
+            }
+          ]
+        }
+      }
     }
   },
   methods: {
@@ -122,10 +167,8 @@ export default {
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
           return `+${dayBeforeRatio}`
-          break
         case -1:
           return `${dayBeforeRatio}`
-          break
         default:
           return `${dayBeforeRatio}`
       }
