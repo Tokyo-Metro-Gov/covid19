@@ -42,12 +42,12 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
-          title="検査実施日別状況"
+          title="検査実施数"
           :chart-data="inspectionsGraph"
           :date="Data.inspections_summary.date"
           :items="inspectionsItems"
           :labels="inspectionsLabels"
-          :unit="'人'"
+          :unit="'件'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
