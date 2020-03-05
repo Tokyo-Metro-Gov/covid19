@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date" :url="url">
+  <data-view :title="title" :date="date" :url="url" :source="source">
     <template v-slot:button>
       <data-selector v-model="dataKind" />
     </template>
@@ -45,6 +45,11 @@ export default {
       default: ''
     },
     url: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    source: {
       type: String,
       required: false,
       default: ''
