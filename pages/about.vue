@@ -13,8 +13,8 @@
       <br />
       Microsoft Edge 最新版<br />
       Mozilla Firefox 最新版<br />
-      Google Chrome 最新版 (Windows10以上)<br />
-      Apple Safari (OS X) 最新版<br />
+      Google Chrome 最新版（Windows10以上）<br />
+      Apple Safari（OS X）最新版<br />
       Opera Software ASA Opera 最新版<br />
       <br />
       ※
@@ -28,7 +28,7 @@
       JavaScriptを無効にして使用された場合、各ページが正常に動作しない、または、表示されない場合がございます。<br />
       当サイトをご利用の際には、JavaScriptを有効にして頂きますようお願いいたします。
     </TextCard>
-    <TextCard title="クッキー (Cookie) について">
+    <TextCard title="クッキー（Cookie）について">
       当サイトの一部ではクッキーを使用しています。<br />
       クッキーとは、Webコンテンツからの要求で利用者の手元の端末に一時的に保存されるデータのことで、当サイトでは利用状況の把握のためにクッキーを使用する場合があります。<br />
       <br />
@@ -38,7 +38,7 @@
     </TextCard>
     <TextCard title="Google Analyticsの利用について">
       当サイトでは、サービス向上やWebサイトの改善のためにGoogle Inc.の提供するアクセス分析のツールであるGoogle Analyticsを利用した計測を行っております。<br />
-      Google Analyticsは、当サイトが発行するクッキー(Cookie)を利用して、個人を特定する情報を含まずにWebサイトの利用データ（アクセス状況、トラフィック、閲覧環境など）を収集しております。クッキー(Cookie)の利用に関してはGoogleのプライバシーポリシーと規約に基づいております。<br />
+      Google Analyticsは、当サイトが発行するクッキー（Cookie）を利用して、個人を特定する情報を含まずにWebサイトの利用データ（アクセス状況、トラフィック、閲覧環境など）を収集しております。クッキー（Cookie）の利用に関してはGoogleのプライバシーポリシーと規約に基づいております。<br />
       取得したデータはWebサイト利用状況の分析、サイト運営者へのレポートの作成、その他のサービスの提供に関わる目的に限り、これを使用します。<br />
       <br />
       Google Analyticsの利用規約及びプライバシーポリシーに関する説明については、Google Analyticsのサイトをご覧ください。<br />
@@ -68,7 +68,7 @@
       当サイトに掲載されている情報は、予告なしに変更又は削除することがあります。
     </TextCard>
     <TextCard title="データについて">
-      当サイトで公表しているデータは、東京都オープンデータカタログサイト(準備中)より誰でも自由にダウンロードが可能です。
+      当サイトで公表しているデータは、東京都オープンデータカタログサイト（準備中）より誰でも自由にダウンロードが可能です。
     </TextCard>
 
     <TextCard title="お問い合わせ先（都のHPサイトポリシーについて）">

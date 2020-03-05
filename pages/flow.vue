@@ -113,7 +113,7 @@
         rel="nopenner"
         class="Flow-Card-Button"
       >
-        詳細を見る(東京都福祉保健局)
+        詳細を見る（東京都福祉保健局）
         <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
           mdi-open-in-new
         </v-icon>
