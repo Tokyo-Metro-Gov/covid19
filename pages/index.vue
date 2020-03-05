@@ -242,7 +242,7 @@ export default {
                 display: true
               },
               ticks: {
-                fontSize: 10,
+                fontSize: 12,
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
