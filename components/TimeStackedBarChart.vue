@@ -131,12 +131,13 @@ export default {
       }
     },
     options() {
+      const unit = this.unit
       return {
         tooltips: {
           displayColors: false,
           callbacks: {
             label(tooltipItem) {
-              const labelText = tooltipItem.value + '人'
+              const labelText = tooltipItem.value + unit
               return labelText
             }
           }
