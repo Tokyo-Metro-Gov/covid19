@@ -1,11 +1,5 @@
 <template>
-  <svg
-    width="340"
-    height="120"
-    viewBox="0 0 340 120"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg viewBox="0 0 340 120" fill="none" xmlns="http://www.w3.org/2000/svg">
     <mask id="path-1-inside-1" fill="white">
       <path
         fill-rule="evenodd"
