@@ -39,6 +39,7 @@
     "vue-spinner": "^1.0.3"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.0",
     "@nuxt/typescript-build": "^0.5.8",
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
     "@nuxtjs/google-analytics": "^2.2.3",
@@ -53,6 +54,7 @@
     "jest": "^24.1.0",
     "lint-staged": "^10.0.8",
     "nodemon": "^1.18.9",
+    "nuxt-purgecss": "^0.2.1",
     "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.19.1",
     "vue-jest": "^4.0.0-0"
