@@ -43,7 +43,7 @@
       </v-list>
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a href="https://line.me/R/ti/p/%40822sysfc#~" target="_blank">
+          <a href="https://line.me/R/ti/p/%40822sysfc" target="_blank">
             <img src="/line.png" alt="LINE" />
           </a>
           <a href="https://twitter.com/tokyo_bousai" target="_blank">
