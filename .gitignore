@@ -90,3 +90,6 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# Netlify
+.netlify
