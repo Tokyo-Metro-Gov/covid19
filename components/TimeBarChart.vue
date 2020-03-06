@@ -144,7 +144,7 @@ export default {
         scales: {
           xAxes: [
             {
-              id: 'date',
+              id: 'day',
               stacked: true,
               gridLines: {
                 display: false
