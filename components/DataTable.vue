@@ -13,6 +13,7 @@
       :mobile-breakpoint="0"
       class="cardTable"
     />
+    <div class="note">※退院には、死亡退院を含む</div>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="info.lText"
@@ -61,6 +62,11 @@
       }
     }
   }
+}
+.note {
+  padding: 8px;
+  font-size: 12px;
+  color: #808080;
 }
 </style>
 
