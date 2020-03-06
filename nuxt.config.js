@@ -73,7 +73,6 @@ const config = {
       ssr: true
     },
     '@/plugins/datetime-formatter.js'
-    }
   ],
   /*
    ** Nuxt.js dev-modules
