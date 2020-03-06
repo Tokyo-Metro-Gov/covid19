@@ -6,7 +6,7 @@
       :date="headerItem.date"
     />
     <whats-new class="mb-4" :items="newsItems" />
-    <StaticInfo
+    <static-info
       class="mb-4"
       :url="'/flow'"
       :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
@@ -14,11 +14,12 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
-        <svg-card
-          :title="'検査陽性者の状況'"
-          :src-url="'confirmed-cases-table.svg'"
-          :date="'2020/3/4 19:30 '"
-        />
+        <svg-card title="検査陽性者の状況" :date="headerItem.date">
+          <confirmed-cases-table
+            aria-label="検査陽性者の状況"
+            v-bind="confirmedCases"
+          />
+        </svg-card>
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
@@ -45,12 +46,12 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
-          title="検査実施日別状況"
+          title="検査実施数"
           :chart-data="inspectionsGraph"
           :date="Data.inspections_summary.date"
           :items="inspectionsItems"
           :labels="inspectionsLabels"
-          :unit="'人'"
+          :unit="'件'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -64,7 +65,7 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="帰国者・接触者電話相談センター相談件数"
+          title="新型コロナ受診相談窓口相談件数"
           :chart-data="querentsGraph"
           :date="Data.querents.date"
           :unit="'件'"
@@ -95,8 +96,10 @@ import MetroData from '@/data/metro.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
+import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import News from '@/data/news.json'
 import SvgCard from '@/components/SvgCard.vue'
+import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
 
 export default {
   components: {
@@ -107,7 +110,8 @@ export default {
     WhatsNew,
     StaticInfo,
     DataTable,
-    SvgCard
+    SvgCard,
+    ConfirmedCasesTable
   },
   data() {
     // 感染者数グラフ
@@ -139,6 +143,8 @@ export default {
     // const fatalitiesTable = formatTable(
     //   Data.patients.data.filter(patient => patient['備考'] === '死亡')
     // )
+    // 検査陽性者の状況
+    const confirmedCases = formatConfirmedCases(Data.main_summary)
 
     const sumInfoOfPatients = {
       lText: patientsGraph[
@@ -160,6 +166,7 @@ export default {
       inspectionsGraph,
       inspectionsItems,
       inspectionsLabels,
+      confirmedCases,
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
@@ -239,7 +246,7 @@ export default {
                 display: true
               },
               ticks: {
-                fontSize: 10,
+                fontSize: 12,
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
