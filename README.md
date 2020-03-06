@@ -38,11 +38,8 @@ $ yarn dev
 
 **Use docker / docker compose を使う場合**
 ```bash
-# Please run after checkout this repository
-$ docker-compose build
-$ docker-compose run --rm app yarn install
 # serve with hot reload at localhost:3000
-$ docker-compose up
+$ docker-compose up --build
 ```
 
 ### Deployment to Staging & Production Environments / ステージング・本番環境への反映
