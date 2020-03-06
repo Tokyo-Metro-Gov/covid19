@@ -20,6 +20,9 @@
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+if (process.browser) {
+  require('chartjs-plugin-zoom')
+}
 
 export default {
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
@@ -121,6 +124,19 @@ export default {
     displayOption() {
       const unit = this.unit
       return {
+        plugins: {
+          zoom: {
+            pan: {
+              enabled: true,
+              mode: 'x',
+              speed: 1
+            },
+            zoom: {
+              enabled: true,
+              mode: ''
+            }
+          }
+        },
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -149,6 +165,9 @@ export default {
                 display: false
               },
               ticks: {
+                min: this.chartData[Math.max(0, this.chartData.length - 14)]
+                  .label,
+                max: this.chartData[this.chartData.length - 1].label,
                 fontSize: 10,
                 maxTicksLimit: 20,
                 fontColor: '#808080'

@@ -133,6 +133,19 @@ export default {
     options() {
       const unit = this.unit
       return {
+        plugins: {
+          zoom: {
+            pan: {
+              enabled: true,
+              mode: 'x',
+              speed: 1
+            },
+            zoom: {
+              enabled: true,
+              mode: ''
+            }
+          }
+        },
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -161,6 +174,8 @@ export default {
                 display: false
               },
               ticks: {
+                min: this.labels[Math.max(0, this.labels.length - 14)],
+                max: this.labels[this.labels.length - 1],
                 fontSize: 10,
                 maxTicksLimit: 20,
                 fontColor: '#808080'
