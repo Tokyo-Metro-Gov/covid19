@@ -62,6 +62,7 @@
     "nuxt-purgecss": "^0.2.1",
     "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.19.1",
-    "vue-jest": "^4.0.0-0"
+    "vue-jest": "^4.0.0-0",
+    "vuex-module-decorators": "^0.16.1"
   }
 }
