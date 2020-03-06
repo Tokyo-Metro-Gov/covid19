@@ -33,4 +33,4 @@ may not be always accepted (especially ones for UI)
 * Production site https://covid19-tokyo.netlify.com/
 * [Design](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 
-Updates to this Wiki are also welcome!
+Updates to this document are also welcome!
