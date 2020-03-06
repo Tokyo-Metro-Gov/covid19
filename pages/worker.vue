@@ -31,7 +31,19 @@ export default {
           title: '新しいワークスタイルや企業活動の東京モデル「スムーズビズ」',
           body:
             '<a href="https://smooth-biz.metro.tokyo.lg.jp/" target="_blank" rel="noopener">https://smooth-biz.metro.tokyo.lg.jp/</a><br />テレワーク・時差出勤などスムーズビズの取組は、新型コロナウイルス感染症の対策としても効果的です。感染症対策として、東京2020大会時の交通混雑緩和に向けた取組の前倒しをお願いします。'
-        }
+        },
+        {
+          title: '新型コロナウイルス感染症対応緊急融資',
+          body: '<a href="https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/05/26.html" target="_blank" rel="noopener">https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/05/26.html</a><br />新型コロナウイルス感染症により事業活動に影響を受けている中小企業等を対象とした緊急融資制度です。'    
+        },
+        {
+          title: '新型コロナウイルスによる経営課題に関する専門家派遣',
+          body: '<a href="https://www.tokyo-kosha.or.jp/topics/2003/0001.html" target="_blank" rel="noopener">https://www.tokyo-kosha.or.jp/topics/2003/0001.html</a><br />新型コロナウイルス感染症により経営面の影響を受けている中小企業を対象に、中小企業診断士等の専門家を無料で派遣し、経営改善等に向けたアドバイスを実施します。'    
+        },
+        {
+          title: '事業継続緊急対策（テレワーク）助成金',
+          body: '<a href="https://www.shigotozaidan.or.jp/koyo-kankyo/" target="_blank" rel="noopener">https://www.shigotozaidan.or.jp/koyo-kankyo/</a><br />都内中堅・中小企業に対し、テレワークの導入に必要な機器やソフトウェア等の経費を助成します。'    
+        },
       ]
     }
   },
