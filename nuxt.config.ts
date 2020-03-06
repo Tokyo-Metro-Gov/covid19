@@ -1,7 +1,6 @@
 import { Configuration } from '@nuxt/types'
 const purgecss = require('@fullhuman/postcss-purgecss')
 
-/* eslint-disable */
 const config: Configuration = {
   mode: 'universal',
   /*
@@ -18,7 +17,8 @@ const config: Configuration = {
       {
         hid: 'description',
         name: 'description',
-        content: '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+        content:
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
       },
       {
         hid: 'og:site_name',
@@ -39,7 +39,8 @@ const config: Configuration = {
       {
         hid: 'og:description',
         property: 'og:description',
-        content: '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+        content:
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
       },
       {
         hid: 'og:image',
@@ -65,14 +66,18 @@ const config: Configuration = {
    */
   plugins: [
     {
-      src: '@/plugins/vue-chart.js',
+      src: '@/plugins/vue-chart.ts',
       ssr: true
     }
   ],
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxtjs/vuetify', '@nuxt/typescript-build', '@nuxtjs/google-analytics'],
+  buildModules: [
+    '@nuxtjs/vuetify',
+    '@nuxt/typescript-build',
+    '@nuxtjs/google-analytics'
+  ],
   typescript: {
     typeCheck: true,
     ignoreNotFoundWarnings: true
@@ -127,21 +132,27 @@ const config: Configuration = {
     postcss: {
       plugins: [
         purgecss({
-          content: ['./pages/**/*.vue', './layouts/**/*.vue', './components/**/*.vue', './node_modules/vuetify/dist/vuetify.js', './node_modules/vue-spinner/src/ScaleLoader.vue'],
+          content: [
+            './pages/**/*.vue',
+            './layouts/**/*.vue',
+            './components/**/*.vue',
+            './node_modules/vuetify/dist/vuetify.js',
+            './node_modules/vue-spinner/src/ScaleLoader.vue'
+          ],
           whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
-          whitelistPatterns: [/(col|row)/],
+          whitelistPatterns: [/(col|row)/]
         })
       ]
     }
   },
   manifest: {
-    "name": "東京都 新型コロナウイルス感染症対策サイト",
-    "theme_color": "#00a040",
-    "background_color": "#ffffff",
-    "display": "standalone",
-    "Scope": "/",
-    "start_url": "/",
-    "splash_pages": null
+    name: '東京都 新型コロナウイルス感染症対策サイト',
+    theme_color: '#00a040',
+    background_color: '#ffffff',
+    display: 'standalone',
+    Scope: '/',
+    start_url: '/',
+    splash_pages: null
   },
   generate: {
     fallback: true
