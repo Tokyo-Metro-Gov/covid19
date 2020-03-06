@@ -52,7 +52,7 @@ export default {
   },
   data() {
     return {
-      dataKind: 'transition'
+      dataKind: 'cumulative'
     }
   },
   computed: {
