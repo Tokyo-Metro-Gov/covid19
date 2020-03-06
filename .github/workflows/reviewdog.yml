@@ -1,4 +1,4 @@
-name: production deploy
+name: reviewdog
 
 on:
   pull_request:
@@ -11,10 +11,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      
-      - name: Run eslint with reviewdog
-        uses: reviewdog/action-eslint@v1.0.0
-          with:
-            github_token: ${{ secrets.github_token }}
-            reporter: github-pr-review
-            eslint_flags: './**/*.{js,ts,vue}'
+      - name: eslint review
+        uses: reviewdog/action-eslint@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          eslint_flags: './**/*.{vue,ts,js}'
