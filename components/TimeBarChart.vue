@@ -83,7 +83,7 @@ export default {
       if (this.dataKind === 'transition') {
         return {
           labels: this.chartData.map(d => {
-            return d.label.replace(/(\w+)\/(\w+)/, '$1月$2日')
+            return d.label
           }),
           datasets: [
             {
@@ -99,7 +99,7 @@ export default {
       }
       return {
         labels: this.chartData.map(d => {
-          return d.label.replace(/(\w+)\/(\w+)/, '$1月$2日')
+          return d.label
         }),
         datasets: [
           {
@@ -122,6 +122,12 @@ export default {
             label(tooltipItem) {
               const labelText = tooltipItem.value + unit
               return labelText
+            },
+            title(tooltipItem, data) {
+              return data.labels[tooltipItem[0].index].replace(
+                /(\w+)\/(\w+)/,
+                '$1月$2日'
+              )
             }
           }
         },
