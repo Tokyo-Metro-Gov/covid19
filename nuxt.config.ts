@@ -1,8 +1,8 @@
-import purgecss from '@fullhuman/postcss-purgecss'
-// import { Configuration } from '@nuxt/types'
+import { Configuration } from '@nuxt/types'
+const purgecss = require('@fullhuman/postcss-purgecss')
 
 /* eslint-disable */
-const config = {
+const config: Configuration = {
   mode: 'universal',
   /*
    ** Headers of the page
@@ -123,16 +123,6 @@ const config = {
   googleAnalytics: {
     id: 'UA-159417676-1'
   },
-  // /*
-  // ** Build configuration
-  // */
-  // build: {
-  //   /*
-  //   ** You can extend webpack config here
-  //   */
-  //   extend (config, ctx) {
-  //   }
-  // },
   build: {
     postcss: {
       plugins: [
