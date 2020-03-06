@@ -51,7 +51,7 @@ export default {
       type: String,
       required: false,
       default: ''
-    },
+    }
   },
   data() {
     return {
@@ -109,7 +109,7 @@ export default {
       }
     },
     displayData() {
-      const colorArray = ['#00A040', '#00D154'];
+      const colorArray = ['#00A040', '#00D154']
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
@@ -148,10 +148,17 @@ export default {
             label: (tooltipItem) => {
               const labelText = this.dataKind === 'transition' ? `${sumArray[tooltipItem.index]}${unit}（都内: ${data[0][tooltipItem.index]}/その他: ${data[1][tooltipItem.index]}）` : `${cumulativeSumArray[tooltipItem.index]}${unit}（都内: ${cumulativeData[0][tooltipItem.index]}/その他: ${cumulativeData[1][tooltipItem.index]}）`
               return labelText
+            },
+            title(tooltipItem, data) {
+              return data.labels[tooltipItem[0].index].replace(
+                /(\w+)\/(\w+)/,
+                '$1月$2日'
+              )
             }
           }
         },
         responsive: true,
+        maintainAspectRatio: false,
         legend: {
           display: true
         },
