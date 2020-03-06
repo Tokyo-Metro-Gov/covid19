@@ -139,6 +139,12 @@ export default {
             label(tooltipItem) {
               const labelText = tooltipItem.value + unit
               return labelText
+            },
+            title(tooltipItem, data) {
+              return data.labels[tooltipItem[0].index].replace(
+                /(\w+)\/(\w+)/,
+                '$1月$2日'
+              )
             }
           }
         },

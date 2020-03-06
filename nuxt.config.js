@@ -93,7 +93,7 @@ const config = {
         locales: [
           {
             code: 'ja',
-            iso: 'ja_JP'
+            iso: 'ja-JP'
           }
         ],
         defaultLocale: 'ja',
