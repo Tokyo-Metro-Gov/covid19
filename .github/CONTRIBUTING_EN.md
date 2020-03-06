@@ -10,7 +10,7 @@ This page shows how you can contribute to the development of this site.
 * Feel free to comment on the Issue! Questions and suggestions are also welcome.
 * You can fix some issues via Pull Request.
 * Note that the issues of improvement suggestions (labeled with `improve`)
-may not be always accepted (especially ones for UI)
+may not be always accepted (especially the ones for UI)
 * We're glad if you give priority to the issues of [good first issue / help wanted / bug]
 
 ## How to participate in communications
