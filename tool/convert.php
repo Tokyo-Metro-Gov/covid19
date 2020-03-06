@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php';
+require __DIR__.'/vendor/autoload.php';
 use Carbon\Carbon;
 use Tightenco\Collect\Support\Collection;
 
@@ -56,9 +56,9 @@ function xlsxToArray(string $path, string $sheet_name, string $range, $header_ra
 function readContacts() : array
 {
 
-  $data = xlsxToArray('downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'A2:E100', 'A1:E1');
+  $data = xlsxToArray(__DIR__.'/downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'A2:E100', 'A1:E1');
   return [
-    'date' => xlsxToArray('downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'H1')[0][0],
+    'date' => xlsxToArray(__DIR__.'/downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'H1')[0][0],
     'data' => $data->filter(function ($row) {
         return $row['曜日'] && $row['17-21時'];
       })->map(function ($row) {
@@ -84,10 +84,10 @@ function readContacts() : array
  */
 function readQuerents() : array
 {
-  $data = xlsxToArray('downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'A2:D100', 'A1:D1');
+  $data = xlsxToArray(__DIR__.'/downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'A2:D100', 'A1:D1');
 
   return [
-    'date' => xlsxToArray('downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'H1')[0][0],
+    'date' => xlsxToArray(__DIR__.'/downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'H1')[0][0],
     'data' => $data->filter(function ($row) {
 
       return $row['曜日'] && $row['17-翌9時'];
@@ -110,7 +110,7 @@ function readQuerents() : array
 
 function readPatientsV2() : array
 {
-  $data = xlsxToArray('downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'A2:J100', 'A1:J1');
+  $data = xlsxToArray(__DIR__.'/downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'A2:J100', 'A1:J1');
   $base_data = $data->filter(function ($row) {
     return $row['リリース日'];
   })->map(function ($row) {
@@ -124,7 +124,7 @@ function readPatientsV2() : array
   });
 
   return [
-    'date' => xlsxToArray('downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'M1')[0][0],
+    'date' => xlsxToArray(__DIR__.'/downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'M1')[0][0],
     'data' => [
       '感染者数' => makeDateArray('2020-01-24')->merge($base_data->groupBy('リリース日')->map(function ($rows) {
         return $rows->count();
@@ -161,10 +161,10 @@ function readPatientsV2() : array
 
 function readPatients() : array
 {
-    $data = xlsxToArray('downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'A2:J100', 'A1:J1');
+    $data = xlsxToArray(__DIR__.'/downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'A2:J100', 'A1:J1');
 
     return [
-      'date' => xlsxToArray('downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'M1')[0][0],
+      'date' => xlsxToArray(__DIR__.'/downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'M1')[0][0],
       'data' => $data->filter(function ($row) {
         return $row['リリース日'];
       })->map(function ($row) {
@@ -210,7 +210,7 @@ function discharges(array $patients) : array {
 }
 
 function readInspections() : array{
-  $data = xlsxToArray('downloads/検査実施日別状況.xlsx', '入力シート', 'A2:J100', 'A1:J1');
+  $data = xlsxToArray(__DIR__.'/downloads/検査実施日別状況.xlsx', '入力シート', 'A2:J100', 'A1:J1');
   $data = $data->filter(function ($row) {
     return $row['疑い例検査'] !== null;
   });
@@ -277,7 +277,7 @@ $data['lastUpdate'] = $lastUpdate;
 
 $data['main_summary'] = [
   'attr' => '検査実施人数',
-  'value' => xlsxToArray('downloads/検査実施サマリ.xlsx', '検査実施サマリ', 'A2')[0][0],
+  'value' => xlsxToArray(__DIR__.'/downloads/検査実施サマリ.xlsx', '検査実施サマリ', 'A2')[0][0],
   'children' => [
     [
       'attr' => '陽性患者数',
@@ -311,4 +311,4 @@ $data['main_summary'] = [
   ]
 ];
 
-file_put_contents(__DIR__.'/../data/data.json', json_encode($data,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK));
+file_put_contents(__DIR__.'/../data/data.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK));
