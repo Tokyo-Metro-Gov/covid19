@@ -113,6 +113,9 @@ export default {
     SvgCard,
     ConfirmedCasesTable
   },
+  async fetch() {
+    await newsStore.fetchItems()
+  },
   data() {
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
