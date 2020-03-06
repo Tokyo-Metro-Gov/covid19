@@ -21,7 +21,7 @@ This software is released under the MIT License.
 
 ### How to Set Up Environments / 環境構築の手順
 
-- Required Node.js version: 10.19
+- Required Node.js version: 10.19 or higher
 
 **Use yarn / yarn を使う場合**
 ``` bash
