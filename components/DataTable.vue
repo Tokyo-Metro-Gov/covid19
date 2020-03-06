@@ -33,6 +33,9 @@
       white-space: nowrap;
       color: $gray-2;
       font-size: 12px;
+      &.text-center {
+        text-align: center;
+      }
     }
     tbody {
       tr {
@@ -41,6 +44,9 @@
           padding: 8px 10px;
           height: auto;
           font-size: 12px;
+          &.text-center {
+            text-align: center;
+          }
         }
         &:nth-child(odd) {
           td {
