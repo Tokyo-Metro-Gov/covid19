@@ -15,7 +15,7 @@
 * `#covid19` チャンネルにご参加ください。
 
 ## 参加にあたって
-* 開発に参加する前に、[Principle/行動規範](CODE_OF_CONDUCT) をご一読ください。
+* 開発に参加する前に、[Principle/行動規範](CODE_OF_CONDUCT.md) をご一読ください。
 * コミュニケーションにあたっては、Code for Japan の [行動規範](https://github.com/codeforjapan/codeofconduct) もご確認ください。
 * 自分ができそうな Issue に誰もアサインされていない場合、どんどん自分をアサインして進めてください！
 * [good first issue ラベルのついたもの](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)は初心者におすすめです
