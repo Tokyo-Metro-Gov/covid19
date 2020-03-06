@@ -20,33 +20,33 @@ import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
 function cumulative(array) {
-  const cumulativeArray = [];
-  let patSum = 0;
+  const cumulativeArray = []
+  let patSum = 0
   array.forEach(d => {
-    patSum += d;
-    cumulativeArray.push(patSum);
-  });
-  return cumulativeArray;
+    patSum += d
+    cumulativeArray.push(patSum)
+  })
+  return cumulativeArray
 }
 
 function sum(array) {
   return array.reduce((acc, cur) => {
-    return acc + cur;
+    return acc + cur
   })
 }
 
 function pickLastNumber(chartDataArray) {
   return chartDataArray.map(array => {
-    return array[array.length - 1];
+    return array[array.length - 1]
   })
 }
 
 function cumulativeSum(chartDataArray) {
   return chartDataArray.map(array => {
     return array.reduce((acc, cur) => {
-      return acc + cur;
+      return acc + cur
     })
-  });
+  })
 }
 
 export default {
@@ -81,7 +81,7 @@ export default {
       type: String,
       required: false,
       default: ''
-    },
+    }
   },
   data() {
     return {
@@ -104,7 +104,7 @@ export default {
       }
     },
     displayData() {
-      const colorArray = ['#00A040', '#00D154'];
+      const colorArray = ['#00A040', '#00D154']
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
@@ -131,17 +131,25 @@ export default {
       }
     },
     options() {
+      const unit = this.unit
       return {
         tooltips: {
           displayColors: false,
           callbacks: {
             label(tooltipItem) {
-              const labelText = tooltipItem.value + '人'
+              const labelText = tooltipItem.value + unit
               return labelText
+            },
+            title(tooltipItem, data) {
+              return data.labels[tooltipItem[0].index].replace(
+                /(\w+)\/(\w+)/,
+                '$1月$2日'
+              )
             }
           }
         },
         responsive: true,
+        maintainAspectRatio: false,
         legend: {
           display: true
         },
