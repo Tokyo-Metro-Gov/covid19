@@ -144,14 +144,47 @@ export default {
         scales: {
           xAxes: [
             {
+              id: 'date',
               stacked: true,
               gridLines: {
                 display: false
               },
               ticks: {
-                fontSize: 10,
+                fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: '#808080'
+                fontColor: '#808080',
+                maxRotation: 0,
+                minRotation: 0,
+                callback: label => {
+                  return label.split('/')[1]
+                }
+              }
+            },
+            {
+              id: 'month',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: true,
+                drawBorder: false,
+                tickMarkLength: 20
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: '#808080',
+                padding: -12,
+                labelOffset: 15,
+                fontStyle: 'bold',
+                gridLines: {
+                  display: true
+                },
+                callback: label => {
+                  return label.split(' ')[0]
+                }
+              },
+              type: 'time',
+              time: {
+                unit: 'month'
               }
             }
           ],
