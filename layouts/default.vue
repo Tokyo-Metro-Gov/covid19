@@ -1,7 +1,7 @@
 <template>
   <v-app class="app">
     <div v-if="loading" class="loader">
-      <img src="/logo.svg" />
+      <img src="/logo.svg" alt="東京都" />
       <scale-loader color="#00A040" />
     </div>
     <div v-else class="appContainer">
@@ -47,19 +47,15 @@ export default {
     }
   },
   head() {
+    const { htmlAttrs } = this.$nuxtI18nSeo()
     return {
+      htmlAttrs,
       link: [
         {
           rel: 'canonical',
           href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
         }
       ]
-    }
-  },
-  head() {
-    const { htmlAttrs } = this.$nuxtI18nSeo()
-    return {
-      htmlAttrs
     }
   }
 }
