@@ -117,7 +117,7 @@ export default class DataView extends Vue {
     margin-top: 70px;
   }
   &-Footer {
-    padding: 0;
+    padding: 0 !important;
     background-color: $white !important;
     @include font-size(12);
     color: $gray-3 !important;
