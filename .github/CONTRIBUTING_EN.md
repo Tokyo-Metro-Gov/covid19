@@ -19,7 +19,7 @@ may not be always accepted (especially the ones for UI)
 
 ## For participation
 * Please read [Principle / Code of Conduct](CODE_OF_CONDUCT_EN.md) before participating in developments.
-* For communications, please also check Code of Japan's [Code of Conduct](https://github.com/codeforjapan/codeofconduct).
+* For communications, please also check Code for Japan's [Code of Conduct](https://github.com/codeforjapan/codeofconduct).
 * If you find some issues that you can do, please assign yourself!
 * [good first issue label](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) is recommended for beginners
 * If you can't have any progress for more than half a day, make sure that others can take over your work.
