@@ -9,6 +9,9 @@ This page shows how you can contribute to the development of this site.
 ## Comments on Issues and Pull Requests
 * Feel free to comment on the Issue! Questions and suggestions are also welcome.
 * You can fix some issues via Pull Request.
+* Note that the issues of improvement suggestions (labeled with `improve`)
+may not be always accepted (especially the ones for UI)
+* We're glad if you give priority to the issues of [good first issue / help wanted / bug]
 
 ## How to participate in communications
 * If you do not have a Slack account of "Code for Japan", please register [here](https://cfjslackin.herokuapp.com/)
@@ -30,4 +33,4 @@ This page shows how you can contribute to the development of this site.
 * Production site https://covid19-tokyo.netlify.com/
 * [Design](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 
-Updates to this Wiki are also welcome!
+Updates to this document are also welcome!
