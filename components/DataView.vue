@@ -1,5 +1,5 @@
 <template>
-  <v-card class="DataView pa-1">
+  <v-card class="DataView">
     <div class="DataView-Inner">
       <div class="DataView-Content">
         <div
@@ -15,7 +15,7 @@
         </div>
         <slot name="infoPanel" />
       </div>
-      <v-card-text
+      <div
         :class="
           $vuetify.breakpoint.xs
             ? 'DataView-CardTextForXS'
@@ -23,7 +23,7 @@
         "
       >
         <slot />
-      </v-card-text>
+      </div>
       <v-footer class="DataView-Footer">
         <time :datetime="date">{{ date }} 更新</time>
         <a
@@ -60,12 +60,11 @@ export default class DataView extends Vue {
   &-Content {
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
   }
   &-DataInfo {
     position: absolute;
-    top: 0;
-    right: 20px;
+    top: 25px;
+    right: 25px;
     &-summary {
       color: $gray-2;
       font-family: Hiragino Sans;
@@ -92,34 +91,34 @@ export default class DataView extends Vue {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
+    padding: 22px;
     height: 100%;
   }
   &-TitleContainer {
     display: flex;
     flex-flow: column;
-    padding: 14px 0 8px;
     color: $gray-2;
     &.with-infoPanel {
       width: calc(100% - 11em);
     }
   }
   &-Title {
+    margin-bottom: 5px;
     font-size: 1.25rem;
     line-height: 1.5;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   &-CardText {
-    margin-bottom: 46px;
-    margin-top: 35px;
+    margin: 30px 0;
   }
   &-CardTextForXS {
     margin-bottom: 46px;
     margin-top: 70px;
   }
   &-Footer {
+    padding: 0;
     background-color: $white !important;
-    margin: 2px 4px 12px;
     @include font-size(12);
     color: $gray-3 !important;
     justify-content: space-between;
