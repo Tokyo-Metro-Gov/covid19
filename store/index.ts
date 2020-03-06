@@ -1,7 +1,7 @@
 import { ActionTree, Store } from 'vuex'
 import { ActionContext } from 'vuex/types'
 import { Context } from '@nuxt/types'
-import { initialiseStores } from '~/utils/storeAccessor'
+import { initialiseStores, newsStore } from '~/utils/storeAccessor'
 
 export const state = () => ({})
 export type RootState = ReturnType<typeof state>
@@ -13,7 +13,8 @@ export const actions: ActionTree<RootState, RootState> = {
     _context: ActionContext<RootState, RootState>,
     server: Context
   ) {
-    await initializer(server.store)
+    initializer(server.store)
+    await newsStore.fetchItems()
   }
 }
 

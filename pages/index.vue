@@ -97,9 +97,9 @@ import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
-import News from '@/data/news.json'
 import SvgCard from '@/components/SvgCard.vue'
 import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
+import { newsStore } from '@/store'
 
 export default {
   components: {
@@ -173,7 +173,6 @@ export default {
         title: '都内の最新感染動向',
         date: Data.lastUpdate
       },
-      newsItems: News.newsItems,
       metroGraphOption: {
         responsive: true,
         legend: {
@@ -230,6 +229,11 @@ export default {
       }
     }
     return data
+  },
+  computed: {
+    newsItems() {
+      return newsStore.items
+    }
   },
   head() {
     return {
