@@ -58,41 +58,6 @@ export default {
       dataKind: 'transition'
     }
   },
-  methods: {
-    cumulative: function(array) {
-      const cumulativeArray = [];
-      let patSum = 0;
-      array.forEach(d => {
-        patSum += d;
-        cumulativeArray.push(patSum);
-      });
-      return cumulativeArray;
-    },
-    sum: function(array) {
-      return array.reduce((acc, cur) => {
-        return acc + cur;
-      })
-    },
-    pickLastNumber: function(chartDataArray) {
-      return chartDataArray.map(array => {
-        return array[array.length - 1];
-      })
-    },
-    cumulativeSum: function(chartDataArray) {
-      return chartDataArray.map(array => {
-        return array.reduce((acc, cur) => {
-          return acc + cur;
-        })
-      });
-    },
-    eachArraySum: function(chartDataArray) {
-      const sumArray = [];
-      for(let i = 0; i < chartDataArray[0].length; i++){
-        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i]);
-      }
-      return sumArray;
-    }
-  },
   computed: {
     displayInfo() {
       if (this.dataKind === 'transition') {
@@ -139,14 +104,23 @@ export default {
       const unit = this.unit
       const sumArray = this.eachArraySum(this.chartData)
       const data = this.chartData
-      const cumulativeData = this.chartData.map(item => {return this.cumulative(item)})
+      const cumulativeData = this.chartData.map(item => {
+        return this.cumulative(item)
+      })
       const cumulativeSumArray = this.eachArraySum(cumulativeData)
       return {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label: (tooltipItem) => {
-              const labelText = this.dataKind === 'transition' ? `${sumArray[tooltipItem.index]}${unit}（都内: ${data[0][tooltipItem.index]}/その他: ${data[1][tooltipItem.index]}）` : `${cumulativeSumArray[tooltipItem.index]}${unit}（都内: ${cumulativeData[0][tooltipItem.index]}/その他: ${cumulativeData[1][tooltipItem.index]}）`
+            label: tooltipItem => {
+              const labelText =
+                this.dataKind === 'transition'
+                  ? `${sumArray[tooltipItem.index]}${unit}（都内: ${
+                      data[0][tooltipItem.index]
+                    }/その他: ${data[1][tooltipItem.index]}）`
+                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（都内: ${
+                      cumulativeData[0][tooltipItem.index]
+                    }/その他: ${cumulativeData[1][tooltipItem.index]}）`
               return labelText
             },
             title(tooltipItem, data) {
@@ -193,6 +167,41 @@ export default {
           ]
         }
       }
+    }
+  },
+  methods: {
+    cumulative(array) {
+      const cumulativeArray = []
+      let patSum = 0
+      array.forEach(d => {
+        patSum += d
+        cumulativeArray.push(patSum)
+      })
+      return cumulativeArray
+    },
+    sum(array) {
+      return array.reduce((acc, cur) => {
+        return acc + cur
+      })
+    },
+    pickLastNumber(chartDataArray) {
+      return chartDataArray.map(array => {
+        return array[array.length - 1]
+      })
+    },
+    cumulativeSum(chartDataArray) {
+      return chartDataArray.map(array => {
+        return array.reduce((acc, cur) => {
+          return acc + cur
+        })
+      })
+    },
+    eachArraySum(chartDataArray) {
+      const sumArray = []
+      for (let i = 0; i < chartDataArray[0].length; i++) {
+        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
+      }
+      return sumArray
     }
   }
 }
