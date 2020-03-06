@@ -8,13 +8,19 @@
 ## How to Contribute / 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
 
-詳しくは[How to contribute](https://github.com/tokyo-metropolitan-gov/covid19/wiki/How-to-contribute)を御覧ください。
+詳しくは[貢献の仕方](./.github/CONTRIBUTING.md)を御覧ください。
 
 All contributions are welcome!
-Please check [How to contribute](https://github.com/tokyo-metropolitan-gov/covid19/wiki/How-to-contribute) for details.
+Please check [How to contribute](./.github/CONTRIBUTING_EN.md) for details.
+
+## Code of Conduct / 行動原則
+
+詳しくは[サイト構築にあたっての行動原則](./.github/CODE_OF_CONDUCT.md)を御覧ください。
+
+Please check [Code of conduct for developers](./.github/CODE_OF_CONDUCT_EN.md) for details.
 
 ## License / ライセンス
-本ソフトウェアは、MITライセンスの元提供されています。 
+本ソフトウェアは、MITライセンスの元提供されています。
 This software is released under the MIT License.
 
 ## For Developers / 開発者向け情報
@@ -31,7 +37,10 @@ $ yarn dev
 ```
 
 **Use docker / docker compose を使う場合**
-```bash 
+```bash
+# Please run after checkout this repository
+$ docker-compose build
+$ docker-compose run --rm app yarn install
 # serve with hot reload at localhost:3000
 $ docker-compose up
 ```

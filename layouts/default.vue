@@ -49,7 +49,13 @@ export default {
   head() {
     const { htmlAttrs } = this.$nuxtI18nSeo()
     return {
-      htmlAttrs
+      htmlAttrs,
+      link: [
+        {
+          rel: 'canonical',
+          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+        }
+      ]
     }
   }
 }

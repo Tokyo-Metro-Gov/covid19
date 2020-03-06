@@ -131,17 +131,25 @@ export default {
       }
     },
     options() {
+      const unit = this.unit
       return {
         tooltips: {
           displayColors: false,
           callbacks: {
             label(tooltipItem) {
-              const labelText = tooltipItem.value + '人'
+              const labelText = tooltipItem.value + unit
               return labelText
+            },
+            title(tooltipItem, data) {
+              return data.labels[tooltipItem[0].index].replace(
+                /(\w+)\/(\w+)/,
+                '$1月$2日'
+              )
             }
           }
         },
         responsive: true,
+        maintainAspectRatio: false,
         legend: {
           display: true
         },
