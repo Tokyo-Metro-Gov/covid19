@@ -7,7 +7,7 @@ on:
 
 jobs:
   eslint:
-    name: runner / eslint
+    name: check_eslint_error
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
