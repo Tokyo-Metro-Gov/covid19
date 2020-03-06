@@ -107,7 +107,7 @@ export default {
       const colorArray = ['#00A040', '#00D154']
       if (this.dataKind === 'transition') {
         return {
-          labels: this.labels.map(v => v.replace(/(\w+)\/(\w+)/, '$1月$2日')),
+          labels: this.labels,
           datasets: this.chartData.map((item, index) => {
             return {
               label: this.items[index],
@@ -119,7 +119,7 @@ export default {
         }
       }
       return {
-        labels: this.labels.map(v => v.replace(/(\w+)\/(\w+)/, '$1月$2日')),
+        labels: this.labels,
         datasets: this.chartData.map((item, index) => {
           return {
             label: this.items[index],
@@ -138,6 +138,12 @@ export default {
             label(tooltipItem) {
               const labelText = tooltipItem.value + '人'
               return labelText
+            },
+            title(tooltipItem, data) {
+              return data.labels[tooltipItem[0].index].replace(
+                /(\w+)\/(\w+)/,
+                '$1月$2日'
+              )
             }
           }
         },
