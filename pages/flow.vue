@@ -201,7 +201,7 @@
       <a
         href="https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html"
         target="_blank"
-        rel="nopenner"
+        rel="noopener"
         class="Flow-Card-Button"
       >
         詳細を見る(東京都福祉保健局)
