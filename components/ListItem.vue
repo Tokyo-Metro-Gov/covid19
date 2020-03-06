@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Prop, Component } from 'vue-property-decorator'
+import { Vue, Prop, Component } from 'nuxt-property-decorator'
 import CovidIcon from '@/static/covid.svg'
 import ParentIcon from '@/static/parent.svg'
 
