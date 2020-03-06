@@ -39,6 +39,7 @@
     "express": "^4.16.4",
     "nuxt": "^2.11.0",
     "nuxt-i18n": "^6.6.0",
+    "nuxt-property-decorator": "^2.5.1",
     "vue-chartjs": "^3.5.0",
     "vue-spinner": "^1.0.3"
   },
