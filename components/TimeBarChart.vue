@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date">
+  <data-view :title="title" :date="date" :url="url">
     <template v-slot:button>
       <data-selector v-model="dataKind" />
     </template>
@@ -40,6 +40,11 @@ export default {
       default: ''
     },
     unit: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    url: {
       type: String,
       required: false,
       default: ''
@@ -122,10 +127,17 @@ export default {
             label(tooltipItem) {
               const labelText = tooltipItem.value + unit
               return labelText
+            },
+            title(tooltipItem, data) {
+              return data.labels[tooltipItem[0].index].replace(
+                /(\w+)\/(\w+)/,
+                '$1月$2日'
+              )
             }
           }
         },
         responsive: true,
+        maintainAspectRatio: false,
         legend: {
           display: false
         },
