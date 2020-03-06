@@ -91,7 +91,7 @@ export default Vue.extend({
     top: 0;
     overflow-y: auto;
     width: 240px;
-    height: 100vh;
+    height: 100%;
   }
 }
 @include largerThan($huge) {
