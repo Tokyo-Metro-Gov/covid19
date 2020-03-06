@@ -12,7 +12,6 @@
 <style lang="scss">
 .DataView {
   &-DataInfo {
-    margin-top: 20px;
     text-align: right;
     &-summary {
       display: inline-block;
@@ -40,20 +39,12 @@
     background-color: transparent !important;
     height: auto !important;
   }
-  &-TitleContainer {
-    padding: 14px 0 8px;
-  }
   &-Footer {
     background-color: $white !important;
     text-align: right;
-    margin: 2px 4px 12px;
     flex-direction: row-reverse;
     @include font-size(12);
     color: $gray-3 !important;
-  }
-  &-CardText {
-    margin-bottom: 46px;
-    margin-top: 20px;
   }
 }
 </style>
