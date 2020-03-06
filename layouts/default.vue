@@ -7,13 +7,13 @@
     <div v-else class="appContainer">
       <div class="naviContainer">
         <SideNavigation
-          :is-navi-open="isNaviOpen"
-          :class="{ open: isNaviOpen }"
-          @openNavi="showNavi"
-          @closeNavi="hideNavi"
+          :is-navi-open="isOpenNavigation"
+          :class="{ open: isOpenNavigation }"
+          @openNavi="openNavigation"
+          @closeNavi="hideNavigation"
         />
       </div>
-      <div class="mainContainer" :class="{ open: isNaviOpen }">
+      <div class="mainContainer" :class="{ open: isOpenNavigation }">
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
@@ -21,17 +21,25 @@
     </div>
   </v-app>
 </template>
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
-import SideNavigation from '@/components/SideNavigation'
-export default {
+import SideNavigation from '@/components/SideNavigation.vue'
+
+type LocalData = {
+  isOpenNavigation: boolean
+  loading: boolean
+}
+
+export default Vue.extend({
   components: {
     ScaleLoader,
     SideNavigation
   },
-  data() {
+  data(): LocalData {
     return {
-      isNaviOpen: false,
+      isOpenNavigation: false,
       loading: true
     }
   },
@@ -39,14 +47,14 @@ export default {
     this.loading = false
   },
   methods: {
-    showNavi() {
-      this.isNaviOpen = true
+    openNavigation(): void {
+      this.isOpenNavigation = true
     },
-    hideNavi() {
-      this.isNaviOpen = false
+    hideNavigation(): void {
+      this.isOpenNavigation = false
     }
   },
-  head() {
+  head(): MetaInfo {
     const { htmlAttrs } = this.$nuxtI18nSeo()
     return {
       htmlAttrs,
@@ -58,7 +66,7 @@ export default {
       ]
     }
   }
-}
+})
 </script>
 <style lang="scss">
 .app {
