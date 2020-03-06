@@ -15,10 +15,12 @@
 * `#covid19` チャンネルにご参加ください。
 
 ## 参加にあたって
-* 開発に参加する前に、[Principle/行動規範](Principle/行動規範) をご一読ください。
+* 開発に参加する前に、[Principle/行動規範](CODE_OF_CONDUCT.md) をご一読ください。
 * コミュニケーションにあたっては、Code for Japan の [行動規範](https://github.com/codeforjapan/codeofconduct) もご確認ください。
 * 自分ができそうな Issue に誰もアサインされていない場合、どんどん自分をアサインして進めてください！
 * [good first issue ラベルのついたもの](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)は初心者におすすめです
+* improve(改善提案)がついたIssueについては必ず反映できると限りませんのでご了承ください（特にUI系について）
+* good first issue / help wanted / bug を優先して対応いただけると助かります
 * 半日以上作業から離れそうな場合は、他の人が作業を引き継げるようにしておいてください。（Issue を抱えたまま長時間オフになると、そのIssueがブロックされてしまいます。）
 * 1日以上更新されない Issue については、当方で assign を外させていただくことがあります。作業途中でも、[Draft Pull Request](https://qiita.com/tatane616/items/13da1b6797a7b871ad58) を送ってもらえると、動きが把握しやすくなります。
 * Issue に関連した質問等は、Slack より Issue 内のコメントを活用しましょう
@@ -30,4 +32,4 @@
 * 本番サイト https://covid19-tokyo.netlify.com/
 * [デザイン](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 
-本 Wiki の更新も大歓迎です！
+本 ドキュメント の更新も大歓迎です！
