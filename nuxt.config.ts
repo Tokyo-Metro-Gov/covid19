@@ -78,10 +78,6 @@ const config: Configuration = {
     '@nuxt/typescript-build',
     '@nuxtjs/google-analytics'
   ],
-  typescript: {
-    typeCheck: true,
-    ignoreNotFoundWarnings: true
-  },
   /*
    ** Nuxt.js modules
    */
