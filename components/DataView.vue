@@ -19,7 +19,13 @@
     </v-card-text>
     <v-footer class="DataView-Footer">
       <time :datetime="date">{{ date }} 更新</time>
-      <a v-if="url" class="OpenDataLink" :href="url" target="_blank" rel="noopener">
+      <a
+        v-if="url"
+        class="OpenDataLink"
+        :href="url"
+        target="_blank"
+        rel="noopener"
+      >
         オープンデータへのリンク
         <v-icon class="ExternalLinkIcon" size="15">
           mdi-open-in-new
