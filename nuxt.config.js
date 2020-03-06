@@ -71,8 +71,7 @@ const config = {
     { 
       src: '@/plugins/axe',
       ssr: true
-    },
-    '@/plugins/datetime-formatter.js'
+    }
   ],
   /*
    ** Nuxt.js dev-modules
