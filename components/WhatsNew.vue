@@ -1,7 +1,9 @@
 <template>
   <div class="WhatsNew">
     <h2 class="WhatsNew-heading">
-      <v-icon size="24" class="WhatsNew-heading-icon">mdi-information</v-icon>
+      <v-icon size="24" class="WhatsNew-heading-icon">
+        mdi-information
+      </v-icon>
       最新のお知らせ
     </h2>
     <div v-for="(item, i) in items" :key="i">
@@ -25,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss">
-.WhatsNew{
+.WhatsNew {
   @include card-container();
   padding: 10px;
   margin-bottom: 20px;
