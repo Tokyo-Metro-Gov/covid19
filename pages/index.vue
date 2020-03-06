@@ -5,13 +5,8 @@
       :title="headerItem.title"
       :date="headerItem.date"
     />
-    <whats-new
-      class="mb-4"
-      date="2020年3月5日"
-      url="https://www.2020games.metro.tokyo.lg.jp/news/2020/0305_3108.html"
-      text="マスク及び消毒液の寄贈について "
-    />
-    <StaticInfo
+    <whats-new class="mb-4" :items="newsItems" />
+    <static-info
       class="mb-4"
       :url="'/flow'"
       :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
@@ -32,7 +27,9 @@
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="'人'"
-          :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+          :url="
+            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+          "
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -42,7 +39,9 @@
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
-          :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+          :url="
+            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+          "
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -175,51 +174,6 @@ export default {
         date: Data.lastUpdate
       },
       newsItems: News.newsItems,
-      option: {
-        tooltips: {
-          displayColors: false,
-          callbacks: {
-            label(tooltipItem) {
-              const labelText = tooltipItem.value + '人'
-              return labelText
-            }
-          }
-        },
-        responsive: true,
-        legend: {
-          display: false
-        },
-        scales: {
-          xAxes: [
-            {
-              stacked: true,
-              gridLines: {
-                display: false
-              },
-              ticks: {
-                fontSize: 10,
-                maxTicksLimit: 20,
-                fontColor: '#808080'
-              }
-            }
-          ],
-          yAxes: [
-            {
-              location: 'bottom',
-              stacked: true,
-              gridLines: {
-                display: true,
-                color: '#E5E5E5'
-              },
-              ticks: {
-                suggestedMin: 0,
-                maxTicksLimit: 8,
-                fontColor: '#808080'
-              }
-            }
-          ]
-        }
-      },
       metroGraphOption: {
         responsive: true,
         legend: {
