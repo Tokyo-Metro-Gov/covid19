@@ -19,12 +19,12 @@ version 1.0, 2020/3/3
 
 ## International
 
-* We will design this website be intuitive to use and understand.
+* We will design this website to be intuitive for use and easy to understand.
 * We will provide the information in multiple languages.
 
 ## Be open
 
-* Open source: We will release most of our source codes and knowledge used to develop this website for free, to encourage other local authorities to utilise them.
+* Open source: We will release most of our source code and knowledge used to develop this website for free, to encourage other local authorities to utilise them.
 * Open data: We will release the data for free in reusable data form, which is available for everyone.
 
 ## Build with people
