@@ -2,8 +2,8 @@ version 1.0, 2020/3/3
 # Our mission
 
 * We will work to protect citizen's life and health.
-* We will work to make the fact open to both the domestic and overseas people.
-* We will demonstrate our integrity and visualise the outcomes of our work.
+* We will work to increase the transparency of information for everyone.
+* We will demonstrate our integrity and visualise the outcome of our work.
 
 # Code of conduct for developers
 
@@ -24,8 +24,8 @@ version 1.0, 2020/3/3
 
 ## Be open
 
-* Open source: We will release most of our source code and knowledge used to develop this website for free, to encourage other local authorities to utilise them.
-* Open data: We will release the data for free in reusable data form, which is available for everyone.
+* Open source: We will release most of our source code and knowledge used to develop this website for free of charge, in order to encourage other local authorities to utilise them to the full extent.
+* Open data: We will release the data for free in reusable data formats, which will be available for everyone.
 
 ## Build with people
 
