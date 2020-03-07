@@ -1,4 +1,5 @@
 <template>
+  <!-- eslint-disable vue/html-indent -->
   <noscript>
     <div class="noscript">
       <style>
@@ -25,6 +26,7 @@
       </div>
     </div>
   </noscript>
+  <!--eslint-enable-->
 </template>
 
 <i18n>
