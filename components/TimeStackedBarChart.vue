@@ -21,7 +21,7 @@ import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-type DataTypes = {
+type Data = {
   dataKind: 'transition' | 'cumulative'
 }
 type Methods = {
@@ -30,15 +30,6 @@ type Methods = {
   pickLastNumber: (chartDataArray: number[][]) => number[]
   cumulativeSum: (chartDataArray: number[][]) => number[]
   eachArraySum: (chartDataArray: number[][]) => number[]
-}
-
-type Computed = {
-  displayInfo: () => {
-    lText: string
-    sText: string
-    unit: string
-  }
-  displayData: () => ChartData[]
 }
 
 type PropTypes = {
@@ -51,7 +42,7 @@ type PropTypes = {
   unit: string
 }
 
-export default Vue.extend<DataTypes, Methods, {}, PropTypes>({
+export default Vue.extend<Data, Methods, {}, PropTypes>({
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
