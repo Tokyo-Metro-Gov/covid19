@@ -3,17 +3,17 @@
     <div class="SideNavigation-HeadingContainer sp-flex">
       <v-icon
         class="SideNavigation-HeadingIcon sp-inline-block"
-        :aria-label="$t('Navi Open')"
+        :aria-label="$t('サイドメニュー項目を開く')"
         @click="openNavi"
       >
         mdi-menu
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('Tokyo')" />
+          <img src="/logo.svg" :alt="$t('東京都')" />
         </div>
         <h1 class="SideNavigation-Heading">
-          {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
+          {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
     </div>
@@ -21,7 +21,7 @@
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
         class="SideNavigation-ListContainerIcon sp-inline-block"
-        :aria-label="$t('Navi Close')"
+        :aria-label="$t('サイドメニュー項目を閉じる')"
         @click="closeNavi"
       >
         mdi-close
@@ -66,23 +66,21 @@
 <i18n>
 {
   "ja": {
-    "Navi Open": "サイドメニュー項目を開く",
-    "Navi Close": "サイドメニュー項目を閉じる",
-    "Tokyo": "東京都",
-    "COVID-19": "新型コロナウイルス感染症",
-    "Measures site": "対策サイト",
-    "Tokyo Metropolitan Government": "東京都",
-    "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
-    "The latest updates": "都内の最新感染動向",
-    "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
-    "for Families with children": "お子様をお持ちの皆様へ",
-    "for Citizens": "都民の皆様へ",
-    "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
-    "Official statements from Task Force": "東京都新型コロナウイルス感染症対策本部報",
-    "Cancelled public events": "東京都主催等 中止又は延期するイベント等",
-    "Government official website": "東京都公式ホームページ",
-    "Message from Governor Koike": "知事からのメッセージ",
-    "About us": "当サイトについて"
+    "サイドメニュー項目を開く": "サイドメニュー項目を開く",
+    "サイドメニュー項目を閉じる": "サイドメニュー項目を閉じる",
+    "東京都": "東京都",
+    "新型コロナウイルス感染症": "新型コロナウイルス感染症",
+    "対策サイト": "対策サイト",
+    "都内の最新感染動向": "都内の最新感染動向",
+    "新型コロナウイルス感染症が心配なときに": "新型コロナウイルス感染症が心配なときに",
+    "お子様をお持ちの皆様へ": "お子様をお持ちの皆様へ",
+    "都民の皆様へ": "都民の皆様へ",
+    "企業の皆様・はたらく皆様へ": "企業の皆様・はたらく皆様へ",
+    "東京都新型コロナウイルス感染症対策本部報": "東京都新型コロナウイルス感染症対策本部報",
+    "東京都主催等 中止又は延期するイベント等": "東京都主催等 中止又は延期するイベント等",
+    "東京都公式ホームページ": "東京都公式ホームページ",
+    "知事からのメッセージ": "知事からのメッセージ",
+    "当サイトについて": "当サイトについて"
   }
 }
 </i18n>
@@ -105,52 +103,52 @@ export default {
       return [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: this.$t('The latest updates'),
+          title: this.$t('都内の最新感染動向'),
           link: '/'
         },
         {
           icon: 'covid',
-          title: this.$t('If you have any symptoms'),
+          title: this.$t('新型コロナウイルス感染症が心配なときに'),
           link: '/flow',
           divider: true
         },
         {
           icon: 'parent',
-          title: this.$t('for Families with children'),
+          title: this.$t('お子様をお持ちの皆様へ'),
           link: '/parent'
         },
         {
           icon: 'mdi-account-multiple',
-          title: this.$t('for Citizens'),
+          title: this.$t('都民の皆様へ'),
           link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
         },
         {
           icon: 'mdi-domain',
-          title: this.$t('for Enterprises and Employees'),
+          title: this.$t('企業の皆様・はたらく皆様へ'),
           link: '/worker',
           divider: true
         },
         {
-          title: this.$t('Official statements from Task Force'),
+          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
           link:
             'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         },
         {
-          title: this.$t('Cancelled public events'),
+          title: this.$t('東京都主催等 中止又は延期するイベント等'),
           link:
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
         },
         {
-          title: this.$t('Message from Governor Koike'),
+          title: this.$t('知事からのメッセージ'),
           link:
             'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
         },
         {
-          title: this.$t('About us'),
+          title: this.$t('当サイトについて'),
           link: '/about'
         },
         {
-          title: this.$t('Government official website'),
+          title: this.$t('東京都公式ホームページ'),
           link: 'https://www.metro.tokyo.lg.jp/',
           divider: true
         }
