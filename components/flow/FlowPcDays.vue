@@ -1,5 +1,5 @@
 <template>
-  <div class="Flow-PC-Days Flow-Card-Parts">
+  <div class="Flow-PC-Days">
     <div class="Flow-PC-Days-Row">
       <div class="Flow-PC-Days-Row-3">
         <img src="/flow/accessibility-24px.svg" />
@@ -79,7 +79,11 @@
   display: flex;
   flex-direction: row;
   height: 256px;
+  width: 743px;
   padding: 20px 20px !important;
+  border: 2px solid $gray-4;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px $gray-4;
   position: relative;
   .Flow-PC-Days-Row {
     flex: 1;
