@@ -113,6 +113,7 @@ export default class ListItem extends Vue {
     }
     &:hover {
       color: transparent !important;
+      text-decoration: underline;
       & .ListItem-Text {
         font-weight: bold;
       }
