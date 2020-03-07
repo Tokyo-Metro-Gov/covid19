@@ -137,7 +137,8 @@ export default {
           displayColors: false,
           callbacks: {
             label(tooltipItem) {
-              const labelText = tooltipItem.value + unit
+              const labelText =
+                parseInt(tooltipItem.value).toLocaleString() + unit
               return labelText
             },
             title(tooltipItem, data) {
