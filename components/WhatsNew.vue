@@ -6,8 +6,8 @@
       </v-icon>
       最新のお知らせ
     </h2>
-    <div v-for="(item, i) in items" :key="i">
-      <li class="WhatsNew-list">
+    <ul style="">
+      <li v-for="(item, i) in items" :key="i" class="WhatsNew-list">
         <a
           class="WhatsNew-list-item"
           :href="item.url"
@@ -27,7 +27,7 @@
           </span>
         </a>
       </li>
-    </div>
+    </ul>
   </div>
 </template>
 
@@ -66,6 +66,11 @@ export default {
     margin: 3px;
   }
 }
+
+.WhatsNew ul {
+  padding-left: 0px;
+}
+
 .WhatsNew-list {
   list-style-type: none;
 
