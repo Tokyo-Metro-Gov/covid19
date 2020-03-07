@@ -100,6 +100,7 @@ export default Vue.extend({
     overflow-y: auto;
     width: 240px;
     height: 100%;
+    overscroll-behavior: contain;
   }
 }
 @include largerThan($huge) {
