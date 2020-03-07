@@ -251,7 +251,7 @@ export default {
     }
   }
   .UpdatedAt {
-    font-size: 0.875rem;
+    @include font-size(14);
     color: $gray-3;
   }
   .DataBlock {
