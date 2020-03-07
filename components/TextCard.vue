@@ -12,22 +12,22 @@
 </template>
 
 <script lang="ts">
-import { Vue, Prop, Component } from 'vue-property-decorator'
+import Vue from 'vue'
 
-@Component
-export default class TextCard extends Vue {
-  @Prop({
-    default: '',
-    required: false
-  })
-  title!: string
-
-  @Prop({
-    default: '',
-    required: false
-  })
-  body!: string
-}
+export default Vue.extend({
+  props: {
+    title: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    body: {
+      type: String,
+      required: false,
+      default: ''
+    }
+  }
+})
 </script>
 
 <style lang="scss">
