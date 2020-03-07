@@ -9,8 +9,8 @@ version 1.0, 2020/3/3
 
 ## User perspective
 
-* We will put importance on UX (User Experience) in order to make information easy to understand.
-* We will make decisions using evidence based on numerical analysis, such as access analysis, search keyword analysis, and SNS analysis.
+* We will treat UX (User Experience) as a vital component, in order to make information easy to understand.
+* We will make decisions using evidence from statistical analysis, such as access analysis, search keyword analysis, and social media analysis.
 
 ## No one left behind
 
