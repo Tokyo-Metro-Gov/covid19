@@ -15,5 +15,5 @@ jobs:
         uses: reviewdog/action-eslint@v1
         with:
           github_token: ${{ secrets.github_token }}
-          reporter: github-pr-check
+          reporter: github-pr-review
           eslint_flags: './**/*.{vue,ts,js}'
