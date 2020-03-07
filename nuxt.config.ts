@@ -98,31 +98,38 @@ const config: Configuration = {
         locales: [
           {
             code: 'ja',
+            name: '日本語',
             iso: 'ja-JP'
           },
           {
             code: 'en',
+            name: 'English',
             iso: 'en-US'
           },
           {
-            code: 'zh-CN',
+            code: 'zh-cn',
+            name: '簡体字',
             iso: 'zh-CN'
           },
           {
-            code: 'zh-TW',
+            code: 'zh-tw',
+            name: '繁体字',
             iso: 'zh-TW'
           },
           {
             code: 'ko',
+            name: '한국어',
             iso: 'ko-KR'
           },
           {
-            code: 'ja-basicjpn',
-            iso: 'ja-basicjpn'
+            code: 'pt-BR',
+            name: 'Portuguese',
+            iso: 'pt-BR'
           },
           {
-            code: 'pt-BR',
-            iso: 'pt-BR'
+            code: 'ja-basic',
+            name: 'やさしい にほんご',
+            iso: 'ja-JP'
           }
         ],
         defaultLocale: 'ja',
