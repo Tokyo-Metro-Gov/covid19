@@ -14,13 +14,26 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
+<<<<<<< HEAD
         <svg-card title="検査陽性者の状況" :date="headerItem.date">
           <confirmed-cases-table v-bind="confirmedCases" />
+=======
+        <svg-card
+          title="検査陽性者の状況"
+          :title-id="'details-of-confirmed-cases'"
+          :date="headerItem.date"
+        >
+          <confirmed-cases-table
+            aria-label="検査陽性者の状況"
+            v-bind="confirmedCases"
+          />
+>>>>>>> d53b6eea535421266af30496c1b1475115dc962c
         </svg-card>
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="陽性患者数"
+          :title-id="'number-of-confirmed-cases'"
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="'人'"
@@ -32,6 +45,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <data-table
           :title="'陽性患者の属性'"
+          :title-id="'attributes-of-confirmed-cases'"
           :chart-data="patientsTable"
           :chart-option="{}"
           :date="Data.patients.date"
@@ -44,6 +58,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
           title="検査実施数"
+          :title-id="'number-of-tested'"
           :chart-data="inspectionsGraph"
           :date="Data.inspections_summary.date"
           :items="inspectionsItems"
@@ -54,6 +69,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
+          :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
           :chart-data="contactsGraph"
           :date="Data.contacts.date"
           :unit="'件'"
@@ -63,6 +79,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナ受診相談窓口相談件数"
+          :title-id="'number-of-reports-to-covid19-consultation-desk'"
           :chart-data="querentsGraph"
           :date="Data.querents.date"
           :unit="'件'"
@@ -72,6 +89,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <metro-bar-chart
           title="都営地下鉄の利用者数の推移"
+          :title-id="'predicted-number-of-toei-subway-passengers'"
           :chart-data="metroGraph"
           :chart-option="metroGraphOption"
           :date="metroGraph.date"
