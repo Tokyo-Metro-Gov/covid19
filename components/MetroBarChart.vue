@@ -7,7 +7,7 @@
         *都営地下鉄4路線の自動改札出場数
       </p>
     </template>
-    <bar :chart-data="displayData" :options="chartOption" :height="240" />
+    <bar :chart-id="chartId" :chart-data="displayData" :options="chartOption" :height="240" />
   </data-view>
 </template>
 
@@ -32,6 +32,11 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    chartId: {
+      type: String,
+      required: false,
+      default: 'metro-bar-chart'
     },
     chartData: {
       type: Object,
