@@ -9,7 +9,6 @@ This page shows how you can contribute to the development of this site.
 ## Comments on Issues and Pull Requests
 * Feel free to comment on the Issue! Questions and suggestions are also welcome.
 * You can fix some issues via Pull Request.
-* If nobody has been assigned to an Issue that you are likely to be able to do, comment on the Issue with "I'll do it!" And then develop.
 * Note that the issues of improvement suggestions (labeled with `improve`)
 may not be always accepted (especially the ones for UI)
 * We're glad if you give priority to the issues of [good first issue / help wanted / bug]
@@ -21,7 +20,7 @@ may not be always accepted (especially the ones for UI)
 ## For participation
 * Please read [Principle / Code of Conduct](CODE_OF_CONDUCT_EN.md) before participating in developments.
 * For communications, please also check Code for Japan's [Code of Conduct](https://github.com/codeforjapan/codeofconduct).
-* If you find some issues that you can do, please assign yourself!
+* If you find some issues that you can do, comment on the Issue with "I'll do it!" And then develop.
 * [good first issue label](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) is recommended for beginners
 * If you can't have any progress for more than half a day, make sure that others can take over your work.
 * In case issues are not updated for more than one day, we may remove the assign. [Draft Pull Request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests) is recommended so that everyone knows the situation.
