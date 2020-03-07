@@ -57,7 +57,7 @@ export default Vue.extend<
   },
   computed: {
     displayData() {
-      const colors: Array<string> = ['#a6e29f', '#63c765', '#008b41']
+      const colors: string[] = ['#a6e29f', '#63c765', '#008b41']
       const datasets = this.chartData.labels!.map((label, i) => {
         return {
           label,
