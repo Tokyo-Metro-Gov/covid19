@@ -110,18 +110,21 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
 import TextCard from '@/components/TextCard.vue'
 
-export default {
+type LocalHead = {
+  title: string
+}
+
+export default Vue.extend({
   components: {
     TextCard
   },
-  head() {
-    return {
-      title: '当サイトについて'
-    }
-  }
-}
+  head: (): LocalHead => ({
+    title: '当サイトについて'
+  })
+})
 </script>
 
 <style lang="scss">
