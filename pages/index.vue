@@ -85,6 +85,7 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
 import { Chart } from 'chart.js'
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
@@ -104,7 +105,7 @@ const News: Json.news = require('@/data/news.json')
 const Data: Json.data = require('@/data/data.json')
 const MetroData: Json.metro = require('@/data/metro.json')
 
-export default {
+export default Vue.extend({
   components: {
     PageHeader,
     TimeBarChart,
@@ -240,7 +241,7 @@ export default {
       title: '都内の最新感染動向'
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
