@@ -1,22 +1,22 @@
 <template>
-  <div class="Flow-PC-Days">
-    <div class="Flow-PC-Days-Row">
-      <div class="Flow-PC-Days-Row-3">
+  <div :class="$style.Flow">
+    <div :class="$style.FlowRow">
+      <div :class="$style.FlowRowRowThree">
         <img src="/flow/accessibility-24px.svg" />
         <p>一般の方</p>
       </div>
       <div>
         <p>
-          <span class="Flow-PC-Days-Emphasis">
-            <span class="Flow-PC-Days-Emphasis-Day">４</span>
+          <span :class="$style.FlowRowEmphasis">
+            <span :class="$style.FlowRowEmphasisDay">４</span>
             日程度
           </span>
           続いている
         </p>
       </div>
     </div>
-    <div class="Flow-PC-Days-Row">
-      <div class="Flow-PC-Days-Condition">
+    <div :class="$style.FlowRow">
+      <div :class="$style.FlowRowCondition">
         <i>
           <img src="/flow/check_circle-24px.svg" />
         </i>
@@ -25,7 +25,7 @@
           のような症状
         </p>
       </div>
-      <div class="Flow-PC-Days-Condition">
+      <div :class="$style.FlowRowCondition">
         <i>
           <img src="/flow/check_circle-24px.svg" />
         </i>
@@ -35,22 +35,22 @@
           以上
         </p>
       </div>
-      <div class="Flow-PC-Days-Condition">
+      <div :class="$style.FlowRowCondition">
         <i>
           <img src="/flow/check_circle-24px.svg" />
         </i>
         <p>強いだるさ</p>
       </div>
-      <div class="Flow-PC-Days-Condition">
+      <div :class="$style.FlowRowCondition">
         <i>
           <img src="/flow/check_circle-24px.svg" />
         </i>
         <p>息苦しさ</p>
       </div>
     </div>
-    <div class="Flow-PC-Days-Row">
-      <div class="Flow-PC-Days-Row-3">
-        <div class="Flow-PC-Days-Care-Target-List">
+    <div :class="$style.FlowRow">
+      <div :class="$style.FlowRowRowThree">
+        <div :class="$style.FlowRowRowThreeCareTargetList">
           <p>
             <img src="/flow/directions_walk-24px.svg" />ご高齢な方<br />
             <img src="/flow/accessible-24px.svg" />基礎疾患のある方<br />
@@ -60,22 +60,22 @@
       </div>
       <div>
         <p>
-          <span class="Flow-PC-Days-Emphasis">
-            <span class="Flow-PC-Days-Emphasis-Day">２</span>
+          <span :class="$style.FlowRowEmphasis">
+            <span :class="$style.FlowRowEmphasisDay">２</span>
             日程度
           </span>
           続いている
         </p>
       </div>
     </div>
-    <i class="Flow-PC-Days-Arrow">
+    <i :class="$style.FlowArrow">
       <img src="/flow/flow_arrow.svg" />
     </i>
   </div>
 </template>
 
-<style lang="scss">
-.Flow-PC-Days {
+<style module lang="scss">
+.Flow {
   display: flex;
   flex-direction: row;
   height: 256px;
@@ -85,15 +85,15 @@
   border-radius: 4px;
   box-shadow: 0px 0px 4px $gray-4;
   position: relative;
-  .Flow-PC-Days-Row {
+  &Row {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    .Flow-PC-Days-Row-3 {
+    &RowThree {
       flex: 3;
       margin-top: 20px;
-      .Flow-PC-Days-Care-Target-List {
+      &CareTargetList {
         margin: 16px auto;
         text-align: center;
         display: block;
@@ -103,7 +103,7 @@
         }
       }
     }
-    .Flow-PC-Days-Condition {
+    &Condition {
       flex: 1;
       width: 170px;
       height: 50px;
@@ -130,15 +130,15 @@
         background-color: $white;
       }
     }
-    .Flow-PC-Days-Emphasis {
+    &Emphasis {
       font-size: 24px;
       border-bottom: solid 3px $green-1;
-      .Flow-PC-Days-Emphasis-Day {
+      &Day {
         font-size: 41px;
       }
     }
   }
-  .Flow-PC-Days-Arrow {
+  &Arrow {
     position: absolute;
     right: -20px;
     bottom: 20px;
