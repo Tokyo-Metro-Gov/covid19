@@ -9,6 +9,7 @@ This page shows how you can contribute to the development of this site.
 ## Comments on Issues and Pull Requests
 * Feel free to comment on the Issue! Questions and suggestions are also welcome.
 * You can fix some issues via Pull Request.
+* If nobody has been assigned to an Issue that you are likely to be able to do, comment on the Issue with "I'll do it!" And then develop.
 * Note that the issues of improvement suggestions (labeled with `improve`)
 may not be always accepted (especially the ones for UI)
 * We're glad if you give priority to the issues of [good first issue / help wanted / bug]
