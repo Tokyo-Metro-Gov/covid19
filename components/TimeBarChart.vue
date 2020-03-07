@@ -24,13 +24,19 @@ import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
+type Data = {
+  dataKind: 'transition' | 'cumulative'
+  displayCumulativeRatio: number
+  displayTransitionRatio: number
+}
+
+type Methods = {
+  formatDayBeforeRatio: (dayBeforeRatio: number) => string
+}
+
 export default Vue.extend<
-  {
-    dataKind: 'transition' | 'cumulative'
-    displayCumulativeRatio: number
-    displayTransitionRatio: number
-  },
-  {},
+  Data,
+  Methods,
   {},
   {
     chartData: GraphDataType[]
@@ -77,12 +83,12 @@ export default Vue.extend<
     displayCumulativeRatio(): string {
       const lastDay = this.chartData.slice(-1)[0].cumulative
       const lastDayBefore = this.chartData.slice(-2)[0].cumulative
-      return (this as any).formatDayBeforeRatio(lastDay - lastDayBefore)
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayTransitionRatio(): string {
       const lastDay = this.chartData.slice(-1)[0].transition
       const lastDayBefore = this.chartData.slice(-2)[0].transition
-      return (this as any).formatDayBeforeRatio(lastDay - lastDayBefore)
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
       if (this.dataKind === 'transition') {
@@ -104,7 +110,7 @@ export default Vue.extend<
         unit: this.unit
       }
     },
-    displayData(): ChartData & ChartData {
+    displayData(): ChartData {
       if (this.dataKind === 'transition') {
         return {
           labels: this.chartData.map(d => {
