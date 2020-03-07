@@ -14,43 +14,70 @@
   </data-view>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-function cumulative(array) {
-  const cumulativeArray = []
+function cumulative(array: any) {
+  const cumulativeArray: any = []
   let patSum = 0
-  array.forEach(d => {
+  array.forEach((d: any) => {
     patSum += d
     cumulativeArray.push(patSum)
   })
   return cumulativeArray
 }
 
-function sum(array) {
-  return array.reduce((acc, cur) => {
+function sum(array: any) {
+  return array.reduce((acc: any, cur: any) => {
     return acc + cur
   })
 }
 
-function pickLastNumber(chartDataArray) {
-  return chartDataArray.map(array => {
+function pickLastNumber(chartDataArray: any) {
+  return chartDataArray.map((array: any) => {
     return array[array.length - 1]
   })
 }
 
-function cumulativeSum(chartDataArray) {
-  return chartDataArray.map(array => {
-    return array.reduce((acc, cur) => {
+function cumulativeSum(chartDataArray: any) {
+  return chartDataArray.map((array: any) => {
+    return array.reduce((acc: any, cur: any) => {
       return acc + cur
     })
   })
 }
 
-export default {
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+type LocalData = {
+  dataKind: string
+}
+
+type PanelData = {
+  lText: string
+  sText: string
+  unit: string
+}
+
+type ChartData = {
+  labels: string
+  datasets: DataSet[]
+}
+
+type DataSet = {
+  label: string
+  data: object
+  backgroundColor: string
+  borderWidth: number
+}
+
+export default Vue.extend({
+  components: {
+    DataView,
+    DataSelector,
+    DataViewBasicInfoPanel
+  },
   props: {
     title: {
       type: String,
@@ -83,13 +110,13 @@ export default {
       default: ''
     }
   },
-  data() {
+  data(): LocalData {
     return {
       dataKind: 'transition'
     }
   },
   computed: {
-    displayInfo() {
+    displayInfo(): InfoData {
       if (this.dataKind === 'transition') {
         return {
           lText: sum(pickLastNumber(this.chartData)).toLocaleString(),
@@ -103,7 +130,7 @@ export default {
         unit: this.unit
       }
     },
-    displayData() {
+    displayData(): ChartData {
       const colorArray = ['#00A040', '#00D154']
       if (this.dataKind === 'transition') {
         return {
@@ -136,12 +163,12 @@ export default {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem) {
+            label(tooltipItem: any) {
               const labelText =
                 parseInt(tooltipItem.value).toLocaleString() + unit
               return labelText
             },
-            title(tooltipItem, data) {
+            title(tooltipItem: any, data: any) {
               return data.labels[tooltipItem[0].index].replace(
                 /(\w+)\/(\w+)/,
                 '$1月$2日'
@@ -187,5 +214,5 @@ export default {
       }
     }
   }
-}
+})
 </script>
