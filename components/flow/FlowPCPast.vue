@@ -1,8 +1,8 @@
 <template>
   <section :class="$style.Flow">
     <h2 :class="$style.FlowHeading">
-      <span>発症前<span>2</span>週間以内の</span>
-      <span>出来ごとと症状</span>
+      <span>発症前<span :class="$style.FlowNum">2</span>週間以内</span>
+      <span :class="$style.FlowSText">の出来ごとと症状</span>
     </h2>
     <div :class="$style.FlowInner">
       <div :class="$style.FlowItem">
@@ -41,18 +41,38 @@
 
 <style module lang="scss">
 .Flow {
-  padding: 10px 10px 0;
+  position: relative;
+  padding-bottom: 20px;
   border: 1px solid $gray-4;
-  border-radius: 3px;
+  border-radius: 5px;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   background-color: $white;
+  color: $gray-2;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: $gray-4;
+  }
   &Heading {
+    position: relative;
+    background-color: $white;
+    margin: 0;
     text-align: center;
+    font-size: 25px;
+  }
+  &Num {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 42px;
   }
   &Inner {
-    position: relative;
     display: flex;
     flex-flow: row;
+    flex-wrap: wrap;
     border-top: 1px solid $gray-4;
   }
   &Item {
@@ -60,46 +80,66 @@
     flex-flow: column;
     align-items: center;
     width: 50%;
-    padding-top: 20px;
-    padding-bottom: 80px;
-    &:not(:first-child) {
-      border-left: 1px solid $gray-4;
-    }
+    padding: 20px;
   }
   &Title {
+    margin-bottom: 8px;
     color: $green-1;
     font-size: 16px;
     font-weight: bold;
   }
   &Person {
     font-weight: bold;
-    font-size: 22px;
-  }
-  &Line {
-    border-bottom: 3px solid $green-1;
-  }
-  &Condition {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: calc(100% - 40px);
+    font-size: 23px;
     text-align: center;
   }
+  &Line {
+    border-bottom: 4px solid $green-1;
+    font-style: inherit;
+  }
+  &Condition {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: stretch;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+  }
   &Symptom {
-    display: block;
-    width: 150px;
-    padding: 8px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
     border: 2px solid $green-1;
     border-radius: 3px;
     background-color: $white;
+    font-size: 21px;
     font-weight: bold;
     font-style: normal;
+    &::before {
+      $icon-size: 27px;
+      content: url('/flow/check_circle-24px.svg');
+      position: absolute;
+      top: $icon-size / 2 * -1;
+      left: $icon-size / 2 * -1;
+      width: $icon-size;
+      height: $icon-size;
+      background-color: $white;
+      z-index: 1;
+    }
   }
   &Text {
-    width: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+  }
+  &SText {
+    font-size: 16px;
   }
 }
 </style>
