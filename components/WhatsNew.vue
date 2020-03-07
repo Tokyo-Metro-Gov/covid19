@@ -4,7 +4,7 @@
       <v-icon size="24" class="WhatsNew-heading-icon">
         mdi-information
       </v-icon>
-      最新のお知らせ
+      {{ $t('Latest News') }}
     </h2>
     <div v-for="(item, i) in items" :key="i">
       <a class="WhatsNew-item" :href="item.url" target="_blank" rel="noopener">
@@ -14,6 +14,14 @@
     </div>
   </div>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "Latest News": "最新のお知らせ"
+  }
+}
+</i18n>
 
 <script>
 export default {
