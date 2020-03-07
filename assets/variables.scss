@@ -24,6 +24,16 @@ $medium: 768;
 $small: 600;
 
 // ==================
+// z-index
+$z-index-map: (
+  opened-side-navigation: 101,
+  sp-navigation: 100,
+);
+@function z-index-of($key) {
+  @return map-get($z-index-map, $key);
+}
+
+// ==================
 // media-query
 @mixin largerThan($width) {
 	@media screen and (min-width: $width + 1 + px) {

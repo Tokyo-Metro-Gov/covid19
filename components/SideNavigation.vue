@@ -256,7 +256,7 @@ export default {
     left: 0;
     display: block !important;
     width: 100%;
-    z-index: 100;
+    z-index: z-index-of(opened-side-navigation);    
     background-color: $white;
   }
 }
