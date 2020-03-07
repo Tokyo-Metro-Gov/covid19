@@ -35,7 +35,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    isInternalLink(path) {
+    isInternalLink(path: string): boolean {
       return !/^https?:\/\//.test(path)
     }
   }
