@@ -9,7 +9,7 @@
         <p>
           <span :class="$style.FlowRowEmphasis">
             <span :class="$style.FlowRowEmphasisDay">４</span>
-            日程度
+            日以上
           </span>
           続いている
         </p>
@@ -68,9 +68,6 @@
         </p>
       </div>
     </div>
-    <i :class="$style.FlowArrow">
-      <img src="/flow/flow_arrow.svg" />
-    </i>
   </div>
 </template>
 
@@ -137,11 +134,6 @@
         font-size: 41px;
       }
     }
-  }
-  &Arrow {
-    position: absolute;
-    right: -20px;
-    bottom: 20px;
   }
 }
 </style>
