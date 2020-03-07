@@ -1,20 +1,10 @@
 <template>
   <div class="MainPage">
-    <div class="SelectLanguages mb-3">
-      <nuxt-link
-        v-for="locale in availableLocales"
-        :key="locale.code"
-        :to="switchLocalePath(locale.code)"
-        class="SelectLanguage"
-      >
-        {{ locale.name }}
-      </nuxt-link>
-    </div>
+    <language-selector />
     <page-header
       :icon="headerItem.icon"
       :title="headerItem.title"
       :date="headerItem.date"
-      class="clearfix"
     />
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
@@ -96,6 +86,7 @@
 </template>
 
 <script>
+import LanguageSelector from '@/components/LanguageSelector.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import MetroBarChart from '@/components/MetroBarChart.vue'
@@ -114,6 +105,7 @@ import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
 
 export default {
   components: {
+    LanguageSelector,
     PageHeader,
     TimeBarChart,
     MetroBarChart,
@@ -242,11 +234,6 @@ export default {
     }
     return data
   },
-  computed: {
-    availableLocales() {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
-    }
-  },
   head() {
     return {
       title: '都内の最新感染動向'
@@ -257,16 +244,6 @@ export default {
 
 <style lang="scss" scoped>
 .MainPage {
-  .SelectLanguages {
-    font-size: 12px;
-    float: right;
-    .SelectLanguage {
-      + .SelectLanguage {
-        margin-left: 5px;
-        padding-left: 5px;
-      }
-    }
-  }
   .DataBlock {
     margin: 20px -12px;
     .DataCard {
