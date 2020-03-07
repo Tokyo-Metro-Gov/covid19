@@ -6,10 +6,10 @@
       src="/flow/hotel-24px.svg"
       alt="入院となります／感染症指定医療機関等"
     />
-    <p :class="$style.Text">
+    <p :class="$style.HospitalizationText">
       入院となります
     </p>
-    <p :class="$style.LargeText">
+    <p :class="$style.HospitalizationLargeText">
       感染症指定医療機関等
     </p>
   </div>
