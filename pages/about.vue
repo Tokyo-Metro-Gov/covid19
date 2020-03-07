@@ -133,6 +133,9 @@ export default {
     margin-bottom: 12px;
   }
   & &-Browser-List {
+    // セレクタ指定が&-Browser-List のみだと
+    // .v-application ul の設定が勝ってしまい padding-left が24px となってしまうため
+    // このようなセレクタ指定としています
     list-style: none;
     padding: 12px 0;
   }
