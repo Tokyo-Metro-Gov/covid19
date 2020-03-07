@@ -16,7 +16,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
 export default class extends Vue {
-  @Prop() private icon?: string
+  @Prop({ type: String, required: false }) private icon?: string
 }
 </script>
 
