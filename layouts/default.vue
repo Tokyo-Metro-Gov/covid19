@@ -91,7 +91,7 @@ export default Vue.extend({
     top: 0;
     overflow-y: auto;
     width: 240px;
-    height: 100vh;
+    height: 100%;
   }
 }
 @include largerThan($huge) {
@@ -100,9 +100,11 @@ export default Vue.extend({
   }
 }
 .open {
-  overflow-x: hidden;
-  overflow-y: auto;
   height: 100vh;
+  @include largerThan($small) {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
 .mainContainer {
   grid-column: 2/3;
