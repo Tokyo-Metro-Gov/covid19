@@ -22,15 +22,31 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ChartOptions, ChartData } from 'chart.js'
 import DataView from '@/components/DataView.vue'
 
-export default {
+export type DataType = {
+  value: string
+}
+
+export default Vue.extend<
+  {},
+  {},
+  {},
+  {
+    chartData: ChartData
+    chartOption: ChartOptions
+    title: string
+    titleId: string
+    date: string
+  }
+>({
   components: { DataView },
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
@@ -38,37 +54,29 @@ export default {
       required: false,
       default: ''
     },
-    chartData: {
-      type: Object,
-      required: false,
-      default: () => {}
-    },
-    chartOption: {
-      type: Object,
-      required: false,
-      default: () => {}
-    },
+    chartData: Object,
+    chartOption: Object,
     date: {
       type: String,
-      required: true,
-      default: ''
+      required: true
     }
   },
   computed: {
     displayData() {
-      const colors = ['#a6e29f', '#63c765', '#008b41']
+      const colors: string[] = ['#a6e29f', '#63c765', '#008b41']
+      const datasets = this.chartData.labels!.map((label, i) => {
+        return {
+          label,
+          data: this.chartData.datasets!.map(d => d.data![i]),
+          backgroundColor: colors[i],
+          borderWidth: 0
+        }
+      })
       return {
-        labels: this.chartData.datasets.map(d => d.label),
-        datasets: this.chartData.labels.map((label, i) => {
-          return {
-            label,
-            data: this.chartData.datasets.map(d => d.data[i]),
-            backgroundColor: colors[i],
-            borderWidth: 0
-          }
-        })
+        labels: this.chartData.datasets!.map(d => d.label),
+        datasets
       }
     }
   }
-}
+})
 </script>
