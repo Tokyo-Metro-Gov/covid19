@@ -44,7 +44,7 @@
             <img src="/flow/sp/sp_flow_04@2x.png" alt="不安に思う方／微熱・軽い咳・感染の不安／新型コロナコールセンター　午前９時から午後９時（土日祝含む）" />
           </div>
           <div class="TelLink">
-            <a href="tel:0570550571"><img src="/flow/sp/sp_flow_tel_01@2x.png" alt="0570-550571" /></a>
+            <a href="tel:0452850536"><img src="/flow/sp/sp_flow_tel_01@2x.png" alt="045-285-0536" /></a>
           </div>
           <div class="mt-4">
             <a href="#consult"><img src="/flow/sp/sp_flow_04_nav@2x.png" alt="専門的な助言が必要な場合"></a>
@@ -87,7 +87,7 @@
             </div>
           </div>
           <div class="mx-2 mb-5" id="pcr">
-            <img src="/flow/sp/sp_flow_06_02@2x.png" alt="PCR検査　東京都健康安全研究センター等" />
+            <img src="/flow/sp/sp_flow_06_02@2x.png" alt="PCR検査　神奈川県健康安全研究センター等" />
           </div>
           <div class="Col2Btn">
             <div class="mx-1 mb-5">
@@ -113,7 +113,7 @@
         rel="nopenner"
         class="Flow-Card-Button"
       >
-        詳細を見る(東京都福祉保健局)
+        詳細を見る(神奈川県福祉保健局)
         <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
           mdi-open-in-new
         </v-icon>
