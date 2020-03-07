@@ -15,23 +15,32 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 
-@Component
-export default class StaticInfo extends Vue {
-  @Prop({ default: '', required: false })
-  url!: string
-
-  @Prop({ default: '', required: false })
-  text!: string
-
-  @Prop({ default: '', required: false })
-  btnText!: string
-
-  isInternalLink(path: string): boolean {
-    return !/^https?:\/\//.test(path)
+export default Vue.extend({
+  props: {
+    url: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    text: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    btnText: {
+      type: String,
+      required: false,
+      default: ''
+    }
+  },
+  methods: {
+    isInternalLink(path: string): boolean {
+      return !/^https?:\/\//.test(path)
+    }
   }
-}
+})
 </script>
 
 <style lang="scss">
