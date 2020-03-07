@@ -1,10 +1,15 @@
 <template>
   <div class="MainPage">
-    <page-header
-      :icon="headerItem.icon"
-      :title="headerItem.title"
-      :date="headerItem.date"
-    />
+    <div class="Header mb-3">
+      <page-header
+        :icon="headerItem.icon"
+      >
+        {{ headerItem.title }}
+      </page-header>
+      <div class="UpdatedAt">
+        <span>最終更新 </span><time>{{ Data.lastUpdate }}</time>
+      </div>
+    </div>
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
@@ -171,7 +176,6 @@ export default {
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: '都内の最新感染動向',
-        date: Data.lastUpdate
       },
       newsItems: News.newsItems,
       metroGraphOption: {
@@ -241,6 +245,17 @@ export default {
 
 <style lang="scss" scoped>
 .MainPage {
+  .Header {
+    display: flex;
+    align-items: baseline;
+    @include lessThan($small) {
+      flex-direction: column;
+    }
+  }
+  .UpdatedAt {
+    font-size: 0.875rem;
+    color: $gray-3;
+  }
   .DataBlock {
     margin: 20px -12px;
     .DataCard {

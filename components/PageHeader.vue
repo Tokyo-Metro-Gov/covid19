@@ -1,42 +1,41 @@
 <template>
-  <div class="header mb-3">
+  <div class="header">
     <h2 class="pageTitle">
-      <v-icon size="40" class="mr-2">
+      <v-icon size="40" class="mr-2" v-if="icon">
         {{ icon }}
       </v-icon>
-      {{ title }}
+      <slot></slot>
     </h2>
-    <div class="date">
-      <span>最終更新 </span><time>{{ date }}</time>
-    </div>
   </div>
 </template>
 
-<script>
-export default {
-  props: ['title', 'icon', 'date']
+<script lang="ts">
+// FIXME: to nuxt-property-decorator
+// SEE: https://github.com/tokyo-metropolitan-gov/covid19/issues/646
+import { Component, Prop, Vue } from 'vue-property-decorator'
+
+@Component
+export default class extends Vue {
+  @Prop() private icon?: string
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .header {
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
 }
 .pageTitle {
+  color: $gray-2;
   display: flex;
   align-items: center;
-  font-size: 1.875rem;
+  @include font-size(30);
   line-height: 1;
   font-weight: normal;
   margin: 0 0.5em 0 0;
   @include lessThan($small) {
-    font-size: 1.25rem;
+    @include font-size(20);
   }
-}
-.date {
-  font-size: 0.875rem;
-  color: $gray-3;
 }
 </style>

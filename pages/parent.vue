@@ -1,8 +1,8 @@
 <template>
   <div class="Parent">
-    <h2 class="Parent-Heading">
+    <page-header class="mb-3">
       臨時休校中の新型コロナウイルス感染症対応についてのお願い
-    </h2>
+    </page-header>
     <div v-for="(item, i) in items" :key="i">
       <TextCard :title="item.title" :body="item.body" />
     </div>
@@ -10,9 +10,12 @@
 </template>
 <script lang="ts">
 import TextCard from '@/components/TextCard.vue'
+import PageHeader from '@/components/PageHeader.vue'
+
 export default {
   components: {
-    TextCard
+    TextCard,
+    PageHeader
   },
   data() {
     return {
@@ -42,14 +45,6 @@ export default {
 }
 </script>
 <style lang="scss">
-.Parent {
-  &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
-    margin-bottom: 12px;
-  }
-}
 a {
   @include text-link();
 }
