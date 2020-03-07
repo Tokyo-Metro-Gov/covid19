@@ -2,7 +2,7 @@
   <v-card class="DataView pa-1">
     <v-toolbar flat class="DataView-content">
       <div class="DataView-TitleContainer">
-        <h3 class="DataView-ToolbarTitle">
+        <h3 :id="titleId" class="DataView-ToolbarTitle">
           {{ title }}
         </h3>
         <slot name="button" />
@@ -41,6 +41,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component
 export default class DataView extends Vue {
   @Prop() private title!: string
+  @Prop() private titleId!: string
   @Prop() private date!: string
   @Prop() private url!: string
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
