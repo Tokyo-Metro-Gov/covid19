@@ -16,99 +16,48 @@
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
-      <v-col cols="12" md="6" class="DataCard">
-        <time-stacked-bar-chart
-          title="検査実施数"
-          :title-id="'number-of-tested'"
-          :chart-data="inspectionsGraph"
-          :date="Data.inspections_summary.date"
-          :items="inspectionsItems"
-          :labels="inspectionsLabels"
-          :unit="'件'"
-        />
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <time-bar-chart
-          title="新型コロナコールセンター相談件数"
-          :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
-          :chart-data="contactsGraph"
-          :date="Data.contacts.date"
-          :unit="'件'"
-          :url="''"
-        />
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <time-bar-chart
-          title="新型コロナ受診相談窓口相談件数"
-          :title-id="'number-of-reports-to-covid19-consultation-desk'"
-          :chart-data="querentsGraph"
-          :date="Data.querents.date"
-          :unit="'件'"
-          :url="''"
-        />
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <metro-bar-chart
-          title="都営地下鉄の利用者数の推移"
-          :title-id="'predicted-number-of-toei-subway-passengers'"
-          :chart-data="metroGraph"
-          :chart-option="metroGraphOption"
-          :date="metroGraph.date"
-        />
-      </v-col>
+      <tested-number-card />
+      <telephone-advisory-reports-number-card />
+      <consultation-desk-reports-number-card />
+      <metro-card />
     </v-row>
   </div>
 </template>
 
 <script>
 import PageHeader from '@/components/PageHeader.vue'
-import TimeBarChart from '@/components/TimeBarChart.vue'
-import MetroBarChart from '@/components/MetroBarChart.vue'
-import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
-import MetroData from '@/data/metro.json'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import News from '@/data/news.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
+import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
+import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import MetroCard from '@/components/cards/MetroCard.vue'
 
 export default {
   components: {
     PageHeader,
-    TimeBarChart,
-    MetroBarChart,
-    TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
+    TestedNumberCard,
+    TelephoneAdvisoryReportsNumberCard,
+    ConsultationDeskReportsNumberCard,
+    MetroCard,
   },
   data() {
     // 退院者グラフ
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
     // 退院者数
     const dischargesTable = formatTable(Data.discharges.data)
-    // 相談件数
-    const contactsGraph = formatGraph(Data.contacts.data)
-    // 帰国者・接触者電話相談センター相談件数
-    const querentsGraph = formatGraph(Data.querents.data)
-    // 都営地下鉄の利用者数の推移
-    const metroGraph = MetroData
-    // 検査実施日別状況
-    const inspectionsGraph = [
-      Data.inspections_summary.data['都内'],
-      Data.inspections_summary.data['その他']
-    ]
-    const inspectionsItems = [
-      '都内発生（疑い例・接触者調査）',
-      'その他（チャーター便・クルーズ便）'
-    ]
-    const inspectionsLabels = Data.inspections_summary.labels
     // 死亡者数
     // #MEMO: 今後使う可能性あるので一時コメントアウト
     // const fatalitiesTable = formatTable(
@@ -119,72 +68,12 @@ export default {
       Data,
       dischargesTable,
       dischargesGraph,
-      contactsGraph,
-      querentsGraph,
-      metroGraph,
-      inspectionsGraph,
-      inspectionsItems,
-      inspectionsLabels,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: '都内の最新感染動向',
         date: Data.lastUpdate
       },
       newsItems: News.newsItems,
-      metroGraphOption: {
-        responsive: true,
-        legend: {
-          display: true
-        },
-        scales: {
-          xAxes: [
-            {
-              position: 'bottom',
-              stacked: false,
-              gridLines: {
-                display: true
-              },
-              ticks: {
-                fontSize: 10,
-                maxTicksLimit: 20,
-                fontColor: '#808080'
-              }
-            }
-          ],
-          yAxes: [
-            {
-              stacked: false,
-              gridLines: {
-                display: true
-              },
-              ticks: {
-                fontSize: 12,
-                maxTicksLimit: 10,
-                fontColor: '#808080',
-                callback(value) {
-                  // 基準値を100としたときの相対値
-                  return (value / 100).toFixed(2)
-                }
-              }
-            }
-          ]
-        },
-        tooltips: {
-          displayColors: false,
-          callbacks: {
-            title(tooltipItems, _) {
-              const label = tooltipItems[0].label
-              return `期間: ${label}`
-            },
-            label(tooltipItem, data) {
-              const currentData = data.datasets[tooltipItem.datasetIndex]
-              const percentage = `${currentData.data[tooltipItem.index]}%`
-
-              return `${metroGraph.base_period}の利用者数との相対値: ${percentage}`
-            }
-          }
-        }
-      }
     }
     return data
   },
