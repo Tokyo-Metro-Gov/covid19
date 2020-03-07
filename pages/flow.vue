@@ -215,16 +215,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import CovidIcon from '@/static/covid.svg'
 import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
 
-type LocalHead = {
-  title: string
-}
-
 export default Vue.extend({
   components: { CovidIcon, DesktopFlowSvg },
-  head: (): LocalHead => ({
+  head: (): MetaInfo => ({
     title: '新型コロナウイルス感染症が心配なときに'
   })
 })

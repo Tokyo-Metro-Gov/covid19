@@ -10,12 +10,9 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import TextCard from '@/components/TextCard.vue'
 import { ItemsData } from '@/types/Items.d.ts'
-
-type LocalHead = {
-  title: string
-}
 
 export default Vue.extend({
   components: {
@@ -55,7 +52,7 @@ export default Vue.extend({
       }
     ]
   }),
-  head: (): LocalHead => ({
+  head: (): MetaInfo => ({
     title: '企業の皆様・はたらく皆様へ'
   })
 })

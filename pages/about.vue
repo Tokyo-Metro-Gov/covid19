@@ -111,17 +111,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import TextCard from '@/components/TextCard.vue'
-
-type LocalHead = {
-  title: string
-}
 
 export default Vue.extend({
   components: {
     TextCard
   },
-  head: (): LocalHead => ({
+  head: (): MetaInfo => ({
     title: '当サイトについて'
   })
 })
