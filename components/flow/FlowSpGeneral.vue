@@ -91,19 +91,19 @@
         left: 50%;
         top: -2px;
         background: #fff;
-        height: 20px;
-        width: 20px;
+        height: 24px;
+        width: 24px;
         transform: translate(-50%, -50%);
       }
       p{
-        @include font-size(14);
+        @include font-size(18);
         color: $gray-2;
         font-weight: 600;
         padding: 8px;
         margin: 0;
-        line-height: 26px;
+        line-height: 34px;
         span{
-          @include font-size(10);
+          @include font-size(12);
         }
       }
     }
