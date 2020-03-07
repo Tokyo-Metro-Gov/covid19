@@ -136,6 +136,10 @@
       margin-right: 2px;
       width: $imgSize;
     }
+    a {
+      color: $gray-2;
+      text-decoration: none;
+    }
   }
 }
 .Link {
