@@ -25,7 +25,7 @@ may not be always accepted (especially the ones for UI)
 * If you can't have any progress for more than half a day, make sure that others can take over your work.
 * In case issues are not updated for more than one day, we may remove the assign. [Draft Pull Request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests) is recommended so that everyone knows the situation.
 * For any questions related to the Issue, we should discuss in the Issue comments than Slack.
-* We also accept suggestions! Please fell free to create new issues.
+* We also accept suggestions! Please feel free to create new issues.
 
 ## Development information
 * Development site https://dev-covid19-tokyo.netlify.com/
