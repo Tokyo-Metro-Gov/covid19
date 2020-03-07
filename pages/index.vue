@@ -14,20 +14,12 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
-<<<<<<< HEAD
-        <svg-card title="検査陽性者の状況" :date="headerItem.date">
-          <confirmed-cases-table v-bind="confirmedCases" />
-=======
         <svg-card
           title="検査陽性者の状況"
           :title-id="'details-of-confirmed-cases'"
           :date="headerItem.date"
         >
-          <confirmed-cases-table
-            aria-label="検査陽性者の状況"
-            v-bind="confirmedCases"
-          />
->>>>>>> d53b6eea535421266af30496c1b1475115dc962c
+          <confirmed-cases-table v-bind="confirmedCases" />
         </svg-card>
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
