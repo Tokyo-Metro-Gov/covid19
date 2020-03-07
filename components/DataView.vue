@@ -18,7 +18,12 @@
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
-      <time :datetime="date">{{ date }} 更新</time>
+      <a
+        class="Permalink"
+        :href="'/cards/' + titleId"
+      >
+        <time :datetime="date">{{ date }} 更新</time>
+      </a>
       <a
         v-if="url"
         class="OpenDataLink"
@@ -112,6 +117,9 @@ export default class DataView extends Vue {
     color: $gray-3 !important;
     justify-content: space-between;
     flex-direction: row-reverse;
+    .Permalink {
+      color: $gray-3 !important;
+    }
     .OpenDataLink {
       text-decoration: none;
       .ExternalLinkIcon {

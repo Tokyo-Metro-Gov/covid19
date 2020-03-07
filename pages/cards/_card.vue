@@ -1,8 +1,8 @@
 <template>
   <div>
-    <confirmed-cases-details-card />
-    <confirmed-cases-number-card />
-    <confirmed-cases-attributes-card />
+    <confirmed-cases-details-card v-if="this.$route.params.card == 'details-of-confirmed-cases'" />
+    <confirmed-cases-number-card v-else-if="this.$route.params.card == 'number-of-confirmed-cases'" />
+    <confirmed-cases-attributes-card v-else-if="this.$route.params.card == 'attributes-of-confirmed-cases'" />
   </div>
 </template>
 
