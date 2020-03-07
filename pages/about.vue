@@ -132,6 +132,10 @@ export default {
     color: $gray-2;
     margin-bottom: 12px;
   }
+  & &-Browser-List {
+    list-style: none;
+    padding: 12px 0;
+  }
 }
 
 a {
