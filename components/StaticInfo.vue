@@ -21,17 +21,14 @@ export default Vue.extend({
   props: {
     url: {
       type: String,
-      required: false,
       default: ''
     },
     text: {
       type: String,
-      required: false,
       default: ''
     },
     btnText: {
       type: String,
-      required: false,
       default: ''
     }
   },

@@ -18,12 +18,10 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     body: {
       type: String,
-      required: false,
       default: ''
     }
   }
