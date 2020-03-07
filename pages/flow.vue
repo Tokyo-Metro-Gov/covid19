@@ -28,7 +28,7 @@
             />
           </div>
           <div>
-            <a href="#consult">
+            <a v-scroll-to="'#consult'" href="#consult">
               <img
                 src="/flow/sp/sp_flow_01_02_03_nav@2x.png"
                 alt="新型コロナ受診相談窓口へ"
@@ -44,7 +44,7 @@
             />
           </div>
           <div>
-            <a href="#consult">
+            <a v-scroll-to="'#consult'" href="#consult">
               <img
                 src="/flow/sp/sp_flow_01_02_03_nav@2x.png"
                 alt="新型コロナ受診相談窓口へ"
@@ -60,7 +60,7 @@
             />
           </div>
           <div>
-            <a href="#consult">
+            <a v-scroll-to="'#consult'" href="#consult">
               <img
                 src="/flow/sp/sp_flow_01_02_03_nav@2x.png"
                 alt="新型コロナ受診相談窓口へ"
@@ -81,7 +81,7 @@
             /></a>
           </div>
           <div class="mt-4">
-            <a href="#consult">
+            <a v-scroll-to="'#consult'" href="#consult">
               <img
                 src="/flow/sp/sp_flow_04_nav@2x.png"
                 alt="専門的な助言が必要な場合"
@@ -148,7 +148,7 @@
           </div>
           <div class="Col2Btn">
             <div class="mx-1 mb-5">
-              <a href="#not_required">
+              <a v-scroll-to="'#not_required'" href="#not_required">
                 <img
                   src="/flow/sp/sp_flow_06_nav_01@2x.png"
                   alt="検査の必要なし"
@@ -156,7 +156,7 @@
               </a>
             </div>
             <div class="mx-1 mb-5">
-              <a href="#pcr">
+              <a v-scroll-to="'#pcr'" href="#pcr">
                 <img
                   src="/flow/sp/sp_flow_06_nav_02@2x.png"
                   alt="検査の必要あり"
@@ -172,12 +172,12 @@
           </div>
           <div class="Col2Btn">
             <div class="mx-1 mb-5">
-              <a href="#not_required">
+              <a v-scroll-to="'#not_required'" href="#not_required">
                 <img src="/flow/sp/sp_flow_06_nav_03@2x.png" alt="陰性" />
               </a>
             </div>
             <div class="mx-1 mb-5">
-              <a href="#hospitalized">
+              <a v-scroll-to="'#hospitalized'" href="#hospitalized">
                 <img src="/flow/sp/sp_flow_06_nav_04@2x.png" alt="陽性" />
               </a>
             </div>
