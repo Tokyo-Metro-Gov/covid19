@@ -10,7 +10,7 @@ version 1.0, 2020/3/3
 ## User perspective
 
 * We will treat UX (User Experience) as a vital component, in order to make information easy to understand.
-* We will make decisions using evidence based on statistical sources such as access analytics, search keyword analysis, and analysis of social media.
+* We will make decisions using evidence based on statistical sources such as access analytics, search keyword analytics, and analytics of social media.
 
 ## No one left behind
 
