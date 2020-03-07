@@ -90,7 +90,7 @@ const config: Configuration = {
     [
       'nuxt-i18n',
       {
-        strategy: 'no_prefix',
+        strategy: 'prefix_except_default',
         locales: [
           {
             code: 'ja',
