@@ -180,13 +180,12 @@ export default {
                 drawOnChartArea: false,
                 drawTicks: true,
                 drawBorder: false,
-                tickMarkLength: 20
+                tickMarkLength: 10
               },
               ticks: {
                 fontSize: 11,
                 fontColor: '#808080',
-                padding: -12,
-                labelOffset: 15,
+                padding: 3,
                 fontStyle: 'bold',
                 callback: label => {
                   return label.split(' ')[0]
