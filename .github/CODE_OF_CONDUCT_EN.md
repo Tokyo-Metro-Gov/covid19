@@ -1,7 +1,7 @@
 version 1.0, 2020/3/3
 # Our mission
 
-* We will work to protect citizen's life and health.
+* We will work to protect the life and well-being of the citizens of Tokyo.
 * We will work to provide the facts to everyone, both domestic and abroad.
 * We will demonstrate our integrity and visualise the outcomes of our work.
 
