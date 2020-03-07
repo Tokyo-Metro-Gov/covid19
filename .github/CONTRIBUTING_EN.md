@@ -7,7 +7,7 @@ I'm Seki, the development manager. If you have any questions, feel free to ask m
 This page shows how you can contribute to the development of this site.
 
 ## Comments on Issues and Pull Requests
-* Feel free to comment on an Issue! Questions and suggestions are also welcome.
+* Feel free to comment on any Issues! Questions and suggestions are also welcome.
 * You can fix Issues via Forking this Repository and making a Pull Request.
 * Note that Issues for improvement suggestions (labeled with `improve`)
 may not be always accepted (especially ones for UI)
