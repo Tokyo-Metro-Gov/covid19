@@ -1,4 +1,4 @@
-export interface ItemsData {
+export interface ItemData {
   items: Item[]
 }
 

@@ -12,13 +12,13 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import TextCard from '@/components/TextCard.vue'
-import { ItemsData } from '@/types/Items.d.ts'
+import { ItemData } from '@/types/Items.d.ts'
 
 export default Vue.extend({
   components: {
     TextCard
   },
-  data: (): ItemsData => ({
+  data: (): ItemData => ({
     items: [
       {
         title: '新型コロナウイルス感染症対応緊急融資',
