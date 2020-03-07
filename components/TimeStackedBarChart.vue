@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <data-selector v-model="dataKind" />
     </template>
@@ -23,6 +23,11 @@ export default {
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    titleId: {
       type: String,
       required: false,
       default: ''
