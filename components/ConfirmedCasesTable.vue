@@ -168,20 +168,43 @@
   </svg>
 </template>
 
-<script>
-export default {
-  props: [
-    '検査実施人数',
-    '陽性物数',
-    '入院中',
-    '軽症中等症',
-    '重症',
-    '死亡',
-    '退院'
-  ],
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  props: {
+    検査実施人数: {
+      type: Number,
+      required: true
+    },
+    陽性物数: {
+      type: Number,
+      required: true
+    },
+    入院中: {
+      type: Number,
+      required: true
+    },
+    軽症中等症: {
+      type: Number,
+      required: true
+    },
+    重症: {
+      type: Number,
+      required: true
+    },
+    死亡: {
+      type: Number,
+      required: true
+    },
+    退院: {
+      type: Number,
+      required: true
+    }
+  },
   methods: {
     /** 桁数に応じて位置の調整をする */
-    getAdjustX(input) {
+    getAdjustX(input: number) {
       const length = input.toString(10).length
       switch (length) {
         case 1: {
@@ -202,16 +225,16 @@ export default {
       }
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
 .confirmed-cases-table {
   .black {
-    fill: #4d4d4d;
+    fill: $gray-2;
   }
   .green {
-    fill: #00a040;
+    fill: $green-1;
   }
   .text {
     font-size: 13px;
