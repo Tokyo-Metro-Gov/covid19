@@ -188,7 +188,22 @@ export default {
                 padding: 3,
                 fontStyle: 'bold',
                 callback: label => {
-                  return label.split(' ')[0]
+                  const monthStringArry = [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                  ]
+                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
+                  return month + '月'
                 }
               },
               type: 'time',
