@@ -1,54 +1,94 @@
 <template>
-  <a class="whatsNewOuter" :href="url" target="_blank">
-    <v-icon size="18" class="whatsNewOuter-Icon">
-      mdi-information
-    </v-icon>
-    <time class="time px-2">{{ date }}</time>
-    <span class="link">{{ text }}</span>
-  </a>
+  <div class="WhatsNew">
+    <h2 class="WhatsNew-heading">
+      <v-icon size="24" class="WhatsNew-heading-icon">
+        mdi-information
+      </v-icon>
+      最新のお知らせ
+    </h2>
+    <div v-for="(item, i) in items" :key="i">
+      <a class="WhatsNew-item" :href="item.url" target="_blank" rel="noopener">
+        <time class="WhatsNew-item-time px-2">{{ item.date }}</time>
+        <span class="WhatsNew-item-link">
+          {{ item.text }}
+          <v-icon
+            v-if="!isInternalLink(item.url)"
+            class="WhatsNew-item-ExternalLinkIcon"
+            size="12"
+          >
+            mdi-open-in-new
+          </v-icon>
+        </span>
+      </a>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
-    date: {
-      type: String,
+    items: {
+      type: Array,
       required: true
-    },
-    text: {
-      type: String,
-      required: true
-    },
-    url: {
-      type: String,
-      required: true
+    }
+  },
+  methods: {
+    isInternalLink(path) {
+      return !/^https?:\/\//.test(path)
     }
   }
 }
 </script>
 
 <style lang="scss">
-.whatsNewOuter {
+.WhatsNew {
+  @include card-container();
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.WhatsNew-heading {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  background: #fff;
-  border: 1px solid #d9d9d9;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  padding: 0.7em 1em;
-  @include font-size(14);
-  text-decoration: none;
-  &-Icon {
-    color: $gray-2 !important;
+  @include card-h2();
+  margin-bottom: 12px;
+  color: $gray-2;
+  margin-left: 12px;
+
+  &-icon {
+    margin: 3px;
   }
 }
-.link {
-  @include text-link();
-}
-.time {
-  flex: 0 0 auto;
-  color: $gray-1;
-  font-weight: bold;
+
+.WhatsNew-item {
+  display: flex;
+  text-decoration: none;
+  margin: 5px;
+  font-size: 14px;
+
+  @include lessThan($medium) {
+    flex-wrap: wrap;
+  }
+
+  &-time {
+    flex: 0 0 90px;
+    @include lessThan($medium) {
+      flex: 0 0 100%;
+    }
+    color: $gray-1;
+  }
+
+  &-link {
+    flex: 0 1 auto;
+    @include text-link();
+    @include lessThan($medium) {
+      padding-left: 8px;
+    }
+  }
+
+  &-ExternalLinkIcon {
+    margin-left: 2px;
+    color: $gray-3 !important;
+  }
 }
 </style>

@@ -1,18 +1,24 @@
 {
   "name": "covid19",
   "version": "1.0.0",
-  "description": "東京都 新型コロナウイルス対策サイト",
+  "description": "東京都 新型コロナウイルス感染症対策サイト",
   "author": "東京都",
   "private": true,
+  "engines": {
+    "node": "^10.19.0"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt-ts",
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
-    "generate": "nuxt-ts generate",
-    "test": "jest"
+    "generate:deploy": "nuxt-ts generate",
+    "generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
+    "lint-and-generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
+    "test": "echo 'skip tests (there is no test)'",
+    "lint": "eslint './**/*.{js,ts,vue}' --fix"
   },
   "lint-staged": {
-    "*.js": [
+    "*.{js,ts,scss,css,vue}": [
       "eslint --fix",
       "git add"
     ]
@@ -23,21 +29,23 @@
     }
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^0.3.10",
+    "@nuxt/typescript-runtime": "^0.4.0",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
-    "@nuxtjs/moment": "^1.6.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "chart.js": "^2.9.3",
     "cross-env": "^5.2.0",
+    "dayjs": "^1.8.21",
     "express": "^4.16.4",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.11.0",
+    "nuxt-i18n": "^6.6.0",
     "vue-chartjs": "^3.5.0",
     "vue-property-decorator": "^8.4.0",
     "vue-spinner": "^1.0.3"
   },
   "devDependencies": {
-    "@nuxt/typescript-build": "^0.5.8",
+    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
     "@nuxtjs/google-analytics": "^2.2.3",
     "@nuxtjs/vuetify": "^1.0.0",
@@ -51,6 +59,7 @@
     "jest": "^24.1.0",
     "lint-staged": "^10.0.8",
     "nodemon": "^1.18.9",
+    "nuxt-purgecss": "^0.2.1",
     "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.19.1",
     "vue-jest": "^4.0.0-0"

@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  props: ['title', 'icon', 'date'],
+  props: ['title', 'icon', 'date']
 }
 </script>
 
@@ -37,6 +37,6 @@ export default {
 }
 .date {
   font-size: 0.875rem;
-  color: #808080;
+  color: $gray-3;
 }
 </style>

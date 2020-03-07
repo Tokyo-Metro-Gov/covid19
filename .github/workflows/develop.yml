@@ -1,9 +1,9 @@
-name: staging deploy
+name: development deploy
 
 on:
   push:
     branches:
-      - staging
+      - development
 
 jobs:
   deploy:
@@ -26,7 +26,7 @@ jobs:
 
       - run: yarn install --frozen-lockfile
       - run: yarn run test
-      - run: yarn run generate --fail-on-page-error
+      - run: yarn run generate:deploy --fail-on-page-error
       - run: "echo \"User-agent: *\nDisallow *\" > ./dist/robots.txt"
 
       - name: deploy
@@ -34,3 +34,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          publish_branch: dev-pages
