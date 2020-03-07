@@ -18,7 +18,7 @@
     "lint": "eslint './**/*.{js,ts,vue}' --fix"
   },
   "lint-staged": {
-    "*.{js,ts,scss,css,vue}": [
+    "*.{js,ts,vue}": [
       "eslint --fix",
       "git add"
     ]
