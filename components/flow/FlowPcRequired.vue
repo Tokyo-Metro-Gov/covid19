@@ -1,11 +1,7 @@
 <template>
   <div :class="$style.Container">
     <div :class="$style.Row">
-      <p :class="$style.Catch">
-        新型コロナ外来
-        <span :class="$style.Emphasis">受診が必要</span>
-        と判断された場合
-      </p>
+      <p :class="$style.Catch">新型コロナ外来<span :class="$style.Emphasis">受診が必要</span>と判断された場合</p>
     </div>
     <div :class="$style.Row">
       <div :class="[$style.Card, $style.CardLarge, $style.CardGray]">
@@ -42,7 +38,7 @@
   margin-bottom: 15px;
 }
 .Row:last-of-type {
-  margin:0;
+  margin: 0;
 }
 .TwoRow {
   flex: 1;
@@ -67,7 +63,7 @@
   }
 }
 .CardLarge {
-  padding: 10px 80px !important; 
+  padding: 10px 80px !important;
 }
 
 .CardGray {
