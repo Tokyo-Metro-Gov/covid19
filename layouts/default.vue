@@ -1,17 +1,19 @@
 <template>
   <v-app class="app">
-    <div class="loader" v-if="loading">
-      <img src="/logo.svg" />
+    <div v-if="loading" class="loader">
+      <img src="/logo.svg" alt="東京都" />
       <scale-loader color="#00A040" />
     </div>
-    <div class="appContainer" v-else>
-      <SideNavigation
-        @openNavi="showNavi"
-        @closeNavi="hideNavi"
-        :isNaviOpen="isNaviOpen"
-        :class="{open: isNaviOpen}"
-      />
-      <div class="mainContainer" :class="{open: isNaviOpen}">
+    <div v-else class="appContainer">
+      <div class="naviContainer">
+        <SideNavigation
+          :is-navi-open="isOpenNavigation"
+          :class="{ open: isOpenNavigation }"
+          @openNavi="openNavigation"
+          @closeNavi="hideNavigation"
+        />
+      </div>
+      <div class="mainContainer" :class="{ open: isOpenNavigation }">
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
@@ -19,32 +21,52 @@
     </div>
   </v-app>
 </template>
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
-import SideNavigation from '@/components/SideNavigation'
-export default {
+import SideNavigation from '@/components/SideNavigation.vue'
+
+type LocalData = {
+  isOpenNavigation: boolean
+  loading: boolean
+}
+
+export default Vue.extend({
   components: {
     ScaleLoader,
-    SideNavigation,
+    SideNavigation
   },
-  data() {
+  data(): LocalData {
     return {
-      isNaviOpen: false,
-      loading: true,
-    }
-  },
-  methods:{
-    showNavi: function(){
-      this.isNaviOpen = true;
-    },
-    hideNavi: function(){
-      this.isNaviOpen = false;
+      isOpenNavigation: false,
+      loading: true
     }
   },
   mounted() {
     this.loading = false
+  },
+  methods: {
+    openNavigation(): void {
+      this.isOpenNavigation = true
+    },
+    hideNavigation(): void {
+      this.isOpenNavigation = false
+    }
+  },
+  head(): MetaInfo {
+    const { htmlAttrs } = this.$nuxtI18nSeo()
+    return {
+      htmlAttrs,
+      link: [
+        {
+          rel: 'canonical',
+          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+        }
+      ]
+    }
   }
-}
+})
 </script>
 <style lang="scss">
 .app {
@@ -53,25 +75,48 @@ export default {
   background-color: inherit !important;
 }
 .appContainer {
+  position: relative;
   @include largerThan($small) {
-    display: flex;
+    display: grid;
+    grid-template-columns: 240px auto;
+  }
+  @include largerThan($huge) {
+    grid-template-columns: 325px auto;
   }
 }
-.navi {
-  flex: 0 1 200px;
+@include lessThan($small) {
+  .naviContainer {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: z-index-of(sp-navigation);
+  }
+}
+@include largerThan($small) {
+  .naviContainer {
+    grid-column: 1/2;
+    position: fixed;
+    top: 0;
+    overflow-y: auto;
+    width: 240px;
+    height: 100%;
+  }
+}
+@include largerThan($huge) {
+  .naviContainer {
+    width: 325px;
+  }
 }
 .open {
-  overflow-x: hidden;
-  overflow-y: auto;
   height: 100vh;
-}
-.mainContainer {
-  flex: 1 1 auto;
   @include largerThan($small) {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 100vh;
   }
+}
+.mainContainer {
+  grid-column: 2/3;
+  overflow: hidden;
   @include lessThan($small) {
     .container {
       padding-top: 16px !important;

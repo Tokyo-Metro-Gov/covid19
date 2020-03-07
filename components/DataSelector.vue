@@ -6,10 +6,10 @@
     @change="$emit('input', $event)"
   >
     <v-btn v-ripple="false" value="transition" class="DataSelector-Button">
-      推移
+      日別
     </v-btn>
-    <v-btn v-ripple="false" value="cummulative" class="DataSelector-Button">
-      累積
+    <v-btn v-ripple="false" value="cumulative" class="DataSelector-Button">
+      累計
     </v-btn>
   </v-btn-toggle>
 </template>

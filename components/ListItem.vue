@@ -3,7 +3,8 @@
     v-ripple="false"
     :to="isInternalLink(link) ? link : ''"
     :href="!isInternalLink(link) ? link : ''"
-    :target="!isInternalLink(link) ? '_brank' : ''"
+    :target="!isInternalLink(link) ? '_blank' : ''"
+    :rel="!isInternalLink(link) ? 'noopener' : ''"
     router
     exact
     class="ListItem-Container"
@@ -28,10 +29,7 @@
     </v-list-item-action>
     <v-list-item-content class="ListItem-TextContainer">
       <v-list-item-title
-        :class="[
-          'ListItem-Text',
-          isActive(link)
-        ]"
+        :class="['ListItem-Text', isActive(link)]"
         v-text="title"
       />
     </v-list-item-content>
