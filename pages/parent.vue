@@ -1,5 +1,6 @@
 <template>
   <div class="Parent">
+    <language-selector />
     <h2 class="Parent-Heading">
       臨時休校中の新型コロナウイルス感染症対応についてのお願い
     </h2>
@@ -9,9 +10,12 @@
   </div>
 </template>
 <script lang="ts">
+import LanguageSelector from '@/components/LanguageSelector.vue'
 import TextCard from '@/components/TextCard.vue'
+
 export default {
   components: {
+    LanguageSelector,
     TextCard
   },
   data() {
@@ -41,6 +45,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 .Parent {
   &-Heading {
