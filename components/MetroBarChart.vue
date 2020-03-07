@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="MetroGraph-Desc">
         {{ chartData.base_period }}の利用者数*の平均値を100としたときの相対値
@@ -39,6 +39,7 @@ export default Vue.extend<
     chartData: ChartData
     chartOption: ChartOptions
     title: string
+    titleId: string
     date: string
   }
 >({
@@ -46,6 +47,11 @@ export default Vue.extend<
   props: {
     title: {
       type: String,
+      default: ''
+    },
+    titleId: {
+      type: String,
+      required: false,
       default: ''
     },
     chartData: Object,
