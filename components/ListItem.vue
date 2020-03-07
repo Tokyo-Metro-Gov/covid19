@@ -1,9 +1,9 @@
 <template>
   <v-list-item
-    class="ListItem-Container"
-    style="color: transparent"
     v-ripple="false"
     exact
+    class="ListItem-Container"
+    style="color: transparent"
   >
     <a
       :to="isInternalLink(link) ? link : ''"
