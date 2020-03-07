@@ -178,7 +178,7 @@ svg.isActive {
   }
 }
 .ListItem-Link {
-  display: flex;
+  display: contents;
   text-decoration: none;
 }
 </style>
