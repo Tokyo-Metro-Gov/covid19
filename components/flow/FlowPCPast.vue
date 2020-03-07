@@ -1,0 +1,31 @@
+<template>
+  <section>
+    <h2>発症前2週間以内の出来ごとと症状</h2>
+    <div>
+      <strong>「新型コロナウイルス感染者」と</strong>
+      <span><em>濃厚接触</em>をした方</span>
+    </div>
+    <div>
+      <strong>流行地域への渡航・居住歴がある方</strong>
+      <span>
+        <em>ご本人</em>
+        か
+        <em>濃厚接触</em>
+        をした方
+      </span>
+    </div>
+    <div>
+      <em>発熱</em>
+      または
+      <em>呼吸器症状</em>
+      かつ
+      <em>
+        発熱
+        <span>37.5℃</span>
+        以上
+      </em>
+    </div>
+  </section>
+</template>
+
+<script></script>
