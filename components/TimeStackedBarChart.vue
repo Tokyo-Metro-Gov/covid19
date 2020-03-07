@@ -152,7 +152,7 @@ export default Vue.extend<Data, Methods, {}, PropTypes>({
                 data.labels.length > 0
               ) {
                 const index = tooltipItem[0].index
-                const date = data.labels[index] as string
+                const date = data.labels[index].toString()
                 return date.replace(/(\w+)\/(\w+)/, '$1月$2日')
               }
             }

@@ -151,13 +151,12 @@ export default Vue.extend<
             },
             title(tooltipItem: ChartTooltipItem[], data: ChartData) {
               if (
-                tooltipItem &&
-                tooltipItem.length > 0 &&
+                tooltipItem[0].index &&
                 data.labels &&
                 data.labels.length > 0
               ) {
-                const index = tooltipItem[0].index as number
-                const date = data.labels[index] as string
+                const index = tooltipItem[0].index
+                const date = data.labels[index].toString()
                 return date.replace(/(\w+)\/(\w+)/, '$1月$2日')
               }
             }
