@@ -16,14 +16,16 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from 'vue'
+
+export default Vue.extend({
   props: {
     items: {
       type: Array,
       required: true
     }
   }
-}
+})
 </script>
 
 <style lang="scss">
