@@ -2,7 +2,12 @@
   <div :class="$style.FlowComponent">
     <div :class="[$style.SubtleBox, $style.Box1]">
       <div :class="$style.RowItems">
-        <div><img src="/flow/sentiment_very_dissatisfied-24px.svg" alt="dissatisfied face icon" /></div>
+        <div>
+          <img
+            src="/flow/sentiment_very_dissatisfied-24px.svg"
+            alt="dissatisfied face icon"
+          />
+        </div>
         <div :class="$style.SmallerText">
           不安に思う方
         </div>
