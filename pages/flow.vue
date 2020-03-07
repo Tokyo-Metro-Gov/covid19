@@ -76,9 +76,9 @@
             />
           </div>
           <div class="TelLink">
-            <a href="tel:0570550571"
-              ><img src="/flow/sp/sp_flow_tel_01@2x.png" alt="0570-550571"
-            /></a>
+            <a href="tel:0570550571">
+              <img src="/flow/sp/sp_flow_tel_01@2x.png" alt="0570-550571" />
+            </a>
           </div>
           <div class="mt-4">
             <a v-scroll-to="'#consult'" href="#consult">
@@ -213,17 +213,18 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import CovidIcon from '@/static/covid.svg'
 import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
-export default {
+
+export default Vue.extend({
   components: { CovidIcon, DesktopFlowSvg },
-  head() {
-    return {
-      title: '新型コロナウイルス感染症が心配なときに'
-    }
-  }
-}
+  head: (): MetaInfo => ({
+    title: '新型コロナウイルス感染症が心配なときに'
+  })
+})
 </script>
 
 <style lang="scss">
