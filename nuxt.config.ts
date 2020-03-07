@@ -1,8 +1,7 @@
-import purgecss from '@fullhuman/postcss-purgecss'
-// import { Configuration } from '@nuxt/types'
+import { Configuration } from '@nuxt/types'
+const purgecss = require('@fullhuman/postcss-purgecss')
 
-/* eslint-disable */
-const config = {
+const config: Configuration = {
   mode: 'universal',
   /*
    ** Headers of the page
@@ -18,7 +17,8 @@ const config = {
       {
         hid: 'description',
         name: 'description',
-        content: '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+        content:
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
       },
       {
         hid: 'og:site_name',
@@ -39,11 +39,32 @@ const config = {
       {
         hid: 'og:description',
         property: 'og:description',
-        content: '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+        content:
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
       },
       {
         hid: 'og:image',
         property: 'og:image',
+        content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@tokyo_bousai'
+      },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: '@tokyo_bousai'
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
         content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
       }
     ],
@@ -65,19 +86,18 @@ const config = {
    */
   plugins: [
     {
-      src: '@/plugins/vue-chart.js',
+      src: '@/plugins/vue-chart.ts',
       ssr: true
-    },
-    '@/plugins/datetime-formatter.js'
+    }
   ],
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxtjs/vuetify', '@nuxt/typescript-build', '@nuxtjs/google-analytics'],
-  typescript: {
-    typeCheck: true,
-    ignoreNotFoundWarnings: true
-  },
+  buildModules: [
+    '@nuxtjs/vuetify',
+    '@nuxt/typescript-build',
+    '@nuxtjs/google-analytics'
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -87,7 +107,6 @@ const config = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    ['@nuxtjs/moment', ['ja']],
     [
       'nuxt-i18n',
       {
@@ -95,7 +114,7 @@ const config = {
         locales: [
           {
             code: 'ja',
-            iso: 'ja_JP'
+            iso: 'ja-JP'
           }
         ],
         defaultLocale: 'ja',
@@ -126,35 +145,31 @@ const config = {
   googleAnalytics: {
     id: 'UA-159417676-1'
   },
-  // /*
-  // ** Build configuration
-  // */
-  // build: {
-  //   /*
-  //   ** You can extend webpack config here
-  //   */
-  //   extend (config, ctx) {
-  //   }
-  // },
   build: {
     postcss: {
       plugins: [
         purgecss({
-          content: ['./pages/**/*.vue', './layouts/**/*.vue', './components/**/*.vue', './node_modules/vuetify/dist/vuetify.js', './node_modules/vue-spinner/src/ScaleLoader.vue'],
+          content: [
+            './pages/**/*.vue',
+            './layouts/**/*.vue',
+            './components/**/*.vue',
+            './node_modules/vuetify/dist/vuetify.js',
+            './node_modules/vue-spinner/src/ScaleLoader.vue'
+          ],
           whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
-          whitelistPatterns: [/(col|row)/],
+          whitelistPatterns: [/(col|row)/]
         })
       ]
     }
   },
   manifest: {
-    "name": "東京都 新型コロナウイルス感染症対策サイト",
-    "theme_color": "#00a040",
-    "background_color": "#ffffff",
-    "display": "standalone",
-    "Scope": "/",
-    "start_url": "/",
-    "splash_pages": null
+    name: '東京都 新型コロナウイルス感染症対策サイト',
+    theme_color: '#00a040',
+    background_color: '#ffffff',
+    display: 'standalone',
+    Scope: '/',
+    start_url: '/',
+    splash_pages: null
   },
   generate: {
     fallback: true
