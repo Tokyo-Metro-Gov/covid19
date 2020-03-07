@@ -1,7 +1,11 @@
 <template>
   <noscript>
     <div class="noscript">
-      <style>.loader { display: none; }</style>
+      <style>
+        .loader {
+          display: none;
+        }
+      </style>
       <div class="noscript-heading">
         <img src="/logo.svg" :alt="$t('東京都')" />
         {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
@@ -89,6 +93,6 @@
   border-radius: 4px;
   margin-top: 16px;
   padding: 1em;
-  color: rgba(0,0,0,.87);
+  color: rgba(0, 0, 0, 0.87);
 }
 </style>
