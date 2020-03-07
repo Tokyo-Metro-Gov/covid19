@@ -48,14 +48,8 @@ export default Vue.extend<
       type: String,
       default: ''
     },
-    chartData: {
-      type: Object,
-      default: () => {}
-    },
-    chartOption: {
-      type: Object,
-      default: () => {}
-    },
+    chartData: Object,
+    chartOption: Object,
     date: {
       type: String,
       required: true
