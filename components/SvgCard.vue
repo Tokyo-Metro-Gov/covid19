@@ -1,12 +1,14 @@
 <template>
-  <data-view :title="title" :date="date">
-    <img class="CardImg" :src="srcUrl" />
+  <data-view class="SvgCard" :title="title" :date="date">
+    <slot />
   </data-view>
 </template>
 
-<style lang="scss">
-.CardImg {
-  width: 100%;
+<style lang="scss" scoped>
+.SvgCard {
+  ::v-deep svg {
+    width: 100%;
+  }
 }
 </style>
 
@@ -21,10 +23,6 @@ export default {
       default: ''
     },
     date: {
-      type: String,
-      default: ''
-    },
-    srcUrl: {
       type: String,
       default: ''
     }
