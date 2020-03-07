@@ -16,12 +16,21 @@
 
 <style></style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ChartData } from 'chart.js'
+import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-export default {
+type LocalData = {
+  dataKind: 'transition' | 'cumulative'
+  displayCumulativeRatio: number
+  displayTransitionRatio: number
+}
+
+export default Vue.extend({
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
@@ -30,14 +39,13 @@ export default {
       default: ''
     },
     chartData: {
-      type: Array,
+      type: Object as () => GraphDataType[],
       required: false,
       default: () => []
     },
     date: {
       type: String,
-      required: true,
-      default: ''
+      required: true
     },
     unit: {
       type: String,
@@ -50,21 +58,21 @@ export default {
       default: ''
     }
   },
-  data() {
-    return {
-      dataKind: 'transition'
-    }
-  },
+  data: () => ({
+    dataKind: 'transition',
+    displayCumulativeRatio: 0,
+    displayTransitionRatio: 0
+  }),
   computed: {
-    displayCumulativeRatio() {
+    displayCumulativeRatio(): string {
       const lastDay = this.chartData.slice(-1)[0].cumulative
       const lastDayBefore = this.chartData.slice(-2)[0].cumulative
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      return (this as any).formatDayBeforeRatio(lastDay - lastDayBefore)
     },
-    displayTransitionRatio() {
+    displayTransitionRatio(): string {
       const lastDay = this.chartData.slice(-1)[0].transition
       const lastDayBefore = this.chartData.slice(-2)[0].transition
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      return (this as any).formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
       if (this.dataKind === 'transition') {
@@ -84,7 +92,7 @@ export default {
         unit: this.unit
       }
     },
-    displayData() {
+    displayData(): ChartData & ChartData {
       if (this.dataKind === 'transition') {
         return {
           labels: this.chartData.map(d => {
@@ -103,9 +111,7 @@ export default {
         }
       }
       return {
-        labels: this.chartData.map(d => {
-          return d.label
-        }),
+        labels: this.chartData.map(d => d.label),
         datasets: [
           {
             label: this.dataKind,
@@ -124,12 +130,12 @@ export default {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem) {
+            label(tooltipItem: any) {
               const labelText =
                 parseInt(tooltipItem.value).toLocaleString() + unit
               return labelText
             },
-            title(tooltipItem, data) {
+            title(tooltipItem: any, data: any) {
               return data.labels[tooltipItem[0].index].replace(
                 /(\w+)\/(\w+)/,
                 '$1月$2日'
@@ -176,7 +182,7 @@ export default {
     }
   },
   methods: {
-    formatDayBeforeRatio(dayBeforeRatio) {
+    formatDayBeforeRatio(dayBeforeRatio: number): string {
       const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
@@ -188,5 +194,5 @@ export default {
       }
     }
   }
-}
+})
 </script>
