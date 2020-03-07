@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 :class="[$style.AlignCenter, $style.FontSize24]">
+    <h3 :class="[$style.AlignCenter, $style.FontSize22]">
       新型コロナ受診相談窓口
     </h3>
     <p :class="$style.AlignCenter">
@@ -49,7 +49,7 @@
 </template>
 
 <style module lang="scss">
-@each $size in 14, 24 {
+@each $size in 14, 22 {
   .FontSize#{$size} {
     @include font-size($size);
   }
