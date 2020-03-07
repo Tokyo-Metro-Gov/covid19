@@ -119,15 +119,15 @@ export default Vue.extend({
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data as any)
     // 感染者数
-    const patientsTable = formatTable(Data.patients.data)
+    const patientsTable = formatTable(Data.patients.data as any)
     // 退院者グラフ
     const dischargesGraph = formatGraph(Data.discharges_summary.data as any)
     // 退院者数
-    const dischargesTable = formatTable(Data.discharges.data)
+    const dischargesTable = formatTable(Data.discharges.data as any)
     // 相談件数
-    const contactsGraph = formatGraph(Data.contacts.data)
+    const contactsGraph = formatGraph(Data.contacts.data as any)
     // 帰国者・接触者電話相談センター相談件数
-    const querentsGraph = formatGraph(Data.querents.data)
+    const querentsGraph = formatGraph(Data.querents.data as any)
     // 都営地下鉄の利用者数の推移
     const metroGraph = MetroData
     // 検査実施日別状況
