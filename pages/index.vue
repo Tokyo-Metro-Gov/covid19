@@ -1,9 +1,20 @@
 <template>
   <div class="MainPage">
+    <div class="SelectLanguages mb-3">
+      <nuxt-link
+        v-for="locale in availableLocales"
+        :key="locale.code"
+        :to="switchLocalePath(locale.code)"
+        class="SelectLanguage"
+      >
+        {{ locale.name }}
+      </nuxt-link>
+    </div>
     <page-header
       :icon="headerItem.icon"
       :title="headerItem.title"
       :date="headerItem.date"
+      class="clearfix"
     />
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
@@ -231,6 +242,11 @@ export default {
     }
     return data
   },
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+    }
+  },
   head() {
     return {
       title: '都内の最新感染動向'
@@ -241,6 +257,16 @@ export default {
 
 <style lang="scss" scoped>
 .MainPage {
+  .SelectLanguages {
+    font-size: 12px;
+    float: right;
+    .SelectLanguage {
+      + .SelectLanguage {
+        margin-left: 5px;
+        padding-left: 5px;
+      }
+    }
+  }
   .DataBlock {
     margin: 20px -12px;
     .DataCard {
