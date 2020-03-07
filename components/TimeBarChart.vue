@@ -24,13 +24,23 @@ import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-type LocalData = {
-  dataKind: 'transition' | 'cumulative'
-  displayCumulativeRatio: number
-  displayTransitionRatio: number
-}
-
-export default Vue.extend({
+export default Vue.extend<
+  {
+    dataKind: 'transition' | 'cumulative'
+    displayCumulativeRatio: number
+    displayTransitionRatio: number
+  },
+  {},
+  {},
+  {
+    chartData: GraphDataType[]
+    title: string
+    titleId: string
+    date: string
+    unit: string
+    url: string
+  }
+>({
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
@@ -42,7 +52,7 @@ export default Vue.extend({
       default: ''
     },
     chartData: {
-      type: Object as () => GraphDataType[],
+      type: Object,
       default: () => []
     },
     date: {
@@ -78,7 +88,9 @@ export default Vue.extend({
       if (this.dataKind === 'transition') {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `実績値（前日比：${this.displayTransitionRatio} ${this.unit}）`,
+          sText: `実績値（前日比：${(this as any).displayTransitionRatio} ${
+            this.unit
+          }）`,
           unit: this.unit
         }
       }
@@ -87,7 +99,7 @@ export default Vue.extend({
           this.chartData.length - 1
         ].cumulative.toLocaleString(),
         sText: `${this.chartData.slice(-1)[0].label} 累計値（前日比：${
-          this.displayCumulativeRatio
+          (this as any).displayCumulativeRatio
         } ${this.unit}）`,
         unit: this.unit
       }
