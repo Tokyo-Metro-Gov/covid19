@@ -38,9 +38,10 @@
           <br />
           土日祝 終日
         </dt>
-        <dd :class="$style.TelLink">
+        <dd :class="[$style.TelLink, $style.FontSize24]">
+          <img src="/flow/phone-24px.svg" alt="Phone" />
           <a href="tel:0353204592">
-            <img src="/flow/sp/sp_flow_tel_03@2x.png" alt="03-5320-4592" />
+            03-5320-4592
           </a>
         </dd>
       </div>
@@ -49,7 +50,7 @@
 </template>
 
 <style module lang="scss">
-@each $size in 14, 22 {
+@each $size in 14, 22, 24 {
   .FontSize#{$size} {
     @include font-size($size);
   }
@@ -82,8 +83,14 @@
   }
 }
 .TelLink {
-  width: 80%;
-  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  a {
+    color: $gray-2;
+    text-decoration: none;
+  }
 }
 .Link {
   @include text-link();
