@@ -87,10 +87,11 @@
 }
 </i18n>
 
-<script>
-import ListItem from '@/components/ListItem'
+<script lang="ts">
+import Vue from 'vue'
+import ListItem from '@/components/ListItem.vue'
 
-export default {
+export default Vue.extend({
   components: {
     ListItem
   },
@@ -155,9 +156,6 @@ export default {
           divider: true
         }
       ]
-    },
-    isClass() {
-      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
     }
   },
   methods: {
@@ -168,7 +166,7 @@ export default {
       this.$emit('closeNavi')
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
