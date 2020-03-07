@@ -5,10 +5,20 @@
     mandatory
     @change="$emit('input', $event)"
   >
-    <v-btn v-ripple="false" value="transition" class="DataSelector-Button">
+    <v-btn
+      v-ripple="false"
+      :aria-pressed="value === 'transition' ? 'true' : 'false'"
+      value="transition"
+      class="DataSelector-Button"
+    >
       日別
     </v-btn>
-    <v-btn v-ripple="false" value="cumulative" class="DataSelector-Button">
+    <v-btn
+      v-ripple="false"
+      :aria-pressed="value === 'cumulative' ? 'true' : 'false'"
+      value="cumulative"
+      class="DataSelector-Button"
+    >
       累計
     </v-btn>
   </v-btn-toggle>
