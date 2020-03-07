@@ -8,12 +8,16 @@
     <div :class="$style.GeneralFlex">
       <div :class="$style.GeneralFlexItem">
         <CheckIcon />
-        <p class="pt-1">風邪<span>のような症状</span></p>
+        <p>
+          風邪
+          <span>のような症状</span>
+        </p>
       </div>
       <div :class="$style.GeneralFlexItem">
         <CheckIcon />
         <p>
-          <span>発熱</span><br>
+          <span>発熱</span>
+          <br/>
           37.5℃以上
         </p>
       </div>
@@ -29,13 +33,17 @@
 
     <p :class="$style.GeneralText">
       <span>
-        <strong>４</strong>日以上
+        <strong>４</strong>
+        日以上
       </span>
       続いている
     </p>
 
     <a :class="$style.GeneralBtn" href="#consult">
-        <p>新型コロナ受診相談窓口へ<ArrowIcon/></p>
+        <p>
+          新型コロナ受診相談窓口へ
+          <ArrowIcon/>
+        </p>
     </a>
   </div>
 </template>
