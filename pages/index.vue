@@ -24,6 +24,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="陽性患者数"
+          :chart-id="'time-bar-chart-patients'"
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="'人'"
@@ -47,6 +48,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
           title="検査実施数"
+          :chart-id="'time-stacked-bar-chart-inspections'"
           :chart-data="inspectionsGraph"
           :date="Data.inspections_summary.date"
           :items="inspectionsItems"
@@ -57,6 +59,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
+          :chart-id="'time-bar-chart-contacts'"
           :chart-data="contactsGraph"
           :date="Data.contacts.date"
           :unit="'件'"
@@ -66,6 +69,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナ受診相談窓口相談件数"
+          :chart-id="'time-bar-chart-querents'"
           :chart-data="querentsGraph"
           :date="Data.querents.date"
           :unit="'件'"
@@ -75,6 +79,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <metro-bar-chart
           title="都営地下鉄の利用者数の推移"
+          :chart-id="'metro-bar-chart'"
           :chart-data="metroGraph"
           :chart-option="metroGraphOption"
           :date="metroGraph.date"
