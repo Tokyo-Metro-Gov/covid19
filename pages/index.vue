@@ -84,22 +84,25 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Chart } from 'chart.js'
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import MetroBarChart from '@/components/MetroBarChart.vue'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
-import Data from '@/data/data.json'
-import MetroData from '@/data/metro.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
-import News from '@/data/news.json'
 import SvgCard from '@/components/SvgCard.vue'
 import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
+
+import { Json } from '@/data/json'
+const News: Json.news = require('@/data/news.json')
+const Data: Json.data = require('@/data/data.json')
+const MetroData: Json.metro = require('@/data/metro.json')
 
 export default {
   components: {
@@ -154,6 +157,60 @@ export default {
       unit: '人'
     }
 
+    const metroGraphOption: Chart.ChartOptions = {
+      responsive: true,
+      legend: {
+        display: true
+      },
+      scales: {
+        xAxes: [
+          {
+            position: 'bottom',
+            stacked: false,
+            gridLines: {
+              display: true
+            },
+            ticks: {
+              fontSize: 10,
+              maxTicksLimit: 20,
+              fontColor: '#808080'
+            }
+          }
+        ],
+        yAxes: [
+          {
+            stacked: false,
+            gridLines: {
+              display: true
+            },
+            ticks: {
+              fontSize: 12,
+              maxTicksLimit: 10,
+              fontColor: '#808080',
+              callback(value) {
+                // 基準値を100としたときの相対値
+                return (value / 100).toFixed(2)
+              }
+            }
+          }
+        ]
+      },
+      tooltips: {
+        displayColors: false,
+        callbacks: {
+          title(tooltipItems, _) {
+            const label = tooltipItems[0].label
+            return `期間: ${label}`
+          },
+          label(tooltipItem, data) {
+            const currentData = data.datasets![tooltipItem!.datasetIndex!]
+            const percentage = `${currentData!.data![tooltipItem!.index!]}%`
+            return `${metroGraph.base_period}の利用者数との相対値: ${percentage}`
+          }
+        }
+      }
+    }
+
     const data = {
       Data,
       patientsTable,
@@ -174,60 +231,7 @@ export default {
         date: Data.lastUpdate
       },
       newsItems: News.newsItems,
-      metroGraphOption: {
-        responsive: true,
-        legend: {
-          display: true
-        },
-        scales: {
-          xAxes: [
-            {
-              position: 'bottom',
-              stacked: false,
-              gridLines: {
-                display: true
-              },
-              ticks: {
-                fontSize: 10,
-                maxTicksLimit: 20,
-                fontColor: '#808080'
-              }
-            }
-          ],
-          yAxes: [
-            {
-              stacked: false,
-              gridLines: {
-                display: true
-              },
-              ticks: {
-                fontSize: 12,
-                maxTicksLimit: 10,
-                fontColor: '#808080',
-                callback(value) {
-                  // 基準値を100としたときの相対値
-                  return (value / 100).toFixed(2)
-                }
-              }
-            }
-          ]
-        },
-        tooltips: {
-          displayColors: false,
-          callbacks: {
-            title(tooltipItems, _) {
-              const label = tooltipItems[0].label
-              return `期間: ${label}`
-            },
-            label(tooltipItem, data) {
-              const currentData = data.datasets[tooltipItem.datasetIndex]
-              const percentage = `${currentData.data[tooltipItem.index]}%`
-
-              return `${metroGraph.base_period}の利用者数との相対値: ${percentage}`
-            }
-          }
-        }
-      }
+      metroGraphOption
     }
     return data
   },
