@@ -56,8 +56,8 @@
   padding: 30px 20px;
   margin-bottom: 20px;
   &Icon{
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
   }
   &Header{
     @include font-size(14);
@@ -109,17 +109,17 @@
     }
   }
   &Text{
-    @include font-size(14);
+    @include font-size(16);
     color: $gray-2;
     font-weight: bold;
     margin-bottom: 8px;
     span{
       border-bottom: 4px solid $green-1;
       letter-spacing: -2px;
-      @include font-size(20);
+      @include font-size(24);
       margin-right: 4px;
       strong{
-        @include font-size(34);
+        @include font-size(40);
       }
     }
   }
@@ -128,9 +128,9 @@
     p{
       color: $gray-2;
       text-align: left;
-      font-size: 14px;
+      @include font-size(16);
       font-weight: bold;
-      padding: 16px 22px;
+      padding: 18px 22px;
       background: #FFE200;
       margin: 0;
       border-radius: 4px;
