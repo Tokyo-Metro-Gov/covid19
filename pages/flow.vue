@@ -16,24 +16,41 @@
       <div class="only-sp">
         <div class="Flow-Card-Parts">
           <div class="mb-5">
-            <img
-              src="/flow/sp/sp_flow_01_01@2x.png"
-              alt="発症前２週間以内の出来ごとと症状／「新型コロナウイルス感染者」と濃厚接触をした方／発熱または呼吸器症状"
-            />
-          </div>
-          <div class="mx-2 mb-5">
-            <img
-              src="/flow/sp/sp_flow_01_02@2x.png"
-              alt="流行地域への渡航・居住歴がある方 ご本人か濃厚接触をした方／呼吸器症状かつ発熱37.5℃以上"
-            />
-          </div>
-          <div>
-            <a href="#consult">
-              <img
-                src="/flow/sp/sp_flow_01_02_03_nav@2x.png"
-                alt="新型コロナ受診相談窓口へ"
-              />
-            </a>
+            <div :class="$style.SpPast">
+              <h3>発症前<strong>２</strong>週間以内<small>&nbsp;の出来ごとと症状</small></h3>
+              <p>
+                <small>「新型コロナウイルス感染者」と</small><br>
+                <span :class="$style.underline">濃厚接触</span>をした方<br>
+              </p>
+              <div :class="[$style.flexContainer]">
+                <div :class="$style.item">
+                  <div>発熱</div>
+                </div>
+                <div :class="$style.item">または</div>
+                <div :class="$style.item">
+                  <div>呼吸器症状</div>
+                </div>
+              </div>
+              <p :class="$style.hr">
+                <small>流行地域への渡航・居住歴がある方</small><br>
+                <span :class="$style.underline">ご本人</span>か<span :class="$style.underline">濃厚接触</span>をした方
+              </p>
+              <div :class="$style.flexContainer">
+                <div :class="$style.item">
+                  <div>呼吸器症状</div>
+                </div>
+                <div :class="$style.item">かつ</div>
+                <div :class="$style.item">
+                  <div :class="$style.block">
+                    <small>発熱</small>
+                    <div>37.5℃以上</div>
+                  </div>
+                </div>
+              </div>
+              <a href="#consult" :class="$style.counter">
+                新型コロナ受診相談窓口へ
+              </a>
+            </div>
           </div>
         </div>
         <div class="Flow-Card-Parts">
@@ -225,6 +242,125 @@ export default {
   }
 }
 </script>
+
+<style module lang="scss">
+  .SpPast {
+    color: #555;
+    h3 {
+      text-align: center;
+      margin-bottom: 0.5em;
+      strong {
+        font-size: 180%;
+      }
+      small {
+        font-size: 70%;
+      }
+    }
+    p {
+      text-align: center;
+      font-weight: bold;
+      font-size: 120%;
+      small {
+        color: green;
+        font-size: 70%;
+      }
+      .underline {
+        display: inline-block;
+        border-bottom: #16892E 4px solid;
+      }
+    }
+    .flexContainer {
+      display: flex;
+      font-weight: bold;
+      font-size: 90%;
+      margin-top: 0.5em;
+      .item {
+        text-align: center;
+        &:nth-child(1), 
+        &:nth-child(3) {
+          width: 35%;
+          > div {
+            height: 50px;
+            border: #16892E 2px solid;
+            border-radius: 5px;
+
+            // 上下中央寄せ
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            // before要素の親要素
+            position: relative;
+            &::before {
+              width: 24px;
+              height: 24px;
+              content: " ";
+              background-color: #FFF;
+              background-image: url(/flow/check_circle-24px.svg);
+              position: absolute;
+              top: -12px;
+              left: 0;
+              right: 0;
+              margin: auto;
+            }
+            &.block {
+              display: block;
+              padding-top: 6px;
+            }
+          }
+        }
+        &:nth-child(2) {
+          width: 25%;
+          // 上下中央寄せ
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        small {
+          font-size: 50%;
+        }
+      }
+    }
+    .hr {
+      &::before {
+        border-bottom: 1px #AAA solid;
+        margin-top: 1.2em;
+        margin-bottom: 1.2em;
+        height: 1px;
+        width: 100%;
+        display: block;
+        content: " ";
+        display: block;
+      }
+    }
+    .counter {
+      margin-top: 17px;
+      background-color: #FACC2E;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow : -1px 2px 5px #888; 
+      display: block;
+      position: relative;
+      text-decoration: none;
+      color: #555;
+      font-weight: bold;
+      &::after {
+        z-index: 99;
+        width: 47px;
+        height: 47px;
+        background-image: url(/flow/flow_arrow.svg);
+        background-position: right center;
+        background-repeat: none;
+        transform: rotateZ(90deg);
+        content: "";
+        display: block;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+      }
+    }
+  }
+</style>
 
 <style lang="scss">
 .Flow {
