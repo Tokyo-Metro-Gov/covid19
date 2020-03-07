@@ -216,7 +216,7 @@ function readInspections() : array{
   });
   return [
     'date' => '2020/3/5/ 00:00', //TODO 現在のエクセルに更新日付がないので変更する必要あり
-    'data' => $data
+    'data' => intval(str_replace(' ', '', $data))
   ];
 }
 
@@ -226,10 +226,10 @@ function readInspectionsSummary(array $inspections) : array
     'date' => $inspections['date'],
     'data' => [
       '都内' => $inspections['data']->map(function ($row) {
-        return str_replace(' ', '', $row['（小計①）']);
+        return $row['（小計①）'];
       }),
       'その他' => $inspections['data']->map(function ($row) {
-        return str_replace(' ', '', $row['（小計②）']);
+        return $row['（小計②）'];
       }),
     ],
     'labels' =>$inspections['data']->map(function ($row) {
