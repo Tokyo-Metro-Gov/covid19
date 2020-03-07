@@ -13,32 +13,9 @@
       :btn-text="'相談の手順を見る'"
     />
     <v-row class="DataBlock">
-      <confirmed-cases-card />
-      <v-col cols="12" md="6" class="DataCard">
-        <time-bar-chart
-          title="陽性患者数"
-          :title-id="'number-of-confirmed-cases'"
-          :chart-data="patientsGraph"
-          :date="Data.patients.date"
-          :unit="'人'"
-          :url="
-            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
-          "
-        />
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <data-table
-          :title="'陽性患者の属性'"
-          :title-id="'attributes-of-confirmed-cases'"
-          :chart-data="patientsTable"
-          :chart-option="{}"
-          :date="Data.patients.date"
-          :info="sumInfoOfPatients"
-          :url="
-            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
-          "
-        />
-      </v-col>
+      <confirmed-cases-details-card />
+      <confirmed-cases-number-card />
+      <confirmed-cases-attributes-card />
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
           title="検査実施数"
@@ -92,11 +69,12 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
-import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import News from '@/data/news.json'
-import ConfirmedCasesCard from '@/components/cards/ConfirmedCasesCard.vue'
+import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
+import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
+import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 
 export default {
   components: {
@@ -106,14 +84,11 @@ export default {
     TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
-    DataTable,
-    ConfirmedCasesCard,
+    ConfirmedCasesDetailsCard,
+    ConfirmedCasesNumberCard,
+    ConfirmedCasesAttributesCard,
   },
   data() {
-    // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.patients_summary.data)
-    // 感染者数
-    const patientsTable = formatTable(Data.patients.data)
     // 退院者グラフ
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
     // 退院者数
@@ -140,18 +115,8 @@ export default {
     //   Data.patients.data.filter(patient => patient['備考'] === '死亡')
     // )
 
-    const sumInfoOfPatients = {
-      lText: patientsGraph[
-        patientsGraph.length - 1
-      ].cumulative.toLocaleString(),
-      sText: patientsGraph[patientsGraph.length - 1].label + 'の累計',
-      unit: '人'
-    }
-
     const data = {
       Data,
-      patientsTable,
-      patientsGraph,
       dischargesTable,
       dischargesGraph,
       contactsGraph,
@@ -160,7 +125,6 @@ export default {
       inspectionsGraph,
       inspectionsItems,
       inspectionsLabels,
-      sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: '都内の最新感染動向',
