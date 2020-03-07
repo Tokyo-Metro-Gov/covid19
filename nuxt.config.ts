@@ -91,6 +91,10 @@ const config: Configuration = {
       'nuxt-i18n',
       {
         strategy: 'prefix_except_default',
+        detectBrowserLanguage: {
+          useCookie: true,
+          cookieKey: 'i18n_redirected'
+        },
         locales: [
           {
             code: 'ja',
