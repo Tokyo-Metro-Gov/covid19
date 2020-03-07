@@ -90,16 +90,14 @@
         href="https://portal.data.metro.tokyo.lg.jp/"
         target="_blank"
         rel="noopener"
-        >東京都オープンデータカタログサイト</a
-      >より誰でも自由にダウンロードが可能です。（データは順次追加予定です）
+      >東京都オープンデータカタログサイト</a>より誰でも自由にダウンロードが可能です。（データは順次追加予定です）
     </TextCard>
     <TextCard title="ソースコードについて">
       本サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。詳しくは、<a
         href="https://github.com/tokyo-metropolitan-gov/covid19"
         target="_blank"
         rel="noopener"
-        >GitHub リポジトリ</a
-      >をご確認ください。
+      >GitHub リポジトリ</a>をご確認ください。
     </TextCard>
 
     <TextCard title="お問い合わせ先（都のHPサイトポリシーについて）">
