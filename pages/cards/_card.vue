@@ -1,13 +1,21 @@
 <template>
-  <confirmed-cases-card />
+  <div>
+    <confirmed-cases-details-card />
+    <confirmed-cases-number-card />
+    <confirmed-cases-attributes-card />
+  </div>
 </template>
 
 <script>
-import ConfirmedCasesCard from '@/components/cards/ConfirmedCasesCard.vue'
+import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
+import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
+import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 
 export default {
   components: {
-    ConfirmedCasesCard
+    ConfirmedCasesDetailsCard,
+    ConfirmedCasesNumberCard,
+    ConfirmedCasesAttributesCard
   },
   // layout: 'card'
 }
