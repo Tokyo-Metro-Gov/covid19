@@ -1,45 +1,49 @@
 <template>
   <v-list-item
-    v-ripple="false"
-    :to="isInternalLink(link) ? link : ''"
-    :href="!isInternalLink(link) ? link : ''"
-    :target="!isInternalLink(link) ? '_blank' : ''"
-    :rel="!isInternalLink(link) ? 'noopener' : ''"
-    router
-    exact
     class="ListItem-Container"
     style="color: transparent"
+    v-ripple="false"
+    exact
   >
-    <v-list-item-action v-if="icon" class="ListItem-IconContainer">
-      <v-icon
-        v-if="checkIconType(icon) === 'material'"
-        :class="['ListItem-Icon', isActive(link)]"
-        size="20"
-      >
-        {{ icon }}
-      </v-icon>
-      <CovidIcon
-        v-else-if="checkIconType(icon) === 'covid'"
-        :class="['ListItem-Icon', isActive(link)]"
-      />
-      <ParentIcon
-        v-else-if="checkIconType(icon) === 'parent'"
-        :class="['ListItem-Icon', isActive(link)]"
-      />
-    </v-list-item-action>
-    <v-list-item-content class="ListItem-TextContainer">
-      <v-list-item-title
-        :class="['ListItem-Text', isActive(link)]"
-        v-text="title"
-      />
-    </v-list-item-content>
-    <v-icon
-      v-if="!isInternalLink(link)"
-      class="ListItem-ExternalLinkIcon"
-      size="12"
+    <a
+      :to="isInternalLink(link) ? link : ''"
+      :href="!isInternalLink(link) ? link : ''"
+      :target="!isInternalLink(link) ? '_blank' : ''"
+      :rel="!isInternalLink(link) ? 'noopener' : ''"
+      router
+      class="atag"
     >
-      mdi-open-in-new
-    </v-icon>
+      <v-list-item-action v-if="icon" class="ListItem-IconContainer">
+        <v-icon
+          v-if="checkIconType(icon) === 'material'"
+          :class="['ListItem-Icon', isActive(link)]"
+          size="20"
+        >
+          {{ icon }}
+        </v-icon>
+        <CovidIcon
+          v-else-if="checkIconType(icon) === 'covid'"
+          :class="['ListItem-Icon', isActive(link)]"
+        />
+        <ParentIcon
+          v-else-if="checkIconType(icon) === 'parent'"
+          :class="['ListItem-Icon', isActive(link)]"
+        />
+      </v-list-item-action>
+      <v-list-item-content class="ListItem-TextContainer">
+        <v-list-item-title
+          :class="['ListItem-Text', isActive(link)]"
+          v-text="title"
+        />
+      </v-list-item-content>
+      <v-icon
+        v-if="!isInternalLink(link)"
+        class="ListItem-ExternalLinkIcon"
+        size="12"
+      >
+        mdi-open-in-new
+      </v-icon>
+    </a>
   </v-list-item>
 </template>
 
@@ -172,5 +176,9 @@ svg.isActive {
   > path:not(:first-of-type) {
     fill: $green-1;
   }
+}
+.atag {
+  display: flex;
+  text-decoration: none;
 }
 </style>
