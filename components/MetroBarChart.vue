@@ -24,27 +24,32 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { ChartOptions, ChartData } from 'chart.js'
 import DataView from '@/components/DataView.vue'
 
 export type DataType = {
   value: string
 }
 
-export default Vue.extend({
+export default Vue.extend<
+  {},
+  {},
+  {},
+  {
+    chartData: ChartData
+    chartOption: ChartOptions
+    title: string
+    date: string
+  }
+>({
   components: { DataView },
   props: {
     title: {
       type: String,
       default: ''
     },
-    chartData: {
-      type: Object,
-      default: () => {}
-    },
-    chartOption: {
-      type: Object as any,
-      default: () => {}
-    },
+    chartData: Object,
+    chartOption: Object,
     date: {
       type: String,
       required: true
@@ -53,18 +58,16 @@ export default Vue.extend({
   computed: {
     displayData() {
       const colors: Array<string> = ['#a6e29f', '#63c765', '#008b41']
-      const datasets: any = this.chartData.labels.map(
-        (label: string, i: any) => {
-          return {
-            label,
-            data: this.chartData.datasets.map((d: any) => d.data[i]),
-            backgroundColor: colors[i],
-            borderWidth: 0
-          }
+      const datasets = this.chartData.labels!.map((label, i) => {
+        return {
+          label,
+          data: this.chartData.datasets!.map(d => d.data![i]),
+          backgroundColor: colors[i],
+          borderWidth: 0
         }
-      )
+      })
       return {
-        labels: this.chartData.datasets.map((d: any) => d.label),
+        labels: this.chartData.datasets!.map(d => d.label),
         datasets
       }
     }
