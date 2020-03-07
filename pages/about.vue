@@ -13,8 +13,8 @@
       <br />
       Microsoft Edge 最新版<br />
       Mozilla Firefox 最新版<br />
-      Google Chrome 最新版 (Windows10以上)<br />
-      Apple Safari (OS X) 最新版<br />
+      Google Chrome 最新版 (Windows 10以上)<br />
+      Apple Safari (macOS) 最新版<br />
       Opera Software ASA Opera 最新版<br />
       <br />
       ※
