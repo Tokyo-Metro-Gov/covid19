@@ -95,6 +95,30 @@ const config: Configuration = {
           {
             code: 'ja',
             iso: 'ja-JP'
+          },
+          {
+            code: 'en',
+            iso: 'en-US'
+          },
+          {
+            code: 'zh-CN',
+            iso: 'zh-CN'
+          },
+          {
+            code: 'zh-TW',
+            iso: 'zh-TW'
+          },
+          {
+            code: 'ko',
+            iso: 'ko-KR'
+          },
+          {
+            code: 'ja-basicjpn',
+            iso: 'ja-basicjpn'
+          },
+          {
+            code: 'pt-BR',
+            iso: 'pt-BR'
           }
         ],
         defaultLocale: 'ja',
