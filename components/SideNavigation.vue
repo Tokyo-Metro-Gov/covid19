@@ -9,7 +9,7 @@
         mdi-menu
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
-        <div class="SideNavigation-Logo">
+        <div class="SideNavigation-Logo sp-logo">
           <img src="/logo.svg" :alt="$t('Tokyo')" />
         </div>
         <h1 class="SideNavigation-Heading">
@@ -181,12 +181,12 @@ export default {
     padding: 1.25em 0 1.25em 1.25em;
     align-items: center;
     @include lessThan($small) {
-      padding: 7px 0 7px 20px;
+      padding: 7px 10px;
     }
   }
   &-HeadingIcon {
     display: none;
-    margin-right: 16px;
+    margin-right: 8px;
   }
   &-HeadingLink {
     @include lessThan($small) {
@@ -203,7 +203,7 @@ export default {
     padding: 2px 20px;
   }
   &-Logo {
-    margin: 20px 16px 0 0;
+    margin: 20px 10px 0 0;
     width: 110px;
     @include lessThan($small) {
       margin-top: 0;
@@ -260,6 +260,12 @@ export default {
     width: 100%;
     z-index: 100;
     background-color: $white;
+  }
+}
+// variables.scssで定義した値を読みたいが、Parsing errorで修正できないため直接記載
+@include lessThan(320) {
+  .sp-logo {
+    width: 100px;
   }
 }
 @include lessThan($small) {
