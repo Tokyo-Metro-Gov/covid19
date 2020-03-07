@@ -127,7 +127,7 @@ const config: Configuration = {
     ],
     'nuxt-svg-loader',
     'nuxt-purgecss',
-    ['vue-scrollto/nuxt', { duration: 1000 }]
+    ['vue-scrollto/nuxt', { duration: 1000, offset:-72 }]
   ],
   /*
    ** Axios module configuration
