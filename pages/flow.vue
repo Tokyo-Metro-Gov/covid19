@@ -45,7 +45,7 @@
           </div>
           <div>
             <a v-scroll-to="'#consult'" href="#consult">
-              <imgg
+              <img
                 src="/flow/sp/sp_flow_01_02_03_nav@2x.png"
                 alt="新型コロナ受診相談窓口へ"
               />
