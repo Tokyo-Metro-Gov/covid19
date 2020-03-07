@@ -23,6 +23,7 @@
 </style>
 
 <script>
+import pattern from 'patternomaly'
 import DataView from '@/components/DataView.vue'
 
 export default {
@@ -51,7 +52,7 @@ export default {
   },
   computed: {
     displayData() {
-      const colors = ['#a6e29f', '#63c765', '#008b41']
+      const colors = ['#FFFFFF', pattern.draw('diagonal', '#00D154'), '#008b41']
       return {
         labels: this.chartData.datasets.map(d => d.label),
         datasets: this.chartData.labels.map((label, i) => {
@@ -59,7 +60,8 @@ export default {
             label,
             data: this.chartData.datasets.map(d => d.data[i]),
             backgroundColor: colors[i],
-            borderWidth: 0
+            borderColor: '#008b41',
+            borderWidth: 1
           }
         })
       }

@@ -74,7 +74,7 @@ export default {
       }
     },
     displayData() {
-      const colorArray = ['#00A040', '#A6E29F']
+      const colorArray = ['#00A040', '#FFFFFF']
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
@@ -83,7 +83,8 @@ export default {
               label: this.items[index],
               data: item,
               backgroundColor: colorArray[index],
-              borderWidth: 0
+              borderColor: '#00A040',
+              borderWidth: 1
             }
           })
         }
@@ -95,7 +96,8 @@ export default {
             label: this.items[index],
             data: this.cumulative(item),
             backgroundColor: colorArray[index],
-            borderWidth: 0
+            borderColor: '#00A040',
+            borderWidth: 1
           }
         })
       }
