@@ -59,12 +59,12 @@ export default {
     displayCumulativeRatio() {
       const lastDay = this.chartData.slice(-1)[0].cumulative
       const lastDayBefore = this.chartData.slice(-2)[0].cumulative
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore).toLocaleString()
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayTransitionRatio() {
       const lastDay = this.chartData.slice(-1)[0].transition
       const lastDayBefore = this.chartData.slice(-2)[0].transition
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore).toLocaleString()
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
       if (this.dataKind === 'transition') {
@@ -126,7 +126,8 @@ export default {
           displayColors: false,
           callbacks: {
             label(tooltipItem) {
-              const labelText = tooltipItem.value + unit
+              const labelText =
+                parseInt(tooltipItem.value).toLocaleString() + unit
               return labelText
             },
             title(tooltipItem, data) {
@@ -185,13 +186,14 @@ export default {
   },
   methods: {
     formatDayBeforeRatio(dayBeforeRatio) {
+      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
-          return `+${dayBeforeRatio}`
+          return `+${dayBeforeRatioLocaleString}`
         case -1:
-          return `${dayBeforeRatio}`
+          return `${dayBeforeRatioLocaleString}`
         default:
-          return `${dayBeforeRatio}`
+          return `${dayBeforeRatioLocaleString}`
       }
     }
   }
