@@ -1,7 +1,6 @@
-type DataType = {
-  日付: Date
-  小計: number
-}
+import { Json } from '@/data/json'
+
+type DataType = Json.data.summary
 
 type GraphDataType = {
   label: string
