@@ -86,6 +86,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import { Chart } from 'chart.js'
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
@@ -235,7 +236,7 @@ export default Vue.extend({
     }
     return data
   },
-  head() {
+  head(): MetaInfo {
     return {
       title: '都内の最新感染動向'
     }
