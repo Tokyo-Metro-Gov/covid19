@@ -2,9 +2,9 @@
   <v-card class="DataView pa-1">
     <v-toolbar flat class="DataView-content">
       <div class="DataView-TitleContainer">
-        <v-toolbar-title>
+        <h3 class="DataView-ToolbarTitle">
           {{ title }}
-        </v-toolbar-title>
+        </h3>
         <slot name="button" />
       </div>
       <v-spacer />
@@ -91,6 +91,14 @@ export default class DataView extends Vue {
   &-Title {
     @include card-h2();
   }
+  &-ToolbarTitle {
+    font-size: 1.25rem;
+    font-weight: normal;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: inherit;
+  }
   &-CardText {
     margin-bottom: 46px;
     margin-top: 35px;
@@ -116,8 +124,5 @@ export default class DataView extends Vue {
 }
 .v-toolbar__content {
   height: auto !important;
-}
-.v-toolbar__title {
-  white-space: inherit !important;
 }
 </style>
