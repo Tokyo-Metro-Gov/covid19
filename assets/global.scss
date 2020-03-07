@@ -11,3 +11,9 @@ img {
   height: auto;
   vertical-align: bottom;
 }
+
+.clearfix {
+  content: "";
+  display: block;
+  clear: both;
+}
