@@ -6,16 +6,18 @@
       </v-icon>
       最新のお知らせ
     </h2>
-    <ul style="">
-      <li v-for="(item, i) in items" :key="i" class="WhatsNew-list">
+    <ul class="WhatsNew-list">
+      <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
         <a
-          class="WhatsNew-list-item"
+          class="WhatsNew-list-item-anchor"
           :href="item.url"
           target="_blank"
           rel="noopener"
         >
-          <time class="WhatsNew-list-item-time px-2">{{ item.date }}</time>
-          <span class="WhatsNew-list-item-link">
+          <time class="WhatsNew-list-item-anchor-time px-2">{{
+            item.date
+          }}</time>
+          <span class="WhatsNew-list-item-anchor-link">
             {{ item.text }}
             <v-icon
               v-if="!isInternalLink(item.url)"
@@ -67,42 +69,41 @@ export default {
   }
 }
 
-.WhatsNew ul {
+.WhatsNew .WhatsNew-list {
   padding-left: 0px;
-}
-
-.WhatsNew-list {
   list-style-type: none;
 
   &-item {
-    display: flex;
-    text-decoration: none;
-    margin: 5px;
-    font-size: 14px;
+    &-anchor {
+      display: flex;
+      text-decoration: none;
+      margin: 5px;
+      font-size: 14px;
 
-    @include lessThan($medium) {
-      flex-wrap: wrap;
-    }
-
-    &-time {
-      flex: 0 0 90px;
       @include lessThan($medium) {
-        flex: 0 0 100%;
+        flex-wrap: wrap;
       }
-      color: $gray-1;
-    }
 
-    &-link {
-      flex: 0 1 auto;
-      @include text-link();
-      @include lessThan($medium) {
-        padding-left: 8px;
+      &-time {
+        flex: 0 0 90px;
+        @include lessThan($medium) {
+          flex: 0 0 100%;
+        }
+        color: $gray-1;
       }
-    }
 
-    &-ExternalLinkIcon {
-      margin-left: 2px;
-      color: $gray-3 !important;
+      &-link {
+        flex: 0 1 auto;
+        @include text-link();
+        @include lessThan($medium) {
+          padding-left: 8px;
+        }
+      }
+
+      &-ExternalLinkIcon {
+        margin-left: 2px;
+        color: $gray-3 !important;
+      }
     }
   }
 }
