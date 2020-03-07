@@ -1,5 +1,5 @@
 <template>
-  <data-view class="SvgCard" :title="title" :date="date">
+  <data-view class="SvgCard" :title="title" :title-id="titleId" :date="date">
     <slot />
   </data-view>
 </template>
@@ -19,6 +19,10 @@ export default {
   components: { DataView },
   props: {
     title: {
+      type: String,
+      default: ''
+    },
+    titleId: {
       type: String,
       default: ''
     },

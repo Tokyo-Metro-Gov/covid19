@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date" :url="url">
+  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
       <span />
     </template>
@@ -66,6 +66,10 @@ export default {
   components: { DataView, DataViewBasicInfoPanel },
   props: {
     title: {
+      type: String,
+      default: ''
+    },
+    titleId: {
       type: String,
       default: ''
     },
