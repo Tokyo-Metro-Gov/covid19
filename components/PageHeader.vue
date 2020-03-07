@@ -7,14 +7,22 @@
       {{ title }}
     </h2>
     <div class="date">
-      <span>最終更新 </span><time>{{ date }}</time>
+      <span>最終更新 </span>
+      <time :datetime="convertDateToISO8601Format(date)">{{ date }}</time>
     </div>
   </div>
 </template>
 
 <script>
+import dayjs from 'dayjs'
+
 export default {
-  props: ['title', 'icon', 'date']
+  props: ['title', 'icon', 'date'],
+  methods: {
+    convertDateToISO8601Format(dateString) {
+      return dayjs(dateString).format('YYYY-MM-DDTHH:mm:ss')
+    }
+  }
 }
 </script>
 
