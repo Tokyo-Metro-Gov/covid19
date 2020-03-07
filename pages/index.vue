@@ -1,9 +1,7 @@
 <template>
   <div class="MainPage">
     <div class="Header mb-3">
-      <page-header
-        :icon="headerItem.icon"
-      >
+      <page-header :icon="headerItem.icon">
         {{ headerItem.title }}
       </page-header>
       <div class="UpdatedAt">
@@ -175,7 +173,7 @@ export default {
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '都内の最新感染動向',
+        title: '都内の最新感染動向'
       },
       newsItems: News.newsItems,
       metroGraphOption: {

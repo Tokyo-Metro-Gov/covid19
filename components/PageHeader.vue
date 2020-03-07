@@ -1,10 +1,10 @@
 <template>
   <div class="header">
     <h2 class="pageTitle">
-      <v-icon size="40" class="mr-2" v-if="icon">
+      <v-icon v-if="icon" size="40" class="mr-2">
         {{ icon }}
       </v-icon>
-      <slot></slot>
+      <slot />
     </h2>
   </div>
 </template>
