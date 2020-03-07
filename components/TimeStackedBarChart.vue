@@ -16,12 +16,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { ChartData } from 'chart.js'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-function cumulative(array: any) {
-  const cumulativeArray: any = []
+function cumulative(array: number[]): number[] {
+  const cumulativeArray: number[] = []
   let patSum = 0
   array.forEach((d: any) => {
     patSum += d
@@ -30,46 +31,31 @@ function cumulative(array: any) {
   return cumulativeArray
 }
 
-function sum(array: any) {
-  return array.reduce((acc: any, cur: any) => {
+function sum(array: number[]): number {
+  return array.reduce((acc, cur) => {
     return acc + cur
   })
 }
-
-function pickLastNumber(chartDataArray: any) {
-  return chartDataArray.map((array: any) => {
-    return array[array.length - 1]
-  })
+// 数字の配列の配列
+function pickLastNumber(chartDataArray: number[][]) {
+  return chartDataArray.map(array => array[array.length - 1])
 }
 
-function cumulativeSum(chartDataArray: any) {
-  return chartDataArray.map((array: any) => {
-    return array.reduce((acc: any, cur: any) => {
-      return acc + cur
-    })
+function cumulativeSum(chartDataArray: number[][]) {
+  return chartDataArray.map(array => {
+    return array.reduce((acc: number, cur: number) => acc + cur)
   })
 }
 
 type LocalData = {
-  dataKind: string
+  dataKind: 'transition' | 'cumulative'
+  chartData: number[][]
 }
 
 type PanelData = {
   lText: string
   sText: string
   unit: string
-}
-
-type ChartData = {
-  labels: string
-  datasets: DataSet[]
-}
-
-type DataSet = {
-  label: string
-  data: object
-  backgroundColor: string
-  borderWidth: number
 }
 
 export default Vue.extend({
@@ -85,7 +71,7 @@ export default Vue.extend({
       default: ''
     },
     chartData: {
-      type: Array,
+      type: Object as () => ChartData[],
       required: false,
       default: () => []
     },
@@ -110,13 +96,12 @@ export default Vue.extend({
       default: ''
     }
   },
-  data(): LocalData {
-    return {
-      dataKind: 'transition'
-    }
-  },
+  data: (): LocalData => ({
+    dataKind: 'transition',
+    chartData: []
+  }),
   computed: {
-    displayInfo(): InfoData {
+    displayInfo(): PanelData {
       if (this.dataKind === 'transition') {
         return {
           lText: sum(pickLastNumber(this.chartData)).toLocaleString(),
@@ -130,7 +115,7 @@ export default Vue.extend({
         unit: this.unit
       }
     },
-    displayData(): ChartData {
+    displayData() {
       const colorArray = ['#00A040', '#00D154']
       if (this.dataKind === 'transition') {
         return {
