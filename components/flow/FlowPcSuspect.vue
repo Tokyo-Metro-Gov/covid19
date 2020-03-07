@@ -67,6 +67,9 @@ $border-color: #d9d9d9;
 
 .TelLink {
   font-family: 'Roboto', sans-serif;
+  @media all and (min-width: 850px) {
+    font-size: larger;
+  }
   a {
     color: $gray-2;
     text-decoration: none;
@@ -76,13 +79,16 @@ $border-color: #d9d9d9;
 
 .CheckBox {
   position: relative;
-  font-size: larger;
+  font-size: normal;
   font-family: HiraginoSans-W6, Hiragino Sans;
   border: 2px solid $green-1;
   border-radius: 4px;
   margin: 8px;
   padding: 4px 0;
   max-width: 200px;
+  @media all and (min-width: 850px) {
+    font-size: larger;
+  }
 
   &:after {
     position: absolute;
@@ -127,7 +133,10 @@ $border-color: #d9d9d9;
 
 .RowItems {
   flex-grow: 1;
-  margin: 0 2em;
+  margin: 0 4px;
+  @media all and (min-width: 1024px) {
+    margin: 0 2em;
+  }
 }
 
 .FlowArrow {
