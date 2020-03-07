@@ -58,7 +58,7 @@ export default {
     },
     displayType: {
       type: String,
-      required: true,
+      required: false,
       default: 'time'
     }
   },

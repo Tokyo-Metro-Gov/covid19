@@ -9,7 +9,7 @@
         :items="propertyData.datasets"
         :items-per-page="-1"
         :hide-default-footer="true"
-        :height="200"
+        :height="240"
         :fixed-header="true"
         :mobile-breakpoint="0"
         class="cardTable"
@@ -17,8 +17,12 @@
     </template>
     <template v-else>
       <!-- NOTE: <horizontal-bar> の方が良いかましれない -->
-      <!-- <horiztontal-bar :chart-data="displayData" :options="chartOption" :height="240" /> -->
-      <bar :chart-data="displayData" :options="chartOption" :height="240" />
+      <!-- <horiztontal-bar :chart-data="displayData" :options="propertyChartOption" :height="240" /> -->
+      <bar
+        :chart-data="displayData"
+        :options="propertyChartOption"
+        :height="240"
+      />
     </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -83,7 +87,7 @@ export default {
       required: true,
       default: () => {}
     },
-    chartOption: {
+    propertyChartOption: {
       type: Object,
       required: true,
       defualt: () => {}

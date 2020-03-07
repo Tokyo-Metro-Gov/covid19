@@ -33,10 +33,10 @@
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
-        <property-table-chart
+        <data-table-chart
           :title="'陽性患者の属性'"
           :property-data="propertyData"
-          :chart-option="propertyOption"
+          :property-chart-option="propertyChartOption"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
           :url="
@@ -93,7 +93,7 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
-import PropertyTableChart from '@/components/PropertyTableChart.vue'
+import DataTableChart from '@/components/DataTableChart.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
@@ -109,7 +109,7 @@ export default {
     TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
-    PropertyTableChart
+    DataTableChart,
     SvgCard,
     ConfirmedCasesTable
   },
@@ -228,7 +228,7 @@ export default {
           }
         }
       },
-      propertyOption: {
+      propertyChartOption: {
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -243,6 +243,7 @@ export default {
           }
         },
         responsive: true,
+        maintainAspectRatio: false,
         ticks: {
           fontSize: 10
         },
@@ -255,7 +256,7 @@ export default {
                 display: false
               },
               ticks: {
-                fontSize: 15,
+                fontSize: 10,
                 fontColor: '#808080'
               }
             }
