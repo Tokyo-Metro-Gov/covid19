@@ -84,7 +84,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { Chart } from 'chart.js'
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import MetroBarChart from '@/components/MetroBarChart.vue'
@@ -101,7 +103,7 @@ import News from '@/data/news.json'
 import SvgCard from '@/components/SvgCard.vue'
 import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
 
-export default {
+export default Vue.extend({
   components: {
     PageHeader,
     TimeBarChart,
@@ -115,11 +117,11 @@ export default {
   },
   data() {
     // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.patients_summary.data)
+    const patientsGraph = formatGraph(Data.patients_summary.data as any)
     // 感染者数
     const patientsTable = formatTable(Data.patients.data)
     // 退院者グラフ
-    const dischargesGraph = formatGraph(Data.discharges_summary.data)
+    const dischargesGraph = formatGraph(Data.discharges_summary.data as any)
     // 退院者数
     const dischargesTable = formatTable(Data.discharges.data)
     // 相談件数
@@ -144,7 +146,7 @@ export default {
     //   Data.patients.data.filter(patient => patient['備考'] === '死亡')
     // )
     // 検査陽性者の状況
-    const confirmedCases = formatConfirmedCases(Data.main_summary)
+    const confirmedCases = formatConfirmedCases(Data.main_summary as any)
 
     const sumInfoOfPatients = {
       lText: patientsGraph[
@@ -152,6 +154,61 @@ export default {
       ].cumulative.toLocaleString(),
       sText: patientsGraph[patientsGraph.length - 1].label + 'の累計',
       unit: '人'
+    }
+
+    const metroGraphOption: Chart.ChartOptions = {
+      responsive: true,
+      legend: {
+        display: true
+      },
+      scales: {
+        xAxes: [
+          {
+            position: 'bottom',
+            stacked: false,
+            gridLines: {
+              display: true
+            },
+            ticks: {
+              fontSize: 10,
+              maxTicksLimit: 20,
+              fontColor: '#808080'
+            }
+          }
+        ],
+        yAxes: [
+          {
+            stacked: false,
+            gridLines: {
+              display: true
+            },
+            ticks: {
+              fontSize: 12,
+              maxTicksLimit: 10,
+              fontColor: '#808080',
+              callback(value) {
+                // 基準値を100としたときの相対値
+                return (value / 100).toFixed(2)
+              }
+            }
+          }
+        ]
+      },
+      tooltips: {
+        displayColors: false,
+        callbacks: {
+          title(tooltipItems, _) {
+            const label = tooltipItems[0].label
+            return `期間: ${label}`
+          },
+          label(tooltipItem, data) {
+            const currentData = data.datasets![tooltipItem!.datasetIndex!]
+            const percentage = `${currentData!.data![tooltipItem!.index!]}%`
+
+            return `${metroGraph.base_period}の利用者数との相対値: ${percentage}`
+          }
+        }
+      }
     }
 
     const data = {
@@ -174,60 +231,7 @@ export default {
         date: Data.lastUpdate
       },
       newsItems: News.newsItems,
-      metroGraphOption: {
-        responsive: true,
-        legend: {
-          display: true
-        },
-        scales: {
-          xAxes: [
-            {
-              position: 'bottom',
-              stacked: false,
-              gridLines: {
-                display: true
-              },
-              ticks: {
-                fontSize: 10,
-                maxTicksLimit: 20,
-                fontColor: '#808080'
-              }
-            }
-          ],
-          yAxes: [
-            {
-              stacked: false,
-              gridLines: {
-                display: true
-              },
-              ticks: {
-                fontSize: 12,
-                maxTicksLimit: 10,
-                fontColor: '#808080',
-                callback(value) {
-                  // 基準値を100としたときの相対値
-                  return (value / 100).toFixed(2)
-                }
-              }
-            }
-          ]
-        },
-        tooltips: {
-          displayColors: false,
-          callbacks: {
-            title(tooltipItems, _) {
-              const label = tooltipItems[0].label
-              return `期間: ${label}`
-            },
-            label(tooltipItem, data) {
-              const currentData = data.datasets[tooltipItem.datasetIndex]
-              const percentage = `${currentData.data[tooltipItem.index]}%`
-
-              return `${metroGraph.base_period}の利用者数との相対値: ${percentage}`
-            }
-          }
-        }
-      }
+      metroGraphOption
     }
     return data
   },
@@ -236,7 +240,7 @@ export default {
       title: '都内の最新感染動向'
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
