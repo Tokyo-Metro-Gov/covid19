@@ -96,9 +96,6 @@ export default class DataView extends Vue {
     font-size: 1.25rem;
     font-weight: normal;
     line-height: 1.5;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: inherit;
   }
   &-CardText {
     margin-bottom: 46px;
