@@ -1,25 +1,25 @@
 <template>
   <div>
-    <h3 :class="[$style.SodanHeader, $style.Title]">
+    <h3 :class="[$style.AlignCenter, $style.FontSize24]">
       新型コロナ受診相談窓口
     </h3>
-    <p :class="$style.SodanHeader">
+    <p :class="$style.AlignCenter">
       帰国者・接触者電話相談センター
     </p>
-    <div :class="$style.SodanHeader">
-      <div :class="$style.SodanChip">
+    <div :class="$style.AlignCenter">
+      <div :class="$style.ConsultationChip">
         24時間対応
       </div>
     </div>
     <dl>
-      <div :class="$style.SodanHeijitsu">
-        <dt :class="$style.Heijitsu">
+      <div :class="$style.ConsultationDaytime">
+        <dt :class="$style.ConsultationDaytimeTitle">
           平日（日中）
         </dt>
         <dd>
           <a
             :class="$style.Link"
-            href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+            href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronaConsultation.html"
             target="_blank"
             rel="noopener"
           >
@@ -30,11 +30,11 @@
           </a>
         </dd>
       </div>
-      <div :class="$style.SodanYakan">
-        <dt :class="$style.Yakan">
+      <div :class="$style.PaddingTop12">
+        <dt :class="$style.AlignCenter">
           平日（夜間）
           <br />
-          <span :class="$style.SodanTime">午後５時から翌朝午前９時</span>
+          <span :class="$style.FontSize14">午後５時から翌朝午前９時</span>
           <br />
           土日祝 終日
         </dt>
@@ -49,13 +49,18 @@
 </template>
 
 <style module lang="scss">
-.SodanHeader {
-  text-align: center;
-  &.Title {
-    @include font-size(24);
+@each $size in 14, 24 {
+  .FontSize#{$size} {
+    @include font-size($size);
   }
 }
-.SodanChip {
+.AlignCenter {
+  text-align: center;
+}
+.PaddingTop12 {
+  padding-top: 12px;
+}
+.ConsultationChip {
   display: inline-block;
   background-color: $white;
   border-radius: 4px;
@@ -64,25 +69,16 @@
   color: $green-1;
   font-weight: bold;
 }
-.SodanHeijitsu {
+.ConsultationDaytime {
   display: flex;
   align-items: center;
   padding: 12px 0;
   border-width: 0.5px 0;
   border-style: solid;
   border-color: $gray-3;
-  .Heijitsu {
+  &Title {
     width: 70%;
     margin-right: 5px;
-  }
-}
-.SodanYakan {
-  padding-top: 12px;
-  .Yakan {
-    text-align: center;
-    .SodanTime {
-      @include font-size(14);
-    }
   }
 }
 .TelLink {
