@@ -58,11 +58,12 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-export default {
+export default Vue.extend({
   components: { DataView, DataViewBasicInfoPanel },
   props: {
     title: {
@@ -83,14 +84,12 @@ export default {
     },
     info: {
       type: Object,
-      required: false,
       default: () => {}
     },
     url: {
       type: String,
-      required: false,
       default: ''
     }
   }
-}
+})
 </script>
