@@ -33,9 +33,7 @@
           class="SideNavigation-ListItemContainer"
           @click="closeNavi"
         >
-          <div role="listitem">
-            <ListItem :link="item.link" :icon="item.icon" :title="item.title" role="link" />
-          </div>
+          <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
