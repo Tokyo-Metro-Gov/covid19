@@ -1,8 +1,8 @@
 <template>
   <div class="About">
-    <h2 class="About-Heading">
+    <page-header class="mb-3">
       当サイトについて
-    </h2>
+    </page-header>
     <TextCard>
       当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。<br />
       <br />
@@ -111,10 +111,12 @@
 
 <script lang="ts">
 import TextCard from '@/components/TextCard.vue'
+import PageHeader from '@/components/PageHeader.vue'
 
 export default {
   components: {
-    TextCard
+    TextCard,
+    PageHeader
   },
   head() {
     return {
@@ -125,15 +127,6 @@ export default {
 </script>
 
 <style lang="scss">
-.About {
-  &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
-    margin-bottom: 12px;
-  }
-}
-
 a {
   @include text-link();
 }
