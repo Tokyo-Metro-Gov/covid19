@@ -35,17 +35,14 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
       type: String,
-      required: false,
       default: ''
     },
     chartData: {
       type: Object as () => GraphDataType[],
-      required: false,
       default: () => []
     },
     date: {
@@ -54,12 +51,10 @@ export default Vue.extend({
     },
     unit: {
       type: String,
-      required: false,
       default: ''
     },
     url: {
       type: String,
-      required: false,
       default: ''
     }
   },

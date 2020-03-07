@@ -21,7 +21,6 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
@@ -30,7 +29,6 @@ export default Vue.extend({
     },
     date: {
       type: String,
-      required: false,
       default: ''
     }
   }
