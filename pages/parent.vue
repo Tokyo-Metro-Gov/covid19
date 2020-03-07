@@ -13,7 +13,15 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import TextCard from '@/components/TextCard.vue'
-import { ItemData } from '@/types/Items.d.ts'
+
+type ItemData = {
+  items: Item[]
+}
+
+type Item = {
+  title: string
+  body: string
+}
 
 export default Vue.extend({
   components: {
