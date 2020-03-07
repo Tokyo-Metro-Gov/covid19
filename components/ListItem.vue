@@ -35,8 +35,10 @@
     </v-list-item-content>
     <v-icon
       v-if="!isInternalLink(link)"
+      :aria-label="ariaLabel"
       class="ListItem-ExternalLinkIcon"
       size="12"
+      @click="openNavi"
     >
       mdi-open-in-new
     </v-icon>
@@ -70,6 +72,12 @@ export default class ListItem extends Vue {
   })
   title!: string
 
+  @Prop({
+    default: '',
+    required: false
+  })
+  ariaLabel!: string
+
   isInternalLink(path: string): boolean {
     return !/^https?:\/\//.test(path)
   }
@@ -93,6 +101,10 @@ export default class ListItem extends Vue {
     } else {
       return 'others'
     }
+  }
+
+  openNavi() {
+    this.$emit('openNavi')
   }
 }
 </script>
