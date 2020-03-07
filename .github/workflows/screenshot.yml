@@ -32,7 +32,7 @@ jobs:
         with:
           python-version: 3.8
       - run: pip install selenium
-      - run: (python -m http.server --directory ./dist 8000 &)  ; python ./ui-test/screenshot.py
+      - run: python ./ui-test/screenshot.py
       - name: Upload screenshot
         uses: actions/upload-artifact@v1
         with:
