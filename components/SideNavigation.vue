@@ -106,18 +106,18 @@ export default {
         {
           icon: 'mdi-chart-timeline-variant',
           title: this.$t('The latest updates'),
-          link: '/'
+          link: this.localePath('/')
         },
         {
           icon: 'covid',
           title: this.$t('If you have any symptoms'),
-          link: '/flow',
+          link: this.localePath('/flow'),
           divider: true
         },
         {
           icon: 'parent',
           title: this.$t('for Families with children'),
-          link: '/parent'
+          link: this.localePath('/parent')
         },
         {
           icon: 'mdi-account-multiple',
@@ -127,7 +127,7 @@ export default {
         {
           icon: 'mdi-domain',
           title: this.$t('for Enterprises and Employees'),
-          link: '/worker',
+          link: this.localePath('/worker'),
           divider: true
         },
         {
@@ -147,7 +147,7 @@ export default {
         },
         {
           title: this.$t('About us'),
-          link: '/about'
+          link: this.localePath('/about')
         },
         {
           title: this.$t('Government official website'),
