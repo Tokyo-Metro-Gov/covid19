@@ -9,7 +9,16 @@
     <div v-for="(item, i) in items" :key="i">
       <a class="WhatsNew-item" :href="item.url" target="_blank" rel="noopener">
         <time class="WhatsNew-item-time px-2">{{ item.date }}</time>
-        <span class="WhatsNew-item-link">{{ item.text }}</span>
+        <span class="WhatsNew-item-link">
+          {{ item.text }}
+          <v-icon
+            v-if="!isInternalLink(item.url)"
+            class="WhatsNew-item-ExternalLinkIcon"
+            size="12"
+          >
+            mdi-open-in-new
+          </v-icon>
+        </span>
       </a>
     </div>
   </div>
@@ -21,6 +30,11 @@ export default {
     items: {
       type: Array,
       required: true
+    }
+  },
+  methods: {
+    isInternalLink(path) {
+      return !/^https?:\/\//.test(path)
     }
   }
 }
@@ -70,6 +84,11 @@ export default {
     @include lessThan($medium) {
       padding-left: 8px;
     }
+  }
+
+  &-ExternalLinkIcon {
+    margin-left: 2px;
+    color: $gray-3 !important;
   }
 }
 </style>
