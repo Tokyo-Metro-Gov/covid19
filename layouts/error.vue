@@ -17,7 +17,9 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from 'vue'
+
+export default Vue.extend({
   layout: 'empty',
   props: {
     error: {
@@ -27,7 +29,7 @@ export default {
   },
   computed: {
     isNotFound(): boolean {
-      return (this as any).error.statusCode === 404
+      return this.error.statusCode === 404
     },
     headingTitle(): string {
       return this.isNotFound
@@ -35,7 +37,7 @@ export default {
         : '現在ご利用できません'
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

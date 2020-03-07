@@ -155,6 +155,9 @@ export default {
           divider: true
         }
       ]
+    },
+    isClass() {
+      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
     }
   },
   methods: {
@@ -249,8 +252,9 @@ export default {
 }
 .open {
   @include lessThan($small) {
-    position: absolute;
+    position: fixed;
     top: 0;
+    bottom: 0;
     left: 0;
     display: block !important;
     width: 100%;
