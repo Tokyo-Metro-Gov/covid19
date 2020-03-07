@@ -46,6 +46,7 @@ export default Vue.extend({
     a {
       word-break: break-all;
       color: $link;
+      text-decoration: none;
     }
   }
 }
