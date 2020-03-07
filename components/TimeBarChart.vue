@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ChartData } from 'chart.js'
+import { ChartData, ChartTooltipItem } from 'chart.js'
 import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
@@ -130,16 +130,20 @@ export default Vue.extend({
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem: any) {
-              const labelText =
-                parseInt(tooltipItem.value).toLocaleString() + unit
-              return labelText
+            label(tooltipItem: ChartTooltipItem) {
+              return tooltipItem.value ? tooltipItem.value + unit : '0' + unit
             },
-            title(tooltipItem: any, data: any) {
-              return data.labels[tooltipItem[0].index].replace(
-                /(\w+)\/(\w+)/,
-                '$1月$2日'
-              )
+            title(tooltipItem: ChartTooltipItem[], data: ChartData) {
+              if (
+                tooltipItem &&
+                tooltipItem.length > 0 &&
+                data.labels &&
+                data.labels.length > 0
+              ) {
+                const index = tooltipItem[0].index as number
+                const date = data.labels[index] as string
+                return date.replace(/(\w+)\/(\w+)/, '$1月$2日')
+              }
             }
           }
         },
