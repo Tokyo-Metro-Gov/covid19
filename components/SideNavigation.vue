@@ -89,7 +89,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
 import ListItem from '@/components/ListItem.vue'
+
+type Item = {
+  icon?: string
+  title: TranslateResult
+  link: string
+  divider?: boolean
+}
 
 export default Vue.extend({
   components: {
@@ -102,7 +110,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    items() {
+    items(): Array<Item> {
       return [
         {
           icon: 'mdi-chart-timeline-variant',
@@ -159,10 +167,10 @@ export default Vue.extend({
     }
   },
   methods: {
-    openNavi() {
+    openNavi(): void {
       this.$emit('openNavi')
     },
-    closeNavi() {
+    closeNavi(): void {
       this.$emit('closeNavi')
     }
   }
