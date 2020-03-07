@@ -11,7 +11,7 @@
       :target="!isInternalLink(link) ? '_blank' : ''"
       :rel="!isInternalLink(link) ? 'noopener' : ''"
       router
-      class="atag"
+      class="ListItem-Link"
     >
       <v-list-item-action v-if="icon" class="ListItem-IconContainer">
         <v-icon
@@ -177,7 +177,7 @@ svg.isActive {
     fill: $green-1;
   }
 }
-.atag {
+.ListItem-Link {
   display: flex;
   text-decoration: none;
 }
