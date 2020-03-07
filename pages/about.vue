@@ -14,7 +14,7 @@
         <li>Microsoft Edge 最新版</li>
         <li>Mozilla Firefox 最新版</li>
         <li>Google Chrome 最新版 (Windows 10以上)</li>
-        <li>Apple (macOS) 最新版</li>
+        <li>Safari (macOS) 最新版</li>
         <li>Opera 最新版</li>
       </ul>
       ※
