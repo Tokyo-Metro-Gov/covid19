@@ -11,7 +11,11 @@
     style="color: transparent"
   >
     <v-list-item-action v-if="icon" class="ListItem-IconContainer">
-      <v-icon v-if="checkIconType(icon) === 'material'" :class="['ListItem-Icon', isActive(link)]" size="20" >
+      <v-icon
+        v-if="checkIconType(icon) === 'material'"
+        :class="['ListItem-Icon', isActive(link)]"
+        size="20"
+      >
         {{ icon }}
       </v-icon>
       <CovidIcon
