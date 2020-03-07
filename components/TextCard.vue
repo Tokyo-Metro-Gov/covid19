@@ -48,6 +48,12 @@ export default class TextCard extends Vue {
       color: $link;
       text-decoration: none;
     }
+    ul + p {
+      margin-top: 1em;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 </style>
