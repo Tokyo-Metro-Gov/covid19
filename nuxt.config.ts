@@ -145,6 +145,7 @@ const config: Configuration = {
     id: 'UA-159417676-1'
   },
   build: {
+    extractCSS: true,
     postcss: {
       plugins: [
         purgecss({
