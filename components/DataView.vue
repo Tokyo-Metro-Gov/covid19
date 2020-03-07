@@ -18,7 +18,7 @@
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
-      <time :datetime="date">{{ date }} 更新</time>
+      <time :datetime="date">{{ date }} {{ $t('更新') }}</time>
       <a
         v-if="url"
         class="OpenDataLink"
@@ -26,7 +26,7 @@
         target="_blank"
         rel="noopener"
       >
-        オープンデータへのリンク
+        {{ $t('オープンデータへのリンク') }}
         <v-icon class="ExternalLinkIcon" size="15">
           mdi-open-in-new
         </v-icon>
