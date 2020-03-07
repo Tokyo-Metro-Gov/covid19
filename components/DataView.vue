@@ -37,6 +37,24 @@
         </v-icon>
       </a>
     </v-footer>
+    <v-footer class="DataView-Share">
+      <button v-on:click="openGraphEmbed = true">
+        <div>埋め込む</div>
+      </button>
+      <button v-on:click="twitter">
+        <div>Twitter</div>
+      </button>
+      <button v-on:click="facebook">
+        <div>Facebook</div>
+      </button>
+      <button v-on:click="line">
+        <div>LINE</div>
+      </button>
+    </v-footer>
+    <v-footer v-if="openGraphEmbed">
+      <div>グラフの埋め込み</div>
+      <textarea v-model="graphEmbedValue" />
+    </v-footer>
   </v-card>
 </template>
 
@@ -50,6 +68,25 @@ export default class DataView extends Vue {
   @Prop() private date!: string
   @Prop() private url!: string
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
+
+  data() {
+    const graphEmbedValue = '<iframe width="560" height="315" src="https://stopcovid19.metro.tokyo.lg.jp/embed/' + this.titleId + '" frameborder="0"></iframe>'
+
+    const data = {
+      openGraphEmbed: false,
+      graphEmbedValue,
+    }
+    return data
+  }
+
+  twitter() {
+  }
+
+  facebook() {
+  }
+
+  line() {
+  }
 }
 </script>
 
@@ -127,6 +164,16 @@ export default class DataView extends Vue {
       }
     }
   }
+  &-Share {
+    display: flex;
+    justify-content: space-around;
+    background-color: $white !important;
+  }
+}
+textarea {
+  font: 400 11px system-ui;
+  width: 100%;
+  height: 2.4rem;
 }
 .v-toolbar__content {
   height: auto !important;
