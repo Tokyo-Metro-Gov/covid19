@@ -7,7 +7,7 @@
       {{ title }}
     </h2>
     <div class="date">
-      <span>最終更新 </span><time>{{ date }}</time>
+      <span>{{ $t('最終更新') }} </span><time>{{ date }}</time>
     </div>
   </div>
 </template>
