@@ -2,7 +2,7 @@
   <div class="SideNavigation">
     <div class="SideNavigation-HeadingContainer sp-flex">
       <v-icon
-        class="SideNavigation-HeadingIcon sp-inline-block"
+        class="SideNavigation-HeadingIcon pc-none"
         :aria-label="$t('Navi Open')"
         @click="openNavi"
       >
@@ -20,7 +20,7 @@
     <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
-        class="SideNavigation-ListContainerIcon sp-inline-block"
+        class="SideNavigation-ListContainerIcon pc-none"
         :aria-label="$t('Navi Close')"
         @click="closeNavi"
       >
@@ -185,7 +185,6 @@ export default {
     }
   }
   &-HeadingIcon {
-    display: none;
     margin-right: 16px;
   }
   &-HeadingLink {
@@ -196,7 +195,6 @@ export default {
     text-decoration: none;
   }
   &-ListContainerIcon {
-    display: none;
     margin: 24px 16px 0;
   }
   &-ListItemContainer {
@@ -262,12 +260,14 @@ export default {
     background-color: $white;
   }
 }
+@include largerThan($small) {
+  .pc-none {
+    display: none;
+  }
+}
 @include lessThan($small) {
   .sp-flex {
     display: flex;
-  }
-  .sp-inline-block {
-    display: inline-block;
   }
   .sp-none {
     display: none;
