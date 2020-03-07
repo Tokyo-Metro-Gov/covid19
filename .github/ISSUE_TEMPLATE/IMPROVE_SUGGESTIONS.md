@@ -5,13 +5,14 @@ labels: improve
 ---
 
 ## 改善詳細 / Improve details
-* xxxx(できるだけ簡潔に/as concise as possible)
+- xxxx(できるだけ簡潔に/as concise as possible)
 
 ## スクリーンショット / Screenshot
 <!-- バグであればdeveloper toolからコンソールも合わせて添付 -->
 
 ## 期待する見せ方・挙動 / Expected behavior
-* xxxx(できるだけ簡潔に/as concise as possible)
+- xxxx(できるだけ簡潔に/as concise as possible)
 
 ## 動作環境・ブラウザ / Environment
-*
+- macOS / Windows / Linux / iOS / Android
+- Chrome / Safari / Firefox / Edge / Internet Explorer
