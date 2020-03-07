@@ -12,20 +12,23 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 
-export default {
+export default Vue.extend({
   components: { DataView },
   props: {
     title: {
       type: String,
+      required: false,
       default: ''
     },
     date: {
       type: String,
+      required: false,
       default: ''
     }
   }
-}
+})
 </script>
