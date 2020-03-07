@@ -1,20 +1,32 @@
 <template>
   <div :class="$style.Container">
     <div :class="$style.Row">
-      <p :class="$style.Catch">新型コロナ外来<span :class="$style.Emphasis">受診が必要</span>と判断された場合</p>
+      <p :class="$style.Catch">
+        新型コロナ外来
+        <span :class="$style.Emphasis">受診が必要</span>
+        と判断された場合
+      </p>
     </div>
     <div :class="$style.Row">
       <div :class="[$style.Card, $style.CardLarge, $style.CardGray]">
-        <p :class="$style.Outpatient">新型コロナ外来（帰国者・接触者外来）</p>
-        <p :class="$style.Judge">医師による判断</p>
+        <p :class="$style.Outpatient">
+          新型コロナ外来（帰国者・接触者外来）
+        </p>
+        <p :class="$style.Judge">
+          医師による判断
+        </p>
       </div>
     </div>
     <div :class="$style.TwoRow">
       <div :class="[$style.Card, $style.CardGreen]">
-        <p :class="$style.CardGreenText">検査の必要あり</p>
+        <p :class="$style.CardGreenText">
+          検査の必要あり
+        </p>
       </div>
       <div :class="[$style.Card, $style.CardWhite]">
-        <p :class="$style.CardWhiteText">検査の必要なし</p>
+        <p :class="$style.CardWhiteText">
+          検査の必要なし
+        </p>
       </div>
     </div>
   </div>
