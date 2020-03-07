@@ -8,20 +8,35 @@
     </h2>
     <div class="date">
       <span>最終更新 </span>
-      <time :datetime="convertDateToISO8601Format(date)">{{ date }}</time>
+      <time :datetime="formattedDate">{{ date }}</time>
     </div>
   </div>
 </template>
 
 <script>
-import dayjs from 'dayjs'
+import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default {
-  props: ['title', 'icon', 'date'],
-  methods: {
-    convertDateToISO8601Format(dateString) {
-      return dayjs(dateString).format('YYYY-MM-DDTHH:mm:ss')
+  props: {
+    title: {
+      type: String,
+      required: true,
+      default: ''
+    },
+    icon: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    date: {
+      type: String,
+      required: false,
+      default: ''
     }
+  },
+  data() {
+    const formattedDate = convertDatetimeToISO8601Format(this.date)
+    return { formattedDate }
   }
 }
 </script>

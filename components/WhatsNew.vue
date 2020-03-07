@@ -16,7 +16,7 @@
         >
           <time
             class="WhatsNew-list-item-anchor-time px-2"
-            :datetime="convertDateToISO8601Format(item.date)"
+            :datetime="formattedDate(item.date)"
           >
             {{ item.date }}
           </time>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
+import { convertDateToISO8601Format } from '@/utils/formatDate'
 
 export default {
   props: {
@@ -50,8 +50,8 @@ export default {
     isInternalLink(path) {
       return !/^https?:\/\//.test(path)
     },
-    convertDateToISO8601Format(dateString) {
-      return dayjs(dateString).format('YYYY-MM-DD')
+    formattedDate(dateString) {
+      return convertDateToISO8601Format(dateString)
     }
   }
 }

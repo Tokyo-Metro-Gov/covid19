@@ -18,7 +18,7 @@
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
-      <time :datetime="convertDateToISO8601Format(date)">{{ date }} 更新</time>
+      <time :datetime="formattedDate">{{ date }} 更新</time>
       <a
         v-if="url"
         class="OpenDataLink"
@@ -36,8 +36,8 @@
 </template>
 
 <script lang="ts">
-import dayjs from 'dayjs'
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 @Component
 export default class DataView extends Vue {
@@ -47,9 +47,7 @@ export default class DataView extends Vue {
   @Prop() private url!: string
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
 
-  convertDateToISO8601Format(dateString: string): string {
-    return dayjs(dateString).format('YYYY-MM-DDTHH:mm:ss')
-  }
+  formattedDate: string = convertDatetimeToISO8601Format(this.date)
 }
 </script>
 
