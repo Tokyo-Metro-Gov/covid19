@@ -10,25 +10,25 @@
     <static-info
       class="mb-4"
       :url="'/flow'"
-      :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
-      :btn-text="'相談の手順を見る'"
+      :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
+      :btn-text="$t('相談の手順を見る')"
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
         <svg-card
-          title="検査陽性者の状況"
+          :title="$t('検査陽性者の状況')"
           :title-id="'details-of-confirmed-cases'"
           :date="headerItem.date"
         >
           <confirmed-cases-table
-            aria-label="検査陽性者の状況"
+            :aria-label="$t('検査陽性者の状況')"
             v-bind="confirmedCases"
           />
         </svg-card>
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="陽性患者数"
+          :title="$t('陽性患者数')"
           :title-id="'number-of-confirmed-cases'"
           :chart-data="patientsGraph"
           :date="Data.patients.date"
@@ -37,10 +37,11 @@
             'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
           "
         />
+        <!-- TODO: unit need translation -->
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <data-table
-          :title="'陽性患者の属性'"
+          :title="$t('陽性患者の属性')"
           :title-id="'attributes-of-confirmed-cases'"
           :chart-data="patientsTable"
           :chart-option="{}"
@@ -53,7 +54,7 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
-          title="検査実施数"
+          :title="$t('検査実施数')"
           :title-id="'number-of-tested'"
           :chart-data="inspectionsGraph"
           :date="Data.inspections_summary.date"
@@ -61,30 +62,33 @@
           :labels="inspectionsLabels"
           :unit="'件'"
         />
+        <!-- TODO: unit need translation -->
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="新型コロナコールセンター相談件数"
+          :title="$t('新型コロナコールセンター相談件数')"
           :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
           :chart-data="contactsGraph"
           :date="Data.contacts.date"
           :unit="'件'"
           :url="''"
         />
+        <!-- TODO: unit need translation -->
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="新型コロナ受診相談窓口相談件数"
+          :title="$t('新型コロナ受診相談窓口相談件数')"
           :title-id="'number-of-reports-to-covid19-consultation-desk'"
           :chart-data="querentsGraph"
           :date="Data.querents.date"
           :unit="'件'"
           :url="''"
         />
+        <!-- TODO: unit need translation -->
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <metro-bar-chart
-          title="都営地下鉄の利用者数の推移"
+          :title="$t('都営地下鉄の利用者数の推移')"
           :title-id="'predicted-number-of-toei-subway-passengers'"
           :chart-data="metroGraph"
           :chart-option="metroGraphOption"
@@ -94,6 +98,113 @@
     </v-row>
   </div>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ",
+    "相談の手順を見る": "相談の手順を見る",
+    "検査陽性者の状況": "検査陽性者の状況",
+    "陽性患者数": "陽性患者数",
+    "陽性患者の属性": "陽性患者の属性",
+    "検査実施数": "検査実施数",
+    "新型コロナコールセンター相談件数": "新型コロナコールセンター相談件数",
+    "新型コロナ受診相談窓口相談件数": "新型コロナ受診相談窓口相談件数",
+    "都営地下鉄の利用者数の推移": "都営地下鉄の利用者数の推移",
+    "都内発生（疑い例・接触者調査）": "都内発生（疑い例・接触者調査）",
+    "その他（チャーター便・クルーズ便）": "その他（チャーター便・クルーズ便）",
+    "{date}の累計": "{date}の累計",
+    "都内の最新感染動向": "都内の最新感染動向",
+    "期間: {duration}": "期間: {duration}",
+    "{duration}の利用者数との相対値: {percentage}": "{duration}の利用者数との相対値: {percentage}"
+  },
+  "en": {
+    "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "Contact the Telephone Advisory Center at the first time in case of symptoms concerned. ",
+    "相談の手順を見る": "Steps to receiving help",
+    "検査陽性者の状況": "Details of confirmed cases",
+    "陽性患者数": "Number of confirmed cases",
+    "陽性患者の属性": "Details of confirmed cases",
+    "検査実施数": "Number of tested",
+    "新型コロナコールセンター相談件数": "Number of reports to COVID-19 telephone advisory center",
+    "新型コロナ受診相談窓口相談件数": "",
+    "都営地下鉄の利用者数の推移": "The predicted number of Toei subway passengers.",
+    "都内発生（疑い例・接触者調査）": "Emerged in Tokyo (Suspected cases or contactees)",
+    "その他（チャーター便・クルーズ便）": "Others (Returnees or Cruise ship passengers)",
+    "{date}の累計": "cumulatively, as of {date}",
+    "都内の最新感染動向": "The latest update on COVID-19 in Tokyo",
+    "期間: {duration}": "",
+    "{duration}の利用者数との相対値: {percentage}": "Congestion index compared to {duration}: {percentage}"
+  },
+  "zh-cn": {
+    "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "如果您或您的家人出现疑似症状，请立即拨打电话咨询",
+    "相談の手順を見る": "查看咨询流程",
+    "検査陽性者の状況": "确诊案例状况",
+    "陽性患者数": "确诊人数",
+    "陽性患者の属性": "确诊患者的信息",
+    "検査実施数": "筛检人数",
+    "新型コロナコールセンター相談件数": "新型冠状病毒咨询中心咨询件数",
+    "新型コロナ受診相談窓口相談件数": "",
+    "都営地下鉄の利用者数の推移": "都营地下铁搭乘人数趋势",
+    "都内発生（疑い例・接触者調査）": "东京都案例（疑似感染、接触者调查）",
+    "その他（チャーター便・クルーズ便）": "其它（包机、游轮）",
+    "{date}の累計": "截至 {date}",
+    "都内の最新感染動向": "东京都内最新感染情况",
+    "期間: {duration}": "",
+    "{duration}の利用者数との相対値: {percentage}": ""
+  },
+  "zh-tw": {
+    "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "若您或家人出現疑似症狀，請即刻撥打電話諮詢",
+    "相談の手順を見る": "點我看諮詢流程",
+    "検査陽性者の状況": "確診案例狀況",
+    "陽性患者数": "確診病患數",
+    "陽性患者の属性": "確診案例概況",
+    "検査実施数": "篩檢人數",
+    "新型コロナコールセンター相談件数": "新型冠狀病毒諮詢中心諮詢件數",
+    "新型コロナ受診相談窓口相談件数": "",
+    "都営地下鉄の利用者数の推移": "都營地下鐵搭乘人數走勢",
+    "都内発生（疑い例・接触者調査）": "東京都案例（疑似感染、接觸者調查）",
+    "その他（チャーター便・クルーズ便）": "其它（包機、遊輪）",
+    "{date}の累計": "累計到 {date}",
+    "都内の最新感染動向": "東京都最新新型冠狀病毒感染情形",
+    "期間: {duration}": "",
+    "{duration}の利用者数との相対値: {percentage}": ""
+  },
+  "ko": {
+    "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "본인 혹은 가족에게 의심증상이 있을 경우, 콜센터에 먼저 문의하세요. ",
+    "相談の手順を見る": "상담 절차",
+    "検査陽性者の状況": "확진자의 현황",
+    "陽性患者数": "확진자 수",
+    "陽性患者の属性": "확진 사례의 세부 사항",
+    "検査実施数": "검사자 수",
+    "新型コロナコールセンター相談件数": "코로나 19 콜센터 문의 건수",
+    "新型コロナ受診相談窓口相談件数": "",
+    "都営地下鉄の利用者数の推移": "도에이 지하철 의 예상 승객 수",
+    "都内発生（疑い例・接触者調査）": "도쿄 지역사회 발생 경우(의심환자, 접촉자)",
+    "その他（チャーター便・クルーズ便）": "기타 (귀국자 또는 크루즈 승객 경우)",
+    "{date}の累計": "{date}의 누적 수",
+    "都内の最新感染動向": "도쿄도청 확진자수 현황",
+    "期間: {duration}": "",
+    "{duration}の利用者数との相対値: {percentage}": ""
+  },
+  "ja-basic": {
+    "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "からだの ぐあいが わるくて こわくなったら でんわして ください",
+    "相談の手順を見る": "そうだんの しかたの せつめい",
+    "検査陽性者の状況": "びょうきの ひとは いま",
+    "陽性患者数": "びょうきの ひとの かず",
+    "陽性患者の属性": "びょうきの ひとの じょうほう",
+    "検査実施数": "けんさを うけた ひとの かず",
+    "新型コロナコールセンター相談件数": "コロナウイルス そうだんで でんわが あった かず",
+    "新型コロナ受診相談窓口相談件数": "",
+    "都営地下鉄の利用者数の推移": "ちかてつを つかった ひとの かず",
+    "都内発生（疑い例・接触者調査）": "とうきょうとで びょうき かもしれない ひと",
+    "その他（チャーター便・クルーズ便）": "そのほか",
+    "{date}の累計": "{date} ぜんぶで",
+    "都内の最新感染動向": "とうきょうとでの コロナウイルスの あたらしいじょうほう",
+    "期間: {duration}": "",
+    "{duration}の利用者数との相対値: {percentage}": "ひとの かずを くらべると"
+  }
+}
+</i18n>
 
 <script>
 import LanguageSelector from '@/components/LanguageSelector.vue'
@@ -145,10 +256,10 @@ export default {
     const inspectionsGraph = [
       Data.inspections_summary.data['都内'],
       Data.inspections_summary.data['その他']
-    ]
+    ] // TODO: '都内'・'その他'をtranslation するかどうか
     const inspectionsItems = [
-      '都内発生（疑い例・接触者調査）',
-      'その他（チャーター便・クルーズ便）'
+      this.$t('都内発生（疑い例・接触者調査）'),
+      this.$t('その他（チャーター便・クルーズ便）')
     ]
     const inspectionsLabels = Data.inspections_summary.labels
     // 死亡者数
@@ -163,7 +274,9 @@ export default {
       lText: patientsGraph[
         patientsGraph.length - 1
       ].cumulative.toLocaleString(),
-      sText: patientsGraph[patientsGraph.length - 1].label + 'の累計',
+      sText: this.$t('{date}の累計', {
+        date: patientsGraph[patientsGraph.length - 1].label
+      }),
       unit: '人'
     }
 
@@ -183,7 +296,7 @@ export default {
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '都内の最新感染動向',
+        title: this.$t('都内の最新感染動向'),
         date: Data.lastUpdate
       },
       newsItems: News.newsItems,
@@ -230,13 +343,18 @@ export default {
           callbacks: {
             title(tooltipItems, _) {
               const label = tooltipItems[0].label
-              return `期間: ${label}`
+              return this.$t('期間: {duration}', {
+                duration: label
+              })
             },
             label(tooltipItem, data) {
               const currentData = data.datasets[tooltipItem.datasetIndex]
               const percentage = `${currentData.data[tooltipItem.index]}%`
 
-              return `${metroGraph.base_period}の利用者数との相対値: ${percentage}`
+              return this.$t('{duration}の利用者数との相対値: {percentage}', {
+                duration: metroGraph.base_period,
+                percentage
+              })
             }
           }
         }
@@ -246,7 +364,7 @@ export default {
   },
   head() {
     return {
-      title: '都内の最新感染動向'
+      title: this.$t('都内の最新感染動向')
     }
   }
 }
