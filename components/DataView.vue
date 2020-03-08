@@ -100,7 +100,8 @@ export default class DataView extends Vue {
   permalink(host: boolean = false, embed: boolean = false) {
     let permalink = ''
     if (host) {
-      permalink = permalink + 'https://stopcovid19.metro.tokyo.lg.jp'
+      // permalink = permalink + 'https://stopcovid19.metro.tokyo.lg.jp'
+      permalink = permalink + 'http://localhost:3000'
     }
     permalink = permalink + '/cards/' + this.titleId
     if (embed) {
@@ -120,7 +121,8 @@ export default class DataView extends Vue {
   }
 
   line() {
-    const url = 'https://social-plugins.line.me/lineit/share?url=' + this.permalink(true)
+    const url =
+      'https://social-plugins.line.me/lineit/share?url=' + this.permalink(true)
     window.open(url)
   }
 }
