@@ -25,6 +25,7 @@ Tokyo Covid-19 response site contributors
 | [Riki Singh Khorana](https://www.linkedin.com/in/rikilele/) (@Rikilele) | Translations / A11y |
 | Koki Kobayashi | Translations |
 | Fujita Shu (@nard-tech) | Coding, i18n |
+| [Pichu Chen](https://github.com/pichuchen) | i18n |
 | -add your name here!- | -what did you do?- |
 
 ご協力に感謝です！！！
