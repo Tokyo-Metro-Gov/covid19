@@ -75,12 +75,8 @@
 .Flow {
   display: flex;
   flex-direction: row;
-  height: 256px;
-  width: 743px;
   padding: 20px 20px !important;
-  border: 2px solid $gray-4;
-  border-radius: 4px;
-  box-shadow: 0px 0px 4px $gray-4;
+  @include card-container();
   position: relative;
   &Row {
     flex: 1;
@@ -102,8 +98,6 @@
     }
     &Condition {
       flex: 1;
-      width: 170px;
-      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
