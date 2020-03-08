@@ -11,21 +11,20 @@
 
 <style module lang="scss">
 .FlowPcHospitalized {
-  max-width: 360px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: $white;
-  border: 1px solid $gray-4;
-  border-radius: 4px;
   padding: 20px 30px;
-  &Heading {
+  @include card-container();
+
+&Heading {
     color: $gray-2;
     font-size: 10px;
     font-weight: bold;
     display: flex;
     align-items: center;
-    &:before {
+
+&:before {
       min-width: 30px;
       min-height: 30px;
       content: '';
@@ -34,7 +33,8 @@
       margin-right: 10px;
     }
   }
-  &subHeading {
+
+&subHeading {
     color: $gray-2;
     font-size: 16px;
   }
