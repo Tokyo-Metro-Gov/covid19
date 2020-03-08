@@ -84,6 +84,14 @@ export default Vue.extend({
     grid-template-columns: 325px auto;
   }
 }
+@include lessThan($small) {
+  .naviContainer {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: z-index-of(sp-navigation);
+  }
+}
 @include largerThan($small) {
   .naviContainer {
     grid-column: 1/2;
