@@ -1,12 +1,40 @@
 <template>
   <div>
-    <confirmed-cases-details-card v-if="this.$route.params.card == 'details-of-confirmed-cases'" />
-    <confirmed-cases-number-card v-else-if="this.$route.params.card == 'number-of-confirmed-cases'" />
-    <confirmed-cases-attributes-card v-else-if="this.$route.params.card == 'attributes-of-confirmed-cases'" />
-    <tested-number-card v-else-if="this.$route.params.card == 'number-of-tested'" />
-    <telephone-advisory-reports-number-card v-else-if="this.$route.params.card == 'number-of-reports-to-covid19-telephone-advisory-center'" />
-    <consultation-desk-reports-number-card v-else-if="this.$route.params.card == 'number-of-reports-to-covid19-consultation-desk'" />
-    <metro-card v-else-if="this.$route.params.card == 'predicted-number-of-toei-subway-passengers'" />
+    <confirmed-cases-details-card
+      v-if="
+        this.$route.params.card == 'details-of-confirmed-cases'
+      "
+    />
+    <confirmed-cases-number-card
+      v-else-if="
+        this.$route.params.card == 'number-of-confirmed-cases'
+      "
+    />
+    <confirmed-cases-attributes-card
+      v-else-if="
+        this.$route.params.card == 'attributes-of-confirmed-cases'
+      "
+    />
+    <tested-number-card
+      v-else-if="
+        this.$route.params.card == 'number-of-tested'
+      "
+    />
+    <telephone-advisory-reports-number-card
+      v-else-if="
+        this.$route.params.card == 'number-of-reports-to-covid19-telephone-advisory-center'
+      "
+    />
+    <consultation-desk-reports-number-card
+      v-else-if="
+        this.$route.params.card == 'number-of-reports-to-covid19-consultation-desk'
+      "
+    />
+    <metro-card
+      v-else-if="
+        this.$route.params.card == 'predicted-number-of-toei-subway-passengers'
+      "
+    />
   </div>
 </template>
 
@@ -27,7 +55,7 @@ export default {
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
-    MetroCard,
+    MetroCard
   },
   // layout: 'card',
   data() {
@@ -35,29 +63,29 @@ export default {
     switch (this.$route.params.card) {
       case 'details-of-confirmed-cases':
         title = '検査陽性者の状況'
-        break;
+        break
       case 'number-of-confirmed-cases':
         title = '陽性患者数'
-        break;
+        break
       case 'attributes-of-confirmed-cases':
         title = '陽性患者の属性'
-        break;
+        break
       case 'number-of-tested':
         title = '検査実施数'
-        break;
+        break
       case 'number-of-reports-to-covid19-telephone-advisory-center':
         title = '新型コロナコールセンター相談件数'
-        break;
+        break
       case 'number-of-reports-to-covid19-consultation-desk':
         title = '新型コロナ受診相談窓口相談件数'
-        break;
+        break
       case 'predicted-number-of-toei-subway-passengers':
         title = '都営地下鉄の利用者数の推移'
-        break;
+        break
     }
 
     const data = {
-      title,
+      title
     }
     return data
   },
@@ -65,15 +93,19 @@ export default {
     return {
       title: this.title,
       meta: [
-        { property: 'og:url', content: 'https://stopcovid19.metro.tokyo.lg.jp' + this.$route.path },
-        { property: 'og:title', content: this.title + ' | 東京都 新型コロナウイルス感染症対策サイト' },
+        {
+          property: 'og:url',
+          content: 'https://stopcovid19.metro.tokyo.lg.jp' + this.$route.path
+        },
+        {
+          property: 'og:title',
+          content: this.title + ' | 東京都 新型コロナウイルス感染症対策サイト'
+        },
+        { property: 'og:description', content: 'TOFIX' },
         { property: 'og:image', content: 'TOFIX' },
-        { property: 'fb:app_id', content: 'TOFIX' },
+        { property: 'fb:app_id', content: 'TOFIX' }
       ]
     }
   }
 }
 </script>
-
-<style lang="scss">
-</style>
