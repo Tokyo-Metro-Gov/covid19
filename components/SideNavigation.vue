@@ -55,8 +55,24 @@
           </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
-          Reserved.
+          <a
+            rel="license"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            <img
+              alt="Creative Commons License"
+              style="border-width:0"
+              src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
+            /> </a
+          ><br />This work is licensed under a
+          <a
+            rel="license"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution-ShareAlike 4.0 International License</a
+          >
+          <br />
+          2020 Tokyo Metropolitan Government.
         </small>
       </div>
     </div>
@@ -256,7 +272,7 @@ export default {
     left: 0;
     display: block !important;
     width: 100%;
-    z-index: z-index-of(opened-side-navigation);    
+    z-index: z-index-of(opened-side-navigation);
     background-color: $white;
   }
 }
