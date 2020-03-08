@@ -79,7 +79,19 @@ export default {
   },
   head() {
     return {
-      title: this.headerItem.title
+      title: this.headerItem.title,
+      meta: [
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://stopcovid19.metro.tokyo.lg.jp'
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+        }
+      ]
     }
   }
 }

@@ -26,11 +26,11 @@ const config: Configuration = {
         content: '東京都 新型コロナウイルス感染症対策サイト'
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
-      {
-        hid: 'og:url',
-        property: 'og:url',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp'
-      },
+      // {
+      //   hid: 'og:url',
+      //   property: 'og:url',
+      //   content: 'https://stopcovid19.metro.tokyo.lg.jp'
+      // },
       {
         hid: 'og:title',
         property: 'og:title',
@@ -42,11 +42,11 @@ const config: Configuration = {
         content:
           '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
       },
-      {
-        hid: 'og:image',
-        property: 'og:image',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
-      },
+      // {
+      //   hid: 'og:image',
+      //   property: 'og:image',
+      //   content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+      // },
       {
         hid: 'twitter:card',
         name: 'twitter:card',
