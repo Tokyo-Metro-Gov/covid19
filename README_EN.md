@@ -16,7 +16,7 @@ Please check [How to contribute](./.github/CONTRIBUTING_EN.md) for details.
 Please check [Code of conduct for developers](./.github/CODE_OF_CONDUCT_EN.md) for details.
 
 ## License
-This software is released under the MIT License.
+This software is released under [the MIT License](./LICENSE.txt).
 
 ## For Developers
 
