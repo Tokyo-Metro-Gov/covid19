@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="MetroGraph-Desc">
         {{ chartData.base_period }}の利用者数*の平均値を100としたときの相対値
@@ -29,6 +29,11 @@ export default {
   components: { DataView },
   props: {
     title: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    titleId: {
       type: String,
       required: false,
       default: ''
