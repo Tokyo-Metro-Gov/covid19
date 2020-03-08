@@ -39,6 +39,18 @@ $ yarn dev
 $ docker-compose up --build
 ```
 
+### `Cannot find module ****` と怒られた時
+
+**yarn を使う場合**
+```
+$ yarn install
+```
+
+**docker compose を使う場合**
+```bash
+$ docker-compose run --rm app yarn install
+```
+
 ### ステージング・本番環境への反映
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.metro.tokyo.lg.jp/ が更新されます。
