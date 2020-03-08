@@ -6,9 +6,7 @@
       :chart-data="patientsGraph"
       :date="Data.patients.date"
       :unit="'人'"
-      :url="
-        'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
-      "
+      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
     />
   </v-col>
 </template>
