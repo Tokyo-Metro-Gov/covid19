@@ -1,19 +1,22 @@
 <template>
   <v-list-item
     v-ripple="false"
-    exact
     class="ListItem-Container"
-    style="color: transparent"
   >
-    <a
+    <component
+      :is="isInternalLink(link) ? 'nuxt-link' : 'a'"
       :to="isInternalLink(link) ? link : ''"
       :href="!isInternalLink(link) ? link : ''"
       :target="!isInternalLink(link) ? '_blank' : ''"
       :rel="!isInternalLink(link) ? 'noopener' : ''"
+      exact
       router
-      class="ListItem-Link"
+      :class="['ListItem-Link', isActive(link)]"
     >
-      <v-list-item-action v-if="icon" class="ListItem-IconContainer">
+      <v-list-item-action
+        v-if="icon"
+        class="ListItem-IconContainer"
+      >
         <v-icon
           v-if="checkIconType(icon) === 'material'"
           :class="['ListItem-Icon', isActive(link)]"
@@ -43,7 +46,7 @@
       >
         mdi-open-in-new
       </v-icon>
-    </a>
+    </component>
   </v-list-item>
 </template>
 
@@ -167,6 +170,13 @@ export default class ListItem extends Vue {
     margin-left: 2px;
     color: $gray-3 !important;
   }
+  &-Link {
+    display: contents;
+    color: rgba(0, 0, 0, 0.87) !important;
+    &.isActive {
+      color: transparent !important;
+    }
+  }
 }
 .isActive {
   color: $green-1 !important;
@@ -176,9 +186,5 @@ svg.isActive {
   > path:not(:first-of-type) {
     fill: $green-1;
   }
-}
-.ListItem-Link {
-  display: contents;
-  text-decoration: none;
 }
 </style>
