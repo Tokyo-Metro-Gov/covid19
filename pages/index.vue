@@ -28,7 +28,6 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="陽性患者数"
-          :chart-id="'time-bar-chart-patients'"
           :title-id="'number-of-confirmed-cases'"
           :chart-data="patientsGraph"
           :date="Data.patients.date"
@@ -54,7 +53,6 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
           title="検査実施数"
-          :chart-id="'time-stacked-bar-chart-inspections'"
           :title-id="'number-of-tested'"
           :chart-data="inspectionsGraph"
           :date="Data.inspections_summary.date"
@@ -66,7 +64,6 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
-          :chart-id="'time-bar-chart-contacts'"
           :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
           :chart-data="contactsGraph"
           :date="Data.contacts.date"
@@ -77,7 +74,6 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナ受診相談窓口相談件数"
-          :chart-id="'time-bar-chart-querents'"
           :title-id="'number-of-reports-to-covid19-consultation-desk'"
           :chart-data="querentsGraph"
           :date="Data.querents.date"
@@ -88,7 +84,6 @@
       <v-col cols="12" md="6" class="DataCard">
         <metro-bar-chart
           title="都営地下鉄の利用者数の推移"
-          :chart-id="'metro-bar-chart'"
           :title-id="'predicted-number-of-toei-subway-passengers'"
           :chart-data="metroGraph"
           :chart-option="metroGraphOption"
