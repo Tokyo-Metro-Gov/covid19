@@ -8,7 +8,7 @@
       >
         mdi-menu
       </v-icon>
-      <nuxt-link to="/" class="SideNavigation-HeadingLink">
+      <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
           <img src="/logo.svg" :alt="$t('東京都')" />
         </div>
