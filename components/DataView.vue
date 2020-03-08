@@ -18,10 +18,7 @@
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
-      <a
-        class="Permalink"
-        :href="'/cards/' + titleId"
-      >
+      <a class="Permalink" :href="'/cards/' + titleId">
         <time :datetime="date">{{ date }} 更新</time>
       </a>
       <a
@@ -38,17 +35,21 @@
       </a>
     </v-footer>
     <v-footer class="DataView-Share">
-      <button v-on:click="openGraphEmbed = true">
-        <div>埋め込む</div>
+      <button @click="openGraphEmbed = true">
+        <v-icon class="icon-resize embed" size="40">mdi-code-tags</v-icon>
+        <div class="share-text">埋め込む</div>
       </button>
-      <button v-on:click="twitter">
-        <div>Twitter</div>
+      <button @click="twitter">
+        <v-icon class="icon-resize twitter" size="40">mdi-twitter</v-icon>
+        <div class="share-text">Twitter</div>
       </button>
-      <button v-on:click="facebook">
-        <div>Facebook</div>
+      <button @click="facebook">
+        <v-icon class="icon-resize facebook" size="73">mdi-facebook</v-icon>
+        <div class="share-text">Facebook</div>
       </button>
-      <button v-on:click="line">
-        <div>LINE</div>
+      <button @click="line">
+        <v-icon class="icon-resize line" size="40">line</v-icon>
+        <div class="share-text">LINE</div>
       </button>
     </v-footer>
     <v-footer v-if="openGraphEmbed">
@@ -168,6 +169,35 @@ export default class DataView extends Vue {
     display: flex;
     justify-content: space-around;
     background-color: $white !important;
+
+    .icon-resize {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin-left: 4px;
+      margin-right: 4px;
+      margin-bottom: 8px;
+
+      &.embed {
+        background: #f2f2f2;
+        border: 1px solid #e4e4e4;
+      }
+      &.twitter {
+        color: #fff;
+        background: #2a96eb;
+      }
+      &.facebook {
+        color: #364e8a;
+      }
+      &.line {
+        color: #fff;
+        background: #1cb127;
+      }
+    }
+    .share-text {
+      color: rgb(3, 3, 3);
+      font-size: 13px;
+    }
   }
 }
 textarea {

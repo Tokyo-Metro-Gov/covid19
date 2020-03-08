@@ -17,7 +17,7 @@ import MetroBarChart from '@/components/MetroBarChart.vue'
 
 export default {
   components: {
-    MetroBarChart,
+    MetroBarChart
   },
   data() {
     // 都営地下鉄の利用者数の推移

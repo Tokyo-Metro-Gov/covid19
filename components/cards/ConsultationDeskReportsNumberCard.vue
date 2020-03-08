@@ -18,7 +18,7 @@ import TimeBarChart from '@/components/TimeBarChart.vue'
 
 export default {
   components: {
-    TimeBarChart,
+    TimeBarChart
   },
   data() {
     // 帰国者・接触者電話相談センター相談件数
@@ -26,7 +26,7 @@ export default {
 
     const data = {
       Data,
-      querentsGraph,
+      querentsGraph
     }
     return data
   }

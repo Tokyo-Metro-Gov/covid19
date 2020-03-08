@@ -18,7 +18,7 @@ import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 
 export default {
   components: {
-    TimeStackedBarChart,
+    TimeStackedBarChart
   },
   data() {
     // 検査実施日別状況
@@ -36,7 +36,7 @@ export default {
       Data,
       inspectionsGraph,
       inspectionsItems,
-      inspectionsLabels,
+      inspectionsLabels
     }
     return data
   }
