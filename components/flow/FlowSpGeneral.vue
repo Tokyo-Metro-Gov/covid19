@@ -69,7 +69,7 @@ export default {
 .General {
   @include card-container();
   text-align: center;
-  padding: 24px 20px 18px;
+  padding: 30px 20px;
   margin-bottom: 20px;
   &Icon {
     width: 40px;
