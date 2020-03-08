@@ -3,7 +3,7 @@ import os
 
 os.mkdir('ogps')
 
-size = [1200,630]
+size = [959,640]
 PATHS = [
     '/cards/details-of-confirmed-cases',
     '/cards/number-of-confirmed-cases',
@@ -19,4 +19,4 @@ driver = getattr(webdriver, browser)()
 driver.set_window_size(size[0], size[1])
 for path in PATHS:
     driver.get("http://localhost:8000"+path+"?embed=true")
-    driver.save_screenshot('ogps/'+path.replace('/cards/', '').replace('/', '_')+'.png')
+    driver.save_screenshot('ogps/ogp-'+path.replace('/cards/', '').replace('/', '_')+'.png')
