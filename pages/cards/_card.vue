@@ -50,7 +50,6 @@ export default {
     ConsultationDeskReportsNumberCard,
     MetroCard
   },
-  // layout: 'card',
   data() {
     let title
     switch (this.$route.params.card) {
