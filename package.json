@@ -5,7 +5,7 @@
   "author": "東京都",
   "private": true,
   "engines": {
-    "node": "^10.19.0"
+    "node": ">=10.19.0"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt-ts",
@@ -15,7 +15,8 @@
     "generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "lint-and-generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "test": "echo 'skip tests (there is no test)'",
-    "lint": "eslint './**/*.{js,ts,vue}' --fix"
+    "lint": "eslint './**/*.{js,ts,vue}' --fix",
+    "clean-hardsource": "rimraf ./node_modules/.cache/hard-source"
   },
   "lint-staged": {
     "*.{js,ts,vue}": [
@@ -63,6 +64,7 @@
     "nuxt-purgecss": "^0.2.1",
     "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
     "vue-jest": "^4.0.0-0"
   }
 }
