@@ -172,7 +172,16 @@ const config: Configuration = {
     splash_pages: null
   },
   generate: {
-    fallback: true
+    fallback: true,
+    routes: [
+      '/cards/details-of-confirmed-cases',
+      '/cards/number-of-confirmed-cases',
+      '/cards/attributes-of-confirmed-cases',
+      '/cards/number-of-tested',
+      '/cards/number-of-reports-to-covid19-telephone-advisory-center',
+      '/cards/number-of-reports-to-covid19-consultation-desk',
+      '/cards/predicted-number-of-toei-subway-passengers'
+    ]
   },
   // /*
   // ** hot read configuration for docker
