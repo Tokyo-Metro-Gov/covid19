@@ -335,7 +335,7 @@ export default {
     }
     .counter {
       margin-top: 17px;
-      background-color: #FACC2E;
+      background-color: #FCE245;
       padding: 20px;
       border-radius: 5px;
       box-shadow : -1px 2px 5px #888; 
