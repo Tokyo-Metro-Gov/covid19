@@ -88,6 +88,10 @@ const config: Configuration = {
     {
       src: '@/plugins/vue-chart.ts',
       ssr: true
+    },
+    {
+      src: '@/plugins/axe',
+      ssr: true
     }
   ],
   /*
