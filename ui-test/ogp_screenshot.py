@@ -3,7 +3,7 @@ import os
 
 os.mkdir('ogps')
 
-size = [959,640]
+size = [959,840]
 PATHS = [
     '/cards/details-of-confirmed-cases',
     '/cards/number-of-confirmed-cases',
