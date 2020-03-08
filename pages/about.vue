@@ -13,8 +13,8 @@
       <ul class="About-Browser-List">
         <li>Microsoft Edge 最新版</li>
         <li>Mozilla Firefox 最新版</li>
-        <li>Google Chrome 最新版 (Windows 10以上)</li>
-        <li>Safari (macOS) 最新版</li>
+        <li>Google Chrome 最新版 (Windows 10以上, Android 8.0以上)</li>
+        <li>Safari 最新版 (macOS, iOS)</li>
         <li>Opera 最新版</li>
       </ul>
       ※
