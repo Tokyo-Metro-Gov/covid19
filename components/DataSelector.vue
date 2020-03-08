@@ -39,15 +39,16 @@
 }
 </style>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   name: 'DataSelector',
   props: {
     value: {
       type: String,
-      required: false,
       default: ''
     }
   }
-}
+})
 </script>

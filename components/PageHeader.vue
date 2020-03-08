@@ -12,10 +12,25 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ['title', 'icon', 'date']
-}
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    icon: {
+      type: String,
+      required: true
+    },
+    date: {
+      type: String,
+      required: true
+    }
+  }
+})
 </script>
 
 <style lang="scss">
