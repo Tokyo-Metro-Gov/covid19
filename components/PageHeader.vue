@@ -9,14 +9,13 @@
   </div>
 </template>
 
-<script lang="ts">
-// FIXME: to nuxt-property-decorator
-// SEE: https://github.com/tokyo-metropolitan-gov/covid19/issues/646
-import { Component, Prop, Vue } from 'vue-property-decorator'
-
-@Component
-export default class extends Vue {
-  @Prop({ type: String, required: false }) private icon?: string
+<script>
+export default {
+  props: {
+    icon: {
+      type: String
+    }
+  }
 }
 </script>
 
