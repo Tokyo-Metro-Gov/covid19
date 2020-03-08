@@ -3,27 +3,27 @@
     <div :class="$style.AdvisoryContainer">
       <div :class="$style.AdvisoryContents">
         <div>
-          <span :class="$style.AdvisoryContentsTitle" v-html="$t('Advisory')" />
+          <span :class="$style.AdvisoryContentsTitle">
+            {{ $t('COVID-19') }}<br />{{ $t('Advisory Support') }}
+          </span>
         </div>
         <div :class="[$style.AdvisoryContentsColsSentense, $style.mt16]">
-          <span v-html="$t('Advisory Center')" />
+          {{ $t('Advisory Target') }}<br />{{ $t('Advisory Center') }}
         </div>
         <div :class="[$style.AdvisoryBlockCentering, $style.mt20]">
           <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryWhiteBox]">
-            <span
-              :class="$style.AdvisoryWhiteBoxSentense"
-              v-html="$t('Support')"
-            />
+            <span :class="$style.AdvisoryWhiteBoxSentense">{{
+              $t('Support Range')
+            }}</span>
           </div>
         </div>
       </div>
 
       <div :class="$style.AdvisoryContents">
         <div>
-          <div
-            :class="$style.AdvisoryContentsTitle2"
-            v-html="$t('Weekday Daytime')"
-          />
+          <div :class="$style.AdvisoryContentsTitle2">
+            {{ $t('Weekday Daytime') }}
+          </div>
           <div
             :class="[
               $style.AdvisoryLink,
@@ -36,7 +36,7 @@
               target="_blank"
               rel="noopener"
             >
-              <span v-html="$t('Bureau HP')" />
+              {{ $t('Bureau TEL') }}<br />{{ $t('Bureau HP') }}
               <v-icon size="18">
                 mdi-open-in-new
               </v-icon>
@@ -47,17 +47,15 @@
 
       <div :class="$style.AdvisoryContents">
         <div>
-          <div
-            :class="$style.AdvisoryContentsTitle2"
-            v-html="$t('Weekday Night')"
-          />
-          <span v-html="$t('Support Hours')" />
+          <div :class="$style.AdvisoryContentsTitle2">
+            {{ $t('Weekday Night') }}
+          </div>
+          <span>{{ $t('Support Hours') }}</span>
         </div>
         <div :class="$style.mt4">
-          <span
-            :class="$style.AdvisoryContentsSubTitle"
-            v-html="$t('Holiday All Day')"
-          />
+          <span :class="$style.AdvisoryContentsSubTitle">
+            {{ $t('Holiday All Day') }}
+          </span>
         </div>
         <div
           :class="[
@@ -78,10 +76,9 @@
 
     <div :class="[$style.AdvisoryBlockCentering, $style.mt8]">
       <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryBlackBox]">
-        <span
-          :class="$style.AdvisoryBlackBoxSentense"
-          v-html="$t('Necessary')"
-        />
+        <span :class="$style.AdvisoryBlackBoxSentense">
+          {{ $t('Necessary Help') }}<br />{{ $t('Necessary Then') }}
+        </span>
       </div>
     </div>
   </div>
@@ -90,15 +87,19 @@
 <i18n>
 {
   "ja": {
-    "Advisory": "新型コロナ<br />受診相談窓口",
-    "Advisory Center": "帰国者・接触者<br />電話相談センター",
-    "Support": "24時間対応",
+    "COVID-19": "新型コロナ",
+    "Advisory Support": "受診相談窓口",
+    "Advisory Target": "帰国者・接触者",
+    "Advisory Center": "電話相談センター",
+    "Support Range": "24時間対応",
     "Weekday Daytime": "平日（日中）",
-    "Bureau HP": "各保健所の電話番号は<br />福祉保健局ＨＰへ",
+    "Bureau TEL": "各保健所の電話番号は",
+    "Bureau HP": "福祉保健局ＨＰへ",
     "Weekday Night": "平日（夜間）",
     "Support Hours": "午後5時から翌朝午前9時",
     "Holiday All Day": "土日祝 終日",
-    "Necessary": "専門的な助言が<br />必要な場合"
+    "Necessary Help": "専門的な助言が",
+    "Necessary Then": "必要な場合"
   }
 }
 </i18n>
@@ -207,4 +208,6 @@
 }
 </style>
 
-<script></script>
+<script>
+export default {}
+</script>
