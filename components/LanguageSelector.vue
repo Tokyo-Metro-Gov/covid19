@@ -1,27 +1,28 @@
 <template>
   <div class="SelectLanguages mb-3 clearfix">
     <div class="SelectLanguages__inner">
-      <div>{{ currentLocale.name }}</div>
-      <nuxt-link
-        v-for="locale in availableLocales"
-        :key="locale.code"
-        :to="switchLocalePath(locale.code)"
-        class="SelectLanguage"
-      >
-        {{ locale.name }}
-      </nuxt-link>
+      <div style="background: #eee; padding: 20px;">
+        <label>言語設定：</label>
+        <select v-model="$i18n.locale" @change="navigate($i18n.locale)">
+          <option
+            v-for="locale in $i18n.locales"
+            :key="locale.code"
+            :value="locale.code"
+          >
+            {{ locale.name }}
+          </option>
+        </select>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  computed: {
-    currentLocale() {
-      return this.$i18n.locales.find(i => i.code === this.$i18n.locale)
-    },
-    availableLocales() {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+  methods: {
+    navigate(locale) {
+      const path = locale === 'ja' ? '/' : '/' + locale
+      this.$router.push(path)
     }
   }
 }
