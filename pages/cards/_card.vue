@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import Data from '@/data/data.json'
+import MetroData from '@/data/metro.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
@@ -52,33 +54,41 @@ export default {
     MetroCard
   },
   data() {
-    let title
+    let title, updatedAt
     switch (this.$route.params.card) {
       case 'details-of-confirmed-cases':
         title = '検査陽性者の状況'
+        updatedAt = Data.lastUpdate
         break
       case 'number-of-confirmed-cases':
         title = '陽性患者数'
+        updatedAt = Data.patients.date
         break
       case 'attributes-of-confirmed-cases':
         title = '陽性患者の属性'
+        updatedAt = Data.patients.date
         break
       case 'number-of-tested':
         title = '検査実施数'
+        updatedAt = Data.inspections_summary.date
         break
       case 'number-of-reports-to-covid19-telephone-advisory-center':
         title = '新型コロナコールセンター相談件数'
+        updatedAt = Data.contacts.date
         break
       case 'number-of-reports-to-covid19-consultation-desk':
         title = '新型コロナ受診相談窓口相談件数'
+        updatedAt = Data.querents.date
         break
       case 'predicted-number-of-toei-subway-passengers':
         title = '都営地下鉄の利用者数の推移'
+        updatedAt = MetroData.date
         break
     }
 
     const data = {
-      title
+      title,
+      updatedAt
     }
     return data
   },
@@ -87,22 +97,39 @@ export default {
       title: this.title,
       meta: [
         {
+          hid: 'description',
+          property: 'description',
+          content:
+            this.updatedAt +
+            ' 更新 | ' +
+            '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+        },
+        {
+          hid: 'og:url',
           property: 'og:url',
           content: 'https://stopcovid19.metro.tokyo.lg.jp' + this.$route.path
         },
         {
+          hid: 'og:title',
           property: 'og:title',
           content: this.title + ' | 東京都 新型コロナウイルス感染症対策サイト'
         },
-        { property: 'og:description', content: 'TOFIX' },
         {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            this.updatedAt +
+            ' 更新 | ' +
+            '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+        },
+        {
+          hid: 'og:image',
           property: 'og:image',
           content:
             'https://stopcovid19.metro.tokyo.lg.jp/ogp' +
             this.$route.params.card +
             '.png'
-        },
-        { property: 'fb:app_id', content: 'TOFIX' }
+        }
       ]
     }
   }
