@@ -4,17 +4,17 @@
       <div :class="$style.AdvisoryContents">
         <div>
           <span :class="$style.AdvisoryContentsTitle">
-            {{ $t('COVID-19') }}<br />{{ $t('Advisory Support') }}
+            新型コロナ<br />受診相談窓口
           </span>
         </div>
         <div :class="[$style.AdvisoryContentsColsSentense, $style.Mt16]">
-          {{ $t('Advisory Target') }}<br />{{ $t('Advisory Center') }}
+          帰国者・接触者<br />電話相談センター
         </div>
         <div :class="[$style.AdvisoryBlockCentering, $style.Mt20]">
           <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryWhiteBox]">
-            <span :class="$style.AdvisoryWhiteBoxSentense">{{
-              $t('Support Range')
-            }}</span>
+            <span :class="$style.AdvisoryWhiteBoxSentense">
+              24時間対応
+            </span>
           </div>
         </div>
       </div>
@@ -22,7 +22,7 @@
       <div :class="$style.AdvisoryContents">
         <div>
           <div :class="$style.AdvisoryContentsTitle2">
-            {{ $t('Weekday Daytime') }}
+            平日（日中）
           </div>
           <div
             :class="[
@@ -36,7 +36,7 @@
               target="_blank"
               rel="noopener"
             >
-              {{ $t('Bureau TEL') }}<br />{{ $t('Bureau HP') }}
+              各保健所の電話番号は<br />福祉保健局ＨＰへ
               <v-icon size="18">
                 mdi-open-in-new
               </v-icon>
@@ -48,13 +48,13 @@
       <div :class="$style.AdvisoryContents">
         <div>
           <div :class="$style.AdvisoryContentsTitle2">
-            {{ $t('Weekday Night') }}
+            平日（夜間）
           </div>
-          <span>{{ $t('Support Hours') }}</span>
+          <span>午後5時から翌朝午前9時</span>
         </div>
         <div :class="$style.Mt4">
           <span :class="$style.AdvisoryContentsSubTitle">
-            {{ $t('Holiday All Day') }}
+            土日祝 終日
           </span>
         </div>
         <div
@@ -77,32 +77,12 @@
     <div :class="[$style.AdvisoryBlockCentering, $style.Mt8]">
       <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryBlackBox]">
         <span :class="$style.AdvisoryBlackBoxSentense">
-          {{ $t('Necessary Help') }}<br />{{ $t('Necessary Then') }}
+          専門的な助言が<br />必要な場合
         </span>
       </div>
     </div>
   </div>
 </template>
-
-<i18n>
-{
-  "ja": {
-    "COVID-19": "新型コロナ",
-    "Advisory Support": "受診相談窓口",
-    "Advisory Target": "帰国者・接触者",
-    "Advisory Center": "電話相談センター",
-    "Support Range": "24時間対応",
-    "Weekday Daytime": "平日（日中）",
-    "Bureau TEL": "各保健所の電話番号は",
-    "Bureau HP": "福祉保健局ＨＰへ",
-    "Weekday Night": "平日（夜間）",
-    "Support Hours": "午後5時から翌朝午前9時",
-    "Holiday All Day": "土日祝 終日",
-    "Necessary Help": "専門的な助言が",
-    "Necessary Then": "必要な場合"
-  }
-}
-</i18n>
 
 <style module lang="scss">
 .Advisory {
