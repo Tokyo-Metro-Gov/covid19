@@ -18,9 +18,10 @@
           流行地域への渡航・居住歴がある方
         </strong>
         <span :class="$style.FlowPerson">
-          <em :class="$style.FlowLine">ご本人</em>か<em :class="$style.FlowLine"
-            >濃厚接触</em
-          >をした方
+          <em :class="$style.FlowLine">ご本人</em>
+          か
+          <em :class="$style.FlowLine">濃厚接触</em>
+          をした方
         </span>
       </div>
       <div :class="$style.FlowCondition">
