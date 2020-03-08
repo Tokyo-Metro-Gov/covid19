@@ -17,14 +17,14 @@
   padding: 20px 30px;
   @include card-container();
 
-&Heading {
+  &Heading {
     color: $gray-2;
     font-size: 10px;
     font-weight: bold;
     display: flex;
     align-items: center;
 
-&:before {
+    &:before {
       min-width: 30px;
       min-height: 30px;
       content: '';
@@ -34,7 +34,7 @@
     }
   }
 
-&subHeading {
+  &subHeading {
     color: $gray-2;
     font-size: 16px;
   }
