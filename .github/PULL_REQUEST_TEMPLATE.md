@@ -1,10 +1,15 @@
 ## 📝 関連issue / Related Issues
+
 <!--
   ・ 関連するissueがなければ消してください
   ・ issueを閉じるとは関係ないものは#{ISSUE_NUMBER}だけでOKです🙆‍♂️
 
   ・ You can remove this section if there are no related issues
   ・ If the issue is related but doesn't close upon merge, you can just write - #{ISSUE_NUMBER} 🙆‍♂️
+-->
+<!--
+  ・ If there's no related issue, please remove this section
+  ・ If there's no reason to close the issue, just "#{ISSUE_NUMBER}" is OK🙆‍♂️
 -->
 - close #{ISSUE_NUMBER}
 
