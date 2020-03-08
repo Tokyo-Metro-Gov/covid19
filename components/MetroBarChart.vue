@@ -7,7 +7,7 @@
         *都営地下鉄4路線の自動改札出場数
       </p>
     </template>
-    <bar :chart-data="displayData" :options="chartOption" :height="240" />
+    <bar :chart-id="chartId" :chart-data="displayData" :options="chartOption" :height="240" />
   </data-view>
 </template>
 
@@ -36,6 +36,7 @@ export default Vue.extend<
   {},
   {},
   {
+    chartId: string
     chartData: ChartData
     chartOption: ChartOptions
     title: string
@@ -53,6 +54,11 @@ export default Vue.extend<
       type: String,
       required: false,
       default: ''
+    },
+    chartId: {
+      type: String,
+      required: false,
+      default: 'metro-bar-chart'
     },
     chartData: Object,
     chartOption: Object,
