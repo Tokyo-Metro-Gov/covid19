@@ -37,6 +37,7 @@
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
+      <language-selector />
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
@@ -172,10 +173,12 @@
 
 <script>
 import ListItem from '@/components/ListItem'
+import LanguageSelector from '@/components/LanguageSelector.vue'
 
 export default {
   components: {
-    ListItem
+    ListItem,
+    LanguageSelector
   },
   props: {
     isNaviOpen: {
