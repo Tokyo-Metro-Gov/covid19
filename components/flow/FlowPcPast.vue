@@ -182,6 +182,7 @@
     font-size: calc(1rem + ((1vw - 7.68px) * 0.5952));
     padding-left: 2px;
     padding-right: 2px;
+    margin-top: -5px;
     @include largerThan($large) {
       font-size: 20px;
       padding-left: 5px;
