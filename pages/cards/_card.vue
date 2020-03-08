@@ -95,7 +95,13 @@ export default {
           content: this.title + ' | 東京都 新型コロナウイルス感染症対策サイト'
         },
         { property: 'og:description', content: 'TOFIX' },
-        { property: 'og:image', content: 'TOFIX' },
+        {
+          property: 'og:image',
+          content:
+            'https://stopcovid19.metro.tokyo.lg.jp/ogp' +
+            this.$route.params.card +
+            '.png'
+        },
         { property: 'fb:app_id', content: 'TOFIX' }
       ]
     }
