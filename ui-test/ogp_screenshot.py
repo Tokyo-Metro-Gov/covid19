@@ -14,5 +14,5 @@ browser = 'Chrome'
 driver = getattr(webdriver, browser)()
 driver.set_window_size(size[0], size[1])
 for path in PATHS:
-    driver.get("http://localhost:8000"+path)
+    driver.get("http://localhost:8000"+path+'?embed=true')
     driver.save_screenshot('ogps/'+browser+'_'+str(size[0])+'x'+str(size[1])+'_'+path.replace('/', '_')+'.png')
