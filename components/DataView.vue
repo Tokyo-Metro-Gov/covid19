@@ -105,8 +105,7 @@ export default class DataView extends Vue {
   permalink(host: boolean = false, embed: boolean = false) {
     let permalink = ''
     if (host) {
-      // permalink = permalink + 'https://stopcovid19.metro.tokyo.lg.jp'
-      permalink = permalink + 'http://localhost:3000'
+      permalink = location.protocol + '//' + location.host
     }
     permalink = permalink + '/cards/' + this.titleId
     if (embed) {
