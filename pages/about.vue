@@ -10,13 +10,13 @@
     </TextCard>
     <TextCard title="ブラウザ環境について">
       当サイトは以下の環境でご覧いただくことを推奨いたします。<br />
-      <br />
-      Microsoft Edge 最新版<br />
-      Mozilla Firefox 最新版<br />
-      Google Chrome 最新版 (Windows 10以上)<br />
-      Apple Safari (macOS) 最新版<br />
-      Opera Software ASA Opera 最新版<br />
-      <br />
+      <ul class="About-Browser-List">
+        <li>Microsoft Edge 最新版</li>
+        <li>Mozilla Firefox 最新版</li>
+        <li>Google Chrome 最新版 (Windows 10以上)</li>
+        <li>Safari (macOS) 最新版</li>
+        <li>Opera 最新版</li>
+      </ul>
       ※
       推奨環境以外で利用された場合や、推奨環境下でもご利用のブラウザの設定等によっては、正しく表示されない場合がありますのでご了承ください。
     </TextCard>
@@ -131,6 +131,13 @@ export default {
     font-weight: normal;
     color: $gray-2;
     margin-bottom: 12px;
+  }
+  & &-Browser-List {
+    // セレクタ指定が&-Browser-List のみだと
+    // .v-application ul の設定が勝ってしまい padding-left が24px となってしまうため
+    // このようなセレクタ指定としています
+    list-style: none;
+    padding: 12px 0;
   }
 }
 
