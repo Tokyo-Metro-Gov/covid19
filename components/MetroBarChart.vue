@@ -17,7 +17,7 @@
     margin-top: 10px;
     margin-bottom: 0 !important;
     font-size: 12px;
-    color: #808080;
+    color: $gray-3;
   }
 }
 </style>
