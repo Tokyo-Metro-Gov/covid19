@@ -1,8 +1,5 @@
 <template>
-  <v-list-item
-    v-ripple="false"
-    class="ListItem-Container"
-  >
+  <v-list-item class="ListItem-Container">
     <component
       :is="isInternalLink(link) ? 'nuxt-link' : 'a'"
       :to="isInternalLink(link) ? link : ''"
@@ -169,10 +166,8 @@ export default class ListItem extends Vue {
   }
   &-Link {
     display: contents;
-    color: rgba(0, 0, 0, 0.87) !important;
-    &.isActive {
-      color: transparent !important;
-    }
+    color: transparent !important;
+    text-decoration: none !important;
   }
 }
 .isActive {
