@@ -72,7 +72,7 @@
       font-size: 9vw;
     }
     .small {
-        font-size: 2vw;
+      font-size: 2vw;
     }
   }
   p {
