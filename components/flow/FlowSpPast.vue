@@ -55,11 +55,7 @@
         </div>
       </div>
     </div>
-    <a
-      v-scroll-to="'#consult'"
-      href="#consult"
-      :class="$style.counter"
-    >
+    <a v-scroll-to="'#consult'" href="#consult" :class="$style.counter">
       新型コロナ受診相談窓口へ
     </a>
   </div>
