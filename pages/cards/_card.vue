@@ -26,7 +26,8 @@
     />
     <metro-card
       v-else-if="
-        this.$route.params.card == 'predicted-number-of-toei-subway-passengers'"
+        this.$route.params.card == 'predicted-number-of-toei-subway-passengers'
+      "
     />
   </div>
 </template>

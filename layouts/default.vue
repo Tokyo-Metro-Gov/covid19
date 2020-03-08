@@ -47,7 +47,7 @@ export default Vue.extend({
   },
   data(): LocalData {
     let hasNavigation = true
-    if (this.$route.query.embed == 'true') {
+    if (this.$route.query.embed === 'true') {
       hasNavigation = false
     }
 
