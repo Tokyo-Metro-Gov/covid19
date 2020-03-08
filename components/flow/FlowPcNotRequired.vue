@@ -25,8 +25,8 @@
     </ul>
     <div :class="$style.nextAction">
       <p>
-        症状が <br />
-        よくならない場合は
+        症状が<br />
+        良くならない場合は
       </p>
       <p>
         <strong>新型コロナ受診相談窓口</strong>
@@ -37,15 +37,6 @@
     </div>
   </div>
 </template>
-<script lang="ts">
-import Vue from 'vue'
-
-const FlowPcNotRequired = Vue.extend({
-  name: 'FlowPcNotRequired'
-})
-
-export default FlowPcNotRequired
-</script>
 <style module lang="scss">
 .flowContainer {
   @include card-container();
