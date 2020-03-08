@@ -55,8 +55,7 @@ export default {
   props: {
     value: {
       type: String,
-      required: false,
-      default: ''
+      default: 'transition'
     }
   }
 }
