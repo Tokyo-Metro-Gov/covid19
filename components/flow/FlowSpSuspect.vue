@@ -87,7 +87,7 @@
     align-items: center;
     justify-content: center;
     flex-basis: 26%;
-    height: 46px;
+    padding: 16px;
     margin: 4px 0 13px;
     border: 2px solid $green-1 !important;
     border-radius: 4px;
