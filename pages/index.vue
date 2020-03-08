@@ -96,6 +96,7 @@
         />
       </v-col>
     </v-row>
+    <development-mode-mark />
   </div>
 </template>
 
@@ -114,6 +115,7 @@ import formatTable from '@/utils/formatTable'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import News from '@/data/news.json'
 import SvgCard from '@/components/SvgCard.vue'
+import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
 
 export default {
@@ -126,6 +128,7 @@ export default {
     StaticInfo,
     DataTable,
     SvgCard,
+    DevelopmentModeMark,
     ConfirmedCasesTable
   },
   data() {
