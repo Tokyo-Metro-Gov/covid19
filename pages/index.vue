@@ -79,7 +79,7 @@ export default {
   },
   head() {
     return {
-      title: '都内の最新感染動向'
+      title: this.headerItem.title
     }
   }
 }
