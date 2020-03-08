@@ -29,9 +29,9 @@
         <em :class="$style.FlowSymptom">呼吸器症状</em>
         <span :class="$style.FlowText">かつ</span>
         <em :class="$style.FlowSymptom">
-          発熱
-          <span>37.5℃</span>
-          以上
+          <span :class="$style.FlowTextSm">発熱</span>
+          <span :class="$style.FlowTemperature">37.5℃</span>
+          <span :class="$style.FlowTextSm">以上</span>
         </em>
       </div>
     </div>
@@ -94,7 +94,7 @@
     }
   }
   &Title {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     color: $green-1;
     font-size: calc(0.75rem + ((1vw - 7.68px) * 0.4464));
     font-weight: bold;
@@ -104,11 +104,11 @@
   }
   &Person {
     font-weight: bold;
-    font-size: calc(0.875rem + ((1vw - 7.68px) * 1.3393));
+    font-size: calc(0.6875rem + ((1vw - 7.68px) * 0.5952));
     line-height: 1.8;
     text-align: center;
     @include largerThan($large) {
-      font-size: 22px;
+      font-size: 23px;
     }
   }
   &Line {
@@ -175,6 +175,19 @@
   }
   &SText {
     font-size: 16px;
+  }
+  &Temperature {
+    font-size: calc(1rem + ((1vw - 7.68px) * 0.5952));
+    padding-left: 2px;
+    padding-right: 2px;
+    @include largerThan($large) {
+      font-size: 20px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+  &TextSm {
+    font-size: 14px;
   }
 }
 </style>
