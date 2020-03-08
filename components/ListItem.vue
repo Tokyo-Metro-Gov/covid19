@@ -3,7 +3,7 @@
     <component
       :is="isInternalLink(link) ? 'nuxt-link' : 'a'"
       :to="isInternalLink(link) ? link : ''"
-      :href="!isInternalLink(link) ? link : ''"
+      :href="link"
       :target="!isInternalLink(link) ? '_blank' : ''"
       :rel="!isInternalLink(link) ? 'noopener' : ''"
       router
