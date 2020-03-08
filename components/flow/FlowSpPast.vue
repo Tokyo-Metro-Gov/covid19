@@ -1,80 +1,73 @@
 <template>
-    <div :class="$style.SpPast">
-        <h3>
-        発症前<strong>２</strong>週間以内
-        <small>&nbsp;の出来ごとと症状</small>
-        </h3>
-        <p>
-        <small>「新型コロナウイルス感染者」と</small><br />
-        <span :class="$style.underline">
-            濃厚接触
-        </span>
-        をした方<br />
-        </p>
-        <div :class="[$style.flexContainer]">
-        <div :class="$style.item">
-            <div>
-            発熱
-            </div>
+  <div :class="$style.SpPast">
+    <h3>
+      発症前<strong>２</strong>週間以内
+      <span :class="$style.small">&nbsp;の出来ごとと症状</span>
+    </h3>
+    <p>
+      <span :class="$style.small">「新型コロナウイルス感染者」と</span><br />
+      <span :class="$style.underline">
+        濃厚接触
+      </span>
+      をした方<br />
+    </p>
+    <div :class="[$style.flexContainer]">
+      <div :class="$style.item">
+        <div>
+          発熱
         </div>
-        <div :class="$style.item">
-            または
+      </div>
+      <div :class="$style.item">
+        または
+      </div>
+      <div :class="$style.item">
+        <div>
+          呼吸器症状
         </div>
-        <div :class="$style.item">
-            <div>
-            呼吸器症状
-            </div>
-        </div>
-        </div>
-        <p :class="$style.hr">
-        <small>流行地域への渡航・居住歴がある方</small><br />
-        <span :class="$style.underline">
-            ご本人
-        </span>
-        か
-        <span :class="$style.underline">
-            濃厚接触
-        </span>
-        をした方
-        </p>
-        <div :class="$style.flexContainer">
-        <div :class="$style.item">
-            <div>
-            呼吸器症状
-            </div>
-        </div>
-        <div :class="$style.item">
-            かつ
-        </div>
-        <div :class="$style.item">
-            <div :class="$style.block">
-            <small>発熱</small>
-            <div>
-                37.5℃以上
-            </div>
-            </div>
-        </div>
-        </div>
-        <a
-        v-scroll-to="'#consult'"
-        href="#consult"
-        :class="$style.counter"
-        >
-        新型コロナ受診相談窓口へ
-        </a>
+      </div>
     </div>
+    <p :class="$style.hr">
+      <span :class="$style.small">流行地域への渡航・居住歴がある方</span><br />
+      <span :class="$style.underline">
+        ご本人
+      </span>
+      か
+      <span :class="$style.underline">
+        濃厚接触
+      </span>
+      をした方
+    </p>
+    <div :class="$style.flexContainer">
+      <div :class="$style.item">
+        <div>
+          呼吸器症状
+        </div>
+      </div>
+      <div :class="$style.item">
+        かつ
+      </div>
+      <div :class="$style.item">
+        <div :class="$style.block">
+          <span :class="$style.small">発熱</span>
+          <div>
+            37.5℃以上
+          </div>
+        </div>
+      </div>
+    </div>
+    <a
+      v-scroll-to="'#consult'"
+      href="#consult"
+      :class="$style.counter"
+    >
+      新型コロナ受診相談窓口へ
+    </a>
+  </div>
 </template>
-
-<script>
-export default {
-    props: [],
-    methods: {}
-}
-</script>
 
 <style module lang="scss">
 .SpPast {
-  color: #555;
+  color: $gray-2;
   h3 {
     text-align: center;
     margin-bottom: 0.5em;
@@ -82,7 +75,7 @@ export default {
     strong {
       font-size: 9vw;
     }
-    small {
+    .small {
         font-size: 2vw;
     }
   }
@@ -90,13 +83,13 @@ export default {
     text-align: center;
     font-weight: bold;
     font-size: 120%;
-    small {
+    .small {
       color: green;
       font-size: 70%;
     }
     .underline {
       display: inline-block;
-      border-bottom: #16892e 4px solid;
+      border-bottom: $green-1 4px solid;
     }
   }
   .flexContainer {
@@ -111,7 +104,7 @@ export default {
         width: 35%;
         > div {
           height: 50px;
-          border: #16892e 2px solid;
+          border: $green-1 2px solid;
           border-radius: 5px;
 
           // 上下中央寄せ
@@ -125,7 +118,7 @@ export default {
             width: 24px;
             height: 24px;
             content: '';
-            background-color: #fff;
+            background-color: $white;
             background-image: url(/flow/check_circle-24px.svg);
             position: absolute;
             top: -12px;
@@ -146,14 +139,14 @@ export default {
         justify-content: center;
         align-items: center;
       }
-      small {
+      .small {
         font-size: 50%;
       }
     }
   }
   .hr {
     &::before {
-      border-bottom: 1px #aaa solid;
+      border-bottom: 1px $gray-4 solid;
       margin-top: 1.2em;
       margin-bottom: 1.2em;
       height: 1px;
@@ -168,11 +161,11 @@ export default {
     background-color: #ffe200;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: -1px 2px 5px #888;
+    box-shadow: -1px 2px 5px $gray-3;
     display: block;
     position: relative;
     text-decoration: none;
-    color: #555;
+    color: $gray-2;
     font-weight: bold;
     &::after {
       z-index: 99;
