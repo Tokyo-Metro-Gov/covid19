@@ -1,5 +1,6 @@
 <template>
   <div class="About">
+    <language-selector />
     <h2 class="About-Heading">
       {{ $t('当サイトについて') }}
     </h2>
@@ -67,10 +68,10 @@
         )
       }}
     </TextCard>
-    <TextCard :title="$t('Google Analyticsの利用について')">
+    <TextCard :title="$t('Google Analytics の利用について')">
       {{
         $t(
-          '当サイトでは、サービス向上やWebサイトの改善のためにGoogle Inc.の提供するアクセス分析のツールであるGoogle Analyticsを利用した計測を行っております。'
+          '当サイトでは、サービス向上やWebサイトの改善のためにGoogle LLCの提供するアクセス分析のツールであるGoogle Analyticsを利用した計測を行っております。'
         )
       }}<br />
       {{
@@ -83,7 +84,6 @@
           '取得したデータはWebサイト利用状況の分析、サイト運営者へのレポートの作成、その他のサービスの提供に関わる目的に限り、これを使用します。'
         )
       }}<br />
-      <br />
       {{
         $t(
           'Google Analyticsの利用規約及びプライバシーポリシーに関する説明については、Google Analyticsのサイトをご覧ください。'
@@ -143,22 +143,21 @@
         href="https://portal.data.metro.tokyo.lg.jp/"
         target="_blank"
         rel="noopener"
-        >東京都オープンデータカタログサイト</a
-      >より誰でも自由にダウンロードが可能です。（データは順次追加予定です）
+      >東京都オープンデータカタログサイト</a>より誰でも自由にダウンロードが可能です。（データは順次追加予定です）
     </TextCard>
     <TextCard title="ソースコードについて">
       本サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。詳しくは、<a
         href="https://github.com/tokyo-metropolitan-gov/covid19"
         target="_blank"
         rel="noopener"
-        >GitHub リポジトリ</a
-      >をご確認ください。
+      >GitHub リポジトリ</a>をご確認ください。
     </TextCard>
 
     <TextCard title="お問い合わせ先（都のHPサイトポリシーについて）">
       {{ $t('東京都生活文化局広報広聴部広報課') }}<br />
       {{ $t('電話') }}
       <a href="tel:03-5388-3085">03-5388-3085</a>
+    </TextCard>
     </TextCard>
   </div>
 </template>
@@ -187,7 +186,7 @@
     "ブラウザに関する情報の収集を希望しない場合は、インターネット閲覧ソフト（ブラウザ）をご自身で設定することにより、クッキーの機能が働かないようにすることも可能です。": "ブラウザに関する情報の収集を希望しない場合は、インターネット閲覧ソフト（ブラウザ）をご自身で設定することにより、クッキーの機能が働かないようにすることも可能です。",
     "ただし、クッキーを受け入れない設定をされている場合は、本サイトの機能が正常に動作しない場合がございます。": "ただし、クッキーを受け入れない設定をされている場合は、本サイトの機能が正常に動作しない場合がございます。",
     "Google Analytics の利用について": "Google Analytics の利用について",
-    "当サイトでは、サービス向上やWebサイトの改善のためにGoogle Inc.の提供するアクセス分析のツールであるGoogle Analyticsを利用した計測を行っております。": "当サイトでは、サービス向上やWebサイトの改善のためにGoogle Inc.の提供するアクセス分析のツールであるGoogle Analyticsを利用した計測を行っております。",
+    "当サイトでは、サービス向上やWebサイトの改善のためにGoogle LLCの提供するアクセス分析のツールであるGoogle Analyticsを利用した計測を行っております。": "当サイトでは、サービス向上やWebサイトの改善のためにGoogle LLCの提供するアクセス分析のツールであるGoogle Analyticsを利用した計測を行っております。",
     "Google Analyticsは、当サイトが発行するクッキー(Cookie)を利用して、個人を特定する情報を含まずにWebサイトの利用データ（アクセス状況、トラフィック、閲覧環境など）を収集しております。クッキー(Cookie)の利用に関してはGoogleのプライバシーポリシーと規約に基づいております。": "Google Analyticsは、当サイトが発行するクッキー(Cookie)を利用して、個人を特定する情報を含まずにWebサイトの利用データ（アクセス状況、トラフィック、閲覧環境など）を収集しております。クッキー(Cookie)の利用に関してはGoogleのプライバシーポリシーと規約に基づいております。",
     "取得したデータはWebサイト利用状況の分析、サイト運営者へのレポートの作成、その他のサービスの提供に関わる目的に限り、これを使用します。": "取得したデータはWebサイト利用状況の分析、サイト運営者へのレポートの作成、その他のサービスの提供に関わる目的に限り、これを使用します。",
     "Google Analyticsの利用規約及びプライバシーポリシーに関する説明については、Google Analyticsのサイトをご覧ください。": "Google Analyticsの利用規約及びプライバシーポリシーに関する説明については、Google Analyticsのサイトをご覧ください。",
@@ -421,10 +420,12 @@
 </i18n>
 
 <script lang="ts">
+import LanguageSelector from '@/components/LanguageSelector.vue'
 import TextCard from '@/components/TextCard.vue'
 
 export default {
   components: {
+    LanguageSelector,
     TextCard
   },
   head() {
