@@ -94,10 +94,12 @@ export default {
   },
   head() {
     const url = location.protocol + '//' + location.host
+    const ogpImage = url + '/ogp-' + this.$route.params.card + '.png'
     const description =
       this.updatedAt +
       ' 更新 | ' +
       '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+
     return {
       title: this.title,
       meta: [
@@ -124,7 +126,12 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: url + '/ogp-' + this.$route.params.card + '.png'
+          content: ogpImage
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: ogpImage
         }
       ]
     }

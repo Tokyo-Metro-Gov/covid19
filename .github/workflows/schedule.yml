@@ -32,3 +32,4 @@ jobs:
         with:
           name: ogps
           path: ogps
+      - run: for (i in $(ls -d ogps/*)) { cp $i static/${i#*/} }
