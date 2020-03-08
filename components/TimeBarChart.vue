@@ -3,7 +3,12 @@
     <template v-slot:button>
       <data-selector v-model="dataKind" />
     </template>
-    <bar :chart-id="chartId" :chart-data="displayData" :options="displayOption" :height="240" />
+    <bar
+      :chart-id="chartId"
+      :chart-data="displayData"
+      :options="displayOption"
+      :height="240"
+    />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
