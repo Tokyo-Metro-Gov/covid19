@@ -40,8 +40,8 @@
       </div>
 
       <div :class="$style.TelLink">
-        <img src="/flow/phone-24px.svg" alt="Phone" />
         <a href="tel:0570550571">
+          <img src="/flow/phone-24px.svg" alt="Phone" />
           0570-550571
         </a>
       </div>
