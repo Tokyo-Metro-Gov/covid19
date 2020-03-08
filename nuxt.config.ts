@@ -66,6 +66,11 @@ const config: Configuration = {
         hid: 'twitter:image',
         name: 'twitter:image',
         content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+      },
+      {
+        hid: 'fb:app_id',
+        property: 'fb:app_id',
+        content: 'TOFIX'
       }
     ],
     link: [
