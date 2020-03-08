@@ -50,11 +50,6 @@
 </template>
 
 <style module lang="scss">
-$green-1: #00a040;
-$gray-2: #4d4d4d;
-$background-color: #f2f2f2;
-$border-color: #d9d9d9;
-
 .FlowComponent {
   color: $gray-2;
   font-family: 'Roboto', sans-serif;
@@ -67,7 +62,7 @@ $border-color: #d9d9d9;
 
 .TelLink {
   font-family: 'Roboto', sans-serif;
-  @media all and (min-width: 850px) {
+  @include largerThan($medium) {
     font-size: larger;
   }
   a {
@@ -86,7 +81,7 @@ $border-color: #d9d9d9;
   margin: 8px;
   padding: 4px 0;
   max-width: 200px;
-  @media all and (min-width: 850px) {
+  @include largerThan($medium) {
     font-size: larger;
   }
 
@@ -134,7 +129,7 @@ $border-color: #d9d9d9;
 .RowItems {
   flex-grow: 1;
   margin: 0 4px;
-  @media all and (min-width: 1024px) {
+  @include largerThan($large) {
     margin: 0 2em;
   }
 }
@@ -144,7 +139,7 @@ $border-color: #d9d9d9;
 }
 
 .LargerText {
-  font-size: Larger;
+  font-size: larger;
   font-weight: bold;
 }
 
