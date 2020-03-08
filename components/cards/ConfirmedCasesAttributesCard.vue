@@ -7,9 +7,7 @@
       :chart-option="{}"
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
-      :url="
-        'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
-      "
+      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
     />
   </v-col>
 </template>
@@ -41,7 +39,7 @@ export default {
     const data = {
       Data,
       patientsTable,
-      sumInfoOfPatients,
+      sumInfoOfPatients
     }
     return data
   }

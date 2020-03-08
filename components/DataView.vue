@@ -36,19 +36,27 @@
     </v-footer>
     <v-footer class="DataView-Share">
       <button @click="openGraphEmbed = true">
-        <v-icon class="icon-resize embed" size="40">mdi-code-tags</v-icon>
+        <v-icon class="icon-resize embed" size="40">
+          mdi-code-tags
+        </v-icon>
         <div class="share-text">埋め込む</div>
       </button>
       <button @click="twitter">
-        <v-icon class="icon-resize twitter" size="40">mdi-twitter</v-icon>
+        <v-icon class="icon-resize twitter" size="40">
+          mdi-twitter
+        </v-icon>
         <div class="share-text">Twitter</div>
       </button>
       <button @click="facebook">
-        <v-icon class="icon-resize facebook" size="73">mdi-facebook</v-icon>
+        <v-icon class="icon-resize facebook" size="73">
+          mdi-facebook
+        </v-icon>
         <div class="share-text">Facebook</div>
       </button>
       <button @click="line">
-        <v-icon class="icon-resize line" size="40">line</v-icon>
+        <v-icon class="icon-resize line" size="40">
+          line
+        </v-icon>
         <div class="share-text">LINE</div>
       </button>
     </v-footer>
@@ -75,18 +83,21 @@ export default class DataView extends Vue {
 
     const data = {
       openGraphEmbed: false,
-      graphEmbedValue,
+      graphEmbedValue
     }
     return data
   }
 
   twitter() {
+    // TODO
   }
 
   facebook() {
+    // TODO
   }
 
   line() {
+    // TODO
   }
 }
 </script>

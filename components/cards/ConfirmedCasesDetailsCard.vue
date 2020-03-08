@@ -33,7 +33,7 @@ export default {
       confirmedCases,
       headerItem: {
         date: Data.lastUpdate
-      },
+      }
     }
     return data
   }
