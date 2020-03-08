@@ -1,5 +1,6 @@
 <template>
   <v-btn-toggle
+    :aria-controls="targetId"
     :value="value"
     class="DataSelector"
     mandatory
@@ -56,6 +57,13 @@ export default {
     value: {
       type: String,
       default: 'transition'
+    },
+    targetId: {
+      type: String,
+      default: val => {
+        // TODO: type は NullableString 型をとり、default: null とする
+        return val && val !== '' ? val : null
+      }
     }
   }
 }
