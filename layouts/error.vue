@@ -5,11 +5,16 @@
     </h1>
     <div class="Error-BodyContainer">
       <p class="Error-Body">
-        アクセスしようとしたページが見つかりませんでした。<br />ページが移動または削除されたか、URLの入力間違いの可能性があります。
+        {{ $t('アクセスしようとしたページが見つかりませんでした。') }}<br />
+        {{
+          $t(
+            'ページが移動または削除されたか、URLの入力間違いの可能性があります。'
+          )
+        }}
       </p>
       <div class="Error-ButtonContainer">
         <NuxtLink to="/" class="Error-Button">
-          トップページへ戻る
+          {{ $t('トップページへ戻る') }}
         </NuxtLink>
       </div>
     </div>
