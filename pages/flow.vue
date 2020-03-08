@@ -268,7 +268,7 @@ export default {
       padding: 30px 20px;
       margin-bottom: 20px;
       &.Flat {
-        background-color: $gray-5;
+        background-color: $gray-4;
       }
       .TelLink {
         width: 80%;
