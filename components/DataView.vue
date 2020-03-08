@@ -34,7 +34,7 @@
         </v-icon>
       </a>
     </v-footer>
-    <v-footer class="DataView-Share">
+    <v-footer v-if="this.$route.query.share != 'false'" class="DataView-Share">
       <button @click="openGraphEmbed = true">
         <v-icon class="icon-resize embed" size="40">
           mdi-code-tags

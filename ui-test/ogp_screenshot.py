@@ -18,5 +18,5 @@ browser = 'Chrome'
 driver = getattr(webdriver, browser)()
 driver.set_window_size(size[0], size[1])
 for path in PATHS:
-    driver.get("http://localhost:8000"+path+"?embed=true")
+    driver.get("http://localhost:8000"+path+"?embed=true&share=false")
     driver.save_screenshot('ogps/ogp-'+path.replace('/cards/', '').replace('/', '_')+'.png')
