@@ -28,32 +28,39 @@ Tokyo Covid-19 response site contributors
 | [kaizumaki](https://github.com/kaizumaki) ||
 | [Shigetaka Shirouchi](https://github.com/shgtkshruch) ||
 | [Kawokas](https://github.com/kawoka) ||
+| [Spenser Black](https://github.com/spenserblack) ||
 | [Jxck](https://github.com/Jxck) ||
+| [Takuma Hashimoto](https://github.com/af12066) ||
 | [takanakahiko](https://github.com/takanakahiko) ||
+| [DJ Yoko](https://github.com/DJYoko) ||
 | [MaySoMusician](https://github.com/MaySoMusician) ||
 | [Ryo Maeda](https://github.com/epaew) ||
+| [Tatsukichi](https://github.com/tatsuki26) ||
 | [Yusuke Hayashi](https://github.com/yhay81) ||
 | ken.okamura ||
 | [naoki-umeyama](https://github.com/naoki-umeyama) ||
 | [Kouki Narumi](https://github.com/sunecosuri) ||
 | [MOCHI*2](https://github.com/fussy113) ||
-| [Takuma Hashimoto](https://github.com/af12066) ||
+| [Shun Kawahara](https://github.com/shun91) ||
 | [inductor](https://github.com/inductor) ||
+| [koji-koji](https://github.com/koji-koji) ||
 | [nokazn](https://github.com/nokazn) ||
 | [ya-mori](https://github.com/ya-mori) ||
+| [Kenta Yasuoka](https://github.com/rozeo) ||
+| [Soichi Masuda](https://github.com/masuP9) ||
 | [dafujii](https://github.com/dafujii) ||
 | [koizoom1](https://github.com/koizoom1) ||
+| [shotaro aono](https://github.com/shotaro) ||
 | [なりたけいすけ](https://github.com/narikei) ||
 | [Not yet](https://github.com/madana-1) ||
 | [Takahiro Nakatsu](https://github.com/tknakatsu) ||
 | [purin](https://github.com/puriso) ||
 | [0Delta](https://github.com/0Delta) ||
 | [178inaba](https://github.com/178inaba) ||
-| [Kenta Yasuoka](https://github.com/rozeo) ||
 | [Masaru Oinaga](https://github.com/Scstechr) ||
 | [Muneyuki Noguchi](https://github.com/mnogu) ||
 | [Munieru](https://github.com/munierujp) ||
-| [Shun Kawahara](https://github.com/shun91) ||
+| [Shigeo Kitamura](https://github.com/shigeokitamura) ||
 | [Shun Sakai](https://github.com/sorairolake) ||
 | [Tasuku Suzuki](https://github.com/task-jp) ||
 | [Timothy Lin](https://github.com/timothylin) ||
@@ -72,17 +79,17 @@ Tokyo Covid-19 response site contributors
 | [Shingo INADA](https://github.com/inada-s) ||
 | [Shinobu Hayashi](https://github.com/Shinyaigeek) ||
 | [Shotaro Ishihara](https://github.com/upura) ||
-| [Soichi Masuda](https://github.com/masuP9) ||
-| [Spenser Black](https://github.com/spenserblack) ||
 | [TASUKU](https://github.com/task-k0414) ||
 | [Takuho NAKANO](https://github.com/takotakot) ||
 | [Yfuruchin](https://github.com/Yfuruchin) ||
 | [Yoshihisa Kaino](https://github.com/yoshi1125hisa) ||
 | [akrolayer](https://github.com/akrolayer) ||
+| [blue9](https://github.com/cyblue9) ||
 | [kebhr](https://github.com/kebhr) ||
 | [mikan3rd](https://github.com/mikan3rd) ||
 | [rymiyamoto](https://github.com/rymiyamoto) ||
 | [saboyutaka](https://github.com/saboyutaka) ||
+| [yuik](https://github.com/yu1k) ||
 | [上野 嘉之](https://github.com/44u) ||
 | -add your name here!- | -what did you do?- |
 
