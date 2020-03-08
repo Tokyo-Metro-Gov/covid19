@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date" :url="url">
+  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
       <span />
     </template>
@@ -58,14 +58,19 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-export default {
+export default Vue.extend({
   components: { DataView, DataViewBasicInfoPanel },
   props: {
     title: {
+      type: String,
+      default: ''
+    },
+    titleId: {
       type: String,
       default: ''
     },
@@ -79,14 +84,12 @@ export default {
     },
     info: {
       type: Object,
-      required: false,
       default: () => {}
     },
     url: {
       type: String,
-      required: false,
       default: ''
     }
   }
-}
+})
 </script>

@@ -13,8 +13,8 @@
       <br />
       Microsoft Edge 最新版<br />
       Mozilla Firefox 最新版<br />
-      Google Chrome 最新版 (Windows10以上)<br />
-      Apple Safari (OS X) 最新版<br />
+      Google Chrome 最新版 (Windows 10以上)<br />
+      Apple Safari (macOS) 最新版<br />
       Opera Software ASA Opera 最新版<br />
       <br />
       ※
@@ -38,7 +38,7 @@
     </TextCard>
     <TextCard title="Google Analyticsの利用について">
       当サイトでは、サービス向上やWebサイトの改善のためにGoogle
-      Inc.の提供するアクセス分析のツールであるGoogle
+      LLCの提供するアクセス分析のツールであるGoogle
       Analyticsを利用した計測を行っております。<br />
       Google
       Analyticsは、当サイトが発行するクッキー(Cookie)を利用して、個人を特定する情報を含まずにWebサイトの利用データ（アクセス状況、トラフィック、閲覧環境など）を収集しております。クッキー(Cookie)の利用に関してはGoogleのプライバシーポリシーと規約に基づいております。<br />
@@ -110,18 +110,18 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import TextCard from '@/components/TextCard.vue'
 
-export default {
+export default Vue.extend({
   components: {
     TextCard
   },
-  head() {
-    return {
-      title: '当サイトについて'
-    }
-  }
-}
+  head: (): MetaInfo => ({
+    title: '当サイトについて'
+  })
+})
 </script>
 
 <style lang="scss">
