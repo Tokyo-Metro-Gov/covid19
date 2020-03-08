@@ -1,6 +1,5 @@
 <template>
   <div class="Flow">
-    <flow-pc-past />
     <div class="Flow-Heading">
       <CovidIcon />
       <h2 class="Flow-Heading-Title">
@@ -217,9 +216,8 @@
 <script>
 import CovidIcon from '@/static/covid.svg'
 import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
-import FlowPcPast from '@/components/flow/FlowPcPast.vue'
 export default {
-  components: { CovidIcon, DesktopFlowSvg, FlowPcPast },
+  components: { CovidIcon, DesktopFlowSvg },
   head() {
     return {
       title: '新型コロナウイルス感染症が心配なときに'

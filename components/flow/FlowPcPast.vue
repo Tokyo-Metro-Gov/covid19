@@ -42,7 +42,6 @@
 <style module lang="scss">
 .Flow {
   @include card-container();
-  width: 71%;
   position: relative;
   padding-bottom: 20px;
   color: $gray-2;
