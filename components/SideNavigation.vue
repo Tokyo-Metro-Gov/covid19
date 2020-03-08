@@ -189,18 +189,18 @@ export default {
         {
           icon: 'mdi-chart-timeline-variant',
           title: this.$t('都内の最新感染動向'),
-          link: '/'
+          link: this.localePath('/')
         },
         {
           icon: 'covid',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: '/flow',
+          link: this.localePath('/flow'),
           divider: true
         },
         {
           icon: 'parent',
           title: this.$t('お子様をお持ちの皆様へ'),
-          link: '/parent'
+          link: this.localePath('/parent')
         },
         {
           icon: 'mdi-account-multiple',
@@ -210,7 +210,7 @@ export default {
         {
           icon: 'mdi-domain',
           title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: '/worker',
+          link: this.localePath('/worker'),
           divider: true
         },
         {
@@ -230,7 +230,7 @@ export default {
         },
         {
           title: this.$t('当サイトについて'),
-          link: '/about'
+          link: this.localePath('/about')
         },
         {
           title: this.$t('東京都公式ホームページ'),
