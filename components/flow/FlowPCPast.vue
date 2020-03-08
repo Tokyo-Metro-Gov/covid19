@@ -18,10 +18,9 @@
           流行地域への渡航・居住歴がある方
         </strong>
         <span :class="$style.FlowPerson">
-          <em :class="$style.FlowLine">ご本人</em>
-          か
-          <em :class="$style.FlowLine">濃厚接触</em>
-          をした方
+          <em :class="$style.FlowLine">ご本人</em>か<em :class="$style.FlowLine"
+            >濃厚接触</em
+          >をした方
         </span>
       </div>
       <div :class="$style.FlowCondition">
@@ -48,6 +47,7 @@
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   background-color: $white;
   color: $gray-2;
+  text-align: center;
   &::before {
     content: '';
     position: absolute;
@@ -61,13 +61,21 @@
     position: relative;
     background-color: $white;
     margin: 0;
+    padding: 5px;
     text-align: center;
-    font-size: 25px;
+    font-size: calc(1.25rem + ((1vw - 7.68px) * 0.744));
+    @include largerThan($large) {
+      font-size: 25px;
+    }
   }
   &Num {
     display: inline-block;
-    padding: 0 10px;
-    font-size: 42px;
+    padding: 0 5px;
+    font-size: calc(1.875rem + ((1vw - 7.68px) * 1.7857));
+    @include largerThan($large) {
+      font-size: 42px;
+      padding: 0 10px;
+    }
   }
   &Inner {
     display: flex;
@@ -80,18 +88,28 @@
     flex-flow: column;
     align-items: center;
     width: 50%;
-    padding: 20px;
+    padding: 10px 5px;
+    @include largerThan($large) {
+      padding: 20px;
+    }
   }
   &Title {
     margin-bottom: 8px;
     color: $green-1;
-    font-size: 16px;
+    font-size: calc(0.75rem + ((1vw - 7.68px) * 0.4464));
     font-weight: bold;
+    @include largerThan($large) {
+      font-size: 15px;
+    }
   }
   &Person {
     font-weight: bold;
-    font-size: 23px;
+    font-size: calc(0.875rem + ((1vw - 7.68px) * 1.3393));
+    line-height: 1.8;
     text-align: center;
+    @include largerThan($large) {
+      font-size: 22px;
+    }
   }
   &Line {
     border-bottom: 4px solid $green-1;
@@ -100,11 +118,16 @@
   &Condition {
     display: flex;
     width: 100%;
+    padding: 0 15px;
+    margin-top: 15px;
     justify-content: center;
     align-items: stretch;
     text-align: center;
     font-weight: bold;
     font-size: 22px;
+    @include largerThan($large) {
+      padding: 0 20px;
+    }
   }
   &Symptom {
     position: relative;
@@ -112,11 +135,12 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 10px 15px;
+    width: 25%;
+    padding: 10px;
     border: 2px solid $green-1;
     border-radius: 3px;
     background-color: $white;
-    font-size: 21px;
+    font-size: calc(0.875rem + ((1vw - 7.68px) * 0.8929));
     font-weight: bold;
     font-style: normal;
     &::before {
@@ -130,13 +154,24 @@
       background-color: $white;
       z-index: 1;
     }
+    @include largerThan($large) {
+      max-width: 190px;
+      font-size: 20px;
+    }
   }
   &Text {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 10px 15px;
+    width: 12.5%;
+    padding: 10px;
+    font-size: calc(0.75rem + ((1vw - 7.68px) * 1.4881));
+    white-space: nowrap;
+    @include largerThan($large) {
+      max-width: 190px;
+      font-size: 21px;
+    }
   }
   &SText {
     font-size: 16px;
