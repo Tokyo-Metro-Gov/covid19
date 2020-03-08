@@ -1,6 +1,5 @@
 <template>
   <div class="About">
-    <language-selector />
     <h2 class="About-Heading">
       当サイトについて
     </h2>
@@ -111,12 +110,10 @@
 </template>
 
 <script lang="ts">
-import LanguageSelector from '@/components/LanguageSelector.vue'
 import TextCard from '@/components/TextCard.vue'
 
 export default {
   components: {
-    LanguageSelector,
     TextCard
   },
   head() {
