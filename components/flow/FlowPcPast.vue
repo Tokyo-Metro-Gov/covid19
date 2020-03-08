@@ -70,7 +70,7 @@
   &Num {
     display: inline-block;
     padding: 0 5px;
-    font-size: calc(1.875rem + ((1vw - 7.68px) * 1.7857));
+    font-size: calc(1.5rem + ((1vw - 7.68px) * 5.4726));
     @include largerThan($large) {
       font-size: 42px;
       padding: 0 10px;
@@ -179,18 +179,18 @@
     font-size: 16px;
   }
   &Temperature {
-    font-size: calc(1rem + ((1vw - 7.68px) * 0.5952));
+    font-size: calc(1rem + ((1vw - 7.68px) * 2.4876));
     padding-left: 2px;
     padding-right: 2px;
-    margin-top: -5px;
     @include largerThan($large) {
       font-size: 20px;
       padding-left: 5px;
       padding-right: 5px;
+      margin-top: -5px;
     }
   }
   &TextSm {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 </style>
