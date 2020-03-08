@@ -14,9 +14,12 @@
           target="_blank"
           rel="noopener"
         >
-          <time class="WhatsNew-list-item-anchor-time px-2">{{
-            item.date
-          }}</time>
+          <time
+            class="WhatsNew-list-item-anchor-time px-2"
+            :datetime="formattedDate(item.date)"
+          >
+            {{ item.date }}
+          </time>
           <span class="WhatsNew-list-item-anchor-link">
             {{ item.text }}
             <v-icon
@@ -34,6 +37,8 @@
 </template>
 
 <script>
+import { convertDateToISO8601Format } from '@/utils/formatDate'
+
 export default {
   props: {
     items: {
@@ -44,6 +49,9 @@ export default {
   methods: {
     isInternalLink(path) {
       return !/^https?:\/\//.test(path)
+    },
+    formattedDate(dateString) {
+      return convertDateToISO8601Format(dateString)
     }
   }
 }
