@@ -51,7 +51,7 @@ export default {
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
-    MetroCard,
+    MetroCard
   },
   data() {
     // 退院者グラフ
@@ -73,7 +73,7 @@ export default {
         title: '都内の最新感染動向',
         date: Data.lastUpdate
       },
-      newsItems: News.newsItems,
+      newsItems: News.newsItems
     }
     return data
   },

@@ -18,7 +18,7 @@
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
-      <a class="Permalink" :href="'/cards/' + titleId">
+      <a class="Permalink" :href="permalink">
         <time :datetime="date">{{ date }} 更新</time>
       </a>
       <a
@@ -87,27 +87,34 @@ export default class DataView extends Vue {
   @Prop() private date!: string
   @Prop() private url!: string
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
+  openGraphEmbed: boolean = false
 
-  data() {
-    const graphEmbedValue = '<iframe width="560" height="315" src="https://stopcovid19.metro.tokyo.lg.jp/embed/' + this.titleId + '" frameborder="0"></iframe>'
+  get permalink() {
+    const permalink = '/cards/' + this.titleId
+    return permalink
+  }
 
-    const data = {
-      openGraphEmbed: false,
-      graphEmbedValue
-    }
-    return data
+  get graphEmbedValue() {
+    const graphEmbedValue =
+      '<iframe width="560" height="315" src="https://stopcovid19.metro.tokyo.lg.jp/embed/' +
+      this.titleId +
+      '" frameborder="0"></iframe>'
+    return graphEmbedValue
   }
 
   twitter() {
-    // TODO
+    const url = 'https://twitter.com/intent/tweet?url=' + this.permalink
+    window.open(url)
   }
 
   facebook() {
-    // TODO
+    const url = 'https://www.facebook.com/sharer.php?u=' + this.permalink
+    window.open(url)
   }
 
   line() {
-    // TODO
+    const url = 'https://social-plugins.line.me/lineit/share?url=' + this.permalink
+    window.open(url)
   }
 }
 </script>
