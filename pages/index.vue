@@ -1,5 +1,6 @@
 <template>
   <div class="MainPage">
+    <language-selector />
     <page-header
       :icon="headerItem.icon"
       :title="headerItem.title"
@@ -14,7 +15,11 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
-        <svg-card title="検査陽性者の状況" :date="headerItem.date">
+        <svg-card
+          title="検査陽性者の状況"
+          :title-id="'details-of-confirmed-cases'"
+          :date="headerItem.date"
+        >
           <confirmed-cases-table
             aria-label="検査陽性者の状況"
             v-bind="confirmedCases"
@@ -24,6 +29,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="陽性患者数"
+          :title-id="'number-of-confirmed-cases'"
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="'人'"
@@ -35,6 +41,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <data-table
           :title="'陽性患者の属性'"
+          :title-id="'attributes-of-confirmed-cases'"
           :chart-data="patientsTable"
           :chart-option="{}"
           :date="Data.patients.date"
@@ -47,6 +54,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
           title="検査実施数"
+          :title-id="'number-of-tested'"
           :chart-data="inspectionsGraph"
           :date="Data.inspections_summary.date"
           :items="inspectionsItems"
@@ -57,6 +65,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
+          :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
           :chart-data="contactsGraph"
           :date="Data.contacts.date"
           :unit="'件'"
@@ -66,6 +75,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナ受診相談窓口相談件数"
+          :title-id="'number-of-reports-to-covid19-consultation-desk'"
           :chart-data="querentsGraph"
           :date="Data.querents.date"
           :unit="'件'"
@@ -75,6 +85,7 @@
       <v-col cols="12" md="6" class="DataCard">
         <metro-bar-chart
           title="都営地下鉄の利用者数の推移"
+          :title-id="'predicted-number-of-toei-subway-passengers'"
           :chart-data="metroGraph"
           :chart-option="metroGraphOption"
           :date="metroGraph.date"
@@ -85,6 +96,7 @@
 </template>
 
 <script>
+import LanguageSelector from '@/components/LanguageSelector.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import MetroBarChart from '@/components/MetroBarChart.vue'
@@ -103,6 +115,7 @@ import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
 
 export default {
   components: {
+    LanguageSelector,
     PageHeader,
     TimeBarChart,
     MetroBarChart,
@@ -242,9 +255,14 @@ export default {
 <style lang="scss" scoped>
 .MainPage {
   .DataBlock {
-    margin: 20px -12px;
+    margin: 20px -8px;
     .DataCard {
-      margin-bottom: 20px;
+      @include largerThan($medium) {
+        padding: 10px;
+      }
+      @include lessThan($small) {
+        padding: 4px 8px;
+      }
     }
   }
 }
