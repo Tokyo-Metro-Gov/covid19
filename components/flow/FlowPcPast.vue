@@ -57,8 +57,9 @@
   }
   &Heading {
     position: relative;
+    width: calc(100% - 2px);
+    margin: 0 0 0 1px;
     background-color: $white;
-    margin: 0;
     padding: 5px;
     text-align: center;
     font-size: calc(1.25rem + ((1vw - 7.68px) * 0.744));
