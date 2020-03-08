@@ -7,10 +7,10 @@
             {{ $t('COVID-19') }}<br />{{ $t('Advisory Support') }}
           </span>
         </div>
-        <div :class="[$style.AdvisoryContentsColsSentense, $style.mt16]">
+        <div :class="[$style.AdvisoryContentsColsSentense, $style.Mt16]">
           {{ $t('Advisory Target') }}<br />{{ $t('Advisory Center') }}
         </div>
-        <div :class="[$style.AdvisoryBlockCentering, $style.mt20]">
+        <div :class="[$style.AdvisoryBlockCentering, $style.Mt20]">
           <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryWhiteBox]">
             <span :class="$style.AdvisoryWhiteBoxSentense">{{
               $t('Support Range')
@@ -28,7 +28,7 @@
             :class="[
               $style.AdvisoryLink,
               $style.AdvisoryBlockCentering,
-              $style.mt16
+              $style.Mt16
             ]"
           >
             <a
@@ -52,7 +52,7 @@
           </div>
           <span>{{ $t('Support Hours') }}</span>
         </div>
-        <div :class="$style.mt4">
+        <div :class="$style.Mt4">
           <span :class="$style.AdvisoryContentsSubTitle">
             {{ $t('Holiday All Day') }}
           </span>
@@ -61,7 +61,7 @@
           :class="[
             $style.AdvisoryTelephoneArea,
             $style.AdvisoryBlockCentering,
-            $style.mt4
+            $style.Mt4
           ]"
         >
           <img src="/flow/phone-24px.svg" />
@@ -70,11 +70,11 @@
       </div>
     </div>
 
-    <div :class="[$style.AdvisoryBlockCentering, $style.mt8]">
-      <img src="/flow/flow_arrow.svg" :class="$style.rotate" />
+    <div :class="[$style.AdvisoryBlockCentering, $style.Mt8]">
+      <img src="/flow/flow_arrow.svg" :class="$style.Rotate" />
     </div>
 
-    <div :class="[$style.AdvisoryBlockCentering, $style.mt8]">
+    <div :class="[$style.AdvisoryBlockCentering, $style.Mt8]">
       <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryBlackBox]">
         <span :class="$style.AdvisoryBlackBoxSentense">
           {{ $t('Necessary Help') }}<br />{{ $t('Necessary Then') }}
@@ -187,23 +187,20 @@
       line-height: 26px;
     }
   }
-  .mt4 {
-    margin-top: 4px !important; // MEMO: .v-application .mt-4の!importantより優先させる
-  }
 }
-.rotate {
+.Rotate {
   transform: rotate(-90deg);
 }
-.mt4 {
+.Mt4 {
   margin-top: 4px;
 }
-.mt8 {
+.Mt8 {
   margin-top: 8px;
 }
-.mt16 {
+.Mt16 {
   margin-top: 16px;
 }
-.mt20 {
+.Mt20 {
   margin-top: 20px;
 }
 </style>
