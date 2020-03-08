@@ -33,13 +33,11 @@
 </template>
 <style module lang="scss">
 .Container {
+  @include card-container();
   display: flex;
   flex-direction: column;
   position: relative;
   padding: 20px 30px 15px !important;
-  border: 2px solid $gray-4;
-  border-radius: 4px;
-  box-shadow: 0px 0px 4px $gray-4;
   font-family: HiraginoSans-W6, Hiragino Sans;
 }
 .Row {
