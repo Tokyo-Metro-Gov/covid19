@@ -1,6 +1,7 @@
 <template>
   <div class="SelectLanguages mb-3 clearfix">
     <div class="SelectLanguages__inner">
+      <div>{{ currentLocale.name }}</div>
       <nuxt-link
         v-for="locale in availableLocales"
         :key="locale.code"
@@ -16,6 +17,9 @@
 <script>
 export default {
   computed: {
+    currentLocale() {
+      return this.$i18n.locales.find(i => i.code === this.$i18n.locale)
+    },
     availableLocales() {
       return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
     }
