@@ -377,7 +377,7 @@ export default {
       z-index: 99;
       width: 47px;
       height: 47px;
-      background-image: url(/flow/flow_arrow.svg);
+      background-image: url(/flow/arrow_forward-24px.svg);
       background-position: right center;
       background-repeat: none;
       transform: rotateZ(90deg);
