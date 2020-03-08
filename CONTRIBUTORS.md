@@ -21,6 +21,7 @@ Tokyo Covid-19 response site contributors
 |[potato4d / Takuma HANATANI (LINE / ElevenBack LLC.)](https://twitter.com/potato4d)| Frontend / OSS Community Triage |
 |[daitasu(Code for Japan / STORES.jp)](https://twitter.com/daitasu)| Frontend |
 |[amotarao](https://github.com/amotarao)| Frontend |
+|[Yusaku Ohno](https://twitter.com/YusakuHip)| Frontend |
 | -add your name here!- | -what did you do?- |
 
 ご協力に感謝です！！！
