@@ -44,6 +44,12 @@
   ::v-deep svg {
     width: 100%;
   }
+  .Graph-Desc {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 12px;
+    color: $gray-3;
+  }
 }
 </style>
 
@@ -54,6 +60,10 @@ export default {
   components: { DataView },
   props: {
     title: {
+      type: String,
+      default: ''
+    },
+    titleId: {
       type: String,
       default: ''
     },
