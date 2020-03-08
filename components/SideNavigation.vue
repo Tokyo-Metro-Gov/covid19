@@ -53,6 +53,13 @@
           >
             <img src="/twitter.png" alt="Twitter" />
           </a>
+          <a
+            href="https://github.com/tokyo-metropolitan-gov/covid19"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/GitHub-Mark-32px.png" alt="Github" />
+          </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
           Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
