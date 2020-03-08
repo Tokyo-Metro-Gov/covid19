@@ -10,6 +10,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: feature/issue-774-permalink
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
