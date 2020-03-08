@@ -18,7 +18,7 @@
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
-      <time :datetime="formattedDate">{{ date }} 更新</time>
+      <time :datetime="formattedDate">{{ $t('{date} 更新', { date }) }}</time>
       <a
         v-if="url"
         class="OpenDataLink"
@@ -26,7 +26,7 @@
         target="_blank"
         rel="noopener"
       >
-        オープンデータへのリンク
+        {{ $t('オープンデータへのリンク') }}
         <v-icon class="ExternalLinkIcon" size="15">
           mdi-open-in-new
         </v-icon>
@@ -34,6 +34,35 @@
     </v-footer>
   </v-card>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "{date} 更新": "{date} 更新",
+    "オープンデータへのリンク": "オープンデータへのリンク"
+  },
+  "en": {
+    "{date} 更新": "Last update: {date}",
+    "オープンデータへのリンク": "Link to Open Data"
+  },
+  "zh-cn": {
+    "{date} 更新": "",
+    "オープンデータへのリンク": "公开数据的链接"
+  },
+  "zh-tw": {
+    "{date} 更新": "",
+    "オープンデータへのリンク": "開放資料連結"
+  },
+  "ko": {
+    "{date} 更新": "",
+    "オープンデータへのリンク": "공공데이터에의 링크"
+  },
+  "ja-basic": {
+    "{date} 更新": "",
+    "オープンデータへのリンク": "オープンデータ という ページを みたいとき"
+  }
+}
+</i18n>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
