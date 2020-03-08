@@ -7,11 +7,34 @@
       {{ title }}
     </h2>
     <div class="date">
-      <span>最終更新 </span>
+      <span>{{ $t('最終更新') }} </span>
       <time :datetime="formattedDate">{{ date }}</time>
     </div>
   </div>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "最終更新": "最終更新"
+  },
+  "en": {
+    "最終更新": "Last update"
+  },
+  "zh-cn": {
+    "最終更新": "最后更新"
+  },
+  "zh-tw": {
+    "最終更新": "前次更新"
+  },
+  "ko": {
+    "最終更新": "최종갱신"
+  },
+  "ja-basic": {
+    "最終更新": "さいごに いちばん あたらしくなおしたところ"
+  }
+}
+</i18n>
 
 <script>
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
