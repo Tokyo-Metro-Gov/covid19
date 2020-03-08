@@ -41,13 +41,10 @@
 
 <style module lang="scss">
 .Flow {
+  @include card-container();
   width: 71%;
   position: relative;
   padding-bottom: 20px;
-  border: 1px solid $gray-4;
-  border-radius: 5px;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
-  background-color: $white;
   color: $gray-2;
   text-align: center;
   &::before {
