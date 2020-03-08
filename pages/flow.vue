@@ -199,7 +199,7 @@
         </div>
       </div>
       <a
-        href="https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html"
+        href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
         target="_blank"
         rel="noopener"
         class="Flow-Card-Button"
