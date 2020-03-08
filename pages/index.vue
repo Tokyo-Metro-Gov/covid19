@@ -105,7 +105,11 @@
     "{date}の累計": "{date}の累計",
     "都内の最新感染動向": "都内の最新感染動向",
     "期間: {duration}": "期間: {duration}",
-    "{duration}の利用者数との相対値: {percentage}": "{duration}の利用者数との相対値: {percentage}"
+    "{duration}の利用者数との相対値: {percentage}": "{duration}の利用者数との相対値: {percentage}",
+    "1月20日~1月24日": "1月20日~1月24日",
+    "2月10日~14日": "2月10日~14日",
+    "2月17日~21日": "2月17日~21日",
+    "2月25日~28日": "2月25日~28日"
   },
   "en": {
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "Contact the Telephone Advisory Center at the first time in case of symptoms concerned. ",
@@ -121,8 +125,12 @@
     "その他（チャーター便・クルーズ便）": "Others (Returnees or Cruise ship passengers)",
     "{date}の累計": "cumulatively, as of {date}",
     "都内の最新感染動向": "The latest update on COVID-19 in Tokyo",
-    "期間: {duration}": "",
-    "{duration}の利用者数との相対値: {percentage}": "Congestion index compared to {duration}: {percentage}"
+    "期間: {duration}": "Period: {duration}",
+    "{duration}の利用者数との相対値: {percentage}": "Relative value based on the number of users {duration}: {percentage}",
+    "1月20日~1月24日": "from January 20 to 24",
+    "2月10日~14日": "2月10日~14日",
+    "2月17日~21日": "2月17日~21日",
+    "2月25日~28日": "2月25日~28日"
   },
   "zh-cn": {
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "如果您或您的家人出现疑似症状，请立即拨打电话咨询",
@@ -138,8 +146,12 @@
     "その他（チャーター便・クルーズ便）": "其它（包机、游轮）",
     "{date}の累計": "截至 {date}",
     "都内の最新感染動向": "东京都内最新感染情况",
-    "期間: {duration}": "",
-    "{duration}の利用者数との相対値: {percentage}": ""
+    "期間: {duration}": "期间：{duration}",
+    "{duration}の利用者数との相対値: {percentage}": "",
+    "1月20日~1月24日": "",
+    "2月10日~14日": "2月10日~14日",
+    "2月17日~21日": "2月17日~21日",
+    "2月25日~28日": "2月25日~28日"
   },
   "zh-tw": {
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "若您或家人出現疑似症狀，請即刻撥打電話諮詢",
@@ -155,8 +167,12 @@
     "その他（チャーター便・クルーズ便）": "其它（包機、遊輪）",
     "{date}の累計": "累計到 {date}",
     "都内の最新感染動向": "東京都最新新型冠狀病毒感染情形",
-    "期間: {duration}": "",
-    "{duration}の利用者数との相対値: {percentage}": ""
+    "期間: {duration}": "期間: {duration}",
+    "{duration}の利用者数との相対値: {percentage}": "{duration}的使用者數量之相對值: {percentage}",
+    "1月20日~1月24日": "1月20日~1月24日",
+    "2月10日~14日": "2月10日~14日",
+    "2月17日~21日": "2月17日~21日",
+    "2月25日~28日": "2月25日~28日"
   },
   "ko": {
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "본인 혹은 가족에게 의심증상이 있을 경우, 콜센터에 먼저 문의하세요. ",
@@ -172,8 +188,12 @@
     "その他（チャーター便・クルーズ便）": "기타 (귀국자 또는 크루즈 승객 경우)",
     "{date}の累計": "{date}의 누적 수",
     "都内の最新感染動向": "도쿄도청 확진자수 현황",
-    "期間: {duration}": "",
-    "{duration}の利用者数との相対値: {percentage}": ""
+    "期間: {duration}": "기간: {duration}",
+    "{duration}の利用者数との相対値: {percentage}": "{perdurationiod}의 이용자수와의 상대치: {percentage}",
+    "1月20日~1月24日": "1월 20일~1월24일",
+    "2月10日~14日": "2월 10일~14일",
+    "2月17日~21日": "2월 17일~21일",
+    "2月25日~28日": "2월 25일~28일"
   },
   "ja-basic": {
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "からだの ぐあいが わるくて こわくなったら でんわして ください",
@@ -190,7 +210,11 @@
     "{date}の累計": "{date} ぜんぶで",
     "都内の最新感染動向": "とうきょうとでの コロナウイルスの あたらしいじょうほう",
     "期間: {duration}": "",
-    "{duration}の利用者数との相対値: {percentage}": "ひとの かずを くらべると"
+    "{duration}の利用者数との相対値: {percentage}": "ひとの かずを くらべると",
+    "1月20日~1月24日": "",
+    "2月10日~14日": "",
+    "2月17日~21日": "",
+    "2月25日~28日": ""
   }
 }
 </i18n>
@@ -239,6 +263,27 @@ export default {
     const querentsGraph = formatGraph(Data.querents.data)
     // 都営地下鉄の利用者数の推移
     const metroGraph = MetroData
+    // metroGraph ツールチップ title文字列
+    // this.$t を使うため metroGraphOption の外側へ
+    const metroGraphTooltipTitle = (tooltipItems, _) => {
+      const label = tooltipItems[0].label
+      return this.$t('期間: {duration}', {
+        // duration = label = '2月10日~14日' | '2月17日~21日' | '2月25日~28日'
+        duration: this.$t(label)
+      })
+    }
+    // metroGraph ツールチップ label文字列
+    // this.$t を使うため metroGraphOption の外側へ
+    const metroGraphTooltipLabel = (tooltipItem, data) => {
+      const currentData = data.datasets[tooltipItem.datasetIndex]
+      const percentage = `${currentData.data[tooltipItem.index]}%`
+
+      return this.$t('{duration}の利用者数との相対値: {percentage}', {
+        // duration = metroGraph.base_period = '1月20日~1月24日'
+        duration: this.$t(metroGraph.base_period),
+        percentage
+      })
+    }
     // 検査実施日別状況
     const inspectionsGraph = [
       Data.inspections_summary.data['都内'],
@@ -328,21 +373,8 @@ export default {
         tooltips: {
           displayColors: false,
           callbacks: {
-            title(tooltipItems, _) {
-              const label = tooltipItems[0].label
-              return this.$t('期間: {duration}', {
-                duration: label
-              })
-            },
-            label(tooltipItem, data) {
-              const currentData = data.datasets[tooltipItem.datasetIndex]
-              const percentage = `${currentData.data[tooltipItem.index]}%`
-
-              return this.$t('{duration}の利用者数との相対値: {percentage}', {
-                duration: metroGraph.base_period,
-                percentage
-              })
-            }
+            title: metroGraphTooltipTitle,
+            label: metroGraphTooltipLabel
           }
         }
       }
