@@ -104,8 +104,7 @@
 }
 
 .SubtleBox {
-  border-radius: 4px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  @include card-container();
   margin: 0 4px;
   padding: 0.5em;
   display: flex;
@@ -136,6 +135,7 @@
 
 .FlowArrow {
   margin: 0 -20px;
+  z-index: 1;
 }
 
 .LargerText {
