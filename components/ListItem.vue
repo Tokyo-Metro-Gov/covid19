@@ -13,7 +13,7 @@
       exact
       :class="['ListItem-Link', isActive(link)]"
     >
-      <v-list-item-action v-if="icon" class="ListItem-IconContainer" >
+      <v-list-item-action v-if="icon" class="ListItem-IconContainer">
         <v-icon
           v-if="checkIconType(icon) === 'material'"
           :class="['ListItem-Icon', isActive(link)]"
