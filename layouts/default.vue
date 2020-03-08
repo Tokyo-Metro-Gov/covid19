@@ -4,17 +4,24 @@
       <img src="/logo.svg" alt="東京都" />
       <scale-loader color="#00A040" />
     </div>
-    <div v-else class="appContainer">
-      <div class="naviContainer">
-        <SideNavigation
-          :is-navi-open="isOpenNavigation"
-          :class="{ open: isOpenNavigation }"
-          @openNavi="openNavigation"
-          @closeNavi="hideNavigation"
-        />
+    <div v-else>
+      <div v-if="hasNavigation" class="appContainer">
+        <div class="naviContainer">
+          <SideNavigation
+            :is-navi-open="isOpenNavigation"
+            :class="{ open: isOpenNavigation }"
+            @openNavi="openNavigation"
+            @closeNavi="hideNavigation"
+          />
+        </div>
+        <div class="mainContainer" :class="{ open: isOpenNavigation }">
+          <v-container class="px-4 py-8">
+            <nuxt />
+          </v-container>
+        </div>
       </div>
-      <div class="mainContainer" :class="{ open: isOpenNavigation }">
-        <v-container class="px-4 py-8">
+      <div v-else class="embed">
+        <v-container>
           <nuxt />
         </v-container>
       </div>
@@ -28,6 +35,7 @@ import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
 
 type LocalData = {
+  hasNavigation: boolean
   isOpenNavigation: boolean
   loading: boolean
 }
@@ -38,7 +46,13 @@ export default Vue.extend({
     SideNavigation
   },
   data(): LocalData {
+    let hasNavigation = true
+    if (this.$route.query.embed == 'true') {
+      hasNavigation = false
+    }
+
     return {
+      hasNavigation,
       isOpenNavigation: false,
       loading: true
     }
@@ -73,6 +87,16 @@ export default Vue.extend({
   max-width: 1440px;
   margin: 0 auto;
   background-color: inherit !important;
+}
+.embed {
+  display: grid;
+
+  .container {
+    padding: 0 !important;
+  }
+  .DataCard {
+    padding: 0 !important;
+  }
 }
 .appContainer {
   position: relative;
@@ -119,7 +143,7 @@ export default Vue.extend({
   overflow: hidden;
   @include lessThan($small) {
     .container {
-      padding-top: 16px !important;
+      padding-top: 16px;
     }
   }
 }

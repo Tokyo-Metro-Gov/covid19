@@ -1,8 +1,9 @@
 name: OGP Scheduler
 
 on:
+  push:
   schedule:
-    - cron:  '0 * * * *'
+    - cron: '*/30 * * * *'
 
 jobs:
   build:
