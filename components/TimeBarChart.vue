@@ -34,19 +34,16 @@ type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
 
-export default Vue.extend<
-  Data,
-  Methods,
-  {},
-  {
-    chartData: GraphDataType[]
-    title: string
-    titleId: string
-    date: string
-    unit: string
-    url: string
-  }
->({
+type PropTypes = {
+  chartData: GraphDataType[]
+  title: string
+  titleId: string
+  date: string
+  unit: string
+  url: string
+}
+
+export default Vue.extend<Data, Methods, {}, PropTypes>({
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
