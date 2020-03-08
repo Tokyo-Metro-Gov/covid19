@@ -69,6 +69,11 @@
       </button>
     </v-footer>
     <v-footer v-if="openGraphEmbed">
+      <button @click="openGraphEmbed = false" class="pull-right">
+        <v-icon size="16">
+          mdi-close
+        </v-icon>
+      </button>
       <div>
         グラフの埋め込み
       </div>
