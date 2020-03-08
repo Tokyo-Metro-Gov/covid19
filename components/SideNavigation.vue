@@ -79,7 +79,7 @@
     "for Citizens": "都民の皆様へ",
     "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
     "Official statements from Task Force": "東京都新型コロナウイルス感染症対策本部報",
-    "Cancelled public events": "東京都主催等 中止又は延期するイベント等",
+    "Cancelled public events and facilities": "都主催のイベント、都民利用施設の中止等の情報",
     "Government official website": "東京都公式ホームページ",
     "Message from Governor Koike": "知事からのメッセージ",
     "About us": "当サイトについて"
@@ -136,9 +136,9 @@ export default {
             'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         },
         {
-          title: this.$t('Cancelled public events'),
+          title: this.$t('Cancelled public events and facilities'),
           link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
+            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
         },
         {
           title: this.$t('Message from Governor Koike'),
