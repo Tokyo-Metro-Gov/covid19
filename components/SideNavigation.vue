@@ -97,7 +97,7 @@
     "東京都主催等 中止又は延期するイベント等": "Cancelled or Postponed public events",
     "東京都公式ホームページ": "Official website of the Tokyo Metropolitan Government",
     "知事からのメッセージ": "Message from Governor Koike on COVID-19",
-    "当サイトについて": "About us"
+    "当サイトについて": "About the website"
   },
   "zh-cn": {
     "サイドメニュー項目を開く": "",
@@ -339,7 +339,7 @@ export default {
     left: 0;
     display: block !important;
     width: 100%;
-    z-index: z-index-of(opened-side-navigation);    
+    z-index: z-index-of(opened-side-navigation);
     background-color: $white;
   }
 }
