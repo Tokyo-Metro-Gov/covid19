@@ -257,12 +257,11 @@ export default {
     left: 0;
     display: block !important;
     width: 100%;
-    z-index: z-index-of(opened-side-navigation);    
+    z-index: z-index-of(opened-side-navigation);
     background-color: $white;
   }
 }
-// variables.scssで定義した値を読みたいが、Parsing errorで修正できないため直接記載
-@include lessThan(320) {
+@include lessThan($tiny) {
   .sp-logo {
     width: 100px;
   }
