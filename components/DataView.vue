@@ -39,29 +39,39 @@
         <v-icon class="icon-resize embed" size="40">
           mdi-code-tags
         </v-icon>
-        <div class="share-text">埋め込む</div>
+        <div class="share-text">
+          埋め込む
+        </div>
       </button>
       <button @click="twitter">
         <v-icon class="icon-resize twitter" size="40">
           mdi-twitter
         </v-icon>
-        <div class="share-text">Twitter</div>
+        <div class="share-text">
+          Twitter
+        </div>
       </button>
       <button @click="facebook">
         <v-icon class="icon-resize facebook" size="73">
           mdi-facebook
         </v-icon>
-        <div class="share-text">Facebook</div>
+        <div class="share-text">
+          Facebook
+        </div>
       </button>
       <button @click="line">
         <v-icon class="icon-resize line" size="40">
           line
         </v-icon>
-        <div class="share-text">LINE</div>
+        <div class="share-text">
+          LINE
+        </div>
       </button>
     </v-footer>
     <v-footer v-if="openGraphEmbed">
-      <div>グラフの埋め込み</div>
+      <div>
+        グラフの埋め込み
+      </div>
       <textarea v-model="graphEmbedValue" />
     </v-footer>
   </v-card>
