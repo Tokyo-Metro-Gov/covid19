@@ -215,8 +215,7 @@ export default {
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
-                  // 基準値を100としたときの相対値
-                  return (value / 100).toFixed(2)
+                  return value.toFixed(2) + '%'
                 }
               }
             }
