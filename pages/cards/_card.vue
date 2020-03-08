@@ -93,21 +93,23 @@ export default {
     return data
   },
   head() {
+    const url = location.protocol + '//' + location.host
+    const description =
+      this.updatedAt +
+      ' 更新 | ' +
+      '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
     return {
       title: this.title,
       meta: [
         {
           hid: 'description',
           property: 'description',
-          content:
-            this.updatedAt +
-            ' 更新 | ' +
-            '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+          content: description
         },
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://stopcovid19.metro.tokyo.lg.jp' + this.$route.path
+          content: url + this.$route.path
         },
         {
           hid: 'og:title',
@@ -117,18 +119,12 @@ export default {
         {
           hid: 'og:description',
           property: 'og:description',
-          content:
-            this.updatedAt +
-            ' 更新 | ' +
-            '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+          content: description
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content:
-            'https://stopcovid19.metro.tokyo.lg.jp/ogp' +
-            this.$route.params.card +
-            '.png'
+          content: url + '/ogp-' + this.$route.params.card + '.png'
         }
       ]
     }
