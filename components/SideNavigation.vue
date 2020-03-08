@@ -33,9 +33,7 @@
           class="SideNavigation-ListItemContainer"
           @click="closeNavi"
         >
-          <div role="listitem">
-            <ListItem :link="item.link" :icon="item.icon" :title="item.title" role="link" />
-          </div>
+          <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
@@ -258,7 +256,7 @@ export default {
     left: 0;
     display: block !important;
     width: 100%;
-    z-index: z-index-of(opened-side-navigation);    
+    z-index: z-index-of(opened-side-navigation);
     background-color: $white;
   }
 }
