@@ -1,5 +1,6 @@
 <template>
   <div class="MainPage">
+    <language-selector />
     <page-header
       :icon="headerItem.icon"
       :title="headerItem.title"
@@ -95,6 +96,7 @@
 </template>
 
 <script>
+import LanguageSelector from '@/components/LanguageSelector.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import MetroBarChart from '@/components/MetroBarChart.vue'
@@ -113,6 +115,7 @@ import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
 
 export default {
   components: {
+    LanguageSelector,
     PageHeader,
     TimeBarChart,
     MetroBarChart,
