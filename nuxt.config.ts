@@ -133,7 +133,7 @@ const config: Configuration = {
           },
           {
             code: 'zh-tw',
-            name: '繁体字',
+            name: '繁體字',
             iso: 'zh-TW'
           },
           {
