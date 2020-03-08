@@ -40,6 +40,7 @@
 
 <style module lang="scss">
 .Flow {
+  width: 71%;
   position: relative;
   padding-bottom: 20px;
   border: 1px solid $gray-4;
@@ -104,7 +105,7 @@
   }
   &Person {
     font-weight: bold;
-    font-size: calc(0.6875rem + ((1vw - 7.68px) * 0.5952));
+    font-size: calc(0.875rem + ((1vw - 7.68px) * 1.1905));
     line-height: 1.8;
     text-align: center;
     @include largerThan($large) {
@@ -112,8 +113,11 @@
     }
   }
   &Line {
-    border-bottom: 4px solid $green-1;
+    border-bottom: 2px solid $green-1;
     font-style: inherit;
+    @include largerThan($large) {
+      border-width: 4px;
+    }
   }
   &Condition {
     display: flex;
