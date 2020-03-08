@@ -31,7 +31,7 @@
           :title-id="'number-of-confirmed-cases'"
           :chart-data="patientsGraph"
           :date="Data.patients.date"
-          :unit="'人'"
+          :unit="$t('人')"
           :url="
             'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
           "
@@ -59,7 +59,7 @@
           :date="Data.inspections_summary.date"
           :items="inspectionsItems"
           :labels="inspectionsLabels"
-          :unit="'件'"
+          :unit="$t('件.tested')"
         />
         <!-- TODO: unit need translation -->
       </v-col>
@@ -69,7 +69,7 @@
           :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
           :chart-data="contactsGraph"
           :date="Data.contacts.date"
-          :unit="'件'"
+          :unit="$t('件.reports')"
           :url="''"
         />
         <!-- TODO: unit need translation -->
@@ -80,7 +80,7 @@
           :title-id="'number-of-reports-to-covid19-consultation-desk'"
           :chart-data="querentsGraph"
           :date="Data.querents.date"
-          :unit="'件'"
+          :unit="$t('件.reports')"
           :url="''"
         />
         <!-- TODO: unit need translation -->
@@ -119,7 +119,12 @@
     "1月20日~1月24日": "1月20日~1月24日",
     "2月10日~14日": "2月10日~14日",
     "2月17日~21日": "2月17日~21日",
-    "2月25日~28日": "2月25日~28日"
+    "2月25日~28日": "2月25日~28日",
+    "人": "人",
+    "件": {
+      "tested": "件",
+      "reports": "件"
+    }
   },
   "en": {
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "Contact the Telephone Advisory Center at the first time in case of symptoms concerned. ",
@@ -220,7 +225,7 @@
     "{date}の累計": "{date} ぜんぶで",
     "都内の最新感染動向": "とうきょうとでの コロナウイルスの あたらしいじょうほう",
     "期間: {duration}": "",
-    "{duration}の利用者数との相対値: {percentage}": "ひとの かずを くらべると",
+    "{duration}の利用者数との相対値: {percentage}": "ひとの かずを くらべると: {percentage}",
     "1月20日~1月24日": "",
     "2月10日~14日": "",
     "2月17日~21日": "",
