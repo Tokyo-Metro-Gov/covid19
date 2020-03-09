@@ -8,10 +8,10 @@ const headers = [
 ]
 
 type DataType = {
-  リリース日: Date
+  リリース日: string
   居住地: string | null
   年代: string | null
-  性別: '男性' | '女性'
+  性別: '男性' | '女性' | string
   [key: string]: any
 }
 
