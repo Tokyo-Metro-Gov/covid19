@@ -33,12 +33,7 @@
           class="SideNavigation-ListItemContainer"
           @click="closeNavi"
         >
-          <ListItem
-            :link="item.link"
-            :icon="item.icon"
-            :title="item.title"
-            aria-label="別タブで開く"
-          />
+          <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
