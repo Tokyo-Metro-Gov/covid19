@@ -49,10 +49,13 @@
       </a>
     </div>
     <p id="pcr" :class="['my-4', $style.NewCorona]">
-      <span :class="$style.NeedConsultation">PCR検査</span><br />
+      <span :class="$style.NeedConsultation">PCR検査</span>※<br />
       東京都健康安全
       <br />
-      研究センター等
+      研究センター等<br />
+      <small>
+        ※保険適用となる検査は、当面の間、院内感染防止等の観点から、「帰国者・接触者外来」等の医療機関で実施
+      </small>
     </p>
     <div :class="['pb-4', $style.RectContainer]">
       <a
@@ -161,6 +164,11 @@ export default {
 .NewCorona {
   @include font-size(16);
   font-weight: bold;
+  small {
+    @include font-size(14);
+    line-height: 0;
+    font-weight: normal;
+  }
 }
 .NeedConsultation {
   line-height: 1.2em;
