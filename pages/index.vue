@@ -327,7 +327,7 @@ export default {
     const inspectionsGraph = [
       Data.inspections_summary.data['都内'],
       Data.inspections_summary.data['その他']
-    ] // TODO: '都内'・'その他'をtranslation するかどうか
+    ]
     const inspectionsItems = [
       this.$t('都内発生（疑い例・接触者調査）'),
       this.$t('その他（チャーター便・クルーズ便）')
