@@ -5,13 +5,23 @@
         <div class="PrinterButton-PrinterIcon">
           <PrinterIcon />
         </div>
-        <span class="PrinterButton-Text">印刷する</span>
+        <span class="PrinterButton-Text">
+          {{ $t('print') }}
+        </span>
       </v-btn>
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<i18n>
+{
+  "ja": {
+    "print": "印刷する"
+  }
+}
+</i18n>
+
+<script>
 import PrinterIcon from '@/static/printer.svg'
 
 export default {
