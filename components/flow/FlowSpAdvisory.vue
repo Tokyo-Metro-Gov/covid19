@@ -35,7 +35,7 @@
           <span :class="$style.ConsultationWeekendTitle">土日祝 終日</span>
         </dt>
         <dd :class="$style.TelLink">
-          <img src="/flow/phone-24px.svg" alt="Phone" />
+          <PhoneIcon :class="$style.TelLinkImg" alt="Phone" />
           <a href="tel:0353204592">
             03-5320-4592
           </a>
@@ -44,6 +44,14 @@
     </dl>
   </div>
 </template>
+
+<script lang="ts">
+import PhoneIcon from '@/static/flow/phone-24px.svg'
+
+export default {
+  components: { PhoneIcon }
+}
+</script>
 
 <style module lang="scss">
 .SpAdvisory {
@@ -97,8 +105,9 @@
   @include font-size(24);
   font-weight: bold;
   display: flex;
+  align-items: center;
   justify-content: center;
-  img {
+  &Img {
     width: 2rem;
   }
   a {

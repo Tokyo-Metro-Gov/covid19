@@ -1,6 +1,6 @@
 <template>
   <div id="hospitalized" :class="$style.Hospitalization">
-    <img width="40" height="40" src="/flow/hotel-24px.svg" aria-hidden="true" />
+    <HotelIcon :class="$style.HospitalizationImg" aria-hidden="true" />
     <p :class="$style.HospitalizationText">
       入院となります
     </p>
@@ -9,6 +9,14 @@
     </p>
   </div>
 </template>
+
+<script lang="ts">
+import HotelIcon from '@/static/flow/hotel-24px.svg'
+
+export default {
+  components: { HotelIcon }
+}
+</script>
 
 <style module lang="scss">
 .Hospitalization {
@@ -24,6 +32,9 @@
     color: $gray-2;
     font-weight: bold;
     @include font-size(22);
+  }
+  &Img {
+    width: 2rem;
   }
 }
 </style>

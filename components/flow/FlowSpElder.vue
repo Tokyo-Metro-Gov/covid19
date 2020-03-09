@@ -2,19 +2,22 @@
   <div :class="$style.Elder">
     <ul :class="['mb-1', $style.Targets]">
       <li :class="['mb-3', $style.TargetsItem]">
-        <img
-          src="/flow/directions_walk-24px.svg"
+        <DirectionsWalkIcon
+          :class="$style.TargetsItemImg"
           aria-hidden="true"
         />ご高齢な方
       </li>
       <li :class="['mb-3', $style.TargetsItem]">
-        <img
-          src="/flow/accessible-24px.svg"
+        <AccessibleIcon
+          :class="$style.TargetsItemImg"
           aria-hidden="true"
         />基礎疾患のある方
       </li>
       <li :class="['mb-3', $style.TargetsItem]">
-        <img src="/flow/pregnant_woman-24px.svg" aria-hidden="true" />妊娠中の方
+        <PregnantWomanIcon
+          :class="$style.TargetsItemImg"
+          aria-hidden="true"
+        />妊娠中の方
       </li>
     </ul>
 
@@ -45,6 +48,17 @@
     </a>
   </div>
 </template>
+
+<script lang="ts">
+import AccessibleIcon from '@/static/flow/accessible-24px.svg'
+import DirectionsWalkIcon from '@/static/flow/directions_walk-24px.svg'
+import PregnantWomanIcon from '@/static/flow/pregnant_woman-24px.svg'
+
+export default {
+  components: { AccessibleIcon, DirectionsWalkIcon, PregnantWomanIcon }
+}
+</script>
+
 <style module lang="scss">
 .Elder {
   font-weight: bold;
@@ -66,8 +80,7 @@
     font-weight: bold;
     line-height: $imgSize;
 
-    & img {
-      margin-right: 4px;
+    &Img {
       width: $imgSize;
     }
   }
