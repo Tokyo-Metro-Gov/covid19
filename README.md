@@ -4,7 +4,7 @@
 
 [![東京都 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### 日本語 | [English](./README_EN.md)
+### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md)
 
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
