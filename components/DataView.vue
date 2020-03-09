@@ -2,7 +2,7 @@
   <v-card class="DataView pa-1">
     <div class="DataView-content">
       <div class="DataView-TitleContainer">
-        <h3 :id="titleId" class="DataView-ToolbarTitle">
+        <h3 :id="titleId" class="DataView-CardTitle">
           {{ title }}
         </h3>
         <slot name="button" />
@@ -98,7 +98,7 @@ export default class DataView extends Vue {
   &-Title {
     @include card-h2();
   }
-  &-ToolbarTitle {
+  &-CardTitle {
     font-size: 1.25rem;
     font-weight: normal;
     line-height: 1.5;
