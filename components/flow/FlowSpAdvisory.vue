@@ -15,7 +15,7 @@
         <dd>
           <a
             :class="$style.Link"
-            href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronaConsultation.html"
+            href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
             target="_blank"
             rel="noopener"
           >
