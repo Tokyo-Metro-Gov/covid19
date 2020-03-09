@@ -35,11 +35,12 @@
 <script>
 import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton'
+import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
 import FlowPc from '@/components/flow/FlowPc.vue'
 import FlowSp from '@/components/flow/FlowSp.vue'
 
 export default {
-  components: { CovidIcon, PrinterButton, FlowPc, FlowSp },
+  components: { CovidIcon, PrinterButton, DesktopFlowSvg, FlowPc, FlowSp },
   head() {
     return {
       title: '新型コロナウイルス感染症が心配なときに'
