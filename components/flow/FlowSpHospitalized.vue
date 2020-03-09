@@ -9,7 +9,7 @@
     <p :class="$style.HospitalizationText">
       入院となります
     </p>
-    <p :class="$style.HospitalizationLargeText">
+    <p :class="['mb-0', $style.HospitalizationLargeText]">
       感染症指定医療機関等
     </p>
   </div>
@@ -23,16 +23,12 @@
   &Text {
     color: $gray-2;
     font-weight: bold;
-    @include font-size(14);
+    @include font-size(16);
   }
   &LargeText {
     color: $gray-2;
     font-weight: bold;
-    @include font-size(20);
+    @include font-size(22);
   }
 }
 </style>
-
-<script>
-export default {}
-</script>
