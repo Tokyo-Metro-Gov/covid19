@@ -1,7 +1,12 @@
 <template>
   <div class="TextCard">
     <h2 v-if="title" class="TextCard-Heading">
-      {{ title }}
+      <a v-if="link" :href="link" target="_blank" rel="noopener">
+        {{ title }}
+      </a>
+      <template v-else>
+        {{ title }}
+      </template>
     </h2>
     <!-- eslint-disable-next-line vue/no-v-html -->
     <p v-if="body" class="TextCard-Body" v-html="body" />
@@ -23,6 +28,10 @@ export default Vue.extend({
     body: {
       type: String,
       default: ''
+    },
+    link: {
+      type: String,
+      default: ''
     }
   }
 })
@@ -36,6 +45,9 @@ export default Vue.extend({
   &-Heading {
     @include card-h1();
     margin-bottom: 12px;
+    a {
+      @include card-h1();
+    }
   }
   &-Body {
     * {

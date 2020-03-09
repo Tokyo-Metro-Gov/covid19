@@ -7,13 +7,15 @@
       {{ title }}
     </h2>
     <div class="date">
-      <span>最終更新 </span><time>{{ date }}</time>
+      <span>最終更新 </span>
+      <time :datetime="formattedDate">{{ date }}</time>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   props: {
@@ -28,6 +30,11 @@ export default Vue.extend({
     date: {
       type: String,
       required: true
+    }
+  },
+  computed: {
+    formattedDate(): string {
+      return convertDatetimeToISO8601Format(this.date)
     }
   }
 })

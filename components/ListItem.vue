@@ -73,7 +73,7 @@ export default Vue.extend({
       return !/^https?:\/\//.test(path)
     },
     isActive(link: string): boolean {
-      return link === this.$route.path
+      return link === this.$route.path || `${link}/` === this.$route.path
     },
     checkIconType(
       icon?: string

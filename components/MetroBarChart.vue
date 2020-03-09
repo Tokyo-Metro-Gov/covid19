@@ -2,12 +2,17 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="MetroGraph-Desc">
-        {{ chartData.base_period }}の利用者数*の平均値を100としたときの相対値
+        {{ chartData.base_period }}の利用者数*の平均値を基準としたときの相対値
         <br />
         *都営地下鉄4路線の自動改札出場数
       </p>
     </template>
-    <bar :chart-data="displayData" :options="chartOption" :height="240" />
+    <bar
+      :chart-id="chartId"
+      :chart-data="displayData"
+      :options="chartOption"
+      :height="240"
+    />
   </data-view>
 </template>
 
@@ -17,7 +22,7 @@
     margin-top: 10px;
     margin-bottom: 0 !important;
     font-size: 12px;
-    color: #808080;
+    color: $gray-3;
   }
 }
 </style>
@@ -28,9 +33,6 @@ import { ChartOptions, ChartData } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 
-export type DataType = {
-  value: string
-}
 type Data = {}
 type Methods = {}
 type Computed = {
@@ -42,6 +44,7 @@ type Computed = {
 type Props = {
   chartData: ChartData
   chartOption: ChartOptions
+  chartId: string
   title: string
   titleId: string
   date: string
@@ -67,6 +70,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     chartData: Object,
     chartOption: Object,
+    chartId: {
+      type: String,
+      default: 'metro-bar-chart'
+    },
     date: {
       type: String,
       required: true

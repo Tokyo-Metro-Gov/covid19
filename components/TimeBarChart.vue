@@ -3,7 +3,12 @@
     <template v-slot:button>
       <data-selector v-model="dataKind" />
     </template>
-    <bar :chart-data="displayData" :options="displayOption" :height="240" />
+    <bar
+      :chart-id="chartId"
+      :chart-data="displayData"
+      :options="displayOption"
+      :height="240"
+    />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -70,6 +75,7 @@ type Computed = {
 type Props = {
   title: string
   titleId: string
+  chartId: string
   chartData: GraphDataType[]
   date: string
   unit: string
@@ -92,6 +98,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     titleId: {
       type: String,
       default: ''
+    },
+    chartId: {
+      type: String,
+      default: 'time-bar-chart'
     },
     chartData: {
       type: Array,
@@ -204,14 +214,61 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         scales: {
           xAxes: [
             {
+              id: 'day',
               stacked: true,
               gridLines: {
                 display: false
               },
               ticks: {
-                fontSize: 10,
+                fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: '#808080'
+                fontColor: '#808080',
+                maxRotation: 0,
+                minRotation: 0,
+                callback: (label: string) => {
+                  return label.split('/')[1]
+                }
+              }
+            },
+            {
+              id: 'month',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: true,
+                drawBorder: false,
+                tickMarkLength: 10
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: '#808080',
+                padding: 3,
+                fontStyle: 'bold',
+                gridLines: {
+                  display: true
+                },
+                callback: (label: string) => {
+                  const monthStringArry = [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                  ]
+                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
+                  return month + '月'
+                }
+              },
+              type: 'time',
+              time: {
+                unit: 'month'
               }
             }
           ],

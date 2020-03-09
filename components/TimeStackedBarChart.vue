@@ -1,9 +1,17 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
+      <p class="Graph-Desc">
+        （注）同一の対象者について複数の検体を調査する場合あり
+      </p>
       <data-selector v-model="dataKind" />
     </template>
-    <bar :chart-data="displayData" :options="options" :height="240" />
+    <bar
+      :chart-id="chartId"
+      :chart-data="displayData"
+      :options="options"
+      :height="240"
+    />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -35,6 +43,7 @@ type Methods = {
 type PropTypes = {
   title: string
   titleId: string
+  chartId: string
   chartData: number[][]
   date: string
   items: string[]
@@ -53,6 +62,10 @@ export default Vue.extend<Data, Methods, {}, PropTypes>({
       type: String,
       required: false,
       default: ''
+    },
+    chartId: {
+      type: String,
+      default: 'time-stacked-bar-chart'
     },
     chartData: {
       type: Array,
@@ -166,14 +179,58 @@ export default Vue.extend<Data, Methods, {}, PropTypes>({
         scales: {
           xAxes: [
             {
+              id: 'day',
               stacked: true,
               gridLines: {
                 display: false
               },
               ticks: {
-                fontSize: 10,
+                fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: '#808080'
+                fontColor: '#808080',
+                maxRotation: 0,
+                minRotation: 0,
+                callback: (label: string) => {
+                  return label.split('/')[1]
+                }
+              }
+            },
+            {
+              id: 'month',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: true,
+                drawBorder: false,
+                tickMarkLength: 10
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: '#808080',
+                padding: 3,
+                fontStyle: 'bold',
+                callback: (label: string) => {
+                  const monthStringArry = [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                  ]
+                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
+                  return month + '月'
+                }
+              },
+              type: 'time',
+              time: {
+                unit: 'month'
               }
             }
           ],
@@ -233,3 +290,11 @@ export default Vue.extend<Data, Methods, {}, PropTypes>({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.Graph-Desc {
+  margin: 10px 0;
+  font-size: 12px;
+  color: $gray-3;
+}
+</style>

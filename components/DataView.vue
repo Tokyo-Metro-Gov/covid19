@@ -18,7 +18,7 @@
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
-      <time :datetime="date">{{ date }} 更新</time>
+      <time :datetime="formattedDate">{{ date }} 更新</time>
       <a
         v-if="url"
         class="OpenDataLink"
@@ -37,6 +37,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   props: {
@@ -55,6 +56,11 @@ export default Vue.extend({
     url: {
       type: String,
       default: ''
+    }
+  },
+  computed: {
+    formattedDate() {
+      return convertDatetimeToISO8601Format(this.date)
     }
   }
 })
