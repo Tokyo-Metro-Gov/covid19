@@ -4,7 +4,7 @@
       <div :class="$style.TargetsItem">
         <img
           src="/flow/sentiment_very_dissatisfied-24px.svg"
-          alt="不安に思う方"
+          aria-hidden="true"
         />
         <div>
           不安に思う方
@@ -118,6 +118,9 @@
     a {
       color: $gray-2;
       text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

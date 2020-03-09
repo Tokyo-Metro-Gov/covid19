@@ -77,9 +77,12 @@
       margin-right: 5px;
       @include font-size(18);
     }
-    a {
+    .Link {
       color: $gray-2;
       text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
   &Weekend {
@@ -101,6 +104,9 @@
   a {
     color: $gray-2;
     text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 </style>

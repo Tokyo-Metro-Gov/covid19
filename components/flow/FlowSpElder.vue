@@ -2,13 +2,19 @@
   <div :class="$style.Elder">
     <ul :class="['mb-1', $style.Targets]">
       <li :class="['mb-3', $style.TargetsItem]">
-        <img src="/flow/directions_walk-24px.svg" />ご高齢な方
+        <img
+          src="/flow/directions_walk-24px.svg"
+          aria-hidden="true"
+        />ご高齢な方
       </li>
       <li :class="['mb-3', $style.TargetsItem]">
-        <img src="/flow/accessible-24px.svg" />基礎疾患のある方
+        <img
+          src="/flow/accessible-24px.svg"
+          aria-hidden="true"
+        />基礎疾患のある方
       </li>
       <li :class="['mb-3', $style.TargetsItem]">
-        <img src="/flow/pregnant_woman-24px.svg" />妊娠中の方
+        <img src="/flow/pregnant_woman-24px.svg" aria-hidden="true" />妊娠中の方
       </li>
     </ul>
 
