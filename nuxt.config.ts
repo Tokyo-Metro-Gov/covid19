@@ -155,7 +155,7 @@ const config: Configuration = {
   build: {
     postcss: {
       plugins: [
-        autoprefixer,
+        autoprefixer({ grid: 'autoplace' }),
         purgecss({
           content: [
             './pages/**/*.vue',
