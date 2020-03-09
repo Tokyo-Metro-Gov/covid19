@@ -1,27 +1,27 @@
 <template>
   <div>
-    <div class="Flow-Card">
-      <h3 class="Flow-Card-Heading">
+    <div :class="$style.FlowCard">
+      <h3 :class="$style.FlowCardHeading">
         新型コロナウイルス感染症にかかる相談窓口について
       </h3>
       <flow-sp-past />
     </div>
-    <div class="Flow-Card">
+    <div :class="$style.FlowCard">
       <flow-sp-general />
     </div>
-    <div class="Flow-Card">
+    <div :class="$style.FlowCard">
       <flow-sp-elder />
     </div>
-    <div class="Flow-Card">
+    <div :class="$style.FlowCard">
       <flow-sp-suspect />
     </div>
-    <div class="Flow-Card Flow-Card-GrayBg">
+    <div :class="[$style.FlowCard, $style.FlowCardBrayBg]">
       <flow-sp-advisory />
     </div>
-    <div class="Flow-Card">
+    <div :class="$style.FlowCard">
       <flow-sp-according />
     </div>
-    <div class="Flow-Card">
+    <div :class="$style.FlowCard">
       <flow-sp-hospitalized />
     </div>
   </div>
@@ -49,8 +49,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.Flow-Card {
+<style module lang="scss">
+.FlowCard {
   display: flex;
   flex-direction: column;
   @include card-container();
@@ -60,22 +60,7 @@ export default {
     color: $gray-2;
     font-size: 1.5rem;
   }
-  &-Button {
-    @include button-text('md');
-    margin: 24px auto 0;
-    @include font-size(20);
-    font-weight: 600;
-    text-decoration: none;
-    color: $green-1 !important;
-    &:hover {
-      color: $white !important;
-    }
-    &-ExternalLinkIcon {
-      margin-left: 2px;
-      color: $green-1 !important;
-    }
-  }
-  &-GrayBg {
+  &GrayBg {
     background-color: $gray-5;
   }
 }

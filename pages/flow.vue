@@ -66,6 +66,21 @@ export default {
       margin-left: 8px;
     }
   }
+  &-Card-Button {
+    @include button-text('md');
+    margin: 24px auto 0;
+    @include font-size(20);
+    font-weight: 600;
+    text-decoration: none;
+    color: $green-1 !important;
+    &:hover {
+      color: $white !important;
+    }
+    &-ExternalLinkIcon {
+      margin-left: 2px;
+      color: $green-1 !important;
+    }
+  }
   &-PullRight {
     margin: 0 0 0 auto;
   }
