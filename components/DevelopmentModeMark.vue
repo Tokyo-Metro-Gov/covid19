@@ -52,9 +52,13 @@ export default {
     isDevelopmentMode: () => {
       // 暫定的にURLの正規表現を公開状態の判定に用いている
       // 可能であれば環境変数から状態を判定したい
-      const url = 'https://stopcovid19.metro.tokyo.lg.jp'
-      const regex = url.replace(/\//g, '/').replace(/\./g, '.')
-      return location.href.match(new RegExp(regex)) === null
+
+      // const releaseUrl = 'http://localhost' //検証用
+      const releaseUrl = 'https://stopcovid19.metro.tokyo.lg.jp'
+      const regex = new RegExp(
+        '^' + releaseUrl.replace(/\//g, '\\/').replace(/\./g, '\\.')
+      )
+      return location.href.match(regex) === null
     }
   }
 }
