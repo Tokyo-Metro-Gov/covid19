@@ -1,6 +1,6 @@
 <template>
   <div class="PrinterButton">
-    <v-btn outlined color="#00a040">
+    <v-btn outlined color="#00a040" href="/print/flow">
       <div class="PrinterButton-PrinterIcon">
         <PrinterIcon />
       </div>
@@ -10,7 +10,6 @@
 </template>
 
 <script lang="ts">
-import { Vue, Prop, Component } from 'vue-property-decorator'
 import PrinterIcon from '@/static/printer.svg'
 
 export default {
@@ -22,14 +21,19 @@ export default {
 
 <style lang="scss">
 .PrinterButton {
+  margin: 0 0 0 auto;
+
   &-Text {
     @include lessThan($small) {
       display: none;
     }
   }
   &-PrinterIcon {
-    padding-right: 7px;
     margin-top: 3px;
+
+    @include largerThan($small) {
+      padding-right: 7px;
+    }
   }
 }
 </style>
