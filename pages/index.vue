@@ -371,6 +371,18 @@ export default {
     for (const header of patientsTable.headers) {
       header.text = this.$t(header.text)
     }
+    // 陽性患者の属性 中身の翻訳
+    for (const row of patientsTable.datasets) {
+      row['居住地'] = this.$t(row['居住地'])
+      row['性別'] = this.$t(row['性別'])
+
+      if (row['年代'] === '10歳未満') {
+        row['年代'] = this.$t('10歳未満')
+      } else {
+        const age = row['年代'].substring(0, 2)
+        row['年代'] = this.$t('{age}代', { age })
+      }
+    }
     // 退院者グラフ
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
     // 退院者数
