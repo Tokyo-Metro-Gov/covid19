@@ -17,7 +17,7 @@
         <svg-card
           title="検査陽性者の状況"
           :title-id="'details-of-confirmed-cases'"
-          :date="headerItem.date"
+          :date="Data.inspections_summary.date"
         >
           <confirmed-cases-table v-bind="confirmedCases" />
         </svg-card>
