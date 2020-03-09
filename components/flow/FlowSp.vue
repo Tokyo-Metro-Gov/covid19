@@ -15,7 +15,7 @@
     <div class="Flow-Card">
       <flow-sp-suspect />
     </div>
-    <div class="Flow-Card Flow-Card-GrayBg">
+    <div :class="['Flow-Card', $style.GrayBg]">
       <flow-sp-advisory />
     </div>
     <div class="Flow-Card">
@@ -53,5 +53,8 @@ export default {
 .Heading {
   color: $gray-2;
   font-size: 1.5rem;
+}
+.GrayBg {
+  background-color: $gray-5 !important;
 }
 </style>

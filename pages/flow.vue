@@ -72,9 +72,6 @@ export default {
     @include card-container();
     padding: 20px;
     margin-bottom: 20px;
-    &-GrayBg {
-      background-color: $gray-5;
-    }
     > h2 {
       @include card-h1();
       margin-bottom: 12px;
