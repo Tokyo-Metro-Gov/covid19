@@ -1,5 +1,6 @@
 <template>
   <div class="Flow">
+    <language-selector />
     <div class="Flow-Heading">
       <CovidIcon />
       <h2 class="Flow-Heading-Title">
@@ -33,6 +34,7 @@
 </template>
 
 <script>
+import LanguageSelector from '@/components/LanguageSelector.vue'
 import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton'
 import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
@@ -40,7 +42,7 @@ import FlowPc from '@/components/flow/FlowPc.vue'
 import FlowSp from '@/components/flow/FlowSp.vue'
 
 export default {
-  components: { CovidIcon, PrinterButton, DesktopFlowSvg, FlowPc, FlowSp },
+  components: { LanguageSelector, CovidIcon, PrinterButton, DesktopFlowSvg, FlowPc, FlowSp },
   head() {
     return {
       title: '新型コロナウイルス感染症が心配なときに'
