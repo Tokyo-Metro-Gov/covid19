@@ -38,7 +38,8 @@
       :aria-label="ariaLabel"
       class="ListItem-ExternalLinkIcon"
       size="12"
-      @click="openNavi"
+      role="img"
+      :aria-hidden="false"
     >
       mdi-open-in-new
     </v-icon>
