@@ -8,7 +8,7 @@
       <div>
         <p>
           <span :class="$style.FlowRowEmphasis">
-            <span :class="$style.FlowRowEmphasisDay">４</span>
+            <span :class="$style.FlowRowEmphasisDay">4</span>
             日以上
           </span>
           続いている
@@ -61,7 +61,7 @@
       <div>
         <p>
           <span :class="$style.FlowRowEmphasis">
-            <span :class="$style.FlowRowEmphasisDay">２</span>
+            <span :class="$style.FlowRowEmphasisDay">2</span>
             日程度
           </span>
           続いている
