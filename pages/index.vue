@@ -124,7 +124,11 @@
     "件": {
       "tested": "件",
       "reports": "件"
-    }
+    },
+    "日付": "日付",
+    "居住地": "居住地",
+    "年代": "年代",
+    "性別": "性別",
   },
   "en": {
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "Contact the Telephone Advisory Center at the first time in case of symptoms concerned. ",
@@ -150,7 +154,11 @@
     "件": {
       "tested": "cases",
       "reports": "reports"
-    }
+    },
+    "日付": "Date",
+    "居住地": "Residence",
+    "年代": "Age",
+    "性別": "Gender",
   },
   "zh-cn": {
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "如果您或您的家人出现疑似症状，请立即拨打电话咨询",
@@ -176,7 +184,11 @@
     "件": {
       "tested": "件",
       "reports": "件"
-    }
+    },
+    "日付": "日期",
+    "居住地": "居住地",
+    "年代": "年龄",
+    "性別": "性别",
   },
   "zh-tw": {
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "若您或家人出現疑似症狀，請即刻撥打電話諮詢",
@@ -202,7 +214,11 @@
     "件": {
       "tested": "件",
       "reports": "件"
-    }
+    },
+    "日付": "日期",
+    "居住地": "居住地",
+    "年代": "年齡",
+    "性別": "性別",
   },
   "ko": {
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "본인 혹은 가족에게 의심증상이 있을 경우, 콜센터에 먼저 문의하세요. ",
@@ -228,7 +244,11 @@
     "件": {
       "tested": "건",
       "reports": "건"
-    }
+    },
+    "日付": "날짜",
+    "居住地": "거주지",
+    "年代": "나이",
+    "性別": "성별",
   },
   "ja-basic": {
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "からだの ぐあいが わるくて こわくなったら でんわして ください",
@@ -254,7 +274,11 @@
     "件": {
       "tested": "けん",
       "reports": "けん"
-    }
+    },
+    "日付": "ひづけ",
+    "居住地": "すんでいるところ",
+    "年代": "とし",
+    "性別": "おとこ・おんな・そのほか",
   }
 }
 </i18n>
@@ -293,8 +317,12 @@ export default {
   data() {
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
-    // 感染者数
+    // 陽性患者の属性
     const patientsTable = formatTable(Data.patients.data)
+    // 陽性患者の属性 ヘッダー翻訳
+    for (const header of patientsTable.headers) {
+      header.text = this.$t(header.text)
+    }
     // 退院者グラフ
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
     // 退院者数
