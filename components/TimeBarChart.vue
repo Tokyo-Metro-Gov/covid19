@@ -175,7 +175,7 @@ export default {
           callbacks: {
             label(tooltipItem) {
               const labelText =
-                parseInt(tooltipItem.value).toLocaleString() + unit
+                parseInt(tooltipItem.value).toLocaleString() + ` ${unit}`
               return labelText
             },
             title(tooltipItem, data) {
