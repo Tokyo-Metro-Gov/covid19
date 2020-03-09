@@ -1,5 +1,6 @@
 import { Configuration } from '@nuxt/types'
 const purgecss = require('@fullhuman/postcss-purgecss')
+const autoprefixer = require('autoprefixer')
 
 const config: Configuration = {
   mode: 'universal',
@@ -88,6 +89,10 @@ const config: Configuration = {
     {
       src: '@/plugins/vue-chart.ts',
       ssr: true
+    },
+    {
+      src: '@/plugins/vuetify.ts',
+      ssr: true
     }
   ],
   /*
@@ -140,7 +145,9 @@ const config: Configuration = {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    theme: {}
+    defaultAssets: {
+      icons: false
+    }
   },
   googleAnalytics: {
     id: 'UA-159417676-1'
@@ -148,6 +155,7 @@ const config: Configuration = {
   build: {
     postcss: {
       plugins: [
+        autoprefixer({ grid: 'autoplace' }),
         purgecss({
           content: [
             './pages/**/*.vue',
