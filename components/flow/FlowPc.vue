@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="Flow-Card">
+    <h2>新型コロナウイルス感染症にかかる相談窓口について</h2>
     <div :class="[$style.Outer, $style.OuterUpper]">
       <div :class="[$style.CardBlock, $style.Past]">
         <flow-pc-past />
