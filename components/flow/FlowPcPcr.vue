@@ -3,7 +3,7 @@
     <div :class="$style.actionArea">
       <div>
         <p :class="$style.h1">
-          PCR検査
+          PCR検査<span :class="$style.small">※</span>
         </p>
         <p :class="$style.content">
           東京都健康安全<br />
@@ -45,6 +45,10 @@
         @include font-size(40);
         line-height: 1;
         margin-bottom: 0.25em;
+        .small {
+          @include font-size(14);
+          vertical-align: top;
+        }
       }
 
       &.content {
