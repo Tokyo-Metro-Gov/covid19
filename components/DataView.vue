@@ -78,6 +78,9 @@ export default class DataView extends Vue {
 .DataView {
   @include card-container();
   height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
   &-content {
     height: auto !important;
     .v-toolbar__content {
