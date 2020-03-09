@@ -16,7 +16,8 @@
     "lint-and-generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "test": "echo 'skip tests (there is no test)'",
     "lint": "eslint './**/*.{js,ts,vue}' --fix",
-    "clean-hardsource": "rimraf ./node_modules/.cache/hard-source"
+    "clean-hardsource": "rimraf ./node_modules/.cache/hard-source",
+    "screenshot": "node ui-test/screenshot.js"
   },
   "lint-staged": {
     "*.{js,ts,vue}": [
@@ -55,17 +56,20 @@
     "@types/chart.js": "^2.9.14",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-jest": "^24.1.0",
+    "chromedriver": "^80.0.1",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "geckodriver": "^1.19.1",
     "husky": "^4.2.3",
-    "jest": "^24.1.0",
+    "jest": "^25.1.0",
     "lint-staged": "^10.0.8",
     "nodemon": "^1.18.9",
     "nuxt-purgecss": "^0.2.1",
     "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
+    "selenium-webdriver": "^4.0.0-alpha.7",
     "vue-jest": "^4.0.0-0"
   }
 }
