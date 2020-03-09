@@ -191,6 +191,9 @@ const config: Configuration = {
     webpack: {
       poll: true
     }
+  },
+  router: {
+    base: process.env.NODE_ENV
   }
 }
 

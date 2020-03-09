@@ -30,6 +30,8 @@ jobs:
       - run: "echo \"User-agent: *\nDisallow *\" > ./dist/robots.txt"
 
       - name: FTP-Deploy-Action
+        env:
+          NODE_ENV: development
         uses: SamKirkland/FTP-Deploy-Action@3.0.0
         with:
           ftp-server: ftp.lolipop.jp/
