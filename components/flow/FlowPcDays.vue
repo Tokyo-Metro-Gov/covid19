@@ -4,7 +4,7 @@
       <div :class="$style.FlowRowRowThree">
         <div>
           <img src="/flow/accessibility-24px.svg" />
-          <p>一般の方</p>
+          <p>{{ $t('一般の方') }}</p>
         </div>
       </div>
       <div>
@@ -70,6 +70,32 @@
     </div>
   </div>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "一般の方": "一般の方"
+  },
+  "en": {
+    "一般の方": "People without any specific health conditions"
+  },
+  "zh-cn": {
+    "一般の方": "普通人"
+  },
+  "zh-tw": {
+    "一般の方": "一般人士"
+  },
+  "ko": {
+    "一般の方": "일반인"
+  },
+  "pt-BR": {
+    "一般の方": "ねつが ないひと"
+  },
+  "ja-basic": {
+    "一般の方": "ねつが ないひと"
+  }
+}
+</i18n>
 
 <style module lang="scss">
 .Flow {
