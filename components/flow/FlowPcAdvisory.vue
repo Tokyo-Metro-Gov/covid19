@@ -70,11 +70,11 @@
       </div>
     </div>
 
-    <div :class="[$style.AdvisoryBlockCentering, $style.Mt8]">
+    <div :class="$style.AdvisoryBlockCentering">
       <img src="/flow/flow_arrow.svg" :class="$style.Rotate" />
     </div>
 
-    <div :class="[$style.AdvisoryBlockCentering, $style.Mt8]">
+    <div :class="$style.AdvisoryBlockCentering">
       <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryBlackBox]">
         <span :class="$style.AdvisoryBlackBoxSentense">
           専門的な助言が<br />必要な場合
@@ -86,11 +86,16 @@
 
 <style module lang="scss">
 .Advisory {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   color: $gray-2;
   &Container {
     background-color: $gray-5;
     border-radius: 4px;
     padding: 30px 20px 20px 20px;
+    margin-bottom: 10px;
     text-align: center;
   }
   &Contents {
@@ -141,14 +146,14 @@
   }
   &BoxContainer {
     border-radius: 4px;
-    justify-content: center;
-    display: flex;
-    align-items: center;
+    text-align: center;
+    padding: 20px 10px;
+    margin: 20px auto 40px;
   }
   &WhiteBox {
     background-color: $white;
     width: 160px;
-    height: 40px;
+    padding: 10px;
     &Sentense {
       color: $green-1;
       font-size: 18px;
@@ -173,9 +178,6 @@
 .Mt4 {
   margin-top: 4px;
 }
-.Mt8 {
-  margin-top: 8px;
-}
 .Mt16 {
   margin-top: 16px;
 }
@@ -183,7 +185,3 @@
   margin-top: 20px;
 }
 </style>
-
-<script>
-export default {}
-</script>

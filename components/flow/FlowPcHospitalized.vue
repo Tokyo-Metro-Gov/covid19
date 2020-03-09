@@ -20,7 +20,6 @@
 
   &Heading {
     color: $gray-2;
-    font-weight: bold;
     display: flex;
     align-items: center;
     margin: 0 !important;

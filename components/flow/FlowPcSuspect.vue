@@ -25,10 +25,6 @@
       </div>
     </div>
 
-    <div :class="$style.FlowArrow">
-      <img src="/flow/flow_arrow.svg" alt="→" />
-    </div>
-
     <div :class="[$style.SubtleBox, $style.Box2]">
       <div :class="$style.LargerText">
         新型コロナコールセンター
@@ -54,8 +50,7 @@
   color: $gray-2;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .TelLink {
@@ -73,8 +68,8 @@
   position: relative;
   border: 2px solid $green-1;
   border-radius: 4px;
-  margin: 8px;
-  padding: 4px 0;
+  margin: 8px 0;
+  padding: 10px;
   max-width: 200px;
   text-align: center;
   font-weight: bold;
@@ -104,18 +99,30 @@
 .SubtleBox {
   @include card-container();
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   padding: 0.5em;
 }
 
 .Box1 {
-  flex-grow: 2;
+  position: relative;
+  flex: 0 0 60%;
+  flex-direction: row;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 40%;
+    right: -30px;
+    z-index: 1;
+    display: block;
+    width: 46px;
+    height: 46px;
+    background: url('/flow/flow_arrow.svg') no-repeat;
+  }
 }
 
 .Box2 {
-  flex-grow: 1;
+  flex: 0 0 38%;
   flex-direction: column;
   div {
     margin: 0.5em;
@@ -132,6 +139,7 @@
 }
 
 .FlowArrow {
+  position: absolute;
   margin: 0 -20px;
   z-index: 1;
 }
