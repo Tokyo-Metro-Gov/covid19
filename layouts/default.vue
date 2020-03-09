@@ -78,10 +78,13 @@ export default Vue.extend({
   position: relative;
   @include largerThan($small) {
     display: grid;
+    display: -ms-grid;
     grid-template-columns: 240px auto;
+    -ms-grid-columns: 240px auto;
   }
   @include largerThan($huge) {
     grid-template-columns: 325px auto;
+    -ms-grid-columns: 325px auto;
   }
 }
 @include lessThan($small) {
@@ -95,6 +98,8 @@ export default Vue.extend({
 @include largerThan($small) {
   .naviContainer {
     grid-column: 1/2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
     position: fixed;
     top: 0;
     overflow-y: auto;
@@ -116,6 +121,8 @@ export default Vue.extend({
 }
 .mainContainer {
   grid-column: 2/3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
   overflow: hidden;
   @include lessThan($small) {
     .container {
