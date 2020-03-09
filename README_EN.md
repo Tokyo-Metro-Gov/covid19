@@ -4,7 +4,7 @@
 
 [![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./README.md) | English
+### [日本語](./README.md) | English | [Spanish](./README_ES.md)
 
 ## How to Contribute
 
@@ -16,7 +16,7 @@ Please check [How to contribute](./.github/CONTRIBUTING_EN.md) for details.
 Please check [Code of conduct for developers](./.github/CODE_OF_CONDUCT_EN.md) for details.
 
 ## License
-This software is released under the MIT License.
+This software is released under [the MIT License](./LICENSE.txt).
 
 ## For Developers
 

@@ -4,7 +4,7 @@
 
 [![東京都 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### 日本語 | [English](./README_EN.md)
+### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md)
 
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
@@ -16,7 +16,7 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 詳しくは[サイト構築にあたっての行動原則](./.github/CODE_OF_CONDUCT.md)を御覧ください。
 
 ## ライセンス
-本ソフトウェアは、MITライセンスの元提供されています。
+本ソフトウェアは、[MITライセンス](./LICENSE.txt)の元提供されています。
 
 ## 開発者向け情報
 
