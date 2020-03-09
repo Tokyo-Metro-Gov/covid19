@@ -48,10 +48,10 @@
         </template>
       </div>
       <div :class="$style.FlowCondition">
-        <em :class="$style.FlowSymptom">発熱</em>
-        <span :class="$style.FlowText">または</span>
-        <em :class="$style.FlowSymptom">呼吸器症状</em>
-        <span :class="$style.FlowText">かつ</span>
+        <em :class="$style.FlowSymptom">{{ $t('発熱') }}</em>
+        <span :class="$style.FlowText">{{ $t('または') }}</span>
+        <em :class="$style.FlowSymptom">{{ $t('呼吸器症状') }}</em>
+        <span :class="$style.FlowText">{{ $t('かつ') }}</span>
         <em :class="$style.FlowSymptom">
           <span :class="$style.FlowTextSm"
             >発熱
@@ -63,6 +63,59 @@
     </div>
   </section>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "発熱": "発熱",
+    "または": "または",
+    "呼吸器症状": "呼吸器症状",
+    "かつ": "かつ",
+    "発熱{temperature}以上": "発熱{temperature}以上",
+    "37.5℃": "37.5℃"
+  },
+  "en": {
+    "発熱": "Fever",
+    "または": "or",
+    "呼吸器症状": "Having respiratory symptoms",
+    "かつ": "and",
+    "発熱{temperature}以上": "body temperature above {temperature}",
+    "37.5℃": "37.5℃"
+  },
+  "zh-cn": {
+    "発熱": "发烧",
+    "または": "",
+    "呼吸器症状": "呼吸道症状",
+    "かつ": "",
+    "発熱{temperature}以上": "发烧 {temperature} 以上",
+    "37.5℃": "37.5℃"
+  },
+  "zh-tw": {
+    "発熱": "發燒",
+    "または": "",
+    "呼吸器症状": "呼吸道症狀",
+    "かつ": "",
+    "発熱{temperature}以上": "發燒 {temperature} 以上",
+    "37.5℃": "37.5℃"
+  },
+  "ko": {
+    "発熱": "발열",
+    "または": "",
+    "呼吸器症状": "호흡기 증상",
+    "かつ": "",
+    "発熱{temperature}以上": "{temperature} 이상의 발열",
+    "37.5℃": "37.5도"
+  },
+  "ja-basic": {
+    "発熱": "ねつが あるひと",
+    "または": "",
+    "呼吸器症状": "いきがつらいひと、むねがくるしい・ぜいぜいするひと",
+    "かつ": "",
+    "発熱{temperature}以上": "{temperature}より たかいねつが あるひと",
+    "37.5℃": "37.5℃"
+  }
+}
+</i18n>
 
 <style module lang="scss">
 .Flow {
