@@ -84,6 +84,14 @@ export default Vue.extend({
     grid-template-columns: 325px auto;
   }
 }
+@include lessThan($small) {
+  .naviContainer {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: z-index-of(sp-navigation);
+  }
+}
 @include largerThan($small) {
   .naviContainer {
     grid-column: 1/2;
@@ -91,7 +99,7 @@ export default Vue.extend({
     top: 0;
     overflow-y: auto;
     width: 240px;
-    height: 100vh;
+    height: 100%;
   }
 }
 @include largerThan($huge) {
