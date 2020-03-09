@@ -2,8 +2,8 @@
   <div :class="$style.Suspect">
     <div :class="['mb-5', $style.Targets]">
       <div :class="$style.TargetsItem">
-        <img
-          src="/flow/sentiment_very_dissatisfied-24px.svg"
+        <SentimentIcon
+          :class="['mb-n4', $style.TargetsItemImg]"
           aria-hidden="true"
         />
         <div>
@@ -35,7 +35,7 @@
 
     <div :class="['mb-4', $style.Phone]">
       <div :class="$style.PhoneItem">
-        <img class="mr-n1" src="/flow/phone-24px.svg" alt="tel" />
+        <PhoneIcon :class="$style.PhoneItemImg" alt="Phone" />
         <a href="tel:0570550571">
           0570-550571
         </a>
@@ -47,6 +47,15 @@
     </a>
   </div>
 </template>
+
+<script lang="ts">
+import PhoneIcon from '@/static/flow/phone-24px.svg'
+import SentimentIcon from '@/static/flow/sentiment_very_dissatisfied-24px.svg'
+
+export default {
+  components: { PhoneIcon, SentimentIcon }
+}
+</script>
 
 <style module lang="scss">
 .Suspect {
@@ -60,7 +69,7 @@
     @include font-size(16);
     font-weight: bold;
     line-height: $imgSize;
-    & img {
+    &Img {
       width: $imgSize;
     }
   }
@@ -112,7 +121,10 @@
     @include font-size(24);
     font-weight: bold;
     line-height: $imgSize;
-    & img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &Img {
       width: $imgSize;
     }
     a {
