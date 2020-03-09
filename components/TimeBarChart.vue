@@ -175,14 +175,11 @@ export default {
           callbacks: {
             label(tooltipItem) {
               const labelText =
-                parseInt(tooltipItem.value).toLocaleString() + unit
+                `${parseInt(tooltipItem.value).toLocaleString()} ${unit}`
               return labelText
             },
             title(tooltipItem, data) {
-              return data.labels[tooltipItem[0].index].replace(
-                /(\w+)\/(\w+)/,
-                '$1月$2日'
-              )
+              return data.labels[tooltipItem[0].index]
             }
           }
         },
