@@ -50,9 +50,6 @@ export default class LanguageSelector extends Vue {
       border: 1px solid #d9d9d9;
       border-radius: 4px;
       cursor: pointer;
-      &:hover {
-        border: 1px solid #333;
-      }
       label {
         padding: 5px 0;
         margin-right: 5px;
