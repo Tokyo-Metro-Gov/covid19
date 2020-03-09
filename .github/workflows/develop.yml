@@ -29,9 +29,10 @@ jobs:
       - run: yarn run generate:deploy --fail-on-page-error
       - run: "echo \"User-agent: *\nDisallow *\" > ./dist/robots.txt"
 
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@3.0.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: dev-pages
+          ftp-server: ftp.lolipop.jp/development
+          ftp-username: fem.jp-codeforkagoshima
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist

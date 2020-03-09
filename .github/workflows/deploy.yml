@@ -28,9 +28,10 @@ jobs:
       - run: yarn run test
       - run: yarn run generate:deploy --fail-on-page-error
 
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@3.0.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: production
+          ftp-server: ftp.lolipop.jp/production
+          ftp-username: fem.jp-codeforkagoshima
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist
