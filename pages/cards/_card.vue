@@ -104,11 +104,6 @@ export default {
       title: this.title,
       meta: [
         {
-          hid: 'description',
-          property: 'description',
-          content: description
-        },
-        {
           hid: 'og:url',
           property: 'og:url',
           content: url + this.$route.path
@@ -117,6 +112,11 @@ export default {
           hid: 'og:title',
           property: 'og:title',
           content: this.title + ' | 東京都 新型コロナウイルス感染症対策サイト'
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: description
         },
         {
           hid: 'og:description',
@@ -130,7 +130,7 @@ export default {
         },
         {
           hid: 'twitter:image',
-          property: 'twitter:image',
+          name: 'twitter:image',
           content: ogpImage
         }
       ]
