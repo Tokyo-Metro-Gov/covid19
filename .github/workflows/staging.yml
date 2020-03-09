@@ -32,7 +32,8 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.0.0
         with:
-          ftp-server: ftp.lolipop.jp/staging
+          ftp-server: ftp.lolipop.jp/
           ftp-username: fem.jp-codeforkagoshima
           ftp-password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist
+          local-dir: dist
+          git-ftp-args: --remote-root production
