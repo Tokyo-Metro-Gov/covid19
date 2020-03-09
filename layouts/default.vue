@@ -30,6 +30,7 @@ import SideNavigation from '@/components/SideNavigation.vue'
 type LocalData = {
   isOpenNavigation: boolean
   loading: boolean
+  positionY: number
 }
 
 export default Vue.extend({
@@ -40,7 +41,8 @@ export default Vue.extend({
   data(): LocalData {
     return {
       isOpenNavigation: false,
-      loading: true
+      loading: true,
+      positionY: 0
     }
   },
   mounted() {
@@ -48,10 +50,14 @@ export default Vue.extend({
   },
   methods: {
     openNavigation(): void {
+      this.positionY = document.documentElement.scrollTop
       this.isOpenNavigation = true
     },
     hideNavigation(): void {
       this.isOpenNavigation = false
+      setTimeout(() => {
+        window.scrollTo(0, this.positionY)
+      }, 1)
     }
   },
   head(): MetaInfo {
