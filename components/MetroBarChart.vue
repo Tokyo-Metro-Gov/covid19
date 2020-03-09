@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="MetroGraph-Desc">
         {{ chartData.base_period }}の利用者数*の平均値を基準としたときの相対値
@@ -7,7 +7,12 @@
         *都営地下鉄4路線の自動改札出場数
       </p>
     </template>
-    <bar :chart-data="displayData" :options="chartOption" :height="240" />
+    <bar
+      :chart-id="chartId"
+      :chart-data="displayData"
+      :options="chartOption"
+      :height="240"
+    />
   </data-view>
 </template>
 
@@ -32,6 +37,16 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    titleId: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    chartId: {
+      type: String,
+      required: false,
+      default: 'metro-bar-chart'
     },
     chartData: {
       type: Object,
