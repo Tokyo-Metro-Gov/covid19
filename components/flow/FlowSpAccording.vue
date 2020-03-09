@@ -142,7 +142,7 @@
 <script>
 import Apartment from '../static/flow/apartment-24px.svg'
 import House from '../static/flow/house-24px.svg'
-import Arrow from '../static/flow/arrow.svg'
+import Arrow from '../static/flow/arrow_downward.svg'
 import GreenArrow from '../static/flow/arrow_green.svg'
 
 export default {
