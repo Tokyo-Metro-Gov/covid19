@@ -10,7 +10,7 @@
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('Tokyo')" />
+          <img src="/logo.svg" :alt="$t('Kagoshima')" />
         </div>
         <h1 class="SideNavigation-Heading">
           {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
@@ -62,7 +62,7 @@
           </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
+          Copyright &copy; 2020 Kagoshima Prefectural Government. All Rights
           Reserved.
         </small>
       </div>
@@ -75,10 +75,10 @@
   "ja": {
     "Navi Open": "サイドメニュー項目を開く",
     "Navi Close": "サイドメニュー項目を閉じる",
-    "Tokyo": "東京都",
+    "Kagoshima": "鹿児島県",
     "COVID-19": "新型コロナウイルス感染症",
     "Measures site": "対策サイト",
-    "Tokyo Metropolitan Government": "東京都",
+    "Kagoshima Prefectural Government": "鹿児島県",
     "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
     "The latest updates": "都内の最新感染動向",
     "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
@@ -87,7 +87,7 @@
     "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
     "Official statements from Task Force": "東京都新型コロナウイルス感染症対策本部報",
     "Cancelled public events": "東京都主催等 中止又は延期するイベント等",
-    "Government official website": "東京都公式ホームページ",
+    "Government official website": "鹿児島県公式ホームページ",
     "Message from Governor Koike": "知事からのメッセージ",
     "About us": "当サイトについて"
   }
@@ -148,9 +148,9 @@ export default {
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
         },
         {
-          title: this.$t('Message from Governor Koike'),
+          title: this.$t('Message from Governor'),
           link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+            'https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/documents/76148_20200305175151-1.pdf'
         },
         {
           title: this.$t('About us'),
@@ -158,7 +158,7 @@ export default {
         },
         {
           title: this.$t('Government official website'),
-          link: 'https://www.metro.tokyo.lg.jp/',
+          link: 'http://www.pref.kagoshima.jp/',
           divider: true
         }
       ]
