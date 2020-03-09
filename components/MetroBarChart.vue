@@ -25,24 +25,35 @@
 <script lang="ts">
 import Vue from 'vue'
 import { ChartOptions, ChartData } from 'chart.js'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 
 export type DataType = {
   value: string
 }
-
-export default Vue.extend<
-  {},
-  {},
-  {},
-  {
-    chartData: ChartData
-    chartOption: ChartOptions
-    title: string
-    titleId: string
-    date: string
+type Data = {}
+type Methods = {}
+type Computed = {
+  displayData: {
+    labels: (string | undefined)[]
+    datasets: object
   }
->({
+}
+type Props = {
+  chartData: ChartData
+  chartOption: ChartOptions
+  title: string
+  titleId: string
+  date: string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
   components: { DataView },
   props: {
     title: {
@@ -78,5 +89,7 @@ export default Vue.extend<
       }
     }
   }
-})
+}
+
+export default Vue.extend(options)
 </script>

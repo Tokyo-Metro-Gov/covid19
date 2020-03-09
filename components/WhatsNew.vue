@@ -24,8 +24,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   props: {
     items: {
       type: Array,
@@ -33,11 +35,11 @@ export default {
     }
   },
   methods: {
-    isInternalLink(path) {
+    isInternalLink(path: string): boolean {
       return !/^https?:\/\//.test(path)
     }
   }
-}
+})
 </script>
 
 <style lang="scss">

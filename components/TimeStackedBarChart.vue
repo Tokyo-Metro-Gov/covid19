@@ -14,17 +14,39 @@
   </data-view>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ChartTooltipItem, ChartData } from 'chart.js'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-export default {
+type Data = {
+  dataKind: 'transition' | 'cumulative'
+}
+type Methods = {
+  sum: (array: number[]) => number
+  cumulative: (array: number[]) => number[]
+  pickLastNumber: (chartDataArray: number[][]) => number[]
+  cumulativeSum: (chartDataArray: number[][]) => number[]
+  eachArraySum: (chartDataArray: number[][]) => number[]
+}
+
+type PropTypes = {
+  title: string
+  titleId: string
+  chartData: number[][]
+  date: string
+  items: string[]
+  labels: string[]
+  unit: string
+}
+
+export default Vue.extend<Data, Methods, {}, PropTypes>({
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
@@ -44,25 +66,20 @@ export default {
     },
     items: {
       type: Array,
-      required: false,
       default: () => []
     },
     labels: {
       type: Array,
-      required: false,
       default: () => []
     },
     unit: {
       type: String,
-      required: false,
       default: ''
     }
   },
-  data() {
-    return {
-      dataKind: 'transition'
-    }
-  },
+  data: () => ({
+    dataKind: 'transition'
+  }),
   computed: {
     displayInfo() {
       if (this.dataKind === 'transition') {
@@ -117,22 +134,27 @@ export default {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label: tooltipItem => {
-              const labelText =
-                this.dataKind === 'transition'
-                  ? `${sumArray[tooltipItem.index]}${unit}（都内: ${
-                      data[0][tooltipItem.index]
-                    }/その他: ${data[1][tooltipItem.index]}）`
-                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（都内: ${
-                      cumulativeData[0][tooltipItem.index]
-                    }/その他: ${cumulativeData[1][tooltipItem.index]}）`
-              return labelText
+            label: (tooltipItem: ChartTooltipItem) => {
+              if (this.dataKind === 'transition' && tooltipItem.index) {
+                const index = tooltipItem.index
+                const labelText = `${sumArray[index]}${unit}（都内: ${data[0][index]}/その他: ${data[1][index]}`
+                return labelText
+              } else if (tooltipItem.index) {
+                const index = tooltipItem.index
+                const labelText = `${cumulativeSumArray[index]}${unit}（都内: ${cumulativeData[0][index]}/その他: ${cumulativeData[1][index]}`
+                return labelText
+              }
             },
-            title(tooltipItem, data) {
-              return data.labels[tooltipItem[0].index].replace(
-                /(\w+)\/(\w+)/,
-                '$1月$2日'
-              )
+            title(tooltipItem: ChartTooltipItem[], data: ChartData) {
+              if (
+                tooltipItem[0].index &&
+                data.labels &&
+                data.labels.length > 0
+              ) {
+                const index = tooltipItem[0].index
+                const date = data.labels[index].toString()
+                return date.replace(/(\w+)\/(\w+)/, '$1月$2日')
+              }
             }
           }
         },
@@ -175,8 +197,8 @@ export default {
     }
   },
   methods: {
-    cumulative(array) {
-      const cumulativeArray = []
+    cumulative(array: number[]): number[] {
+      const cumulativeArray: number[] = []
       let patSum = 0
       array.forEach(d => {
         patSum += d
@@ -184,30 +206,30 @@ export default {
       })
       return cumulativeArray
     },
-    sum(array) {
+    sum(array: number[]): number {
       return array.reduce((acc, cur) => {
         return acc + cur
       })
     },
-    pickLastNumber(chartDataArray) {
+    pickLastNumber(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array[array.length - 1]
       })
     },
-    cumulativeSum(chartDataArray) {
+    cumulativeSum(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array.reduce((acc, cur) => {
           return acc + cur
         })
       })
     },
-    eachArraySum(chartDataArray) {
-      const sumArray = []
+    eachArraySum(chartDataArray: number[][]) {
+      const sumArray: number[] = []
       for (let i = 0; i < chartDataArray[0].length; i++) {
         sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
       }
       return sumArray
     }
   }
-}
+})
 </script>

@@ -262,7 +262,7 @@ export default Vue.extend({
     left: 0;
     display: block !important;
     width: 100%;
-    z-index: z-index-of(opened-side-navigation);    
+    z-index: z-index-of(opened-side-navigation);
     background-color: $white;
   }
 }

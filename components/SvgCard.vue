@@ -12,10 +12,11 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 
-export default {
+export default Vue.extend({
   components: { DataView },
   props: {
     title: {
@@ -31,5 +32,5 @@ export default {
       default: ''
     }
   }
-}
+})
 </script>
