@@ -157,66 +157,56 @@ export default {
 
 <style module lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 .Title {
   font-family: 'Roboto', sans-serif;
-  color: #00a040;
+  color: $green-1;
   font-size: 5.8vw;
-  font-weight: bold;
+  font-width: bold;
 }
-
 .Title2 {
-    font-family: 'Roboto', sans-serif;
-color: #00a040;
-  font-weight: bold;
+  color: $green-1;
   font-size: 3.7vw;
+  font-weight: bold;
 }
-
 .Border {
   padding: 30px 20px;
   border: solid #d9d9d9;
   border-radius: 3px;
 }
-
 .Waku {
   width: 100%;
   padding: 30px 20px;
   text-align: center;
-  background-color: #f8f9fa;
+  background-color: $gray-5;
 }
-
 .NewCorona {
   font-weight: bold;
   display: block;
-  color: #4d4d4d;
+  color: $gray-2;
   padding-top: 20px;
   font-size: 3.2vw;
 }
-
 .NeedConsultation {
   font-weight: bold;
   display: inline;
   line-height: 1.2em;
-  color: #4d4d4d;
+  color: $gray-2;
   font-size: 9.3vw;
 }
-
 .Tohandan {
   font-weight: bold;
   line-height: 1.5em;
   font-size: 3.7vw;
   padding-bottom: 10px;
-  color: #4d4d4d;
+  color: $gray-2;
 }
-
 .Square {
   width: 95%;
   height: 16vw;
   margin: 0 auto;
-  background-color: #4d4d4d;
+  background-color: $gray-2;
   border-radius: 3px;
 }
-
 .InSquare {
   color: White;
   font-size: 3.5vw;
@@ -224,12 +214,10 @@ color: #00a040;
   text-align: center;
   margin-bottom: 0px;
 }
-
 .RectWrap {
   width: 50%;
   float: left;
 }
-
 .Rect2 {
   width: 90%;
   padding-top: 87%;
@@ -239,7 +227,6 @@ color: #00a040;
   margin-top: 20%;
   position: relative;
 }
-
 .Rect1 {
   width: 90%;
   padding-top: 87%;
@@ -249,7 +236,6 @@ color: #00a040;
   margin-top: 20%;
   box-shadow: 1px 0 4px gray;
 }
-
 .Rect3 {
   width: 95%;
   padding-top: 80%;
@@ -258,90 +244,78 @@ color: #00a040;
   border: solid $gray-4;
   margin-top: 20%;
 }
-
 .No {
   position: absolute;
   width: 100%;
   top: 27%;
   font-size: 6.4vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
-
 .Arrow {
   position: absolute;
   width: 100%;
   top: 50%;
 }
-
 .BorderLine {
   display: inline-block;
   width: 100%;
   height: 2px;
   opacity: 0.3;
 }
-
 .Pcr {
   font-weight: bold;
   padding-top: 10px;
   font-size: 9.3vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
-
 .TokyoHealth {
   font-weight: bold;
   font-size: 4.5vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
-
 .Negative {
   font-weight: bold;
   position: absolute;
   width: 100%;
   top: 20%;
   font-size: 6.4vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
-
 .NeedKensa {
   position: absolute;
   width: 100%;
   top: 9%;
   font-weight: bold;
   font-size: 4vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
-
 .Nashi {
   position: absolute;
   width: 100%;
   top: 27%;
   font-weight: bold;
   font-size: 6.4vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
-
 .House {
   position: absolute;
   width: 100%;
   top: 10%;
 }
-
 .In {
   position: absolute;
   font-weight: bold;
   width: 100%;
   top: 45%;
   font-size: 3.3vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
-
 .RectWrapSoudan {
   width: 100%;
   position: relative;
 }
-
 .RectSoudan {
-  border: solid #00a040;
+  border: solid $green-1;
   width: 98%;
   position: relative;
   border-radius: 3px;
@@ -350,7 +324,6 @@ color: #00a040;
   margin-right: 2vw;
   margin-top: 55%;
 }
-
 .inFinalRect {
   position: absolute;
   width: 100%;
@@ -358,7 +331,6 @@ color: #00a040;
   font-size: 4vw;
   font-weight: bold;
 }
-
 .SecondInFinalRect {
   position: absolute;
   width: 100%;
