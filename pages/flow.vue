@@ -8,10 +8,7 @@
       </h2>
       <PrinterButton :wrapper-class="'Flow-PullRight'" />
     </div>
-    <div class="Flow-Card">
-      <h2>
-        新型コロナウイルス感染症にかかる相談窓口について
-      </h2>
+    <div>
       <div class="only-pc">
         <flow-pc />
       </div>
@@ -72,30 +69,19 @@ export default {
       margin-left: 8px;
     }
   }
-  &-Card {
-    display: flex;
-    flex-direction: column;
-    @include card-container();
-    padding: 20px;
-    margin-bottom: 20px;
-    > h2 {
-      @include card-h1();
-      margin-bottom: 12px;
+  &-Card-Button {
+    @include button-text('md');
+    margin: 24px auto 0;
+    @include font-size(20);
+    font-weight: 600;
+    text-decoration: none;
+    color: $green-1 !important;
+    &:hover {
+      color: $white !important;
     }
-    &-Button {
-      @include button-text('md');
-      margin: 24px auto 0;
-      @include font-size(20);
-      font-weight: 600;
-      text-decoration: none;
+    &-ExternalLinkIcon {
+      margin-left: 2px;
       color: $green-1 !important;
-      &:hover {
-        color: $white !important;
-      }
-      &-ExternalLinkIcon {
-        margin-left: 2px;
-        color: $green-1 !important;
-      }
     }
   }
   &-PullRight {

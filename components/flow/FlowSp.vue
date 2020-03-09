@@ -1,12 +1,29 @@
 <template>
   <div>
-    <flow-sp-past />
-    <flow-sp-general />
-    <flow-sp-elder />
-    <flow-sp-suspect />
-    <flow-sp-advisory />
-    <flow-sp-according />
-    <flow-sp-hospitalized />
+    <div :class="$style.FlowCard">
+      <h3 :class="$style.FlowCardHeading">
+        新型コロナウイルス感染症にかかる相談窓口について
+      </h3>
+      <flow-sp-past />
+    </div>
+    <div :class="$style.FlowCard">
+      <flow-sp-general />
+    </div>
+    <div :class="$style.FlowCard">
+      <flow-sp-elder />
+    </div>
+    <div :class="$style.FlowCard">
+      <flow-sp-suspect />
+    </div>
+    <div :class="[$style.FlowCard, $style.FlowCardBrayBg]">
+      <flow-sp-advisory />
+    </div>
+    <div :class="$style.FlowCard">
+      <flow-sp-according />
+    </div>
+    <div :class="$style.FlowCard">
+      <flow-sp-hospitalized />
+    </div>
   </div>
 </template>
 
@@ -32,4 +49,19 @@ export default {
 }
 </script>
 
-<style module lang="scss"></style>
+<style module lang="scss">
+.FlowCard {
+  display: flex;
+  flex-direction: column;
+  @include card-container();
+  padding: 20px;
+  margin-bottom: 20px;
+  > h3 {
+    color: $gray-2;
+    font-size: 1.5rem;
+  }
+  &GrayBg {
+    background-color: $gray-5;
+  }
+}
+</style>
