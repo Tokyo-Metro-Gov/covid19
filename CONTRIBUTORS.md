@@ -21,6 +21,10 @@ Tokyo Covid-19 response site contributors
 |[potato4d / Takuma HANATANI (LINE / ElevenBack LLC.)](https://twitter.com/potato4d)| Frontend / OSS Community Triage |
 |[daitasu(Code for Japan / STORES.jp)](https://twitter.com/daitasu)| Frontend |
 |[amotarao](https://github.com/amotarao)| Frontend |
+| [Taro Matsuzawa](https://twitter.com/smellman) (@smellman) | Coding |
+| [Riki Singh Khorana](https://www.linkedin.com/in/rikilele/) (@Rikilele) | Translations / A11y |
+| Koki Kobayashi | Translations |
+| Fujita Shu (@nard-tech) | Coding, i18n |
 | -add your name here!- | -what did you do?- |
 
 ご協力に感謝です！！！
