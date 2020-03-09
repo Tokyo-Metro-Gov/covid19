@@ -8,8 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
-    env:
-      NODE_ENV: development
     steps:
       - uses: actions/checkout@v2
 
@@ -38,4 +36,4 @@ jobs:
           ftp-username: fem.jp-codeforkagoshima
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist
-          git-ftp-args: --remote-root development
+          git-ftp-args: --remote-root covid19-development
