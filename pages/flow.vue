@@ -268,7 +268,7 @@ export default {
       padding: 30px 20px;
       margin-bottom: 20px;
       &.Flat {
-        background-color: $gray-4;
+        background-color: $gray-5;
       }
       .TelLink {
         width: 80%;
@@ -298,7 +298,7 @@ export default {
         padding: 12px 0;
         border-width: 0.5px 0;
         border-style: solid;
-        border-color: $gray-3;
+        border-color: $gray-4;
         .Heijitsu {
           width: 70%;
           margin-right: 5px;
