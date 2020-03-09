@@ -22,7 +22,7 @@
       "eslint --fix",
       "git add"
     ],
-    "*.{css,vue}": "stylelint"
+    "*.{css,scss,vue}": "stylelint"
   },
   "husky": {
     "hooks": {
