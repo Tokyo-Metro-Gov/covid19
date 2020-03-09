@@ -53,13 +53,7 @@ export default {
       // 暫定的にURLの正規表現を公開状態の判定に用いている
       // 可能であれば環境変数から状態を判定したい
       const url = 'https://stopcovid19.metro.tokyo.lg.jp'
-      const regex = url.replace(/\//g, '\/').replace(/\./g, '\.')
-      console.log(
-        regex,
-        location.href,
-        new RegExp(regex),
-        location.href.match(new RegExp(regex))
-      )
+      const regex = url.replace(/\//g, '/').replace(/\./g, '.')
       return location.href.match(new RegExp(regex)) === null
     }
   }
