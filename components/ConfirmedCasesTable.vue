@@ -4,6 +4,10 @@
     viewBox="0 0 340 120"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    :aria-label="
+      ariaLabel(検査実施人数, 陽性物数, 入院中, 軽症中等症, 重症, 死亡, 退院)
+    "
   >
     <mask id="path-1-inside-1" fill="white">
       <path
@@ -200,6 +204,19 @@ export default {
           return 0
         }
       }
+    },
+    /** グラフ内容がわかる支援技術用テキストの中身を取得する **/
+    ariaLabel(
+      inspected,
+      positive,
+      hospitalized,
+      mild,
+      critically,
+      deceased,
+      discharged
+    ) {
+      const ariaLabel = `検査陽性者の状況: 検査実施人数は${inspected}人、うち累積の陽性者数は${positive}人です。入院中は${hospitalized}人で、うち軽症・中等症は${mild}人、また重症は${critically}人です。さらに死亡は${deceased}人、退院は${discharged}人です。`
+      return ariaLabel
     }
   }
 }
