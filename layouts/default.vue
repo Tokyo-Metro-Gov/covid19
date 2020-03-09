@@ -79,9 +79,11 @@ export default Vue.extend({
   @include largerThan($small) {
     display: grid;
     grid-template-columns: 240px auto;
+    grid-template-rows: auto;
   }
   @include largerThan($huge) {
     grid-template-columns: 325px auto;
+    grid-template-rows: auto;
   }
 }
 @include lessThan($small) {
