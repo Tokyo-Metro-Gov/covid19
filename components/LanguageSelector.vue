@@ -1,8 +1,8 @@
 <template>
-  <div class="SelectLanguages mb-3 clearfix">
+  <div class="SelectLanguages mb-3">
     <div class="SelectLanguages__inner">
       <div class="SelectLanguage">
-        <EarthIcon />
+        <EarthIcon class="EarthIcon" />
         <label>Lang:</label>
         <select v-model="$i18n.locale" @change="navigate($i18n.locale)">
           <option
@@ -13,7 +13,7 @@
             {{ locale.name }}
           </option>
         </select>
-        <SelectMenuIcon />
+        <SelectMenuIcon class="SelectMenuIcon" />
       </div>
     </div>
   </div>
@@ -39,14 +39,13 @@ export default class LanguageSelector extends Vue {
 .SelectLanguages {
   padding: 0 20px;
   .SelectLanguages__inner {
-    float: right;
-
     .SelectLanguage {
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: relative;
-      width: 200px;
+      width: 100%;
+      padding: 0 8px;
       background-color: #fff;
       border: 1px solid #d9d9d9;
       border-radius: 4px;
@@ -70,6 +69,14 @@ export default class LanguageSelector extends Vue {
         &:focus {
           outline: none;
         }
+      }
+      .EarthIcon {
+        width: 14px;
+        margin-right: 5px;
+      }
+      .SelectMenuIcon {
+        width: 12px;
+        margin-left: auto;
       }
     }
   }
