@@ -2,8 +2,10 @@
   <div :class="$style.Flow">
     <div :class="$style.FlowRow">
       <div :class="$style.FlowRowRowThree">
-        <img src="/flow/accessibility-24px.svg" />
-        <p>一般の方</p>
+        <div>
+          <img src="/flow/accessibility-24px.svg" />
+          <p>一般の方</p>
+        </div>
       </div>
       <div>
         <p>
@@ -50,13 +52,17 @@
     </div>
     <div :class="$style.FlowRow">
       <div :class="$style.FlowRowRowThree">
-        <div :class="$style.FlowRowRowThreeCareTargetList">
-          <p>
-            <img src="/flow/directions_walk-24px.svg" />ご高齢な方<br />
-            <img src="/flow/accessible-24px.svg" />基礎疾患のある方<br />
-            <img src="/flow/pregnant_woman-24px.svg" />妊娠中の方<br />
-          </p>
-        </div>
+        <ul :class="$style.FlowRowRowThreeCareTargetList">
+          <li>
+            <img src="/flow/directions_walk-24px.svg" />ご高齢な方
+          </li>
+          <li>
+            <img src="/flow/accessible-24px.svg" />基礎疾患のある方
+          </li>
+          <li>
+            <img src="/flow/pregnant_woman-24px.svg" />妊娠中の方
+          </li>
+        </ul>
       </div>
       <div>
         <p>
@@ -80,23 +86,24 @@
   position: relative;
   color: $gray-2;
   &Row {
-    flex: 1 0 37%;
+    flex: 1 0 36%;
     display: flex;
     flex-direction: column;
     text-align: center;
     &RowCheck {
-      flex-basis: 26%;
+      flex-basis: calc(28% - 20px);
+      margin: 0 10px;
     }
     &RowThree {
       flex: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-top: 20px;
       &CareTargetList {
         margin: 16px auto;
-        display: block;
-        p {
-          text-align: left;
-          display: inline-block;
-        }
+        text-align: left;
+        list-style: none;
       }
     }
     &Condition {
@@ -105,13 +112,14 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 10px;
+      padding: 10px;
       position: relative;
       border: 2px solid $green-1 !important;
       border-radius: 2px;
       p {
-        margin: auto;
         text-align: center;
         display: inline-block;
+        margin: 0;
         font-weight: bold;
         font-size: calc(0.875rem + ((1vw - 7.68px) * 0.8929));
         @include largerThan($large) {

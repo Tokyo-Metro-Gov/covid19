@@ -33,7 +33,6 @@
   .actionArea {
     flex-grow: 1;
     margin-right: 10%;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,7 +42,7 @@
       font-weight: 600;
 
       &.h1 {
-        @include font-size(48);
+        @include font-size(40);
         line-height: 1;
         margin-bottom: 0.25em;
       }

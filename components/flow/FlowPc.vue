@@ -96,8 +96,7 @@ export default {
     background: url('/flow/flow_arrow.svg') no-repeat;
   }
   &Center::after {
-    bottom: 25%;
-    transform: translateY(-23px);
+    bottom: 40%;
   }
   &Required::after {
     bottom: -30px;
