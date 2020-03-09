@@ -3,18 +3,18 @@
     <div :class="$style.Border">
       <p :class="$style.Title">
         新型コロナ受診相談窓口
-      <span :class="$style.Title2">
-        による相談結果
-      </span>
+        <span :class="$style.Title2">
+          による相談結果
+        </span>
       </p>
       <p :class="$style.NewCorona">
         新型コロナ外来
-      <span :class="$style.NeedConsultation">
-        受診が必要
-      </span>
-      <span :class="$style.Tohandan">
-        と判断された場合
-      </span>
+        <span :class="$style.NeedConsultation">
+          受診が必要
+        </span>
+        <span :class="$style.Tohandan">
+          と判断された場合
+        </span>
       </p>
       <div :class="$style.Square">
         <p :class="$style.InSquare">
@@ -58,15 +58,15 @@
         PCR検査
       </p>
       <p :class="$style.TokyoHealth">
-      東京都健康安全
-      <br />
-      研究センター等
+        東京都健康安全
+        <br />
+        研究センター等
       </p>
       <a href="#fuyou">
         <div :class="$style.RectWrap">
           <div :class="$style.Rect1">
             <p :class="$style.Negative">
-            陰性
+              陰性
             </p>
             <p :class="$style.Arrow">
               <GreenArrow />
@@ -78,7 +78,7 @@
         <div :class="$style.RectWrap">
           <div :class="$style.Rect2">
             <p :class="$style.Negative">
-            陽性
+              陽性
             </p>
             <p :class="$style.Arrow">
               <Arrow />
@@ -89,12 +89,12 @@
       <hr :class="$style.BorderLine" />
       <p id="fuyou" :class="$style.NewCorona">
         新型コロナ外来
-      <span :class="$style.NeedConsultation">
-        受診が不要
-      </span>
-      <span :class="$style.Tohandan">
-        と判断された場合
-      </span>
+        <span :class="$style.NeedConsultation">
+          受診が不要
+        </span>
+        <span :class="$style.Tohandan">
+          と判断された場合
+        </span>
       </p>
       <div>
         <div :class="$style.RectWrap">
@@ -103,9 +103,9 @@
               <House />
             </p>
             <p :class="$style.In">
-            自宅で
-            <br />
-            安静に過ごす
+              自宅で
+              <br />
+              安静に過ごす
             </p>
           </div>
         </div>
@@ -115,9 +115,9 @@
               <Apartment />
             </p>
             <p :class="$style.In">
-            一般の
-            <br />
-            医療機関を受診
+              一般の
+              <br />
+              医療機関を受診
             </p>
           </div>
         </div>
@@ -126,12 +126,12 @@
         <div :class="$style.RectSoudan">
           <p :class="$style.inFinalRect">
             症状が良くならない場合は
-          <span :class="$style.SecondInFinalRect">
-            新型コロナ受診相談窓口
-          </span>
-          <span :class="$style.LastInFinalRect">
-            に相談
-          </span>
+            <span :class="$style.SecondInFinalRect">
+              新型コロナ受診相談窓口
+            </span>
+            <span :class="$style.LastInFinalRect">
+              に相談
+            </span>
           </p>
         </div>
       </div>
