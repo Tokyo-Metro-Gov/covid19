@@ -21,7 +21,11 @@
       </p>
     </div>
     <div :class="['pb-4', $style.RectContainer]">
-      <a href="#not_required" :class="$style.RectContent">
+      <a
+        v-scroll-to="'#not_required'"
+        href="#not_required"
+        :class="$style.RectContent"
+      >
         <div :class="$style.Rect1">
           <p :class="['mb-0 pt-2', $style.NeedKensa]">
             検査の必要<br />
@@ -32,7 +36,7 @@
           <GreenArrow class="mb-0" />
         </div>
       </a>
-      <a href="#pcr" :class="$style.RectContent">
+      <a v-scroll-to="'#pcr'" href="#pcr" :class="$style.RectContent">
         <div :class="$style.Rect2">
           <p :class="['mb-0 pt-2', $style.NeedKensa]">
             検査の必要<br />
@@ -51,7 +55,11 @@
       研究センター等
     </p>
     <div :class="['pb-4', $style.RectContainer]">
-      <a href="#not_required" :class="$style.RectContent">
+      <a
+        v-scroll-to="'#not_required'"
+        href="#not_required"
+        :class="$style.RectContent"
+      >
         <div :class="['py-2', $style.Rect1]">
           <p :class="['mb-0 pt-2', $style.NeedKensa]">
             <span :class="$style.Nashi">
@@ -61,7 +69,11 @@
           <GreenArrow class="mb-0" />
         </div>
       </a>
-      <a href="#pcr" :class="$style.RectContent">
+      <a
+        v-scroll-to="'#hospitalized'"
+        href="#hospitalized"
+        :class="$style.RectContent"
+      >
         <div :class="['py-2', $style.Rect2]">
           <p :class="['mb-0 pt-2', $style.NeedKensa]">
             <span :class="$style.Nashi">

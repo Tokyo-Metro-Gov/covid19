@@ -38,7 +38,11 @@
       <span><strong>4</strong>日以上</span>続いている
     </p>
 
-    <a :class="['pa-5', $style.GeneralBtn]" href="#consult">
+    <a
+      v-scroll-to="'#consult'"
+      :class="['pa-5', $style.GeneralBtn]"
+      href="#consult"
+    >
       新型コロナ受診相談窓口へ
       <ArrowIcon />
     </a>

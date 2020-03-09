@@ -34,7 +34,7 @@
       <span><strong>2</strong>日程度</span>続いている
     </p>
 
-    <a :class="['pa-5', $style.Link]" href="#consult">
+    <a v-scroll-to="'#consult'" :class="['pa-5', $style.Link]" href="#consult">
       新型コロナ受診相談窓口へ
     </a>
   </div>
