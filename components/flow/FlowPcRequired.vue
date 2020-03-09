@@ -31,14 +31,14 @@
     </div>
   </div>
 </template>
+
 <style module lang="scss">
 .Container {
   @include card-container();
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 20px 30px 15px !important;
-  font-family: HiraginoSans-W6, Hiragino Sans;
+  padding: 20px 30px !important;
 }
 .Row {
   flex: 1;
@@ -58,24 +58,24 @@
 }
 .Catch {
   color: $gray-2;
-  font-size: 16px;
+  font-weight: bold;
   margin: 0 !important;
 }
 .Card {
+  flex-basis: 48%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  padding: 10px 35px;
+  padding: 10px;
   p {
     margin: 0;
   }
 }
 .CardLarge {
-  padding: 10px 80px !important;
+  flex-basis: 100%;
 }
-
 .CardGray {
   color: $white;
   background-color: $gray-2;
@@ -103,9 +103,6 @@
   font-size: 20px;
 }
 .Emphasis {
-  font-size: 35px;
+  font-size: 28px;
 }
 </style>
-<script>
-export default {}
-</script>

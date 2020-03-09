@@ -52,8 +52,6 @@
 <style module lang="scss">
 .FlowComponent {
   color: $gray-2;
-  font-family: 'Roboto', sans-serif;
-  margin: 0 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -61,7 +59,6 @@
 }
 
 .TelLink {
-  font-family: 'Roboto', sans-serif;
   @include largerThan($medium) {
     font-size: larger;
   }
@@ -74,15 +71,16 @@
 
 .CheckBox {
   position: relative;
-  font-size: normal;
-  font-family: HiraginoSans-W6, Hiragino Sans;
   border: 2px solid $green-1;
   border-radius: 4px;
   margin: 8px;
   padding: 4px 0;
   max-width: 200px;
-  @include largerThan($medium) {
-    font-size: larger;
+  text-align: center;
+  font-weight: bold;
+  font-size: calc(0.875rem + ((1vw - 7.68px) * 0.8929));
+  @include largerThan($large) {
+    font-size: 20px;
   }
 
   &:after {
@@ -105,12 +103,11 @@
 
 .SubtleBox {
   @include card-container();
-  margin: 0 4px;
-  padding: 0.5em;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  padding: 0.5em;
 }
 
 .Box1 {
@@ -127,6 +124,7 @@
 
 .RowItems {
   flex-grow: 1;
+  text-align: center;
   margin: 0 4px;
   @include largerThan($large) {
     margin: 0 2em;

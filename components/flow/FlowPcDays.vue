@@ -15,14 +15,14 @@
         </p>
       </div>
     </div>
-    <div :class="$style.FlowRow">
+    <div :class="[$style.FlowRow, $style.FlowRowRowCheck]">
       <div :class="$style.FlowRowCondition">
         <i>
           <img src="/flow/check_circle-24px.svg" />
         </i>
         <p>
-          <span>風邪 </span>
-          のような症状
+          風邪
+          <span>のような症状</span>
         </p>
       </div>
       <div :class="$style.FlowRowCondition">
@@ -30,9 +30,9 @@
           <img src="/flow/check_circle-24px.svg" />
         </i>
         <p>
-          発熱
-          <span> 37.5℃ </span>
-          以上
+          <span>発熱</span>
+          37.5℃
+          <span>以上</span>
         </p>
       </div>
       <div :class="$style.FlowRowCondition">
@@ -78,17 +78,20 @@
   padding: 20px 20px !important;
   @include card-container();
   position: relative;
+  color: $gray-2;
   &Row {
-    flex: 1;
+    flex: 1 0 37%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    text-align: center;
+    &RowCheck {
+      flex-basis: 26%;
+    }
     &RowThree {
       flex: 3;
       margin-top: 20px;
       &CareTargetList {
         margin: 16px auto;
-        text-align: center;
         display: block;
         p {
           text-align: left;
@@ -109,9 +112,13 @@
         margin: auto;
         text-align: center;
         display: inline-block;
-        font-size: 14px;
-        span {
+        font-weight: bold;
+        font-size: calc(0.875rem + ((1vw - 7.68px) * 0.8929));
+        @include largerThan($large) {
           font-size: 20px;
+        }
+        span {
+          font-size: 15px;
         }
       }
       i {
@@ -123,6 +130,7 @@
     }
     &Emphasis {
       font-size: 24px;
+      font-weight: bold;
       border-bottom: solid 3px $green-1;
       &Day {
         font-size: 41px;
@@ -131,7 +139,3 @@
   }
 }
 </style>
-
-<script>
-export default {}
-</script>

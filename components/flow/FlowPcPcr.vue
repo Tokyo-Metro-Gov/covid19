@@ -12,22 +12,15 @@
       </div>
     </div>
     <div :class="$style.resultArea">
-      <ResultLabel :class="$style.label" :is-positive="false">
+      <div :class="[$style.label, $style.ResultLabel]">
         陰性
-      </ResultLabel>
-      <ResultLabel :class="$style.label" :is-positive="true">
+      </div>
+      <div :class="[$style.label, $style.ResultLabel, $style.positive]">
         陽性
-      </ResultLabel>
+      </div>
     </div>
   </div>
 </template>
-
-<script>
-import ResultLabel from '@/components/flow/ResultLabel.vue'
-export default {
-  components: { ResultLabel }
-}
-</script>
 
 <style module lang="scss">
 .FlowPcPcr {
@@ -36,7 +29,7 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 20px 30px;
-
+  text-align: center;
   .actionArea {
     flex-grow: 1;
     margin-right: 10%;
@@ -63,11 +56,23 @@ export default {
   }
 
   .resultArea {
-    width: 45%;
+    flex-basis: 48%;
 
     .label + .label {
-      margin-top: 35px;
+      margin-top: 30px;
     }
+  }
+}
+.ResultLabel {
+  @include font-size(20);
+  border-radius: 4px;
+  border: 2px solid $green-1;
+  line-height: 1;
+  padding: 0.7em 0;
+
+  &.positive {
+    background: $green-1;
+    color: $white;
   }
 }
 </style>

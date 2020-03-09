@@ -1,9 +1,9 @@
 <template>
   <section :class="$style.Flow">
-    <h2 :class="$style.FlowHeading">
+    <div :class="$style.FlowHeading">
       <span>発症前<span :class="$style.FlowNum">2</span>週間以内</span>
       <span :class="$style.FlowSText">の出来ごとと症状</span>
-    </h2>
+    </div>
     <div :class="$style.FlowInner">
       <div :class="$style.FlowItem">
         <strong :class="$style.FlowTitle">
@@ -62,6 +62,7 @@
     background-color: $white;
     padding: 5px;
     text-align: center;
+    font-weight: bold;
     font-size: calc(1.25rem + ((1vw - 7.68px) * 0.744));
     @include largerThan($large) {
       font-size: 25px;
