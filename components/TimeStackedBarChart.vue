@@ -1,9 +1,17 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
+      <p class="Graph-Desc">
+        （注）同一の対象者について複数の検体を調査する場合あり
+      </p>
       <data-selector v-model="dataKind" />
     </template>
-    <bar :chart-data="displayData" :options="options" :height="240" />
+    <bar
+      :chart-id="chartId"
+      :chart-data="displayData"
+      :options="options"
+      :height="240"
+    />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -31,6 +39,11 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    chartId: {
+      type: String,
+      required: false,
+      default: 'time-stacked-bar-chart'
     },
     chartData: {
       type: Array,
@@ -255,3 +268,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.Graph-Desc {
+  margin: 10px 0;
+  font-size: 12px;
+  color: $gray-3;
+}
+</style>
