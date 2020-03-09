@@ -1,18 +1,14 @@
 <template>
-  <div>
-    <h3 :class="[$style.AlignCenter, $style.FontSize22]">
-      新型コロナ受診相談窓口
-    </h3>
-    <p :class="$style.AlignCenter">
-      帰国者・接触者電話相談センター
-    </p>
-    <div :class="$style.AlignCenter">
-      <div :class="$style.ConsultationChip">
-        24時間対応
-      </div>
+  <div :class="$style.SpAdvisory">
+    <h4 :class="['mb-4', $style.Heading]">
+      新型コロナ受診相談窓口<br />
+      <small>帰国者・接触者電話相談センター</small>
+    </h4>
+    <div :class="['px-6 py-2 mb-4', $style.ConsultationChip]">
+      24時間対応
     </div>
     <dl>
-      <div :class="$style.ConsultationDaytime">
+      <div :class="['py-3', $style.ConsultationDaytime]">
         <dt :class="$style.ConsultationDaytimeTitle">
           平日（日中）
         </dt>
@@ -30,15 +26,15 @@
           </a>
         </dd>
       </div>
-      <div :class="$style.PaddingTop12">
-        <dt :class="$style.AlignCenter">
-          平日（夜間）
+      <div :class="['pt-3', $style.ConsultationWeekend]">
+        <dt class="mb-3">
+          <span :class="$style.ConsultationWeekendTitle">平日（夜間）</span>
           <br />
-          <span :class="$style.FontSize14">午後5時から翌朝午前9時</span>
+          午後5時から翌朝午前9時
           <br />
-          土日祝 終日
+          <span :class="$style.ConsultationWeekendTitle">土日祝 終日</span>
         </dt>
-        <dd :class="[$style.TelLink, $style.FontSize24]">
+        <dd :class="$style.TelLink">
           <img src="/flow/phone-24px.svg" alt="Phone" />
           <a href="tel:0353204592">
             03-5320-4592
@@ -50,48 +46,61 @@
 </template>
 
 <style module lang="scss">
-@each $size in 14, 22, 24 {
-  .FontSize#{$size} {
-    @include font-size($size);
-  }
-}
-.AlignCenter {
+.SpAdvisory {
+  color: $gray-2;
   text-align: center;
 }
-.PaddingTop12 {
-  padding-top: 12px;
-}
-.ConsultationChip {
-  display: inline-block;
-  background-color: $white;
-  border-radius: 4px;
-  padding: 8px 24px;
-  margin: 0 auto 12px;
-  color: $green-1;
-  font-weight: bold;
-}
-.ConsultationDaytime {
-  display: flex;
-  align-items: center;
-  padding: 12px 0;
-  border-width: 0.5px 0;
-  border-style: solid;
-  border-color: $gray-4;
-  &Title {
-    width: 70%;
-    margin-right: 5px;
+.Heading {
+  @include font-size(24);
+  line-height: 1.5rem;
+  small {
+    @include font-size(16);
   }
 }
+.Consultation {
+  &Chip {
+    display: inline-block;
+    background-color: $white;
+    border-radius: 4px;
+    color: $green-1;
+    font-weight: bold;
+  }
+  &Daytime {
+    display: flex;
+    align-items: center;
+    border-width: 0.5px 0;
+    border-style: solid;
+    border-color: $gray-4;
+    font-weight: bold;
+    &Title {
+      width: 70%;
+      margin-right: 5px;
+      @include font-size(18);
+    }
+    a {
+      color: $gray-2;
+      text-decoration: none;
+    }
+  }
+  &Weekend {
+    font-weight: bold;
+    &Title {
+      @include font-size(18);
+    }
+  }
+}
+
 .TelLink {
+  @include font-size(24);
   font-weight: bold;
   display: flex;
   justify-content: center;
+  img {
+    width: 2rem;
+  }
   a {
     color: $gray-2;
     text-decoration: none;
   }
-}
-.Link {
-  @include text-link();
 }
 </style>
