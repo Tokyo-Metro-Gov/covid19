@@ -1,15 +1,12 @@
 <template>
   <div :class="$style.SpPast">
     <h3>
-      発症前<strong>２</strong>週間以内
-      <span :class="$style.small">&nbsp;の出来ごとと症状</span>
+      発症前<strong>2</strong>週間以内<!--
+   --><span :class="$style.small">の出来ごとと症状</span>
     </h3>
     <p>
       <span :class="$style.small">「新型コロナウイルス感染者」と</span><br />
-      <span :class="$style.underline">
-        濃厚接触
-      </span>
-      をした方<br />
+      <span :class="$style.underline">濃厚接触</span>をした方<br />
     </p>
     <div :class="[$style.flexContainer]">
       <div :class="$style.item">
@@ -28,14 +25,8 @@
     </div>
     <p :class="$style.hr">
       <span :class="$style.small">流行地域への渡航・居住歴がある方</span><br />
-      <span :class="$style.underline">
-        ご本人
-      </span>
-      か
-      <span :class="$style.underline">
-        濃厚接触
-      </span>
-      をした方
+      <span :class="$style.underline">ご本人</span>か<!--
+   --><span :class="$style.underline">濃厚接触</span>をした方
     </p>
     <div :class="$style.flexContainer">
       <div :class="$style.item">
@@ -72,7 +63,7 @@
       font-size: 9vw;
     }
     .small {
-      font-size: 2vw;
+      font-size: 70%;
     }
   }
   p {
