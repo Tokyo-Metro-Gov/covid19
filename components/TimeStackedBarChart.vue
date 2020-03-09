@@ -1,12 +1,17 @@
 <template>
-  <data-view :title="title" :date="date">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
         （注）同一の対象者について複数の検体を調査する場合あり
       </p>
       <data-selector v-model="dataKind" />
     </template>
-    <bar :chart-data="displayData" :options="options" :height="240" />
+    <bar
+      :chart-id="chartId"
+      :chart-data="displayData"
+      :options="options"
+      :height="240"
+    />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -22,36 +27,6 @@ import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-function cumulative(array) {
-  const cumulativeArray = []
-  let patSum = 0
-  array.forEach(d => {
-    patSum += d
-    cumulativeArray.push(patSum)
-  })
-  return cumulativeArray
-}
-
-function sum(array) {
-  return array.reduce((acc, cur) => {
-    return acc + cur
-  })
-}
-
-function pickLastNumber(chartDataArray) {
-  return chartDataArray.map(array => {
-    return array[array.length - 1]
-  })
-}
-
-function cumulativeSum(chartDataArray) {
-  return chartDataArray.map(array => {
-    return array.reduce((acc, cur) => {
-      return acc + cur
-    })
-  })
-}
-
 export default {
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
@@ -59,6 +34,16 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    titleId: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    chartId: {
+      type: String,
+      required: false,
+      default: 'time-stacked-bar-chart'
     },
     chartData: {
       type: Array,
@@ -95,13 +80,13 @@ export default {
     displayInfo() {
       if (this.dataKind === 'transition') {
         return {
-          lText: sum(pickLastNumber(this.chartData)).toLocaleString(),
+          lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
           sText: `${this.labels[this.labels.length - 1]} の合計`,
           unit: this.unit
         }
       }
       return {
-        lText: sum(cumulativeSum(this.chartData)).toLocaleString(),
+        lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
         sText: `${this.labels[this.labels.length - 1]} の全体累計`,
         unit: this.unit
       }
@@ -126,7 +111,7 @@ export default {
         datasets: this.chartData.map((item, index) => {
           return {
             label: this.items[index],
-            data: cumulative(item),
+            data: this.cumulative(item),
             backgroundColor: colorArray[index],
             borderWidth: 0
           }
@@ -135,13 +120,32 @@ export default {
     },
     options() {
       const unit = this.unit
+      const sumArray = this.eachArraySum(this.chartData)
+      const data = this.chartData
+      const cumulativeData = this.chartData.map(item => {
+        return this.cumulative(item)
+      })
+      const cumulativeSumArray = this.eachArraySum(cumulativeData)
       return {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem) {
-              const labelText = tooltipItem.value + unit
+            label: tooltipItem => {
+              const labelText =
+                this.dataKind === 'transition'
+                  ? `${sumArray[tooltipItem.index]}${unit}（都内: ${
+                      data[0][tooltipItem.index]
+                    }/その他: ${data[1][tooltipItem.index]}）`
+                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（都内: ${
+                      cumulativeData[0][tooltipItem.index]
+                    }/その他: ${cumulativeData[1][tooltipItem.index]}）`
               return labelText
+            },
+            title(tooltipItem, data) {
+              return data.labels[tooltipItem[0].index].replace(
+                /(\w+)\/(\w+)/,
+                '$1月$2日'
+              )
             }
           }
         },
@@ -153,14 +157,58 @@ export default {
         scales: {
           xAxes: [
             {
+              id: 'day',
               stacked: true,
               gridLines: {
                 display: false
               },
               ticks: {
-                fontSize: 10,
+                fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: '#808080'
+                fontColor: '#808080',
+                maxRotation: 0,
+                minRotation: 0,
+                callback: label => {
+                  return label.split('/')[1]
+                }
+              }
+            },
+            {
+              id: 'month',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: true,
+                drawBorder: false,
+                tickMarkLength: 10
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: '#808080',
+                padding: 3,
+                fontStyle: 'bold',
+                callback: label => {
+                  const monthStringArry = [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                  ]
+                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
+                  return month + '月'
+                }
+              },
+              type: 'time',
+              time: {
+                unit: 'month'
               }
             }
           ],
@@ -181,6 +229,41 @@ export default {
           ]
         }
       }
+    }
+  },
+  methods: {
+    cumulative(array) {
+      const cumulativeArray = []
+      let patSum = 0
+      array.forEach(d => {
+        patSum += d
+        cumulativeArray.push(patSum)
+      })
+      return cumulativeArray
+    },
+    sum(array) {
+      return array.reduce((acc, cur) => {
+        return acc + cur
+      })
+    },
+    pickLastNumber(chartDataArray) {
+      return chartDataArray.map(array => {
+        return array[array.length - 1]
+      })
+    },
+    cumulativeSum(chartDataArray) {
+      return chartDataArray.map(array => {
+        return array.reduce((acc, cur) => {
+          return acc + cur
+        })
+      })
+    },
+    eachArraySum(chartDataArray) {
+      const sumArray = []
+      for (let i = 0; i < chartDataArray[0].length; i++) {
+        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
+      }
+      return sumArray
     }
   }
 }

@@ -1,9 +1,14 @@
 <template>
-  <data-view :title="title" :date="date" :url="url">
+  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
       <data-selector v-model="dataKind" />
     </template>
-    <bar :chart-data="displayData" :options="displayOption" :height="240" />
+    <bar
+      :chart-id="chartId"
+      :chart-data="displayData"
+      :options="displayOption"
+      :height="240"
+    />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -28,6 +33,16 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    titleId: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    chartId: {
+      type: String,
+      required: false,
+      default: 'time-bar-chart'
     },
     chartData: {
       type: Array,
@@ -59,12 +74,12 @@ export default {
     displayCumulativeRatio() {
       const lastDay = this.chartData.slice(-1)[0].cumulative
       const lastDayBefore = this.chartData.slice(-2)[0].cumulative
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore).toLocaleString()
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayTransitionRatio() {
       const lastDay = this.chartData.slice(-1)[0].transition
       const lastDayBefore = this.chartData.slice(-2)[0].transition
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore).toLocaleString()
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
       if (this.dataKind === 'transition') {
@@ -125,8 +140,15 @@ export default {
           displayColors: false,
           callbacks: {
             label(tooltipItem) {
-              const labelText = tooltipItem.value + unit
+              const labelText =
+                parseInt(tooltipItem.value).toLocaleString() + unit
               return labelText
+            },
+            title(tooltipItem, data) {
+              return data.labels[tooltipItem[0].index].replace(
+                /(\w+)\/(\w+)/,
+                '$1月$2日'
+              )
             }
           }
         },
@@ -138,14 +160,61 @@ export default {
         scales: {
           xAxes: [
             {
+              id: 'day',
               stacked: true,
               gridLines: {
                 display: false
               },
               ticks: {
-                fontSize: 10,
+                fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: '#808080'
+                fontColor: '#808080',
+                maxRotation: 0,
+                minRotation: 0,
+                callback: label => {
+                  return label.split('/')[1]
+                }
+              }
+            },
+            {
+              id: 'month',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: true,
+                drawBorder: false,
+                tickMarkLength: 10
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: '#808080',
+                padding: 3,
+                fontStyle: 'bold',
+                gridLines: {
+                  display: true
+                },
+                callback: label => {
+                  const monthStringArry = [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                  ]
+                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
+                  return month + '月'
+                }
+              },
+              type: 'time',
+              time: {
+                unit: 'month'
               }
             }
           ],
@@ -170,13 +239,14 @@ export default {
   },
   methods: {
     formatDayBeforeRatio(dayBeforeRatio) {
+      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
-          return `+${dayBeforeRatio}`
+          return `+${dayBeforeRatioLocaleString}`
         case -1:
-          return `${dayBeforeRatio}`
+          return `${dayBeforeRatioLocaleString}`
         default:
-          return `${dayBeforeRatio}`
+          return `${dayBeforeRatioLocaleString}`
       }
     }
   }

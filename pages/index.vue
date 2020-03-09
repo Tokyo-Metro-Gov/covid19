@@ -14,35 +14,45 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
-        <svg-card title="検査陽性者の状況" :date="headerItem.date">
-          <confirmed-cases-table
-            aria-label="検査陽性者の状況"
-            v-bind="confirmedCases"
-          />
+        <svg-card
+          title="検査陽性者の状況"
+          :title-id="'details-of-confirmed-cases'"
+          :date="headerItem.date"
+        >
+          <confirmed-cases-table v-bind="confirmedCases" />
         </svg-card>
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="陽性患者数"
+          :title-id="'number-of-confirmed-cases'"
+          :chart-id="'time-bar-chart-patients'"
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="'人'"
-          :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+          :url="
+            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+          "
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <data-table
           :title="'陽性患者の属性'"
+          :title-id="'attributes-of-confirmed-cases'"
           :chart-data="patientsTable"
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
-          :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+          :url="
+            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+          "
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
           title="検査実施数"
+          :title-id="'number-of-tested'"
+          :chart-id="'time-stacked-bar-chart-inspections'"
           :chart-data="inspectionsGraph"
           :date="Data.inspections_summary.date"
           :items="inspectionsItems"
@@ -53,6 +63,8 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
+          :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
+          :chart-id="'time-bar-chart-contacts'"
           :chart-data="contactsGraph"
           :date="Data.contacts.date"
           :unit="'件'"
@@ -62,6 +74,8 @@
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナ受診相談窓口相談件数"
+          :title-id="'number-of-reports-to-covid19-consultation-desk'"
+          :chart-id="'time-bar-chart-querents'"
           :chart-data="querentsGraph"
           :date="Data.querents.date"
           :unit="'件'"
@@ -71,6 +85,8 @@
       <v-col cols="12" md="6" class="DataCard">
         <metro-bar-chart
           title="都営地下鉄の利用者数の推移"
+          :title-id="'predicted-number-of-toei-subway-passengers'"
+          :chart-id="'metro-bar-chart'"
           :chart-data="metroGraph"
           :chart-option="metroGraphOption"
           :date="metroGraph.date"
@@ -116,8 +132,7 @@ export default {
     const patientsTable = formatTable(Data.patients.data)
     // 退院者グラフ
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
-    // 退院者数
-    const dischargesTable = formatTable(Data.discharges.data)
+
     // 相談件数
     const contactsGraph = formatGraph(Data.contacts.data)
     // 帰国者・接触者電話相談センター相談件数
@@ -154,7 +169,6 @@ export default {
       Data,
       patientsTable,
       patientsGraph,
-      dischargesTable,
       dischargesGraph,
       contactsGraph,
       querentsGraph,
@@ -170,51 +184,6 @@ export default {
         date: Data.lastUpdate
       },
       newsItems: News.newsItems,
-      option: {
-        tooltips: {
-          displayColors: false,
-          callbacks: {
-            label(tooltipItem) {
-              const labelText = tooltipItem.value + '人'
-              return labelText
-            }
-          }
-        },
-        responsive: true,
-        legend: {
-          display: false
-        },
-        scales: {
-          xAxes: [
-            {
-              stacked: true,
-              gridLines: {
-                display: false
-              },
-              ticks: {
-                fontSize: 10,
-                maxTicksLimit: 20,
-                fontColor: '#808080'
-              }
-            }
-          ],
-          yAxes: [
-            {
-              location: 'bottom',
-              stacked: true,
-              gridLines: {
-                display: true,
-                color: '#E5E5E5'
-              },
-              ticks: {
-                suggestedMin: 0,
-                maxTicksLimit: 8,
-                fontColor: '#808080'
-              }
-            }
-          ]
-        }
-      },
       metroGraphOption: {
         responsive: true,
         legend: {
@@ -246,7 +215,7 @@ export default {
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
-                  return (value).toFixed(2) + '%'
+                  return value.toFixed(2) + '%'
                 }
               }
             }
@@ -282,9 +251,14 @@ export default {
 <style lang="scss" scoped>
 .MainPage {
   .DataBlock {
-    margin: 20px -12px;
+    margin: 20px -8px;
     .DataCard {
-      margin-bottom: 20px;
+      @include largerThan($medium) {
+        padding: 10px;
+      }
+      @include lessThan($small) {
+        padding: 4px 8px;
+      }
     }
   }
 }
