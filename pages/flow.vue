@@ -5,7 +5,7 @@
       <h2 class="Flow-Heading-Title">
         新型コロナウイルス感染症が心配なときに
       </h2>
-      <PrinterButton :wrapperClass="'Flow-PullRight'"/>
+      <PrinterButton :wrapper-class="'Flow-PullRight'" />
     </div>
     <div class="Flow-Card">
       <h2>
