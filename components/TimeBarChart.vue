@@ -19,6 +19,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { ChartData, ChartTooltipItem } from 'chart.js'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
@@ -26,24 +27,62 @@ import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
 type Data = {
   dataKind: 'transition' | 'cumulative'
-  displayCumulativeRatio: number
-  displayTransitionRatio: number
 }
-
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
-
-type PropTypes = {
-  chartData: GraphDataType[]
+type Computed = {
+  displayCumulativeRatio: string
+  displayTransitionRatio: string
+  displayInfo: {
+    lText: string
+    sText: string
+    unit: string
+  }
+  displayData: {
+    labels: string[]
+    datasets: {
+      label: 'transition' | 'cumulative'
+      data: number[]
+      backgroundColor: string
+      borderWidth: number
+    }[]
+  }
+  displayOption: {
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        label(tooltipItem: ChartTooltipItem): string
+        title(
+          tooltipItem: ChartTooltipItem[],
+          data: ChartData
+        ): string | undefined
+      }
+    }
+    responsive: boolean
+    maintainAspectRatio: boolean
+    legend: {
+      display: boolean
+    }
+    scales: object
+  }
+}
+type Props = {
   title: string
   titleId: string
+  chartData: GraphDataType[]
   date: string
   unit: string
   url: string
 }
 
-export default Vue.extend<Data, Methods, {}, PropTypes>({
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
@@ -55,7 +94,7 @@ export default Vue.extend<Data, Methods, {}, PropTypes>({
       default: ''
     },
     chartData: {
-      type: Object,
+      type: Array,
       default: () => []
     },
     date: {
@@ -72,17 +111,15 @@ export default Vue.extend<Data, Methods, {}, PropTypes>({
     }
   },
   data: () => ({
-    dataKind: 'transition',
-    displayCumulativeRatio: 0,
-    displayTransitionRatio: 0
+    dataKind: 'transition'
   }),
   computed: {
-    displayCumulativeRatio(): string {
+    displayCumulativeRatio() {
       const lastDay = this.chartData.slice(-1)[0].cumulative
       const lastDayBefore = this.chartData.slice(-2)[0].cumulative
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
-    displayTransitionRatio(): string {
+    displayTransitionRatio() {
       const lastDay = this.chartData.slice(-1)[0].transition
       const lastDayBefore = this.chartData.slice(-2)[0].transition
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
@@ -105,7 +142,7 @@ export default Vue.extend<Data, Methods, {}, PropTypes>({
         unit: this.unit
       }
     },
-    displayData(): ChartData {
+    displayData() {
       if (this.dataKind === 'transition') {
         return {
           labels: this.chartData.map(d => {
@@ -210,5 +247,7 @@ export default Vue.extend<Data, Methods, {}, PropTypes>({
       }
     }
   }
-})
+}
+
+export default Vue.extend(options)
 </script>
