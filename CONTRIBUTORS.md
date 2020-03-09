@@ -91,6 +91,7 @@ Tokyo Covid-19 response site contributors
 | [saboyutaka](https://github.com/saboyutaka) ||
 | [yuik](https://github.com/yu1k) ||
 | [上野 嘉之](https://github.com/44u) ||
+|[Yusaku Ohno](https://twitter.com/YusakuHip)| Frontend |
 | -add your name here!- | -what did you do?- |
 
 ご協力に感謝です！！！
