@@ -348,7 +348,7 @@ export default {
       sText: this.$t('{date}の累計', {
         date: patientsGraph[patientsGraph.length - 1].label
       }),
-      unit: '人'
+      unit: this.$t('人')
     }
 
     const data = {
