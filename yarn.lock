@@ -1027,6 +1027,10 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
+"@mdi/font@^4.9.95":
+  version "4.9.95"
+  resolved "https://registry.yarnpkg.com/@mdi/font/-/font-4.9.95.tgz#00ed2ffe289c9230f146e74559c07542d3f4475a"
+  integrity sha512-m2sbAs+SMwRnWpkMriBxEulwuhmqRyh6X+hdOZlqSxYZUM2C2TaDnQ4gcilzdoAgru2XYnWViZ/xPuSDGgRXVw==
 
 "@nuxt/babel-preset-app@2.11.0":
   version "2.11.0"
@@ -9922,6 +9926,13 @@ rimraf@^2.5.4, rimraf@^2.6.2, rimraf@^2.6.3, rimraf@^2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.7.1.tgz#35797f13a7fdadc566142c29d4f07ccad483e3ec"
   integrity sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==
+  dependencies:
+    glob "^7.1.3"
+
+rimraf@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-3.0.2.tgz#f1a5402ba6220ad52cc1282bac1ae3aa49fd061a"
+  integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
   dependencies:
     glob "^7.1.3"
 
