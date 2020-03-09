@@ -1051,6 +1051,9 @@
         <text class="ac" transform="translate(137 1160)">
           <tspan x="-89.817" y="0">PCR検査</tspan>
         </text>
+        <text class="b" transform="translate(137 1160)">
+          <tspan x="95" y="0">※</tspan>
+        </text>
         <g transform="translate(-101 1091)">
           <text class="b" transform="translate(238 106)">
             <tspan x="-77" y="0">東京都健康安全</tspan>

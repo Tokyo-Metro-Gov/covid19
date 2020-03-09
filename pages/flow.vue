@@ -168,7 +168,7 @@
           <div id="pcr" class="mx-2 mb-5">
             <img
               src="/flow/sp/sp_flow_06_02@2x.png"
-              alt="PCR検査 東京都健康安全研究センター等"
+              alt="PCR検査 ※ 東京都健康安全研究センター等"
             />
           </div>
           <div class="Col2Btn">
@@ -199,6 +199,7 @@
           </div>
         </div>
       </div>
+      <span>※保険適用となる検査は、当面の間、院内感染防止等の観点から、「帰国者・接触者外来」等の医療機関で実施</span>
       <a
         href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
         target="_blank"
