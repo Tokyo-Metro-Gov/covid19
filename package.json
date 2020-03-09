@@ -4,16 +4,22 @@
   "description": "東京都 新型コロナウイルス感染症対策サイト",
   "author": "東京都",
   "private": true,
+  "engines": {
+    "node": ">=10.19.0"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt-ts",
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
-    "generate": "nuxt-ts generate",
+    "generate:deploy": "nuxt-ts generate",
+    "generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
+    "lint-and-generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "test": "echo 'skip tests (there is no test)'",
-    "lint": "eslint './**/*.{js,ts,vue}' --fix"
+    "lint": "eslint './**/*.{js,ts,vue}' --fix",
+    "clean-hardsource": "rimraf ./node_modules/.cache/hard-source"
   },
   "lint-staged": {
-    "*.{js,ts,scss,css,vue}": [
+    "*.{js,ts,vue}": [
       "eslint --fix",
       "git add"
     ]
@@ -24,7 +30,7 @@
     }
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^0.3.10",
+    "@nuxt/typescript-runtime": "^0.4.0",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
@@ -32,20 +38,23 @@
     "cross-env": "^5.2.0",
     "dayjs": "^1.8.21",
     "express": "^4.16.4",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.11.0",
     "nuxt-i18n": "^6.6.0",
     "vue-chartjs": "^3.5.0",
     "vue-property-decorator": "^8.4.0",
+    "vue-scrollto": "^2.17.1",
     "vue-spinner": "^1.0.3"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",
-    "@nuxt/typescript-build": "^0.5.8",
+    "@mdi/font": "^4.9.95",
+    "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
     "@nuxtjs/google-analytics": "^2.2.3",
     "@nuxtjs/vuetify": "^1.0.0",
     "@types/chart.js": "^2.9.14",
     "@vue/test-utils": "^1.0.0-beta.27",
+    "autoprefixer": "^9.7.4",
     "babel-jest": "^24.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
@@ -57,6 +66,11 @@
     "nuxt-purgecss": "^0.2.1",
     "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
     "vue-jest": "^4.0.0-0"
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "ie >=11"
+  ]
 }
