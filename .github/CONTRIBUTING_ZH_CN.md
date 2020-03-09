@@ -8,7 +8,7 @@
 这个页面将会告诉您应该如何贡献以及参与这个网站的开发：
 
 ## 对 Issue 的评论以及 Pull Request 的请求
-* 请自由的对 Issue 发表评论，我们也接受新的问题回报以及建议。
+* 请自由的对 Issue 发表评论，我们也接受新的问题反馈以及建议。
 * 新增新的 Issue 之前，请务必搜寻同样的 Issue 不存在才开立新的 Issue.
 * Pull Request 发送时，请务必注记对应的 Issue 编号。我们不会接受没有 Issue 编号的 Pull Request.
 * 请注意改善建议的 Issue （标签为`improve`的） 可能不会每次都被接受。 （特别是针对 UI 的）
