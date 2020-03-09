@@ -5,6 +5,7 @@
       <h2 class="Flow-Heading-Title">
         新型コロナウイルス感染症が心配なときに
       </h2>
+      <PrinterButton />
     </div>
     <div class="Flow-Card">
       <h2>
@@ -215,9 +216,10 @@
 
 <script>
 import CovidIcon from '@/static/covid.svg'
+import PrinterButton from '@/components/PrinterButton'
 import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
 export default {
-  components: { CovidIcon, DesktopFlowSvg },
+  components: { CovidIcon, PrinterButton, DesktopFlowSvg },
   head() {
     return {
       title: '新型コロナウイルス感染症が心配なときに'
