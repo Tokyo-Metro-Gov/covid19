@@ -20,9 +20,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  @include card-container();
-  padding: 30px 20px;
-  margin-bottom: 20px;
   &Text {
     color: $gray-2;
     font-weight: bold;

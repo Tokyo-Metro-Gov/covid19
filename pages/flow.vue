@@ -7,10 +7,7 @@
       </h2>
       <PrinterButton :wrapper-class="'Flow-PullRight'" />
     </div>
-    <div class="Flow-Card">
-      <h2>
-        新型コロナウイルス感染症にかかる相談窓口について
-      </h2>
+    <div>
       <div class="only-pc">
         <flow-pc />
       </div>
