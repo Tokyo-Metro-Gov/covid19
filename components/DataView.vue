@@ -86,9 +86,6 @@ export default class DataView extends Vue {
     flex-flow: row;
     justify-content: space-between;
     padding: 0 16px;
-    .v-toolbar__content {
-      align-items: start;
-    }
   }
   &-Header {
     background-color: transparent !important;
