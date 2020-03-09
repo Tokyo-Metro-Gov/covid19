@@ -35,3 +35,4 @@ jobs:
           ftp-username: fem.jp-codeforkagoshima
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist
+          git-ftp-args: --all
