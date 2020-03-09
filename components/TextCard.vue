@@ -44,6 +44,7 @@ export default class TextCard extends Vue {
       @include body-text();
     }
     a {
+      @include text-link();
       word-break: break-all;
       color: $link;
       text-decoration: none;

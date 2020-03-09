@@ -140,8 +140,4 @@ export default {
     padding: 12px 0;
   }
 }
-
-a {
-  @include text-link();
-}
 </style>
