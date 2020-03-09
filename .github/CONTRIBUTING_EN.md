@@ -8,9 +8,9 @@ This page shows how you can contribute to the development of this site.
 
 ## Comments on Issues and Pull Requests
 * Feel free to comment on any Issues! Questions and suggestions are also welcome.
-* You can fix Issues via Forking this Repository and making a Pull Request.
-* Note that Issues for improvement suggestions (labeled with `improve`)
-may not be always accepted (especially ones for UI)
+* Please search existing issues to make sure there is no similar issues before making a new issue.
+* Note that Issues for improvement suggestions (labeled with `improve`) may not be always accepted (especially ones for UI)
+* When you send a new Pull Request, please specify a related issue ID. We don't accept Pull Requests which has no issue ID.
 * We appreciate if you give priority to the issues labelled [good first issue / help wanted / bug]
 
 ## How to participate in communications
