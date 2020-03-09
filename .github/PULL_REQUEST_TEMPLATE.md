@@ -1,10 +1,10 @@
 ## 📝 関連issue/Related issue
 <!--
-  ・ 関連するissueがなければ消してください
+  ・ 関連するissue 番号を記載してください。 Issue 番号がない PR は受け付けません。
   ・ issueを閉じるとは関係ないものは#{ISSUE_NUMBER}だけでOKです🙆‍♂️
 -->
 <!--
-  ・ If there's no related issue, please remove this section
+  ・ Please specify related Issue ID. We don't accept PRs which has no issue ID.
   ・ If there's no reason to close the issue, just "#{ISSUE_NUMBER}" is OK🙆‍♂️
 -->
 - close #{ISSUE_NUMBER}
