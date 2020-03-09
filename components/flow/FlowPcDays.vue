@@ -53,15 +53,9 @@
     <div :class="$style.FlowRow">
       <div :class="$style.FlowRowRowThree">
         <ul :class="$style.FlowRowRowThreeCareTargetList">
-          <li>
-            <img src="/flow/directions_walk-24px.svg" />ご高齢な方
-          </li>
-          <li>
-            <img src="/flow/accessible-24px.svg" />基礎疾患のある方
-          </li>
-          <li>
-            <img src="/flow/pregnant_woman-24px.svg" />妊娠中の方
-          </li>
+          <li><img src="/flow/directions_walk-24px.svg" />ご高齢な方</li>
+          <li><img src="/flow/accessible-24px.svg" />基礎疾患のある方</li>
+          <li><img src="/flow/pregnant_woman-24px.svg" />妊娠中の方</li>
         </ul>
       </div>
       <div>
