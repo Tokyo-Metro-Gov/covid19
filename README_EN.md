@@ -1,8 +1,6 @@
-# Tokyo COVID-19 Task Force website
+# Kagoshima COVID-19 Task Force website
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
-
-[![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+![](https://github.com/codeforkagoshima/covid19/workflows/production%20deploy/badge.svg)
 
 ### [日本語](./README.md) | English | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md)
 
@@ -41,11 +39,9 @@ $ docker-compose up --build
 
 ### Deployment to Staging & Production Environments
 
-When `master` branch is updated, the HTML files will be automatically built onto `production` branch,
-and then the production site (https://stopcovid19.metro.tokyo.lg.jp/) will be also updated.
+When `master` branch is updated, the production site (https://covid19.codeforkagoshima.dev/) will be automatically updated.
 
-When `staging` branch is updated, the HTML files will be automatically built onto `gh-pages` branch,
-and then the staging site (https://stg-covid19-tokyo.netlify.com/) will be also updated.
+When `staging` branch is updated, the staging site (https://staging-covid19.codeforkagoshima.dev/) will be automatically updated.
 
-When `development` branch is updated, the HTML files will be automatically built onto `dev-pages` branch,
-and then the development site (https://dev-covid19-tokyo.netlify.com/) will be also updated.
+When `development` branch is updated, the development site (https://
+development-covid19.codeforkagoshima.dev/) will be automatically updated.

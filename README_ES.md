@@ -1,8 +1,6 @@
-# Sitio web del Grupo de trabajo COVID-19 de Tokio
+# Sitio web del Grupo de trabajo COVID-19 de Kagoshima
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
-
-[![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+![](https://github.com/codeforkagoshima/covid19/workflows/production%20deploy/badge.svg)
 
 ### [日本語](./README.md) | [English](./README_EN.md) | Spanish | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md)
 
@@ -42,10 +40,11 @@ $ docker-compose up --build
 ### Implementación en entornos de preparación y producción
 
 Cuando se actualiza la rama `master`, los archivos HTML se construirán automáticamente en la rama de `production`,
-y luego el sitio de producción (https://stopcovid19.metro.tokyo.lg.jp/) también se actualizará.
+y luego el sitio de producción (https://covid19.codeforkagoshima.dev/) también se actualizará.
 
 Cuando se actualiza la rama `staging`, los archivos HTML se construirán automáticamente en la rama `gh-pages`,
-  y luego el sitio de preparación (https://stg-covid19-tokyo.netlify.com/) también se actualizará.
+  y luego el sitio de preparación (https://staging-covid19.codeforkagoshima.dev/) también se actualizará.
 
 Cuando se actualiza la rama `development`, los archivos HTML se construirán automáticamente en la rama` dev-pages`,
-y luego el sitio de desarrollo (https://dev-covid19-tokyo.netlify.com/) también se actualizará.
+y luego el sitio de desarrollo (https://
+development-covid19.codeforkagoshima.dev/) también se actualizará.

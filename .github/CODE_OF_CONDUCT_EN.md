@@ -1,7 +1,7 @@
 version 1.0, 2020/3/3
 # Our mission
 
-* We will work to protect the life and well-being of the citizens of Tokyo.
+* We will work to protect the life and well-being of the citizens of Kagoshima.
 * We will work to provide the facts to everyone, both domestic and abroad.
 * We will demonstrate our integrity and visualise the outcomes of our work.
 
@@ -29,6 +29,6 @@ version 1.0, 2020/3/3
 
 ## Build with people
 
-* We will work together not only with Tokyo Metropolitan Government, but also with anyone who wants to contribute.
+* We will work together not only with Kagoshima Metropolitan Government, but also with anyone who wants to contribute.
 * We will welcome any citizens' contributions.
 * We will continue improving this website with someone who needs information.

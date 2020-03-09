@@ -1,8 +1,6 @@
 # 도쿄도 코로나19 감역 대책 사이트
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
-
-[![도쿄도 코로나19 감역대책 사이트](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+![](https://github.com/codeforkagoshima/covid19/workflows/production%20deploy/badge.svg)
 
 ### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | Korean | [Chinese (Taiwan)](./README_ZH_TW.md)
 
@@ -42,8 +40,9 @@ $ docker-compose up --build
 
 ### 스테이징환경/운영환경에의 반영
 
-`master` 브랜치가 업데이트되면, 자동적으로  `production` 브랜치의 HTML 파일들이 빌드됩니다. 이후 운영환경 사이트 https://stopcovid19.metro.tokyo.lg.jp/ 가 갱신됩니다.
+`master` 브랜치가 업데이트되면, 자동적으로  `production` 브랜치의 HTML 파일들이 빌드됩니다. 이후 운영환경 사이트 https://covid19.codeforkagoshima.dev/ 가 갱신됩니다.
 
-`staging` 브랜치가 업데이트되면, 자동적으로  `gh-pages` 브랜치의 HTML 파일들이 빌드됩니다. 이후 스테이징환경 사이트 https://stg-covid19-tokyo.netlify.com/ 가 갱신됩니다.
+`staging` 브랜치가 업데이트되면, 자동적으로  `gh-pages` 브랜치의 HTML 파일들이 빌드됩니다. 이후 스테이징환경 사이트 https://staging-covid19.codeforkagoshima.dev/ 가 갱신됩니다.
 
-`development` 브랜치가 업데이트되면, 자동적으로  `dev-pages` 브랜치의 HTML 파일들이 빌드됩니다. 이후 개발용 사이트 https://dev-covid19-tokyo.netlify.com/ 가 갱신됩니다.
+`development` 브랜치가 업데이트되면, 자동적으로  `dev-pages` 브랜치의 HTML 파일들이 빌드됩니다. 이후 개발용 사이트 https://
+development-covid19.codeforkagoshima.dev/ 가 갱신됩니다.

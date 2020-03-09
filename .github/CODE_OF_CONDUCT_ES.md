@@ -29,6 +29,6 @@ version 1.0, 2020/3/3
 
 ## Construir con personas
 
-* Trabajaremos juntos no solo con el Gobierno Metropolitano de Tokio sino también con cualquier otra persona que quiera contribuir.
+* Trabajaremos juntos no solo con el Gobierno Metropolitano de Kagoshima sino también con cualquier otra persona que quiera contribuir.
 * Daremos la bienvenida a las contribuciones de cualquier ciudadano.
 * Continuaremos mejorando este sitio web con alguien que necesite información.
