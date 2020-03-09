@@ -3,18 +3,18 @@
     <div :class="$style.Border">
       <p :class="$style.Title">
         新型コロナ受診相談窓口
-        <br>
+        <br />
         <span :class="$style.Title2">
           による相談結果
         </span>
       </p>
       <p :class="$style.NewCorona">
         新型コロナ外来
-        <br>
+        <br />
         <span :class="$style.NeedConsultation">
           受診が必要
         </span>
-        <br>
+        <br />
         <span :class="$style.Tohandan">
           と判断された場合
         </span>
@@ -92,11 +92,11 @@
       <hr :class="$style.BorderLine" />
       <p id="not_required" :class="$style.NewCorona">
         新型コロナ外来
-        <br>
+        <br />
         <span :class="$style.NeedConsultation">
           受診が不要
         </span>
-        <br>
+        <br />
         <span :class="$style.Tohandan">
           と判断された場合
         </span>
@@ -131,11 +131,11 @@
         <div :class="$style.RectSoudan">
           <p :class="$style.inFinalRect">
             症状が良くならない場合は
-            <br>
+            <br />
             <span :class="$style.SecondInFinalRect">
               新型コロナ受診相談窓口
             </span>
-            <br>
+            <br />
             <span :class="$style.LastInFinalRect">
               に相談
             </span>
