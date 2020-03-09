@@ -46,6 +46,26 @@ const config: Configuration = {
         hid: 'og:image',
         property: 'og:image',
         content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@tokyo_bousai'
+      },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: '@tokyo_bousai'
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
       }
     ],
     link: [
@@ -90,10 +110,45 @@ const config: Configuration = {
     [
       'nuxt-i18n',
       {
-        strategy: 'no_prefix',
+        strategy: 'prefix_except_default',
+        detectBrowserLanguage: {
+          useCookie: true,
+          cookieKey: 'i18n_redirected'
+        },
         locales: [
           {
             code: 'ja',
+            name: '日本語',
+            iso: 'ja-JP'
+          },
+          {
+            code: 'en',
+            name: 'English',
+            iso: 'en-US'
+          },
+          {
+            code: 'zh-cn',
+            name: '簡体字',
+            iso: 'zh-CN'
+          },
+          {
+            code: 'zh-tw',
+            name: '繁體字',
+            iso: 'zh-TW'
+          },
+          {
+            code: 'ko',
+            name: '한국어',
+            iso: 'ko-KR'
+          },
+          {
+            code: 'pt-BR',
+            name: 'Portuguese',
+            iso: 'pt-BR'
+          },
+          {
+            code: 'ja-basic',
+            name: 'やさしい にほんご',
             iso: 'ja-JP'
           }
         ],
@@ -106,7 +161,8 @@ const config: Configuration = {
       }
     ],
     'nuxt-svg-loader',
-    'nuxt-purgecss'
+    'nuxt-purgecss',
+    ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }]
   ],
   /*
    ** Axios module configuration
