@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.Suspect">
-    <div :class="$style.Targets">
+    <div :class="['mb-5', $style.Targets]">
       <div :class="$style.TargetsItem">
         <img
           src="/flow/sentiment_very_dissatisfied-24px.svg"
@@ -12,19 +12,19 @@
       </div>
     </div>
 
-    <ul :class="$style.Conditions">
-      <li :class="$style.ConditionsItem">
+    <ul :class="['mb-5', $style.Conditions]">
+      <li :class="['py-4', $style.ConditionsItem]">
         微熱
       </li>
-      <li :class="$style.ConditionsItem">
+      <li :class="['py-4', $style.ConditionsItem]">
         軽い咳
       </li>
-      <li :class="[$style.ConditionsItem, $style.ConditionsItemLarge]">
+      <li :class="['py-4', $style.ConditionsItem, $style.ConditionsItemLarge]">
         感染の不安
       </li>
     </ul>
 
-    <div :class="$style.CallCenter">
+    <div :class="['mb-4', $style.CallCenter]">
       <div :class="$style.CallCenterName">
         新型コロナコールセンター
       </div>
@@ -33,16 +33,16 @@
       </div>
     </div>
 
-    <div :class="$style.Phone">
+    <div :class="['mb-4', $style.Phone]">
       <div :class="$style.PhoneItem">
-        <img src="/flow/phone-24px.svg" alt="phone-24px" />
+        <img class="mr-n1" src="/flow/phone-24px.svg" alt="tel" />
         <a href="tel:0570550571">
           0570-550571
         </a>
       </div>
     </div>
 
-    <a :class="$style.Link" href="#consult">
+    <a :class="['pa-5', $style.Link]" href="#consult">
       専門的な助言が必要な場合
     </a>
   </div>
@@ -50,24 +50,17 @@
 
 <style module lang="scss">
 .Suspect {
-  font-weight: 600;
+  font-weight: bold;
   color: $gray-2;
   text-align: center;
 }
 .Targets {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0 4px !important;
-  list-style: none;
   &Item {
-    $imgSize: 40px;
-    @include font-size(14);
-    margin-bottom: 14px;
-    font-weight: 700;
+    $imgSize: 2rem;
+    @include font-size(16);
+    font-weight: bold;
     line-height: $imgSize;
     & img {
-      margin-right: 4px;
       width: $imgSize;
     }
   }
@@ -75,22 +68,20 @@
 .Conditions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0 4px !important;
+  justify-content: space-between;
+  padding-left: 0 !important; // FIXME: ulを使用している関係で、paddingを打ち消す必要がある
   &Item {
-    @include font-size(14);
+    @include font-size(18);
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-basis: 26%;
-    padding: 16px;
-    margin: 4px 0 13px;
     border: 2px solid $green-1 !important;
     border-radius: 4px;
     line-height: 1;
+    flex-basis: 28%;
     &::before {
-      $imgSize: 20px;
+      $imgSize: 24px;
       content: '';
       position: absolute;
       top: -13px;
@@ -109,28 +100,19 @@
 }
 .CallCenter {
   &Name {
-    margin-top: 16px;
-    @include font-size(18);
+    @include font-size(22);
   }
   &Time {
-    margin-bottom: 16px;
-    @include font-size(14);
+    @include font-size(16);
   }
 }
 .Phone {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0 4px !important;
-  list-style: none;
   &Item {
-    $imgSize: 36px;
-    @include font-size(28);
-    margin-bottom: 14px;
-    font-weight: 700;
+    $imgSize: 2rem;
+    @include font-size(24);
+    font-weight: bold;
     line-height: $imgSize;
     & img {
-      margin-right: 2px;
       width: $imgSize;
     }
     a {
@@ -140,15 +122,13 @@
   }
 }
 .Link {
-  @include font-size(14);
+  @include font-size(18);
   position: relative;
   display: block;
-  margin: 23px 4px 5px;
-  padding: 16px 20px;
   border-radius: 4px;
   background-color: #ffe200;
-  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
-  color: inherit !important;
+  box-shadow: -1px 2px 5px $gray-3;
+  color: $gray-2 !important;
   text-align: left;
   text-decoration: none;
   &::after {
