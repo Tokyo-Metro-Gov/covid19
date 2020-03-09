@@ -142,13 +142,13 @@ export default {
 
 .Title {
   font-family: 'Roboto', sans-serif;
-  color: #00a040;
+  color: $green-1;
   font-size: 5.8vw;
   font-width: bold;
 }
 
 .Title2 {
-  color: #00a040;
+  color: $green-1;
   font-size: 3.7vw;
   font-weight: bold;
 }
@@ -163,13 +163,13 @@ export default {
   width: 100%;
   padding: 30px 20px;
   text-align: center;
-  background-color: #f8f9fa;
+  background-color: $gray-5;
 }
 
 .NewCorona {
   font-weight: bold;
   display: block;
-  color: #4d4d4d;
+  color: $gray-2;
   padding-top: 20px;
   font-size: 3.2vw;
 }
@@ -178,7 +178,7 @@ export default {
   font-weight: bold;
   display: inline;
   line-height: 1.2em;
-  color: #4d4d4d;
+  color: $gray-2;
   font-size: 9.3vw;
 }
 
@@ -187,14 +187,14 @@ export default {
   line-height: 1.5em;
   font-size: 3.7vw;
   padding-bottom: 10px;
-  color: #4d4d4d;
+  color: $gray-2;
 }
 
 .Square {
   width: 95%;
   height: 16vw;
   margin: 0 auto;
-  background-color: #4d4d4d;
+  background-color: $gray-2;
   border-radius: 3px;
 }
 
@@ -245,7 +245,7 @@ export default {
   width: 100%;
   top: 27%;
   font-size: 6.4vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
 
 .Arrow {
@@ -265,13 +265,13 @@ export default {
   font-weight: bold;
   padding-top: 10px;
   font-size: 9.3vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
 
 .TokyoHealth {
   font-weight: bold;
   font-size: 4.5vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
 
 .Negative {
@@ -280,7 +280,7 @@ export default {
   width: 100%;
   top: 20%;
   font-size: 6.4vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
 
 .NeedKensa {
@@ -289,7 +289,7 @@ export default {
   top: 9%;
   font-weight: bold;
   font-size: 4vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
 
 .Nashi {
@@ -298,7 +298,7 @@ export default {
   top: 27%;
   font-weight: bold;
   font-size: 6.4vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
 
 .House {
@@ -313,7 +313,7 @@ export default {
   width: 100%;
   top: 45%;
   font-size: 3.3vw;
-  color: #4d4d4d;
+  color: $gray-2;
 }
 
 .RectWrapSoudan {
@@ -322,7 +322,7 @@ export default {
 }
 
 .RectSoudan {
-  border: solid #00a040;
+  border: solid $green-1;
   width: 98%;
   position: relative;
   border-radius: 3px;
