@@ -3,15 +3,18 @@
     <div :class="$style.Border">
       <p :class="$style.Title">
         新型コロナ受診相談窓口
+        <br />
         <span :class="$style.Title2">
           による相談結果
         </span>
       </p>
       <p :class="$style.NewCorona">
         新型コロナ外来
+        <br />
         <span :class="$style.NeedConsultation">
           受診が必要
         </span>
+        <br />
         <span :class="$style.Tohandan">
           と判断された場合
         </span>
@@ -89,9 +92,11 @@
       <hr :class="$style.BorderLine" />
       <p id="not_required" :class="$style.NewCorona">
         新型コロナ外来
+        <br />
         <span :class="$style.NeedConsultation">
           受診が不要
         </span>
+        <br />
         <span :class="$style.Tohandan">
           と判断された場合
         </span>
@@ -126,9 +131,11 @@
         <div :class="$style.RectSoudan">
           <p :class="$style.inFinalRect">
             症状が良くならない場合は
+            <br />
             <span :class="$style.SecondInFinalRect">
               新型コロナ受診相談窓口
             </span>
+            <br />
             <span :class="$style.LastInFinalRect">
               に相談
             </span>
@@ -140,10 +147,10 @@
 </template>
 
 <script>
-import Apartment from '../static/flow/apartment-24px.svg'
-import House from '../static/flow/house-24px.svg'
-import Arrow from '../static/flow/arrow_downward.svg'
-import GreenArrow from '../static/flow/arrow_green.svg'
+import Apartment from '../../static/flow/apartment-24px.svg'
+import House from '../../static/flow/house-24px.svg'
+import Arrow from '../../static/flow/arrow_downward.svg'
+import GreenArrow from '../../static/flow/arrow_green.svg'
 
 export default {
   components: {
@@ -164,6 +171,7 @@ export default {
   font-weight: bold;
 }
 .Title2 {
+  display: block;
   color: $green-1;
   font-size: 3.7vw;
   font-weight: bold;
@@ -183,7 +191,7 @@ export default {
   font-weight: bold;
   display: block;
   color: $gray-2;
-  padding-top: 20px;
+  padding-top: 8px;
   font-size: 3.2vw;
 }
 .NeedConsultation {
@@ -322,9 +330,10 @@ export default {
   padding-top: 33%;
   margin-left: 0vw;
   margin-right: 2vw;
-  margin-top: 55%;
+  margin-top: 64%;
 }
 .inFinalRect {
+  display: block;
   position: absolute;
   width: 100%;
   top: 10%;
@@ -332,16 +341,18 @@ export default {
   font-weight: bold;
 }
 .SecondInFinalRect {
+  display: block;
   position: absolute;
   width: 100%;
-  top: 33%;
+  top: 40%;
   font-size: 5.5vw;
   font-weight: bold;
 }
 .LastInFinalRect {
+  display: block;
   position: absolute;
   width: 100%;
-  top: 65%;
+  top: 95%;
   font-size: 4vw;
   font-weight: bold;
 }
