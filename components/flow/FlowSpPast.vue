@@ -143,7 +143,7 @@
   }
   .counter {
     background-color: #ffe200;
-    border-radius: 5px;
+    border-radius: 4px;
     box-shadow: -1px 2px 5px $gray-3;
     display: block;
     position: relative;
@@ -152,7 +152,6 @@
     font-weight: bold;
     @include font-size(18);
     &::after {
-      z-index: 99;
       width: 45px;
       height: 45px;
       background-image: url(/flow/arrow_forward-24px.svg);

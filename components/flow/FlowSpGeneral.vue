@@ -58,11 +58,11 @@ export default {
 .General {
   text-align: center;
   &Icon {
-    width: 40px;
-    height: 40px;
+    width: 2rem;
+    height: 2rem;
   }
   &Header {
-    @include font-size(14);
+    @include font-size(16);
     color: $gray-1;
     font-weight: bold;
   }
@@ -117,9 +117,8 @@ export default {
     margin-bottom: 8px;
     span {
       border-bottom: 4px solid $green-1;
-      letter-spacing: -2px;
       @include font-size(20);
-      margin-right: 4px;
+      margin-right: 0.25rem;
       strong {
         @include font-size(32);
       }
@@ -128,13 +127,13 @@ export default {
   &Btn {
     background-color: #ffe200;
     color: $gray-2 !important;
-    border-radius: 5px;
+    border-radius: 4px;
     box-shadow: -1px 2px 5px $gray-3;
     display: block;
     position: relative;
     text-decoration: none;
     font-weight: bold;
-    text-align: initial;
+    text-align: left;
     @include font-size(18);
     svg {
       position: absolute;

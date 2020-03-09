@@ -1,13 +1,13 @@
 <template>
   <div :class="$style.Elder">
-    <ul :class="$style.Targets">
-      <li :class="$style.TargetsItem">
+    <ul :class="['mb-1', $style.Targets]">
+      <li :class="['mb-3', $style.TargetsItem]">
         <img src="/flow/directions_walk-24px.svg" />ご高齢な方
       </li>
-      <li :class="$style.TargetsItem">
+      <li :class="['mb-3', $style.TargetsItem]">
         <img src="/flow/accessible-24px.svg" />基礎疾患のある方
       </li>
-      <li :class="$style.TargetsItem">
+      <li :class="['mb-3', $style.TargetsItem]">
         <img src="/flow/pregnant_woman-24px.svg" />妊娠中の方
       </li>
     </ul>
@@ -19,7 +19,7 @@
       <li :class="[$style.ConditionsItem, $style.ConditionsItemFever]">
         <div>
           <small>発熱</small><br />
-          <span :class="$style.ConditionsItemFeverNum">37.5</span>℃ 以上
+          37.5℃以上
         </div>
       </li>
       <li :class="$style.ConditionsItem">
@@ -31,16 +31,17 @@
     </ul>
 
     <p :class="$style.Lasting">
-      <span :class="$style.LastingDays"><strong>2</strong>日程度</span>
-      続いている
+      <span><strong>2</strong>日程度</span>続いている
     </p>
 
-    <a :class="$style.Link" href="#consult">新型コロナ受診相談窓口へ</a>
+    <a :class="['pa-5', $style.Link]" href="#consult">
+      新型コロナ受診相談窓口へ
+    </a>
   </div>
 </template>
 <style module lang="scss">
 .Elder {
-  font-weight: 600;
+  font-weight: bold;
   color: $gray-2;
   text-align: center;
 }
@@ -53,11 +54,10 @@
   list-style: none;
 
   &Item {
-    $imgSize: 24px;
+    $imgSize: 2rem;
 
-    @include font-size(12);
-    margin-bottom: 14px;
-    font-weight: 700;
+    @include font-size(16);
+    font-weight: bold;
     line-height: $imgSize;
 
     & img {
@@ -70,28 +70,28 @@
 .Conditions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0 4px !important;
 
   &Item {
-    @include font-size(14);
+    @include font-size(18);
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-basis: 46.5%;
-    height: 46px;
-    margin: 4px 0 13px;
+    flex-basis: 47.5%;
+    height: 3.5rem;
+    margin: 4% 0;
     border: 2px solid $green-1 !important;
     border-radius: 4px;
     line-height: 1;
 
     & small {
-      @include font-size(10);
+      @include font-size(12);
     }
 
     &::before {
-      $imgSize: 20px;
+      $imgSize: 24px;
 
       content: '';
       position: absolute;
@@ -107,44 +107,33 @@
 
     &Fever {
       padding-top: 2px;
-
-      &Num {
-        font-size: 115%;
-      }
     }
   }
 }
 
 .Lasting {
-  @include font-size(12);
-  margin-top: -1px;
-  padding-left: 14px;
-  line-height: 0.9;
-
-  &Days {
-    display: inline-block;
-    padding: 0 4px;
-    border-bottom: 3px solid $green-1;
-    font-size: 20px;
-    font-weight: 700;
-
-    & > strong {
-      font-size: 40px;
-      font-weight: 600;
+  @include font-size(16);
+  color: $gray-2;
+  font-weight: bold;
+  span {
+    border-bottom: 4px solid $green-1;
+    @include font-size(20);
+    font-weight: bold;
+    margin-right: 0.25rem;
+    strong {
+      @include font-size(32);
     }
   }
 }
 
 .Link {
-  @include font-size(14);
+  @include font-size(18);
   position: relative;
   display: block;
-  margin: 23px 4px 5px;
-  padding: 16px 20px;
   border-radius: 4px;
   background-color: #ffe200;
-  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
-  color: inherit !important;
+  box-shadow: -1px 2px 5px $gray-3;
+  color: $gray-2 !important;
   text-align: left;
   text-decoration: none;
 
