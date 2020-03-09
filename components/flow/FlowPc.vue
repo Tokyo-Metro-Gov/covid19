@@ -1,6 +1,6 @@
 <template>
-  <div class="Flow-Card">
-    <h2>新型コロナウイルス感染症にかかる相談窓口について</h2>
+  <div :class="$style.FlowCard">
+    <h3>新型コロナウイルス感染症にかかる相談窓口について</h3>
     <div :class="[$style.Outer, $style.OuterUpper]">
       <div :class="[$style.CardBlock, $style.Past]">
         <flow-pc-past />
@@ -63,6 +63,20 @@ export default {
 </script>
 
 <style module lang="scss">
+.FlowCard {
+  display: flex;
+  flex-direction: column;
+  @include card-container();
+  padding: 20px;
+  margin-bottom: 20px;
+  > h3 {
+    color: $gray-2;
+    font-size: 1.5rem;
+  }
+  &GrayBg {
+    background-color: $gray-5;
+  }
+}
 .Outer {
   display: grid;
   grid-gap: 12px;
