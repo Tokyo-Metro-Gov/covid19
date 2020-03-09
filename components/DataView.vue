@@ -1,6 +1,6 @@
 <template>
   <v-card class="DataView pa-1">
-    <v-toolbar flat class="DataView-content">
+    <div class="DataView-content">
       <div class="DataView-TitleContainer">
         <h3 :id="titleId" class="DataView-ToolbarTitle">
           {{ title }}
@@ -9,7 +9,7 @@
       </div>
       <v-spacer />
       <slot name="infoPanel" />
-    </v-toolbar>
+    </div>
     <v-card-text
       :class="
         $vuetify.breakpoint.xs ? 'DataView-CardTextForXS' : 'DataView-CardText'
