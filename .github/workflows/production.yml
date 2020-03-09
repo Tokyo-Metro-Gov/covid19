@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
+    env:
+      NODE_ENV: production
     steps:
       - uses: actions/checkout@v2
 
@@ -29,8 +31,6 @@ jobs:
       - run: yarn run generate:deploy --fail-on-page-error
 
       - name: FTP-Deploy-Action
-        env:
-          NODE_ENV: production
         uses: SamKirkland/FTP-Deploy-Action@3.0.0
         with:
           ftp-server: ftp.lolipop.jp/

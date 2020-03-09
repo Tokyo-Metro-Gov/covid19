@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
+    env:
+      NODE_ENV: staging
     steps:
       - uses: actions/checkout@v2
 
@@ -30,8 +32,6 @@ jobs:
       - run: "echo \"User-agent: *\nDisallow *\" > ./dist/robots.txt"
 
       - name: FTP-Deploy-Action
-        env:
-          NODE_ENV: production
         uses: SamKirkland/FTP-Deploy-Action@3.0.0
         with:
           ftp-server: ftp.lolipop.jp/
