@@ -4,7 +4,7 @@ Tokyo Covid-19 response site contributors
 本サイトにご協力いただいた皆様
 
 | Name(link) | Contribution |
-| --- | --- | 
+| --- | --- |
 | [Hal Seki(Code for Japan)](https://github.com/halsk) | Project facilitation |
 | [Yu Uno(Cookpad Inc.)](https://twitter.com/saladdays) | UI/UX Design |
 | [Kenshiro Fujii(Cookpad Inc.)](https://twitter.com/kenshir0f) | UI Design / Frontend |
@@ -92,7 +92,14 @@ Tokyo Covid-19 response site contributors
 | [yuik](https://github.com/yu1k) ||
 | [上野 嘉之](https://github.com/44u) ||
 |[Yusaku Ohno](https://twitter.com/YusakuHip)| Frontend |
-|[tatsuki26](https://github.com/tatsuki26)| Coding |
+| tatsuki26 ([@tatsuki26](https://github.com/tatsuki26)) | Coding |
+| Kouki Okajima ([@Okahill](https://github.com/Okahill)) | Coding |
+| Tomoki Shigeta ([@matoruru](https://github.com/matoruru)) | Coding |
+| [Shun Kawahara](https://twitter.com/kojo_73) ([@shun91](https://github.com/shun91)) | Frontend |
+| [Yuichi Yokoyama](https://twitter.com/dj_yoko) ([@DJYoko](https://github.com/DJYoko)) | Coding |
+| [dafujii](https://twitter.com/dafujii_k) ([@dafujii](https://github.com/dafujii)) | Kaizen |
+| [7iva](https://twitter.com/_7iva) ([@7iva](https://github.com/7iva)) | Translations |
+| Jun Shindo ([@jay-es](https://github.com/jay-es)) | Frontend |
 | -add your name here!- | -what did you do?- |
 
 ご協力に感謝です！！！
