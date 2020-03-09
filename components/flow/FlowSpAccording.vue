@@ -333,7 +333,7 @@ export default {
   margin-top: 64%;
 }
 .inFinalRect {
-  display:block;
+  display: block;
   position: absolute;
   width: 100%;
   top: 10%;
@@ -341,7 +341,7 @@ export default {
   font-weight: bold;
 }
 .SecondInFinalRect {
-  display:block;
+  display: block;
   position: absolute;
   width: 100%;
   top: 40%;
@@ -349,7 +349,7 @@ export default {
   font-weight: bold;
 }
 .LastInFinalRect {
-  display:block;
+  display: block;
   position: absolute;
   width: 100%;
   top: 95%;
