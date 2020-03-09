@@ -1,11 +1,6 @@
 <template>
   <div id="hospitalized" :class="$style.Hospitalization">
-    <img
-      width="40"
-      height="40"
-      src="/flow/hotel-24px.svg"
-      alt="入院となります／感染症指定医療機関等"
-    />
+    <img width="40" height="40" src="/flow/hotel-24px.svg" aria-hidden="true" />
     <p :class="$style.HospitalizationText">
       入院となります
     </p>
