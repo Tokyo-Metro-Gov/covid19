@@ -29,7 +29,7 @@
         良くならない場合は
       </p>
       <p>
-        <strong>新型コロナ受診相談窓口</strong>
+        <strong>新型コロナ<br />受診相談窓口</strong>
       </p>
       <p>
         に相談
@@ -37,6 +37,7 @@
     </div>
   </div>
 </template>
+
 <style module lang="scss">
 .flowContainer {
   @include card-container();
@@ -44,7 +45,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 1rem;
+  padding: 20px;
+  height: 100%;
+  color: $gray-2;
 }
 .sectionTitle {
   display: flex;
@@ -54,15 +57,14 @@
   justify-content: center;
   text-align: end;
   width: 100%;
-  font-size: 1rem;
   margin-bottom: 1rem;
   vertical-align: bottom;
   span {
     padding-bottom: 0.2rem;
   }
   strong {
-    margin: 0 0.5;
-    font-size: 1.8rem;
+    margin: 0 0.2em;
+    font-size: 28px;
     font-weight: bold;
   }
 }
@@ -83,6 +85,7 @@
   padding: 1rem;
   border: $green-1 1.5px solid;
   border-radius: 4px;
+  text-align: center;
   strong {
     font-size: 1.5rem;
   }

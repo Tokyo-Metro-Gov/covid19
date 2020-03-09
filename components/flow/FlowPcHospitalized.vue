@@ -1,11 +1,11 @@
 <template>
   <div :class="$style.FlowPcHospitalized">
-    <h2 :class="$style.FlowPcHospitalizedHeading">
+    <p :class="$style.FlowPcHospitalizedHeading">
       入院となります
-    </h2>
-    <h3 :class="$style.FlowPcHospitalizedsubHeading">
+    </p>
+    <p :class="$style.FlowPcHospitalizedsubHeading">
       感染症指定医療機関等
-    </h3>
+    </p>
   </div>
 </template>
 
@@ -14,17 +14,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
+  padding: 30px 40px;
+  color: $gray-2;
   @include card-container();
 
   &Heading {
     color: $gray-2;
-    font-size: 10px;
     font-weight: bold;
     display: flex;
     align-items: center;
+    margin: 0 !important;
 
-    &:before {
+    &::before {
       min-width: 30px;
       min-height: 30px;
       content: '';
@@ -35,8 +36,8 @@
   }
 
   &subHeading {
-    color: $gray-2;
-    font-size: 16px;
+    @include font-size(20);
+    margin: 0 !important;
   }
 }
 </style>

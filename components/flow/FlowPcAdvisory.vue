@@ -86,9 +86,7 @@
 
 <style module lang="scss">
 .Advisory {
-  min-width: 248px;
-  min-height: 642px;
-  font-family: HiraginoSans-W6, Hiragino Sans;
+  color: $gray-2;
   &Container {
     background-color: $gray-5;
     border-radius: 4px;
@@ -105,6 +103,7 @@
     }
     &Title {
       font-size: 26px;
+      font-weight: bold;
       line-height: 28px;
     }
     &Title2 {
@@ -137,7 +136,6 @@
   }
   &Telephone {
     font-size: 27px;
-    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     margin-left: 4px;
   }
@@ -154,6 +152,7 @@
     &Sentense {
       color: $green-1;
       font-size: 18px;
+      font-weight: bold;
     }
   }
   &BlackBox {

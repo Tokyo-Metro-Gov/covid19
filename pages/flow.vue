@@ -11,7 +11,7 @@
         新型コロナウイルス感染症にかかる相談窓口について
       </h2>
       <div class="Flow-Card-Images only-pc">
-        <DesktopFlowSvg />
+        <flow-pc />
       </div>
       <div class="only-sp">
         <div class="Flow-Card-Parts">
@@ -216,8 +216,9 @@
 <script>
 import CovidIcon from '@/static/covid.svg'
 import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
+import FlowPc from '@/components/flow/FlowPc.vue';
 export default {
-  components: { CovidIcon, DesktopFlowSvg },
+  components: { CovidIcon, DesktopFlowSvg, FlowPc },
   head() {
     return {
       title: '新型コロナウイルス感染症が心配なときに'
@@ -258,7 +259,6 @@ export default {
       margin-bottom: 12px;
     }
     &-Images {
-      text-align: center;
       > img {
         margin: 18px 0;
       }
@@ -323,7 +323,7 @@ export default {
     }
     &-Button {
       @include button-text('md');
-      margin: 12px auto 0;
+      margin: 24px auto 0;
       @include font-size(20);
       font-weight: 600;
       text-decoration: none;

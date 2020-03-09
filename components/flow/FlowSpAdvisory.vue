@@ -83,7 +83,6 @@
   }
 }
 .TelLink {
-  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   display: flex;
   justify-content: center;
