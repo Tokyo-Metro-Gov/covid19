@@ -148,9 +148,9 @@ export default {
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
         },
         {
-          title: this.$t('Message from Governor Koike'),
+          title: this.$t('Message from Governor'),
           link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+            'https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/documents/76148_20200305175151-1.pdf'
         },
         {
           title: this.$t('About us'),
