@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.Hospitalization">
+  <div id="hospitalized" :class="$style.Hospitalization">
     <img
       width="40"
       height="40"

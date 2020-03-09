@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.SpAdvisory">
-    <h4 :class="['mb-4', $style.Heading]">
+    <h4 id="consult" :class="['mb-4', $style.Heading]">
       新型コロナ受診相談窓口<br />
       <small>帰国者・接触者電話相談センター</small>
     </h4>

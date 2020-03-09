@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <a :class="['pa-5', $style.Link]" href="#consult">
+    <a v-scroll-to="'#consult'" :class="['pa-5', $style.Link]" href="#consult">
       専門的な助言が必要な場合
     </a>
   </div>
