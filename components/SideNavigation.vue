@@ -37,8 +37,7 @@
             :link="item.link"
             :icon="item.icon"
             :title="item.title"
-            :aria-label="item.ariaLabel"
-            @openNavi="openNavi"
+            aria-label="別タブで開く"
           />
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
@@ -112,63 +111,53 @@ export default {
         {
           icon: 'mdi-chart-timeline-variant',
           title: this.$t('The latest updates'),
-          link: '/',
-          ariaLabel: this.$t('The latest updates')
+          link: '/'
         },
         {
           icon: 'covid',
           title: this.$t('If you have any symptoms'),
           link: '/flow',
-          divider: true,
-          ariaLabel: this.$t('If you have any symptoms')
+          divider: true
         },
         {
           icon: 'parent',
           title: this.$t('for Families with children'),
-          link: '/parent',
-          ariaLabel: this.$t('for Families with children')
+          link: '/parent'
         },
         {
           icon: 'mdi-account-multiple',
           title: this.$t('for Citizens'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
-          ariaLabel: this.$t('for Citizens')
+          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
         },
         {
           icon: 'mdi-domain',
           title: this.$t('for Enterprises and Employees'),
           link: '/worker',
-          divider: true,
-          ariaLabel: this.$t('for Enterprises and Employees')
+          divider: true
         },
         {
           title: this.$t('Official statements from Task Force'),
           link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html',
-          ariaLabel: this.$t('Official statements from Task Force')
+            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         },
         {
           title: this.$t('Cancelled public events'),
           link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html',
-          ariaLabel: this.$t('Cancelled public events')
+            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
         },
         {
           title: this.$t('Message from Governor Koike'),
           link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html',
-          ariaLabel: this.$t('Message from Governor Koike')
+            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
         },
         {
           title: this.$t('About us'),
-          link: '/about',
-          ariaLabel: this.$t('About us')
+          link: '/about'
         },
         {
           title: this.$t('Government official website'),
           link: 'https://www.metro.tokyo.lg.jp/',
-          divider: true,
-          ariaLabel: this.$t('Government official website')
+          divider: true
         }
       ]
     },
