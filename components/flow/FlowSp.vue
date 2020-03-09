@@ -15,7 +15,7 @@
     <div class="Flow-Card">
       <flow-sp-suspect />
     </div>
-    <div class="Flow-Card">
+    <div class="Flow-Card Flow-Card-GrayBg">
       <flow-sp-advisory />
     </div>
     <div class="Flow-Card">

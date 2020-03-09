@@ -24,7 +24,7 @@
       </li>
     </ul>
 
-    <div :class="['mb-4', $style.CallCenter]">
+    <div :class="['mb-3', $style.CallCenter]">
       <div :class="$style.CallCenterName">
         新型コロナコールセンター
       </div>
