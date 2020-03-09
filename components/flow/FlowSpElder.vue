@@ -79,6 +79,8 @@ export default {
     @include font-size(16);
     font-weight: bold;
     line-height: $imgSize;
+    display: flex;
+    align-items: center;
 
     &Img {
       width: $imgSize;
