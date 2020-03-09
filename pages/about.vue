@@ -105,6 +105,10 @@
       東京都生活文化局広報広聴部広報課<br />
       電話
       <a href="tel:03-5388-3085">03-5388-3085</a>
+      メールアドレス
+      <a href="mailto:S0000004@section.metro.tokyo.jp">
+        S0000004@section.metro.tokyo.jp</a
+      >
     </TextCard>
   </div>
 </template>
