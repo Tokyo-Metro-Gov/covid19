@@ -23,7 +23,7 @@
           医師による判断
         </p>
       </div>
-      <a href="#fuyou">
+      <a href="#not_required">
         <div :class="$style.RectWrap">
           <div :class="$style.Rect1">
             <p :class="$style.NeedKensa">
@@ -62,7 +62,7 @@
         <br />
         研究センター等
       </p>
-      <a href="#fuyou">
+      <a href="#not_required">
         <div :class="$style.RectWrap">
           <div :class="$style.Rect1">
             <p :class="$style.Negative">
@@ -74,7 +74,7 @@
           </div>
         </div>
       </a>
-      <a href="#nyuuin">
+      <a href="#hospitalized">
         <div :class="$style.RectWrap">
           <div :class="$style.Rect2">
             <p :class="$style.Negative">
@@ -87,7 +87,7 @@
         </div>
       </a>
       <hr :class="$style.BorderLine" />
-      <p id="fuyou" :class="$style.NewCorona">
+      <p id="not_required" :class="$style.NewCorona">
         新型コロナ外来
         <span :class="$style.NeedConsultation">
           受診が不要
