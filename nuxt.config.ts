@@ -90,7 +90,7 @@ const config: Configuration = {
       ssr: true
     },
     {
-      src: '@/plugins/vuetify.js',
+      src: '@/plugins/vuetify.ts',
       ssr: true
     }
   ],
