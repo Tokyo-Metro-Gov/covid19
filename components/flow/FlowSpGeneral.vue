@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.General">
-    <div class="mx-2 mb-5">
+    <div class="mx-2 mb-4">
       <HumanIcon :class="$style.GeneralIcon" />
       <p :class="$style.GeneralHeader">
         一般の方
@@ -35,15 +35,12 @@
     </div>
 
     <p :class="$style.GeneralText">
-      <span><strong>4</strong>日以上</span>
-      続いている
+      <span><strong>4</strong>日以上</span>続いている
     </p>
 
-    <a :class="$style.GeneralBtn" href="#consult">
-      <p>
-        新型コロナ受診相談窓口へ
-        <ArrowIcon />
-      </p>
+    <a :class="['pa-5', $style.GeneralBtn]" href="#consult">
+      新型コロナ受診相談窓口へ
+      <ArrowIcon />
     </a>
   </div>
 </template>
@@ -78,7 +75,7 @@ export default {
       margin: 4% 2%;
       line-height: 14px;
       border-radius: 4px;
-      border: 2px solid #00a040;
+      border: 2px solid $green-1;
       position: relative;
       &:nth-child(odd) {
         margin-left: 0;
@@ -121,34 +118,31 @@ export default {
     span {
       border-bottom: 4px solid $green-1;
       letter-spacing: -2px;
-      @include font-size(24);
+      @include font-size(20);
       margin-right: 4px;
       strong {
-        @include font-size(40);
+        @include font-size(32);
       }
     }
   }
   &Btn {
+    background-color: #ffe200;
+    color: $gray-2 !important;
+    border-radius: 5px;
+    box-shadow: -1px 2px 5px $gray-3;
+    display: block;
+    position: relative;
     text-decoration: none;
-    p {
-      color: $gray-2;
-      text-align: left;
-      @include font-size(16);
-      font-weight: bold;
-      padding: 18px 22px;
-      background: #ffe200;
-      margin: 0;
-      border-radius: 4px;
-      box-shadow: -1px 3px 3px 0px rgba(0, 0, 0, 0.2);
-      position: relative;
-      svg {
-        position: absolute;
-        width: 36px;
-        height: 36px;
-        top: 50%;
-        right: -8px;
-        transform: translate(-50%, -50%) rotate(90deg);
-      }
+    font-weight: bold;
+    text-align: initial;
+    @include font-size(18);
+    svg {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      top: 50%;
+      right: -8px;
+      transform: translate(-50%, -50%) rotate(90deg);
     }
   }
 }
