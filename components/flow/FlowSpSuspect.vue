@@ -29,7 +29,7 @@
         新型コロナコールセンター
       </div>
       <div :class="$style.CallCenterTime">
-        午前９時から午後９時（土日祝含む）
+        午前9時から午後9時（土日祝含む）
       </div>
     </div>
 

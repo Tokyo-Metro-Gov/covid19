@@ -10,12 +10,7 @@
     <div :class="$style.GeneralFlex">
       <div :class="$style.GeneralFlexItem">
         <CheckIcon />
-        <p>
-          風邪
-          <span>
-            のような症状
-          </span>
-        </p>
+        <p>風邪<span>のような症状</span></p>
       </div>
       <div :class="$style.GeneralFlexItem">
         <CheckIcon />
@@ -40,10 +35,7 @@
     </div>
 
     <p :class="$style.GeneralText">
-      <span>
-        <strong>４</strong>
-        日以上
-      </span>
+      <span><strong>4</strong>日以上</span>
       続いている
     </p>
 

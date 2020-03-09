@@ -34,7 +34,7 @@
         <dt :class="$style.AlignCenter">
           平日（夜間）
           <br />
-          <span :class="$style.FontSize14">午後５時から翌朝午前９時</span>
+          <span :class="$style.FontSize14">午後5時から翌朝午前9時</span>
           <br />
           土日祝 終日
         </dt>
