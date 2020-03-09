@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="Flow-Card">
-      <h2>
+      <h3 :class="$style.Heading">
         新型コロナウイルス感染症にかかる相談窓口について
-      </h2>
+      </h3>
       <flow-sp-past />
     </div>
     <div class="Flow-Card">
@@ -49,4 +49,9 @@ export default {
 }
 </script>
 
-<style module lang="scss"></style>
+<style module lang="scss">
+.Heading {
+  color: $gray-2;
+  font-size: 1.5rem;
+}
+</style>

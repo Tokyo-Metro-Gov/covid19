@@ -1,14 +1,14 @@
 <template>
   <div :class="$style.SpPast">
-    <h3>
+    <h4 :class="['mb-2', $style.Heading]">
       発症前<strong>2</strong>週間以内<!--
    --><span :class="$style.small">の出来ごとと症状</span>
-    </h3>
-    <p>
+    </h4>
+    <p class="mb-5">
       <span :class="$style.small">「新型コロナウイルス感染者」と</span><br />
       <span :class="$style.underline">濃厚接触</span>をした方<br />
     </p>
-    <div :class="[$style.flexContainer]">
+    <div :class="['mb-4', $style.flexContainer]">
       <div :class="$style.item">
         <div>
           発熱
@@ -23,12 +23,13 @@
         </div>
       </div>
     </div>
-    <p :class="$style.hr">
+    <div :class="['mb-5', $style.hr]" />
+    <p class="mb-5">
       <span :class="$style.small">流行地域への渡航・居住歴がある方</span><br />
       <span :class="$style.underline">ご本人</span>か<!--
    --><span :class="$style.underline">濃厚接触</span>をした方
     </p>
-    <div :class="$style.flexContainer">
+    <div :class="['mb-4', $style.flexContainer]">
       <div :class="$style.item">
         <div>
           呼吸器症状
@@ -38,7 +39,7 @@
         かつ
       </div>
       <div :class="$style.item">
-        <div :class="$style.block">
+        <div :class="['pa-2', $style.block]">
           <span :class="$style.small">発熱</span>
           <div>
             37.5℃以上
@@ -46,7 +47,11 @@
         </div>
       </div>
     </div>
-    <a v-scroll-to="'#consult'" href="#consult" :class="$style.counter">
+    <a
+      v-scroll-to="'#consult'"
+      href="#consult"
+      :class="['pa-5', $style.counter]"
+    >
       新型コロナ受診相談窓口へ
     </a>
   </div>
@@ -55,24 +60,24 @@
 <style module lang="scss">
 .SpPast {
   color: $gray-2;
-  h3 {
+  .Heading {
+    @include font-size(20);
     text-align: center;
     margin-bottom: 0.5em;
-    font-size: 5vw;
     strong {
-      font-size: 9vw;
+      @include font-size(32);
     }
     .small {
-      font-size: 70%;
+      @include font-size(16);
     }
   }
   p {
+    @include font-size(20);
     text-align: center;
     font-weight: bold;
-    font-size: 120%;
     .small {
-      color: green;
-      font-size: 70%;
+      @include font-size(16);
+      color: $green-1;
     }
     .underline {
       display: inline-block;
@@ -82,15 +87,17 @@
   .flexContainer {
     display: flex;
     font-weight: bold;
-    font-size: 90%;
-    margin-top: 0.5em;
+    @include font-size(18);
+    justify-content: space-between;
     .item {
+      @include font-size(18);
+      line-height: 1rem;
       text-align: center;
       &:nth-child(1),
       &:nth-child(3) {
-        width: 35%;
+        width: 7rem;
         > div {
-          height: 50px;
+          height: 3.5rem;
           border: $green-1 2px solid;
           border-radius: 5px;
 
@@ -115,38 +122,27 @@
           }
           &.block {
             display: block;
-            padding-top: 6px;
           }
         }
       }
       &:nth-child(2) {
-        width: 25%;
         // 上下中央寄せ
         display: flex;
-        justify-content: center;
         align-items: center;
       }
       .small {
-        font-size: 50%;
+        @include font-size(12);
       }
     }
   }
   .hr {
-    &::before {
-      border-bottom: 1px $gray-4 solid;
-      margin-top: 1.2em;
-      margin-bottom: 1.2em;
-      height: 1px;
-      width: 100%;
-      display: block;
-      content: '';
-      display: block;
-    }
+    border-bottom: 1px $gray-4 solid;
+    height: 1px;
+    width: 100%;
+    display: block;
   }
   .counter {
-    margin-top: 17px;
     background-color: #ffe200;
-    padding: 20px;
     border-radius: 5px;
     box-shadow: -1px 2px 5px $gray-3;
     display: block;
@@ -154,6 +150,7 @@
     text-decoration: none;
     color: $gray-2;
     font-weight: bold;
+    @include font-size(18);
     &::after {
       z-index: 99;
       width: 45px;
