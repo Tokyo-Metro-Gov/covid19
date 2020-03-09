@@ -5,7 +5,7 @@
       <h2 class="Flow-Heading-Title">
         新型コロナウイルス感染症が心配なときに
       </h2>
-      <PrinterButton />
+      <PrinterButton :wrapperClass="'Flow-PullRight'"/>
     </div>
     <div class="Flow-Card">
       <h2>
@@ -338,6 +338,9 @@ export default {
         color: $green-1 !important;
       }
     }
+  }
+  &-PullRight {
+    margin: 0 0 0 auto;
   }
 }
 @include largerThan($medium) {
