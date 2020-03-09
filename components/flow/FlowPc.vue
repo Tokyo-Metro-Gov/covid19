@@ -14,9 +14,14 @@
         <flow-pc-advisory />
       </div>
     </div>
-    <h3 :class="$style.Title">新型コロナ受診相談窓口<span :class="$style.TitleSmall">による相談結果</span></h3>
+    <h3 :class="$style.Title">
+      新型コロナ受診相談窓口
+      <span :class="$style.TitleSmall">による相談結果</span>
+    </h3>
     <div :class="[$style.Outer, $style.OuterLower]">
-      <div :class="[$style.CardBlock, $style.CardBlockRequired, $style.Required]">
+      <div
+        :class="[$style.CardBlock, $style.CardBlockRequired, $style.Required]"
+      >
         <flow-pc-required />
       </div>
       <div :class="[$style.CardBlock, $style.CardBlockPcr, $style.Pcr]">

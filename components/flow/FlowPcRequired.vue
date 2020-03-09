@@ -39,6 +39,7 @@
   flex-direction: column;
   position: relative;
   padding: 20px 30px !important;
+  text-align: center;
 }
 .Row {
   flex: 1;
