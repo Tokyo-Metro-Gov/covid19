@@ -104,7 +104,7 @@ export default {
       p {
         @include font-size(18);
         color: $gray-2;
-        font-weight: 600;
+        font-weight: bold;
         padding: 8px;
         margin: 0;
         line-height: 34px;
