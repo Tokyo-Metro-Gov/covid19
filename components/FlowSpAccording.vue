@@ -161,7 +161,7 @@ export default {
   font-family: 'Roboto', sans-serif;
   color: $green-1;
   font-size: 5.8vw;
-  font-width: bold;
+  font-weight: bold;
 }
 .Title2 {
   color: $green-1;
