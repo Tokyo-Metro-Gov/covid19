@@ -60,8 +60,8 @@
         </div>
       </button>
       <button @click="line">
-        <v-icon class="icon-resize line" size="40">
-          line
+        <v-icon class="icon-resize line" size="75">
+          fab fa-line
         </v-icon>
         <div class="share-text">
           LINE
@@ -231,8 +231,7 @@ export default class DataView extends Vue {
         color: #364e8a;
       }
       &.line {
-        color: #fff;
-        background: #1cb127;
+        color: #1cb127;
       }
     }
     .share-text {
