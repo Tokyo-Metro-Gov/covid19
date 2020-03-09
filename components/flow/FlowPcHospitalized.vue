@@ -1,13 +1,42 @@
 <template>
   <div :class="$style.FlowPcHospitalized">
     <p :class="$style.FlowPcHospitalizedHeading">
-      入院となります
+      {{ $t('入院となります') }}
     </p>
     <p :class="$style.FlowPcHospitalizedsubHeading">
-      感染症指定医療機関等
+      {{ $t('感染症指定医療機関等') }}
     </p>
   </div>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "入院となります": "入院となります",
+    "感染症指定医療機関等": "感染症指定医療機関等"
+  },
+  "en": {
+    "入院となります": "",
+    "感染症指定医療機関等": ""
+  },
+  "zh-cn": {
+    "入院となります": "",
+    "感染症指定医療機関等": ""
+  },
+  "zh-tw": {
+    "入院となります": "",
+    "感染症指定医療機関等": ""
+  },
+  "ko": {
+    "入院となります": "",
+    "感染症指定医療機関等": ""
+  },
+  "ja-basic": {
+    "入院となります": "",
+    "感染症指定医療機関等": ""
+  }
+}
+</i18n>
 
 <style module lang="scss">
 .FlowPcHospitalized {
