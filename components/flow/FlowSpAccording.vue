@@ -1,146 +1,144 @@
 <template>
   <div :class="$style.Waku">
-    <div :class="$style.Border">
-      <p :class="$style.Title">
-        新型コロナ受診相談窓口
+    <p :class="$style.Title">
+      新型コロナ受診相談窓口
+      <br />
+      <span :class="$style.Title2">
+        による相談結果
+      </span>
+    </p>
+    <p :class="$style.NewCorona">
+      新型コロナ外来
+      <br />
+      <span :class="$style.NeedConsultation">
+        受診が必要
+      </span>
+      <br />
+      <span :class="$style.Tohandan">
+        と判断された場合
+      </span>
+    </p>
+    <div :class="$style.Square">
+      <p :class="$style.InSquare">
+        新型コロナ外来(帰国者・接触者外来)
         <br />
-        <span :class="$style.Title2">
-          による相談結果
-        </span>
+        医師による判断
       </p>
-      <p :class="$style.NewCorona">
-        新型コロナ外来
-        <br />
-        <span :class="$style.NeedConsultation">
-          受診が必要
-        </span>
-        <br />
-        <span :class="$style.Tohandan">
-          と判断された場合
-        </span>
-      </p>
-      <div :class="$style.Square">
-        <p :class="$style.InSquare">
-          新型コロナ外来(帰国者・接触者外来)
-          <br />
-          医師による判断
-        </p>
-      </div>
-      <a href="#not_required">
-        <div :class="$style.RectWrap">
-          <div :class="$style.Rect1">
-            <p :class="$style.NeedKensa">
-              検査の必要
-            </p>
-            <p :class="$style.Nashi">
-              なし
-            </p>
-            <p :class="$style.Arrow">
-              <GreenArrow />
-            </p>
-          </div>
-        </div>
-      </a>
-      <a href="#pcr">
-        <div :class="$style.RectWrap">
-          <div :class="$style.Rect2">
-            <p :class="$style.NeedKensa">
-              検査の必要
-            </p>
-            <p :class="$style.Nashi">
-              あり
-            </p>
-            <p :class="$style.Arrow">
-              <Arrow />
-            </p>
-          </div>
-        </div>
-      </a>
-      <hr :class="$style.BorderLine" />
-      <p id="pcr" :class="$style.Pcr">
-        PCR検査
-      </p>
-      <p :class="$style.TokyoHealth">
-        東京都健康安全
-        <br />
-        研究センター等
-      </p>
-      <a href="#not_required">
-        <div :class="$style.RectWrap">
-          <div :class="$style.Rect1">
-            <p :class="$style.Negative">
-              陰性
-            </p>
-            <p :class="$style.Arrow">
-              <GreenArrow />
-            </p>
-          </div>
-        </div>
-      </a>
-      <a href="#hospitalized">
-        <div :class="$style.RectWrap">
-          <div :class="$style.Rect2">
-            <p :class="$style.Negative">
-              陽性
-            </p>
-            <p :class="$style.Arrow">
-              <Arrow />
-            </p>
-          </div>
-        </div>
-      </a>
-      <hr :class="$style.BorderLine" />
-      <p id="not_required" :class="$style.NewCorona">
-        新型コロナ外来
-        <br />
-        <span :class="$style.NeedConsultation">
-          受診が不要
-        </span>
-        <br />
-        <span :class="$style.Tohandan">
-          と判断された場合
-        </span>
-      </p>
-      <div>
-        <div :class="$style.RectWrap">
-          <div :class="$style.Rect3">
-            <p :class="$style.House">
-              <House />
-            </p>
-            <p :class="$style.In">
-              自宅で
-              <br />
-              安静に過ごす
-            </p>
-          </div>
-        </div>
-        <div :class="$style.RectWrap">
-          <div :class="$style.Rect3">
-            <p :class="$style.House">
-              <Apartment />
-            </p>
-            <p :class="$style.In">
-              一般の
-              <br />
-              医療機関を受診
-            </p>
-          </div>
-        </div>
-      </div>
-      <div :class="$style.RectWrapSoudan">
-        <div :class="$style.RectSoudan">
-          <p :class="$style.inFinalRect">
-            症状が良くならない場合は
-            <br />
-            <span :class="$style.SecondInFinalRect">
-              新型コロナ受診相談窓口
-            </span>
-            <br />
-            <span :class="$style.LastInFinalRect">
-              に相談
-            </span>
+    </div>
+    <a href="#not_required">
+      <div :class="$style.RectWrap">
+        <div :class="$style.Rect1">
+          <p :class="$style.NeedKensa">
+            検査の必要
+          </p>
+          <p :class="$style.Nashi">
+            なし
+          </p>
+          <p :class="$style.Arrow">
+            <GreenArrow />
           </p>
         </div>
+      </div>
+    </a>
+    <a href="#pcr">
+      <div :class="$style.RectWrap">
+        <div :class="$style.Rect2">
+          <p :class="$style.NeedKensa">
+            検査の必要
+          </p>
+          <p :class="$style.Nashi">
+            あり
+          </p>
+          <p :class="$style.Arrow">
+            <Arrow />
+          </p>
+        </div>
+      </div>
+    </a>
+    <hr :class="$style.BorderLine" />
+    <p id="pcr" :class="$style.Pcr">
+      PCR検査
+    </p>
+    <p :class="$style.TokyoHealth">
+      東京都健康安全
+      <br />
+      研究センター等
+    </p>
+    <a href="#not_required">
+      <div :class="$style.RectWrap">
+        <div :class="$style.Rect1">
+          <p :class="$style.Negative">
+            陰性
+          </p>
+          <p :class="$style.Arrow">
+            <GreenArrow />
+          </p>
+        </div>
+      </div>
+    </a>
+    <a href="#hospitalized">
+      <div :class="$style.RectWrap">
+        <div :class="$style.Rect2">
+          <p :class="$style.Negative">
+            陽性
+          </p>
+          <p :class="$style.Arrow">
+            <Arrow />
+          </p>
+        </div>
+      </div>
+    </a>
+    <hr :class="$style.BorderLine" />
+    <p id="not_required" :class="$style.NewCorona">
+      新型コロナ外来
+      <br />
+      <span :class="$style.NeedConsultation">
+        受診が不要
+      </span>
+      <br />
+      <span :class="$style.Tohandan">
+        と判断された場合
+      </span>
+    </p>
+    <div>
+      <div :class="$style.RectWrap">
+        <div :class="$style.Rect3">
+          <p :class="$style.House">
+            <House />
+          </p>
+          <p :class="$style.In">
+            自宅で
+            <br />
+            安静に過ごす
+          </p>
+        </div>
+      </div>
+      <div :class="$style.RectWrap">
+        <div :class="$style.Rect3">
+          <p :class="$style.House">
+            <Apartment />
+          </p>
+          <p :class="$style.In">
+            一般の
+            <br />
+            医療機関を受診
+          </p>
+        </div>
+      </div>
+    </div>
+    <div :class="$style.RectWrapSoudan">
+      <div :class="$style.RectSoudan">
+        <p :class="$style.inFinalRect">
+          症状が良くならない場合は
+          <br />
+          <span :class="$style.SecondInFinalRect">
+            新型コロナ受診相談窓口
+          </span>
+          <br />
+          <span :class="$style.LastInFinalRect">
+            に相談
+          </span>
+        </p>
       </div>
     </div>
   </div>
@@ -176,16 +174,9 @@ export default {
   font-size: 3.7vw;
   font-weight: bold;
 }
-.Border {
-  padding: 30px 20px;
-  border: solid #d9d9d9;
-  border-radius: 3px;
-}
 .Waku {
   width: 100%;
-  padding: 30px 20px;
   text-align: center;
-  background-color: $gray-5;
 }
 .NewCorona {
   font-weight: bold;

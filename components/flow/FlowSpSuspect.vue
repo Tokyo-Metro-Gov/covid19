@@ -50,9 +50,6 @@
 
 <style module lang="scss">
 .Suspect {
-  @include card-container();
-  padding: 30px 20px;
-  margin-bottom: 20px;
   font-weight: 600;
   color: $gray-2;
   text-align: center;
