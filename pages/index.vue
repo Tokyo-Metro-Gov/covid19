@@ -100,7 +100,7 @@
           :chart-data="agencyGraph"
           :date="agencyGraph.date"
           :url="''"
-          :unit="'件'"
+          :unit="'人'"
         />
       </v-col>
     </v-row>

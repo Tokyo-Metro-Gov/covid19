@@ -67,6 +67,7 @@ export default {
       }
     },
     displayOption() {
+      const self = this
       return {
         scales: {
           xAxes: [
@@ -89,6 +90,13 @@ export default {
               stacked: true,
               gridLines: {
                 display: true
+              },
+              ticks: {
+                fontSize: 9,
+                fontColor: '#808080',
+                callback(label) {
+                  return `${label}${self.unit}`
+                }
               }
             }
           ]
