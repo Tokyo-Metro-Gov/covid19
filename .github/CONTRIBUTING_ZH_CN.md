@@ -1,43 +1,42 @@
-# 如何贡献
+# 如何贡献您的一份力
 
-贡献者：
-十分感谢您参与本项目。
+致各位贡献者：
 
-我是开发经理関(Seki)。如果您有任何问题，请随时透过 Slack 进行咨询。
+首先，十分感谢您参与到本项目之中！
+我是开发经理 関(Seki)。如果您有任何问题，欢迎随时通过 Slack 联络我！
 
-这个页面将会告诉您应该如何贡献以及参与这个网站的开发：
+接下来，我会告诉您应该如何参与到本网站的开发流程中来：
 
-## 对 Issue 的评论以及 Pull Request 的请求
-* 请自由的对 Issue 发表评论，我们也接受新的问题反馈以及建议。
-* 新增新的 Issue 之前，请务必搜寻同样的 Issue 不存在才开立新的 Issue.
-* Pull Request 发送时，请务必注记对应的 Issue 编号。我们不会接受没有 Issue 编号的 Pull Request.
-* 请注意改善建议的 Issue （标签为`improve`的） 可能不会每次都被接受。 （特别是针对 UI 的）
-* 如果能够优先处理 `good first issue` / `help wanted` / `bug` 的话将会很有帮助。
+## 关于对 Issue 的评论以及 Pull Request 的请求
+* 您可以自由地在 Issue 中发表您的评论，同时，我们也乐于接受您的问题反馈以及各种提议。
+* 在您打算添加新的 Issue 之前，请您务必在现有的 Issue 中查找是否有与您意见相同或相近的 Issue ，并确认无此类 Issue 后，再来添加您的 Issue 。
+* 当您发送 Pull Request 时，请您务必注明与之对应的 Issue 编号。否则，我们将不会受理没有对应 Issue 编号的 Pull Request 。
+* 请注意，如果是标签为`improve`的与改善建议相关的 Issue ，我们可能不会照单全收，也还请您多多见谅。（特别是针对 UI 的改善建议）
+* 如果您能够优先帮我们解决标签为 `good first issue` / `help wanted` / `bug` 的 Issue 中存在的问题的话，那真是再好不过了。
 
-## 如何参与交流
-* 如果你没有 Code for Japan 的 Slack 帐号的话、请[点这边注册](https://cfjslackin.herokuapp.com/)。
-* 请参加 `#covid19` 频道。
+## 如何与各位贡献者进行交流
+* 如果您还没有 Code for Japan 服务器的 Slack 帐号的话，请您[点击此处进行注册](https://cfjslackin.herokuapp.com/)。
+* 当您通过邀请并登录到 Slack 后，请参与到 `#covid19` 频道并畅所欲言。
 
-## 给参加者
-* 进行参与开发之前、请先阅读[Principle/行动规范](CODE_OF_CONDUCT_ZH.md) 。
-* 交流时也请先确认 Code for Japan 的[行动规范（日文网页）](https://github.com/codeforjapan/codeofconduct) 。
-* 如果有自己可以做而且没有被指派（assign）的 Issue 的话、请在 Issue 下回应「やります！（我来做）」后再开始开发。
-* [关于good first issue 标签](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) 是推荐给新手的。
-* 如果您可能要离开作业半天以上的话，请确保其他人可以接续您的工作。 （如果长时间占住 Issue, 那么这个 Issue 会被卡住。）
-* 对于一天以上没有更新的 Issue，我们可能会拔掉 Assignment。在工作中善用[Draft Pull Request （日文网页）](https://qiita.com/tatane616/items/13da1b6797a7b871ad58) 的话可以让大家更轻易地了解您目前的进度。
-* Issue 相关的问题请在 Issue 内回应栏讨论（而不是 Slack）。
-* 我们也接受建议！请积极的开新的 Issue 吧。
+## 关于参与开发
+* 当您希望参与到开发之前，请您先花点时间阅读我们的[Principle/行动规范](CODE_OF_CONDUCT_ZH_CN.md) 。
+* 在您进行交流时也请希望您能够遵守 Code for Japan 的[行动规范（日文网页）](https://github.com/codeforjapan/codeofconduct) 。
+* 如果您看到自己可以处理而且没有被指派（Assign）给他人的 Issue 的话，请您在该 Issue 下回复「やります！（让我来做吧！）」后，方可着手进行开发。
+* 我推荐您可以先查找一下[带有 good first issue 标签](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)的 Issue 来小试身手。
+* 如果您可能要离开当前您负责的开发作业半天以上的话，请确保让其他人可以接手您的开发内容。（如果您长时间占用着一个 Issue 但却没有在进行开发的话，我们担心这个 Issue 会被卡住。）
+* 对于一天以上没有更新的 Issue，我们可能会收回它的指派（Assign）。如果您能在开发作业中善用 [Draft Pull Request（日文网页）](https://qiita.com/tatane616/items/13da1b6797a7b871ad58) 的话，可以让其他人更轻易地了解到您目前的开发进度。
+* 如果有关于某条 Issue 的意见，请您在该 Issue 内进行回复参与讨论（注意不是 Slack 或者其他地方哦）。
+* 当然，就像上面我所说的，我们也十分乐于到您的建言！欢迎您积极踊跃地添加新的 Issue 到本项目中来。
 
-## 补充 CONTRIBUTORS.md 的相关资讯
-对于提供贡献的大家、在[CONTRIBUTORS.md](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/CONTRIBUTORS.md) 这份文件中记载了名字（昵称）以及角色。
-如果您有任何贡献，请在此留下您的大名。
-请在[#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654) 这个 Issue 留下您要公开的名字、连结(如果有的话)、角色。
+## 关于如何留名于 CONTRIBUTORS.md 中
+对于为本项目添砖加瓦的诸位贡献者，我们在[CONTRIBUTORS.md](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/CONTRIBUTORS.md) 这份文件中记录了他们的姓名（昵称）以及所负责的内容。
+如果您对本项目有着哪怕只有小小的贡献，我也希望您的芳名可以被记录在这里。
+十分欢迎您在[#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654) 这个 Issue 中留下您希望公开的姓名、个人链接（如果有的话）与负责的内容。
 
-## 开发相关的资讯
+## 关于本项目开发的相关资讯
 * 开发环境 https://dev-covid19-tokyo.netlify.com/
-* 测试环境 https://stg-covid19-tokyo.netlify.com/
-* 正式环境 https://covid19-tokyo.netlify.com/
-* [设计稿](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
+* 过渡环境 https://stg-covid19-tokyo.netlify.com/
+* 正式环境 https://stopcovid19.metro.tokyo.lg.jp/
+* [网页UI设计稿](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 
-也很欢迎更新此文件！
-
+最后，也欢迎您能够来更新这份文件！

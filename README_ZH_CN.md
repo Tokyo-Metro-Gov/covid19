@@ -9,10 +9,10 @@
 ## 如何贡献
 如果您能协助对 Issus 做出各种修正，我们将不胜感激。
 
-详情请阅读[如何贡献](./.github/CONTRIBUTING_ZH_TW.md)。
+详情请阅读[如何贡献](./.github/CONTRIBUTING_ZH_CN.md)。
 
 ## 行动原则
-详情请阅读[建立网站的行动原则](./.github/CODE_OF_CONDUCT_ZH_TW.md)。
+详情请阅读[建立网站的行动原则](./.github/CODE_OF_CONDUCT_ZH_CN.md)。
 
 ## 许可证
 本软件采用[MIT授权条款](./LICENSE.txt)释出。
