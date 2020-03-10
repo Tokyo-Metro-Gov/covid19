@@ -1,5 +1,6 @@
 import { Configuration } from '@nuxt/types'
 const purgecss = require('@fullhuman/postcss-purgecss')
+const autoprefixer = require('autoprefixer')
 
 const config: Configuration = {
   mode: 'universal',
@@ -88,6 +89,10 @@ const config: Configuration = {
     {
       src: '@/plugins/vue-chart.ts',
       ssr: true
+    },
+    {
+      src: '@/plugins/vuetify.ts',
+      ssr: true
     }
   ],
   /*
@@ -126,7 +131,8 @@ const config: Configuration = {
       }
     ],
     'nuxt-svg-loader',
-    'nuxt-purgecss'
+    'nuxt-purgecss',
+    ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }]
   ],
   /*
    ** Axios module configuration
@@ -139,7 +145,9 @@ const config: Configuration = {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    theme: {}
+    defaultAssets: {
+      icons: false
+    }
   },
   googleAnalytics: {
     id: 'UA-159417676-1'
@@ -147,6 +155,7 @@ const config: Configuration = {
   build: {
     postcss: {
       plugins: [
+        autoprefixer({ grid: 'autoplace' }),
         purgecss({
           content: [
             './pages/**/*.vue',
@@ -159,7 +168,9 @@ const config: Configuration = {
           whitelistPatterns: [/(col|row)/]
         })
       ]
-    }
+    },
+    // https://ja.nuxtjs.org/api/configuration-build/#hardsource
+    hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
     name: '東京都 新型コロナウイルス感染症対策サイト',

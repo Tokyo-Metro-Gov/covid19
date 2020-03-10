@@ -5,6 +5,7 @@
       <h2 class="Flow-Heading-Title">
         新型コロナウイルス感染症が心配なときに
       </h2>
+      <PrinterButton :wrapper-class="'Flow-PullRight'" />
     </div>
     <div class="Flow-Card">
       <h2>
@@ -28,7 +29,7 @@
             />
           </div>
           <div>
-            <a href="#consult">
+            <a v-scroll-to="'#consult'" href="#consult">
               <img
                 src="/flow/sp/sp_flow_01_02_03_nav@2x.png"
                 alt="新型コロナ受診相談窓口へ"
@@ -44,7 +45,7 @@
             />
           </div>
           <div>
-            <a href="#consult">
+            <a v-scroll-to="'#consult'" href="#consult">
               <img
                 src="/flow/sp/sp_flow_01_02_03_nav@2x.png"
                 alt="新型コロナ受診相談窓口へ"
@@ -60,7 +61,7 @@
             />
           </div>
           <div>
-            <a href="#consult">
+            <a v-scroll-to="'#consult'" href="#consult">
               <img
                 src="/flow/sp/sp_flow_01_02_03_nav@2x.png"
                 alt="新型コロナ受診相談窓口へ"
@@ -81,7 +82,7 @@
             /></a>
           </div>
           <div class="mt-4">
-            <a href="#consult">
+            <a v-scroll-to="'#consult'" href="#consult">
               <img
                 src="/flow/sp/sp_flow_04_nav@2x.png"
                 alt="専門的な助言が必要な場合"
@@ -148,7 +149,7 @@
           </div>
           <div class="Col2Btn">
             <div class="mx-1 mb-5">
-              <a href="#not_required">
+              <a v-scroll-to="'#not_required'" href="#not_required">
                 <img
                   src="/flow/sp/sp_flow_06_nav_01@2x.png"
                   alt="検査の必要なし"
@@ -156,7 +157,7 @@
               </a>
             </div>
             <div class="mx-1 mb-5">
-              <a href="#pcr">
+              <a v-scroll-to="'#pcr'" href="#pcr">
                 <img
                   src="/flow/sp/sp_flow_06_nav_02@2x.png"
                   alt="検査の必要あり"
@@ -172,12 +173,12 @@
           </div>
           <div class="Col2Btn">
             <div class="mx-1 mb-5">
-              <a href="#not_required">
+              <a v-scroll-to="'#not_required'" href="#not_required">
                 <img src="/flow/sp/sp_flow_06_nav_03@2x.png" alt="陰性" />
               </a>
             </div>
             <div class="mx-1 mb-5">
-              <a href="#hospitalized">
+              <a v-scroll-to="'#hospitalized'" href="#hospitalized">
                 <img src="/flow/sp/sp_flow_06_nav_04@2x.png" alt="陽性" />
               </a>
             </div>
@@ -199,7 +200,7 @@
         </div>
       </div>
       <a
-        href="https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html"
+        href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
         target="_blank"
         rel="noopener"
         class="Flow-Card-Button"
@@ -215,9 +216,10 @@
 
 <script>
 import CovidIcon from '@/static/covid.svg'
+import PrinterButton from '@/components/PrinterButton'
 import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
 export default {
-  components: { CovidIcon, DesktopFlowSvg },
+  components: { CovidIcon, PrinterButton, DesktopFlowSvg },
   head() {
     return {
       title: '新型コロナウイルス感染症が心配なときに'
@@ -268,7 +270,7 @@ export default {
       padding: 30px 20px;
       margin-bottom: 20px;
       &.Flat {
-        background-color: $gray-4;
+        background-color: $gray-5;
       }
       .TelLink {
         width: 80%;
@@ -298,7 +300,7 @@ export default {
         padding: 12px 0;
         border-width: 0.5px 0;
         border-style: solid;
-        border-color: $gray-3;
+        border-color: $gray-4;
         .Heijitsu {
           width: 70%;
           margin-right: 5px;
@@ -336,6 +338,9 @@ export default {
         color: $green-1 !important;
       }
     }
+  }
+  &-PullRight {
+    margin: 0 0 0 auto;
   }
 }
 @include largerThan($medium) {

@@ -53,6 +53,13 @@
           >
             <img src="/twitter.png" alt="Twitter" />
           </a>
+          <a
+            href="https://www.facebook.com/tochokoho"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/facebook.png" alt="Facebook" />
+          </a>
           <a href="https://github.com/tokyo-metropolitan-gov/covid19">
             <img src="/github.png" alt="GitHub" />
           </a>
@@ -259,7 +266,7 @@ export default {
     left: 0;
     display: block !important;
     width: 100%;
-    z-index: z-index-of(opened-side-navigation);    
+    z-index: z-index-of(opened-side-navigation);
     background-color: $white;
   }
 }
