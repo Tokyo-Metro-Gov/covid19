@@ -244,7 +244,7 @@ export default {
 }
 
 @function px2vw($px, $vw) {
-  @return ceil($px / $vw * 10000vw) / 100;
+  @return ceil($px / $vw * 100000vw) / 1000;
 }
 @mixin variation($vw, $bdw, $fz, $boxh, $boxdiff) {
   .gutter {
