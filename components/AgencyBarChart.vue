@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
 
 export default {
@@ -74,12 +73,13 @@ export default {
           callbacks: {
             title(tooltipItem) {
               const dateString = tooltipItem[0].label
-              return `期間: ${self.dayRange(dateString)}`
+              return `期間: ${dateString}`
             },
             label(tooltipItem, data) {
               const index = tooltipItem.datasetIndex
               const title = data.datasets[index].label
-              return `${title}: ${tooltipItem.value}${self.unit}`
+              const num = tooltipItem.value
+              return `${title}: ${num}${self.unit}`
             }
           }
         },
@@ -92,10 +92,7 @@ export default {
               },
               ticks: {
                 fontSize: 9,
-                fontColor: '#808080',
-                callback(label) {
-                  return self.dayRange(label)
-                }
+                fontColor: '#808080'
               }
             }
           ],
@@ -116,16 +113,6 @@ export default {
           ]
         }
       }
-    }
-  },
-  methods: {
-    dayRange(dateString) {
-      // 開始日は月曜日、終了日は日曜日とする
-      // ref: https://github.com/tokyo-metropolitan-gov/covid19/issues/987#issuecomment-597021403
-      const day = dayjs(dateString)
-      const start = day.format('M/D')
-      const end = day.day(7).format('D')
-      return `${start}-${end}`
     }
   }
 }
