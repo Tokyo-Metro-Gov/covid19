@@ -25,6 +25,7 @@
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import { formatNumber } from '@/utils/formatNumber'
 
 export default {
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
@@ -84,15 +85,15 @@ export default {
     displayInfo() {
       if (this.dataKind === 'transition') {
         return {
-          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
+          lText: `${formatNumber(this.chartData.slice(-1)[0].transition)}`,
           sText: `実績値（前日比：${this.displayTransitionRatio} ${this.unit}）`,
           unit: this.unit
         }
       }
       return {
-        lText: this.chartData[
-          this.chartData.length - 1
-        ].cumulative.toLocaleString(),
+        lText: formatNumber(
+          this.chartData[this.chartData.length - 1].cumulative
+        ),
         sText: `${this.chartData.slice(-1)[0].label} 累計値（前日比：${
           this.displayCumulativeRatio
         } ${this.unit}）`,
@@ -141,7 +142,7 @@ export default {
           callbacks: {
             label(tooltipItem) {
               const labelText =
-                parseInt(tooltipItem.value).toLocaleString() + unit
+                formatNumber(parseInt(tooltipItem.value, 10)) + unit
               return labelText
             },
             title(tooltipItem, data) {
@@ -239,7 +240,7 @@ export default {
   },
   methods: {
     formatDayBeforeRatio(dayBeforeRatio) {
-      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
+      const dayBeforeRatioLocaleString = formatNumber(dayBeforeRatio)
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
           return `+${dayBeforeRatioLocaleString}`

@@ -6,7 +6,15 @@
     xmlns="http://www.w3.org/2000/svg"
     role="img"
     :aria-label="
-      ariaLabel(検査実施人数, 陽性物数, 入院中, 軽症中等症, 重症, 死亡, 退院)
+      ariaLabel(
+        inspected,
+        positive,
+        hospitalized,
+        mild,
+        critically,
+        deceased,
+        discharged
+      )
     "
   >
     <mask id="path-1-inside-1" fill="white">
@@ -68,7 +76,7 @@
       transform="translate(12 100)"
       :dx="getAdjustX(検査実施人数)"
     >
-      <tspan>{{ 検査実施人数 }}</tspan>
+      <tspan>{{ inspected }}</tspan>
       <tspan class="unit" dx="-3">人</tspan>
     </text>
     <mask id="path-10-inside-2" fill="white">
@@ -122,7 +130,7 @@
       transform="translate(60 100)"
       :dx="getAdjustX(陽性物数)"
     >
-      <tspan>{{ 陽性物数 }}</tspan>
+      <tspan>{{ positive }}</tspan>
       <tspan class="unit" dx="-3">人</tspan>
     </text>
     <text
@@ -130,7 +138,7 @@
       transform="translate(110 100)"
       :dx="getAdjustX(入院中)"
     >
-      <tspan>{{ 入院中 }}</tspan>
+      <tspan>{{ hospitalized }}</tspan>
       <tspan class="unit" dx="-3">人</tspan>
     </text>
     <text
@@ -138,7 +146,7 @@
       transform="translate(157 100)"
       :dx="getAdjustX(軽症中等症)"
     >
-      <tspan>{{ 軽症中等症 }}</tspan>
+      <tspan>{{ mild }}</tspan>
       <tspan class="unit" dx="-3">人</tspan>
     </text>
     <text
@@ -146,7 +154,7 @@
       transform="translate(207 100)"
       :dx="getAdjustX(重症)"
     >
-      <tspan>{{ 重症 }}</tspan>
+      <tspan>{{ critically }}</tspan>
       <tspan class="unit" dx="-3">人</tspan>
     </text>
     <text
@@ -154,7 +162,7 @@
       transform="translate(256 100)"
       :dx="getAdjustX(死亡)"
     >
-      <tspan>{{ 死亡 }}</tspan>
+      <tspan>{{ deceased }}</tspan>
       <tspan class="unit" dx="-3">人</tspan>
     </text>
     <text
@@ -162,7 +170,7 @@
       transform="translate(304 100)"
       :dx="getAdjustX(退院)"
     >
-      <tspan>{{ 退院 }}</tspan>
+      <tspan>{{ discharged }}</tspan>
       <tspan class="unit" dx="-3">人</tspan>
     </text>
     <path
@@ -173,6 +181,8 @@
 </template>
 
 <script>
+import { formatNumber } from '@/utils/formatNumber'
+
 export default {
   props: [
     '検査実施人数',
@@ -183,6 +193,17 @@ export default {
     '死亡',
     '退院'
   ],
+  data() {
+    return {
+      inspected: formatNumber(this.検査実施人数),
+      positive: formatNumber(this.陽性物数),
+      hospitalized: formatNumber(this.入院中),
+      mild: formatNumber(this.軽症中等症),
+      critically: formatNumber(this.重症),
+      deceased: formatNumber(this.死亡),
+      discharged: formatNumber(this.退院)
+    }
+  },
   methods: {
     /** 桁数に応じて位置の調整をする */
     getAdjustX(input) {

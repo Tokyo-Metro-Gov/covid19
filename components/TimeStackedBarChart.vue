@@ -26,6 +26,7 @@
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import { formatNumber } from '@/utils/formatNumber'
 
 export default {
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
@@ -80,13 +81,13 @@ export default {
     displayInfo() {
       if (this.dataKind === 'transition') {
         return {
-          lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
+          lText: formatNumber(this.sum(this.pickLastNumber(this.chartData))),
           sText: `${this.labels[this.labels.length - 1]} の合計`,
           unit: this.unit
         }
       }
       return {
-        lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
+        lText: formatNumber(this.sum(this.cumulativeSum(this.chartData))),
         sText: `${this.labels[this.labels.length - 1]} の全体累計`,
         unit: this.unit
       }
@@ -131,21 +132,16 @@ export default {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const labelText =
-                this.dataKind === 'transition'
-                  ? `${sumArray[tooltipItem.index]}${unit}（都内: ${
-                      data[0][tooltipItem.index]
-                    }/その他: ${data[1][tooltipItem.index]}）`
-                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（都内: ${
-                      cumulativeData[0][tooltipItem.index]
-                    }/その他: ${cumulativeData[1][tooltipItem.index]}）`
-              return labelText
-            },
-            title(tooltipItem, data) {
-              return data.labels[tooltipItem[0].index].replace(
-                /(\w+)\/(\w+)/,
-                '$1月$2日'
-              )
+              if (this.dataKind === 'transition') {
+                const total = formatNumber(sumArray[tooltipItem.index])
+                const tokyo = formatNumber(data[0][tooltipItem.index])
+                const other = formatNumber(data[1][tooltipItem.index])
+                return `${total}${unit}（都内: ${tokyo}/その他: ${other}）`
+              }
+              const total = formatNumber(cumulativeSumArray[tooltipItem.index])
+              const tokyo = formatNumber(cumulativeData[0][tooltipItem.index])
+              const other = formatNumber(cumulativeData[1][tooltipItem.index])
+              return `${total}${unit}（都内: ${tokyo}/その他: ${other}）`
             }
           }
         },
