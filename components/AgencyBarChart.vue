@@ -105,6 +105,7 @@ export default {
               ticks: {
                 fontSize: 9,
                 fontColor: '#808080',
+                maxTicksLimit: 10,
                 callback(label) {
                   return `${label}${self.unit}`
                 }
