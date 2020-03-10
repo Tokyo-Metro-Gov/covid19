@@ -84,14 +84,6 @@
       <br />
       当サイトに掲載されている情報は、予告なしに変更又は削除することがあります。
     </TextCard>
-    <TextCard title="データについて">
-      本サイトで公表しているデータは、<a
-        href="https://portal.data.metro.tokyo.lg.jp/"
-        target="_blank"
-        rel="noopener"
-        >東京都オープンデータカタログサイト</a
-      >より誰でも自由にダウンロードが可能です。（データは順次追加予定です）
-    </TextCard>
     <TextCard title="ソースコードについて">
       本サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。詳しくは、<a
         href="https://github.com/code4nagoya/covid19"
