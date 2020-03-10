@@ -1,4 +1,8 @@
 {
+  "plugins": [
+    "@typescript-eslint/eslint-plugin",
+    "eslint-plugin-tsdoc"
+  ],
   "extends": [
     "@nuxtjs/eslint-config-typescript",
     "prettier",
@@ -16,6 +20,7 @@
         "semi": false,
         "singleQuote": true
       }
-    ]
+    ],
+    "tsdoc/syntax": "error"
   }
 }
