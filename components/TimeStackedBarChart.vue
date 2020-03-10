@@ -133,10 +133,12 @@ export default {
             label: tooltipItem => {
               const labelText =
                 this.dataKind === 'transition'
-                  ? `${sumArray[tooltipItem.index]}${unit}（都内: ${
+                  ? `${sumArray[tooltipItem.index]}${unit}（兵庫県内: ${
                       data[0][tooltipItem.index]
                     }/その他: ${data[1][tooltipItem.index]}）`
-                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（都内: ${
+                  : `${
+                      cumulativeSumArray[tooltipItem.index]
+                    }${unit}（兵庫県内: ${
                       cumulativeData[0][tooltipItem.index]
                     }/その他: ${cumulativeData[1][tooltipItem.index]}）`
               return labelText
