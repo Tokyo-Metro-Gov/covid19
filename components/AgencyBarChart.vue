@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
 
 export default {
@@ -70,12 +71,25 @@ export default {
         scales: {
           xAxes: [
             {
-              stacked: true
+              stacked: true,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                fontSize: 9,
+                fontColor: '#808080',
+                callback(label) {
+                  return dayjs(label).format('M月DD日の週')
+                }
+              }
             }
           ],
           yAxes: [
             {
-              stacked: true
+              stacked: true,
+              gridLines: {
+                display: true
+              }
             }
           ]
         }
