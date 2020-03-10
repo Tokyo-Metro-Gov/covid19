@@ -12,7 +12,7 @@
         <dt :class="$style.ConsultationDaytimeTitle">
           {{ $t('平日（日中）') }}
         </dt>
-        <dd>
+        <dd :class="$style.ConsultationDaytimeLink">
           <a
             :class="$style.Link"
             href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
@@ -144,16 +144,19 @@ export default {
     border-style: solid;
     border-color: $gray-4;
     font-weight: bold;
+    justify-content: space-around;
     &Title {
-      width: 70%;
-      margin-right: 5px;
+      flex-basis: 40%;
       @include font-size(18);
     }
-    .Link {
-      color: $gray-2;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
+    &Link {
+      flex-basis: 55%;
+      a {
+        color: $gray-2;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
