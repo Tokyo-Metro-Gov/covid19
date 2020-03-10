@@ -29,10 +29,7 @@
     </v-list-item-action>
     <v-list-item-content class="ListItem-TextContainer">
       <v-list-item-title
-        :class="[
-          'ListItem-Text',
-          isActive(link)
-        ]"
+        :class="['ListItem-Text', isActive(link)]"
         v-text="title"
       />
     </v-list-item-content>
@@ -78,7 +75,7 @@ export default class ListItem extends Vue {
   }
 
   isActive(link: string): string | undefined {
-    if (link === this.$route.path) {
+    if (link === this.$route.path || `${link}/` === this.$route.path) {
       return 'isActive'
     }
   }
@@ -122,7 +119,7 @@ export default class ListItem extends Vue {
       & .ListItem-Icon {
         color: $gray-1 !important;
         &.isActive {
-          color: $green-1 !important;
+          color: $red-1 !important;
         }
       }
       & .ListItem-ExternalLinkIcon {
@@ -136,7 +133,7 @@ export default class ListItem extends Vue {
         }
         > svg.isActive {
           > path:not(:first-of-type) {
-            fill: $green-1;
+            fill: $red-1;
           }
         }
       }
@@ -168,12 +165,12 @@ export default class ListItem extends Vue {
   }
 }
 .isActive {
-  color: $green-1 !important;
+  color: $red-1 !important;
   font-weight: 600;
 }
 svg.isActive {
   > path:not(:first-of-type) {
-    fill: $green-1;
+    fill: $red-1;
   }
 }
 </style>

@@ -4,19 +4,19 @@
       当サイトについて
     </h2>
     <TextCard>
-      当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。<br />
+      当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、愛知県が開設したものです。<br />
       <br />
-      東京都による公式情報と客観的な数値をわかりやすく伝えることで、東京都にお住まいの方や、東京都内に拠点を持つ企業の方、東京都を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。
+      愛知県による公式情報と客観的な数値をわかりやすく伝えることで、愛知県にお住まいの方や、愛知県内に拠点を持つ企業の方、愛知県を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。
     </TextCard>
     <TextCard title="ブラウザ環境について">
       当サイトは以下の環境でご覧いただくことを推奨いたします。<br />
-      <br />
-      Microsoft Edge 最新版<br />
-      Mozilla Firefox 最新版<br />
-      Google Chrome 最新版 (Windows10以上)<br />
-      Apple Safari (OS X) 最新版<br />
-      Opera Software ASA Opera 最新版<br />
-      <br />
+      <ul class="About-Browser-List">
+        <li>Microsoft Edge 最新版</li>
+        <li>Mozilla Firefox 最新版</li>
+        <li>Google Chrome 最新版 (Windows 10以上)</li>
+        <li>Safari (macOS) 最新版</li>
+        <li>Opera 最新版</li>
+      </ul>
       ※
       推奨環境以外で利用された場合や、推奨環境下でもご利用のブラウザの設定等によっては、正しく表示されない場合がありますのでご了承ください。
     </TextCard>
@@ -38,7 +38,7 @@
     </TextCard>
     <TextCard title="Google Analyticsの利用について">
       当サイトでは、サービス向上やWebサイトの改善のためにGoogle
-      Inc.の提供するアクセス分析のツールであるGoogle
+      LLCの提供するアクセス分析のツールであるGoogle
       Analyticsを利用した計測を行っております。<br />
       Google
       Analyticsは、当サイトが発行するクッキー(Cookie)を利用して、個人を特定する情報を含まずにWebサイトの利用データ（アクセス状況、トラフィック、閲覧環境など）を収集しております。クッキー(Cookie)の利用に関してはGoogleのプライバシーポリシーと規約に基づいております。<br />
@@ -78,7 +78,7 @@
       </ul>
     </TextCard>
     <TextCard title="免責事項">
-      当サイトに掲載されている情報の正確性については万全を期していますが、東京都は利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。<br />
+      当サイトに掲載されている情報の正確性については万全を期していますが、愛知県は利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。<br />
       <br />
       また、利用者が当サイトを利用したことにより発生した利用者の損害及び利用者が第三者に与えた損害に対して、責任を負うものではありません。<br />
       <br />
@@ -94,17 +94,17 @@
     </TextCard>
     <TextCard title="ソースコードについて">
       本サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。詳しくは、<a
-        href="https://github.com/tokyo-metropolitan-gov/covid19"
+        href="https://github.com/code4nagoya/covid19"
         target="_blank"
         rel="noopener"
         >GitHub リポジトリ</a
       >をご確認ください。
     </TextCard>
 
-    <TextCard title="お問い合わせ先（都のHPサイトポリシーについて）">
-      東京都生活文化局広報広聴部広報課<br />
+    <TextCard title="お問い合わせ先（県のHPサイトポリシーについて）">
+      愛知県情報政策課インターネット運用グループ<br />
       電話
-      <a href="tel:03-5388-3085">03-5388-3085</a>
+      <a href="tel:052-954-6114">052-954-6114</a>
     </TextCard>
   </div>
 </template>
@@ -131,6 +131,13 @@ export default {
     font-weight: normal;
     color: $gray-2;
     margin-bottom: 12px;
+  }
+  & &-Browser-List {
+    // セレクタ指定が&-Browser-List のみだと
+    // .v-application ul の設定が勝ってしまい padding-left が24px となってしまうため
+    // このようなセレクタ指定としています
+    list-style: none;
+    padding: 12px 0;
   }
 }
 

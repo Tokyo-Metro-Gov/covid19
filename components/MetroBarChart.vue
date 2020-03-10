@@ -1,13 +1,18 @@
 <template>
-  <data-view :title="title" :date="date">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="MetroGraph-Desc">
         {{ chartData.base_period }}の利用者数*の平均値を基準としたときの相対値
         <br />
-        *都営地下鉄4路線の自動改札出場数
+        *名古屋市営地下鉄6路線の自動改札出場数
       </p>
     </template>
-    <bar :chart-data="displayData" :options="chartOption" :height="240" />
+    <bar
+      :chart-id="chartId"
+      :chart-data="displayData"
+      :options="chartOption"
+      :height="240"
+    />
   </data-view>
 </template>
 
@@ -33,6 +38,16 @@ export default {
       required: false,
       default: ''
     },
+    titleId: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    chartId: {
+      type: String,
+      required: false,
+      default: 'metro-bar-chart'
+    },
     chartData: {
       type: Object,
       required: false,
@@ -51,7 +66,7 @@ export default {
   },
   computed: {
     displayData() {
-      const colors = ['#a6e29f', '#63c765', '#008b41']
+      const colors = ['#ffd9dd', '#f39da5', '#bd3f4c']
       return {
         labels: this.chartData.datasets.map(d => d.label),
         datasets: this.chartData.labels.map((label, i) => {
