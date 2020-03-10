@@ -107,9 +107,11 @@ export default {
     @include button-text('md');
     margin: 24px auto 0;
     @include font-size(20);
-    font-weight: 600;
+    font-weight: bold;
+    display: block;
     text-decoration: none;
     color: $green-1 !important;
+    text-align: center;
     &:hover {
       color: $white !important;
     }
@@ -117,9 +119,8 @@ export default {
       margin-left: 2px;
       color: $green-1 !important;
     }
-    @include lessThan($medium) {
-      text-align: center;
-      width: 100%;
+    @include largerThan($medium) {
+      width: 25rem;
     }
   }
   &-PullRight {
