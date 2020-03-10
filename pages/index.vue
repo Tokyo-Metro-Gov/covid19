@@ -30,7 +30,7 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
-import formatTable from '@/utils/formatTable'
+// import formatTable from '@/utils/formatTable'
 import News from '@/data/news.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -56,8 +56,6 @@ export default {
   data() {
     // 退院者グラフ
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
-    // 退院者数
-    const dischargesTable = formatTable(Data.discharges.data)
     // 死亡者数
     // #MEMO: 今後使う可能性あるので一時コメントアウト
     // const fatalitiesTable = formatTable(
@@ -66,7 +64,6 @@ export default {
 
     const data = {
       Data,
-      dischargesTable,
       dischargesGraph,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',

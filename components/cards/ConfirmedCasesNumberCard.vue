@@ -3,6 +3,7 @@
     <time-bar-chart
       title="陽性患者数"
       :title-id="'number-of-confirmed-cases'"
+      :chart-id="'time-bar-chart-patients'"
       :chart-data="patientsGraph"
       :date="Data.patients.date"
       :unit="'人'"

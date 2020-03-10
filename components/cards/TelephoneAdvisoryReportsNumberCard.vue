@@ -3,6 +3,7 @@
     <time-bar-chart
       title="新型コロナコールセンター相談件数"
       :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
+      :chart-id="'time-bar-chart-contacts'"
       :chart-data="contactsGraph"
       :date="Data.contacts.date"
       :unit="'件'"

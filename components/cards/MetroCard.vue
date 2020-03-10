@@ -3,6 +3,7 @@
     <metro-bar-chart
       title="都営地下鉄の利用者数の推移"
       :title-id="'predicted-number-of-toei-subway-passengers'"
+      :chart-id="'metro-bar-chart'"
       :chart-data="metroGraph"
       :chart-option="metroGraphOption"
       :date="metroGraph.date"
@@ -57,8 +58,7 @@ export default {
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
-                  // 基準値を100としたときの相対値
-                  return (value / 100).toFixed(2)
+                  return value.toFixed(2) + '%'
                 }
               }
             }
