@@ -3,12 +3,9 @@
     <svg-card
       title="検査陽性者の状況"
       :title-id="'details-of-confirmed-cases'"
-      :date="headerItem.date"
+      :date="Data.inspections_summary.date"
     >
-      <confirmed-cases-table
-        aria-label="検査陽性者の状況"
-        v-bind="confirmedCases"
-      />
+      <confirmed-cases-table v-bind="confirmedCases" />
     </svg-card>
   </v-col>
 </template>
@@ -30,10 +27,7 @@ export default {
 
     const data = {
       Data,
-      confirmedCases,
-      headerItem: {
-        date: Data.lastUpdate
-      }
+      confirmedCases
     }
     return data
   }

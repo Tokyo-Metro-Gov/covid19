@@ -3,6 +3,7 @@
     <time-bar-chart
       title="新型コロナ受診相談窓口相談件数"
       :title-id="'number-of-reports-to-covid19-consultation-desk'"
+      :chart-id="'time-bar-chart-querents'"
       :chart-data="querentsGraph"
       :date="Data.querents.date"
       :unit="'件'"
