@@ -119,7 +119,7 @@ export default class ListItem extends Vue {
       & .ListItem-Icon {
         color: $gray-1 !important;
         &.isActive {
-          color: $green-1 !important;
+          color: $blue-1 !important;
         }
       }
       & .ListItem-ExternalLinkIcon {
@@ -133,7 +133,7 @@ export default class ListItem extends Vue {
         }
         > svg.isActive {
           > path:not(:first-of-type) {
-            fill: $green-1;
+            fill: $blue-1;
           }
         }
       }
@@ -165,12 +165,12 @@ export default class ListItem extends Vue {
   }
 }
 .isActive {
-  color: $green-1 !important;
+  color: $blue-1 !important;
   font-weight: 600;
 }
 svg.isActive {
   > path:not(:first-of-type) {
-    fill: $green-1;
+    fill: $blue-1;
   }
 }
 </style>

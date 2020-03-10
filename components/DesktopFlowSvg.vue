@@ -87,7 +87,7 @@
         .j,
         .o,
         .v {
-          fill: #00a040;
+          fill: #01a0c7;
         }
 
         .k,
@@ -150,7 +150,7 @@
 
         .ab,
         .x {
-          stroke: #00a040;
+          stroke: #01a0c7;
         }
 
         .ak,

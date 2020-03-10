@@ -291,7 +291,7 @@ export default {
         border-radius: 4px;
         padding: 8px 24px;
         margin: 0 auto 12px;
-        color: $green-1;
+        color: $blue-1;
         font-weight: bold;
       }
       .SodanHeijitsu {
@@ -329,13 +329,13 @@ export default {
       @include font-size(20);
       font-weight: 600;
       text-decoration: none;
-      color: $green-1 !important;
+      color: $blue-1 !important;
       &:hover {
         color: $white !important;
       }
       &-ExternalLinkIcon {
         margin-left: 2px;
-        color: $green-1 !important;
+        color: $blue-1 !important;
       }
     }
   }
