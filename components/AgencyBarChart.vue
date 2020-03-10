@@ -77,7 +77,7 @@ export default {
             },
             title(tooltipItem) {
               const dateString = tooltipItem[0].label
-              return dayjs(dateString).format('M月DD日の週')
+              return self.dayRange(dateString)
             }
           }
         },
@@ -92,7 +92,7 @@ export default {
                 fontSize: 9,
                 fontColor: '#808080',
                 callback(label) {
-                  return dayjs(label).format('M月DD日の週')
+                  return self.dayRange(label)
                 }
               }
             }
@@ -114,6 +114,16 @@ export default {
           ]
         }
       }
+    }
+  },
+  methods: {
+    dayRange(dateString) {
+      // 開始日は月曜日、終了日は日曜日とする
+      // ref: https://github.com/tokyo-metropolitan-gov/covid19/issues/987#issuecomment-597021403
+      const day = dayjs(dateString)
+      const start = day.format('M/D')
+      const end = day.day(7).format('D')
+      return `${start}-${end}`
     }
   }
 }
