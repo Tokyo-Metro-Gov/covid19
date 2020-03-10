@@ -1,7 +1,7 @@
 from selenium import webdriver
 import os
 
-os.mkdir('ogps')
+os.mkdir('ogp')
 
 SIZES = [[959,650],[959,600],[959,920]]
 PATHS = {
@@ -22,4 +22,4 @@ driver = webdriver.Chrome(options=options)
 for path, size in PATHS.items():
     driver.set_window_size(size[0], size[1])
     driver.get("http://localhost:8000"+path+"?embed=true")
-    driver.save_screenshot('ogps/ogp-'+path.replace('/cards/', '').replace('/', '_')+'.png')
+    driver.save_screenshot('ogp/ogp-'+path.replace('/cards/', '').replace('/', '_')+'.png')
