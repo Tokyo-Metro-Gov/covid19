@@ -32,9 +32,11 @@
         <em :class="$style.FlowSymptom">呼吸器症状</em>
         <span :class="$style.FlowText">かつ</span>
         <em :class="$style.FlowSymptom">
-          <span :class="$style.FlowTextSm">発熱</span>
-          <span :class="$style.FlowTemperature">37.5℃</span>
-          <span :class="$style.FlowTextSm">以上</span>
+          <span :class="$style.FlowTextSm"
+            >発熱
+            <span :class="$style.FlowTemperature">37.5℃</span>
+            以上
+          </span>
         </em>
       </div>
     </div>
