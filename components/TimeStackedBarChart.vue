@@ -239,7 +239,7 @@ export default {
                     'Dec'
                   ]
                   const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
-                  return month + this.$t('月')
+                  return month + '月'
                 }
               },
               type: 'time',
