@@ -9,8 +9,6 @@
   </data-view>
 </template>
 
-<style lang="scss"></style>
-
 <script>
 import DataView from '@/components/DataView.vue'
 
@@ -55,22 +53,34 @@ export default {
   },
   computed: {
     displayData() {
+      const colors = ['#008b41', '#63c765', '#a6e29f']
       return {
         labels: this.chartData.labels,
-        datasets: this.chartData.datasets.map(d => {
+        datasets: this.chartData.datasets.map((d, i) => {
           return {
             label: d.label,
-            data: d.data
+            data: d.data,
+            backgroundColor: colors[i]
           }
         })
       }
     },
     displayOption() {
-      return {}
+      return {
+        scales: {
+          xAxes: [
+            {
+              stacked: true
+            }
+          ],
+          yAxes: [
+            {
+              stacked: true
+            }
+          ]
+        }
+      }
     }
-  },
-  mounted() {
-    console.log(this.chartData)
   }
 }
 </script>
