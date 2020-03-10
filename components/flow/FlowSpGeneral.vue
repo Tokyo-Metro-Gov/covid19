@@ -3,7 +3,7 @@
     <div class="mx-2 mb-4">
       <HumanIcon :class="$style.GeneralIcon" />
       <p :class="$style.GeneralHeader">
-        一般の方
+        {{ $t('一般の方') }}
       </p>
     </div>
 
@@ -23,13 +23,13 @@
       <div :class="$style.GeneralFlexItem">
         <CheckIcon />
         <p>
-          強いだるさ
+          {{ $t('強いだるさ') }}
         </p>
       </div>
       <div :class="$style.GeneralFlexItem">
         <CheckIcon />
         <p>
-          息苦しさ
+          {{ $t('息苦しさ') }}
         </p>
       </div>
     </div>
@@ -43,11 +43,94 @@
       :class="['pa-5', $style.GeneralBtn]"
       href="#consult"
     >
-      新型コロナ受診相談窓口へ
+      {{ $t('新型コロナ受診相談窓口へ') }}
       <ArrowIcon />
     </a>
   </div>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "一般の方": "一般の方",
+    "{duration}続いている": "{duration}続いている",
+    "{day}日以上": "{day}日以上",
+    "{cold}のような症状": "{cold}のような症状",
+    "風邪": "風邪",
+    "発熱{temperature}以上": "発熱{temperature}",
+    "{tempNum}以上": "{tempNum}以上",
+    "37.5℃": "37.5℃",
+    "強いだるさ": "強いだるさ",
+    "息苦しさ": "息苦しさ",
+    "新型コロナ受診相談窓口へ": "新型コロナ受診相談窓口へ"
+  },
+  "en": {
+    "一般の方": "People without any specific health conditions",
+    "{duration}続いている": "Having these symptoms for {duration",
+    "{day}日以上": "{day} consecutive days or more",
+    "{cold}のような症状": "Having {cold} symptoms",
+    "風邪": "cold/flu",
+    "発熱{temperature}以上": "body temperature {temperature}",
+    "{tempNum}以上": "above {tempNum}",
+    "37.5℃": "37.5℃",
+    "強いだるさ": "Extreme fatigue",
+    "息苦しさ": "Having difficulty when breathing",
+    "新型コロナ受診相談窓口へ": ""
+  },
+  "zh-cn": {
+    "一般の方": "普通人",
+    "{duration}続いている": "症状持续{duration}",
+    "{day}日以上": "{day}天以上",
+    "{cold}のような症状": "有疑似{cold}的症状",
+    "風邪": "感冒",
+    "発熱{temperature}以上": "发烧 {temperature}",
+    "{tempNum}以上": "{tempNum} 以上",
+    "37.5℃": "37.5℃",
+    "強いだるさ": "有强烈倦怠感",
+    "息苦しさ": "感到呼吸困难",
+    "新型コロナ受診相談窓口へ": ""
+  },
+  "zh-tw": {
+    "一般の方": "一般人士",
+    "{duration}続いている": "症狀持續{duration}",
+    "{day}日以上": "{day}天以上",
+    "{cold}のような症状": "疑似{cold}症狀",
+    "風邪": "感冒",
+    "発熱{temperature}以上": "發燒 {temperature}",
+    "{tempNum}以上": "{tempNum} 以上",
+    "37.5℃": "37.5℃",
+    "強いだるさ": "有強烈疲倦感",
+    "息苦しさ": "呼吸不順暢",
+    "新型コロナ受診相談窓口へ": ""
+  },
+  "ko": {
+    "一般の方": "일반인",
+    "{duration}続いている": "이러한 증상이 {duration} 지속될 경우",
+    "{day}日以上": "{day}일 이상",
+    "{cold}のような症状": "{cold} 비슷한 증상",
+    "風邪": "감기와",
+    "発熱{temperature}以上": "{temperature} 발열",
+    "{tempNum}以上": "{tempNum} 이상의",
+    "37.5℃": "37.5도",
+    "強いだるさ": "극도의 피로감",
+    "息苦しさ": "호흡이 어려운 경우",
+    "新型コロナ受診相談窓口へ": ""
+  },
+  "ja-basic": {
+    "一般の方": "ねつが ないひと",
+    "{duration}続いている": "{duration} つづいている",
+    "{day}日以上": "{day}にち より ながく",
+    "{cold}のような症状": "{cold} が あるひと",
+    "風邪": "かぜ",
+    "発熱{temperature}以上": "{temperature} たかいねつが あるひと",
+    "{tempNum}以上": "{tempNum}より",
+    "37.5℃": "37.5℃",
+    "強いだるさ": "からだがくるしい",
+    "息苦しさ": "いきがくるしい",
+    "新型コロナ受診相談窓口へ": ""
+  }
+}
+</i18n>
 
 <script>
 import HumanIcon from '@/static/flow/accessibility-24px.svg'
