@@ -1,8 +1,6 @@
 # 兵庫県 新型コロナウイルス感染症対策サイト（開発中）
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
-
-[![兵庫県 新型コロナウイルス感染症対策サイト（開発中）](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://dev-covid19-hyogo.netlify.com/)
+[![兵庫県 新型コロナウイルス感染症対策サイト（開発中）](https://user-images.githubusercontent.com/2575204/76350498-391d2900-634f-11ea-979c-539372d6ec03.png)](https://dev-covid19-hyogo.netlify.com/)
 
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
