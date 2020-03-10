@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.SpAdvisory">
     <h4 id="consult" :class="['mb-4', $style.Heading]">
-      新型コロナ受診相談窓口<br />
+      新型コロナ受診相談窓口
       <small>帰国者・接触者電話相談センター</small>
     </h4>
     <div :class="['px-6 py-2 mb-4', $style.ConsultationChip]">
@@ -27,11 +27,9 @@
         </dd>
       </div>
       <div :class="['pt-3', $style.ConsultationWeekend]">
-        <dt class="mb-3">
+        <dt :class="['mb-3', $style.ConsultationWeekendDescription]">
           <span :class="$style.ConsultationWeekendTitle">平日（夜間）</span>
-          <br />
           午後5時から翌朝午前9時
-          <br />
           <span :class="$style.ConsultationWeekendTitle">土日祝 終日</span>
         </dt>
         <dd :class="$style.TelLink">
@@ -126,6 +124,7 @@ export default {
 .Heading {
   @include font-size(24);
   line-height: 1.5rem;
+  white-space: pre-line;
   small {
     @include font-size(16);
   }
@@ -160,6 +159,9 @@ export default {
   }
   &Weekend {
     font-weight: bold;
+    &Description {
+      white-space: pre-line;
+    }
     &Title {
       @include font-size(18);
     }
