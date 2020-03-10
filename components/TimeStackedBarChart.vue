@@ -111,7 +111,7 @@ export default {
       if (this.dataKind === 'transition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
-          sText: `${this.$t(this.$t("{date}の合計"), {
+          sText: `${this.$t('{date}の合計', {
             date: this.labels[this.labels.length - 1]
              })}`,
           unit: this.unit
@@ -119,7 +119,7 @@ export default {
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.$t(this.$t("{date}の全体累計"), {
+        sText: `${this.$t('{date}の全体累計', {
           date: this.labels[this.labels.length - 1]
           })}`,
         unit: this.unit
