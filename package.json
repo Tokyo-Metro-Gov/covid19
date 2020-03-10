@@ -15,7 +15,8 @@
     "generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "lint-and-generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "test": "echo 'skip tests (there is no test)'",
-    "lint": "eslint './**/*.{js,ts,vue}' --fix",
+    "lint": "eslint './**/*.{js,ts,vue}'",
+    "lint:fix": "eslint './**/*.{js,ts,vue}' --fix",
     "clean-hardsource": "rimraf ./node_modules/.cache/hard-source"
   },
   "lint-staged": {
