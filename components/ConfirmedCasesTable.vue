@@ -3,16 +3,28 @@
     <li class="item checked">
       <div class="gutter">
         <div class="box tall">
-          <span>検査実施<br>人数</span>
-          <span><b>{{ 検査実施人数 }}</b><span class="unit">人</span></span>
+          <span>
+            検査実施
+            <br />人数
+          </span>
+          <span>
+            <b>{{ 検査実施人数 }}</b>
+            <span class="unit">人</span>
+          </span>
         </div>
       </div>
     </li>
     <li class="item positive">
       <div class="gutter">
         <div class="box tall">
-          <span>陽性者数<br>(累積)</span>
-          <span><b>{{ 陽性物数 }}</b><span class="unit">人</span></span>
+          <span>
+            陽性者数
+            <br />(累積)
+          </span>
+          <span>
+            <b>{{ 陽性物数 }}</b>
+            <span class="unit">人</span>
+          </span>
         </div>
       </div>
       <ul class="group">
@@ -20,15 +32,24 @@
           <div class="gutter">
             <div class="box">
               <span>入院中</span>
-              <span><b>{{ 入院中 }}</b><span class="unit">人</span></span>
+              <span>
+                <b>{{ 入院中 }}</b>
+                <span class="unit">人</span>
+              </span>
             </div>
           </div>
           <ul class="group">
             <li class="item mild">
               <div class="gutter">
                 <div class="box short">
-                  <span>軽症・<br>中等症</span>
-                  <span><b>{{ 軽症中等症 }}</b><span class="unit">人</span></span>
+                  <span>
+                    軽症・
+                    <br />中等症
+                  </span>
+                  <span>
+                    <b>{{ 軽症中等症 }}</b>
+                    <span class="unit">人</span>
+                  </span>
                 </div>
               </div>
             </li>
@@ -36,7 +57,10 @@
               <div class="gutter">
                 <div class="box short">
                   <span>重症</span>
-                  <span><b>{{ 重症 }}</b><span class="unit">人</span></span>
+                  <span>
+                    <b>{{ 重症 }}</b>
+                    <span class="unit">人</span>
+                  </span>
                 </div>
               </div>
             </li>
@@ -46,7 +70,10 @@
           <div class="gutter">
             <div class="box">
               <span>死亡</span>
-              <span><b>{{ 死亡 }}</b><span class="unit">人</span></span>
+              <span>
+                <b>{{ 死亡 }}</b>
+                <span class="unit">人</span>
+              </span>
             </div>
           </div>
         </li>
@@ -54,7 +81,10 @@
           <div class="gutter">
             <div class="box">
               <span>退院</span>
-              <span><b>{{ 退院 }}</b><span class="unit">人</span></span>
+              <span>
+                <b>{{ 退院 }}</b>
+                <span class="unit">人</span>
+              </span>
             </div>
           </div>
         </li>
@@ -214,9 +244,9 @@ export default {
 .item.in-hospital > .gutter > .box::before,
 .item.serious > .gutter > .box::before,
 .item.recovered > .gutter > .box::before {
-  content: "";
+  content: '';
   display: block;
-  border: 3px solid #00A040;
+  border: 3px solid #00a040;
   background-color: #ffffff;
   position: absolute;
   height: 32px;
@@ -252,7 +282,7 @@ export default {
   }
   .box {
     padding-bottom: px2vw($boxh * 0.17, $vw);
-    border-width: px2vw($bdw ,$vw);
+    border-width: px2vw($bdw, $vw);
     height: px2vw($boxh, $vw);
     font-size: px2vw($fz, $vw);
     &.tall {
@@ -290,21 +320,21 @@ export default {
 
 // variables.scss Breakpoints: huge
 @include lessThan(1440) {
-  @include variation(1440, 3, 14, 150, 35)
+  @include variation(1440, 3, 14, 150, 35);
 }
 
 // Vuetify Breakpoints: Large
 @include lessThan(1263) {
-  @include variation(1263, 2, 12, 107, 24)
+  @include variation(1263, 2, 12, 107, 24);
 }
 
 // Vuetify Breakpoints: Small
 @include lessThan(959) {
-  @include variation(960, 4, 16, 180, 40)
+  @include variation(960, 4, 16, 180, 40);
 }
 
 // Vuetify Breakpoints: Extra Small
 @include lessThan(599) {
-  @include variation(600, 3, 14, 150, 35)
+  @include variation(600, 3, 14, 150, 35);
 }
 </style>
