@@ -75,7 +75,7 @@
     "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
     "The latest updates": "都内の最新感染動向",
     "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
-    "for Families with children": "お子様をお持ちの皆様へ",
+    "for Parents and Guardians": "保護者の皆様へ",
     "for Citizens": "都民の皆様へ",
     "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
     "Official statements from Task Force": "東京都新型コロナウイルス感染症対策本部報",
@@ -116,7 +116,7 @@ export default {
         },
         {
           icon: 'parent',
-          title: this.$t('for Families with children'),
+          title: this.$t('for Parents and Guardians'),
           link: '/parent'
         },
         {
