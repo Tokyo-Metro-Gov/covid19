@@ -86,7 +86,7 @@
     "for Citizens": "県民の皆様へ",
     "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
     "Official statements from Task Force": "愛知県新型コロナウイルス感染症対策本部会議報",
-    "Cancelled public events": "東京都主催等 中止又は延期するイベント等",
+    "Cancelled public events": "愛知労働局主催等 中止又は延期するイベント等",
     "Government official website": "愛知県公式ホームページ",
     "Message from Governor Omura": "知事からのメッセージ",
     "About us": "当サイトについて"
@@ -146,7 +146,7 @@ export default {
         {
           title: this.$t('Cancelled public events'),
           link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
+            'https://jsite.mhlw.go.jp/aichi-roudoukyoku/news_topics/2019_covid-19_event.html'
         },
         {
           title: this.$t('Message from Governor Omura'),
