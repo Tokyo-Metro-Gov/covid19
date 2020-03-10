@@ -172,7 +172,7 @@ export default {
       justify-content: center;
       flex-basis: 47.5%;
       flex-direction: column;
-      height: 3.5rem;
+      height: 3.75rem;
       margin: 4% 0;
       border: 2px solid $green-1 !important;
       border-radius: 4px;
