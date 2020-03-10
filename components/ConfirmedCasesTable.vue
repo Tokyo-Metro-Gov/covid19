@@ -246,8 +246,8 @@ export default {
 .item.recovered > .gutter > .box::before {
   content: '';
   display: block;
-  border: 3px solid #00a040;
-  background-color: #ffffff;
+  border: 3px solid $green-1;
+  background-color: $white;
   position: absolute;
   height: 32px;
 }
