@@ -9,6 +9,12 @@ import { Vue, Component } from 'vue-property-decorator'
 
 @Component
 export default class StaticCard extends Vue {}
+
+/* Prepare for #621
+import Vue from 'vue'
+
+export default Vue.extend()
+*/
 </script>
 
 <style lang="scss">
@@ -17,7 +23,7 @@ export default class StaticCard extends Vue {}
   padding: 20px;
   margin-bottom: 20px;
   > *:not(:first-child) {
-    margin-top: 1em;
+    margin-top: 1.2em;
   }
   h3,
   &-Heading1 {
@@ -43,26 +49,31 @@ export default class StaticCard extends Vue {}
     padding-left: 24px;
   }
   dt:not(:first-child) {
-    margin-top: 0.5em;
+    margin-top: 0.6em;
   }
   dd {
-    margin-top: 0.5em;
+    margin-top: 0.6em;
     margin-left: 2em;
     @include lessThan($medium) {
       margin-left: 32 / 768 * 100vw;
     }
   }
-  dd > p:not(:first-child),
-  dd > ul:not(:first-child),
-  dd > ol:not(:first-child),
-  dd > dl:not(:first-child) {
-    margin-top: 0.5em;
+  dd > *:not(:first-child) {
+    margin-top: 0.6em;
   }
   img {
     max-width: 100%;
   }
   figcaption {
-    margin-top: 0.5em;
+    margin-top: 0.6em;
+    color: $gray-2;
+  }
+  strong,
+  em {
+    background: linear-gradient(transparent, transparent 65%, lighten($green-4, 40%) 0, lighten($green-4, 40%) 95%, transparent 0);
+  }
+  em {
+    font-style: normal;
   }
   a {
     @include text-link();
