@@ -6,9 +6,9 @@
           class="DataView-TitleContainer"
           :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
         >
-          <div class="DataView-Title">
+          <h3 :id="titleId" class="DataView-ToolbarTitle">
             {{ title }}
-          </div>
+          </h3>
           <div>
             <slot name="button" />
           </div>
@@ -45,13 +45,17 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 @Component
 export default class DataView extends Vue {
   @Prop() private title!: string
+  @Prop() private titleId!: string
   @Prop() private date!: string
   @Prop() private url!: string
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
+
+  formattedDate: string = convertDatetimeToISO8601Format(this.date)
 }
 </script>
 
@@ -108,6 +112,11 @@ export default class DataView extends Vue {
     line-height: 1.5;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+  &-ToolbarTitle {
+    font-size: 1.25rem;
+    font-weight: normal;
+    line-height: 1.5;
   }
   &-CardText {
     margin: 30px 0;
