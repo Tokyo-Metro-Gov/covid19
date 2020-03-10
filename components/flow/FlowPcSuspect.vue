@@ -26,7 +26,7 @@
     </div>
 
     <div :class="[$style.SubtleBox, $style.Box2]">
-      <div :class="$style.LargerText">
+      <div :class="[$style.LargerText, $style.Center]">
         {{ $t('新型コロナコールセンター') }}
       </div>
       <!-- eslint-disable vue/no-v-html -->
@@ -201,6 +201,10 @@
 .LargerText {
   font-size: larger;
   font-weight: bold;
+}
+
+.Center {
+  text-align: center;
 }
 
 .SmallerText {
