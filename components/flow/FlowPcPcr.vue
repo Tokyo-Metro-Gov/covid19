@@ -6,12 +6,9 @@
           {{ $t('PCR検査') }}
           <span :class="$style.small">{{ $t('※') }}</span>
         </p>
-        <!-- eslint-disable vue/no-v-html -->
-        <p
-          :class="$style.content"
-          v-html="$t('東京都健康安全研究センター等')"
-        />
-        <!-- eslint-enable vue/no-v-html -->
+        <p :class="$style.content">
+          {{ $t('東京都健康安全研究センター等') }}
+        </p>
       </div>
     </div>
     <div :class="$style.resultArea">
