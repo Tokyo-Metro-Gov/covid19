@@ -16,7 +16,7 @@
 詳情請洽[建立網站的行動原則](./.github/CODE_OF_CONDUCT_ZH_TW.md)。
 
 ## 授權
-本軟體採[MIT授權條款](./LICENSE.txt)釋出。
+本軟體採[MIT授權條款](./LICENSE.MIT)釋出。
 
 ## 給開發者的資訊
 

@@ -16,7 +16,7 @@
 详细请参照[建站行动原则](./.github/CODE_OF_CONDUCT_ZH_CN.md)。
 
 ## 授权
-本软件采用[MIT授权条款](./LICENSE.txt)。
+本软件采用[MIT授权条款](./LICENSE.MIT)。
 
 ## 面向开发者信息
 

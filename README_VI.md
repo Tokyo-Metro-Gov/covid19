@@ -15,7 +15,7 @@ Xin vui lòng đọc [tại đây](./.github/CONTRIBUTING_VI.md) để biết th
 Chi tiết vui lòng xem [tại đây](./.github/CODE_OF_CONDUCT_VI.md)
 
 ## Giấy phép
-Phần mềm này được phân phối dưới giấy phép [MIT](./LICENSE.txt)
+Phần mềm này được phân phối dưới giấy phép [MIT](./LICENSE.MIT)
 
 ## Thông tin cho nhà phát triển
 

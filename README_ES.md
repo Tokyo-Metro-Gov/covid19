@@ -16,7 +16,7 @@ Por favor, consulte [Cómo contribuir](./.github/CONTRIBUTING_ES.md) para obtene
 Por favor, consulte el [Código de conducta para desarrolladores](./.github/CODE_OF_CONDUCT_ES.md) para más detalles.
 
 ## Licencia
-Este software se publica bajo la [licencia MIT](./LICENSE.txt).
+Este software se publica bajo la [licencia MIT](./LICENSE.MIT).
 
 ## Para Desarrolladoras
 
