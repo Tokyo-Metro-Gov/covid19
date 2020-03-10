@@ -9,10 +9,10 @@
       </template>
     </h2>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div v-if="body" class="TextCard-Body" v-html="body" />
-    <div v-if="$slots.default" class="TextCard-Body">
+    <p v-if="body" class="TextCard-Body" v-html="body" />
+    <p class="TextCard-Body">
       <slot />
-    </div>
+    </p>
   </div>
 </template>
 
