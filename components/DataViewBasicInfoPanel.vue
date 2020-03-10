@@ -12,7 +12,6 @@
 <style lang="scss">
 .DataView {
   &-DataInfo {
-    margin-top: 20px;
     text-align: right;
     &-summary {
       display: inline-block;
@@ -40,19 +39,6 @@
     background-color: transparent !important;
     height: auto !important;
   }
-  &-TitleContainer {
-    padding: 14px 0 8px;
-  }
-  &-Title {
-    @include card-h2();
-  }
-  &-CardText {
-    margin-bottom: 46px;
-    margin-top: 20px;
-  }
-}
-.v-toolbar__content {
-  height: auto !important;
 }
 </style>
 
