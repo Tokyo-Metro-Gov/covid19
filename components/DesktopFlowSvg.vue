@@ -1221,7 +1221,7 @@
 <style lang="scss">
 svg {
   font-family: 'Roboto', sans-serif;
-  width: 100%;
+  width: auto;
 }
 svg .an {
   font-family: 'Roboto', sans-serif !important;
