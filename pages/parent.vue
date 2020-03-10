@@ -36,7 +36,7 @@ export default {
   },
   head() {
     return {
-      title: 'お子様をお持ちの皆様へ'
+      title: '保護者の皆様へ'
     }
   }
 }
