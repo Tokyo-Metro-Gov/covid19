@@ -26,28 +26,28 @@
  {
    "ja": {
      "（注）同一の対象者について複数の検体を調査する場合あり": "（注）同一の対象者について複数の検体を調査する場合あり",
-     "{MM/DD}の全体累計": "%{MM_DD}の全体累計",
-     "{MM/DD}の合計": "%{MM_DD}の合計",
+     "{date}の全体累計": "%{date}の全体累計",
+     "{date}の合計": "%{date}の合計",
      "都内": "都内",
      "その他": "その他",
      "月": "月"
    },
    "en": {
      "（注）同一の対象者について複数の検体を調査する場合あり": "(Note) More than one sample from the same subject may be tested.",
-     "{MM/DD}の全体累計": "Cumulative total as of %{MM_DD}"
+     "{date}の全体累計": "Cumulative total as of %{date}"
    },
    "zh-cn": {
      "（注）同一の対象者について複数の検体を調査する場合あり": "(註) 同一個案可能被多次檢查",
-     "{MM/DD}の全体累計": "截至 %{MM_DD}"
+     "{date}の全体累計": "截至 %{date}"
    },
    "zh-tw": {
-     "{MM/DD}の全体累計": "累計至 %{MM_DD}"
+     "{date}の全体累計": "累計至 %{date}"
    },
    "ko": {
-     "{MM/DD}の全体累計": "%{MM_DD}의 누적 수"
+     "{date}の全体累計": "%{date}의 누적 수"
    },
    "ja-basic": {
-     "{MM/DD}の全体累計": "%{MM_DD} ぜんぶで"
+     "{date}の全体累計": "%{date} ぜんぶで"
    }
  }
  </i18n>
@@ -111,16 +111,16 @@ export default {
       if (this.dataKind === 'transition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
-          sText: `${this.$t(this.$t("{MM/DD}の合計"), {
-            MM_DD: this.labels[this.labels.length - 1]
+          sText: `${this.$t(this.$t("{date}の合計"), {
+            date: this.labels[this.labels.length - 1]
              })}`,
           unit: this.unit
         }
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.$t(this.$t("{MM/DD}の全体累計"), {
-          MM_DD: this.labels[this.labels.length - 1]
+        sText: `${this.$t(this.$t("{date}の全体累計"), {
+          date: this.labels[this.labels.length - 1]
           })}`,
         unit: this.unit
       }
