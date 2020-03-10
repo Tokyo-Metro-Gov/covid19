@@ -23,21 +23,26 @@
       <li :class="$style.ConditionsItem">
         <span>
           <!-- eslint-disable-next-line prettier/prettier -->
-          <span :class="$style.ConditionsItemLarger">風邪</span><small>のような症状</small>
+          <span :class="$style.ConditionsItemLarger">風邪</span>のような症状
         </span>
       </li>
       <li :class="$style.ConditionsItem">
-        <span>
-          <small :class="$style.ConditionsItemWithWordBreak">発熱</small>
-          <span :class="$style.ConditionsItemLarger">
+        <!-- eslint-disable-next-line prettier/prettier -->
+        <span>発熱
+          <span
+            :class="[
+              $style.ConditionsItemLarger,
+              $style.ConditionsItemWithWordBreak
+            ]"
+          >
             <span>37.5℃</span>以上
           </span>
         </span>
       </li>
-      <li :class="$style.ConditionsItem">
+      <li :class="[$style.ConditionsItem, $style.ConditionsItemLarger]">
         {{ $t('強いだるさ') }}
       </li>
-      <li :class="$style.ConditionsItem">
+      <li :class="[$style.ConditionsItem, $style.ConditionsItemLarger]">
         {{ $t('息苦しさ') }}
       </li>
     </ul>
@@ -193,6 +198,7 @@ export default {
   padding: 0 4px !important;
 
   &Item {
+    @include font-size(12);
     &Larger {
       @include font-size(18);
     }
@@ -208,9 +214,6 @@ export default {
     border-radius: 4px;
     line-height: 1;
 
-    & small {
-      @include font-size(12);
-    }
     &WithWordBreak {
       display: block;
     }
