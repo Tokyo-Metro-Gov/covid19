@@ -89,7 +89,8 @@
     "Cancelled public events": "愛知労働局主催等 中止又は延期するイベント等",
     "Government official website": "愛知県公式ホームページ",
     "Message from Governor Omura": "知事からのメッセージ",
-    "About us": "当サイトについて"
+    "About us": "当サイトについて",
+    "Other local Government": "他自治体の対策サイト"
   }
 }
 </i18n>
@@ -159,6 +160,11 @@ export default {
         {
           title: this.$t('Government official website'),
           link: 'https://www.pref.aichi.jp/',
+          divider: true
+        },
+        {
+          title: this.$t('Other local Government'),
+          link: '/government',
           divider: true
         }
       ]
