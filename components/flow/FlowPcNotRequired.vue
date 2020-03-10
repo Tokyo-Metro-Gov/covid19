@@ -22,15 +22,11 @@
       </li>
     </ul>
     <div :class="$style.nextAction">
-      <i18n tag="p" path="{getWorse}{advisory}に相談">
+      <i18n path="{getWorse}{advisory}に相談">
         <!-- eslint-disable vue/no-v-html -->
-        <p place="getWorse" v-html="$t('症状が<br />良くならない場合は')" />
+        <span place="getWorse" v-html="$t('症状が<br />良くならない場合は')" />
+        <strong place="advisory" v-html="$t('新型コロナ<br />受診相談窓口')" />
         <!-- eslint-enable vue/no-v-html -->
-        <p place="advisory">
-          <!-- eslint-disable vue/no-v-html -->
-          <strong v-html="$t('新型コロナ<br />受診相談窓口')" />
-          <!-- eslint-enable vue/no-v-html -->
-        </p>
       </i18n>
     </div>
   </div>
