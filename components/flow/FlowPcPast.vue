@@ -8,23 +8,44 @@
     </div>
     <div :class="$style.FlowInner">
       <div :class="$style.FlowItem">
-        <strong :class="$style.FlowTitle">
-          「新型コロナウイルス感染者」と
-        </strong>
-        <span :class="$style.FlowPerson">
-          <em :class="$style.FlowLine">濃厚接触</em>をした方
-        </span>
+        <template v-if="true">
+          <strong :class="$style.FlowTitle">
+            「新型コロナウイルス感染者」と
+          </strong>
+          <span :class="$style.FlowPerson">
+            <em :class="$style.FlowLine">濃厚接触</em>をした方
+          </span>
+        </template>
+        <template v-if="false">
+          <span :class="$style.FlowPerson">
+            <em :class="$style.FlowLine">濃厚接触</em>をした方
+            <span :class="$style.FlowTitle">新型コロナウイルス感染者」と</span>
+          </span>
+        </template>
       </div>
       <div :class="$style.FlowItem">
-        <strong :class="$style.FlowTitle">
-          流行地域への渡航・居住歴がある方
-        </strong>
-        <span :class="$style.FlowPerson">
-          <em :class="$style.FlowLine">ご本人</em>
-          か
-          <em :class="$style.FlowLine">濃厚接触</em>
-          をした方
-        </span>
+        <template v-if="true">
+          <strong :class="$style.FlowTitle">
+            流行地域への渡航・居住歴がある方
+          </strong>
+          <span :class="$style.FlowPerson">
+            <em :class="$style.FlowLine">ご本人</em>
+            か
+            <em :class="$style.FlowLine">濃厚接触</em>
+            をした方
+          </span>
+        </template>
+        <template v-if="false">
+          <span :class="[$style.FlowPerson, $style.FlowPersonS]">
+            <em :class="$style.FlowLine">流行地域への渡航・居住歴</em>がある方
+          </span>
+          <span :class="[$style.FlowPerson, $style.FlowPersonS]">
+            <em :class="$style.FlowLine">ご本人</em>
+            か
+            <em :class="$style.FlowLine">濃厚接触</em>
+            をした方
+          </span>
+        </template>
       </div>
       <div :class="$style.FlowCondition">
         <em :class="$style.FlowSymptom">発熱</em>
@@ -90,6 +111,7 @@
     color: $green-1;
     font-size: calc(0.75rem + ((1vw - 7.68px) * 0.4464));
     font-weight: bold;
+    display: block;
     @include largerThan($large) {
       font-size: 15px;
     }
@@ -101,6 +123,11 @@
     text-align: center;
     @include largerThan($large) {
       font-size: 23px;
+    }
+    &S {
+      @include largerThan($large) {
+        font-size: 20px;
+      }
     }
   }
   &Line {
