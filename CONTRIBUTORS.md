@@ -101,6 +101,7 @@ Tokyo Covid-19 response site contributors
 | [7iva](https://twitter.com/_7iva) ([@7iva](https://github.com/7iva)) | Translations |
 | Jun Shindo ([@jay-es](https://github.com/jay-es)) | Frontend |
 | [Thien Le Vinh](https://github.com/omygodvt95) | Translation |
+| [mnomura3](https://github.com/mnomura3) | #1008 |
 | -add your name here!- | -what did you do?- |
 
 ご協力に感謝です！！！
