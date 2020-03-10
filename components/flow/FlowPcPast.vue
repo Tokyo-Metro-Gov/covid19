@@ -1,28 +1,51 @@
 <template>
   <section :class="$style.Flow">
     <div :class="$style.FlowHeading">
-      <span>発症前<span :class="$style.FlowNum">2</span>週間以内</span>
-      <span :class="$style.FlowSText">の出来ごとと症状</span>
+      <span :class="$style.FlowLText"
+        >発症前 <span :class="$style.FlowNum">2</span>週間以内</span
+      >
+      <span>の出来ごとと症状</span>
     </div>
     <div :class="$style.FlowInner">
       <div :class="$style.FlowItem">
-        <strong :class="$style.FlowTitle">
-          「新型コロナウイルス感染者」と
-        </strong>
-        <span :class="$style.FlowPerson">
-          <em :class="$style.FlowLine">濃厚接触</em>をした方
-        </span>
+        <template v-if="true">
+          <strong :class="$style.FlowTitle">
+            「新型コロナウイルス感染者」と
+          </strong>
+          <span :class="$style.FlowPerson">
+            <em :class="$style.FlowLine">濃厚接触</em>をした方
+          </span>
+        </template>
+        <template v-if="false">
+          <span :class="$style.FlowPerson">
+            <em :class="$style.FlowLine">濃厚接触</em>をした方
+            <span :class="$style.FlowTitle">新型コロナウイルス感染者」と</span>
+          </span>
+        </template>
       </div>
       <div :class="$style.FlowItem">
-        <strong :class="$style.FlowTitle">
-          流行地域への渡航・居住歴がある方
-        </strong>
-        <span :class="$style.FlowPerson">
-          <em :class="$style.FlowLine">ご本人</em>
-          か
-          <em :class="$style.FlowLine">濃厚接触</em>
-          をした方
-        </span>
+        <template v-if="true">
+          <strong :class="$style.FlowTitle">
+            流行地域への渡航・居住歴がある方
+          </strong>
+          <span :class="$style.FlowPerson">
+            <em :class="$style.FlowLine">ご本人</em>
+            か
+            <em :class="$style.FlowLine">濃厚接触</em>
+            をした方
+          </span>
+        </template>
+        <template v-if="false">
+          <span :class="[$style.FlowPerson, $style.FlowPersonS]">
+            <em :class="$style.FlowLine">流行地域への渡航・居住歴</em>がある方
+          </span>
+          <span :class="[$style.FlowPerson, $style.FlowPersonS]">
+            <em :class="$style.FlowLine">ご本人</em>
+            か
+            <em :class="$style.FlowLine">濃厚接触</em>
+            をした方
+          </span>
+        </template>
       </div>
       <div :class="$style.FlowCondition">
         <em :class="$style.FlowSymptom">発熱</em>
@@ -30,9 +53,11 @@
         <em :class="$style.FlowSymptom">呼吸器症状</em>
         <span :class="$style.FlowText">かつ</span>
         <em :class="$style.FlowSymptom">
-          <span :class="$style.FlowTextSm">発熱</span>
-          <span :class="$style.FlowTemperature">37.5℃</span>
-          <span :class="$style.FlowTextSm">以上</span>
+          <span :class="$style.FlowTextSm"
+            >発熱
+            <span :class="$style.FlowTemperature">37.5℃</span>
+            以上
+          </span>
         </em>
       </div>
     </div>
@@ -54,10 +79,7 @@
     padding: 5px;
     text-align: center;
     font-weight: bold;
-    font-size: calc(1.25rem + ((1vw - 7.68px) * 0.744));
-    @include largerThan($large) {
-      font-size: 25px;
-    }
+    font-size: 16px;
   }
   &Num {
     display: inline-block;
@@ -89,6 +111,7 @@
     color: $green-1;
     font-size: calc(0.75rem + ((1vw - 7.68px) * 0.4464));
     font-weight: bold;
+    display: block;
     @include largerThan($large) {
       font-size: 15px;
     }
@@ -100,6 +123,11 @@
     text-align: center;
     @include largerThan($large) {
       font-size: 23px;
+    }
+    &S {
+      @include largerThan($large) {
+        font-size: 20px;
+      }
     }
   }
   &Line {
@@ -167,8 +195,11 @@
       font-size: 21px;
     }
   }
-  &SText {
-    font-size: 16px;
+  &LText {
+    font-size: calc(1.25rem + ((1vw - 7.68px) * 0.744));
+    @include largerThan($large) {
+      font-size: 25px;
+    }
   }
   &Temperature {
     font-size: calc(1rem + ((1vw - 7.68px) * 2.4876));
