@@ -39,6 +39,18 @@ $ yarn dev
 $ docker-compose up --build
 ```
 
+### How to resolve `Cannot find module ****` error
+
+**Use yarn**
+```
+$ yarn install
+```
+
+**Use docker**
+```bash
+$ docker-compose run --rm app yarn install
+```
+
 ### Deployment to Staging & Production Environments
 
 When `master` branch is updated, the HTML files will be automatically built onto `production` branch,
