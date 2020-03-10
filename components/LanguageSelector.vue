@@ -1,5 +1,5 @@
 <template>
-  <div class="SelectLanguages mb-3">
+  <div class="SelectLanguages">
     <div class="SelectLanguages__inner">
       <div class="SelectLanguage">
         <EarthIcon class="EarthIcon" />
@@ -38,6 +38,7 @@ export default class LanguageSelector extends Vue {
 <style lang="scss">
 .SelectLanguages {
   padding: 0 20px;
+  background-color: #fff;
   .SelectLanguages__inner {
     .SelectLanguage {
       display: flex;
