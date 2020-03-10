@@ -41,20 +41,11 @@
 
 <style module lang="scss">
 .Flow {
-  @include card-container();
+  @include card-container($withDivider: true);
   position: relative;
   padding-bottom: 20px;
   color: $gray-2;
   text-align: center;
-  &::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    width: 1px;
-    height: 100%;
-    background-color: $gray-4;
-  }
   &Heading {
     position: relative;
     width: calc(100% - 2px);

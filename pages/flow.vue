@@ -4,7 +4,7 @@
     <div class="Flow-Heading">
       <CovidIcon />
       <h2 class="Flow-Heading-Title">
-        新型コロナウイルス感染症が心配なときに
+        {{ $t('新型コロナウイルス感染症が心配なときに') }}
       </h2>
       <PrinterButton :wrapper-class="'Flow-PullRight'" />
     </div>
@@ -15,34 +15,70 @@
       <div class="only-sp">
         <flow-sp />
       </div>
-      <a
-        href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-        target="_blank"
-        rel="noopener"
-        class="Flow-Card-Button"
-      >
-        詳細を見る(東京都福祉保健局)
-        <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
-          mdi-open-in-new
-        </v-icon>
-      </a>
+      <div class="Flow-Card-Button-Wrapper mt-6">
+        <a
+          href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+          target="_blank"
+          rel="noopener"
+          class="Flow-Card-Button"
+        >
+          {{ $t('詳細を見る(東京都福祉保健局)') }}
+          <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
+            mdi-open-in-new
+          </v-icon>
+        </a>
+      </div>
     </div>
   </div>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "新型コロナウイルス感染症が心配なときに": "新型コロナウイルス感染症が心配なときに",
+    "詳細を見る(東京都福祉保健局)": "詳細を見る(東京都福祉保健局)"
+  },
+  "en": {
+    "新型コロナウイルス感染症が心配なときに": "If you suspect having COVID-19",
+    "詳細を見る(東京都福祉保健局)": "More information at Bureau of Social Welfare and Public Health website"
+  },
+  "zh-cn": {
+    "新型コロナウイルス感染症が心配なときに": "如果您担心感染了新冠肺炎",
+    "詳細を見る(東京都福祉保健局)": "了解更多（东京都福祉保健局）"
+  },
+  "zh-tw": {
+    "新型コロナウイルス感染症が心配なときに": "若您擔心遭受感染",
+    "詳細を見る(東京都福祉保健局)": "更多資訊（東京都福祉保健局）"
+  },
+  "ko": {
+    "新型コロナウイルス感染症が心配なときに": "감염이 의심될 때",
+    "詳細を見る(東京都福祉保健局)": "자세히 보기 (도쿄도청 복지 보건국)"
+  },
+  "ja-basic": {
+    "新型コロナウイルス感染症が心配なときに": "コロナウイルス が こわいときに",
+    "詳細を見る(東京都福祉保健局)": "くわしく しらべる（とうきょうとふくしほけんきょく）"
+  }
+}
+</i18n>
 
 <script>
 import LanguageSelector from '@/components/LanguageSelector.vue'
 import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton'
-import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
 import FlowPc from '@/components/flow/FlowPc.vue'
 import FlowSp from '@/components/flow/FlowSp.vue'
 
 export default {
-  components: { LanguageSelector, CovidIcon, PrinterButton, DesktopFlowSvg, FlowPc, FlowSp },
+  components: {
+    LanguageSelector,
+    CovidIcon,
+    PrinterButton,
+    FlowPc,
+    FlowSp
+  },
   head() {
     return {
-      title: '新型コロナウイルス感染症が心配なときに'
+      title: this.$t('新型コロナウイルス感染症が心配なときに')
     }
   }
 }
@@ -71,11 +107,14 @@ export default {
   }
   &-Card-Button {
     @include button-text('md');
-    margin: 24px auto 0;
     @include font-size(20);
-    font-weight: 600;
+    font-weight: bold;
+    display: inline-block;
     text-decoration: none;
     color: $green-1 !important;
+    &-Wrapper {
+      text-align: center;
+    }
     &:hover {
       color: $white !important;
     }
