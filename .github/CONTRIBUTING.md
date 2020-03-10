@@ -27,6 +27,9 @@
 * Issue に関連した質問等は、Slack より Issue 内のコメントを活用しましょう
 * 提案なども受け付けます！積極的に新しく Issue を作ってください。
 
+## 参考情報
+* [東京都 新型コロナウイルス対策サイトへの貢献方法を解説(Qiita)](https://qiita.com/FPC_COMMUNITY/items/b9cc072813dc2231b2b2)
+
 ## CONTRIBUTORS.md への追加について
 ご協力いただいた皆様のお名前（ハンドルネーム）や役割を記す、[CONTRIBUTORS.md](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/CONTRIBUTORS.md) というファイルがあります。
 何かしらの貢献を行った方は、ぜひこちらにもお名前をお載せください。
@@ -35,7 +38,7 @@
 ## 開発に関する情報
 * 開発サイト https://dev-covid19-tokyo.netlify.com/
 * ステージングサイト https://stg-covid19-tokyo.netlify.com/
-* 本番サイト https://covid19-tokyo.netlify.com/
+* 本番サイト https://stopcovid19.metro.tokyo.lg.jp/
 * [デザイン](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 
 本 ドキュメント の更新も大歓迎です！
