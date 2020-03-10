@@ -11,15 +11,11 @@
     </h3>
     <ul :class="$style.actions">
       <li>
-        <i>
-          <img src="/flow/house-24px.svg" />
-        </i>
+        <img src="/flow/house-24px.svg" />
         自宅で安静に過ごす
       </li>
       <li>
-        <i>
-          <img src="/flow/apartment-24px.svg" />
-        </i>
+        <img src="/flow/apartment-24px.svg" />
         一般の医療機関を受診
       </li>
     </ul>
