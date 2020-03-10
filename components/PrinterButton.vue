@@ -17,6 +17,24 @@
 {
   "ja": {
     "print": "印刷する"
+  },
+  "en": {
+    "print": "Print Me"
+  },
+  "zh-cn": {
+    "print": "打印本页"
+  },
+  "zh-tw": {
+    "print": "列印此頁"
+  },
+  "ko": {
+    "print": "인쇄하다"
+  },
+  "pt-BR": {
+    "print": ""
+  },
+  "ja-basic": {
+    "print": "いんさつする"
   }
 }
 </i18n>
