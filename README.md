@@ -1,8 +1,8 @@
 # 愛知県 新型コロナウイルス感染症対策サイト
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
+![](https://github.com/code4nagoya/covid19/workflows/production%20deploy/badge.svg)
 
-[![愛知県 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![愛知県 新型コロナウイルス感染症対策サイト](https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/89384411_3894244213920910_6080693635433627648_o.jpg?_nc_cat=101&_nc_sid=ca434c&_nc_ohc=3nng60TwA4gAX_zj-mW&_nc_ht=scontent-lax3-1.xx&oh=df8364ef052034ec9dfcc629da21490b&oe=5EA5E01E)](http://stopcovid19.code4.nagoya/)
 
 ### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md)
 
