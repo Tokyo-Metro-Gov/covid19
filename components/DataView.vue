@@ -6,7 +6,7 @@
           class="DataView-TitleContainer"
           :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
         >
-          <h3 :id="titleId" class="DataView-ToolbarTitle">
+          <h3 :id="titleId" class="DataView-Title">
             {{ title }}
           </h3>
           <div>
@@ -110,13 +110,7 @@ export default class DataView extends Vue {
     margin-bottom: 5px;
     font-size: 1.25rem;
     line-height: 1.5;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  &-ToolbarTitle {
-    font-size: 1.25rem;
     font-weight: normal;
-    line-height: 1.5;
   }
   &-CardText {
     margin: 30px 0;
