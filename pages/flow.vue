@@ -123,17 +123,15 @@
             </div>
             <div class="SodanYakan">
               <dt class="Yakan">
-                平日（夜間）
+                平日土日祝
                 <br />
-                <span class="SodanTime">午後５時から翌朝午前９時</span>
-                <br />
-                土日祝 終日
+                <span class="SodanTime">午前９時から午後５時</span>
               </dt>
               <dd class="TelLink">
-                <a href="tel:0353204592">
+                <a href="tel:0529546272">
                   <img
                     src="/flow/sp/sp_flow_tel_03@2x.png"
-                    alt="03-5320-4592"
+                    alt="052-954-6272"
                   />
                 </a>
               </dd>
@@ -200,12 +198,12 @@
         </div>
       </div>
       <a
-        href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+        href="https://www.pref.aichi.jp//soshiki/kenkotaisaku/novel-coronavirus.html"
         target="_blank"
         rel="noopener"
         class="Flow-Card-Button"
       >
-        詳細を見る(東京都福祉保健局)
+        詳細を見る(愛知県保健医療局健康医務部健康対策課)
         <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
           mdi-open-in-new
         </v-icon>
