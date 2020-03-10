@@ -15,17 +15,19 @@
       <div class="only-sp">
         <flow-sp />
       </div>
-      <a
-        href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-        target="_blank"
-        rel="noopener"
-        class="Flow-Card-Button"
-      >
-        {{ $t('詳細を見る(東京都福祉保健局)') }}
-        <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
-          mdi-open-in-new
-        </v-icon>
-      </a>
+      <div class="Flow-Card-Button-Wrapper mt-6">
+        <a
+          href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+          target="_blank"
+          rel="noopener"
+          class="Flow-Card-Button"
+        >
+          {{ $t('詳細を見る(東京都福祉保健局)') }}
+          <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
+            mdi-open-in-new
+          </v-icon>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -105,22 +107,20 @@ export default {
   }
   &-Card-Button {
     @include button-text('md');
-    margin: 24px auto 0;
     @include font-size(20);
     font-weight: bold;
-    display: block;
+    display: inline-block;
     text-decoration: none;
     color: $green-1 !important;
-    text-align: center;
+    &-Wrapper {
+      text-align: center;
+    }
     &:hover {
       color: $white !important;
     }
     &-ExternalLinkIcon {
       margin-left: 2px;
       color: $green-1 !important;
-    }
-    @include largerThan($medium) {
-      width: 25rem;
     }
   }
   &-PullRight {
