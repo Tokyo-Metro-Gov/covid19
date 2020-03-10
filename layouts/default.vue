@@ -19,6 +19,7 @@
         </v-container>
       </div>
     </div>
+    <NoScript />
   </v-app>
 </template>
 <script lang="ts">
@@ -26,6 +27,7 @@ import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
+import NoScript from '@/components/NoScript.vue'
 
 type LocalData = {
   isOpenNavigation: boolean
@@ -35,7 +37,8 @@ type LocalData = {
 export default Vue.extend({
   components: {
     ScaleLoader,
-    SideNavigation
+    SideNavigation,
+    NoScript
   },
   data(): LocalData {
     return {
