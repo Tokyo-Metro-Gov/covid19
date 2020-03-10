@@ -93,7 +93,7 @@ export default {
     return data
   },
   head() {
-    const url = location.protocol + '//' + location.host
+    const url = 'https://deploy-preview-835--dev-covid19-tokyo.netlify.com'
     const ogpImage = url + '/ogp-' + this.$route.params.card + '.png'
     const description =
       this.updatedAt +
