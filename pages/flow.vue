@@ -63,7 +63,6 @@
 import LanguageSelector from '@/components/LanguageSelector.vue'
 import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton'
-// import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
 import FlowPc from '@/components/flow/FlowPc.vue'
 import FlowSp from '@/components/flow/FlowSp.vue'
 
@@ -72,7 +71,6 @@ export default {
     LanguageSelector,
     CovidIcon,
     PrinterButton,
-    // DesktopFlowSvg,
     FlowPc,
     FlowSp
   },
@@ -118,6 +116,10 @@ export default {
     &-ExternalLinkIcon {
       margin-left: 2px;
       color: $green-1 !important;
+    }
+    @include lessThan($medium) {
+      text-align: center;
+      width: 100%;
     }
   }
   &-PullRight {
