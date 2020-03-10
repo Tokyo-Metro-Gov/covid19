@@ -34,7 +34,7 @@
 ## 개발에 관한 정보
 * 개발사이트 https://dev-covid19-tokyo.netlify.com/
 * 스테이징 배포사이트 https://stg-covid19-tokyo.netlify.com/
-* 운영 배포사이트 https://covid19-tokyo.netlify.com/
+* 운영 배포사이트 https://stopcovid19.metro.tokyo.lg.jp/
 * [디자인](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 
 이 문서의 갱신도 환영합니다!

@@ -17,7 +17,7 @@
         <svg-card
           title="検査陽性者の状況"
           :title-id="'details-of-confirmed-cases'"
-          :date="headerItem.date"
+          :date="Data.inspections_summary.date"
         >
           <confirmed-cases-table v-bind="confirmedCases" />
         </svg-card>
@@ -146,7 +146,7 @@ export default {
     ]
     const inspectionsItems = [
       '都内発生（疑い例・接触者調査）',
-      'その他（チャーター便・クルーズ便）'
+      'その他（チャーター便・クルーズ船）'
     ]
     const inspectionsLabels = Data.inspections_summary.labels
     // 死亡者数
