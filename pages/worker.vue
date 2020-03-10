@@ -18,44 +18,24 @@ export default {
     return {
       items: [
         {
-          title: '新型コロナウイルス感染症対応緊急融資',
+          title: '新型コロナウイルス感染症対策緊急つなぎ資金',
+          link: 'https://www.pref.aichi.jp/soshiki/kinyu/kinyu0304.html',
+          body:
+            '新型コロナウイルス感染症により事業活動に影響を受けている中小企業等を対象とした緊急つなぎ資金制度です。融資限度額は5千万円で、信用保証料を本県が全額補助します。'
+        },
+        {
+          title:
+            '新型コロナウイルス感染症対策として「テレワーク」の活用をご検討ください！',
+          link: 'https://www.pref.aichi.jp/soshiki/rodofukushi/telework.html',
+          body:
+            '国内での新型コロナウイルス感染拡大を受け、県内企業の皆様におかれましては、在宅勤務を可能とする「テレワーク」や時差出勤の導入をご検討ください。'
+        },
+        {
+          title: '特別労働相談窓口',
           link:
-            'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/05/26.html',
+            'https://jsite.mhlw.go.jp/aichi-roudoukyoku/news_topics/2019_covid-19soudan.html?fbclid=IwAR01RhExhMRTZ0CZTdwvfDEWVf_qABG8U2-QCnkw-77u9L2SiqL3SPp3aGk',
           body:
-            '新型コロナウイルス感染症により事業活動に影響を受けている中小企業等を対象とした緊急融資制度です。融資限度額は2億8千万円で、信用保証料を都が全額補助します。'
-        },
-        {
-          title: '新型コロナウイルスによる経営課題に関する専門家派遣',
-          link: 'https://www.tokyo-kosha.or.jp/topics/2003/0001.html',
-          body:
-            '新型コロナウイルス感染症により経営面の影響を受けている中小企業を対象に、中小企業診断士等の専門家を無料で派遣し、経営改善等に向けたアドバイスを実施します（１社あたり４回まで・無料）。'
-        },
-        {
-          title: '事業継続緊急対策（テレワーク）助成金',
-          link:
-            'https://www.shigotozaidan.or.jp/koyo-kankyo/joseikin/kinkyutaisaku.html',
-          body:
-            '都内中堅・中小企業に対し、テレワークの導入に必要な機器やソフトウェア等の経費を助成します（限度額250万円、助成率10/10）。ぜひご活用ください。'
-        },
-        {
-          title: '中小企業者等特別相談窓口',
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html',
-          body:
-            '資金繰りに関する相談、経営に関する相談（東京都産業労働局　報道発表）'
-        },
-        {
-          title: '緊急労働相談ダイヤル',
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/02/26/22.html',
-          body:
-            '新型コロナウイルスに関する休暇や休業の取り扱い、職場のハラスメントなどについての相談（東京都産業労働局　報道発表）'
-        },
-        {
-          title: '新しいワークスタイルや企業活動の東京モデル「スムーズビズ」',
-          link: 'https://smooth-biz.metro.tokyo.lg.jp/',
-          body:
-            'テレワーク・時差出勤などスムーズビズの取組は、新型コロナウイルス感染症の対策としても効果的です。感染症対策として、東京2020大会時の交通混雑緩和に向けた取組の前倒しをお願いします。'
+            '新型コロナウイルス感染症に関連して、労働問題で困ったことがあれば、ご相談ください。'
         }
       ]
     }
