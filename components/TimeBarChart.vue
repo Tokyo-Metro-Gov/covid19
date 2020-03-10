@@ -99,7 +99,6 @@ export default {
         lText: this.chartData[
           this.chartData.length - 1
         ].cumulative.toLocaleString(),
-<<<<<<< HEAD
         sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
           '{date}の全体累計', {
           date: this.chartData.slice(-1)[0].label
@@ -107,11 +106,6 @@ export default {
         )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
           this.unit
         }）`,
-=======
-        sText: `${this.chartData.slice(-1)[0].label} の累計値（前日比：${
-          this.displayCumulativeRatio
-        } ${this.unit}）`,
->>>>>>> unify text formats
         unit: this.unit
       }
     },
