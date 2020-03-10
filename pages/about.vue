@@ -471,7 +471,7 @@ export default {
   },
   head() {
     return {
-      title: '当サイトについて'
+      title: this.$t('当サイトについて')
     }
   }
 }
