@@ -26,7 +26,7 @@
     </div>
 
     <div :class="[$style.SubtleBox, $style.Box2, $style.Center]">
-      <div :class="[$style.LargerText]">
+      <div :class="$style.LargerText">
         {{ $t('新型コロナコールセンター') }}
       </div>
       <!-- eslint-disable vue/no-v-html -->
