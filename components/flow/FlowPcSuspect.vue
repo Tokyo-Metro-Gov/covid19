@@ -29,11 +29,9 @@
       <div :class="$style.LargerText">
         {{ $t('新型コロナコールセンター') }}
       </div>
-      <!-- eslint-disable vue/no-v-html -->
       <div :class="$style.SmallerText">
         {{ $t('午前9時から午後9時（土日祝含む）') }}
       </div>
-      <!-- eslint-enable vue/no-v-html -->
 
       <div :class="$style.TelLink">
         <a href="tel:0570550571">
