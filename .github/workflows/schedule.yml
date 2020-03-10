@@ -31,7 +31,7 @@ jobs:
           name: ogps
           path: ogps
       - run: Get-ChildItem "ogps" | Select Name, DirectoryName, LastWriteTime,FulLName | Sort LastWriteTime -Descending | Select -First 2 | Select -ExpandProperty FullName | Copy-Item -Destination static
-      - run: git checkout -b ogp origin/ogp
+      - run: git checkout -b ogp
       - run: git status
       - run: SET DATETIME=%DATE:~0,4%-%DATE:~5,2%-%DATE:~8,2%%TIME:~0,8%
       - run: git add . & git commit -a -m "Generated OGP images at ${%DATETIME%}"

@@ -70,8 +70,10 @@
             rel="license"
             target="_blank"
             href="http://creativecommons.org/licenses/by/4.0/"
-            >Creative Commons Attribution 4.0 International License</a
-          ><br />
+          >
+            Creative Commons Attribution 4.0 International License
+          </a>
+          <br />
           2020 Tokyo Metropolitan Government
         </small>
       </div>
