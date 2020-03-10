@@ -97,8 +97,6 @@
           title="入庁舎数の推移"
           :title-id="'agency'"
           :chart-id="'agency'"
-          :chart-data="agencyGraph"
-          :date="agencyGraph.date"
           :url="''"
           :unit="'人'"
         />
@@ -117,7 +115,6 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
-import AgencyData from '@/data/agency.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
@@ -153,8 +150,6 @@ export default {
     const querentsGraph = formatGraph(Data.querents.data)
     // 都営地下鉄の利用者数の推移
     const metroGraph = MetroData
-    // 入庁者数
-    const agencyGraph = AgencyData
     // 検査実施日別状況
     const inspectionsGraph = [
       Data.inspections_summary.data['都内'],
@@ -189,7 +184,6 @@ export default {
       contactsGraph,
       querentsGraph,
       metroGraph,
-      agencyGraph,
       inspectionsGraph,
       inspectionsItems,
       inspectionsLabels,
