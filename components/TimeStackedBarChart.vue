@@ -2,7 +2,7 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
-        （注）同一の対象者について複数の検体を調査する場合あり
+        {{ $t('（注）同一の対象者について複数の検体を調査する場合あり') }}
       </p>
       <data-selector v-model="dataKind" />
     </template>
@@ -21,6 +21,36 @@
     </template>
   </data-view>
 </template>
+
+<i18n>
+ {
+   "ja": {
+     "（注）同一の対象者について複数の検体を調査する場合あり": "（注）同一の対象者について複数の検体を調査する場合あり",
+     "{date}の全体累計": "%{date}の全体累計",
+     "{date}の合計": "%{date}の合計",
+     "都内": "都内",
+     "その他": "その他",
+     "月": "月"
+   },
+   "en": {
+     "（注）同一の対象者について複数の検体を調査する場合あり": "(Note) More than one sample from the same subject may be tested.",
+     "{date}の全体累計": "Cumulative total as of %{date}"
+   },
+   "zh-cn": {
+     "（注）同一の対象者について複数の検体を調査する場合あり": "(註) 同一個案可能被多次檢查",
+     "{date}の全体累計": "截至 %{date}"
+   },
+   "zh-tw": {
+     "{date}の全体累計": "累計至 %{date}"
+   },
+   "ko": {
+     "{date}の全体累計": "%{date}의 누적 수"
+   },
+   "ja-basic": {
+     "{date}の全体累計": "%{date} ぜんぶで"
+   }
+ }
+ </i18n>
 
 <script>
 import DataView from '@/components/DataView.vue'
@@ -81,13 +111,17 @@ export default {
       if (this.dataKind === 'transition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
-          sText: `${this.labels[this.labels.length - 1]} の合計`,
+          sText: `${this.$t('{date}の合計', {
+            date: this.labels[this.labels.length - 1]
+             })}`,
           unit: this.unit
         }
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.labels[this.labels.length - 1]} の全体累計`,
+        sText: `${this.$t('{date}の全体累計', {
+          date: this.labels[this.labels.length - 1]
+          })}`,
         unit: this.unit
       }
     },
@@ -131,14 +165,20 @@ export default {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const labelText =
-                this.dataKind === 'transition'
-                  ? `${sumArray[tooltipItem.index]}${unit}（都内: ${
+              const labelText = (() => {
+                if(this.dataKind === 'transition'){
+                  return `${sumArray[tooltipItem.index]
+                  }${unit}（${this.$t('都内')}: ${
                       data[0][tooltipItem.index]
-                    }/その他: ${data[1][tooltipItem.index]}）`
-                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（都内: ${
+                    }/${this.$t('その他')}: ${data[1][tooltipItem.index]}）`
+                }else{
+                  return `${cumulativeSumArray[tooltipItem.index]
+                  }${unit}（${this.$t('都内')}: ${
                       cumulativeData[0][tooltipItem.index]
-                    }/その他: ${cumulativeData[1][tooltipItem.index]}）`
+                    }/${this.$t('その他')}: ${cumulativeData[1][tooltipItem.index]
+                    }）`
+                }
+              })();
               return labelText
             },
             title(tooltipItem, data) {
