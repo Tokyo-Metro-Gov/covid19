@@ -33,8 +33,13 @@ jobs:
       - run: Get-ChildItem "ogps" | Select Name, DirectoryName, LastWriteTime,FulLName | Sort LastWriteTime -Descending | Select -First 2 | Select -ExpandProperty FullName | Copy-Item -Destination static
       - run: git checkout -b ogp
       - run: git status
-      - run: SET DATETIME=%DATE:~0,4%-%DATE:~5,2%-%DATE:~8,2%%TIME:~0,8%
       - run: git add -u
       - run: git config --global user.email "yasu@users.noreply.github.com"
       - run: git config --global user.name "GDP Builder"
+
+      - run: SET DATETIME=%DATE:~0,4%-%DATE:~5,2%-%DATE:~8,2%%TIME:~0,8%
       - run: git commit -m "Generated OGP images at ${%DATETIME%}"
+
+      - run: git push -u origin ogp
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
