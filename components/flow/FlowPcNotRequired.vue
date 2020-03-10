@@ -18,7 +18,7 @@
       </li>
     </ul>
     <div :class="$style.nextAction">
-      <i18n path="{getWorse}{advisory}に相談">
+      <i18n path="{getWorse}{advisory}に相談" :class="$style.content">
         <span place="getWorse">{{ $t('症状が良くならない場合は') }}</span>
         <strong place="advisory">{{ $t('新型コロナ受診相談窓口') }}</strong>
       </i18n>
@@ -137,6 +137,12 @@
   border: $green-1 1.5px solid;
   border-radius: 4px;
   text-align: center;
+  .content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+  }
   strong {
     font-size: 1.5rem;
   }
