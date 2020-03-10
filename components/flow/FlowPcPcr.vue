@@ -80,6 +80,7 @@
   justify-content: space-between;
   padding: 20px 30px;
   text-align: center;
+  height: 100%;
   .actionArea {
     flex-grow: 1;
     margin-right: 10%;
@@ -110,6 +111,8 @@
 
   .resultArea {
     flex-basis: 48%;
+    flex-direction: column;
+    display: flex;
 
     .label + .label {
       margin-top: 30px;
@@ -122,6 +125,7 @@
   border: 2px solid $green-1;
   line-height: 1;
   padding: 0.7em 0;
+  height: 100%;
 
   &.positive {
     background: $green-1;
