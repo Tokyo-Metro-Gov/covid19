@@ -1053,7 +1053,7 @@
         </text>
         <g transform="translate(-101 1091)">
           <text class="b" transform="translate(238 106)">
-            <tspan x="-77" y="0">東京都健康安全</tspan>
+            <tspan x="-77" y="0">兵庫県健康安全</tspan>
             <tspan x="-77" y="25">研究センター等</tspan>
           </text>
         </g>

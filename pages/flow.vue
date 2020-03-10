@@ -168,7 +168,7 @@
           <div id="pcr" class="mx-2 mb-5">
             <img
               src="/flow/sp/sp_flow_06_02@2x.png"
-              alt="PCR検査 東京都健康安全研究センター等"
+              alt="PCR検査 兵庫県健康安全研究センター等"
             />
           </div>
           <div class="Col2Btn">
@@ -205,7 +205,7 @@
         rel="noopener"
         class="Flow-Card-Button"
       >
-        詳細を見る(東京都福祉保健局)
+        詳細を見る(兵庫県福祉保健局)
         <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
           mdi-open-in-new
         </v-icon>
