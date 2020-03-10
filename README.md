@@ -18,12 +18,9 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 ## ライセンス
 本ソフトウェアは、[MITライセンス](./LICENSE.txt)の元提供されています。
 
-## このサイトから派生したもの
+## このサイトから派生したサイト
 
-### 【北海道版】新型コロナウイルス感染症対策サイト
-[サイトへのリンク](https://stopcovid19.hokkaido.dev/)
-
-[GitHubへのリンク](https://github.com/codeforsapporo/covid19)
+[Link](./forkedSites.md)を御覧ください。
 
 ## 開発者向け情報
 
