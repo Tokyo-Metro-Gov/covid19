@@ -1,48 +1,39 @@
 <template>
   <v-app class="app">
-    <div v-if="loading" class="loader">
-      <img src="/logo.svg" alt="東京都" />
-      <scale-loader color="#00A040" />
-    </div>
-    <div v-else>
-      <div v-if="hasNavigation" class="appContainer">
-        <div class="naviContainer">
-          <SideNavigation
-            :is-navi-open="isOpenNavigation"
-            :class="{ open: isOpenNavigation }"
-            @openNavi="openNavigation"
-            @closeNavi="hideNavigation"
-          />
-        </div>
-        <div class="mainContainer" :class="{ open: isOpenNavigation }">
-          <v-container class="px-4 py-8">
-            <nuxt />
-          </v-container>
-        </div>
+    <div v-if="hasNavigation" class="appContainer">
+      <div class="naviContainer">
+        <SideNavigation
+          :is-navi-open="isOpenNavigation"
+          :class="{ open: isOpenNavigation }"
+          @openNavi="openNavigation"
+          @closeNavi="hideNavigation"
+        />
       </div>
-      <div v-else class="embed">
-        <v-container>
+      <div class="mainContainer" :class="{ open: isOpenNavigation }">
+        <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
       </div>
+    </div>
+    <div v-else class="embed">
+      <v-container>
+        <nuxt />
+      </v-container>
     </div>
   </v-app>
 </template>
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
 
 type LocalData = {
   hasNavigation: boolean
   isOpenNavigation: boolean
-  loading: boolean
 }
 
 export default Vue.extend({
   components: {
-    ScaleLoader,
     SideNavigation
   },
   data(): LocalData {
@@ -53,12 +44,8 @@ export default Vue.extend({
 
     return {
       hasNavigation,
-      isOpenNavigation: false,
-      loading: true
+      isOpenNavigation: false
     }
-  },
-  mounted() {
-    this.loading = false
   },
   methods: {
     openNavigation(): void {
