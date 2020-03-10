@@ -21,24 +21,24 @@
 
     <ul :class="$style.Conditions">
       <li :class="$style.ConditionsItem">
-        <div>
+        <span>
           <!-- eslint-disable-next-line prettier/prettier -->
           <span :class="$style.ConditionsItemLarger">風邪</span><small>のような症状</small>
-        </div>
+        </span>
       </li>
       <li :class="$style.ConditionsItem">
-        <div>
+        <span>
           <small :class="$style.ConditionsItemWithWordBreak">発熱</small>
           <span :class="$style.ConditionsItemLarger">
             <span>37.5℃</span>以上
           </span>
-        </div>
+        </span>
       </li>
       <li :class="$style.ConditionsItem">
-        <div>{{ $t('強いだるさ') }}</div>
+        {{ $t('強いだるさ') }}
       </li>
       <li :class="$style.ConditionsItem">
-        <div>{{ $t('息苦しさ') }}</div>
+        {{ $t('息苦しさ') }}
       </li>
     </ul>
 
@@ -201,6 +201,7 @@ export default {
     align-items: center;
     justify-content: center;
     flex-basis: 47.5%;
+    flex-direction: column;
     height: 3.5rem;
     margin: 4% 0;
     border: 2px solid $green-1 !important;
