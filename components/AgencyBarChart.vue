@@ -69,6 +69,18 @@ export default {
     displayOption() {
       const self = this
       return {
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            label(tooltipItem) {
+              return `${tooltipItem.value}${self.unit}`
+            },
+            title(tooltipItem) {
+              const dateString = tooltipItem[0].label
+              return dayjs(dateString).format('M月DD日の週')
+            }
+          }
+        },
         scales: {
           xAxes: [
             {
