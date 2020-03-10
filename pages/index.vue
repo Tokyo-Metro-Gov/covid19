@@ -21,12 +21,9 @@
         <svg-card
           title="検査陽性者の状況"
           :title-id="'details-of-confirmed-cases'"
-          :date="headerItem.date"
+          :date="Data.inspections_summary.date"
         >
-          <confirmed-cases-table
-            aria-label="検査陽性者の状況"
-            v-bind="confirmedCases"
-          />
+          <confirmed-cases-table v-bind="confirmedCases" />
         </svg-card>
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -140,8 +137,7 @@ export default {
     const patientsTable = formatTable(Data.patients.data)
     // 退院者グラフ
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
-    // 退院者数
-    const dischargesTable = formatTable(Data.discharges.data)
+
     // 相談件数
     const contactsGraph = formatGraph(Data.contacts.data)
     // 帰国者・接触者電話相談センター相談件数
@@ -155,7 +151,7 @@ export default {
     ]
     const inspectionsItems = [
       '都内発生（疑い例・接触者調査）',
-      'その他（チャーター便・クルーズ便）'
+      'その他（チャーター便・クルーズ船）'
     ]
     const inspectionsLabels = Data.inspections_summary.labels
     // 死亡者数
@@ -178,7 +174,6 @@ export default {
       Data,
       patientsTable,
       patientsGraph,
-      dischargesTable,
       dischargesGraph,
       contactsGraph,
       querentsGraph,

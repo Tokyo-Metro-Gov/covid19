@@ -4,7 +4,7 @@
 
 [![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./README.md) | English | [Spanish](./README_ES.md)
+### [日本語](./README.md) | English | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md)
 
 ## How to Contribute
 
@@ -37,6 +37,18 @@ $ yarn dev
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
+```
+
+### How to resolve `Cannot find module ****` error
+
+**Use yarn**
+```
+$ yarn install
+```
+
+**Use docker**
+```bash
+$ docker-compose run --rm app yarn install
 ```
 
 ### Deployment to Staging & Production Environments
