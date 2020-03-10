@@ -53,13 +53,13 @@
     <div :class="$style.FlowRow">
       <div :class="$style.FlowRowRowThree">
         <ul :class="$style.FlowRowRowThreeCareTargetList">
-          <li>
+          <li :class="$style.FlowRowRowThreeCareTargetListItem">
             <img src="/flow/directions_walk-24px.svg" />{{ $t('ご高齢な方') }}
           </li>
-          <li>
+          <li :class="$style.FlowRowRowThreeCareTargetListItem">
             <img src="/flow/accessible-24px.svg" />{{ $t('基礎疾患のある方') }}
           </li>
-          <li>
+          <li :class="$style.FlowRowRowThreeCareTargetListItem">
             <img src="/flow/pregnant_woman-24px.svg" />{{ $t('妊娠中の方') }}
           </li>
         </ul>
@@ -174,10 +174,10 @@
 
 <style module lang="scss">
 .Flow {
+  @include card-container($withDivider: true);
   display: flex;
   flex-direction: row;
   padding: 20px 20px !important;
-  @include card-container();
   position: relative;
   color: $gray-2;
   &Row {
@@ -199,6 +199,9 @@
         margin: 16px auto;
         text-align: left;
         list-style: none;
+        &Item + &Item {
+          margin-top: 14px;
+        }
       }
     }
     &Condition {
@@ -211,6 +214,7 @@
       position: relative;
       border: 2px solid $green-1 !important;
       border-radius: 2px;
+      background-color: $white;
       p {
         text-align: center;
         display: inline-block;
