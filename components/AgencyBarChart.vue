@@ -72,12 +72,14 @@ export default {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem) {
-              return `${tooltipItem.value}${self.unit}`
-            },
             title(tooltipItem) {
               const dateString = tooltipItem[0].label
-              return self.dayRange(dateString)
+              return `期間: ${self.dayRange(dateString)}`
+            },
+            label(tooltipItem, data) {
+              const index = tooltipItem.datasetIndex
+              const title = data.datasets[index].label
+              return `${title}: ${tooltipItem.value}${self.unit}`
             }
           }
         },
