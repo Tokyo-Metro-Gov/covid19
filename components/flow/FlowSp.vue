@@ -15,7 +15,7 @@
     <div :class="$style.FlowCard">
       <flow-sp-suspect />
     </div>
-    <div :class="[$style.FlowCard, $style.FlowCardBrayBg]">
+    <div :class="[$style.FlowCard, $style.FlowCardGrayBg]">
       <flow-sp-advisory />
     </div>
     <div :class="$style.FlowCard">
@@ -62,6 +62,7 @@ export default {
   }
   &GrayBg {
     background-color: $gray-5;
+    box-shadow: none;
   }
 }
 </style>
