@@ -1,10 +1,15 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
-    <h2>Agency Graph</h2>
+    <bar
+      :chart-id="chartId"
+      :chart-data="displayData"
+      :options="displayOption"
+      :height="240"
+    />
   </data-view>
 </template>
 
-<style></style>
+<style lang="scss"></style>
 
 <script>
 import DataView from '@/components/DataView.vue'
@@ -28,9 +33,9 @@ export default {
       default: 'agency-bar-chart'
     },
     chartData: {
-      type: Array,
+      type: Object,
       required: false,
-      default: () => []
+      default: () => {}
     },
     date: {
       type: String,
@@ -47,6 +52,25 @@ export default {
       required: false,
       default: ''
     }
+  },
+  computed: {
+    displayData() {
+      return {
+        labels: this.chartData.labels,
+        datasets: this.chartData.datasets.map(d => {
+          return {
+            label: d.label,
+            data: d.data
+          }
+        })
+      }
+    },
+    displayOption() {
+      return {}
+    }
+  },
+  mounted() {
+    console.log(this.chartData)
   }
 }
 </script>
