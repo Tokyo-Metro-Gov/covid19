@@ -39,13 +39,6 @@
     background-color: transparent !important;
     height: auto !important;
   }
-  &-Footer {
-    background-color: $white !important;
-    text-align: right;
-    flex-direction: row-reverse;
-    @include font-size(12);
-    color: $gray-3 !important;
-  }
 }
 </style>
 

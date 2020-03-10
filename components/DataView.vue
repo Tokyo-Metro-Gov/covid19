@@ -120,12 +120,13 @@ export default class DataView extends Vue {
     margin-top: 70px;
   }
   &-Footer {
-    padding: 0 !important;
-    background-color: $white !important;
     @include font-size(12);
-    color: $gray-3 !important;
+    padding: 0 !important;
     justify-content: space-between;
     flex-direction: row-reverse;
+    color: $gray-3 !important;
+    text-align: right;
+    background-color: $white !important;
     .OpenDataLink {
       text-decoration: none;
       .ExternalLinkIcon {
