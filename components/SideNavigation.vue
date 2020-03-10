@@ -40,21 +40,21 @@
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
-            href="https://line.me/R/ti/p/%40822sysfc"
+            href="http://line.naver.jp/ti/p/%40aichipref"
             target="_blank"
             rel="noopener"
           >
             <img src="/line.png" alt="LINE" />
           </a>
           <a
-            href="https://twitter.com/tokyo_bousai"
+            href="https://twitter.com/pref_aichi"
             target="_blank"
             rel="noopener"
           >
             <img src="/twitter.png" alt="Twitter" />
           </a>
           <a
-            href="https://www.facebook.com/tochokoho"
+            href="https://www.facebook.com/aichikoho"
             target="_blank"
             rel="noopener"
           >
@@ -146,7 +146,7 @@ export default {
         {
           title: this.$t('Cancelled public events'),
           link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
+            'https://jsite.mhlw.go.jp/aichi-roudoukyoku/news_topics/2019_covid-19_event.html'
         },
         {
           title: this.$t('Message from Governor Omura'),
