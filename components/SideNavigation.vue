@@ -9,10 +9,10 @@
         mdi-menu
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
+        <h1 class="SideNavigation-Heading">
         <div class="SideNavigation-Logo">
           <img src="/logo.svg" :alt="$t('Tokyo')" />
         </div>
-        <h1 class="SideNavigation-Heading">
           {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
         </h1>
       </nuxt-link>
@@ -208,7 +208,7 @@ export default {
     padding: 2px 20px;
   }
   &-Logo {
-    margin: 20px 16px 0 0;
+    margin: 5px 16px 15px 0;
     width: 110px;
     @include lessThan($small) {
       margin-top: 0;
