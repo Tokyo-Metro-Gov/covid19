@@ -1,37 +1,37 @@
 {
   "ja": {
-    "実績値": "実績値",
-    "累計値": "累計値",
+    "{date}の全体累計": "%{date}の全体累計",
+    "{date}の合計": "%{date}の合計",
     "前日比": "前日比"
   },
   "en": {
-    "実績値": "Actual value",
-    "累計値": "Cumulative value",
+    "{date}の全体累計": "Cumulative total as of %{date}",
+    "{date}の合計": "Actual value as of %{date}",
     "前日比": "day-over-day change"
   },
   "zh-cn": {
-    "実績値": "实际值",
-    "累計値": "累计值",
+    "{date}の全体累計": "累計値 %{date}",
+    "{date}の合計": "実績値 %{date}",
     "前日比": "较前一天"
   },
   "zh-tw": {
-    "実績値": "實際值",
-    "累計値": "累計值",
+    "{date}の全体累計": "累計值 %{date}",
+    "{date}の合計": "實際值 %{date}",
     "前日比": "與前日相比"
   },
   "ko": {
-    "実績値": "실제 값",
-    "累計値": "누계 값",
+    "{date}の全体累計": "%{date}의 누적 수",
+    "{date}の合計": "%{date}의 실제 수",
     "前日比": "전일대비 확진환자 증감"
   },
   "pt-BR": {
-    "実績値": "Valor real",
-    "累計値": "Valor acumulado",
+    "{date}の全体累計": "Valor acumulado de %{date}",
+    "{date}の合計": "Valor real de %{date}",
     "前日比": "anterior"
   },
   "ja-basic": {
-    "実績値": "そのときの すうじ",
-    "累計値": "これまでの ぜんぶのすうじ",
+    "{date}の全体累計": "%{date}までの ぜんぶのすうじ",
+    "{date}の合計": "%{date}の すうじ",
     "前日比": "まえのひ と くらべると"
   }
 }

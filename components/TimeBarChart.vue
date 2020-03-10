@@ -87,7 +87,9 @@ export default {
       if (this.dataKind === 'transition') {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
+          sText: `${this.$t('{date}の合計', {
+            date: this.chartData.slice(-1)[0].label
+          })}（${this.$t('前日比')}: ${
             this.displayTransitionRatio
           } ${this.unit}）`,
           unit: this.unit
@@ -97,11 +99,19 @@ export default {
         lText: this.chartData[
           this.chartData.length - 1
         ].cumulative.toLocaleString(),
+<<<<<<< HEAD
         sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-          '累計値'
+          '{date}の全体累計', {
+          date: this.chartData.slice(-1)[0].label
+        }
         )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
           this.unit
         }）`,
+=======
+        sText: `${this.chartData.slice(-1)[0].label} の累計値（前日比：${
+          this.displayCumulativeRatio
+        } ${this.unit}）`,
+>>>>>>> unify text formats
         unit: this.unit
       }
     },
