@@ -165,16 +165,20 @@ export default {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const labelText =
-                this.dataKind === 'transition'
-                  ? `${sumArray[tooltipItem.index]}${unit}（this.$t('都内'): ${
+              const labelText = (() => {
+                if(this.dataKind === 'transition'){
+                  return `${sumArray[tooltipItem.index]
+                  }${unit}（${this.$t('都内')}: ${
                       data[0][tooltipItem.index]
-                    }/this.$t('その他'): ${data[1][tooltipItem.index]}）`
-                  : `${cumulativeSumArray[tooltipItem.index]
-                  }${unit}（this.$t('都内'): ${
+                    }/${this.$t('その他')}: ${data[1][tooltipItem.index]}）`
+                }else{
+                  return `${cumulativeSumArray[tooltipItem.index]
+                  }${unit}（${this.$t('都内')}: ${
                       cumulativeData[0][tooltipItem.index]
-                    }/this.$t('その他'): ${cumulativeData[1][tooltipItem.index]
+                    }/${this.$t('その他')}: ${cumulativeData[1][tooltipItem.index]
                     }）`
+                }
+              })();
               return labelText
             },
             title(tooltipItem, data) {
