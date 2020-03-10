@@ -135,6 +135,7 @@ export default {
     },
     displayOption() {
       const unit = this.unit
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       return {
         tooltips: {
           displayColors: false,
@@ -229,12 +230,20 @@ export default {
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080'
+                fontColor: '#808080',
+                suggestedMax: scaledTicksYAxisMax
               }
             }
           ]
         }
       }
+    },
+    scaledTicksYAxisMax() {
+      const yAxisMax = 1.2
+      const dataKind =
+        this.dataKind === 'transition' ? 'transition' : 'cumulative'
+      const values = this.chartData.map(d => d[dataKind])
+      return Math.max(...values) * yAxisMax
     }
   },
   methods: {
