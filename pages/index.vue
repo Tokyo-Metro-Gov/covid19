@@ -94,7 +94,7 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <agency-bar-chart
-          title="入庁舎データ"
+          title="入庁舎数の推移"
           :title-id="'agency'"
           :chart-id="'agency'"
           :chart-data="agencyGraph"
