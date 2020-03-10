@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable vue/html-indent -->
-  <noscript>
+  <noscript inline-template>
     <div class="noscript">
       <style>
         .loader {
