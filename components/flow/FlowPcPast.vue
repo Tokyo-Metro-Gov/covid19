@@ -1,8 +1,10 @@
 <template>
   <section :class="$style.Flow">
     <div :class="$style.FlowHeading">
-      <span>発症前<span :class="$style.FlowNum">2</span>週間以内</span>
-      <span :class="$style.FlowSText">の出来ごとと症状</span>
+      <span :class="$style.FlowLText"
+        >発症前 <span :class="$style.FlowNum">2</span>週間以内</span
+      >
+      <span>の出来ごとと症状</span>
     </div>
     <div :class="$style.FlowInner">
       <div :class="$style.FlowItem">
@@ -54,10 +56,7 @@
     padding: 5px;
     text-align: center;
     font-weight: bold;
-    font-size: calc(1.25rem + ((1vw - 7.68px) * 0.744));
-    @include largerThan($large) {
-      font-size: 25px;
-    }
+    font-size: 16px;
   }
   &Num {
     display: inline-block;
@@ -167,8 +166,11 @@
       font-size: 21px;
     }
   }
-  &SText {
-    font-size: 16px;
+  &LText {
+    font-size: calc(1.25rem + ((1vw - 7.68px) * 0.744));
+    @include largerThan($large) {
+      font-size: 25px;
+    }
   }
   &Temperature {
     font-size: calc(1rem + ((1vw - 7.68px) * 2.4876));
