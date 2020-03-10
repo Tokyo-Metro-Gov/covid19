@@ -1,9 +1,7 @@
-name: OGP Scheduler
+name: OGP Builder
 
 on:
   push:
-  schedule:
-    - cron: '*/30 * * * *'
 
 jobs:
   build:
@@ -34,6 +32,7 @@ jobs:
           path: ogps
       - run: Get-ChildItem -Path ogps | ? { $_.PSIsContainer }
       - run: rm -fr ogps
+      - run: git checkout ogp -b
       - run: git status
       - run: SET DATETIME=%DATE:~0,4%-%DATE:~5,2%-%DATE:~8,2%%TIME:~0,8%
       - run: git add . & git commit -a -m "Generated OGP images at ${%DATETIME%}"
