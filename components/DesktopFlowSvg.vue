@@ -555,9 +555,9 @@
       </g>
       <g transform="translate(-45 -100)">
         <text class="p" transform="translate(946 469)">
-          <tspan x="-54" y="0">平日（夜間）</tspan>
+          <tspan x="-54" y="0">平日土日祝</tspan>
           <tspan class="q">
-            <tspan x="-91.392" y="23">午後5時から翌朝午前9時</tspan>
+            <tspan x="-91.392" y="23">午前9時から午後5時</tspan>
           </tspan>
         </text>
       </g>
@@ -566,11 +566,6 @@
       <g transform="translate(-64 -102)">
         <text class="p" transform="translate(965 363)">
           <tspan x="-54" y="0">平日（日中）</tspan>
-        </text>
-      </g>
-      <g transform="translate(-56 55)">
-        <text class="p" transform="translate(957 367)">
-          <tspan x="-47.997" y="0">土日祝 終日</tspan>
         </text>
       </g>
       <g class="ay" transform="matrix(1, 0, 0, 1, -3, -3)">
@@ -1170,7 +1165,7 @@
       </g>
       <g transform="translate(0 7)">
         <text class="an" transform="translate(913 456)">
-          <tspan x="-84.051" y="0">03-5320-4592</tspan>
+          <tspan x="-84.051" y="0">052-954-6272</tspan>
         </text>
         <g transform="translate(800 434)">
           <path class="d" d="M0,0H26V26H0Z" />

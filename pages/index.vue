@@ -84,8 +84,8 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <metro-bar-chart
-          title="都営地下鉄の利用者数の推移"
-          :title-id="'predicted-number-of-toei-subway-passengers'"
+          title="名古屋市営地下鉄の利用者数の推移"
+          :title-id="'predicted-number-of-nagoya-subway-passengers'"
           :chart-id="'metro-bar-chart'"
           :chart-data="metroGraph"
           :chart-option="metroGraphOption"
@@ -137,7 +137,7 @@ export default {
     const contactsGraph = formatGraph(Data.contacts.data)
     // 帰国者・接触者電話相談センター相談件数
     const querentsGraph = formatGraph(Data.querents.data)
-    // 都営地下鉄の利用者数の推移
+    // 名古屋市営地下鉄の利用者数の推移
     const metroGraph = MetroData
     // 検査実施日別状況
     const inspectionsGraph = [
