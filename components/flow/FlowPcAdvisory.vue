@@ -181,6 +181,7 @@
     text-align: center;
   }
   &Contents {
+    font-weight: bold;
     &:not(:first-child) {
       border-top: 0.5px solid $gray-4;
       padding-top: 12px;
@@ -190,7 +191,6 @@
     }
     &Title {
       font-size: 26px;
-      font-weight: bold;
       line-height: 28px;
     }
     &Title2 {
