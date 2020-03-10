@@ -199,7 +199,12 @@
           </div>
         </div>
       </div>
-      <span>※保険適用となる検査は、当面の間、院内感染防止等の観点から、「帰国者・接触者外来」等の医療機関で実施</span>
+      <dt class="insulancenotice">
+        ※保険適用となる検査は、当面の間、院内感染防止等の観点から、「帰国者・
+      </dt>
+      <dt class="insulancenotice">
+        接触者外来」等の医療機関で実施
+      </dt>
       <a
         href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
         target="_blank"
