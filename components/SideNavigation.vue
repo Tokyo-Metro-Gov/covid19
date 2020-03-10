@@ -61,10 +61,10 @@
             <img src="/facebook.png" alt="Facebook" />
           </a>
         </div>
-        <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Aichi Prefecture Government. All Rights
+        <!-- <small class="SideNavigation-Copyright" lang="en">
+          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
           Reserved.
-        </small>
+        </small> -->
       </div>
     </div>
   </div>
