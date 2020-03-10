@@ -11,11 +11,11 @@
     </h3>
     <ul :class="$style.actions">
       <li>
-        <img src="/flow/house-24px.svg" />
+        <img :class="$style.icon" src="/flow/house-24px.svg" />
         自宅で安静に過ごす
       </li>
       <li>
-        <img src="/flow/apartment-24px.svg" />
+        <img :class="$style.icon" src="/flow/apartment-24px.svg" />
         一般の医療機関を受診
       </li>
     </ul>
@@ -76,6 +76,9 @@
     display: flex;
     align-items: center;
   }
+}
+.icon {
+  margin-right: 10px;
 }
 .nextAction {
   width: 49%;
