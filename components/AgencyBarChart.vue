@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
 
 export default {
@@ -30,16 +31,6 @@ export default {
       required: false,
       default: 'agency-bar-chart'
     },
-    chartData: {
-      type: Object,
-      required: false,
-      default: () => {}
-    },
-    date: {
-      type: String,
-      required: true,
-      default: ''
-    },
     unit: {
       type: String,
       required: false,
@@ -49,6 +40,12 @@ export default {
       type: String,
       required: false,
       default: ''
+    }
+  },
+  data() {
+    return {
+      chartData: agencyData,
+      date: agencyData.date
     }
   },
   computed: {
