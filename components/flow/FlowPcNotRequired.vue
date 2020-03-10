@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.flowContainer">
     <h3 :class="$style.sectionTitle">
-      <i18n path="新型コロナ外来 {advice} と判断された場合">
+      <i18n path="新型コロナ外来 {advice} と判断された場合" tag="p">
         <strong place="advice">
           {{ $t('受診が不要') }}
         </strong>
@@ -100,15 +100,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  text-align: end;
+  text-align: center;
   width: 100%;
   margin-bottom: 1rem;
-  vertical-align: bottom;
-  span {
-    padding-bottom: 0.2rem;
-  }
   strong {
     margin: 0 0.2em;
     font-size: 28px;
