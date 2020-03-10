@@ -7,32 +7,33 @@
       </p>
     </div>
 
-    <div :class="$style.GeneralFlex">
-      <div :class="$style.GeneralFlexItem">
-        <CheckIcon />
-        <p>風邪<span>のような症状</span></p>
-      </div>
-      <div :class="$style.GeneralFlexItem">
-        <CheckIcon />
-        <p>
-          <span>発熱</span>
-          <br />
-          37.5℃以上
-        </p>
-      </div>
-      <div :class="$style.GeneralFlexItem">
-        <CheckIcon />
-        <p>
-          {{ $t('強いだるさ') }}
-        </p>
-      </div>
-      <div :class="$style.GeneralFlexItem">
-        <CheckIcon />
-        <p>
-          {{ $t('息苦しさ') }}
-        </p>
-      </div>
-    </div>
+    <ul :class="$style.Conditions">
+      <li :class="$style.ConditionsItem">
+        <span>
+          <!-- eslint-disable-next-line prettier/prettier -->
+          <span :class="$style.ConditionsItemLarger">風邪</span>のような症状
+        </span>
+      </li>
+      <li :class="$style.ConditionsItem">
+        <!-- eslint-disable-next-line prettier/prettier -->
+        <span>発熱
+          <span
+            :class="[
+              $style.ConditionsItemLarger,
+              $style.ConditionsItemWithWordBreak
+            ]"
+          >
+            <span>37.5℃</span>以上
+          </span>
+        </span>
+      </li>
+      <li :class="[$style.ConditionsItem, $style.ConditionsItemLarger]">
+        {{ $t('強いだるさ') }}
+      </li>
+      <li :class="[$style.ConditionsItem, $style.ConditionsItemLarger]">
+        {{ $t('息苦しさ') }}
+      </li>
+    </ul>
 
     <p :class="$style.GeneralText">
       <span><strong>4</strong>日以上</span>続いている
@@ -132,18 +133,18 @@
 }
 </i18n>
 
-<script>
+<script lang="ts">
 import HumanIcon from '@/static/flow/accessibility-24px.svg'
-import CheckIcon from '@/static/flow/check_circle-24px.svg'
 import ArrowIcon from '@/static/flow/arrow_forward-24px.svg'
 export default {
-  components: { HumanIcon, CheckIcon, ArrowIcon }
+  components: { HumanIcon, ArrowIcon }
 }
 </script>
 
 <style module lang="scss">
 .General {
   text-align: center;
+  color: $gray-2;
   &Icon {
     width: 2rem;
     height: 2rem;
@@ -153,47 +154,47 @@ export default {
     color: $gray-1;
     font-weight: bold;
   }
-  &Flex {
+  .Conditions {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 4px !important;
+
     &Item {
-      width: 48%;
-      margin: 4% 2%;
-      line-height: 14px;
-      border-radius: 4px;
-      border: 2px solid $green-1;
-      position: relative;
-      &:nth-child(odd) {
-        margin-left: 0;
-      }
-      &:nth-child(even) {
-        margin-right: 0;
-      }
-      &:nth-child(2) {
-        p {
-          line-height: 1;
-        }
-      }
-      svg {
-        position: absolute;
-        left: 50%;
-        top: -2px;
-        background: #fff;
-        height: 24px;
-        width: 24px;
-        transform: translate(-50%, -50%);
-      }
-      p {
+      @include font-size(12);
+      &Larger {
         @include font-size(18);
-        color: $gray-2;
-        font-weight: bold;
-        padding: 8px;
-        margin: 0;
-        line-height: 34px;
-        span {
-          @include font-size(12);
-        }
+      }
+      font-weight: bold;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-basis: 47.5%;
+      flex-direction: column;
+      height: 3.5rem;
+      margin: 4% 0;
+      border: 2px solid $green-1 !important;
+      border-radius: 4px;
+      line-height: 1;
+
+      &WithWordBreak {
+        display: block;
+      }
+
+      &::before {
+        $imgSize: 24px;
+
+        content: '';
+        position: absolute;
+        top: -13px;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        width: $imgSize;
+        height: $imgSize;
+        background: #fff url(/flow/check_circle-24px.svg) no-repeat center;
+        background-size: $imgSize;
       }
     }
   }
