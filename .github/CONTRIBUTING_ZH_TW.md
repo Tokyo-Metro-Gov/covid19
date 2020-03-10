@@ -3,19 +3,19 @@
 貢獻者：
 十分感謝您參與本計畫。
 
-我是開發經理関(Seki)。如果您有任何問題，請隨時透過 Slack 進行諮詢。
+我是開發經理関（Seki）。如果您有任何問題，請隨時透過 Slack 進行諮詢。
 
 這個頁面將會告訴您應該如何貢獻以及參與這個網站的開發：
 
 ## 對 Issue 的評論以及 Pull Request 的請求
 * 請自由的對 Issue 發表評論，我們也接受新的問題回報以及建議。
-* 新增新的 Issue 之前，請務必搜尋同樣的 Issue 不存在才開立新的 Issue.
-* Pull Request 發送時，請務必註記對應的 Issue 編號。我們不會接受沒有 Issue 編號的 Pull Request.
-* 請注意改善建議的 Issue （標籤為`improve`的） 可能不會每次都被接受。 （特別是針對 UI 的）
+* 新增新的 Issue 之前，請務必搜尋同樣的 Issue 不存在才開立新的 Issue。
+* Pull Request 發送時，請務必註記對應的 Issue 編號。我們不會接受沒有 Issue 編號的 Pull Request。
+* 請注意改善建議的 Issue （標籤為`improve`的） 可能不會每次都被接受。（特別是針對 UI 的）
 * 如果能夠優先處理 `good first issue` / `help wanted` / `bug` 的話將會很有幫助。
 
 ## 如何參與交流
-* 如果你沒有 Code for Japan 的 Slack 帳號的話、請[點這邊註冊](https://cfjslackin.herokuapp.com/)。
+* 如果你沒有 Code for Japan 的 Slack 帳號的話，請[點這邊註冊](https://cfjslackin.herokuapp.com/)。
 * 請參加 `#covid19` 頻道。
 
 ## 給參加者
@@ -23,7 +23,7 @@
 * 交流時也請先確認 Code for Japan 的[行動規範（日文網頁）](https://github.com/codeforjapan/codeofconduct) 。
 * 如果有自己可以做而且沒有被指派（assign）的 Issue 的話、請在 Issue 下回應「やります！（我來做）」後再開始開發。
 * [關於 good first issue 標籤](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) 是推薦給新手的。
-* 如果您可能要離開作業半天以上的話，請確保其他人可以接續您的工作。（如果長時間佔住 Issue, 那麼這個 Issue 會被卡住。）
+* 如果您可能要離開作業半天以上的話，請確保其他人可以接續您的工作。（如果長時間佔住 Issue，那麼這個 Issue 會被卡住。）
 * 對於一天以上沒有更新的 Issue，我們可能會拔掉 Assignment。在工作中善用[Draft Pull Request （日文網頁）](https://qiita.com/tatane616/items/13da1b6797a7b871ad58) 的話可以讓大家更輕易地瞭解您目前的進度。
 * Issue 相關的問題請在 Issue 內回應欄討論（而不是 Slack）。
 * 我們也接受建議！請積極的開新的 Issue 吧。
@@ -31,7 +31,7 @@
 ## 補充 CONTRIBUTORS.md 的相關資訊
 對於提供貢獻的大家、在[CONTRIBUTORS.md](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/CONTRIBUTORS.md) 這份文件中記載了名字（暱稱）以及角色。
 如果您有任何貢獻，請在此留下您的大名。
-請在[#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654) 這個 Issue 留下您要公開的名字、連結(如果有的話)、角色。
+請在[#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654) 這個 Issue 留下您要公開的名字、連結（如果有的話）、角色。
 
 ## 開發相關的資訊
 * 開發環境 (Dev.) https://dev-covid19-tokyo.netlify.com/
