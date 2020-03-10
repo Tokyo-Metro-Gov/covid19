@@ -21,12 +21,17 @@
 
     <ul :class="$style.Conditions">
       <li :class="$style.ConditionsItem">
-        <div>風邪<small>のような症状</small></div>
-      </li>
-      <li :class="[$style.ConditionsItem, $style.ConditionsItemFever]">
         <div>
-          <small>発熱</small><br />
-          37.5℃以上
+          <!-- eslint-disable-next-line prettier/prettier -->
+          <span :class="$style.ConditionsItemLarger">風邪</span><small>のような症状</small>
+        </div>
+      </li>
+      <li :class="$style.ConditionsItem">
+        <div>
+          <small :class="$style.ConditionsItemWithWordBreak">発熱</small>
+          <span :class="$style.ConditionsItemLarger">
+            <span>37.5℃</span>以上
+          </span>
         </div>
       </li>
       <li :class="$style.ConditionsItem">
@@ -188,7 +193,9 @@ export default {
   padding: 0 4px !important;
 
   &Item {
-    @include font-size(18);
+    &Larger {
+      @include font-size(18);
+    }
     position: relative;
     display: flex;
     align-items: center;
@@ -202,6 +209,9 @@ export default {
 
     & small {
       @include font-size(12);
+    }
+    &WithWordBreak {
+      display: block;
     }
 
     &::before {
@@ -217,10 +227,6 @@ export default {
       height: $imgSize;
       background: #fff url(/flow/check_circle-24px.svg) no-repeat center;
       background-size: $imgSize;
-    }
-
-    &Fever {
-      padding-top: 2px;
     }
   }
 }
