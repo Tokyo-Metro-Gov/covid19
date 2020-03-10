@@ -34,9 +34,9 @@ jobs:
       - name: Upload screenshot
         uses: actions/upload-artifact@v1
         with:
-          name: ogps
-          path: ogps
-      - run: Get-ChildItem "ogps" | Select Name, DirectoryName, LastWriteTime,FulLName | Sort LastWriteTime -Descending | Select -First 2 | Select -ExpandProperty FullName | Copy-Item -Destination static
+          name: ogp
+          path: ogp
+      - run: Get-ChildItem "ogp" | Select Name, DirectoryName, LastWriteTime,FulLName | Sort LastWriteTime -Descending | Select -First 2 | Select -ExpandProperty FullName | Copy-Item -Destination static
 
       - run: git config --global user.email "yasu@users.noreply.github.com"
       - run: git config --global user.name "OGP Builder"
