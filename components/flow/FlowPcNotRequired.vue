@@ -11,15 +11,15 @@
     </h3>
     <ul :class="$style.actions">
       <li>
-        <v-icon class="mr-2">
-          mdi-home
-        </v-icon>
+        <i>
+          <img src="/flow/house-24px.svg" />
+        </i>
         自宅で安静に過ごす
       </li>
       <li>
-        <v-icon class="mr-2">
-          mdi-hospital-building
-        </v-icon>
+        <i>
+          <img src="/flow/apartment-24px.svg" />
+        </i>
         一般の医療機関を受診
       </li>
     </ul>
