@@ -60,12 +60,13 @@
       <div :class="$style.item">
         <div>
           <div :class="$style.temp">
-            <span :class="$style.small">{{ $t('発熱') }}</span>
-            <i18n tag="span" path="{tempNum}以上">
-              <span :class="$style.temp" place="tempNum">
-                {{ $t('37.5℃') }}
-              </span>
-            </i18n>
+            <i18n tag="span" path="発熱{temperature}" :class="新規スタイル">
+              <i18n tag="span" path="{tempNum}以上" place="temperature">
+                <span :class="$style.temp" place="tempNum">
+                  {{ $t('37.5℃') }}
+                </span>
+              </i18n>
+            <i18n>
           </div>
         </div>
       </div>
