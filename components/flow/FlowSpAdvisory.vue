@@ -1,8 +1,8 @@
 <template>
   <div :class="$style.SpAdvisory">
     <h4 id="consult" :class="['mb-4 mt-n6', $style.Heading]">
-      新型コロナ受診相談窓口
-      <small>帰国者・接触者電話相談センター</small>
+      {{ $t('新型コロナ受診相談窓口') }}
+      <small>{{ $t('帰国者・接触者電話相談センター') }}</small>
     </h4>
     <div :class="['px-6 py-2 mb-4', $style.ConsultationChip]">
       {{ $t('24時間対応') }}
@@ -28,9 +28,13 @@
       </div>
       <div :class="['pt-3', $style.ConsultationWeekend]">
         <dt :class="['mb-3', $style.ConsultationWeekendDescription]">
-          <span :class="$style.ConsultationWeekendTitle">平日（夜間）</span>
-          午後5時から翌朝午前9時
-          <span :class="$style.ConsultationWeekendTitle">土日祝 終日</span>
+          <span :class="$style.ConsultationWeekendTitle">
+            {{ $t('平日（夜間）') }}
+          </span>
+          {{ $t('午後5時から翌朝午前9時') }}
+          <span :class="$style.ConsultationWeekendTitle">
+            {{ $t('土日祝 終日') }}
+          </span>
         </dt>
         <dd :class="$style.TelLink">
           <PhoneIcon :class="$style.TelLinkImg" alt="Phone" />
