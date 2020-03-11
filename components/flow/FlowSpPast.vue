@@ -1,61 +1,75 @@
 <template>
-  <div :class="$style.SpPast">
-    <h4 :class="['mb-2', $style.Heading]">
-      発症前<strong>2</strong>週間以内<!--
-   --><span :class="$style.small">の出来ごとと症状</span>
-    </h4>
-    <p class="mb-5">
-      <span :class="$style.small">「新型コロナウイルス感染者」と</span><br />
-      <span :class="$style.underline">濃厚接触</span>をした方<br />
+  <div :class="$style.container">
+    <p :class="$style.heading">
+      <i18n path="{past}の出来ごとと症状" tag="span">
+        <i18n :class="$style.large" tag="span" path="発症前{two}週間以内" place="past">
+          <span :class="$style.numeric" place="two">2</span>
+        </i18n>
+      </i18n>
     </p>
-    <div :class="['mb-4', $style.flexContainer]">
+    <p :class="$style.type">
+      <template v-if="!langsNeedReversedOrder.includes($i18n.locale)">
+        <strong :class="$style.source">{{ $t('「新型コロナウイルス感染者」と') }}</strong>
+        <i18n tag="span" path="{closeContact}をした方" :class="$style.behavior">
+          <em :class="$style.underline" place="closeContact">{{ $t('濃厚接触') }}</em>
+        </i18n>
+      </template>
+      <template v-else>
+        <i18n tag="span" path="{closeContact}をした方" :class="$style.behavior">
+          <em :class="$style.underline" place="closeContact">{{ $t('濃厚接触') }}</em>
+        </i18n>
+        <span :class="$style.source">{{ $t('「新型コロナウイルス感染者」と') }}</span>
+      </template>
+    </p>
+    <div :class="$style.condition">
       <div :class="$style.item">
-        <div class="py-4">
-          {{ $t('発熱') }}
-        </div>
+        <div class="py-4">{{ $t('発熱') }}</div>
       </div>
+      <div :class="$style.item">{{ $t('または') }}</div>
       <div :class="$style.item">
-        {{ $t('または') }}
+        <div class="py-4">{{ $t('呼吸器症状') }}</div>
       </div>
+    </div>
+    <div :class="$style.hr" />
+    <p :class="$style.type">
+      <template v-if="!langsWithoutFlowTitle.includes($i18n.locale)">
+        <strong :class="$style.source">{{ $t('流行地域への渡航・居住歴がある方') }}</strong>
+        <i18n tag="span" :class="$style.behavior" path="{you} か {closeContact}をした方">
+          <em :class="$style.underline" place="you">{{ $t('ご本人') }}</em>
+          <em :class="$style.underline" place="closeContact">{{ $t('濃厚接触') }}</em>
+        </i18n>
+      </template>
+      <template v-else>
+        <i18n tag="span" :class="[$style.behavior, $style.small]" path="travel history from {area}">
+          <em :class="$style.underline" place="area">{{ $t('COVID-19 prevalent area') }}</em>
+        </i18n>
+        <i18n
+          tag="span"
+          :class="[$style.source, $style.small]"
+          path="been {inCloseContact} with returnees"
+        >
+          <em :class="$style.underline" place="inCloseContact">{{ $t('in close contact') }}</em>
+        </i18n>
+      </template>
+    </p>
+    <div :class="$style.condition">
       <div :class="$style.item">
-        <div class="py-4">
-          {{ $t('呼吸器症状') }}
+        <div class="py-4">{{ $t('呼吸器症状') }}</div>
+      </div>
+      <div :class="$style.item">{{ $t('かつ') }}</div>
+      <div :class="$style.item">
+        <div>
+          <i18n tag="span" :class="$style.small" path="発熱{temperature}">
+            <i18n tag="span" path="{tempNum}以上" place="temperature">
+              <span :class="$style.FlowTemperature" place="tempNum">{{ $t('37.5℃') }}</span>
+            </i18n>
+          </i18n>
         </div>
       </div>
     </div>
-    <div :class="['mb-5', $style.hr]" />
-    <p class="mb-5">
-      <span :class="$style.small">流行地域への渡航・居住歴がある方</span><br />
-      <span :class="$style.underline">ご本人</span>か<!--
-   --><span :class="$style.underline">濃厚接触</span>をした方
-    </p>
-    <div :class="['mb-4', $style.flexContainer]">
-      <div :class="$style.item">
-        <div class="py-4">
-          {{ $t('呼吸器症状') }}
-        </div>
-      </div>
-      <div :class="$style.item">
-        {{ $t('かつ') }}
-      </div>
-      <div :class="$style.item">
-        <div :class="['py-4', $style.block]">
-          <span :class="$style.small">発熱</span>
-          <div>
-            37.5℃以上
-          </div>
-        </div>
-      </div>
-    </div>
-    <a
-      v-scroll-to="'#consult'"
-      href="#consult"
-      :class="['pa-5', $style.Advisory]"
-    >
-      <span :class="$style.AdvisoryText">
-        {{ $t('新型コロナ受診相談窓口へ') }}
-      </span>
-      <ArrowForwardIcon :class="$style.AdvisoryIcon" />
+    <a v-scroll-to="'#consult'" href="#consult" :class="$style.button">
+      <span :class="$style.text">{{ $t('新型コロナ受診相談窓口へ') }}</span>
+      <ArrowForwardIcon :class="$style.icon" />
     </a>
   </div>
 </template>
@@ -197,156 +211,203 @@ export default {
 </script>
 
 <style module lang="scss">
-.SpPast {
+// サイドメニューがある場合は(特に601～768付近)
+@function px2vw($px, $vw: 600) {
+  @return $px / $vw * 100vw;
+}
+
+.container {
   color: $gray-2;
-  .Heading {
-    @include lessThan($small) {
-      @include font-size(18);
-    }
-    @include largerThan($small) {
-      @include font-size(24);
-    }
-    text-align: center;
-    margin-bottom: 0.5em;
-    strong {
-      @include lessThan($small) {
-        @include font-size(32);
-      }
-      @include largerThan($small) {
-        @include font-size(40);
-      }
-    }
-    .small {
-      @include lessThan($small) {
-        @include font-size(14);
-      }
-      @include largerThan($small) {
-        @include font-size(20);
-      }
+  font-size: px2vw(22);
+  // override Vuetify styles
+  p {
+    margin-bottom: 0;
+  }
+}
+.heading {
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.35;
+  .large {
+    font-size: px2vw(30);
+  }
+  .numeric {
+    font-size: px2vw(50);
+    margin-right: 0.1em;
+  }
+}
+.type {
+  margin-top: px2vw(20);
+  text-align: center;
+  .source {
+    display: block;
+    color: $green-1;
+    &:last-child {
+      margin-top: px2vw(10);
     }
   }
-  p {
-    @include lessThan($small) {
-      @include font-size(18);
-    }
-    @include largerThan($small) {
-      @include font-size(24);
-    }
-    text-align: center;
+  .behavior {
+    display: block;
+    font-size: px2vw(32);
     font-weight: bold;
-    .small {
-      @include lessThan($small) {
-        @include font-size(14);
-      }
-      @include largerThan($small) {
-        @include font-size(16);
-      }
-      color: $green-1;
+    line-height: 1.35;
+    &:last-child {
+      margin-top: px2vw(5);
     }
     .underline {
-      display: inline-block;
-      border-bottom: $green-1 4px solid;
+      border-bottom: px2vw(4) solid $green-1;
     }
   }
-  .flexContainer {
-    align-items: stretch;
+}
+.condition {
+  margin-top: px2vw(40);
+  align-items: stretch;
+  display: flex;
+  font-weight: bold;
+  justify-content: space-between;
+  .item {
     display: flex;
-    font-weight: bold;
-    @include lessThan($small) {
-      @include font-size(16);
-    }
-    @include largerThan($small) {
-      @include font-size(18);
-    }
-    justify-content: space-between;
-    .item {
-      display: flex;
-      line-height: 1rem;
-      text-align: center;
-      &:nth-child(1),
-      &:nth-child(3) {
-        flex-basis: 40%;
-        > div {
-          border: $green-1 2px solid;
-          border-radius: 5px;
+    text-align: center;
+    min-height: px2vw(92);
+    &:first-child,
+    &:last-child {
+      flex-basis: 35%;
+      > div {
+        padding: px2vw(15) px2vw(10);
+        border: $green-1 px2vw(2) solid;
+        border-radius: px2vw(5);
 
-          // 上下中央寄せ
-          display: flex;
-          flex-basis: 100%;
-          justify-content: center;
-          align-items: center;
+        // 上下中央寄せ
+        display: flex;
+        flex-basis: 100%;
+        justify-content: center;
+        align-items: center;
 
-          // before要素の親要素
-          position: relative;
-          &::before {
-            width: 24px;
-            height: 24px;
-            content: '';
-            background-color: $white;
-            background-image: url(/flow/check_circle-24px.svg);
-            position: absolute;
-            top: -12px;
-            left: 0;
-            right: 0;
-            margin: auto;
-          }
-          &.block {
-            display: block;
-          }
+        // before要素の親要素
+        position: relative;
+        &::before {
+          width: px2vw(30);
+          height: px2vw(30);
+          content: '';
+          background-color: $white;
+          background-image: url(/flow/check_circle-24px.svg);
+          background-size: cover;
+          position: absolute;
+          top: px2vw(-1);
+          left: 0;
+          right: 0;
+          margin: auto;
+          transform: translateY(-50%);
         }
       }
-      &:nth-child(2) {
-        // 上下左右中央寄せ
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-basis: 20%;
+    }
+    &:nth-child(2) {
+      // 上下左右中央寄せ
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-basis: 30%;
+    }
+    .small {
+      font-size: px2vw(18);
+    }
+  }
+}
+.hr {
+  margin-top: px2vw(30);
+  border-bottom: 1px $gray-4 solid;
+  height: 1px;
+  width: 100%;
+}
+.button {
+  margin-top: px2vw(30);
+  padding: 0 px2vw(30) 0 px2vw(36);
+  height: px2vw(96);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffe200;
+  border-radius: 4px;
+  box-shadow: -1px 2px 5px $gray-3;
+  text-decoration: none;
+  font-weight: bold;
+  .text {
+    color: $gray-2;
+    font-size: px2vw(20);
+  }
+  .icon {
+    width: px2vw(45);
+    height: px2vw(45);
+    transform: rotateZ(90deg);
+    display: block;
+  }
+}
+
+@include largerThan($small) {
+  .container {
+    font-size: px2vw(22, 960);
+  }
+  .heading {
+    .large {
+      font-size: px2vw(28, 960);
+    }
+    .numeric {
+      font-size: px2vw(48, 960);
+    }
+  }
+  .type {
+    margin-top: px2vw(20, 960);
+    .source {
+      &:last-child {
+        margin-top: px2vw(10, 960);
+      }
+    }
+    .behavior {
+      font-size: px2vw(30, 960);
+      &:last-child {
+        margin-top: px2vw(5, 960);
+      }
+      .underline {
+        border-bottom: px2vw(4, 960) solid $green-1;
+      }
+    }
+  }
+  .condition {
+    margin-top: px2vw(40, 960);
+    .item {
+      min-height: px2vw(92, 960);
+      &:first-child,
+      &:last-child {
+        > div {
+          padding: px2vw(15, 960) px2vw(10, 960);
+          border: $green-1 px2vw(2, 960) solid;
+          border-radius: px2vw(5, 960);
+
+          &::before {
+            width: px2vw(30, 960);
+            height: px2vw(30, 960);
+            top: px2vw(-1, 960);
+          }
+        }
       }
       .small {
-        @include lessThan($small) {
-          @include font-size(12);
-        }
-        @include largerThan($small) {
-          @include font-size(14);
-        }
+        font-size: px2vw(20, 960);
       }
     }
   }
   .hr {
-    border-bottom: 1px $gray-4 solid;
-    height: 1px;
-    width: 100%;
-    display: block;
+    margin-top: px2vw(30, 960);
   }
-  .Advisory {
-    align-items: center;
-    background-color: #ffe200;
-    border-radius: 4px;
-    box-shadow: -1px 2px 5px $gray-3;
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
-    color: $gray-2;
-    font-weight: bold;
-    &Text {
-      @include lessThan($small) {
-        @include font-size(16);
-      }
-      @include largerThan($small) {
-        @include font-size(20);
-      }
+  .button {
+    margin-top: px2vw(30, 960);
+    padding: 0 px2vw(30, 960) 0 px2vw(36, 960);
+    height: px2vw(96, 960);
+    .text {
+      font-size: px2vw(20, 960);
     }
-    &Icon {
-      @include lessThan($small) {
-        width: 28px;
-        height: 28px;
-      }
-      @include largerThan($small) {
-        width: 45px;
-        height: 45px;
-      }
-      transform: rotateZ(90deg);
-      display: block;
+    .icon {
+      width: px2vw(45, 960);
+      height: px2vw(45, 960);
     }
   }
 }
