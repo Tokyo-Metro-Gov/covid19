@@ -184,7 +184,15 @@
 import ArrowForwardIcon from '@/static/flow/arrow_forward-24px.svg'
 
 export default {
-  components: { ArrowForwardIcon }
+  components: { ArrowForwardIcon },
+  computed: {
+    langsNeedReversedOrder() {
+      return ['en']
+    },
+    langsWithoutFlowTitle() {
+      return ['en', 'zh-cn', 'zh-tw']
+    }
+  }
 }
 </script>
 
