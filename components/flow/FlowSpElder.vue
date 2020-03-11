@@ -51,8 +51,15 @@
       <span><strong>2</strong>日程度</span>続いている
     </p>
 
-    <a v-scroll-to="'#consult'" :class="['pa-5', $style.Link]" href="#consult">
-      {{ $t('新型コロナ受診相談窓口へ') }}
+    <a
+      v-scroll-to="'#consult'"
+      href="#consult"
+      :class="['pa-5', $style.Advisory]"
+    >
+      <span :class="$style.AdvisoryText">
+        {{ $t('新型コロナ受診相談窓口へ') }}
+      </span>
+      <ArrowForwardIcon :class="$style.AdvisoryIcon" />
     </a>
   </div>
 </template>
@@ -154,11 +161,17 @@
 
 <script lang="ts">
 import AccessibleIcon from '@/static/flow/accessible-24px.svg'
+import ArrowForwardIcon from '@/static/flow/arrow_forward-24px.svg'
 import DirectionsWalkIcon from '@/static/flow/directions_walk-24px.svg'
 import PregnantWomanIcon from '@/static/flow/pregnant_woman-24px.svg'
 
 export default {
-  components: { AccessibleIcon, DirectionsWalkIcon, PregnantWomanIcon }
+  components: {
+    AccessibleIcon,
+    ArrowForwardIcon,
+    DirectionsWalkIcon,
+    PregnantWomanIcon
+  }
 }
 </script>
 
@@ -250,31 +263,25 @@ export default {
   }
 }
 
-.Link {
-  @include font-size(18);
-  position: relative;
-  display: block;
-  border-radius: 4px;
+.Advisory {
+  align-items: center;
   background-color: #ffe200;
+  border-radius: 4px;
   box-shadow: -1px 2px 5px $gray-3;
-  color: $gray-2 !important;
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
   text-decoration: none;
-
-  &::after {
-    $imgSize: 35px;
-
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 12px;
-    bottom: 0;
-    margin: auto 0;
-    width: $imgSize;
-    height: $imgSize;
-    background: url(/flow/arrow_forward-24px.svg) no-repeat;
-    background-size: $imgSize;
-    transform: rotate(90deg);
+  color: $gray-2 !important;
+  font-weight: bold;
+  &Text {
+    @include font-size(18);
+    text-align: initial;
+  }
+  &Icon {
+    width: 45px;
+    height: 45px;
+    transform: rotateZ(90deg);
+    display: block;
   }
 }
 </style>
