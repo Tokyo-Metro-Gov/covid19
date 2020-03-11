@@ -9,11 +9,16 @@
       </div>
       <div>
         <p>
-          <span :class="$style.FlowRowEmphasis">
-            <span :class="$style.FlowRowEmphasisDay">4</span>
-            日以上
-          </span>
-          続いている
+          <i18n path="{duration}続いている">
+            <i18n
+              tag="span"
+              place="duration"
+              path="{day}日以上"
+              :class="$style.FlowRowEmphasis"
+            >
+              <span :class="$style.FlowRowEmphasisDay" place="day">4</span>
+            </i18n>
+          </i18n>
         </p>
       </div>
     </div>
@@ -23,10 +28,15 @@
           <img src="/flow/check_circle-24px.svg" />
         </i>
         <p>
-          <span :class="$style.FlowRowConditionSmall">
-            <span :class="$style.FlowRowConditionLarge">風邪</span>
-            のような症状
-          </span>
+          <i18n
+            tag="span"
+            path="{cold}のような症状"
+            :class="$style.FlowRowConditionSmall"
+          >
+            <span :class="$style.FlowRowConditionLarge" place="cold">
+              {{ $t('風邪') }}
+            </span>
+          </i18n>
         </p>
       </div>
       <div :class="$style.FlowRowCondition">
@@ -34,11 +44,17 @@
           <img src="/flow/check_circle-24px.svg" />
         </i>
         <p>
-          <span :class="$style.FlowRowConditionSmall">
-            発熱
-            <span :class="$style.FlowRowConditionLarge">37.5℃</span>
-            以上
-          </span>
+          <i18n
+            tag="span"
+            :class="$style.FlowRowConditionSmall"
+            path="発熱{temperature}"
+          >
+            <i18n tag="span" place="temperature" path="{tempNum}以上">
+              <span :class="$style.FlowRowConditionLarge" place="tempNum">
+                {{ $t('37.5℃') }}
+              </span>
+            </i18n>
+          </i18n>
         </p>
       </div>
       <div :class="$style.FlowRowCondition">
@@ -70,11 +86,16 @@
       </div>
       <div>
         <p>
-          <span :class="$style.FlowRowEmphasis">
-            <span :class="$style.FlowRowEmphasisDay">2</span>
-            日程度
-          </span>
-          続いている
+          <i18n path="{duration}続いている">
+            <i18n
+              tag="span"
+              place="duration"
+              path="{day}日程度"
+              :class="$style.FlowRowEmphasis"
+            >
+              <span :class="$style.FlowRowEmphasisDay" place="day">2</span>
+            </i18n>
+          </i18n>
         </p>
       </div>
     </div>
@@ -90,7 +111,8 @@
     "{day}日程度": "{day}日程度",
     "{cold}のような症状": "{cold}のような症状",
     "風邪": "風邪",
-    "発熱{temperature}以上": "発熱{temperature}以上",
+    "発熱{temperature}": "発熱{temperature}",
+    "{tempNum}以上": "{tempNum}以上",
     "37.5℃": "37.5℃",
     "強いだるさ": "強いだるさ",
     "息苦しさ": "息苦しさ",
@@ -100,12 +122,13 @@
   },
   "en": {
     "一般の方": "People without any specific health conditions",
-    "{duration}続いている": "Having these symptoms for {duration",
+    "{duration}続いている": "Having these symptoms for {duration}",
     "{day}日以上": "{day} consecutive days or more",
     "{day}日程度": "{day} consecutive days",
     "{cold}のような症状": "Having {cold} symptoms",
     "風邪": "cold/flu",
-    "発熱{temperature}以上": "body temperature above {temperature}",
+    "発熱{temperature}": "body temperature {temperature}",
+    "{tempNum}以上": "above {tempNum}",
     "37.5℃": "37.5℃",
     "強いだるさ": "Extreme fatigue",
     "息苦しさ": "Having difficulty when breathing",
@@ -120,7 +143,8 @@
     "{day}日程度": "约{day}天",
     "{cold}のような症状": "有疑似{cold}的症状",
     "風邪": "感冒",
-    "発熱{temperature}以上": "发烧 {temperature} 以上",
+    "発熱{temperature}": "发烧 {temperature}",
+    "{tempNum}以上": "{tempNum} 以上",
     "37.5℃": "37.5℃",
     "強いだるさ": "有强烈倦怠感",
     "息苦しさ": "感到呼吸困难",
@@ -135,7 +159,8 @@
     "{day}日程度": "約{day}天",
     "{cold}のような症状": "疑似{cold}症狀",
     "風邪": "感冒",
-    "発熱{temperature}以上": "發燒 {temperature} 以上",
+    "発熱{temperature}": "發燒 {temperature}",
+    "{tempNum}以上": "{tempNum} 以上",
     "37.5℃": "37.5℃",
     "強いだるさ": "有強烈疲倦感",
     "息苦しさ": "呼吸不順暢",
@@ -150,7 +175,8 @@
     "{day}日程度": "{day}일 동안",
     "{cold}のような症状": "{cold} 비슷한 증상",
     "風邪": "감기와",
-    "発熱{temperature}以上": "{temperature} 이상의 발열",
+    "発熱{temperature}": "{temperature} 발열",
+    "{tempNum}以上": "{tempNum} 이상의",
     "37.5℃": "37.5도",
     "強いだるさ": "극도의 피로감",
     "息苦しさ": "호흡이 어려운 경우",
@@ -165,7 +191,8 @@
     "{day}日程度": "{day}にち くらい",
     "{cold}のような症状": "{cold} が あるひと",
     "風邪": "かぜ",
-    "発熱{temperature}以上": "{temperature}より たかいねつが あるひと",
+    "発熱{temperature}": "{temperature} たかいねつが あるひと",
+    "{tempNum}以上": "{tempNum}より",
     "37.5℃": "37.5℃",
     "強いだるさ": "からだがくるしい",
     "息苦しさ": "いきがくるしい",
