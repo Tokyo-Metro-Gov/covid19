@@ -161,17 +161,13 @@ export default {
   &::after {
     content: '';
     position: absolute;
-    bottom: 15%;
+    bottom: 40%;
     right: -30px;
     z-index: 1;
     display: block;
     width: 46px;
     height: 46px;
     background: url('/flow/flow_arrow.svg') no-repeat;
-  }
-  &.Days::after{
-    bottom: 25%;
-    transform: rotateZ(-45deg);
   }
   &Center::after {
     bottom: 40%;
