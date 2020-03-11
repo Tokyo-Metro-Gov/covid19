@@ -1,6 +1,5 @@
 <template>
   <div class="Flow">
-    <language-selector />
     <div class="Flow-Heading">
       <CovidIcon />
       <h2 class="Flow-Heading-Title">
@@ -62,7 +61,6 @@
 </i18n>
 
 <script>
-import LanguageSelector from '@/components/LanguageSelector.vue'
 import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton'
 import FlowPc from '@/components/flow/FlowPc.vue'
@@ -70,7 +68,6 @@ import FlowSp from '@/components/flow/FlowSp.vue'
 
 export default {
   components: {
-    LanguageSelector,
     CovidIcon,
     PrinterButton,
     FlowPc,
