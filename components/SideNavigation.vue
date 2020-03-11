@@ -271,6 +271,11 @@ export default {
             'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
         },
         {
+          title: this.$t('消費者としての心がけ'),
+          link:
+            'https://www.shouhiseikatu.metro.tokyo.jp/etc/covid19/info20200309.html'
+        },
+        {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
         },
