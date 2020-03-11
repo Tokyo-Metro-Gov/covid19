@@ -80,8 +80,12 @@
     "基礎疾患のある方": "基礎疾患のある方",
     "妊娠中の方": "妊娠中の方",
     "新型コロナ受診相談窓口へ": "新型コロナ受診相談窓口へ"
-  },
-  "en": {
+  }
+}
+</i18n>
+
+<!--
+"en": {
     "{duration}続いている": "Having these symptoms for {duration",
     "{day}日程度": "{day} consecutive days",
     "{cold}のような症状": "Having {cold} symptoms",
@@ -156,8 +160,7 @@
     "妊娠中の方": "おなかに こどもが いるひと",
     "新型コロナ受診相談窓口へ": ""
   }
-}
-</i18n>
+-->
 
 <script lang="ts">
 import AccessibleIcon from '@/static/flow/accessible-24px.svg'
