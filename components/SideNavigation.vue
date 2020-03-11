@@ -76,7 +76,7 @@
     "for Citizens": "市民の皆様へ",
     "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
     "Twitter by mayor kumagai": "熊谷市長 Twitter",
-    "Twitter by Chiba PR": "千葉市公聴広報課 Twitter",
+    "Twitter by Chiba PR": "千葉市広報広聴課 Twitter",
     "Government official website": "千葉市公式ホームページ",
     "About us": "当サイトについて"
   }
