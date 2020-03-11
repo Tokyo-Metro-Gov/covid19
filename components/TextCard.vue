@@ -51,6 +51,11 @@ export default class TextCard extends Vue {
     margin-bottom: 12px;
     a {
       @include card-h1();
+      color: $link !important;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
   &-Body {
