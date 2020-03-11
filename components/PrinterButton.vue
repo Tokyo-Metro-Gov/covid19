@@ -74,7 +74,7 @@ export default {
   }
   &-PrinterIcon {
     margin-top: 8px;
-    width: 18px;
+    width: 25px;
 
     @include largerThan($small) {
       padding-right: 7px;
