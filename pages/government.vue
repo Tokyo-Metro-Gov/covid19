@@ -5,7 +5,10 @@
     </h2>
     <TextCard title="北海道" link="https://stopcovid19.hokkaido.dev/" />
     <TextCard title="東京都" link="https://stopcovid19.metro.tokyo.lg.jp/" />
-    <TextCard title="神奈川県" link="https://stopcovid19.kanagawa.work/" />
+    <TextCard
+      title="神奈川県"
+      link="https://www.pref.kanagawa.jp/osirase/1369/"
+    />
   </div>
 </template>
 
