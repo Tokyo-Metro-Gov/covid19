@@ -19,7 +19,7 @@
 * 請參加 `#covid19` 頻道。
 
 ## 給參加者
-* 進行參與開發之前、請先閱讀[Principle/行動規範](CODE_OF_CONDUCT_ZH.md) 。
+* 進行參與開發之前、請先閱讀[Principle/行動規範](CODE_OF_CONDUCT_ZH_TW.md) 。
 * 交流時也請先確認 Code for Japan 的[行動規範（日文網頁）](https://github.com/codeforjapan/codeofconduct) 。
 * 如果有自己可以做而且沒有被指派（assign）的 Issue 的話、請在 Issue 下回應「やります！（我來做）」後再開始開發。
 * [關於 good first issue 標籤](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) 是推薦給新手的。
@@ -36,7 +36,7 @@
 ## 開發相關的資訊
 * 開發環境 (Dev.) https://dev-covid19-tokyo.netlify.com/
 * Stage 站 https://stg-covid19-tokyo.netlify.com/
-* 正式環境 https://covid19-tokyo.netlify.com/
+* 正式環境 https://stopcovid19.metro.tokyo.lg.jp/
 * [設計稿](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 
 也很歡迎更新此文件！
