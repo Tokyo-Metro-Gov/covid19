@@ -10,7 +10,7 @@
       @mouseleave="mouseleave"
     >
       <div class="PrinterButton-PrinterIcon">
-        <PrinterOutlineIcon v-if="hover" />
+        <PrinterWhiteIcon v-if="hover" />
         <PrinterIcon v-else />
       </div>
       <span class="PrinterButton-Text">
@@ -30,12 +30,12 @@
 
 <script>
 import PrinterIcon from '@/static/printer.svg'
-import PrinterOutlineIcon from '@/static/printer_outline.svg'
+import PrinterWhiteIcon from '@/static/printer-white.svg'
 
 export default {
   components: {
     PrinterIcon,
-    PrinterOutlineIcon
+    PrinterWhiteIcon
   },
   props: {
     wrapperClass: {
