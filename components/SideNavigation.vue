@@ -64,9 +64,18 @@
             <img src="/facebook.png" alt="Facebook" />
           </a>
         </div>
-        <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
-          Reserved.
+        <small class="SideNavigation-Copyright">
+          {{ $t('このサイトの内容物は') }}
+          <a
+            rel="license"
+            target="_blank"
+            href="http://creativecommons.org/licenses/by/4.0/"
+          >
+            {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
+          </a>
+          {{ $t('の下に提供されています。') }}
+          <br />
+          2020 Tokyo Metropolitan Government
         </small>
       </div>
     </div>
@@ -90,7 +99,10 @@
     "東京都主催等 中止又は延期するイベント等": "東京都主催等 中止又は延期するイベント等",
     "東京都公式ホームページ": "東京都公式ホームページ",
     "知事からのメッセージ": "知事からのメッセージ",
-    "当サイトについて": "当サイトについて"
+    "当サイトについて": "当サイトについて",
+    "このサイトの内容物は": "このサイトの内容物は",
+    "クリエイティブ・コモンズ 表示 4.0 ライセンス": "クリエイティブ・コモンズ 表示 4.0 ライセンス",
+    "の下に提供されています。": "の下に提供されています。"
   },
   "en": {
     "サイドメニュー項目を開く": "Open side menu items",
@@ -107,7 +119,10 @@
     "東京都主催等 中止又は延期するイベント等": "Cancelled or Postponed public events (in Japanese)",
     "東京都公式ホームページ": "Official website of the Tokyo Metropolitan Government (in Japanese)",
     "知事からのメッセージ": "Message from Governor Koike on COVID-19 (in Japanese)",
-    "当サイトについて": "About the website"
+    "当サイトについて": "About the website",
+    "このサイトの内容物は": "Content on This Site is Licensed Under a",
+    "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
+    "の下に提供されています。": ""
   },
   "zh-cn": {
     "サイドメニュー項目を開く": "打开侧栏菜单",
@@ -124,7 +139,10 @@
     "東京都主催等 中止又は延期するイベント等": "延期或取消的大型活动（仅限东京都主办等）（内容为日语）",
     "東京都公式ホームページ": "东京都官方网站（内容为日语）",
     "知事からのメッセージ": "东京都知事寄语（内容为日语）",
-    "当サイトについて": "关于本站"
+    "当サイトについて": "关于本站",
+    "このサイトの内容物は": "Content on This Site is Licensed Under a",
+    "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
+    "の下に提供されています。": ""
   },
   "zh-tw": {
     "サイドメニュー項目を開く": "打開側邊選單",
@@ -141,7 +159,10 @@
     "東京都主催等 中止又は延期するイベント等": "大型活動延期或取消公告（限東京都主、協辦）（日文網站）",
     "東京都公式ホームページ": "東京都官方網站（日文網站）",
     "知事からのメッセージ": "東京都知事的話（日文網站）",
-    "当サイトについて": "關於本站"
+    "当サイトについて": "關於本站",
+    "このサイトの内容物は": "Content on This Site is Licensed Under a",
+    "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
+    "の下に提供されています。": ""
   },
   "ko": {
     "サイドメニュー項目を開く": "사이트 메뉴를 열기",
@@ -158,7 +179,10 @@
     "東京都主催等 中止又は延期するイベント等": "대규모 행사 연기 또는 취소 (일본어)",
     "東京都公式ホームページ": "도쿄도청 공식 사이트 (일본어)",
     "知事からのメッセージ": "코로나19에 대한 도쿄 도지사의 메세지 (일본어)",
-    "当サイトについて": "사이트 소개"
+    "当サイトについて": "사이트 소개",
+    "このサイトの内容物は": "Content on This Site is Licensed Under a",
+    "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
+    "の下に提供されています。": ""
   },
   "ja-basic": {
     "サイドメニュー項目を開く": "なにかしりたいときに ひだりの サイドメニュー ボタンを おす",
@@ -175,7 +199,10 @@
     "東京都主催等 中止又は延期するイベント等": "コロナウイルスのため やめた あつまり",
     "東京都公式ホームページ": "とうきょうとの ウェブサイト",
     "知事からのメッセージ": "えらいひとからの ことば",
-    "当サイトについて": "この ウェブサイトについて"
+    "当サイトについて": "この ウェブサイトについて",
+    "このサイトの内容物は": "この ウェブサイトの ないようは",
+    "クリエイティブ・コモンズ 表示 4.0 ライセンス": "クリエイティブ・コモンズ 表示 4.0 ライセンス",
+    "の下に提供されています。": "で ていきょう します"
   }
 }
 </i18n>
