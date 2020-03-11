@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div :class="$style.FlowCard">
+    <h3 :class="['mb-4', $style.FlowCardHeading]">
+      {{ $t('新型コロナウイルス感染症にかかる相談窓口について') }}
+    </h3>
     <div :class="$style.FlowCard">
-      <h3 :class="$style.FlowCardHeading">
-        {{ $t('新型コロナウイルス感染症にかかる相談窓口について') }}
-      </h3>
       <flow-sp-past />
     </div>
     <div :class="$style.FlowCard">
@@ -86,6 +86,7 @@ export default {
   &GrayBg {
     background-color: $gray-5;
     box-shadow: none;
+    border: none !important; // FIXME: card-containerにてimportantが指定されている
   }
 }
 </style>

@@ -10,7 +10,7 @@
     </p>
     <div :class="['mb-4', $style.flexContainer]">
       <div :class="$style.item">
-        <div>
+        <div class="py-4">
           {{ $t('発熱') }}
         </div>
       </div>
@@ -18,7 +18,7 @@
         {{ $t('または') }}
       </div>
       <div :class="$style.item">
-        <div>
+        <div class="py-4">
           {{ $t('呼吸器症状') }}
         </div>
       </div>
@@ -31,7 +31,7 @@
     </p>
     <div :class="['mb-4', $style.flexContainer]">
       <div :class="$style.item">
-        <div>
+        <div class="py-4">
           {{ $t('呼吸器症状') }}
         </div>
       </div>
@@ -39,7 +39,7 @@
         {{ $t('かつ') }}
       </div>
       <div :class="$style.item">
-        <div :class="['pa-2', $style.block]">
+        <div :class="['py-4', $style.block]">
           <span :class="$style.small">発熱</span>
           <div>
             37.5℃以上
@@ -50,9 +50,12 @@
     <a
       v-scroll-to="'#consult'"
       href="#consult"
-      :class="['pa-5', $style.counter]"
+      :class="['pa-5', $style.Advisory]"
     >
-      {{ $t('新型コロナ受診相談窓口へ') }}
+      <span :class="$style.AdvisoryText">
+        {{ $t('新型コロナ受診相談窓口へ') }}
+      </span>
+      <ArrowForwardIcon :class="$style.AdvisoryIcon" />
     </a>
   </div>
 </template>
@@ -135,26 +138,59 @@
 }
 </i18n>
 
+<script lang="ts">
+import ArrowForwardIcon from '@/static/flow/arrow_forward-24px.svg'
+
+export default {
+  components: { ArrowForwardIcon }
+}
+</script>
+
 <style module lang="scss">
 .SpPast {
   color: $gray-2;
   .Heading {
-    @include font-size(20);
+    @include lessThan($small) {
+      @include font-size(18);
+    }
+    @include largerThan($small) {
+      @include font-size(24);
+    }
     text-align: center;
     margin-bottom: 0.5em;
     strong {
-      @include font-size(32);
+      @include lessThan($small) {
+        @include font-size(32);
+      }
+      @include largerThan($small) {
+        @include font-size(40);
+      }
     }
     .small {
-      @include font-size(16);
+      @include lessThan($small) {
+        @include font-size(14);
+      }
+      @include largerThan($small) {
+        @include font-size(20);
+      }
     }
   }
   p {
-    @include font-size(20);
+    @include lessThan($small) {
+      @include font-size(18);
+    }
+    @include largerThan($small) {
+      @include font-size(24);
+    }
     text-align: center;
     font-weight: bold;
     .small {
-      @include font-size(16);
+      @include lessThan($small) {
+        @include font-size(14);
+      }
+      @include largerThan($small) {
+        @include font-size(16);
+      }
       color: $green-1;
     }
     .underline {
@@ -163,24 +199,30 @@
     }
   }
   .flexContainer {
+    align-items: stretch;
     display: flex;
     font-weight: bold;
-    @include font-size(18);
+    @include lessThan($small) {
+      @include font-size(16);
+    }
+    @include largerThan($small) {
+      @include font-size(18);
+    }
     justify-content: space-between;
     .item {
-      @include font-size(18);
+      display: flex;
       line-height: 1rem;
       text-align: center;
       &:nth-child(1),
       &:nth-child(3) {
-        width: 7rem;
+        flex-basis: 40%;
         > div {
-          height: 3.5rem;
           border: $green-1 2px solid;
           border-radius: 5px;
 
           // 上下中央寄せ
           display: flex;
+          flex-basis: 100%;
           justify-content: center;
           align-items: center;
 
@@ -204,12 +246,19 @@
         }
       }
       &:nth-child(2) {
-        // 上下中央寄せ
+        // 上下左右中央寄せ
         display: flex;
         align-items: center;
+        justify-content: center;
+        flex-basis: 20%;
       }
       .small {
-        @include font-size(12);
+        @include lessThan($small) {
+          @include font-size(12);
+        }
+        @include largerThan($small) {
+          @include font-size(14);
+        }
       }
     }
   }
@@ -219,28 +268,35 @@
     width: 100%;
     display: block;
   }
-  .counter {
+  .Advisory {
+    align-items: center;
     background-color: #ffe200;
     border-radius: 4px;
     box-shadow: -1px 2px 5px $gray-3;
-    display: block;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
     text-decoration: none;
     color: $gray-2;
     font-weight: bold;
-    @include font-size(18);
-    &::after {
-      width: 45px;
-      height: 45px;
-      background-image: url(/flow/arrow_forward-24px.svg);
-      background-position: right center;
-      background-repeat: no-repeat;
+    &Text {
+      @include lessThan($small) {
+        @include font-size(16);
+      }
+      @include largerThan($small) {
+        @include font-size(20);
+      }
+    }
+    &Icon {
+      @include lessThan($small) {
+        width: 28px;
+        height: 28px;
+      }
+      @include largerThan($small) {
+        width: 45px;
+        height: 45px;
+      }
       transform: rotateZ(90deg);
-      content: '';
       display: block;
-      position: absolute;
-      right: 8px;
-      top: 4px;
     }
   }
 }
