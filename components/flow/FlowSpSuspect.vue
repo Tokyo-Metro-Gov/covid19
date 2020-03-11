@@ -1,76 +1,142 @@
 <template>
   <div :class="$style.Suspect">
-    <div :class="$style.Targets">
+    <div :class="['mb-5', $style.Targets]">
       <div :class="$style.TargetsItem">
-        <img
-          src="/flow/sentiment_very_dissatisfied-24px.svg"
-          alt="不安に思う方"
+        <SentimentIcon
+          :class="['mb-n4', $style.TargetsItemImg]"
+          aria-hidden="true"
         />
         <div>
-          不安に思う方
+          {{ $t('不安に思う方') }}
         </div>
       </div>
     </div>
 
-    <ul :class="$style.Conditions">
-      <li :class="$style.ConditionsItem">
-        微熱
+    <ul :class="['mb-5', $style.Conditions]">
+      <li :class="['py-4', $style.ConditionsItem]">
+        {{ $t('微熱') }}
       </li>
-      <li :class="$style.ConditionsItem">
-        軽い咳
+      <li :class="['py-4', $style.ConditionsItem]">
+        {{ $t('軽い咳') }}
       </li>
-      <li :class="[$style.ConditionsItem, $style.ConditionsItemLarge]">
-        感染の不安
+      <li :class="['py-4', $style.ConditionsItem, $style.ConditionsItemLarge]">
+        {{ $t('感染の不安') }}
       </li>
     </ul>
 
-    <div :class="$style.CallCenter">
+    <div :class="['mb-3', $style.CallCenter]">
       <div :class="$style.CallCenterName">
-        新型コロナコールセンター
+        {{ $t('新型コロナコールセンター') }}
       </div>
       <div :class="$style.CallCenterTime">
-        午前９時から午後９時（土日祝含む）
+        {{ $t('午前9時から午後9時（土日祝含む）') }}
       </div>
     </div>
 
-    <div :class="$style.Phone">
+    <div :class="['mb-4', $style.Phone]">
       <div :class="$style.PhoneItem">
-        <img src="/flow/phone-24px.svg" alt="phone-24px" />
+        <PhoneIcon :class="$style.PhoneItemImg" alt="Phone" />
         <a href="tel:0570550571">
           0570-550571
         </a>
       </div>
     </div>
 
-    <a :class="$style.Link" href="#consult">
-      専門的な助言が必要な場合
+    <a
+      v-scroll-to="'#consult'"
+      href="#consult"
+      :class="['pa-5', $style.Advisory]"
+    >
+      <span :class="$style.AdvisoryText">
+        {{ $t('専門的な助言が必要な場合') }}
+      </span>
+      <ArrowForwardIcon :class="$style.AdvisoryIcon" />
     </a>
   </div>
 </template>
 
+<i18n>
+{
+  "ja": {
+    "不安に思う方": "不安に思う方",
+    "微熱": "微熱",
+    "軽い咳": "軽い咳",
+    "感染の不安": "感染の不安",
+    "新型コロナコールセンター": "新型コロナコールセンター",
+    "午前9時から午後9時（土日祝含む）": "午前9時から午後9時（土日祝含む）",
+    "専門的な助言が必要な場合": "専門的な助言が必要な場合"
+  },
+  "en": {
+    "不安に思う方": "For those who suspect they have COVID-19 infection",
+    "微熱": "Having slight fever",
+    "軽い咳": "Having minor coughs",
+    "感染の不安": "If you suspect you have COVID-19",
+    "新型コロナコールセンター": "COVID-19 Telephone Advisory Center (Support in English, Chinese, Korean and Japanese)",
+    "午前9時から午後9時（土日祝含む）": "9:00 am - 9:00 pm(7 days a week)",
+    "専門的な助言が必要な場合": "If you need advice from an expert"
+  },
+  "zh-cn": {
+    "不安に思う方": "如果您感到不安",
+    "微熱": "发低烧",
+    "軽い咳": "有轻微的咳嗽症状",
+    "感染の不安": "怀疑自己感染新冠肺炎",
+    "新型コロナコールセンター": "新冠肺炎服务专线（提供中文、英语、日语、韩语服务）",
+    "午前9時から午後9時（土日祝含む）": "上午 9 点至晚上 9 点（含周六日及节假日）",
+    "専門的な助言が必要な場合": "如果您需要专业的建议"
+  },
+  "zh-tw": {
+    "不安に思う方": "若您感到不適",
+    "微熱": "輕微發燒",
+    "軽い咳": "輕微咳嗽",
+    "感染の不安": "覺得自己可能感染新型冠狀病毒",
+    "新型コロナコールセンター": "新型冠狀病毒肺炎服務專線（提供中文、英文、日文、韓文服務）",
+    "午前9時から午後9時（土日祝含む）": "早上 9 點到晚上 9 點（含週末例假日）",
+    "専門的な助言が必要な場合": "若您需要專業建議"
+  },
+  "ko": {
+    "不安に思う方": "코로나19가 의심되는 경우",
+    "微熱": "미열 증상",
+    "軽い咳": "가벼운 기침",
+    "感染の不安": "코로나19가 의심된다면",
+    "新型コロナコールセンター": "코로나19 콜센터(영어, 중국어, 한국어, 일본어 서비스)",
+    "午前9時から午後9時（土日祝含む）": "오전 9:00 - 오후 9:00(매일)",
+    "専門的な助言が必要な場合": "전문적 상담이 필요할 경우"
+  },
+  "ja-basic": {
+    "不安に思う方": "ふあん、しんぱい な ひと",
+    "微熱": "ちょっと ねつが あるひと",
+    "軽い咳": "ちょっと せきがある",
+    "感染の不安": "びょうきが こわい",
+    "新型コロナコールセンター": "あたらしい コロナについて でんわ できるところ",
+    "午前9時から午後9時（土日祝含む）": "まいにち あさ の ごぜん９じ～よる の ごご９じまで（やすみ の ひも やっています）",
+    "専門的な助言が必要な場合": "コロナをよくしっているひとから くわしい はなし を ききたい とき"
+  }
+}
+</i18n>
+
+<script lang="ts">
+import ArrowForwardIcon from '@/static/flow/arrow_forward-24px.svg'
+import PhoneIcon from '@/static/flow/phone-24px.svg'
+import SentimentIcon from '@/static/flow/sentiment_very_dissatisfied-24px.svg'
+
+export default {
+  components: { ArrowForwardIcon, PhoneIcon, SentimentIcon }
+}
+</script>
+
 <style module lang="scss">
 .Suspect {
-  @include card-container();
-  padding: 30px 20px;
-  margin-bottom: 20px;
-  font-weight: 600;
+  font-weight: bold;
   color: $gray-2;
   text-align: center;
 }
 .Targets {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0 4px !important;
-  list-style: none;
   &Item {
-    $imgSize: 40px;
-    @include font-size(14);
-    margin-bottom: 14px;
-    font-weight: 700;
+    $imgSize: 2rem;
+    @include font-size(16);
+    font-weight: bold;
     line-height: $imgSize;
-    & img {
-      margin-right: 4px;
+    &Img {
       width: $imgSize;
     }
   }
@@ -78,22 +144,25 @@
 .Conditions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0 4px !important;
+  justify-content: space-between;
+  padding-left: 0 !important; // FIXME: ulを使用している関係で、paddingを打ち消す必要がある
   &Item {
-    @include font-size(14);
+    @include lessThan($small) {
+      @include font-size(16);
+    }
+    @include largerThan($small) {
+      @include font-size(18);
+    }
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-basis: 26%;
-    padding: 16px;
-    margin: 4px 0 13px;
     border: 2px solid $green-1 !important;
     border-radius: 4px;
     line-height: 1;
+    flex-basis: 28%;
     &::before {
-      $imgSize: 20px;
+      $imgSize: 24px;
       content: '';
       position: absolute;
       top: -13px;
@@ -112,61 +181,73 @@
 }
 .CallCenter {
   &Name {
-    margin-top: 16px;
-    @include font-size(18);
+    @include lessThan($small) {
+      @include font-size(20);
+    }
+    @include largerThan($small) {
+      @include font-size(22);
+    }
   }
   &Time {
-    margin-bottom: 16px;
-    @include font-size(14);
+    @include lessThan($small) {
+      @include font-size(14);
+    }
+    @include largerThan($small) {
+      @include font-size(16);
+    }
   }
 }
 .Phone {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0 4px !important;
-  list-style: none;
   &Item {
-    $imgSize: 36px;
-    @include font-size(28);
-    margin-bottom: 14px;
-    font-weight: 700;
+    $imgSize: 2rem;
+    @include font-size(24);
+    font-weight: bold;
     line-height: $imgSize;
-    & img {
-      margin-right: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &Img {
       width: $imgSize;
     }
     a {
       color: $gray-2;
       text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
-.Link {
-  @include font-size(14);
-  position: relative;
-  display: block;
-  margin: 23px 4px 5px;
-  padding: 16px 20px;
-  border-radius: 4px;
+.Advisory {
+  align-items: center;
   background-color: #ffe200;
-  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
-  color: inherit !important;
-  text-align: left;
+  border-radius: 4px;
+  box-shadow: -1px 2px 5px $gray-3;
+  display: flex;
+  justify-content: space-between;
   text-decoration: none;
-  &::after {
-    $imgSize: 35px;
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 12px;
-    bottom: 0;
-    margin: auto 0;
-    width: $imgSize;
-    height: $imgSize;
-    background: url(/flow/arrow_forward-24px.svg) no-repeat;
-    background-size: $imgSize;
-    transform: rotate(90deg);
+  color: $gray-2 !important;
+  font-weight: bold;
+  &Text {
+    @include lessThan($small) {
+      @include font-size(16);
+    }
+    @include largerThan($small) {
+      @include font-size(20);
+    }
+    text-align: initial;
+  }
+  &Icon {
+    @include lessThan($small) {
+      width: 28px;
+      height: 28px;
+    }
+    @include largerThan($small) {
+      width: 45px;
+      height: 45px;
+    }
+    transform: rotateZ(90deg);
+    display: block;
   }
 }
 </style>

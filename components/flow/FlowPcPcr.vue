@@ -3,24 +3,71 @@
     <div :class="$style.actionArea">
       <div>
         <p :class="$style.h1">
-          PCR検査<span :class="$style.small">※</span>
+          {{ $t('PCR検査') }}
+          <span :class="$style.small">{{ $t('※') }}</span>
         </p>
         <p :class="$style.content">
-          東京都健康安全<br />
-          研究センター等
+          {{ $t('東京都健康安全研究センター等') }}
         </p>
       </div>
     </div>
     <div :class="$style.resultArea">
       <div :class="[$style.label, $style.ResultLabel]">
-        陰性
+        {{ $t('陰性') }}
       </div>
       <div :class="[$style.label, $style.ResultLabel, $style.positive]">
-        陽性
+        {{ $t('陽性') }}
       </div>
     </div>
   </div>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "PCR検査": "PCR検査",
+    "※": "※",
+    "東京都健康安全研究センター等": "東京都健康安全研究センター等",
+    "陰性": "陰性",
+    "陽性": "陽性"
+  },
+  "en": {
+    "PCR検査": "PCR diagnostic test",
+    "※": "*",
+    "東京都健康安全研究センター等": "Tokyo Metropolitan Institute of Public Health or other facilities",
+    "陰性": "Negative",
+    "陽性": "Positive"
+  },
+  "zh-cn": {
+    "PCR検査": "PCR检测",
+    "※": "※",
+    "東京都健康安全研究センター等": "东京都健康安全研究中心等",
+    "陰性": "阴性",
+    "陽性": "阳性"
+  },
+  "zh-tw": {
+    "PCR検査": "PCR檢驗",
+    "※": "※",
+    "東京都健康安全研究センター等": "東京都健康安全研究中心等",
+    "陰性": "陰性",
+    "陽性": "陽性"
+  },
+  "ko": {
+    "PCR検査": "PCR 진단 검사",
+    "※": "※",
+    "東京都健康安全研究センター等": "도쿄도청 건강 안전 연구 센터 등",
+    "陰性": "음성",
+    "陽性": "양성"
+  },
+  "ja-basic": {
+    "PCR検査": "（コロナか しらべる ための）PCRけんさ",
+    "※": "※",
+    "東京都健康安全研究センター等": "とうきょうと けんこうあんぜん けんきゅう せんたー など",
+    "陰性": "コロナに かんせん していません",
+    "陽性": "コロナに かんせん しています"
+  }
+}
+</i18n>
 
 <style module lang="scss">
 .FlowPcPcr {
@@ -30,6 +77,7 @@
   justify-content: space-between;
   padding: 20px 30px;
   text-align: center;
+  height: 100%;
   .actionArea {
     flex-grow: 1;
     margin-right: 10%;
@@ -60,6 +108,9 @@
 
   .resultArea {
     flex-basis: 48%;
+    flex-direction: column;
+    display: flex;
+    margin: auto 0;
 
     .label + .label {
       margin-top: 30px;
@@ -71,7 +122,7 @@
   border-radius: 4px;
   border: 2px solid $green-1;
   line-height: 1;
-  padding: 0.7em 0;
+  padding: 2.5rem 0.1rem;
 
   &.positive {
     background: $green-1;

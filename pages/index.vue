@@ -1,6 +1,5 @@
 <template>
   <div class="MainPage">
-    <language-selector />
     <page-header
       :icon="headerItem.icon"
       :title="headerItem.title"
@@ -99,6 +98,15 @@
           :date="metroGraph.date"
         />
       </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <agency-bar-chart
+          title="入庁舎数の推移"
+          :title-id="'agency'"
+          :chart-id="'agency'"
+          :url="''"
+          :unit="'人'"
+        />
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -117,7 +125,7 @@
     "新型コロナ受診相談窓口相談件数": "新型コロナ受診相談窓口相談件数",
     "都営地下鉄の利用者数の推移": "都営地下鉄の利用者数の推移",
     "都内発生（疑い例・接触者調査）": "都内発生（疑い例・接触者調査）",
-    "その他（チャーター便・クルーズ便）": "その他（チャーター便・クルーズ便）",
+    "その他（チャーター便・クルーズ船）": "その他（チャーター便・クルーズ船）",
     "{date}の累計": "{date}の累計",
     "期間: {duration}": "期間: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "{duration}の利用者数との相対値: {percentage}",
@@ -137,11 +145,12 @@
     "都内": "都内",
     "埼玉県": "埼玉県",
     "湖南省長沙市": "湖南省長沙市",
-    "湖北省武漢市": "",
+    "湖北省武漢市": "湖北省武漢市",
     "{age}代": "{age}代",
     "10歳未満": "10歳未満",
     "男性": "男性",
-    "女性": "女性"
+    "女性": "女性",
+    "退院※": "退院※"
   },
   "en": {
     "都内の最新感染動向": "Latest updates on COVID-19 in Tokyo",
@@ -155,7 +164,7 @@
     "新型コロナ受診相談窓口相談件数": "Number of inquiries to combined telephone advisory center",
     "都営地下鉄の利用者数の推移": "The predicted number of Toei subway passengers",
     "都内発生（疑い例・接触者調査）": "Emerged in Tokyo (Suspected cases or contactees)",
-    "その他（チャーター便・クルーズ便）": "Others (Returnees or Cruise ship passengers)",
+    "その他（チャーター便・クルーズ船）": "Others (Returnees or Cruise ship passengers)",
     "{date}の累計": "Cumulative total as of {date}",
     "期間: {duration}": "Period: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "Relative value based on the number of users {duration}: {percentage}",
@@ -175,11 +184,12 @@
     "都内": "Tokyo",
     "埼玉県": "Saitama",
     "湖南省長沙市": "Changsha, Hunan Province",
-    "湖北省武漢市": "",
+    "湖北省武漢市": "Wuhan City, Hubei Province ",
     "{age}代": "{age}s",
     "10歳未満": "Under 10",
     "男性": "Male",
-    "女性": "Female"
+    "女性": "Female",
+    "退院※": "Discharge*"
   },
   "zh-cn": {
     "都内の最新感染動向": "东京都最新新型冠状病毒感染情况",
@@ -193,7 +203,7 @@
     "新型コロナ受診相談窓口相談件数": "新冠肺炎就诊咨询窗口的咨询数",
     "都営地下鉄の利用者数の推移": "都营地下铁搭乘人数趋势",
     "都内発生（疑い例・接触者調査）": "东京都案例（疑似感染、接触者调查）",
-    "その他（チャーター便・クルーズ便）": "其它（包机、游轮）",
+    "その他（チャーター便・クルーズ船）": "其它（包机、游轮）",
     "{date}の累計": "截至 {date}",
     "期間: {duration}": "期间: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "基于{duration}间乘客数的相对值: {percentage}",
@@ -213,11 +223,12 @@
     "都内": "东京都",
     "埼玉県": "埼玉县",
     "湖南省長沙市": "湖南省长沙市",
-    "湖北省武漢市": "",
+    "湖北省武漢市": "湖北省武汉市",
     "{age}代": "{age}多岁",
     "10歳未満": "不到10岁",
     "男性": "男性",
-    "女性": "女性"
+    "女性": "女性",
+    "退院※": "出院※"
   },
   "zh-tw": {
     "都内の最新感染動向": "東京都最新新型冠狀病毒感染情形",
@@ -231,7 +242,7 @@
     "新型コロナ受診相談窓口相談件数": "就診窗口諮詢數",
     "都営地下鉄の利用者数の推移": "都營地下鐵搭乘人數走勢",
     "都内発生（疑い例・接触者調査）": "東京都案例（疑似感染、接觸者調查）",
-    "その他（チャーター便・クルーズ便）": "其它（包機、遊輪）",
+    "その他（チャーター便・クルーズ船）": "其它（包機、遊輪）",
     "{date}の累計": "累計至 {date}",
     "期間: {duration}": "期間: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "基於{duration}的搭乘人數之相對數值: {percentage}",
@@ -251,11 +262,12 @@
     "都内": "東京都",
     "埼玉県": "埼玉縣",
     "湖南省長沙市": "湖南省長沙市",
-    "湖北省武漢市": "",
+    "湖北省武漢市": "湖北省武漢市",
     "{age}代": "{age}多歲",
     "10歳未満": "10歲以下",
     "男性": "男性",
-    "女性": "女性"
+    "女性": "女性",
+    "退院※": "出院※"
   },
   "ko": {
     "都内の最新感染動向": "도쿄도 코로나19 실시간 현황",
@@ -269,7 +281,7 @@
     "新型コロナ受診相談窓口相談件数": "코로나19 진찰 상담 창구 상담 건수",
     "都営地下鉄の利用者数の推移": "도에이 지하철 의 예상 승객 수",
     "都内発生（疑い例・接触者調査）": "도쿄 지역사회 발생 경우（의심환자, 접촉자）",
-    "その他（チャーター便・クルーズ便）": "기타（귀국자 또는 크루즈 승객 경우）",
+    "その他（チャーター便・クルーズ船）": "기타（귀국자 또는 크루즈 승객 경우）",
     "{date}の累計": "{date}의 누적 수",
     "期間: {duration}": "기간: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "{duration}의 이용자수와의 상대치: {percentage}",
@@ -293,7 +305,8 @@
     "{age}代": "{age}대",
     "10歳未満": "10살 미만",
     "男性": "남성",
-    "女性": "여성"
+    "女性": "여성",
+    "退院※": "후베이성 우한시"
   },
   "ja-basic": {
     "都内の最新感染動向": "とうきょうとでの コロナウイルスの あたらしいじょうほう",
@@ -307,7 +320,7 @@
     "新型コロナ受診相談窓口相談件数": "コロナのことで とうきょうと に そうだんした ひとの かず",
     "都営地下鉄の利用者数の推移": "とえいちかてつを つかった ひとの かず",
     "都内発生（疑い例・接触者調査）": "とうきょうとで びょうき かもしれない ひと",
-    "その他（チャーター便・クルーズ便）": "そのほか",
+    "その他（チャーター便・クルーズ船）": "そのほか",
     "{date}の累計": "{date} ぜんぶで",
     "期間: {duration}": "きかん: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "ひとの かずを くらべると: {percentage}",
@@ -327,20 +340,21 @@
     "都内": "とうきょうと の なか",
     "埼玉県": "さいたまけん",
     "湖南省長沙市": "ちゅうごく こなん しょう ちょうさ し",
-    "湖北省武漢市": "",
+    "湖北省武漢市": "ちゅうごく こほく しょう ぶかん し",
     "{age}代": "{age}さい",
     "10歳未満": "10さい より ちいさい ひと",
     "男性": "おとこ の ひと",
-    "女性": "おんな の ひと"
+    "女性": "おんな の ひと",
+    "退院※": "たいいん※"
   }
 }
 </i18n>
 
 <script>
-import LanguageSelector from '@/components/LanguageSelector.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import MetroBarChart from '@/components/MetroBarChart.vue'
+import AgencyBarChart from '@/components/AgencyBarChart.vue'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
@@ -356,10 +370,10 @@ import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
 
 export default {
   components: {
-    LanguageSelector,
     PageHeader,
     TimeBarChart,
     MetroBarChart,
+    AgencyBarChart,
     TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
@@ -374,7 +388,8 @@ export default {
     const patientsTable = formatTable(Data.patients.data)
     // 陽性患者の属性 ヘッダー翻訳
     for (const header of patientsTable.headers) {
-      header.text = this.$t(header.text)
+      header.text =
+        header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
     }
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
@@ -425,7 +440,7 @@ export default {
     ]
     const inspectionsItems = [
       this.$t('都内発生（疑い例・接触者調査）'),
-      this.$t('その他（チャーター便・クルーズ便）')
+      this.$t('その他（チャーター便・クルーズ船）')
     ]
     const inspectionsLabels = Data.inspections_summary.labels
     // 死亡者数
