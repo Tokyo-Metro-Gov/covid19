@@ -181,10 +181,7 @@ export default {
               return `${casesTotal} ${unit} (${labelTokyo}: ${casesTokyo} / ${labelOthers}: ${casesOthers})`
             },
             title(tooltipItem, data) {
-              return data.labels[tooltipItem[0].index].replace(
-                /(\w+)\/(\w+)/,
-                '$1月$2日'
-              )
+              return data.labels[tooltipItem[0].index]
             }
           }
         },
