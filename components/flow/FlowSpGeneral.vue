@@ -8,13 +8,13 @@
     </div>
 
     <ul :class="$style.Conditions">
-      <li :class="$style.ConditionsItem">
+      <li :class="['py-4', $style.ConditionsItem]">
         <span>
           <!-- eslint-disable-next-line prettier/prettier -->
           <span :class="$style.ConditionsItemLarger">風邪</span>のような症状
         </span>
       </li>
-      <li :class="$style.ConditionsItem">
+      <li :class="['py-4', $style.ConditionsItem]">
         <!-- eslint-disable-next-line prettier/prettier -->
         <span>発熱
           <span
@@ -27,10 +27,10 @@
           </span>
         </span>
       </li>
-      <li :class="[$style.ConditionsItem, $style.ConditionsItemLarger]">
+      <li :class="['py-3', $style.ConditionsItem, $style.ConditionsItemLarger]">
         {{ $t('強いだるさ') }}
       </li>
-      <li :class="[$style.ConditionsItem, $style.ConditionsItemLarger]">
+      <li :class="['py-3', $style.ConditionsItem, $style.ConditionsItemLarger]">
         {{ $t('息苦しさ') }}
       </li>
     </ul>
@@ -41,11 +41,13 @@
 
     <a
       v-scroll-to="'#consult'"
-      :class="['pa-5', $style.GeneralBtn]"
       href="#consult"
+      :class="['pa-5', $style.Advisory]"
     >
-      {{ $t('新型コロナ受診相談窓口へ') }}
-      <ArrowIcon />
+      <span :class="$style.AdvisoryText">
+        {{ $t('新型コロナ受診相談窓口へ') }}
+      </span>
+      <ArrowForwardIcon :class="$style.AdvisoryIcon" />
     </a>
   </div>
 </template>
@@ -135,9 +137,9 @@
 
 <script lang="ts">
 import HumanIcon from '@/static/flow/accessibility-24px.svg'
-import ArrowIcon from '@/static/flow/arrow_forward-24px.svg'
+import ArrowForwardIcon from '@/static/flow/arrow_forward-24px.svg'
 export default {
-  components: { HumanIcon, ArrowIcon }
+  components: { HumanIcon, ArrowForwardIcon }
 }
 </script>
 
@@ -155,15 +157,26 @@ export default {
     font-weight: bold;
   }
   .Conditions {
+    align-items: stretch;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 4px !important;
+    padding: 0 !important;
 
     &Item {
-      @include font-size(12);
+      @include lessThan($small) {
+        @include font-size(12);
+      }
+      @include largerThan($small) {
+        @include font-size(14);
+      }
       &Larger {
-        @include font-size(18);
+        @include lessThan($small) {
+          @include font-size(16);
+        }
+        @include largerThan($small) {
+          @include font-size(18);
+        }
       }
       font-weight: bold;
       position: relative;
@@ -172,7 +185,6 @@ export default {
       justify-content: center;
       flex-basis: 47.5%;
       flex-direction: column;
-      height: 3.75rem;
       margin: 4% 0;
       border: 2px solid $green-1 !important;
       border-radius: 4px;
@@ -199,37 +211,59 @@ export default {
     }
   }
   &Text {
-    @include font-size(16);
+    @include lessThan($small) {
+      @include font-size(14);
+    }
+    @include largerThan($small) {
+      @include font-size(16);
+    }
     color: $gray-2;
     font-weight: bold;
     margin-bottom: 8px;
     span {
       border-bottom: 4px solid $green-1;
-      @include font-size(20);
+      @include lessThan($small) {
+        @include font-size(18);
+      }
+      @include largerThan($small) {
+        @include font-size(24);
+      }
       margin-right: 0.25rem;
       strong {
         @include font-size(32);
       }
     }
   }
-  &Btn {
+  .Advisory {
+    align-items: center;
     background-color: #ffe200;
-    color: $gray-2 !important;
     border-radius: 4px;
     box-shadow: -1px 2px 5px $gray-3;
-    display: block;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
     text-decoration: none;
+    color: $gray-2;
     font-weight: bold;
-    text-align: left;
-    @include font-size(18);
-    svg {
-      position: absolute;
-      width: 36px;
-      height: 36px;
-      top: 50%;
-      right: -8px;
-      transform: translate(-50%, -50%) rotate(90deg);
+    &Text {
+      @include lessThan($small) {
+        @include font-size(16);
+      }
+      @include largerThan($small) {
+        @include font-size(20);
+      }
+      text-align: initial;
+    }
+    &Icon {
+      @include lessThan($small) {
+        width: 28px;
+        height: 28px;
+      }
+      @include largerThan($small) {
+        width: 45px;
+        height: 45px;
+      }
+      transform: rotateZ(90deg);
+      display: block;
     }
   }
 }

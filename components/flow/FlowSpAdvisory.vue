@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.SpAdvisory">
-    <h4 id="consult" :class="['mb-4', $style.Heading]">
+    <h4 id="consult" :class="['mb-4 mt-n6', $style.Heading]">
       新型コロナ受診相談窓口
       <small>帰国者・接触者電話相談センター</small>
     </h4>
@@ -122,7 +122,12 @@ export default {
   text-align: center;
 }
 .Heading {
-  @include font-size(24);
+  @include lessThan($small) {
+    @include font-size(22);
+  }
+  @include largerThan($small) {
+    @include font-size(24);
+  }
   line-height: 1.5rem;
   white-space: pre-line;
   small {
@@ -147,7 +152,12 @@ export default {
     justify-content: space-around;
     &Title {
       flex-basis: 40%;
-      @include font-size(18);
+      @include lessThan($small) {
+        @include font-size(16);
+      }
+      @include largerThan($small) {
+        @include font-size(18);
+      }
     }
     &Link {
       flex-basis: 55%;
@@ -166,7 +176,12 @@ export default {
       white-space: pre-line;
     }
     &Title {
-      @include font-size(18);
+      @include lessThan($small) {
+        @include font-size(16);
+      }
+      @include largerThan($small) {
+        @include font-size(18);
+      }
     }
   }
 }
