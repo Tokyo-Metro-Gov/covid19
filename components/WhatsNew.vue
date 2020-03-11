@@ -1,11 +1,16 @@
 <template>
   <div class="WhatsNew">
-    <h2 class="WhatsNew-heading">
-      <v-icon size="24" class="WhatsNew-heading-icon">
-        mdi-information
-      </v-icon>
-      最新のお知らせ
-    </h2>
+    <div class="d-flex">
+      <h2 class="WhatsNew-heading flex-grow-1">
+        <v-icon size="24" class="WhatsNew-heading-icon">
+          mdi-information
+        </v-icon>
+        最新のお知らせ
+      </h2>
+      <nuxt-link class="news-button" to="/news">
+        News
+      </nuxt-link>
+    </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
         <a
@@ -114,5 +119,8 @@ export default {
       }
     }
   }
+}
+.news-button {
+  @include button-text('md');
 }
 </style>

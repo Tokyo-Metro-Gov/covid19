@@ -183,7 +183,7 @@ export default {
         title: '都内の最新感染動向',
         date: Data.lastUpdate
       },
-      newsItems: News.newsItems,
+      newsItems: News.newsItems.slice(0, 2),
       metroGraphOption: {
         responsive: true,
         legend: {

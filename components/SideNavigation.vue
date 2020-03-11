@@ -99,7 +99,8 @@
     "Cancelled public events": "東京都主催等 中止又は延期するイベント等",
     "Government official website": "東京都公式ホームページ",
     "Message from Governor Koike": "知事からのメッセージ",
-    "About us": "当サイトについて"
+    "About us": "当サイトについて",
+    "News": "お知らせ一覧"
   }
 }
 </i18n>
@@ -128,7 +129,12 @@ export default {
         {
           icon: 'covid',
           title: this.$t('If you have any symptoms'),
-          link: '/flow',
+          link: '/flow'
+        },
+        {
+          icon: 'mdi-information',
+          title: this.$t('News'),
+          link: '/news',
           divider: true
         },
         {
