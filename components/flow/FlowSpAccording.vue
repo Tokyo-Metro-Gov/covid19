@@ -288,10 +288,10 @@ export default {
 
 <style module lang="scss">
 .Title {
-  @include lessThan($medium) {
+  @include lessThan($small) {
     @include font-size(22);
   }
-  @include largerThan($medium) {
+  @include largerThan($small) {
     @include font-size(24);
   }
   color: $green-1;
@@ -323,10 +323,10 @@ export default {
   border-radius: 3px;
 }
 .InSquare {
-  @include lessThan($medium) {
+  @include lessThan($small) {
     @include font-size(14);
   }
-  @include largerThan($medium) {
+  @include largerThan($small) {
     @include font-size(16);
   }
   color: white;
@@ -375,12 +375,22 @@ export default {
 }
 .NeedKensa {
   width: 100%;
-  font-size: 4vw;
+  @include lessThan($small) {
+    @include font-size(16);
+  }
+  @include largerThan($small) {
+    @include font-size(20);
+  }
   line-height: 1.5rem;
   color: $gray-2;
 }
 .Nashi {
-  @include font-size(24);
+  @include lessThan($small) {
+    @include font-size(24);
+  }
+  @include largerThan($small) {
+    @include font-size(28);
+  }
   color: $gray-2;
 }
 .RectWrapSoudan {
@@ -394,10 +404,10 @@ export default {
 .inFinalRect {
   @include font-size(18);
   strong {
-    @include lessThan($medium) {
+    @include lessThan($small) {
       @include font-size(22);
     }
-    @include largerThan($medium) {
+    @include largerThan($small) {
       @include font-size(24);
     }
   }

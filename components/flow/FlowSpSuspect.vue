@@ -147,10 +147,10 @@ export default {
   justify-content: space-between;
   padding-left: 0 !important; // FIXME: ulを使用している関係で、paddingを打ち消す必要がある
   &Item {
-    @include lessThan($medium) {
+    @include lessThan($small) {
       @include font-size(16);
     }
-    @include largerThan($medium) {
+    @include largerThan($small) {
       @include font-size(18);
     }
     position: relative;
@@ -181,18 +181,18 @@ export default {
 }
 .CallCenter {
   &Name {
-    @include lessThan($medium) {
+    @include lessThan($small) {
       @include font-size(20);
     }
-    @include largerThan($medium) {
+    @include largerThan($small) {
       @include font-size(22);
     }
   }
   &Time {
-    @include lessThan($medium) {
+    @include lessThan($small) {
       @include font-size(14);
     }
-    @include largerThan($medium) {
+    @include largerThan($small) {
       @include font-size(16);
     }
   }
@@ -229,20 +229,20 @@ export default {
   color: $gray-2 !important;
   font-weight: bold;
   &Text {
-    @include lessThan($medium) {
+    @include lessThan($small) {
       @include font-size(16);
     }
-    @include largerThan($medium) {
-      @include font-size(18);
+    @include largerThan($small) {
+      @include font-size(20);
     }
     text-align: initial;
   }
   &Icon {
-    @include lessThan($medium) {
+    @include lessThan($small) {
       width: 28px;
       height: 28px;
     }
-    @include largerThan($medium) {
+    @include largerThan($small) {
       width: 45px;
       height: 45px;
     }

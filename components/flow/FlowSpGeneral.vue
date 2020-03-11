@@ -164,12 +164,17 @@ export default {
     padding: 0 !important;
 
     &Item {
-      @include font-size(12);
+      @include lessThan($small) {
+        @include font-size(12);
+      }
+      @include largerThan($small) {
+        @include font-size(14);
+      }
       &Larger {
-        @include lessThan($medium) {
+        @include lessThan($small) {
           @include font-size(16);
         }
-        @include largerThan($medium) {
+        @include largerThan($small) {
           @include font-size(18);
         }
       }
@@ -206,10 +211,10 @@ export default {
     }
   }
   &Text {
-    @include lessThan($medium) {
+    @include lessThan($small) {
       @include font-size(14);
     }
-    @include largerThan($medium) {
+    @include largerThan($small) {
       @include font-size(16);
     }
     color: $gray-2;
@@ -217,11 +222,11 @@ export default {
     margin-bottom: 8px;
     span {
       border-bottom: 4px solid $green-1;
-      @include lessThan($medium) {
+      @include lessThan($small) {
         @include font-size(18);
       }
-      @include largerThan($medium) {
-        @include font-size(20);
+      @include largerThan($small) {
+        @include font-size(24);
       }
       margin-right: 0.25rem;
       strong {
@@ -240,20 +245,20 @@ export default {
     color: $gray-2;
     font-weight: bold;
     &Text {
-      @include lessThan($medium) {
+      @include lessThan($small) {
         @include font-size(16);
       }
-      @include largerThan($medium) {
-        @include font-size(18);
+      @include largerThan($small) {
+        @include font-size(20);
       }
       text-align: initial;
     }
     &Icon {
-      @include lessThan($medium) {
+      @include lessThan($small) {
         width: 28px;
         height: 28px;
       }
-      @include largerThan($medium) {
+      @include largerThan($small) {
         width: 45px;
         height: 45px;
       }

@@ -150,40 +150,45 @@ export default {
 .SpPast {
   color: $gray-2;
   .Heading {
-    @include lessThan($medium) {
+    @include lessThan($small) {
       @include font-size(18);
     }
-    @include largerThan($medium) {
-      @include font-size(20);
+    @include largerThan($small) {
+      @include font-size(24);
     }
     text-align: center;
     margin-bottom: 0.5em;
     strong {
-      @include font-size(32);
+      @include lessThan($small) {
+        @include font-size(32);
+      }
+      @include largerThan($small) {
+        @include font-size(40);
+      }
     }
     .small {
-      @include lessThan($medium) {
+      @include lessThan($small) {
         @include font-size(14);
       }
-      @include largerThan($medium) {
-        @include font-size(16);
+      @include largerThan($small) {
+        @include font-size(20);
       }
     }
   }
   p {
-    @include lessThan($medium) {
+    @include lessThan($small) {
       @include font-size(18);
     }
-    @include largerThan($medium) {
-      @include font-size(20);
+    @include largerThan($small) {
+      @include font-size(24);
     }
     text-align: center;
     font-weight: bold;
     .small {
-      @include lessThan($medium) {
+      @include lessThan($small) {
         @include font-size(14);
       }
-      @include largerThan($medium) {
+      @include largerThan($small) {
         @include font-size(16);
       }
       color: $green-1;
@@ -197,10 +202,10 @@ export default {
     align-items: stretch;
     display: flex;
     font-weight: bold;
-    @include lessThan($medium) {
+    @include lessThan($small) {
       @include font-size(16);
     }
-    @include largerThan($medium) {
+    @include largerThan($small) {
       @include font-size(18);
     }
     justify-content: space-between;
@@ -248,7 +253,12 @@ export default {
         flex-basis: 20%;
       }
       .small {
-        @include font-size(12);
+        @include lessThan($small) {
+          @include font-size(12);
+        }
+        @include largerThan($small) {
+          @include font-size(14);
+        }
       }
     }
   }
@@ -269,19 +279,19 @@ export default {
     color: $gray-2;
     font-weight: bold;
     &Text {
-      @include lessThan($medium) {
+      @include lessThan($small) {
         @include font-size(16);
       }
-      @include largerThan($medium) {
-        @include font-size(18);
+      @include largerThan($small) {
+        @include font-size(20);
       }
     }
     &Icon {
-      @include lessThan($medium) {
+      @include lessThan($small) {
         width: 28px;
         height: 28px;
       }
-      @include largerThan($medium) {
+      @include largerThan($small) {
         width: 45px;
         height: 45px;
       }

@@ -122,10 +122,10 @@ export default {
   text-align: center;
 }
 .Heading {
-  @include lessThan($medium) {
+  @include lessThan($small) {
     @include font-size(22);
   }
-  @include largerThan($medium) {
+  @include largerThan($small) {
     @include font-size(24);
   }
   line-height: 1.5rem;
@@ -152,10 +152,10 @@ export default {
     justify-content: space-around;
     &Title {
       flex-basis: 40%;
-      @include lessThan($medium) {
+      @include lessThan($small) {
         @include font-size(16);
       }
-      @include largerThan($medium) {
+      @include largerThan($small) {
         @include font-size(18);
       }
     }
@@ -176,10 +176,10 @@ export default {
       white-space: pre-line;
     }
     &Title {
-      @include lessThan($medium) {
+      @include lessThan($small) {
         @include font-size(16);
       }
-      @include largerThan($medium) {
+      @include largerThan($small) {
         @include font-size(18);
       }
     }
