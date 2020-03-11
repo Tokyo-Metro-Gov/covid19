@@ -32,7 +32,7 @@ export default class LanguageSelector extends Vue {
     if (matches === null) {
       return
     }
-    const path = locale === 'ja' ? matches[1] : '/' + locale + matches[1]
+    const path = locale === 'ja' ? '/' : `/${locale}`
     this.$router.push(path)
   }
 }
