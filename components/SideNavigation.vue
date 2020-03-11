@@ -122,7 +122,7 @@
     "当サイトについて": "About the website",
     "このサイトの内容物は": "Content on This Site is Licensed Under a",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
-    "の下に提供されています。": ""
+    "の下に提供されています。": " "
   },
   "zh-cn": {
     "サイドメニュー項目を開く": "打开侧栏菜单",
@@ -142,7 +142,7 @@
     "当サイトについて": "关于本站",
     "このサイトの内容物は": "Content on This Site is Licensed Under a",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
-    "の下に提供されています。": ""
+    "の下に提供されています。": " "
   },
   "zh-tw": {
     "サイドメニュー項目を開く": "打開側邊選單",
@@ -162,7 +162,7 @@
     "当サイトについて": "關於本站",
     "このサイトの内容物は": "Content on This Site is Licensed Under a",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
-    "の下に提供されています。": ""
+    "の下に提供されています。": " "
   },
   "ko": {
     "サイドメニュー項目を開く": "사이트 메뉴를 열기",
@@ -182,7 +182,7 @@
     "当サイトについて": "사이트 소개",
     "このサイトの内容物は": "Content on This Site is Licensed Under a",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
-    "の下に提供されています。": ""
+    "の下に提供されています。": " "
   },
   "ja-basic": {
     "サイドメニュー項目を開く": "なにかしりたいときに ひだりの サイドメニュー ボタンを おす",
