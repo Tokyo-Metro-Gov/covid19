@@ -150,22 +150,42 @@ export default {
 .SpPast {
   color: $gray-2;
   .Heading {
-    @include font-size(20);
+    @include lessThan($medium) {
+      @include font-size(18);
+    }
+    @include largerThan($medium) {
+      @include font-size(20);
+    }
     text-align: center;
     margin-bottom: 0.5em;
     strong {
       @include font-size(32);
     }
     .small {
-      @include font-size(16);
+      @include lessThan($medium) {
+        @include font-size(14);
+      }
+      @include largerThan($medium) {
+        @include font-size(16);
+      }
     }
   }
   p {
-    @include font-size(20);
+    @include lessThan($medium) {
+      @include font-size(18);
+    }
+    @include largerThan($medium) {
+      @include font-size(20);
+    }
     text-align: center;
     font-weight: bold;
     .small {
-      @include font-size(16);
+      @include lessThan($medium) {
+        @include font-size(14);
+      }
+      @include largerThan($medium) {
+        @include font-size(16);
+      }
       color: $green-1;
     }
     .underline {
@@ -177,10 +197,14 @@ export default {
     align-items: stretch;
     display: flex;
     font-weight: bold;
-    @include font-size(18);
+    @include lessThan($medium) {
+      @include font-size(16);
+    }
+    @include largerThan($medium) {
+      @include font-size(18);
+    }
     justify-content: space-between;
     .item {
-      @include font-size(18);
       display: flex;
       line-height: 1rem;
       text-align: center;
@@ -245,11 +269,22 @@ export default {
     color: $gray-2;
     font-weight: bold;
     &Text {
-      @include font-size(18);
+      @include lessThan($medium) {
+        @include font-size(16);
+      }
+      @include largerThan($medium) {
+        @include font-size(18);
+      }
     }
     &Icon {
-      width: 45px;
-      height: 45px;
+      @include lessThan($medium) {
+        width: 28px;
+        height: 28px;
+      }
+      @include largerThan($medium) {
+        width: 45px;
+        height: 45px;
+      }
       transform: rotateZ(90deg);
       display: block;
     }

@@ -288,7 +288,12 @@ export default {
 
 <style module lang="scss">
 .Title {
-  @include font-size(24);
+  @include lessThan($medium) {
+    @include font-size(22);
+  }
+  @include largerThan($medium) {
+    @include font-size(24);
+  }
   color: $green-1;
   line-height: 1.5rem;
   small {
@@ -318,7 +323,12 @@ export default {
   border-radius: 3px;
 }
 .InSquare {
-  @include font-size(16);
+  @include lessThan($medium) {
+    @include font-size(14);
+  }
+  @include largerThan($medium) {
+    @include font-size(16);
+  }
   color: white;
   text-align: center;
   font-weight: bold;
@@ -384,7 +394,12 @@ export default {
 .inFinalRect {
   @include font-size(18);
   strong {
-    @include font-size(24);
+    @include lessThan($medium) {
+      @include font-size(22);
+    }
+    @include largerThan($medium) {
+      @include font-size(24);
+    }
   }
 }
 </style>
