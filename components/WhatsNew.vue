@@ -1,16 +1,14 @@
 <template>
   <div class="WhatsNew">
-    <div class="d-flex">
-      <h2 class="WhatsNew-heading flex-grow-1">
-        <v-icon size="24" class="WhatsNew-heading-icon">
-          mdi-information
-        </v-icon>
-        最新のお知らせ
-      </h2>
-      <nuxt-link class="news-button" to="/news">
-        News
-      </nuxt-link>
-    </div>
+    <nuxt-link class="news-archive-button" :to="localePath('/news')">
+      {{ $t('過去のお知らせを見る') }}
+    </nuxt-link>
+    <h2 class="WhatsNew-heading">
+      <v-icon size="24" class="WhatsNew-heading-icon">
+        mdi-information
+      </v-icon>
+      {{ $t('最新のお知らせ') }}
+    </h2>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
         <a
@@ -21,12 +19,12 @@
         >
           <time
             class="WhatsNew-list-item-anchor-time px-2"
-            :datetime="formattedDate(item.date)"
+            :datetime="isoDate(item.date)"
           >
-            {{ item.date }}
+            {{ formattedDate(item.date) }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
-            {{ item.text }}
+            {{ formattedNewsTitle(item) }}
             <v-icon
               v-if="!isInternalLink(item.url)"
               class="WhatsNew-item-ExternalLinkIcon"
@@ -40,6 +38,39 @@
     </ul>
   </div>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "最新のお知らせ": "最新のお知らせ",
+    "過去のお知らせを見る": "過去のお知らせを見る",
+  },
+  "en": {
+    "最新のお知らせ": "What's new",
+    "過去のお知らせを見る": "News archive",
+  },
+  "zh-cn": {
+    "最新のお知らせ": "最新消息",
+    "過去のお知らせを見る": "News archive",
+  },
+  "zh-tw": {
+    "最新のお知らせ": "最新消息",
+    "過去のお知らせを見る": "News archive",
+  },
+  "ko": {
+    "最新のお知らせ": "최신소식",
+    "過去のお知らせを見る": "News archive",
+  },
+  "pt-BR": {
+    "最新のお知らせ": "",
+    "過去のお知らせを見る": "News archive",
+  },
+  "ja-basic": {
+    "最新のお知らせ": "いちばん あたらしい おしらせ",
+    "過去のお知らせを見る": "まえの おしらせ を みる",
+  }
+}
+</i18n>
 
 <script>
 import { convertDateToISO8601Format } from '@/utils/formatDate'
@@ -55,8 +86,25 @@ export default {
     isInternalLink(path) {
       return !/^https?:\/\//.test(path)
     },
-    formattedDate(dateString) {
+    isoDate(dateString) {
       return convertDateToISO8601Format(dateString)
+    },
+    formattedDate(dateString) {
+      return new Date(
+        convertDateToISO8601Format(dateString)
+      ).toLocaleDateString(this.$i18n.locale)
+    },
+    formattedNewsTitle(newsItem) {
+      if (!newsItem || !newsItem.title) return ''
+      if (typeof newsItem.title === 'string') {
+        return newsItem.title
+      } else if (newsItem.title[this.$i18n.locale]) {
+        return newsItem.title[this.$i18n.locale]
+      } else if (newsItem.primaryLang && newsItem.title[newsItem.primaryLang]) {
+        return newsItem.title[newsItem.primaryLang]
+      } else {
+        return newsItem.title.ja
+      }
     }
   }
 }
@@ -120,7 +168,11 @@ export default {
     }
   }
 }
-.news-button {
+.v-application .news-archive-button {
   @include button-text('md');
+  float: right;
+  padding: 3px 12px;
+  color: $green-1;
+  text-decoration: none;
 }
 </style>
