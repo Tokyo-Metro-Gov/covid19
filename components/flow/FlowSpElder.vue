@@ -20,13 +20,13 @@
     </ul>
 
     <ul :class="$style.Conditions">
-      <li :class="$style.ConditionsItem">
+      <li :class="['py-4', $style.ConditionsItem]">
         <span>
           <!-- eslint-disable-next-line prettier/prettier -->
           <span :class="$style.ConditionsItemLarger">風邪</span>のような症状
         </span>
       </li>
-      <li :class="$style.ConditionsItem">
+      <li :class="['py-4', $style.ConditionsItem]">
         <!-- eslint-disable-next-line prettier/prettier -->
         <span>発熱
           <span
@@ -39,10 +39,10 @@
           </span>
         </span>
       </li>
-      <li :class="[$style.ConditionsItem, $style.ConditionsItemLarger]">
+      <li :class="['py-3', $style.ConditionsItem, $style.ConditionsItemLarger]">
         {{ $t('強いだるさ') }}
       </li>
-      <li :class="[$style.ConditionsItem, $style.ConditionsItemLarger]">
+      <li :class="['py-3', $style.ConditionsItem, $style.ConditionsItemLarger]">
         {{ $t('息苦しさ') }}
       </li>
     </ul>
@@ -205,23 +205,24 @@ export default {
 }
 
 .Conditions {
+  align-items: stretch;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0 4px !important;
+  padding: 0 !important;
 
   &Item {
     @include font-size(12);
     &Larger {
       @include font-size(18);
     }
+    font-weight: bold;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-basis: 47.5%;
     flex-direction: column;
-    height: 3.75rem;
     margin: 4% 0;
     border: 2px solid $green-1 !important;
     border-radius: 4px;
