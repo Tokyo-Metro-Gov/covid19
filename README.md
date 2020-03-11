@@ -2,7 +2,7 @@
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
-[![福岡市 新型コロナウイルス感染症対策サイト](https://github.com/ISITBODIK/covid19/blob/development/static/ogp.png?raw=true)](https://admiring-brown-fc205c.netlify.com/)
+[![福岡市 新型コロナウイルス感染症対策サイト](https://github.com/ISITBODIK/covid19/blob/development/static/ogp.png?raw=true)](https://lucid-khorana-6efa58.netlify.com/)
 
 ### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md)
 
@@ -41,4 +41,4 @@ $ docker-compose up --build
 
 ### ステージング・本番環境への反映
 
-`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://admiring-brown-fc205c.netlify.com/ が更新されます。
+`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://lucid-khorana-6efa58.netlify.com/ が更新されます。
