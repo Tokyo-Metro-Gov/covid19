@@ -11,11 +11,3 @@ img {
   height: auto;
   vertical-align: bottom;
 }
-
-.clearfix {
-  &:after {
-    content: "";
-    display: block;
-    clear: both;
-  }
-}

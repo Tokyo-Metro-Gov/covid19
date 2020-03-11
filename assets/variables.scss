@@ -4,6 +4,10 @@ $green-1: #00A040;
 $green-2: #00B849;
 $green-3: #00D154;
 $green-4: #00EB5E;
+$blue-1: #325685;
+$blue-2: #4A7BBA;
+$blue-3: #81A3CF;
+$blue-4: #B8CBE4;
 $gray-1: #333333;
 $gray-2: #4D4D4D;
 $gray-3: #808080;
@@ -92,11 +96,11 @@ $z-index-map: (
   display: inline-block;
   border-radius: 4px;
   background-color: $white;
-  border: 1px solid $green-1;
-  color:$green-1;
+  border: 1px solid $blue-1;
+  color:$blue-1;
   cursor: pointer;
   &:hover {
-    background-color: $green-1;
+    background-color: $blue-1;
     color: $white;
     > i {
       color: $white !important;
@@ -106,20 +110,9 @@ $z-index-map: (
 
 // ===================
 // card
-@mixin card-container($withDivider: false) {
+@mixin card-container {
   background-color: $white;
   box-shadow: $shadow;
   border: 0.5px solid $gray-4 !important;
   border-radius: 4px;
-  @if ($withDivider) {
-    &::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 0;
-      width: 1px;
-      height: 100%;
-      background-color: $gray-4;
-    }
-  }
 }
