@@ -9,11 +9,9 @@
           <h3 :id="titleId" class="DataView-Title">
             {{ title }}
           </h3>
-          <div>
-            <slot name="button" />
-          </div>
         </div>
         <slot name="infoPanel" />
+        <slot name="button" />
       </div>
       <div
         :class="
@@ -92,12 +90,10 @@ export default class DataView extends Vue {
 .DataView {
   &-Content {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    flex-flow: column;
   }
   &-DataInfo {
-    position: absolute;
-    top: 25px;
-    right: 25px;
     &-summary {
       color: $gray-2;
       font-family: Hiragino Sans;
@@ -130,16 +126,15 @@ export default class DataView extends Vue {
   &-TitleContainer {
     display: flex;
     flex-flow: column;
+    width: 100%;
     color: $gray-2;
-    &.with-infoPanel {
-      width: calc(100% - 11em);
-    }
   }
   &-Title {
     margin-bottom: 5px;
     font-size: 1.25rem;
     line-height: 1.5;
     font-weight: normal;
+    text-align: center;
   }
   &-CardText {
     margin: 30px 0;
