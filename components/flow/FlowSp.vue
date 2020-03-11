@@ -31,7 +31,10 @@
 {
   "ja": {
     "新型コロナウイルス感染症にかかる相談窓口について": "新型コロナウイルス感染症にかかる相談窓口について"
-  },
+  }
+}
+</i18n>
+<!--
   "en": {
     "新型コロナウイルス感染症にかかる相談窓口について": "Regarding the COVID-19 Infection Telephone Advisory Center"
   },
@@ -47,8 +50,7 @@
   "ja-basic": {
     "新型コロナウイルス感染症にかかる相談窓口について": "コロナについての でんわそうだん"
   }
-}
-</i18n>
+-->
 
 <script>
 import FlowSpPast from './FlowSpPast.vue'

@@ -110,6 +110,7 @@
     flex-basis: 48%;
     flex-direction: column;
     display: flex;
+    margin: auto 0;
 
     .label + .label {
       margin-top: 30px;
@@ -121,8 +122,7 @@
   border-radius: 4px;
   border: 2px solid $green-1;
   line-height: 1;
-  padding: 0.7em 0;
-  height: 100%;
+  padding: 2.5rem 0.1rem;
 
   &.positive {
     background: $green-1;
