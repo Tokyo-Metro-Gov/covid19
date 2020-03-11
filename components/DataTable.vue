@@ -13,7 +13,9 @@
       :mobile-breakpoint="0"
       class="cardTable"
     />
-    <div class="note">※退院には、死亡退院を含む</div>
+    <div class="note">
+      {{ $t('※退院には、死亡退院を含む') }}
+    </div>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="info.lText"
@@ -23,6 +25,29 @@
     </template>
   </data-view>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "※退院には、死亡退院を含む": "※退院には、死亡退院を含む"
+  },
+  "en": {
+    "※退院には、死亡退院を含む": "* The number of discharge include discharge due to death"
+  },
+  "zh-cn": {
+    "※退院には、死亡退院を含む": "※ 出院数包含因死亡出院"
+  },
+  "zh-tw": {
+    "※退院には、死亡退院を含む": "※ 出院包含因死亡出院"
+  },
+  "ko": {
+    "※退院には、死亡退院を含む": "※퇴원은 사망으로 인해 퇴원한것을 포함합니다"
+  },
+  "ja-basic": {
+    "※退院には、死亡退院を含む": ""
+  }
+}
+</i18n>
 
 <style lang="scss">
 .cardTable {

@@ -19,6 +19,46 @@
   </data-view>
 </template>
 
+<i18n>
+{
+  "ja": {
+    "実績値": "実績値",
+    "累計値": "累計値",
+    "前日比": "前日比"
+  },
+  "en": {
+    "実績値": "Actual value",
+    "累計値": "Cumulative value",
+    "前日比": "day-over-day change"
+  },
+  "zh-cn": {
+    "実績値": "实际值",
+    "累計値": "累计值",
+    "前日比": "较前一天"
+  },
+  "zh-tw": {
+    "実績値": "實際值",
+    "累計値": "累計值",
+    "前日比": "與前日相比"
+  },
+  "ko": {
+    "実績値": "실제 값",
+    "累計値": "누계 값",
+    "前日比": "전일대비 확진환자 증감"
+  },
+  "pt-BR": {
+    "実績値": "Valor real",
+    "累計値": "Valor acumulado",
+    "前日比": "anterior"
+  },
+  "ja-basic": {
+    "実績値": "そのときの すうじ",
+    "累計値": "これまでの ぜんぶのすうじ",
+    "前日比": "まえのひ と くらべると"
+  }
+}
+</i18n>
+
 <style></style>
 
 <script>
@@ -85,7 +125,9 @@ export default {
       if (this.dataKind === 'transition') {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `実績値（前日比：${this.displayTransitionRatio} ${this.unit}）`,
+          sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
+            this.displayTransitionRatio
+          } ${this.unit}）`,
           unit: this.unit
         }
       }
@@ -93,9 +135,11 @@ export default {
         lText: this.chartData[
           this.chartData.length - 1
         ].cumulative.toLocaleString(),
-        sText: `${this.chartData.slice(-1)[0].label} 累計値（前日比：${
-          this.displayCumulativeRatio
-        } ${this.unit}）`,
+        sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
+          '累計値'
+        )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
+          this.unit
+        }）`,
         unit: this.unit
       }
     },
@@ -135,20 +179,19 @@ export default {
     },
     displayOption() {
       const unit = this.unit
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       return {
         tooltips: {
           displayColors: false,
           callbacks: {
             label(tooltipItem) {
-              const labelText =
-                parseInt(tooltipItem.value).toLocaleString() + unit
+              const labelText = `${parseInt(
+                tooltipItem.value
+              ).toLocaleString()} ${unit}`
               return labelText
             },
             title(tooltipItem, data) {
-              return data.labels[tooltipItem[0].index].replace(
-                /(\w+)\/(\w+)/,
-                '$1月$2日'
-              )
+              return data.labels[tooltipItem[0].index]
             }
           }
         },
@@ -229,12 +272,20 @@ export default {
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080'
+                fontColor: '#808080',
+                suggestedMax: scaledTicksYAxisMax
               }
             }
           ]
         }
       }
+    },
+    scaledTicksYAxisMax() {
+      const yAxisMax = 1.2
+      const dataKind =
+        this.dataKind === 'transition' ? 'transition' : 'cumulative'
+      const values = this.chartData.map(d => d[dataKind])
+      return Math.max(...values) * yAxisMax
     }
   },
   methods: {
