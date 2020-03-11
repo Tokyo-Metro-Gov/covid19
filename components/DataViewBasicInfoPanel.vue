@@ -12,7 +12,7 @@
 <style lang="scss">
 .DataView {
   &-DataInfo {
-    text-align: right;
+    text-align: center;
     &-summary {
       display: inline-block;
       font-family: Hiragino Sans;
