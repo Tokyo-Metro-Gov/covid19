@@ -211,7 +211,6 @@ export default {
 </script>
 
 <style module lang="scss">
-// サイドメニューがある場合は(特に601～768付近)
 @function px2vw($px, $vw: 600) {
   @return $px / $vw * 100vw;
 }
@@ -349,6 +348,7 @@ export default {
   }
 }
 
+// 601-768 (769以上はPC版)
 @include largerThan($small) {
   .container {
     font-size: px2vw(22, 960);
