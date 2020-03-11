@@ -35,9 +35,6 @@
     }
   }
 }
-.DataView {
-  @include card-container();
-}
 </style>
 
 <script lang="ts">
