@@ -43,7 +43,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 40px;
+  padding: 30px 15px 30px 20px;
   color: $gray-2;
   @include card-container();
 
@@ -52,6 +52,7 @@
     display: flex;
     align-items: center;
     margin: 0 !important;
+    padding: 0 5px 0 0;
 
     &::before {
       min-width: 30px;

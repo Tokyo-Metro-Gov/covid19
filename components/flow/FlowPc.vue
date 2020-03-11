@@ -127,6 +127,7 @@ export default {
   > h3 {
     color: $gray-2;
     font-size: 1.5rem;
+    margin-bottom: 7px;
   }
   &GrayBg {
     background-color: $gray-5;
@@ -160,7 +161,7 @@ export default {
   &::after {
     content: '';
     position: absolute;
-    bottom: 12%;
+    bottom: 40%;
     right: -30px;
     z-index: 1;
     display: block;
@@ -190,18 +191,20 @@ export default {
   }
   &Pcr::after {
     bottom: auto;
-    top: 12%;
+    top: 15%;
+    transform: rotateZ(-30deg);
   }
   &Pcr::before {
     content: '';
     position: absolute;
-    bottom: 12%;
+    bottom: 15%;
     right: -30px;
     z-index: 1;
     display: block;
     width: 46px;
     height: 46px;
     background: url('/flow/flow_arrow.svg') no-repeat;
+    transform: rotateZ(30deg);
   }
 }
 .Past {

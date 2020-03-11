@@ -156,8 +156,12 @@
     "新型コロナ受診相談窓口": "新型コロナ受診相談窓口",
     "自宅で安静に過ごす": "自宅で安静に過ごす",
     "一般の医療機関を受診": "一般の医療機関を受診"
-  },
-  "en": {
+  }
+}
+</i18n>
+
+<!--
+"en": {
     "{advisory}による相談結果": "{advisory}による相談結果",
     "新型コロナ受診相談窓口": "Combined telephone advice center",
     "新型コロナ外来 {advice} と判断された場合": "If you are {advice} for COVID-19",
@@ -267,8 +271,7 @@
     "自宅で安静に過ごす": "いえ で しずか に していてください",
     "一般の医療機関を受診": "ちかくの びょういん で みてもらってください"
   }
-}
-</i18n>
+-->
 
 <script>
 import Apartment from '../../static/flow/apartment-24px.svg'
