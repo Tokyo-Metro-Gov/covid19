@@ -45,6 +45,7 @@ export default class LanguageSelector extends Vue {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  background: #fff;
   border: 1px solid #d9d9d9;
   border-radius: 4px;
   cursor: pointer;
@@ -53,11 +54,11 @@ export default class LanguageSelector extends Vue {
     z-index: 1;
     select {
       width: 100%;
+      height: 28px;
       background: transparent;
-      padding-left: 56px;
+      padding-left: 58px;
       color: #333;
       font-size: 12px;
-      line-height: 28px;
       box-sizing: border-box;
       cursor: pointer;
       &:focus {
@@ -71,7 +72,6 @@ export default class LanguageSelector extends Vue {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #fff;
     .EarthIcon {
       position: absolute;
       left: 6px;
