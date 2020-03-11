@@ -218,6 +218,10 @@ export default {
 .container {
   color: $gray-2;
   font-size: px2vw(22);
+  // override default styles
+  em {
+    font-style: normal;
+  }
   // override Vuetify styles
   p {
     margin-bottom: 0;
