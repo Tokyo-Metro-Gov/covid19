@@ -234,11 +234,14 @@
   &BlackBox {
     background-color: $gray-2;
     width: 200px;
-    height: 88px;
+    height: 200px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &Sentense {
       color: $white;
       font-size: 20px;
-      text-align: center;
       line-height: 26px;
     }
   }
