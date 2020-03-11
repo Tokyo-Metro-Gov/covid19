@@ -8,13 +8,13 @@
     </div>
 
     <ul :class="$style.Conditions">
-      <li :class="['py-3', $style.ConditionsItem]">
+      <li :class="['py-4', $style.ConditionsItem]">
         <span>
           <!-- eslint-disable-next-line prettier/prettier -->
           <span :class="$style.ConditionsItemLarger">風邪</span>のような症状
         </span>
       </li>
-      <li :class="['py-3', $style.ConditionsItem]">
+      <li :class="['py-4', $style.ConditionsItem]">
         <!-- eslint-disable-next-line prettier/prettier -->
         <span>発熱
           <span
