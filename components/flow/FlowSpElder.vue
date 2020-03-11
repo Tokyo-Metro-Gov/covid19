@@ -21,19 +21,29 @@
 
     <ul :class="$style.Conditions">
       <li :class="$style.ConditionsItem">
-        <div>風邪<small>のような症状</small></div>
-      </li>
-      <li :class="[$style.ConditionsItem, $style.ConditionsItemFever]">
-        <div>
-          <small>発熱</small><br />
-          37.5℃以上
-        </div>
+        <span>
+          <!-- eslint-disable-next-line prettier/prettier -->
+          <span :class="$style.ConditionsItemLarger">風邪</span>のような症状
+        </span>
       </li>
       <li :class="$style.ConditionsItem">
-        <div>{{ $t('強いだるさ') }}</div>
+        <!-- eslint-disable-next-line prettier/prettier -->
+        <span>発熱
+          <span
+            :class="[
+              $style.ConditionsItemLarger,
+              $style.ConditionsItemWithWordBreak
+            ]"
+          >
+            <span>37.5℃</span>以上
+          </span>
+        </span>
       </li>
-      <li :class="$style.ConditionsItem">
-        <div>{{ $t('息苦しさ') }}</div>
+      <li :class="[$style.ConditionsItem, $style.ConditionsItemLarger]">
+        {{ $t('強いだるさ') }}
+      </li>
+      <li :class="[$style.ConditionsItem, $style.ConditionsItemLarger]">
+        {{ $t('息苦しさ') }}
       </li>
     </ul>
 
@@ -188,20 +198,24 @@ export default {
   padding: 0 4px !important;
 
   &Item {
-    @include font-size(18);
+    @include font-size(12);
+    &Larger {
+      @include font-size(18);
+    }
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-basis: 47.5%;
-    height: 3.5rem;
+    flex-direction: column;
+    height: 3.75rem;
     margin: 4% 0;
     border: 2px solid $green-1 !important;
     border-radius: 4px;
     line-height: 1;
 
-    & small {
-      @include font-size(12);
+    &WithWordBreak {
+      display: block;
     }
 
     &::before {
@@ -217,10 +231,6 @@ export default {
       height: $imgSize;
       background: #fff url(/flow/check_circle-24px.svg) no-repeat center;
       background-size: $imgSize;
-    }
-
-    &Fever {
-      padding-top: 2px;
     }
   }
 }
