@@ -113,7 +113,7 @@ export default {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
           sText: `${this.$t('{date}の合計', {
             date: this.labels[this.labels.length - 1]
-             })}`,
+          })}`,
           unit: this.unit
         }
       }
@@ -121,7 +121,7 @@ export default {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
         sText: `${this.$t('{date}の全体累計', {
           date: this.labels[this.labels.length - 1]
-          })}`,
+        })}`,
         unit: this.unit
       }
     },
@@ -165,21 +165,20 @@ export default {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const labelText = (() => {
-                if(this.dataKind === 'transition'){
-                  return `${sumArray[tooltipItem.index]
-                  }${unit}（${this.$t('都内')}: ${
-                      data[0][tooltipItem.index]
-                    }/${this.$t('その他')}: ${data[1][tooltipItem.index]}）`
-                }else{
-                  return `${cumulativeSumArray[tooltipItem.index]
-                  }${unit}（${this.$t('都内')}: ${
-                      cumulativeData[0][tooltipItem.index]
-                    }/${this.$t('その他')}: ${cumulativeData[1][tooltipItem.index]
-                    }）`
-                }
-              })();
-              return labelText
+              const labelTokyo = this.$t('都内')
+              const labelOthers = this.$t('その他')
+              let casesTotal, casesTokyo, casesOthers
+              if (this.dataKind === 'transition') {
+                casesTotal = sumArray[tooltipItem.index]
+                casesTokyo = data[0][tooltipItem.index]
+                casesOthers = data[1][tooltipItem.index]
+              } else {
+                casesTotal = cumulativeSumArray[tooltipItem.index]
+                casesTokyo = cumulativeData[0][tooltipItem.index]
+                casesOthers = cumulativeData[1][tooltipItem.index]
+              }
+
+              return `${casesTotal} ${unit} (${labelTokyo}: ${casesTokyo} / ${labelOthers}: ${casesOthers})`
             },
             title(tooltipItem, data) {
               return data.labels[tooltipItem[0].index].replace(
