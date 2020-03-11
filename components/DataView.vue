@@ -1,15 +1,13 @@
 <template>
   <v-card class="DataView">
     <div class="DataView-Inner">
-      <div class="DataView-Content">
-        <div
-          class="DataView-TitleContainer"
+      <div class="DataView-Header">
+        <h3
+          class="DataView-Title"
           :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
         >
-          <h3 :id="titleId" class="DataView-Title">
-            {{ title }}
-          </h3>
-        </div>
+          {{ title }}
+        </h3>
         <slot name="infoPanel" />
         <slot name="button" />
       </div>
@@ -88,12 +86,16 @@ export default class DataView extends Vue {
 
 <style lang="scss">
 .DataView {
-  &-Content {
+  &-Header {
     display: flex;
     align-items: center;
     flex-flow: column;
+    max-width: 24em;
+    margin: 0 auto;
     text-align: center;
     @include largerThan($large) {
+      max-width: initial;
+      width: 100%;
       flex-flow: row;
       flex-wrap: wrap;
       text-align: left;
@@ -129,20 +131,16 @@ export default class DataView extends Vue {
     padding: 22px;
     height: 100%;
   }
-  &-TitleContainer {
-    width: 100%;
-    color: $gray-2;
-    @include largerThan($large) {
-      width: 50%;
-    }
-  }
   &-Title {
+    width: 100%;
     margin-bottom: 5px;
     font-size: 1.25rem;
     line-height: 1.5;
     font-weight: normal;
     text-align: center;
+    color: $gray-2;
     @include largerThan($large) {
+      width: 50%;
       text-align: left;
     }
   }
