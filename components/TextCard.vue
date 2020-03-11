@@ -61,6 +61,9 @@ export default class TextCard extends Vue {
       word-break: break-all;
       color: $link;
       text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
