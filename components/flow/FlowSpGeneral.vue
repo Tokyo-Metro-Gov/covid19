@@ -166,7 +166,12 @@ export default {
     &Item {
       @include font-size(12);
       &Larger {
-        @include font-size(18);
+        @include lessThan($medium) {
+          @include font-size(16);
+        }
+        @include largerThan($medium) {
+          @include font-size(18);
+        }
       }
       font-weight: bold;
       position: relative;
@@ -201,13 +206,23 @@ export default {
     }
   }
   &Text {
-    @include font-size(16);
+    @include lessThan($medium) {
+      @include font-size(14);
+    }
+    @include largerThan($medium) {
+      @include font-size(16);
+    }
     color: $gray-2;
     font-weight: bold;
     margin-bottom: 8px;
     span {
       border-bottom: 4px solid $green-1;
-      @include font-size(20);
+      @include lessThan($medium) {
+        @include font-size(18);
+      }
+      @include largerThan($medium) {
+        @include font-size(20);
+      }
       margin-right: 0.25rem;
       strong {
         @include font-size(32);
@@ -225,12 +240,23 @@ export default {
     color: $gray-2;
     font-weight: bold;
     &Text {
-      @include font-size(18);
+      @include lessThan($medium) {
+        @include font-size(16);
+      }
+      @include largerThan($medium) {
+        @include font-size(18);
+      }
       text-align: initial;
     }
     &Icon {
-      width: 45px;
-      height: 45px;
+      @include lessThan($medium) {
+        width: 28px;
+        height: 28px;
+      }
+      @include largerThan($medium) {
+        width: 45px;
+        height: 45px;
+      }
       transform: rotateZ(90deg);
       display: block;
     }
