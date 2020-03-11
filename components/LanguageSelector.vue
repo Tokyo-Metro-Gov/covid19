@@ -76,9 +76,10 @@ export default class LanguageSelector extends Vue {
       display: inline-block;
       position: absolute;
       left: 24px;
+      color: #333;
       font-size: 12px;
       line-height: 28px;
-      z-index: -1;
+      z-index: 0;
     }
   }
   .EarthIcon {
