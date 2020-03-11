@@ -1,6 +1,5 @@
 <template>
   <div class="Worker">
-    <language-selector />
     <h2 class="Worker-Heading">
       {{ $t('企業の皆様・はたらく皆様へ') }}
     </h2>
@@ -111,12 +110,10 @@
 </i18n>
 
 <script lang="ts">
-import LanguageSelector from '@/components/LanguageSelector.vue'
 import TextCard from '@/components/TextCard.vue'
 
 export default {
   components: {
-    LanguageSelector,
     TextCard
   },
   data() {
