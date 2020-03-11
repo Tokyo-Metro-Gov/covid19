@@ -98,6 +98,15 @@
           :date="metroGraph.date"
         />
       </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <agency-bar-chart
+          title="入庁舎数の推移"
+          :title-id="'agency'"
+          :chart-id="'agency'"
+          :url="''"
+          :unit="'人'"
+        />
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -116,7 +125,7 @@
     "新型コロナ受診相談窓口相談件数": "新型コロナ受診相談窓口相談件数",
     "都営地下鉄の利用者数の推移": "都営地下鉄の利用者数の推移",
     "都内発生（疑い例・接触者調査）": "都内発生（疑い例・接触者調査）",
-    "その他（チャーター便・クルーズ便）": "その他（チャーター便・クルーズ便）",
+    "その他（チャーター便・クルーズ船）": "その他（チャーター便・クルーズ船）",
     "{date}の累計": "{date}の累計",
     "期間: {duration}": "期間: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "{duration}の利用者数との相対値: {percentage}",
@@ -155,7 +164,7 @@
     "新型コロナ受診相談窓口相談件数": "Number of reports to combined telephone advisory center",
     "都営地下鉄の利用者数の推移": "The predicted number of Toei subway passengers",
     "都内発生（疑い例・接触者調査）": "Emerged in Tokyo (Suspected cases or contactees)",
-    "その他（チャーター便・クルーズ便）": "Others (Returnees or Cruise ship passengers)",
+    "その他（チャーター便・クルーズ船）": "Others (Returnees or Cruise ship passengers)",
     "{date}の累計": "Cumulative total as of {date}",
     "期間: {duration}": "Period: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "Relative value based on the number of users {duration}: {percentage}",
@@ -194,7 +203,7 @@
     "新型コロナ受診相談窓口相談件数": "新冠肺炎就诊咨询窗口的咨询数",
     "都営地下鉄の利用者数の推移": "都营地下铁搭乘人数趋势",
     "都内発生（疑い例・接触者調査）": "东京都案例（疑似感染、接触者调查）",
-    "その他（チャーター便・クルーズ便）": "其它（包机、游轮）",
+    "その他（チャーター便・クルーズ船）": "其它（包机、游轮）",
     "{date}の累計": "截至 {date}",
     "期間: {duration}": "期间: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "基于{duration}间乘客数的相对值: {percentage}",
@@ -233,7 +242,7 @@
     "新型コロナ受診相談窓口相談件数": "就診窗口諮詢數",
     "都営地下鉄の利用者数の推移": "都營地下鐵搭乘人數走勢",
     "都内発生（疑い例・接触者調査）": "東京都案例（疑似感染、接觸者調查）",
-    "その他（チャーター便・クルーズ便）": "其它（包機、遊輪）",
+    "その他（チャーター便・クルーズ船）": "其它（包機、遊輪）",
     "{date}の累計": "累計至 {date}",
     "期間: {duration}": "期間: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "基於{duration}的搭乘人數之相對數值: {percentage}",
@@ -272,7 +281,7 @@
     "新型コロナ受診相談窓口相談件数": "코로나19 진찰 상담 창구 상담 건수",
     "都営地下鉄の利用者数の推移": "도에이 지하철 의 예상 승객 수",
     "都内発生（疑い例・接触者調査）": "도쿄 지역사회 발생 경우（의심환자, 접촉자）",
-    "その他（チャーター便・クルーズ便）": "기타（귀국자 또는 크루즈 승객 경우）",
+    "その他（チャーター便・クルーズ船）": "기타（귀국자 또는 크루즈 승객 경우）",
     "{date}の累計": "{date}의 누적 수",
     "期間: {duration}": "기간: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "{duration}의 이용자수와의 상대치: {percentage}",
@@ -311,7 +320,7 @@
     "新型コロナ受診相談窓口相談件数": "コロナのことで とうきょうと に そうだんした ひとの かず",
     "都営地下鉄の利用者数の推移": "とえいちかてつを つかった ひとの かず",
     "都内発生（疑い例・接触者調査）": "とうきょうとで びょうき かもしれない ひと",
-    "その他（チャーター便・クルーズ便）": "そのほか",
+    "その他（チャーター便・クルーズ船）": "そのほか",
     "{date}の累計": "{date} ぜんぶで",
     "期間: {duration}": "きかん: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "ひとの かずを くらべると: {percentage}",
@@ -345,6 +354,7 @@
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import MetroBarChart from '@/components/MetroBarChart.vue'
+import AgencyBarChart from '@/components/AgencyBarChart.vue'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
@@ -363,6 +373,7 @@ export default {
     PageHeader,
     TimeBarChart,
     MetroBarChart,
+    AgencyBarChart,
     TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
@@ -429,7 +440,7 @@ export default {
     ]
     const inspectionsItems = [
       this.$t('都内発生（疑い例・接触者調査）'),
-      this.$t('その他（チャーター便・クルーズ便）')
+      this.$t('その他（チャーター便・クルーズ船）')
     ]
     const inspectionsLabels = Data.inspections_summary.labels
     // 死亡者数

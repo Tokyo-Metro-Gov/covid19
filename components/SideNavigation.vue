@@ -63,6 +63,9 @@
           >
             <img src="/facebook.png" alt="Facebook" />
           </a>
+          <a href="https://github.com/tokyo-metropolitan-gov/covid19">
+            <img src="/github.png" alt="GitHub" />
+          </a>
         </div>
         <small class="SideNavigation-Copyright">
           {{ $t('このサイトの内容物は') }}
@@ -384,6 +387,8 @@ export default {
     width: 100%;
     z-index: z-index-of(opened-side-navigation);
     background-color: $white;
+    height: 100%;
+    overflow-y: scroll;
   }
 }
 @include largerThan($small) {
