@@ -24,7 +24,7 @@ export default {
         },
         {
           text: 'タイトル',
-          value: 'text',
+          value: 'title.ja',
           sortable: false
         }
         /*
