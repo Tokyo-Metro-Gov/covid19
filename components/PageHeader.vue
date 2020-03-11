@@ -11,7 +11,7 @@
       <time :datetime="formattedDate">{{ date }}</time>
     </div>
     <div v-if="!['ja', 'ja-basic'].includes($i18n.locale)" class="annotation">
-      <span class="ml-4">{{ $t('注釈') }} </span>
+      <span>{{ $t('注釈') }} </span>
     </div>
   </div>
 </template>
@@ -97,6 +97,10 @@ export default {
 .annotation {
   font-size: 0.75rem;
   color: $gray-3;
-  margin: 0 0 0 auto;
+}
+@include largerThan($small) {
+  .annotation {
+    margin: 0 0 0 auto;
+  }
 }
 </style>
