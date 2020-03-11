@@ -3,16 +3,17 @@
     <div class="SelectLanguages__inner">
       <div class="SelectLanguage">
         <EarthIcon class="EarthIcon" />
-        <label>Lang:</label>
-        <select v-model="$i18n.locale" @change="navigate($i18n.locale)">
-          <option
-            v-for="locale in $i18n.locales"
-            :key="locale.code"
-            :value="locale.code"
-          >
-            {{ locale.name }}
-          </option>
-        </select>
+        <div class="SelectLanguageMenu">
+          <select v-model="$i18n.locale" @change="navigate($i18n.locale)">
+            <option
+              v-for="locale in $i18n.locales"
+              :key="locale.code"
+              :value="locale.code"
+            >
+              {{ locale.name }}
+            </option>
+          </select>
+        </div>
         <SelectMenuIcon class="SelectMenuIcon" />
       </div>
     </div>
@@ -42,43 +43,61 @@ export default class LanguageSelector extends Vue {
 <style lang="scss">
 .SelectLanguages {
   padding: 0 20px;
-  background-color: #fff;
   .SelectLanguages__inner {
     .SelectLanguage {
+      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
       width: 100%;
-      padding: 0 8px;
-      background-color: #fff;
       border: 1px solid #d9d9d9;
       border-radius: 4px;
       cursor: pointer;
-      label {
-        padding: 5px 0;
-        margin-right: 5px;
-        font-size: 12px;
-        line-height: 18px;
-        cursor: pointer;
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: -2;
       }
-      select {
-        padding: 5px 0;
-        font-size: 12px;
-        line-height: 18px;
-        box-sizing: border-box;
-        cursor: pointer;
-        &:focus {
-          outline: none;
+      .SelectLanguageMenu {
+        width: 100%;
+        select {
+          z-index: 0;
+          width: 100%;
+          background: transparent;
+          padding: 5px 0 5px 55px;
+          font-size: 12px;
+          line-height: 18px;
+          box-sizing: border-box;
+          color: #333;
+          cursor: pointer;
+          &:focus {
+            outline: none;
+          }
+        }
+        &:before {
+          content: 'Lang:';
+          display: inline-block;
+          position: absolute;
+          left: 24px;
+          font-size: 12px;
+          line-height: 28px;
+          z-index: -1;
         }
       }
       .EarthIcon {
-        width: 14px;
-        margin-right: 5px;
+        position: absolute;
+        left: 6px;
+        z-index: -1;
       }
       .SelectMenuIcon {
-        width: 12px;
+        position: absolute;
+        right: 6px;
         margin-left: auto;
+        z-index: -1;
       }
     }
   }
