@@ -414,7 +414,7 @@ export default {
 
     // 相談件数
     const contactsGraph = formatGraph(Data.contacts.data)
-    // 帰国者・接触者電話相談センター相談件数
+    // 帰国者・接触者 電話相談センター 相談件数
     const querentsGraph = formatGraph(Data.querents.data)
     // 都営地下鉄の利用者数の推移
     const metroGraph = MetroData
