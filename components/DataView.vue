@@ -92,10 +92,15 @@ export default class DataView extends Vue {
     display: flex;
     align-items: flex-start;
     flex-flow: column;
+    padding: 0 10px;
+    @include largerThan($medium) {
+      padding: 0 5px;
+    }
     @include largerThan($large) {
       width: 100%;
       flex-flow: row;
       flex-wrap: wrap;
+      padding: 0;
     }
   }
   &-DataInfo {
