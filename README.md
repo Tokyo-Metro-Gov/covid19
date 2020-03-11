@@ -32,7 +32,7 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 - 必要となるNode.jsのバージョン: 10.19.0以上
 
 **yarn を使う場合**
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
@@ -49,7 +49,7 @@ $ docker-compose up --build
 ### `Cannot find module ****` と怒られた時
 
 **yarn を使う場合**
-```
+```bash
 $ yarn install
 ```
 

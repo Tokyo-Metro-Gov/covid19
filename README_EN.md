@@ -25,7 +25,7 @@ This software is released under [the MIT License](./LICENSE.txt).
 - Required Node.js version: 10.19.0 or higher
 
 **Use yarn**
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
@@ -42,7 +42,7 @@ $ docker-compose up --build
 ### How to resolve `Cannot find module ****` error
 
 **Use yarn**
-```
+```bash
 $ yarn install
 ```
 
