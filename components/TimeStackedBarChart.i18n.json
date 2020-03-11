@@ -35,5 +35,14 @@
     "{date}の全体累計": "%{date} ぜんぶで",
     "都内": "とうきょうと の なか",
     "その他": "そのほか"
+  },
+  "vi": {
+    "（注）同一の対象者について複数の検体を調査する場合あり": "Chú ý: Có trường hợp cùng với 1 bệnh nhân, có thể có nhiều điều tra về kết quả khám ",
+    "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "Số lượng người được công bố là số liệu sơ bộ và có thể được sửa đổi vào một ngày sau đó",
+    "{date}の全体累計": "Tổng tích luỹ %{date}",
+    "{date}の合計": "Tổng số %{date}",
+    "都内": "Tokyo",
+    "その他": "Vùng khác",
+    "合計": "Tổng cộng"
   }
 }

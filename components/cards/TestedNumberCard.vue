@@ -64,6 +64,14 @@
     "件": {
       "tested": "けん"
     }
+  },
+  "vi": {
+    "検査実施数": "Số người đã xét nghiệm",
+    "都内発生（疑い例・接触者調査）": "Nổi lên ở Tokyo (Trường hợp nghi ngờ hoặc người tiếp xúc)",
+    "その他（チャーター便・クルーズ船）": "Số khác",
+    "件": {
+      "tested": "t.hợp"
+    }
   }
 }
 </i18n>

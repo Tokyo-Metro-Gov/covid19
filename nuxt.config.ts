@@ -155,6 +155,16 @@ const config: Configuration = {
             name: '한국어',
             iso: 'ko-KR'
           },
+          {
+            code: 'pt-BR',
+            name: 'Portuguese',
+            iso: 'pt-BR'
+          },
+          {
+            code: 'ja-basic',
+            name: 'やさしい にほんご',
+            iso: 'ja-JP'
+          },
           // ,
           // #1126, #872 (comment)
           // ポルトガル語は訳が揃っていないため非表示
@@ -163,11 +173,11 @@ const config: Configuration = {
           //   code: 'pt-BR',
           //   name: 'Portuguese',
           //   iso: 'pt-BR'
-          // },
+          // }
           {
-            code: 'ja-basic',
-            name: 'やさしい にほんご',
-            iso: 'ja-JP'
+            code: 'vi',
+            name: 'Tiếng Việt',
+            iso: 'vi-VN'
           }
         ],
         defaultLocale: 'ja',

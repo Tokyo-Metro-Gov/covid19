@@ -50,6 +50,12 @@
     "件": {
       "reports": "けん"
     }
+  },
+  "vi": {
+    "新型コロナコールセンター相談件数": "Số câu hỏi đến trung tâm tư vấn qua điện thoại COVID-19",
+    "件": {
+      "reports": "t.hợp"
+    }
   }
 }
 </i18n>
