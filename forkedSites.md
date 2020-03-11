@@ -6,7 +6,7 @@
 ------------ | ------------- | -------------
 東京都(このサイト)|https://stopcovid19.metro.tokyo.lg.jp|[tokyo-metropolitan-gov/covid19](/tokyo-metropolitan-gov/covid19)|
 北海道|https://stopcovid19.hokkaido.dev/|[codeforsapporo/covid19](/codeforsapporo/covid19)|
-神奈川県|https://stopcovid19.kanagawa.work/| |
+神奈川県|https://www.pref.kanagawa.jp/osirase/1369/| |
 
 ## 都道府県追加時のルール
 
