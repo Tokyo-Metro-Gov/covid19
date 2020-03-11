@@ -1,0 +1,21 @@
+module.exports = {
+  extends: [
+    '@nuxtjs/eslint-config-typescript',
+    'prettier',
+    'plugin:prettier/recommended'
+  ],
+  rules: {
+    'vue/max-attributes-per-line': 'off',
+    'vue/html-self-closing': ['error', {
+      'html': {
+        'void': 'always'
+      }
+    }],
+    'prettier/prettier': [
+      'error', {
+        'semi': false,
+        'singleQuote': true
+      }
+    ]
+  }
+}
