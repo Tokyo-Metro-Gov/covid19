@@ -12,7 +12,10 @@
 <style lang="scss">
 .DataView {
   &-DataInfo {
-    text-align: center;
+    @include largerThan($large) {
+      text-align: right;
+      width: 50%;
+    }
     &-summary {
       display: inline-block;
       font-family: Hiragino Sans;
@@ -24,7 +27,7 @@
       }
     }
     &-date {
-      white-space: nowrap;
+      white-space: wrap;
       display: inline-block;
       font-size: 12px;
       line-height: 12px;

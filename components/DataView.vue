@@ -92,6 +92,12 @@ export default class DataView extends Vue {
     display: flex;
     align-items: center;
     flex-flow: column;
+    text-align: center;
+    @include largerThan($large) {
+      flex-flow: row;
+      flex-wrap: wrap;
+      text-align: left;
+    }
   }
   &-DataInfo {
     &-summary {
@@ -124,10 +130,11 @@ export default class DataView extends Vue {
     height: 100%;
   }
   &-TitleContainer {
-    display: flex;
-    flex-flow: column;
     width: 100%;
     color: $gray-2;
+    @include largerThan($large) {
+      width: 50%;
+    }
   }
   &-Title {
     margin-bottom: 5px;
@@ -135,6 +142,9 @@ export default class DataView extends Vue {
     line-height: 1.5;
     font-weight: normal;
     text-align: center;
+    @include largerThan($large) {
+      text-align: left;
+    }
   }
   &-CardText {
     margin: 30px 0;
