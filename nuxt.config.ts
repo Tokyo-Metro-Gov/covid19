@@ -146,11 +146,12 @@ const config: Configuration = {
             name: '한국어',
             iso: 'ko-KR'
           },
-          {
-            code: 'pt-BR',
-            name: 'Portuguese',
-            iso: 'pt-BR'
-          },
+          // #1126: 訳が揃っていない言語は選択肢から抜いておく
+          // {
+          //   code: 'pt-BR',
+          //   name: 'Portuguese',
+          //   iso: 'pt-BR'
+          // },
           {
             code: 'ja-basic',
             name: 'やさしい にほんご',
