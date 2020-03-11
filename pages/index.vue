@@ -92,6 +92,15 @@
           :date="metroGraph.date"
         />
       </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <agency-bar-chart
+          title="入庁舎数の推移"
+          :title-id="'agency'"
+          :chart-id="'agency'"
+          :url="''"
+          :unit="'人'"
+        />
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -100,6 +109,7 @@
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import MetroBarChart from '@/components/MetroBarChart.vue'
+import AgencyBarChart from '@/components/AgencyBarChart.vue'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
@@ -118,6 +128,7 @@ export default {
     PageHeader,
     TimeBarChart,
     MetroBarChart,
+    AgencyBarChart,
     TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
