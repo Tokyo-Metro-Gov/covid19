@@ -239,23 +239,24 @@ export default {
   }
 }
 .box {
+  $box-height: 170px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
   padding-bottom: 26px;
   width: 100%;
-  height: 150px;
+  height: $box-height;
   border: 3px solid $green-1;
   color: $green-1;
   @include font-size(14);
   text-align: center;
   line-height: 1.2;
   &.tall {
-    height: 185px;
+    height: $box-height + 35px;
   }
   &.short {
-    height: 115px;
+    height: $box-height - 35px;
   }
   span:last-child {
     margin-top: 0.2em;
