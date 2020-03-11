@@ -23,8 +23,10 @@
           <img src="/flow/check_circle-24px.svg" />
         </i>
         <p>
-          風邪
-          <span>のような症状</span>
+          <span :class="$style.FlowRowConditionSmall">
+            <span :class="$style.FlowRowConditionLarge">風邪</span>
+            のような症状
+          </span>
         </p>
       </div>
       <div :class="$style.FlowRowCondition">
@@ -32,9 +34,11 @@
           <img src="/flow/check_circle-24px.svg" />
         </i>
         <p>
-          <span>発熱</span>
-          37.5℃
-          <span>以上</span>
+          <span :class="$style.FlowRowConditionSmall">
+            発熱
+            <span :class="$style.FlowRowConditionLarge">37.5℃</span>
+            以上
+          </span>
         </p>
       </div>
       <div :class="$style.FlowRowCondition">
@@ -219,14 +223,20 @@
         text-align: center;
         display: inline-block;
         margin: 0;
-        font-weight: bold;
         font-size: calc(0.875rem + ((1vw - 7.68px) * 0.8929));
+        font-weight: bold;
         @include largerThan($large) {
           font-size: 20px;
         }
-        span {
-          font-size: 15px;
+      }
+      &Large {
+        font-size: calc(1rem + ((1vw - 7.68px) * 2.4876));
+        @include largerThan($large) {
+          font-size: 25px;
         }
+      }
+      &Small {
+        font-size: 15px;
       }
       i {
         position: absolute;
