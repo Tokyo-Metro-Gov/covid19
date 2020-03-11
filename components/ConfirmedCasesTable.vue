@@ -28,7 +28,7 @@
       </div>
       <ul class="group">
         <li class="item in-hospital">
-          <div class="gutter">
+          <div class="gutter oneThird">
             <div class="box">
               <span>{{ $t('入院中') }}</span>
               <span>
@@ -234,6 +234,9 @@ export default {
 .gutter {
   width: 100%;
   padding-right: 3px;
+  &.oneThird {
+    width: calc(100% / 3);
+  }
 }
 .box {
   display: flex;
