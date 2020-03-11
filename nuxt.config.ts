@@ -1,5 +1,6 @@
 import { Configuration } from '@nuxt/types'
 const purgecss = require('@fullhuman/postcss-purgecss')
+const autoprefixer = require('autoprefixer')
 
 const config: Configuration = {
   mode: 'universal',
@@ -154,6 +155,7 @@ const config: Configuration = {
   build: {
     postcss: {
       plugins: [
+        autoprefixer({ grid: 'autoplace' }),
         purgecss({
           content: [
             './pages/**/*.vue',
