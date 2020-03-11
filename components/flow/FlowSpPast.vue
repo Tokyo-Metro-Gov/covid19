@@ -50,9 +50,12 @@
     <a
       v-scroll-to="'#consult'"
       href="#consult"
-      :class="['pa-5', $style.counter]"
+      :class="['pa-5', $style.Advisory]"
     >
-      {{ $t('新型コロナ受診相談窓口へ') }}
+      <span :class="$style.AdvisoryText">
+        {{ $t('新型コロナ受診相談窓口へ') }}
+      </span>
+      <ArrowForwardIcon :class="$style.AdvisoryIcon" />
     </a>
   </div>
 </template>
@@ -134,6 +137,14 @@
   }
 }
 </i18n>
+
+<script lang="ts">
+import ArrowForwardIcon from '@/static/flow/arrow_forward-24px.svg'
+
+export default {
+  components: { ArrowForwardIcon }
+}
+</script>
 
 <style module lang="scss">
 .SpPast {
@@ -219,28 +230,24 @@
     width: 100%;
     display: block;
   }
-  .counter {
+  .Advisory {
+    align-items: center;
     background-color: #ffe200;
     border-radius: 4px;
     box-shadow: -1px 2px 5px $gray-3;
-    display: block;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
     text-decoration: none;
     color: $gray-2;
     font-weight: bold;
-    @include font-size(18);
-    &::after {
+    &Text {
+      @include font-size(18);
+    }
+    &Icon {
       width: 45px;
       height: 45px;
-      background-image: url(/flow/arrow_forward-24px.svg);
-      background-position: right center;
-      background-repeat: no-repeat;
       transform: rotateZ(90deg);
-      content: '';
       display: block;
-      position: absolute;
-      right: 8px;
-      top: 4px;
     }
   }
 }

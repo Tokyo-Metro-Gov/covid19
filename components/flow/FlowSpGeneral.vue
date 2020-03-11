@@ -41,11 +41,13 @@
 
     <a
       v-scroll-to="'#consult'"
-      :class="['pa-5', $style.GeneralBtn]"
       href="#consult"
+      :class="['pa-5', $style.Advisory]"
     >
-      {{ $t('新型コロナ受診相談窓口へ') }}
-      <ArrowIcon />
+      <span :class="$style.AdvisoryText">
+        {{ $t('新型コロナ受診相談窓口へ') }}
+      </span>
+      <ArrowForwardIcon :class="$style.AdvisoryIcon" />
     </a>
   </div>
 </template>
@@ -135,9 +137,9 @@
 
 <script lang="ts">
 import HumanIcon from '@/static/flow/accessibility-24px.svg'
-import ArrowIcon from '@/static/flow/arrow_forward-24px.svg'
+import ArrowForwardIcon from '@/static/flow/arrow_forward-24px.svg'
 export default {
-  components: { HumanIcon, ArrowIcon }
+  components: { HumanIcon, ArrowForwardIcon }
 }
 </script>
 
@@ -212,24 +214,25 @@ export default {
       }
     }
   }
-  &Btn {
+  .Advisory {
+    align-items: center;
     background-color: #ffe200;
-    color: $gray-2 !important;
     border-radius: 4px;
     box-shadow: -1px 2px 5px $gray-3;
-    display: block;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
     text-decoration: none;
+    color: $gray-2;
     font-weight: bold;
-    text-align: left;
-    @include font-size(18);
-    svg {
-      position: absolute;
-      width: 36px;
-      height: 36px;
-      top: 50%;
-      right: -8px;
-      transform: translate(-50%, -50%) rotate(90deg);
+    &Text {
+      @include font-size(18);
+      text-align: initial;
+    }
+    &Icon {
+      width: 45px;
+      height: 45px;
+      transform: rotateZ(90deg);
+      display: block;
     }
   }
 }

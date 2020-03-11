@@ -42,8 +42,15 @@
       </div>
     </div>
 
-    <a v-scroll-to="'#consult'" :class="['pa-5', $style.Link]" href="#consult">
-      {{ $t('専門的な助言が必要な場合') }}
+    <a
+      v-scroll-to="'#consult'"
+      href="#consult"
+      :class="['pa-5', $style.Advisory]"
+    >
+      <span :class="$style.AdvisoryText">
+        {{ $t('専門的な助言が必要な場合') }}
+      </span>
+      <ArrowForwardIcon :class="$style.AdvisoryIcon" />
     </a>
   </div>
 </template>
@@ -108,11 +115,12 @@
 </i18n>
 
 <script lang="ts">
+import ArrowForwardIcon from '@/static/flow/arrow_forward-24px.svg'
 import PhoneIcon from '@/static/flow/phone-24px.svg'
 import SentimentIcon from '@/static/flow/sentiment_very_dissatisfied-24px.svg'
 
 export default {
-  components: { PhoneIcon, SentimentIcon }
+  components: { ArrowForwardIcon, PhoneIcon, SentimentIcon }
 }
 </script>
 
@@ -195,29 +203,25 @@ export default {
     }
   }
 }
-.Link {
-  @include font-size(18);
-  position: relative;
-  display: block;
-  border-radius: 4px;
+.Advisory {
+  align-items: center;
   background-color: #ffe200;
+  border-radius: 4px;
   box-shadow: -1px 2px 5px $gray-3;
-  color: $gray-2 !important;
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
   text-decoration: none;
-  &::after {
-    $imgSize: 35px;
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 12px;
-    bottom: 0;
-    margin: auto 0;
-    width: $imgSize;
-    height: $imgSize;
-    background: url(/flow/arrow_forward-24px.svg) no-repeat;
-    background-size: $imgSize;
-    transform: rotate(90deg);
+  color: $gray-2 !important;
+  font-weight: bold;
+  &Text {
+    @include font-size(18);
+    text-align: initial;
+  }
+  &Icon {
+    width: 45px;
+    height: 45px;
+    transform: rotateZ(90deg);
+    display: block;
   }
 }
 </style>
