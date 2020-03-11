@@ -50,6 +50,7 @@ export default class TextCard extends Vue {
     @include card-h1();
     margin-bottom: 12px;
     a {
+      @include text-link();
       @include card-h1();
     }
   }
