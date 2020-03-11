@@ -179,18 +179,17 @@ export default {
             label: tooltipItem => {
               const labelTokyo = this.$t('都内')
               const labelOthers = this.$t('その他')
-              let casesTotal, casesTokyo, casesOthers
+              const labelArray = [labelTokyo, labelOthers]
+              let casesTotal, cases
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index]
-                casesTokyo = data[0][tooltipItem.index]
-                casesOthers = data[1][tooltipItem.index]
+                cases = data[tooltipItem.datasetIndex][tooltipItem.index]
               } else {
                 casesTotal = cumulativeSumArray[tooltipItem.index]
-                casesTokyo = cumulativeData[0][tooltipItem.index]
-                casesOthers = cumulativeData[1][tooltipItem.index]
+                cases = cumulativeData[tooltipItem.datasetIndex][tooltipItem.index]
               }
 
-              return `${casesTotal} ${unit} (${labelTokyo}: ${casesTokyo} / ${labelOthers}: ${casesOthers})`
+              return `${casesTotal} ${unit} (${labelArray[tooltipItem.datasetIndex]}: ${cases})`
             },
             title(tooltipItem, data) {
               return data.labels[tooltipItem[0].index]
