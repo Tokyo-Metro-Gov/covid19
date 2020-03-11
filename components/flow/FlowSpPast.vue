@@ -10,7 +10,7 @@
     </p>
     <div :class="['mb-4', $style.flexContainer]">
       <div :class="$style.item">
-        <div>
+        <div class="py-4">
           {{ $t('発熱') }}
         </div>
       </div>
@@ -18,7 +18,7 @@
         {{ $t('または') }}
       </div>
       <div :class="$style.item">
-        <div>
+        <div class="py-4">
           {{ $t('呼吸器症状') }}
         </div>
       </div>
@@ -31,7 +31,7 @@
     </p>
     <div :class="['mb-4', $style.flexContainer]">
       <div :class="$style.item">
-        <div>
+        <div class="py-4">
           {{ $t('呼吸器症状') }}
         </div>
       </div>
@@ -39,7 +39,7 @@
         {{ $t('かつ') }}
       </div>
       <div :class="$style.item">
-        <div :class="['pa-2', $style.block]">
+        <div :class="['py-4', $style.block]">
           <span :class="$style.small">発熱</span>
           <div>
             37.5℃以上
@@ -174,24 +174,26 @@ export default {
     }
   }
   .flexContainer {
+    align-items: stretch;
     display: flex;
     font-weight: bold;
     @include font-size(18);
     justify-content: space-between;
     .item {
       @include font-size(18);
+      display: flex;
       line-height: 1rem;
       text-align: center;
       &:nth-child(1),
       &:nth-child(3) {
-        width: 7rem;
+        flex-basis: 40%;
         > div {
-          height: 3.5rem;
           border: $green-1 2px solid;
           border-radius: 5px;
 
           // 上下中央寄せ
           display: flex;
+          flex-basis: 100%;
           justify-content: center;
           align-items: center;
 
@@ -215,9 +217,11 @@ export default {
         }
       }
       &:nth-child(2) {
-        // 上下中央寄せ
+        // 上下左右中央寄せ
         display: flex;
         align-items: center;
+        justify-content: center;
+        flex-basis: 20%;
       }
       .small {
         @include font-size(12);
