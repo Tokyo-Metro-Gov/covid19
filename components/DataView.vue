@@ -86,6 +86,8 @@ export default class DataView extends Vue {
 
 <style lang="scss">
 .DataView {
+  @include card-container();
+  height: 100%;
   &-Header {
     display: flex;
     align-items: center;
