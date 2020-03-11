@@ -61,6 +61,47 @@ export default {
   data() {
     // 退院者グラフ
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
+<<<<<<< HEAD
+=======
+
+    // 相談件数
+    const contactsGraph = formatGraph(Data.contacts.data)
+    // 帰国者・接触者 電話相談センター 相談件数
+    const querentsGraph = formatGraph(Data.querents.data)
+    // 都営地下鉄の利用者数の推移
+    const metroGraph = MetroData
+    // metroGraph ツールチップ title文字列
+    // this.$t を使うため metroGraphOption の外側へ
+    const metroGraphTooltipTitle = (tooltipItems, _) => {
+      const label = tooltipItems[0].label
+      return this.$t('期間: {duration}', {
+        // duration = label = '2月10日~14日' | '2月17日~21日' | '2月25日~28日'
+        duration: this.$t(label)
+      })
+    }
+    // metroGraph ツールチップ label文字列
+    // this.$t を使うため metroGraphOption の外側へ
+    const metroGraphTooltipLabel = (tooltipItem, data) => {
+      const currentData = data.datasets[tooltipItem.datasetIndex]
+      const percentage = `${currentData.data[tooltipItem.index]}%`
+
+      return this.$t('{duration}の利用者数との相対値: {percentage}', {
+        // duration = metroGraph.base_period = '1月20日~1月24日'
+        duration: this.$t(metroGraph.base_period),
+        percentage
+      })
+    }
+    // 検査実施日別状況
+    const inspectionsGraph = [
+      Data.inspections_summary.data['都内'],
+      Data.inspections_summary.data['その他']
+    ]
+    const inspectionsItems = [
+      this.$t('都内発生（疑い例・接触者調査）'),
+      this.$t('その他（チャーター便・クルーズ船）')
+    ]
+    const inspectionsLabels = Data.inspections_summary.labels
+>>>>>>> Fix components/flow/FlowSpAdvisory.vue (properties of i18n settings)
     // 死亡者数
     // #MEMO: 今後使う可能性あるので一時コメントアウト
     // const fatalitiesTable = formatTable(
