@@ -2,9 +2,9 @@
   <div class="SideNavigation">
     <div class="SideNavigation-HeadingContainer sp-flex">
       <v-icon
-        class="SideNavigation-HeadingIcon sp-inline-block"
-        @click="openNavi"
+        class="SideNavigation-HeadingIcon pc-none"
         :aria-label="$t('Navi Open')"
+        @click="openNavi"
       >
         mdi-menu
       </v-icon>
@@ -13,21 +13,16 @@
           <img src="/logo.svg" :alt="$t('Tokyo')" />
         </div>
         <h1 class="SideNavigation-Heading">
-          <span class="SideNavigation-HeadingTitle">
-            {{ $t('Tokyo') }}<br />
-          </span>
-          {{ $t('COVID-19') }}<br class="SideNavigation-HeadingMobileBreak" />{{
-            $t('Measures site')
-          }}
+          {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
         </h1>
       </nuxt-link>
     </div>
     <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
-        class="SideNavigation-ListContainerIcon sp-inline-block"
-        @click="closeNavi"
+        class="SideNavigation-ListContainerIcon pc-none"
         :aria-label="$t('Navi Close')"
+        @click="closeNavi"
       >
         mdi-close
       </v-icon>
@@ -35,7 +30,6 @@
         <v-container
           v-for="(item, i) in items"
           :key="i"
-          :class="isClass(item)"
           class="SideNavigation-ListItemContainer"
           @click="closeNavi"
         >
@@ -45,15 +39,41 @@
       </v-list>
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a href="https://line.me/R/ti/p/%40822sysfc" target="_blank" rel="noopener">
+          <a
+            href="https://line.me/R/ti/p/%40822sysfc"
+            target="_blank"
+            rel="noopener"
+          >
             <img src="/line.png" alt="LINE" />
           </a>
-          <a href="https://twitter.com/tokyo_bousai" target="_blank" rel="noopener">
+          <a
+            href="https://twitter.com/tokyo_bousai"
+            target="_blank"
+            rel="noopener"
+          >
             <img src="/twitter.png" alt="Twitter" />
+          </a>
+          <a
+            href="https://www.facebook.com/tochokoho"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/facebook.png" alt="Facebook" />
+          </a>
+          <a href="https://github.com/tokyo-metropolitan-gov/covid19">
+            <img src="/github.png" alt="GitHub" />
           </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights Reserved.
+          Content on This Site is Licensed Under a
+          <a
+            rel="license"
+            target="_blank"
+            href="http://creativecommons.org/licenses/by/4.0/"
+          >
+            Creative Commons Attribution 4.0 International License </a
+          ><br />
+          2020 Tokyo Metropolitan Government
         </small>
       </div>
     </div>
@@ -66,7 +86,7 @@
     "Navi Open": "サイドメニュー項目を開く",
     "Navi Close": "サイドメニュー項目を閉じる",
     "Tokyo": "東京都",
-    "COVID-19": "新型コロナウイルス",
+    "COVID-19": "新型コロナウイルス感染症",
     "Measures site": "対策サイト",
     "Tokyo Metropolitan Government": "東京都",
     "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
@@ -76,7 +96,7 @@
     "for Citizens": "都民の皆様へ",
     "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
     "Official statements from Task Force": "東京都新型コロナウイルス感染症対策本部報",
-    "Cancelled public events": "【東京都主催等】中止または延期するイベント・説明会等",
+    "Cancelled public events": "東京都主催等 中止又は延期するイベント等",
     "Government official website": "東京都公式ホームページ",
     "Message from Governor Koike": "知事からのメッセージ",
     "About us": "当サイトについて"
@@ -154,8 +174,8 @@ export default {
       ]
     },
     isClass() {
-      return item => item.title.charAt(0) === '【' ? 'kerningLeft' : ''
-    },
+      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
+    }
   },
   methods: {
     openNavi() {
@@ -182,7 +202,6 @@ export default {
     }
   }
   &-HeadingIcon {
-    display: none;
     margin-right: 16px;
   }
   &-HeadingLink {
@@ -193,7 +212,6 @@ export default {
     text-decoration: none;
   }
   &-ListContainerIcon {
-    display: none;
     margin: 24px 16px 0;
   }
   &-ListItemContainer {
@@ -214,17 +232,6 @@ export default {
     text-decoration: none;
     @include lessThan($small) {
       margin-top: 0;
-    }
-  }
-  &-HeadingTitle {
-    @include lessThan($small) {
-      display: none;
-    }
-  }
-  &-HeadingMobileBreak {
-    display: none;
-    @include lessThan($small) {
-      display: inline;
     }
   }
   &-HeadingDivider {
@@ -260,27 +267,27 @@ export default {
 }
 .open {
   @include lessThan($small) {
-    position: absolute;
+    position: fixed;
     top: 0;
+    bottom: 0;
     left: 0;
     display: block !important;
     width: 100%;
-    z-index: 100;
+    z-index: z-index-of(opened-side-navigation);
     background-color: $white;
+  }
+}
+@include largerThan($small) {
+  .pc-none {
+    display: none;
   }
 }
 @include lessThan($small) {
   .sp-flex {
     display: flex;
   }
-  .sp-inline-block {
-    display: inline-block;
-  }
   .sp-none {
     display: none;
   }
-}
-.kerningLeft {
-  text-indent: -0.5em;
 }
 </style>

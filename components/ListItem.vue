@@ -29,10 +29,7 @@
     </v-list-item-action>
     <v-list-item-content class="ListItem-TextContainer">
       <v-list-item-title
-        :class="[
-          'ListItem-Text',
-          isActive(link)
-        ]"
+        :class="['ListItem-Text', isActive(link)]"
         v-text="title"
       />
     </v-list-item-content>
@@ -78,7 +75,7 @@ export default class ListItem extends Vue {
   }
 
   isActive(link: string): string | undefined {
-    if (link === this.$route.path) {
+    if (link === this.$route.path || `${link}/` === this.$route.path) {
       return 'isActive'
     }
   }

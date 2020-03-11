@@ -7,13 +7,13 @@
     <div v-else class="appContainer">
       <div class="naviContainer">
         <SideNavigation
-          :is-navi-open="isNaviOpen"
-          :class="{ open: isNaviOpen }"
-          @openNavi="showNavi"
-          @closeNavi="hideNavi"
+          :is-navi-open="isOpenNavigation"
+          :class="{ open: isOpenNavigation }"
+          @openNavi="openNavigation"
+          @closeNavi="hideNavigation"
         />
       </div>
-      <div class="mainContainer" :class="{ open: isNaviOpen }">
+      <div class="mainContainer" :class="{ open: isOpenNavigation }">
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
@@ -21,24 +21,25 @@
     </div>
   </v-app>
 </template>
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
-import SideNavigation from '@/components/SideNavigation'
-export default {
+import SideNavigation from '@/components/SideNavigation.vue'
+
+type LocalData = {
+  isOpenNavigation: boolean
+  loading: boolean
+}
+
+export default Vue.extend({
   components: {
     ScaleLoader,
     SideNavigation
   },
-  head() {
+  data(): LocalData {
     return {
-      link: [
-        { rel: 'canonical', href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}` },
-      ],
-    };
-  },
-  data() {
-    return {
-      isNaviOpen: false,
+      isOpenNavigation: false,
       loading: true
     }
   },
@@ -46,20 +47,26 @@ export default {
     this.loading = false
   },
   methods: {
-    showNavi() {
-      this.isNaviOpen = true
+    openNavigation(): void {
+      this.isOpenNavigation = true
     },
-    hideNavi() {
-      this.isNaviOpen = false
+    hideNavigation(): void {
+      this.isOpenNavigation = false
     }
   },
-  head() {
+  head(): MetaInfo {
     const { htmlAttrs } = this.$nuxtI18nSeo()
     return {
-      htmlAttrs
+      htmlAttrs,
+      link: [
+        {
+          rel: 'canonical',
+          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+        }
+      ]
     }
   }
-}
+})
 </script>
 <style lang="scss">
 .app {
@@ -71,10 +78,20 @@ export default {
   position: relative;
   @include largerThan($small) {
     display: grid;
-    grid-template-columns: 240px auto;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto;
   }
   @include largerThan($huge) {
-    grid-template-columns: 325px auto;
+    grid-template-columns: 325px 1fr;
+    grid-template-rows: auto;
+  }
+}
+@include lessThan($small) {
+  .naviContainer {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: z-index-of(sp-navigation);
   }
 }
 @include largerThan($small) {
@@ -84,7 +101,7 @@ export default {
     top: 0;
     overflow-y: auto;
     width: 240px;
-    height: 100vh;
+    height: 100%;
   }
 }
 @include largerThan($huge) {
@@ -93,9 +110,11 @@ export default {
   }
 }
 .open {
-  overflow-x: hidden;
-  overflow-y: auto;
   height: 100vh;
+  @include largerThan($small) {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
 .mainContainer {
   grid-column: 2/3;
