@@ -28,7 +28,7 @@
       </div>
       <ul class="group">
         <li class="item in-hospital">
-          <div class="gutter">
+          <div class="gutter oneThird">
             <div class="box">
               <span>{{ $t('入院中') }}</span>
               <span>
@@ -234,25 +234,29 @@ export default {
 .gutter {
   width: 100%;
   padding-right: 3px;
+  &.oneThird {
+    width: calc(100% / 3);
+  }
 }
 .box {
+  $box-height: 170px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
   padding-bottom: 26px;
   width: 100%;
-  height: 150px;
+  height: $box-height;
   border: 3px solid $green-1;
   color: $green-1;
   @include font-size(14);
   text-align: center;
   line-height: 1.2;
   &.tall {
-    height: 185px;
+    height: $box-height + 35px;
   }
   &.short {
-    height: 115px;
+    height: $box-height - 35px;
   }
   span:last-child {
     margin-top: 0.2em;
@@ -389,21 +393,21 @@ export default {
 
 // variables.scss Breakpoints: huge
 @include lessThan(1440) {
-  @include variation(1440, 3, 14, 150, 35);
+  @include variation(1440, 3, 14, 180, 35);
 }
 
 // Vuetify Breakpoints: Large
 @include lessThan(1263) {
-  @include variation(1263, 2, 12, 107, 24);
+  @include variation(1263, 2, 12, 150, 24);
 }
 
 // Vuetify Breakpoints: Small
 @include lessThan(959) {
-  @include variation(960, 4, 16, 180, 40);
+  @include variation(960, 4, 16, 250, 40);
 }
 
 // Vuetify Breakpoints: Extra Small
 @include lessThan(599) {
-  @include variation(600, 3, 14, 150, 35);
+  @include variation(600, 3, 14, 200, 35);
 }
 </style>
