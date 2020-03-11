@@ -70,13 +70,7 @@ export default Vue.extend()
   }
   strong,
   em {
-    background: linear-gradient(
-      transparent,
-      transparent 65%,
-      lighten($green-4, 40%) 0,
-      lighten($green-4, 40%) 95%,
-      transparent 0
-    );
+    border-bottom: 2px solid $green-1;
   }
   em {
     font-style: normal;
