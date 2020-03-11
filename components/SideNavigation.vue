@@ -116,7 +116,7 @@
     "都内の最新感染動向": "Latest updates on COVID-19 in Tokyo",
     "新型コロナウイルス感染症が心配なときに": "If you suspect having COVID-19",
     "お子様をお持ちの皆様へ": "For families with children",
-    "都民の皆様へ": "For citizens in Tokyo (in Japanese)",
+    "都民の皆様へ": "For residents in Tokyo (in Japanese)",
     "企業の皆様・はたらく皆様へ": "For enterprises, employees and SMEs",
     "東京都新型コロナウイルス感染症対策本部報": "Official statements from Tokyo COVID-19 Task Force (in Japanese)",
     "東京都主催等 中止又は延期するイベント等": "Cancelled or Postponed public events (in Japanese)",
