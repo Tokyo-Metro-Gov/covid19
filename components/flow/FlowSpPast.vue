@@ -59,11 +59,14 @@
       <div :class="$style.item">{{ $t('かつ') }}</div>
       <div :class="$style.item">
         <div>
-          <i18n tag="span" :class="$style.small" path="発熱{temperature}">
-            <i18n tag="span" path="{tempNum}以上" place="temperature">
-              <span :class="$style.FlowTemperature" place="tempNum">{{ $t('37.5℃') }}</span>
+          <div :class="$style.temp">
+            <span :class="$style.small">{{ $t('発熱') }}</span>
+            <i18n tag="span" path="{tempNum}以上">
+              <span :class="$style.temp" place="tempNum">
+                {{ $t('37.5℃') }}
+              </span>
             </i18n>
-          </i18n>
+          </div>
         </div>
       </div>
     </div>
@@ -308,6 +311,11 @@ export default {
       justify-content: center;
       flex-basis: 30%;
     }
+    .temp {
+      > span {
+        display: block;
+      }
+    }
     .small {
       font-size: px2vw(18);
     }
@@ -390,8 +398,11 @@ export default {
           }
         }
       }
-      .small {
+      .temp {
         font-size: px2vw(20, 960);
+        > span {
+          font-size: px2vw(22, 960);
+        }
       }
     }
   }
