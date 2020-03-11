@@ -99,6 +99,7 @@
     "Cancelled public events": "東京都主催等 中止又は延期するイベント等",
     "Government official website": "東京都公式ホームページ",
     "Message from Governor Koike": "知事からのメッセージ",
+    "Keep in mind as a consumer": "消費者としての心がけ",
     "About us": "当サイトについて"
   }
 }
@@ -161,6 +162,11 @@ export default {
           title: this.$t('Message from Governor Koike'),
           link:
             'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+        },
+        {
+          title: this.$t('Keep in mind as a consumer'),
+          link:
+            'https://www.shouhiseikatu.metro.tokyo.jp/etc/covid19/info20200309.html'
         },
         {
           title: this.$t('About us'),
