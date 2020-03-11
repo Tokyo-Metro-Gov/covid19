@@ -37,11 +37,6 @@
 }
 .DataView {
   @include card-container();
-  height: 100%;
-  &-Header {
-    background-color: transparent !important;
-    height: auto !important;
-  }
 }
 </style>
 
