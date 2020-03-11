@@ -86,6 +86,7 @@ export default {
   &GrayBg {
     background-color: $gray-5;
     box-shadow: none;
+    border: none !important; // FIXME: card-containerにてimportantが指定されている
   }
 }
 </style>
