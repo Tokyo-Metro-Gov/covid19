@@ -1,7 +1,6 @@
 <template>
   <div class="SelectLanguage">
-    <EarthIcon class="EarthIcon" />
-    <div class="SelectLanguageMenu">
+    <div class="SelectLanguage-Menu">
       <select v-model="$i18n.locale" @change="navigate($i18n.locale)">
         <option
           v-for="locale in $i18n.locales"
@@ -12,7 +11,10 @@
         </option>
       </select>
     </div>
-    <SelectMenuIcon class="SelectMenuIcon" />
+    <div class="SelectLanguage-Background">
+      <EarthIcon class="EarthIcon" />
+      <SelectMenuIcon class="SelectMenuIcon" />
+    </div>
   </div>
 </template>
 
@@ -46,30 +48,39 @@ export default class LanguageSelector extends Vue {
   border: 1px solid #d9d9d9;
   border-radius: 4px;
   cursor: pointer;
-  &:after {
-    content: '';
-    position: absolute;
-    display: block;
+  &-Menu {
     width: 100%;
-    height: 100%;
-    background: #fff;
-    z-index: -1;
-  }
-  .SelectLanguageMenu {
-    width: 100%;
+    z-index: 1;
     select {
       width: 100%;
       background: transparent;
-      padding: 5px 0 5px 55px;
-      font-size: 12px;
-      line-height: 18px;
-      box-sizing: border-box;
+      padding-left: 56px;
       color: #333;
-      z-index: 1;
+      font-size: 12px;
+      line-height: 28px;
+      box-sizing: border-box;
       cursor: pointer;
       &:focus {
         outline: none;
       }
+    }
+  }
+  &-Background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    .EarthIcon {
+      position: absolute;
+      left: 6px;
+      height: 28px;
+    }
+    .SelectMenuIcon {
+      position: absolute;
+      right: 6px;
+      height: 28px;
     }
     &:before {
       content: 'Lang:';
@@ -79,19 +90,7 @@ export default class LanguageSelector extends Vue {
       color: #333;
       font-size: 12px;
       line-height: 28px;
-      z-index: 0;
     }
-  }
-  .EarthIcon {
-    position: absolute;
-    left: 6px;
-    z-index: 0;
-  }
-  .SelectMenuIcon {
-    position: absolute;
-    right: 6px;
-    margin-left: auto;
-    z-index: 0;
   }
 }
 </style>
