@@ -60,10 +60,20 @@
           >
             <img src="/facebook.png" alt="Facebook" />
           </a>
+          <a href="https://github.com/tokyo-metropolitan-gov/covid19">
+            <img src="/github.png" alt="GitHub" />
+          </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
-          Reserved.
+          Content on This Site is Licensed Under a
+          <a
+            rel="license"
+            target="_blank"
+            href="http://creativecommons.org/licenses/by/4.0/"
+          >
+            Creative Commons Attribution 4.0 International License </a
+          ><br />
+          2020 Tokyo Metropolitan Government
         </small>
       </div>
     </div>
@@ -265,6 +275,8 @@ export default {
     width: 100%;
     z-index: z-index-of(opened-side-navigation);
     background-color: $white;
+    height: 100%;
+    overflow-y: scroll;
   }
 }
 @include largerThan($small) {
