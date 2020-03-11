@@ -25,7 +25,7 @@
 - Node.js 版本最低需求: 10.19.0以上
 
 **使用 yarn 时**
-``` bash
+```bash
 # install dependencies
 $ yarn install
 

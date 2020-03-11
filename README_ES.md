@@ -25,7 +25,7 @@ Este software se publica bajo la [licencia MIT](./LICENSE.txt).
 - Versión requerida de Node.js: 10.19.0 o superior
 
 **Use yarn**
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
