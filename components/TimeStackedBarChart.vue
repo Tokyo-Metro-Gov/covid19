@@ -2,7 +2,7 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
-        {{ $t('（注）同一の対象者について複数の検体を調査する場合あり') }}
+        （注）同一の対象者について複数の検体を調査する場合あり
       </p>
       <data-selector v-model="dataKind" />
     </template>
@@ -21,48 +21,6 @@
     </template>
   </data-view>
 </template>
-
-<i18n>
- {
-   "ja": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "（注）同一の対象者について複数の検体を調査する場合あり",
-     "{date}の全体累計": "%{date}の全体累計",
-     "{date}の合計": "%{date}の合計",
-     "都内": "都内",
-     "その他": "その他"
-   },
-   "en": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "(Note) More than one sample from the same subject may be tested.",
-     "{date}の全体累計": "Cumulative total as of %{date}",
-     "都内": "Tokyo",
-     "その他": "Others"
-   },
-   "zh-cn": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "(註) 同一個案可能被多次檢查",
-     "{date}の全体累計": "截至 %{date}",
-     "都内": "东京都",
-     "その他": "其它"
-   },
-   "zh-tw": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "（註）同一個案可能被多次檢查",
-     "{date}の全体累計": "累計至 %{date}",
-     "都内": "東京都",
-     "その他": "其它"
-   },
-   "ko": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "(주의) 동일 대상자에 대하여 여러번의 검체를 조사하는 경우가 있음",
-     "{date}の全体累計": "%{date}의 누적 수",
-     "都内": "도쿄도내",
-     "その他": "기타"
-   },
-   "ja-basic": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "(ちゅうい) おなじ ひとに なんどか けんさ を する とき が あります",
-     "{date}の全体累計": "%{date} ぜんぶで",
-     "都内": "とうきょうと の なか",
-     "その他": "そのほか"
-   }
- }
- </i18n>
 
 <script>
 import DataView from '@/components/DataView.vue'
@@ -123,22 +81,18 @@ export default {
       if (this.dataKind === 'transition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
-          sText: `${this.$t('{date}の合計', {
-            date: this.labels[this.labels.length - 1]
-          })}`,
+          sText: `${this.labels[this.labels.length - 1]} の合計`,
           unit: this.unit
         }
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.$t('{date}の全体累計', {
-          date: this.labels[this.labels.length - 1]
-        })}`,
+        sText: `${this.labels[this.labels.length - 1]} の全体累計`,
         unit: this.unit
       }
     },
     displayData() {
-      const colorArray = ['#00A040', '#00D154']
+      const colorArray = ['#325685', '#81A3CF']
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
@@ -177,25 +131,21 @@ export default {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const labelTokyo = this.$t('都内')
-              const labelOthers = this.$t('その他')
-              const labelArray = [labelTokyo, labelOthers]
-              let casesTotal, cases
-              if (this.dataKind === 'transition') {
-                casesTotal = sumArray[tooltipItem.index]
-                cases = data[tooltipItem.datasetIndex][tooltipItem.index]
-              } else {
-                casesTotal = cumulativeSumArray[tooltipItem.index]
-                cases =
-                  cumulativeData[tooltipItem.datasetIndex][tooltipItem.index]
-              }
-
-              return `${casesTotal} ${unit} (${
-                labelArray[tooltipItem.datasetIndex]
-              }: ${cases})`
+              const labelText =
+                this.dataKind === 'transition'
+                  ? `${sumArray[tooltipItem.index]}${unit}（市内: ${
+                      data[0][tooltipItem.index]
+                    }/その他: ${data[1][tooltipItem.index]}）`
+                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（市内: ${
+                      cumulativeData[0][tooltipItem.index]
+                    }/その他: ${cumulativeData[1][tooltipItem.index]}）`
+              return labelText
             },
             title(tooltipItem, data) {
-              return data.labels[tooltipItem[0].index]
+              return data.labels[tooltipItem[0].index].replace(
+                /(\w+)\/(\w+)/,
+                '$1月$2日'
+              )
             }
           }
         },

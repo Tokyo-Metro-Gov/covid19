@@ -2,13 +2,9 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="MetroGraph-Desc">
-        {{
-          $t('{range}の利用者数*の平均値を基準としたときの相対値', {
-            range: $t(chartData.base_period)
-          })
-        }}
+        {{ chartData.base_period }}の利用者数*の平均値を基準としたときの相対値
         <br />
-        *{{ $t('都営地下鉄4路線の自動改札出場数') }}
+        *福岡市営地下鉄3路線の自動改札出場数
       </p>
     </template>
     <bar
@@ -19,46 +15,6 @@
     />
   </data-view>
 </template>
-
-<i18n>
-{
-  "ja": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "{range}の利用者数*の平均値を基準としたときの相対値",
-    "都営地下鉄4路線の自動改札出場数": "都営地下鉄4路線の自動改札出場数",
-    "1月20日~1月24日": "1月20日~1月24日"
-  },
-  "en": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "Relative value based on the average number of users {range}",
-    "都営地下鉄4路線の自動改札出場数": "Total number of passengers using four Toei subway lines",
-    "1月20日~1月24日": "from January 20 to 24"
-  },
-  "zh-cn": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "基于{range}间平均乘客数*的相对值",
-    "都営地下鉄4路線の自動改札出場数": "都营地下铁 4 条路线的出站乘客数",
-    "1月20日~1月24日": "1月20日~1月24日"
-  },
-  "zh-tw": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "基於{range}的平均搭乘人數*之相對數值",
-    "都営地下鉄4路線の自動改札出場数": "都營地下鐵 4 條路線的出站人數",
-    "1月20日~1月24日": "1月20日~1月24日"
-  },
-  "ko": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "{range}의 이용자수*의 평균치를 기준으로 했을때의 상대치",
-    "都営地下鉄4路線の自動改札出場数": "도에이 전철 4개 노선을 이용한 승객 수",
-    "1月20日~1月24日": "1월 20일~1월24일"
-  },
-  "pt-BR": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "",
-    "都営地下鉄4路線の自動改札出場数": "Total de usuarios das 4 linhas de metro Toei",
-    "1月20日~1月24日": ""
-  },
-  "ja-basic": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "ひとの かずを くらべると",
-    "都営地下鉄4路線の自動改札出場数": "ちかてつから でてきた ひとの かず",
-    "1月20日~1月24日": "1がつ20にち から 1がつ24にち"
-  }
-}
-</i18n>
 
 <style lang="scss">
 .MetroGraph {
@@ -110,7 +66,7 @@ export default {
   },
   computed: {
     displayData() {
-      const colors = ['#a6e29f', '#63c765', '#008b41']
+      const colors = ['#B8CBE4', '#81A3CF', '#4A7BBA']
       return {
         labels: this.chartData.datasets.map(d => d.label),
         datasets: this.chartData.labels.map((label, i) => {
