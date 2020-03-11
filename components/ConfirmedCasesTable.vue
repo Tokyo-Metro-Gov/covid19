@@ -3,13 +3,12 @@
     <li class="item checked">
       <div class="gutter">
         <div class="box tall">
-          <span>
-            検査実施
-            <br />人数
-          </span>
+          <!-- eslint-disable vue/no-v-html-->
+          <span v-html="$t('検査実施<br />人数')" />
+          <!-- eslint-enable vue/no-v-html-->
           <span>
             <b>{{ 検査実施人数 }}</b>
-            <span class="unit">人</span>
+            <span class="unit">{{ $t('人') }}</span>
           </span>
         </div>
       </div>
@@ -18,12 +17,12 @@
       <div class="gutter">
         <div class="box tall">
           <span>
-            陽性者数
-            <br />(累積)
+            {{ $t('陽性者数') }}
+            <br />{{ $t('(累積)') }}
           </span>
           <span>
             <b>{{ 陽性物数 }}</b>
-            <span class="unit">人</span>
+            <span class="unit">{{ $t('人') }}</span>
           </span>
         </div>
       </div>
@@ -31,10 +30,10 @@
         <li class="item in-hospital">
           <div class="gutter">
             <div class="box">
-              <span>入院中</span>
+              <span>{{ $t('入院中') }}</span>
               <span>
                 <b>{{ 入院中 }}</b>
-                <span class="unit">人</span>
+                <span class="unit">{{ $t('人') }}</span>
               </span>
             </div>
           </div>
@@ -42,13 +41,12 @@
             <li class="item mild">
               <div class="gutter">
                 <div class="box short">
-                  <span>
-                    軽症・
-                    <br />中等症
-                  </span>
+                  <!-- eslint-disable vue/no-v-html-->
+                  <span v-html="$t('軽症・<br />中等症')" />
+                  <!-- eslint-enable vue/no-v-html-->
                   <span>
                     <b>{{ 軽症中等症 }}</b>
-                    <span class="unit">人</span>
+                    <span class="unit">{{ $t('人') }}</span>
                   </span>
                 </div>
               </div>
@@ -56,10 +54,10 @@
             <li class="item serious">
               <div class="gutter">
                 <div class="box short">
-                  <span>重症</span>
+                  <span>{{ $t('重症') }}</span>
                   <span>
                     <b>{{ 重症 }}</b>
-                    <span class="unit">人</span>
+                    <span class="unit">{{ $t('人') }}</span>
                   </span>
                 </div>
               </div>
@@ -69,10 +67,10 @@
         <li class="item deceased">
           <div class="gutter">
             <div class="box">
-              <span>死亡</span>
+              <span>{{ $t('死亡') }}</span>
               <span>
                 <b>{{ 死亡 }}</b>
-                <span class="unit">人</span>
+                <span class="unit">{{ $t('人') }}</span>
               </span>
             </div>
           </div>
@@ -80,10 +78,10 @@
         <li class="item recovered">
           <div class="gutter">
             <div class="box">
-              <span>退院</span>
+              <span>{{ $t('退院') }}</span>
               <span>
                 <b>{{ 退院 }}</b>
-                <span class="unit">人</span>
+                <span class="unit">{{ $t('人') }}</span>
               </span>
             </div>
           </div>
@@ -92,6 +90,78 @@
     </li>
   </ul>
 </template>
+
+<!-- v-html で展開される場所の翻訳待ちは 空文字ではなく 0 にする  -->
+<i18n>
+{
+  "ja": {
+    "検査実施<br />人数": "検査実施<br />人数",
+    "陽性者数": "陽性者数",
+    "(累積)": "(累積)",
+    "入院中": "入院中",
+    "軽症・<br />中等症": "軽症・<br />中等症",
+    "重症": "重症",
+    "死亡": "死亡",
+    "退院": "退院",
+    "人": "人"
+  },
+  "en": {
+    "検査実施<br />人数": "Number of tested",
+    "陽性者数": "Confirmed cases",
+    "(累積)": "",
+    "入院中": "Hospitalized patients",
+    "軽症・<br />中等症": "Minor to moderate symptoms",
+    "重症": "Severe symptoms",
+    "死亡": "Deaths",
+    "退院": "Recovered",
+    "人": "pers."
+  },
+  "zh-cn": {
+    "検査実施<br />人数": "筛检人数",
+    "陽性者数": "确诊人数",
+    "(累積)": "",
+    "入院中": "住院人数",
+    "軽症・<br />中等症": "轻症",
+    "重症": "重症",
+    "死亡": "死亡",
+    "退院": "出院",
+    "人": "人"
+  },
+  "zh-tw": {
+    "検査実施<br />人数": "已篩檢<br />人數",
+    "陽性者数": "確診人數",
+    "(累積)": "",
+    "入院中": "住院人數",
+    "軽症・<br />中等症": "輕症",
+    "重症": "重症",
+    "死亡": "死亡",
+    "退院": "出院",
+    "人": "人"
+  },
+  "ko": {
+    "検査実施<br />人数": "검사자 수",
+    "陽性者数": "확진자 수",
+    "(累積)": "",
+    "入院中": "병상 확진자 수",
+    "軽症・<br />中等症": "경증-중증 상태",
+    "重症": "위중 상태",
+    "死亡": "사망",
+    "退院": "퇴원",
+    "人": "인"
+  },
+  "ja-basic": {
+    "検査実施<br />人数": "けんさを うけた ひとの かず",
+    "陽性者数": "コロナウイルス の びょうき の ひとの かず",
+    "(累積)": "",
+    "入院中": "にゅういん している ひと の かず",
+    "軽症・<br />中等症": "たいへん ではない",
+    "重症": "たいへん",
+    "死亡": "しんだ",
+    "退院": "なおった",
+    "人": "にん"
+  }
+}
+</i18n>
 
 <script>
 export default {
