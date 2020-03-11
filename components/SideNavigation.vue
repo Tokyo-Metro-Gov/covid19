@@ -323,6 +323,7 @@ export default {
   }
   &-LanguageMenu {
     padding: 0 20px;
+    background: #fff;
   }
   &-Footer {
     padding: 20px;
