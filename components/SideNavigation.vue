@@ -37,7 +37,9 @@
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
-      <language-selector />
+      <div class="SideNavigation-LanguageMenu">
+        <LanguageSelector />
+      </div>
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
@@ -318,6 +320,9 @@ export default {
   }
   &-Divider {
     margin: 12px 0;
+  }
+  &-LanguageMenu {
+    padding: 0 20px;
   }
   &-Footer {
     padding: 20px;

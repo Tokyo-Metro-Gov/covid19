@@ -1,22 +1,18 @@
 <template>
-  <div class="SelectLanguages">
-    <div class="SelectLanguages__inner">
-      <div class="SelectLanguage">
-        <EarthIcon class="EarthIcon" />
-        <div class="SelectLanguageMenu">
-          <select v-model="$i18n.locale" @change="navigate($i18n.locale)">
-            <option
-              v-for="locale in $i18n.locales"
-              :key="locale.code"
-              :value="locale.code"
-            >
-              {{ locale.name }}
-            </option>
-          </select>
-        </div>
-        <SelectMenuIcon class="SelectMenuIcon" />
-      </div>
+  <div class="SelectLanguage">
+    <EarthIcon class="EarthIcon" />
+    <div class="SelectLanguageMenu">
+      <select v-model="$i18n.locale" @change="navigate($i18n.locale)">
+        <option
+          v-for="locale in $i18n.locales"
+          :key="locale.code"
+          :value="locale.code"
+        >
+          {{ locale.name }}
+        </option>
+      </select>
     </div>
+    <SelectMenuIcon class="SelectMenuIcon" />
   </div>
 </template>
 
@@ -41,65 +37,60 @@ export default class LanguageSelector extends Vue {
 </script>
 
 <style lang="scss">
-.SelectLanguages {
-  padding: 0 20px;
-  .SelectLanguages__inner {
-    .SelectLanguage {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+.SelectLanguage {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  cursor: pointer;
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: -2;
+  }
+  .SelectLanguageMenu {
+    width: 100%;
+    select {
+      z-index: 0;
       width: 100%;
-      border: 1px solid #d9d9d9;
-      border-radius: 4px;
+      background: transparent;
+      padding: 5px 0 5px 55px;
+      font-size: 12px;
+      line-height: 18px;
+      box-sizing: border-box;
+      color: #333;
       cursor: pointer;
-      &:after {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 100%;
-        background: #fff;
-        z-index: -2;
-      }
-      .SelectLanguageMenu {
-        width: 100%;
-        select {
-          z-index: 0;
-          width: 100%;
-          background: transparent;
-          padding: 5px 0 5px 55px;
-          font-size: 12px;
-          line-height: 18px;
-          box-sizing: border-box;
-          color: #333;
-          cursor: pointer;
-          &:focus {
-            outline: none;
-          }
-        }
-        &:before {
-          content: 'Lang:';
-          display: inline-block;
-          position: absolute;
-          left: 24px;
-          font-size: 12px;
-          line-height: 28px;
-          z-index: -1;
-        }
-      }
-      .EarthIcon {
-        position: absolute;
-        left: 6px;
-        z-index: -1;
-      }
-      .SelectMenuIcon {
-        position: absolute;
-        right: 6px;
-        margin-left: auto;
-        z-index: -1;
+      &:focus {
+        outline: none;
       }
     }
+    &:before {
+      content: 'Lang:';
+      display: inline-block;
+      position: absolute;
+      left: 24px;
+      font-size: 12px;
+      line-height: 28px;
+      z-index: -1;
+    }
+  }
+  .EarthIcon {
+    position: absolute;
+    left: 6px;
+    z-index: -1;
+  }
+  .SelectMenuIcon {
+    position: absolute;
+    right: 6px;
+    margin-left: auto;
+    z-index: -1;
   }
 }
 </style>
