@@ -58,7 +58,10 @@ export default {
       const regex = new RegExp(
         '^' + releaseUrl.replace(/\//g, '\\/').replace(/\./g, '\\.')
       )
-      return location.href.match(regex) === null
+      if (process.browser) {
+        return location.href.match(regex) === null
+      }
+      return false
     }
   }
 }
