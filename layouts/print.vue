@@ -1,7 +1,7 @@
 <template>
   <v-app class="app-print">
     <div v-if="loading" class="loader">
-      <img src="/logo.svg" alt="東京都" />
+      <img src="/logo.svg" :alt="$t('東京都')" />
       <scale-loader color="#00A040" />
     </div>
     <v-container v-else>
@@ -9,10 +9,10 @@
         <v-col :cols="12" :sm="6">
           <div class="PrintMeta-HeadingWrapper">
             <div class="PrintMeta-Logo">
-              <img src="/logo.svg" alt="東京都" />
+              <img src="/logo.svg" :alt="$t('東京都')" />
             </div>
             <h1 class="PrintMeta-Heading">
-              新型コロナウイルス感染症<br />対策サイト
+              {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
             </h1>
           </div>
         </v-col>
@@ -25,11 +25,11 @@
               tile
               color="transparent"
             >
-              <img src="/site-qr.svg" alt="QRコード" />
+              <img src="/site-qr.svg" :alt="$t('QRコード')" />
             </v-card>
             <v-card class="flex-shrink-0" flat tile color="transparent">
               <p class="PrintMeta-Text">
-                ※最新の情報はWebページをご覧ください
+                {{ $t('※最新の情報はWebページをご覧ください') }}
               </p>
               <p class="PrintMeta-Link">
                 https://stopcovid19.metro.tokyo.lg.jp/
@@ -42,6 +42,54 @@
     </v-container>
   </v-app>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "東京都": "東京都",
+    "新型コロナウイルス感染症": "新型コロナウイルス感染症",
+    "対策サイト": "対策サイト",
+    "QRコード": "QRコード",
+    "※最新の情報はWebページをご覧ください": "※最新の情報はWebページをご覧ください"
+  },
+  "en": {
+    "東京都": "Tokyo",
+    "新型コロナウイルス感染症": "COVID-19",
+    "対策サイト": "Task Force website",
+    "QRコード": "QRコード",
+    "※最新の情報はWebページをご覧ください": "※最新の情報はWebページをご覧ください"
+  },
+  "zh-cn": {
+    "東京都": "东京都",
+    "新型コロナウイルス感染症": "新型冠状病毒",
+    "対策サイト": "资讯站",
+    "QRコード": "QRコード",
+    "※最新の情報はWebページをご覧ください": "※最新の情報はWebページをご覧ください"
+  },
+  "zh-tw": {
+    "東京都": "東京都",
+    "新型コロナウイルス感染症": "新型冠狀病毒",
+    "対策サイト": "疫情中心",
+    "QRコード": "QRコード",
+    "※最新の情報はWebページをご覧ください": "※最新の情報はWebページをご覧ください"
+  },
+  "ko": {
+    "東京都": "도쿄도",
+    "新型コロナウイルス感染症": "코로나19",
+    "対策サイト": "TF 웹사이트",
+    "QRコード": "QRコード",
+    "※最新の情報はWebページをご覧ください": "※最新の情報はWebページをご覧ください"
+  },
+  "ja-basic": {
+    "東京都": "とうきょうと",
+    "新型コロナウイルス感染症": "あたらしいコロナウイルスの",
+    "対策サイト": "びょうきについて",
+    "QRコード": "QRコード",
+    "※最新の情報はWebページをご覧ください": "※最新の情報はWebページをご覧ください"
+  }
+}
+</i18n>
+
 <script>
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 export default {
