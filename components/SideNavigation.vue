@@ -16,6 +16,9 @@
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
+      <div class="SideNavigation-LanguageMenu">
+        <LanguageSelector />
+      </div>
     </div>
     <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
@@ -37,9 +40,6 @@
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
-      <div class="SideNavigation-LanguageMenu">
-        <LanguageSelector />
-      </div>
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
@@ -358,7 +358,7 @@ export default {
     margin: 12px 0;
   }
   &-LanguageMenu {
-    padding: 0 20px;
+    padding: 0 20px 0 0;
     background: #fff;
   }
   &-Footer {
