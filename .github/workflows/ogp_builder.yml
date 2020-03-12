@@ -2,12 +2,8 @@ name: OGP Builder
 
 on:
   push:
-    branches-ignore:
-      - development
-      - staging
-      - master
-      - production
-      - gh-pages
+    branches:
+      - dummy
 
 jobs:
   build:
