@@ -17,6 +17,7 @@
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
+        <development-mode-mark />
       </div>
     </div>
   </v-app>
@@ -25,6 +26,7 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
+import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
 
 type LocalData = {
@@ -34,6 +36,7 @@ type LocalData = {
 
 export default Vue.extend({
   components: {
+    DevelopmentModeMark,
     ScaleLoader,
     SideNavigation
   },
