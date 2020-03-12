@@ -16,34 +16,7 @@
   </div>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "最終更新": "最終更新",
-    "注釈" : "This is a provisional translation. Please be aware that there may be mistranslations."
-  },
-  "en": {
-    "最終更新": "Last update",
-    "注釈" : "This is a provisional translation. Please be aware that there may be mistranslations."
-  },
-  "zh-cn": {
-    "最終更新": "最后更新",
-    "注釈" : "This is a provisional translation. Please be aware that there may be mistranslations."
-  },
-  "zh-tw": {
-    "最終更新": "上次更新",
-    "注釈" : "This is a provisional translation. Please be aware that there may be mistranslations."
-  },
-  "ko": {
-    "最終更新": "최종갱신",
-    "注釈" : "This is a provisional translation. Please be aware that there may be mistranslations."
-  },
-  "ja-basic": {
-    "最終更新": "さいごに いちばん あたらしくなおした とき",
-    "注釈" : "This is a provisional translation. Please be aware that there may be mistranslations."
-  }
-}
-</i18n>
+<i18n src="./PageHeader.i18n.json"></i18n>
 
 <script>
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
