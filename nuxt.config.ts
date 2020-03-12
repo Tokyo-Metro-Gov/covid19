@@ -11,7 +11,7 @@ const config: Configuration = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | 福岡市 新型コロナウイルス感染症対策サイト',
+    titleTemplate: '%s | 福岡市 新型コロナウイルス感染症ポータルサイト',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -19,12 +19,12 @@ const config: Configuration = {
         hid: 'description',
         name: 'description',
         content:
-          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、福岡市が開設したものです。'
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、福岡市のオープンデータを活用してCode for Fukuokaが開設したものです。'
       },
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: '福岡市 新型コロナウイルス感染症対策サイト'
+        content: '福岡市 新型コロナウイルス感染症ポータルサイト'
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -35,13 +35,13 @@ const config: Configuration = {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: '福岡市 新型コロナウイルス感染症対策サイト'
+        content: '福岡市 新型コロナウイルス感染症ポータルサイト'
       },
       {
         hid: 'og:description',
         property: 'og:description',
         content:
-          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、福岡市が開設したものです。'
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、福岡市のオープンデータを活用してCode for Fukuokaが開設したものです。'
       },
       {
         hid: 'og:image',
