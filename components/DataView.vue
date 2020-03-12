@@ -152,15 +152,17 @@ export default class DataView extends Vue {
   }
 
   permalink(host: boolean = false, embed: boolean = false) {
-    let permalink = ''
-    if (host) {
-      permalink = location.protocol + '//' + location.host
-    }
-    permalink = permalink + '/cards/' + this.titleId
+    let permalink = '/cards/' + this.titleId
     if (embed) {
       permalink = permalink + '?embed=true'
     }
-    return this.localePath(permalink)
+    permalink = this.localePath(permalink)
+
+    if (host) {
+      permalink = location.protocol + '//' + location.host + permalink
+    }
+
+    return permalink
   }
 
   twitter() {
