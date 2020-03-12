@@ -159,16 +159,4 @@ export default Vue.extend({
     }
   }
 }
-.loader {
-  height: 200px;
-  width: 150px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
-  img {
-    display: block;
-    margin: 0 auto 20px;
-  }
-}
 </style>
