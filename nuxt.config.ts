@@ -146,11 +146,15 @@ const config: Configuration = {
             name: '한국어',
             iso: 'ko-KR'
           },
-          {
-            code: 'pt-BR',
-            name: 'Portuguese',
-            iso: 'pt-BR'
-          },
+          // ,
+          // #1126, #872 (comment)
+          // ポルトガル語は訳が揃っていないため非表示
+          // 「やさしい日本語」はコンポーネントが崩れるため非表示
+          // {
+          //   code: 'pt-BR',
+          //   name: 'Portuguese',
+          //   iso: 'pt-BR'
+          // },
           {
             code: 'ja-basic',
             name: 'やさしい にほんご',

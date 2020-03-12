@@ -8,6 +8,9 @@
         <span>{{ $t('最終更新') }} </span>
         <time :datetime="updatedAt">{{ Data.lastUpdate }}</time>
       </div>
+      <div v-if="!['ja', 'ja-basic'].includes($i18n.locale)" class="annotation">
+        <span>{{ $t('注釈') }} </span>
+      </div>
     </div>
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
@@ -104,7 +107,7 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <agency-bar-chart
-          title="入庁舎数の推移"
+          :title="$t('都庁来庁者数の推移')"
           :title-id="'agency'"
           :chart-id="'agency'"
           :url="''"
@@ -128,6 +131,7 @@
     "新型コロナコールセンター相談件数": "新型コロナコールセンター相談件数",
     "新型コロナ受診相談窓口相談件数": "新型コロナ受診相談窓口相談件数",
     "都営地下鉄の利用者数の推移": "都営地下鉄の利用者数の推移",
+    "都庁来庁者数の推移": "都庁来庁者数の推移",
     "都内発生（疑い例・接触者調査）": "都内発生（疑い例・接触者調査）",
     "その他（チャーター便・クルーズ船）": "その他（チャーター便・クルーズ船）",
     "{date}の累計": "{date}の累計",
@@ -155,7 +159,8 @@
     "男性": "男性",
     "女性": "女性",
     "退院※": "退院※",
-    "最終更新": "最終更新"
+    "最終更新": "最終更新",
+    "注釈" : "This is a provisional translation. Please be aware that there may be mistranslations."
   },
   "en": {
     "都内の最新感染動向": "Latest updates on COVID-19 in Tokyo",
@@ -163,11 +168,12 @@
     "相談の手順を見る": "Steps for receiving help",
     "検査陽性者の状況": "Details of confirmed cases",
     "陽性患者数": "Number of confirmed cases",
-    "陽性患者の属性": "Positive patient attributes",
-    "検査実施数": "Number of tested",
-    "新型コロナコールセンター相談件数": "Number of reports to COVID-19 telephone advisory center",
-    "新型コロナ受診相談窓口相談件数": "Number of reports to combined telephone advisory center",
+    "陽性患者の属性": "Confirmed patient attributes",
+    "検査実施数": "Number of tests conducted",
+    "新型コロナコールセンター相談件数": "Number of inquiries to COVID-19 telephone advisory center",
+    "新型コロナ受診相談窓口相談件数": "Number of inquiries to combined telephone advisory center",
     "都営地下鉄の利用者数の推移": "The predicted number of Toei subway passengers",
+    "都庁来庁者数の推移": "Trend in the number of TMG visitors",
     "都内発生（疑い例・接触者調査）": "Emerged in Tokyo (Suspected cases or contactees)",
     "その他（チャーター便・クルーズ船）": "Others (Returnees or Cruise ship passengers)",
     "{date}の累計": "Cumulative total as of {date}",
@@ -195,7 +201,8 @@
     "男性": "Male",
     "女性": "Female",
     "退院※": "Discharge*",
-    "最終更新": "Last update"
+    "最終更新": "Last update",
+    "注釈" : "This is a provisional translation. Please be aware that there may be mistranslations."
   },
   "zh-cn": {
     "都内の最新感染動向": "东京都最新新型冠状病毒感染情况",
@@ -208,6 +215,7 @@
     "新型コロナコールセンター相談件数": "新型冠状病毒咨询中心咨询件数",
     "新型コロナ受診相談窓口相談件数": "新冠肺炎就诊咨询窗口的咨询数",
     "都営地下鉄の利用者数の推移": "都营地下铁搭乘人数趋势",
+    "都庁来庁者数の推移": "东京都厅来访人数推移",
     "都内発生（疑い例・接触者調査）": "东京都案例（疑似感染、接触者调查）",
     "その他（チャーター便・クルーズ船）": "其它（包机、游轮）",
     "{date}の累計": "截至 {date}",
@@ -235,7 +243,8 @@
     "男性": "男性",
     "女性": "女性",
     "退院※": "出院※",
-    "最終更新": "最后更新"
+    "最終更新": "最后更新",
+    "注釈" : "This is a provisional translation. Please be aware that there may be mistranslations."
   },
   "zh-tw": {
     "都内の最新感染動向": "東京都最新新型冠狀病毒感染情形",
@@ -248,6 +257,7 @@
     "新型コロナコールセンター相談件数": "新型冠狀病毒諮詢中心諮詢件數",
     "新型コロナ受診相談窓口相談件数": "就診窗口諮詢數",
     "都営地下鉄の利用者数の推移": "都營地下鐵搭乘人數走勢",
+    "都庁来庁者数の推移": "東京都廳來訪人數走勢",
     "都内発生（疑い例・接触者調査）": "東京都案例（疑似感染、接觸者調查）",
     "その他（チャーター便・クルーズ船）": "其它（包機、遊輪）",
     "{date}の累計": "累計至 {date}",
@@ -275,7 +285,8 @@
     "男性": "男性",
     "女性": "女性",
     "退院※": "出院※",
-    "最終更新": "上次更新"
+    "最終更新": "上次更新",
+    "注釈" : "This is a provisional translation. Please be aware that there may be mistranslations."
   },
   "ko": {
     "都内の最新感染動向": "도쿄도 코로나19 실시간 현황",
@@ -288,6 +299,7 @@
     "新型コロナコールセンター相談件数": "코로나 19 콜센터 문의 건수",
     "新型コロナ受診相談窓口相談件数": "코로나19 진찰 상담 창구 상담 건수",
     "都営地下鉄の利用者数の推移": "도에이 지하철 의 예상 승객 수",
+    "都庁来庁者数の推移": "도쿄도 청사 방문자 수",
     "都内発生（疑い例・接触者調査）": "도쿄 지역사회 발생 경우（의심환자, 접촉자）",
     "その他（チャーター便・クルーズ船）": "기타（귀국자 또는 크루즈 승객 경우）",
     "{date}の累計": "{date}의 누적 수",
@@ -315,7 +327,8 @@
     "男性": "남성",
     "女性": "여성",
     "退院※": "후베이성 우한시",
-    "最終更新": "최종갱신"
+    "最終更新": "최종갱신",
+    "注釈" : "This is a provisional translation. Please be aware that there may be mistranslations."
   },
   "ja-basic": {
     "都内の最新感染動向": "とうきょうとでの コロナウイルスの あたらしいじょうほう",
@@ -328,6 +341,7 @@
     "新型コロナコールセンター相談件数": "コロナウイルス そうだんで でんわが あった かず",
     "新型コロナ受診相談窓口相談件数": "コロナのことで とうきょうと に そうだんした ひとの かず",
     "都営地下鉄の利用者数の推移": "とえいちかてつを つかった ひとの かず",
+    "都庁来庁者数の推移": "議事堂（ぎじどう）に 来（き）た 人（ひと）の 合計（ごうけい）",
     "都内発生（疑い例・接触者調査）": "とうきょうとで びょうき かもしれない ひと",
     "その他（チャーター便・クルーズ船）": "そのほか",
     "{date}の累計": "{date} ぜんぶで",
@@ -355,7 +369,8 @@
     "男性": "おとこ の ひと",
     "女性": "おんな の ひと",
     "退院※": "たいいん※",
-    "最終更新": "さいごに いちばん あたらしくなおした とき"
+    "最終更新": "さいごに いちばん あたらしくなおした とき",
+    "注釈" : "This is a provisional translation. Please be aware that there may be mistranslations."
   }
 }
 </i18n>
@@ -563,6 +578,15 @@ export default {
   .UpdatedAt {
     @include font-size(14);
     color: $gray-3;
+  }
+  .annotation {
+    font-size: 0.75rem;
+    color: $gray-3;
+  }
+  @include largerThan($small) {
+    .annotation {
+      margin: 0 0 0 auto;
+    }
   }
   .DataBlock {
     margin: 20px -8px;
