@@ -28,10 +28,10 @@ import SelectMenuIcon from '@/static/selectmenu.svg'
 })
 export default class LanguageSelector extends Vue {
   navigate(locale: string) {
+    // @fixme 型が・・・
+    // const langs = this.$i18n.locales.filter() ...
+    const langs = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
     const pathes = this.$router.currentRoute.path.split('/').filter(path => {
-      // @fixme 型が・・・
-      // const langs: string[] = this.$i18n.locales.filter() ...
-      const langs: string[] = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
       return langs.includes(path) ? undefined : path
     })
     if (pathes.length <= 0) {
