@@ -30,15 +30,13 @@ jobs:
       - run: (python -m http.server --directory ./dist 8000 &)  ; python ./ui-test/ogp_screenshot.py
       - run: git config --global user.email "yasu@users.noreply.github.com"
       - run: git config --global user.name "OGP Builder"
-
+      - name: Create commits
+        run: git add static/og-images/* && git commit -m "update ogp image"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          path: static/og-images
-          branch-suffix: timestamp
           base: development
-          commit-message: "bot: Generated OGP images"
           title: "[bot] Generated OGP images"
       - name: Check outputs
         run: |
