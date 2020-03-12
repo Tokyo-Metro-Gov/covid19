@@ -2,12 +2,9 @@ name: OGP Builder
 
 on:
   push:
-    branches-ignore:
+    branches:
       - development
-      - staging
-      - master
-      - production
-      - gh-pages
+      - feature/issue-1268-ogp-fix
 
 jobs:
   build:
@@ -46,6 +43,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch-suffix: timestamp
+          base: development
           commit-message: "bot: Generated OGP images"
           title: "[bot] Generated OGP images"
       - name: Check outputs
