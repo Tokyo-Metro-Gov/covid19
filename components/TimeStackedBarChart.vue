@@ -29,37 +29,43 @@
      "{date}の全体累計": "%{date}の全体累計",
      "{date}の合計": "%{date}の合計",
      "都内": "都内",
-     "その他": "その他"
+     "その他": "その他",
+     "合計": "合計"
    },
    "en": {
      "（注）同一の対象者について複数の検体を調査する場合あり": "(Note) More than one sample from the same subject may be tested.",
      "{date}の全体累計": "Cumulative total as of %{date}",
      "都内": "Tokyo",
-     "その他": "Others"
+     "その他": "Others",
+     "合計": "Total"
    },
    "zh-cn": {
      "（注）同一の対象者について複数の検体を調査する場合あり": "(註) 同一個案可能被多次檢查",
      "{date}の全体累計": "截至 %{date}",
      "都内": "东京都",
-     "その他": "其它"
+     "その他": "其它",
+     "合計": "TODO"
    },
    "zh-tw": {
      "（注）同一の対象者について複数の検体を調査する場合あり": "（註）同一個案可能被多次檢查",
      "{date}の全体累計": "累計至 %{date}",
      "都内": "東京都",
-     "その他": "其它"
+     "その他": "其它",
+     "合計": "合計"
    },
    "ko": {
      "（注）同一の対象者について複数の検体を調査する場合あり": "(주의) 동일 대상자에 대하여 여러번의 검체를 조사하는 경우가 있음",
      "{date}の全体累計": "%{date}의 누적 수",
      "都内": "도쿄도내",
-     "その他": "기타"
+     "その他": "기타",
+     "合計": "합계"
    },
    "ja-basic": {
      "（注）同一の対象者について複数の検体を調査する場合あり": "(ちゅうい) おなじ ひとに なんどか けんさ を する とき が あります",
      "{date}の全体累計": "%{date} ぜんぶで",
      "都内": "とうきょうと の なか",
-     "その他": "そのほか"
+     "その他": "そのほか",
+     "合計": "ごうけい"
    }
  }
  </i18n>
@@ -190,10 +196,9 @@ export default {
                   cumulativeData[tooltipItem.datasetIndex][tooltipItem.index]
               }
 
-              // TODO: [合計]の多言語対応
               return `${
                 labelArray[tooltipItem.datasetIndex]
-              }: ${cases}${unit} (合計: ${casesTotal}${unit})`
+              }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
             },
             title(tooltipItem, data) {
               return data.labels[tooltipItem[0].index]
