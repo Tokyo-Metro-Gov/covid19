@@ -53,7 +53,7 @@
         <div class="SideNavigation-OrgLinkContainer100">
           協力：
           <a
-            href="https://www.isit.or.jp/"
+            href="https://www.city.fukuoka.lg.jp/"
             target="_blank"
             rel="noopener"
           >
