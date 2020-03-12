@@ -5,7 +5,7 @@
       :title-id="'agency'"
       :chart-id="'agency'"
       :url="''"
-      :unit="'人'"
+      :unit="$t('人')"
     />
   </v-col>
 </template>
