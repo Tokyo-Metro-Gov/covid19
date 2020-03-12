@@ -38,7 +38,7 @@
         </v-container>
       </v-list>
       <div class="SideNavigation-Footer">
-        <div class="SideNavigation-SocialLinkContainer">
+        <div class="SideNavigation-OrgLinkContainer">
           <a
             href="https://www.codeforfukuoka.org/"
             target="_blank"
@@ -59,7 +59,7 @@
     "Navi Close": "サイドメニュー項目を閉じる",
     "Tokyo": "福岡市",
     "COVID-19": "新型コロナウイルス感染症",
-    "Measures site": "対策サイト",
+    "Measures site": "ポータル",
     "Tokyo Metropolitan Government": "福岡市",
     "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
     "The latest updates": "福岡市内の最新感染動向",
@@ -219,6 +219,15 @@ export default {
     display: flex;
     & img {
       width: 30px;
+      &:first-of-type {
+        margin-right: 10px;
+      }
+    }
+  }
+  &-OrgLinkContainer {
+    display: flex;
+    & img {
+      width: 250px;
       &:first-of-type {
         margin-right: 10px;
       }
