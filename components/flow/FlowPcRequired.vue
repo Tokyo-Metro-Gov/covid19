@@ -59,8 +59,14 @@
     "受診が必要": "advised to be examined",
     "新型コロナ外来（帰国者・接触者外来）": "COVID-19 consultation for returnees and contactees",
     "医師による判断": "Diagnosis by doctors",
+<<<<<<< HEAD
     "検査の必要あり": "You are required to be tested",
     "検査の必要なし": "You are not required to be tested"
+=======
+    "検査の必要{ifRequired}": "Test {ifRequired}",
+    "あり": "required",
+    "なし": "not required"
+>>>>>>> English wording update for 新型コロナ受診相談窓口 による相談結果
   },
   "zh-cn": {
     "新型コロナ外来 {advice} と判断された場合": "如果被诊断为 {advice} 到新冠肺炎专科就诊时",
