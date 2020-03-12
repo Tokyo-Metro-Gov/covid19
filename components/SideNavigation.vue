@@ -72,7 +72,7 @@
           <a
             rel="license"
             target="_blank"
-            href="http://creativecommons.org/licenses/by/4.0/"
+            :href="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
           >
             {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
           </a>
@@ -104,6 +104,7 @@
     "知事からのメッセージ": "知事からのメッセージ",
     "当サイトについて": "当サイトについて",
     "このサイトの内容物は": "このサイトの内容物は",
+    "https://creativecommons.org/licenses/by/4.0/deed.ja":"https://creativecommons.org/licenses/by/4.0/deed.ja",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "クリエイティブ・コモンズ 表示 4.0 ライセンス",
     "の下に提供されています。": "の下に提供されています。"
   },
@@ -116,7 +117,7 @@
     "都内の最新感染動向": "Latest updates on COVID-19 in Tokyo",
     "新型コロナウイルス感染症が心配なときに": "If you suspect having COVID-19",
     "お子様をお持ちの皆様へ": "For families with children",
-    "都民の皆様へ": "For citizens in Tokyo (in Japanese)",
+    "都民の皆様へ": "For residents in Tokyo (in Japanese)",
     "企業の皆様・はたらく皆様へ": "For enterprises, employees and SMEs",
     "東京都新型コロナウイルス感染症対策本部報": "Official statements from Tokyo COVID-19 Task Force (in Japanese)",
     "東京都主催等 中止又は延期するイベント等": "Cancelled or Postponed public events (in Japanese)",
@@ -124,6 +125,7 @@
     "知事からのメッセージ": "Message from Governor Koike on COVID-19 (in Japanese)",
     "当サイトについて": "About the website",
     "このサイトの内容物は": "Content on This Site is Licensed Under a",
+    "https://creativecommons.org/licenses/by/4.0/deed.ja":"https://creativecommons.org/licenses/by/4.0/",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
     "の下に提供されています。": " "
   },
@@ -144,6 +146,7 @@
     "知事からのメッセージ": "东京都知事寄语（内容为日语）",
     "当サイトについて": "关于本站",
     "このサイトの内容物は": "Content on This Site is Licensed Under a",
+    "https://creativecommons.org/licenses/by/4.0/deed.ja":"https://creativecommons.org/licenses/by/4.0/deed.zh",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
     "の下に提供されています。": " "
   },
@@ -164,6 +167,7 @@
     "知事からのメッセージ": "東京都知事的話（日文網站）",
     "当サイトについて": "關於本站",
     "このサイトの内容物は": "Content on This Site is Licensed Under a",
+    "https://creativecommons.org/licenses/by/4.0/deed.ja":"https://creativecommons.org/licenses/by/4.0/deed.zh_TW",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
     "の下に提供されています。": " "
   },
@@ -184,6 +188,7 @@
     "知事からのメッセージ": "코로나19에 대한 도쿄 도지사의 메세지 (일본어)",
     "当サイトについて": "사이트 소개",
     "このサイトの内容物は": "Content on This Site is Licensed Under a",
+    "https://creativecommons.org/licenses/by/4.0/deed.ja":"https://creativecommons.org/licenses/by/4.0/deed.ko",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
     "の下に提供されています。": " "
   },
@@ -204,6 +209,7 @@
     "知事からのメッセージ": "えらいひとからの ことば",
     "当サイトについて": "この ウェブサイトについて",
     "このサイトの内容物は": "この ウェブサイトの ないようは",
+    "https://creativecommons.org/licenses/by/4.0/deed.ja":"https://creativecommons.org/licenses/by/4.0/deed.ja",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "クリエイティブ・コモンズ 表示 4.0 ライセンス",
     "の下に提供されています。": "で ていきょう します"
   }
