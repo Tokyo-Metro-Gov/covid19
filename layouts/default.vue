@@ -1,10 +1,6 @@
 <template>
   <v-app class="app">
-    <div v-if="loading" class="loader">
-      <img src="/logo.svg" alt="東京都" />
-      <scale-loader color="#00A040" />
-    </div>
-    <div v-else class="appContainer">
+    <div class="appContainer">
       <div class="naviContainer">
         <SideNavigation
           :is-navi-open="isOpenNavigation"
@@ -24,27 +20,20 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
 
 type LocalData = {
   isOpenNavigation: boolean
-  loading: boolean
 }
 
 export default Vue.extend({
   components: {
-    ScaleLoader,
     SideNavigation
   },
   data(): LocalData {
     return {
-      isOpenNavigation: false,
-      loading: true
+      isOpenNavigation: false
     }
-  },
-  mounted() {
-    this.loading = false
   },
   methods: {
     openNavigation(): void {
