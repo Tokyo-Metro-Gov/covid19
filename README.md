@@ -4,7 +4,7 @@
 
 [![東京都 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md)
+### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md)
 
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
@@ -17,6 +17,10 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 
 ## ライセンス
 本ソフトウェアは、[MITライセンス](./LICENSE.txt)の元提供されています。
+
+## このサイトから派生したサイト
+
+[Link先](./forkedSites.md)を御覧ください。
 
 ## 開発者向け情報
 
@@ -37,6 +41,18 @@ $ yarn dev
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
+```
+
+### `Cannot find module ****` と怒られた時
+
+**yarn を使う場合**
+```
+$ yarn install
+```
+
+**docker compose を使う場合**
+```bash
+$ docker-compose run --rm app yarn install
 ```
 
 ### ステージング・本番環境への反映
