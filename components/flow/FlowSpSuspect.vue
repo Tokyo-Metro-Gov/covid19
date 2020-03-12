@@ -65,12 +65,8 @@
     "新型コロナコールセンター": "新型コロナコールセンター",
     "午前9時から午後9時（土日祝含む）": "午前9時から午後9時（土日祝含む）",
     "専門的な助言が必要な場合": "専門的な助言が必要な場合"
-  }
-}
-</i18n>
-
-<!--
-"en": {
+  },
+  "en": {
     "不安に思う方": "For those who suspect they have COVID-19 infection",
     "微熱": "Having slight fever",
     "軽い咳": "Having minor coughs",
@@ -115,7 +111,8 @@
     "午前9時から午後9時（土日祝含む）": "まいにち あさ の ごぜん９じ～よる の ごご９じまで（やすみ の ひも やっています）",
     "専門的な助言が必要な場合": "コロナをよくしっているひとから くわしい はなし を ききたい とき"
   }
--->
+}
+</i18n>
 
 <script lang="ts">
 import ArrowForwardIcon from '@/static/flow/arrow_forward-24px.svg'
