@@ -39,6 +39,7 @@
       </v-list>
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-OrgLinkContainer150">
+          運営：
           <a
             href="https://www.codeforfukuoka.org/"
             target="_blank"
