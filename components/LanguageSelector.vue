@@ -65,7 +65,8 @@ export default class LanguageSelector extends Vue {
       background: transparent;
       padding-left: 58px;
       color: #333;
-      font-size: 12px;
+      font-size: 16px;
+      transform: scale(0.75);
       box-sizing: border-box;
       cursor: pointer;
       &:focus {
