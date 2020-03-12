@@ -1,45 +1,37 @@
 <template>
-  <v-card class="DataView">
-    <div class="DataView-Inner">
-      <div class="DataView-Content">
-        <div
-          class="DataView-TitleContainer"
-          :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
-        >
-          <h3 :id="titleId" class="DataView-Title">
-            {{ title }}
-          </h3>
-          <div>
-            <slot name="button" />
-          </div>
-        </div>
-        <slot name="infoPanel" />
+  <v-card class="DataView pa-1">
+    <v-toolbar flat class="DataView-content">
+      <div class="DataView-TitleContainer">
+        <h3 :id="titleId" class="DataView-ToolbarTitle">
+          {{ title }}
+        </h3>
+        <slot name="button" />
       </div>
-      <div
-        :class="
-          $vuetify.breakpoint.xs
-            ? 'DataView-CardTextForXS'
-            : 'DataView-CardText'
-        "
+      <v-spacer />
+      <slot name="infoPanel" />
+    </v-toolbar>
+    <v-card-text
+      :class="
+        $vuetify.breakpoint.xs ? 'DataView-CardTextForXS' : 'DataView-CardText'
+      "
+    >
+      <slot />
+    </v-card-text>
+    <v-footer class="DataView-Footer">
+      <time :datetime="formattedDate">{{ date }} 更新</time>
+      <a
+        v-if="url"
+        class="OpenDataLink"
+        :href="url"
+        target="_blank"
+        rel="noopener"
       >
-        <slot />
-      </div>
-      <v-footer class="DataView-Footer">
-        <time :datetime="date">{{ date }} 更新</time>
-        <a
-          v-if="url"
-          class="OpenDataLink"
-          :href="url"
-          target="_blank"
-          rel="noopener"
-        >
-          オープンデータへのリンク
-          <v-icon class="ExternalLinkIcon" size="15">
-            mdi-open-in-new
-          </v-icon>
-        </a>
-      </v-footer>
-    </div>
+        オープンデータへのリンク
+        <v-icon class="ExternalLinkIcon" size="15">
+          mdi-open-in-new
+        </v-icon>
+      </a>
+    </v-footer>
   </v-card>
 </template>
 
@@ -61,14 +53,7 @@ export default class DataView extends Vue {
 
 <style lang="scss">
 .DataView {
-  &-Content {
-    display: flex;
-    justify-content: space-between;
-  }
   &-DataInfo {
-    position: absolute;
-    top: 25px;
-    right: 25px;
     &-summary {
       color: $gray-2;
       font-family: Hiragino Sans;
@@ -91,42 +76,45 @@ export default class DataView extends Vue {
   }
 }
 .DataView {
-  &-Inner {
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-    padding: 22px;
-    height: 100%;
-  }
-  &-TitleContainer {
-    display: flex;
-    flex-flow: column;
-    color: $gray-2;
-    &.with-infoPanel {
-      width: calc(100% - 11em);
+  @include card-container();
+  height: 100%;
+  &-content {
+    height: auto !important;
+    .v-toolbar__content {
+      align-items: start;
     }
   }
+  &-Header {
+    background-color: transparent !important;
+    height: auto !important;
+  }
+  &-TitleContainer {
+    padding: 14px 0 8px;
+    color: $gray-2;
+  }
   &-Title {
-    margin-bottom: 5px;
+    @include card-h2();
+  }
+  &-ToolbarTitle {
     font-size: 1.25rem;
-    line-height: 1.5;
     font-weight: normal;
+    line-height: 1.5;
   }
   &-CardText {
-    margin: 30px 0;
+    margin-bottom: 46px;
+    margin-top: 35px;
   }
   &-CardTextForXS {
     margin-bottom: 46px;
     margin-top: 70px;
   }
   &-Footer {
+    background-color: $white !important;
+    margin: 2px 4px 12px;
     @include font-size(12);
-    padding: 0 !important;
+    color: $gray-3 !important;
     justify-content: space-between;
     flex-direction: row-reverse;
-    color: $gray-3 !important;
-    text-align: right;
-    background-color: $white !important;
     .OpenDataLink {
       text-decoration: none;
       .ExternalLinkIcon {
@@ -134,5 +122,8 @@ export default class DataView extends Vue {
       }
     }
   }
+}
+.v-toolbar__content {
+  height: auto !important;
 }
 </style>

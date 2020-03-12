@@ -8,7 +8,7 @@
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
-      :url="'/flow'"
+      :url="'https://www.city.fukuoka.lg.jp/data/open/cnt/3/72498/1/nCoV_flyer_200228.pdf?20200312113320'"
       :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
       :btn-text="'相談の手順を見る'"
     />
@@ -82,16 +82,16 @@
           :url="''"
         />
       </v-col>
-      <v-col cols="12" md="6" class="DataCard">
+<!--      <v-col cols="12" md="6" class="DataCard">
         <metro-bar-chart
-          title="都営地下鉄の利用者数の推移"
+          title="福岡市営地下鉄の利用者数の推移"
           :title-id="'predicted-number-of-toei-subway-passengers'"
           :chart-id="'metro-bar-chart'"
           :chart-data="metroGraph"
           :chart-option="metroGraphOption"
           :date="metroGraph.date"
         />
-      </v-col>
+      </v-col> -->
     </v-row>
   </div>
 </template>
@@ -137,7 +137,7 @@ export default {
     const contactsGraph = formatGraph(Data.contacts.data)
     // 帰国者・接触者電話相談センター相談件数
     const querentsGraph = formatGraph(Data.querents.data)
-    // 都営地下鉄の利用者数の推移
+    // 福岡市営地下鉄の利用者数の推移
     const metroGraph = MetroData
     // 検査実施日別状況
     const inspectionsGraph = [
@@ -145,8 +145,8 @@ export default {
       Data.inspections_summary.data['その他']
     ]
     const inspectionsItems = [
-      '都内発生（疑い例・接触者調査）',
-      'その他（チャーター便・クルーズ船）'
+      '福岡市内発生（疑い例・接触者調査）',
+      'その他（チャーター便・クルーズ便）'
     ]
     const inspectionsLabels = Data.inspections_summary.labels
     // 死亡者数
@@ -180,7 +180,7 @@ export default {
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '都内の最新感染動向',
+        title: '福岡市内の最新感染動向(検証用サイトです、データはダミーデータです)',
         date: Data.lastUpdate
       },
       newsItems: News.newsItems,
@@ -242,7 +242,7 @@ export default {
   },
   head() {
     return {
-      title: '都内の最新感染動向'
+      title: '福岡市内の最新感染動向(検証用サイトです、データはダミーデータです)'
     }
   }
 }

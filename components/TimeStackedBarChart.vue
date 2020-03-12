@@ -92,7 +92,7 @@ export default {
       }
     },
     displayData() {
-      const colorArray = ['#00A040', '#00D154']
+      const colorArray = ['#325685', '#81A3CF']
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
@@ -133,10 +133,10 @@ export default {
             label: tooltipItem => {
               const labelText =
                 this.dataKind === 'transition'
-                  ? `${sumArray[tooltipItem.index]}${unit}（都内: ${
+                  ? `${sumArray[tooltipItem.index]}${unit}（市内: ${
                       data[0][tooltipItem.index]
                     }/その他: ${data[1][tooltipItem.index]}）`
-                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（都内: ${
+                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（市内: ${
                       cumulativeData[0][tooltipItem.index]
                     }/その他: ${cumulativeData[1][tooltipItem.index]}）`
               return labelText

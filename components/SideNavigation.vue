@@ -10,7 +10,7 @@
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('Tokyo')" />
+          <img src="/logo.svg" :alt="$t('Fukuoka')" />
         </div>
         <h1 class="SideNavigation-Heading">
           {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
@@ -38,36 +38,28 @@
         </v-container>
       </v-list>
       <div class="SideNavigation-Footer">
-        <div class="SideNavigation-SocialLinkContainer">
+        <div class="SideNavigation-OrgLinkContainer150">
+          運営： 
           <a
-            href="https://line.me/R/ti/p/%40822sysfc"
+            href="https://www.codeforfukuoka.org/"
             target="_blank"
             rel="noopener"
           >
-            <img src="/line.png" alt="LINE" />
-          </a>
-          <a
-            href="https://twitter.com/tokyo_bousai"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/twitter.png" alt="Twitter" />
-          </a>
-          <a
-            href="https://www.facebook.com/tochokoho"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/facebook.png" alt="Facebook" />
-          </a>
-          <a href="https://github.com/tokyo-metropolitan-gov/covid19">
-            <img src="/github.png" alt="GitHub" />
+            <img src="/logo.png" alt="Code for Fukuoka" />
           </a>
         </div>
-        <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
-          Reserved.
-        </small>
+      </div>
+      <div class="SideNavigation-Footer">
+        <div class="SideNavigation-OrgLinkContainer100">
+          協力：
+          <a
+            href="https://www.city.fukuoka.lg.jp/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/logo-fukuoka.png" alt="福岡市" />
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -78,20 +70,21 @@
   "ja": {
     "Navi Open": "サイドメニュー項目を開く",
     "Navi Close": "サイドメニュー項目を閉じる",
-    "Tokyo": "東京都",
+    "Tokyo": "福岡市",
     "COVID-19": "新型コロナウイルス感染症",
-    "Measures site": "対策サイト",
-    "Tokyo Metropolitan Government": "東京都",
+    "Measures site": "ポータル",
+    "Tokyo Metropolitan Government": "福岡市",
     "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
-    "The latest updates": "都内の最新感染動向",
-    "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
+    "The latest updates": "福岡市内の最新感染動向",
+    "If you have any symptoms": "こんな方はご注意ください",
     "for Families with children": "お子様をお持ちの皆様へ",
-    "for Citizens": "都民の皆様へ",
-    "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
-    "Official statements from Task Force": "東京都新型コロナウイルス感染症対策本部報",
-    "Cancelled public events": "東京都主催等 中止又は延期するイベント等",
-    "Government official website": "東京都公式ホームページ",
-    "Message from Governor Koike": "知事からのメッセージ",
+    "for Citizens": "市民の皆様へ",
+    "for Enterprises and Employees": "事業者の方へ",
+    "Official statements from Task Force": "福岡市新型コロナウイルス感染症対策本部報",
+    "Fukuoka City Subway Traffic": "福岡市営地下鉄ラッシュ時の車内混雑状況",
+    "Cancelled public events": "不特定多数の人が集まるイベントへの対応",
+    "Government official website": "福岡市公式ホームページ",
+    "Message from Governor Takashima": "市長からのメッセージ",
     "About us": "当サイトについて"
   }
 }
@@ -121,7 +114,7 @@ export default {
         {
           icon: 'covid',
           title: this.$t('If you have any symptoms'),
-          link: '/flow',
+          link: 'https://www.city.fukuoka.lg.jp/hofuku/hokenyobo/health/kansen/nCorV.html#kgkd',
           divider: true
         },
         {
@@ -132,28 +125,23 @@ export default {
         {
           icon: 'mdi-account-multiple',
           title: this.$t('for Citizens'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
+          link: 'https://www.city.fukuoka.lg.jp/hofuku/hokenyobo/health/kansen/nCorV.html#ci'
         },
         {
           icon: 'mdi-domain',
           title: this.$t('for Enterprises and Employees'),
-          link: '/worker',
+          link: 'https://www.city.fukuoka.lg.jp/hofuku/hokenyobo/health/kansen/nCorV.html#ji',
           divider: true
-        },
-        {
-          title: this.$t('Official statements from Task Force'),
-          link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         },
         {
           title: this.$t('Cancelled public events'),
           link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
+            'https://www.city.fukuoka.lg.jp/hofuku/hokenyobo/health/kansen/nCorV.html#ftev'
         },
         {
-          title: this.$t('Message from Governor Koike'),
+          title: this.$t('Fukuoka City Subway Traffic'),
           link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+            'https://subway.city.fukuoka.lg.jp/topics/detail.php?id=1006'
         },
         {
           title: this.$t('About us'),
@@ -161,7 +149,7 @@ export default {
         },
         {
           title: this.$t('Government official website'),
-          link: 'https://www.metro.tokyo.lg.jp/',
+          link: 'http://www.city.fukuoka.lg.jp/index.html',
           divider: true
         }
       ]
@@ -242,8 +230,49 @@ export default {
   }
   &-SocialLinkContainer {
     display: flex;
+    align-items: center;
     & img {
       width: 30px;
+      &:first-of-type {
+        margin-right: 10px;
+      }
+    }
+  }
+  &-OrgLinkContainer100 {
+    display: flex;
+    vertical-align: middle;
+    & img {
+      width: 150px;
+      &:first-of-type {
+        margin-right: 10px;
+      }
+    }
+  }
+  &-OrgLinkContainer150 {
+    display: flex;
+    vertical-align: middle;
+    & img {
+      width: 150px;
+      &:first-of-type {
+        margin-right: 10px;
+      }
+    }
+  }
+  &-OrgLinkContainer200 {
+    display: flex;
+    vertical-align: middle;
+    & img {
+      width: 200px;
+      &:first-of-type {
+        margin-right: 10px;
+      }
+    }
+  }
+  &-OrgLinkContainer250 {
+    display: flex;
+    vertical-align: middle;
+    & img {
+      width: 250px;
       &:first-of-type {
         margin-right: 10px;
       }

@@ -1,18 +1,18 @@
 <template>
   <div class="TextCard">
-    <h3 v-if="title" class="TextCard-Heading">
+    <h2 v-if="title" class="TextCard-Heading">
       <a v-if="link" :href="link" target="_blank" rel="noopener">
         {{ title }}
       </a>
       <template v-else>
         {{ title }}
       </template>
-    </h3>
+    </h2>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div v-if="body" class="TextCard-Body" v-html="body" />
-    <div v-if="$slots.default" class="TextCard-Body">
+    <p v-if="body" class="TextCard-Body" v-html="body" />
+    <p class="TextCard-Body">
       <slot />
-    </div>
+    </p>
   </div>
 </template>
 

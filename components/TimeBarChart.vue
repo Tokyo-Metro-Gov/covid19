@@ -111,7 +111,7 @@ export default {
               data: this.chartData.map(d => {
                 return d.transition
               }),
-              backgroundColor: '#00B849',
+              backgroundColor: '#4A7BBA',
               borderWidth: 0
             }
           ]
@@ -127,7 +127,7 @@ export default {
             data: this.chartData.map(d => {
               return d.cumulative
             }),
-            backgroundColor: '#00B849',
+            backgroundColor: '#4A7BBA',
             borderWidth: 0
           }
         ]
@@ -135,7 +135,6 @@ export default {
     },
     displayOption() {
       const unit = this.unit
-      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       return {
         tooltips: {
           displayColors: false,
@@ -230,20 +229,12 @@ export default {
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080',
-                suggestedMax: scaledTicksYAxisMax
+                fontColor: '#808080'
               }
             }
           ]
         }
       }
-    },
-    scaledTicksYAxisMax() {
-      const yAxisMax = 1.2
-      const dataKind =
-        this.dataKind === 'transition' ? 'transition' : 'cumulative'
-      const values = this.chartData.map(d => d[dataKind])
-      return Math.max(...values) * yAxisMax
     }
   },
   methods: {
