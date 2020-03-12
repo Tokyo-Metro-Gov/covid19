@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div id="hospitalized" :class="$style.container">
     <p :class="$style.heading">
       <span :class="[$style.icon, $style.top]">
@@ -7,14 +8,25 @@
       <span :class="$style.fzMedium">{{ $t('入院となります') }}</span>
     </p>
     <p :class="[$style.facility, $style.fzXLarge]">
+=======
+  <div id="hospitalized" :class="$style.Hospitalization">
+    <HotelIcon :class="$style.HospitalizationImg" aria-hidden="true" />
+    <p :class="$style.HospitalizationText">
+      {{ $t('入院となります') }}
+    </p>
+    <p :class="['mb-0', $style.HospitalizationLargeText]">
+>>>>>>> [i18n] fix components/flow Hospitalized
       {{ $t('感染症指定医療機関等') }}
     </p>
   </div>
 </template>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <i18n src="./FlowSpHospitalized.i18n.json"></i18n>
 =======
+=======
+>>>>>>> [i18n] fix components/flow Hospitalized
 <i18n>
 {
   "ja": {
@@ -22,7 +34,11 @@
     "感染症指定医療機関等": "感染症指定医療機関等"
   },
   "en": {
+<<<<<<< HEAD
     "入院となります": "Need to be hospitalized",
+=======
+    "入院となります": "Need to discharge",
+>>>>>>> [i18n] fix components/flow Hospitalized
     "感染症指定医療機関等": "designated medical institutions for specified infectious diseases and equivalent institutions"
   },
   "zh-cn": {
@@ -34,8 +50,13 @@
     "感染症指定医療機関等": "至傳染病專責醫療機構"
   },
   "ko": {
+<<<<<<< HEAD
     "入院となります": "입원치료하게됩니다",
     "感染症指定医療機関等": "감영병전문 의료기관등"
+=======
+    "入院となります": "",
+    "感染症指定医療機関等": ""
+>>>>>>> [i18n] fix components/flow Hospitalized
   },
   "ja-basic": {
     "入院となります": "入院（にゅういん）と なります",
@@ -43,7 +64,10 @@
   }
 }
 </i18n>
+<<<<<<< HEAD
 >>>>>>> Fix the English translation of 「入院」
+=======
+>>>>>>> [i18n] fix components/flow Hospitalized
 
 <script lang="ts">
 import HotelIcon from '@/static/flow/responsive/hotel.svg'
