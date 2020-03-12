@@ -14,24 +14,24 @@
     </p>
     <p :class="$style.type">
       <template v-if="!langsNeedReversedOrder.includes($i18n.locale)">
-        <strong :class="$style.source">{{
-          $t('「新型コロナウイルス感染者」と')
-        }}</strong>
+        <strong :class="$style.source">
+          {{ $t('「新型コロナウイルス感染者」と') }}
+        </strong>
         <i18n tag="span" path="{closeContact}をした方" :class="$style.behavior">
-          <em :class="$style.underline" place="closeContact">{{
-            $t('濃厚接触')
-          }}</em>
+          <em :class="$style.underline" place="closeContact">
+            {{ $t('濃厚接触') }}
+          </em>
         </i18n>
       </template>
       <template v-else>
         <i18n tag="span" path="{closeContact}をした方" :class="$style.behavior">
-          <em :class="$style.underline" place="closeContact">{{
-            $t('濃厚接触')
-          }}</em>
+          <em :class="$style.underline" place="closeContact">
+            {{ $t('濃厚接触') }}
+          </em>
         </i18n>
-        <span :class="$style.source">{{
-          $t('「新型コロナウイルス感染者」と')
-        }}</span>
+        <span :class="$style.behavior">
+          {{ $t('「新型コロナウイルス感染者」と') }}
+        </span>
       </template>
     </p>
     <div :class="$style.condition">
@@ -52,18 +52,20 @@
     <div :class="$style.hr" />
     <p :class="$style.type">
       <template v-if="!langsWithoutFlowTitle.includes($i18n.locale)">
-        <strong :class="$style.source">{{
-          $t('流行地域への渡航・居住歴がある方')
-        }}</strong>
+        <strong :class="$style.source">
+          {{ $t('流行地域への渡航・居住歴がある方') }}
+        </strong>
         <i18n
           tag="span"
           :class="$style.behavior"
           path="{you} か {closeContact}をした方"
         >
-          <em :class="$style.underline" place="you">{{ $t('ご本人') }}</em>
-          <em :class="$style.underline" place="closeContact">{{
-            $t('濃厚接触')
-          }}</em>
+          <em :class="$style.underline" place="you">
+            {{ $t('ご本人') }}
+          </em>
+          <em :class="$style.underline" place="closeContact">
+            {{ $t('濃厚接触') }}
+          </em>
         </i18n>
       </template>
       <template v-else>
@@ -72,18 +74,18 @@
           :class="[$style.behavior, $style.small]"
           path="travel history from {area}"
         >
-          <em :class="$style.underline" place="area">{{
-            $t('COVID-19 prevalent area')
-          }}</em>
+          <em :class="$style.underline" place="area">
+            {{ $t('COVID-19 prevalent area') }}
+          </em>
         </i18n>
         <i18n
           tag="span"
-          :class="[$style.source, $style.small]"
+          :class="[$style.behavior, $style.small]"
           path="been {inCloseContact} with returnees"
         >
-          <em :class="$style.underline" place="inCloseContact">{{
-            $t('in close contact')
-          }}</em>
+          <em :class="$style.underline" place="inCloseContact">
+            {{ $t('in close contact') }}
+          </em>
         </i18n>
       </template>
     </p>
@@ -100,9 +102,9 @@
         <div>
           <i18n tag="span" path="発熱{temperature}" :class="$style.temp">
             <i18n tag="span" path="{tempNum}以上" place="temperature">
-              <span :class="$style.temp" place="tempNum">{{
-                $t('37.5℃')
-              }}</span>
+              <span :class="$style.temp" place="tempNum">
+                {{ $t('37.5℃') }}
+              </span>
             </i18n>
           </i18n>
         </div>
@@ -133,7 +135,8 @@
     "かつ": "かつ",
     "発熱{temperature}": "発熱{temperature}",
     "{tempNum}以上": "{tempNum}以上",
-    "37.5℃": "37.5℃"
+    "37.5℃": "37.5℃",
+    "新型コロナ受診相談窓口へ": "新型コロナ受診相談窓口へ"
   },
   "en": {
     "{past}の出来ごとと症状": "{past}, if you have...",
@@ -154,7 +157,8 @@
     "かつ": "and",
     "発熱{temperature}": "body temperature {temperature}",
     "{tempNum}以上": "above {tempNum}",
-    "37.5℃": "37.5℃"
+    "37.5℃": "37.5℃",
+    "新型コロナ受診相談窓口へ": "Go COVID-19 advisory"
   },
   "zh-cn": {
     "{past}の出来ごとと症状": "如果您在{past}有过以下情况或症状",
@@ -175,7 +179,8 @@
     "かつ": "和",
     "発熱{temperature}": "发烧 {temperature}",
     "{tempNum}以上": "{tempNum} 以上",
-    "37.5℃": "37.5℃"
+    "37.5℃": "37.5℃",
+    "新型コロナ受診相談窓口へ": "跳转到新冠肺炎就诊咨询窗口"
   },
   "zh-tw": {
     "{past}の出来ごとと症状": "{past} 如果您有以下症狀",
@@ -196,7 +201,8 @@
     "かつ": "以及",
     "発熱{temperature}": "發燒 {temperature}",
     "{tempNum}以上": "{tempNum} 以上",
-    "37.5℃": "37.5℃"
+    "37.5℃": "37.5℃",
+    "新型コロナ受診相談窓口へ": "跳到新冠病毒就診諮詢窗口"
   },
   "ko": {
     "{past}の出来ごとと症状": "{past}의 증세",
@@ -213,7 +219,8 @@
     "かつ": "또는",
     "発熱{temperature}": "{temperature} 발열",
     "{tempNum}以上": "{tempNum} 이상의",
-    "37.5℃": "37.5도"
+    "37.5℃": "37.5도",
+    "新型コロナ受診相談窓口へ": "코로나 19 수진 상담 창구"
   },
   "ja-basic": {
     "{past}の出来ごとと症状": "{past}で したことと、からだの ぐあい ",
@@ -230,7 +237,8 @@
     "かつ": "",
     "発熱{temperature}": "{temperature} たかいねつが あるひと",
     "{tempNum}以上": "{tempNum}より",
-    "37.5℃": "37.5℃"
+    "37.5℃": "37.5℃",
+    "新型コロナ受診相談窓口へ": "新（あたら）しい コロナ受診相談窓口（じゅしんそうだんまどぐち）へ ※受診相談窓口：病院（びょういん）で 見（み）てもらうか について 相談（そうだん） するところ"
   }
 }
 </i18n>
