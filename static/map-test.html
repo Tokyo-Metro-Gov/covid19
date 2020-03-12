@@ -10,7 +10,7 @@
 <style>
 	body { margin: 0; padding: 0; }
   #map { position: absolute; top: 0; bottom: 0; width: 100%; }
-  #my_dataviz { position: absolute; bottom: 20px; width: 460px; height: 400px; background-color: #ffffff; }
+  #my_dataviz { position: absolute; right: 50px; bottom: 20px; width: 500px; height: 400px; background-color: #ffffff; }
 </style>
 </head>
 <body>
@@ -49,7 +49,7 @@ const addDataHeatmapLayer = (date) => {
     'source': {
       'type': 'vector',
       'tiles': [
-        `http://localhost:3000/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
+        `https://map-covid19-tokyo.netlify.com/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
       ],
       'minzoom': 8,
       'maxzoom': 11,
@@ -74,7 +74,7 @@ const addHeatmapLayer = (date) => {
     'source': {
       'type': 'vector',
       'tiles': [
-        `http://localhost:3000/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
+        `https://map-covid19-tokyo.netlify.com/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
       ],
       'minzoom': 8,
       'maxzoom': 11,
@@ -152,7 +152,7 @@ const data_date = [
   '20200309',
   '20200310'
 ]
-const data_layers = data_date.map(date => {return `heatmap-data-${date}`})
+const data_layers = data_date.forEach(date => {return `heatmap-data-${date}`})
 
 // 古い実装: 中央地のデータを取得
 const getCenterValues = () => {
@@ -195,8 +195,8 @@ const getFeatureAndCreateGraph = () => {
   // remove current svg
   d3.select("#my_dataviz").selectAll('svg').remove()
   // set the dimensions and margins of the graph
-  var margin = {top: 10, right: 30, bottom: 30, left: 50},
-  width = 460 - margin.left - margin.right,
+  var margin = {top: 10, right: 10, bottom: 30, left: 80},
+  width = 500 - margin.left - margin.right,
   height = 400 - margin.top - margin.bottom;
 
 
@@ -229,7 +229,7 @@ const getFeatureAndCreateGraph = () => {
 
     // Add Y axis
     var y = d3.scaleLinear()
-      .domain( d3.extent(data, function(d) { return +d.value; }) )
+      .domain( [0, d3.max(data, function(d) { return d.value; })] )
       .range([ height, 0 ]);
     svg.append("g")
       .attr("transform", "translate(-5,0)")
