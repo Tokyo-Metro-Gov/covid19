@@ -229,6 +229,7 @@ export default {
   }
   &-SocialLinkContainer {
     display: flex;
+    align-items: center;
     & img {
       width: 30px;
       &:first-of-type {
