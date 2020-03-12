@@ -29,7 +29,7 @@
             {{ $t('濃厚接触') }}
           </em>
         </i18n>
-        <span :class="$style.source">
+        <span :class="$style.behavior">
           {{ $t('「新型コロナウイルス感染者」と') }}
         </span>
       </template>
@@ -80,7 +80,7 @@
         </i18n>
         <i18n
           tag="span"
-          :class="[$style.source, $style.small]"
+          :class="[$style.behavior, $style.small]"
           path="been {inCloseContact} with returnees"
         >
           <em :class="$style.underline" place="inCloseContact">
@@ -177,7 +177,8 @@
     "かつ": "and",
     "発熱{temperature}": "body temperature {temperature}",
     "{tempNum}以上": "above {tempNum}",
-    "37.5℃": "37.5℃"
+    "37.5℃": "37.5℃",
+    "新型コロナ受診相談窓口へ": "Go COVID-19 advisory"
   },
   "zh-cn": {
     "{past}の出来ごとと症状": "如果您在{past}有过以下情况或症状",
@@ -198,7 +199,8 @@
     "かつ": "和",
     "発熱{temperature}": "发烧 {temperature}",
     "{tempNum}以上": "{tempNum} 以上",
-    "37.5℃": "37.5℃"
+    "37.5℃": "37.5℃",
+    "新型コロナ受診相談窓口へ": "跳转到新冠肺炎就诊咨询窗口"
   },
   "zh-tw": {
     "{past}の出来ごとと症状": "{past} 如果您有以下症狀",
@@ -219,7 +221,8 @@
     "かつ": "以及",
     "発熱{temperature}": "發燒 {temperature}",
     "{tempNum}以上": "{tempNum} 以上",
-    "37.5℃": "37.5℃"
+    "37.5℃": "37.5℃",
+    "新型コロナ受診相談窓口へ": "跳到新冠病毒就診諮詢窗口"
   },
   "ko": {
     "{past}の出来ごとと症状": "{past}의 증세",
@@ -236,8 +239,11 @@
     "かつ": "또는",
     "発熱{temperature}": "{temperature} 발열",
     "{tempNum}以上": "{tempNum} 이상의",
-    "37.5℃": "37.5도"
-  }
+    "37.5℃": "37.5도",
+    "新型コロナ受診相談窓口へ": "코로나 19 수진 상담 창구"
+  },
+}
+</i18n>
 -->
 
 <script lang="ts">
@@ -247,10 +253,10 @@ export default {
   components: { ArrowForwardIcon },
   computed: {
     langsNeedReversedOrder() {
-      return [] // ['en']
+      return ['en']
     },
     langsWithoutFlowTitle() {
-      return [] // ['en', 'zh-cn', 'zh-tw']
+      return ['en', 'zh-cn', 'zh-tw']
     }
   }
 }
