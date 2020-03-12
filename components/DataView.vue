@@ -148,7 +148,7 @@ export default class DataView extends Vue {
     if (embed) {
       permalink = permalink + '?embed=true'
     }
-    return permalink
+    return this.localePath(permalink)
   }
 
   twitter() {
