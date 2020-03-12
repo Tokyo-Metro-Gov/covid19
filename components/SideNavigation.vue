@@ -48,9 +48,9 @@
           </a>
         </div>
       </div>
+      Supported by
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-OrgLinkContainer200">
-          Supported by<br />
           <a
             href="https://www.isit.or.jp/"
             target="_blank"
