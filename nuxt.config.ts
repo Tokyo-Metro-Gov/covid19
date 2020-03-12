@@ -1,5 +1,6 @@
 import { Configuration } from '@nuxt/types'
 const purgecss = require('@fullhuman/postcss-purgecss')
+const autoprefixer = require('autoprefixer')
 
 const config: Configuration = {
   mode: 'universal',
@@ -46,6 +47,26 @@ const config: Configuration = {
         hid: 'og:image',
         property: 'og:image',
         content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@tokyo_bousai'
+      },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: '@tokyo_bousai'
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
       }
     ],
     link: [
@@ -67,6 +88,10 @@ const config: Configuration = {
   plugins: [
     {
       src: '@/plugins/vue-chart.ts',
+      ssr: true
+    },
+    {
+      src: '@/plugins/vuetify.ts',
       ssr: true
     }
   ],
@@ -90,12 +115,51 @@ const config: Configuration = {
     [
       'nuxt-i18n',
       {
-        strategy: 'no_prefix',
+        strategy: 'prefix_except_default',
+        detectBrowserLanguage: {
+          useCookie: true,
+          cookieKey: 'i18n_redirected'
+        },
         locales: [
           {
             code: 'ja',
+            name: '日本語',
             iso: 'ja-JP'
+          },
+          {
+            code: 'en',
+            name: 'English',
+            iso: 'en-US'
+          },
+          {
+            code: 'zh-cn',
+            name: '簡体字',
+            iso: 'zh-CN'
+          },
+          {
+            code: 'zh-tw',
+            name: '繁體字',
+            iso: 'zh-TW'
+          },
+          {
+            code: 'ko',
+            name: '한국어',
+            iso: 'ko-KR'
           }
+          // ,
+          // #1126, #872 (comment)
+          // ポルトガル語は訳が揃っていないため非表示
+          // 「やさしい日本語」はコンポーネントが崩れるため非表示
+          // {
+          //   code: 'pt-BR',
+          //   name: 'Portuguese',
+          //   iso: 'pt-BR'
+          // },
+          // {
+          //   code: 'ja-basic',
+          //   name: 'やさしい にほんご',
+          //   iso: 'ja-JP'
+          // }
         ],
         defaultLocale: 'ja',
         vueI18n: {
@@ -106,7 +170,8 @@ const config: Configuration = {
       }
     ],
     'nuxt-svg-loader',
-    'nuxt-purgecss'
+    'nuxt-purgecss',
+    ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }]
   ],
   /*
    ** Axios module configuration
@@ -119,7 +184,9 @@ const config: Configuration = {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    theme: {}
+    defaultAssets: {
+      icons: false
+    }
   },
   googleAnalytics: {
     id: 'UA-159417676-1'
@@ -127,6 +194,7 @@ const config: Configuration = {
   build: {
     postcss: {
       plugins: [
+        autoprefixer({ grid: 'autoplace' }),
         purgecss({
           content: [
             './pages/**/*.vue',
@@ -139,7 +207,9 @@ const config: Configuration = {
           whitelistPatterns: [/(col|row)/]
         })
       ]
-    }
+    },
+    // https://ja.nuxtjs.org/api/configuration-build/#hardsource
+    hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
     name: '東京都 新型コロナウイルス感染症対策サイト',

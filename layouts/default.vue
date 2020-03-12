@@ -78,10 +78,20 @@ export default Vue.extend({
   position: relative;
   @include largerThan($small) {
     display: grid;
-    grid-template-columns: 240px auto;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto;
   }
   @include largerThan($huge) {
-    grid-template-columns: 325px auto;
+    grid-template-columns: 325px 1fr;
+    grid-template-rows: auto;
+  }
+}
+@include lessThan($small) {
+  .naviContainer {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: z-index-of(sp-navigation);
   }
 }
 @include largerThan($small) {
