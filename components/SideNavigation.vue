@@ -227,7 +227,7 @@ export default {
   &-OrgLinkContainer {
     display: flex;
     & img {
-      width: 250px;
+      width: 200px;
       &:first-of-type {
         margin-right: 10px;
       }
