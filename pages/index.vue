@@ -6,19 +6,10 @@
       :date="headerItem.date"
     />
     <whats-new class="mb-4" :items="newsItems" />
-    <static-info
-      class="mb-4"
-      :url="localePath('/flow')"
-      :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
-      :btn-text="$t('相談の手順を見る')"
-    />
+    <static-info class="mb-4" :url="staticInfo.url" :text="staticInfo.text" btn-text="staticInfo.btnText" />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
-        <svg-card
-          :title="$t('検査陽性者の状況')"
-          :title-id="'details-of-confirmed-cases'"
-          :date="Data.inspections_summary.date"
-        >
+        <svg-card :title="svgCard.title" :title-id="svgCard.titleId" :date="svgCard.date">
           <confirmed-cases-table
             :aria-label="$t('検査陽性者の状況')"
             v-bind="confirmedCases"
@@ -27,15 +18,13 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          :title="$t('陽性患者数')"
-          :title-id="'number-of-confirmed-cases'"
-          :chart-id="'time-bar-chart-patients'"
-          :chart-data="patientsGraph"
-          :date="Data.patients.date"
-          :unit="$t('人')"
-          :url="
-            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
-          "
+          :title="timeBarChart.title"
+          :title-id="timeBarChart.titleId"
+          :chart-id="timeBarChart.chartId"
+          :chart-data="timeBarChart.chartData"
+          :date="timeBarChart.date"
+          :unit="timeBarChart.unit"
+          :url="timeBarChart.url"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -533,6 +522,28 @@ export default {
       }
     }
     return data
+
+    return {
+      staticInfo: {
+        url: localePath('/flow'),
+        text: $t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'),
+        btnText: $t('相談の手順を見る')
+      },
+      svgCard: {
+        title: $t('検査陽性者の状況'),
+        titleId: 'details-of-confirmed-cases',
+        date: Data.inspections_summary.date
+      },
+      timeBarChart: {
+        title: $t('陽性患者数'),
+        titleId: 'number-of-confirmed-cases',
+        chartId: 'time-bar-chart-patients',
+        chartData: patientsGraph,
+        date: Data.patients.date,
+        unit: $t('人'),
+        url: 'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+      }
+    }
   },
   head() {
     return {
