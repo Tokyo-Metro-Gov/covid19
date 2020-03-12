@@ -57,7 +57,7 @@
     "受診が必要": "advised to be examined",
     "新型コロナ外来（帰国者・接触者外来）": "COVID-19 consultation for returnees and contactees",
     "医師による判断": "Diagnosis by doctors",
-    "検査の必要{ifRequired}": "You are {ifRequired} to be tested",
+    "検査の必要{ifRequired}": "Test {ifRequired}",
     "あり": "required",
     "なし": "not required"
   },
