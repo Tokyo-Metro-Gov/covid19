@@ -34,6 +34,7 @@
    "en": {
      "（注）同一の対象者について複数の検体を調査する場合あり": "(Note) More than one sample from the same subject may be tested.",
      "{date}の全体累計": "Cumulative total as of %{date}",
+     "{date}の合計": "Value of %{date}",
      "都内": "Tokyo",
      "その他": "Others"
    },
@@ -46,6 +47,7 @@
    "zh-tw": {
      "（注）同一の対象者について複数の検体を調査する場合あり": "（註）同一個案可能被多次檢查",
      "{date}の全体累計": "累計至 %{date}",
+     "{date}の合計": "%{date} 當日總數",
      "都内": "東京都",
      "その他": "其它"
    },
