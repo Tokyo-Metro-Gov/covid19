@@ -27,15 +27,23 @@ import SelectMenuIcon from '@/static/selectmenu.svg'
   components: { EarthIcon, SelectMenuIcon }
 })
 export default class LanguageSelector extends Vue {
+  locales = ['en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
+
   navigate(locale: string) {
     // @fixme 超ダーティーハックです。。。
     const mypath =
-      ['/en', '/zh-cn', '/zh-tw', '/ko'].indexOf(
-        this.$router.currentRoute.path
-      ) === 0
+      this.locales.map(x => '/' + x).indexOf(this.$router.currentRoute.path) ===
+      0
         ? this.$router.currentRoute.path + '/'
         : this.$router.currentRoute.path
-    const matches = mypath.match(/.*(\/.*)/)
+    const reg = new RegExp(
+      '(?:' +
+        this.locales.join('|') +
+        ')?(/(?!' +
+        this.locales.join('|') +
+        ').*)$'
+    )
+    const matches = mypath.match(reg)
     if (matches === null) {
       return
     }
