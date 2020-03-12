@@ -72,7 +72,7 @@
           <a
             rel="license"
             target="_blank"
-            href="http://creativecommons.org/licenses/by/4.0/"
+            href="https://creativecommons.org/licenses/by/4.0/"
           >
             {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
           </a>
