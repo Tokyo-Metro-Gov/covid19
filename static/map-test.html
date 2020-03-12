@@ -39,6 +39,31 @@ const removeHeatmapLayer = () => {
   map.removeLayer('heatmap')
 }
 
+const addDataHeatmapLayer = (date) => {
+  map.addLayer({
+    'id': `heatmap-data-${date}`,
+    'type': 'fill',
+    'source': {
+      'type': 'vector',
+      'tiles': [
+        `http://localhost:3000/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
+      ],
+      'minzoom': 8,
+      'maxzoom': 11,
+      'bounds': [
+        139.673264,
+        35.673288,
+        139.745141,
+        35.729915
+      ]
+    },
+    'source-layer': 'dfi-place-heatmap-population',
+    'paint': {
+      'fill-opacity': 0,
+    }
+  })
+}
+
 const addHeatmapLayer = (date) => {
   map.addLayer({
     'id': 'heatmap',
@@ -82,8 +107,19 @@ const addHeatmapLayer = (date) => {
   });
 }
 
+const data_date = [
+  '20200305',
+  '20200306',
+  '20200307',
+  '20200308',
+  '20200309',
+  '20200310'
+]
+
 map.on('load', function() {
   addHeatmapLayer('20200305')
+  data_date.forEach(v => addDataHeatmapLayer(v))
+  const data_layers = data_date.map(date => {return `heatmap-data-${date}`})
   let popup = new mapboxgl.Popup({
     closeButton: false,
     closeOnClick: false
@@ -96,20 +132,27 @@ map.on('load', function() {
       .setHTML(
         "<div>" + Math.round(e.features[0].properties.max) + " 人</div>")
       .addTo(map);
-
     });
     map.on("mouseleave", "heatmap", function() {
     map.getCanvas().style.cursor = '';
     popup.remove();
+
   });
-  map.on('moveend', function() {
-    var features = map.queryRenderedFeatures({ layers: ['heatmap'] });
-    var s = 0;
-    features.forEach(function(d) {
-      s += d.properties.max
-    });
-    console.log([s, features.length]);
-  });
+  //map.on('moveend', function() {
+  //  var features = map.queryRenderedFeatures({ layers: ['heatmap'] });
+  //  var s = 0;
+  //  features.forEach(function(d) {
+  //    s += d.properties.max
+  //  });
+  //  console.log([s, features.length]);
+  //});
+  map.on('moveend', (e) => {
+    console.log(e)
+    const center = map.getCenter()
+
+    var features = map.queryRenderedFeatures([center.lng, center.lat], { layers: data_layers })
+    console.log(features)
+  })
 });
 </script>
 
