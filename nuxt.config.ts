@@ -150,7 +150,7 @@ const config: Configuration = {
     }
   },
   googleAnalytics: {
-    id: 'UA-159417676-1'
+    id: 'UA-73000165-21'
   },
   build: {
     postcss: {
