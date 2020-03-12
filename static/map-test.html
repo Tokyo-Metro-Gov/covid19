@@ -115,11 +115,23 @@ const data_date = [
   '20200309',
   '20200310'
 ]
+const data_layers = data_date.map(date => {return `heatmap-data-${date}`})
+
+const getFeatureAndCreateGraph = () => {
+  const center = map.getCenter()
+  const features = map.queryRenderedFeatures([center.lng, center.lat], { layers: data_layers })
+  const graph_values = features.map(feature => {
+    const date = feature.layer.id.split('-')[2]
+    const value = feature.properties.max
+    return {date: date, value: value}
+  })
+  console.log(graph_values)
+}
 
 map.on('load', function() {
   addHeatmapLayer('20200305')
   data_date.forEach(v => addDataHeatmapLayer(v))
-  const data_layers = data_date.map(date => {return `heatmap-data-${date}`})
+
   let popup = new mapboxgl.Popup({
     closeButton: false,
     closeOnClick: false
@@ -148,10 +160,10 @@ map.on('load', function() {
   //});
   map.on('moveend', (e) => {
     console.log(e)
-    const center = map.getCenter()
-
-    var features = map.queryRenderedFeatures([center.lng, center.lat], { layers: data_layers })
-    console.log(features)
+    getFeatureAndCreateGraph()
+  })
+  map.once('idle', (e) => {
+    getFeatureAndCreateGraph()
   })
 });
 </script>
