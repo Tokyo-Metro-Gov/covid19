@@ -88,13 +88,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      loading: true
-    }
-  },
   mounted() {
-    this.loading = false
     window.addEventListener('load', this.print)
   },
   beforeDestroy() {
