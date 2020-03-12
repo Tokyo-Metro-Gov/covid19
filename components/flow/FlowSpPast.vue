@@ -262,4 +262,23 @@ export default {
 
 <style module lang="scss">
 @import '@/components/flow/flow_sp.scss';
+
+.symptomContainer {
+  // past
+  .op {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  // past
+  &.req {
+    margin-top: px2vw(20);
+    > .symptom {
+      flex-basis: 36%;
+    }
+    > .op {
+      flex-basis: 28%;
+    }
+  }
+}
 </style>

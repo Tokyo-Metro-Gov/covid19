@@ -183,4 +183,30 @@ export default {
 
 <style module lang="scss">
 @import '@/components/flow/flow_sp.scss';
+
+.heading {
+  // elder
+  &.multi {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: px2vw(-20);
+    margin-left: px2vw(-10);
+    margin-right: px2vw(-10);
+    .icon {
+      display: block;
+      margin-bottom: 0;
+      width: px2vw(50);
+      height: px2vw(50);
+    }
+    > .item {
+      display: flex;
+      align-items: center;
+      margin: px2vw(20) px2vw(10) 0;
+      svg {
+        margin-right: px2vw(5);
+      }
+    }
+  }
+}
 </style>
