@@ -182,12 +182,17 @@ export default {
               const labelArray = [labelTokyo, labelOthers]
               let casesTotal, cases
               if (this.dataKind === 'transition') {
-                casesTotal = sumArray[tooltipItem.index]
-                cases = data[tooltipItem.datasetIndex][tooltipItem.index]
+                casesTotal = sumArray[tooltipItem.index].toLocaleString()
+                cases = data[tooltipItem.datasetIndex][
+                  tooltipItem.index
+                ].toLocaleString()
               } else {
-                casesTotal = cumulativeSumArray[tooltipItem.index]
-                cases =
-                  cumulativeData[tooltipItem.datasetIndex][tooltipItem.index]
+                casesTotal = cumulativeSumArray[
+                  tooltipItem.index
+                ].toLocaleString()
+                cases = cumulativeData[tooltipItem.datasetIndex][
+                  tooltipItem.index
+                ].toLocaleString()
               }
 
               return `${casesTotal} ${unit} (${
@@ -202,7 +207,13 @@ export default {
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-          display: true
+          display: true,
+          onHover: e => {
+            e.currentTarget.style.cursor = 'pointer'
+          },
+          onLeave: e => {
+            e.currentTarget.style.cursor = 'default'
+          }
         },
         scales: {
           xAxes: [
@@ -321,7 +332,8 @@ export default {
 
 <style lang="scss" scoped>
 .Graph-Desc {
-  margin: 10px 0;
+  width: 100%;
+  margin: 0;
   font-size: 12px;
   color: $gray-3;
 }
