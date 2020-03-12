@@ -10,7 +10,7 @@
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('Tokyo')" />
+          <img src="/logo.svg" :alt="$t('Fukuoka')" />
         </div>
         <h1 class="SideNavigation-Heading">
           {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
@@ -45,20 +45,6 @@
             rel="noopener"
           >
             <img src="/line.png" alt="LINE" />
-          </a>
-          <a
-            href="https://twitter.com/tokyo_bousai"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/twitter.png" alt="Twitter" />
-          </a>
-          <a
-            href="https://www.facebook.com/tochokoho"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/facebook.png" alt="Facebook" />
           </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
