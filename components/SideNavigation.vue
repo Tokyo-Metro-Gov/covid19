@@ -49,13 +49,14 @@
         </div>
       </div>
       <div class="SideNavigation-Footer">
-        <div class="SideNavigation-OrgLinkContainer">
+        <div class="SideNavigation-OrgLinkContainer200">
+          Supported by<br />
           <a
             href="https://www.isit.or.jp/"
             target="_blank"
             rel="noopener"
           >
-            Supported by<br /><img src="/isit-logo.png" alt="ISIT" />
+            <img src="/isit-logo.png" alt="ISIT" />
           </a>
         </div>
       </div>
@@ -239,6 +240,15 @@ export default {
     display: flex;
     & img {
       width: 150px;
+      &:first-of-type {
+        margin-right: 10px;
+      }
+    }
+  }
+  &-OrgLinkContainer200 {
+    display: flex;
+    & img {
+      width: 200px;
       &:first-of-type {
         margin-right: 10px;
       }
