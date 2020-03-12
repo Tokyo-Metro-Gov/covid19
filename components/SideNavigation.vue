@@ -86,6 +86,7 @@
     "for Citizens": "市民の皆様へ",
     "for Enterprises and Employees": "事業者の方へ",
     "Official statements from Task Force": "福岡市新型コロナウイルス感染症対策本部報",
+    "Fukuoka City Subway Traffic": "福岡市営地下鉄ラッシュ時の車内混雑状況について",
     "Cancelled public events": "不特定多数の人が集まるイベントへの対応",
     "Government official website": "福岡市公式ホームページ",
     "Message from Governor Takashima": "市長からのメッセージ",
@@ -143,9 +144,9 @@ export default {
             'https://www.city.fukuoka.lg.jp/hofuku/hokenyobo/health/kansen/nCorV.html#ftev'
         },
         {
-          title: this.$t('Message from Governor Takashima'),
+          title: this.$t('Fukuoka City Subway Traffic'),
           link:
-            ''
+            'https://subway.city.fukuoka.lg.jp/topics/detail.php?id=1006'
         },
         {
           title: this.$t('About us'),
