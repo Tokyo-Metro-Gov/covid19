@@ -92,7 +92,7 @@
       <ul>
         <li>
           <a
-            href="https://marketingplatform.google.com/about/analytics/terms/jp"
+            href="https://policies.google.com/terms"
             target="_blank"
             rel="noopener"
           >
@@ -101,7 +101,7 @@
         </li>
         <li>
           <a
-            href="https://policies.google.com/privacy?hl=ja"
+            href="https://policies.google.com/privacy"
             target="_blank"
             rel="noopener"
           >
