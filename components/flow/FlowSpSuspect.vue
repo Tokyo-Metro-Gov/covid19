@@ -19,7 +19,7 @@
       </li>
     </ul>
 
-    <div :class="$style.advisory">
+    <div :class="$style.callcenter">
       <p :class="$style.fzLarge">
         {{ $t('新型コロナコールセンター') }}
       </p>
@@ -55,4 +55,24 @@ export default {
 
 <style module lang="scss">
 @import '@/components/flow/flow_sp.scss';
+
+.symptomContainer {
+  // suspect
+  &.triple {
+    margin-left: px2vw(-11);
+    margin-right: px2vw(-11);
+    > .symptom {
+      margin: 0 px2vw(11);
+      flex-grow: 10;
+    }
+  }
+}
+// suspect
+.callcenter {
+  margin-top: px2vw(25);
+  text-align: center;
+  .open {
+    margin-top: px2vw(10);
+  }
+}
 </style>

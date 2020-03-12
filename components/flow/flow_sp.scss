@@ -1,6 +1,7 @@
 @function px2vw($px, $vw: 600) {
   @return $px / $vw * 100vw;
 }
+// common
 .container {
   color: $gray-2;
   font-size: px2vw(22);
@@ -15,6 +16,7 @@
     margin-bottom: 0;
   }
 }
+// common
 .heading {
   text-align: center;
   .icon {
@@ -23,46 +25,8 @@
     width: px2vw(72);
     height: px2vw(72);
   }
-  &.multi {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: px2vw(-20);
-    margin-left: px2vw(-10);
-    margin-right: px2vw(-10);
-    .icon {
-      display: block;
-      margin-bottom: 0;
-      width: px2vw(50);
-      height: px2vw(50);
-    }
-    > .item {
-      display: flex;
-      align-items: center;
-      margin: px2vw(20) px2vw(10) 0;
-      svg {
-        margin-right: px2vw(5);
-      }
-    }
-  }
 }
-.type {
-  margin-top: px2vw(20);
-  text-align: center;
-  .source {
-    display: block;
-    color: $green-1;
-    &:last-child {
-      margin-top: px2vw(10);
-    }
-  }
-  .behavior {
-    display: block;
-    &:last-child {
-      margin-top: px2vw(5);
-    }
-  }
-}
+// past, general, older ,suspect
 .symptomContainer {
   margin-top: px2vw(15);
   padding-top: px2vw(30);
@@ -98,20 +62,7 @@
       transform: translateY(-50%);
     }
   }
-  .op {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &.req {
-    margin-top: px2vw(20);
-    > .symptom {
-      flex-basis: 36%;
-    }
-    > .op {
-      flex-basis: 28%;
-    }
-  }
+  // general, elder
   &.double {
     flex-wrap: wrap;
     > .symptom {
@@ -121,27 +72,14 @@
       }
     }
   }
-  &.triple {
-    margin-left: px2vw(-11);
-    margin-right: px2vw(-11);
-    > .symptom {
-      margin: 0 px2vw(11);
-      flex-grow: 10;
-    }
-  }
 }
+// general, elder
 .duration {
   margin-top: px2vw(30);
   text-align: center;
   line-height: 1.15;
 }
-.advisory {
-  margin-top: px2vw(25);
-  text-align: center;
-  .open {
-    margin-top: px2vw(10);
-  }
-}
+// suspect, advisory
 .phone {
   display: flex;
   justify-content: center;
@@ -166,12 +104,7 @@
     text-decoration: none;
   }
 }
-.hr {
-  margin-top: px2vw(30);
-  border-bottom: 1px $gray-4 solid;
-  height: 1px;
-  width: 100%;
-}
+// past, general, elder ,suspect
 .button {
   margin-top: px2vw(30);
   padding: 0 px2vw(30) 0 px2vw(36);
@@ -194,7 +127,32 @@
     display: block;
   }
 }
-// 装飾
+// according
+.hr {
+  margin-top: px2vw(30);
+  border-bottom: 1px $gray-4 solid;
+  height: 1px;
+  width: 100%;
+}
+// according
+.type {
+  margin-top: px2vw(20);
+  text-align: center;
+  .source {
+    display: block;
+    color: $green-1;
+    &:last-child {
+      margin-top: px2vw(10);
+    }
+  }
+  .behavior {
+    display: block;
+    &:last-child {
+      margin-top: px2vw(5);
+    }
+  }
+}
+// common
 .fzSmall {
   font-size: px2vw(18);
 }
@@ -212,6 +170,15 @@
 }
 .fzNumeric {
   font-size: px2vw(50);
+}
+.mt5 {
+  margin-top: px2vw(5);
+}
+.mt10 {
+  margin-top: px2vw(10);
+}
+.mb10 {
+  margin-bottom: px2vw(10);
 }
 .underline {
   border-bottom: px2vw(4) solid $green-1;
@@ -297,7 +264,7 @@
   .duration {
     margin-top: px2vw(30, $vw);
   }
-  .advisory {
+  .callcenter {
     margin-top: px2vw(25, $vw);
     .open {
       margin-top: px2vw(10, $vw);
