@@ -38,6 +38,4 @@ $ docker-compose up --build
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、開発用サイト https://stopcovid19.codeforfukuoka.org/ が更新されます。
 
-`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://stg-covid19-fukuoka.netlify.com が更新されます。
-
 `development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-covid19-fukuoka.netlify.com/ が更新されます。
