@@ -29,12 +29,14 @@
         this.$route.params.card == 'predicted-number-of-toei-subway-passengers'
       "
     />
+    <agency-card v-else-if="this.$route.params.card == 'agency'" />
   </div>
 </template>
 
 <script>
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
+import agencyData from '@/data/agency.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
@@ -42,6 +44,7 @@ import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
+import AgencyCard from '@/components/cards/AgencyCard.vue'
 
 export default {
   components: {
@@ -51,7 +54,8 @@ export default {
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
-    MetroCard
+    MetroCard,
+    AgencyCard
   },
   data() {
     let title, updatedAt
@@ -83,6 +87,10 @@ export default {
       case 'predicted-number-of-toei-subway-passengers':
         title = '都営地下鉄の利用者数の推移'
         updatedAt = MetroData.date
+        break
+      case 'agency':
+        title = '都庁来庁者数の推移'
+        updatedAt = agencyData.date
         break
     }
 
