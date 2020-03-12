@@ -40,17 +40,13 @@
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
-            href="https://line.me/R/ti/p/%40822sysfc"
+            href="https://www.codeforfukuoka.org/"
             target="_blank"
             rel="noopener"
           >
-            <img src="/line.png" alt="LINE" />
+            <img src="/logo.png" alt="Code for Fukuoka" />
           </a>
         </div>
-        <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
-          Reserved.
-        </small>
       </div>
     </div>
   </div>
