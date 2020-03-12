@@ -8,7 +8,7 @@
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
-      :url="'/flow'"
+      :url="'https://www.city.fukuoka.lg.jp/data/open/cnt/3/72498/1/nCoV_flyer_200228.pdf?20200312113320'"
       :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
       :btn-text="'相談の手順を見る'"
     />
@@ -82,7 +82,7 @@
           :url="''"
         />
       </v-col>
-      <v-col cols="12" md="6" class="DataCard">
+<!--      <v-col cols="12" md="6" class="DataCard">
         <metro-bar-chart
           title="福岡市営地下鉄の利用者数の推移"
           :title-id="'predicted-number-of-toei-subway-passengers'"
@@ -91,7 +91,7 @@
           :chart-option="metroGraphOption"
           :date="metroGraph.date"
         />
-      </v-col>
+      </v-col> -->
     </v-row>
   </div>
 </template>

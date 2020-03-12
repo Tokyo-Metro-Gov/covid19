@@ -1,16 +1,11 @@
-# 福岡市 新型コロナウイルス感染症対策サイト
+# 福岡市 新型コロナウイルス感染症対策ポータルサイト
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
-
-[![福岡市 新型コロナウイルス感染症対策サイト](https://github.com/ISITBODIK/covid19/blob/development/static/ogp.png?raw=true)](https://lucid-khorana-6efa58.netlify.com/)
-
-### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md)
+[![福岡市 新型コロナウイルス感染症対策サイト](https://github.com/Code-for-Fukuoka/covid19/blob/development/static/ogp.png?raw=true)](https://lucid-khorana-6efa58.netlify.com/)
 
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
 
 詳しくは[貢献の仕方](./.github/CONTRIBUTING.md)を御覧ください。
-
 
 ## 行動原則
 詳しくは[サイト構築にあたっての行動原則](./.github/CODE_OF_CONDUCT.md)を御覧ください。
