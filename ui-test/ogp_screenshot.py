@@ -11,7 +11,8 @@ PATHS = {
     '/cards/number-of-tested': SIZES[1],
     '/cards/number-of-reports-to-covid19-telephone-advisory-center': SIZES[1],
     '/cards/number-of-reports-to-covid19-consultation-desk': SIZES[1],
-    '/cards/predicted-number-of-toei-subway-passengers': SIZES[2]
+    '/cards/predicted-number-of-toei-subway-passengers': SIZES[2],
+    '/cards/agency': SIZES[1]
 }
 
 options = webdriver.ChromeOptions()

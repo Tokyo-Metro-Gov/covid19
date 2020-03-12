@@ -20,15 +20,7 @@
       <telephone-advisory-reports-number-card />
       <consultation-desk-reports-number-card />
       <metro-card />
-      <v-col cols="12" md="6" class="DataCard">
-        <agency-bar-chart
-          :title="$t('都庁来庁者数の推移')"
-          :title-id="'agency'"
-          :chart-id="'agency'"
-          :url="''"
-          :unit="'人'"
-        />
-      </v-col>
+      <agency-card />
     </v-row>
   </div>
 </template>
@@ -38,51 +30,38 @@
   "ja": {
     "都内の最新感染動向": "都内の最新感染動向",
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ",
-    "相談の手順を見る": "相談の手順を見る",
-    "都庁来庁者数の推移": "都庁来庁者数の推移",
-    "人": "人"
+    "相談の手順を見る": "相談の手順を見る"
   },
   "en": {
     "都内の最新感染動向": "Latest updates on COVID-19 in Tokyo",
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "Contact the Telephone Advisory Center if you have any concerns.",
-    "相談の手順を見る": "Steps for receiving help",
-    "都庁来庁者数の推移": "Trend in the number of TMG visitors",
-    "人": "persons"
+    "相談の手順を見る": "Steps for receiving help"
   },
   "zh-cn": {
     "都内の最新感染動向": "东京都最新新型冠状病毒感染情况",
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "如果您或您的家人出现疑似症状，请立即拨打电话咨询",
-    "相談の手順を見る": "查看咨询流程",
-    "都庁来庁者数の推移": "东京都厅来访人数推移",
-    "人": "人"
+    "相談の手順を見る": "查看咨询流程"
   },
   "zh-tw": {
     "都内の最新感染動向": "東京都最新新型冠狀病毒感染情形",
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "若您或家人出現疑似症狀，請即刻撥打電話諮詢",
-    "相談の手順を見る": "查看諮詢流程",
-    "都庁来庁者数の推移": "東京都廳來訪人數走勢",
-    "人": "人"
+    "相談の手順を見る": "查看諮詢流程"
   },
   "ko": {
     "都内の最新感染動向": "도쿄도 코로나19 실시간 현황",
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "본인 혹은 가족에게 의심증상이 있을 경우, 콜센터에 먼저 문의하세요.",
-    "相談の手順を見る": "상담 절차",
-    "都庁来庁者数の推移": "도쿄도 청사 방문자 수",
-    "人": "인"
+    "相談の手順を見る": "상담 절차"
   },
   "ja-basic": {
     "都内の最新感染動向": "とうきょうとでの コロナウイルスの あたらしいじょうほう",
     "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "からだの ぐあいが わるくて こわくなったら でんわして ください",
-    "相談の手順を見る": "そうだんの しかたの せつめい",
-    "都庁来庁者数の推移": "議事堂（ぎじどう）に 来（き）た 人（ひと）の 合計（ごうけい）",
-    "人": "にん"
+    "相談の手順を見る": "そうだんの しかたの せつめい"
   }
 }
 </i18n>
 
 <script>
 import PageHeader from '@/components/PageHeader.vue'
-import AgencyBarChart from '@/components/AgencyBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
@@ -96,11 +75,11 @@ import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
+import AgencyCard from '@/components/cards/AgencyCard.vue'
 
 export default {
   components: {
     PageHeader,
-    AgencyBarChart,
     WhatsNew,
     StaticInfo,
     ConfirmedCasesDetailsCard,
@@ -109,7 +88,8 @@ export default {
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
-    MetroCard
+    MetroCard,
+    AgencyCard
   },
   data() {
     // 退院者グラフ
