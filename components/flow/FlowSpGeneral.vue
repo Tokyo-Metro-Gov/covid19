@@ -80,7 +80,7 @@
   },
   "en": {
     "一般の方": "People without any specific health conditions",
-    "{duration}続いている": "Having these symptoms for {duration",
+    "{duration}続いている": "Having these symptoms for {duration}",
     "{day}日以上": "{day} consecutive days or more",
     "{cold}のような症状": "Having {cold} symptoms",
     "風邪": "cold/flu",
