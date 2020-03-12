@@ -30,7 +30,6 @@
         </span>
       </li>
       <li :class="['py-4', $style.ConditionsItem]">
-        <!-- eslint-disable-next-line prettier/prettier -->
         <i18n tag="span" path="発熱{temperature}">
           <i18n
             tag="span"
