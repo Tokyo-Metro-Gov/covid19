@@ -38,7 +38,7 @@
         </v-container>
       </v-list>
       <div class="SideNavigation-Footer">
-        <div class="SideNavigation-OrgLinkContainer">
+        <div class="SideNavigation-OrgLinkContainer150">
           <a
             href="https://www.codeforfukuoka.org/"
             target="_blank"
@@ -49,18 +49,7 @@
         </div>
       </div>
       <div class="SideNavigation-Footer">
-        <div class="SideNavigation-OrgLinkContainer200">
-          協力：
-          <a
-            href="https://www.isit.or.jp/"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/isit-logo.png" alt="ISIT" />
-          </a>
-        </div>
-      <div class="SideNavigation-Footer">
-        <div class="SideNavigation-OrgLinkContainer200">
+        <div class="SideNavigation-OrgLinkContainer150">
           協力：
           <a
             href="https://www.isit.or.jp/"
@@ -71,6 +60,17 @@
           </a>
         </div>
       </div>
+      <div class="SideNavigation-Footer">
+        <div class="SideNavigation-OrgLinkContainer250">
+          協力：
+          <a
+            href="https://www.isit.or.jp/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/isit-logo.png" alt="ISIT" />
+          </a>
+        </div>
     </div>
   </div>
 </template>
@@ -247,7 +247,7 @@ export default {
       }
     }
   }
-  &-OrgLinkContainer {
+  &-OrgLinkContainer150 {
     display: flex;
     & img {
       width: 150px;
