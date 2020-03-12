@@ -1,4 +1,5 @@
 import { Configuration } from '@nuxt/types'
+const webpack = require('webpack')
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
 
@@ -192,6 +193,11 @@ const config: Configuration = {
     id: 'UA-159417676-1'
   },
   build: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        mapboxgl: 'mapbox-gl'
+      })
+    ],
     postcss: {
       plugins: [
         autoprefixer({ grid: 'autoplace' }),
