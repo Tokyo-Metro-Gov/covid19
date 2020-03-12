@@ -25,6 +25,10 @@ var map = new mapboxgl.Map({
   center: [139.69167, 35.689444],
   antialias: false
 });
+
+const tokyo = [[139.761908, 35.676437], [139.773774, 35.686703]]
+const shinjuku = [[139.695239, 35.685448], [139.706397, 35.694493]]
+
 let colorV2 = [
       'step',
       ['get', 'max'],
@@ -50,6 +54,7 @@ const addDataHeatmapLayer = (date) => {
       'type': 'vector',
       'tiles': [
         `https://map-covid19-tokyo.netlify.com/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
+        //`http://localhost:3000/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
       ],
       'minzoom': 8,
       'maxzoom': 11
@@ -69,6 +74,7 @@ const addHeatmapLayer = (date) => {
       'type': 'vector',
       'tiles': [
         `https://map-covid19-tokyo.netlify.com/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
+        //`http://localhost:3000/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
       ],
       'minzoom': 8,
       'maxzoom': 11
@@ -140,7 +146,7 @@ const data_date = [
   '20200309',
   '20200310'
 ]
-const data_layers = data_date.forEach(date => {return `heatmap-data-${date}`})
+const data_layers = data_date.map(date => {return `heatmap-data-${date}`})
 
 // 古い実装: 中央地のデータを取得
 const getCenterValues = () => {
@@ -160,6 +166,7 @@ const getExtentValues = () => {
   data_date.forEach(date => {
     values.push({date: date, value: 0})
   })
+  console.log(features.length)
   features.forEach(feature => {
     const date = feature.layer.id.split('-')[2]
     const value = feature.properties.max
@@ -280,14 +287,16 @@ map.on('load', function() {
     popup.remove();
 
   });
-  //map.on('moveend', function() {
-  //  var features = map.queryRenderedFeatures({ layers: ['heatmap'] });
-  //  var s = 0;
-  //  features.forEach(function(d) {
-  //    s += d.properties.max
-  //  });
-  //  console.log([s, features.length]);
-  //});
+  /*
+  map.on('moveend', function() {
+    var features = map.queryRenderedFeatures({ layers: ['heatmap'] });
+    var s = 0;
+    features.forEach(function(d) {
+      s += d.properties.max
+    });
+    console.log([s, features.length]);
+  });
+  */
   map.on('moveend', (e) => {
     console.log(e)
     getFeatureAndCreateGraph()
@@ -295,6 +304,8 @@ map.on('load', function() {
   map.once('idle', (e) => {
     getFeatureAndCreateGraph()
   })
+  // fit bounds example
+  //map.fitBounds(tokyo)
 });
 </script>
 
