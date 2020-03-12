@@ -1,16 +1,40 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      title="陽性患者数"
+      :title="$t('陽性患者数')"
       :title-id="'number-of-confirmed-cases'"
       :chart-id="'time-bar-chart-patients'"
       :chart-data="patientsGraph"
       :date="Data.patients.date"
-      :unit="'人'"
+      :unit="$t('人')"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
     />
   </v-col>
 </template>
+
+<i18n>
+{
+  "ja": {
+    "陽性患者数": "陽性患者数",
+    "人": "人"
+  },
+  "en": {
+    "陽性患者数": "Number of confirmed cases"
+  },
+  "zh-cn": {
+    "陽性患者数": "确诊人数"
+  },
+  "zh-tw": {
+    "陽性患者数": "確診人數"
+  },
+  "ko": {
+    "陽性患者数": "확진자 수"
+  },
+  "ja-basic": {
+    "陽性患者数": "びょうきの ひとの かず"
+  }
+}
+</i18n>
 
 <script>
 import Data from '@/data/data.json'
