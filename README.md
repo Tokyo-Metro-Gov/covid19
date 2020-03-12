@@ -1,4 +1,4 @@
-# 福岡市 新型コロナウイルス感染症対策サイト
+# 福岡市 新型コロナウイルス感染症対策ポータルサイト
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
