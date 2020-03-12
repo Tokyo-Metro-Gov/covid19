@@ -39,14 +39,14 @@ const removeHeatmapLayer = () => {
   map.removeLayer('heatmap')
 }
 
-const addHeatmapLayer = (date, hour) => {
+const addHeatmapLayer = (date) => {
   map.addLayer({
     'id': 'heatmap',
     'type': 'fill',
     'source': {
       'type': 'vector',
       'tiles': [
-        `http://localhost:3000/tiles/${date}/corona_heatmap/hourly/${hour}/{z}/{x}/{y}.pbf`
+        `http://localhost:3000/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
       ],
       'minzoom': 8,
       'maxzoom': 11,
@@ -83,7 +83,7 @@ const addHeatmapLayer = (date, hour) => {
 }
 
 map.on('load', function() {
-  addHeatmapLayer('20200305', '8')
+  addHeatmapLayer('20200305')
   let popup = new mapboxgl.Popup({
     closeButton: false,
     closeOnClick: false
