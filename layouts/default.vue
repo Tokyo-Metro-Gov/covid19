@@ -13,6 +13,7 @@
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
+        <development-mode-mark />
       </div>
     </div>
   </v-app>
@@ -21,6 +22,7 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import SideNavigation from '@/components/SideNavigation.vue'
+import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 
 type LocalData = {
   isOpenNavigation: boolean
@@ -28,6 +30,7 @@ type LocalData = {
 
 export default Vue.extend({
   components: {
+    DevelopmentModeMark,
     SideNavigation
   },
   data(): LocalData {
