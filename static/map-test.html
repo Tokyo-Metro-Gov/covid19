@@ -45,8 +45,13 @@ map.on('load', function() {
         'http://localhost:3000/tiles/20200305/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf'
       ],
       'minzoom': 8,
-      'maxzoom': 11
-    },
+      'maxzoom': 11,
+      'bounds': [
+        139.673264,
+        35.673288,
+        139.745141,
+        35.729915
+      ]    },
     'source-layer': 'dfi-place-heatmap-population',
     'paint': {
     'fill-color': [

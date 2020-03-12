@@ -2,66 +2,107 @@
   <div :class="$style.container">
     <p :class="$style.heading">
       <i18n path="{past}の出来ごとと症状" tag="span">
-        <i18n :class="$style.large" tag="span" path="発症前{two}週間以内" place="past">
+        <i18n
+          :class="$style.large"
+          tag="span"
+          path="発症前{two}週間以内"
+          place="past"
+        >
           <span :class="$style.numeric" place="two">2</span>
         </i18n>
       </i18n>
     </p>
     <p :class="$style.type">
       <template v-if="!langsNeedReversedOrder.includes($i18n.locale)">
-        <strong :class="$style.source">{{ $t('「新型コロナウイルス感染者」と') }}</strong>
+        <strong :class="$style.source">{{
+          $t('「新型コロナウイルス感染者」と')
+        }}</strong>
         <i18n tag="span" path="{closeContact}をした方" :class="$style.behavior">
-          <em :class="$style.underline" place="closeContact">{{ $t('濃厚接触') }}</em>
+          <em :class="$style.underline" place="closeContact">{{
+            $t('濃厚接触')
+          }}</em>
         </i18n>
       </template>
       <template v-else>
         <i18n tag="span" path="{closeContact}をした方" :class="$style.behavior">
-          <em :class="$style.underline" place="closeContact">{{ $t('濃厚接触') }}</em>
+          <em :class="$style.underline" place="closeContact">{{
+            $t('濃厚接触')
+          }}</em>
         </i18n>
-        <span :class="$style.source">{{ $t('「新型コロナウイルス感染者」と') }}</span>
+        <span :class="$style.source">{{
+          $t('「新型コロナウイルス感染者」と')
+        }}</span>
       </template>
     </p>
     <div :class="$style.condition">
       <div :class="$style.item">
-        <div class="py-4">{{ $t('発熱') }}</div>
+        <div class="py-4">
+          {{ $t('発熱') }}
+        </div>
       </div>
-      <div :class="$style.item">{{ $t('または') }}</div>
       <div :class="$style.item">
-        <div class="py-4">{{ $t('呼吸器症状') }}</div>
+        {{ $t('または') }}
+      </div>
+      <div :class="$style.item">
+        <div class="py-4">
+          {{ $t('呼吸器症状') }}
+        </div>
       </div>
     </div>
     <div :class="$style.hr" />
     <p :class="$style.type">
       <template v-if="!langsWithoutFlowTitle.includes($i18n.locale)">
-        <strong :class="$style.source">{{ $t('流行地域への渡航・居住歴がある方') }}</strong>
-        <i18n tag="span" :class="$style.behavior" path="{you} か {closeContact}をした方">
+        <strong :class="$style.source">{{
+          $t('流行地域への渡航・居住歴がある方')
+        }}</strong>
+        <i18n
+          tag="span"
+          :class="$style.behavior"
+          path="{you} か {closeContact}をした方"
+        >
           <em :class="$style.underline" place="you">{{ $t('ご本人') }}</em>
-          <em :class="$style.underline" place="closeContact">{{ $t('濃厚接触') }}</em>
+          <em :class="$style.underline" place="closeContact">{{
+            $t('濃厚接触')
+          }}</em>
         </i18n>
       </template>
       <template v-else>
-        <i18n tag="span" :class="[$style.behavior, $style.small]" path="travel history from {area}">
-          <em :class="$style.underline" place="area">{{ $t('COVID-19 prevalent area') }}</em>
+        <i18n
+          tag="span"
+          :class="[$style.behavior, $style.small]"
+          path="travel history from {area}"
+        >
+          <em :class="$style.underline" place="area">{{
+            $t('COVID-19 prevalent area')
+          }}</em>
         </i18n>
         <i18n
           tag="span"
           :class="[$style.source, $style.small]"
           path="been {inCloseContact} with returnees"
         >
-          <em :class="$style.underline" place="inCloseContact">{{ $t('in close contact') }}</em>
+          <em :class="$style.underline" place="inCloseContact">{{
+            $t('in close contact')
+          }}</em>
         </i18n>
       </template>
     </p>
     <div :class="$style.condition">
       <div :class="$style.item">
-        <div class="py-4">{{ $t('呼吸器症状') }}</div>
+        <div class="py-4">
+          {{ $t('呼吸器症状') }}
+        </div>
       </div>
-      <div :class="$style.item">{{ $t('かつ') }}</div>
+      <div :class="$style.item">
+        {{ $t('かつ') }}
+      </div>
       <div :class="$style.item">
         <div>
           <i18n tag="span" path="発熱{temperature}" :class="$style.temp">
             <i18n tag="span" path="{tempNum}以上" place="temperature">
-              <span :class="$style.temp" place="tempNum">{{ $t('37.5℃') }}</span>
+              <span :class="$style.temp" place="tempNum">{{
+                $t('37.5℃')
+              }}</span>
             </i18n>
           </i18n>
         </div>
