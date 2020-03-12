@@ -165,8 +165,7 @@ const config: Configuration = {
             './pages/**/*.vue',
             './layouts/**/*.vue',
             './components/**/*.vue',
-            './node_modules/vuetify/dist/vuetify.js',
-            './node_modules/vue-spinner/src/ScaleLoader.vue'
+            './node_modules/vuetify/dist/vuetify.js'
           ],
           whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
           whitelistPatterns: [/(col|row)/]
