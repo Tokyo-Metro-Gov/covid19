@@ -81,14 +81,10 @@ map.getCanvas().style.cursor = 'pointer';
 
 popup.setLngLat(e.lngLat)
   .setHTML(
-    "<div><b>市区町村コード &nbsp;</b>" + e.features[0].properties.SHICODE + "</div>" +
-    "<div><b>将来推計人口 2050年 (男女計)</b></div>" +
     "<div>" + Math.round(e.features[0].properties.max) + " 人</div>")
   .addTo(map);
 
 });
-
-// マウスポインタがメッシュの領域から離れたらポップアップをクリア
 map.on("mouseleave", "heatmap", function() {
 map.getCanvas().style.cursor = '';
 popup.remove();
