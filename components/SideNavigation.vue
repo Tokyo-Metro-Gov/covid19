@@ -72,7 +72,7 @@
           <a
             rel="license"
             target="_blank"
-            href="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
+            href="{{ $t('https://creativecommons.org/licenses/by/4.0/deed.ja') }}"
           >
             {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
           </a>
