@@ -238,7 +238,7 @@ export default {
   }
   &-OrgLinkContainer100 {
     display: flex;
-    font-size: 13px;
+    vertical-align: middle;
     & img {
       width: 150px;
       &:first-of-type {
@@ -248,7 +248,7 @@ export default {
   }
   &-OrgLinkContainer150 {
     display: flex;
-    font-size: 13px;
+    vertical-align: middle;
     & img {
       width: 150px;
       &:first-of-type {
@@ -258,7 +258,7 @@ export default {
   }
   &-OrgLinkContainer200 {
     display: flex;
-    font-size: 13px;
+    vertical-align: middle;
     & img {
       width: 200px;
       &:first-of-type {
@@ -268,7 +268,7 @@ export default {
   }
   &-OrgLinkContainer250 {
     display: flex;
-    font-size: 13px;
+    vertical-align: middle;
     & img {
       width: 250px;
       &:first-of-type {
