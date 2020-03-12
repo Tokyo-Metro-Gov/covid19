@@ -136,7 +136,7 @@ export default {
         },
         {
           title: this.$t('Government official website'),
-          link: 'https://www.city.fukuoka.lg.jp/index.html',
+          link: 'http://www.city.fukuoka.lg.jp/index.html',
           divider: true
         }
       ]
