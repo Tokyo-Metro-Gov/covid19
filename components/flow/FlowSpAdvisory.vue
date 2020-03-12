@@ -2,7 +2,9 @@
   <div :class="$style.container">
     <h4 id="consult" :class="[$style.heading, $style.fzXLarge]">
       {{ $t('新型コロナ受診相談窓口') }}
-      <small :class="[$style.break, $style.fzRegular, $style.mt5]">{{ $t('帰国者・接触者電話相談センター') }}</small>
+      <small :class="[$style.break, $style.fzRegular, $style.mt5]">{{
+        $t('帰国者・接触者電話相談センター')
+      }}</small>
     </h4>
     <p :class="[$style.open, $style.fzMedium]">
       <span>{{ $t('24時間対応') }}</span>
