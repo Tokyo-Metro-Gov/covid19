@@ -28,19 +28,17 @@ import SelectMenuIcon from '@/static/selectmenu.svg'
 })
 export default class LanguageSelector extends Vue {
   navigate(locale: string) {
-    // @fixme 超ダーティーハックです。。。
-    const mypath =
-      ['/en', '/zh-cn', '/zh-tw', '/ko'].indexOf(
-        this.$router.currentRoute.path
-      ) === 0
-        ? this.$router.currentRoute.path + '/'
-        : this.$router.currentRoute.path
-    const matches = mypath.match(/.*(\/.*)/)
-    if (matches === null) {
-      return
-    }
-    const path = locale === 'ja' ? matches[1] : '/' + locale + matches[1]
-    this.$router.push(path)
+    const pathes = this.$router.currentRoute.path.split('/').filter(path => {
+      // @fixme
+      // const langs: string[] = this.$i18n.locales.filter() ...
+      const langs: string[] = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko']
+      return langs.includes(path) ? undefined : path
+    })
+    const url =
+      locale === 'ja'
+        ? '/' + pathes.join('/')
+        : '/' + locale + '/' + pathes.join('/')
+    this.$router.push(url)
   }
 }
 </script>
