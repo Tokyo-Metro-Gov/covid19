@@ -182,12 +182,17 @@ export default {
               const labelArray = [labelTokyo, labelOthers]
               let casesTotal, cases
               if (this.dataKind === 'transition') {
-                casesTotal = sumArray[tooltipItem.index]
-                cases = data[tooltipItem.datasetIndex][tooltipItem.index]
+                casesTotal = sumArray[tooltipItem.index].toLocaleString()
+                cases = data[tooltipItem.datasetIndex][
+                  tooltipItem.index
+                ].toLocaleString()
               } else {
-                casesTotal = cumulativeSumArray[tooltipItem.index]
-                cases =
-                  cumulativeData[tooltipItem.datasetIndex][tooltipItem.index]
+                casesTotal = cumulativeSumArray[
+                  tooltipItem.index
+                ].toLocaleString()
+                cases = cumulativeData[tooltipItem.datasetIndex][
+                  tooltipItem.index
+                ].toLocaleString()
               }
 
               return `${casesTotal} ${unit} (${
