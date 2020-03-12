@@ -72,7 +72,9 @@
           :chart-data="contactsGraph"
           :date="Data.contacts.date"
           :unit="$t('件.reports')"
-          :url="''"
+          :url="
+            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000071'
+          "
         />
         <!-- 件.reports = 窓口相談件数 -->
       </v-col>
@@ -84,7 +86,9 @@
           :chart-data="querentsGraph"
           :date="Data.querents.date"
           :unit="$t('件.reports')"
-          :url="''"
+          :url="
+            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000070'
+          "
         />
         <!-- 件.reports = 窓口相談件数 -->
       </v-col>
@@ -489,7 +493,13 @@ export default {
       metroGraphOption: {
         responsive: true,
         legend: {
-          display: true
+          display: true,
+          onHover: e => {
+            e.currentTarget.style.cursor = 'pointer'
+          },
+          onLeave: e => {
+            e.currentTarget.style.cursor = 'default'
+          }
         },
         scales: {
           xAxes: [
