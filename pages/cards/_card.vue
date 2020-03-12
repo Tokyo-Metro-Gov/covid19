@@ -167,7 +167,7 @@ export default {
   },
   head() {
     const url = 'https://deploy-preview-835--dev-covid19-tokyo.netlify.com'
-    const ogpImage = url + '/ogp-' + this.$route.params.card + '.png'
+    const ogpImage = url + '/og-images/ogp-' + this.$route.params.card + '.png'
     const description =
       this.updatedAt +
       ' 更新 | ' +
