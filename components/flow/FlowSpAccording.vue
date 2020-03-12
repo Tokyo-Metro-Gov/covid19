@@ -3,15 +3,27 @@
     <i18n tag="h4" :class="$style.heading" path="{advisory}による相談結果">
       <i18n path="新型コロナ受診相談窓口" place="advisory" />
     </i18n>
-    <i18n tag="p" :class="$style.diag" path="新型コロナ外来 {advice} と判断された場合">
-      <span :class="[$style.line, $style.large]" place="advice">{{ $t('受診が必要') }}</span>
+    <i18n
+      tag="p"
+      :class="$style.diag"
+      path="新型コロナ外来 {advice} と判断された場合"
+    >
+      <span :class="[$style.line, $style.large]" place="advice">
+        {{ $t('受診が必要') }}
+      </span>
     </i18n>
     <p :class="$style.decision">
-      <span :class="$style.small">{{ $t('新型コロナ外来（帰国者・接触者外来）') }}</span>
+      <span :class="$style.small">
+        {{ $t('新型コロナ外来（帰国者・接触者外来）') }}
+      </span>
       <span>{{ $t('医師による判断') }}</span>
     </p>
     <div :class="$style.rectContainer">
-      <a :class="[$style.rect, $style.shadow]" v-scroll-to="'#not_required'" href="#not_required">
+      <a
+        v-scroll-to="'#not_required'"
+        :class="[$style.rect, $style.shadow]"
+        href="#not_required"
+      >
         <p>
           検査の必要
           <span :class="[$style.large, $style.line]">なし</span>
@@ -20,7 +32,11 @@
           <GreenArrow />
         </div>
       </a>
-      <a :class="[$style.rect, $style.shadow, $style.bgYellow]" v-scroll-to="'#pcr'" href="#pcr">
+      <a
+        v-scroll-to="'#pcr'"
+        :class="[$style.rect, $style.shadow, $style.bgYellow]"
+        href="#pcr"
+      >
         <p>
           検査の必要
           <span :class="[$style.large, $style.line]">あり</span>
@@ -34,11 +50,19 @@
       <span :class="$style.line">
         <span :class="$style.large">PCR検査</span>※
       </span>
-      <span :class="[$style.place, $style.line]">東京都健康安全研究センター等</span>
-      <small :class="[$style.note, $style.line]">※保険適用となる検査は、当面の間、院内感染防止等の観点から、「帰国者・接触者外来」等の医療機関で実施</small>
+      <span :class="[$style.place, $style.line]">
+        東京都健康安全研究センター等
+      </span>
+      <small :class="[$style.note, $style.line]">
+        ※保険適用となる検査は、当面の間、院内感染防止等の観点から、「帰国者・接触者外来」等の医療機関で実施
+      </small>
     </p>
     <div :class="$style.rectContainer">
-      <a :class="[$style.rect, $style.shadow]" v-scroll-to="'#not_required'" href="#not_required">
+      <a
+        v-scroll-to="'#not_required'"
+        :class="[$style.rect, $style.shadow]"
+        href="#not_required"
+      >
         <p>
           <span :class="$style.large">{{ $t('陰性') }}</span>
         </p>
@@ -47,8 +71,8 @@
         </div>
       </a>
       <a
-        :class="[$style.rect, $style.shadow, $style.bgYellow]"
         v-scroll-to="'#hospitalized'"
+        :class="[$style.rect, $style.shadow, $style.bgYellow]"
         href="#hospitalized"
       >
         <p>
@@ -60,12 +84,14 @@
       </a>
     </div>
     <i18n
-      tag="p"
       id="not_required"
+      tag="p"
       :class="[$style.diag, $style.hr]"
       path="新型コロナ外来 {advice} と判断された場合"
     >
-      <span :class="[$style.line, $style.large]" place="advice">{{ $t('受診が不要') }}</span>
+      <span :class="[$style.line, $style.large]" place="advice">
+        {{ $t('受診が不要') }}
+      </span>
     </i18n>
     <div :class="$style.rectContainer">
       <div :class="[$style.rect, $style.border]">
@@ -86,7 +112,9 @@
         <p>
           <i18n path="{getWorse}{advisory}に相談">
             <i18n place="getWorse" path="症状が良くならない場合は" />
-            <strong :class="$style.advisory" place="advisory">{{ $t('新型コロナ受診相談窓口') }}</strong>
+            <strong :class="$style.advisory" place="advisory">
+              {{ $t('新型コロナ受診相談窓口') }}
+            </strong>
           </i18n>
         </p>
       </div>
