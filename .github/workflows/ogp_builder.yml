@@ -42,6 +42,7 @@ jobs:
         uses: peter-evans/create-pull-request@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          path: static/og-images
           branch-suffix: timestamp
           base: development
           commit-message: "bot: Generated OGP images"
