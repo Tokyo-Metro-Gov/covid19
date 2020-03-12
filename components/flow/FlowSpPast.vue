@@ -14,54 +14,54 @@
     </p>
     <p :class="$style.type">
       <template v-if="!langsNeedReversedOrder.includes($i18n.locale)">
-        <strong :class="$style.source">
-          {{ $t('「新型コロナウイルス感染者」と') }}
-        </strong>
-        <i18n tag="span" path="{closeContact}をした方" :class="[$style.behavior, $style.fzXLarge]">
-          <em :class="$style.underline" place="closeContact">
-            {{ $t('濃厚接触') }}
-          </em>
+        <strong :class="$style.source">{{
+          $t('「新型コロナウイルス感染者」と')
+        }}</strong>
+        <i18n
+          tag="span"
+          path="{closeContact}をした方"
+          :class="[$style.behavior, $style.fzXLarge]"
+        >
+          <em :class="$style.underline" place="closeContact">{{
+            $t('濃厚接触')
+          }}</em>
         </i18n>
       </template>
       <template v-else>
-        <i18n tag="span" path="{closeContact}をした方" :class="[$style.behavior, $style.fzXLarge]">
-          <em :class="$style.underline" place="closeContact">
-            {{ $t('濃厚接触') }}
-          </em>
+        <i18n
+          tag="span"
+          path="{closeContact}をした方"
+          :class="[$style.behavior, $style.fzXLarge]"
+        >
+          <em :class="$style.underline" place="closeContact">{{
+            $t('濃厚接触')
+          }}</em>
         </i18n>
-        <span :class="$style.behavior">
-          {{ $t('「新型コロナウイルス感染者」と') }}
-        </span>
+        <span :class="$style.behavior">{{
+          $t('「新型コロナウイルス感染者」と')
+        }}</span>
       </template>
     </p>
     <div :class="[$style.symptomContainer, $style.req]">
-      <p :class="$style.symptom">
-        {{ $t('発熱') }}
-      </p>
-      <p :class="$style.op">
-        {{ $t('または') }}
-      </p>
-      <p :class="$style.symptom">
-        {{ $t('呼吸器症状') }}
-      </p>
+      <p :class="$style.symptom">{{ $t('発熱') }}</p>
+      <p :class="$style.op">{{ $t('または') }}</p>
+      <p :class="$style.symptom">{{ $t('呼吸器症状') }}</p>
     </div>
     <div :class="$style.hr" />
     <p :class="$style.type">
       <template v-if="!langsWithoutFlowTitle.includes($i18n.locale)">
-        <strong :class="$style.source">
-          {{ $t('流行地域への渡航・居住歴がある方') }}
-        </strong>
+        <strong :class="$style.source">{{
+          $t('流行地域への渡航・居住歴がある方')
+        }}</strong>
         <i18n
           tag="span"
           :class="[$style.behavior, $style.fzXLarge]"
           path="{you} か {closeContact}をした方"
         >
-          <em :class="$style.underline" place="you">
-            {{ $t('ご本人') }}
-          </em>
-          <em :class="$style.underline" place="closeContact">
-            {{ $t('濃厚接触') }}
-          </em>
+          <em :class="$style.underline" place="you">{{ $t('ご本人') }}</em>
+          <em :class="$style.underline" place="closeContact">{{
+            $t('濃厚接触')
+          }}</em>
         </i18n>
       </template>
       <template v-else>
@@ -70,34 +70,33 @@
           :class="[$style.behavior, $style.fzSmall]"
           path="travel history from {area}"
         >
-          <em :class="$style.underline" place="area">
-            {{ $t('COVID-19 prevalent area') }}
-          </em>
+          <em :class="$style.underline" place="area">{{
+            $t('COVID-19 prevalent area')
+          }}</em>
         </i18n>
         <i18n
           tag="span"
           :class="[$style.behavior, $style.fzXLarge]"
           path="been {inCloseContact} with returnees"
         >
-          <em :class="$style.underline" place="inCloseContact">
-            {{ $t('in close contact') }}
-          </em>
+          <em :class="$style.underline" place="inCloseContact">{{
+            $t('in close contact')
+          }}</em>
         </i18n>
       </template>
     </p>
     <div :class="[$style.symptomContainer, $style.req]">
-      <p :class="$style.symptom">
-        {{ $t('呼吸器症状') }}
-      </p>
-      <p :class="$style.op">
-        {{ $t('かつ') }}
-      </p>
+      <p :class="$style.symptom">{{ $t('呼吸器症状') }}</p>
+      <p :class="$style.op">{{ $t('かつ') }}</p>
       <p :class="$style.symptom">
         <i18n tag="span" path="発熱{temperature}" :class="$style.fzSmall">
-          <i18n tag="span" path="{tempNum}以上" place="temperature" :class="[$style.break, $style.fzRegular]">
-            <span :class="$style.temp" place="tempNum">
-              {{ $t('37.5℃') }}
-            </span>
+          <i18n
+            tag="span"
+            path="{tempNum}以上"
+            place="temperature"
+            :class="[$style.break, $style.fzRegular]"
+          >
+            <span :class="$style.temp" place="tempNum">{{ $t('37.5℃') }}</span>
           </i18n>
         </i18n>
       </p>
@@ -128,5 +127,5 @@ export default {
 </script>
 
 <style module lang="scss">
-  @import '@/components/flow/flow_sp.scss';
+@import '@/components/flow/flow_sp.scss';
 </style>
