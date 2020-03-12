@@ -116,7 +116,7 @@
     flex-wrap: wrap;
     > .symptom {
       flex-basis: 48%;
-      &:nth-child(n+3) {
+      &:nth-child(n + 3) {
         margin-top: px2vw(45);
       }
     }
@@ -281,7 +281,7 @@
     }
     &.double {
       > .symptom {
-        &:nth-child(n+3) {
+        &:nth-child(n + 3) {
           margin-top: px2vw(45, $vw);
         }
       }
