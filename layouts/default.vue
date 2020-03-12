@@ -9,11 +9,11 @@
           @closeNavi="hideNavigation"
         />
       </div>
-      <div class="mainContainer" :class="{ open: isOpenNavigation }">
+      <main class="mainContainer" :class="{ open: isOpenNavigation }">
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
-      </div>
+      </main>
     </div>
     <div v-else class="embed">
       <v-container>

@@ -20,7 +20,7 @@
       >
         <slot />
       </div>
-      <v-footer class="DataView-Footer">
+      <div class="DataView-Footer">
         <a class="Permalink" :href="permalink()">
           <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
         </a>
@@ -36,8 +36,8 @@
             mdi-open-in-new
           </v-icon>
         </a>
-      </v-footer>
-      <v-footer v-if="this.$route.query.embed != 'true'" class="DataView-Share">
+      </div>
+      <div v-if="this.$route.query.embed != 'true'" class="DataView-Share py-2">
         <button @click="openGraphEmbed = true">
           <v-icon class="icon-resize embed" size="40">
             mdi-code-tags
@@ -70,8 +70,8 @@
             LINE
           </div>
         </button>
-      </v-footer>
-      <v-footer v-if="openGraphEmbed">
+      </div>
+      <div v-if="openGraphEmbed" class="DataView-Embed pa-2">
         <button @click="openGraphEmbed = false">
           <v-icon size="16">
             mdi-close
@@ -81,7 +81,7 @@
           {{ $t('グラフの埋め込み') }}
         </div>
         <textarea v-model="graphEmbedValue" />
-      </v-footer>
+      </div>
     </div>
   </v-card>
 </template>
@@ -251,9 +251,13 @@ export default class DataView extends Vue {
     margin-bottom: 46px;
     margin-top: 70px;
   }
+  &-Embed {
+    background-color: $gray-5;
+  }
   &-Footer {
     @include font-size(12);
     padding: 0 !important;
+    display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
     color: $gray-3 !important;
