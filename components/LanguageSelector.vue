@@ -29,11 +29,15 @@ import SelectMenuIcon from '@/static/selectmenu.svg'
 export default class LanguageSelector extends Vue {
   navigate(locale: string) {
     const pathes = this.$router.currentRoute.path.split('/').filter(path => {
-      // @fixme
+      // @fixme 型が・・・
       // const langs: string[] = this.$i18n.locales.filter() ...
       const langs: string[] = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
       return langs.includes(path) ? undefined : path
     })
+    if (pathes.length <= 0) {
+      this.$router.push(locale)
+      return
+    }
     const url =
       locale === 'ja'
         ? '/' + pathes.join('/')
