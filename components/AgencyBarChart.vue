@@ -105,6 +105,9 @@ export default {
     }
   },
   data() {
+    agencyData.datasets.map(dataset => {
+      dataset.label = this.$t(dataset.label)
+    })
     return {
       chartData: agencyData,
       date: agencyData.date
