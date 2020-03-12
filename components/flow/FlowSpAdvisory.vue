@@ -58,11 +58,7 @@
     "平日（夜間）": "平日（夜間）",
     "午後5時から翌朝午前9時": "午後5時から翌朝午前9時",
     "土日祝 終日": "土日祝 終日"
-  }
-}
-</i18n>
-
-<!--
+  },
   "en": {
     "新型コロナ受診相談窓口": "Combined telephone advice center (Support in Japanese only)",
     "帰国者・接触者電話相談センター": "telephone advisory center for returnees and contactees",
@@ -113,7 +109,8 @@
     "午後5時から翌朝午前9時": "ごご５じからごぜん９じまで",
     "土日祝 終日": "やすみのひ いちにちじゅう"
   }
--->
+}
+</i18n>
 
 <script lang="ts">
 import PhoneIcon from '@/static/flow/phone-24px.svg'
