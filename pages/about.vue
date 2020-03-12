@@ -161,7 +161,7 @@
       }}
       <i18n path="詳しくは、{githubRepo}をご確認ください。">
         <a
-          href="https://portal.data.metro.tokyo.lg.jp/"
+          href="https://github.com/tokyo-metropolitan-gov/covid19"
           target="_blank"
           rel="noopener"
           place="githubRepo"
