@@ -61,7 +61,9 @@ export default {
       if (process.browser) {
         return location.href.match(regex) === null
       }
-      return false
+      // 自動テスト・SSRにおけるパースは無条件で有効にしておく
+      // これだと本番で出力されないが、そもそも本番では出力しない機能のため。
+      return true
     }
   }
 }
