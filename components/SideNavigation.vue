@@ -60,29 +60,6 @@
           </a>
         </div>
       </div>
-      <div class="SideNavigation-Footer">
-        <div class="SideNavigation-OrgLinkContainer150">
-          協力：
-          <a
-            href="https://efc.fukuoka.jp/"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/logo-efc.png" alt="EFC" />
-          </a>
-        </div>
-      </div>
-      <div class="SideNavigation-Footer">
-        <div class="SideNavigation-OrgLinkContainer250">
-          協力：
-          <a
-            href="https://www.isit.or.jp/"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/isit-logo.png" alt="ISIT" />
-          </a>
-        </div>
     </div>
   </div>
 </template>
@@ -261,7 +238,7 @@ export default {
   }
   &-OrgLinkContainer100 {
     display: flex;
-    font-size: 10px;
+    font-size: 13px;
     & img {
       width: 150px;
       &:first-of-type {
@@ -271,7 +248,7 @@ export default {
   }
   &-OrgLinkContainer150 {
     display: flex;
-    font-size: 10px;
+    font-size: 13px;
     & img {
       width: 150px;
       &:first-of-type {
@@ -281,7 +258,7 @@ export default {
   }
   &-OrgLinkContainer200 {
     display: flex;
-    font-size: 10px;
+    font-size: 13px;
     & img {
       width: 200px;
       &:first-of-type {
@@ -291,7 +268,7 @@ export default {
   }
   &-OrgLinkContainer250 {
     display: flex;
-    font-size: 10px;
+    font-size: 13px;
     & img {
       width: 250px;
       &:first-of-type {
