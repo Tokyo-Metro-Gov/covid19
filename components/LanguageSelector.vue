@@ -31,7 +31,7 @@ export default class LanguageSelector extends Vue {
     const pathes = this.$router.currentRoute.path.split('/').filter(path => {
       // @fixme
       // const langs: string[] = this.$i18n.locales.filter() ...
-      const langs: string[] = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko']
+      const langs: string[] = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
       return langs.includes(path) ? undefined : path
     })
     const url =
