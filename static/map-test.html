@@ -35,14 +35,18 @@ let colorV2 = [
       80, '#016328'
 ]
 
-map.on('load', function() {
+const removeHeatmapLayer = () => {
+  map.removeLayer('heatmap')
+}
+
+const addHeatmapLayer = (date, hour) => {
   map.addLayer({
     'id': 'heatmap',
     'type': 'fill',
     'source': {
       'type': 'vector',
       'tiles': [
-        'http://localhost:3000/tiles/20200305/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf'
+        `http://localhost:3000/tiles/${date}/corona_heatmap/hourly/${hour}/{z}/{x}/{y}.pbf`
       ],
       'minzoom': 8,
       'maxzoom': 11,
@@ -51,56 +55,61 @@ map.on('load', function() {
         35.673288,
         139.745141,
         35.729915
-      ]    },
+      ]
+    },
     'source-layer': 'dfi-place-heatmap-population',
     'paint': {
-    'fill-color': [
-'interpolate',
-['linear'],
-['get', 'max'],
-0,
-'blue',
-20000,
-'royalblue',
-50000,
-'cyan',
-100000,
-'lime',
-150000,
-'yellow',
-200000,
-'red'
-],
-    'fill-opacity': 0.5,
-    'fill-outline-color': '#ffffff'
-  }
+      'fill-color': [
+        'interpolate',
+        ['linear'],
+        ['get', 'max'],
+        0,
+        'blue',
+        20000,
+        'royalblue',
+        50000,
+        'cyan',
+        100000,
+        'lime',
+        150000,
+        'yellow',
+        200000,
+        'red'
+      ],
+      'fill-opacity': 0.5,
+      'fill-outline-color': '#ffffff'
+    }
   });
-});
-let popup = new mapboxgl.Popup({
-  closeButton: false,
-  closeOnClick: false
-});
-map.on("mousemove", "heatmap", function(e) {
+}
 
-map.getCanvas().style.cursor = 'pointer';
+map.on('load', function() {
+  addHeatmapLayer('20200305', '8')
+  let popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+  });
+  map.on("mousemove", "heatmap", function(e) {
 
-popup.setLngLat(e.lngLat)
-  .setHTML(
-    "<div>" + Math.round(e.features[0].properties.max) + " 人</div>")
-  .addTo(map);
+    map.getCanvas().style.cursor = 'pointer';
 
-});
-map.on("mouseleave", "heatmap", function() {
-map.getCanvas().style.cursor = '';
-popup.remove();
-});
-map.on('moveend', function() {
-var features = map.queryRenderedFeatures({ layers: ['heatmap'] });
-var s = 0;
-features.forEach(function(d) {
-  s += d.properties.max
-});
-console.log([s, features.length]);
+    popup.setLngLat(e.lngLat)
+      .setHTML(
+        "<div>" + Math.round(e.features[0].properties.max) + " 人</div>")
+      .addTo(map);
+
+    });
+    map.on("mouseleave", "heatmap", function() {
+    map.getCanvas().style.cursor = '';
+    popup.remove();
+  });
+  map.on('moveend', function() {
+    var features = map.queryRenderedFeatures({ layers: ['heatmap'] });
+    var s = 0;
+    features.forEach(function(d) {
+      s += d.properties.max
+    });
+    console.log([s, features.length]);
+  });
 });
 </script>
 
