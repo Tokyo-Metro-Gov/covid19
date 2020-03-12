@@ -83,13 +83,13 @@
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
-        <metro-bar-chart
-          title="都営地下鉄の利用者数の推移"
-          :title-id="'predicted-number-of-toei-subway-passengers'"
-          :chart-id="'metro-bar-chart'"
-          :chart-data="metroGraph"
-          :chart-option="metroGraphOption"
-          :date="metroGraph.date"
+        <monorail-bar-chart
+          title="千葉都市モノレールの利用者数の推移"
+          :title-id="'predicted-number-of-chiba-monorail-passengers'"
+          :chart-id="'monorail-bar-chart'"
+          :chart-data="monorailGraph"
+          :chart-option="monorailGraphOption"
+          :date="monorailGraph.date"
         />
       </v-col>
     </v-row>
@@ -99,12 +99,12 @@
 <script>
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
-import MetroBarChart from '@/components/MetroBarChart.vue'
+import MonorailBarChart from '@/components/MonorailBarChart.vue'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
-import MetroData from '@/data/metro.json'
+import MonorailData from '@/data/monorail.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
@@ -117,7 +117,7 @@ export default {
   components: {
     PageHeader,
     TimeBarChart,
-    MetroBarChart,
+    MonorailBarChart,
     TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
@@ -137,8 +137,8 @@ export default {
     const contactsGraph = formatGraph(Data.contacts.data)
     // 帰国者・接触者電話相談センター相談件数
     const querentsGraph = formatGraph(Data.querents.data)
-    // 都営地下鉄の利用者数の推移
-    const metroGraph = MetroData
+    // 千葉都市モノレールの利用者数の推移
+    const monorailGraph = MonorailData
     // 検査実施日別状況
     const inspectionsGraph = [
       Data.inspections_summary.data['都内'],
@@ -172,7 +172,7 @@ export default {
       dischargesGraph,
       contactsGraph,
       querentsGraph,
-      metroGraph,
+      monorailGraph,
       inspectionsGraph,
       inspectionsItems,
       inspectionsLabels,
@@ -184,7 +184,7 @@ export default {
         date: Data.lastUpdate
       },
       newsItems: News.newsItems,
-      metroGraphOption: {
+      monorailGraphOption: {
         responsive: true,
         legend: {
           display: true
@@ -232,7 +232,7 @@ export default {
               const currentData = data.datasets[tooltipItem.datasetIndex]
               const percentage = `${currentData.data[tooltipItem.index]}%`
 
-              return `${metroGraph.base_period}の利用者数との相対値: ${percentage}`
+              return `${monorailGraph.base_period}の利用者数との相対値: ${percentage}`
             }
           }
         }
