@@ -108,6 +108,18 @@
         />
       </v-col>
     </v-row>
+    <v-divider />
+    <v-row class="DataBlock">
+      <v-col cols="12" md="6" class="DataCard">
+        <map-card
+          title="新宿駅周辺の人口推移（参考値）"
+          :title-id="'shinjuku'"
+          :chart-id="'agency'"
+          :url="''"
+          :date="''"
+        />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -367,6 +379,7 @@ import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import News from '@/data/news.json'
 import SvgCard from '@/components/SvgCard.vue'
 import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
+import MapCard from '@/components/MapCard.vue'
 
 export default {
   components: {
@@ -379,7 +392,8 @@ export default {
     StaticInfo,
     DataTable,
     SvgCard,
-    ConfirmedCasesTable
+    ConfirmedCasesTable,
+    MapCard
   },
   data() {
     // 感染者数グラフ
