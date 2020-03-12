@@ -43,9 +43,15 @@
       </template>
     </p>
     <div :class="[$style.symptomContainer, $style.req]">
-      <p :class="$style.symptom">{{ $t('発熱') }}</p>
-      <p :class="$style.op">{{ $t('または') }}</p>
-      <p :class="$style.symptom">{{ $t('呼吸器症状') }}</p>
+      <p :class="$style.symptom">
+        {{ $t('発熱') }}
+      </p>
+      <p :class="$style.op">
+        {{ $t('または') }}
+      </p>
+      <p :class="$style.symptom">
+        {{ $t('呼吸器症状') }}
+      </p>
     </div>
     <div :class="$style.hr" />
     <p :class="$style.type">
@@ -86,8 +92,12 @@
       </template>
     </p>
     <div :class="[$style.symptomContainer, $style.req]">
-      <p :class="$style.symptom">{{ $t('呼吸器症状') }}</p>
-      <p :class="$style.op">{{ $t('かつ') }}</p>
+      <p :class="$style.symptom">
+        {{ $t('呼吸器症状') }}
+      </p>
+      <p :class="$style.op">
+        {{ $t('かつ') }}
+      </p>
       <p :class="$style.symptom">
         <i18n tag="span" path="発熱{temperature}" :class="$style.fzSmall">
           <i18n

@@ -24,9 +24,9 @@
       <li :class="$style.symptom">
         <span>
           <i18n path="{cold}のような症状">
-            <span :class="$style.ConditionsItemLarger" place="cold">{{
-              $t('風邪')
-            }}</span>
+            <span :class="$style.ConditionsItemLarger" place="cold">
+              {{ $t('風邪') }}
+            </span>
           </i18n>
         </span>
       </li>
@@ -42,8 +42,12 @@
           </i18n>
         </i18n>
       </li>
-      <li :class="$style.symptom">{{ $t('強いだるさ') }}</li>
-      <li :class="$style.symptom">{{ $t('息苦しさ') }}</li>
+      <li :class="$style.symptom">
+        {{ $t('強いだるさ') }}
+      </li>
+      <li :class="$style.symptom">
+        {{ $t('息苦しさ') }}
+      </li>
     </ul>
 
     <p :class="$style.duration">

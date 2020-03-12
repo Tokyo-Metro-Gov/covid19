@@ -8,14 +8,24 @@
     </p>
 
     <ul :class="[$style.symptomContainer, $style.triple]">
-      <li :class="$style.symptom">{{ $t('微熱') }}</li>
-      <li :class="$style.symptom">{{ $t('軽い咳') }}</li>
-      <li :class="$style.symptom">{{ $t('感染の不安') }}</li>
+      <li :class="$style.symptom">
+        {{ $t('微熱') }}
+      </li>
+      <li :class="$style.symptom">
+        {{ $t('軽い咳') }}
+      </li>
+      <li :class="$style.symptom">
+        {{ $t('感染の不安') }}
+      </li>
     </ul>
 
     <div :class="$style.advisory">
-      <p :class="$style.fzLarge">{{ $t('新型コロナコールセンター') }}</p>
-      <p :class="$style.open">{{ $t('午前9時から午後9時（土日祝含む）') }}</p>
+      <p :class="$style.fzLarge">
+        {{ $t('新型コロナコールセンター') }}
+      </p>
+      <p :class="$style.open">
+        {{ $t('午前9時から午後9時（土日祝含む）') }}
+      </p>
       <p :class="[$style.phone, $style.fzNumeric]">
         <span :class="$style.icon">
           <PhoneIcon alt="Phone" />
