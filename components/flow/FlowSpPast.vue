@@ -14,24 +14,24 @@
     </p>
     <p :class="$style.type">
       <template v-if="!langsNeedReversedOrder.includes($i18n.locale)">
-        <strong :class="$style.source">
-          {{ $t('「新型コロナウイルス感染者」と') }}
-        </strong>
+        <strong :class="$style.source">{{
+          $t('「新型コロナウイルス感染者」と')
+        }}</strong>
         <i18n tag="span" path="{closeContact}をした方" :class="$style.behavior">
-          <em :class="$style.underline" place="closeContact">
-            {{ $t('濃厚接触') }}
-          </em>
+          <em :class="$style.underline" place="closeContact">{{
+            $t('濃厚接触')
+          }}</em>
         </i18n>
       </template>
       <template v-else>
         <i18n tag="span" path="{closeContact}をした方" :class="$style.behavior">
-          <em :class="$style.underline" place="closeContact">
-            {{ $t('濃厚接触') }}
-          </em>
+          <em :class="$style.underline" place="closeContact">{{
+            $t('濃厚接触')
+          }}</em>
         </i18n>
-        <span :class="$style.source">
-          {{ $t('「新型コロナウイルス感染者」と') }}
-        </span>
+        <span :class="$style.source">{{
+          $t('「新型コロナウイルス感染者」と')
+        }}</span>
       </template>
     </p>
     <div :class="$style.condition">
@@ -52,20 +52,18 @@
     <div :class="$style.hr" />
     <p :class="$style.type">
       <template v-if="!langsWithoutFlowTitle.includes($i18n.locale)">
-        <strong :class="$style.source">
-          {{ $t('流行地域への渡航・居住歴がある方') }}
-        </strong>
+        <strong :class="$style.source">{{
+          $t('流行地域への渡航・居住歴がある方')
+        }}</strong>
         <i18n
           tag="span"
           :class="$style.behavior"
           path="{you} か {closeContact}をした方"
         >
-          <em :class="$style.underline" place="you">
-            {{ $t('ご本人') }}
-          </em>
-          <em :class="$style.underline" place="closeContact">
-            {{ $t('濃厚接触') }}
-          </em>
+          <em :class="$style.underline" place="you">{{ $t('ご本人') }}</em>
+          <em :class="$style.underline" place="closeContact">{{
+            $t('濃厚接触')
+          }}</em>
         </i18n>
       </template>
       <template v-else>
@@ -74,18 +72,18 @@
           :class="[$style.behavior, $style.small]"
           path="travel history from {area}"
         >
-          <em :class="$style.underline" place="area">
-            {{ $t('COVID-19 prevalent area') }}
-          </em>
+          <em :class="$style.underline" place="area">{{
+            $t('COVID-19 prevalent area')
+          }}</em>
         </i18n>
         <i18n
           tag="span"
           :class="[$style.source, $style.small]"
           path="been {inCloseContact} with returnees"
         >
-          <em :class="$style.underline" place="inCloseContact">
-            {{ $t('in close contact') }}
-          </em>
+          <em :class="$style.underline" place="inCloseContact">{{
+            $t('in close contact')
+          }}</em>
         </i18n>
       </template>
     </p>
@@ -102,9 +100,9 @@
         <div>
           <i18n tag="span" path="発熱{temperature}" :class="$style.temp">
             <i18n tag="span" path="{tempNum}以上" place="temperature">
-              <span :class="$style.temp" place="tempNum">
-                {{ $t('37.5℃') }}
-              </span>
+              <span :class="$style.temp" place="tempNum">{{
+                $t('37.5℃')
+              }}</span>
             </i18n>
           </i18n>
         </div>
@@ -136,12 +134,8 @@
     "発熱{temperature}": "発熱{temperature}",
     "{tempNum}以上": "{tempNum}以上",
     "37.5℃": "37.5℃"
-  }
-}
-</i18n>
-
-<!--
-"en": {
+  },
+  "en": {
     "{past}の出来ごとと症状": "{past}, if you have...",
     "発症前{two}週間以内": "In the past {two} weeks",
     "「新型コロナウイルス感染者」と": "with a COVID-19 patient",
@@ -238,7 +232,8 @@
     "{tempNum}以上": "{tempNum}より",
     "37.5℃": "37.5℃"
   }
--->
+}
+</i18n>
 
 <script lang="ts">
 import ArrowForwardIcon from '@/static/flow/arrow_forward-24px.svg'
@@ -247,10 +242,10 @@ export default {
   components: { ArrowForwardIcon },
   computed: {
     langsNeedReversedOrder() {
-      return [] // ['en']
+      return ['en']
     },
     langsWithoutFlowTitle() {
-      return [] // ['en', 'zh-cn', 'zh-tw']
+      return ['en', 'zh-cn', 'zh-tw']
     }
   }
 }

@@ -66,12 +66,8 @@
     "強いだるさ": "強いだるさ",
     "息苦しさ": "息苦しさ",
     "新型コロナ受診相談窓口へ": "新型コロナ受診相談窓口へ"
-  }
-}
-</i18n>
-
-<!--
-"en": {
+  },
+  "en": {
     "一般の方": "People without any specific health conditions",
     "{duration}続いている": "Having these symptoms for {duration",
     "{day}日以上": "{day} consecutive days or more",
@@ -136,7 +132,8 @@
     "息苦しさ": "いきがくるしい",
     "新型コロナ受診相談窓口へ": ""
   }
--->
+}
+</i18n>
 
 <script lang="ts">
 import HumanIcon from '@/static/flow/accessibility-24px.svg'
