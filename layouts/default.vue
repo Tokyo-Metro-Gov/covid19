@@ -1,10 +1,6 @@
 <template>
   <v-app class="app">
-    <div v-if="loading" class="loader">
-      <img src="/logo.svg" alt="東京都" />
-      <scale-loader color="#00A040" />
-    </div>
-    <div v-else class="appContainer">
+    <div class="appContainer">
       <div class="naviContainer">
         <SideNavigation
           :is-navi-open="isOpenNavigation"
@@ -17,7 +13,6 @@
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
-        <development-mode-mark />
       </div>
     </div>
   </v-app>
@@ -25,29 +20,20 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
-import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
 
 type LocalData = {
   isOpenNavigation: boolean
-  loading: boolean
 }
 
 export default Vue.extend({
   components: {
-    DevelopmentModeMark,
-    ScaleLoader,
     SideNavigation
   },
   data(): LocalData {
     return {
-      isOpenNavigation: false,
-      loading: true
+      isOpenNavigation: false
     }
-  },
-  mounted() {
-    this.loading = false
   },
   methods: {
     openNavigation(): void {
@@ -81,10 +67,12 @@ export default Vue.extend({
   position: relative;
   @include largerThan($small) {
     display: grid;
-    grid-template-columns: 240px auto;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto;
   }
   @include largerThan($huge) {
-    grid-template-columns: 325px auto;
+    grid-template-columns: 325px 1fr;
+    grid-template-rows: auto;
   }
 }
 @include lessThan($small) {
