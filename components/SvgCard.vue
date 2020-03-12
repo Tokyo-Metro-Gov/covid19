@@ -1,5 +1,5 @@
 <template>
-  <data-view class="SvgCard" :title="title" :title-id="titleId" :date="date">
+  <data-view class="SvgCard" :title="title" date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
         {{
