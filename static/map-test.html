@@ -110,6 +110,7 @@ const addHeatmapLayer = (date) => {
   });
 }
 
+// TODO: range的なものを使いたい
 const data_date = [
   '20200201',
   '20200202',
@@ -153,16 +154,42 @@ const data_date = [
 ]
 const data_layers = data_date.map(date => {return `heatmap-data-${date}`})
 
-
-
-const getFeatureAndCreateGraph = () => {
+// 古い実装: 中央地のデータを取得
+const getCenterValues = () => {
   const center = map.getCenter()
   const features = map.queryRenderedFeatures([center.lng, center.lat], { layers: data_layers })
-  const graph_values = features.map(feature => {
+  return features.map(feature => {
     const date = feature.layer.id.split('-')[2]
     const value = feature.properties.max
     return {date: date, value: value}
   })
+}
+
+// 新しい実装: extentの値を取得
+const getExtentValues = () => {
+  const features = map.queryRenderedFeatures({ layers: data_layers })
+  const values = []
+  data_date.forEach(date => {
+    values.push({date: date, value: 0})
+  })
+  features.forEach(feature => {
+    const date = feature.layer.id.split('-')[2]
+    const value = feature.properties.max
+    values.forEach((item, index, array) => {
+      if (date == item.date) {
+        array[index] = {date: date, value: item.value + value}
+      }
+    })
+  })
+  return values
+  //  return {date: date, value: value}
+  //})
+}
+
+
+const getFeatureAndCreateGraph = () => {
+  //const graph_values = getCenterValues()
+  const graph_values = getExtentValues()
   console.log(graph_values)
   // d3
   // remove current svg
