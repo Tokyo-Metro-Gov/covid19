@@ -4,10 +4,6 @@
   ・ 関連するissue 番号を記載してください。 Issue 番号がない PR は受け付けません。
   ・ issueを閉じるとは関係ないものは#{ISSUE_NUMBER}だけでOKです🙆‍♂️
 
-  ・ You can remove this section if there are no related issues
-  ・ If the issue is related but doesn't close upon merge, you can just write - #{ISSUE_NUMBER} 🙆‍♂️
--->
-<!--
   ・ Please specify related Issue ID. We don't accept PRs which has no issue ID.
   ・ If there's no reason to close the issue, just "#{ISSUE_NUMBER}" is OK🙆‍♂️
 -->
