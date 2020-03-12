@@ -48,15 +48,26 @@
           </a>
         </div>
       </div>
-      Supported by
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-OrgLinkContainer200">
+          協力：
           <a
             href="https://www.isit.or.jp/"
             target="_blank"
             rel="noopener"
           >
             <img src="/isit-logo.png" alt="ISIT" />
+          </a>
+        </div>
+      <div class="SideNavigation-Footer">
+        <div class="SideNavigation-OrgLinkContainer200">
+          協力：
+          <a
+            href="https://www.isit.or.jp/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/logo-fukuoka.png" alt="福岡市" />
           </a>
         </div>
       </div>
@@ -249,6 +260,15 @@ export default {
     display: flex;
     & img {
       width: 200px;
+      &:first-of-type {
+        margin-right: 10px;
+      }
+    }
+  }
+  &-OrgLinkContainer250 {
+    display: flex;
+    & img {
+      width: 250px;
       &:first-of-type {
         margin-right: 10px;
       }
