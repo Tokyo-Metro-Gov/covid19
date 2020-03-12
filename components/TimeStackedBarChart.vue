@@ -190,9 +190,10 @@ export default {
                   cumulativeData[tooltipItem.datasetIndex][tooltipItem.index]
               }
 
-              return `${casesTotal} ${unit} (${
+              // TODO: [合計]の多言語対応
+              return `${
                 labelArray[tooltipItem.datasetIndex]
-              }: ${cases})`
+              }: ${cases}${unit} (合計: ${casesTotal}${unit})`
             },
             title(tooltipItem, data) {
               return data.labels[tooltipItem[0].index]
