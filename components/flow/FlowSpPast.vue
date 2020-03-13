@@ -37,12 +37,12 @@
             $t('濃厚接触')
           }}</em>
         </i18n>
-        <span :class="$style.behavior">{{
+        <span :class="$style.source">{{
           $t('「新型コロナウイルス感染者」と')
         }}</span>
       </template>
     </p>
-    <div :class="[$style.symptomContainer, $style.req]">
+    <div :class="[$style.rectContainer, $style.req]">
       <p :class="$style.symptom">
         {{ $t('発熱') }}
       </p>
@@ -53,8 +53,7 @@
         {{ $t('呼吸器症状') }}
       </p>
     </div>
-    <div :class="$style.hr" />
-    <p :class="$style.type">
+    <p :class="[$style.type, $style.hr]">
       <template v-if="!langsWithoutFlowTitle.includes($i18n.locale)">
         <strong :class="$style.source">{{
           $t('流行地域への渡航・居住歴がある方')
@@ -73,7 +72,7 @@
       <template v-else>
         <i18n
           tag="span"
-          :class="[$style.behavior, $style.fzSmall]"
+          :class="[$style.behavior, $style.fzRegular]"
           path="travel history from {area}"
         >
           <em :class="$style.underline" place="area">{{
@@ -91,7 +90,7 @@
         </i18n>
       </template>
     </p>
-    <div :class="[$style.symptomContainer, $style.req]">
+    <div :class="[$style.rectContainer, $style.req]">
       <p :class="$style.symptom">
         {{ $t('呼吸器症状') }}
       </p>
@@ -139,7 +138,30 @@ export default {
 <style module lang="scss">
 @import '@/components/flow/flow_sp.scss';
 
-.symptomContainer {
+// past
+.type {
+  margin-top: px2vw(20);
+  text-align: center;
+  &.hr {
+    margin-top: px2vw(30);
+    padding-top: px2vw(30);
+    border-top: 1px $gray-4 solid;
+  }
+  .source {
+    display: block;
+    color: $green-1;
+    &:last-child {
+      margin-top: px2vw(10);
+    }
+  }
+  .behavior {
+    display: block;
+    &:last-child {
+      margin-top: px2vw(5);
+    }
+  }
+}
+.rectContainer {
   // past
   .op {
     display: flex;

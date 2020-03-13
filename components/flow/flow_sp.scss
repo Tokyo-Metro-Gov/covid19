@@ -27,8 +27,8 @@
   }
 }
 // past, general, older ,suspect
-.symptomContainer {
-  margin-top: px2vw(15);
+.rectContainer {
+  margin-top: px2vw(10);
   padding-top: px2vw(30);
   align-items: stretch;
   display: flex;
@@ -127,31 +127,6 @@
     display: block;
   }
 }
-// according
-.hr {
-  margin-top: px2vw(30);
-  border-bottom: 1px $gray-4 solid;
-  height: 1px;
-  width: 100%;
-}
-// according
-.type {
-  margin-top: px2vw(20);
-  text-align: center;
-  .source {
-    display: block;
-    color: $green-1;
-    &:last-child {
-      margin-top: px2vw(10);
-    }
-  }
-  .behavior {
-    display: block;
-    &:last-child {
-      margin-top: px2vw(5);
-    }
-  }
-}
 // common
 .fzSmall {
   font-size: px2vw(18);
@@ -224,7 +199,7 @@
     }
     .behavior {
       &:last-child {
-        margin-top: px2vw(5, $vw);
+        margin-top: px2vw(10, $vw);
       }
     }
   }

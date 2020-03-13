@@ -7,7 +7,7 @@
       <span :class="$style.fzMedium">{{ $t('不安に思う方') }}</span>
     </p>
 
-    <ul :class="[$style.symptomContainer, $style.triple]">
+    <ul :class="[$style.rectContainer, $style.triple]">
       <li :class="$style.symptom">
         {{ $t('微熱') }}
       </li>
@@ -56,7 +56,7 @@ export default {
 <style module lang="scss">
 @import '@/components/flow/flow_sp.scss';
 
-.symptomContainer {
+.rectContainer {
   // suspect
   &.triple {
     margin-left: px2vw(-11);
