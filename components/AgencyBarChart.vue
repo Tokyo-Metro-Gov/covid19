@@ -1,5 +1,10 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+    <template v-slot:button>
+      <small :class="$style.DataViewDesc">
+        ※土・日・祝日を除く庁舎開庁日の1週間累計数
+      </small>
+    </template>
     <bar
       :chart-id="chartId"
       :chart-data="displayData"
@@ -8,6 +13,17 @@
     />
   </data-view>
 </template>
+
+<style module lang="scss">
+.DataView {
+  &Desc {
+    margin-top: 10px;
+    margin-bottom: 0 !important;
+    font-size: 12px;
+    color: $gray-3;
+  }
+}
+</style>
 
 <i18n>
 {
@@ -94,6 +110,9 @@ export default {
       this.$t('第二庁舎計'),
       this.$t('議事堂計')
     ]
+    agencyData.datasets.map(dataset => {
+      dataset.label = this.$t(dataset.label)
+    })
     return {
       chartData: agencyData,
       date: agencyData.date,
@@ -133,6 +152,15 @@ export default {
               const unit = self.$t(self.unit)
               return `${title}: ${num}${unit}`
             }
+          }
+        },
+        legend: {
+          display: true,
+          onHover: e => {
+            e.currentTarget.style.cursor = 'pointer'
+          },
+          onLeave: e => {
+            e.currentTarget.style.cursor = 'default'
           }
         },
         scales: {
