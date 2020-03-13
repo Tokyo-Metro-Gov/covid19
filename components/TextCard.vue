@@ -1,18 +1,18 @@
 <template>
   <div class="TextCard">
-    <h2 v-if="title" class="TextCard-Heading">
+    <h3 v-if="title" class="TextCard-Heading">
       <a v-if="link" :href="link" target="_blank" rel="noopener">
         {{ title }}
       </a>
       <template v-else>
         {{ title }}
       </template>
-    </h2>
+    </h3>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <p v-if="body" class="TextCard-Body" v-html="body" />
-    <p class="TextCard-Body">
+    <div v-if="body" class="TextCard-Body" v-html="body" />
+    <div v-if="$slots.default" class="TextCard-Body">
       <slot />
-    </p>
+    </div>
   </div>
 </template>
 
@@ -51,6 +51,11 @@ export default class TextCard extends Vue {
     margin-bottom: 12px;
     a {
       @include card-h1();
+      color: $link !important;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
   &-Body {
@@ -61,6 +66,9 @@ export default class TextCard extends Vue {
       word-break: break-all;
       color: $link;
       text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

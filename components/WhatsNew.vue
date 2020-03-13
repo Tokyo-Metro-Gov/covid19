@@ -4,7 +4,7 @@
       <v-icon size="24" class="WhatsNew-heading-icon">
         mdi-information
       </v-icon>
-      最新のお知らせ
+      {{ $t('最新のお知らせ') }}
     </h2>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
@@ -21,7 +21,7 @@
             {{ item.date }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
-            {{ item.text }}
+            {{ $t(item.text) }}
             <v-icon
               v-if="!isInternalLink(item.url)"
               class="WhatsNew-item-ExternalLinkIcon"
@@ -35,6 +35,8 @@
     </ul>
   </div>
 </template>
+
+<i18n src="./WhatsNew.i18n.json"></i18n>
 
 <script>
 import { convertDateToISO8601Format } from '@/utils/formatDate'
