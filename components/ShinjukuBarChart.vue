@@ -85,6 +85,9 @@ export default {
   computed: {
     groupByWeekData() {
       return this.chartData.reduce((res, d) => {
+        // 2020年2月3日以降のデータを対象にする
+        if (dayjs(d.date).isBefore('2020-02-03', 'day')) return res
+
         const weekNum = dayjs(d.date).week()
         if (!res[weekNum]) res[weekNum] = []
         return res[weekNum].push(d) && res
