@@ -28,59 +28,7 @@
   </data-view>
 </template>
 
-<i18n>
- {
-   "ja": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "（注）同一の対象者について複数の検体を調査する場合あり",
-     "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります",
-     "{date}の全体累計": "%{date}の全体累計",
-     "{date}の合計": "%{date}の合計",
-     "都内": "都内",
-     "その他": "その他",
-     "合計": "合計"
-   },
-   "en": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "(Note) More than one sample from the same subject may be tested.",
-     "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "The number of tests conducted is published as preliminary figures and may be revised as confirmed data at a later date",
-     "{date}の全体累計": "Cumulative total as of %{date}",
-     "都内": "Tokyo",
-     "その他": "Others",
-     "合計": "Total"
-   },
-   "zh-cn": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "(註) 同一個案可能被多次檢查",
-     "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "The number of tests conducted is published as preliminary figures and may be revised as confirmed data at a later date",
-     "{date}の全体累計": "截至 %{date}",
-     "都内": "东京都",
-     "その他": "其它",
-     "合計": "总计"
-   },
-   "zh-tw": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "（註）同一個案可能被多次檢查",
-     "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "The number of tests conducted is published as preliminary figures and may be revised as confirmed data at a later date",
-     "{date}の全体累計": "累計至 %{date}",
-     "都内": "東京都",
-     "その他": "其它",
-     "合計": "合計"
-   },
-   "ko": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "(주의) 동일 대상자에 대하여 여러번의 검체를 조사하는 경우가 있음",
-     "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "The number of tests conducted is published as preliminary figures and may be revised as confirmed data at a later date",
-     "{date}の全体累計": "%{date}의 누적 수",
-     "都内": "도쿄도내",
-     "その他": "기타",
-     "合計": "합계"
-   },
-   "ja-basic": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "(ちゅうい) おなじ ひとに なんどか けんさ を する とき が あります",
-     "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります",
-     "{date}の全体累計": "%{date} ぜんぶで",
-     "都内": "とうきょうと の なか",
-     "その他": "そのほか",
-     "合計": "ごうけい"
-   }
- }
- </i18n>
+<i18n src="./TimeStackedBarChart.i18n.json"></i18n>
 
 <script>
 import DataView from '@/components/DataView.vue'
