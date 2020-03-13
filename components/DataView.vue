@@ -97,7 +97,7 @@
 
     <div v-if="showOverlay" class="overlay">
       <div class="overlay-text">
-        埋め込みURLをコピーしました
+        埋め込みタグをコピーしました
       </div>
     </div>
   </v-card>
