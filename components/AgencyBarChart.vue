@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <bar
       :chart-id="chartId"
       :chart-data="displayData"
@@ -32,11 +32,6 @@ export default {
       default: 'agency-bar-chart'
     },
     unit: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    url: {
       type: String,
       required: false,
       default: ''
