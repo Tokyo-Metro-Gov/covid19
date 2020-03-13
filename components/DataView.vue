@@ -20,9 +20,11 @@
       >
         <slot />
       </div>
-      <v-footer class="DataView-Footer">
+      <div class="DataView-Footer">
         <a class="Permalink" :href="permalink()">
-          <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
+          <time :datetime="formattedDate">
+            {{ $t('{date} 更新', { date }) }}
+          </time>
         </a>
         <a
           v-if="url"
@@ -31,13 +33,13 @@
           target="_blank"
           rel="noopener"
         >
-          {{ $t('オープンデータへのリンク') }}
+          {{ $t('オープンデータを入手') }}
           <v-icon class="ExternalLinkIcon" size="15">
             mdi-open-in-new
           </v-icon>
         </a>
-      </v-footer>
-      <v-footer v-if="this.$route.query.embed != 'true'" class="DataView-Share">
+      </div>
+      <div v-if="this.$route.query.embed != 'true'" class="DataView-Share py-2">
         <button @click="openGraphEmbed = true">
           <v-icon class="icon-resize embed" size="40">
             mdi-code-tags
@@ -70,8 +72,8 @@
             LINE
           </div>
         </button>
-      </v-footer>
-      <v-footer v-if="openGraphEmbed">
+      </div>
+      <div v-if="openGraphEmbed" class="DataView-Embed pa-2">
         <button @click="openGraphEmbed = false">
           <v-icon size="16">
             mdi-close
@@ -81,51 +83,12 @@
           {{ $t('グラフの埋め込み') }}
         </div>
         <textarea v-model="graphEmbedValue" />
-      </v-footer>
+      </div>
     </div>
   </v-card>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "{date} 更新": "{date} 更新",
-    "オープンデータへのリンク": "オープンデータへのリンク",
-    "埋め込む": "埋め込む",
-    "グラフの埋め込み": "グラフの埋め込み"
-  },
-  "en": {
-    "{date} 更新": "Last update: {date}",
-    "オープンデータへのリンク": "Link to Open Data",
-    "埋め込む": "Embed",
-    "グラフの埋め込み": "Embed Graph"
-  },
-  "zh-cn": {
-    "{date} 更新": "{date} 更新",
-    "オープンデータへのリンク": "公开数据的链接",
-    "埋め込む": "嵌入",
-    "グラフの埋め込み": "嵌入图表"
-  },
-  "zh-tw": {
-    "{date} 更新": "{date} 更新",
-    "オープンデータへのリンク": "開放資料連結",
-    "埋め込む": "嵌入",
-    "グラフの埋め込み": "嵌入圖表"
-  },
-  "ko": {
-    "{date} 更新": "{date} 갱신",
-    "オープンデータへのリンク": "공공데이터에의 링크",
-    "埋め込む": "퍼가기",
-    "グラフの埋め込み": "그래프를 퍼가기"
-  },
-  "ja-basic": {
-    "{date} 更新": "{date} に あたらしく しました",
-    "オープンデータへのリンク": "オープンデータ という ページを みたいとき",
-    "埋め込む": "うめこむ",
-    "グラフの埋め込み": "グラフのうめこみ"
-  }
-}
-</i18n>
+<i18n src="./DataView.i18n.json"></i18n>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
@@ -251,9 +214,13 @@ export default class DataView extends Vue {
     margin-bottom: 46px;
     margin-top: 70px;
   }
+  &-Embed {
+    background-color: $gray-5;
+  }
   &-Footer {
     @include font-size(12);
     padding: 0 !important;
+    display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
     color: $gray-3 !important;
