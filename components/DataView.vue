@@ -331,6 +331,9 @@ export default class DataView extends Vue {
       position: relative;
       .DataView-Share-Opener {
         cursor: pointer;
+        > svg {
+          width: auto !important;
+        }
       }
       .DataView-Share-Buttons {
         position: absolute;
