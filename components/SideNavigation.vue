@@ -45,7 +45,7 @@
             target="_blank"
             rel="noopener"
           >
-            <img src="/logo.png" alt="Code for Fukuoka" />
+            <img src="/logo-code4Fukuoka.png" alt="Code for Fukuoka" />
           </a>
         </div>
       </div>
