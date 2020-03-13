@@ -69,6 +69,11 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    url: {
+      type: String,
+      required: false,
+      default: ''
     }
   },
   data() {
