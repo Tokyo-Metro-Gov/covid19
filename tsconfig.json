@@ -1,7 +1,6 @@
-// tsconfig.json
 {
   "compilerOptions": {
-    "target": "es2018", // for Optional Chaining & Nullish Coalescing
+    "target": "es2018",
     "module": "esnext",
     "moduleResolution": "node",
     "lib": [
@@ -9,12 +8,13 @@
       "esnext.asynciterable",
       "dom"
     ],
-    "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
+    "noImplicitThis": true,
+    "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
       "~/*": [
@@ -26,7 +26,8 @@
     },
     "types": [
       "@types/node",
-      "@nuxt/types"
+      "@nuxt/types",
+      "nuxt-i18n"
     ]
   },
   "exclude": [

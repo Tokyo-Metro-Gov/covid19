@@ -75,7 +75,7 @@ export default class ListItem extends Vue {
   }
 
   isActive(link: string): string | undefined {
-    if (link === this.$route.path) {
+    if (link === this.$route.path || `${link}/` === this.$route.path) {
       return 'isActive'
     }
   }
