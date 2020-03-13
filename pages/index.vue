@@ -31,7 +31,7 @@
           :date="Data.patients.date"
           :unit="'人'"
           :url="
-            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+            'https://ckan.open-governmentdata.org/dataset/401307_covid19_patients'
           "
         />
       </v-col>
@@ -44,7 +44,7 @@
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
           :url="
-            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+            'https://ckan.open-governmentdata.org/dataset/401307_covid19_patients'
           "
         />
       </v-col>
