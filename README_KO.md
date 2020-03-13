@@ -26,7 +26,7 @@
 - 필요한 Node.js 버젼: 10.19.0이상
 
 **yarn을 사용할 경우**
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
