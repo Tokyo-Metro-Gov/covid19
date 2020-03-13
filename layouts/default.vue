@@ -9,23 +9,25 @@
           @closeNavi="hideNavigation"
         />
       </div>
-      <div class="mainContainer" :class="{ open: isOpenNavigation }">
+      <main class="mainContainer" :class="{ open: isOpenNavigation }">
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
-      </div>
+      </main>
     </div>
     <div v-else class="embed">
       <v-container>
         <nuxt />
       </v-container>
     </div>
+    <NoScript />
   </v-app>
 </template>
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import SideNavigation from '@/components/SideNavigation.vue'
+import NoScript from '@/components/NoScript.vue'
 
 type LocalData = {
   hasNavigation: boolean
@@ -34,7 +36,8 @@ type LocalData = {
 
 export default Vue.extend({
   components: {
-    SideNavigation
+    SideNavigation,
+    NoScript
   },
   data(): LocalData {
     let hasNavigation = true
@@ -113,6 +116,7 @@ export default Vue.extend({
     overflow-y: auto;
     width: 240px;
     height: 100%;
+    overscroll-behavior: contain;
   }
 }
 @include largerThan($huge) {
