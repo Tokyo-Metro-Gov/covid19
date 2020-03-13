@@ -9,7 +9,7 @@
 ## Issue へのコメントや Pull Request について
 * Issue へのコメントはご自由にどうぞ！新しい質問や提案なども受け付けます。
 * Issue を追加する場合、必ず既に同様の Issue が無いか検索をしてから作成してください。
-* Pull Reuqest を送る場合、必ず対応する Issue 番号を追記してください。単独の Pull Request は受け付けません。
+* Pull Request を送る場合、必ず対応する Issue 番号を追記してください。単独の Pull Request は受け付けません。
 * improve(改善提案)がついたIssueについては必ず反映できると限りませんのでご了承ください（特にUI系について）
 * good first issue / help wanted / bug を優先して対応いただけると助かります
 
