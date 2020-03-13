@@ -65,30 +65,21 @@
 
             <div class="Buttons">
               <button @click="twitter">
-                <v-icon class="icon-resize twitter" size="40">
+                <v-icon class="icon-resize twitter" size="30">
                   mdi-twitter
                 </v-icon>
-                <div class="share-text">
-                  Twitter
-                </div>
               </button>
 
               <button @click="facebook">
-                <v-icon class="icon-resize facebook" size="73">
+                <v-icon class="icon-resize facebook" size="34">
                   mdi-facebook
                 </v-icon>
-                <div class="share-text">
-                  Facebook
-                </div>
               </button>
 
               <button @click="line">
-                <v-icon class="icon-resize line" size="75">
+                <v-icon class="icon-resize line" size="34">
                   fab fa-line
                 </v-icon>
-                <div class="share-text">
-                  LINE
-                </div>
               </button>
             </div>
           </div>
@@ -317,6 +308,8 @@ export default class DataView extends Vue {
           border: solid 1px #eee;
           border-radius: 8px;
 
+          font-size: 12px;
+
           .EmbedCode-Copy {
             position: absolute;
             top: 0.3em;
@@ -332,8 +325,9 @@ export default class DataView extends Vue {
 
           .icon-resize {
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 30px;
+            height: 30px;
+            font-size: 30px;
             margin-left: 4px;
             margin-right: 4px;
             margin-bottom: 8px;
