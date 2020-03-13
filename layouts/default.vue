@@ -19,8 +19,8 @@
       <v-container>
         <nuxt />
       </v-container>
-      <development-mode-mark />
     </div>
+    <development-mode-mark />
   </v-app>
 </template>
 <script lang="ts">
