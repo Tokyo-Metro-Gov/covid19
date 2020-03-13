@@ -144,7 +144,7 @@ export default {
               const title = self.$t(data.datasets[index].label)
               const num = tooltipItem.value
               const unit = self.$t(self.unit)
-              return `${title}: ${num}${unit}`
+              return `${title}: ${num} ${unit}`
             }
           }
         },
