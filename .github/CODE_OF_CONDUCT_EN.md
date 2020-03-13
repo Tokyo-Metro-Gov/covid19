@@ -1,20 +1,20 @@
 version 1.0, 2020/3/3
 # Our mission
 
-* We will work to protect citizen's life and health.
-* We will work to make the fact open to both the domestic and overseas people.
+* We will work to protect the life and well-being of the citizens of Tokyo.
+* We will work to provide the facts to everyone, both domestic and abroad.
 * We will demonstrate our integrity and visualise the outcomes of our work.
 
 # Code of conduct for developers
 
 ## User perspective
 
-* We will put importance on UX (User Experience)in order to make information easy to understand.
-* We will make decisions based on the evidence using numerical analysis such as access analysis, search keyword analysis, and SNS analysis.
+* We will treat UX (User Experience) as a vital component, in order to make information easy to understand.
+* We will make decisions using evidence based on statistical sources such as access analytics, search keyword analytics, and analytics of social media.
 
 ## No one left behind
 
-* We will develop this site for everyone, regardless of nationality, age, gender, and other attributes.
+* We will develop this site for everyone, regardless of nationality, age, gender, etc.
 * We will follow universal design guidelines to build this website.
 
 ## International
@@ -29,6 +29,6 @@ version 1.0, 2020/3/3
 
 ## Build with people
 
-* We will work together not only with Tokyo Metropolitan Government but also with any others who want to contribute.
+* We will work together not only with Tokyo Metropolitan Government, but also with anyone who wants to contribute.
 * We will welcome any citizens' contributions.
 * We will continue improving this website with someone who needs information.

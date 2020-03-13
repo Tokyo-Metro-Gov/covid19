@@ -1,52 +1,61 @@
 <template>
   <v-app class="app">
-    <div v-if="loading" class="loader">
-      <img src="/logo.svg" alt="東京都" />
-      <scale-loader color="#00A040" />
-    </div>
-    <div v-else class="appContainer">
+    <div v-if="hasNavigation" class="appContainer">
       <div class="naviContainer">
         <SideNavigation
-          :is-navi-open="isNaviOpen"
-          :class="{ open: isNaviOpen }"
-          @openNavi="showNavi"
-          @closeNavi="hideNavi"
+          :is-navi-open="isOpenNavigation"
+          :class="{ open: isOpenNavigation }"
+          @openNavi="openNavigation"
+          @closeNavi="hideNavigation"
         />
       </div>
-      <div class="mainContainer" :class="{ open: isNaviOpen }">
+      <main class="mainContainer" :class="{ open: isOpenNavigation }">
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
-      </div>
+      </main>
+    </div>
+    <div v-else class="embed">
+      <v-container>
+        <nuxt />
+      </v-container>
     </div>
   </v-app>
 </template>
-<script>
-import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
-import SideNavigation from '@/components/SideNavigation'
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
+import SideNavigation from '@/components/SideNavigation.vue'
+
+type LocalData = {
+  hasNavigation: boolean
+  isOpenNavigation: boolean
+}
+
+export default Vue.extend({
   components: {
-    ScaleLoader,
     SideNavigation
   },
-  data() {
-    return {
-      isNaviOpen: false,
-      loading: true
+  data(): LocalData {
+    let hasNavigation = true
+    if (this.$route.query.embed === 'true') {
+      hasNavigation = false
     }
-  },
-  mounted() {
-    this.loading = false
+
+    return {
+      hasNavigation,
+      isOpenNavigation: false
+    }
   },
   methods: {
-    showNavi() {
-      this.isNaviOpen = true
+    openNavigation(): void {
+      this.isOpenNavigation = true
     },
-    hideNavi() {
-      this.isNaviOpen = false
+    hideNavigation(): void {
+      this.isOpenNavigation = false
     }
   },
-  head() {
+  head(): MetaInfo {
     const { htmlAttrs } = this.$nuxtI18nSeo()
     return {
       htmlAttrs,
@@ -58,7 +67,7 @@ export default {
       ]
     }
   }
-}
+})
 </script>
 <style lang="scss">
 .app {
@@ -66,14 +75,34 @@ export default {
   margin: 0 auto;
   background-color: inherit !important;
 }
+.embed {
+  display: grid;
+
+  .container {
+    padding: 0 !important;
+  }
+  .DataCard {
+    padding: 0 !important;
+  }
+}
 .appContainer {
   position: relative;
   @include largerThan($small) {
     display: grid;
-    grid-template-columns: 240px auto;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto;
   }
   @include largerThan($huge) {
-    grid-template-columns: 325px auto;
+    grid-template-columns: 325px 1fr;
+    grid-template-rows: auto;
+  }
+}
+@include lessThan($small) {
+  .naviContainer {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: z-index-of(sp-navigation);
   }
 }
 @include largerThan($small) {
@@ -83,7 +112,7 @@ export default {
     top: 0;
     overflow-y: auto;
     width: 240px;
-    height: 100vh;
+    height: 100%;
   }
 }
 @include largerThan($huge) {
@@ -92,16 +121,18 @@ export default {
   }
 }
 .open {
-  overflow-x: hidden;
-  overflow-y: auto;
   height: 100vh;
+  @include largerThan($small) {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
 .mainContainer {
   grid-column: 2/3;
   overflow: hidden;
   @include lessThan($small) {
     .container {
-      padding-top: 16px !important;
+      padding-top: 16px;
     }
   }
 }

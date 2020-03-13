@@ -26,7 +26,7 @@ jobs:
 
       - run: yarn install --frozen-lockfile
       - run: yarn run test
-      - run: yarn run generate
+      - run: yarn run generate:deploy
       - run: pip install selenium
       - run: (python -m http.server --directory ./dist 8000 &)  ; python ./ui-test/screenshot.py
       - name: Upload screenshot
