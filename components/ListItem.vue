@@ -138,6 +138,9 @@ export default class ListItem extends Vue {
         }
       }
     }
+    &:focus {
+      outline: solid $green-1 2px;
+    }
   }
   &-Text {
     color: $gray-1;
