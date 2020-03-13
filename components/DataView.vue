@@ -22,7 +22,9 @@
       </div>
       <div class="DataView-Footer">
         <a class="Permalink" :href="permalink()">
-          <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
+          <time :datetime="formattedDate">
+            {{ $t('{date} 更新', { date }) }}
+          </time>
         </a>
         <a
           v-if="url"
@@ -31,7 +33,7 @@
           target="_blank"
           rel="noopener"
         >
-          {{ $t('オープンデータへのリンク') }}
+          {{ $t('オープンデータを入手') }}
           <v-icon class="ExternalLinkIcon" size="15">
             mdi-open-in-new
           </v-icon>

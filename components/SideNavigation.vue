@@ -65,7 +65,11 @@
           >
             <img src="/facebook.png" alt="Facebook" />
           </a>
-          <a href="https://github.com/tokyo-metropolitan-gov/covid19">
+          <a
+            href="https://github.com/tokyo-metropolitan-gov/covid19"
+            target="_blank"
+            rel="noopener"
+          >
             <img src="/github.png" alt="GitHub" />
           </a>
         </div>
@@ -240,11 +244,11 @@ export default {
   }
   &-SocialLinkContainer {
     display: flex;
+    & a:not(:last-of-type) {
+      margin-right: 10px;
+    }
     & img {
       width: 30px;
-      &:first-of-type {
-        margin-right: 10px;
-      }
     }
   }
   &-Copyright {
