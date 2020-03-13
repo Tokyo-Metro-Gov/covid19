@@ -45,12 +45,17 @@
         <div v-if="this.$route.query.embed != 'true'" class="Footer-Right">
           <div v-if="displayShare" class="DataView-Share-Buttons py-2">
             <div class="Close-Button">
-              <span @click="closeShareMenu">☓</span>
+              <v-icon @click="closeShareMenu">
+                mdi-close
+              </v-icon>
             </div>
 
             <h4>埋め込み用コード</h4>
 
             <div class="EmbedCode">
+              <v-icon class="EmbedCode-Copy" @click="copyEmbedCode">
+                far fa-clipboard
+              </v-icon>
               {{ this.graphEmbedValue }}
             </div>
 
@@ -128,6 +133,18 @@ export default class DataView extends Vue {
 
   closeShareMenu() {
     this.displayShare = false
+  }
+
+  copyEmbedCode() {
+    const element = document.createElement('input')
+    element.value = this.graphEmbedValue
+    element.type = 'text'
+    document.body.appendChild(element)
+    element.select()
+    document.execCommand('copy')
+    document.body.removeChild(element)
+
+    this.closeShareMenu()
   }
 
   permalink(host: boolean = false, embed: boolean = false) {
@@ -264,6 +281,7 @@ export default class DataView extends Vue {
         background: $white !important;
         border-radius: 8px;
         text-align: left;
+        font-size: 1rem;
 
         > * {
           padding: 4px 0px;
@@ -272,13 +290,22 @@ export default class DataView extends Vue {
         > .Close-Button {
           display: flex;
           justify-content: flex-end;
+          color: $gray-3;
         }
 
         > .EmbedCode {
+          position: relative;
           padding: 4px;
           color: rgb(3, 3, 3);
           border: solid 1px #eee;
           border-radius: 8px;
+
+          .EmbedCode-Copy {
+            position: absolute;
+            top: 0.3em;
+            right: 0.3em;
+            color: $gray-3;
+          }
         }
 
         > .Buttons {
