@@ -300,6 +300,8 @@ export default {
     }
     > .op {
       flex-basis: 28%;
+      margin-top: px2vw(30);
+      padding: px2vw(15) px2vw(15) px2vw(10);
     }
   }
 }
@@ -326,6 +328,11 @@ export default {
   .rectContainer {
     &.req {
       margin-top: px2vw(20, $vw);
+      > .op {
+        flex-basis: 28%;
+        margin-top: px2vw(30, $vw);
+        padding: px2vw(15, $vw) px2vw(15, $vw) px2vw(10, $vw);
+      }
     }
   }
 }
