@@ -18,7 +18,9 @@
       <span :class="$style.fzSmall">
         {{ $t('新型コロナ外来（帰国者・接触者外来）') }}
       </span>
-      <span :class="[$style.fzLarge, $style.break]">{{ $t('医師による判断') }}</span>
+      <span :class="[$style.fzLarge, $style.break]">{{
+        $t('医師による判断')
+      }}</span>
     </p>
     <div :class="[$style.rectContainer, $style.double]">
       <a
