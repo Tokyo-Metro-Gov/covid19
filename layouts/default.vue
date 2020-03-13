@@ -2,7 +2,7 @@
   <v-app class="app">
     <div v-if="loading" class="loader">
       <img src="/logo.svg" alt="福岡市" />
-      <scale-loader color="#00A040" />
+      <scale-loader color="#325685" />
     </div>
     <div v-else class="appContainer">
       <div class="naviContainer">
