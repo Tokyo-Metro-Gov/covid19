@@ -13,6 +13,9 @@
       :mobile-breakpoint="0"
       class="cardTable"
     />
+    <div class="note">
+      {{ $t('※退院には、死亡退院を含む') }}
+    </div>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="info.lText"
@@ -22,6 +25,8 @@
     </template>
   </data-view>
 </template>
+
+<i18n src="./DataTable.i18n.json"></i18n>
 
 <style lang="scss">
 .cardTable {
@@ -33,6 +38,9 @@
       white-space: nowrap;
       color: $gray-2;
       font-size: 12px;
+      &.text-center {
+        text-align: center;
+      }
     }
     tbody {
       tr {
@@ -41,6 +49,9 @@
           padding: 8px 10px;
           height: auto;
           font-size: 12px;
+          &.text-center {
+            text-align: center;
+          }
         }
         &:nth-child(odd) {
           td {
@@ -55,6 +66,11 @@
       }
     }
   }
+}
+.note {
+  padding: 8px;
+  font-size: 12px;
+  color: #808080;
 }
 </style>
 
