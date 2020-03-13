@@ -373,11 +373,11 @@ export default {
   }
   &-SocialLinkContainer {
     display: flex;
+    & a:not(:last-of-type) {
+      margin-right: 10px;
+    }
     & img {
       width: 30px;
-      &:first-of-type {
-        margin-right: 10px;
-      }
     }
   }
   &-Copyright {
