@@ -7,7 +7,7 @@
             $t('新型コロナ受診相談窓口')
           }}</span>
         </div>
-        <div :class="[$style.AdvisoryContentsColsSentense, $style.Mt16]">
+        <div :class="[$style.AdvisoryContentsColsSentense, 'mt-4']">
           {{ $t('帰国者・接触者 電話相談センター') }}
         </div>
         <div>
@@ -28,7 +28,7 @@
             :class="[
               $style.AdvisoryLink,
               $style.AdvisoryBlockCentering,
-              $style.Mt16
+              'mt-4'
             ]"
           >
             <a
@@ -52,7 +52,7 @@
           </div>
           <span>{{ $t('午後5時から翌朝午前9時') }}</span>
         </div>
-        <div :class="$style.Mt4">
+        <div class="mt-1">
           <span :class="$style.AdvisoryContentsSubTitle">
             {{ $t('土日祝 終日') }}
           </span>
@@ -61,24 +61,12 @@
           :class="[
             $style.AdvisoryTelephoneArea,
             $style.AdvisoryBlockCentering,
-            $style.Mt4
+            'mt-1'
           ]"
         >
           <img src="/flow/phone-24px.svg" />
           <span :class="$style.AdvisoryTelephone">03-5320-4592</span>
         </div>
-      </div>
-    </div>
-
-    <div :class="$style.AdvisoryBlockCentering">
-      <img src="/flow/flow_arrow.svg" :class="$style.Rotate" />
-    </div>
-
-    <div :class="$style.AdvisoryBlockCentering">
-      <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryBlackBox]">
-        <span :class="$style.AdvisoryBlackBoxSentense">{{
-          $t('専門的な助言が必要な場合')
-        }}</span>
       </div>
     </div>
   </div>
@@ -161,31 +149,5 @@
       font-weight: bold;
     }
   }
-  &BlackBox {
-    background-color: $gray-2;
-    width: 100%;
-    height: 210px; // FIXME: 左のGridと揃える
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &Sentense {
-      color: $white;
-      font-size: 20px;
-      line-height: 26px;
-    }
-  }
-}
-.Rotate {
-  transform: rotate(-90deg);
-}
-.Mt4 {
-  margin-top: 4px;
-}
-.Mt16 {
-  margin-top: 16px;
-}
-.Mt20 {
-  margin-top: 20px;
 }
 </style>
