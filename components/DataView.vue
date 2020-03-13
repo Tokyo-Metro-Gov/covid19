@@ -72,15 +72,11 @@
               </button>
 
               <button @click="twitter">
-                <v-icon class="icon-resize twitter" size="22">
-                  mdi-twitter
-                </v-icon>
+                <img src="/twitter.png" class="icon-resize twitter" />
               </button>
 
               <button @click="facebook">
-                <v-icon class="icon-resize facebook" size="34">
-                  mdi-facebook
-                </v-icon>
+                <img src="/facebook.png" class="icon-resize facebook" />
               </button>
             </div>
           </div>
