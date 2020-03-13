@@ -1,6 +1,6 @@
 <template>
   <div class="SideNavigation">
-    <div class="SideNavigation-HeadingContainer sp-flex">
+    <header class="SideNavigation-HeadingContainer sp-flex">
       <v-icon
         class="SideNavigation-HeadingIcon pc-none"
         :aria-label="$t('サイドメニュー項目を開く')"
@@ -16,7 +16,7 @@
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
-    </div>
+    </header>
     <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
@@ -26,21 +26,23 @@
       >
         mdi-close
       </v-icon>
-      <v-list :flat="true">
-        <v-container
-          v-for="(item, i) in items"
-          :key="i"
-          class="SideNavigation-ListItemContainer"
-          @click="closeNavi"
-        >
-          <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
-          <v-divider v-show="item.divider" class="SideNavigation-Divider" />
-        </v-container>
-      </v-list>
-      <div class="SideNavigation-LanguageMenu">
-        <LanguageSelector />
-      </div>
-      <div class="SideNavigation-Footer">
+      <nav>
+        <v-list :flat="true">
+          <v-container
+            v-for="(item, i) in items"
+            :key="i"
+            class="SideNavigation-ListItemContainer"
+            @click="closeNavi"
+          >
+            <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
+            <v-divider v-show="item.divider" class="SideNavigation-Divider" />
+          </v-container>
+        </v-list>
+        <div class="SideNavigation-LanguageMenu">
+          <LanguageSelector />
+        </div>
+      </nav>
+      <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
             href="https://line.me/R/ti/p/%40822sysfc"
@@ -72,7 +74,7 @@
           <a
             rel="license"
             target="_blank"
-            href="http://creativecommons.org/licenses/by/4.0/"
+            :href="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
           >
             {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
           </a>
@@ -80,7 +82,7 @@
           <br />
           2020 Tokyo Metropolitan Government
         </small>
-      </div>
+      </v-footer>
     </div>
   </div>
 </template>
@@ -104,6 +106,7 @@
     "知事からのメッセージ": "知事からのメッセージ",
     "当サイトについて": "当サイトについて",
     "このサイトの内容物は": "このサイトの内容物は",
+    "https://creativecommons.org/licenses/by/4.0/deed.ja":"https://creativecommons.org/licenses/by/4.0/deed.ja",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "クリエイティブ・コモンズ 表示 4.0 ライセンス",
     "の下に提供されています。": "の下に提供されています。"
   },
@@ -124,6 +127,7 @@
     "知事からのメッセージ": "Message from Governor Koike on COVID-19 (in Japanese)",
     "当サイトについて": "About the website",
     "このサイトの内容物は": "Content on This Site is Licensed Under a",
+    "https://creativecommons.org/licenses/by/4.0/deed.ja":"https://creativecommons.org/licenses/by/4.0/",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
     "の下に提供されています。": " "
   },
@@ -144,6 +148,7 @@
     "知事からのメッセージ": "东京都知事寄语（内容为日语）",
     "当サイトについて": "关于本站",
     "このサイトの内容物は": "Content on This Site is Licensed Under a",
+    "https://creativecommons.org/licenses/by/4.0/deed.ja":"https://creativecommons.org/licenses/by/4.0/deed.zh",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
     "の下に提供されています。": " "
   },
@@ -164,6 +169,7 @@
     "知事からのメッセージ": "東京都知事的話（日文網站）",
     "当サイトについて": "關於本站",
     "このサイトの内容物は": "Content on This Site is Licensed Under a",
+    "https://creativecommons.org/licenses/by/4.0/deed.ja":"https://creativecommons.org/licenses/by/4.0/deed.zh_TW",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
     "の下に提供されています。": " "
   },
@@ -184,6 +190,7 @@
     "知事からのメッセージ": "코로나19에 대한 도쿄 도지사의 메세지 (일본어)",
     "当サイトについて": "사이트 소개",
     "このサイトの内容物は": "Content on This Site is Licensed Under a",
+    "https://creativecommons.org/licenses/by/4.0/deed.ja":"https://creativecommons.org/licenses/by/4.0/deed.ko",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
     "の下に提供されています。": " "
   },
@@ -204,6 +211,7 @@
     "知事からのメッセージ": "えらいひとからの ことば",
     "当サイトについて": "この ウェブサイトについて",
     "このサイトの内容物は": "この ウェブサイトの ないようは",
+    "https://creativecommons.org/licenses/by/4.0/deed.ja":"https://creativecommons.org/licenses/by/4.0/deed.ja",
     "クリエイティブ・コモンズ 表示 4.0 ライセンス": "クリエイティブ・コモンズ 表示 4.0 ライセンス",
     "の下に提供されています。": "で ていきょう します"
   }

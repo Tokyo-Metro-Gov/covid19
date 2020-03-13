@@ -20,8 +20,10 @@
       >
         <slot />
       </div>
-      <v-footer class="DataView-Footer">
-        <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
+      <div class="DataView-Footer">
+        <a class="Permalink" :href="permalink()">
+          <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
+        </a>
         <a
           v-if="url"
           class="OpenDataLink"
@@ -34,7 +36,52 @@
             mdi-open-in-new
           </v-icon>
         </a>
-      </v-footer>
+      </div>
+      <div v-if="this.$route.query.embed != 'true'" class="DataView-Share py-2">
+        <button @click="openGraphEmbed = true">
+          <v-icon class="icon-resize embed" size="40">
+            mdi-code-tags
+          </v-icon>
+          <div class="share-text">
+            {{ $t('埋め込む') }}
+          </div>
+        </button>
+        <button @click="twitter">
+          <v-icon class="icon-resize twitter" size="40">
+            mdi-twitter
+          </v-icon>
+          <div class="share-text">
+            Twitter
+          </div>
+        </button>
+        <button @click="facebook">
+          <v-icon class="icon-resize facebook" size="73">
+            mdi-facebook
+          </v-icon>
+          <div class="share-text">
+            Facebook
+          </div>
+        </button>
+        <button @click="line">
+          <v-icon class="icon-resize line" size="75">
+            fab fa-line
+          </v-icon>
+          <div class="share-text">
+            LINE
+          </div>
+        </button>
+      </div>
+      <div v-if="openGraphEmbed" class="DataView-Embed pa-2">
+        <button @click="openGraphEmbed = false">
+          <v-icon size="16">
+            mdi-close
+          </v-icon>
+        </button>
+        <div>
+          {{ $t('グラフの埋め込み') }}
+        </div>
+        <textarea v-model="graphEmbedValue" />
+      </div>
     </div>
   </v-card>
 </template>
@@ -43,27 +90,39 @@
 {
   "ja": {
     "{date} 更新": "{date} 更新",
-    "オープンデータへのリンク": "オープンデータへのリンク"
+    "オープンデータへのリンク": "オープンデータへのリンク",
+    "埋め込む": "埋め込む",
+    "グラフの埋め込み": "グラフの埋め込み"
   },
   "en": {
     "{date} 更新": "Last update: {date}",
-    "オープンデータへのリンク": "Link to Open Data"
+    "オープンデータへのリンク": "Link to Open Data",
+    "埋め込む": "Embed",
+    "グラフの埋め込み": "Embed Graph"
   },
   "zh-cn": {
     "{date} 更新": "{date} 更新",
-    "オープンデータへのリンク": "公开数据的链接"
+    "オープンデータへのリンク": "公开数据的链接",
+    "埋め込む": "嵌入",
+    "グラフの埋め込み": "嵌入图表"
   },
   "zh-tw": {
     "{date} 更新": "{date} 更新",
-    "オープンデータへのリンク": "開放資料連結"
+    "オープンデータへのリンク": "開放資料連結",
+    "埋め込む": "嵌入",
+    "グラフの埋め込み": "嵌入圖表"
   },
   "ko": {
     "{date} 更新": "{date} 갱신",
-    "オープンデータへのリンク": "공공데이터에의 링크"
+    "オープンデータへのリンク": "공공데이터에의 링크",
+    "埋め込む": "퍼가기",
+    "グラフの埋め込み": "그래프를 퍼가기"
   },
   "ja-basic": {
     "{date} 更新": "{date} に あたらしく しました",
-    "オープンデータへのリンク": "オープンデータ という ページを みたいとき"
+    "オープンデータへのリンク": "オープンデータ という ページを みたいとき",
+    "埋め込む": "うめこむ",
+    "グラフの埋め込み": "グラフのうめこみ"
   }
 }
 </i18n>
@@ -81,6 +140,46 @@ export default class DataView extends Vue {
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
 
   formattedDate: string = convertDatetimeToISO8601Format(this.date)
+
+  openGraphEmbed: boolean = false
+
+  get graphEmbedValue() {
+    const graphEmbedValue =
+      '<iframe width="560" height="315" src="' +
+      this.permalink(true, true) +
+      '" frameborder="0"></iframe>'
+    return graphEmbedValue
+  }
+
+  permalink(host: boolean = false, embed: boolean = false) {
+    let permalink = '/cards/' + this.titleId
+    if (embed) {
+      permalink = permalink + '?embed=true'
+    }
+    permalink = this.localePath(permalink)
+
+    if (host) {
+      permalink = location.protocol + '//' + location.host + permalink
+    }
+
+    return permalink
+  }
+
+  twitter() {
+    const url = 'https://twitter.com/intent/tweet?url=' + this.permalink(true)
+    window.open(url)
+  }
+
+  facebook() {
+    const url = 'https://www.facebook.com/sharer.php?u=' + this.permalink(true)
+    window.open(url)
+  }
+
+  line() {
+    const url =
+      'https://social-plugins.line.me/lineit/share?url=' + this.permalink(true)
+    window.open(url)
+  }
 }
 </script>
 
@@ -152,14 +251,22 @@ export default class DataView extends Vue {
     margin-bottom: 46px;
     margin-top: 70px;
   }
+  &-Embed {
+    background-color: $gray-5;
+  }
   &-Footer {
     @include font-size(12);
     padding: 0 !important;
+    display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
     color: $gray-3 !important;
     text-align: right;
     background-color: $white !important;
+
+    .Permalink {
+      color: $gray-3 !important;
+    }
     .OpenDataLink {
       text-decoration: none;
       .ExternalLinkIcon {
@@ -167,5 +274,43 @@ export default class DataView extends Vue {
       }
     }
   }
+  &-Share {
+    display: flex;
+    justify-content: space-around;
+    background-color: $white !important;
+
+    .icon-resize {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin-left: 4px;
+      margin-right: 4px;
+      margin-bottom: 8px;
+
+      &.embed {
+        background: #f2f2f2;
+        border: 1px solid #e4e4e4;
+      }
+      &.twitter {
+        color: #fff;
+        background: #2a96eb;
+      }
+      &.facebook {
+        color: #364e8a;
+      }
+      &.line {
+        color: #1cb127;
+      }
+    }
+    .share-text {
+      color: rgb(3, 3, 3);
+      font-size: 13px;
+    }
+  }
+}
+textarea {
+  font: 400 11px system-ui;
+  width: 100%;
+  height: 2.4rem;
 }
 </style>
