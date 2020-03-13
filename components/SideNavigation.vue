@@ -147,11 +147,11 @@ export default {
           link:
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
         },
-        {
-          title: this.$t('Message from Governor Koike'),
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
-        },
+        //{
+        //  title: this.$t('Message from Governor Koike'),
+        //  link:
+        //    'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+        //},
         {
           title: this.$t('About us'),
           link: '/about'
