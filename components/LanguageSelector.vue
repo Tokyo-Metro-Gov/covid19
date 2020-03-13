@@ -28,7 +28,14 @@ import SelectMenuIcon from '@/static/selectmenu.svg'
 })
 export default class LanguageSelector extends Vue {
   navigate(locale: string) {
-    const matches = this.$router.currentRoute.path.match(/.*(\/.*)/)
+    // @fixme 超ダーティーハックです。。。
+    const mypath =
+      ['/en', '/zh-cn', '/zh-tw', '/ko'].indexOf(
+        this.$router.currentRoute.path
+      ) === 0
+        ? this.$router.currentRoute.path + '/'
+        : this.$router.currentRoute.path
+    const matches = mypath.match(/.*(\/.*)/)
     if (matches === null) {
       return
     }
