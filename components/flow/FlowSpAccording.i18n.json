@@ -23,13 +23,18 @@
     "一般の医療機関を受診": "一般の医療機関を受診"
   },
   "en": {
+<<<<<<< HEAD
     "{advisory}による相談結果": "According to call {advisory}",
     "新型コロナ受診相談窓口": "advisory",
+=======
+    "{advisory}による相談結果": "After your inquiry with {advisory}",
+    "新型コロナ受診相談窓口": "Combined telephone advice center",
+>>>>>>> English wording update
     "新型コロナ外来 {advice} と判断された場合": "If you are {advice} for COVID-19",
     "受診が必要": "advised to be examined",
     "新型コロナ外来（帰国者・接触者外来）": "COVID-19 consultation for returnees and contactees",
     "医師による判断": "Diagnosis by doctors",
-    "検査の必要{ifRequired}": "You are {ifRequired} to be tested",
+    "検査の必要{ifRequired}": "Test {ifRequired}",
     "あり": "required",
     "なし": "not required",
     "PCR検査": "PCR diagnostic test",
