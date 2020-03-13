@@ -21,6 +21,7 @@
       <consultation-desk-reports-number-card />
       <metro-card />
       <agency-card />
+      <shinjuku-card />
     </v-row>
   </div>
 </template>
@@ -43,6 +44,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+import ShinjukuCard from '@/components/cards/ShinjukuCard.vue'
 
 export default {
   components: {
@@ -56,7 +58,8 @@ export default {
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
     MetroCard,
-    AgencyCard
+    AgencyCard,
+    ShinjukuCard
   },
   data() {
     // 退院者グラフ
