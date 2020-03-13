@@ -79,16 +79,20 @@ export default {
       return this.chartData.reduce((res, d) => {
         const weekNum = dayjs(d.date).week()
         if (!res[weekNum]) res[weekNum] = []
-        res[weekNum].push(d)
-        return res
+        return res[weekNum].push(d) && res
       }, {})
     },
     displayData() {
       const labels = Object.keys(this.groupByWeekData).map(weekNum => {
-        return dayjs('2020-01-01')
+        const start = dayjs('2020-01-01')
           .week(weekNum)
           .startOf('week')
-          .format('M/Dの週')
+          .format('M/D')
+        const end = dayjs('2020-01-01')
+          .week(weekNum)
+          .endOf('week')
+          .format('M/D')
+        return `${start}~${end}`
       })
       const data = Object.values(this.groupByWeekData).map(days => {
         const avg = days.reduce((sum, d) => (sum += d.value), 0) / days.length
