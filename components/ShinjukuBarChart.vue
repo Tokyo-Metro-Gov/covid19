@@ -151,11 +151,29 @@ export default {
               return `期間: ${period}`
             },
             label(tooltipItem) {
-              const unit = tooltipItem.yLabel > 100 ? '人' : '%'
               const val = tooltipItem.yLabel
-              return `${val.toLocaleString()}${unit}`
+              if (tooltipItem.yLabel > 100) {
+                return `${val.toLocaleString()}人`
+              } else {
+                return `${val.toFixed(2)}%`
+              }
             }
           }
+        },
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                callback(value) {
+                  if (value > 100) {
+                    return `${value.toLocaleString()}`
+                  } else {
+                    return `${value.toFixed(2)}%`
+                  }
+                }
+              }
+            }
+          ]
         }
       }
     }
