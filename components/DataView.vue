@@ -11,13 +11,7 @@
         <slot name="infoPanel" />
         <slot name="button" />
       </div>
-      <div
-        :class="
-          $vuetify.breakpoint.xs
-            ? 'DataView-CardTextForXS'
-            : 'DataView-CardText'
-        "
-      >
+      <div class="DataView-CardText">
         <slot />
       </div>
       <div class="DataView-Footer">
@@ -282,6 +276,10 @@ export default class DataView extends Vue {
       .ExternalLinkIcon {
         vertical-align: text-bottom;
       }
+    }
+
+    .Footer-Left {
+      text-align: left;
     }
 
     .Footer-Right {
