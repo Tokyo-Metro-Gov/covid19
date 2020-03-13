@@ -62,7 +62,8 @@ export default {
     margin-left: px2vw(-11);
     margin-right: px2vw(-11);
     > .symptom {
-      margin: 0 px2vw(11);
+      margin-left: px2vw(11);
+      margin-right: px2vw(11);
       flex-grow: 10;
     }
   }
@@ -73,6 +74,27 @@ export default {
   text-align: center;
   .open {
     margin-top: px2vw(10);
+  }
+}
+
+@include largerThan($small) {
+  $vw: 960;
+  .rectContainer {
+    &.triple {
+      margin-left: px2vw(-11, $vw);
+      margin-right: px2vw(-11, $vw);
+      > .symptom {
+        margin-left: px2vw(11, $vw);
+        margin-right: px2vw(11, $vw);
+      }
+    }
+  }
+  // suspect
+  .callcenter {
+    margin-top: px2vw(25, $vw);
+    .open {
+      margin-top: px2vw(10, $vw);
+    }
   }
 }
 </style>

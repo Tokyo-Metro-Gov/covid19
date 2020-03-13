@@ -117,4 +117,29 @@ export default {
     }
   }
 }
+
+@include largerThan($small) {
+  $vw: 960;
+  .open {
+    margin-top: px2vw(20, $vw);
+    > span {
+      padding: px2vw(20) px2vw(40, $vw);
+      border-radius: px2vw(6, $vw);
+    }
+  }
+  .daytime {
+    margin-top: px2vw(20, $vw);
+    > * {
+      padding: px2vw(30) px2vw(10, $vw);
+    }
+  }
+  .night {
+    margin: px2vw(30, $vw) auto;
+    > li {
+      &:not(:first-child) {
+        margin-top: px2vw(20, $vw);
+      }
+    }
+  }
+}
 </style>

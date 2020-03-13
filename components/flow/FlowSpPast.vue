@@ -179,4 +179,30 @@ export default {
     }
   }
 }
+
+@include largerThan($small) {
+  $vw: 960;
+  .type {
+    margin-top: px2vw(20, $vw);
+    &.hr {
+      margin-top: px2vw(30, $vw);
+      padding-top: px2vw(30, $vw);
+    }
+    .source {
+      &:last-child {
+        margin-top: px2vw(10, $vw);
+      }
+    }
+    .behavior {
+      &:last-child {
+        margin-top: px2vw(5, $vw);
+      }
+    }
+  }
+  .rectContainer {
+    &.req {
+      margin-top: px2vw(20, $vw);
+    }
+  }
+}
 </style>
