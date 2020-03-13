@@ -22,24 +22,27 @@
       </div>
       <div class="DataView-Footer">
         <div class="Footer-Left">
-          <a
-            v-if="url"
-            class="OpenDataLink"
-            :href="url"
-            target="_blank"
-            rel="noopener"
-          >
-            {{ $t('オープンデータを入手') }}
-            <v-icon class="ExternalLinkIcon" size="15">
-              mdi-open-in-new
-            </v-icon>
-          </a>
-          <br />
-          <a class="Permalink" :href="permalink()">
-            <time :datetime="formattedDate">
-              {{ $t('{date} 更新', { date }) }}
-            </time>
-          </a>
+          <div>
+            <a
+              v-if="url"
+              class="OpenDataLink"
+              :href="url"
+              target="_blank"
+              rel="noopener"
+            >
+              {{ $t('オープンデータを入手') }}
+              <v-icon class="ExternalLinkIcon" size="15">
+                mdi-open-in-new
+              </v-icon>
+            </a>
+          </div>
+          <div>
+            <a class="Permalink" :href="permalink()">
+              <time :datetime="formattedDate">
+                {{ $t('{date} 更新', { date }) }}
+              </time>
+            </a>
+          </div>
         </div>
 
         <div v-if="this.$route.query.embed != 'true'" class="Footer-Right">
@@ -287,7 +290,7 @@ export default class DataView extends Vue {
     }
   }
   &-CardText {
-    margin: 30px 0;
+    margin: 16px 0;
   }
   &-CardTextForXS {
     margin-bottom: 46px;
@@ -323,7 +326,7 @@ export default class DataView extends Vue {
         right: 0px;
         bottom: 2.5em;
         width: 240px;
-        border: solid 1px #eee;
+        border: solid 1px $gray-4;
         background: $white !important;
         border-radius: 8px;
         text-align: left;
