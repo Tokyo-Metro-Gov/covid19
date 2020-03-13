@@ -376,7 +376,7 @@ export default class DataView extends Vue {
 
         > .Buttons {
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           margin-top: 4px;
 
           .icon-resize {
@@ -386,7 +386,6 @@ export default class DataView extends Vue {
             font-size: 30px;
             margin-left: 4px;
             margin-right: 4px;
-            margin-bottom: 8px;
 
             &.twitter {
               color: #fff;
@@ -397,10 +396,6 @@ export default class DataView extends Vue {
             }
             &.line {
               color: #1cb127;
-            }
-
-            .share-text {
-              font-size: 12px;
             }
           }
         }
