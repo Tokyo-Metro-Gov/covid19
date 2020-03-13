@@ -12,8 +12,8 @@
       :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
       :btn-text="'相談の手順を見る'"
     />
-<!--    <v-row class="DataBlock">
-      <v-col cols="12" md="6" class="DataCard">
+    <v-row class="DataBlock">
+<!--      <v-col cols="12" md="6" class="DataCard">
         <svg-card
           title="検査陽性者の状況"
           :title-id="'details-of-confirmed-cases'"
