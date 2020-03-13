@@ -272,7 +272,6 @@ export default class DataView extends Vue {
     background-color: $gray-5;
   }
   &-Footer {
-    position: relative;
     @include font-size(12);
     padding: 0 !important;
     display: flex;
@@ -292,6 +291,7 @@ export default class DataView extends Vue {
     }
 
     .Footer-Right {
+      position: relative;
       .DataView-Share-Opener {
         cursor: pointer;
       }
@@ -321,6 +321,7 @@ export default class DataView extends Vue {
         > .EmbedCode {
           position: relative;
           padding: 4px;
+          padding-right: 30px;
           color: rgb(3, 3, 3);
           border: solid 1px #eee;
           border-radius: 8px;
