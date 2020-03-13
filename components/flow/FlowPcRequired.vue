@@ -52,7 +52,7 @@
   text-align: center;
 }
 .Row {
-  flex: 1;
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -62,7 +62,7 @@
   margin: 0;
 }
 .TwoRow {
-  flex: 1;
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -73,7 +73,7 @@
   margin: 0 !important;
 }
 .Card {
-  flex-basis: 48%;
+  width: 48%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,7 +81,7 @@
   border-radius: 4px;
   padding: 10px;
   p {
-    margin: 0;
+    margin: 0 !important; // FIXME: IEだとv-applicationのmarginが優先される
   }
 }
 .CardLarge {
