@@ -34,7 +34,7 @@
       </p>
     </div>
 
-    <a v-scroll-to="'#consult'" href="#consult" :class="$style.button">
+    <a v-scroll-to="'#consult'" href="#consult" :class="[$style.button, $style.clickable]">
       <span :class="$style.text">{{ $t('専門的な助言が必要な場合') }}</span>
       <ArrowForwardIcon :class="$style.icon" />
     </a>
