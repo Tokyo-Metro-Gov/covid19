@@ -1,6 +1,6 @@
 <template>
   <v-app class="app">
-    <div class="appContainer">
+    <div v-if="hasNavigation" class="appContainer">
       <div class="naviContainer">
         <SideNavigation
           :is-navi-open="isOpenNavigation"
@@ -9,12 +9,16 @@
           @closeNavi="hideNavigation"
         />
       </div>
-      <div class="mainContainer" :class="{ open: isOpenNavigation }">
+      <main class="mainContainer" :class="{ open: isOpenNavigation }">
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
-        <development-mode-mark />
-      </div>
+      </main>
+    </div>
+    <div v-else class="embed">
+      <v-container>
+        <nuxt />
+      </v-container>
     </div>
   </v-app>
 </template>
@@ -22,19 +26,24 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import SideNavigation from '@/components/SideNavigation.vue'
-import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 
 type LocalData = {
+  hasNavigation: boolean
   isOpenNavigation: boolean
 }
 
 export default Vue.extend({
   components: {
-    DevelopmentModeMark,
     SideNavigation
   },
   data(): LocalData {
+    let hasNavigation = true
+    if (this.$route.query.embed === 'true') {
+      hasNavigation = false
+    }
+
     return {
+      hasNavigation,
       isOpenNavigation: false
     }
   },
@@ -66,6 +75,16 @@ export default Vue.extend({
   margin: 0 auto;
   background-color: inherit !important;
 }
+.embed {
+  display: grid;
+
+  .container {
+    padding: 0 !important;
+  }
+  .DataCard {
+    padding: 0 !important;
+  }
+}
 .appContainer {
   position: relative;
   @include largerThan($small) {
@@ -94,6 +113,7 @@ export default Vue.extend({
     overflow-y: auto;
     width: 240px;
     height: 100%;
+    overscroll-behavior: contain;
   }
 }
 @include largerThan($huge) {
@@ -113,7 +133,7 @@ export default Vue.extend({
   overflow: hidden;
   @include lessThan($small) {
     .container {
-      padding-top: 16px !important;
+      padding-top: 16px;
     }
   }
 }

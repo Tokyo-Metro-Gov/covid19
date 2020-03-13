@@ -1,6 +1,6 @@
 <template>
   <div class="SideNavigation">
-    <div class="SideNavigation-HeadingContainer sp-flex">
+    <header class="SideNavigation-HeadingContainer sp-flex">
       <v-icon
         class="SideNavigation-HeadingIcon pc-none"
         :aria-label="$t('サイドメニュー項目を開く')"
@@ -16,7 +16,7 @@
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
-    </div>
+    </header>
     <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
@@ -26,21 +26,23 @@
       >
         mdi-close
       </v-icon>
-      <v-list :flat="true">
-        <v-container
-          v-for="(item, i) in items"
-          :key="i"
-          class="SideNavigation-ListItemContainer"
-          @click="closeNavi"
-        >
-          <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
-          <v-divider v-show="item.divider" class="SideNavigation-Divider" />
-        </v-container>
-      </v-list>
-      <div class="SideNavigation-LanguageMenu">
-        <LanguageSelector />
-      </div>
-      <div class="SideNavigation-Footer">
+      <nav>
+        <v-list :flat="true">
+          <v-container
+            v-for="(item, i) in items"
+            :key="i"
+            class="SideNavigation-ListItemContainer"
+            @click="closeNavi"
+          >
+            <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
+            <v-divider v-show="item.divider" class="SideNavigation-Divider" />
+          </v-container>
+        </v-list>
+        <div class="SideNavigation-LanguageMenu">
+          <LanguageSelector />
+        </div>
+      </nav>
+      <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
             href="https://line.me/R/ti/p/%40822sysfc"
@@ -63,7 +65,11 @@
           >
             <img src="/facebook.png" alt="Facebook" />
           </a>
-          <a href="https://github.com/tokyo-metropolitan-gov/covid19">
+          <a
+            href="https://github.com/tokyo-metropolitan-gov/covid19"
+            target="_blank"
+            rel="noopener"
+          >
             <img src="/github.png" alt="GitHub" />
           </a>
         </div>
@@ -80,7 +86,7 @@
           <br />
           2020 Tokyo Metropolitan Government
         </small>
-      </div>
+      </v-footer>
     </div>
   </div>
 </template>
@@ -367,11 +373,11 @@ export default {
   }
   &-SocialLinkContainer {
     display: flex;
+    & a:not(:last-of-type) {
+      margin-right: 10px;
+    }
     & img {
       width: 30px;
-      &:first-of-type {
-        margin-right: 10px;
-      }
     }
   }
   &-Copyright {
