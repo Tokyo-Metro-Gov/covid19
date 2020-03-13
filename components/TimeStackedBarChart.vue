@@ -3,6 +3,12 @@
     <template v-slot:button>
       <p class="Graph-Desc">
         {{ $t('（注）同一の対象者について複数の検体を調査する場合あり') }}
+        <br />
+        {{
+          $t(
+            '検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります'
+          )
+        }}
       </p>
       <data-selector v-model="dataKind" />
     </template>
@@ -142,17 +148,22 @@ export default {
               const labelArray = [labelTokyo, labelOthers]
               let casesTotal, cases
               if (this.dataKind === 'transition') {
-                casesTotal = sumArray[tooltipItem.index]
-                cases = data[tooltipItem.datasetIndex][tooltipItem.index]
+                casesTotal = sumArray[tooltipItem.index].toLocaleString()
+                cases = data[tooltipItem.datasetIndex][
+                  tooltipItem.index
+                ].toLocaleString()
               } else {
-                casesTotal = cumulativeSumArray[tooltipItem.index]
-                cases =
-                  cumulativeData[tooltipItem.datasetIndex][tooltipItem.index]
+                casesTotal = cumulativeSumArray[
+                  tooltipItem.index
+                ].toLocaleString()
+                cases = cumulativeData[tooltipItem.datasetIndex][
+                  tooltipItem.index
+                ].toLocaleString()
               }
 
-              return `${casesTotal} ${unit} (${
+              return `${
                 labelArray[tooltipItem.datasetIndex]
-              }: ${cases})`
+              }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
             },
             title(tooltipItem, data) {
               return data.labels[tooltipItem[0].index]
@@ -162,7 +173,13 @@ export default {
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-          display: true
+          display: true,
+          onHover: e => {
+            e.currentTarget.style.cursor = 'pointer'
+          },
+          onLeave: e => {
+            e.currentTarget.style.cursor = 'default'
+          }
         },
         scales: {
           xAxes: [
