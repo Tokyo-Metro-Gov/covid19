@@ -105,12 +105,18 @@ export default {
     }
   },
   data() {
+    const agencies = [
+      this.$t('第一庁舎計'),
+      this.$t('第二庁舎計'),
+      this.$t('議事堂計')
+    ]
     agencyData.datasets.map(dataset => {
       dataset.label = this.$t(dataset.label)
     })
     return {
       chartData: agencyData,
-      date: agencyData.date
+      date: agencyData.date,
+      agencies
     }
   },
   computed: {
@@ -118,11 +124,11 @@ export default {
       const colors = ['#008b41', '#63c765', '#a6e29f']
       return {
         labels: this.chartData.labels,
-        datasets: this.chartData.datasets.map((d, i) => {
+        datasets: this.chartData.datasets.map((item, index) => {
           return {
-            label: d.label,
-            data: d.data,
-            backgroundColor: colors[i]
+            label: this.agencies[index],
+            data: item.data,
+            backgroundColor: colors[index]
           }
         })
       }
