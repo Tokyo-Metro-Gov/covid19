@@ -8,9 +8,9 @@
       >
         <option
           v-for="locale in $i18n.locales"
-          v-bind:title="'Switch to ' + locale.description"
           :key="locale.code"
           :value="locale.code"
+          :title="'Switch to ' + locale.description"
         >
           {{ locale.name }}
         </option>
