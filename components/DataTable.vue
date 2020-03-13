@@ -52,6 +52,11 @@
 <style lang="scss">
 .cardTable {
   &.v-data-table {
+    table {
+      thead {
+        filter: drop-shadow(0 0 7px #000000cc);
+      }
+    }
     th {
       padding: 8px 10px;
       height: auto;
