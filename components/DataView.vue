@@ -53,7 +53,11 @@
             <h4>埋め込み用コード</h4>
 
             <div class="EmbedCode">
-              <v-icon class="EmbedCode-Copy" @click="copyEmbedCode">
+              <v-icon
+                v-if="isCopyAvailable"
+                class="EmbedCode-Copy"
+                @click="copyEmbedCode"
+              >
                 far fa-clipboard
               </v-icon>
               {{ this.graphEmbedValue }}
@@ -96,6 +100,12 @@
         </div>
       </div>
     </div>
+
+    <div v-if="showOverlay" class="overlay">
+      <div class="overlay-text">
+        埋め込みURLをコピーしました
+      </div>
+    </div>
   </v-card>
 </template>
 
@@ -119,6 +129,8 @@ export default class DataView extends Vue {
 
   displayShare: boolean = false
 
+  showOverlay: boolean = false
+
   get graphEmbedValue() {
     const graphEmbedValue =
       '<iframe width="560" height="315" src="' +
@@ -135,6 +147,10 @@ export default class DataView extends Vue {
     this.displayShare = false
   }
 
+  isCopyAvailable() {
+    return document.execCommand('copy')
+  }
+
   copyEmbedCode() {
     const element = document.createElement('input')
     element.value = this.graphEmbedValue
@@ -145,6 +161,11 @@ export default class DataView extends Vue {
     document.body.removeChild(element)
 
     this.closeShareMenu()
+
+    this.showOverlay = true
+    setTimeout(() => {
+      this.showOverlay = false
+    }, 2000)
   }
 
   permalink(host: boolean = false, embed: boolean = false) {
@@ -340,7 +361,31 @@ export default class DataView extends Vue {
       }
     }
   }
+
+  .overlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    opacity: 0.8;
+
+    > .overlay-text {
+      text-align: center;
+      padding: 2em;
+      width: 60%;
+      background: $gray-2;
+      border-radius: 8px;
+      color: $white !important;
+    }
+  }
 }
+
 textarea {
   font: 400 11px system-ui;
   width: 100%;
