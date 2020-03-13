@@ -9,7 +9,7 @@
 ## Issue へのコメントや Pull Request について
 * Issue へのコメントはご自由にどうぞ！新しい質問や提案なども受け付けます。
 * Issue を追加する場合、必ず既に同様の Issue が無いか検索をしてから作成してください。
-* Pull Reuqest を送る場合、必ず対応する Issue 番号を追記してください。単独の Pull Request は受け付けません。
+* Pull Request を送る場合、必ず対応する Issue 番号を追記してください。単独の Pull Request は受け付けません。
 * improve(改善提案)がついたIssueについては必ず反映できると限りませんのでご了承ください（特にUI系について）
 * good first issue / help wanted / bug を優先して対応いただけると助かります
 
@@ -26,6 +26,9 @@
 * 1日以上更新されない Issue については、当方で assign を外させていただくことがあります。作業途中でも、[Draft Pull Request](https://qiita.com/tatane616/items/13da1b6797a7b871ad58) を送ってもらえると、動きが把握しやすくなります。
 * Issue に関連した質問等は、Slack より Issue 内のコメントを活用しましょう
 * 提案なども受け付けます！積極的に新しく Issue を作ってください。
+
+## 参考情報
+* [東京都 新型コロナウイルス対策サイトへの貢献方法を解説(Qiita)](https://qiita.com/FPC_COMMUNITY/items/b9cc072813dc2231b2b2)
 
 ## CONTRIBUTORS.md への追加について
 ご協力いただいた皆様のお名前（ハンドルネーム）や役割を記す、[CONTRIBUTORS.md](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/CONTRIBUTORS.md) というファイルがあります。

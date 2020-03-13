@@ -19,11 +19,12 @@
   </data-view>
 </template>
 
+<i18n src="./TimeBarChart.i18n.json"></i18n>
+
 <style></style>
 
 <script lang="ts">
 import Vue from 'vue'
-import { ChartData, ChartTooltipItem } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
@@ -57,11 +58,8 @@ type Computed = {
     tooltips: {
       displayColors: boolean
       callbacks: {
-        label(tooltipItem: ChartTooltipItem): string
-        title(
-          tooltipItem: ChartTooltipItem[],
-          data: ChartData
-        ): string | undefined
+        label(tooltipItem: any): string
+        title(tooltipItem: any[], data: any): string | undefined
       }
     }
     responsive: boolean
@@ -71,6 +69,7 @@ type Computed = {
     }
     scales: object
   }
+  scaledTicksYAxisMax: number
 }
 type Props = {
   title: string
@@ -138,7 +137,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       if (this.dataKind === 'transition') {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `実績値（前日比：${this.displayTransitionRatio} ${this.unit}）`,
+          sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
+            this.displayTransitionRatio
+          } ${this.unit}）`,
           unit: this.unit
         }
       }
@@ -146,9 +147,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         lText: this.chartData[
           this.chartData.length - 1
         ].cumulative.toLocaleString(),
-        sText: `${this.chartData.slice(-1)[0].label} 累計値（前日比：${
-          this.displayCumulativeRatio
-        } ${this.unit}）`,
+        sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
+          '累計値'
+        )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
+          this.unit
+        }）`,
         unit: this.unit
       }
     },
@@ -186,23 +189,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOption() {
       const unit = this.unit
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       return {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem: ChartTooltipItem) {
-              return tooltipItem.value ? tooltipItem.value + unit : '0' + unit
+            label(tooltipItem) {
+              const labelText = `${parseInt(
+                tooltipItem.value
+              ).toLocaleString()} ${unit}`
+              return labelText
             },
-            title(tooltipItem: ChartTooltipItem[], data: ChartData) {
-              if (
-                tooltipItem[0].index &&
-                data.labels &&
-                data.labels.length > 0
-              ) {
-                const index = tooltipItem[0].index
-                const date = data.labels[index].toString()
-                return date.replace(/(\w+)\/(\w+)/, '$1月$2日')
-              }
+            title(tooltipItem, data) {
+              return data.labels[tooltipItem[0].index]
             }
           }
         },
@@ -283,12 +282,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080'
+                fontColor: '#808080',
+                suggestedMax: scaledTicksYAxisMax
               }
             }
           ]
         }
       }
+    },
+    scaledTicksYAxisMax() {
+      const yAxisMax = 1.2
+      const dataKind =
+        this.dataKind === 'transition' ? 'transition' : 'cumulative'
+      const values = this.chartData.map(d => d[dataKind])
+      return Math.max(...values) * yAxisMax
     }
   },
   methods: {
