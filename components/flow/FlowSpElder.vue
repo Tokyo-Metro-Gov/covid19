@@ -209,4 +209,25 @@ export default {
     }
   }
 }
+
+@include largerThan($small) {
+  $vw: 960;
+  .heading {
+    &.multi {
+      margin-top: px2vw(-20, $vw);
+      margin-left: px2vw(-10, $vw);
+      margin-right: px2vw(-10, $vw);
+      .icon {
+        width: px2vw(50, $vw);
+        height: px2vw(50, $vw);
+      }
+      > .item {
+        margin: px2vw(20, $vw) px2vw(10, $vw) 0;
+        svg {
+          margin-right: px2vw(5, $vw);
+        }
+      }
+    }
+  }
+}
 </style>

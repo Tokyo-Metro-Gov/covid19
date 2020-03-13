@@ -10,7 +10,7 @@
       :class="$style.diag"
       path="新型コロナ外来 {advice} と判断された場合"
     >
-      <span :class="[$style.fzXLarge, $style.break]" place="advice">
+      <span :class="[$style.fzXLLarge, $style.break]" place="advice">
         {{ $t('受診が必要') }}
       </span>
     </i18n>
@@ -58,7 +58,7 @@
       <span :class="$style.break">
         <!-- 改行によって空白が入らないように-->
         <!-- eslint-disable -->
-        <span :class="$style.fzXLarge">{{ $t('PCR検査') }}</span>{{ $t('※') }}
+        <span :class="$style.fzXLLarge">{{ $t('PCR検査') }}</span>{{ $t('※') }}
         <!-- eslint-enable -->
       </span>
       <span :class="$style.break">
@@ -104,7 +104,7 @@
       :class="[$style.diag, $style.hr]"
       path="新型コロナ外来 {advice} と判断された場合"
     >
-      <span :class="[$style.break, $style.fzXLarge]" place="advice">
+      <span :class="[$style.break, $style.fzXLLarge]" place="advice">
         {{ $t('受診が不要') }}
       </span>
     </i18n>
@@ -323,6 +323,9 @@ export default {
   .note {
     margin-top: px2vw(10);
   }
+  .fzXLLarge {
+    font-size: px2vw(56);
+  }
 }
 .rectContainer {
   .rect {
@@ -393,152 +396,70 @@ export default {
     }
   }
 }
-/*
-@function px2vw($px, $vw: 600) {
-  @return $px / $vw * 100vw;
-}
 
-.container {
-  color: $gray-2;
-  font-size: px2vw(22);
-  line-height: 1.15;
-  // override default styles
-  em {
-    font-style: normal;
-  }
-  // override Vuetify styles
-  p {
-    margin-bottom: 0;
-  }
-}
-.heading {
-  color: $green-1;
-  text-align: center;
-  font-weight: bold;
-  line-height: 1.5;
-  > span {
-    display: block;
-    font-size: px2vw(38);
-  }
-}
-.diag {
-  margin-top: px2vw(30);
-  font-weight: bold;
-  text-align: center;
-  line-height: 1.35;
-  &.hr {
-    border-top: 1px solid $gray-4;
-    padding-top: px2vw(30);
-  }
-  .large {
-    font-size: px2vw(64);
-  }
-  .line {
-    display: block;
-  }
-  .place {
-    font-size: px2vw(30);
-  }
-  .note {
-    margin-top: px2vw(10);
-  }
-}
-.decision {
-  margin-top: px2vw(20);
-  padding: px2vw(25);
-  background-color: $gray-2;
-  border-radius: px2vw(5);
-  color: $white;
-  text-align: center;
-  font-weight: bold;
-  line-height: 1.65;
-  > span {
-    display: block;
-    &.small {
-      font-size: px2vw(18);
-    }
-  }
-}
-.rectContainer {
-  margin-top: px2vw(25);
-  display: flex;
-  justify-content: space-between;
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-}
-
-// 601-768 (769以上はPC版)
 @include largerThan($small) {
-  .container {
-    font-size: px2vw(20, 768);
-  }
-  .heading {
-    > span {
-      font-size: px2vw(32, 768);
+  $vw: 960;
+  .according {
+    .diag {
+      margin-top: px2vw(30, $vw);
+      &.hr {
+        padding-top: px2vw(30, $vw);
+      }
     }
-  }
-  .diag {
-    margin-top: px2vw(30, 768);
-    &.hr {
-      padding-top: px2vw(30, 768);
-    }
-    .large {
-      font-size: px2vw(48, 768);
-    }
-    .place {
-      font-size: px2vw(26, 768);
+    .decision {
+      margin-top: px2vw(20, $vw);
+      padding: px2vw(20, $vw);
+      border-radius: px2vw(6, $vw);
     }
     .note {
-      margin-top: px2vw(10, 768);
+      margin-top: px2vw(10, $vw);
     }
-  }
-  .decision {
-    margin-top: px2vw(20, 768);
-    padding: px2vw(25, 768);
-    border-radius: px2vw(5, 768);
-    > span {
-      &.small {
-        font-size: px2vw(18, 768);
-      }
+    .fzXLLarge {
+      font-size: px2vw(56, $vw);
     }
   }
   .rectContainer {
-    margin-top: px2vw(25, 768);
-  }
-  .rect {
-    min-height: px2vw(188, 768);
-    border-radius: px2vw(5, 768);
-    font-size: px2vw(24, 768);
-    &.shadow {
-      box-shadow: 0 px2vw(3, 768) px2vw(6, 768) $gray-3;
-    }
-    &.border {
-      border: px2vw(3, 768) solid $gray-4;
-      padding: px2vw(10, 768);
-    }
-    &.bdGreen {
-      padding: px2vw(20, 768);
-    }
-    .large {
-      font-size: px2vw(36, 768);
-    }
-    .advisory {
-      font-size: px2vw(32, 768);
-      margin-top: px2vw(10, 768);
-      margin-bottom: px2vw(10, 768);
-    }
-    .line {
-      margin-top: px2vw(5, 768);
-    }
-    .arrow {
-      margin-top: px2vw(10, 768);
-    }
-    .icon {
-      margin-bottom: px2vw(10, 768);
+    .rect {
+      min-height: px2vw(188, $vw);
+      padding: px2vw(20, $vw) px2vw(10, $vw);
+      border-radius: px2vw(6, $vw);
+      font-size: px2vw(24, $vw);
+      &.shadow {
+        box-shadow: px2vw(-1.5, $vw) px2vw(3, $vw) px2vw(7.5, $vw) $gray-3;
+        padding-bottom: px2vw((56 + 20 * 2), $vw);
+      }
+      &.border {
+        border: px2vw(3, $vw) solid $gray-4;
+        padding-top: px2vw((46 + 20 * 2), $vw);
+      }
+      &.consult {
+        border: px2vw(3, $vw) solid $green-1;
+      }
+      &:nth-child(n + 3) {
+        margin-top: px2vw((486 - 233 - 233), $vw);
+      }
+      .large {
+        font-size: px2vw(42, $vw);
+      }
+      .advisory {
+        font-size: px2vw(38, $vw);
+        margin-top: px2vw(10, $vw);
+        margin-bottom: px2vw(10, $vw);
+      }
+      .line {
+        margin-top: px2vw(5, $vw);
+      }
+      .arrow {
+        width: px2vw(56, $vw);
+        height: px2vw(56, $vw);
+        bottom: px2vw(20, $vw);
+      }
+      .icon {
+        width: px2vw(46, $vw);
+        height: px2vw(46, $vw);
+        top: px2vw(20, $vw);
+      }
     }
   }
 }
-*/
 </style>
