@@ -75,19 +75,19 @@
   "ja": {
     "Navi Open": "サイドメニュー項目を開く",
     "Navi Close": "サイドメニュー項目を閉じる",
-    "Tokyo": "東京都",
+    "Tokyo": "千葉県",
     "COVID-19": "新型コロナウイルス感染症",
     "Measures site": "対策サイト",
     "Tokyo Metropolitan Government": "東京都",
-    "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
-    "The latest updates": "都内の最新感染動向",
+    "Chiba COVID-19 Task Force": "新型コロナウイルス感染症対策本部(非公式)",
+    "The latest updates": "県内の最新感染動向",
     "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
     "for Families with children": "お子様をお持ちの皆様へ",
-    "for Citizens": "都民の皆様へ",
+    "for Citizens": "県民の皆様へ",
     "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
-    "Official statements from Task Force": "東京都新型コロナウイルス感染症対策本部報",
-    "Cancelled public events": "東京都主催等 中止又は延期するイベント等",
-    "Government official website": "東京都公式ホームページ",
+    "Official statements from Task Force": "新型コロナウイルス感染症への対応について",
+    "Cancelled public events": "臨時休館情報",
+    "Government official website": "千葉県公式ホームページ",
     "Message from Governor Koike": "知事からのメッセージ",
     "About us": "当サイトについて"
   }
@@ -129,7 +129,7 @@ export default {
         {
           icon: 'mdi-account-multiple',
           title: this.$t('for Citizens'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
+          link: 'https://www.pref.chiba.lg.jp/shippei/kansenshou/2019-ncov.html'
         },
         {
           icon: 'mdi-domain',
@@ -140,17 +140,17 @@ export default {
         {
           title: this.$t('Official statements from Task Force'),
           link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
+            'https://www.pref.chiba.lg.jp/cate/kfk/kenkou-iryou/kenkouzukuri/kansenshou/coronavirus.html'
         },
         {
           title: this.$t('Cancelled public events'),
           link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
+            'https://www.pref.chiba.lg.jp/kouhou/homepage/2019/ncov-index.html'
         },
         {
-          title: this.$t('Message from Governor Koike'),
+          title: this.$t('Message from Governor Morita'),
           link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+            'https://www.pref.chiba.lg.jp/kenfuku/kansenshou/ncov/mes-chiji.html'
         },
         {
           title: this.$t('About us'),
@@ -158,7 +158,7 @@ export default {
         },
         {
           title: this.$t('Government official website'),
-          link: 'https://www.metro.tokyo.lg.jp/',
+          link: 'https://www.pref.chiba.lg.jp/',
           divider: true
         }
       ]
