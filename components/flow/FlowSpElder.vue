@@ -96,7 +96,7 @@
     "新型コロナ受診相談窓口へ": "新型コロナ受診相談窓口へ"
   },
   "en": {
-    "{duration}続いている": "Having these symptoms for {duration",
+    "{duration}続いている": "Having these symptoms for {duration}",
     "{day}日程度": "{day} consecutive days",
     "{cold}のような症状": "Having {cold} symptoms",
     "風邪": "cold/flu",
