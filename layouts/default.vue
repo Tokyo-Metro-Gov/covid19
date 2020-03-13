@@ -20,12 +20,14 @@
         <nuxt />
       </v-container>
     </div>
+    <NoScript />
   </v-app>
 </template>
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import SideNavigation from '@/components/SideNavigation.vue'
+import NoScript from '@/components/NoScript.vue'
 
 type LocalData = {
   hasNavigation: boolean
@@ -34,7 +36,8 @@ type LocalData = {
 
 export default Vue.extend({
   components: {
-    SideNavigation
+    SideNavigation,
+    NoScript
   },
   data(): LocalData {
     let hasNavigation = true
