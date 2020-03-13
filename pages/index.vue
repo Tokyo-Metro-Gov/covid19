@@ -12,8 +12,8 @@
       :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
       :btn-text="'相談の手順を見る'"
     />
-    <v-row class="DataBlock">
-<!--      <v-col cols="12" md="6" class="DataCard">
+<!--    <v-row class="DataBlock">
+      <v-col cols="12" md="6" class="DataCard">
         <svg-card
           title="検査陽性者の状況"
           :title-id="'details-of-confirmed-cases'"
@@ -44,7 +44,7 @@
           :url="'https://ckan.open-governmentdata.org/dataset/401307_covid19_patients'"
         />
       </v-col>
-<!--      <v-col cols="12" md="6" class="DataCard">
+      <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
           title="検査実施数"
           :title-id="'number-of-tested'"
@@ -56,7 +56,7 @@
           :unit="'件'"
           :url="'https://ckan.open-governmentdata.org/dataset/401307_covid19_exam'"
         />
-      </v-col> -->
+      </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
@@ -77,17 +77,6 @@
           :date="Data.querents.date"
           :unit="'件'"
           :url="'https://ckan.open-governmentdata.org/dataset/401307_covid19_kikokusyasessyokusya'"
-        />
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <time-bar-chart
-          title="検査実施数"
-          :title-id="'number-of-tested'"
-          :chart-id="'time-bar-chart-tested'"
-          :chart-data="testedGraph"
-          :date="Data.tested.date"
-          :unit="'件'"
-          :url="'https://ckan.open-governmentdata.org/dataset/401307_covid19_exam'"
         />
       </v-col>
 <!--      <v-col cols="12" md="6" class="DataCard">
@@ -141,8 +130,6 @@ export default {
     // 退院者グラフ
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
 
-    // 検査件数
-    const testedGraph = formatGraph(Data.tested.data)
     // 相談件数
     const contactsGraph = formatGraph(Data.contacts.data)
     // 帰国者・接触者電話相談センター相談件数
@@ -180,7 +167,6 @@ export default {
       patientsTable,
       patientsGraph,
       dischargesGraph,
-      testedGraph,
       contactsGraph,
       querentsGraph,
       metroGraph,
