@@ -1,11 +1,10 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <shinjuku-bar-chart
-      title="新宿区の来訪者数の推移 (実数値)"
+      :title="'新宿区の来訪者数の推移 (実数値)'"
       :title-id="'shinjuku-visitors'"
       :chart-id="'shinjuuku-visitors'"
       :chart-data="ShinjukuData.data"
-      :chart-option="chartOption"
       :date="ShinjukuData.date"
     />
   </v-col>
@@ -21,12 +20,7 @@ export default {
   },
   data() {
     return {
-      ShinjukuData,
-      chartOption: {
-        legend: {
-          display: false
-        }
-      }
+      ShinjukuData
     }
   }
 }

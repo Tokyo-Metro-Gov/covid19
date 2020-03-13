@@ -11,7 +11,7 @@
     <bar
       :chart-id="chartId"
       :chart-data="displayData"
-      :options="chartOption"
+      :options="chartOptions"
       :height="240"
     />
   </data-view>
@@ -65,11 +65,6 @@ export default {
       type: Array,
       required: false,
       default: () => []
-    },
-    chartOption: {
-      type: Object,
-      required: false,
-      default: () => {}
     },
     date: {
       type: String,
@@ -140,6 +135,27 @@ export default {
               backgroundColor: graphColor
             }
           ]
+        }
+      }
+    },
+    chartOptions() {
+      return {
+        legend: {
+          display: false
+        },
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            title(tooltipItem) {
+              const period = tooltipItem[0].label
+              return `期間: ${period}`
+            },
+            label(tooltipItem) {
+              const unit = tooltipItem.yLabel > 100 ? '人' : '%'
+              const val = tooltipItem.yLabel
+              return `${val.toLocaleString()}${unit}`
+            }
+          }
         }
       }
     }
