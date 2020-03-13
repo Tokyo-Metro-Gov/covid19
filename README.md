@@ -18,6 +18,10 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 ## ライセンス
 本ソフトウェアは、[MITライセンス](./LICENSE.txt)の元提供されています。
 
+## このサイトから派生したサイト
+
+[Link先](./forkedSites.md)を御覧ください。
+
 ## 開発者向け情報
 
 ### 環境構築の手順
@@ -25,7 +29,7 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 - 必要となるNode.jsのバージョン: 10.19.0以上
 
 **yarn を使う場合**
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
@@ -42,7 +46,7 @@ $ docker-compose up --build
 ### `Cannot find module ****` と怒られた時
 
 **yarn を使う場合**
-```
+```bash
 $ yarn install
 ```
 
