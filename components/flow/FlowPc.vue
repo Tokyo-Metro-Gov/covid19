@@ -14,6 +14,9 @@
       <div :class="$style.Advisory">
         <flow-pc-advisory />
       </div>
+      <div :class="$style.Advisory2">
+        <flow-pc-advisory2 />
+      </div>
     </div>
     <h3>
       <i18n
@@ -59,6 +62,7 @@ import FlowPcPast from './FlowPcPast.vue'
 import FlowPcDays from './FlowPcDays.vue'
 import FlowPcSuspect from './FlowPcSuspect.vue'
 import FlowPcAdvisory from './FlowPcAdvisory.vue'
+import FlowPcAdvisory2 from './FlowPcAdvisory2.vue'
 import FlowPcRequired from './FlowPcRequired.vue'
 import FlowPcPcr from './FlowPcPcr.vue'
 import FlowPcNotRequired from './FlowPcNotRequired.vue'
@@ -70,6 +74,7 @@ export default {
     FlowPcDays,
     FlowPcSuspect,
     FlowPcAdvisory,
+    FlowPcAdvisory2,
     FlowPcRequired,
     FlowPcPcr,
     FlowPcNotRequired,
@@ -119,7 +124,11 @@ export default {
     & > *:nth-child(4) {
       -ms-grid-column: 3;
       -ms-grid-row: 1;
-      -ms-grid-row-span: 5;
+      -ms-grid-row-span: 3;
+    }
+    & > *:nth-child(5) {
+      -ms-grid-column: 3;
+      -ms-grid-row: 5;
     }
     margin-bottom: 36px;
   }
@@ -211,6 +220,20 @@ export default {
     transform: rotateZ(30deg);
   }
 }
+.Advisory {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 23px);
+    transform: rotate(90deg);
+    z-index: 1;
+    display: block;
+    width: 46px;
+    height: 46px;
+    background: url('/flow/flow_arrow.svg') no-repeat;
+  }
+}
 .Past {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -225,7 +248,11 @@ export default {
 }
 .Advisory {
   grid-column: 2 / 3;
-  grid-row: 1 / 4;
+  grid-row: 1 / 3;
+}
+.Advisory2 {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
 }
 .Required {
   grid-column: 1 / 2;
