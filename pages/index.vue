@@ -14,18 +14,6 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
-        <svg-card
-          title="検査陽性者の状況"
-          :title-id="'details-of-confirmed-cases'"
-          :date="headerItem.date"
-        >
-          <confirmed-cases-table
-            aria-label="検査陽性者の状況"
-            v-bind="confirmedCases"
-          />
-        </svg-card>
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="陽性患者数"
           :title-id="'number-of-confirmed-cases'"
@@ -50,6 +38,19 @@
             'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
           "
         />
+      </v-col>
+      <!--
+      <v-col cols="12" md="6" class="DataCard">
+        <svg-card
+          title="検査陽性者の状況"
+          :title-id="'details-of-confirmed-cases'"
+          :date="headerItem.date"
+        >
+          <confirmed-cases-table
+            aria-label="検査陽性者の状況"
+            v-bind="confirmedCases"
+          />
+        </svg-card>
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
@@ -95,6 +96,7 @@
           :date="metroGraph.date"
         />
       </v-col>
+      -->
     </v-row>
   </div>
 </template>
