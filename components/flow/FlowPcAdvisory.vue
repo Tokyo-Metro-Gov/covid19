@@ -10,7 +10,7 @@
         <div :class="[$style.AdvisoryContentsColsSentense, $style.Mt16]">
           {{ $t('帰国者・接触者 電話相談センター') }}
         </div>
-        <div :class="$style.Mt20">
+        <div>
           <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryWhiteBox]">
             <span :class="$style.AdvisoryWhiteBoxSentense">
               {{ $t('24時間対応') }}
@@ -20,7 +20,7 @@
       </div>
 
       <div :class="$style.AdvisoryContents">
-        <div>
+        <div class="py-8">
           <div :class="$style.AdvisoryContentsTitle2">
             {{ $t('平日（日中）') }}
           </div>
@@ -46,7 +46,7 @@
       </div>
 
       <div :class="$style.AdvisoryContents">
-        <div>
+        <div class="pt-8">
           <div :class="$style.AdvisoryContentsTitle2">
             {{ $t('平日（夜間）') }}
           </div>
@@ -96,6 +96,7 @@
   &Container {
     background-color: $gray-5;
     border-radius: 4px;
+    height: 100%;
     padding: 30px 20px 20px 20px;
     margin-bottom: 10px;
     text-align: center;
@@ -104,10 +105,8 @@
     font-weight: bold;
     &:not(:first-child) {
       border-top: 0.5px solid $gray-4;
-      padding-top: 12px;
     }
     &:not(:last-child) {
-      padding-bottom: 16px;
     }
     &Title {
       font-size: 26px;
@@ -150,7 +149,7 @@
     border-radius: 4px;
     text-align: center;
     padding: 20px 10px;
-    margin: 20px auto;
+    margin: 24px auto;
   }
   &WhiteBox {
     background-color: $white;
