@@ -20,7 +20,7 @@
         {{ $t('妊娠中の方') }}
       </span>
     </div>
-    <ul :class="[$style.symptomContainer, $style.double]">
+    <ul :class="[$style.rectContainer, $style.double]">
       <li :class="$style.symptom">
         <span>
           <i18n path="{cold}のような症状">

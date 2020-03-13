@@ -11,10 +11,10 @@
     </p>
     <dl>
       <div :class="$style.daytime">
-        <dt :class="[$style.title, $style.fzLarge]">
+        <dt :class="[$style.title, $style.fzMedium]">
           {{ $t('平日（日中）') }}
         </dt>
-        <dd :class="[$style.link, $style.fzSmall]">
+        <dd :class="$style.link">
           <a
             href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
             target="_blank"
@@ -29,15 +29,15 @@
       </div>
       <div>
         <dt>
-          <ul :class="[$style.night, $style.fzMedium]">
+          <ul :class="[$style.night]">
             <li>
-              <span :class="[$style.fzLarge, $style.break, $style.mb10]">
+              <span :class="[$style.fzMedium, $style.break, $style.mb10]">
                 {{ $t('平日（夜間）') }}
               </span>
               {{ $t('午後5時から翌朝午前9時') }}
             </li>
             <li>
-              <span :class="$style.fzLarge">
+              <span :class="$style.fzMedium">
                 {{ $t('土日祝 終日') }}
               </span>
             </li>
@@ -143,7 +143,7 @@ export default {
     align-items: center;
     background-color: $white;
     color: $green-1;
-    padding: px2vw(24) px2vw(48);
+    padding: px2vw(20) px2vw(40);
     border-radius: px2vw(6);
   }
 }
@@ -160,10 +160,10 @@ export default {
   }
   .title {
     text-align: center;
-    flex-basis: 45%;
+    flex-basis: 40%;
   }
   .link {
-    flex-basis: 55%;
+    flex-basis: 60%;
     > a {
       text-decoration: none;
     }
