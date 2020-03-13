@@ -148,24 +148,19 @@ export default class DataView extends Vue {
   }
 
   isCopyAvailable() {
-    return document.execCommand('copy')
+    return !!navigator.clipboard
   }
 
   copyEmbedCode() {
-    const element = document.createElement('input')
-    element.value = this.graphEmbedValue
-    element.type = 'text'
-    document.body.appendChild(element)
-    element.select()
-    document.execCommand('copy')
-    document.body.removeChild(element)
+    const self = this
+    navigator.clipboard.writeText(this.graphEmbedValue).then(() => {
+      self.closeShareMenu()
 
-    this.closeShareMenu()
-
-    this.showOverlay = true
-    setTimeout(() => {
-      this.showOverlay = false
-    }, 2000)
+      self.showOverlay = true
+      setTimeout(() => {
+        self.showOverlay = false
+      }, 2000)
+    })
   }
 
   permalink(host: boolean = false, embed: boolean = false) {
