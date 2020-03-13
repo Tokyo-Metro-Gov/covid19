@@ -10,7 +10,7 @@
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('Tokyo')" />
+          <img src="/logo.svg" :alt="$t('Prefecture')" />
         </div>
         <h1 class="SideNavigation-Heading">
           {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
@@ -75,10 +75,10 @@
   "ja": {
     "Navi Open": "サイドメニュー項目を開く",
     "Navi Close": "サイドメニュー項目を閉じる",
-    "Tokyo": "千葉県",
+    "Prefecture": "千葉県",
     "COVID-19": "新型コロナウイルス感染症",
     "Measures site": "対策サイト",
-    "Tokyo Metropolitan Government": "東京都",
+    "Chiva Prefecture": "千葉県",
     "Chiba COVID-19 Task Force": "新型コロナウイルス感染症対策本部(非公式)",
     "The latest updates": "県内の最新感染動向",
     "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
