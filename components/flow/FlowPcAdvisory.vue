@@ -10,7 +10,7 @@
         <div :class="[$style.AdvisoryContentsColsSentense, $style.Mt16]">
           {{ $t('帰国者・接触者 電話相談センター') }}
         </div>
-        <div :class="[$style.AdvisoryBlockCentering, $style.Mt20]">
+        <div :class="$style.Mt20">
           <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryWhiteBox]">
             <span :class="$style.AdvisoryWhiteBoxSentense">
               {{ $t('24時間対応') }}
@@ -150,7 +150,7 @@
     border-radius: 4px;
     text-align: center;
     padding: 20px 10px;
-    margin: 20px auto 40px;
+    margin: 20px auto;
   }
   &WhiteBox {
     background-color: $white;
@@ -164,9 +164,9 @@
   }
   &BlackBox {
     background-color: $gray-2;
-    width: 200px;
-    height: 200px;
-    margin-bottom: 25px;
+    width: 100%;
+    height: 210px; // FIXME: 左のGridと揃える
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;

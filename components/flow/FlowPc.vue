@@ -99,12 +99,51 @@ export default {
   grid-gap: 12px;
   &Upper {
     grid-template-columns: 70% 30%;
+    -ms-grid-columns: 70% 12px 30%;
     grid-template-rows: repeat(3, auto);
+    -ms-grid-rows: auto 12px auto 12px auto;
+    // HACK: IEでGridの順番がうまくいかない対応
+    // https://github.com/tokyo-metropolitan-gov/covid19/issues/1313
+    & > *:nth-child(1) {
+      -ms-grid-column: 1;
+      -ms-grid-row: 1;
+    }
+    & > *:nth-child(2) {
+      -ms-grid-column: 1;
+      -ms-grid-row: 3;
+    }
+    & > *:nth-child(3) {
+      -ms-grid-column: 1;
+      -ms-grid-row: 5;
+    }
+    & > *:nth-child(4) {
+      -ms-grid-column: 3;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 5;
+    }
     margin-bottom: 36px;
   }
   &Lower {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
+    // HACK: IEでGridの順番がうまくいかない対応
+    // https://github.com/tokyo-metropolitan-gov/covid19/issues/1313
+    & > *:nth-child(1) {
+      -ms-grid-column: 1;
+      -ms-grid-row: 1;
+    }
+    & > *:nth-child(2) {
+      -ms-grid-column: 1;
+      -ms-grid-row: 2;
+    }
+    & > *:nth-child(3) {
+      -ms-grid-column: 2;
+      -ms-grid-row: 1;
+    }
+    & > *:nth-child(4) {
+      -ms-grid-column: 2;
+      -ms-grid-row: 3;
+    }
   }
 }
 .Title {
