@@ -3,16 +3,17 @@ import os
 
 os.mkdir('ogp')
 
-SIZES = [[959,650],[959,600],[959,920]]
+
 PATHS = {
-    '/cards/details-of-confirmed-cases': SIZES[0],
-    '/cards/number-of-confirmed-cases': SIZES[1],
-    '/cards/attributes-of-confirmed-cases': SIZES[1],
-    '/cards/number-of-tested': SIZES[1],
-    '/cards/number-of-reports-to-covid19-telephone-advisory-center': SIZES[1],
-    '/cards/number-of-reports-to-covid19-consultation-desk': SIZES[1],
-    '/cards/predicted-number-of-toei-subway-passengers': SIZES[2],
-    '/cards/agency': SIZES[1]
+    '/?dummy': [959,500],
+    '/cards/details-of-confirmed-cases': [959,500],
+    '/cards/number-of-confirmed-cases': [959,500],
+    '/cards/attributes-of-confirmed-cases': [959,480],
+    '/cards/number-of-tested': [959,540],
+    '/cards/number-of-reports-to-covid19-telephone-advisory-center': [959,500],
+    '/cards/number-of-reports-to-covid19-consultation-desk': [959,500],
+    '/cards/predicted-number-of-toei-subway-passengers': [959,750],
+    '/cards/agency': [959,730],
 }
 
 options = webdriver.ChromeOptions()
