@@ -103,7 +103,6 @@
           title="入庁舎数の推移"
           :title-id="'agency'"
           :chart-id="'agency'"
-          :url="''"
           :unit="'人'"
         />
       </v-col>
@@ -112,10 +111,35 @@
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
         <map-card
-          title="新宿駅周辺の人口推移（参考値）"
-          :title-id="'shinjuku'"
-          :chart-id="'agency'"
-          :url="''"
+          :title="$t('新宿駅周辺の人口推移（参考値）')"
+          :caption="$t('※7:30〜8:30の平均値')"
+          :title-id="'shinjuku-station-title'"
+          :chart-id="'shinjuku-station-chart'"
+          :map-id="'shinjuku-station-map'"
+          :initial-bounds="[
+            [139.695239, 35.685448],
+            [139.706397, 35.694493]
+          ]"
+          :url="'https://ds.yahoo.co.jp/'"
+          :source-link-header="'(C) Yahoo Japan'"
+          :link-string="$t('ヤフー・データソリューション')"
+          :date="''"
+        />
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <map-card
+          :title="$t('東京駅周辺の人口推移（参考値）')"
+          :caption="$t('※7:30〜8:30の平均値')"
+          :title-id="'tokyo-station-title'"
+          :chart-id="'tokyo-station-chart'"
+          :map-id="'tokyo-station-map'"
+          :initial-bounds="[
+            [139.761908, 35.676437],
+            [139.773774, 35.686703]
+          ]"
+          :url="'https://ds.yahoo.co.jp/'"
+          :source-link-header="'(C) Yahoo Japan'"
+          :link-string="$t('ヤフー・データソリューション')"
           :date="''"
         />
       </v-col>
