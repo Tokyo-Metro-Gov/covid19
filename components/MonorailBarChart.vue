@@ -2,7 +2,9 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="MetroGraph-Desc">
-        {{ chartData.base_period }}の利用者数の平均値を基準としたときの相対値
+        {{ chartData.base_period }}の利用者数*の平均値を基準としたときの相対値
+        <br />
+        *千葉駅の自動改札出場数
       </p>
     </template>
     <bar
