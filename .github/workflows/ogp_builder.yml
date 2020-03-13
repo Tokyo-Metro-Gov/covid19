@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - staging
+      - fix-ogp-size
 
 jobs:
   build:
