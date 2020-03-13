@@ -130,30 +130,36 @@ const config: Configuration = {
           cookieKey: 'i18n_redirected'
         },
         locales: [
+          // descriptionはスクリーンリーダー対応のため用意したものです
           {
             code: 'ja',
             name: '日本語',
-            iso: 'ja-JP'
+            iso: 'ja-JP',
+            description: 'Japanese'
           },
           {
             code: 'en',
             name: 'English',
-            iso: 'en-US'
+            iso: 'en-US',
+            description: 'English'
           },
           {
             code: 'zh-cn',
             name: '簡体字',
-            iso: 'zh-CN'
+            iso: 'zh-CN',
+            description: 'Simplified Chinese'
           },
           {
             code: 'zh-tw',
             name: '繁體字',
-            iso: 'zh-TW'
+            iso: 'zh-TW',
+            description: 'Traditional Chinese'
           },
           {
             code: 'ko',
             name: '한국어',
-            iso: 'ko-KR'
+            iso: 'ko-KR',
+            description: 'Korean'
           },
           // ,
           // #1126, #872 (comment)
@@ -162,12 +168,14 @@ const config: Configuration = {
           // {
           //   code: 'pt-BR',
           //   name: 'Portuguese',
-          //   iso: 'pt-BR'
+          //   iso: 'pt-BR',
+          //   description: 'Portuguese'
           // },
           {
             code: 'ja-basic',
             name: 'やさしい にほんご',
-            iso: 'ja-JP'
+            iso: 'ja-JP',
+            description: 'Easy Japanese'
           }
         ],
         defaultLocale: 'ja',
