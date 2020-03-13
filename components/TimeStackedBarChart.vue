@@ -2,7 +2,13 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
-        （注）同一の対象者について複数の検体を調査する場合あり
+        {{ $t('（注）同一の対象者について複数の検体を調査する場合あり') }}
+        <br />
+        {{
+          $t(
+            '検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります'
+          )
+        }}
       </p>
       <data-selector v-model="dataKind" />
     </template>
@@ -22,13 +28,18 @@
   </data-view>
 </template>
 
+<i18n src="./TimeStackedBarChart.i18n.json"></i18n>
+
 <script lang="ts">
 import Vue from 'vue'
-import { ChartTooltipItem, ChartData } from 'chart.js'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
+interface HTMLElementEvent<T extends HTMLElement> extends Event {
+  currentTarget: T
+}
 type Data = {
   dataKind: 'transition' | 'cumulative'
 }
@@ -40,7 +51,41 @@ type Methods = {
   eachArraySum: (chartDataArray: number[][]) => number[]
 }
 
-type PropTypes = {
+type Computed = {
+  displayInfo: {
+    lText: string
+    sText: string
+    unit: string
+  }
+  displayData: {
+    labels: string[]
+    datasets: {
+      label: string
+      data: number[]
+      backgroundColor: string
+      borderWidth: number
+    }[]
+  }
+  options: {
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        label: (tooltipItem: any) => string
+        title: (tooltipItem: any, data: any) => string
+      }
+    }
+    responsive: boolean
+    maintainAspectRatio: boolean
+    legend: {
+      display: boolean
+      onHover: (e: HTMLElementEvent<HTMLElement>) => void
+      onLeave: (e: HTMLElementEvent<HTMLElement>) => void
+    }
+    scales: object
+  }
+}
+
+type Props = {
   title: string
   titleId: string
   chartId: string
@@ -51,7 +96,13 @@ type PropTypes = {
   unit: string
 }
 
-export default Vue.extend<Data, Methods, {}, PropTypes>({
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
@@ -98,13 +149,17 @@ export default Vue.extend<Data, Methods, {}, PropTypes>({
       if (this.dataKind === 'transition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
-          sText: `${this.labels[this.labels.length - 1]} の合計`,
+          sText: `${this.$t('{date}の合計', {
+            date: this.labels[this.labels.length - 1]
+          })}`,
           unit: this.unit
         }
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.labels[this.labels.length - 1]} の全体累計`,
+        sText: `${this.$t('{date}の全体累計', {
+          date: this.labels[this.labels.length - 1]
+        })}`,
         unit: this.unit
       }
     },
@@ -147,34 +202,44 @@ export default Vue.extend<Data, Methods, {}, PropTypes>({
         tooltips: {
           displayColors: false,
           callbacks: {
-            label: (tooltipItem: ChartTooltipItem) => {
-              if (this.dataKind === 'transition' && tooltipItem.index) {
-                const index = tooltipItem.index
-                const labelText = `${sumArray[index]}${unit}（都内: ${data[0][index]}/その他: ${data[1][index]}`
-                return labelText
-              } else if (tooltipItem.index) {
-                const index = tooltipItem.index
-                const labelText = `${cumulativeSumArray[index]}${unit}（都内: ${cumulativeData[0][index]}/その他: ${cumulativeData[1][index]}`
-                return labelText
+            label: (tooltipItem: any) => {
+              const labelTokyo = this.$t('都内')
+              const labelOthers = this.$t('その他')
+              const labelArray = [labelTokyo, labelOthers]
+              let casesTotal, cases
+              if (this.dataKind === 'transition') {
+                casesTotal = sumArray[tooltipItem.index].toLocaleString()
+                cases = data[tooltipItem.datasetIndex][
+                  tooltipItem.index
+                ].toLocaleString()
+              } else {
+                casesTotal = cumulativeSumArray[
+                  tooltipItem.index
+                ].toLocaleString()
+                cases = cumulativeData[tooltipItem.datasetIndex][
+                  tooltipItem.index
+                ].toLocaleString()
               }
+
+              return `${
+                labelArray[tooltipItem.datasetIndex]
+              }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
             },
-            title(tooltipItem: ChartTooltipItem[], data: ChartData) {
-              if (
-                tooltipItem[0].index &&
-                data.labels &&
-                data.labels.length > 0
-              ) {
-                const index = tooltipItem[0].index
-                const date = data.labels[index].toString()
-                return date.replace(/(\w+)\/(\w+)/, '$1月$2日')
-              }
+            title(tooltipItem, data) {
+              return data.labels[tooltipItem[0].index]
             }
           }
         },
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-          display: true
+          display: true,
+          onHover: (e: HTMLElementEvent<HTMLElement>): void => {
+            e.currentTarget.style.cursor = 'pointer'
+          },
+          onLeave: (e: HTMLElementEvent<HTMLElement>): void => {
+            e.currentTarget.style.cursor = 'default'
+          }
         },
         scales: {
           xAxes: [
@@ -288,12 +353,15 @@ export default Vue.extend<Data, Methods, {}, PropTypes>({
       return sumArray
     }
   }
-})
+}
+
+export default Vue.extend(options)
 </script>
 
 <style lang="scss" scoped>
 .Graph-Desc {
-  margin: 10px 0;
+  width: 100%;
+  margin: 0;
   font-size: 12px;
   color: $gray-3;
 }

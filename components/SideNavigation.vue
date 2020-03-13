@@ -1,43 +1,48 @@
 <template>
   <div class="SideNavigation">
-    <div class="SideNavigation-HeadingContainer sp-flex">
+    <header class="SideNavigation-HeadingContainer sp-flex">
       <v-icon
         class="SideNavigation-HeadingIcon pc-none"
-        :aria-label="$t('Navi Open')"
+        :aria-label="$t('サイドメニュー項目を開く')"
         @click="openNavi"
       >
         mdi-menu
       </v-icon>
-      <nuxt-link to="/" class="SideNavigation-HeadingLink">
+      <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('Tokyo')" />
+          <img src="/logo.svg" :alt="$t('東京都')" />
         </div>
         <h1 class="SideNavigation-Heading">
-          {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
+          {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
-    </div>
+    </header>
     <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
         class="SideNavigation-ListContainerIcon pc-none"
-        :aria-label="$t('Navi Close')"
+        :aria-label="$t('サイドメニュー項目を閉じる')"
         @click="closeNavi"
       >
         mdi-close
       </v-icon>
-      <v-list :flat="true">
-        <v-container
-          v-for="(item, i) in items"
-          :key="i"
-          class="SideNavigation-ListItemContainer"
-          @click="closeNavi"
-        >
-          <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
-          <v-divider v-show="item.divider" class="SideNavigation-Divider" />
-        </v-container>
-      </v-list>
-      <div class="SideNavigation-Footer">
+      <nav>
+        <v-list :flat="true">
+          <v-container
+            v-for="(item, i) in items"
+            :key="i"
+            class="SideNavigation-ListItemContainer"
+            @click="closeNavi"
+          >
+            <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
+            <v-divider v-show="item.divider" class="SideNavigation-Divider" />
+          </v-container>
+        </v-list>
+        <div class="SideNavigation-LanguageMenu">
+          <LanguageSelector />
+        </div>
+      </nav>
+      <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
             href="https://line.me/R/ti/p/%40822sysfc"
@@ -60,44 +65,39 @@
           >
             <img src="/facebook.png" alt="Facebook" />
           </a>
+          <a
+            href="https://github.com/tokyo-metropolitan-gov/covid19"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/github.png" alt="GitHub" />
+          </a>
         </div>
-        <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
-          Reserved.
+        <small class="SideNavigation-Copyright">
+          {{ $t('このサイトの内容物は') }}
+          <a
+            rel="license"
+            target="_blank"
+            :href="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
+          >
+            {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
+          </a>
+          {{ $t('の下に提供されています。') }}
+          <br />
+          2020 Tokyo Metropolitan Government
         </small>
-      </div>
+      </v-footer>
     </div>
   </div>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "Navi Open": "サイドメニュー項目を開く",
-    "Navi Close": "サイドメニュー項目を閉じる",
-    "Tokyo": "東京都",
-    "COVID-19": "新型コロナウイルス感染症",
-    "Measures site": "対策サイト",
-    "Tokyo Metropolitan Government": "東京都",
-    "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
-    "The latest updates": "都内の最新感染動向",
-    "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
-    "for Families with children": "お子様をお持ちの皆様へ",
-    "for Citizens": "都民の皆様へ",
-    "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
-    "Official statements from Task Force": "東京都新型コロナウイルス感染症対策本部報",
-    "Cancelled public events": "東京都主催等 中止又は延期するイベント等",
-    "Government official website": "東京都公式ホームページ",
-    "Message from Governor Koike": "知事からのメッセージ",
-    "About us": "当サイトについて"
-  }
-}
-</i18n>
+<i18n src="./SideNavigation.i18n.json"></i18n>
 
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import ListItem from '@/components/ListItem.vue'
+import LanguageSelector from '@/components/LanguageSelector.vue'
 
 type Item = {
   icon?: string
@@ -108,7 +108,8 @@ type Item = {
 
 export default Vue.extend({
   components: {
-    ListItem
+    ListItem,
+    LanguageSelector
   },
   props: {
     isNaviOpen: {
@@ -121,52 +122,52 @@ export default Vue.extend({
       return [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: this.$t('The latest updates'),
-          link: '/'
+          title: this.$t('都内の最新感染動向'),
+          link: this.localePath('/')
         },
         {
           icon: 'covid',
-          title: this.$t('If you have any symptoms'),
-          link: '/flow',
+          title: this.$t('新型コロナウイルス感染症が心配なときに'),
+          link: this.localePath('/flow'),
           divider: true
         },
         {
           icon: 'parent',
-          title: this.$t('for Families with children'),
-          link: '/parent'
+          title: this.$t('お子様をお持ちの皆様へ'),
+          link: this.localePath('/parent')
         },
         {
           icon: 'mdi-account-multiple',
-          title: this.$t('for Citizens'),
+          title: this.$t('都民の皆様へ'),
           link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
         },
         {
           icon: 'mdi-domain',
-          title: this.$t('for Enterprises and Employees'),
-          link: '/worker',
+          title: this.$t('企業の皆様・はたらく皆様へ'),
+          link: this.localePath('/worker'),
           divider: true
         },
         {
-          title: this.$t('Official statements from Task Force'),
+          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
           link:
             'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         },
         {
-          title: this.$t('Cancelled public events'),
+          title: this.$t('東京都主催等 中止又は延期するイベント等'),
           link:
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
         },
         {
-          title: this.$t('Message from Governor Koike'),
+          title: this.$t('知事からのメッセージ'),
           link:
             'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
         },
         {
-          title: this.$t('About us'),
-          link: '/about'
+          title: this.$t('当サイトについて'),
+          link: this.localePath('/about')
         },
         {
-          title: this.$t('Government official website'),
+          title: this.$t('東京都公式ホームページ'),
           link: 'https://www.metro.tokyo.lg.jp/',
           divider: true
         }
@@ -239,17 +240,21 @@ export default Vue.extend({
   &-Divider {
     margin: 12px 0;
   }
+  &-LanguageMenu {
+    padding: 0 20px;
+    background: #fff;
+  }
   &-Footer {
     padding: 20px;
     background-color: $white;
   }
   &-SocialLinkContainer {
     display: flex;
+    & a:not(:last-of-type) {
+      margin-right: 10px;
+    }
     & img {
       width: 30px;
-      &:first-of-type {
-        margin-right: 10px;
-      }
     }
   }
   &-Copyright {
@@ -271,6 +276,8 @@ export default Vue.extend({
     width: 100%;
     z-index: z-index-of(opened-side-navigation);
     background-color: $white;
+    height: 100%;
+    overflow-y: scroll;
   }
 }
 @include largerThan($small) {
