@@ -342,6 +342,7 @@ export default class DataView extends Vue {
         border-radius: 8px;
         text-align: left;
         font-size: 1rem;
+        z-index: 9000;
 
         > * {
           padding: 4px 0px;
