@@ -19,6 +19,7 @@
       <v-container>
         <nuxt />
       </v-container>
+      <development-mode-mark />
     </div>
   </v-app>
 </template>
@@ -26,6 +27,7 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import SideNavigation from '@/components/SideNavigation.vue'
+import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 
 type LocalData = {
   hasNavigation: boolean
@@ -34,6 +36,7 @@ type LocalData = {
 
 export default Vue.extend({
   components: {
+    DevelopmentModeMark,
     SideNavigation
   },
   data(): LocalData {
