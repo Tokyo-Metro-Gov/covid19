@@ -161,8 +161,12 @@ export default class DataView extends Vue {
     if (embed) {
       permalink = permalink + '?embed=true'
     }
+<<<<<<< HEAD
     // localePath にするとうまく動かないので一旦外す
     // permalink = this.localePath(permalink)
+=======
+    permalink = this.localePath(permalink)
+>>>>>>> Revert "card の share url から locale 文字を無くす"
 
     if (host) {
       permalink = location.protocol + '//' + location.host + permalink
