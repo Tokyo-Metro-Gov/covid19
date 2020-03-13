@@ -6,7 +6,7 @@
       </span>
       <span :class="$style.fzMedium">{{ $t('一般の方') }}</span>
     </p>
-    <ul :class="[$style.symptomContainer, $style.double]">
+    <ul :class="[$style.rectContainer, $style.double]">
       <li :class="$style.symptom">
         <span>
           <i18n path="{cold}のような症状">
