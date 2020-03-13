@@ -166,7 +166,7 @@ export default {
     return data
   },
   head() {
-    const url = 'https://deploy-preview-835--dev-covid19-tokyo.netlify.com'
+    const url = 'https://stopcovid19.metro.tokyo.lg.jp'
     const ogpImage = url + '/ogp-' + this.$route.params.card + '.png'
     const description =
       this.updatedAt +
