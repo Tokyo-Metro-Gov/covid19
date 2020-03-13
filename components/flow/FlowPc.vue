@@ -125,7 +125,9 @@ export default {
   }
   &Lower {
     grid-template-columns: repeat(2, 1fr);
+    -ms-grid-columns: 1fr 12px 1fr;
     grid-template-rows: repeat(3, auto);
+    -ms-grid-rows: auto 12px auto 12px auto;
     // HACK: IEでGridの順番がうまくいかない対応
     // https://github.com/tokyo-metropolitan-gov/covid19/issues/1313
     & > *:nth-child(1) {
@@ -134,15 +136,17 @@ export default {
     }
     & > *:nth-child(2) {
       -ms-grid-column: 1;
-      -ms-grid-row: 2;
+      -ms-grid-row: 3;
+      -ms-grid-row-span: 3;
     }
     & > *:nth-child(3) {
-      -ms-grid-column: 2;
+      -ms-grid-column: 3;
       -ms-grid-row: 1;
+      -ms-grid-row-span: 3;
     }
     & > *:nth-child(4) {
-      -ms-grid-column: 2;
-      -ms-grid-row: 3;
+      -ms-grid-column: 3;
+      -ms-grid-row: 5;
     }
   }
 }
