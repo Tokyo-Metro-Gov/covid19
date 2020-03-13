@@ -4,7 +4,7 @@
       <p :class="$style.ShinjukuDesc">
         7:30 ~ 8:30 の平均来訪者数について
         <br />
-        習慣平均値（週毎の1日あたりの平均値）を算出
+        週間平均値（週毎の1日あたりの平均値）を算出
       </p>
       <data-selector v-model="dataKind" />
     </template>
@@ -40,7 +40,7 @@ import DataSelector from '@/components/DataTypeSelector.vue'
 dayjs.extend(updateLocale)
 dayjs.extend(weekOfYear)
 dayjs.updateLocale('en', {
-  weekStart: 1
+  weekStart: 1 // 月曜始まり
 })
 
 export default {
@@ -85,6 +85,7 @@ export default {
   computed: {
     groupByWeekData() {
       return this.chartData.reduce((res, d) => {
+        // TODO: 変更可能にする
         // 2020年2月3日以降のデータを対象にする
         if (dayjs(d.date).isBefore('2020-02-03', 'day')) return res
 
@@ -108,31 +109,35 @@ export default {
     },
     weeklyAvg() {
       return Object.values(this.groupByWeekData).map(days => {
-        const avg = days.reduce((sum, d) => (sum += d.value), 0) / days.length
-        // [要確認] 小数点以下の処理
-        return Math.floor(avg)
+        const average =
+          days.reduce((sum, d) => (sum += d.value), 0) / days.length
+        // [要確認] 端数処理
+        return Math.floor(average)
       })
     },
     displayData() {
+      const graphColor = '#008b41'
       if (this.dataKind === 'absolute') {
         return {
           labels: this.labels,
           datasets: [
             {
               data: this.weeklyAvg,
-              backgroundColor: '#008b41'
+              backgroundColor: graphColor
             }
           ]
         }
       } else {
-        const mean = this.weeklyAvg[0]
-        const data = this.weeklyAvg.map(val => (val / mean) * 100 - 100)
+        const standardValue = this.weeklyAvg[0]
+        const data = this.weeklyAvg.map(
+          val => (val / standardValue) * 100 - 100
+        )
         return {
           labels: this.labels,
           datasets: [
             {
               data,
-              backgroundColor: '#008b41'
+              backgroundColor: graphColor
             }
           ]
         }
