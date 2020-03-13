@@ -1,15 +1,23 @@
 <template>
   <div class="Worker">
     <h2 class="Worker-Heading">
-      企業の皆様・はたらく皆様へ
+      {{ $t('企業の皆様・はたらく皆様へ') }}
     </h2>
     <div v-for="(item, i) in items" :key="i">
-      <TextCard :title="item.title" :link="item.link" :body="item.body" />
+      <TextCard
+        :title="$t(item.title)"
+        :link="item.link"
+        :body="$t(item.body)"
+      />
     </div>
   </div>
 </template>
+
+<i18n src="./worker.i18n.json"></i18n>
+
 <script lang="ts">
 import TextCard from '@/components/TextCard.vue'
+
 export default {
   components: {
     TextCard
@@ -28,7 +36,7 @@ export default {
           title: '新型コロナウイルスによる経営課題に関する専門家派遣',
           link: 'https://www.tokyo-kosha.or.jp/topics/2003/0001.html',
           body:
-            '新型コロナウイルス感染症により経営面の影響を受けている中小企業を対象に、中小企業診断士等の専門家を無料で派遣し、経営改善等に向けたアドバイスを実施します（１社あたり４回まで・無料）。'
+            '新型コロナウイルス感染症により経営面の影響を受けている中小企業を対象に、中小企業診断士等の専門家を無料で派遣し、経営改善等に向けたアドバイスを実施します（1社あたり4回まで・無料）。'
         },
         {
           title: '事業継続緊急対策（テレワーク）助成金',
@@ -42,14 +50,14 @@ export default {
           link:
             'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html',
           body:
-            '資金繰りに関する相談、経営に関する相談（東京都産業労働局　報道発表）'
+            '資金繰りに関する相談、経営に関する相談（東京都産業労働局 報道発表）'
         },
         {
           title: '緊急労働相談ダイヤル',
           link:
             'https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/02/26/22.html',
           body:
-            '新型コロナウイルスに関する休暇や休業の取り扱い、職場のハラスメントなどについての相談（東京都産業労働局　報道発表）'
+            '新型コロナウイルスに関する休暇や休業の取り扱い、職場のハラスメントなどについての相談（東京都産業労働局 報道発表）'
         },
         {
           title: '新しいワークスタイルや企業活動の東京モデル「スムーズビズ」',
@@ -67,6 +75,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 .Worker {
   &-Heading {
@@ -75,8 +84,5 @@ export default {
     color: $gray-2;
     margin-bottom: 12px;
   }
-}
-a {
-  @include text-link();
 }
 </style>

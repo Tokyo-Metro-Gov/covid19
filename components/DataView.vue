@@ -1,19 +1,15 @@
 <template>
   <v-card class="DataView">
     <div class="DataView-Inner">
-      <div class="DataView-Content">
-        <div
-          class="DataView-TitleContainer"
+      <div class="DataView-Header">
+        <h3
+          class="DataView-Title"
           :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
         >
-          <h3 :id="titleId" class="DataView-Title">
-            {{ title }}
-          </h3>
-          <div>
-            <slot name="button" />
-          </div>
-        </div>
+          {{ title }}
+        </h3>
         <slot name="infoPanel" />
+        <slot name="button" />
       </div>
       <div
         :class="
@@ -24,8 +20,12 @@
       >
         <slot />
       </div>
-      <v-footer class="DataView-Footer">
-        <time :datetime="date">{{ date }} 更新</time>
+      <div class="DataView-Footer">
+        <a class="Permalink" :href="permalink()">
+          <time :datetime="formattedDate">
+            {{ $t('{date} 更新', { date }) }}
+          </time>
+        </a>
         <a
           v-if="url"
           class="OpenDataLink"
@@ -33,15 +33,62 @@
           target="_blank"
           rel="noopener"
         >
-          オープンデータへのリンク
+          {{ $t('オープンデータを入手') }}
           <v-icon class="ExternalLinkIcon" size="15">
             mdi-open-in-new
           </v-icon>
         </a>
-      </v-footer>
+      </div>
+      <div v-if="this.$route.query.embed != 'true'" class="DataView-Share py-2">
+        <button @click="openGraphEmbed = true">
+          <v-icon class="icon-resize embed" size="40">
+            mdi-code-tags
+          </v-icon>
+          <div class="share-text">
+            {{ $t('埋め込む') }}
+          </div>
+        </button>
+        <button @click="twitter">
+          <v-icon class="icon-resize twitter" size="40">
+            mdi-twitter
+          </v-icon>
+          <div class="share-text">
+            Twitter
+          </div>
+        </button>
+        <button @click="facebook">
+          <v-icon class="icon-resize facebook" size="73">
+            mdi-facebook
+          </v-icon>
+          <div class="share-text">
+            Facebook
+          </div>
+        </button>
+        <button @click="line">
+          <v-icon class="icon-resize line" size="75">
+            fab fa-line
+          </v-icon>
+          <div class="share-text">
+            LINE
+          </div>
+        </button>
+      </div>
+      <div v-if="openGraphEmbed" class="DataView-Embed pa-2">
+        <button @click="openGraphEmbed = false">
+          <v-icon size="16">
+            mdi-close
+          </v-icon>
+        </button>
+        <div>
+          {{ $t('グラフの埋め込み') }}
+        </div>
+        <textarea v-model="graphEmbedValue" />
+      </div>
     </div>
   </v-card>
 </template>
+
+<i18n src="./DataView.i18n.json"></i18n>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
@@ -56,19 +103,69 @@ export default class DataView extends Vue {
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
 
   formattedDate: string = convertDatetimeToISO8601Format(this.date)
+
+  openGraphEmbed: boolean = false
+
+  get graphEmbedValue() {
+    const graphEmbedValue =
+      '<iframe width="560" height="315" src="' +
+      this.permalink(true, true) +
+      '" frameborder="0"></iframe>'
+    return graphEmbedValue
+  }
+
+  permalink(host: boolean = false, embed: boolean = false) {
+    let permalink = '/cards/' + this.titleId
+    if (embed) {
+      permalink = permalink + '?embed=true'
+    }
+    permalink = this.localePath(permalink)
+
+    if (host) {
+      permalink = location.protocol + '//' + location.host + permalink
+    }
+
+    return permalink
+  }
+
+  twitter() {
+    const url = 'https://twitter.com/intent/tweet?url=' + this.permalink(true)
+    window.open(url)
+  }
+
+  facebook() {
+    const url = 'https://www.facebook.com/sharer.php?u=' + this.permalink(true)
+    window.open(url)
+  }
+
+  line() {
+    const url =
+      'https://social-plugins.line.me/lineit/share?url=' + this.permalink(true)
+    window.open(url)
+  }
 }
 </script>
 
 <style lang="scss">
 .DataView {
-  &-Content {
+  @include card-container();
+  height: 100%;
+  &-Header {
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
+    flex-flow: column;
+    padding: 0 10px;
+    @include largerThan($medium) {
+      padding: 0 5px;
+    }
+    @include largerThan($large) {
+      width: 100%;
+      flex-flow: row;
+      flex-wrap: wrap;
+      padding: 0;
+    }
   }
   &-DataInfo {
-    position: absolute;
-    top: 25px;
-    right: 25px;
     &-summary {
       color: $gray-2;
       font-family: Hiragino Sans;
@@ -98,19 +195,17 @@ export default class DataView extends Vue {
     padding: 22px;
     height: 100%;
   }
-  &-TitleContainer {
-    display: flex;
-    flex-flow: column;
-    color: $gray-2;
-    &.with-infoPanel {
-      width: calc(100% - 11em);
-    }
-  }
   &-Title {
-    margin-bottom: 5px;
+    width: 100%;
+    margin-bottom: 10px;
     font-size: 1.25rem;
     line-height: 1.5;
     font-weight: normal;
+    color: $gray-2;
+    @include largerThan($large) {
+      width: 50%;
+      margin-bottom: 0;
+    }
   }
   &-CardText {
     margin: 30px 0;
@@ -119,14 +214,22 @@ export default class DataView extends Vue {
     margin-bottom: 46px;
     margin-top: 70px;
   }
+  &-Embed {
+    background-color: $gray-5;
+  }
   &-Footer {
     @include font-size(12);
     padding: 0 !important;
+    display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
     color: $gray-3 !important;
     text-align: right;
     background-color: $white !important;
+
+    .Permalink {
+      color: $gray-3 !important;
+    }
     .OpenDataLink {
       text-decoration: none;
       .ExternalLinkIcon {
@@ -134,5 +237,43 @@ export default class DataView extends Vue {
       }
     }
   }
+  &-Share {
+    display: flex;
+    justify-content: space-around;
+    background-color: $white !important;
+
+    .icon-resize {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin-left: 4px;
+      margin-right: 4px;
+      margin-bottom: 8px;
+
+      &.embed {
+        background: #f2f2f2;
+        border: 1px solid #e4e4e4;
+      }
+      &.twitter {
+        color: #fff;
+        background: #2a96eb;
+      }
+      &.facebook {
+        color: #364e8a;
+      }
+      &.line {
+        color: #1cb127;
+      }
+    }
+    .share-text {
+      color: rgb(3, 3, 3);
+      font-size: 13px;
+    }
+  }
+}
+textarea {
+  font: 400 11px system-ui;
+  width: 100%;
+  height: 2.4rem;
 }
 </style>
