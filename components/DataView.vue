@@ -57,7 +57,7 @@
 
             <div class="EmbedCode">
               <v-icon
-                v-if="isCopyAvailable"
+                v-if="this.isCopyAvailable()"
                 class="EmbedCode-Copy"
                 @click="copyEmbedCode"
               >
@@ -67,6 +67,10 @@
             </div>
 
             <div class="Buttons">
+              <button @click="line">
+                <img src="/line.png" class="icon-resize line" />
+              </button>
+
               <button @click="twitter">
                 <v-icon class="icon-resize twitter" size="22">
                   mdi-twitter
@@ -76,12 +80,6 @@
               <button @click="facebook">
                 <v-icon class="icon-resize facebook" size="34">
                   mdi-facebook
-                </v-icon>
-              </button>
-
-              <button @click="line">
-                <v-icon class="icon-resize line" size="34">
-                  fab fa-line
                 </v-icon>
               </button>
             </div>
