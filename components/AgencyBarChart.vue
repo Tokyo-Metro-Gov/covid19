@@ -1,5 +1,10 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+    <template v-slot:button>
+      <small :class="$style.DataViewDesc">
+        ※土・日・祝日を除く庁舎開庁日の1週間累計数
+      </small>
+    </template>
     <bar
       :chart-id="chartId"
       :chart-data="displayData"
@@ -9,51 +14,18 @@
   </data-view>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "第一庁舎計": "第一庁舎計",
-    "第二庁舎計": "第二庁舎計",
-    "議事堂計": "議事堂計",
-    "人": "人",
-    "期間: {duration}": "期間: {duration}"
-  },
-  "en": {
-    "第一庁舎計": "TMG No. 1 Building",
-    "第二庁舎計": "TMG No. 2 Building",
-    "議事堂計": "Assembly Building",
-    "期間: {duration}": "Period: {duration}"
-  },
-  "zh-cn": {
-    "第一庁舎計": "第一本厅大厦来访人数",
-    "第二庁舎計": "第二本厅大厦来访人数",
-    "議事堂計": "都议会议事堂来发人数",
-    "人": "persons",
-    "期間: {duration}": "期间: {duration}"
-  },
-  "zh-tw": {
-    "第一庁舎計": "第一本廳來訪人數",
-    "第二庁舎計": "第二本廳來訪人數",
-    "議事堂計": "議事堂來訪人數",
-    "人": "人",
-    "期間: {duration}": "期間: {duration}"
-  },
-  "ko": {
-    "第一庁舎計": "제1청사 방문자 수",
-    "第二庁舎計": "제2청사 방문자 수",
-    "議事堂計": "도쿄도의회 의사당 방문자 수",
-    "人": "인",
-    "期間: {duration}": "기간: {duration}"
-  },
-  "ja-basic": {
-    "第一庁舎計": "第一庁舎（だいいちちょうしゃ）に 来（き）た 人（ひと）の 合計（ごうけい）",
-    "第二庁舎計": "第二庁舎（だいにちょうしゃ）に 来（き）た 人（ひと）の 合計（ごうけい）",
-    "議事堂計": "議事堂（ぎじどう）に 来（き）た人（ひと）の 合計（ごうけい）",
-    "人": "にん",
-    "期間: {duration}": "きかん: {duration}"
+<i18n src="./AgencyBarChart.i18n.json"></i18n>
+
+<style module lang="scss">
+.DataView {
+  &Desc {
+    margin-top: 10px;
+    margin-bottom: 0 !important;
+    font-size: 12px;
+    color: $gray-3;
   }
 }
-</i18n>
+</style>
 
 <script>
 import agencyData from '@/data/agency.json'
@@ -89,9 +61,18 @@ export default {
     }
   },
   data() {
+    const agencies = [
+      this.$t('第一庁舎計'),
+      this.$t('第二庁舎計'),
+      this.$t('議事堂計')
+    ]
+    agencyData.datasets.map(dataset => {
+      dataset.label = this.$t(dataset.label)
+    })
     return {
       chartData: agencyData,
-      date: agencyData.date
+      date: agencyData.date,
+      agencies
     }
   },
   computed: {
@@ -99,11 +80,11 @@ export default {
       const colors = ['#008b41', '#63c765', '#a6e29f']
       return {
         labels: this.chartData.labels,
-        datasets: this.chartData.datasets.map((d, i) => {
+        datasets: this.chartData.datasets.map((item, index) => {
           return {
-            label: d.label,
-            data: d.data,
-            backgroundColor: colors[i]
+            label: this.agencies[index],
+            data: item.data,
+            backgroundColor: colors[index]
           }
         })
       }
@@ -127,6 +108,15 @@ export default {
               const unit = self.$t(self.unit)
               return `${title}: ${num}${unit}`
             }
+          }
+        },
+        legend: {
+          display: true,
+          onHover: e => {
+            e.currentTarget.style.cursor = 'pointer'
+          },
+          onLeave: e => {
+            e.currentTarget.style.cursor = 'default'
           }
         },
         scales: {
