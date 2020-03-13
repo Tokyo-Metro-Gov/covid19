@@ -68,7 +68,7 @@
           :chart-data="contactsGraph"
           :date="Data.contacts.date"
           :unit="'件'"
-          :url="''"
+          :url="'https://ckan.open-governmentdata.org/dataset/401307_covid19_hotline'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -79,7 +79,7 @@
           :chart-data="querentsGraph"
           :date="Data.querents.date"
           :unit="'件'"
-          :url="''"
+          :url="'https://ckan.open-governmentdata.org/dataset/401307_covid19_kikokusyasessyokusya'"
         />
       </v-col>
 <!--      <v-col cols="12" md="6" class="DataCard">
