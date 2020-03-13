@@ -325,8 +325,12 @@ export default class DataView extends Vue {
 
     .Footer-Right {
       position: relative;
+
+      display: flex;
+      align-items: flex-end;
       .DataView-Share-Opener {
         cursor: pointer;
+        margin-right: 6px;
         > svg {
           width: auto !important;
         }
@@ -334,8 +338,8 @@ export default class DataView extends Vue {
       .DataView-Share-Buttons {
         position: absolute;
         padding: 8px;
-        right: 0px;
-        bottom: 2.5em;
+        right: -4px;
+        bottom: 1.5em;
         width: 240px;
         border: solid 1px $gray-4;
         background: $white !important;
