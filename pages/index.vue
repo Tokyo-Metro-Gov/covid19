@@ -14,18 +14,6 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
-        <svg-card
-          title="検査陽性者の状況"
-          :title-id="'details-of-confirmed-cases'"
-          :date="headerItem.date"
-        >
-          <confirmed-cases-table
-            aria-label="検査陽性者の状況"
-            v-bind="confirmedCases"
-          />
-        </svg-card>
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="陽性患者数"
           :title-id="'number-of-confirmed-cases'"
@@ -50,6 +38,19 @@
             'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
           "
         />
+      </v-col>
+      <!--
+      <v-col cols="12" md="6" class="DataCard">
+        <svg-card
+          title="検査陽性者の状況"
+          :title-id="'details-of-confirmed-cases'"
+          :date="headerItem.date"
+        >
+          <confirmed-cases-table
+            aria-label="検査陽性者の状況"
+            v-bind="confirmedCases"
+          />
+        </svg-card>
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
@@ -85,6 +86,20 @@
           :url="''"
         />
       </v-col>
+<<<<<<< HEAD
+=======
+      <v-col cols="12" md="6" class="DataCard">
+        <metro-bar-chart
+          title="都営地下鉄の利用者数の推移"
+          :title-id="'predicted-number-of-toei-subway-passengers'"
+          :chart-id="'metro-bar-chart'"
+          :chart-data="metroGraph"
+          :chart-option="metroGraphOption"
+          :date="metroGraph.date"
+        />
+      </v-col>
+      -->
+      >>>>>>> ee18373a7518d56c08f4294998b81c7552afe75b
     </v-row>
   </div>
 </template>
@@ -92,7 +107,6 @@
 <script>
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
-import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
@@ -101,19 +115,14 @@ import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import News from '@/data/news.json'
-import SvgCard from '@/components/SvgCard.vue'
-import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
 
 export default {
   components: {
     PageHeader,
     TimeBarChart,
-    TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
-    DataTable,
-    SvgCard,
-    ConfirmedCasesTable
+    DataTable
   },
   data() {
     // 感染者数グラフ
@@ -135,7 +144,7 @@ export default {
       Data.inspections_summary.data['その他']
     ]
     const inspectionsItems = [
-      '都内発生（疑い例・接触者調査）',
+      '県内発生（疑い例・接触者調査）',
       'その他（チャーター便・クルーズ便）'
     ]
     const inspectionsLabels = Data.inspections_summary.labels
@@ -226,7 +235,7 @@ export default {
   },
   head() {
     return {
-      title: '千葉県内の最新感染動向'
+      title: '県内の最新感染動向'
     }
   }
 }

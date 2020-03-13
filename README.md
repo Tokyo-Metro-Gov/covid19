@@ -1,10 +1,12 @@
-# 東京都 新型コロナウイルス感染症対策サイト
+# 新型コロナウイルス感染症対策サイト[千葉県版]
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
+  各地で立ち上がっているサイトのまとめ
+https://hackmd.io/9TTyyjchR8ufuMd9z08Rcg?view
 
-[![東京都 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+  千葉県のサイト
+https://www.pref.chiba.lg.jp/index.html
 
-### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md)
+対策サイトを作って、がんばろー！（うまい方言がない）
 
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
@@ -40,9 +42,3 @@ $ docker-compose up --build
 ```
 
 ### ステージング・本番環境への反映
-
-`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.metro.tokyo.lg.jp/ が更新されます。
-
-`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト https://stg-covid19-tokyo.netlify.com/ が更新されます。
-
-`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-covid19-tokyo.netlify.com/ が更新されます。
