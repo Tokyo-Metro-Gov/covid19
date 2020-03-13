@@ -23,7 +23,7 @@
     <div :class="[$style.rectContainer, $style.double]">
       <a
         v-scroll-to="'#not_required'"
-        :class="[$style.rect, $style.shadow]"
+        :class="[$style.rect, $style.result, $style.clickable]"
         href="#not_required"
       >
         <p>
@@ -39,7 +39,7 @@
       </a>
       <a
         v-scroll-to="'#pcr'"
-        :class="[$style.rect, $style.shadow, $style.bgYellow]"
+        :class="[$style.rect, $style.result, $style.clickable, $style.bgYellow]"
         href="#pcr"
       >
         <p>
@@ -75,7 +75,7 @@
     <div :class="[$style.rectContainer, $style.double]">
       <a
         v-scroll-to="'#not_required'"
-        :class="[$style.rect, $style.shadow]"
+        :class="[$style.rect, $style.result, $style.clickable]"
         href="#not_required"
       >
         <p>
@@ -87,7 +87,7 @@
       </a>
       <a
         v-scroll-to="'#hospitalized'"
-        :class="[$style.rect, $style.shadow, $style.bgYellow]"
+        :class="[$style.rect, $style.result, $style.clickable, $style.bgYellow]"
         href="#hospitalized"
       >
         <p>
@@ -109,13 +109,13 @@
       </span>
     </i18n>
     <div :class="[$style.rectContainer, $style.double]">
-      <div :class="[$style.rect, $style.border]">
+      <div :class="[$style.rect, $style.solution]">
         <div :class="$style.icon" aria-hidden="true">
           <House />
         </div>
         <p>{{ $t('自宅で安静に過ごす') }}</p>
       </div>
-      <div :class="[$style.rect, $style.border]">
+      <div :class="[$style.rect, $style.solution]">
         <div :class="$style.icon" aria-hidden="true">
           <Apartment />
         </div>
@@ -200,13 +200,12 @@ export default {
     color: inherit !important;
     text-align: center;
     font-weight: bold;
-    &.shadow {
-      box-shadow: px2vw(-1.5) px2vw(3) px2vw(7.5) $gray-3;
+    &.result {
       // icon
       padding-bottom: px2vw((56 + 20 * 2));
       position: relative;
     }
-    &.border {
+    &.solution {
       border: px2vw(3) solid $gray-4;
       // icon
       padding-top: px2vw((46 + 20 * 2));
@@ -283,11 +282,10 @@ export default {
       padding: px2vw(20, $vw) px2vw(10, $vw);
       border-radius: px2vw(6, $vw);
       font-size: px2vw(24, $vw);
-      &.shadow {
-        box-shadow: px2vw(-1.5, $vw) px2vw(3, $vw) px2vw(7.5, $vw) $gray-3;
+      &.result {
         padding-bottom: px2vw((56 + 20 * 2), $vw);
       }
-      &.border {
+      &.solution {
         border: px2vw(3, $vw) solid $gray-4;
         padding-top: px2vw((46 + 20 * 2), $vw);
       }
