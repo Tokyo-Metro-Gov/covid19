@@ -86,20 +86,7 @@
           :url="''"
         />
       </v-col>
-<<<<<<< HEAD
-=======
-      <v-col cols="12" md="6" class="DataCard">
-        <metro-bar-chart
-          title="都営地下鉄の利用者数の推移"
-          :title-id="'predicted-number-of-toei-subway-passengers'"
-          :chart-id="'metro-bar-chart'"
-          :chart-data="metroGraph"
-          :chart-option="metroGraphOption"
-          :date="metroGraph.date"
-        />
-      </v-col>
       -->
-      >>>>>>> ee18373a7518d56c08f4294998b81c7552afe75b
     </v-row>
   </div>
 </template>
