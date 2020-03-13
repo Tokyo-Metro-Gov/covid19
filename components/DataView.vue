@@ -57,7 +57,7 @@
 
             <div class="EmbedCode">
               <v-icon
-                v-if="this.isCopyAvailable()"
+                v-if="isCopyAvailable()"
                 class="EmbedCode-Copy"
                 @click="copyEmbedCode"
               >
