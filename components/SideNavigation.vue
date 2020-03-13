@@ -10,7 +10,7 @@
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('Fukuoka')" />
+          <img src="/logo.png" :alt="$t('Fukuoka')" />
         </div>
         <h1 class="SideNavigation-Heading">
           {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
@@ -45,7 +45,7 @@
             target="_blank"
             rel="noopener"
           >
-            <img src="/logo.png" alt="Code for Fukuoka" />
+            <img src="/logo-code4Fukuoka.png" alt="Code for Fukuoka" />
           </a>
         </div>
       </div>
@@ -200,7 +200,7 @@ export default {
   }
   &-Logo {
     margin: 20px 16px 0 0;
-    width: 110px;
+    width: 150px;
     @include lessThan($small) {
       margin-top: 0;
     }
