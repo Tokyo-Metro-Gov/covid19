@@ -226,7 +226,7 @@ export default {
     content: '';
     position: absolute;
     left: calc(50% - 23px);
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
     z-index: 1;
     display: block;
     width: 46px;
