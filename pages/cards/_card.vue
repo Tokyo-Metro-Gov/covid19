@@ -52,7 +52,7 @@
     "検査実施数": "Number of tests conducted",
     "新型コロナコールセンター相談件数": "Number of inquiries to COVID-19 telephone advisory center",
     "新型コロナ受診相談窓口相談件数": "Number of inquiries to combined telephone advisory center",
-    "都営地下鉄の利用者数の推移": "The predicted number of Toei subway passengers",
+    "都営地下鉄の利用者数の推移": "Trend of Toei subway passengers",
     "都庁来庁者数の推移": "Trend in the number of TMG visitors"
   },
   "zh-cn": {
