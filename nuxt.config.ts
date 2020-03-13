@@ -1,3 +1,5 @@
+import path from 'path'
+import fs from 'fs'
 import { Configuration } from '@nuxt/types'
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
@@ -190,6 +192,15 @@ const config: Configuration = {
   watchers: {
     webpack: {
       poll: true
+    }
+  }
+}
+
+module.exports = {
+  server: {
+    https: {
+      key: fs.readFileSync(path.resolve('/var/www/ssl', 'key.pem')),
+      cert: fs.readFileSync(path.resolve('/var/www/ssl', 'ca.pem'))
     }
   }
 }
