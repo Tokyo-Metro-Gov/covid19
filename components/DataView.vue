@@ -60,7 +60,7 @@
               >
                 far fa-clipboard
               </v-icon>
-              {{ this.graphEmbedValue }}
+              {{ graphEmbedValue }}
             </div>
 
             <div class="Buttons">
