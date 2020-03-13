@@ -1,5 +1,8 @@
 <template>
-  <v-list-item class="ListItem-Container">
+  <v-list-item
+    class="ListItem-Container"
+    tabindex="0"
+  >
     <component
       :is="isInternalLink(link) ? 'nuxt-link' : 'a'"
       :to="isInternalLink(link) ? link : ''"
