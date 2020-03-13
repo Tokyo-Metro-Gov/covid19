@@ -58,6 +58,9 @@
           :items="inspectionsItems"
           :labels="inspectionsLabels"
           :unit="'件'"
+          :url="
+            'https://ckan.open-governmentdata.org/dataset/401307_covid19_exam'
+          "
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
