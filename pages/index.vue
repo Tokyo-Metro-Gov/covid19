@@ -13,7 +13,7 @@
       :btn-text="'相談の手順を見る'"
     />
     <v-row class="DataBlock">
-      <v-col cols="12" md="6" class="DataCard">
+<!--      <v-col cols="12" md="6" class="DataCard">
         <svg-card
           title="検査陽性者の状況"
           :title-id="'details-of-confirmed-cases'"
@@ -21,7 +21,7 @@
         >
           <confirmed-cases-table v-bind="confirmedCases" />
         </svg-card>
-      </v-col>
+      </v-col> -->
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="陽性患者数"
