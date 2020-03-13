@@ -196,13 +196,4 @@ const config: Configuration = {
   }
 }
 
-module.exports = {
-  server: {
-    https: {
-      key: fs.readFileSync(path.resolve('/var/www/ssl', 'key.pem')),
-      cert: fs.readFileSync(path.resolve('/var/www/ssl', 'ca.pem'))
-    }
-  }
-}
-
 export default config
