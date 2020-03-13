@@ -68,7 +68,7 @@
 
             <div class="Buttons">
               <button @click="twitter">
-                <v-icon class="icon-resize twitter" size="30">
+                <v-icon class="icon-resize twitter" size="22">
                   mdi-twitter
                 </v-icon>
               </button>
