@@ -100,7 +100,7 @@ Tokyo Covid-19 response site contributors
 | [dafujii](https://twitter.com/dafujii_k) ([@dafujii](https://github.com/dafujii)) | Kaizen |
 | [7iva](https://twitter.com/_7iva) ([@7iva](https://github.com/7iva)) | Translations |
 | Jun Shindo ([@jay-es](https://github.com/jay-es)) | Frontend |
-| -add your name here!- | -what did you do?- |
+| [Koki Fukushima](https://github.com/f-koki) ||
 
 ご協力に感謝です！！！
 
