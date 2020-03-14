@@ -144,15 +144,15 @@ export default {
         {
           title: this.$t('知事からのメッセージ'),
           link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+            'http://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/documents/76148_20200305175151-1.pdf'
         },
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
         },
         {
-          title: this.$t('東京都公式ホームページ'),
-          link: 'https://www.metro.tokyo.lg.jp/',
+          title: this.$t('鹿児島県公式ホームページ'),
+          link: 'https://www.pref.kagoshima.jp/',
           divider: true
         }
       ]
