@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: govau/cf-cli
-    - run: pwd
+    - name: Setup repo
+      run: pwd
+
     - run: git clone https://github.com/dg4101/covid19.git
     - run: git checkout dev-scp
     - run: echo ====================;pwd;find .
