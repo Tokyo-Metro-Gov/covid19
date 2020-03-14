@@ -19,6 +19,8 @@
   </data-view>
 </template>
 
+<i18n src="./TimeBarChart.i18n.json"></i18n>
+
 <style></style>
 
 <script>
@@ -85,7 +87,9 @@ export default {
       if (this.dataKind === 'transition') {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `実績値（前日比：${this.displayTransitionRatio} ${this.unit}）`,
+          sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
+            this.displayTransitionRatio
+          } ${this.unit}）`,
           unit: this.unit
         }
       }
@@ -93,9 +97,11 @@ export default {
         lText: this.chartData[
           this.chartData.length - 1
         ].cumulative.toLocaleString(),
-        sText: `${this.chartData.slice(-1)[0].label} 累計値（前日比：${
-          this.displayCumulativeRatio
-        } ${this.unit}）`,
+        sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
+          '累計値'
+        )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
+          this.unit
+        }）`,
         unit: this.unit
       }
     },
@@ -135,20 +141,19 @@ export default {
     },
     displayOption() {
       const unit = this.unit
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       return {
         tooltips: {
           displayColors: false,
           callbacks: {
             label(tooltipItem) {
-              const labelText =
-                parseInt(tooltipItem.value).toLocaleString() + unit
+              const labelText = `${parseInt(
+                tooltipItem.value
+              ).toLocaleString()} ${unit}`
               return labelText
             },
             title(tooltipItem, data) {
-              return data.labels[tooltipItem[0].index].replace(
-                /(\w+)\/(\w+)/,
-                '$1月$2日'
-              )
+              return data.labels[tooltipItem[0].index]
             }
           }
         },
@@ -229,12 +234,20 @@ export default {
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080'
+                fontColor: '#808080',
+                suggestedMax: scaledTicksYAxisMax
               }
             }
           ]
         }
       }
+    },
+    scaledTicksYAxisMax() {
+      const yAxisMax = 1.2
+      const dataKind =
+        this.dataKind === 'transition' ? 'transition' : 'cumulative'
+      const values = this.chartData.map(d => d[dataKind])
+      return Math.max(...values) * yAxisMax
     }
   },
   methods: {
