@@ -3,7 +3,7 @@
     <div :class="$style.FlowRow">
       <div :class="$style.FlowRowRowThree">
         <div>
-          <img src="/flow/accessibility-24px.svg" />
+          <img src="/flow/accessibility-24px.svg" alt="" aria-hidden="true" />
           <p>{{ $t('一般の方') }}</p>
         </div>
       </div>
@@ -24,8 +24,8 @@
     </div>
     <div :class="[$style.FlowRow, $style.FlowRowRowCheck]">
       <div :class="$style.FlowRowCondition">
-        <i>
-          <img src="/flow/check_circle-24px.svg" />
+        <i aria-hidden="true">
+          <img src="/flow/check_circle-24px.svg" alt="" />
         </i>
         <p>
           <i18n
@@ -40,8 +40,8 @@
         </p>
       </div>
       <div :class="$style.FlowRowCondition">
-        <i>
-          <img src="/flow/check_circle-24px.svg" />
+        <i aria-hidden="true">
+          <img src="/flow/check_circle-24px.svg" alt="" />
         </i>
         <p>
           <i18n
@@ -58,14 +58,14 @@
         </p>
       </div>
       <div :class="$style.FlowRowCondition">
-        <i>
-          <img src="/flow/check_circle-24px.svg" />
+        <i aria-hidden="true">
+          <img src="/flow/check_circle-24px.svg" alt="" />
         </i>
         <p>{{ $t('強いだるさ') }}</p>
       </div>
       <div :class="$style.FlowRowCondition">
-        <i>
-          <img src="/flow/check_circle-24px.svg" />
+        <i aria-hidden="true">
+          <img src="/flow/check_circle-24px.svg" alt="" />
         </i>
         <p>{{ $t('息苦しさ') }}</p>
       </div>
@@ -74,13 +74,23 @@
       <div :class="$style.FlowRowRowThree">
         <ul :class="$style.FlowRowRowThreeCareTargetList">
           <li :class="$style.FlowRowRowThreeCareTargetListItem">
-            <img src="/flow/directions_walk-24px.svg" />{{ $t('ご高齢な方') }}
+            <img
+              src="/flow/directions_walk-24px.svg"
+              alt=""
+              aria-hidden="true"
+            />{{ $t('ご高齢な方') }}
           </li>
           <li :class="$style.FlowRowRowThreeCareTargetListItem">
-            <img src="/flow/accessible-24px.svg" />{{ $t('基礎疾患のある方') }}
+            <img src="/flow/accessible-24px.svg" alt="" aria-hidden="true" />{{
+              $t('基礎疾患のある方')
+            }}
           </li>
           <li :class="$style.FlowRowRowThreeCareTargetListItem">
-            <img src="/flow/pregnant_woman-24px.svg" />{{ $t('妊娠中の方') }}
+            <img
+              src="/flow/pregnant_woman-24px.svg"
+              alt=""
+              aria-hidden="true"
+            />{{ $t('妊娠中の方') }}
           </li>
         </ul>
       </div>
