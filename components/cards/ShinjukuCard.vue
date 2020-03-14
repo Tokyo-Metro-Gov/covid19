@@ -3,25 +3,17 @@
     <shinjuku-bar-chart
       :title="'新宿区の来訪者数の推移 (実数値)'"
       :title-id="'shinjuku-visitors'"
-      :chart-id="'shinjuuku-visitors'"
-      :chart-data="ShinjukuData.data"
-      :date="ShinjukuData.date"
+      :chart-id="'shinjuku-visitors'"
     />
   </v-col>
 </template>
 
 <script>
-import ShinjukuData from '@/data/shinjuku.json'
 import ShinjukuBarChart from '@/components/ShinjukuBarChart.vue'
 
 export default {
   components: {
     ShinjukuBarChart
-  },
-  data() {
-    return {
-      ShinjukuData
-    }
   }
 }
 </script>
