@@ -11,11 +11,11 @@ jobs:
     steps:
     - uses: govau/cf-cli@master
     - name: Setup repo
-      run: pwd;which cf;git --version;git clone https://github.com/dg4101/covid19.git;cd ./covid19;git checkout dev-scp;echo ====================;
-    - run: cf --version
+      run: pwd;git --version;git clone https://github.com/dg4101/covid19.git;cd ./covid19;git checkout dev-scp;echo ====================;
+    - run: /usr/local/bin/cf --version
 
     - name: Setup CF
-      run: cf api https://api.cf.eu10.hana.ondemand.com;cf auth ${{ secrets.CF_USER }} ${{ secrets.CF_PASSWORD }};cf target -o i030702trial -s dev
+      run: /usr/local/bin/cf api https://api.cf.eu10.hana.ondemand.com;/usr/local/bin/cf auth ${{ secrets.CF_USER }} ${{ secrets.CF_PASSWORD }};/usr/local/bin/cf target -o i030702trial -s dev
     - name: Push to CF
-      run: cf push stopcovid19 -f ./cf/manifest.yaml -c "yarn dev"
+      run: /usr/local/bin/cf push stopcovid19 -f ./cf/manifest.yaml -c "yarn dev"
 
