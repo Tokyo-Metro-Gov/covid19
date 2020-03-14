@@ -154,6 +154,7 @@ export default {
       }
     },
     chartOptions() {
+      const self = this
       return {
         legend: {
           display: false
@@ -166,12 +167,7 @@ export default {
               return `期間: ${period}`
             },
             label(tooltipItem) {
-              const val = tooltipItem.yLabel
-              if (tooltipItem.yLabel > 100) {
-                return `${val.toLocaleString()}人`
-              } else {
-                return `${val.toFixed(2)}%`
-              }
+              return self.label(tooltipItem)
             }
           }
         },
@@ -187,16 +183,29 @@ export default {
             {
               ticks: {
                 callback(value) {
-                  if (value > 100) {
-                    return `${value.toLocaleString()}`
-                  } else {
-                    return `${value.toFixed(2)}%`
-                  }
+                  return self.yTicks(value)
                 }
               }
             }
           ]
         }
+      }
+    }
+  },
+  methods: {
+    label(tooltipItem) {
+      const val = tooltipItem.yLabel
+      if (this.dataKind === 'absolute') {
+        return `${val.toLocaleString()}人`
+      } else {
+        return `${val.toFixed(2)}%`
+      }
+    },
+    yTicks(value) {
+      if (this.dataKind === 'absolute') {
+        return `${value.toLocaleString()}`
+      } else {
+        return `${value.toFixed(2)}%`
       }
     }
   }
