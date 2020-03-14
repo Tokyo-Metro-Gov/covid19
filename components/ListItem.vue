@@ -107,12 +107,13 @@ export default class ListItem extends Vue {
     padding: 0;
     color: transparent !important;
     & .ListItem-TextContainer {
-      max-width: calc(100% - 20px);
+      max-width: calc(100% - 24px);
     }
     & .ListItem-Text {
       overflow: visible;
       white-space: normal;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
+      line-height: 1.5;
     }
     &:hover {
       color: transparent !important;
@@ -163,7 +164,8 @@ export default class ListItem extends Vue {
     flex: none;
   }
   &-ExternalLinkIcon {
-    margin-left: 2px;
+    font-size: 14px !important;
+    margin-left: 10px !important;
     color: $gray-3 !important;
   }
 }

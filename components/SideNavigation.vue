@@ -17,7 +17,6 @@
         </h1>
       </nuxt-link>
     </header>
-    <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
         class="SideNavigation-ListContainerIcon pc-none"
@@ -26,8 +25,9 @@
       >
         mdi-close
       </v-icon>
-      <nav>
-        <v-list :flat="true">
+      <v-divider class="SideNavigation-HeadingDivider" />
+      <nav class="SideNavigation-ListItem">
+        <v-list :flat="true" class="SideNavigation-ListItemInner">
           <v-container
             v-for="(item, i) in items"
             :key="i"
@@ -38,10 +38,10 @@
             <v-divider v-show="item.divider" class="SideNavigation-Divider" />
           </v-container>
         </v-list>
-        <div class="SideNavigation-LanguageMenu">
-          <LanguageSelector />
-        </div>
       </nav>
+      <div class="SideNavigation-LanguageMenu">
+        <LanguageSelector />
+      </div>
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
@@ -186,7 +186,7 @@ export default {
   background: $white;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
-    padding: 1.25em 0 1.25em 1.25em;
+    padding: 1.25em;
     align-items: center;
     @include lessThan($small) {
       padding: 7px 10px;
@@ -207,7 +207,7 @@ export default {
     margin: 24px 16px 0;
   }
   &-ListItemContainer {
-    padding: 2px 20px;
+    padding: 0;
   }
   &-Logo {
     margin: 5px 16px 15px 0;
@@ -217,9 +217,9 @@ export default {
     }
   }
   &-Heading {
-    margin-top: 8px;
     font-size: 13px;
     color: #898989;
+    margin-top: 8px;
     padding: 0.5em 0;
     text-decoration: none;
     @include lessThan($small) {
@@ -234,6 +234,12 @@ export default {
   }
   &-Divider {
     margin: 12px 0;
+  }
+  &-ListItem {
+    padding: 20px;
+  }
+  &-ListItemInner {
+    padding: 0;
   }
   &-LanguageMenu {
     padding: 0 20px;
