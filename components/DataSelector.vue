@@ -46,7 +46,7 @@ export default {
     value: {
       type: String,
       required: false,
-      default: ''
+      default: 'cumulative'
     }
   }
 }
