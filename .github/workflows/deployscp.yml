@@ -22,4 +22,4 @@ jobs:
         cf_password: ${{ secrets.CF_PASSWORD }}
         cf_org: i030702trial
         cf_space: dev
-        command: push stopcovid19 -c "yarn dev"
+        command: push stopcovid19 -f ./cf/manifest.yaml -c "yarn dev"

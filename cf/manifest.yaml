@@ -1,0 +1,6 @@
+---
+applications:
+- name: stopcovid19
+  random-route: true
+  path: covid19
+  memory: 2048M
