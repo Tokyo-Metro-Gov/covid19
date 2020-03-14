@@ -10,7 +10,7 @@
       </v-icon>
       <nuxt-link to="/" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('Tokyo')" />
+          <img src="/logo.svg" :alt="$t('Chiba')" />
         </div>
         <h1 class="SideNavigation-Heading">
           {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
@@ -40,21 +40,14 @@
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
-            href="https://line.me/R/ti/p/%40822sysfc"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/line.png" alt="LINE" />
-          </a>
-          <a
-            href="https://twitter.com/tokyo_bousai"
+            href="https://twitter.com/code4chiba"
             target="_blank"
             rel="noopener"
           >
             <img src="/twitter.png" alt="Twitter" />
           </a>
           <a
-            href="https://www.facebook.com/tochokoho"
+            href="https://www.facebook.com/codeforchiba"
             target="_blank"
             rel="noopener"
           >
@@ -62,8 +55,7 @@
           </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
-          Reserved.
+          Powered by Code for Chiba
         </small>
       </div>
     </div>
@@ -75,20 +67,17 @@
   "ja": {
     "Navi Open": "サイドメニュー項目を開く",
     "Navi Close": "サイドメニュー項目を閉じる",
-    "Tokyo": "東京都",
+    "Chiba": "千葉市",
     "COVID-19": "新型コロナウイルス感染症",
     "Measures site": "対策サイト",
-    "Tokyo Metropolitan Government": "東京都",
-    "Tokyo COVID-19 Task Force": "新型コロナウイルス感染症対策本部",
-    "The latest updates": "都内の最新感染動向",
+    "The latest updates": "市内の最新感染動向",
     "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
     "for Families with children": "お子様をお持ちの皆様へ",
-    "for Citizens": "都民の皆様へ",
+    "for Citizens": "市民の皆様へ",
     "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
-    "Official statements from Task Force": "東京都新型コロナウイルス感染症対策本部報",
-    "Cancelled public events": "東京都主催等 中止又は延期するイベント等",
-    "Government official website": "東京都公式ホームページ",
-    "Message from Governor Koike": "知事からのメッセージ",
+    "Twitter by mayor kumagai": "熊谷市長 Twitter",
+    "Twitter by Chiba PR": "千葉市広報広聴課 Twitter",
+    "Government official website": "千葉市公式ホームページ",
     "About us": "当サイトについて"
   }
 }
@@ -127,30 +116,25 @@ export default {
           link: '/parent'
         },
         {
-          icon: 'mdi-account-multiple',
-          title: this.$t('for Citizens'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
-        },
-        {
           icon: 'mdi-domain',
           title: this.$t('for Enterprises and Employees'),
-          link: '/worker',
+          link: '/worker'
+        },
+        {
+          icon: 'mdi-account-multiple',
+          title: this.$t('for Citizens'),
+          link:
+            'https://www.city.chiba.jp/hokenfukushi/kenkou/kikaku/kansensyoujyouhou.html',
           divider: true
         },
         {
-          title: this.$t('Official statements from Task Force'),
-          link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
+          title: this.$t('Twitter by mayor kumagai'),
+          link: 'https://twitter.com/kumagai_chiba'
         },
         {
-          title: this.$t('Cancelled public events'),
+          title: this.$t('Twitter by Chiba PR'),
           link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
-        },
-        {
-          title: this.$t('Message from Governor Koike'),
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+            'https://twitter.com/Chiba_city_PR'
         },
         {
           title: this.$t('About us'),
@@ -158,7 +142,7 @@ export default {
         },
         {
           title: this.$t('Government official website'),
-          link: 'https://www.metro.tokyo.lg.jp/',
+          link: 'https://www.city.chiba.jp/',
           divider: true
         }
       ]

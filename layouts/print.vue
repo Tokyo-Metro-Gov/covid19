@@ -1,15 +1,15 @@
 <template>
   <v-app class="app-print">
     <div v-if="loading" class="loader">
-      <img src="/logo.svg" alt="東京都" />
-      <scale-loader color="#00A040" />
+      <img src="/logo.svg" alt="Chiba COVID-19" />
+      <scale-loader color="#177047" />
     </div>
     <v-container v-else>
       <v-row align="center" class="PrintMeta">
         <v-col :cols="12" :sm="6">
           <div class="PrintMeta-HeadingWrapper">
             <div class="PrintMeta-Logo">
-              <img src="/logo.svg" alt="東京都" />
+              <img src="/logo.svg" alt="Chiba COVID-19" />
             </div>
             <h1 class="PrintMeta-Heading">
               新型コロナウイルス感染症<br />対策サイト
@@ -32,7 +32,7 @@
                 ※最新の情報はWebページをご覧ください
               </p>
               <p class="PrintMeta-Link">
-                https://stopcovid19.metro.tokyo.lg.jp/
+                https://stopcovid19.code4chiba.org/
               </p>
             </v-card>
           </v-card>
@@ -77,7 +77,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+          href: `https://stopcovid19.code4chiba.org${this.$route.path}`
         }
       ]
     }

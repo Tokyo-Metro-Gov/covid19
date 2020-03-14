@@ -4,7 +4,7 @@
       <p class="MetroGraph-Desc">
         {{ chartData.base_period }}の利用者数*の平均値を基準としたときの相対値
         <br />
-        *都営地下鉄4路線の自動改札出場数
+        *千葉駅の自動改札出場数
       </p>
     </template>
     <bar
@@ -46,7 +46,7 @@ export default {
     chartId: {
       type: String,
       required: false,
-      default: 'metro-bar-chart'
+      default: 'monorail-bar-chart'
     },
     chartData: {
       type: Object,

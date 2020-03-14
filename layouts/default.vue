@@ -1,8 +1,8 @@
 <template>
   <v-app class="app">
     <div v-if="loading" class="loader">
-      <img src="/logo.svg" alt="東京都" />
-      <scale-loader color="#00A040" />
+      <img src="/logo.svg" alt="Chiba COVID-19" />
+      <scale-loader color="#177047" />
     </div>
     <div v-else class="appContainer">
       <div class="naviContainer">
@@ -61,7 +61,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+          href: `https://stopcovid19.code4chiba.org${this.$route.path}`
         }
       ]
     }
