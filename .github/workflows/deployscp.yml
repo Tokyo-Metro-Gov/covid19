@@ -17,4 +17,4 @@ jobs:
         cf_password: ${{ secrets.CF_PASSWORD }}
         cf_org: i030702trial
         cf_space: dev
-        command: echo start
+#        command: echo start
