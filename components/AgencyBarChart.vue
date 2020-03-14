@@ -24,9 +24,7 @@
       class="cardTable"
       item-key="name"
     />
-    <button @click="download()">
-      csv
-    </button>
+    <a @click="download()">csv</a>
   </data-view>
 </template>
 

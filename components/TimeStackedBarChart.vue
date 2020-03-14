@@ -34,9 +34,7 @@
       class="cardTable"
       item-key="name"
     />
-    <button @click="download()">
-      csv
-    </button>
+    <a @click="download()">csv</a>
 
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
