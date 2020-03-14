@@ -122,7 +122,7 @@ export default {
         },
         {
           icon: 'mdi-account-multiple',
-          title: this.$t('都民の皆様へ'),
+          title: this.$t('県民の皆様へ'),
           link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
         },
         {
