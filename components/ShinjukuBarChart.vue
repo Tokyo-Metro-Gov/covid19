@@ -1,10 +1,15 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
-      <p :class="$style.ShinjukuDesc">
+      <p v-if="dataKind === 'absolute'" :class="$style.ShinjukuDesc">
         7:30 ~ 8:30 の平均来訪者数について
         <br />
         週間平均値（週毎の1日あたりの平均値）を算出
+      </p>
+      <p v-if="dataKind === 'relative'" :class="$style.ShinjukuDesc">
+        7:30 ~ 8:30 の平均来訪者数の週間平均値を、
+        <br />
+        2/2の週を基準とした相対値として算出
       </p>
       <data-selector v-model="dataKind" />
     </template>
@@ -47,11 +52,6 @@ dayjs.updateLocale('en', {
 export default {
   components: { DataView, DataSelector },
   props: {
-    title: {
-      type: String,
-      required: false,
-      default: ''
-    },
     titleId: {
       type: String,
       required: false,
@@ -71,6 +71,15 @@ export default {
     }
   },
   computed: {
+    title() {
+      let title = ''
+      if (this.dataKind === 'absolute') {
+        title = '新宿区の来訪者数の推移 (実数値)'
+      } else if (this.dataKind === 'relative') {
+        title = '新宿区の来訪者数の推移 (相対値)'
+      }
+      return title
+    },
     groupByWeekData() {
       return this.chartData.reduce((res, d) => {
         // TODO: 変更可能にする
