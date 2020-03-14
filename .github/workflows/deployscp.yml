@@ -12,7 +12,7 @@ jobs:
     - uses: dg4101/cf-cli@master
     - name: Setup repo
       run: pwd;git --version;git clone https://github.com/dg4101/covid19.git;cd ./covid19;git checkout dev-scp;echo ====================;
-    - run: cf --version;
+    - run: cf --version
 
     - name: Setup CF
       run: /usr/local/bin/cf api https://api.cf.eu10.hana.ondemand.com;/usr/local/bin/cf auth ${{ secrets.CF_USER }} ${{ secrets.CF_PASSWORD }};/usr/local/bin/cf target -o i030702trial -s dev
