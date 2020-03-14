@@ -232,7 +232,7 @@ const config: Configuration = {
   generate: {
     fallback: true,
     routes() {
-      const locales = ['en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
+      const locales = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
       const pages = [
         '/cards/details-of-confirmed-cases',
         '/cards/number-of-confirmed-cases',
@@ -247,6 +247,10 @@ const config: Configuration = {
       const routes: string[] = []
       locales.forEach(locale => {
         pages.forEach(page => {
+          if (locale === 'ja') {
+            routes.push(page)
+            return
+          }
           const route = `/${locale}${page}`
           routes.push(route)
         })
