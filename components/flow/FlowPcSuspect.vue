@@ -83,7 +83,11 @@
     position: absolute;
     left: -8px;
     top: -8px;
-    content: url(/flow/check_circle-24px.svg);
+    width: 24px;
+    height: 24px;
+    background-image: url(/flow/check_circle-24px.svg);
+    background-size: contain;
+    content: '';
   }
 
   &:before {
