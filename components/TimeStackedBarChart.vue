@@ -10,16 +10,21 @@
           )
         }}
       </p>
-      <data-selector v-model="dataKind" />
+      <data-selector
+        v-model="dataKind"
+        :style="{ display: canvas ? 'block' : 'none' }"
+      />
     </template>
     <bar
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="options"
       :height="240"
     />
-    <template v-if="noCanvas">
+    <template>
       <v-data-table
+        :style="{ display: canvas ? 'none' : 'block' }"
         :headers="tableHeaders"
         :items="tableData"
         :items-per-page="-1"
@@ -56,6 +61,7 @@ interface HTMLElementEvent<T extends HTMLElement> extends Event {
 }
 type Data = {
   dataKind: 'transition' | 'cumulative'
+  canvas: boolean
 }
 type Methods = {
   sum: (array: number[]) => number
@@ -87,7 +93,6 @@ type Computed = {
   tableData: {
     [key: number]: number
   }[]
-  noCanvas: boolean
   options: {
     tooltips: {
       displayColors: boolean
@@ -125,6 +130,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
@@ -164,7 +172,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
-    dataKind: 'transition'
+    dataKind: 'transition',
+    canvas: true
   }),
   computed: {
     displayInfo() {
@@ -231,9 +240,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           })
         )
       })
-    },
-    noCanvas() {
-      return process.browser !== true
     },
     options() {
       const unit = this.unit
