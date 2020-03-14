@@ -3,7 +3,7 @@
     <div class="PrinterButton">
       <v-btn outlined color="#00a040" href="/print/flow" target="_blank">
         <div class="PrinterButton-PrinterIcon">
-          <PrinterIcon />
+          <PrinterIcon aria-hidden="true" />
         </div>
         <span class="PrinterButton-Text">
           {{ $t('print') }}
