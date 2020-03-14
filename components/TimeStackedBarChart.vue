@@ -22,20 +22,18 @@
       :options="options"
       :height="240"
     />
-    <template>
-      <v-data-table
-        :style="{ display: canvas ? 'none' : 'block' }"
-        :headers="tableHeaders"
-        :items="tableData"
-        :items-per-page="-1"
-        :hide-default-footer="true"
-        :height="240"
-        :fixed-header="true"
-        :mobile-breakpoint="0"
-        class="cardTable"
-        item-key="name"
-      />
-    </template>
+    <v-data-table
+      :style="{ display: canvas ? 'none' : 'block' }"
+      :headers="tableHeaders"
+      :items="tableData"
+      :items-per-page="-1"
+      :hide-default-footer="true"
+      :height="240"
+      :fixed-header="true"
+      :mobile-breakpoint="0"
+      class="cardTable"
+      item-key="name"
+    />
 
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
