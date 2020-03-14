@@ -30,9 +30,8 @@
         {{ $t('午前9時から午後9時（土日祝含む）') }}
       </div>
 
-      <div :class="$style.TelLink">
-        <a href="tel:0570550571">
-          <img src="/flow/phone-24px.svg" alt="" />
+      <div :class="$style.Tel">
+        <a :class="$style.TelLink" href="tel:0570550571">
           0570-550571
         </a>
       </div>
@@ -50,14 +49,32 @@
   justify-content: space-between;
 }
 
-.TelLink {
+.Tel {
   @include largerThan($medium) {
     font-size: larger;
   }
-  a {
-    color: $gray-2;
+}
+.TelLink {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  &:link,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    color: inherit;
     text-decoration: none;
-    font-weight: bold;
+  }
+  &::before {
+    content: '';
+    display: inline-block;
+    margin-right: 5px;
+    width: 26px;
+    height: 26px;
+    background-image: url(/flow/phone-24px.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 
