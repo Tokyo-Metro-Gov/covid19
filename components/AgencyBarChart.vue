@@ -6,10 +6,23 @@
       </small>
     </template>
     <bar
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="displayOption"
       :height="240"
+    />
+    <v-data-table
+      :style="{ display: canvas ? 'none' : 'block' }"
+      :headers="tableHeaders"
+      :items="tableData"
+      :items-per-page="-1"
+      :hide-default-footer="true"
+      :height="240"
+      :fixed-header="true"
+      :mobile-breakpoint="0"
+      class="cardTable"
+      item-key="name"
     />
   </data-view>
 </template>
@@ -36,6 +49,7 @@ import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
 
 type Data = {
+  canvas: boolean
   chartData: typeof agencyData
   date: string
   agencies: VueI18n.TranslateResult[]
@@ -51,6 +65,13 @@ type Computed = {
     }[]
   }
   displayOption: ChartOptions
+  tableHeaders: {
+    text: string
+    value: string
+  }[]
+  tableData: {
+    [key: number]: number
+  }[]
 }
 type Props = {
   title: string
@@ -67,6 +88,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView },
   props: {
     title: {
@@ -105,6 +129,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       dataset.label = this.$t(dataset.label) as string
     })
     return {
+      canvas: true,
       chartData: agencyData,
       date: agencyData.date,
       agencies
@@ -185,6 +210,26 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ]
         }
       }
+    },
+    tableHeaders() {
+      return [
+        { text: '', value: 'text' },
+        ...this.displayData.datasets.map((text, value) => {
+          return { text: text.label, value: String(value) }
+        })
+      ]
+    },
+    tableData() {
+      return this.displayData.datasets[0].data.map((_, i) => {
+        return Object.assign(
+          { text: this.displayData.labels[i] as string },
+          ...this.displayData.datasets!.map((_, j) => {
+            return {
+              [j]: this.displayData.datasets[0].data[i]
+            }
+          })
+        )
+      })
     }
   }
 }
