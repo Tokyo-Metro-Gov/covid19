@@ -18,7 +18,7 @@
             class="WhatsNew-list-item-anchor-time px-2"
             :datetime="formattedDate(item.date)"
           >
-            {{ item.date }}
+            {{ $t(item.date) }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
             {{ $t(item.text) }}
@@ -95,7 +95,7 @@ export default {
       }
 
       &-time {
-        flex: 0 0 90px;
+        flex: 0 0 120px;
         @include lessThan($medium) {
           flex: 0 0 100%;
         }
