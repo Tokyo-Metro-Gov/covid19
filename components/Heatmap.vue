@@ -11,8 +11,8 @@
 import Mapbox from 'mapbox-gl-vue'
 
 const addDataHeatmapLayer = (map, date) => {
-  // const tileUrl = `https://map-covid19-tokyo.netlify.com/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
-  const tileUrl = `http://localhost:3000/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
+  const tileUrl = `https://map-covid19-tokyo.netlify.com/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
+  // const tileUrl = `http://localhost:3000/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
   map.addLayer({
     id: `heatmap-data-${date}`,
     type: 'fill',
@@ -30,8 +30,8 @@ const addDataHeatmapLayer = (map, date) => {
 }
 
 const addHeatmapLayer = (map, date) => {
-  // const tileUrl = `https://map-covid19-tokyo.netlify.com/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
-  const tileUrl = `http://localhost:3000/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
+  const tileUrl = `https://map-covid19-tokyo.netlify.com/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
+  // const tileUrl = `http://localhost:3000/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
   map.addLayer({
     id: 'heatmap',
     type: 'fill',
