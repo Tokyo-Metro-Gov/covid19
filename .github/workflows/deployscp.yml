@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: govau/cf-cli@master
-    - name: Setup repo
+      name: Setup repo
       run: pwd;git --version;git clone https://github.com/dg4101/covid19.git;git checkout dev-scp;echo ====================;pwd;find .
     - name: Setup CF
       run: cf api https://api.cf.eu10.hana.ondemand.com;cf auth ${{ secrets.CF_USER }} ${{ secrets.CF_PASSWORD }};cf target -o i030702trial -s dev
