@@ -173,6 +173,13 @@ export default {
           }
         },
         scales: {
+          xAxes: [
+            {
+              gridLines: {
+                display: false
+              }
+            }
+          ],
           yAxes: [
             {
               ticks: {
