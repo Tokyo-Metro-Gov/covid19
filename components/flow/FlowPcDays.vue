@@ -3,7 +3,7 @@
     <div :class="$style.FlowRow">
       <div :class="$style.FlowRowRowThree">
         <div>
-          <img src="/flow/accessibility-24px.svg" alt="" aria-hidden="true" />
+          <img src="/flow/accessibility-24px.svg" alt="" />
           <p>{{ $t('一般の方') }}</p>
         </div>
       </div>
@@ -62,23 +62,19 @@
       <div :class="$style.FlowRowRowThree">
         <ul :class="$style.FlowRowRowThreeCareTargetList">
           <li :class="$style.FlowRowRowThreeCareTargetListItem">
-            <img
-              src="/flow/directions_walk-24px.svg"
-              alt=""
-              aria-hidden="true"
-            />{{ $t('ご高齢な方') }}
+            <img src="/flow/directions_walk-24px.svg" alt="" />{{
+              $t('ご高齢な方')
+            }}
           </li>
           <li :class="$style.FlowRowRowThreeCareTargetListItem">
-            <img src="/flow/accessible-24px.svg" alt="" aria-hidden="true" />{{
+            <img src="/flow/accessible-24px.svg" alt="" />{{
               $t('基礎疾患のある方')
             }}
           </li>
           <li :class="$style.FlowRowRowThreeCareTargetListItem">
-            <img
-              src="/flow/pregnant_woman-24px.svg"
-              alt=""
-              aria-hidden="true"
-            />{{ $t('妊娠中の方') }}
+            <img src="/flow/pregnant_woman-24px.svg" alt="" />{{
+              $t('妊娠中の方')
+            }}
           </li>
         </ul>
       </div>

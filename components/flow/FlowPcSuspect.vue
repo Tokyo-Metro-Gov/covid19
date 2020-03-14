@@ -3,11 +3,7 @@
     <div :class="[$style.SubtleBox, $style.Box1]">
       <div :class="$style.RowItems">
         <div>
-          <img
-            src="/flow/sentiment_very_dissatisfied-24px.svg"
-            alt=""
-            aria-hidden="true"
-          />
+          <img src="/flow/sentiment_very_dissatisfied-24px.svg" alt="" />
         </div>
         <div :class="$style.SmallerText">
           {{ $t('不安に思う方') }}
@@ -36,7 +32,7 @@
 
       <div :class="$style.TelLink">
         <a href="tel:0570550571">
-          <img src="/flow/phone-24px.svg" alt="" aria-hidden="true" />
+          <img src="/flow/phone-24px.svg" alt="" />
           0570-550571
         </a>
       </div>
