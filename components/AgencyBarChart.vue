@@ -27,11 +27,46 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
+import { ChartOptions } from 'chart.js'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
 
-export default {
+type Data = {
+  chartData: typeof agencyData
+  date: string
+  agencies: VueI18n.TranslateResult[]
+}
+type Methods = {}
+type Computed = {
+  displayData: {
+    labels: string[]
+    datasets: {
+      label: string
+      data: number[]
+      backgroundColor: string
+    }[]
+  }
+  displayOption: ChartOptions
+}
+type Props = {
+  title: string
+  titleId: string
+  chartId: string
+  unit: string
+  url: string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
   components: { DataView },
   props: {
     title: {
@@ -67,7 +102,7 @@ export default {
       this.$t('議事堂計')
     ]
     agencyData.datasets.map(dataset => {
-      dataset.label = this.$t(dataset.label)
+      dataset.label = this.$t(dataset.label) as string
     })
     return {
       chartData: agencyData,
@@ -79,12 +114,12 @@ export default {
     displayData() {
       const colors = ['#008b41', '#63c765', '#a6e29f']
       return {
-        labels: this.chartData.labels,
+        labels: this.chartData.labels as string[],
         datasets: this.chartData.datasets.map((item, index) => {
           return {
-            label: this.agencies[index],
+            label: this.agencies[index] as string,
             data: item.data,
-            backgroundColor: colors[index]
+            backgroundColor: colors[index] as string
           }
         })
       }
@@ -98,12 +133,12 @@ export default {
             title(tooltipItem) {
               const dateString = tooltipItem[0].label
               return self.$t('期間: {duration}', {
-                duration: dateString
-              })
+                duration: dateString!
+              }) as string
             },
             label(tooltipItem, data) {
-              const index = tooltipItem.datasetIndex
-              const title = self.$t(data.datasets[index].label)
+              const index = tooltipItem.datasetIndex!
+              const title = self.$t(data.datasets![index].label!)
               const num = tooltipItem.value
               const unit = self.$t(self.unit)
               return `${title}: ${num}${unit}`
@@ -113,10 +148,10 @@ export default {
         legend: {
           display: true,
           onHover: e => {
-            e.currentTarget.style.cursor = 'pointer'
+            ;(e!.currentTarget as HTMLElement).style!.cursor = 'pointer'
           },
           onLeave: e => {
-            e.currentTarget.style.cursor = 'default'
+            ;(e!.currentTarget as HTMLElement).style!.cursor = 'default'
           }
         },
         scales: {
@@ -153,4 +188,6 @@ export default {
     }
   }
 }
+
+export default Vue.extend(options)
 </script>
