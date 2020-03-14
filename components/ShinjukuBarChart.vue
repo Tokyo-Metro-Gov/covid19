@@ -34,6 +34,7 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/en'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 import updateLocale from 'dayjs/plugin/updateLocale'
+import ShinjukuData from '@/data/shinjuku.json'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataTypeSelector.vue'
 
@@ -59,22 +60,14 @@ export default {
     chartId: {
       type: String,
       required: false,
-      default: 'metro-bar-chart'
-    },
-    chartData: {
-      type: Array,
-      required: false,
-      default: () => []
-    },
-    date: {
-      type: String,
-      required: true,
       default: ''
     }
   },
   data() {
     return {
-      dataKind: 'absolute'
+      dataKind: 'absolute',
+      chartData: ShinjukuData.data,
+      date: ShinjukuData.date
     }
   },
   computed: {
