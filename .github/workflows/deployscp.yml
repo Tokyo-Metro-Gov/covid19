@@ -9,7 +9,8 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-    # Runs a single command using the runners shell
+    - uses: actions/checkout@v2
+      # Runs a single command using the runners shell
     - name: Test env
       run: echo Hello, world!;pwd;find .
           
