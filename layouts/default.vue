@@ -48,13 +48,15 @@ export default Vue.extend({
   },
   data(): LocalData {
     let hasNavigation = true
+    let loading = true
     if (this.$route.query.embed === 'true') {
       hasNavigation = false
+      loading = false
     }
 
     return {
       hasNavigation,
-      loading: true,
+      loading,
       isOpenNavigation: false
     }
   },
@@ -90,7 +92,6 @@ export default Vue.extend({
   background-color: inherit !important;
 }
 .embed {
-  display: grid;
 
   .container {
     padding: 0 !important;
