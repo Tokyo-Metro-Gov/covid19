@@ -30,9 +30,6 @@
       class="cardTable"
       item-key="name"
     />
-    <button @click="download()">
-      csv
-    </button>
   </data-view>
 </template>
 
@@ -53,16 +50,12 @@
 import Vue from 'vue'
 import { ChartOptions, ChartData } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import * as FileSaver from 'file-saver'
-import aoaToCsv from '@/utils/aoaToCsv'
 import DataView from '@/components/DataView.vue'
 
 type Data = {
   canvas: boolean
 }
-type Methods = {
-  download: () => void
-}
+type Methods = {}
 type Computed = {
   displayData: {
     labels: string[]
@@ -78,7 +71,6 @@ type Computed = {
     value: string
   }[]
   tableData: {
-    text: string
     [key: number]: number
   }[]
 }
@@ -161,32 +153,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           })
         )
       })
-    }
-  },
-  methods: {
-    download() {
-      if (process.browser !== true) {
-        return
-      }
-      const aoa = [
-        this.tableHeaders.map(header => header.text),
-        ...this.tableData.map(data => {
-          return [
-            data.text,
-            ...this.tableHeaders
-              .filter((_, i) => i !== 0)
-              .map((_, i) => {
-                return data[i]
-              })
-          ]
-        })
-      ]
-      FileSaver.saveAs(
-        new Blob([new Uint8Array([239, 187, 191]), aoaToCsv(aoa)], {
-          type: 'application/octet-stream'
-        }),
-        `${this.$t('都営地下鉄の利用者数の推移')}.csv`
-      )
     }
   }
 }

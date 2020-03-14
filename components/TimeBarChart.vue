@@ -33,9 +33,6 @@
         :unit="displayInfo.unit"
       />
     </template>
-    <button @click="download()">
-      csv
-    </button>
   </data-view>
 </template>
 
@@ -46,12 +43,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import * as FileSaver from 'file-saver'
 import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import aoaToCsv from '@/utils/aoaToCsv'
 
 type Data = {
   dataKind: 'transition' | 'cumulative'
@@ -59,7 +54,6 @@ type Data = {
 }
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
-  download: () => void
 }
 type Computed = {
   displayCumulativeRatio: string
@@ -99,7 +93,6 @@ type Computed = {
     value: string
   }[]
   tableData: {
-    text: string
     [key: number]: number
   }[]
 }
@@ -359,30 +352,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         default:
           return `${dayBeforeRatioLocaleString}`
       }
-    },
-    download() {
-      if (process.browser !== true) {
-        return
-      }
-      const aoa = [
-        this.tableHeaders.map(header => header.text),
-        ...this.tableData.map(data => {
-          return [
-            data.text,
-            ...this.tableHeaders
-              .filter((_, i) => i !== 0)
-              .map((_, i) => {
-                return data[i]
-              })
-          ]
-        })
-      ]
-      FileSaver.saveAs(
-        new Blob([new Uint8Array([239, 187, 191]), aoaToCsv(aoa)], {
-          type: 'application/octet-stream'
-        }),
-        `${this.title}.csv`
-      )
     }
   }
 }
