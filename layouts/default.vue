@@ -1,6 +1,10 @@
 <template>
   <v-app class="app">
-    <div v-if="hasNavigation" class="appContainer">
+    <div v-if="loading" class="loader">
+      <img src="/logo.svg" alt="東京都" />
+      <scale-loader color="#00A040" />
+    </div>
+    <div v-else-if="hasNavigation" class="appContainer">
       <div class="naviContainer">
         <SideNavigation
           :is-navi-open="isOpenNavigation"
@@ -20,35 +24,44 @@
         <nuxt />
       </v-container>
     </div>
-    <development-mode-mark />
+    <NoScript />
   </v-app>
 </template>
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
-import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
+import NoScript from '@/components/NoScript.vue'
 
 type LocalData = {
   hasNavigation: boolean
   isOpenNavigation: boolean
+  loading: boolean
 }
 
 export default Vue.extend({
   components: {
-    DevelopmentModeMark,
-    SideNavigation
+    ScaleLoader,
+    SideNavigation,
+    NoScript
   },
   data(): LocalData {
     let hasNavigation = true
+    let loading = true
     if (this.$route.query.embed === 'true') {
       hasNavigation = false
+      loading = false
     }
 
     return {
       hasNavigation,
+      loading,
       isOpenNavigation: false
     }
+  },
+  mounted() {
+    this.loading = false
   },
   methods: {
     openNavigation(): void {
@@ -79,7 +92,6 @@ export default Vue.extend({
   background-color: inherit !important;
 }
 .embed {
-  display: grid;
 
   .container {
     padding: 0 !important;
@@ -116,6 +128,9 @@ export default Vue.extend({
     overflow-y: auto;
     width: 240px;
     height: 100%;
+    border-right: 1px solid $gray-4;
+    border-left: 1px solid $gray-4;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
     overscroll-behavior: contain;
   }
 }
