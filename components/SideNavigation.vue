@@ -123,7 +123,8 @@ export default {
         {
           icon: 'mdi-account-multiple',
           title: this.$t('県民の皆様へ'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
+          link:
+            'https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/coronavirus.html'
         },
         {
           icon: 'mdi-domain',

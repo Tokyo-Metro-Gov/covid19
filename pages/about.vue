@@ -144,12 +144,12 @@
         path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
       >
         <a
-          href="https://portal.data.metro.tokyo.lg.jp/"
+          href="http://www.pref.kagoshima.jp/ac03/infra/info/opendata/index.html"
           target="_blank"
           rel="noopener"
           place="catalogWebsite"
         >
-          {{ $t('東京都オープンデータカタログサイト') }}
+          {{ $t('鹿児島県オープンデータサイト') }}
         </a>
       </i18n>
     </TextCard>
@@ -161,7 +161,7 @@
       }}
       <i18n path="詳しくは、{githubRepo}をご確認ください。">
         <a
-          href="https://github.com/tokyo-metropolitan-gov/covid19"
+          href="https://github.com/codeforkagoshima/covid19"
           target="_blank"
           rel="noopener"
           place="githubRepo"
