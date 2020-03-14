@@ -102,6 +102,7 @@ export default {
     }
   },
   mounted() {
+    this.loading = false
     window.addEventListener('load', this.print)
   },
   beforeDestroy() {
