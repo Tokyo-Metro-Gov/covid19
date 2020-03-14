@@ -16,7 +16,7 @@
     <bar
       :chart-id="chartId"
       :chart-data="displayData"
-      :options="chartOptions"
+      :options="displayOptions"
       :height="240"
     />
     <p :class="$style.ShinjukuDesc">
@@ -166,7 +166,7 @@ export default {
         }
       }
     },
-    chartOptions() {
+    displayOptions() {
       const self = this
       return {
         legend: {
@@ -196,6 +196,7 @@ export default {
             {
               ticks: {
                 maxTicksLimit: 8,
+                suggestedMin: 0,
                 callback(value) {
                   return self.yTicks(value)
                 }
