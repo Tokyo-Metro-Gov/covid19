@@ -1,10 +1,7 @@
 <template>
   <div class="SelectLanguage">
     <div class="SelectLanguage-Menu">
-      <select
-        v-model="$i18n.locale"
-        @change="navigate($i18n.locale)"
-      >
+      <select v-model="$i18n.locale" @change="navigate($i18n.locale)">
         <option
           v-for="locale in $i18n.locales"
           :key="locale.code"
