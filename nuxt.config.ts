@@ -100,6 +100,10 @@ const config: Configuration = {
       ssr: true
     },
     {
+      src: '@/plugins/axe',
+      ssr: true
+    },
+    {
       src: '@/plugins/vuetify.ts',
       ssr: true
     }
