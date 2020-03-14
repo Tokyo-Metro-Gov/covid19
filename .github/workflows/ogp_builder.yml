@@ -32,14 +32,25 @@ jobs:
         with:
           name: ogp
           path: ogp
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add ogp
-          git commit -m "Add changes"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: new_ogp
+  upload:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@staging
+    - name: Download ogp images
+      uses: actions/download-artifact@v1
+      with:
+        name: ogp
+    - name: Commit files
+      run: |
+        mv ogp/* static/
+        rm -rf ogp
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add static
+        git commit -m "Add changes" 
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: new_ogp
