@@ -6,10 +6,6 @@ on:
     - dev-scp
 
 jobs:
-  build:
-    runs-on: ubuntu-18.04
-    # Build your app here
-
   deploy:
     runs-on: ubuntu-18.04
     needs: build
