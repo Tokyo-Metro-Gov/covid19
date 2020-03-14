@@ -8,7 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
-    needs: build
     
     steps:
     - name: CF Push
