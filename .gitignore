@@ -93,3 +93,6 @@ sw.*
 
 # Netlify
 .netlify
+
+# Nuex
+nuxt.config.ts
