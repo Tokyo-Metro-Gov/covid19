@@ -1,6 +1,6 @@
 <template>
   <v-btn-toggle
-    :value="value"
+    value="value"
     class="DataSelector"
     mandatory
     @change="$emit('input', $event)"
