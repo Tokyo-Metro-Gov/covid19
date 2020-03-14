@@ -4,13 +4,13 @@
       <div :class="$style.AdvisoryContents">
         <div>
           <span :class="$style.AdvisoryContentsTitle">{{
-            $t('新型コロナ受診相談窓口（日本語のみ）')
+            $t('新型コロナ受診相談窓口')
           }}</span>
         </div>
-        <div :class="[$style.AdvisoryContentsColsSentense, 'mt-4']">
+        <div :class="[$style.AdvisoryContentsColsSentense, $style.Mt16]">
           {{ $t('帰国者・接触者 電話相談センター') }}
         </div>
-        <div>
+        <div :class="[$style.AdvisoryBlockCentering, $style.Mt20]">
           <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryWhiteBox]">
             <span :class="$style.AdvisoryWhiteBoxSentense">
               {{ $t('24時間対応') }}
@@ -20,7 +20,7 @@
       </div>
 
       <div :class="$style.AdvisoryContents">
-        <div class="py-8">
+        <div>
           <div :class="$style.AdvisoryContentsTitle2">
             {{ $t('平日（日中）') }}
           </div>
@@ -28,7 +28,7 @@
             :class="[
               $style.AdvisoryLink,
               $style.AdvisoryBlockCentering,
-              'mt-4'
+              $style.Mt16
             ]"
           >
             <a
@@ -46,13 +46,13 @@
       </div>
 
       <div :class="$style.AdvisoryContents">
-        <div class="pt-8">
+        <div>
           <div :class="$style.AdvisoryContentsTitle2">
             {{ $t('平日（夜間）') }}
           </div>
           <span>{{ $t('午後5時から翌朝午前9時') }}</span>
         </div>
-        <div class="mt-1">
+        <div :class="$style.Mt4">
           <span :class="$style.AdvisoryContentsSubTitle">
             {{ $t('土日祝 終日') }}
           </span>
@@ -61,12 +61,24 @@
           :class="[
             $style.AdvisoryTelephoneArea,
             $style.AdvisoryBlockCentering,
-            'mt-1'
+            $style.Mt4
           ]"
         >
           <img src="/flow/phone-24px.svg" />
           <span :class="$style.AdvisoryTelephone">03-5320-4592</span>
         </div>
+      </div>
+    </div>
+
+    <div :class="$style.AdvisoryBlockCentering">
+      <img src="/flow/flow_arrow.svg" :class="$style.Rotate" />
+    </div>
+
+    <div :class="$style.AdvisoryBlockCentering">
+      <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryBlackBox]">
+        <span :class="$style.AdvisoryBlackBoxSentense">{{
+          $t('専門的な助言が必要な場合')
+        }}</span>
       </div>
     </div>
   </div>
@@ -157,7 +169,6 @@
   &Container {
     background-color: $gray-5;
     border-radius: 4px;
-    height: 100%;
     padding: 30px 20px 20px 20px;
     margin-bottom: 10px;
     text-align: center;
@@ -166,8 +177,10 @@
     font-weight: bold;
     &:not(:first-child) {
       border-top: 0.5px solid $gray-4;
+      padding-top: 12px;
     }
     &:not(:last-child) {
+      padding-bottom: 16px;
     }
     &Title {
       font-size: 26px;
@@ -210,7 +223,7 @@
     border-radius: 4px;
     text-align: center;
     padding: 20px 10px;
-    margin: 24px auto;
+    margin: 20px auto 40px;
   }
   &WhiteBox {
     background-color: $white;
@@ -222,5 +235,31 @@
       font-weight: bold;
     }
   }
+  &BlackBox {
+    background-color: $gray-2;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &Sentense {
+      color: $white;
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+}
+.Rotate {
+  transform: rotate(-90deg);
+}
+.Mt4 {
+  margin-top: 4px;
+}
+.Mt16 {
+  margin-top: 16px;
+}
+.Mt20 {
+  margin-top: 20px;
 }
 </style>

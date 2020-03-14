@@ -5,7 +5,7 @@
   "author": "東京都",
   "private": true,
   "engines": {
-    "node": ">=10.19.0"
+    "node": "^10.19.0"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt-ts",
@@ -16,12 +16,16 @@
     "lint-and-generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "test": "echo 'skip tests (there is no test)'",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "lint": "eslint './**/*.{js,ts,vue}' --fix"
 =======
     "lint": "eslint './**/*.{js,ts,vue}'",
     "lint:fix": "eslint './**/*.{js,ts,vue}' --fix",
     "clean-hardsource": "rimraf ./node_modules/.cache/hard-source"
 >>>>>>> add: npm scripts to check only lint
+=======
+    "lint": "eslint './**/*.{js,ts,vue}' --fix"
+>>>>>>> Revert "Merge remote-tracking branch 'upstream/dev-i18n' into fix/1323"
   },
   "lint-staged": {
     "*.{js,ts,css,vue}": [
@@ -62,7 +66,6 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-tsdoc": "^0.2.3",
     "husky": "^4.2.3",
     "jest": "^24.1.0",
     "lint-staged": "^10.0.8",

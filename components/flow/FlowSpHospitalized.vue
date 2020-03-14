@@ -1,5 +1,6 @@
 <template>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <div id="hospitalized" :class="$style.container">
     <p :class="$style.heading">
       <span :class="[$style.icon, $style.top]">
@@ -16,6 +17,14 @@
     </p>
     <p :class="['mb-0', $style.HospitalizationLargeText]">
 >>>>>>> [i18n] fix components/flow Hospitalized
+=======
+  <div id="hospitalized" :class="$style.Hospitalization">
+    <HotelIcon :class="$style.HospitalizationImg" aria-hidden="true" />
+    <p :class="$style.HospitalizationText">
+      {{ $t('入院となります') }}
+    </p>
+    <p :class="['mb-0', $style.HospitalizationLargeText]">
+>>>>>>> Revert "Merge remote-tracking branch 'upstream/dev-i18n' into fix/1323"
       {{ $t('感染症指定医療機関等') }}
     </p>
   </div>
@@ -70,7 +79,7 @@
 >>>>>>> [i18n] fix components/flow Hospitalized
 
 <script lang="ts">
-import HotelIcon from '@/static/flow/responsive/hotel.svg'
+import HotelIcon from '@/static/flow/hotel-24px.svg'
 
 export default {
   components: { HotelIcon }
@@ -78,23 +87,22 @@ export default {
 </script>
 
 <style module lang="scss">
-@import '@/components/flow/flow_sp.scss';
-
-.heading .icon {
-  margin-bottom: px2vw(10);
-}
-.facility {
-  margin-top: px2vw(30);
-  text-align: center;
-}
-
-@include largerThan($small) {
-  $vw: 960;
-  .heading .icon {
-    margin-bottom: px2vw(10, $vw);
+.Hospitalization {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &Text {
+    color: $gray-2;
+    font-weight: bold;
+    @include font-size(16);
   }
-  .facility {
-    margin-top: px2vw(30, $vw);
+  &LargeText {
+    color: $gray-2;
+    font-weight: bold;
+    @include font-size(22);
+  }
+  &Img {
+    width: 2rem;
   }
 }
 </style>

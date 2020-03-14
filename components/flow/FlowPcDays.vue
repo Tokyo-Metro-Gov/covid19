@@ -216,9 +216,7 @@
   position: relative;
   color: $gray-2;
   &Row {
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-basis: 36%;
+    flex: 1 0 36%;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -227,13 +225,13 @@
       margin: 0 10px;
     }
     &RowThree {
-      flex-grow: 3;
+      flex: 3;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-top: 20px;
       &CareTargetList {
-        margin: 16px 0;
+        margin: 16px auto;
         text-align: left;
         list-style: none;
         &Item + &Item {
@@ -242,7 +240,7 @@
       }
     }
     &Condition {
-      flex-grow: 1;
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -255,7 +253,7 @@
       p {
         text-align: center;
         display: inline-block;
-        margin: 0 !important; // FIXME: IEだとv-applicationのmarginが優先される
+        margin: 0;
         font-size: calc(0.875rem + ((1vw - 7.68px) * 0.8929));
         font-weight: bold;
         @include largerThan($large) {

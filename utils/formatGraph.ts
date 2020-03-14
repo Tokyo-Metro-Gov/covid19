@@ -9,11 +9,6 @@ type GraphDataType = {
   cumulative: number
 }
 
-/**
- * Format for *Chart component
- *
- * @param data - Raw data
- */
 export default (data: DataType[]) => {
   const graphData: GraphDataType[] = []
   const today = new Date()

@@ -1,46 +1,56 @@
 <template>
-  <div :class="$style.container">
-    <p :class="$style.heading">
-      <span :class="[$style.icon, $style.top]">
-        <SentimentIcon aria-hidden="true" />
-      </span>
-      <span :class="$style.fzMedium">{{ $t('不安に思う方') }}</span>
-    </p>
+  <div :class="$style.Suspect">
+    <div :class="['mb-5', $style.Targets]">
+      <div :class="$style.TargetsItem">
+        <SentimentIcon
+          :class="['mb-n4', $style.TargetsItemImg]"
+          aria-hidden="true"
+        />
+        <div>
+          {{ $t('不安に思う方') }}
+        </div>
+      </div>
+    </div>
 
-    <ul :class="[$style.rectContainer, $style.triple]">
-      <li :class="$style.symptom">
+    <ul :class="['mb-5', $style.Conditions]">
+      <li :class="['py-4', $style.ConditionsItem]">
         {{ $t('微熱') }}
       </li>
-      <li :class="$style.symptom">
+      <li :class="['py-4', $style.ConditionsItem]">
         {{ $t('軽い咳') }}
       </li>
-      <li :class="$style.symptom">
+      <li :class="['py-4', $style.ConditionsItem, $style.ConditionsItemLarge]">
         {{ $t('感染の不安') }}
       </li>
     </ul>
 
-    <div :class="$style.callcenter">
-      <p :class="$style.fzLarge">
+    <div :class="['mb-3', $style.CallCenter]">
+      <div :class="$style.CallCenterName">
         {{ $t('新型コロナコールセンター') }}
-      </p>
-      <p :class="$style.open">
+      </div>
+      <div :class="$style.CallCenterTime">
         {{ $t('午前9時から午後9時（土日祝含む）') }}
-      </p>
-      <p :class="[$style.phone, $style.fzNumeric]">
-        <span :class="$style.icon">
-          <PhoneIcon alt="Phone" />
-        </span>
-        <a href="tel:0570550571">0570-550571</a>
-      </p>
+      </div>
+    </div>
+
+    <div :class="['mb-4', $style.Phone]">
+      <div :class="$style.PhoneItem">
+        <PhoneIcon :class="$style.PhoneItemImg" alt="Phone" />
+        <a href="tel:0570550571">
+          0570-550571
+        </a>
+      </div>
     </div>
 
     <a
       v-scroll-to="'#consult'"
       href="#consult"
-      :class="[$style.button, $style.clickable]"
+      :class="['pa-5', $style.Advisory]"
     >
-      <span :class="$style.text">{{ $t('専門的な助言が必要な場合') }}</span>
-      <ArrowForwardIcon :class="$style.icon" />
+      <span :class="$style.AdvisoryText">
+        {{ $t('専門的な助言が必要な場合') }}
+      </span>
+      <ArrowForwardIcon :class="$style.AdvisoryIcon" />
     </a>
   </div>
 </template>
@@ -112,9 +122,9 @@
 >>>>>>> Fix components/flow/FlowSpSuspect.vue
 
 <script lang="ts">
-import ArrowForwardIcon from '@/static/flow/responsive/arrow_forward.svg'
-import PhoneIcon from '@/static/flow/responsive/phone.svg'
-import SentimentIcon from '@/static/flow/responsive/sentiment_very_dissatisfied.svg'
+import ArrowForwardIcon from '@/static/flow/arrow_forward-24px.svg'
+import PhoneIcon from '@/static/flow/phone-24px.svg'
+import SentimentIcon from '@/static/flow/sentiment_very_dissatisfied-24px.svg'
 
 export default {
   components: { ArrowForwardIcon, PhoneIcon, SentimentIcon }
@@ -122,47 +132,129 @@ export default {
 </script>
 
 <style module lang="scss">
-@import '@/components/flow/flow_sp.scss';
-
-.rectContainer {
-  // suspect
-  &.triple {
-    margin-left: px2vw(-11);
-    margin-right: px2vw(-11);
-    > .symptom {
-      margin-left: px2vw(11);
-      margin-right: px2vw(11);
-      flex-grow: 10;
+.Suspect {
+  font-weight: bold;
+  color: $gray-2;
+  text-align: center;
+}
+.Targets {
+  &Item {
+    $imgSize: 2rem;
+    @include font-size(16);
+    font-weight: bold;
+    line-height: $imgSize;
+    &Img {
+      width: $imgSize;
     }
   }
 }
-// suspect
-.callcenter {
-  margin-top: px2vw(25);
-  text-align: center;
-  .open {
-    margin-top: px2vw(10);
+.Conditions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 0 !important; // FIXME: ulを使用している関係で、paddingを打ち消す必要がある
+  &Item {
+    @include lessThan($small) {
+      @include font-size(16);
+    }
+    @include largerThan($small) {
+      @include font-size(18);
+    }
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $green-1 !important;
+    border-radius: 4px;
+    line-height: 1;
+    flex-basis: 28%;
+    &::before {
+      $imgSize: 24px;
+      content: '';
+      position: absolute;
+      top: -13px;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      width: $imgSize;
+      height: $imgSize;
+      background: #fff url(/flow/check_circle-24px.svg) no-repeat center;
+      background-size: $imgSize;
+    }
+    &Large {
+      flex-basis: 36%;
+    }
   }
 }
-
-@include largerThan($small) {
-  $vw: 960;
-  .rectContainer {
-    &.triple {
-      margin-left: px2vw(-11, $vw);
-      margin-right: px2vw(-11, $vw);
-      > .symptom {
-        margin-left: px2vw(11, $vw);
-        margin-right: px2vw(11, $vw);
+.CallCenter {
+  &Name {
+    @include lessThan($small) {
+      @include font-size(20);
+    }
+    @include largerThan($small) {
+      @include font-size(22);
+    }
+  }
+  &Time {
+    @include lessThan($small) {
+      @include font-size(14);
+    }
+    @include largerThan($small) {
+      @include font-size(16);
+    }
+  }
+}
+.Phone {
+  &Item {
+    $imgSize: 2rem;
+    @include font-size(24);
+    font-weight: bold;
+    line-height: $imgSize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &Img {
+      width: $imgSize;
+    }
+    a {
+      color: $gray-2;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
-  // suspect
-  .callcenter {
-    margin-top: px2vw(25, $vw);
-    .open {
-      margin-top: px2vw(10, $vw);
+}
+.Advisory {
+  align-items: center;
+  background-color: #ffe200;
+  border-radius: 4px;
+  box-shadow: -1px 2px 5px $gray-3;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: $gray-2 !important;
+  font-weight: bold;
+  &Text {
+    @include lessThan($small) {
+      @include font-size(16);
     }
+    @include largerThan($small) {
+      @include font-size(20);
+    }
+    text-align: initial;
+  }
+  &Icon {
+    @include lessThan($small) {
+      width: 28px;
+      height: 28px;
+    }
+    @include largerThan($small) {
+      width: 45px;
+      height: 45px;
+    }
+    transform: rotateZ(90deg);
+    display: block;
   }
 }
 </style>

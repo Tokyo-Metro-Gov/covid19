@@ -30,11 +30,6 @@ type TableDateType = {
   datasets: TableDataType[]
 }
 
-/**
- * Format for DataTable component
- *
- * @param data - Raw data
- */
 export default (data: DataType[]) => {
   const tableDate: TableDateType = {
     headers,

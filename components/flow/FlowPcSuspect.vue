@@ -161,9 +161,7 @@
 
 .Box1 {
   position: relative;
-  flex-grow: 0;
-  flex-shrink: 0;
-  width: 60%;
+  flex: 0 0 60%;
   flex-direction: row;
   &::after {
     content: '';
@@ -179,11 +177,8 @@
 }
 
 .Box2 {
-  flex-grow: 0;
-  flex-shrink: 0;
-  width: 38%;
+  flex: 0 0 38%;
   flex-direction: column;
-  justify-content: center;
   div {
     margin: 0.5em;
   }

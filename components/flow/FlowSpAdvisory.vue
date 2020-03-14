@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div :class="$style.container">
     <h4 id="consult" :class="[$style.heading, $style.fzXLarge]">
 <<<<<<< HEAD
@@ -13,17 +14,24 @@
 =======
       <small>{{ $t('帰国者・接触者 電話相談センター') }}</small>
 >>>>>>> Fix components/flow/FlowSpAdvisory.vue (properties of i18n settings)
+=======
+  <div :class="$style.SpAdvisory">
+    <h4 id="consult" :class="['mb-4 mt-n6', $style.Heading]">
+      {{ $t('新型コロナ受診相談窓口') }}
+      <small>{{ $t('帰国者・接触者電話相談センター') }}</small>
+>>>>>>> Revert "Merge remote-tracking branch 'upstream/dev-i18n' into fix/1323"
     </h4>
-    <p :class="[$style.open, $style.fzMedium]">
-      <span>{{ $t('24時間対応') }}</span>
-    </p>
+    <div :class="['px-6 py-2 mb-4', $style.ConsultationChip]">
+      {{ $t('24時間対応') }}
+    </div>
     <dl>
-      <div :class="$style.daytime">
-        <dt :class="[$style.title, $style.fzMedium]">
+      <div :class="['py-3', $style.ConsultationDaytime]">
+        <dt :class="$style.ConsultationDaytimeTitle">
           {{ $t('平日（日中）') }}
         </dt>
-        <dd :class="$style.link">
+        <dd :class="$style.ConsultationDaytimeLink">
           <a
+            :class="$style.Link"
             href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
             target="_blank"
             rel="noopener"
@@ -35,29 +43,21 @@
           </a>
         </dd>
       </div>
-      <div>
-        <dt>
-          <ul :class="[$style.night]">
-            <li>
-              <span :class="[$style.fzMedium, $style.break, $style.mb10]">
-                {{ $t('平日（夜間）') }}
-              </span>
-              {{ $t('午後5時から翌朝午前9時') }}
-            </li>
-            <li>
-              <span :class="$style.fzMedium">
-                {{ $t('土日祝 終日') }}
-              </span>
-            </li>
-          </ul>
+      <div :class="['pt-3', $style.ConsultationWeekend]">
+        <dt :class="['mb-3', $style.ConsultationWeekendDescription]">
+          <span :class="$style.ConsultationWeekendTitle">
+            {{ $t('平日（夜間）') }}
+          </span>
+          {{ $t('午後5時から翌朝午前9時') }}
+          <span :class="$style.ConsultationWeekendTitle">
+            {{ $t('土日祝 終日') }}
+          </span>
         </dt>
-        <dd>
-          <div :class="[$style.phone, $style.fzNumeric]">
-            <span :class="$style.icon">
-              <PhoneIcon alt="Phone" />
-            </span>
-            <a href="tel:0353204592">03-5320-4592</a>
-          </div>
+        <dd :class="$style.TelLink">
+          <PhoneIcon :class="$style.TelLinkImg" alt="Phone" />
+          <a href="tel:0353204592">
+            03-5320-4592
+          </a>
         </dd>
       </div>
     </dl>
@@ -148,7 +148,7 @@
 >>>>>>> Fix components/flow/FlowSpAdvisory.vue
 
 <script lang="ts">
-import PhoneIcon from '@/static/flow/responsive/phone.svg'
+import PhoneIcon from '@/static/flow/phone-24px.svg'
 
 export default {
   components: { PhoneIcon }
@@ -156,78 +156,89 @@ export default {
 </script>
 
 <style module lang="scss">
-@import '@/components/flow/flow_sp.scss';
-
-// advisory
-.open {
-  margin-top: px2vw(20);
-  display: flex;
-  justify-content: center;
-  > span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $white;
-    color: $green-1;
-    padding: px2vw(20) px2vw(40);
-    border-radius: px2vw(6);
-  }
-}
-.daytime {
-  margin-top: px2vw(20);
-  display: flex;
-  border-top: 1px solid $gray-4;
-  border-bottom: 1px solid $gray-4;
-  > * {
-    padding: px2vw(30) px2vw(10);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .title {
-    text-align: center;
-    flex-basis: 40%;
-  }
-  .link {
-    flex-basis: 60%;
-    > a {
-      text-decoration: none;
-    }
-  }
-}
-.night {
-  margin: px2vw(30) auto;
-  padding-left: 0 !important;
+.SpAdvisory {
+  color: $gray-2;
   text-align: center;
-  > li {
-    list-style-type: none;
-    &:not(:first-child) {
-      margin-top: px2vw(20);
+}
+.Heading {
+  @include lessThan($small) {
+    @include font-size(22);
+  }
+  @include largerThan($small) {
+    @include font-size(24);
+  }
+  line-height: 1.5rem;
+  white-space: pre-line;
+  small {
+    @include font-size(16);
+  }
+}
+.Consultation {
+  &Chip {
+    display: inline-block;
+    background-color: $white;
+    border-radius: 4px;
+    color: $green-1;
+    font-weight: bold;
+  }
+  &Daytime {
+    display: flex;
+    align-items: center;
+    border-width: 0.5px 0;
+    border-style: solid;
+    border-color: $gray-4;
+    font-weight: bold;
+    justify-content: space-around;
+    &Title {
+      flex-basis: 40%;
+      @include lessThan($small) {
+        @include font-size(16);
+      }
+      @include largerThan($small) {
+        @include font-size(18);
+      }
+    }
+    &Link {
+      flex-basis: 55%;
+      a {
+        color: $gray-2;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  &Weekend {
+    font-weight: bold;
+    &Description {
+      white-space: pre-line;
+    }
+    &Title {
+      @include lessThan($small) {
+        @include font-size(16);
+      }
+      @include largerThan($small) {
+        @include font-size(18);
+      }
     }
   }
 }
 
-@include largerThan($small) {
-  $vw: 960;
-  .open {
-    margin-top: px2vw(20, $vw);
-    > span {
-      padding: px2vw(20) px2vw(40, $vw);
-      border-radius: px2vw(6, $vw);
-    }
+.TelLink {
+  @include font-size(24);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &Img {
+    width: 2rem;
   }
-  .daytime {
-    margin-top: px2vw(20, $vw);
-    > * {
-      padding: px2vw(30) px2vw(10, $vw);
-    }
-  }
-  .night {
-    margin: px2vw(30, $vw) auto;
-    > li {
-      &:not(:first-child) {
-        margin-top: px2vw(20, $vw);
-      }
+  a {
+    color: $gray-2;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
