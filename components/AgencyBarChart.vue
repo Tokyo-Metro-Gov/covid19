@@ -117,6 +117,9 @@ export default {
           },
           onLeave: e => {
             e.currentTarget.style.cursor = 'default'
+          },
+          labels: {
+            boxWidth: 20
           }
         },
         scales: {

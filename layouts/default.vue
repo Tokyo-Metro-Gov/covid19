@@ -92,7 +92,6 @@ export default Vue.extend({
   background-color: inherit !important;
 }
 .embed {
-  display: grid;
 
   .container {
     padding: 0 !important;
