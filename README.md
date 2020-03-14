@@ -59,7 +59,7 @@ $ docker-compose run --rm app yarn install
 GitHub Actionsでデプロイをしています。設定は `.github/workflows/` 以下のファイルをご確認ください。
 
 #### 本番環境
-http://covid19.codeforkagoshima.dev/
+https://covid19.codeforkagoshima.dev/
 
 #### ステージング環境
 https://staging-covid19.codeforkagoshima.dev/
