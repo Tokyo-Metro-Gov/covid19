@@ -1,10 +1,12 @@
 <template>
-  <div id="hospitalized" :class="$style.Hospitalization">
-    <HotelIcon :class="$style.HospitalizationImg" aria-hidden="true" />
-    <p :class="$style.HospitalizationText">
-      {{ $t('入院となります') }}
+  <div id="hospitalized" :class="$style.container">
+    <p :class="$style.heading">
+      <span :class="[$style.icon, $style.top]">
+        <HotelIcon aria-hidden="true" />
+      </span>
+      <span :class="$style.fzMedium">{{ $t('入院となります') }}</span>
     </p>
-    <p :class="['mb-0', $style.HospitalizationLargeText]">
+    <p :class="[$style.facility, $style.fzXLarge]">
       {{ $t('感染症指定医療機関等') }}
     </p>
   </div>
@@ -13,7 +15,7 @@
 <i18n src="./FlowSpHospitalized.i18n.json"></i18n>
 
 <script lang="ts">
-import HotelIcon from '@/static/flow/hotel-24px.svg'
+import HotelIcon from '@/static/flow/responsive/hotel.svg'
 
 export default {
   components: { HotelIcon }
@@ -21,22 +23,23 @@ export default {
 </script>
 
 <style module lang="scss">
-.Hospitalization {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  &Text {
-    color: $gray-2;
-    font-weight: bold;
-    @include font-size(16);
+@import '@/components/flow/flow_sp.scss';
+
+.heading .icon {
+  margin-bottom: px2vw(10);
+}
+.facility {
+  margin-top: px2vw(30);
+  text-align: center;
+}
+
+@include largerThan($small) {
+  $vw: 960;
+  .heading .icon {
+    margin-bottom: px2vw(10, $vw);
   }
-  &LargeText {
-    color: $gray-2;
-    font-weight: bold;
-    @include font-size(22);
-  }
-  &Img {
-    width: 2rem;
+  .facility {
+    margin-top: px2vw(30, $vw);
   }
 }
 </style>
