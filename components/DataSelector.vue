@@ -6,17 +6,19 @@
     @change="$emit('input', $event)"
   >
     <v-btn v-ripple="false" value="transition" class="DataSelector-Button">
-      日別
+      {{ $t('日別') }}
     </v-btn>
     <v-btn v-ripple="false" value="cumulative" class="DataSelector-Button">
-      累計
+      {{ $t('累計') }}
     </v-btn>
   </v-btn-toggle>
 </template>
 
+<i18n src="./DataSelector.i18n.json"></i18n>
+
 <style lang="scss">
 .DataSelector {
-  margin-top: 2px;
+  margin-top: 20px;
   border: 1px solid $gray-4;
   background-color: $white;
   &-Button {
