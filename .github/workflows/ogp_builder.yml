@@ -3,7 +3,8 @@ name: OGP Builder
 on:
   push:
     branches:
-      - dummy
+      - staging
+      - fix-ogp-size
 
 jobs:
   build:
@@ -32,19 +33,3 @@ jobs:
         with:
           name: ogp
           path: ogp
-      - run: Get-ChildItem "ogp" | Select Name, DirectoryName, LastWriteTime,FulLName | Sort LastWriteTime -Descending | Select -First 2 | Select -ExpandProperty FullName | Copy-Item -Destination static
-
-      - run: git config --global user.email "yasu@users.noreply.github.com"
-      - run: git config --global user.name "OGP Builder"
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch-suffix: timestamp
-          commit-message: "bot: Generated OGP images"
-          title: "[bot] Generated OGP images"
-      - name: Check outputs
-        run: |
-          echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
-          echo "Pull Request Number - ${{ steps.cpr.outputs.pr_number }}"
