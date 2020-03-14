@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - staging
-      - fix-ogp-size
 
 jobs:
   build:
@@ -33,3 +32,14 @@ jobs:
         with:
           name: ogp
           path: ogp
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add ogp
+          git commit -m "Add changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: new_ogp
