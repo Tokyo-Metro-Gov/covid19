@@ -7,7 +7,6 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
     steps:
     # Runs a single command using the runners shell
     - name: Run a one-line script
@@ -21,4 +20,4 @@ jobs:
         cf_password: ${{ secrets.CF_PASSWORD }}
         cf_org: i030702trial
         cf_space: dev
-        command: cf push stopcovid19 -c "yarn dev"
+        run: cf push stopcovid19 -c "yarn dev"
