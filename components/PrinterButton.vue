@@ -45,6 +45,9 @@ export default {
     @include largerThan($small) {
       padding-right: 7px;
     }
+    svg {
+      width: auto;
+    }
   }
 }
 </style>
