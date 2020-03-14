@@ -104,27 +104,6 @@
       <div class="overlay-text">
         埋め込みタグをコピーしました
       </div>
-      <v-footer class="DataView-Footer">
-        <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
-        <a
-          v-if="url"
-          class="OpenDataLink"
-          :href="url"
-          target="_blank"
-          rel="noopener"
-        >
-          {{ $t('オープンデータへのリンク') }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="15"
-            aria-label="別タブで開く"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
-      </v-footer>
     </div>
   </v-card>
 </template>
