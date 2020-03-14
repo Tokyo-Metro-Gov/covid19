@@ -1,6 +1,6 @@
 <template>
   <v-btn-toggle
-    value="value"
+    :value="value"
     class="DataSelector"
     mandatory
     @change="$emit('input', $event)"
@@ -46,7 +46,7 @@ export default {
     value: {
       type: String,
       required: false,
-      default: 'cumulative'
+      default: ''
     }
   }
 }
