@@ -3,6 +3,7 @@
     <shinjuku-bar-chart
       :title-id="'shinjuku-visitors'"
       :chart-id="'shinjuku-visitors'"
+      :standard-date="'2020-02-03'"
     />
   </v-col>
 </template>

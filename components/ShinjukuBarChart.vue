@@ -71,6 +71,11 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    standardDate: {
+      type: String,
+      required: true,
+      default: ''
     }
   },
   data() {
@@ -92,9 +97,7 @@ export default {
     },
     groupByWeekData() {
       return this.chartData.reduce((res, d) => {
-        // TODO: 変更可能にする
-        // 2020年2月3日以降のデータを対象にする
-        if (dayjs(d.date).isBefore('2020-02-03', 'day')) return res
+        if (dayjs(d.date).isBefore(this.standardDate, 'day')) return res
 
         const weekNum = dayjs(d.date).week()
         if (!res[weekNum]) res[weekNum] = []
@@ -116,10 +119,10 @@ export default {
     },
     weeklyAvg() {
       return Object.values(this.groupByWeekData).map(days => {
-        const average =
-          days.reduce((sum, d) => (sum += d.value), 0) / days.length
-        // [要確認] 端数処理
-        return Math.floor(average)
+        const sum = days.reduce((sum, d) => (sum += d.value), 0)
+        const average = sum / days.length
+        const base = 1000
+        return Math.round(average / base) * base
       })
     },
     displayData() {
