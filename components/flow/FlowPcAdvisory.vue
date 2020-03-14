@@ -64,8 +64,9 @@
             'mt-1'
           ]"
         >
-          <img src="/flow/phone-24px.svg" alt="" />
-          <span :class="$style.AdvisoryTelephone">03-5320-4592</span>
+          <a :class="$style.AdvisoryTelephone" href="tel:0353204592">
+            03-5320-4592
+          </a>
         </div>
       </div>
     </div>
@@ -127,9 +128,28 @@
     display: inline-flex;
   }
   &Telephone {
+    display: flex;
+    align-items: center;
     font-size: 27px;
     font-weight: bold;
-    margin-left: 4px;
+    &:link,
+    &:visited,
+    &:hover,
+    &:active,
+    &:focus {
+      color: inherit;
+      text-decoration: none;
+    }
+    &::before {
+      content: '';
+      display: inline-block;
+      margin-right: 5px;
+      width: 26px;
+      height: 26px;
+      background-image: url(/flow/phone-24px.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
   &BoxContainer {
     border-radius: 4px;
