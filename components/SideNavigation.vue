@@ -78,7 +78,7 @@
     "Prefecture": "千葉県",
     "COVID-19": "新型コロナウイルス感染症",
     "Measures site": "対策サイト",
-    "Chiva Prefecture": "千葉県",
+    "Chiba Prefecture": "千葉県",
     "Chiba COVID-19 Task Force": "新型コロナウイルス感染症対策本部(非公式)",
     "The latest updates": "県内の最新感染動向",
     "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
