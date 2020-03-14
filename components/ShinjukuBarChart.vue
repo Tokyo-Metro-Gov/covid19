@@ -49,12 +49,15 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/en'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 import updateLocale from 'dayjs/plugin/updateLocale'
+import minMax from 'dayjs/plugin/minMax'
 import ShinjukuData from '@/data/shinjuku.json'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataTypeSelector.vue'
 
 dayjs.extend(updateLocale)
 dayjs.extend(weekOfYear)
+dayjs.extend(minMax)
+
 dayjs.updateLocale('en', {
   weekStart: 1 // 月曜始まり
 })
@@ -96,13 +99,26 @@ export default {
       return title
     },
     groupByWeekData() {
-      return this.chartData.reduce((res, d) => {
-        if (dayjs(d.date).isBefore(this.standardDate, 'day')) return res
+      const sundays = this.chartData
+        .map(d => dayjs(d.date))
+        .filter(date => date.day() === 0)
+      const latestSunday = dayjs.max(...sundays)
 
-        const weekNum = dayjs(d.date).week()
-        if (!res[weekNum]) res[weekNum] = []
-        return res[weekNum].push(d) && res
-      }, {})
+      return this.chartData
+        .filter(d => {
+          // 基準日より前日のデータは除外する
+          if (dayjs(d.date).isBefore(this.standardDate, 'day')) return false
+
+          // 表示期間は直近の日曜日までなので、その日以降のデータは除外する
+          if (dayjs(d.date).isAfter(latestSunday, 'day')) return false
+
+          return true
+        })
+        .reduce((res, d) => {
+          const weekNum = dayjs(d.date).week()
+          if (!res[weekNum]) res[weekNum] = []
+          return res[weekNum].push(d) && res
+        }, {})
     },
     labels() {
       return Object.keys(this.groupByWeekData).map(weekNum => {
