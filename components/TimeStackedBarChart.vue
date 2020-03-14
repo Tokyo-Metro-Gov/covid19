@@ -18,6 +18,20 @@
       :options="options"
       :height="240"
     />
+    <template v-if="noCanvas">
+      <v-data-table
+        :headers="tableHeaders"
+        :items="tableData"
+        :items-per-page="-1"
+        :hide-default-footer="true"
+        :height="240"
+        :fixed-header="true"
+        :mobile-breakpoint="0"
+        class="cardTable"
+        item-key="name"
+      />
+    </template>
+
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -66,6 +80,14 @@ type Computed = {
       borderWidth: number
     }[]
   }
+  tableHeaders: {
+    text: string
+    value: string
+  }[]
+  tableData: {
+    [key: number]: number
+  }[]
+  noCanvas: boolean
   options: {
     tooltips: {
       displayColors: boolean
@@ -189,6 +211,29 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           }
         })
       }
+    },
+    tableHeaders() {
+      return [
+        { text: '', value: 'text' },
+        ...this.items.map((text, value) => {
+          return { text, value: String(value) }
+        })
+      ]
+    },
+    tableData() {
+      return this.displayData.datasets[0].data.map((_, i) => {
+        return Object.assign(
+          { text: this.labels[i] },
+          ...this.items.map((_, j) => {
+            return {
+              [j]: this.displayData.datasets[j].data[i]
+            }
+          })
+        )
+      })
+    },
+    noCanvas() {
+      return process.browser !== true
     },
     options() {
       const unit = this.unit
