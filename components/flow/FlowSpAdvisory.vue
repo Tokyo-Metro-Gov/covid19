@@ -1,8 +1,12 @@
 <template>
   <div :class="$style.container">
     <h4 id="consult" :class="[$style.heading, $style.fzXLarge]">
+<<<<<<< HEAD
       {{ $t('新型コロナ受診相談窓口') }}
 <<<<<<< HEAD
+=======
+      {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
+>>>>>>> Fix component FlowSpAdvisory and its dictionary
       <small :class="[$style.break, $style.fzRegular, $style.mt5]">{{
         $t('帰国者・接触者電話相談センター')
       }}</small>
