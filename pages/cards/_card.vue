@@ -179,7 +179,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: url + this.$route.path
+          content: url + this.$route.path + '/'
         },
         {
           hid: 'og:title',

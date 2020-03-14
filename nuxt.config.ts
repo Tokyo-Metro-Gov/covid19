@@ -231,16 +231,32 @@ const config: Configuration = {
   },
   generate: {
     fallback: true,
-    routes: [
-      '/cards/details-of-confirmed-cases',
-      '/cards/number-of-confirmed-cases',
-      '/cards/attributes-of-confirmed-cases',
-      '/cards/number-of-tested',
-      '/cards/number-of-reports-to-covid19-telephone-advisory-center',
-      '/cards/number-of-reports-to-covid19-consultation-desk',
-      '/cards/predicted-number-of-toei-subway-passengers',
-      '/cards/agency'
-    ]
+    routes() {
+      const locales = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
+      const pages = [
+        '/cards/details-of-confirmed-cases',
+        '/cards/number-of-confirmed-cases',
+        '/cards/attributes-of-confirmed-cases',
+        '/cards/number-of-tested',
+        '/cards/number-of-reports-to-covid19-telephone-advisory-center',
+        '/cards/number-of-reports-to-covid19-consultation-desk',
+        '/cards/predicted-number-of-toei-subway-passengers',
+        '/cards/agency'
+      ]
+
+      const routes: string[] = []
+      locales.forEach(locale => {
+        pages.forEach(page => {
+          if (locale === 'ja') {
+            routes.push(page)
+            return
+          }
+          const route = `/${locale}${page}`
+          routes.push(route)
+        })
+      })
+      return routes
+    }
   },
   // /*
   // ** hot read configuration for docker
