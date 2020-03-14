@@ -1,7 +1,7 @@
 <template>
   <div class="Flow">
     <div class="Flow-Heading">
-      <CovidIcon />
+      <CovidIcon aria-hidden="true" />
       <h2 class="Flow-Heading-Title">
         {{ $t('新型コロナウイルス感染症が心配なときに') }}
       </h2>
