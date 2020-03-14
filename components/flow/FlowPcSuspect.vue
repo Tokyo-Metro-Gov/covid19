@@ -2,10 +2,7 @@
   <div :class="$style.FlowComponent">
     <div :class="[$style.SubtleBox, $style.Box1]">
       <div :class="$style.RowItems">
-        <div>
-          <img src="/flow/sentiment_very_dissatisfied-24px.svg" alt="" />
-        </div>
-        <div :class="$style.SmallerText">
+        <div :class="$style.RowItemsHeader">
           {{ $t('不安に思う方') }}
         </div>
       </div>
@@ -158,6 +155,20 @@
   margin: 0 4px;
   @include largerThan($large) {
     margin: 0 2em;
+  }
+}
+
+.RowItemsHeader {
+  font-size: smaller;
+  &::before {
+    content: '';
+    display: block;
+    margin: auto;
+    width: 45px;
+    height: 45px;
+    background-image: url(/flow/sentiment_very_dissatisfied-24px.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 
