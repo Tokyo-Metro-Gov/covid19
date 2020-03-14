@@ -46,7 +46,7 @@ const config: Configuration = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+        content: 'https://github.com/michiyac4ngt/covid19/blob/development/static/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -126,15 +126,15 @@ const config: Configuration = {
       {
         strategy: 'prefix_except_default',
         detectBrowserLanguage: {
-          useCookie: true,
-          cookieKey: 'i18n_redirected'
+          /*useCookie: true,
+          cookieKey: 'i18n_redirected'*/
         },
         locales: [
           {
             code: 'ja',
             name: '日本語',
             iso: 'ja-JP'
-          },
+          }/*,
           {
             code: 'en',
             name: 'English',
@@ -168,7 +168,7 @@ const config: Configuration = {
             code: 'ja-basic',
             name: 'やさしい にほんご',
             iso: 'ja-JP'
-          }
+          }*/
         ],
         defaultLocale: 'ja',
         vueI18n: {
@@ -198,7 +198,7 @@ const config: Configuration = {
     }
   },
   googleAnalytics: {
-    id: 'UA-159417676-1'
+    id: 'UA-160605282-1'
   },
   build: {
     postcss: {
