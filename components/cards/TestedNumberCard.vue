@@ -2,7 +2,7 @@
   <v-col cols="12" md="6" class="DataCard">
     <time-stacked-bar-chart
       :title="$t('検査実施数')"
-      :title-id="'number-of-tested'"
+      :card-link="'number-of-tested'"
       :chart-id="'time-stacked-bar-chart-inspections'"
       :chart-data="inspectionsGraph"
       :date="Data.inspections_summary.date"

@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <data-view :title="title" :card-link="cardLink" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
         {{ $t('（注）同一の対象者について複数の検体を調査する場合あり') }}
@@ -95,7 +95,7 @@ export default {
       required: false,
       default: ''
     },
-    titleId: {
+    cardLink: {
       type: String,
       required: false,
       default: ''

@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <data-view :title="title" :card-link="cardLink" :date="date">
     <template v-slot:button>
       <p class="MetroGraph-Desc">
         {{
@@ -82,7 +82,7 @@ export default {
       required: false,
       default: ''
     },
-    titleId: {
+    cardLink: {
       type: String,
       required: false,
       default: ''

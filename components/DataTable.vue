@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view :title="title" :card-link="cardLink" :date="date" :url="url">
     <template v-slot:button>
       <span />
     </template>
@@ -106,7 +106,7 @@ export default {
       type: String,
       default: ''
     },
-    titleId: {
+    cardLink: {
       type: String,
       default: ''
     },

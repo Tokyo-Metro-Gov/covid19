@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date" :url="url">
+  <data-view :title="title" :card-link="cardLink" :date="date" :url="url">
     <template v-slot:button>
       <small :class="$style.DataViewDesc">
         ※土・日・祝日を除く庁舎開庁日の1週間累計数
@@ -87,6 +87,11 @@ export default {
       type: String,
       required: false,
       default: 'agency-bar-chart'
+    },
+    cardLink: {
+      type: String,
+      required: false,
+      default: ''
     },
     unit: {
       type: String,

@@ -2,7 +2,7 @@
   <v-col cols="12" md="6" class="DataCard">
     <metro-bar-chart
       :title="$t('都営地下鉄の利用者数の推移')"
-      :title-id="'predicted-number-of-toei-subway-passengers'"
+      :card-link="'predicted-number-of-toei-subway-passengers'"
       :chart-id="'metro-bar-chart'"
       :chart-data="metroGraph"
       :chart-option="metroGraphOption"
