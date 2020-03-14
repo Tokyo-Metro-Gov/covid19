@@ -195,6 +195,7 @@ export default {
           yAxes: [
             {
               ticks: {
+                maxTicksLimit: 8,
                 callback(value) {
                   return self.yTicks(value)
                 }
