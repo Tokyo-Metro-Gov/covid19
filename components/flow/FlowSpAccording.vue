@@ -128,7 +128,7 @@
           <i18n path="{getWorse}{advisory}に相談">
             <i18n place="getWorse" path="症状が良くならない場合は" />
             <strong :class="$style.advisory" place="advisory">
-              {{ $t('新型コロナ受診相談窓口') }}
+              {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
             </strong>
           </i18n>
         </p>
