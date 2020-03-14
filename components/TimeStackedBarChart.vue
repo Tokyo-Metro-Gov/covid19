@@ -429,7 +429,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         new Blob([new Uint8Array([239, 187, 191]), aoaToCsv(aoa)], {
           type: 'application/octet-stream'
         }),
-        `${this.title}.csv`
+        `${this.$t('検査実施数')}.csv`
       )
     }
   }
