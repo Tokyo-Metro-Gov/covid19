@@ -91,29 +91,17 @@
       }}<br />
       <ul>
         <li>
-          <a
-            href="https://marketingplatform.google.com/about/analytics/terms/jp"
-            target="_blank"
-            rel="noopener"
-          >
+          <a :href="analyticsTermsURL" target="_blank" rel="noopener">
             {{ $t('Google Analytics利用規約') }}
           </a>
         </li>
         <li>
-          <a
-            href="https://policies.google.com/privacy?hl=ja"
-            target="_blank"
-            rel="noopener"
-          >
+          <a :href="analyticsPolicyURL" target="_blank" rel="noopener">
             {{ $t('Googleのプライバシーポリシー') }}
           </a>
         </li>
         <li>
-          <a
-            href="https://support.google.com/analytics/answer/6004245"
-            target="_blank"
-            rel="noopener"
-          >
+          <a :href="analyticsInfoURL" target="_blank" rel="noopener">
             {{ $t('Google Analyticsに関する詳細情報') }}
           </a>
         </li>
@@ -180,12 +168,59 @@
 
 <i18n src="./about.i18n.json"></i18n>
 
-<script lang="ts">
+<script>
 import TextCard from '@/components/TextCard.vue'
 
 export default {
   components: {
     TextCard
+  },
+  computed: {
+    analyticsTermsURL() {
+      switch (this.$i18n.locale) {
+        case 'ja':
+        case 'ja-basic':
+          return 'https://marketingplatform.google.com/about/analytics/terms/jp/'
+        case 'zh-cn':
+          return 'https://marketingplatform.google.com/about/analytics/terms/cn/'
+        case 'zh-tw':
+          return 'https://marketingplatform.google.com/about/analytics/terms/tw/'
+        case 'ko':
+          return 'https://marketingplatform.google.com/about/analytics/terms/kr/'
+        default:
+          return 'https://marketingplatform.google.com/about/analytics/terms/us/'
+      }
+    },
+    analyticsPolicyURL() {
+      switch (this.$i18n.locale) {
+        case 'ja':
+        case 'ja-basic':
+          return 'https://policies.google.com/privacy?hl=ja'
+        case 'zh-cn':
+          return 'https://policies.google.com/privacy?hl=zh-CN'
+        case 'zh-tw':
+          return 'https://policies.google.com/privacy?hl=zh-TW'
+        case 'ko':
+          return 'https://policies.google.com/privacy?hl=ko'
+        default:
+          return 'https://policies.google.com/privacy?hl=en'
+      }
+    },
+    analyticsInfoURL() {
+      switch (this.$i18n.locale) {
+        case 'ja':
+        case 'ja-basic':
+          return 'https://support.google.com/analytics/answer/6004245?hl=ja'
+        case 'zh-cn':
+          return 'https://support.google.com/analytics/answer/6004245?hl=zh-Hans'
+        case 'zh-tw':
+          return 'https://support.google.com/analytics/answer/6004245?hl=zh-Hant'
+        case 'ko':
+          return 'https://support.google.com/analytics/answer/6004245?hl=ko'
+        default:
+          return 'https://support.google.com/analytics/answer/6004245?hl=en'
+      }
+    }
   },
   head() {
     return {
