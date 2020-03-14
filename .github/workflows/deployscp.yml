@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
+    - name: Test env
+      run: echo Hello, world!;pwd;find .
           
     - name: CF Push
       uses: citizen-of-planet-earth/cf-cli-action@master
