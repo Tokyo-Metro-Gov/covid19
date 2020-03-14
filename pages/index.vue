@@ -30,9 +30,7 @@
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="'人'"
-          :url="
-            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
-          "
+          :url="''"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -43,9 +41,6 @@
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
-          :url="
-            'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
-          "
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -58,6 +53,7 @@
           :items="inspectionsItems"
           :labels="inspectionsLabels"
           :unit="'件'"
+          :url="''"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
