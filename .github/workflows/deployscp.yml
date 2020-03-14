@@ -17,4 +17,4 @@ jobs:
         cf_password: ${{ secrets.CF_PASSWORD }}
         cf_org: i030702trial
         cf_space: dev
-        command: push stopcovid19 -f manifest.yaml -p covid19 -c "yarn dev"
+        command: echo start
