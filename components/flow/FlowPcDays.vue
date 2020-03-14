@@ -2,10 +2,9 @@
   <div :class="$style.Flow">
     <div :class="$style.FlowRow">
       <div :class="$style.FlowRowRowThree">
-        <div>
-          <img src="/flow/accessibility-24px.svg" alt="" />
-          <p>{{ $t('一般の方') }}</p>
-        </div>
+        <p :class="$style.FlowRowRowThreeGeneral">
+          {{ $t('一般の方') }}
+        </p>
       </div>
       <div>
         <p>
@@ -61,20 +60,29 @@
     <div :class="$style.FlowRow">
       <div :class="$style.FlowRowRowThree">
         <ul :class="$style.FlowRowRowThreeCareTargetList">
-          <li :class="$style.FlowRowRowThreeCareTargetListItem">
-            <img src="/flow/directions_walk-24px.svg" alt="" />{{
-              $t('ご高齢な方')
-            }}
+          <li
+            :class="[
+              $style.FlowRowRowThreeCareTargetListItem,
+              $style.FlowRowRowThreeCareTargetListItemDirectionsWalk
+            ]"
+          >
+            {{ $t('ご高齢な方') }}
           </li>
-          <li :class="$style.FlowRowRowThreeCareTargetListItem">
-            <img src="/flow/accessible-24px.svg" alt="" />{{
-              $t('基礎疾患のある方')
-            }}
+          <li
+            :class="[
+              $style.FlowRowRowThreeCareTargetListItem,
+              $style.FlowRowRowThreeCareTargetListItemAccessible
+            ]"
+          >
+            {{ $t('基礎疾患のある方') }}
           </li>
-          <li :class="$style.FlowRowRowThreeCareTargetListItem">
-            <img src="/flow/pregnant_woman-24px.svg" alt="" />{{
-              $t('妊娠中の方')
-            }}
+          <li
+            :class="[
+              $style.FlowRowRowThreeCareTargetListItem,
+              $style.FlowRowRowThreeCareTargetListItemPregnantWoman
+            ]"
+          >
+            {{ $t('妊娠中の方') }}
           </li>
         </ul>
       </div>
@@ -123,12 +131,43 @@
       align-items: center;
       justify-content: center;
       margin-top: 20px;
+      &General::before {
+        content: '';
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 44px;
+        background-image: url(/flow/accessibility-24px.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
       &CareTargetList {
         margin: 16px 0;
         text-align: left;
         list-style: none;
         &Item + &Item {
           margin-top: 14px;
+        }
+        &Item {
+          display: flex;
+          align-items: center;
+          &::before {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+          &DirectionsWalk::before {
+            background-image: url(/flow/directions_walk-24px.svg);
+          }
+          &Accessible::before {
+            background-image: url(/flow/accessible-24px.svg);
+          }
+          &PregnantWoman::before {
+            background-image: url(/flow/pregnant_woman-24px.svg);
+          }
         }
       }
     }
