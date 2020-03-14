@@ -18,7 +18,7 @@
             class="WhatsNew-list-item-anchor-time px-2"
             :datetime="formattedDate(item.date)"
           >
-            {{ item.date }}
+            {{ formattedDate(item.date) }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
             {{ $t(item.text) }}
@@ -39,7 +39,7 @@
 <i18n src="./WhatsNew.i18n.json"></i18n>
 
 <script>
-import { convertDateToISO8601Format } from '@/utils/formatDate'
+import { convertDateByCountryPreferTimeFormat } from '@/utils/formatDate'
 
 export default {
   props: {
@@ -53,7 +53,7 @@ export default {
       return !/^https?:\/\//.test(path)
     },
     formattedDate(dateString) {
-      return convertDateToISO8601Format(dateString)
+      return convertDateByCountryPreferTimeFormat(dateString, this.$i18n.locale)
     }
   }
 }
