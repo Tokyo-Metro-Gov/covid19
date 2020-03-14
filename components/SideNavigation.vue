@@ -88,7 +88,7 @@
     "Official statements from Task Force": "新型コロナウイルス感染症への対応について",
     "Cancelled public events": "臨時休館情報",
     "Government official website": "千葉県公式ホームページ",
-    "Message from Governor Koike": "知事からのメッセージ",
+    "Message from Governor Morita": "知事からのメッセージ",
     "About us": "当サイトについて"
   }
 }
