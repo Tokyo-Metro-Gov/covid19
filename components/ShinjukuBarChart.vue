@@ -9,7 +9,7 @@
       <p v-if="dataKind === 'relative'" :class="$style.ShinjukuDesc">
         7:30 ~ 8:30 の平均来訪者数の週間平均値を、
         <br />
-        2/2の週を基準とした相対値として算出
+        2/3の週を基準とした相対値として算出
       </p>
       <data-selector v-model="dataKind" />
     </template>

@@ -40,6 +40,8 @@
 </style>
 
 <script>
+// FIXME: DataSelectorコンポーネントとテキストが異なるだけなので、翻訳対応も含めて使い回せるようになったら結合したい
+
 export default {
   name: 'DataSelector',
   props: {
