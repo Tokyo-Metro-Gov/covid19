@@ -24,9 +24,6 @@
     </div>
     <div :class="[$style.FlowRow, $style.FlowRowRowCheck]">
       <div :class="$style.FlowRowCondition">
-        <i aria-hidden="true">
-          <img src="/flow/check_circle-24px.svg" alt="" />
-        </i>
         <p>
           <i18n
             tag="span"
@@ -40,9 +37,6 @@
         </p>
       </div>
       <div :class="$style.FlowRowCondition">
-        <i aria-hidden="true">
-          <img src="/flow/check_circle-24px.svg" alt="" />
-        </i>
         <p>
           <i18n
             tag="span"
@@ -58,15 +52,9 @@
         </p>
       </div>
       <div :class="$style.FlowRowCondition">
-        <i aria-hidden="true">
-          <img src="/flow/check_circle-24px.svg" alt="" />
-        </i>
         <p>{{ $t('強いだるさ') }}</p>
       </div>
       <div :class="$style.FlowRowCondition">
-        <i aria-hidden="true">
-          <img src="/flow/check_circle-24px.svg" alt="" />
-        </i>
         <p>{{ $t('息苦しさ') }}</p>
       </div>
     </div>
@@ -178,11 +166,26 @@
       &Small {
         font-size: 15px;
       }
-      i {
+
+      &::after {
         position: absolute;
-        top: -12px;
-        left: -12px;
-        background-color: $white;
+        left: -8px;
+        top: -8px;
+        width: 24px;
+        height: 24px;
+        background-image: url(/flow/check_circle-24px.svg);
+        background-size: contain;
+        content: '';
+      }
+
+      &::before {
+        position: absolute;
+        left: -4px;
+        top: -4px;
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        content: '';
       }
     }
     &Emphasis {
