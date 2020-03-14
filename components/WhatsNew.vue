@@ -85,7 +85,7 @@ export default {
 
   &-item {
     &-anchor {
-      display: flex;
+      display: inline-flex;
       text-decoration: none;
       margin: 5px;
       font-size: 14px;
