@@ -8,8 +8,16 @@
   >
     <template v-slot:button>
       {{ caption }}
+      <heatmap-legend :legend-data="legendData" />
     </template>
-    <heatmap :map-id="mapId" :initial-bounds="initialBounds" />
+    <heatmap
+      v-model="rawChartData"
+      :map-id="mapId"
+      :initial-bounds="initialBounds"
+      :date-sequence="dateSequence"
+      @legendUpdated="updateLegend"
+    />
+    <line-chart :chart-data="chartData" :options="{}" />
     <template v-slot:footer>
       <source-link
         :url="url"
@@ -26,9 +34,10 @@
 import DataView from '@/components/DataView.vue'
 import Heatmap from '@/components/Heatmap.vue'
 import SourceLink from '@/components/SourceLink.vue'
+import HeatmapLegend from '@/components/HeatmapLegend.vue'
 
 export default {
-  components: { DataView, SourceLink, Heatmap },
+  components: { DataView, SourceLink, Heatmap, HeatmapLegend },
   props: {
     title: {
       type: String,
@@ -54,6 +63,12 @@ export default {
       type: String,
       default: ''
     },
+    dateSequence: {
+      type: Array,
+      default: () => {
+        return []
+      }
+    },
     sourceLinkHeader: {
       type: String,
       default: ''
@@ -68,10 +83,6 @@ export default {
       type: String,
       default: ''
     },
-    chartDate: {
-      type: Object,
-      default: () => {}
-    },
     chartOption: {
       type: Object,
       default: () => {}
@@ -81,7 +92,42 @@ export default {
       default: 'map'
     }
   },
-  methods: {}
+  data: () => {
+    const rawChartData = {}
+    const legendData = []
+    return { rawChartData, legendData }
+  },
+  computed: {
+    chartData() {
+      if (Object.keys(this.rawChartData).length === 0) {
+        return {
+          labels: this.dateSequence,
+          data: this.dateSequence.map(_ => {
+            return 0
+          })
+        }
+      }
+      return {
+        labels: this.rawChartData.map(d => {
+          return d.date
+        }),
+        datasets: [
+          {
+            data: this.rawChartData.map(d => {
+              return d.value
+            }),
+            backgroundColor: 'rgba(60, 160, 220, 0.3)',
+            borderColor: 'rgba(60, 160, 220, 0.8)'
+          }
+        ]
+      }
+    }
+  },
+  methods: {
+    updateLegend(legendData) {
+      this.legendData = legendData
+    }
+  }
 }
 </script>
 
