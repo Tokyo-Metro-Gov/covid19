@@ -64,7 +64,7 @@
             'mt-1'
           ]"
         >
-          <img src="/flow/phone-24px.svg" />
+          <img src="/flow/phone-24px.svg" alt="" />
           <span :class="$style.AdvisoryTelephone">03-5320-4592</span>
         </div>
       </div>
@@ -93,8 +93,6 @@
     font-weight: bold;
     &:not(:first-child) {
       border-top: 0.5px solid $gray-4;
-    }
-    &:not(:last-child) {
     }
     &Title {
       font-size: 26px;
