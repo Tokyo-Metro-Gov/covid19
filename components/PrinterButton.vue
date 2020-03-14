@@ -1,15 +1,22 @@
 <template>
   <div :class="wrapperClass">
-    <div class="PrinterButton">
-      <v-btn outlined color="#00a040" href="/print/flow" target="_blank">
-        <div class="PrinterButton-PrinterIcon">
-          <PrinterIcon />
-        </div>
-        <span class="PrinterButton-Text">
-          {{ $t('print') }}
-        </span>
-      </v-btn>
-    </div>
+    <v-btn
+      class="PrinterButton"
+      outlined
+      color="#00a040"
+      href="/print/flow"
+      target="_blank"
+      @mouseover="mouseover"
+      @mouseleave="mouseleave"
+    >
+      <div class="PrinterButton-PrinterIcon">
+        <PrinterWhiteIcon v-if="hover" />
+        <PrinterIcon v-else />
+      </div>
+      <span class="PrinterButton-Text">
+        {{ $t('print') }}
+      </span>
+    </v-btn>
   </div>
 </template>
 
@@ -17,10 +24,12 @@
 
 <script>
 import PrinterIcon from '@/static/printer.svg'
+import PrinterWhiteIcon from '@/static/printer-white.svg'
 
 export default {
   components: {
-    PrinterIcon
+    PrinterIcon,
+    PrinterWhiteIcon
   },
   props: {
     wrapperClass: {
@@ -28,13 +37,31 @@ export default {
       required: false,
       default: ''
     }
+  },
+  data() {
+    return {
+      hover: this.hover
+    }
+  },
+  methods: {
+    mouseover() {
+      this.hover = true
+    },
+    mouseleave() {
+      this.hover = false
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .PrinterButton {
+  @include button-text('md');
+  &:hover {
+    color: $white !important;
+  }
   &-Text {
+    margin: 6px auto 0;
     @include lessThan($small) {
       position: absolute !important;
       height: 1px !important;
@@ -48,7 +75,8 @@ export default {
     }
   }
   &-PrinterIcon {
-    margin-top: 3px;
+    margin-top: 8px;
+    width: 25px;
 
     @include largerThan($small) {
       padding-right: 7px;
