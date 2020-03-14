@@ -119,10 +119,7 @@ export default {
     },
     weeklyAvg() {
       return Object.values(this.groupByWeekData).map(days => {
-        const sum = days.reduce((sum, d) => (sum += d.value), 0)
-        const average = sum / days.length
-        const base = 1000
-        return Math.round(average / base) * base
+        return days.reduce((sum, d) => (sum += d.value), 0) / days.length
       })
     },
     displayData() {
@@ -196,7 +193,9 @@ export default {
     label(tooltipItem) {
       const val = tooltipItem.yLabel
       if (this.dataKind === 'absolute') {
-        return `${val.toLocaleString()}人`
+        // 小数点以下1桁で四捨五入
+        const personNum = Math.round(val)
+        return `${personNum.toLocaleString()}人`
       } else {
         return `${val.toFixed(2)}%`
       }
