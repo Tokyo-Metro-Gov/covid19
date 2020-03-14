@@ -15,7 +15,8 @@ jobs:
     needs: build
     
     steps:
-    - uses: dg4101/covid19@dev-scp
+    - name: CF Push
+      uses: dg4101/covid19@dev-scp
       with:
         cf_api: https://api.cf.eu10.hana.ondemand.com
         cf_username: ${{ secrets.CF_USER }}
