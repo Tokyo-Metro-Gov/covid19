@@ -79,7 +79,7 @@
     font-size: 20px;
   }
 
-  &:after {
+  &::after {
     position: absolute;
     left: -8px;
     top: -8px;
@@ -90,7 +90,7 @@
     content: '';
   }
 
-  &:before {
+  &::before {
     position: absolute;
     left: -4px;
     top: -4px;
