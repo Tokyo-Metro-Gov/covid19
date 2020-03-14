@@ -79,6 +79,9 @@ export default {
     }
     return data
   },
+  mounted() {
+    console.log(process.env.NODE_ENV)
+  },
   head() {
     return {
       title: this.$t('都内の最新感染動向')
