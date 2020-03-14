@@ -9,10 +9,10 @@
         mdi-menu
       </v-icon>
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
-        <div class="SideNavigation-Logo sp-logo">
-          <img src="/logo.svg" :alt="$t('東京都')" />
-        </div>
         <h1 class="SideNavigation-Heading">
+          <div class="SideNavigation-Logo">
+            <img src="/logo.svg" :alt="$t('東京都')" />
+          </div>
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
@@ -210,7 +210,7 @@ export default {
     padding: 2px 20px;
   }
   &-Logo {
-    margin: 20px 10px 0 0;
+    margin: 5px 16px 15px 0;
     width: 110px;
     @include lessThan($small) {
       margin-top: 0;
