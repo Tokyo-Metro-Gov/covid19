@@ -9,7 +9,7 @@
         mdi-menu
       </v-icon>
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
-        <div class="SideNavigation-Logo">
+        <div class="SideNavigation-Logo sp-logo">
           <img src="/logo.svg" :alt="$t('東京都')" />
         </div>
         <h1 class="SideNavigation-Heading">
@@ -189,11 +189,11 @@ export default {
     padding: 1.25em 0 1.25em 1.25em;
     align-items: center;
     @include lessThan($small) {
-      padding: 7px 0 7px 20px;
+      padding: 7px 10px;
     }
   }
   &-HeadingIcon {
-    margin-right: 16px;
+    margin-right: 10px;
   }
   &-HeadingLink {
     @include lessThan($small) {
@@ -203,13 +203,14 @@ export default {
     text-decoration: none;
   }
   &-ListContainerIcon {
+    width: 21px;
     margin: 24px 16px 0;
   }
   &-ListItemContainer {
     padding: 2px 20px;
   }
   &-Logo {
-    margin: 20px 16px 0 0;
+    margin: 20px 10px 0 0;
     width: 110px;
     @include lessThan($small) {
       margin-top: 0;
@@ -272,6 +273,11 @@ export default {
     background-color: $white;
     height: 100%;
     overflow-y: scroll;
+  }
+}
+@include lessThan($tiny) {
+  .sp-logo {
+    width: 100px;
   }
 }
 @include largerThan($small) {
