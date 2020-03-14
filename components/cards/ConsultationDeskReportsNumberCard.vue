@@ -64,7 +64,7 @@ export default {
     TimeBarChart
   },
   data() {
-    // 帰国者・接触者電話相談センター相談件数
+    // 帰国者・接触者 電話相談センター 相談件数
     const querentsGraph = formatGraph(Data.querents.data)
 
     const data = {
