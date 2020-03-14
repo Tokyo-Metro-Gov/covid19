@@ -8,6 +8,8 @@ https://www.pref.chiba.lg.jp/index.html
 
 対策サイトを作って、がんばろー！（うまい方言がない）
 
+### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md)
+
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
 

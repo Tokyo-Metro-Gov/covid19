@@ -1,8 +1,12 @@
-# Tokyo COVID-19 Task Force website
+# Chiba COVID-19 Task Force website
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
+  Summary of Sites Launched in Various Regions
+https://hackmd.io/9TTyyjchR8ufuMd9z08Rcg?view
 
-[![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+  Sites in Chiba Prefecture
+https://www.pref.chiba.lg.jp/index.html
+
+Make a Task Force website, come on!
 
 ### [日本語](./README.md) | English | [Spanish](./README_ES.md)
 
@@ -40,12 +44,3 @@ $ docker-compose up --build
 ```
 
 ### Deployment to Staging & Production Environments
-
-When `master` branch is updated, the HTML files will be automatically built onto `production` branch,
-and then the production site (https://stopcovid19.metro.tokyo.lg.jp/) will be also updated.
-
-When `staging` branch is updated, the HTML files will be automatically built onto `gh-pages` branch,
-and then the staging site (https://stg-covid19-tokyo.netlify.com/) will be also updated.
-
-When `development` branch is updated, the HTML files will be automatically built onto `dev-pages` branch,
-and then the development site (https://dev-covid19-tokyo.netlify.com/) will be also updated.
