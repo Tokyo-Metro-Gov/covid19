@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="MetroGraph-Desc">
         {{
@@ -78,6 +78,11 @@ export default {
   components: { DataView },
   props: {
     title: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    titleId: {
       type: String,
       required: false,
       default: ''

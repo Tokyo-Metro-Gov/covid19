@@ -134,6 +134,7 @@ import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 @Component
 export default class DataView extends Vue {
   @Prop() private title!: string
+  @Prop() private titleId!: string
   @Prop() private date!: string
   @Prop() private url!: string
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
