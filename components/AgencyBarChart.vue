@@ -104,9 +104,9 @@ export default {
             label(tooltipItem, data) {
               const index = tooltipItem.datasetIndex
               const title = self.$t(data.datasets[index].label)
-              const num = tooltipItem.value
+              const num = parseInt(tooltipItem.value).toLocaleString()
               const unit = self.$t(self.unit)
-              return `${title}: ${num}${unit}`
+              return `${title}: ${num} ${unit}`
             }
           }
         },
