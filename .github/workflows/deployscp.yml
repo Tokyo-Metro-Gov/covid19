@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: govau/cf-cli@master
     - name: Setup repo
-      run: pwd
+      run: pwd;which git;
 
     - run: git clone https://github.com/dg4101/covid19.git
     - run: git checkout dev-scp
