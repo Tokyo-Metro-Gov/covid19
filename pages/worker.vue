@@ -20,12 +20,12 @@ export default {
         {
           title: '新型コロナウイルス感染症対応緊急融資',
           body:
-            '<a href="https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/05/26.html" target="_blank" rel="noopener">https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/05/26.html</a><br />新型コロナウイルス感染症により事業活動に影響を受けている中小企業等を対象とした緊急融資制度です。'
+            '<a href="https://www.pref.chiba.lg.jp/keishi/ncov/colona4.html" target="_blank" rel="noopener">https://www.pref.chiba.lg.jp/keishi/ncov/colona4.htmll</a><br />新型コロナウイルス感染症により事業活動に影響を受けている中小企業等を対象とした緊急融資制度です。'
         },
         {
           title: '新型コロナウイルスによる経営課題に関する専門家派遣',
           body:
-            '<a href="https://www.tokyo-kosha.or.jp/topics/2003/0001.html" target="_blank" rel="noopener">https://www.tokyo-kosha.or.jp/topics/2003/0001.html</a><br />新型コロナウイルス感染症により経営面の影響を受けている中小企業を対象に、中小企業診断士等の専門家を無料で派遣し、経営改善等に向けたアドバイスを実施します。'
+            '<a href="https://www.pref.chiba.lg.jp/keisei/singata-koronauirusu-kigyousoudan.html" target="_blank" rel="noopener">https://www.pref.chiba.lg.jp/keisei/singata-koronauirusu-kigyousoudan.html</a><br />今般の新型コロナウイルスの流行により、事業活動に影響を受ける、または、その恐れがある中小企業者等を支援するため、以下のとおり相談窓口を設置します。'
         },
         {
           title: '事業継続緊急対策（テレワーク）助成金',
