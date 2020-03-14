@@ -20,7 +20,7 @@ const addDataHeatmapLayer = (map, date) => {
     source: {
       type: 'vector',
       tiles: [tileUrl],
-      minzoom: 8,
+      minzoom: 11,
       maxzoom: 11
     },
     'source-layer': 'dfi-place-heatmap-population',
@@ -40,7 +40,7 @@ const addHeatmapLayer = (map, date) => {
     source: {
       type: 'vector',
       tiles: [tileUrl],
-      minzoom: 8,
+      minzoom: 11,
       maxzoom: 11
     },
     'source-layer': 'dfi-place-heatmap-population',
