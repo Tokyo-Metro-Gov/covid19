@@ -39,7 +39,7 @@
           </v-container>
         </v-list>
         <div class="SideNavigation-LanguageMenu">
-          <LanguageSelector />
+          <!--<LanguageSelector />-->
         </div>
       </nav>
       <v-footer class="SideNavigation-Footer">
