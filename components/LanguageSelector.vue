@@ -3,7 +3,6 @@
     <div class="SelectLanguage-Menu">
       <select
         v-model="$i18n.locale"
-        title="Choose language of this page"
         @change="navigate($i18n.locale)"
       >
         <option
@@ -63,6 +62,7 @@ export default class LanguageSelector extends Vue {
   border: 1px solid #d9d9d9;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: 5px;
   &-Menu {
     width: 100%;
     z-index: 1;
