@@ -5,7 +5,8 @@
         <div>
           <img
             src="/flow/sentiment_very_dissatisfied-24px.svg"
-            alt="dissatisfied face icon"
+            alt=""
+            aria-hidden="true"
           />
         </div>
         <div :class="$style.SmallerText">
@@ -35,7 +36,7 @@
 
       <div :class="$style.TelLink">
         <a href="tel:0570550571">
-          <img src="/flow/phone-24px.svg" alt="Phone" />
+          <img src="/flow/phone-24px.svg" alt="" aria-hidden="true" />
           0570-550571
         </a>
       </div>
