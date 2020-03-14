@@ -19,6 +19,12 @@
     "lint:fix": "eslint './**/*.{js,ts,vue}' --fix",
     "clean-hardsource": "rimraf ./node_modules/.cache/hard-source"
   },
+  "config": {
+    "nuxt": {
+      "host": "0.0.0.0",
+      "port": "8080"
+    }
+  },
   "lint-staged": {
     "*.{js,ts,css,vue}": [
       "eslint --fix"
