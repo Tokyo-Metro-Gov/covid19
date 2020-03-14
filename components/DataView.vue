@@ -161,7 +161,8 @@ export default class DataView extends Vue {
     if (embed) {
       permalink = permalink + '?embed=true'
     }
-    permalink = this.localePath(permalink)
+    // localePath にするとうまく動かないので一旦外す
+    // permalink = this.localePath(permalink)
 
     if (host) {
       permalink = location.protocol + '//' + location.host + permalink
