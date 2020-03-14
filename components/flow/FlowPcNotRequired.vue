@@ -21,7 +21,9 @@
       <div :class="$style.nextAction">
         <i18n path="{getWorse}{advisory}に相談" :class="$style.content">
           <span place="getWorse">{{ $t('症状が良くならない場合は') }}</span>
-          <strong place="advisory">{{ $t('新型コロナ受診相談窓口') }}</strong>
+          <strong place="advisory">{{
+            $t('新型コロナ受診相談窓口（日本語のみ）')
+          }}</strong>
         </i18n>
       </div>
     </div>
