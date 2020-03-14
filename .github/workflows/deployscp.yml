@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: govau/cf-cli
+    - uses: govau/cf-cli@master
     - name: Setup repo
       run: pwd
 
