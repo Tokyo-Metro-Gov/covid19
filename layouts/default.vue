@@ -1,5 +1,11 @@
 <template>
   <v-app class="app">
+    <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
+      <div class="loader">
+        <img src="/logo.svg" alt="東京都" />
+        <scale-loader color="#00A040" />
+      </div>
+    </v-overlay>
     <div v-if="hasNavigation" class="appContainer">
       <div class="naviContainer">
         <SideNavigation
@@ -26,29 +32,38 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
 import NoScript from '@/components/NoScript.vue'
 
 type LocalData = {
   hasNavigation: boolean
   isOpenNavigation: boolean
+  loading: boolean
 }
 
 export default Vue.extend({
   components: {
+    ScaleLoader,
     SideNavigation,
     NoScript
   },
   data(): LocalData {
     let hasNavigation = true
+    let loading = true
     if (this.$route.query.embed === 'true') {
       hasNavigation = false
+      loading = false
     }
 
     return {
       hasNavigation,
+      loading,
       isOpenNavigation: false
     }
+  },
+  mounted() {
+    this.loading = false
   },
   methods: {
     openNavigation(): void {
@@ -79,8 +94,6 @@ export default Vue.extend({
   background-color: inherit !important;
 }
 .embed {
-  display: grid;
-
   .container {
     padding: 0 !important;
   }
