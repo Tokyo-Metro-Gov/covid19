@@ -15,13 +15,7 @@ jobs:
       # Runs a single command using the runners shell
     - name: Test env
       run: echo Hello, world!;pwd;find .
-          
-    - name: CF Push
-      uses: citizen-of-planet-earth/cf-cli-action@master
-      with:
-        cf_api: https://api.cf.eu10.hana.ondemand.com
-        cf_username: ${{ secrets.CF_USER }}
-        cf_password: ${{ secrets.CF_PASSWORD }}
-        cf_org: i030702trial
-        cf_space: dev
-        command: push stopcovid19 -f /home/runner/work/covid19/covid19/cf/manifest.yaml -c "yarn dev"
+    - name: Setup cf-cli
+      run: apt-get update;apt-get install -y ca-certificates jq;echo "deb [trusted=yes] https://packages.cloudfoundry.org/debian stable main" > /etc/apt/sources.list.d/cloudfoundry-cli.list;apt-get update;apt-get install -y cf-cli
+    - name: Test cli
+      run: cf --version      
