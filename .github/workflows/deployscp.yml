@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-    - name: CF Push
+    - name: CF Push Job
       uses: dg4101/cf-cli@master
       with:
         cf_api: https://api.cf.eu10.hana.ondemand.com
