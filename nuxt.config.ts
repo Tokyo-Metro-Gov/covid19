@@ -1,5 +1,6 @@
 import { Configuration } from '@nuxt/types'
 const purgecss = require('@fullhuman/postcss-purgecss')
+const autoprefixer = require('autoprefixer')
 
 const config: Configuration = {
   mode: 'universal',
@@ -66,11 +67,20 @@ const config: Configuration = {
         hid: 'twitter:image',
         name: 'twitter:image',
         content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+      },
+      {
+        hid: 'fb:app_id',
+        property: 'fb:app_id',
+        content: '2879625188795443'
       }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' }
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
+      {
+        rel: 'stylesheet',
+        href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
+      }
     ]
   },
   /*
@@ -87,6 +97,14 @@ const config: Configuration = {
   plugins: [
     {
       src: '@/plugins/vue-chart.ts',
+      ssr: true
+    },
+    {
+      src: '@/plugins/axe',
+      ssr: true
+    },
+    {
+      src: '@/plugins/vuetify.ts',
       ssr: true
     }
   ],
@@ -110,10 +128,49 @@ const config: Configuration = {
     [
       'nuxt-i18n',
       {
-        strategy: 'no_prefix',
+        strategy: 'prefix_except_default',
+        detectBrowserLanguage: {
+          useCookie: true,
+          cookieKey: 'i18n_redirected'
+        },
         locales: [
           {
             code: 'ja',
+            name: '日本語',
+            iso: 'ja-JP'
+          },
+          {
+            code: 'en',
+            name: 'English',
+            iso: 'en-US'
+          },
+          {
+            code: 'zh-cn',
+            name: '簡体字',
+            iso: 'zh-CN'
+          },
+          {
+            code: 'zh-tw',
+            name: '繁體字',
+            iso: 'zh-TW'
+          },
+          {
+            code: 'ko',
+            name: '한국어',
+            iso: 'ko-KR'
+          },
+          // ,
+          // #1126, #872 (comment)
+          // ポルトガル語は訳が揃っていないため非表示
+          // 「やさしい日本語」はコンポーネントが崩れるため非表示
+          // {
+          //   code: 'pt-BR',
+          //   name: 'Portuguese',
+          //   iso: 'pt-BR'
+          // },
+          {
+            code: 'ja-basic',
+            name: 'やさしい にほんご',
             iso: 'ja-JP'
           }
         ],
@@ -140,7 +197,9 @@ const config: Configuration = {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    theme: {}
+    defaultAssets: {
+      icons: false
+    }
   },
   googleAnalytics: {
     id: 'UA-159417676-1'
@@ -148,6 +207,7 @@ const config: Configuration = {
   build: {
     postcss: {
       plugins: [
+        autoprefixer({ grid: 'autoplace' }),
         purgecss({
           content: [
             './pages/**/*.vue',
@@ -160,7 +220,9 @@ const config: Configuration = {
           whitelistPatterns: [/(col|row)/]
         })
       ]
-    }
+    },
+    // https://ja.nuxtjs.org/api/configuration-build/#hardsource
+    hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
     name: '東京都 新型コロナウイルス感染症対策サイト',
@@ -172,7 +234,33 @@ const config: Configuration = {
     splash_pages: null
   },
   generate: {
-    fallback: true
+    fallback: true,
+    routes() {
+      const locales = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
+      const pages = [
+        '/cards/details-of-confirmed-cases',
+        '/cards/number-of-confirmed-cases',
+        '/cards/attributes-of-confirmed-cases',
+        '/cards/number-of-tested',
+        '/cards/number-of-reports-to-covid19-telephone-advisory-center',
+        '/cards/number-of-reports-to-covid19-consultation-desk',
+        '/cards/predicted-number-of-toei-subway-passengers',
+        '/cards/agency'
+      ]
+
+      const routes: string[] = []
+      locales.forEach(locale => {
+        pages.forEach(page => {
+          if (locale === 'ja') {
+            routes.push(page)
+            return
+          }
+          const route = `/${locale}${page}`
+          routes.push(route)
+        })
+      })
+      return routes
+    }
   },
   // /*
   // ** hot read configuration for docker

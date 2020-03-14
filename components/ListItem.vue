@@ -35,8 +35,11 @@
     </v-list-item-content>
     <v-icon
       v-if="!isInternalLink(link)"
+      aria-label="別タブで開く"
       class="ListItem-ExternalLinkIcon"
       size="12"
+      role="img"
+      :aria-hidden="false"
     >
       mdi-open-in-new
     </v-icon>
@@ -75,7 +78,7 @@ export default class ListItem extends Vue {
   }
 
   isActive(link: string): string | undefined {
-    if (link === this.$route.path) {
+    if (link === this.$route.path || `${link}/` === this.$route.path) {
       return 'isActive'
     }
   }
