@@ -185,7 +185,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         new Blob([new Uint8Array([239, 187, 191]), aoaToCsv(aoa)], {
           type: 'application/octet-stream'
         }),
-        `${this.$t('都営地下鉄の利用者数の推移')}.csv`
+        `${this.title}.csv`
       )
     }
   }
