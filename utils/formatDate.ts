@@ -31,7 +31,7 @@ export const convertDateByCountryPreferTimeFormat = (
   locale: string
 ): string => {
   if (locale === 'en') {
-    return dayjs(dateString).format('MM/DD/YYYY')
+    return dayjs(dateString).format('MMM DD, YYYY')
   }
   return dayjs(dateString).format('YYYY-MM-DD')
 }
