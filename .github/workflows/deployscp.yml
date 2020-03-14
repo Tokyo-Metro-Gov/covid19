@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: dg4101/cf-cli@master
     - name: Setup repo
-      run: pwd;git --version;git clone https://github.com/dg4101/covid19.git;cd ./covid19;git checkout dev-scp;echo ====================;
+      run: pwd;git --version;git clone https://github.com/dg4101/covid19.git;cd ./covid19;git checkout dev-scp;echo ====================;/usr/bin/cf --version;
     - run: /usr/bin/cf --version;
 
     - name: Setup CF
