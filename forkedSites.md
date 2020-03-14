@@ -11,6 +11,8 @@
 岐阜県|https://covid19-gifu.netlify.com/|[CODE-for-GIFU/covid19](https://github.com/CODE-for-GIFU/covid19)|
 愛知県|https://stopcovid19.code4.nagoya/|[code4nagoya/covid19](https://github.com/code4nagoya/covid19)|
 三重県|https://covid19-mie.netlify.com/|[FlexiblePrintedCircuits/covid19-mie](https://github.com/FlexiblePrintedCircuits/covid19-mie)|
+広島県|https://covid19-hiroshima.netlify.com/|[tatsuya1970](https://github.com/tatsuya1970/covid19)|
+
 
 ## 都道府県追加時のルール
 
