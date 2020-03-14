@@ -92,7 +92,6 @@ export default Vue.extend({
   background-color: inherit !important;
 }
 .embed {
-
   .container {
     padding: 0 !important;
   }
