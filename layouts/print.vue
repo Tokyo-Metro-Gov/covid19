@@ -1,6 +1,10 @@
 <template>
   <v-app class="app-print">
-    <v-container>
+    <div v-if="loading" class="loader">
+      <img src="/logo.svg" :alt="$t('東京都')" />
+      <scale-loader color="#00A040" />
+    </div>
+    <v-container v-else>
       <v-row align="center" class="PrintMeta">
         <v-col :cols="12" :sm="6">
           <div class="PrintMeta-HeadingWrapper">
@@ -87,7 +91,16 @@
 </i18n>
 
 <script>
+import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 export default {
+  components: {
+    ScaleLoader
+  },
+  data() {
+    return {
+      loading: true
+    }
+  },
   mounted() {
     window.addEventListener('load', this.print)
   },
@@ -122,6 +135,18 @@ export default {
 .app-print {
   margin: 0 auto;
   background-color: inherit !important;
+}
+.loader {
+  height: 200px;
+  width: 150px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  img {
+    display: block;
+    margin: 0 auto 20px;
+  }
 }
 </style>
 
