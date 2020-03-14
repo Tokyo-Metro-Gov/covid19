@@ -20,11 +20,7 @@
 
 ## 從這個網站衍生出來的東西
 
-### 【北海道版】新型冠狀病度感染症對應網站（【北海道版】新型コロナウイルス感染症対策サイト）
-[網站連結](https://stopcovid19.hokkaido.dev/)
-
-[往GitHub的連結](https://github.com/codeforsapporo/covid19)
-
+請參考[此連結](https://github.com/codeforsapporo/covid19)
 
 ## 給開發者的資訊
 
