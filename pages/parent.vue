@@ -41,7 +41,7 @@ export default {
           body: [
             this.$t('各保健所にご相談ください'),
             this.$t('「新型コロナウイルス感染症にかかる相談窓口について」'),
-            '<a href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html" target="_blank" rel="noopener">https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html</a>'
+            '<a href="http://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/coronavirus.html" target="_blank" rel="noopener">http://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/coronavirus.html</a>'
           ].join('<br />')
         },
         {
