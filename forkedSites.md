@@ -7,6 +7,9 @@
 東京都(このサイト)|https://stopcovid19.metro.tokyo.lg.jp|[tokyo-metropolitan-gov/covid19](/tokyo-metropolitan-gov/covid19)|
 北海道|https://stopcovid19.hokkaido.dev/|[codeforsapporo/covid19](/codeforsapporo/covid19)|
 神奈川県|https://www.pref.kanagawa.jp/osirase/1369/| |
+岐阜県|https://covid19-gifu.netlify.com/|[CODE-for-GIFU/covid19](/CODE-for-GIFU/covid19)|
+山梨県|https://stopcovid19.yamanashi.dev/|[covid19-yamanashi/covid19](/covid19-yamanashi/covid19)|
+愛知県|https://stopcovid19.code4.nagoya/|[code4nagoya/covid19](/code4nagoya/covid19)|
 
 ## 都道府県追加時のルール
 
