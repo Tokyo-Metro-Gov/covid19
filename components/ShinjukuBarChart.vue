@@ -136,14 +136,14 @@ export default {
         }
       } else {
         const standardValue = this.weeklyAvg[0]
-        const data = this.weeklyAvg.map(
-          val => (val / standardValue) * 100 - 100
+        const percentages = this.weeklyAvg.map(
+          val => ((val - standardValue) / standardValue) * 100
         )
         return {
           labels: this.labels,
           datasets: [
             {
-              data,
+              data: percentages,
               backgroundColor: graphColor
             }
           ]
