@@ -1,6 +1,6 @@
 <template>
   <v-app class="app">
-    <div v-if="hasNavigation" class="loader">
+    <div v-if="loading" class="loader">
       <img src="/logo.svg" alt="東京都" />
       <scale-loader color="#00A040" />
     </div>
