@@ -9,13 +9,12 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: dg4101/cf-cli@master
-    - name: Setup repo
-      run: pwd;git --version;git clone https://github.com/dg4101/covid19.git;cd ./covid19;git checkout dev-scp;echo ====================;/usr/bin/cf --version;
-    - run: /usr/bin/cf --version;
-
-    - name: Setup CF
-      run: /usr/bin/cf api https://api.cf.eu10.hana.ondemand.com;/usr/bin/cf auth ${{ secrets.CF_USER }} ${{ secrets.CF_PASSWORD }};/usr/bin/cf target -o i030702trial -s dev
-    - name: Push to CF
-      run: /usr/bin/cf push stopcovid19 -f ./cf/manifest.yaml -c "yarn dev"
-
+    - name: CF Push
+      uses: dg4101/cf-cli@master
+      with:
+        cf_api: https://api.cf.eu10.hana.ondemand.com
+        cf_username: ${{ secrets.CF_USER }}
+        cf_password: ${{ secrets.CF_PASSWORD }}
+        cf_org: i030702trial
+        cf_space: dev
+        command: cf push stopcovid19 -f ./cf/manifest.yaml -c "yarn dev"
