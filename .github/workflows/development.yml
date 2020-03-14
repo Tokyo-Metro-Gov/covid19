@@ -29,9 +29,11 @@ jobs:
       - run: yarn run generate:deploy --fail-on-page-error
       - run: "echo \"User-agent: *\nDisallow: /\" > ./dist/robots.txt"
 
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@3.0.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: dev-pages
+          ftp-server: ${{ secrets.FTP_HOST }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          git-ftp-args: --remote-root development-covid19.codeforkagoshima.dev
+          local-dir: dist
