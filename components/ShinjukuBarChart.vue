@@ -19,6 +19,16 @@
       :options="chartOptions"
       :height="240"
     />
+    <p :class="$style.ShinjukuDesc">
+      &copy; Yahoo Japan
+      <br />
+      出典：ヤフー・データソリューション（<a
+        href="https://ds.yahoo.co.jp/"
+        target="_blank"
+        rel="noopenner"
+        >https://ds.yahoo.co.jp/</a
+      >)
+    </p>
   </data-view>
 </template>
 
