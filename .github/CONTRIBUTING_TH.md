@@ -24,8 +24,7 @@
 * สำหรับการติดต่อสื่อสาร โปรดอ่าน Code for Japan's [Code of Conduct](https://github.com/codeforjapan/codeofconduct).
 * ถ้าวางแผนที่จะแก้ issue โปรดคอมเมนต์ เพื่อให้ทุกคนได้ทราบ
 * ถ้า issue ไม่มีการอัพเดทภายใน"ครึ่งวัน" เราอาจถอดถอนการมอบหมายงาน
-* โปรดอ่าน [Draft Pull Request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests) เพื่อให้เข้าใจสถาการณ์ปัจจุบัน
-* Please discuss questions related to an Issue in the Issue comments instead of on Slack.
+* โปรดอ่าน [Draft Pull Request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests) เพื่อให้เข้าใจสถานการณ์ปัจจุบัน
 * ในกรณีที่ต้องการพูดคุยและคอมเมนต์เกี่ยวกับ issues โปรดคอมเมนต์ใน issues (หลีกเลี่ยงการใช้ Slack)
 * ในกรณีที่มีข้อเสนอแนะนำ โปรดสร้าง issue ใหม่
 
