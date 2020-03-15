@@ -10,13 +10,21 @@
     "第一庁舎計": "TMG No. 1 Building",
     "第二庁舎計": "TMG No. 2 Building",
     "議事堂計": "Assembly Building",
+    "人": "persons",
     "期間: {duration}": "Period: {duration}"
+  },
+  "th": {
+    "第一庁舎計": "ตึก TMG หมายเลข 1",
+    "第二庁舎計": "ตึก TMG หมายเลข 2",
+    "議事堂計": "Assembly Building",
+    "人": "คน",
+    "期間: {duration}": "ช่วงเวลา: {duration}"
   },
   "zh-cn": {
     "第一庁舎計": "第一本厅大厦来访人数",
     "第二庁舎計": "第二本厅大厦来访人数",
     "議事堂計": "都议会议事堂来发人数",
-    "人": "persons",
+    "人": "人",
     "期間: {duration}": "期间: {duration}"
   },
   "zh-tw": {
