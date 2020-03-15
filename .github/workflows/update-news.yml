@@ -1,0 +1,75 @@
+name: update news
+
+on:
+  schedule:
+    - cron: '* */3 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: development
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - run: yarn install --frozen-lockfile
+
+      - name: Switch branch
+        id: branch
+        run: |
+          export BRANCH_NAME=patch-news
+          if [ $(git ls-remote origin patch-news | wc -l) = "1" ]; then
+            git fetch --all
+            git switch $BRANCH_NAME
+          else
+            git switch -c $BRANCH_NAME
+          fi
+          echo "::set-output name=name::$BRANCH_NAME";
+
+      - name: Update news
+        run: yarn run update:news
+
+      - name: Check diff
+        id: git-diff
+        run: |
+          git branch --show-current
+          if [ "$(git diff --name-only data/news.json)" != "" ]; then
+            echo "::set-output name=hasdiff::true";
+          else
+            echo "::set-output name=hasdiff::false";
+          fi
+
+      - name: Push commit
+        if: steps.git-diff.outputs.hasdiff == 'true'
+        env:
+          BRANCH_NAME: ${{ steps.branch.outputs.name }}
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Github Action"
+          git add data/news.json
+          git commit -m "Update news"
+          git push origin $BRANCH_NAME
+
+      - name: Create pull request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          sudo snap install hub --classic
+          git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
+          hub pull-request \
+            -b development \
+            --no-edit \
+            -m "ニュース自動更新（$(date +'%Y/%m/%d %H:%M')）" \
+            -m ":newspaper: ニュースの自動更新です" \
