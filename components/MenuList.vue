@@ -96,7 +96,9 @@ export default class MenuList extends Vue {
 .MenuList {
   padding-left: 0;
   padding-top: 12px;
-  border-top: 1px solid $gray-4;
+  @include largerThan($small) {
+    border-top: 1px solid $gray-4;
+  }
 }
 
 .MenuList-Item {

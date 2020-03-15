@@ -17,7 +17,6 @@
         </h1>
       </nuxt-link>
     </header>
-    <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
         class="SideNavigation-ListContainerIcon pc-none"
@@ -216,12 +215,6 @@ export default {
     text-decoration: none;
     @include lessThan($small) {
       margin-top: 0;
-    }
-  }
-  &-HeadingDivider {
-    margin: 0px 20px 4px;
-    @include lessThan($small) {
-      display: none;
     }
   }
   &-Divider {
