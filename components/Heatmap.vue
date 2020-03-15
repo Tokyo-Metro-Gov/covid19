@@ -49,6 +49,9 @@ export default {
   },
   methods: {
     dataDrivenInitialization(map) {
+      if (this.dateSequence.length !== 0) {
+        return
+      }
       const self = this
       const features = map.queryRenderedFeatures({ layers: ['heatmap'] })
       if (features.length === 0) {
@@ -116,8 +119,15 @@ export default {
       })
     },
     loaded(map) {
-      // const tileUrl = `https://map-covid19-tokyo.netlify.com/mashed_tiles/{z}/{x}/{y}.pbf`
-      const tileUrl = `http://localhost:3000/mashed_tiles/{z}/{x}/{y}.pbf`
+      const tileUrl = `https://map-covid19-tokyo.netlify.com/mashed_tiles/{z}/{x}/{y}.pbf`
+      // const tileUrl = `http://localhost:3000/mashed_tiles/{z}/{x}/{y}.pbf`
+      if (
+        this.initialBounds.length > 1 &&
+        this.initialBounds[0].length > 1 &&
+        this.initialBounds[1].length > 1
+      ) {
+        map.fitBounds(this.initialBounds, { linear: true })
+      }
       map.addLayer({
         id: 'heatmap',
         type: 'fill',
@@ -134,16 +144,7 @@ export default {
           'fill-outline-color': '#ffffff'
         }
       })
-      if (
-        this.initialBounds.length > 1 &&
-        this.initialBounds[0].length > 1 &&
-        this.initialBounds[1].length > 1
-      ) {
-        map.fitBounds(this.initialBounds, { linear: true })
-      }
-      map.once('idle', _e => {
-        this.dataDrivenInitialization(map)
-      })
+      this.dataDrivenInitialization(map)
     }
   }
 }

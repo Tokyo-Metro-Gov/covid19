@@ -120,6 +120,7 @@
             [139.695239, 35.685448],
             [139.706397, 35.694493]
           ]"
+          :unit="'人'"
           :url="'https://ds.yahoo.co.jp/'"
           :source-link-header="'(C) Yahoo Japan'"
           :link-string="$t('ヤフー・データソリューション')"
@@ -137,6 +138,7 @@
             [139.761908, 35.676437],
             [139.773774, 35.686703]
           ]"
+          :unit="'人'"
           :url="'https://ds.yahoo.co.jp/'"
           :source-link-header="'(C) Yahoo Japan'"
           :link-string="$t('ヤフー・データソリューション')"

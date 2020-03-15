@@ -9,21 +9,25 @@
   >
     <template v-slot:button>
       {{ caption }}
-      <heatmap-legend :legend-data="legendData" />
     </template>
-    <heatmap
-      v-model="rawChartData"
-      class="MapCard-Heatmap"
-      :map-id="mapId"
-      :initial-bounds="initialBounds"
-      @legendUpdated="updateLegend"
-      @loadCompleted="loadCompleted"
-    />
-    <line-chart
-      class="MapCard-LineChart"
-      :chart-data="chartData"
-      :options="{}"
-    />
+    <div class="MapCard-BodyContainer">
+      <heatmap-legend :legend-data="legendData" />
+      <heatmap
+        v-model="rawChartData"
+        class="MapCard-Heatmap"
+        :map-id="mapId"
+        :initial-bounds="initialBounds"
+        @legendUpdated="updateLegend"
+        @loadCompleted="loadCompleted"
+      />
+      <line-chart
+        class="MapCard-LineChart"
+        :chart-data="displayChartData"
+        :options="displayChartOptions"
+        :height="160"
+      />
+      <div v-show="loading" class="MapCard-BodyContainer-LoadingScreen" />
+    </div>
     <template v-slot:footer>
       <source-link
         :url="url"
@@ -83,9 +87,15 @@ export default {
       type: String,
       default: ''
     },
-    chartOption: {
+    unit: {
+      type: String,
+      default: ''
+    },
+    chartOptions: {
       type: Object,
-      default: () => {}
+      default: () => {
+        return {}
+      }
     },
     mapId: {
       type: String,
@@ -99,7 +109,7 @@ export default {
     return { rawChartData, legendData, loading }
   },
   computed: {
-    chartData() {
+    displayChartData() {
       return {
         labels: this.rawChartData.map(d => {
           return d.date
@@ -109,10 +119,97 @@ export default {
             data: this.rawChartData.map(d => {
               return d.value
             }),
-            backgroundColor: 'rgba(60, 160, 220, 0.3)',
-            borderColor: 'rgba(60, 160, 220, 0.8)'
+            backgroundColor: 'rgba(0, 190, 73, 0.5)',
+            borderColor: '#00B849'
           }
         ]
+      }
+    },
+    displayChartOptions() {
+      return {
+        ...this.chartOptions,
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [
+            {
+              id: 'day',
+              stacked: true,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                fontSize: 9,
+                maxTicksLimit: 20,
+                fontColor: '#808080',
+                maxRotation: 0,
+                minRotation: 0,
+                callback: label => {
+                  return label.slice(6, 8)
+                }
+              }
+            },
+            {
+              id: 'month',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: true,
+                drawBorder: false,
+                tickMarkLength: 10
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: '#808080',
+                padding: 3,
+                fontStyle: 'bold',
+                gridLines: {
+                  display: true
+                },
+                callback: label => {
+                  const monthStringArry = [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                  ]
+                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
+                  return month + '月'
+                }
+              },
+              type: 'time',
+              time: {
+                unit: 'month'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              location: 'bottom',
+              stacked: true,
+              gridLines: {
+                display: true,
+                color: '#E5E5E5'
+              },
+              ticks: {
+                suggestedMin: 0,
+                maxTicksLimit: 4,
+                fontColor: '#808080'
+              }
+            }
+          ]
+        }
       }
     }
   },
@@ -127,8 +224,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .MapCardMap {
-  height: 400px;
+  height: 240px;
+}
+.MapCard-BodyContainer {
+  position: relative;
+  &-LoadingScreen {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+    top: 0;
+    left: 0;
+  }
 }
 </style>

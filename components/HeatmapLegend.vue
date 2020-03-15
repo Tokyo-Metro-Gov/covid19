@@ -1,9 +1,9 @@
 <template>
   <div>
-    <ul>
+    <ul class="clearfix">
       <li v-for="item in legendData" :key="item.valueFrom">
         <span class="LegendBlock" :style="`background-color: ${item.color}`" />
-        {{ `${item.valueFrom} 〜 ${item.valueTo}` }}
+        {{ `${item.valueFrom}〜${item.valueTo !== null ? item.valueTo : ''}` }}
       </li>
     </ul>
   </div>
@@ -14,6 +14,24 @@
   width: 16px;
   height: 16px;
   display: inline-block;
+}
+li {
+  list-style: none;
+  float: left;
+  font-size: 14px;
+  padding-right: 4px;
+}
+li:last-child {
+  padding-right: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 </style>
 
