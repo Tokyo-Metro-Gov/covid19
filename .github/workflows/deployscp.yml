@@ -3,7 +3,7 @@ name: Deploy to Cloud Foundry
 on:
   push:
     branches:
-    - dev-scp
+    - dev-scp-dummy
 
 jobs:
   deploy:
