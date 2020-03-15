@@ -25,7 +25,8 @@
 - Node.js 版本最低需求: 10.19.0以上
 
 **使用 yarn 时**
-```bash
+
+``` bash
 # install dependencies
 $ yarn install
 
@@ -34,6 +35,7 @@ $ yarn dev
 ```
 
 **使用 docker compose 时**
+
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
@@ -46,3 +48,4 @@ $ docker-compose up --build
 `staging` 分支更新時，自动将 `gh-pages` 分支中的HTML类(build)后发布到Staging版 https://stg-covid19-tokyo.netlify.com/
 
 `development` 分支更新時，自动将 `dev-pages` 分支中的HTML类(build)后发布到开发版 https://dev-covid19-tokyo.netlify.com/
+
