@@ -4,7 +4,8 @@
 
 [![東京都 新型冠狀病毒疫情中心](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | Chinese (Taiwan) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md)
+### [日本語](./README.md) | English | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md) | [Thai](./README_TH.md)
+
 
 ## 如何貢獻
 如果您能對 Issues 中做出各式各樣的修正協助，我們將不勝感激。
@@ -54,6 +55,10 @@ $ yarn install
 ```bash
 $ docker-compose run --rm app yarn install
 ```
+### Detect procition/others environment (translate me!)
+
+On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.
+Please use the variable to detect which enviroinment is used at the runtime.
 
 ### Deploy 到 Staging 環境以及正式環境的方法
 

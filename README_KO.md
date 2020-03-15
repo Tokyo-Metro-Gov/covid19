@@ -4,7 +4,8 @@
 
 [![도쿄도 코로나19 대책 사이트](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | Korean | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md)
+### [日本語](./README.md) | English | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md) | [Thai](./README_TH.md)
+
 
 ## 기여방법
 오픈상태의 Issue에 여러 가지 내용 추가 및 수정등으로 기여해주시면, 매우 감사하겠습니다.
@@ -18,6 +19,13 @@
 
 ## 라이선스
 이 소프트웨어는 [MIT 라이선스](./LICENSE.txt)를 따르고 있습니다.
+
+## 이 사이트에서 파생된 사이트
+
+### 【홋카이도판】코로나19 대책 사이트
+[사이트 링크](https://stopcovid19.hokkaido.dev/)
+
+[GitHub 링크](https://github.com/codeforsapporo/covid19)
 
 ## 개발자를 위한 개발 정보
 
@@ -38,6 +46,23 @@ $ yarn dev
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
+```
+
+### Detect procition/others environment (translate me!)
+
+On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.
+Please use the variable to detect which enviroinment is used at the runtime.
+
+### `Cannot find module ****` 에러를 해결하는 방법
+
+**yarn을 사용할 경우**
+```
+$ yarn install
+```
+
+**docker compose를 사용할 경우**
+```bash
+$ docker-compose run --rm app yarn install
 ```
 
 ### 스테이징 환경 및 운영 환경으로 반영 방법
