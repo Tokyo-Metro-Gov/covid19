@@ -80,7 +80,7 @@
 .nextAction {
   width: 49%;
   padding: 1rem;
-  border: $green-1 1.5px solid;
+  border: $orange-1 1.5px solid;
   border-radius: 4px;
   text-align: center;
   .content {
