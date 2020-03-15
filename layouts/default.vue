@@ -129,6 +129,9 @@ export default Vue.extend({
     overflow-y: auto;
     width: 240px;
     height: 100%;
+    border-right: 1px solid $gray-4;
+    border-left: 1px solid $gray-4;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
     overscroll-behavior: contain;
   }
 }

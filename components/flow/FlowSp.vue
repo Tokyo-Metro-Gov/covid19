@@ -58,6 +58,8 @@ export default {
   @include card-container();
   padding: 20px;
   margin-bottom: 20px;
+  word-break: break-word;
+  hyphens: auto;
   > h3 {
     color: $gray-2;
     font-size: 1.5rem;
