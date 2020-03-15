@@ -2,13 +2,7 @@
   <div :class="$style.FlowComponent">
     <div :class="[$style.SubtleBox, $style.Box1]">
       <div :class="$style.RowItems">
-        <div>
-          <img
-            src="/flow/sentiment_very_dissatisfied-24px.svg"
-            alt="dissatisfied face icon"
-          />
-        </div>
-        <div :class="$style.SmallerText">
+        <div :class="$style.RowItemsHeader">
           {{ $t('不安に思う方') }}
         </div>
       </div>
@@ -33,9 +27,8 @@
         {{ $t('午前9時から午後9時（土日祝含む）') }}
       </div>
 
-      <div :class="$style.TelLink">
-        <a href="tel:0570550571">
-          <img src="/flow/phone-24px.svg" alt="Phone" />
+      <div :class="$style.Tel">
+        <a :class="$style.TelLink" href="tel:0570550571">
           0570-550571
         </a>
       </div>
@@ -53,14 +46,32 @@
   justify-content: space-between;
 }
 
-.TelLink {
+.Tel {
   @include largerThan($medium) {
     font-size: larger;
   }
-  a {
-    color: $gray-2;
+}
+.TelLink {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  &:link,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    color: inherit;
     text-decoration: none;
-    font-weight: bold;
+  }
+  &::before {
+    content: '';
+    display: inline-block;
+    margin-right: 5px;
+    width: 26px;
+    height: 26px;
+    background-image: url(/flow/phone-24px.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 
@@ -78,14 +89,18 @@
     font-size: 20px;
   }
 
-  &:after {
+  &::after {
     position: absolute;
     left: -8px;
     top: -8px;
-    content: url(/flow/check_circle-24px.svg);
+    width: 24px;
+    height: 24px;
+    background-image: url(/flow/check_circle-24px.svg);
+    background-size: contain;
+    content: '';
   }
 
-  &:before {
+  &::before {
     position: absolute;
     left: -4px;
     top: -4px;
@@ -140,6 +155,20 @@
   margin: 0 4px;
   @include largerThan($large) {
     margin: 0 2em;
+  }
+}
+
+.RowItemsHeader {
+  font-size: smaller;
+  &::before {
+    content: '';
+    display: block;
+    margin: auto;
+    width: 45px;
+    height: 45px;
+    background-image: url(/flow/sentiment_very_dissatisfied-24px.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 
