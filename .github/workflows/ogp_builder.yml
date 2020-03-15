@@ -4,12 +4,19 @@ on:
   push:
     branches:
       - staging
-
+      - feature/issue-1278-update-ogp-image-with-deploykey
 jobs:
   build:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          public-key: ${{ secrets.SSH_KEY_PUBLIC }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+      - run: git clone -b ogp git@github.com:tokyo-metropolitan-gov/covid19.git ogp
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
@@ -21,45 +28,14 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-
       - run: yarn install --frozen-lockfile
       - run: yarn run test
       - run: yarn run generate:deploy
       - run: pip install selenium
       - run: (python -m http.server --directory ./dist 8000 &)  ; python ./ui-test/ogp_screenshot.py
-      - name: Upload screenshot
-        uses: actions/upload-artifact@v1
-        with:
-          name: ogp
-          path: ogp
-  upload:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-      with:
-        ref: deploy/new_ogp
-    - name: Download ogp images
-      uses: actions/download-artifact@v1
-      with:
-        name: ogp
-    - name: Commit files
-      run: |
-        mv ogp/* static/
-        rm -rf ogp
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add static
-        git commit -m "Add changes" 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: deploy/new_ogp
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v2
-      with:
-        title: '[DEPLOY] OGP refresh pull request'
-        token: ${{ secrets.GITHUB_TOKEN }}
-        branch: deploy/new_ogp
-        base: staging
+
+      - run: git config --global user.email "bot@example.com"
+      - run: git config --global user.name "OGP Builder"
+      - run: cd ogp && git add .
+      - run: cd ogp && git commit -m "update ogp image"
+      - run: cd ogp && git push origin ogp
