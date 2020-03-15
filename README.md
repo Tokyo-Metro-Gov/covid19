@@ -27,6 +27,8 @@ $ yarn install
 # serve with hot reload at localhost:3000
 $ yarn dev
 ```
+Linuxにおいて、yarn installで` [KERROR: [Errno 2] No such file or directory: 'install'`と言われてしまう場合のヒントは[こちら]
+(https://www.suzu6.net/posts/128-ubuntu-yarn-error/)。
 
 **docker compose を使う場合**
 ```bash
