@@ -4,6 +4,10 @@ $green-1: #00A040;
 $green-2: #00B849;
 $green-3: #00D154;
 $green-4: #00EB5E;
+$orange-1:#F07828;
+$orange-2: #F09036;
+$orange-3: #F0A844;
+$orange-4: #F0C052;
 $gray-1: #333333;
 $gray-2: #4D4D4D;
 $gray-3: #808080;
@@ -92,11 +96,11 @@ $z-index-map: (
   display: inline-block;
   border-radius: 4px;
   background-color: $white;
-  border: 1px solid $green-1;
-  color:$green-1;
+  border: 1px solid $orange-1;
+  color:$orange-1;
   cursor: pointer;
   &:hover {
-    background-color: $green-1;
+    background-color: $orange-1;
     color: $white;
     > i {
       color: $white !important;
