@@ -11,7 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Checkout latest ogp
-        run: git checkout deplloy/new_ogp static/ogp
+        run: |
+          git checkout origin/deploy/new_ogp -- static/ogp
+          git add static/ogp
+          git commit -m 'update new ogp'
+          git push origin
 
       - name: Setup Node
         uses: actions/setup-node@v1
