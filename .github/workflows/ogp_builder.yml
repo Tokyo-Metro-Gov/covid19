@@ -33,7 +33,6 @@ jobs:
       - run: yarn run generate:deploy
       - run: pip install selenium
       - run: (python -m http.server --directory ./dist 8000 &)  ; python ./ui-test/ogp_screenshot.py
-
       - run: git config --global user.email "bot@example.com"
       - run: git config --global user.name "OGP Builder"
       - run: cd ogp && git add .
