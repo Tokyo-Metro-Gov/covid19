@@ -6,6 +6,7 @@
 
 ### [日本語](./README.md) | [English](./README_EN.md) | Spanish | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md)
 
+
 ## Cómo Contribuir
 
 Todas las contribuciones son bienvenidas.!
@@ -25,7 +26,7 @@ Este software se publica bajo la [licencia MIT](./LICENSE.txt).
 - Versión requerida de Node.js: 10.19.0 o superior
 
 **Use yarn**
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
@@ -38,6 +39,11 @@ $ yarn dev
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
 ```
+
+### Detect procition/others environment (translate me!)
+
+On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.
+Please use the variable to detect which enviroinment is used at the runtime.
 
 ### Implementación en entornos de preparación y producción
 

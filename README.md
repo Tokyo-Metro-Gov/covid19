@@ -6,6 +6,7 @@
 
 ### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md)
 
+
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
 
@@ -18,6 +19,10 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 ## ライセンス
 本ソフトウェアは、[MITライセンス](./LICENSE.txt)の元提供されています。
 
+## このサイトから派生したサイト
+
+[Link先](./forkedSites.md)を御覧ください。
+
 ## 開発者向け情報
 
 ### 環境構築の手順
@@ -25,7 +30,7 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 - 必要となるNode.jsのバージョン: 10.19.0以上
 
 **yarn を使う場合**
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
@@ -42,7 +47,7 @@ $ docker-compose up --build
 ### `Cannot find module ****` と怒られた時
 
 **yarn を使う場合**
-```
+```bash
 $ yarn install
 ```
 
@@ -50,6 +55,11 @@ $ yarn install
 ```bash
 $ docker-compose run --rm app yarn install
 ```
+
+### 本番環境/その他の判定
+
+`process.env.GENERATE_ENV` の値が、本番の場合は`'production'`に、それ以外の場合は `'development'` になっています。
+テスト環境のみで実行したい処理がある場合はこちらの値をご利用ください。
 
 ### ステージング・本番環境への反映
 
