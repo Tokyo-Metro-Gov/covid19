@@ -29,7 +29,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp'
+        content: 'https://development-civictechzenchiba-covid19.netlify.com'
       },
       {
         hid: 'og:title',
@@ -45,7 +45,8 @@ const config: Configuration = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+        content:
+          'https://development-civictechzenchiba-covid19.netlify.com/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -65,7 +66,8 @@ const config: Configuration = {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+        content:
+          'https://development-civictechzenchiba-covid19.netlify.com/ogp.png'
       }
     ],
     link: [
@@ -171,7 +173,7 @@ const config: Configuration = {
     hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: '東京都 新型コロナウイルス感染症対策サイト',
+    name: '千葉県 新型コロナウイルス感染症対策サイト',
     theme_color: '#00a040',
     background_color: '#ffffff',
     display: 'standalone',
