@@ -1,9 +1,12 @@
 import { Configuration } from '@nuxt/types'
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
+const environment = process.env.NODE_ENV || 'development'
+const envSet = require(`./config/${environment}.ts`)
 
 const config: Configuration = {
   mode: 'universal',
+  env: envSet,
   /*
    ** Headers of the page
    */
@@ -97,6 +100,10 @@ const config: Configuration = {
   plugins: [
     {
       src: '@/plugins/vue-chart.ts',
+      ssr: true
+    },
+    {
+      src: '@/plugins/axe',
       ssr: true
     },
     {
@@ -201,7 +208,6 @@ const config: Configuration = {
     id: 'UA-159417676-1'
   },
   build: {
-    extractCSS: true,
     postcss: {
       plugins: [
         autoprefixer({ grid: 'autoplace' }),
@@ -232,16 +238,32 @@ const config: Configuration = {
   },
   generate: {
     fallback: true,
-    routes: [
-      '/cards/details-of-confirmed-cases',
-      '/cards/number-of-confirmed-cases',
-      '/cards/attributes-of-confirmed-cases',
-      '/cards/number-of-tested',
-      '/cards/number-of-reports-to-covid19-telephone-advisory-center',
-      '/cards/number-of-reports-to-covid19-consultation-desk',
-      '/cards/predicted-number-of-toei-subway-passengers',
-      '/cards/agency'
-    ]
+    routes() {
+      const locales = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
+      const pages = [
+        '/cards/details-of-confirmed-cases',
+        '/cards/number-of-confirmed-cases',
+        '/cards/attributes-of-confirmed-cases',
+        '/cards/number-of-tested',
+        '/cards/number-of-reports-to-covid19-telephone-advisory-center',
+        '/cards/number-of-reports-to-covid19-consultation-desk',
+        '/cards/predicted-number-of-toei-subway-passengers',
+        '/cards/agency'
+      ]
+
+      const routes: string[] = []
+      locales.forEach(locale => {
+        pages.forEach(page => {
+          if (locale === 'ja') {
+            routes.push(page)
+            return
+          }
+          const route = `/${locale}${page}`
+          routes.push(route)
+        })
+      })
+      return routes
+    }
   },
   // /*
   // ** hot read configuration for docker

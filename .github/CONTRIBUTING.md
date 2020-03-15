@@ -10,7 +10,9 @@
 * Issue へのコメントはご自由にどうぞ！新しい質問や提案なども受け付けます。
 * Issue を追加する場合、必ず既に同様の Issue が無いか検索をしてから作成してください。
 * Pull Request を送る場合、必ず対応する Issue 番号を追記してください。単独の Pull Request は受け付けません。
-* improve(改善提案)がついたIssueについては必ず反映できると限りませんのでご了承ください（特にUI系について）
+* improve(改善提案)がついたIssueについては必ず反映できると限りませんのでご了承ください
+* 文言変更や見た目の大幅な変更といった、コンテンツの意味を変えるものについては、関係者の確認が必要です。採用される可能性もあまり高くないことをご了承ください。
+* `waiting` ラベルがついた Issue は関係者の確認中ですので、内容が固まるまで実装するのは避けていただく方が無難です。
 * good first issue / help wanted / bug を優先して対応いただけると助かります
 
 ## コミュニケーションへの参加方法
@@ -40,5 +42,6 @@
 * ステージングサイト https://stg-covid19-tokyo.netlify.com/
 * 本番サイト https://stopcovid19.metro.tokyo.lg.jp/
 * [デザイン](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
+* [翻訳スプレッドシート](https://docs.google.com/spreadsheets/d/1avT6QGInyQseYjoc_TxL8RPZfutyvrv4BtJkXfk1Nko)
 
 本 ドキュメント の更新も大歓迎です！

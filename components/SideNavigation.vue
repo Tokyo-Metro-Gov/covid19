@@ -9,10 +9,10 @@
         mdi-menu
       </v-icon>
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
-        <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('東京都')" />
-        </div>
         <h1 class="SideNavigation-Heading">
+          <div class="SideNavigation-Logo">
+            <img src="/logo.svg" :alt="$t('東京都')" />
+          </div>
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
@@ -155,7 +155,7 @@ export default Vue.extend({
         {
           title: this.$t('東京都主催等 中止又は延期するイベント等'),
           link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event02.html'
+            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
         },
         {
           title: this.$t('知事からのメッセージ'),
@@ -195,11 +195,11 @@ export default Vue.extend({
     padding: 1.25em 0 1.25em 1.25em;
     align-items: center;
     @include lessThan($small) {
-      padding: 7px 0 7px 20px;
+      padding: 7px 10px;
     }
   }
   &-HeadingIcon {
-    margin-right: 16px;
+    margin-right: 10px;
   }
   &-HeadingLink {
     @include lessThan($small) {
@@ -209,13 +209,14 @@ export default Vue.extend({
     text-decoration: none;
   }
   &-ListContainerIcon {
+    width: 21px;
     margin: 24px 16px 0;
   }
   &-ListItemContainer {
     padding: 2px 20px;
   }
   &-Logo {
-    margin: 20px 16px 0 0;
+    margin: 5px 16px 15px 0;
     width: 110px;
     @include lessThan($small) {
       margin-top: 0;
@@ -278,6 +279,11 @@ export default Vue.extend({
     background-color: $white;
     height: 100%;
     overflow-y: scroll;
+  }
+}
+@include lessThan($tiny) {
+  .sp-logo {
+    width: 100px;
   }
 }
 @include largerThan($small) {
