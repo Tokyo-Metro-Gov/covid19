@@ -181,6 +181,8 @@ export default {
         case 'ja':
         case 'ja-basic':
           return 'https://marketingplatform.google.com/about/analytics/terms/jp/'
+        case 'en':
+          return 'https://marketingplatform.google.com/about/analytics/terms/us/'
         case 'zh-cn':
           return 'https://marketingplatform.google.com/about/analytics/terms/cn/'
         case 'zh-tw':
@@ -188,6 +190,7 @@ export default {
         case 'ko':
           return 'https://marketingplatform.google.com/about/analytics/terms/kr/'
         default:
+          // 言語の追加時にabout.vueを変更し忘れた場合でも英語を返す
           return 'https://marketingplatform.google.com/about/analytics/terms/us/'
       }
     },
@@ -196,6 +199,8 @@ export default {
         case 'ja':
         case 'ja-basic':
           return 'https://policies.google.com/privacy?hl=ja'
+        case 'en':
+          return 'https://policies.google.com/privacy?hl=en'
         case 'zh-cn':
           return 'https://policies.google.com/privacy?hl=zh-CN'
         case 'zh-tw':
@@ -203,6 +208,7 @@ export default {
         case 'ko':
           return 'https://policies.google.com/privacy?hl=ko'
         default:
+          // 言語の追加時にabout.vueを変更し忘れた場合でも英語を返す
           return 'https://policies.google.com/privacy?hl=en'
       }
     },
@@ -211,6 +217,8 @@ export default {
         case 'ja':
         case 'ja-basic':
           return 'https://support.google.com/analytics/answer/6004245?hl=ja'
+        case 'en':
+          return 'https://support.google.com/analytics/answer/6004245?hl=en'
         case 'zh-cn':
           return 'https://support.google.com/analytics/answer/6004245?hl=zh-Hans'
         case 'zh-tw':
@@ -218,6 +226,7 @@ export default {
         case 'ko':
           return 'https://support.google.com/analytics/answer/6004245?hl=ko'
         default:
+          // 言語の追加時にabout.vueを変更し忘れた場合でも英語を返す
           return 'https://support.google.com/analytics/answer/6004245?hl=en'
       }
     }
