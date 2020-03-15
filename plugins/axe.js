@@ -7,6 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
   Vue.use(VueAxe, {
     config: {
       locale: AXE_LOCALE_JA
-    }
+    },
+    clearConsoleOnUpdate: false
   })
 }
