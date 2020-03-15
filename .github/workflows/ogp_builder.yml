@@ -55,4 +55,11 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: new_ogp
+        branch: deploy/new_ogp
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v2
+      with:
+        title: '[DEPLOY] OGP refresh pull request'
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: deploy/new_ogp
+        base: staging
