@@ -10,6 +10,13 @@
 * Issue를 추가하는 경우, 반드시 이미 등록되어 있는 Issue가 있는지 검색한 후에 작성해주세요.
 * Pull Request를 보내는 경우, 반드시 그 Pull Request에 대응하는 Issue 번호를 추가해주세요. 단독 Pull Request는 받지 않습니다.
 * improve(개선제안) 라벨이 붙은 Issue에 대해서는 반드시 반영할 수 있다고 할 수 없으므로 양해해 주시기 바랍니다. (특히, UI쪽에 대해선)
+
+[please translate me!]
+* All issues and Pull requests including major content changes such as language expression or the UI are subject to the organizer's review. They may not necessarily be always accepted.
+* The Issue with `waiting` label is under review by the organizer.  The implementation should be refrained until the requirement is fixed.
+
+[/please translate me!]
+
 * good first issue / help wanted / bug 를 우선으로 대응해주시면 감사하겠습니다.
 
 ## 커뮤니케이션 참가방법
@@ -25,6 +32,9 @@
 * 1일 이상 갱신이 없는 Issue에 관해서는, 배정을 취소하는 경우가 있습니다. 작업도중이라도, [Draft Pull Request](https://qiita.com/tatane616/items/13da1b6797a7b871ad58)를 보내주시면 진행상황을 파악할 수 있습니다.
 * Issue에 대한 질문은, Slack보다는 Issue의 댓글을 활용해주세요.
 * 제안도 받고 있습니다. 적극적으로 새로운 Issue를 등록해주세요.
+
+## 참고정보
+* [도쿄도 코로나19 대책 사이트에 기여하는 방법에 대한 해설(Qiita, 일본어)](https://qiita.com/FPC_COMMUNITY/items/b9cc072813dc2231b2b2)
 
 ## CONTRIBUTORS.md 의 추가 게제에 대해서
 도와주신 모든 분들께, 이름(닉네임)과 역할을 넣은 [CONTRIBUTORS.md](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/CONTRIBUTORS.md)라는 파일이 있습니다.
