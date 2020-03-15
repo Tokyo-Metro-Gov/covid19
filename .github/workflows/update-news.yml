@@ -2,7 +2,7 @@ name: update news
 
 on:
   schedule:
-    - cron: '* */3 * * *'
+    - cron: '0 */3 * * *'
 
 jobs:
   build:
@@ -33,8 +33,10 @@ jobs:
           if [ $(git ls-remote origin patch-news | wc -l) = "1" ]; then
             git fetch --all
             git switch $BRANCH_NAME
+            echo "::set-output name=created::false";
           else
             git switch -c $BRANCH_NAME
+            echo "::set-output name=created::true";
           fi
           echo "::set-output name=name::$BRANCH_NAME";
 
@@ -63,9 +65,11 @@ jobs:
           git push origin $BRANCH_NAME
 
       - name: Create pull request
+        if: steps.branch.outputs.created == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          timedatectl set-timezone Asia/Tokyo
           sudo snap install hub --classic
           git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
           hub pull-request \
