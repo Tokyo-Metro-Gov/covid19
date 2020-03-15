@@ -7,7 +7,7 @@
       :chart-data="contactsGraph"
       :date="Data.contacts.date"
       :unit="$t('件.reports')"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000071'"
+      :url="'http://www.pref.kagoshima.jp/ac03/infra/info/opendata/index.html'"
     />
     <!-- 件.reports = 窓口相談件数 -->
   </v-col>
