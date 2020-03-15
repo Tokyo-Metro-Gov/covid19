@@ -1,15 +1,18 @@
 {
   "ja": {
     "（注）同一の対象者について複数の検体を調査する場合あり": "（注）同一の対象者について複数の検体を調査する場合あり",
+    "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります",
     "{date}の全体累計": "%{date}の全体累計",
     "{date}の合計": "%{date}の合計",
-    "都内": "都内",
+    "県内": "県内",
     "その他": "その他"
   },
   "en": {
     "（注）同一の対象者について複数の検体を調査する場合あり": "(Note) More than one sample from the same subject may be tested.",
+    "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "The number of inspections performed is released as preliminary figures and may be revised as confirmed data at a later date.",
     "{date}の全体累計": "Cumulative total as of %{date}",
-    "都内": "Tokyo",
+    "{date}の合計": "The sum of %{date}",
+    "県内": "Kagoshima",
     "その他": "Others"
   },
   "zh-cn": {
