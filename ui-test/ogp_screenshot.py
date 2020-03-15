@@ -20,7 +20,7 @@ options.add_argument('--headless')
 options.add_argument("--hide-scrollbars")
 
 driver = webdriver.Chrome(options=options)
-for path, size in PATHS.items():
+for path, size in PATHS:
     driver.set_window_size(size[0], size[1])
     driver.get("http://localhost:8000"+path+"?embed=true")
     driver.save_screenshot('ogp/ogp-'+path.replace('/cards/', '').replace('/', '_')+'.png')
