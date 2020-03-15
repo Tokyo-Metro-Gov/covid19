@@ -1,5 +1,5 @@
 interface newsItem {
-  title?: string | { [key: string]: string }
+  text?: string | { [key: string]: string }
   url?: string | URL | { [key: string]: string | URL }
   primaryLang?: string
 }

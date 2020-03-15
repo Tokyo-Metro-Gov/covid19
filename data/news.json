@@ -1,9 +1,19 @@
 {
   "newsItems": [
     {
+      "date": "3/12/2020",
+      "url": "https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/1007473.html",
+      "text": "東京都緊急対応策（第三弾）の発表"
+  },
+  {
+      "date": "3/12/2020",
+      "url": "https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/1007472.html",
+      "text": "都内医療機関、福祉施設等へのマスクの配布について"
+  },
+  {
       "date": "2020/03/09",
       "url": "https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/1007462.html",
-      "title": {
+      "text": {
         "ja": "都の備蓄マスク20万枚を都内全区市町村へ提供",
         "en": "Tokyo Metropolitan Government provides the stockpile of masks for all the wards, and the municipalities in Tokyo (in Japanese)",
         "zh-cn": "东京都政府向都内全部区市町村提供20万枚口罩（内容为日语）",
@@ -15,7 +25,7 @@
     {
       "date": "2020/03/09",
       "url": "https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/iryo/maskhaifu0306.html",
-      "title": {
+      "text": {
         "ja": "都内医療機関及び保健所等へのマスクの配布について",
         "en": "About distribution of the mask for the medical facilities and the public health centers in Tokyo (in Japanese)",
         "zh-cn": "东京都政府向都内医疗机构及保健所配发口罩的通告（内容为日语）",
@@ -27,22 +37,22 @@
     {
       "date": "2020/03/05",
       "url": "https://www.2020games.metro.tokyo.lg.jp/news/2020/0305_3108.html",
-      "title": "マスク及び消毒液を寄贈しました！"
+      "text": "マスク及び消毒液を寄贈しました！"
     },
     {
       "date": "2020/03/05",
       "url": "https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/1007458.html",
-      "title": "（第70報）事業継続緊急対策（テレワーク）助成金募集を開始します！"
+      "text": "（第70報）事業継続緊急対策（テレワーク）助成金募集を開始します！"
     },
     {
       "date": "2020-03-04",
       "url": "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/04/20.html",
-      "title": "新型コロナウイルス感染症への対応に伴う都内公立学校の臨時休業措置状況について（第66報）"
+      "text": "新型コロナウイルス感染症への対応に伴う都内公立学校の臨時休業措置状況について（第66報）"
     },
     {
       "date": "2020/03/03",
       "url": "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/03/28.html",
-      "title": "新型コロナウイルスに関連した患者の発生について（第65報）"
+      "text": "新型コロナウイルスに関連した患者の発生について（第65報）"
     }
   ]
 }

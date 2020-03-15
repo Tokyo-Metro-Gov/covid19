@@ -16,10 +16,10 @@
       >
         <template v-slot:item.title="{ item }">
           <a v-if="item.url" :href="item.url" target="_blank" rel="noopener">
-            {{ item.title }}
+            {{ item.text }}
             <v-icon size="12">mdi-open-in-new</v-icon>
           </a>
-          <span v-else>{{ item.title }}</span>
+          <span v-else>{{ item.text }}</span>
         </template>
         <template v-slot:item.date="{ item }">
           {{ formatDate(item.date) }}
@@ -29,40 +29,7 @@
   </div>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "News Index": "お知らせ一覧",
-    "Title": "タイトル",
-    "Date": "日付"
-  },
-  "en": {
-    "News Index": "News Index",
-    "Title": "Title",
-    "Date": "Date"
-  },
-  "zh-cn": {
-    "News Index": "News Index",
-    "Title": "Title",
-    "Date": "Date"
-  },
-  "zh-tw": {
-    "News Index": "News Index",
-    "Title": "Title",
-    "Date": "Date"
-  },
-  "ko": {
-    "News Index": "News Index",
-    "Title": "Title",
-    "Date": "Date"
-  },
-  "ja-basic": {
-    "News Index": "おしらせ いちらん",
-    "Title": "けんめい",
-    "Date": "ひづけ"
-  }
-}
-</i18n>
+<i18n src="./news.i18n.json"></i18n>
 
 <script lang="ts">
 import Vue from 'vue'
@@ -125,5 +92,15 @@ export default Vue.extend({
 <style lang="scss" scoped>
 h2 {
   margin-bottom: 1em;
+}
+th,
+td {
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 </style>

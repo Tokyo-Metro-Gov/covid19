@@ -18,7 +18,6 @@ export function getLocalizedProp(
 ): string | any {
   if (typeof obj !== 'object') return obj
   const langKeys = Object.keys(obj)
-  console.log(langKeys)
   const tries = [locale]
   if (fallbackLocale) tries.push(fallbackLocale)
   tries.push(locale.toString().split('-')[0])
@@ -31,25 +30,11 @@ export function getLocalizedProp(
   return Object.values(obj)[0]
 }
 
-export function getTitle(newsItem: newsItem, locale: string): string {
-  if (!newsItem || !newsItem.title) return ''
-  if (typeof newsItem.title === 'string') {
-    return newsItem.title
-  } else if (newsItem.title[locale]) {
-    return newsItem.title[locale]
-  } else if (newsItem.primaryLang && newsItem.title[newsItem.primaryLang]) {
-    return newsItem.title[newsItem.primaryLang]
-  } else {
-    return newsItem.title.ja
-  }
-}
-
 export function localize(news: Array<newsItem>, locale: string) {
-  console.log(locale)
   return news.map(o => {
     const n = Object.assign({}, o)
     const fl = n.primaryLang
-    n.title = getLocalizedProp(n.title, locale, fl)
+    n.text = getLocalizedProp(n.text, locale, fl)
     n.url = getLocalizedProp(n.url, locale, fl)
     return n
   })

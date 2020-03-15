@@ -3,12 +3,12 @@
     <nuxt-link class="news-archive-button" :to="localePath('/news')">
       {{ $t('過去のお知らせを見る') }}
     </nuxt-link>
-    <h2 class="WhatsNew-heading">
+    <h3 class="WhatsNew-heading">
       <v-icon size="24" class="WhatsNew-heading-icon">
         mdi-information
       </v-icon>
       {{ $t('最新のお知らせ') }}
-    </h2>
+    </h3>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
         <a
@@ -24,7 +24,7 @@
             {{ formattedDate(item.date) }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
-            {{ formattedNewsTitle(item) }}
+            {{ localizedNewsText(item) }}
             <v-icon
               v-if="!isInternalLink(item.url)"
               class="WhatsNew-item-ExternalLinkIcon"
@@ -39,38 +39,7 @@
   </div>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "最新のお知らせ": "最新のお知らせ",
-    "過去のお知らせを見る": "過去のお知らせを見る"
-  },
-  "en": {
-    "最新のお知らせ": "What's new",
-    "過去のお知らせを見る": "News archive"
-  },
-  "zh-cn": {
-    "最新のお知らせ": "最新消息",
-    "過去のお知らせを見る": "News archive"
-  },
-  "zh-tw": {
-    "最新のお知らせ": "最新消息",
-    "過去のお知らせを見る": "News archive"
-  },
-  "ko": {
-    "最新のお知らせ": "최신소식",
-    "過去のお知らせを見る": "News archive"
-  },
-  "pt-BR": {
-    "最新のお知らせ": "",
-    "過去のお知らせを見る": "News archive"
-  },
-  "ja-basic": {
-    "最新のお知らせ": "いちばん あたらしい おしらせ",
-    "過去のお知らせを見る": "まえの おしらせを みる"
-  }
-}
-</i18n>
+<i18n src="./WhatsNew.i18n.json"></i18n>
 
 <script>
 import { convertDateToISO8601Format } from '@/utils/formatDate'
@@ -93,9 +62,9 @@ export default {
     formattedDate(dateString) {
       return NewsUtils.formatDate(dateString, this.$i18n.locale)
     },
-    formattedNewsTitle(newsItem) {
+    localizedNewsText(newsItem) {
       return NewsUtils.getLocalizedProp(
-        newsItem.title,
+        newsItem.text,
         this.$i18n.locale,
         newsItem.primaryLang
       )
@@ -130,7 +99,6 @@ export default {
 
   &-item {
     &-anchor {
-      display: flex;
       text-decoration: none;
       margin: 5px;
       font-size: 14px;
