@@ -3,8 +3,6 @@ import os
 
 os.mkdir('ogp')
 
-LANGS = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
-
 PATHS = {
     '/?dummy': [959,500],
     '/cards/details-of-confirmed-cases': [959,500],
