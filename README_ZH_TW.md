@@ -57,7 +57,7 @@ $ docker-compose run --rm app yarn install
 ```
 ### 生產環境/其他環境的判定
 
-關於 `process.env.GENERATE_ENV` ,生產環境的話變數為 `'production'` ，除此之外為 `'development'` 。
+關於 `process.env.GENERATE_ENV` 這個變數的值 ,生產環境為 `'production'` ，除此之外為 `'development'` 。
 只想要在測試環境中執行的話，請使用`'development'` 。
 
 ### Deploy 到 Staging 環境以及正式環境的方法
