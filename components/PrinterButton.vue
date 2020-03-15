@@ -10,8 +10,8 @@
       @mouseleave="mouseleave"
     >
       <div class="PrinterButton-PrinterIcon">
-        <PrinterWhiteIcon v-if="hover" />
-        <PrinterIcon v-else />
+        <PrinterWhiteIcon v-if="hover" aria-hidden="true" />
+        <PrinterIcon v-else aria-hidden="true" />
       </div>
       <span class="PrinterButton-Text">
         {{ $t('print') }}
