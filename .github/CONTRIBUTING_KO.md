@@ -26,6 +26,9 @@
 * Issue에 대한 질문은, Slack보다는 Issue의 댓글을 활용해주세요.
 * 제안도 받고 있습니다. 적극적으로 새로운 Issue를 등록해주세요.
 
+## 참고정보
+* [도쿄도 코로나19 대책 사이트에 기여하는 방법에 대한 해설(Qiita, 일본어)](https://qiita.com/FPC_COMMUNITY/items/b9cc072813dc2231b2b2)
+
 ## CONTRIBUTORS.md 의 추가 게제에 대해서
 도와주신 모든 분들께, 이름(닉네임)과 역할을 넣은 [CONTRIBUTORS.md](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/CONTRIBUTORS.md)라는 파일이 있습니다.
 무엇이든 기여를 하신 분께서는 이름을 올려주세요.
