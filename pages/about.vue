@@ -149,7 +149,7 @@
           rel="noopener"
           place="catalogWebsite"
         >
-          {{ $t('鹿児島県オープンデータサイト') }}
+          {{ $t('鹿児島県オープンデータカタログサイト') }}
         </a>
       </i18n>
     </TextCard>
@@ -170,7 +170,7 @@
         </a>
       </i18n>
     </TextCard>
-    <TextCard :title="$t('お問い合わせ先(準備中)')">
+    <TextCard :title="$t('お問い合わせ先（準備中）')">
       <a href="http://www.pref.kagoshima.jp/aa02/otoiawase.html">
         http://www.pref.kagoshima.jp/aa02/otoiawase.html
       </a>
