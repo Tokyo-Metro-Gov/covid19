@@ -38,15 +38,16 @@ jobs:
     steps:
     - uses: actions/checkout@master
       with:
-        ref: deploy/new_ogp
+        ref: staging
     - name: Download ogp images
       uses: actions/download-artifact@v1
       with:
         name: ogp
     - name: Commit files
       run: |
-        mkdir -p static/ogp/ja
-        mv ogp/* static/ogp/ja
+        git push origin :deploy/new_ogp
+        mkdir -p static/ogp/
+        mv -f ogp/* static/ogp/
         rm -rf ogp
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
