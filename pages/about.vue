@@ -140,7 +140,7 @@
       <p>
         また、当サイトは東京都の公開するサイトをフォークして作られています。詳しくは、東京都の公開する
         <a
-          href="https://github.com/codeforchiba/covid19"
+          href="https://github.com/tokyo-metropolitan-gov/covid19"
           target="_blank"
           rel="noopener"
         >
