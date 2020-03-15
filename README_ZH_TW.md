@@ -55,10 +55,10 @@ $ yarn install
 ```bash
 $ docker-compose run --rm app yarn install
 ```
-### Detect procition/others environment (translate me!)
+### 生產環境/其他環境的判定
 
-On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.
-Please use the variable to detect which enviroinment is used at the runtime.
+關於 `process.env.GENERATE_ENV` 這個值 ,生產環境為 `'production'` ，除此之外為 `'development'` 。
+如果只想要在測試環境中執行的話，請利用這個值作為參考。
 
 ### Deploy 到 Staging 環境以及正式環境的方法
 
