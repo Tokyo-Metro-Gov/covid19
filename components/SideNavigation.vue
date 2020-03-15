@@ -213,7 +213,7 @@ export default {
     margin: 5px 16px 15px 0;
     width: 110px;
     @include lessThan($small) {
-      margin-top: 0;
+      margin: 0 16px 0 0;
     }
   }
   &-Heading {
@@ -223,6 +223,9 @@ export default {
     padding: 0.5em 0;
     text-decoration: none;
     @include lessThan($small) {
+      display: flex;
+      align-items: center;
+      width: 100%;
       margin-top: 0;
     }
   }
