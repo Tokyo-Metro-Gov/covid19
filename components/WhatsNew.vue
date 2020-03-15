@@ -10,20 +10,20 @@
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
         <a
           class="WhatsNew-list-item-anchor"
-          :href="item.url"
+          :href="item.link"
           target="_blank"
           rel="noopener"
         >
           <time
             class="WhatsNew-list-item-anchor-time px-2"
-            :datetime="formattedDate(item.date)"
+            :datetime="item.date"
           >
-            {{ item.date }}
+            {{ item.date | convertDateToDisplayText }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
-            {{ item.text }}
+            {{ item.title }}
             <v-icon
-              v-if="!isInternalLink(item.url)"
+              v-if="!isInternalLink(item.link)"
               class="WhatsNew-item-ExternalLinkIcon"
               size="12"
             >
@@ -36,25 +36,27 @@
   </div>
 </template>
 
-<script>
-import { convertDateToISO8601Format } from '@/utils/formatDate'
+<script lang="ts">
+import Vue, { PropOptions } from 'vue'
+import { convertDateToDisplayText } from '@/utils/formatDate'
+import { NewsItem } from '@/tool/news-updater/types'
 
-export default {
+export default Vue.extend({
+  filters: {
+    convertDateToDisplayText
+  },
   props: {
     items: {
       type: Array,
       required: true
-    }
+    } as PropOptions<NewsItem[]>
   },
   methods: {
-    isInternalLink(path) {
+    isInternalLink(path: string) {
       return !/^https?:\/\//.test(path)
-    },
-    formattedDate(dateString) {
-      return convertDateToISO8601Format(dateString)
     }
   }
-}
+})
 </script>
 
 <style lang="scss">
