@@ -22,7 +22,7 @@ options.add_argument('--headless')
 options.add_argument("--hide-scrollbars")
 
 driver = webdriver.Chrome(options=options)
-for lang in LANGS.items():
+for lang in LANGS:
     for path, size in PATHS.items():
         driver.set_window_size(size[0], size[1])
         driver.get("http://localhost:8000/"+lang+'/'+path+"?embed=true")
