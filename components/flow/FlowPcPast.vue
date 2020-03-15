@@ -217,16 +217,26 @@ export default {
     font-size: calc(0.875rem + ((1vw - 7.68px) * 0.8929));
     font-weight: bold;
     font-style: normal;
-    &::before {
-      $icon-size: 27px;
-      content: url('/flow/check_circle-24px.svg');
+
+    &::after {
       position: absolute;
-      top: $icon-size / 2 * -1;
-      left: $icon-size / 2 * -1;
-      width: $icon-size;
-      height: $icon-size;
-      background-color: $white;
-      z-index: 1;
+      left: -8px;
+      top: -8px;
+      width: 24px;
+      height: 24px;
+      background-image: url(/flow/check_circle-24px.svg);
+      background-size: contain;
+      content: '';
+    }
+
+    &::before {
+      position: absolute;
+      left: -4px;
+      top: -4px;
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      content: '';
     }
     @include largerThan($large) {
       max-width: 190px;

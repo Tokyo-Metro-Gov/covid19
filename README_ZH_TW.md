@@ -18,6 +18,10 @@
 ## 授權
 本軟體採 [MIT 授權條款](./LICENSE.txt)釋出。
 
+## 從這個網站衍生出來的東西
+
+請參考[此連結](https://github.com/codeforsapporo/covid19)
+
 ## 給開發者的資訊
 
 ### 開發環境建置
@@ -37,6 +41,18 @@ $ yarn dev
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
+```
+
+### 被 `Cannot find module ****` 卡住時
+
+**使用 yarn 的做法**
+```
+$ yarn install
+```
+
+**使用 docker compose 的做法**
+```bash
+$ docker-compose run --rm app yarn install
 ```
 
 ### Deploy 到 Staging 環境以及正式環境的方法

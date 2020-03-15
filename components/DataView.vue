@@ -25,7 +25,13 @@
               rel="noopener"
             >
               {{ $t('オープンデータを入手') }}
-              <v-icon class="ExternalLinkIcon" size="15">
+              <v-icon
+                class="ExternalLinkIcon"
+                size="15"
+                aria-label="別タブで開く"
+                role="img"
+                :aria-hidden="false"
+              >
                 mdi-open-in-new
               </v-icon>
             </a>
