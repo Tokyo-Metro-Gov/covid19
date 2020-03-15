@@ -86,6 +86,7 @@ export default {
       map.on('moveend', _e => {
         self.$emit('input', self.getChartData(map))
       })
+      self.$emit('loadCompleted')
     },
     getChartData(map) {
       const features = map.queryRenderedFeatures({ layers: ['heatmap'] })
@@ -115,10 +116,8 @@ export default {
       })
     },
     loaded(map) {
-      // const tileUrl = `https://map-covid19-tokyo.netlify.com/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
-      const tileUrl = `https://map-covid19-tokyo.netlify.com/mashed_tiles/{z}/{x}/{y}.pbf`
-      // const tileUrl = `http://localhost:3000/tiles/${date}/corona_heatmap/hourly/8/{z}/{x}/{y}.pbf`
-      // const tileUrl = `http://localhost:3000/mashed_tiles/{z}/{x}/{y}.pbf`
+      // const tileUrl = `https://map-covid19-tokyo.netlify.com/mashed_tiles/{z}/{x}/{y}.pbf`
+      const tileUrl = `http://localhost:3000/mashed_tiles/{z}/{x}/{y}.pbf`
       map.addLayer({
         id: 'heatmap',
         type: 'fill',

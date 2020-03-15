@@ -4,6 +4,7 @@
     :title-id="titleId"
     :date="date"
     :url="url"
+    :loading="loading"
     class="MapCard"
   >
     <template v-slot:button>
@@ -12,11 +13,17 @@
     </template>
     <heatmap
       v-model="rawChartData"
+      class="MapCard-Heatmap"
       :map-id="mapId"
       :initial-bounds="initialBounds"
       @legendUpdated="updateLegend"
+      @loadCompleted="loadCompleted"
     />
-    <line-chart :chart-data="chartData" :options="{}" />
+    <line-chart
+      class="MapCard-LineChart"
+      :chart-data="chartData"
+      :options="{}"
+    />
     <template v-slot:footer>
       <source-link
         :url="url"
@@ -88,7 +95,8 @@ export default {
   data: () => {
     const rawChartData = []
     const legendData = []
-    return { rawChartData, legendData }
+    const loading = true
+    return { rawChartData, legendData, loading }
   },
   computed: {
     chartData() {
@@ -111,6 +119,9 @@ export default {
   methods: {
     updateLegend(legendData) {
       this.legendData = legendData
+    },
+    loadCompleted() {
+      this.loading = false
     }
   }
 }

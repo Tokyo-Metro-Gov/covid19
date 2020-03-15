@@ -1,5 +1,5 @@
 <template>
-  <v-card class="DataView">
+  <v-card class="DataView" :loading="loading">
     <div class="DataView-Inner">
       <div class="DataView-Content">
         <div
@@ -64,6 +64,9 @@ export default class DataView extends Vue {
   @Prop() private title!: string
   @Prop() private titleId!: string
   @Prop() private date!: string
+  @Prop({ default: false, required: false })
+  private loading!: boolean
+
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
   formattedDate: string = convertDatetimeToISO8601Format(this.date)
 }
