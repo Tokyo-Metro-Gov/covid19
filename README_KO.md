@@ -22,10 +22,7 @@
 
 ## 이 사이트에서 파생된 사이트
 
-### 【홋카이도판】코로나19 대책 사이트
-[사이트 링크](https://stopcovid19.hokkaido.dev/)
-
-[GitHub 링크](https://github.com/codeforsapporo/covid19)
+해당 [링크(일본어)](./forkedSites.md)를 클릭하여 보십시요.
 
 ## 개발자를 위한 개발 정보
 
@@ -48,11 +45,6 @@ $ yarn dev
 $ docker-compose up --build
 ```
 
-### Detect procition/others environment (translate me!)
-
-On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.
-Please use the variable to detect which enviroinment is used at the runtime.
-
 ### `Cannot find module ****` 에러를 해결하는 방법
 
 **yarn을 사용할 경우**
@@ -64,6 +56,11 @@ $ yarn install
 ```bash
 $ docker-compose run --rm app yarn install
 ```
+
+### 프로덕션/기타 환경 탐지
+
+프로덕션 환경에서, `'production'` 은 `process.env.GENERATE_ENV` 변수에 할당되고, 다른 환경에서는 `'development'`가 변수에 할당됩니다.
+런타임에서 사용할 환경을 감지하려면 이 변수를 사용하십시요.
 
 ### 스테이징 환경 및 운영 환경으로 반영 방법
 

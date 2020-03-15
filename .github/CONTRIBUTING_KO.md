@@ -9,14 +9,9 @@
 * Issue에서 의견을 자유롭게 올려주세요! 새로운 질문이나 제안도 받습니다.
 * Issue를 추가하는 경우, 반드시 이미 등록되어 있는 Issue가 있는지 검색한 후에 작성해주세요.
 * Pull Request를 보내는 경우, 반드시 그 Pull Request에 대응하는 Issue 번호를 추가해주세요. 단독 Pull Request는 받지 않습니다.
-* improve(개선제안) 라벨이 붙은 Issue에 대해서는 반드시 반영할 수 있다고 할 수 없으므로 양해해 주시기 바랍니다. (특히, UI쪽에 대해선)
-
-[please translate me!]
-* All issues and Pull requests including major content changes such as language expression or the UI are subject to the organizer's review. They may not necessarily be always accepted.
-* The Issue with `waiting` label is under review by the organizer.  The implementation should be refrained until the requirement is fixed.
-
-[/please translate me!]
-
+* `improve`(개선제안) 라벨이 붙은 Issue에 대해서는 반드시 반영할 수 있다고 할 수 없으므로 양해해 주시기 바랍니다. (특히, UI쪽에 대해선)
+* 언어의 표현과 UI와 같은 주요 컨텐츠 변경을 포함한 모든 이슈와 풀 리퀘스트(Pull Request)는 관계자의 리뷰를 받습니다. 모든 이슈와 풀 리퀘스트(Pull Request)는 항상 받아들이진 않습니다.
+* `waiting` 라벨이 붙은 이슈는 관계자가 검토중입니다. 해당 이슈에 대한 구현은 요구사항이 정해질때까지 삼가 주시기 바랍니다.
 * good first issue / help wanted / bug 를 우선으로 대응해주시면 감사하겠습니다.
 
 ## 커뮤니케이션 참가방법
