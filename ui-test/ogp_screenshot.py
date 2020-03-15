@@ -1,6 +1,8 @@
 from selenium import webdriver
 import os
 
+os.mkdir('ogp')
+
 PATHS = {
     '/?dummy': [959,500],
     '/cards/details-of-confirmed-cases': [959,500],
