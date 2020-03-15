@@ -1,5 +1,5 @@
 <template>
-  <div class="WhatsNew">
+  <div :key="`wn-lang-${$i18n.locale}`" class="WhatsNew">
     <nuxt-link class="news-archive-button" :to="localePath('/news')">
       {{ $t('過去のお知らせを見る') }}
     </nuxt-link>
@@ -74,6 +74,7 @@
 
 <script>
 import { convertDateToISO8601Format } from '@/utils/formatDate'
+import * as NewsUtils from '@/utils/newsUtils'
 
 export default {
   props: {
@@ -90,21 +91,14 @@ export default {
       return convertDateToISO8601Format(dateString)
     },
     formattedDate(dateString) {
-      return new Date(
-        convertDateToISO8601Format(dateString)
-      ).toLocaleDateString(this.$i18n.locale)
+      return NewsUtils.formatDate(dateString, this.$i18n.locale)
     },
     formattedNewsTitle(newsItem) {
-      if (!newsItem || !newsItem.title) return ''
-      if (typeof newsItem.title === 'string') {
-        return newsItem.title
-      } else if (newsItem.title[this.$i18n.locale]) {
-        return newsItem.title[this.$i18n.locale]
-      } else if (newsItem.primaryLang && newsItem.title[newsItem.primaryLang]) {
-        return newsItem.title[newsItem.primaryLang]
-      } else {
-        return newsItem.title.ja
-      }
+      return NewsUtils.getLocalizedProp(
+        newsItem.title,
+        this.$i18n.locale,
+        newsItem.primaryLang
+      )
     }
   }
 }

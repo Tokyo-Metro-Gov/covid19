@@ -15,6 +15,7 @@
     "noEmit": true,
     "noImplicitThis": true,
     "experimentalDecorators": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "~/*": [
