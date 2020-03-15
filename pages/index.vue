@@ -120,7 +120,6 @@
             [139.695239, 35.685448],
             [139.706397, 35.694493]
           ]"
-          :date-sequence="mapDateSequence"
           :url="'https://ds.yahoo.co.jp/'"
           :source-link-header="'(C) Yahoo Japan'"
           :link-string="$t('ヤフー・データソリューション')"
@@ -138,7 +137,6 @@
             [139.761908, 35.676437],
             [139.773774, 35.686703]
           ]"
-          :date-sequence="mapDateSequence"
           :url="'https://ds.yahoo.co.jp/'"
           :source-link-header="'(C) Yahoo Japan'"
           :link-string="$t('ヤフー・データソリューション')"
@@ -490,48 +488,6 @@ export default {
     // )
     // 検査陽性者の状況
     const confirmedCases = formatConfirmedCases(Data.main_summary)
-    // Map
-    const mapDateSequence = [
-      '20200201',
-      '20200202',
-      '20200203',
-      '20200204',
-      '20200205',
-      '20200206',
-      '20200207',
-      '20200208',
-      '20200209',
-      '20200210',
-      '20200211',
-      '20200212',
-      '20200213',
-      '20200214',
-      '20200215',
-      '20200216',
-      '20200217',
-      '20200218',
-      '20200219',
-      '20200220',
-      '20200221',
-      '20200222',
-      '20200223',
-      '20200224',
-      '20200225',
-      '20200226',
-      '20200227',
-      '20200228',
-      '20200229',
-      '20200301',
-      '20200302',
-      '20200303',
-      '20200304',
-      '20200305',
-      '20200306',
-      '20200307',
-      '20200308',
-      '20200309',
-      '20200310'
-    ]
 
     const sumInfoOfPatients = {
       lText: patientsGraph[
@@ -555,7 +511,6 @@ export default {
       inspectionsItems,
       inspectionsLabels,
       confirmedCases,
-      mapDateSequence,
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',

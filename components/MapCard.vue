@@ -14,7 +14,6 @@
       v-model="rawChartData"
       :map-id="mapId"
       :initial-bounds="initialBounds"
-      :date-sequence="dateSequence"
       @legendUpdated="updateLegend"
     />
     <line-chart :chart-data="chartData" :options="{}" />
@@ -63,12 +62,6 @@ export default {
       type: String,
       default: ''
     },
-    dateSequence: {
-      type: Array,
-      default: () => {
-        return []
-      }
-    },
     sourceLinkHeader: {
       type: String,
       default: ''
@@ -93,20 +86,12 @@ export default {
     }
   },
   data: () => {
-    const rawChartData = {}
+    const rawChartData = []
     const legendData = []
     return { rawChartData, legendData }
   },
   computed: {
     chartData() {
-      if (Object.keys(this.rawChartData).length === 0) {
-        return {
-          labels: this.dateSequence,
-          data: this.dateSequence.map(_ => {
-            return 0
-          })
-        }
-      }
       return {
         labels: this.rawChartData.map(d => {
           return d.date
