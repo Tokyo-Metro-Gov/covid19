@@ -103,8 +103,11 @@ Tokyo Covid-19 response site contributors
 | Koki Fukushima | [@f-koki](https://github.com/f-koki) | | |
 | mkfsn | [@mkfsn](https://github.com/mkfsn) | [@mkfsn](https://twitter.com/mkfsn) | Coding, i18n |
 | Thien Le Vinh | [@omygodvt95](https://github.com/omygodvt95) | | Translation |
-| -add your name here!- | -GitHub account- | -Twitter account- | -what did you do?- |
 
 ご協力に感謝です！！！
+
+お名前の掲載をご希望の方は，[#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654)にコメントをお願いします．
+
+If you want to add your name, please comment on [#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654).
 
 ![nyan](https://i.gyazo.com/f04e7468ea6e4bb6e87f6817fea980f9.gif)
