@@ -5,8 +5,11 @@
       :title-id="'predicted-number-of-toei-subway-passengers'"
       :chart-id="'metro-bar-chart'"
       :chart-data="metroGraph"
-      :chart-option="metroGraphOption"
       :date="metroGraph.date"
+      :tooltipsTitle="metroGraphTooltipTitle"
+      :tooltipsLabel="metroGraphTooltipLabel"
+      :url="''"
+      :unit="$t('%')"
     />
   </v-col>
 </template>
@@ -107,60 +110,8 @@ export default {
     const data = {
       Data,
       metroGraph,
-      metroGraphOption: {
-        responsive: true,
-        legend: {
-          display: true,
-          onHover: e => {
-            e.currentTarget.style.cursor = 'pointer'
-          },
-          onLeave: e => {
-            e.currentTarget.style.cursor = 'default'
-          },
-          labels: {
-            boxWidth: 20
-          }
-        },
-        scales: {
-          xAxes: [
-            {
-              position: 'bottom',
-              stacked: false,
-              gridLines: {
-                display: true
-              },
-              ticks: {
-                fontSize: 10,
-                maxTicksLimit: 20,
-                fontColor: '#808080'
-              }
-            }
-          ],
-          yAxes: [
-            {
-              stacked: false,
-              gridLines: {
-                display: true
-              },
-              ticks: {
-                fontSize: 12,
-                maxTicksLimit: 10,
-                fontColor: '#808080',
-                callback(value) {
-                  return value.toFixed(2) + '%'
-                }
-              }
-            }
-          ]
-        },
-        tooltips: {
-          displayColors: false,
-          callbacks: {
-            title: metroGraphTooltipTitle,
-            label: metroGraphTooltipLabel
-          }
-        }
-      }
+      metroGraphTooltipTitle,
+      metroGraphTooltipLabel
     }
     return data
   }

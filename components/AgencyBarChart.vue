@@ -28,7 +28,6 @@
 </style>
 
 <script>
-import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
 
 export default {
@@ -49,6 +48,16 @@ export default {
       required: false,
       default: 'agency-bar-chart'
     },
+    chartOption: {
+      type: Object,
+      required: false,
+      default: () => {}
+    },
+    chartData: {
+      type: Object,
+      required: false,
+      default: () => {}
+    },
     unit: {
       type: String,
       required: false,
@@ -58,21 +67,11 @@ export default {
       type: String,
       required: false,
       default: ''
-    }
-  },
-  data() {
-    const agencies = [
-      this.$t('第一庁舎計'),
-      this.$t('第二庁舎計'),
-      this.$t('議事堂計')
-    ]
-    agencyData.datasets.map(dataset => {
-      dataset.label = this.$t(dataset.label)
-    })
-    return {
-      chartData: agencyData,
-      date: agencyData.date,
-      agencies
+    },
+    date: {
+      type: String,
+      required: true,
+      default: ''
     }
   },
   computed: {
@@ -82,7 +81,7 @@ export default {
         labels: this.chartData.labels,
         datasets: this.chartData.datasets.map((item, index) => {
           return {
-            label: this.agencies[index],
+            label: this.$t(item.label),
             data: item.data,
             backgroundColor: colors[index]
           }
