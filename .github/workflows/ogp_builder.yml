@@ -38,7 +38,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
       with:
-        ref: deploy/new_ogp
+        ref: staging
     - name: Download ogp images
       uses: actions/download-artifact@v1
       with:
@@ -52,8 +52,4 @@ jobs:
         git config --local user.name "GitHub Action"
         git add static
         git commit -m "Add changes" 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: deploy/new_ogp
+        git push
