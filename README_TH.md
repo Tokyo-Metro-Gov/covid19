@@ -11,11 +11,11 @@
 ## การร่วมพัฒนา (How to Contribute)
 
 เปิดรับการพัฒนาและอัพเดทต่างๆ!
-โปรดอ่าน [How to contribute](./.github/CONTRIBUTING_TH.md) for details.
+โปรดอ่าน [How to contribute](./.github/CONTRIBUTING_TH.md)
 
 ## จรรยาบรรณ (Code of Conduct)
 
-โปรดอ่าน [Code of conduct for developers](./.github/CODE_OF_CONDUCT_TH.md) for details.
+โปรดอ่าน [Code of conduct for developers](./.github/CODE_OF_CONDUCT_TH.md)
 
 ## ลิขสิทธิ์ (License)
 ซอฟต์แวร์อยู่ภายใต้ลิขสิทธิ์ [the MIT License](./LICENSE.txt).
