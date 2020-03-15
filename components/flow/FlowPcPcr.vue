@@ -75,12 +75,12 @@
 .ResultLabel {
   @include font-size(20);
   border-radius: 4px;
-  border: 2px solid $green-1;
+  border: 2px solid $orange-1;
   line-height: 1;
   padding: 2.5rem 0.1rem;
 
   &.positive {
-    background: $green-1;
+    background: $orange-1;
     color: $white;
   }
 }
