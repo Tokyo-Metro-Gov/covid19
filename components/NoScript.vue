@@ -40,7 +40,7 @@
   "en": {
     "東京都": "Tokyo Metropolitan Government",
     "新型コロナウイルス感染症": "COVID-19",
-    "対策サイト": "Task Force website",
+    "対策サイト": "Task Force Website",
     "当WebサイトではJavaScriptを使用しております。JavaScriptを無効にして使用された場合、各ページが正常に動作しない、または、表示されない場合がございます。 当Webサイトをご利用の際には、JavaScriptを有効にして頂きますようお願いいたします。": "This site uses Javascript. If Javascript is disabled, the site may not work as expected or may not display correctly. Please make sure to enable Javascript when browsing this site."
   },
   "zh-cn": {
