@@ -52,6 +52,14 @@ import Vue from 'vue'
 import CovidIcon from '@/static/covid.svg'
 import ParentIcon from '@/static/parent.svg'
 
+enum iconType {
+  none = 'none',
+  material = 'material',
+  covid = 'covid',
+  parent = 'parent',
+  others = 'others'
+}
+
 export default Vue.extend({
   components: { CovidIcon, ParentIcon },
   props: {
@@ -75,18 +83,16 @@ export default Vue.extend({
     isActive(link: string): boolean {
       return link === this.$route.path || `${link}/` === this.$route.path
     },
-    checkIconType(
-      icon?: string
-    ): 'none' | 'material' | 'covid' | 'parent' | 'others' {
-      if (!icon) return 'none'
+    checkIconType(icon?: string): iconType {
+      if (!icon) return iconType.none
       if (icon.startsWith('mdi')) {
-        return 'material'
+        return iconType.material
       } else if (icon === 'covid') {
-        return 'covid'
+        return iconType.covid
       } else if (icon === 'parent') {
-        return 'parent'
+        return iconType.parent
       } else {
-        return 'others'
+        return iconType.others
       }
     }
   }

@@ -118,7 +118,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    items(): Array<Item> {
+    items(): Item[] {
       return [
         {
           icon: 'mdi-chart-timeline-variant',
