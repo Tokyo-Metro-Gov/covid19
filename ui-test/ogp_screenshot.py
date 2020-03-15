@@ -23,4 +23,4 @@ driver = webdriver.Chrome(options=options)
 for path, size in PATHS.items():
     driver.set_window_size(size[0], size[1])
     driver.get("http://localhost:8000"+path+"?embed=true")
-    driver.save_screenshot('ogp/ogp-'+path.replace('/cards/', '').replace('/', '_')+'.png')
+    driver.save_screenshot('ogp/'+path.replace('/cards/', '').replace('/', '_')+'.png')
