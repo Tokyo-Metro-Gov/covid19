@@ -40,7 +40,7 @@ export default {
           title: `2. ${this.$t('感染症を疑う場合の対応')}`,
           body: [
             this.$t('各保健所にご相談ください'),
-            this.$t('「新型コロナウイルス感染症にかかる相談窓口について」'),
+            this.$t('新型コロナウイルス感染症に関する情報'),
             '<a href="http://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/coronavirus.html" target="_blank" rel="noopener">http://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/coronavirus.html</a>'
           ].join('<br />')
         },
