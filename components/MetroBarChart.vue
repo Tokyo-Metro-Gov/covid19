@@ -14,7 +14,7 @@
     <bar
       :chart-id="chartId"
       :chart-data="displayData"
-      :options="chartOption"
+      :options="displayOption"
       :height="240"
     />
   </data-view>
@@ -64,6 +64,26 @@ export default {
       required: false,
       default: () => {}
     },
+    tooltipsTitle: {
+      type: Object,
+      required: false,
+      default: () => {}
+    },
+    tooltipsLabel: {
+      type: Object,
+      required: false,
+      default: () => {}
+    },
+    unit: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    url: {
+      type: String,
+      required: false,
+      default: ''
+    },
     date: {
       type: String,
       required: true,
@@ -83,6 +103,63 @@ export default {
             borderWidth: 0
           }
         })
+      }
+    },
+    displayOption() {
+      const self = this
+      return {
+        responsive: true,
+        legend: {
+          display: true,
+          onHover: e => {
+            e.currentTarget.style.cursor = 'pointer'
+          },
+          onLeave: e => {
+            e.currentTarget.style.cursor = 'default'
+          },
+          labels: {
+            boxWidth: 20
+          }
+        },
+        scales: {
+          xAxes: [
+            {
+              position: 'bottom',
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: '#808080'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 12,
+                maxTicksLimit: 10,
+                fontColor: '#808080',
+                callback(value) {
+                  return value.toFixed(2) + '%'
+                }
+              }
+            }
+          ]
+        },
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            title: self.tooltipsTitle,
+            label: self.tooltipsLabel
+          }
+        }
       }
     }
   }
