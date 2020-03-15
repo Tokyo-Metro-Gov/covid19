@@ -11,7 +11,8 @@
     "dev": "cross-env NODE_ENV=development nuxt-ts",
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
-    "generate:deploy": "nuxt-ts generate",
+    "generate:deploy": "cross-env NODE_ENV=production nuxt-ts generate",
+    "generate:dev": "cross-env NODE_ENV=development nuxt-ts generate",
     "generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "lint-and-generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "test": "echo 'skip tests (there is no test)'",
@@ -66,6 +67,8 @@
     "nuxt-purgecss": "^0.2.1",
     "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "vue-axe": "^1.0.8",
     "vue-jest": "^4.0.0-0"
   }
 }
