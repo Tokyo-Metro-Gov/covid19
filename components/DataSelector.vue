@@ -5,11 +5,14 @@
     mandatory
     @change="$emit('input', $event)"
   >
-    <v-btn v-ripple="false" value="transition" class="DataSelector-Button">
-      {{ $t('日別') }}
-    </v-btn>
-    <v-btn v-ripple="false" value="cumulative" class="DataSelector-Button">
-      {{ $t('累計') }}
+    <v-btn
+      v-for="(dataType, i) in dataTypes"
+      :key="i"
+      v-ripple="false"
+      :value="dataType.value"
+      class="DataSelector-Button"
+    >
+      {{ $t(dataType.tKey) }}
     </v-btn>
   </v-btn-toggle>
 </template>
@@ -49,6 +52,11 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    dataTypes: {
+      type: Array,
+      required: false,
+      default: () => []
     }
   }
 }
