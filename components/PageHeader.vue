@@ -7,11 +7,16 @@
       {{ title }}
     </h2>
     <div class="date">
-      <span>最終更新 </span>
+      <span>{{ $t('最終更新') }} </span>
       <time :datetime="formattedDate">{{ date }}</time>
+    </div>
+    <div v-if="!['ja', 'ja-basic'].includes($i18n.locale)" class="annotation">
+      <span>{{ $t('注釈') }} </span>
     </div>
   </div>
 </template>
+
+<i18n src="./PageHeader.i18n.json"></i18n>
 
 <script>
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
@@ -61,5 +66,14 @@ export default {
 .date {
   font-size: 0.875rem;
   color: $gray-3;
+}
+.annotation {
+  font-size: 0.75rem;
+  color: $gray-3;
+}
+@include largerThan($small) {
+  .annotation {
+    margin: 0 0 0 auto;
+  }
 }
 </style>
