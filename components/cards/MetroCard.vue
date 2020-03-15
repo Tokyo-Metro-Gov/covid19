@@ -10,7 +10,17 @@
       :tooltipsLabel="metroGraphTooltipLabel"
       :url="''"
       :unit="$t('%')"
-    />
+    >
+      <template v-slot:description>
+        {{
+          $t('{range}の利用者数*の平均値を基準としたときの相対値', {
+            range: $t(metroGraph.base_period)
+          })
+        }}
+        <br />
+        *{{ $t('都営地下鉄4路線の自動改札出場数') }}
+      </template>
+    </metro-bar-chart>
   </v-col>
 </template>
 
@@ -20,6 +30,8 @@
     "都営地下鉄の利用者数の推移": "都営地下鉄の利用者数の推移",
     "期間: {duration}": "期間: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "{duration}の利用者数との相対値: {percentage}",
+    "{range}の利用者数*の平均値を基準としたときの相対値": "{range}の利用者数*の平均値を基準としたときの相対値",
+    "都営地下鉄4路線の自動改札出場数": "都営地下鉄4路線の自動改札出場数",
     "1月20日~1月24日": "1月20日~1月24日",
     "2月10日~14日": "2月10日~14日",
     "2月17日~21日": "2月17日~21日",
@@ -29,6 +41,8 @@
     "都営地下鉄の利用者数の推移": "The predicted number of Toei subway passengers",
     "期間: {duration}": "Period: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "Relative value based on the number of users {duration}: {percentage}",
+    "{range}の利用者数*の平均値を基準としたときの相対値": "Relative value based on the average number of users {range}",
+    "都営地下鉄4路線の自動改札出場数": "Total number of passengers using four Toei subway lines",
     "1月20日~1月24日": "from January 20 to 24",
     "2月10日~14日": "from Feb. 10 to 14",
     "2月17日~21日": "from Feb. 17 to 21",
