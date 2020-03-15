@@ -77,7 +77,7 @@
             />
           </div>
           <div class="TelLink">
-            <a href="tel:0570550571"
+            <a href="tel:043-223-2640"
               ><img src="/flow/sp/sp_flow_tel_01@2x.png" alt="0570-550571"
             /></a>
           </div>
@@ -97,35 +97,11 @@
           <p class="SodanHeader">
             帰国者・接触者電話相談センター
           </p>
-          <div class="SodanHeader">
-            <div class="SodanChip">
-              24時間対応
-            </div>
-          </div>
           <dl>
-            <div class="SodanHeijitsu">
-              <dt class="Heijitsu">
-                平日（日中）
-              </dt>
-              <dd>
-                <a
-                  class="Link"
-                  href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  各保健所の電話番号は福祉保健局HPへ
-                  <v-icon size="16">
-                    mdi-open-in-new
-                  </v-icon>
-                </a>
-              </dd>
-            </div>
             <div class="SodanYakan">
               <dt class="Yakan">
-                平日（夜間）
                 <br />
-                <span class="SodanTime">午後５時から翌朝午前９時</span>
+                <span class="SodanTime">午前9時から午後5時</span>
                 <br />
                 土日祝 終日
               </dt>
@@ -200,12 +176,12 @@
         </div>
       </div>
       <a
-        href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+        href="https://www.city.chiba.jp/hokenfukushi/kenkou/kikaku/kansensyoujyouhou.html"
         target="_blank"
         rel="noopener"
         class="Flow-Card-Button"
       >
-        詳細を見る(東京都福祉保健局)
+        ■詳細を見る(千葉市のウェブサイト)
         <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
           mdi-open-in-new
         </v-icon>
