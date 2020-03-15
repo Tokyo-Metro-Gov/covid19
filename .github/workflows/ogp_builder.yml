@@ -45,6 +45,7 @@ jobs:
         name: ogp
     - name: Commit files
       run: |
+        git push origin :deploy/new_ogp
         mkdir -p static/ogp/ja
         mv ogp/* static/ogp/ja
         rm -rf ogp
@@ -56,4 +57,4 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: staging
+        branch: deploy/new_ogp
