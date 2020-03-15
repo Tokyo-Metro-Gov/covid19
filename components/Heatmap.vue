@@ -53,6 +53,7 @@ export default {
       const features = map.queryRenderedFeatures({ layers: ['heatmap'] })
       if (features.length === 0) {
         setTimeout(self.dataDrivenInitialization, 1000, map)
+        return
       }
       this.dateSequence = Object.keys(features[0].properties).sort()
       const lastDate = this.dateSequence[this.dateSequence.length - 1]
