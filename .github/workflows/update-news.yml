@@ -65,11 +65,11 @@ jobs:
           git push origin $BRANCH_NAME
 
       - name: Create pull request
-        if: steps.branch.outputs.created == 'true'
+        if: steps.git-diff.outputs.hasdiff == 'true' && steps.branch.outputs.created == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          timedatectl set-timezone Asia/Tokyo
+          sudo timedatectl set-timezone Asia/Tokyo
           sudo snap install hub --classic
           git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
           hub pull-request \
