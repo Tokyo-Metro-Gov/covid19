@@ -47,8 +47,8 @@ jobs:
       run: |
         git push origin :deploy/new_ogp
         mkdir -p static/ogp/
-        mv -f ogp/* static/ogp/
-        rm -rf ogp
+        rm -rf static/ogp
+        mv ogp static/
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add static
