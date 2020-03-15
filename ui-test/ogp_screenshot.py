@@ -3,8 +3,6 @@ import os
 
 os.mkdir('ogp')
 
-LANGS = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
-
 PATHS = {
     '/?dummy': [959,500],
     '/cards/details-of-confirmed-cases': [959,500],
@@ -22,7 +20,8 @@ options.add_argument('--headless')
 options.add_argument("--hide-scrollbars")
 
 driver = webdriver.Chrome(options=options)
-for lang in LANGS:
+
+for lang in ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']:
     for path, size in PATHS.items():
         driver.set_window_size(size[0], size[1])
         driver.get("http://localhost:8000/"+lang+'/'+path+"?embed=true")
