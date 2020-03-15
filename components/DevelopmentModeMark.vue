@@ -47,22 +47,11 @@ export default {
     }
   },
   computed: {
-    // NODE_ENV による本番・開発環境の切り替えができるようになったらこのメソッドを有効化・ひとつ後ろのメソッドを破棄
-    //  isDevelopmentMode: () => {
-    //         if (process && process.env && process.env.NODE_ENV) {
-    //     return process.env.NODE_ENV === 'development'
-    //   }
-    //   return false
-    // },
     isDevelopmentMode: () => {
-      const releaseUrl = 'https://stopcovid19.metro.tokyo.lg.jp'
-      const regex = new RegExp(
-        '^' + releaseUrl.replace(/\//g, '\\/').replace(/\./g, '\\.')
-      )
-      if (process.browser) {
-        return location.href.match(regex) === null
+      if (process && process.env && process.env.NODE_ENV) {
+        return process.env.NODE_ENV === 'development'
       }
-      return true
+      return false
     }
   }
 }
