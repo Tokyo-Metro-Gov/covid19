@@ -169,7 +169,13 @@ export default {
     const url = 'https://stopcovid19.metro.tokyo.lg.jp'
     const timestamp = new Date().getTime()
     const ogpImage =
-      url + '/ogp-' + this.$route.params.card + '.png?t=' + timestamp
+      url +
+      '/ogp/' +
+      this.$i18n.locale +
+      '/' +
+      this.$route.params.card +
+      '.png?t=' +
+      timestamp
     const description =
       this.updatedAt +
       ' 更新 | ' +
