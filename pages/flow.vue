@@ -81,7 +81,7 @@ export default {
     font-weight: bold;
     display: inline-block;
     text-decoration: none;
-    color: $green-1 !important;
+    color: $orange-1 !important;
     &-Wrapper {
       text-align: center;
     }
@@ -90,7 +90,7 @@ export default {
     }
     &-ExternalLinkIcon {
       margin-left: 2px;
-      color: $green-1 !important;
+      color: $orange-1 !important;
     }
   }
   &-PullRight {

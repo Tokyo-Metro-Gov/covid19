@@ -94,14 +94,14 @@
 }
 .CardWhite {
   background-color: $white;
-  border: 2px solid $green-1 !important;
+  border: 2px solid $orange-1 !important;
   &Text {
     font-size: 22px;
     color: $gray-2;
   }
 }
 .CardGreen {
-  background-color: $green-1;
+  background-color: $orange-1;
   &Text {
     color: $white;
     font-size: 22px;
