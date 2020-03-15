@@ -1,0 +1,20 @@
+name: clear ogp cache
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: archive dist
+        uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist
+      - name: clear OGP cache
+        run: |
+          curl -i -X POST \
+          "https://graph.facebook.com/v6.0/?scrape=true&id=https%3A%2F%2Fstopcovid19.metro.tokyo.lg.jp%2Fcards%2Fnumber-of-confirmed-cases%2F&access_token="${{ secrets.GITHUB_TOKEN }}
