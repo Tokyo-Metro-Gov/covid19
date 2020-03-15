@@ -1,5 +1,6 @@
 <template>
   <div class="MainPage">
+    <LanguageSelector class="mb-3 pc-none" />
     <page-header
       :icon="headerItem.icon"
       :title="headerItem.title"
@@ -28,6 +29,7 @@
 <i18n src="./index.i18n.json"></i18n>
 
 <script>
+import LanguageSelector from '@/components/LanguageSelector.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
@@ -46,6 +48,7 @@ import AgencyCard from '@/components/cards/AgencyCard.vue'
 
 export default {
   components: {
+    LanguageSelector,
     PageHeader,
     WhatsNew,
     StaticInfo,
@@ -99,6 +102,11 @@ export default {
         padding: 4px 8px;
       }
     }
+  }
+}
+@include largerThan($small) {
+  .pc-none {
+    display: none;
   }
 }
 </style>

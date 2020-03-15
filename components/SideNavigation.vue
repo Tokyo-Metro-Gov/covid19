@@ -9,13 +9,17 @@
         mdi-menu
       </v-icon>
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
-        <h1 class="SideNavigation-Heading">
+        <h1 class="SideNavigation-Heading sp-flex">
+          <!-- 開発環境に入ったらレイアウトが崩れていたためsp-flex付けました。不要でしたら外します。-->
           <div class="SideNavigation-Logo">
             <img src="/logo.svg" :alt="$t('東京都')" />
           </div>
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
+      <div class="SideNavigation-LanguageMenu sp-none">
+        <LanguageSelector />
+      </div>
     </header>
     <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
@@ -38,9 +42,6 @@
             <v-divider v-show="item.divider" class="SideNavigation-Divider" />
           </v-container>
         </v-list>
-        <div class="SideNavigation-LanguageMenu">
-          <LanguageSelector />
-        </div>
       </nav>
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
@@ -236,8 +237,7 @@ export default {
     margin: 12px 0;
   }
   &-LanguageMenu {
-    padding: 0 20px;
-    background: #fff;
+    padding-right: 20px;
   }
   &-Footer {
     padding: 20px;
