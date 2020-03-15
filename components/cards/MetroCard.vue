@@ -6,8 +6,8 @@
       :chart-id="'metro-bar-chart'"
       :chart-data="metroGraph"
       :date="metroGraph.date"
-      :tooltipsTitle="metroGraphTooltipTitle"
-      :tooltipsLabel="metroGraphTooltipLabel"
+      :tooltips-title="metroGraphTooltipTitle"
+      :tooltips-label="metroGraphTooltipLabel"
       :url="''"
       :unit="$t('%')"
     >
