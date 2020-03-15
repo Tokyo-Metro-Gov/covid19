@@ -17,7 +17,7 @@
         </h1>
       </nuxt-link>
     </header>
-    <div class="sp-none" :class="{ open: isNaviOpen }">
+    <div :class="['sp-none', { open: isNaviOpen }]">
       <v-icon
         class="SideNavigation-ListContainerIcon pc-none"
         :aria-label="$t('サイドメニュー項目を閉じる')"
@@ -257,7 +257,8 @@ export default {
     z-index: z-index-of(opened-side-navigation);
     background-color: $white;
     height: 100%;
-    overflow-y: scroll;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 @include lessThan($tiny) {
