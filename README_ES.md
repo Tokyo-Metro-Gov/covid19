@@ -15,6 +15,12 @@ Haz una Sitio web del Grupo de trabajo, ¡vamos!
 Todas las contribuciones son bienvenidas.!
 Por favor, consulte [Cómo contribuir](./.github/CONTRIBUTING_ES.md) para obtener más detalles.
 
+## Grupo de Slack
+Se comparte información básica en Civic Tech Zen Chiba's Slack.
+Por favor, únase a nosotros a través del enlace de invitación.
+
+https://join.slack.com/t/civictechzenchiba/shared_invite/zt-co2ez9no-IrVcqEBgofajrM_pp~q8_A
+
 ## Código de Conducta
 
 Por favor, consulte el [Código de conducta para desarrolladores](./.github/CODE_OF_CONDUCT_ES.md) para más detalles.

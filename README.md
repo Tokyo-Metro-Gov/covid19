@@ -15,6 +15,11 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 
 詳しくは[貢献の仕方](./.github/CONTRIBUTING.md)を御覧ください。
 
+## Slackグループ
+基本的な情報共有は CivicTechZenChiba の Slack にて行っております。
+以下招待リンクよりご参加ください。
+
+https://join.slack.com/t/civictechzenchiba/shared_invite/zt-co2ez9no-IrVcqEBgofajrM_pp~q8_A
 
 ## 行動原則
 詳しくは[サイト構築にあたっての行動原則](./.github/CODE_OF_CONDUCT.md)を御覧ください。
