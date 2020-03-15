@@ -11,7 +11,7 @@
         <br />
         2/3の週を基準とした相対値として算出
       </p>
-      <data-selector v-model="dataKind" />
+      <data-selector v-model="dataKind" :data-types="dataTypes" />
     </template>
     <bar
       :chart-id="chartId"
@@ -52,7 +52,7 @@ import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
 import ShinjukuData from '@/data/shinjuku.json'
 import DataView from '@/components/DataView.vue'
-import DataSelector from '@/components/DataTypeSelector.vue'
+import DataSelector from '@/components/DataSelector.vue'
 
 dayjs.extend(updateLocale)
 dayjs.extend(weekOfYear)
@@ -83,9 +83,13 @@ export default {
   },
   data() {
     return {
-      dataKind: 'absolute',
       chartData: ShinjukuData.data,
-      date: ShinjukuData.date
+      date: ShinjukuData.date,
+      dataKind: 'absolute',
+      dataTypes: [
+        { value: 'absolute', tKey: '実数値' },
+        { value: 'relative', tKey: '相対値' }
+      ]
     }
   },
   computed: {
