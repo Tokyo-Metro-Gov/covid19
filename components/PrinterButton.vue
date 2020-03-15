@@ -3,7 +3,6 @@
     <v-btn
       class="PrinterButton"
       outlined
-      color="#00a040"
       href="/print/flow"
       target="_blank"
       @mouseover="mouseover"
