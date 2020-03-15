@@ -47,13 +47,14 @@ export default {
     }
   },
   computed: {
-    // TODO 本来は開発環境か否かの判定は当コンポーネントの読み込みの外で用意し
-    // 当コンポーネントの出力判定に用いるべき
+    // NODE_ENV による本番・開発環境の切り替えができるようになったらこのメソッドを有効化・ひとつ後ろのメソッドを破棄
+    //  isDevelopmentMode: () => {
+    //         if (process && process.env && process.env.NODE_ENV) {
+    //     return process.env.NODE_ENV === 'development'
+    //   }
+    //   return false
+    // },
     isDevelopmentMode: () => {
-      // 暫定的にURLの正規表現を公開状態の判定に用いている
-      // 可能であれば環境変数から状態を判定したい
-
-      // const releaseUrl = 'http://localhost' //検証用
       const releaseUrl = 'https://stopcovid19.metro.tokyo.lg.jp'
       const regex = new RegExp(
         '^' + releaseUrl.replace(/\//g, '\\/').replace(/\./g, '\\.')
@@ -61,8 +62,6 @@ export default {
       if (process.browser) {
         return location.href.match(regex) === null
       }
-      // 自動テスト・SSRにおけるパースは無条件で有効にしておく
-      // これだと本番で出力されないが、そもそも本番では出力しない機能のため。
       return true
     }
   }
