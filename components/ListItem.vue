@@ -43,6 +43,31 @@
       >
         mdi-open-in-new
       </v-icon>
+      <CovidIcon
+        v-else-if="checkIconType(icon) === 'covid'"
+        :class="['ListItem-Icon', isActive(link)]"
+      />
+      <ParentIcon
+        v-else-if="checkIconType(icon) === 'parent'"
+        :class="['ListItem-Icon', isActive(link)]"
+      />
+    </v-list-item-action>
+    <v-list-item-content class="ListItem-TextContainer">
+      <v-list-item-title
+        :class="['ListItem-Text', isActive(link)]"
+        v-text="title"
+      />
+    </v-list-item-content>
+    <v-icon
+      v-if="!isInternalLink(link)"
+      aria-label="別タブで開く"
+      class="ListItem-ExternalLinkIcon"
+      size="12"
+      role="img"
+      :aria-hidden="false"
+    >
+      mdi-open-in-new
+    </v-icon>
     </component>
   </v-list-item>
 </template>

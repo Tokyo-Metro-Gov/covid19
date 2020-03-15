@@ -166,8 +166,10 @@ export default {
     return data
   },
   head() {
-    const url = 'https://deploy-preview-835--dev-covid19-tokyo.netlify.com'
-    const ogpImage = url + '/ogp-' + this.$route.params.card + '.png'
+    const url = 'https://stopcovid19.metro.tokyo.lg.jp'
+    const timestamp = new Date().getTime()
+    const ogpImage =
+      url + '/ogp-' + this.$route.params.card + '.png?t=' + timestamp
     const description =
       this.updatedAt +
       ' 更新 | ' +
@@ -179,7 +181,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: url + this.$route.path
+          content: url + this.$route.path + '/'
         },
         {
           hid: 'og:title',
