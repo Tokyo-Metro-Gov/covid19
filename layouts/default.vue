@@ -1,5 +1,8 @@
 <template>
   <v-app class="app">
+    <div v-if="isDev">
+      hogehoge
+    </div>
     <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
         <img src="/logo.svg" alt="東京都" />
@@ -60,6 +63,11 @@ export default Vue.extend({
       hasNavigation,
       loading,
       isOpenNavigation: false
+    }
+  },
+  computed: {
+    isDev() {
+      return process.env.NODE_ENV !== 'production'
     }
   },
   mounted() {
