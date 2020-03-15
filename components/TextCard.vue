@@ -1,9 +1,18 @@
 <template>
   <div class="TextCard">
     <h3 v-if="title" class="TextCard-Heading">
-      <a v-if="link" :href="link" target="_blank" rel="noopener">
-        {{ title }}
-      </a>
+      <div v-if="link">
+        <a :href="link" target="_blank" rel="noopener">
+          {{ title }}
+        </a>
+        <v-icon
+          v-if="!isInternalLink(link)"
+          class="TextCard-ExternalLinkIcon"
+          size="20"
+        >
+          mdi-open-in-new
+        </v-icon>
+      </div>
       <template v-else>
         {{ title }}
       </template>
@@ -38,6 +47,10 @@ export default class TextCard extends Vue {
     required: false
   })
   body!: string
+
+  isInternalLink(path: string): boolean {
+    return !/^https?:\/\//.test(path)
+  }
 }
 </script>
 
@@ -51,7 +64,16 @@ export default class TextCard extends Vue {
     margin-bottom: 12px;
     a {
       @include card-h1();
+      color: $link !important;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
+  }
+  &-ExternalLinkIcon {
+    margin-left: 2px;
+    color: $gray-3 !important;
   }
   &-Body {
     * {
@@ -61,6 +83,9 @@ export default class TextCard extends Vue {
       word-break: break-all;
       color: $link;
       text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

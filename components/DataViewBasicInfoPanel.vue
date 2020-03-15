@@ -12,7 +12,10 @@
 <style lang="scss">
 .DataView {
   &-DataInfo {
-    text-align: right;
+    @include largerThan($large) {
+      text-align: right;
+      width: 50%;
+    }
     &-summary {
       display: inline-block;
       font-family: Hiragino Sans;
@@ -24,20 +27,12 @@
       }
     }
     &-date {
-      white-space: nowrap;
+      white-space: wrap;
       display: inline-block;
       font-size: 12px;
       line-height: 12px;
       color: $gray-3;
     }
-  }
-}
-.DataView {
-  @include card-container();
-  height: 100%;
-  &-Header {
-    background-color: transparent !important;
-    height: auto !important;
   }
 }
 </style>

@@ -1,10 +1,12 @@
 <template>
   <v-app class="app">
-    <div v-if="loading" class="loader">
-      <img src="/logo.svg" alt="東京都" />
-      <scale-loader color="#00A040" />
-    </div>
-    <div v-else class="appContainer">
+    <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
+      <div class="loader">
+        <img src="/logo.svg" alt="東京都" />
+        <scale-loader color="#00A040" />
+      </div>
+    </v-overlay>
+    <div v-if="hasNavigation" class="appContainer">
       <div class="naviContainer">
         <SideNavigation
           :is-navi-open="isOpenNavigation"
@@ -13,12 +15,18 @@
           @closeNavi="hideNavigation"
         />
       </div>
-      <div class="mainContainer" :class="{ open: isOpenNavigation }">
+      <main class="mainContainer" :class="{ open: isOpenNavigation }">
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
-      </div>
+      </main>
     </div>
+    <div v-else class="embed">
+      <v-container>
+        <nuxt />
+      </v-container>
+    </div>
+    <NoScript />
   </v-app>
 </template>
 <script lang="ts">
@@ -26,8 +34,10 @@ import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
+import NoScript from '@/components/NoScript.vue'
 
 type LocalData = {
+  hasNavigation: boolean
   isOpenNavigation: boolean
   loading: boolean
 }
@@ -35,12 +45,21 @@ type LocalData = {
 export default Vue.extend({
   components: {
     ScaleLoader,
-    SideNavigation
+    SideNavigation,
+    NoScript
   },
   data(): LocalData {
+    let hasNavigation = true
+    let loading = true
+    if (this.$route.query.embed === 'true') {
+      hasNavigation = false
+      loading = false
+    }
+
     return {
-      isOpenNavigation: false,
-      loading: true
+      hasNavigation,
+      loading,
+      isOpenNavigation: false
     }
   },
   mounted() {
@@ -74,6 +93,14 @@ export default Vue.extend({
   margin: 0 auto;
   background-color: inherit !important;
 }
+.embed {
+  .container {
+    padding: 0 !important;
+  }
+  .DataCard {
+    padding: 0 !important;
+  }
+}
 .appContainer {
   position: relative;
   @include largerThan($small) {
@@ -102,6 +129,10 @@ export default Vue.extend({
     overflow-y: auto;
     width: 240px;
     height: 100%;
+    border-right: 1px solid $gray-4;
+    border-left: 1px solid $gray-4;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    overscroll-behavior: contain;
   }
 }
 @include largerThan($huge) {
@@ -121,7 +152,7 @@ export default Vue.extend({
   overflow: hidden;
   @include lessThan($small) {
     .container {
-      padding-top: 16px !important;
+      padding-top: 16px;
     }
   }
 }

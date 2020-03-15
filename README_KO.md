@@ -20,6 +20,13 @@
 ## 라이선스
 이 소프트웨어는 [MIT 라이선스](./LICENSE.txt)를 따르고 있습니다.
 
+## 이 사이트에서 파생된 사이트
+
+### 【홋카이도판】코로나19 대책 사이트
+[사이트 링크](https://stopcovid19.hokkaido.dev/)
+
+[GitHub 링크](https://github.com/codeforsapporo/covid19)
+
 ## 개발자를 위한 개발 정보
 
 ### 개발환경을 구축하는 방법
@@ -27,7 +34,7 @@
 - 필요한 Node.js 버젼: 10.19.0이상
 
 **yarn을 사용할 경우**
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
@@ -39,6 +46,18 @@ $ yarn dev
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
+```
+
+### `Cannot find module ****` 에러를 해결하는 방법
+
+**yarn을 사용할 경우**
+```
+$ yarn install
+```
+
+**docker compose를 사용할 경우**
+```bash
+$ docker-compose run --rm app yarn install
 ```
 
 ### 스테이징 환경 및 운영 환경으로 반영 방법
