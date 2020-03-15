@@ -24,7 +24,7 @@
               target="_blank"
               rel="noopener"
             >
-              {{ $t('オープンデータを入手') }}
+              {{ $t('オープンデータへのリンク') }}
               <v-icon class="ExternalLinkIcon" size="15">
                 mdi-open-in-new
               </v-icon>
