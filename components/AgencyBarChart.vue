@@ -30,11 +30,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-import { ChartOptions } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
 
+interface HTMLElementEvent<T extends HTMLElement> extends Event {
+  currentTarget: T
+}
 type Data = {
   chartData: typeof agencyData
   date: string
@@ -50,7 +52,7 @@ type Computed = {
       backgroundColor: string
     }[]
   }
-  displayOption: ChartOptions
+  displayOption: any
 }
 type Props = {
   title: string
@@ -130,28 +132,31 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         tooltips: {
           displayColors: false,
           callbacks: {
-            title(tooltipItem) {
+            title(tooltipItem: any) {
               const dateString = tooltipItem[0].label
               return self.$t('期間: {duration}', {
                 duration: dateString!
               }) as string
             },
-            label(tooltipItem, data) {
+            label(tooltipItem: any, data: any) {
               const index = tooltipItem.datasetIndex!
-              const title = self.$t(data.datasets![index].label!)
-              const num = tooltipItem.value
+              const title = self.$t(data.datasets[index].label!)
+              const num = parseInt(tooltipItem.value).toLocaleString()
               const unit = self.$t(self.unit)
-              return `${title}: ${num}${unit}`
+              return `${title}: ${num} ${unit}`
             }
           }
         },
         legend: {
           display: true,
-          onHover: e => {
-            ;(e!.currentTarget as HTMLElement).style!.cursor = 'pointer'
+          onHover: (e: HTMLElementEvent<HTMLInputElement>) => {
+            e!.currentTarget.style!.cursor = 'pointer'
           },
-          onLeave: e => {
-            ;(e!.currentTarget as HTMLElement).style!.cursor = 'default'
+          onLeave: (e: HTMLElementEvent<HTMLInputElement>) => {
+            e!.currentTarget.style!.cursor = 'default'
+          },
+          labels: {
+            boxWidth: 20
           }
         },
         scales: {
@@ -177,7 +182,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 9,
                 fontColor: '#808080',
                 maxTicksLimit: 10,
-                callback(label) {
+                callback(label: string) {
                   return `${label}${self.unit}`
                 }
               }

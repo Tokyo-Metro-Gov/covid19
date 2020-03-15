@@ -25,7 +25,13 @@
               rel="noopener"
             >
               {{ $t('オープンデータを入手') }}
-              <v-icon class="ExternalLinkIcon" size="15">
+              <v-icon
+                class="ExternalLinkIcon"
+                size="15"
+                aria-label="別タブで開く"
+                role="img"
+                :aria-hidden="false"
+              >
                 mdi-open-in-new
               </v-icon>
             </a>
@@ -147,16 +153,16 @@ export default Vue.extend({
     }
   },
   methods: {
-    toggleShareMenu(): void {
+    toggleShareMenu() {
       this.displayShare = !this.displayShare
     },
-    closeShareMenu(): void {
+    closeShareMenu() {
       this.displayShare = false
     },
-    isCopyAvailable(): boolean {
+    isCopyAvailable() {
       return !!navigator.clipboard
     },
-    copyEmbedCode(): void {
+    copyEmbedCode() {
       const self = this
       navigator.clipboard.writeText(this.graphEmbedValue).then(() => {
         self.closeShareMenu()
@@ -172,7 +178,8 @@ export default Vue.extend({
       if (embed) {
         permalink = permalink + '?embed=true'
       }
-      permalink = this.localePath(permalink)
+      // localePath にするとうまく動かないので一旦外す
+      // permalink = this.localePath(permalink)
 
       if (host) {
         permalink = location.protocol + '//' + location.host + permalink
