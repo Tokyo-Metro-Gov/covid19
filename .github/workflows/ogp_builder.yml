@@ -38,7 +38,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
       with:
-        ref: staging
+        ref: deploy/new_ogp
     - name: Download ogp images
       uses: actions/download-artifact@v1
       with:
