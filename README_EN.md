@@ -53,6 +53,11 @@ $ yarn install
 $ docker-compose run --rm app yarn install
 ```
 
+### Detect procition/others environment
+
+On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.
+Please use the variable to detect which enviroinment is used at the runtime.
+
 ### Deployment to Staging & Production Environments
 
 When `master` branch is updated, the HTML files will be automatically built onto `production` branch,

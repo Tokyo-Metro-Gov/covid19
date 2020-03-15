@@ -56,6 +56,11 @@ $ yarn install
 $ docker-compose run --rm app yarn install
 ```
 
+### 本番環境/その他の判定
+
+`process.env.GENERATE_ENV` の値が、本番の場合は`'production'`に、それ以外の場合は `'development'` になっています。
+テスト環境のみで実行したい処理がある場合はこちらの値をご利用ください。
+
 ### ステージング・本番環境への反映
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.metro.tokyo.lg.jp/ が更新されます。
