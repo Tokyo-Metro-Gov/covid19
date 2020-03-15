@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Checkout latest ogp
         run: |
+          git fetch
           git checkout origin/deploy/new_ogp -- static/ogp
           git add static/ogp
           git commit -m 'update new ogp'
