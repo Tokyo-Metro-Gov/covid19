@@ -23,7 +23,7 @@
     "2月25日~28日": "2月25日~28日"
   },
   "en": {
-    "都営地下鉄の利用者数の推移": "The predicted number of Toei subway passengers",
+    "都営地下鉄の利用者数の推移": "The estimated number of Toei subway passengers",
     "期間: {duration}": "Period: {duration}",
     "{duration}の利用者数との相対値: {percentage}": "Relative value based on the number of users {duration}: {percentage}",
     "1月20日~1月24日": "from January 20 to 24",
