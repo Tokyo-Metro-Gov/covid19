@@ -141,7 +141,7 @@ export default {
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
-                  return value.toFixed(2) + '%'
+                  return value.toFixed(2) + self.unit
                 }
               }
             }
