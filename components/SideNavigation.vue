@@ -39,7 +39,7 @@
       </v-list>
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a
+          <!-- <a
             href="https://line.me/R/ti/p/%40822sysfc"
             target="_blank"
             rel="noopener"
@@ -59,12 +59,57 @@
             rel="noopener"
           >
             <img src="/facebook.png" alt="Facebook" />
+          </a> -->
+          <a
+            href="https://github.com/civictechzenchiba/covid19-chiba"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="@/assets/images/github.png" alt="GitHub" />
           </a>
         </div>
-        <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Tokyo Metropolitan Government. All Rights
-          Reserved.
-        </small>
+        <div class="SideNavigation-Copyright">
+          <a
+            href="//creativecommons.org/licenses/by/4.0/deed.ja"
+            target="_blank"
+            rel="noopener"
+            class="license"
+          >
+            Under
+            <span class="license__title">CC BY 4.0</span>
+            <img
+              src="@/assets/images/cc-by-icon.svg?inline"
+              alt="CC BY 4.0"
+              class="license__icon"
+            />
+          </a>
+          <div class="sponsor">
+            Data by:<br />
+            <a
+              href="https://www.pref.chiba.lg.jp/"
+              target="_blank"
+              rel="noopener"
+              class="sponsor__pref"
+            >
+              千葉県
+            </a>
+          </div>
+          <div class="sponsor">
+            Operations by:<br />
+            <a
+              href="https://sites.google.com/view/civictechzenchiba/"
+              target="_blank"
+              rel="noopener"
+              class="sponsor__image"
+            >
+              <span>CivicTechZenChiba</span>
+              <img
+                src="@/assets/images/civictechzenchiba-icon.jpg"
+                alt="CivicTechZenChiba"
+              />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -249,10 +294,7 @@ export default {
   &-Copyright {
     display: block;
     margin-top: 10px;
-    font-size: 8px;
-    line-height: 1.2;
     color: $gray-1;
-    font-weight: bold;
   }
 }
 .open {
@@ -278,6 +320,62 @@ export default {
   }
   .sp-none {
     display: none;
+  }
+}
+.license {
+  text-decoration: none;
+  color: $gray-1;
+  font-size: 16px;
+
+  &__title {
+    display: inline-block;
+    width: 0;
+    height: 1.5rem;
+    overflow: hidden;
+  }
+
+  &__icon {
+    display: inline-block;
+    height: 24px;
+  }
+}
+.sponsor {
+  color: $gray-1;
+  font-size: 16px;
+
+  &:nth-child(n + 2) {
+    margin-top: 12px;
+  }
+
+  &__pref {
+    font-size: 26px;
+    text-decoration: none;
+    color: $gray-1;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__image {
+    display: block;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    span {
+      display: inline-block;
+      width: 0;
+      height: 1.5rem;
+      overflow: hidden;
+    }
+
+    img {
+      width: 64px;
+      height: 64px;
+    }
   }
 }
 </style>
