@@ -24,71 +24,23 @@
     <div :class="$style.TwoRow">
       <div :class="[$style.Card, $style.CardGreen]">
         <p :class="$style.CardGreenText">
-          {{ $t('検査の必要あり') }}
+          <i18n path="検査の必要{ifRequired}">
+            <span place="ifRequired">{{ $t('あり') }}</span>
+          </i18n>
         </p>
       </div>
       <div :class="[$style.Card, $style.CardWhite]">
         <p :class="$style.CardWhiteText">
-          {{ $t('検査の必要なし') }}
+          <i18n path="検査の必要{ifRequired}">
+            <span place="ifRequired">{{ $t('なし') }}</span>
+          </i18n>
         </p>
       </div>
     </div>
   </div>
 </template>
 
-<!-- v-html で展開される場所の翻訳待ちは 空文字ではなく 0 にする  -->
-<i18n>
-{
-  "ja": {
-    "新型コロナ外来 {advice} と判断された場合": "新型コロナ外来 {advice} と判断された場合",
-    "受診が必要": "受診が必要",
-    "新型コロナ外来（帰国者・接触者外来）": "新型コロナ外来（帰国者・接触者外来）",
-    "医師による判断": "医師による判断",
-    "検査の必要あり": "検査の必要あり",
-    "検査の必要なし": "検査の必要なし"
-  },
-  "en": {
-    "新型コロナ外来 {advice} と判断された場合": "If you are {advice} for COVID-19",
-    "受診が必要": "advised to be examined",
-    "新型コロナ外来（帰国者・接触者外来）": "COVID-19 consultation for returnees and contactees",
-    "医師による判断": "Diagnosis by doctors",
-    "検査の必要あり": "You are required to be tested",
-    "検査の必要なし": "You are not required to be tested"
-  },
-  "zh-cn": {
-    "新型コロナ外来 {advice} と判断された場合": "如果被诊断为 {advice} 到新冠肺炎专科就诊时",
-    "受診が必要": "需要",
-    "新型コロナ外来（帰国者・接触者外来）": "经新冠肺炎专科（海外返日者、接触者专科）",
-    "医師による判断": "医生诊断",
-    "検査の必要あり": "需要检测",
-    "検査の必要なし": "不需要检测"
-  },
-  "zh-tw": {
-    "新型コロナ外来 {advice} と判断された場合": "經判斷 {advice} 至新型冠狀病毒門診就診",
-    "受診が必要": "須要",
-    "新型コロナ外来（帰国者・接触者外来）": "新型冠狀病毒肺炎門診（歸國者、接觸者門診）",
-    "医師による判断": "經醫師判斷",
-    "検査の必要あり": "需要檢驗",
-    "検査の必要なし": "不需要檢驗"
-  },
-  "ko": {
-    "新型コロナ外来 {advice} と判断された場合": "코로나19 외래  {advice} 로 판단될경우",
-    "受診が必要": "진료필요",
-    "新型コロナ外来（帰国者・接触者外来）": "귀국자 외래진료 (귀국자, 접촉자 외래진료)",
-    "医師による判断": "의사에 의한 판단",
-    "検査の必要あり": "검사의 필요가 있음",
-    "検査の必要なし": "검사의 필요가 없음"
-  },
-  "ja-basic": {
-    "新型コロナ外来 {advice} と判断された場合": "病院（びょういん）の 新（あたら）しい コロナ外来（がいらい）{advice}と 判断（はんだん）された とき",
-    "受診が必要": "必（かなら）ず 受（う）けてください",
-    "新型コロナ外来（帰国者・接触者外来）": "コロナに かかっているひとが おおい くに から にほん に かえってきたひと が かならず うけなければいけないけんさ",
-    "医師による判断": "びょういんで みてもらった けっか",
-    "検査の必要あり": "あなたは けんさ をうけてください といわれています",
-    "検査の必要なし": "あなたは けんさを うけなくてよい と いわれています"
-  }
-}
-</i18n>
+<i18n src="./FlowPcRequired.i18n.json"></i18n>
 
 <style module lang="scss">
 .Container {
@@ -100,7 +52,7 @@
   text-align: center;
 }
 .Row {
-  flex: 1;
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -110,7 +62,7 @@
   margin: 0;
 }
 .TwoRow {
-  flex: 1;
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -121,7 +73,7 @@
   margin: 0 !important;
 }
 .Card {
-  flex-basis: 48%;
+  width: 48%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -129,7 +81,7 @@
   border-radius: 4px;
   padding: 10px;
   p {
-    margin: 0;
+    margin: 0 !important; // FIXME: IEだとv-applicationのmarginが優先される
   }
 }
 .CardLarge {
