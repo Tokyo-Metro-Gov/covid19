@@ -13,6 +13,8 @@ jobs:
       - name: Checkout latest ogp
         run: |
           git fetch
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git checkout origin/deploy/new_ogp -- static/ogp
           git add static/ogp
           git commit -m 'update new ogp'
