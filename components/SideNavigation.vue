@@ -27,17 +27,9 @@
         mdi-close
       </v-icon>
       <nav>
-        <v-list :flat="true">
-          <v-container
-            v-for="(item, i) in items"
-            :key="i"
-            class="SideNavigation-ListItemContainer"
-            @click="closeNavi"
-          >
-            <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
-            <v-divider v-show="item.divider" class="SideNavigation-Divider" />
-          </v-container>
-        </v-list>
+        <div class="SideNavigation-ListItemContainer">
+          <MenuList :items="items" @click="closeNavi" />
+        </div>
         <div class="SideNavigation-LanguageMenu">
           <LanguageSelector />
         </div>
@@ -94,13 +86,13 @@
 <i18n src="./SideNavigation.i18n.json"></i18n>
 
 <script>
-import ListItem from '@/components/ListItem'
 import LanguageSelector from '@/components/LanguageSelector.vue'
+import MenuList from '@/components/MenuList.vue'
 
 export default {
   components: {
-    ListItem,
-    LanguageSelector
+    LanguageSelector,
+    MenuList
   },
   props: {
     isNaviOpen: {
@@ -117,13 +109,13 @@ export default {
           link: this.localePath('/')
         },
         {
-          icon: 'covid',
+          icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
           link: this.localePath('/flow'),
           divider: true
         },
         {
-          icon: 'parent',
+          icon: 'ParentIcon',
           title: this.$t('お子様をお持ちの皆様へ'),
           link: this.localePath('/parent')
         },
