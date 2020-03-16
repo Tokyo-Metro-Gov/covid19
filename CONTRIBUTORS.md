@@ -102,6 +102,23 @@ Tokyo Covid-19 response site contributors
 | Koki Fukushima | [@f-koki](https://github.com/f-koki) | | |
 | mkfsn | [@mkfsn](https://github.com/mkfsn) | [@mkfsn](https://twitter.com/mkfsn) | Coding, i18n |
 | Thien Le Vinh | [@omygodvt95](https://github.com/omygodvt95) | | Translation |
+| Yuuki Kanasugi (OKAN inc) | [@knsg16](https://github.com/knsg16) | [@OKanasugi](https://twitter.com/OKanasugi) | Frontend |
+| Toshihiro Naka (HALTO) | [@bapex](https://github.com/bapex) | | Frontend |
+| Haruka Kawanaka（かふー） | [@harukakawanaka](https://github.com/harukakawanaka) | | Frontend |
+| DaeHyun Sung | [@studioego](https://github.com/studioego) | | Translations |
+| Kazuki Iwai | [@yubachiri](https://github.com/yubachiri) | [@yubachiri](https://twitter.com/yubachiri) | Frontend |
+| t-yng | [@t-yng](https://github.com/t-yng) | [@TGreenmonkey](https://twitter.com/TGreenmonkey) | Frontend |
+| Yukihiko Eda | [@paichi81](https://github.com/paichi81) | | Translations |
+| rikupin | [@rikupin1105](https://github.com/rikupin1105) | [@rikupin_1105](https://twitter.com/rikupin_1105) | Kaizen |
+| [Shingo OKAMOTO](https://hagechin.github.io/) | [@hagechin](https://github.com/hagechin) | | Frontend |
+| kuromoka | [@kuromoka](https://github.com/kuromoka) | [@kuromoka16](https://twitter.com/kuromoka16) | Frontend |
+| Michiya Tominaga | [@nuwaa](https://github.com/nuwaa) | [@nuwaa](https://twitter.com/nuwaa) | Translations |
+| showyou | [@showyou](https://github.com/showyou) | [@showyou](https://twitter.com/showyou) | Issue reporter |
+| [Ryota Umebayashi (@lesgrandsballet)](https://qiita.com/umerin) | [@RyotaUmebayashi](https://github.com/RyotaUmebayashi) | | Kaizen |
+| takoba (Takuya Obara) | [@takoba](https://github.com/takoba) | | Kaizen |
+| Ryo KUTSUZAWA | [@bookun](https://github.com/bookun)) | | Coding |
+| Hiroaki MASAKI | [@maasa22](https://github.com/maasa22)) | | Coding |
+| Dongsik | [@dongsiku](https://github.com/dongsiku) | | Translation (Japanese -> Korean) |
 
 ご協力に感謝です！！！
 
