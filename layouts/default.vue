@@ -31,8 +31,6 @@
   </v-app>
 </template>
 
-<i18n src="./meta.i18n.json"></i18n>
-
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
@@ -94,7 +92,7 @@ export default Vue.extend({
           hid: 'description',
           name: 'description',
           content: this.$tc(
-            '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
           )
         },
         {
@@ -111,13 +109,13 @@ export default Vue.extend({
           hid: 'og:description',
           name: 'og:description',
           content: this.$tc(
-            '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
           )
         },
         {
           hid: 'og:image',
           name: 'og:image',
-          content: this.$tc('https://stopcovid19.metro.tokyo.lg.jp/ogp.png')
+          content: this.$tc('ogp.og:image')
         },
         {
           hid: 'apple-mobile-web-app-title',
@@ -127,7 +125,7 @@ export default Vue.extend({
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.$tc('https://stopcovid19.metro.tokyo.lg.jp/ogp.png')
+          content: this.$tc('ogp.og:image')
         }
       ]
     }
