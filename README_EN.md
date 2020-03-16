@@ -53,7 +53,7 @@ $ yarn install
 $ docker-compose run --rm app yarn install
 ```
 
-### Detect procition/others environment
+### Detect production/others environment
 
 On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.
 Please use the variable to detect which enviroinment is used at the runtime.

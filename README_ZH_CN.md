@@ -40,7 +40,7 @@ $ yarn dev
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
 ```
-### Detect procition/others environment (translate me!)
+### Detect production/others environment (translate me!)
 
 On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.
 Please use the variable to detect which enviroinment is used at the runtime.
