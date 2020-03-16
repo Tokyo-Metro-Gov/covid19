@@ -10,6 +10,12 @@ Trang này cho bạn biết cách có thể đóng góp cho sự phát triển c
 * Hãy comment về bất kỳ issues nào! Câu hỏi và đề xuất cũng được chào đón.
 * Vui lòng tìm kiếm issues hiện có để đảm bảo không có issue tương tự trước khi thực hiện một issue mới.
 * Lưu ý rằng các issue về đề xuất cải tiến (được gắn nhãn `cải thiện`) có thể không luôn được chấp nhận (đặc biệt là các vấn đề đối với UI)
+
+[please translate me!]
+* All issues and Pull requests including major content changes such as language expression or the UI are subject to the organizer's review. They may not necessarily be always accepted.
+* The Issue with `waiting` label is under review by the organizer.  The implementation should be refrained until the requirement is fixed.
+[/please translate me!]
+
 * Khi bạn gửi PR mới, vui lòng chỉ định ID issue liên quan. Chúng tôi không chấp nhận PR không có ID vấn đề.
 * Chúng tôi đánh giá cao nếu bạn ưu tiên cho các issue được dán nhãn [good first issue / help wanted / bug]
 
