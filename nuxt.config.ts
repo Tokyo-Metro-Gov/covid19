@@ -2,6 +2,7 @@ import { Configuration } from '@nuxt/types'
 import i18n from './nuxt-i18n.config'
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
+const environment = process.env.NODE_ENV || 'development'
 
 const config: Configuration = {
   mode: 'universal',
@@ -73,6 +74,11 @@ const config: Configuration = {
         hid: 'fb:app_id',
         property: 'fb:app_id',
         content: '2879625188795443'
+      },
+      {
+        hid: 'note:card',
+        property: 'note:card',
+        content: 'summary_large_image'
       }
     ],
     link: [
@@ -113,6 +119,7 @@ const config: Configuration = {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
     '@nuxtjs/google-analytics'
@@ -125,7 +132,7 @@ const config: Configuration = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
+    ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
     ['nuxt-i18n', i18n],
     'nuxt-svg-loader',
     'nuxt-purgecss',

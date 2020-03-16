@@ -68,7 +68,7 @@
 .note {
   padding: 8px;
   font-size: 12px;
-  color: #808080;
+  color: $gray-3;
 }
 </style>
 

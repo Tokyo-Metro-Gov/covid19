@@ -1,7 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
-      <data-selector v-model="dataKind" />
+      <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
     <bar
       :chart-id="chartId"

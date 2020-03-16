@@ -111,7 +111,10 @@
       </p>
     </div>
     <a
-      v-scroll-to="'#consult'"
+      v-scroll-to="{
+        el: '#consult',
+        onDone: onDoneScroll
+      }"
       href="#consult"
       :class="[$style.button, $style.clickable]"
     >
@@ -122,6 +125,7 @@
 </template>
 
 <script lang="ts">
+import { onDoneScroll } from '@/utils/vueScrollTo'
 import ArrowForwardIcon from '@/static/flow/responsive/arrow_forward.svg'
 
 export default {
@@ -133,7 +137,8 @@ export default {
     langsWithoutFlowTitle() {
       return ['en', 'zh-cn', 'zh-tw']
     }
-  }
+  },
+  methods: { onDoneScroll }
 }
 </script>
 

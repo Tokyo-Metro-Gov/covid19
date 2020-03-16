@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import VueScrollTo from 'vue-scrollto'
+
 import FlowSpPast from './FlowSpPast.vue'
 import FlowSpGeneral from './FlowSpGeneral.vue'
 import FlowSpElder from './FlowSpElder.vue'
@@ -45,6 +47,13 @@ export default {
     FlowSpAdvisory,
     FlowSpAccording,
     FlowSpHospitalized
+  },
+  mounted() {
+    // ハッシュつきのURLにアクセスされたらすぐに遷移する
+    const hash = this.$route.hash
+    if (hash !== '') {
+      VueScrollTo.scrollTo(hash, 1000, { offset: -72 }) // NOTE: nuxt.config.tsと同じoffset
+    }
   }
 }
 </script>
@@ -56,6 +65,8 @@ export default {
   @include card-container();
   padding: 20px;
   margin-bottom: 20px;
+  word-break: break-word;
+  hyphens: auto;
   > h3 {
     color: $gray-2;
     font-size: 1.5rem;
