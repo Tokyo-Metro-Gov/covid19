@@ -53,11 +53,8 @@ $ docker-compose run --rm app yarn install
 
 ### Deployment to Staging & Production Environments
 
-When `master` branch is updated, the HTML files will be automatically built onto `production` branch,
-and then the production site (https://stopcovid19.metro.tokyo.lg.jp/) will be also updated.
+When `master` branch is updated, the production site (https://covid19.codeforkagoshima.dev/) will be also updated.
 
-When `staging` branch is updated, the HTML files will be automatically built onto `gh-pages` branch,
-and then the staging site (https://stg-covid19-tokyo.netlify.com/) will be also updated.
+When `staging` branch is updated, the staging site (https://staging-covid19.codeforkagoshima.dev/) will be also updated.
 
-When `development` branch is updated, the HTML files will be automatically built onto `dev-pages` branch,
-and then the development site (https://dev-covid19-tokyo.netlify.com/) will be also updated.
+When `development` branch is updated, the development site (https://development-covid19.codeforkagoshima.dev/) will be also updated.
