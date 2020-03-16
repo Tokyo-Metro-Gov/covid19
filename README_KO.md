@@ -108,4 +108,4 @@ $ docker-compose run --rm app yarn install
 | ---- | -------- | ---- | ---- |
 | 프로덕션(Production) 사이트 HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | 정적 빌드된 HTML이 있는 위치|
 | 스테이징(Staging) 사이트 HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 정적 빌드된 HTML를 찾을 수 있는 곳 |
-| OGP 작업용 디렉토리 | deploy / new_obp | 없음 | OGP 업데이트용 |
+| OGP 작업용 디렉토리 | deploy / new_ogp | 없음 | OGP 업데이트용 |
