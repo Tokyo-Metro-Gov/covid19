@@ -5,6 +5,7 @@
       :title="headerItem.title"
       :date="headerItem.date"
     />
+<!--
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
@@ -12,15 +13,22 @@
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
+-->
     <v-row class="DataBlock">
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
+      <telephone-advisory-reports-number-card />
       <tested-number-card />
+<!--
+      <confirmed-cases-details-card />
+      <confirmed-cases-number-card />
+      <confirmed-cases-attributes-card />
       <telephone-advisory-reports-number-card />
       <consultation-desk-reports-number-card />
       <metro-card />
       <agency-card />
+-->
     </v-row>
   </div>
 </template>
@@ -52,16 +60,25 @@ export default Vue.extend({
     ConfirmedCasesAttributesCard,
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
-    ConsultationDeskReportsNumberCard,
-    MetroCard,
-    AgencyCard
+    // ConsultationDeskReportsNumberCard,
+    // MetroCard,
+    // AgencyCard
   },
   data() {
     const data = {
+    // 退院者グラフ
+    // const dischargesGraph = formatGraph(Data.discharges_summary.data)
+    // 死亡者数
+    // #MEMO: 今後使う可能性あるので一時コメントアウト
+    // const fatalitiesTable = formatTable(
+    //   Data.patients.data.filter(patient => patient['備考'] === '死亡')
+    // )
+
       Data,
+      // dischargesGraph,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: this.$t('都内の最新感染動向'),
+        title: this.$t('栃木県内の最新感染動向'),
         date: Data.lastUpdate
       },
       newsItems: News.newsItems
@@ -70,7 +87,7 @@ export default Vue.extend({
   },
   head(): MetaInfo {
     return {
-      title: this.$t('都内の最新感染動向') as string
+      title: this.$t('栃木県内の最新感染動向') as string
     }
   }
 })
