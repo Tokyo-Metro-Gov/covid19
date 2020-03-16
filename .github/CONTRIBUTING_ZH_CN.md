@@ -12,6 +12,13 @@
 * 在您打算添加新的 Issue 之前，请您务必在现有的 Issue 中查找是否有与您意见相同或相近的 Issue ，并确认无此类 Issue 后，再来添加您的 Issue 。
 * 当您发送 Pull Request 时，请您务必注明与之对应的 Issue 编号。否则，我们将不会受理没有对应 Issue 编号的 Pull Request 。
 * 请注意，如果是标签为`improve`的与改善建议相关的 Issue ，我们可能不会照单全收，也还请您多多见谅。（特别是针对 UI 的改善建议）
+
+[please translate me!]
+* All issues and Pull requests including major content changes such as language expression or the UI are subject to the organizer's review. They may not necessarily be always accepted.
+* The Issue with `waiting` label is under review by the organizer.  The implementation should be refrained until the requirement is fixed.
+
+[/please translate me!]
+
 * 如果您能够优先帮我们解决标签为 `good first issue` / `help wanted` / `bug` 的 Issue 中存在的问题的话，那真是再好不过了。
 
 ## 如何与各位贡献者进行交流
