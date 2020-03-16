@@ -19,8 +19,6 @@
   </div>
 </template>
 
-<i18n src="./PrinterButton.i18n.json"></i18n>
-
 <script>
 import PrinterIcon from '@/static/printer.svg'
 import PrinterWhiteIcon from '@/static/printer-white.svg'
