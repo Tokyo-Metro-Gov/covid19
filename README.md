@@ -2,7 +2,7 @@
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
-[![新潟県 新型コロナウイルス感染症対策サイト](https://github.com/michiyac4ngt/covid19/blob/development/static/ogp.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![新潟県 新型コロナウイルス感染症対策サイト](https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
 ### 日本語 | [English](./README_EN.md) | [Español](./README_ES.md) | [한국어](./README_KO.md) | [繁體中文](./README_ZH_TW.md) | [简体中文](./README_ZH_CN.md) | [Tiếng Việt](./README_VI.md) | [ภาษาไทย](./README_TH.md) | [French](./README_FR.md)
 
@@ -79,7 +79,7 @@ staging ブランチがアップデートされると、自動的に gh-pages �
 
 development ブランチがアップデートされると、自動的に dev-pages ブランチにHTML類がbuildされます。
 
-`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-covid19-tokyo.netlify.com/ が更新されます。
+`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト　https://focused-benz-bb8acc.netlify.com/  が更新されます。
 
 ### ブランチルール
 
