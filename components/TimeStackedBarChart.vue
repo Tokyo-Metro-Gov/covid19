@@ -1,9 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
-      <p class="Graph-Desc">
-        （注）同一の対象者について複数の検体を調査する場合あり
-      </p>
+      <p class="Graph-Desc" />
       <data-selector v-model="dataKind" />
     </template>
     <bar
@@ -133,12 +131,14 @@ export default {
             label: tooltipItem => {
               const labelText =
                 this.dataKind === 'transition'
-                  ? `${sumArray[tooltipItem.index]}${unit}（都内: ${
+                  ? `${sumArray[tooltipItem.index]}${unit}（患者: ${
                       data[0][tooltipItem.index]
-                    }/その他: ${data[1][tooltipItem.index]}）`
-                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（都内: ${
+                    }/無症状病原体保有者: ${data[1][tooltipItem.index]}）`
+                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（患者: ${
                       cumulativeData[0][tooltipItem.index]
-                    }/その他: ${cumulativeData[1][tooltipItem.index]}）`
+                    }/無症状病原体保有者: ${
+                      cumulativeData[1][tooltipItem.index]
+                    }）`
               return labelText
             },
             title(tooltipItem, data) {

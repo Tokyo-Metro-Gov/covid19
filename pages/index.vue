@@ -14,6 +14,7 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
+        <!--
         <time-bar-chart
           title="陽性患者数"
           :title-id="'number-of-confirmed-cases'"
@@ -24,6 +25,17 @@
           :url="
             'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
           "
+        />
+        -->
+        <time-stacked-bar-chart
+          title="患者の推移"
+          :title-id="'number-of-tested'"
+          :chart-id="'time-stacked-bar-chart-inspections'"
+          :chart-data="patientsAndNoSymptomsGraph"
+          :date="Data.patients_and_no_symptoms_summary.date"
+          :items="patientsAndNoSymptomsItems"
+          :labels="patientsAndNoSymptomsLabels"
+          :unit="'件'"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -93,7 +105,7 @@
 
 <script>
 import PageHeader from '@/components/PageHeader.vue'
-import TimeBarChart from '@/components/TimeBarChart.vue'
+import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
@@ -106,7 +118,7 @@ import News from '@/data/news.json'
 export default {
   components: {
     PageHeader,
-    TimeBarChart,
+    TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
     DataTable
@@ -135,6 +147,13 @@ export default {
       'その他（チャーター便・クルーズ便）'
     ]
     const inspectionsLabels = Data.inspections_summary.labels
+    const patientsAndNoSymptomsGraph = [
+      Data.patients_and_no_symptoms_summary.data['患者'],
+      Data.patients_and_no_symptoms_summary.data['無症状病原体保有者']
+    ]
+    const patientsAndNoSymptomsItems = ['患者', '無症状病原体保有者']
+    const patientsAndNoSymptomsLabels =
+      Data.patients_and_no_symptoms_summary.labels
     // 死亡者数
     // #MEMO: 今後使う可能性あるので一時コメントアウト
     // const fatalitiesTable = formatTable(
@@ -144,10 +163,10 @@ export default {
     const confirmedCases = formatConfirmedCases(Data.main_summary)
 
     const sumInfoOfPatients = {
-      lText: patientsGraph[
-        patientsGraph.length - 1
-      ].cumulative.toLocaleString(),
-      sText: patientsGraph[patientsGraph.length - 1].label + 'の累計',
+      lText: patientsAndNoSymptomsGraph[0].reduce((a, c) => a + c),
+      sText:
+        patientsAndNoSymptomsLabels[patientsAndNoSymptomsLabels.length - 1] +
+        'の累計',
       unit: '人'
     }
 
@@ -162,6 +181,9 @@ export default {
       inspectionsGraph,
       inspectionsItems,
       inspectionsLabels,
+      patientsAndNoSymptomsGraph,
+      patientsAndNoSymptomsItems,
+      patientsAndNoSymptomsLabels,
       confirmedCases,
       sumInfoOfPatients,
       headerItem: {
