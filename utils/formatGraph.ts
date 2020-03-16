@@ -1,8 +1,3 @@
-type DataType = {
-  日付: Date
-  小計: number
-}
-
 export type GraphDataType = {
   label: string
   transition: number
@@ -14,15 +9,15 @@ export type GraphDataType = {
  *
  * @param data - Raw data
  */
-export default (data: DataType[]) => {
+export default (data: any[]) => {
   const graphData: GraphDataType[] = []
   const today = new Date()
   let patSum = 0
   data
-    .filter(d => new Date(d['日付']) < today)
+    .filter(d => new Date(d[0]) < today)
     .forEach(d => {
-      const date = new Date(d['日付'])
-      const subTotal = d['小計']
+      const date = new Date(d[0])
+      const subTotal = d[1]
       if (!isNaN(subTotal)) {
         patSum += subTotal
         graphData.push({

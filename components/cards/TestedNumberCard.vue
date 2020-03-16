@@ -5,7 +5,7 @@
       :title-id="'number-of-tested'"
       :chart-id="'time-stacked-bar-chart-inspections'"
       :chart-data="inspectionsGraph"
-      :date="Data.inspections_summary.date"
+      :date="date"
       :items="inspectionsItems"
       :labels="inspectionsLabels"
       :unit="$t('件.tested')"
@@ -24,18 +24,32 @@ export default {
   },
   data() {
     // 検査実施日別状況
+    let inspec_tochigi = [] // 栃木県内 (宇都宮市を除く)
+    Data.inspections_summary.data.forEach(d => inspec_tochigi.push(d[1]))
+
+    let inspec_utm = [] // 宇都宮市
+    Data.inspections_summary.data.forEach(d => inspec_utm.push(d[2]))
+
     const inspectionsGraph = [
-      Data.inspections_summary.data['都内'],
-      Data.inspections_summary.data['その他']
+      inspec_tochigi,
+      inspec_utm
     ]
+
     const inspectionsItems = [
-      this.$t('都内発生（疑い例・接触者調査）'),
-      this.$t('その他（チャーター便・クルーズ船）')
+      this.$t('栃木県内 (宇都宮市を除く)'),
+      this.$t('宇都宮市')
     ]
-    const inspectionsLabels = Data.inspections_summary.labels
+
+    let inspectionsLabels = []
+    Data.inspections_summary.data.forEach(d => {
+      const date = new Date(d[0])
+      inspectionsLabels.push(`${date.getMonth() + 1}/${date.getDate()}`)
+    })
+
+    const date = Data.inspections_summary.date
 
     const data = {
-      Data,
+      date,
       inspectionsGraph,
       inspectionsItems,
       inspectionsLabels
