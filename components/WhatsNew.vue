@@ -36,8 +36,6 @@
   </div>
 </template>
 
-<i18n src="./WhatsNew.i18n.json"></i18n>
-
 <script>
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 

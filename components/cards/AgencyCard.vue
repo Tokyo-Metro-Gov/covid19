@@ -10,8 +10,6 @@
   </v-col>
 </template>
 
-<i18n src="./AgencyCard.i18n.json"></i18n>
-
 <script>
 import AgencyBarChart from '@/components/AgencyBarChart.vue'
 

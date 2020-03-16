@@ -1,4 +1,5 @@
 import { Configuration } from '@nuxt/types'
+import i18n from './nuxt-i18n.config'
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
 
@@ -125,62 +126,7 @@ const config: Configuration = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    [
-      'nuxt-i18n',
-      {
-        strategy: 'prefix_except_default',
-        detectBrowserLanguage: {
-          useCookie: true,
-          cookieKey: 'i18n_redirected'
-        },
-        locales: [
-          {
-            code: 'ja',
-            name: '日本語',
-            iso: 'ja-JP'
-          },
-          {
-            code: 'en',
-            name: 'English',
-            iso: 'en-US'
-          },
-          {
-            code: 'zh-cn',
-            name: '简体中文',
-            iso: 'zh-CN'
-          },
-          {
-            code: 'zh-tw',
-            name: '繁體中文',
-            iso: 'zh-TW'
-          },
-          {
-            code: 'ko',
-            name: '한국어',
-            iso: 'ko-KR'
-          },
-          // ,
-          // #1126, #872 (comment)
-          // ポルトガル語は訳が揃っていないため非表示
-          // {
-          //   code: 'pt-BR',
-          //   name: 'Portuguese',
-          //   iso: 'pt-BR'
-          // },
-          {
-            code: 'ja-basic',
-            name: 'やさしい にほんご',
-            iso: 'ja-JP'
-          }
-        ],
-        defaultLocale: 'ja',
-        vueI18n: {
-          fallbackLocale: 'ja',
-          formatFallbackMessages: true
-        },
-        vueI18nLoader: true
-      }
-    ],
+    ['nuxt-i18n', i18n],
     'nuxt-svg-loader',
     'nuxt-purgecss',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }]
