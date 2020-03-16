@@ -91,8 +91,6 @@
   </ul>
 </template>
 
-<i18n src="./ConfirmedCasesTable.i18n.json"></i18n>
-
 <script>
 export default {
   props: [

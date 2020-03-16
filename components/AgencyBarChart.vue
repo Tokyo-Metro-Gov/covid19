@@ -14,8 +14,6 @@
   </data-view>
 </template>
 
-<i18n src="./AgencyBarChart.i18n.json"></i18n>
-
 <style module lang="scss">
 .DataView {
   &Desc {

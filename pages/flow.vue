@@ -31,8 +31,6 @@
   </div>
 </template>
 
-<i18n src="./flow.i18n.json"></i18n>
-
 <script>
 import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton'
