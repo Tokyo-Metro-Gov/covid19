@@ -1,7 +1,7 @@
 <template>
   <v-app class="app-print">
     <div v-if="loading" class="loader">
-      <img src="/logo.svg" alt="東京都" />
+      <img src="/logo.svg" :alt="$t('東京都')" />
       <scale-loader color="#00A040" />
     </div>
     <v-container v-else>
@@ -9,10 +9,10 @@
         <v-col :cols="12" :sm="6">
           <div class="PrintMeta-HeadingWrapper">
             <div class="PrintMeta-Logo">
-              <img src="/logo.svg" alt="東京都" />
+              <img src="/logo.svg" :alt="$t('東京都')" />
             </div>
             <h1 class="PrintMeta-Heading">
-              新型コロナウイルス感染症<br />対策サイト
+              {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
             </h1>
           </div>
         </v-col>
@@ -25,11 +25,11 @@
               tile
               color="transparent"
             >
-              <img src="/site-qr.svg" alt="QRコード" />
+              <img src="/site-qr.svg" :alt="$t('2次元コード')" />
             </v-card>
             <v-card class="flex-shrink-0" flat tile color="transparent">
               <p class="PrintMeta-Text">
-                ※最新の情報はWebページをご覧ください
+                {{ $t('※最新の情報はWebページをご覧ください') }}
               </p>
               <p class="PrintMeta-Link">
                 https://stopcovid19.metro.tokyo.lg.jp/
@@ -42,6 +42,7 @@
     </v-container>
   </v-app>
 </template>
+
 <script>
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 export default {
