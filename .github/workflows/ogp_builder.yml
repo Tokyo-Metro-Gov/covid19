@@ -3,7 +3,8 @@ name: OGP Builder
 on:
   push:
     branches:
-      - staging
+      #- staging
+      - feature/issue-1608-fix-ogp
 
 jobs:
   build:
@@ -32,29 +33,3 @@ jobs:
         with:
           name: ogp
           path: ogp
-  upload:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-      with:
-        ref: staging
-    - name: Download ogp images
-      uses: actions/download-artifact@v1
-      with:
-        name: ogp
-    - name: Commit files
-      run: |
-        mkdir -p static/ogp/
-        rm -rf static/ogp
-        mv ogp static/
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add static
-        git commit -m "Add changes" 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: deploy/new_ogp
-        force: true
