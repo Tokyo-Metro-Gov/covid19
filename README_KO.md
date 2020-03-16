@@ -109,6 +109,7 @@ Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 | i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | Temporarily used |
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | For final confirmation before production. Non-admin pull requests are prohibited |
 Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
+
 #### Branch used by the system
 | Purpose | Branch | Confirmation URL |
 | ---- | -------- | ---- | ---- |
