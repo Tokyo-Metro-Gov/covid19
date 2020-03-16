@@ -11,6 +11,13 @@ Esta página muestra cómo puede contribuir al desarrollo de este sitio.
 * Puede solucionar algunos problemas usando Pull Request.
 * Tenga en cuenta que los problemas de sugerencias de mejora (etiquetados con `improve`)
   puede no ser siempre aceptado (especialmente los de la interfaz de usuario o UI)
+
+[please translate me!]
+* All issues and Pull requests including major content changes such as language expression or the UI are subject to the organizer's review. They may not necessarily be always accepted.
+* The Issue with `waiting` label is under review by the organizer.  The implementation should be refrained until the requirement is fixed.
+
+[/please translate me!]
+
 * Nos alegra que le dé prioridad a los problemas de [good first issue / help wanted / bug]
 
 ## Cómo participar en comunicaciones
