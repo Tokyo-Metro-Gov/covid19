@@ -219,7 +219,7 @@ export default {
   &-Heading {
     margin-top: 8px;
     font-size: 13px;
-    color: #898989;
+    color: #707070;
     padding: 0.5em 0;
     text-decoration: none;
     @include lessThan($small) {
