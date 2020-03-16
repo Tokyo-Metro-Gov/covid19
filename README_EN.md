@@ -1,8 +1,8 @@
 # Tokyo COVID-19 Task Force website
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
+![](https://github.com/codeforkagoshima/covid19/workflows/production%20deploy/badge.svg)
 
-[![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![Kagoshima COVID-19 Task Force Website](./static/ogp.png)](https://covid19.codeforkagoshima.dev/)
 
 ### [日本語](./README.md) | English
 
