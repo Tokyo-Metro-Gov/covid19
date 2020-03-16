@@ -89,10 +89,10 @@ $ docker-compose run --rm app yarn install
 
 ### Branch rules
 
-Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.
+Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.  
 Please use the following naming rules for the branch when sending a Pull Request.
 
-Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}
+Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}  
 Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 #### Basic branch

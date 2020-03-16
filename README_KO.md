@@ -79,7 +79,7 @@ $ docker-compose run --rm app yarn install
 
 ### 프로덕션/기타 환경 탐지
 
-프로덕션 환경에서, `'production'` 은 `process.env.GENERATE_ENV` 변수에 할당되고, 다른 환경에서는 `'development'`가 변수에 할당됩니다.
+프로덕션 환경에서, `'production'` 은 `process.env.GENERATE_ENV` 변수에 할당되고, 다른 환경에서는 `'development'`가 변수에 할당됩니다.  
 런타임에서 사용할 환경을 감지하려면 이 변수를 사용하십시요.
 
 ### 스테이징 환경 및 운영 환경으로 반영 방법
@@ -95,10 +95,10 @@ $ docker-compose run --rm app yarn install
 
 ### Branch rules
 
-Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.
+Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.  
 Please use the following naming rules for the branch when sending a Pull Request.
 
-Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}
+Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}  
 Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 #### Basic branch
