@@ -20,11 +20,11 @@
 ## 라이선스
 이 소프트웨어는 [MIT 라이선스](./LICENSE.txt)를 따르고 있습니다.
 
-[please translate me]
+[PLEASE TRANSLATE ME]
 
 Please check [How to translate](./.github/TRANSLATION.md) doc.
 
-[/please translate me]
+[/PLEASE TRANSLATE ME]
 
 ## 이 사이트에서 파생된 사이트
 
