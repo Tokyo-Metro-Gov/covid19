@@ -3,7 +3,6 @@
     <v-btn
       class="PrinterButton"
       outlined
-      color="#00a040"
       href="/print/flow"
       target="_blank"
       @mouseover="mouseover"
@@ -19,8 +18,6 @@
     </v-btn>
   </div>
 </template>
-
-<i18n src="./PrinterButton.i18n.json"></i18n>
 
 <script>
 import PrinterIcon from '@/static/printer.svg'

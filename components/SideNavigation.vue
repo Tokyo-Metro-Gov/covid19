@@ -91,8 +91,6 @@
   </div>
 </template>
 
-<i18n src="./SideNavigation.i18n.json"></i18n>
-
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
@@ -225,7 +223,7 @@ export default Vue.extend({
   &-Heading {
     margin-top: 8px;
     font-size: 13px;
-    color: #898989;
+    color: #707070;
     padding: 0.5em 0;
     text-decoration: none;
     @include lessThan($small) {

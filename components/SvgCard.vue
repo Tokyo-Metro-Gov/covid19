@@ -20,8 +20,6 @@
   </data-view>
 </template>
 
-<i18n src="./SvgCard.i18n.json"></i18n>
-
 <style lang="scss" scoped>
 .SvgCard {
   ::v-deep svg {

@@ -25,8 +25,6 @@
   </v-btn-toggle>
 </template>
 
-<i18n src="./DataSelector.i18n.json"></i18n>
-
 <style lang="scss">
 .DataSelector {
   margin-top: 20px;

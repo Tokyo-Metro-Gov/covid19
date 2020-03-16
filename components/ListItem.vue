@@ -39,7 +39,7 @@
     </v-list-item-content>
     <v-icon
       v-if="!isInternalLink(link)"
-      aria-label="別タブで開く"
+      :aria-label="this.$t('別タブで開く')"
       class="ListItem-ExternalLinkIcon"
       size="12"
       role="img"

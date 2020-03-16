@@ -36,8 +36,6 @@
   </div>
 </template>
 
-<i18n src="./FlowPcSuspect.i18n.json"></i18n>
-
 <style module lang="scss">
 .FlowComponent {
   color: $gray-2;

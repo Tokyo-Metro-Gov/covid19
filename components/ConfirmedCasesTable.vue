@@ -90,7 +90,6 @@
     </li>
   </ul>
 </template>
-<i18n src="./ConfirmedCasesTable.i18n.json"></i18n>
 
 <script lang="ts">
 import Vue from 'vue'

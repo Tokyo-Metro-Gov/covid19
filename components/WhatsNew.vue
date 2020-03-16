@@ -21,7 +21,7 @@
             {{ item.date }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
-            {{ $t(item.text) }}
+            {{ item.text }}
             <v-icon
               v-if="!isInternalLink(item.url)"
               class="WhatsNew-item-ExternalLinkIcon"
@@ -35,8 +35,6 @@
     </ul>
   </div>
 </template>
-
-<i18n src="./WhatsNew.i18n.json"></i18n>
 
 <script lang="ts">
 import Vue from 'vue'

@@ -2,7 +2,7 @@
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
       <small :class="$style.DataViewDesc">
-        ※土・日・祝日を除く庁舎開庁日の1週間累計数
+        {{ $t('※土・日・祝日を除く庁舎開庁日の1週間累計数') }}
       </small>
     </template>
     <bar
@@ -13,8 +13,6 @@
     />
   </data-view>
 </template>
-
-<i18n src="./AgencyBarChart.i18n.json"></i18n>
 
 <style module lang="scss">
 .DataView {
