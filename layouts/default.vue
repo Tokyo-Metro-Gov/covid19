@@ -98,12 +98,20 @@ export default Vue.extend({
         {
           hid: 'og:site_name',
           name: 'og:site_name',
-          content: this.$tc('東京都 新型コロナウイルス感染症対策サイト')
+          content:
+            this.$t('東京都') +
+            ' ' +
+            this.$t('新型コロナウイルス感染症') +
+            this.$t('対策サイト')
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: this.$tc('東京都 新型コロナウイルス感染症対策サイト')
+          content:
+            this.$t('東京都') +
+            ' ' +
+            this.$t('新型コロナウイルス感染症') +
+            this.$t('対策サイト')
         },
         {
           hid: 'og:description',
@@ -120,7 +128,11 @@ export default Vue.extend({
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
-          content: this.$tc('東京都 新型コロナウイルス感染症対策サイト')
+          content:
+            this.$t('東京都') +
+            ' ' +
+            this.$t('新型コロナウイルス感染症') +
+            this.$t('対策サイト')
         },
         {
           hid: 'twitter:image',
