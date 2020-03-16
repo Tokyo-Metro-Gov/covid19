@@ -191,7 +191,7 @@ export default {
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '福岡市内の最新感染動向(検証用サイトです、データはダミーデータです)',
+        title: '福岡市内の最新感染動向',
         date: Data.lastUpdate
       },
       newsItems: News.newsItems,
@@ -253,7 +253,7 @@ export default {
   },
   head() {
     return {
-      title: '福岡市内の最新感染動向(検証用サイトです、データはダミーデータです)'
+      title: '福岡市内の最新感染動向'
     }
   }
 }
