@@ -91,8 +91,6 @@
   </div>
 </template>
 
-<i18n src="./SideNavigation.i18n.json"></i18n>
-
 <script>
 import ListItem from '@/components/ListItem'
 import LanguageSelector from '@/components/LanguageSelector.vue'

@@ -27,8 +27,6 @@
   </div>
 </template>
 
-<i18n src="./FlowSp.i18n.json"></i18n>
-
 <script>
 import FlowSpPast from './FlowSpPast.vue'
 import FlowSpGeneral from './FlowSpGeneral.vue'

@@ -33,8 +33,6 @@
   </div>
 </template>
 
-<i18n src="./_card.i18n.json"></i18n>
-
 <script>
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
