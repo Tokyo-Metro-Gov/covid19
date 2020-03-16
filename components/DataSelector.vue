@@ -1,14 +1,25 @@
 <template>
   <v-btn-toggle
+    :aria-controls="targetId"
     :value="value"
     class="DataSelector"
     mandatory
     @change="$emit('input', $event)"
   >
-    <v-btn v-ripple="false" value="transition" class="DataSelector-Button">
+    <v-btn
+      v-ripple="false"
+      :aria-pressed="value === 'transition' ? 'true' : 'false'"
+      value="transition"
+      class="DataSelector-Button"
+    >
       {{ $t('日別') }}
     </v-btn>
-    <v-btn v-ripple="false" value="cumulative" class="DataSelector-Button">
+    <v-btn
+      v-ripple="false"
+      :aria-pressed="value === 'cumulative' ? 'true' : 'false'"
+      value="cumulative"
+      class="DataSelector-Button"
+    >
       {{ $t('累計') }}
     </v-btn>
   </v-btn-toggle>
@@ -47,8 +58,14 @@ export default {
   props: {
     value: {
       type: String,
-      required: false,
-      default: ''
+      default: 'transition'
+    },
+    targetId: {
+      type: String,
+      default: val => {
+        // TODO: type は NullableString 型をとり、default: null とする
+        return val && val !== '' ? val : null
+      }
     }
   }
 }
