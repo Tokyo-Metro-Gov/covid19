@@ -13,23 +13,27 @@
     <v-list-item-action v-if="icon" class="ListItem-IconContainer">
       <v-icon
         v-if="checkIconType(icon) === 'material'"
-        :class="['ListItem-Icon', isActive(link)]"
+        class="ListItem-Icon"
+        :class="{ isActive: isActive(link) }"
         size="20"
       >
         {{ icon }}
       </v-icon>
       <CovidIcon
         v-else-if="checkIconType(icon) === 'covid'"
-        :class="['ListItem-Icon', isActive(link)]"
+        class="ListItem-Icon"
+        :class="{ isActive: isActive(link) }"
       />
       <ParentIcon
         v-else-if="checkIconType(icon) === 'parent'"
-        :class="['ListItem-Icon', isActive(link)]"
+        class="ListItem-Icon"
+        :class="{ isActive: isActive(link) }"
       />
     </v-list-item-action>
     <v-list-item-content class="ListItem-TextContainer">
       <v-list-item-title
-        :class="['ListItem-Text', isActive(link)]"
+        class="ListItem-Text"
+        :class="{ isActive: isActive(link) }"
         v-text="title"
       />
     </v-list-item-content>
@@ -47,57 +51,55 @@
 </template>
 
 <script lang="ts">
-import { Vue, Prop, Component } from 'vue-property-decorator'
+import Vue from 'vue'
 import CovidIcon from '@/static/covid.svg'
 import ParentIcon from '@/static/parent.svg'
 
-@Component({
-  components: { CovidIcon, ParentIcon }
-})
-export default class ListItem extends Vue {
-  @Prop({
-    default: '',
-    required: false
-  })
-  link!: string
-
-  @Prop({
-    default: '',
-    required: false
-  })
-  icon!: string
-
-  @Prop({
-    default: '',
-    required: false
-  })
-  title!: string
-
-  isInternalLink(path: string): boolean {
-    return !/^https?:\/\//.test(path)
-  }
-
-  isActive(link: string): string | undefined {
-    if (link === this.$route.path || `${link}/` === this.$route.path) {
-      return 'isActive'
-    }
-  }
-
-  checkIconType(
-    icon?: string
-  ): 'none' | 'material' | 'covid' | 'parent' | 'others' {
-    if (!icon) return 'none'
-    if (icon.startsWith('mdi')) {
-      return 'material'
-    } else if (icon === 'covid') {
-      return 'covid'
-    } else if (icon === 'parent') {
-      return 'parent'
-    } else {
-      return 'others'
-    }
-  }
+enum iconType {
+  none = 'none',
+  material = 'material',
+  covid = 'covid',
+  parent = 'parent',
+  others = 'others'
 }
+
+export default Vue.extend({
+  components: { CovidIcon, ParentIcon },
+  props: {
+    link: {
+      type: String,
+      default: ''
+    },
+    icon: {
+      type: String,
+      default: ''
+    },
+    title: {
+      type: String,
+      default: ''
+    }
+  },
+  methods: {
+    isInternalLink(path: string): boolean {
+      return !/^https?:\/\//.test(path)
+    },
+    isActive(link: string): boolean {
+      return link === this.$route.path || `${link}/` === this.$route.path
+    },
+    checkIconType(icon?: string): iconType {
+      if (!icon) return iconType.none
+      if (icon.startsWith('mdi')) {
+        return iconType.material
+      } else if (icon === 'covid') {
+        return iconType.covid
+      } else if (icon === 'parent') {
+        return iconType.parent
+      } else {
+        return iconType.others
+      }
+    }
+  }
+})
 </script>
 
 <style lang="scss">

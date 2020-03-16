@@ -36,10 +36,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 
-export default {
+export default Vue.extend({
   props: {
     items: {
       type: Array,
@@ -47,14 +48,14 @@ export default {
     }
   },
   methods: {
-    isInternalLink(path) {
+    isInternalLink(path: string): boolean {
       return !/^https?:\/\//.test(path)
     },
-    formattedDate(dateString) {
+    formattedDate(dateString: string) {
       return convertDateToISO8601Format(dateString)
     }
   }
-}
+})
 </script>
 
 <style lang="scss">

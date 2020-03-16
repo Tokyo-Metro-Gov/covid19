@@ -50,8 +50,10 @@
 }
 </style>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   name: 'DataSelector',
   props: {
     value: {
@@ -60,11 +62,11 @@ export default {
     },
     targetId: {
       type: String,
-      default: val => {
+      default: (val: string | null) => {
         // TODO: type は NullableString 型をとり、default: null とする
         return val && val !== '' ? val : null
       }
     }
   }
-}
+})
 </script>
