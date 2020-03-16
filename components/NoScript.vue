@@ -8,7 +8,7 @@
         }
       </style>
       <div class="noscript-heading">
-        <img src="/logo.svg" :alt="$t('東京都')" />
+        <img src="/logo.svg" :alt="$t('山口県')" />
         {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
       </div>
       <div class="noscript-body">
@@ -32,13 +32,13 @@
 <i18n>
 {
   "ja": {
-    "東京都": "東京都",
+    "東京都": "山口県",
     "新型コロナウイルス感染症": "新型コロナウイルス感染症",
     "対策サイト": "対策サイト",
     "当WebサイトではJavaScriptを使用しております。 JavaScriptを無効にして使用された場合、各ページが正常に動作しない、または、表示されない場合がございます。 当Webサイトをご利用の際には、JavaScriptを有効にして頂きますようお願いいたします。": "当WebサイトではJavaScriptを使用しております。 JavaScriptを無効にして使用された場合、各ページが正常に動作しない、または、表示されない場合がございます。 当Webサイトをご利用の際には、JavaScriptを有効にして頂きますようお願いいたします。"
   },
   "en": {
-    "東京都": "Tokyo Metropolitan Government",
+    "東京都": "Yamaguchi Metropolitan Government",
     "新型コロナウイルス感染症": "COVID-19",
     "対策サイト": "Task Force website",
     "当WebサイトではJavaScriptを使用しております。JavaScriptを無効にして使用された場合、各ページが正常に動作しない、または、表示されない場合がございます。 当Webサイトをご利用の際には、JavaScriptを有効にして頂きますようお願いいたします。": "This site uses Javascript. If Javascript is disabled, the site may not work as expected or may not display correctly. Please make sure to enable Javascript when browsing this site."
@@ -62,7 +62,7 @@
     "当WebサイトではJavaScriptを使用しております。 JavaScriptを無効にして使用された場合、各ページが正常に動作しない、または、表示されない場合がございます。 当Webサイトをご利用の際には、JavaScriptを有効にして頂きますようお願いいたします。": "본 웹사이트에서는 자바스크립트를 사용합니다. 자바스크립트를 허용하지 않으면 각 페이지가 제대로 작동하지 않거나 표시되지 않을 수 있습니다. 본 웹사이트를 이용시에는 자바스크립트를 허용해 주시기를 요청드립니다."
   },
   "ja-basic": {
-    "東京都": "とうきょうと",
+    "東京都": "やまぐちけん",
     "新型コロナウイルス感染症": "あたらしいコロナウイルスの",
     "対策サイト": "びょうきについて",
     "当WebサイトではJavaScriptを使用しております。 JavaScriptを無効にして使用された場合、各ページが正常に動作しない、または、表示されない場合がございます。 当Webサイトをご利用の際には、JavaScriptを有効にして頂きますようお願いいたします。": "このページでは、JavaScriptというぎじゅつをつかっています。これをOFFにしていると、ページがうまくみられない場合があるので、ONにしてください。"
