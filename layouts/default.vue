@@ -89,6 +89,11 @@ export default Vue.extend({
       ],
       meta: [
         {
+          hid: 'author',
+          name: 'author',
+          content: this.$tc('東京都')
+        },
+        {
           hid: 'description',
           name: 'description',
           content: this.$tc(
