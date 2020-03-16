@@ -100,6 +100,10 @@ const config: Configuration = {
       ssr: true
     },
     {
+      src: '@/plugins/axe',
+      ssr: true
+    },
+    {
       src: '@/plugins/vuetify.ts',
       ssr: true
     }
@@ -142,12 +146,12 @@ const config: Configuration = {
           },
           {
             code: 'zh-cn',
-            name: '簡体字',
+            name: '简体中文',
             iso: 'zh-CN'
           },
           {
             code: 'zh-tw',
-            name: '繁體字',
+            name: '繁體中文',
             iso: 'zh-TW'
           },
           {
@@ -158,7 +162,6 @@ const config: Configuration = {
           // ,
           // #1126, #872 (comment)
           // ポルトガル語は訳が揃っていないため非表示
-          // 「やさしい日本語」はコンポーネントが崩れるため非表示
           // {
           //   code: 'pt-BR',
           //   name: 'Portuguese',
