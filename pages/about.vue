@@ -68,57 +68,6 @@
         )
       }}
     </TextCard>
-    <TextCard :title="$t('Google Analyticsの利用について')">
-      {{
-        $t(
-          '当サイトでは、サービス向上やサイトの改善のためにGoogle LLCの提供するアクセス分析のツールであるGoogle Analyticsを利用した計測を行っております。'
-        )
-      }}<br />
-      {{
-        $t(
-          'Google Analyticsは、当サイトが発行するクッキー (Cookie) を利用して、個人を特定する情報を含まずにWebサイトの利用データ（アクセス状況、トラフィック、閲覧環境など）を収集しております。クッキー (Cookie) の利用に関してはGoogleのプライバシーポリシーと規約に基づいております。'
-        )
-      }}<br />
-      {{
-        $t(
-          '取得したデータは Webサイト利用状況の分析、サイト運営者へのレポートの作成、その他のサービスの提供に関わる目的に限り、これを使用します。'
-        )
-      }}<br />
-      {{
-        $t(
-          'Google Analyticsの利用規約及びプライバシーポリシーに関する説明については、Google Analyticsのサイトをご覧ください。'
-        )
-      }}<br />
-      <ul>
-        <li>
-          <a
-            href="https://marketingplatform.google.com/about/analytics/terms/jp"
-            target="_blank"
-            rel="noopener"
-          >
-            {{ $t('Google Analytics利用規約') }}
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://policies.google.com/privacy?hl=ja"
-            target="_blank"
-            rel="noopener"
-          >
-            {{ $t('Googleのプライバシーポリシー') }}
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://support.google.com/analytics/answer/6004245"
-            target="_blank"
-            rel="noopener"
-          >
-            {{ $t('Google Analyticsに関する詳細情報') }}
-          </a>
-        </li>
-      </ul>
-    </TextCard>
     <TextCard :title="$t('免責事項')">
       {{
         $t(
