@@ -39,7 +39,7 @@
           </v-container>
         </v-list>
         <div class="SideNavigation-LanguageMenu">
-          <LanguageSelector />
+          <!-- <LanguageSelector /> -->
         </div>
       </nav>
       <v-footer class="SideNavigation-Footer">
@@ -95,12 +95,12 @@
 
 <script>
 import ListItem from '@/components/ListItem'
-import LanguageSelector from '@/components/LanguageSelector.vue'
+// import LanguageSelector from '@/components/LanguageSelector.vue'
 
 export default {
   components: {
-    ListItem,
-    LanguageSelector
+    ListItem
+    // LanguageSelector
   },
   props: {
     isNaviOpen: {
