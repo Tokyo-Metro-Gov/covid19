@@ -104,7 +104,7 @@ Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull request d'uti
 
 #### Branches utilisees par le systeme
 
-| But | Branche | URL |
+| But | Branche | URL | Notes |
 | ---- | -------- | ---- | ---- |
 | Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Place ou les pages HTML statiques sont stockees. |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Ou trouver l'HTML statiquement construit. |

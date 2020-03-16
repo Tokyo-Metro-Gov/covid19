@@ -112,10 +112,10 @@ Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
 
 #### Branch used by the system
-| Purpose | Branch | Confirmation URL |
+| Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
-Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
-Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
+| Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
+| Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
 | For OGP working directory | deploy / new_obp | None | For updating OGP |
 
 [/PLEASE TRANSLATE ME]
