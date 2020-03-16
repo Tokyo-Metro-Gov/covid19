@@ -1,6 +1,6 @@
 <template>
   <div class="Flow">
-    <div class="Flow-Heading">
+    <!-- <div class="Flow-Heading">
       <CovidIcon />
       <h2 class="Flow-Heading-Title">
         新型コロナウイルス感染症が心配なときに
@@ -210,25 +210,25 @@
           mdi-open-in-new
         </v-icon>
       </a>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import CovidIcon from '@/static/covid.svg'
-import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
+// import CovidIcon from '@/static/covid.svg'
+// import DesktopFlowSvg from '@/components/DesktopFlowSvg.vue'
 export default {
-  components: { CovidIcon, DesktopFlowSvg },
-  head() {
-    return {
-      title: '新型コロナウイルス感染症が心配なときに'
-    }
-  }
+  // components: { CovidIcon, DesktopFlowSvg },
+  // head() {
+  //   return {
+  //     title: '新型コロナウイルス感染症が心配なときに'
+  //   }
+  // }
 }
 </script>
 
 <style lang="scss">
-.Flow {
+/* .Flow {
   margin-bottom: 20px;
   &-Heading {
     display: flex;
@@ -354,5 +354,5 @@ export default {
   .only-pc {
     display: none;
   }
-}
+} */
 </style>
