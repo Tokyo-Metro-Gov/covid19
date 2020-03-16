@@ -14,8 +14,6 @@
   </v-col>
 </template>
 
-<i18n src="./TestedNumberCard.i18n.json"></i18n>
-
 <script>
 import Data from '@/data/data.json'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
