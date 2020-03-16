@@ -117,7 +117,7 @@ export default Vue.extend({
         {
           hid: 'og:image',
           name: 'og:image',
-          content: this.$tc('https://stopcovid19.metro.tokyo.lg.jp/opg.png')
+          content: this.$tc('https://stopcovid19.metro.tokyo.lg.jp/ogp.png')
         },
         {
           hid: 'apple-mobile-web-app-title',
@@ -127,7 +127,7 @@ export default Vue.extend({
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.$tc('https://stopcovid19.metro.tokyo.lg.jp/opg.png')
+          content: this.$tc('https://stopcovid19.metro.tokyo.lg.jp/ogp.png')
         }
       ]
     }
