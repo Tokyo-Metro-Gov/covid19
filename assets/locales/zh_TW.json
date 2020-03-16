@@ -232,5 +232,7 @@
   "新型コロナコールセンター": "新型冠狀病毒肺炎服務專線（提供中文、英文、日文、韓文服務）",
   "午前9時から午後9時（土日祝含む）": "早上 9 點到晚上 9 點（含週末例假日）",
   "新型コロナ受診相談窓口へ": "跳到新冠病毒就診諮詢窗口",
-  "https://stopcovid19.metro.tokyo.lg.jp/ogp.png":"https://stopcovid19.metro.tokyo.lg.jp/ogp/zh-tw/ogp-image.png"
+  "ogp": {
+    "og:image": "https://stopcovid19.metro.tokyo.lg.jp/ogp/zh-tw/ogp-image.png"
+  }
 }
