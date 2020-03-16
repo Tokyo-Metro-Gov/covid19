@@ -30,7 +30,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp'
+        content: 'https://covid19-yamaguchi.netlify.com/'
       },
       {
         hid: 'og:title',
@@ -46,7 +46,8 @@ const config: Configuration = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+        content:
+          'https://user-images.githubusercontent.com/42875682/76772976-17a3bd80-67e5-11ea-8f4e-ab01df696fc6.png'
       },
       {
         hid: 'twitter:card',
@@ -66,7 +67,8 @@ const config: Configuration = {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+        content:
+          'https://user-images.githubusercontent.com/42875682/76772976-17a3bd80-67e5-11ea-8f4e-ab01df696fc6.png'
       },
       {
         hid: 'fb:app_id',
