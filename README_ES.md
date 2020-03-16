@@ -69,3 +69,30 @@ Cuando se actualiza la rama `staging`, los archivos HTML se construirán automá
 
 Cuando se actualiza la rama `development`, los archivos HTML se construirán automáticamente en la rama` dev-pages`,
 y luego el sitio de desarrollo (https://dev-covid19-tokyo.netlify.com/) también se actualizará.
+
+[PLEASE TRANSLATE ME]
+
+### Branch rules
+
+Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.
+Please use the following naming rules for the branch when sending a Pull Request.
+
+Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}
+Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
+
+#### Basic branch
+| Purpose | Branch | Confirmation URL | Remarks |
+| ---- | -------- | ---- | ---- |
+| Development | development | http://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
+| Hotfix branch | dev-hotfix | None | Fixes that should be applied to production in haste. Use this if requested by the administrator |
+| i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | Temporarily used |
+| Staging | staging | https://stg-covid19-tokyo.netlify.com/ | For final confirmation before production. Non-admin pull requests are prohibited |
+Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
+#### Branch used by the system
+| Purpose | Branch | Confirmation URL |
+| ---- | -------- | ---- | ---- |
+Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
+Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
+| For OGP working directory | deploy / new_obp | None | For updating OGP |
+
+[/PLEASE TRANSLATE ME]
