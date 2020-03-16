@@ -42,9 +42,12 @@
     </v-container>
   </v-app>
 </template>
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
-export default {
+
+export default Vue.extend({
   components: {
     ScaleLoader
   },
@@ -65,7 +68,7 @@ export default {
       window.print()
     }
   },
-  head() {
+  head(): MetaInfo {
     return {
       meta: [
         {
@@ -82,7 +85,7 @@ export default {
       ]
     }
   }
-}
+})
 </script>
 <style lang="scss">
 .app-print {
