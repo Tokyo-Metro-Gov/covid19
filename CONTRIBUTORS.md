@@ -23,7 +23,7 @@ Tokyo Covid-19 response site contributors
 | amotarao | [@amotarao](https://github.com/amotarao) | | Frontend |
 | Taro Matsuzawa | [@smellman](https://github.com/smellman) | [@smellman](https://twitter.com/smellman) | Coding |
 | [Riki Singh Khorana](https://www.linkedin.com/in/rikilele/) | [@Rikilele](https://github.com/Rikilele) | | Translations / A11y |
-| Koki Kobayashi | | | Translations |
+| Koki Kobayashi | [@koki-koba](https://github.com/koki-koba) | | Translations |
 | Fujita Shu | [@nard-tech](https://github.com/nard-tech) | | Coding, i18n |
 | kaizumaki | [@kaizumaki](https://github.com/kaizumaki) | | |
 | Shigetaka Shirouchi | [@shgtkshruch](https://github.com/shgtkshruch) | | |
