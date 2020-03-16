@@ -108,8 +108,6 @@
   </v-card>
 </template>
 
-<i18n src="./DataView.i18n.json"></i18n>
-
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'

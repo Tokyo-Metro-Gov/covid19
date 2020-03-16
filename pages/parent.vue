@@ -9,8 +9,6 @@
   </div>
 </template>
 
-<i18n src="./parent.i18n.json"></i18n>
-
 <script>
 import TextCard from '@/components/TextCard.vue'
 

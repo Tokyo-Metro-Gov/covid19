@@ -13,8 +13,6 @@
   </v-col>
 </template>
 
-<i18n src="./TelephoneAdvisoryReportsNumberCard.i18n.json"></i18n>
-
 <script>
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
