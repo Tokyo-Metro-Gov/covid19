@@ -64,7 +64,10 @@
     </p>
 
     <a
-      v-scroll-to="'#consult'"
+      v-scroll-to="{
+        el: '#consult',
+        onDone: onDoneScroll
+      }"
       href="#consult"
       :class="[$style.button, $style.clickable]"
     >
@@ -75,6 +78,7 @@
 </template>
 
 <script lang="ts">
+import { onDoneScroll } from '@/utils/vueScrollTo'
 import AccessibleIcon from '@/static/flow/responsive/accessible.svg'
 import ArrowForwardIcon from '@/static/flow/responsive/arrow_forward.svg'
 import DirectionsWalkIcon from '@/static/flow/responsive/directions_walk.svg'
@@ -86,7 +90,8 @@ export default {
     ArrowForwardIcon,
     DirectionsWalkIcon,
     PregnantWomanIcon
-  }
+  },
+  methods: { onDoneScroll }
 }
 </script>
 
