@@ -61,8 +61,6 @@
   </div>
 </template>
 
-<i18n src="./FlowSpGeneral.i18n.json"></i18n>
-
 <script lang="ts">
 import { onDoneScroll } from '@/utils/vueScrollTo'
 import HumanIcon from '@/static/flow/responsive/accessibility.svg'

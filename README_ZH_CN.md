@@ -18,6 +18,12 @@
 ## 授权
 本软件采用[MIT授权条款](./LICENSE.txt)。
 
+[please translate me]
+
+Please check [How to translate](./.github/TRANSLATION.md) doc.
+
+[/please translate me]
+
 ## 面向开发者信息
 
 ### 开发环境搭建

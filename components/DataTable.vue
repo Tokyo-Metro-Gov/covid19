@@ -26,8 +26,6 @@
   </data-view>
 </template>
 
-<i18n src="./DataTable.i18n.json"></i18n>
-
 <style lang="scss">
 .cardTable {
   &.v-data-table {
