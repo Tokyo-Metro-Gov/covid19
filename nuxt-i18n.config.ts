@@ -55,7 +55,7 @@ export default {
       code: 'ja-basic',
       name: 'やさしい にほんご',
       iso: 'ja-JP',
-      file: 'en_JP.json'
+      file: 'ja_Hira.json'
     }
   ]
 }
