@@ -1,4 +1,4 @@
-# Tokyo COVID-19 Task Force website
+# Kagoshima COVID-19 Task Force website
 
 ![](https://github.com/codeforkagoshima/covid19/workflows/production%20deploy/badge.svg)
 
