@@ -1,4 +1,7 @@
 module.exports = {
+  plugins: [
+    'eslint-plugin-tsdoc'
+  ],
   extends: [
     '@nuxtjs/eslint-config-typescript',
     'prettier',
@@ -16,6 +19,7 @@ module.exports = {
         'semi': false,
         'singleQuote': true
       }
-    ]
+    ],
+    'tsdoc/syntax': 'error'
   }
 }
