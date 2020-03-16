@@ -20,6 +20,12 @@
 ## ลิขสิทธิ์ (License)
 ซอฟต์แวร์อยู่ภายใต้ลิขสิทธิ์ [the MIT License](./LICENSE.txt).
 
+[please translate me]
+
+Please check [How to translate](./.github/TRANSLATION.md) doc.
+
+[/please translate me]
+
 ## สำหรับนักพัฒนา (For Developers)
 
 ### การติดตั้งโปรแกรมเพื่อการพัฒนา (How to Set Up Environments)

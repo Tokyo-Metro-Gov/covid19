@@ -19,6 +19,12 @@ Por favor, consulte el [Código de conducta para desarrolladores](./.github/CODE
 ## Licencia
 Este software se publica bajo la [licencia MIT](./LICENSE.txt).
 
+[please translate me]
+
+Please check [How to translate](./.github/TRANSLATION.md) doc.
+
+[/please translate me]
+
 ## Para Desarrolladoras
 
 ### Cómo Configurar Entornos
