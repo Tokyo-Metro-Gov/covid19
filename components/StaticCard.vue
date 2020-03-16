@@ -77,11 +77,13 @@ export default Vue.extend()
   }
   a {
     @include text-link();
+    font-size: inherit;
   }
   a[target='_blank']::after {
-    content: '\F3CC';
+    content: '\F03CC';
     margin-left: 0.2em;
     display: inline-block;
+    text-decoration: none;
     font: normal normal normal 24px/1 'Material Design Icons';
     font-size: inherit;
     text-rendering: auto;
