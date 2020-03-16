@@ -9,14 +9,25 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import TextCard from '@/components/TextCard.vue'
 
-export default {
+type ItemData = {
+  items: Item[]
+}
+
+type Item = {
+  title: string
+  body: string
+}
+
+export default Vue.extend({
   components: {
     TextCard
   },
-  data() {
+  data(): ItemData {
     return {
       items: [
         {
@@ -47,17 +58,17 @@ export default {
         },
         {
           title: `3. ${this.$t('その他')}`,
-          body: this.$t('詳細は、各学校からのお知らせ等をご確認ください。')
+          body: this.$t(
+            '詳細は、各学校からのお知らせ等をご確認ください。'
+          ) as string
         }
       ]
     }
   },
-  head() {
-    return {
-      title: 'お子様をお持ちの皆様へ'
-    }
-  }
-}
+  head: (): MetaInfo => ({
+    title: 'お子様をお持ちの皆様へ'
+  })
+})
 </script>
 
 <style lang="scss">

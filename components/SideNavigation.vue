@@ -91,11 +91,20 @@
   </div>
 </template>
 
-<script>
-import ListItem from '@/components/ListItem'
+<script lang="ts">
+import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
+import ListItem from '@/components/ListItem.vue'
 import LanguageSelector from '@/components/LanguageSelector.vue'
 
-export default {
+type Item = {
+  icon?: string
+  title: TranslateResult
+  link: string
+  divider?: boolean
+}
+
+export default Vue.extend({
   components: {
     ListItem,
     LanguageSelector
@@ -107,7 +116,7 @@ export default {
     }
   },
   computed: {
-    items() {
+    items(): Item[] {
       return [
         {
           icon: 'mdi-chart-timeline-variant',
@@ -161,20 +170,17 @@ export default {
           divider: true
         }
       ]
-    },
-    isClass() {
-      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
     }
   },
   methods: {
-    openNavi() {
+    openNavi(): void {
       this.$emit('openNavi')
     },
-    closeNavi() {
+    closeNavi(): void {
       this.$emit('closeNavi')
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
