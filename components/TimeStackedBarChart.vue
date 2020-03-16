@@ -10,7 +10,7 @@
           )
         }}
       </p>
-      <data-selector v-model="dataKind" />
+      <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
     <bar
       :chart-id="chartId"
@@ -27,8 +27,6 @@
     </template>
   </data-view>
 </template>
-
-<i18n src="./TimeStackedBarChart.i18n.json"></i18n>
 
 <script>
 import DataView from '@/components/DataView.vue'

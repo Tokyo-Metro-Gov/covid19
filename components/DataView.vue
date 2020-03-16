@@ -25,7 +25,13 @@
               rel="noopener"
             >
               {{ $t('オープンデータを入手') }}
-              <v-icon class="ExternalLinkIcon" size="15">
+              <v-icon
+                class="ExternalLinkIcon"
+                size="15"
+                :aria-label="this.$t('別タブで開く')"
+                role="img"
+                :aria-hidden="false"
+              >
                 mdi-open-in-new
               </v-icon>
             </a>
@@ -47,7 +53,7 @@
               </v-icon>
             </div>
 
-            <h4>埋め込み用コード</h4>
+            <h4>{{ $t('埋め込み用コード') }}</h4>
 
             <div class="EmbedCode">
               <v-icon
@@ -96,13 +102,11 @@
 
     <div v-if="showOverlay" class="overlay">
       <div class="overlay-text">
-        埋め込みタグをコピーしました
+        {{ $t('埋め込みコードをコピーしました') }}
       </div>
     </div>
   </v-card>
 </template>
-
-<i18n src="./DataView.i18n.json"></i18n>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
@@ -161,8 +165,7 @@ export default class DataView extends Vue {
     if (embed) {
       permalink = permalink + '?embed=true'
     }
-    // localePath にするとうまく動かないので一旦外す
-    // permalink = this.localePath(permalink)
+    permalink = this.localePath(permalink)
 
     if (host) {
       permalink = location.protocol + '//' + location.host + permalink
