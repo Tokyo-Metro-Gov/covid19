@@ -3,6 +3,11 @@
     <div :class="$style.FlowRow">
       <div :class="$style.FlowRowRowThree">
         <p :class="$style.FlowRowRowThreeGeneral">
+          <img
+            :class="$style.FlowRowRowThreeGeneralIcon"
+            src="/flow/accessibility-24px.svg"
+            aria-hidden="true"
+          />
           {{ $t('一般の方') }}
         </p>
       </div>
@@ -34,6 +39,11 @@
             </span>
           </i18n>
         </p>
+        <img
+          :class="$style.FlowRowConditionIcon"
+          src="/flow/check_circle-24px.svg"
+          aria-hidden="true"
+        />
       </div>
       <div :class="$style.FlowRowCondition">
         <p>
@@ -49,39 +59,54 @@
             </i18n>
           </i18n>
         </p>
+        <img
+          :class="$style.FlowRowConditionIcon"
+          src="/flow/check_circle-24px.svg"
+          aria-hidden="true"
+        />
       </div>
       <div :class="$style.FlowRowCondition">
         <p>{{ $t('強いだるさ') }}</p>
+        <img
+          :class="$style.FlowRowConditionIcon"
+          src="/flow/check_circle-24px.svg"
+          aria-hidden="true"
+        />
       </div>
       <div :class="$style.FlowRowCondition">
         <p>{{ $t('息苦しさ') }}</p>
+        <img
+          :class="$style.FlowRowConditionIcon"
+          src="/flow/check_circle-24px.svg"
+          aria-hidden="true"
+        />
       </div>
     </div>
     <div :class="$style.FlowRow">
       <div :class="$style.FlowRowRowThree">
         <ul :class="$style.FlowRowRowThreeCareTargetList">
-          <li
-            :class="[
-              $style.FlowRowRowThreeCareTargetListItem,
-              $style.FlowRowRowThreeCareTargetListItemDirectionsWalk
-            ]"
-          >
+          <li :class="$style.FlowRowRowThreeCareTargetListItem">
+            <img
+              :class="$style.FlowRowRowThreeCareTargetListItemIcon"
+              src="/flow/directions_walk-24px.svg"
+              aria-hidden="true"
+            />
             {{ $t('ご高齢な方') }}
           </li>
-          <li
-            :class="[
-              $style.FlowRowRowThreeCareTargetListItem,
-              $style.FlowRowRowThreeCareTargetListItemAccessible
-            ]"
-          >
+          <li :class="$style.FlowRowRowThreeCareTargetListItem">
+            <img
+              :class="$style.FlowRowRowThreeCareTargetListItemIcon"
+              src="/flow/accessible-24px.svg"
+              aria-hidden="true"
+            />
             {{ $t('基礎疾患のある方') }}
           </li>
-          <li
-            :class="[
-              $style.FlowRowRowThreeCareTargetListItem,
-              $style.FlowRowRowThreeCareTargetListItemPregnantWoman
-            ]"
-          >
+          <li :class="$style.FlowRowRowThreeCareTargetListItem">
+            <img
+              :class="$style.FlowRowRowThreeCareTargetListItemIcon"
+              src="/flow/pregnant_woman-24px.svg"
+              aria-hidden="true"
+            />
             {{ $t('妊娠中の方') }}
           </li>
         </ul>
@@ -129,15 +154,13 @@
       align-items: center;
       justify-content: center;
       margin-top: 20px;
-      &General::before {
-        content: '';
-        display: block;
-        margin: auto;
-        width: 44px;
-        height: 44px;
-        background-image: url(/flow/accessibility-24px.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
+      &General {
+        &Icon {
+          display: block;
+          margin: auto;
+          width: 44px;
+          height: 44px;
+        }
       }
       &CareTargetList {
         margin: 16px 0;
@@ -149,22 +172,10 @@
         &Item {
           display: flex;
           align-items: center;
-          &::before {
-            content: '';
+          &Icon {
             display: inline-block;
             width: 30px;
             height: 30px;
-            background-repeat: no-repeat;
-            background-size: contain;
-          }
-          &DirectionsWalk::before {
-            background-image: url(/flow/directions_walk-24px.svg);
-          }
-          &Accessible::before {
-            background-image: url(/flow/accessible-24px.svg);
-          }
-          &PregnantWoman::before {
-            background-image: url(/flow/pregnant_woman-24px.svg);
           }
         }
       }
@@ -200,15 +211,12 @@
         font-size: 15px;
       }
 
-      &::after {
+      &Icon {
         position: absolute;
         left: -8px;
         top: -8px;
         width: 24px;
         height: 24px;
-        background-image: url(/flow/check_circle-24px.svg);
-        background-size: contain;
-        content: '';
       }
 
       &::before {
