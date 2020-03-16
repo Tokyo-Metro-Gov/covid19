@@ -1,7 +1,7 @@
 version: "3"
 services:
   app:
-    container_name: covid19
+    container_name: covid19-yamaguchi
     build:
       context: .
       dockerfile: Dockerfile
