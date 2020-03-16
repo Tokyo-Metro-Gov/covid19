@@ -89,9 +89,9 @@ export default {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
           sText: `${this.$t('{date}の合計', {
             date: this.chartData.slice(-1)[0].label
-          })}（${this.$t('前日比')}: ${
-            this.displayTransitionRatio
-          } ${this.unit}）`,
+          })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+            this.unit
+          }）`,
           unit: this.unit
         }
       }
@@ -99,11 +99,9 @@ export default {
         lText: this.chartData[
           this.chartData.length - 1
         ].cumulative.toLocaleString(),
-        sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-          '{date}の全体累計', {
+        sText: `${this.$t('{date}の全体累計', {
           date: this.chartData.slice(-1)[0].label
-        }
-        )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
+        })}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
           this.unit
         }）`,
         unit: this.unit
