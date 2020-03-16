@@ -14,7 +14,7 @@
       class="cardTable"
     />
     <div class="note">
-      ※退院には、死亡退院を含む
+      {{ $t('※退院には、死亡退院を含む') }}
     </div>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -25,6 +25,8 @@
     </template>
   </data-view>
 </template>
+
+<i18n src="./DataTable.i18n.json"></i18n>
 
 <style lang="scss">
 .cardTable {
@@ -68,7 +70,7 @@
 .note {
   padding: 8px;
   font-size: 12px;
-  color: #808080;
+  color: $gray-3;
 }
 </style>
 

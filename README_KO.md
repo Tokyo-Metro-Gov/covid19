@@ -4,7 +4,8 @@
 
 [![도쿄도 코로나19 대책 사이트](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | Korean | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md)
+### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md) | [Thai](./README_TH.md)
+
 
 ## 기여방법
 오픈상태의 Issue에 여러 가지 내용 추가 및 수정등으로 기여해주시면, 매우 감사하겠습니다.
@@ -19,6 +20,10 @@
 ## 라이선스
 이 소프트웨어는 [MIT 라이선스](./LICENSE.txt)를 따르고 있습니다.
 
+## 이 사이트에서 파생된 사이트
+
+해당 [링크(일본어)](./forkedSites.md)를 클릭하여 보십시요.
+
 ## 개발자를 위한 개발 정보
 
 ### 개발환경을 구축하는 방법
@@ -26,7 +31,7 @@
 - 필요한 Node.js 버젼: 10.19.0이상
 
 **yarn을 사용할 경우**
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
@@ -39,6 +44,37 @@ $ yarn dev
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
 ```
+
+### `Cannot find module ****` 에러를 해결하는 방법
+
+**yarn을 사용할 경우**
+```
+$ yarn install
+```
+
+**docker compose를 사용할 경우**
+```bash
+$ docker-compose run --rm app yarn install
+```
+
+[please translate me]
+### VSCode + Remote Cotainersで開発する場合
+
+1. VSCodeの拡張機能「[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」を導入します。
+2. [この画像（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)のように左下部の「Open Folder in Container」でこのリポジトリのルートを選択すれば環境構築が始まります。
+
+[Topic]
+- 設定を変更したい場合は、`.devcontainer/devcontainer.json`を修正してください。<br/>
+    詳細は[devcontainer.jsonのリファレンス](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)を参照してください。
+- Remote Container実行時のみ有効な拡張機能「ESlint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。<br/>
+    詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
+- 開発環境を再構築する場合は、左下部の「Rebuild Container」を実行してください。
+[/please translate me]
+
+### 프로덕션/기타 환경 탐지
+
+프로덕션 환경에서, `'production'` 은 `process.env.GENERATE_ENV` 변수에 할당되고, 다른 환경에서는 `'development'`가 변수에 할당됩니다.
+런타임에서 사용할 환경을 감지하려면 이 변수를 사용하십시요.
 
 ### 스테이징 환경 및 운영 환경으로 반영 방법
 

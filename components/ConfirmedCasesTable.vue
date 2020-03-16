@@ -3,13 +3,12 @@
     <li class="item checked">
       <div class="gutter">
         <div class="box tall">
-          <span>
-            検査実施
-            <br />人数
-          </span>
+          <!-- eslint-disable vue/no-v-html-->
+          <span v-html="$t('検査実施<br />人数')" />
+          <!-- eslint-enable vue/no-v-html-->
           <span>
             <b>{{ 検査実施人数 }}</b>
-            <span class="unit">人</span>
+            <span class="unit">{{ $t('人') }}</span>
           </span>
         </div>
       </div>
@@ -18,23 +17,23 @@
       <div class="gutter">
         <div class="box tall">
           <span>
-            陽性者数
-            <br />(累積)
+            {{ $t('陽性者数') }}
+            <br />{{ $t('(累積)') }}
           </span>
           <span>
             <b>{{ 陽性物数 }}</b>
-            <span class="unit">人</span>
+            <span class="unit">{{ $t('人') }}</span>
           </span>
         </div>
       </div>
       <ul class="group">
         <li class="item in-hospital">
-          <div class="gutter">
+          <div class="gutter oneThird">
             <div class="box">
-              <span>入院中</span>
+              <span>{{ $t('入院中') }}</span>
               <span>
                 <b>{{ 入院中 }}</b>
-                <span class="unit">人</span>
+                <span class="unit">{{ $t('人') }}</span>
               </span>
             </div>
           </div>
@@ -42,13 +41,12 @@
             <li class="item mild">
               <div class="gutter">
                 <div class="box short">
-                  <span>
-                    軽症・
-                    <br />中等症
-                  </span>
+                  <!-- eslint-disable vue/no-v-html-->
+                  <span v-html="$t('軽症・<br />中等症')" />
+                  <!-- eslint-enable vue/no-v-html-->
                   <span>
                     <b>{{ 軽症中等症 }}</b>
-                    <span class="unit">人</span>
+                    <span class="unit">{{ $t('人') }}</span>
                   </span>
                 </div>
               </div>
@@ -56,10 +54,10 @@
             <li class="item serious">
               <div class="gutter">
                 <div class="box short">
-                  <span>重症</span>
+                  <span>{{ $t('重症') }}</span>
                   <span>
                     <b>{{ 重症 }}</b>
-                    <span class="unit">人</span>
+                    <span class="unit">{{ $t('人') }}</span>
                   </span>
                 </div>
               </div>
@@ -69,10 +67,10 @@
         <li class="item deceased">
           <div class="gutter">
             <div class="box">
-              <span>死亡</span>
+              <span>{{ $t('死亡') }}</span>
               <span>
                 <b>{{ 死亡 }}</b>
-                <span class="unit">人</span>
+                <span class="unit">{{ $t('人') }}</span>
               </span>
             </div>
           </div>
@@ -80,10 +78,10 @@
         <li class="item recovered">
           <div class="gutter">
             <div class="box">
-              <span>退院</span>
+              <span>{{ $t('退院') }}</span>
               <span>
                 <b>{{ 退院 }}</b>
-                <span class="unit">人</span>
+                <span class="unit">{{ $t('人') }}</span>
               </span>
             </div>
           </div>
@@ -92,6 +90,8 @@
     </li>
   </ul>
 </template>
+
+<i18n src="./ConfirmedCasesTable.i18n.json"></i18n>
 
 <script>
 export default {
@@ -165,25 +165,29 @@ export default {
 .gutter {
   width: 100%;
   padding-right: 3px;
+  &.oneThird {
+    width: calc(100% / 3);
+  }
 }
 .box {
+  $box-height: 170px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
   padding-bottom: 26px;
   width: 100%;
-  height: 150px;
+  height: $box-height;
   border: 3px solid $green-1;
   color: $green-1;
   @include font-size(14);
   text-align: center;
   line-height: 1.2;
   &.tall {
-    height: 185px;
+    height: $box-height + 35px;
   }
   &.short {
-    height: 115px;
+    height: $box-height - 35px;
   }
   span:last-child {
     margin-top: 0.2em;
@@ -320,21 +324,21 @@ export default {
 
 // variables.scss Breakpoints: huge
 @include lessThan(1440) {
-  @include variation(1440, 3, 14, 150, 35);
+  @include variation(1440, 3, 14, 180, 35);
 }
 
 // Vuetify Breakpoints: Large
 @include lessThan(1263) {
-  @include variation(1263, 2, 12, 107, 24);
+  @include variation(1263, 2, 12, 150, 24);
 }
 
 // Vuetify Breakpoints: Small
 @include lessThan(959) {
-  @include variation(960, 4, 16, 180, 40);
+  @include variation(960, 4, 16, 250, 40);
 }
 
 // Vuetify Breakpoints: Extra Small
 @include lessThan(599) {
-  @include variation(600, 3, 14, 150, 35);
+  @include variation(600, 3, 14, 200, 35);
 }
 </style>

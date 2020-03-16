@@ -2,9 +2,13 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="MetroGraph-Desc">
-        {{ chartData.base_period }}の利用者数*の平均値を基準としたときの相対値
+        {{
+          $t('{range}の利用者数*の平均値を基準としたときの相対値', {
+            range: $t(chartData.base_period)
+          })
+        }}
         <br />
-        *都営地下鉄4路線の自動改札出場数
+        *{{ $t('都営地下鉄4路線の自動改札出場数') }}
       </p>
     </template>
     <bar
@@ -15,6 +19,8 @@
     />
   </data-view>
 </template>
+
+<i18n src="./MetroBarChart.i18n.json"></i18n>
 
 <style lang="scss">
 .MetroGraph {

@@ -1,32 +1,34 @@
 <template>
   <div :class="wrapperClass">
-    <div class="PrinterButton">
-      <v-btn outlined color="#00a040" href="/print/flow" target="_blank">
-        <div class="PrinterButton-PrinterIcon">
-          <PrinterIcon />
-        </div>
-        <span class="PrinterButton-Text">
-          {{ $t('print') }}
-        </span>
-      </v-btn>
-    </div>
+    <v-btn
+      class="PrinterButton"
+      outlined
+      href="/print/flow"
+      target="_blank"
+      @mouseover="mouseover"
+      @mouseleave="mouseleave"
+    >
+      <div class="PrinterButton-PrinterIcon">
+        <PrinterWhiteIcon v-if="hover" aria-hidden="true" />
+        <PrinterIcon v-else aria-hidden="true" />
+      </div>
+      <span class="PrinterButton-Text">
+        {{ $t('print') }}
+      </span>
+    </v-btn>
   </div>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "print": "印刷する"
-  }
-}
-</i18n>
+<i18n src="./PrinterButton.i18n.json"></i18n>
 
 <script>
 import PrinterIcon from '@/static/printer.svg'
+import PrinterWhiteIcon from '@/static/printer-white.svg'
 
 export default {
   components: {
-    PrinterIcon
+    PrinterIcon,
+    PrinterWhiteIcon
   },
   props: {
     wrapperClass: {
@@ -34,22 +36,52 @@ export default {
       required: false,
       default: ''
     }
+  },
+  data() {
+    return {
+      hover: this.hover
+    }
+  },
+  methods: {
+    mouseover() {
+      this.hover = true
+    },
+    mouseleave() {
+      this.hover = false
+    }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .PrinterButton {
+  @include button-text('md');
+  &:hover {
+    color: $white !important;
+  }
   &-Text {
+    margin: 6px auto 0;
     @include lessThan($small) {
-      display: none;
+      position: absolute !important;
+      height: 1px !important;
+      width: 1px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      clip: rect(1px, 1px, 1px, 1px) !important;
+      clip-path: inset(50%) !important;
     }
   }
   &-PrinterIcon {
-    margin-top: 3px;
+    margin-top: 8px;
+    width: 25px;
 
     @include largerThan($small) {
       padding-right: 7px;
+    }
+    svg {
+      width: auto;
     }
   }
 }
