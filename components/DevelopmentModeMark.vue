@@ -48,8 +48,8 @@ export default {
   },
   computed: {
     isDevelopmentMode: () => {
-      if (process && process.env && process.env.NODE_ENV) {
-        return process.env.NODE_ENV === 'development'
+      if (process && process.env && process.env.GENERATE_ENV) {
+        return process.env.GENERATE_ENV === 'development'
       }
       return false
     }
