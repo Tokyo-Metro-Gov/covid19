@@ -33,7 +33,7 @@ Transifex has some useful features like a dictionary feature. Feel free to use i
 
 If you want to add new language. Please request new language via Transifex system. However, we may not accept every languages due to reviewing capacity limit.
 
-## For devloppers
+## For developers
 
 If you have something new texts which needs translation, please add the strings to `../assets/locales/ja.json` and make a pull request to `dev-i18n`branch. You can use same string for key and value.
 
