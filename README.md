@@ -1,8 +1,8 @@
-# 新潟県 新型コロナウイルス感染症対策サイト
+# 新潟県（非公式） 新型コロナウイルス感染症対策サイト
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
-[![新潟県 新型コロナウイルス感染症対策サイト](https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![新潟県（非公式） 新型コロナウイルス感染症対策サイト](https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
 ### 日本語 | [English](./README_EN.md) | [Español](./README_ES.md) | [한국어](./README_KO.md) | [繁體中文](./README_ZH_TW.md) | [简体中文](./README_ZH_CN.md) | [Tiếng Việt](./README_VI.md) | [ภาษาไทย](./README_TH.md) | [French](./README_FR.md)
 
@@ -18,7 +18,7 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 ## ライセンス
 本ソフトウェアは、[MITライセンス](./LICENSE.txt)の元提供されています。
 
-## このサイトから派生したサイト
+## 東京都サイトから派生したサイト
 
 [Link先](./forkedSites.md)を御覧ください。
 
@@ -78,6 +78,8 @@ staging ブランチがアップデートされると、自動的に gh-pages �
 そして、ステージングサイト （未定） が更新されます。
 
 development ブランチがアップデートされると、自動的に dev-pages ブランチにHTML類がbuildされます。
+
+### 開発用環境への反映（新潟県非公式） 
 
 `development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト　https://dev-niigata-informal.netlify.com/  が更新されます。
 
