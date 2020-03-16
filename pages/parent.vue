@@ -28,8 +28,8 @@ export default {
               '不特定多数の人の集まる場所等への外出を避け、基本的に自宅で過ごしてください。'
             ),
             this.$t('手洗い、咳エチケット等により、感染予防に努めてください。'),
-            '<a href="https://tokyodouga.jp/lViN9C_BS-0.html" target="_blank" rel="noopener">' +
-              this.$t('【参考】感染症予防のための正しい手洗い方法（動画）') +
+            '<a href="https://www.pref.yamaguchi.lg.jp/cmsdata/1/4/2/142f5b06182fae366ce6e7bb2bf3d871.pdf" target="_blank" rel="noopener">' +
+              this.$t('【参考】「基本は手洗い。」リーフレット (PDF : 696KB)') +
               '</a>',
             this.$t(
               '規則正しい生活を心がけ、日常の健康管理に十分気を付けてください。'
@@ -40,7 +40,9 @@ export default {
           title: `2. ${this.$t('感染症を疑う場合の対応')}`,
           body: [
             this.$t('各保健所にご相談ください'),
-            this.$t('「新型コロナウイルス感染症にかかる相談窓口について」'),
+            this.$t(
+              '「新型コロナウイルスに関連する各種相談窓口について」（山口県広報広聴課）'
+            ),
             '<a href="https://www.pref.yamaguchi.lg.jp/cms/a11000/sodan/koronasoudan.html" target="_blank" rel="noopener">https://www.pref.yamaguchi.lg.jp/cms/a11000/sodan/koronasoudan.html</a>'
           ].join('<br />')
         },
