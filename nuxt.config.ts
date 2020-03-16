@@ -13,7 +13,7 @@ const config: Configuration = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | 東京都 新型コロナウイルス感染症対策サイト',
+    titleTemplate: '%s | 東京都 新型コロナウイルス感染症対策サイト（フォーク）',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -26,7 +26,7 @@ const config: Configuration = {
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: '東京都 新型コロナウイルス感染症対策サイト'
+        content: '東京都 新型コロナウイルス感染症対策サイト（フォーク）'
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -37,7 +37,7 @@ const config: Configuration = {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: '東京都 新型コロナウイルス感染症対策サイト'
+        content: '東京都 新型コロナウイルス感染症対策サイト（フォーク）'
       },
       {
         hid: 'og:description',
@@ -177,7 +177,7 @@ const config: Configuration = {
     hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: '東京都 新型コロナウイルス感染症対策サイト',
+    name: '東京都 新型コロナウイルス感染症対策サイト（フォーク）',
     theme_color: '#00a040',
     background_color: '#ffffff',
     display: 'standalone',
