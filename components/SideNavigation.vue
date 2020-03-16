@@ -79,7 +79,26 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 Kagoshima Prefectural Government
+          <br />
+          {{
+            $t(
+              'このサイトのサーバーおよびドメインは、GMOペパボ株式会社の提供によるものです。'
+            )
+          }}
+          <br />
+          <br />
+          <a href="https://pepabo.com/">
+            <img
+              src="https://pepabo.com/assets/images/site_name.png"
+              alt="GMO Pepabo, Inc."
+            />
+          </a>
+          <br />
+          <br />
+          © 2020 Kagoshima Prefectural Government
+          <br />
+          <br />
+          <br />
         </small>
       </v-footer>
     </div>
