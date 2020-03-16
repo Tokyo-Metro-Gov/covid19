@@ -79,7 +79,7 @@ staging ブランチがアップデートされると、自動的に gh-pages �
 
 development ブランチがアップデートされると、自動的に dev-pages ブランチにHTML類がbuildされます。
 
-`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト　https://focused-benz-bb8acc.netlify.com/  が更新されます。
+`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト　https://dev-niigata-informal.netlify.com/  が更新されます。
 
 ### ブランチルール
 
