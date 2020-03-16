@@ -20,6 +20,10 @@ Please check [Code of conduct for developers](./.github/CODE_OF_CONDUCT_EN.md) f
 ## License
 This software is released under [the MIT License](./LICENSE.txt).
 
+## For Translators
+
+Please check [How to translate](./.github/TRANSLATION.md) doc.
+
 ## For Developers
 
 ### How to Set Up Environments
