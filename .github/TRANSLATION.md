@@ -8,6 +8,7 @@ Please go to our project page on the Transifex.
 https://www.transifex.com/stopcovid19-tokyo/stopcovid19tokyo
 
 Please join our team from `Help Translate "StopCovid19Tokyo"` button. You will need to make/login account before joining our team.
+
 ![](img/2020-03-16-16-05-37.png)
 
 After joining, please go to the dashboard page.
