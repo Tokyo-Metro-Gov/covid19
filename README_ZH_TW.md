@@ -60,19 +60,17 @@ $ yarn install
 $ docker-compose run --rm app yarn install
 ```
 
-[please translate me]
-### VSCode + Remote Cotainersで開発する場合
+### VSCode + Remote Cotainers 的開發環境
 
-1. VSCodeの拡張機能「[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」を導入します。
-2. [この画像（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)のように左下部の「Open Folder in Container」でこのリポジトリのルートを選択すれば環境構築が始まります。
+1. 安裝 VSCode 的擴充套件「[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」。
+2. 如同 [這個圖像（外部連結）](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)點擊左下角的 「Open Folder in Container」 後選擇 Repository 的資料夾路徑開始建立環境。
 
-[Topic]
-- 設定を変更したい場合は、`.devcontainer/devcontainer.json`を修正してください。<br/>
-    詳細は[devcontainer.jsonのリファレンス](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)を参照してください。
-- Remote Container実行時のみ有効な拡張機能「ESlint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。<br/>
-    詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
-- 開発環境を再構築する場合は、左下部の「Rebuild Container」を実行してください。
-[/please translate me]
+[提示]
+- 如果想要變更設定，請更改 `.devcontainer/devcontainer.json` 這隻檔案。<br/>
+    詳細請參考 [devcontainer.json的參考值](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)。
+- Remote Container 啟動時擴充套件只有導入 「ESlint」、如果有必要，請在 `devcontainer.json` 的 `extensions` 中新增。<br/>
+    詳細的步驟請參考 [這裡（外部連結）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)。
+- 如果要重新建立開發環境，請執行左下角的 「Rebuild Container」。
 
 ### 生產環境/其他環境的判定
 
