@@ -53,7 +53,7 @@ $ docker-compose up --build
 [Topic]
 - 設定を変更したい場合は、`.devcontainer/devcontainer.json`を修正してください。
 詳細は[devcontainer.jsonのリファレンス](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)を参照してください。
-- Remote Container実行時のみ有効な拡張機能「ESlint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。
+- Remote Container実行時のみ有効な拡張機能「ESLint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。
 詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
 - 開発環境を再構築する場合は、左下部の「Rebuild Container」を実行してください。
 [/please translate me]
