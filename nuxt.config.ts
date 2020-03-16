@@ -1,9 +1,12 @@
 import { Configuration } from '@nuxt/types'
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
+const environment = process.env.NODE_ENV || 'development'
+const envSet = require(`./config/${environment}.ts`)
 
 const config: Configuration = {
   mode: 'universal',
+  env: envSet,
   /*
    ** Headers of the page
    */
