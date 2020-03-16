@@ -1,7 +1,7 @@
 <template>
   <div class="Flow">
     <div class="Flow-Heading">
-      <CovidIcon />
+      <CovidIcon aria-hidden="true" />
       <h2 class="Flow-Heading-Title">
         {{ $t('新型コロナウイルス感染症が心配なときに') }}
       </h2>
@@ -30,8 +30,6 @@
     </div>
   </div>
 </template>
-
-<i18n src="./flow.i18n.json"></i18n>
 
 <script>
 import CovidIcon from '@/static/covid.svg'

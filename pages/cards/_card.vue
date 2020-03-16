@@ -33,8 +33,6 @@
   </div>
 </template>
 
-<i18n src="./_card.i18n.json"></i18n>
-
 <script>
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
@@ -104,7 +102,9 @@ export default {
   },
   head() {
     const url = 'https://stopcovid19.metro.tokyo.lg.jp'
-    const ogpImage = url + '/ogp-' + this.$route.params.card + '.png'
+    const timestamp = new Date().getTime()
+    const ogpImage =
+      url + '/ogp-' + this.$route.params.card + '.png?t=' + timestamp
     const description =
       this.updatedAt +
       ' 更新 | ' +

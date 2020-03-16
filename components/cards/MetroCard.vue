@@ -11,8 +11,6 @@
   </v-col>
 </template>
 
-<i18n src="./MetroCard.i18n.json"></i18n>
-
 <script>
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
@@ -59,6 +57,9 @@ export default {
           },
           onLeave: e => {
             e.currentTarget.style.cursor = 'default'
+          },
+          labels: {
+            boxWidth: 20
           }
         },
         scales: {

@@ -137,8 +137,6 @@
   </div>
 </template>
 
-<i18n src="./FlowSpAccording.i18n.json"></i18n>
-
 <script>
 import Apartment from '@/static/flow/responsive/apartment.svg'
 import House from '@/static/flow/responsive/house.svg'
