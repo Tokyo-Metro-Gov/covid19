@@ -109,8 +109,7 @@ const config: Configuration = {
    */
   buildModules: [
     '@nuxtjs/vuetify',
-    '@nuxt/typescript-build',
-    '@nuxtjs/google-analytics'
+    '@nuxt/typescript-build'
   ],
   /*
    ** Nuxt.js modules
@@ -196,9 +195,6 @@ const config: Configuration = {
     defaultAssets: {
       icons: false
     }
-  },
-  googleAnalytics: {
-    id: 'UA-159417676-1'
   },
   build: {
     postcss: {
