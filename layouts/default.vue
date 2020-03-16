@@ -27,14 +27,19 @@
       </v-container>
     </div>
     <NoScript />
+    <development-mode-mark />
   </v-app>
 </template>
+
+<i18n src="./meta.i18n.json"></i18n>
+
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
 import NoScript from '@/components/NoScript.vue'
+import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 
 type LocalData = {
   hasNavigation: boolean
@@ -44,6 +49,7 @@ type LocalData = {
 
 export default Vue.extend({
   components: {
+    DevelopmentModeMark,
     ScaleLoader,
     SideNavigation,
     NoScript
@@ -81,6 +87,47 @@ export default Vue.extend({
         {
           rel: 'canonical',
           href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+        }
+      ],
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$tc(
+            '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+          )
+        },
+        {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          content: this.$tc('東京都 新型コロナウイルス感染症対策サイト')
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.$tc('東京都 新型コロナウイルス感染症対策サイト')
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.$tc(
+            '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+          )
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.$tc('https://stopcovid19.metro.tokyo.lg.jp/ogp.png')
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: this.$tc('東京都 新型コロナウイルス感染症対策サイト')
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.$tc('https://stopcovid19.metro.tokyo.lg.jp/ogp.png')
         }
       ]
     }

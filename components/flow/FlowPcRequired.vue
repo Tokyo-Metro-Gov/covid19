@@ -40,8 +40,6 @@
   </div>
 </template>
 
-<i18n src="./FlowPcRequired.i18n.json"></i18n>
-
 <style module lang="scss">
 .Container {
   @include card-container();

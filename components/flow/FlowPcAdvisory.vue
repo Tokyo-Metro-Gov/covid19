@@ -4,7 +4,7 @@
       <div :class="$style.AdvisoryContents">
         <div>
           <span :class="$style.AdvisoryContentsTitle">{{
-            $t('新型コロナ受診相談窓口')
+            $t('新型コロナ受診相談窓口（日本語のみ）')
           }}</span>
         </div>
         <div :class="[$style.AdvisoryContentsColsSentense, 'mt-4']">
@@ -65,6 +65,11 @@
           ]"
         >
           <a :class="$style.AdvisoryTelephone" href="tel:0353204592">
+            <img
+              :class="$style.AdvisoryTelephoneIcon"
+              src="/flow/phone-24px.svg"
+              aria-hidden="true"
+            />
             03-5320-4592
           </a>
         </div>
@@ -72,8 +77,6 @@
     </div>
   </div>
 </template>
-
-<i18n src="./FlowPcAdvisory.i18n.json"></i18n>
 
 <style module lang="scss">
 .Advisory {
@@ -140,15 +143,11 @@
       color: inherit;
       text-decoration: none;
     }
-    &::before {
-      content: '';
+    &Icon {
       display: inline-block;
       margin-right: 5px;
       width: 26px;
       height: 26px;
-      background-image: url(/flow/phone-24px.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
     }
   }
   &BoxContainer {

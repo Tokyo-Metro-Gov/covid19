@@ -21,8 +21,6 @@
   </div>
 </template>
 
-<i18n src="./error.i18n.json"></i18n>
-
 <script lang="ts">
 import Vue from 'vue'
 

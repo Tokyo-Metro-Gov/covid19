@@ -20,8 +20,6 @@
   </data-view>
 </template>
 
-<i18n src="./SvgCard.i18n.json"></i18n>
-
 <style lang="scss" scoped>
 .SvgCard {
   ::v-deep svg {
@@ -36,10 +34,11 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 
-export default {
+export default Vue.extend({
   components: { DataView },
   props: {
     title: {
@@ -55,5 +54,5 @@ export default {
       default: ''
     }
   }
-}
+})
 </script>

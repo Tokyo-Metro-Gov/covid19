@@ -17,7 +17,7 @@
 * 如果能夠優先處理 `good first issue` / `help wanted` / `bug` 的話將會很有幫助。
 
 ## 如何參與交流
-* 如果你沒有 Code for Japan 的 Slack 帳號的話、請[點這邊註冊](https://cfjslackin.herokuapp.com/)。
+* 如果你沒有 Code for Japan 的 Slack 帳號的話，請[點這邊註冊](https://cfjslackin.herokuapp.com/)。
 * 請參加 `#covid19` 頻道。
 
 ## 給參加者
