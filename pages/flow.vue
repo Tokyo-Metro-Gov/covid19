@@ -77,7 +77,7 @@
             />
           </div>
           <div class="TelLink">
-            <a href="tel:043-223-2640"
+            <a href="tel:043-238-9966"
               ><img src="/flow/sp/sp_flow_tel_01@2x.png" alt="0570-550571"
             /></a>
           </div>
@@ -106,10 +106,10 @@
                 土日祝 終日
               </dt>
               <dd class="TelLink">
-                <a href="tel:0353204592">
+                <a href="tel:043-238-9966">
                   <img
                     src="/flow/sp/sp_flow_tel_03@2x.png"
-                    alt="03-5320-4592"
+                    alt="043-238-9966"
                   />
                 </a>
               </dd>

@@ -1034,8 +1034,8 @@
         </text>
         <g transform="translate(-101 1091)">
           <text class="b" transform="translate(238 106)">
-            <tspan x="-77" y="0">千葉県</tspan>
-            <tspan x="-77" y="25">衛生研究所等</tspan>
+            <tspan x="-77" y="0">千葉市</tspan>
+            <tspan x="-77" y="25">環境保険研究所</tspan>
           </text>
         </g>
       </g>
@@ -1163,7 +1163,7 @@
         </g>
       </g>
       <text class="an" transform="translate(633 679)">
-        <tspan x="-79.555" y="0">043-223-2640</tspan>
+        <tspan x="-79.555" y="0">048-238-9966</tspan>
       </text>
       <g transform="translate(520 656)">
         <path class="d" d="M0,0H26V26H0Z" />
