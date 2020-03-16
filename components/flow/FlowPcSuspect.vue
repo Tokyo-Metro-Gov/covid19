@@ -1,19 +1,44 @@
 <template>
   <div :class="$style.FlowComponent">
     <div :class="[$style.SubtleBox, $style.Box1]">
+      <img
+        :class="$style.Box1Icon"
+        src="/flow/flow_arrow.svg"
+        aria-hidden="true"
+      />
       <div :class="$style.RowItems">
         <div :class="$style.RowItemsHeader">
+          <img
+            :class="$style.RowItemsHeaderIcon"
+            src="/flow/sentiment_very_dissatisfied-24px.svg"
+            aria-hidden="true"
+          />
           {{ $t('不安に思う方') }}
         </div>
       </div>
       <div :class="$style.RowItems">
         <div :class="$style.CheckBox">
+          <img
+            :class="$style.CheckBoxIcon"
+            src="/flow/check_circle-24px.svg"
+            aria-hidden="true"
+          />
           {{ $t('微熱') }}
         </div>
         <div :class="$style.CheckBox">
+          <img
+            :class="$style.CheckBoxIcon"
+            src="/flow/check_circle-24px.svg"
+            aria-hidden="true"
+          />
           {{ $t('軽い咳') }}
         </div>
         <div :class="$style.CheckBox">
+          <img
+            :class="$style.CheckBoxIcon"
+            src="/flow/check_circle-24px.svg"
+            aria-hidden="true"
+          />
           {{ $t('感染の不安') }}
         </div>
       </div>
@@ -29,6 +54,11 @@
 
       <div :class="$style.Tel">
         <a :class="$style.TelLink" href="tel:0570550571">
+          <img
+            :class="$style.TelLinkIcon"
+            src="/flow/phone-24px.svg"
+            aria-hidden="true"
+          />
           0570-550571
         </a>
       </div>
@@ -61,15 +91,11 @@
     color: inherit;
     text-decoration: none;
   }
-  &::before {
-    content: '';
+  &Icon {
     display: inline-block;
     margin-right: 5px;
     width: 26px;
     height: 26px;
-    background-image: url(/flow/phone-24px.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
   }
 }
 
@@ -87,15 +113,12 @@
     font-size: 20px;
   }
 
-  &::after {
+  &Icon {
     position: absolute;
     left: -8px;
     top: -8px;
     width: 24px;
     height: 24px;
-    background-image: url(/flow/check_circle-24px.svg);
-    background-size: contain;
-    content: '';
   }
 
   &::before {
@@ -123,8 +146,7 @@
   flex-shrink: 0;
   width: 60%;
   flex-direction: row;
-  &::after {
-    content: '';
+  &Icon {
     position: absolute;
     bottom: 40%;
     right: -30px;
@@ -132,7 +154,6 @@
     display: block;
     width: 46px;
     height: 46px;
-    background: url('/flow/flow_arrow.svg') no-repeat;
   }
 }
 
@@ -158,15 +179,11 @@
 
 .RowItemsHeader {
   font-size: smaller;
-  &::before {
-    content: '';
+  &Icon {
     display: block;
     margin: auto;
     width: 45px;
     height: 45px;
-    background-image: url(/flow/sentiment_very_dissatisfied-24px.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
   }
 }
 

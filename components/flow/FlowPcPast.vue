@@ -83,9 +83,23 @@
         </template>
       </div>
       <div :class="$style.FlowCondition">
-        <em :class="$style.FlowSymptom">{{ $t('発熱') }}</em>
+        <em :class="$style.FlowSymptom">
+          {{ $t('発熱') }}
+          <img
+            :class="$style.FlowSymptomIcon"
+            src="/flow/check_circle-24px.svg"
+            aria-hidden="true"
+          />
+        </em>
         <span :class="$style.FlowText">{{ $t('または') }}</span>
-        <em :class="$style.FlowSymptom">{{ $t('呼吸器症状') }}</em>
+        <em :class="$style.FlowSymptom">
+          {{ $t('呼吸器症状') }}
+          <img
+            :class="$style.FlowSymptomIcon"
+            src="/flow/check_circle-24px.svg"
+            aria-hidden="true"
+          />
+        </em>
         <span :class="$style.FlowText">{{ $t('かつ') }}</span>
         <em :class="$style.FlowSymptom">
           <i18n tag="span" :class="$style.FlowTextSm" path="発熱{temperature}">
@@ -95,6 +109,11 @@
               </span>
             </i18n>
           </i18n>
+          <img
+            :class="$style.FlowSymptomIcon"
+            src="/flow/check_circle-24px.svg"
+            aria-hidden="true"
+          />
         </em>
       </div>
     </div>
@@ -216,15 +235,12 @@ export default {
     font-weight: bold;
     font-style: normal;
 
-    &::after {
+    &Icon {
       position: absolute;
       left: -8px;
       top: -8px;
       width: 24px;
       height: 24px;
-      background-image: url(/flow/check_circle-24px.svg);
-      background-size: contain;
-      content: '';
     }
 
     &::before {

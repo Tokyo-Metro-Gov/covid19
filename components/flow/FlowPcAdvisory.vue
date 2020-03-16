@@ -65,6 +65,11 @@
           ]"
         >
           <a :class="$style.AdvisoryTelephone" href="tel:0353204592">
+            <img
+              :class="$style.AdvisoryTelephoneIcon"
+              src="/flow/phone-24px.svg"
+              aria-hidden="true"
+            />
             03-5320-4592
           </a>
         </div>
@@ -138,15 +143,11 @@
       color: inherit;
       text-decoration: none;
     }
-    &::before {
-      content: '';
+    &Icon {
       display: inline-block;
       margin-right: 5px;
       width: 26px;
       height: 26px;
-      background-image: url(/flow/phone-24px.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
     }
   }
   &BoxContainer {
