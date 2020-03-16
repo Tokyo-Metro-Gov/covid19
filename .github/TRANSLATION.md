@@ -35,3 +35,4 @@ If you have something new texts which needs translation, please add the strings 
 
 Please use `this.$t()` in your program.
 
+After the text was translated, an organizer will apply new resources on the `development` branch.
