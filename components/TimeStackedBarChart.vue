@@ -1,7 +1,6 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
-      <p class="Graph-Desc" />
       <data-selector v-model="dataKind" />
     </template>
     <bar
@@ -16,6 +15,13 @@
         :s-text="displayInfo.sText"
         :unit="displayInfo.unit"
       />
+    </template>
+    <template #supplement>
+      <p class="Graph-Desc">
+        無症状病原体保有者：症状は無いがＰＣＲ検査が陽性だった者で、
+        他者へ感染させる可能性は低いとみられている。（出典：厚生労働省Ｑ＆Ａ一部改
+        変）
+      </p>
     </template>
   </data-view>
 </template>
