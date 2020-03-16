@@ -25,7 +25,7 @@ You will see the translation editor. Search the text you want to translate from 
 
 After editing, please press `Save Translation` button. 
 
-After the translation completed, the dev team will update the latest language resources with updated texts.
+After the translation completed, the dev team will update the language resources with latest texts.
 
 Transifex has some useful features like a dictionary feature. Feel free to use it if it is useful. Any suggestions are welcome!
 
