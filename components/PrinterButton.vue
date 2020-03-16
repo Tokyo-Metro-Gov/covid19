@@ -3,15 +3,14 @@
     <v-btn
       class="PrinterButton"
       outlined
-      color="#00a040"
       href="/print/flow"
       target="_blank"
       @mouseover="mouseover"
       @mouseleave="mouseleave"
     >
       <div class="PrinterButton-PrinterIcon">
-        <PrinterWhiteIcon v-if="hover" />
-        <PrinterIcon v-else />
+        <PrinterWhiteIcon v-if="hover" aria-hidden="true" />
+        <PrinterIcon v-else aria-hidden="true" />
       </div>
       <span class="PrinterButton-Text">
         {{ $t('print') }}
@@ -19,8 +18,6 @@
     </v-btn>
   </div>
 </template>
-
-<i18n src="./PrinterButton.i18n.json"></i18n>
 
 <script>
 import PrinterIcon from '@/static/printer.svg'

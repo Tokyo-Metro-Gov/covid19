@@ -9,26 +9,24 @@
     </h3>
     <div :class="$style.actionContainer">
       <ul :class="$style.actions">
-        <li>
-          <img :class="$style.icon" src="/flow/house-24px.svg" />
+        <li :class="[$style.actionsList, $style.actionsListHouse]">
           {{ $t('自宅で安静に過ごす') }}
         </li>
-        <li>
-          <img :class="$style.icon" src="/flow/apartment-24px.svg" />
+        <li :class="[$style.actionsList, $style.actionsListApartment]">
           {{ $t('一般の医療機関を受診') }}
         </li>
       </ul>
       <div :class="$style.nextAction">
         <i18n path="{getWorse}{advisory}に相談" :class="$style.content">
           <span place="getWorse">{{ $t('症状が良くならない場合は') }}</span>
-          <strong place="advisory">{{ $t('新型コロナ受診相談窓口') }}</strong>
+          <strong place="advisory">{{
+            $t('新型コロナ受診相談窓口（日本語のみ）')
+          }}</strong>
         </i18n>
       </div>
     </div>
   </div>
 </template>
-
-<i18n src="./FlowPcNotRequired.i18n.json"></i18n>
 
 <style module lang="scss">
 .flowContainer {
@@ -66,13 +64,26 @@
   flex-direction: column;
   justify-content: center;
   padding-left: 0 !important; // FIXME: for ul element
-  li {
-    list-style-type: none;
-    text-align: start;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
+}
+.actionsList {
+  list-style-type: none;
+  text-align: start;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  &::before {
+    min-width: 30px;
+    min-height: 30px;
+    content: '';
+    display: block;
+    margin-right: 10px;
   }
+}
+.actionsListHouse::before {
+  background: url('/flow/house-24px.svg') no-repeat;
+}
+.actionsListApartment::before {
+  background: url('/flow/apartment-24px.svg') no-repeat;
 }
 .icon {
   margin-right: 10px;
