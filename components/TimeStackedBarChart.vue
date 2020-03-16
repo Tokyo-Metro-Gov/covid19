@@ -28,8 +28,6 @@
   </data-view>
 </template>
 
-<i18n src="./TimeStackedBarChart.i18n.json"></i18n>
-
 <script lang="ts">
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'

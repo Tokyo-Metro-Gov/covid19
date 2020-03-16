@@ -104,8 +104,6 @@
   </div>
 </template>
 
-<i18n src="./FlowPcDays.i18n.json"></i18n>
-
 <style module lang="scss">
 .Flow {
   @include card-container($withDivider: true);

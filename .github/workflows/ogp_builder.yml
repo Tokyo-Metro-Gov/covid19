@@ -38,16 +38,16 @@ jobs:
     steps:
     - uses: actions/checkout@master
       with:
-        ref: deploy/new_ogp
+        ref: staging
     - name: Download ogp images
       uses: actions/download-artifact@v1
       with:
         name: ogp
     - name: Commit files
       run: |
-        mkdir -p static/ogp/ja
-        mv ogp/* static/ogp/ja
-        rm -rf ogp
+        mkdir -p static/ogp/
+        rm -rf static/ogp
+        mv ogp static/
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add static
@@ -57,3 +57,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: deploy/new_ogp
+        force: true

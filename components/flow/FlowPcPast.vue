@@ -114,8 +114,6 @@ export default {
 }
 </script>
 
-<i18n src="./FlowPcPast.i18n.json"></i18n>
-
 <style module lang="scss">
 .Flow {
   @include card-container($withDivider: true);
