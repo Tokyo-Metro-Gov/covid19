@@ -17,3 +17,14 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-check
           eslint_flags: './**/*.{vue,ts,js}'
+  stylelint:
+    name: check_stylelint_error
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: stylelint review
+        uses: reviewdog/action-stylelint@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-check
+          stylelint_input: '**/*.{css,scss,vue}'
