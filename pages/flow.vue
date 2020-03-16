@@ -31,25 +31,30 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
 import CovidIcon from '@/static/covid.svg'
-import PrinterButton from '@/components/PrinterButton'
+import PrinterButton from '@/components/PrinterButton.vue'
 import FlowPc from '@/components/flow/FlowPc.vue'
 import FlowSp from '@/components/flow/FlowSp.vue'
 
-export default {
+export default Vue.extend({
   components: {
     CovidIcon,
     PrinterButton,
     FlowPc,
     FlowSp
   },
-  head() {
+  head(): any {
+    const title: TranslateResult = this.$t(
+      '新型コロナウイルス感染症が心配なときに'
+    )
     return {
-      title: this.$t('新型コロナウイルス感染症が心配なときに')
+      title
     }
   }
-}
+})
 </script>
 
 <style lang="scss">
