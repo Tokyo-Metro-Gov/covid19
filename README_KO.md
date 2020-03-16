@@ -63,7 +63,7 @@ $ docker-compose run --rm app yarn install
 
 ### VSCode + Remote Cotainers에서 개발하는 경우
 
-1. VSCode의 확장 프로그램「[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」을 추가합니다.
+1. VSCode의 확장 프로그램 "[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)"을 추가합니다.
 2. [안내 화면(외부 사이트)](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)과 같이 좌측 하단의 "Open Folder in Container"에서 이 저장소의 루트를 선택하면 환경 구축이 시작됩니다.
 
 [토픽]
