@@ -12,35 +12,6 @@
   </v-col>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "陽性患者数": "陽性患者数",
-    "人": "人"
-  },
-  "en": {
-    "陽性患者数": "Number of confirmed cases",
-    "人": "persons"
-  },
-  "zh-cn": {
-    "陽性患者数": "确诊人数",
-    "人": "人"
-  },
-  "zh-tw": {
-    "陽性患者数": "確診人數",
-    "人": "人"
-  },
-  "ko": {
-    "陽性患者数": "확진자 수",
-    "人": "인"
-  },
-  "ja-basic": {
-    "陽性患者数": "びょうきの ひとの かず",
-    "人": "にん"
-  }
-}
-</i18n>
-
 <script>
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'

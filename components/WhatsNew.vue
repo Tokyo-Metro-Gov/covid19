@@ -16,12 +16,12 @@
         >
           <time
             class="WhatsNew-list-item-anchor-time px-2"
-            :datetime="formattedDateForAttribute(item.date)"
+            :datetime="formattedDate(item.date)"
           >
             {{ formattedDateForDisplay(item.date) }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
-            {{ $t(item.text) }}
+            {{ item.text }}
             <v-icon
               v-if="!isInternalLink(item.url)"
               class="WhatsNew-item-ExternalLinkIcon"
@@ -36,15 +36,14 @@
   </div>
 </template>
 
-<i18n src="./WhatsNew.i18n.json"></i18n>
-
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import {
   convertDateByCountryPreferTimeFormat,
   convertDateToISO8601Format
 } from '@/utils/formatDate'
 
-export default {
+export default Vue.extend({
   props: {
     items: {
       type: Array,
@@ -52,17 +51,17 @@ export default {
     }
   },
   methods: {
-    isInternalLink(path) {
+    isInternalLink(path: string): boolean {
       return !/^https?:\/\//.test(path)
     },
-    formattedDateForAttribute(dateString) {
+    formattedDate(dateString: string) {
       return convertDateToISO8601Format(dateString)
     },
-    formattedDateForDisplay(dateString) {
+    formattedDateForDisplay(dateString: string) {
       return convertDateByCountryPreferTimeFormat(dateString, this.$i18n.locale)
     }
   }
-}
+})
 </script>
 
 <style lang="scss">

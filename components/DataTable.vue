@@ -26,8 +26,6 @@
   </data-view>
 </template>
 
-<i18n src="./DataTable.i18n.json"></i18n>
-
 <style lang="scss">
 .cardTable {
   &.v-data-table {
@@ -70,15 +68,16 @@
 .note {
   padding: 8px;
   font-size: 12px;
-  color: #808080;
+  color: $gray-3;
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-export default {
+export default Vue.extend({
   components: { DataView, DataViewBasicInfoPanel },
   props: {
     title: {
@@ -99,14 +98,12 @@ export default {
     },
     info: {
       type: Object,
-      required: false,
       default: () => {}
     },
     url: {
       type: String,
-      required: false,
       default: ''
     }
   }
-}
+})
 </script>
