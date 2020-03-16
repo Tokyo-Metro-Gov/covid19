@@ -1,9 +1,9 @@
 <template>
   <div :class="$style.container">
     <h4 id="consult" :class="[$style.heading, $style.fzXLarge]">
-      {{ $t('新型コロナ受診相談窓口') }}
+      {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
       <small :class="[$style.break, $style.fzRegular, $style.mt5]">{{
-        $t('帰国者・接触者電話相談センター')
+        $t('帰国者・接触者 電話相談センター')
       }}</small>
     </h4>
     <p :class="[$style.open, $style.fzMedium]">
@@ -55,8 +55,6 @@
     </dl>
   </div>
 </template>
-
-<i18n src="./FlowSpAdvisory.i18n.json"></i18n>
 
 <script lang="ts">
 import PhoneIcon from '@/static/flow/responsive/phone.svg'
