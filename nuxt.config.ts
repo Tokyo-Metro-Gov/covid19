@@ -73,6 +73,11 @@ const config: Configuration = {
         hid: 'fb:app_id',
         property: 'fb:app_id',
         content: '2879625188795443'
+      },
+      {
+        hid: 'note:card',
+        property: 'note:card',
+        content: 'summary_large_image'
       }
     ],
     link: [
