@@ -21,55 +21,105 @@
 
 <style></style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-export default {
+type Data = {
+  dataKind: 'transition' | 'cumulative'
+}
+type Methods = {
+  formatDayBeforeRatio: (dayBeforeRatio: number) => string
+}
+type Computed = {
+  displayCumulativeRatio: string
+  displayTransitionRatio: string
+  displayInfo: {
+    lText: string
+    sText: string
+    unit: string
+  }
+  displayData: {
+    labels: string[]
+    datasets: {
+      label: 'transition' | 'cumulative'
+      data: number[]
+      backgroundColor: string
+      borderWidth: number
+    }[]
+  }
+  displayOption: {
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        label(tooltipItem: any): string
+        title(tooltipItem: any[], data: any): string | undefined
+      }
+    }
+    responsive: boolean
+    maintainAspectRatio: boolean
+    legend: {
+      display: boolean
+    }
+    scales: object
+  }
+  scaledTicksYAxisMax: number
+}
+type Props = {
+  title: string
+  titleId: string
+  chartId: string
+  chartData: GraphDataType[]
+  date: string
+  unit: string
+  url: string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
       type: String,
-      required: false,
       default: ''
     },
     chartId: {
       type: String,
-      required: false,
       default: 'time-bar-chart'
     },
     chartData: {
       type: Array,
-      required: false,
       default: () => []
     },
     date: {
       type: String,
-      required: true,
-      default: ''
+      required: true
     },
     unit: {
       type: String,
-      required: false,
       default: ''
     },
     url: {
       type: String,
-      required: false,
       default: ''
     }
   },
-  data() {
-    return {
-      dataKind: 'transition'
-    }
-  },
+  data: () => ({
+    dataKind: 'transition'
+  }),
   computed: {
     displayCumulativeRatio() {
       const lastDay = this.chartData.slice(-1)[0].cumulative
@@ -122,9 +172,7 @@ export default {
         }
       }
       return {
-        labels: this.chartData.map(d => {
-          return d.label
-        }),
+        labels: this.chartData.map(d => d.label),
         datasets: [
           {
             label: this.dataKind,
@@ -174,7 +222,7 @@ export default {
                 fontColor: '#808080',
                 maxRotation: 0,
                 minRotation: 0,
-                callback: label => {
+                callback: (label: string) => {
                   return label.split('/')[1]
                 }
               }
@@ -196,7 +244,7 @@ export default {
                 gridLines: {
                   display: true
                 },
-                callback: label => {
+                callback: (label: string) => {
                   const monthStringArry = [
                     'Jan',
                     'Feb',
@@ -249,7 +297,7 @@ export default {
     }
   },
   methods: {
-    formatDayBeforeRatio(dayBeforeRatio) {
+    formatDayBeforeRatio(dayBeforeRatio: number): string {
       const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
@@ -262,4 +310,6 @@ export default {
     }
   }
 }
+
+export default Vue.extend(options)
 </script>

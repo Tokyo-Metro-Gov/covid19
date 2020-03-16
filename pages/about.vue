@@ -179,18 +179,18 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import TextCard from '@/components/TextCard.vue'
 
-export default {
+export default Vue.extend({
   components: {
     TextCard
   },
-  head() {
-    return {
-      title: '当サイトについて'
-    }
-  }
-}
+  head: (): MetaInfo => ({
+    title: '当サイトについて'
+  })
+})
 </script>
 
 <style lang="scss">

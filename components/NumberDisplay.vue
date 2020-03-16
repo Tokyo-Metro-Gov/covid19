@@ -36,11 +36,25 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 
-export default {
+export default Vue.extend({
   components: { DataView },
-  props: ['title', 'number', 'unit']
-}
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    number: {
+      type: String,
+      default: ''
+    },
+    unit: {
+      type: String,
+      default: ''
+    }
+  }
+})
 </script>
