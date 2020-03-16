@@ -39,7 +39,9 @@
           <div>
             <a class="Permalink" :href="permalink()">
               <time :datetime="formattedDate">
-                {{ $t('{date} 更新', { date }) }}
+                {{
+                  $t('{formattedDateByLocale} 更新', { formattedDateByLocale })
+                }}
               </time>
             </a>
           </div>
@@ -110,7 +112,10 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import {
+  convertDateTimeByCountryPreferTimeFormat,
+  convertDatetimeToISO8601Format
+} from '@/utils/formatDate'
 
 @Component
 export default class DataView extends Vue {
@@ -121,6 +126,10 @@ export default class DataView extends Vue {
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
 
   formattedDate: string = convertDatetimeToISO8601Format(this.date)
+  formattedDateByLocale: string = convertDateTimeByCountryPreferTimeFormat(
+    this.date,
+    this.$root.$i18n.locale
+  )
 
   openGraphEmbed: boolean = false
 
