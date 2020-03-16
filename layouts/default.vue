@@ -93,29 +93,41 @@ export default Vue.extend({
         {
           hid: 'description',
           name: 'description',
-          content: this.$tc('description')
+          content: this.$tc(
+            '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+          )
         },
         {
           hid: 'og:site_name',
           name: 'og:site_name',
-          content: this.$tc('og:site_name')
+          content: this.$tc('東京都 新型コロナウイルス感染症対策サイト')
         },
-        { hid: 'og:title', name: 'og:title', content: this.$tc('og:title') },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.$tc('東京都 新型コロナウイルス感染症対策サイト')
+        },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: this.$tc('og:description')
+          content: this.$tc(
+            '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+          )
         },
-        { hid: 'og:image', name: 'og:image', content: this.$tc('og:image') },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.$tc('https://stopcovid19.metro.tokyo.lg.jp/opg.png')
+        },
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
-          content: this.$tc('apple-mobile-web-app-title')
+          content: this.$tc('東京都 新型コロナウイルス感染症対策サイト')
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.$tc('twitter:image')
+          content: this.$tc('https://stopcovid19.metro.tokyo.lg.jp/opg.png')
         }
       ]
     }
