@@ -77,8 +77,6 @@
   </div>
 </template>
 
-<i18n src="./FlowSpElder.i18n.json"></i18n>
-
 <script lang="ts">
 import { onDoneScroll } from '@/utils/vueScrollTo'
 import AccessibleIcon from '@/static/flow/responsive/accessible.svg'
