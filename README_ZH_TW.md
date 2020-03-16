@@ -89,29 +89,25 @@ $ docker-compose run --rm app yarn install
 
 當 `development` 分支被更新時，HTML 檔案將會在 `dev-pages` 分支中被 build 起來，然後開發版網站 https://dev-covid19-tokyo.netlify.com/ 會被更新。
 
-[PLEASE TRANSLATE ME]
+### 分支規則
 
-### Branch rules
+只允許推送 Pull Request 到 `development` 、 `dev-i18n` 跟 `dev-hotfix` 。
+在推送 Pull Request 時，請依照以下命名規則為您的分支命名
 
-Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.
-Please use the following naming rules for the branch when sending a Pull Request.
+功能改進: feature/#{ISSUE_ID}-#{branch_title_name}
+警急修復: hotfix/#{ISSUE_ID}-{branch_title_name}
 
-Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}
-Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
-
-#### Basic branch
-| Purpose | Branch | Confirmation URL | Remarks |
+#### 基本分支
+| 目的 | 分支 | 預覽用 URL | 備註 |
 | ---- | -------- | ---- | ---- |
-| Development | development | http://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
-| Hotfix branch | dev-hotfix | None | Fixes that should be applied to production in haste. Use this if requested by the administrator |
-| i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | Temporarily used |
-| Staging | staging | https://stg-covid19-tokyo.netlify.com/ | For final confirmation before production. Non-admin pull requests are prohibited |
-Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
-#### Branch used by the system
-| Purpose | Branch | Confirmation URL |
+| 開發 | development | http://dev-covid19-tokyo.netlify.com/ | 基本上請推送 Pull Request 到這裡 |
+| 緊急修復 | dev-hotfix | 無 | 對於正式版的緊急修復。 在管理員的要求下使用。 |
+| i18n 工作用 | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | 暫時使用 |
+| 正式版預覽 | staging | https://stg-covid19-tokyo.netlify.com/ | 對於正式版釋出前的最終確認，只有管理員可以推送 pull requests。 |
+| 正式版 | master | http://stopcovid19.metro.tokyo.lg.jp/ | 只有管理員可以推送 pull requests |
+#### 系統所使用的分支
+| 目的 | 分支 | 預覽用 URL | 備註 |
 | ---- | -------- | ---- | ---- |
-Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
-Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
-| For OGP working directory | deploy / new_obp | None | For updating OGP |
-
-[/PLEASE TRANSLATE ME]
+| 正式網站 HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | 產生靜態網站 HTML 的位置 |
+| 正式版預覽 HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 產生靜態網站 HTML 的位置 |
+| OGP 工作用 | deploy / new_obp | 無 | OGP 更新用 |
