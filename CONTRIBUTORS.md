@@ -25,7 +25,6 @@ Tokyo Covid-19 response site contributors
 | [Riki Singh Khorana](https://www.linkedin.com/in/rikilele/) | [@Rikilele](https://github.com/Rikilele) | | Translations / A11y |
 | Koki Kobayashi | [@koki-koba](https://github.com/koki-koba) | | Translations |
 | Fujita Shu | [@nard-tech](https://github.com/nard-tech) | | Coding, i18n |
-| kaizumaki | [@kaizumaki](https://github.com/kaizumaki) | | |
 | Shigetaka Shirouchi | [@shgtkshruch](https://github.com/shgtkshruch) | | |
 | Kawokas | [@kawoka](https://github.com/kawoka) | | |
 | Spenser Black | [@spenserblack](https://github.com/spenserblack) | | |
