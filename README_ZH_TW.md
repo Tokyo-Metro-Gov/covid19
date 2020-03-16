@@ -25,7 +25,7 @@
 
 ## 給翻譯者的資訊
 
-有要幫忙翻譯的話，請參考 [這個文件](./.github/TRANSLATION.md) 。
+有要幫忙翻譯的話，請參考 [這個文件](./.github/TRANSLATION_ZH_TW.md) 。
 
 ## 給開發者的資訊
 
