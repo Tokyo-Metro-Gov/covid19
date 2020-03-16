@@ -225,5 +225,7 @@
   "新型コロナコールセンター": "코로나19 콜센터(영어, 중국어, 한국어, 일본어 서비스)",
   "午前9時から午後9時（土日祝含む）": "오전 9:00 - 오후 9:00 (매일)",
   "新型コロナ受診相談窓口へ": "코로나 19 진찰 상담 창구",
-  "https://stopcovid19.metro.tokyo.lg.jp/ogp.png": "https://stopcovid19.metro.tokyo.lg.jp/ogp/ko/ogp-image.png"
+  "ogp": {
+    "og:image": "https://stopcovid19.metro.tokyo.lg.jp/ogp/ko/ogp-image.png"
+  }
 }
