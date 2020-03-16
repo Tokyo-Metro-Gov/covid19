@@ -28,7 +28,7 @@
               <v-icon
                 class="ExternalLinkIcon"
                 size="15"
-                aria-label="別タブで開く"
+                :aria-label="this.$t('別タブで開く')"
                 role="img"
                 :aria-hidden="false"
               >
@@ -53,7 +53,7 @@
               </v-icon>
             </div>
 
-            <h4>埋め込み用コード</h4>
+            <h4>{{ $t('埋め込み用コード') }}</h4>
 
             <div class="EmbedCode">
               <v-icon
@@ -102,13 +102,11 @@
 
     <div v-if="showOverlay" class="overlay">
       <div class="overlay-text">
-        埋め込みタグをコピーしました
+        {{ $t('埋め込みコードをコピーしました') }}
       </div>
     </div>
   </v-card>
 </template>
-
-<i18n src="./DataView.i18n.json"></i18n>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'

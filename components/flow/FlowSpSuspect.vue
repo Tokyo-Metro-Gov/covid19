@@ -48,8 +48,6 @@
   </div>
 </template>
 
-<i18n src="./FlowSpSuspect.i18n.json"></i18n>
-
 <script lang="ts">
 import { onDoneScroll } from '@/utils/vueScrollTo'
 import ArrowForwardIcon from '@/static/flow/responsive/arrow_forward.svg'

@@ -4,7 +4,7 @@
       <div :class="$style.AdvisoryContents">
         <div>
           <span :class="$style.AdvisoryContentsTitle">{{
-            $t('新型コロナ受診相談窓口')
+            $t('新型コロナ受診相談窓口（日本語のみ）')
           }}</span>
         </div>
         <div :class="[$style.AdvisoryContentsColsSentense, 'mt-4']">
@@ -72,8 +72,6 @@
     </div>
   </div>
 </template>
-
-<i18n src="./FlowPcAdvisory.i18n.json"></i18n>
 
 <style module lang="scss">
 .Advisory {

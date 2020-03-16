@@ -23,6 +23,12 @@
 
 請參考[此連結](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/forkedSites.md)
 
+[please translate me]
+
+Please check [How to translate](./.github/TRANSLATION.md) doc.
+
+[/please translate me]
+
 ## 給開發者的資訊
 
 ### 開發環境建置

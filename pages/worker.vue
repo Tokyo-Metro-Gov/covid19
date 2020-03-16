@@ -13,8 +13,6 @@
   </div>
 </template>
 
-<i18n src="./worker.i18n.json"></i18n>
-
 <script lang="ts">
 import TextCard from '@/components/TextCard.vue'
 
