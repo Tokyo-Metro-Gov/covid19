@@ -109,7 +109,7 @@
               <dd>
                 <a
                   class="Link"
-                  href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+                  href="https://www.pref.chiba.lg.jp/shippei/kansenshou/2019-ncov.html"
                   target="_blank"
                   rel="noopener"
                 >
@@ -199,12 +199,13 @@
         </div>
       </div>
       <a
-        href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+        href="https://www.pref.chiba.lg.jp/shippei/kansenshou/2019-ncov.html"
         target="_blank"
         rel="noopener"
         class="Flow-Card-Button"
       >
-        詳細を見る(東京都福祉保健局)
+        詳細を見る(健康福祉部疾病対策課感染症予防班 )
+        新型コロナウイルス感染症について
         <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
           mdi-open-in-new
         </v-icon>
