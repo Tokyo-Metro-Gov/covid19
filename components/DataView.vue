@@ -28,7 +28,7 @@
               <v-icon
                 class="ExternalLinkIcon"
                 size="15"
-                aria-label="別タブで開く"
+                :aria-label="this.$t('別タブで開く')"
                 role="img"
                 :aria-hidden="false"
               >
