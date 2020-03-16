@@ -30,6 +30,9 @@
     <development-mode-mark />
   </v-app>
 </template>
+
+<i18n src="./meta.i18n.json"></i18n>
+
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
@@ -84,6 +87,35 @@ export default Vue.extend({
         {
           rel: 'canonical',
           href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+        }
+      ],
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$tc('description')
+        },
+        {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          content: this.$tc('og:site_name')
+        },
+        { hid: 'og:title', name: 'og:title', content: this.$tc('og:title') },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.$tc('og:description')
+        },
+        { hid: 'og:image', name: 'og:image', content: this.$tc('og:image') },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: this.$tc('apple-mobile-web-app-title')
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.$tc('twitter:image')
         }
       ]
     }
