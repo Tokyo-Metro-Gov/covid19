@@ -16,8 +16,6 @@
   </div>
 </template>
 
-<i18n src="./PageHeader.i18n.json"></i18n>
-
 <script>
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 

@@ -58,8 +58,6 @@
   </div>
 </template>
 
-<i18n src="./FlowSpGeneral.i18n.json"></i18n>
-
 <script lang="ts">
 import HumanIcon from '@/static/flow/responsive/accessibility.svg'
 import ArrowForwardIcon from '@/static/flow/responsive/arrow_forward.svg'

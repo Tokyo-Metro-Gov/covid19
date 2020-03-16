@@ -29,8 +29,6 @@
   <!--eslint-enable-->
 </template>
 
-<i18n src="./NoScript.i18n.json"></i18n>
-
 <style lang="scss" scoped>
 .noscript {
   position: fixed;
