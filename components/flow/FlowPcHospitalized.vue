@@ -1,6 +1,11 @@
 <template>
   <div :class="$style.FlowPcHospitalized">
     <p :class="$style.FlowPcHospitalizedHeading">
+      <img
+        :class="$style.FlowPcHospitalizedHeadingIcon"
+        src="/flow/hotel-24px.svg"
+        aria-hidden="true"
+      />
       {{ $t('入院となります') }}
     </p>
     <p :class="$style.FlowPcHospitalizedsubHeading">
@@ -8,8 +13,6 @@
     </p>
   </div>
 </template>
-
-<i18n src="./FlowPcHospitalized.i18n.json"></i18n>
 
 <style module lang="scss">
 .FlowPcHospitalized {
@@ -27,12 +30,10 @@
     margin: 0 !important;
     padding: 0 5px 0 0;
 
-    &::before {
+    &Icon {
       min-width: 30px;
       min-height: 30px;
-      content: '';
       display: block;
-      background: url('/flow/hotel-24px.svg') no-repeat;
       margin-right: 10px;
     }
   }

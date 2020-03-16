@@ -3,8 +3,7 @@
     <v-btn
       class="PrinterButton"
       outlined
-      color="#00a040"
-      href="/print/flow"
+      :to="localePath(to)"
       target="_blank"
       @mouseover="mouseover"
       @mouseleave="mouseleave"
@@ -20,8 +19,6 @@
   </div>
 </template>
 
-<i18n src="./PrinterButton.i18n.json"></i18n>
-
 <script>
 import PrinterIcon from '@/static/printer.svg'
 import PrinterWhiteIcon from '@/static/printer-white.svg'
@@ -34,8 +31,11 @@ export default {
   props: {
     wrapperClass: {
       type: String,
-      required: false,
       default: ''
+    },
+    to: {
+      type: String,
+      required: true
     }
   },
   data() {
