@@ -96,8 +96,8 @@ Tokyo Covid-19 response site contributors
 | Kouki Okajima | [@Okahill](https://github.com/Okahill) | | Coding |
 | Tomoki Shigeta | [@matoruru](https://github.com/matoruru) | | Coding |
 | Shun Kawahara | [@shun91](https://github.com/shun91) | [@kojo_73](https://twitter.com/kojo_73) | Frontend |
-| Yuichi Yokoyama | [@dj_yoko](https://twitter.com/dj_yoko) | [@DJYoko](https://github.com/DJYoko) | Coding |
-| dafujii | [@dafujii_k](https://twitter.com/dafujii_k) | [@dafujii](https://github.com/dafujii) | Kaizen |
+| Yuichi Yokoyama | [@DJYoko](https://github.com/DJYoko) | [@dj_yoko](https://twitter.com/dj_yoko) | Coding |
+| dafujii | [@dafujii](https://github.com/dafujii) | [@dafujii_k](https://twitter.com/dafujii_k) | Kaizen |
 | 7iva | [@7iva](https://github.com/7iva) | [@7iva](https://twitte@r.com/_7iva) | Translations |
 | Jun Shindo | [@jay-es](https://github.com/jay-es) | | Frontend |
 | Koki Fukushima | [@f-koki](https://github.com/f-koki) | | |
