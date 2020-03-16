@@ -47,7 +47,7 @@ $ yarn dev
 $ docker-compose up --build
 ```
 
-[please translate me]
+[PLEASE TRANSLATE ME]
 ### VSCode + Remote Containersで開発する場合
 
 1. VSCodeの拡張機能「[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」を導入します。
@@ -59,12 +59,13 @@ $ docker-compose up --build
 - Remote Container実行時のみ有効な拡張機能「ESLint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。
 詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
 - 開発環境を再構築する場合は、左下部の「Rebuild Container」を実行してください。
-[/please translate me]
 
-### Detect production/others environment (translate me!)
+### Detect production/others environment
 
 On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.  
 Please use the variable to detect which enviroinment is used at the runtime.
+
+[/PLEASE TRANSLATE ME]
 
 ### 发布到 Staging环境以及正式环境的方法
 

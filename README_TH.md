@@ -59,7 +59,7 @@ $ yarn install
 $ docker-compose run --rm app yarn install
 ```
 
-[please translate me]
+[PLEASE TRANSLATE ME]
 ### VSCode + Remote Containersで開発する場合
 
 1. VSCodeの拡張機能「[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」を導入します。
@@ -71,7 +71,8 @@ $ docker-compose run --rm app yarn install
 - Remote Container実行時のみ有効な拡張機能「ESLint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。
 詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
 - 開発環境を再構築する場合は、左下部の「Rebuild Container」を実行してください。
-[/please translate me]
+
+[/PLEASE TRANSLATE ME]
 
 ### ขั้นตอนการ Deploy ไปยัง Production (Deployment to Staging & Production Environments)
 
