@@ -58,7 +58,7 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="新型コロナコールセンター相談件数"
+          title="新型コロナ電話相談窓口件数"
           :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
           :chart-id="'time-bar-chart-contacts'"
           :chart-data="contactsGraph"
@@ -69,7 +69,7 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="新型コロナ受診相談窓口相談件数"
+          title="帰国者・接触者相談センター件数"
           :title-id="'number-of-reports-to-covid19-consultation-desk'"
           :chart-id="'time-bar-chart-querents'"
           :chart-data="querentsGraph"
@@ -141,7 +141,7 @@ export default {
       Data.inspections_summary.data['その他']
     ]
     const inspectionsItems = [
-      '都内発生（疑い例・接触者調査）',
+      '市内発生（疑い例・接触者調査）',
       'その他（チャーター便・クルーズ便）'
     ]
     const inspectionsLabels = Data.inspections_summary.labels
