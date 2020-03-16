@@ -90,6 +90,8 @@ export default {
   @include card-container();
   padding: 20px;
   margin-bottom: 20px;
+  word-break: break-word;
+  hyphens: auto;
   > h3 {
     color: $gray-2;
     font-size: 1.5rem;
@@ -133,8 +135,8 @@ export default {
     margin-bottom: 36px;
   }
   &Lower {
-    grid-template-columns: repeat(2, 1fr);
-    -ms-grid-columns: 1fr 12px 1fr;
+    grid-template-columns: repeat(2, calc(50% - 6px));
+    -ms-grid-columns: calc(50% - 6px) 12px calc(50% - 6px);
     grid-template-rows: repeat(3, auto);
     -ms-grid-rows: auto 12px auto 12px auto;
     // HACK: IEでGridの順番がうまくいかない対応
