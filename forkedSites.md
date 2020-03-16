@@ -13,6 +13,7 @@
 岐阜県|https://covid19-gifu.netlify.com/|[CODE-for-GIFU/covid19](https://github.com/CODE-for-GIFU/covid19)|
 愛知県|https://stopcovid19.code4.nagoya/|[code4nagoya/covid19](https://github.com/code4nagoya/covid19)|
 三重県|https://covid19-mie.netlify.com/|[FlexiblePrintedCircuits/covid19-mie](https://github.com/FlexiblePrintedCircuits/covid19-mie)|
+京都府|https://stopcovid19-kyoto.netlify.com/|[stopcovid19-kyoto/covid19](https://github.com/stopcovid19-kyoto/covid19)|
 兵庫県|https://stop-covid19-hyogo.org/|[stop-covid19-hyogo/covid19](https://github.com/stop-covid19-hyogo/covid19)|
 愛媛県|https://ehime-covid19.com/|[ehime-covid19/covid19](https://github.com/ehime-covid19/covid19)|
 岡山県|https://covid19-okayama.netlify.com/||
