@@ -69,7 +69,7 @@ $ docker-compose run --rm app yarn install
 
 ### Detecter le type d'environnement
 
-Dans l'environnement de production, la valeur `'production'` est attribuée à la variable `process.env.GENERATE_ENV`, le reste du temps la valeur assignée est `'development'`.
+Dans l'environnement de production, la valeur `'production'` est attribuée à la variable `process.env.GENERATE_ENV`, le reste du temps la valeur assignée est `'development'`.  
 Veuillez utiliser cette variable pour détecter quel type d'environnement est executé.
 
 ### Deployer vers les environnements Staging & Production
@@ -85,10 +85,10 @@ et le site development (https://dev-covid19-tokyo.netlify.com/) est aussi mis-à
 
 ### Regles sur les branches
 
-Les Pull Request sont permises seulement sur `development`, `dev-i18n`, et `dev-hotfix`.
+Les Pull Request sont permises seulement sur `development`, `dev-i18n`, et `dev-hotfix`.  
 Veuillez utiliser le schema suivant pour nommer vos Pull Request:
 
-Nouvelle feature: feature/#{ISSUE_ID}-#{nom_de_la_branche}
+Nouvelle feature: feature/#{ISSUE_ID}-#{nom_de_la_branche}  
 Hotfix: hotfix/#{ISSUE_ID}-{nom_de_la_branche}
 
 #### Branches basiques

@@ -62,7 +62,7 @@ $ docker-compose up --build
 
 ### Detect production/others environment (translate me!)
 
-On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.
+On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.  
 Please use the variable to detect which enviroinment is used at the runtime.
 
 ### Implementación en entornos de preparación y producción
@@ -80,10 +80,10 @@ y luego el sitio de desarrollo (https://dev-covid19-tokyo.netlify.com/) también
 
 ### Branch rules
 
-Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.
+Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.  
 Please use the following naming rules for the branch when sending a Pull Request.
 
-Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}
+Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}  
 Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 #### Basic branch

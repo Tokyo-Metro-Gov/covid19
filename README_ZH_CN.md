@@ -63,7 +63,7 @@ $ docker-compose up --build
 
 ### Detect production/others environment (translate me!)
 
-On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.
+On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.  
 Please use the variable to detect which enviroinment is used at the runtime.
 
 ### 发布到 Staging环境以及正式环境的方法
