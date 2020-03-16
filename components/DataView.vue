@@ -17,6 +17,7 @@
     >
       <slot />
     </v-card-text>
+    <!--
     <v-footer class="DataView-Footer">
       <time :datetime="formattedDate">{{ date }} 更新</time>
       <a
@@ -32,6 +33,7 @@
         </v-icon>
       </a>
     </v-footer>
+    -->
   </v-card>
 </template>
 
