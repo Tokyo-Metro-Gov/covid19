@@ -20,11 +20,11 @@
 ## 라이선스
 이 소프트웨어는 [MIT 라이선스](./LICENSE.txt)를 따르고 있습니다.
 
-[please translate me]
+[PLEASE TRANSLATE ME]
 
 Please check [How to translate](./.github/TRANSLATION.md) doc.
 
-[/please translate me]
+[/PLEASE TRANSLATE ME]
 
 ## 이 사이트에서 파생된 사이트
 
@@ -63,23 +63,24 @@ $ yarn install
 $ docker-compose run --rm app yarn install
 ```
 
-[please translate me]
-### VSCode + Remote Cotainersで開発する場合
+[PLEASE TRANSLATE ME]
+### VSCode + Remote Containersで開発する場合
 
 1. VSCodeの拡張機能「[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」を導入します。
 2. [この画像（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)のように左下部の「Open Folder in Container」でこのリポジトリのルートを選択すれば環境構築が始まります。
 
-[Topic]
-- 設定を変更したい場合は、`.devcontainer/devcontainer.json`を修正してください。<br/>
-    詳細は[devcontainer.jsonのリファレンス](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)を参照してください。
-- Remote Container実行時のみ有効な拡張機能「ESlint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。<br/>
-    詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
+#### Topic
+- 設定を変更したい場合は、`.devcontainer/devcontainer.json`を修正してください。
+詳細は[devcontainer.jsonのリファレンス](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)を参照してください。
+- Remote Container実行時のみ有効な拡張機能「ESLint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。
+詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
 - 開発環境を再構築する場合は、左下部の「Rebuild Container」を実行してください。
-[/please translate me]
+
+[/PLEASE TRANSLATE ME]
 
 ### 프로덕션/기타 환경 탐지
 
-프로덕션 환경에서, `'production'` 은 `process.env.GENERATE_ENV` 변수에 할당되고, 다른 환경에서는 `'development'`가 변수에 할당됩니다.
+프로덕션 환경에서, `'production'` 은 `process.env.GENERATE_ENV` 변수에 할당되고, 다른 환경에서는 `'development'`가 변수에 할당됩니다.  
 런타임에서 사용할 환경을 감지하려면 이 변수를 사용하십시요.
 
 ### 스테이징 환경 및 운영 환경으로 반영 방법
@@ -95,10 +96,10 @@ $ docker-compose run --rm app yarn install
 
 ### Branch rules
 
-Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.
+Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.  
 Please use the following naming rules for the branch when sending a Pull Request.
 
-Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}
+Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}  
 Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 #### Basic branch
@@ -109,11 +110,12 @@ Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 | i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | Temporarily used |
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | For final confirmation before production. Non-admin pull requests are prohibited |
 Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
+
 #### Branch used by the system
-| Purpose | Branch | Confirmation URL |
+| Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
-Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
-Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
+| Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
+| Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
 | For OGP working directory | deploy / new_obp | None | For updating OGP |
 
 [/PLEASE TRANSLATE ME]
