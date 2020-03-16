@@ -17,10 +17,14 @@
     >
       <slot />
     </v-card-text>
-    <!--
     <v-footer class="DataView-Footer">
-      <time :datetime="formattedDate">{{ date }} 更新</time>
-      <a
+      <div class="DataView-Footer__supplement">
+        <slot name="supplement" />
+      </div>
+      <time :datetime="formattedDate" class="DataView-Footer__time"
+        >{{ date }} 更新</time
+      >
+      <!-- <a
         v-if="url"
         class="OpenDataLink"
         :href="url"
@@ -31,9 +35,8 @@
         <v-icon class="ExternalLinkIcon" size="15">
           mdi-open-in-new
         </v-icon>
-      </a>
+      </a> -->
     </v-footer>
-    -->
   </v-card>
 </template>
 
@@ -111,12 +114,17 @@ export default class DataView extends Vue {
     margin-top: 70px;
   }
   &-Footer {
+    display: flex;
+    flex-direction: column;
     background-color: $white !important;
     margin: 2px 4px 12px;
     @include font-size(12);
     color: $gray-3 !important;
-    justify-content: space-between;
-    flex-direction: row-reverse;
+
+    &__time {
+      align-self: flex-end;
+    }
+
     .OpenDataLink {
       text-decoration: none;
       .ExternalLinkIcon {
