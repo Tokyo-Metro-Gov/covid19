@@ -45,9 +45,8 @@ jobs:
         name: ogp
     - name: Commit files
       run: |
-        mkdir -p static/ogp/
-        rm -rf static/ogp
-        mv ogp static/
+        cp -rf ogp static/
+        rm -rf ogp
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add static
