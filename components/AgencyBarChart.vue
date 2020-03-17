@@ -2,7 +2,7 @@
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
       <small :class="$style.DataViewDesc">
-        ※土・日・祝日を除く庁舎開庁日の1週間累計数
+        {{ $t('※土・日・祝日を除く庁舎開庁日の1週間累計数') }}
       </small>
     </template>
     <bar
@@ -13,8 +13,6 @@
     />
   </data-view>
 </template>
-
-<i18n src="./AgencyBarChart.i18n.json"></i18n>
 
 <style module lang="scss">
 .DataView {
@@ -27,11 +25,48 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
 
-export default {
+interface HTMLElementEvent<T extends HTMLElement> extends Event {
+  currentTarget: T
+}
+type Data = {
+  chartData: typeof agencyData
+  date: string
+  agencies: VueI18n.TranslateResult[]
+}
+type Methods = {}
+type Computed = {
+  displayData: {
+    labels: string[]
+    datasets: {
+      label: string
+      data: number[]
+      backgroundColor: string
+    }[]
+  }
+  displayOption: any
+}
+type Props = {
+  title: string
+  titleId: string
+  chartId: string
+  unit: string
+  url: string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
   components: { DataView },
   props: {
     title: {
@@ -67,7 +102,7 @@ export default {
       this.$t('議事堂計')
     ]
     agencyData.datasets.map(dataset => {
-      dataset.label = this.$t(dataset.label)
+      dataset.label = this.$t(dataset.label) as string
     })
     return {
       chartData: agencyData,
@@ -79,12 +114,12 @@ export default {
     displayData() {
       const colors = ['#008b41', '#63c765', '#a6e29f']
       return {
-        labels: this.chartData.labels,
+        labels: this.chartData.labels as string[],
         datasets: this.chartData.datasets.map((item, index) => {
           return {
-            label: this.agencies[index],
+            label: this.agencies[index] as string,
             data: item.data,
-            backgroundColor: colors[index]
+            backgroundColor: colors[index] as string
           }
         })
       }
@@ -95,28 +130,31 @@ export default {
         tooltips: {
           displayColors: false,
           callbacks: {
-            title(tooltipItem) {
+            title(tooltipItem: any) {
               const dateString = tooltipItem[0].label
               return self.$t('期間: {duration}', {
-                duration: dateString
-              })
+                duration: dateString!
+              }) as string
             },
-            label(tooltipItem, data) {
-              const index = tooltipItem.datasetIndex
-              const title = self.$t(data.datasets[index].label)
-              const num = tooltipItem.value
+            label(tooltipItem: any, data: any) {
+              const index = tooltipItem.datasetIndex!
+              const title = self.$t(data.datasets[index].label!)
+              const num = parseInt(tooltipItem.value).toLocaleString()
               const unit = self.$t(self.unit)
-              return `${title}: ${num}${unit}`
+              return `${title}: ${num} ${unit}`
             }
           }
         },
         legend: {
           display: true,
-          onHover: e => {
-            e.currentTarget.style.cursor = 'pointer'
+          onHover: (e: HTMLElementEvent<HTMLInputElement>) => {
+            e!.currentTarget.style!.cursor = 'pointer'
           },
-          onLeave: e => {
-            e.currentTarget.style.cursor = 'default'
+          onLeave: (e: HTMLElementEvent<HTMLInputElement>) => {
+            e!.currentTarget.style!.cursor = 'default'
+          },
+          labels: {
+            boxWidth: 20
           }
         },
         scales: {
@@ -142,7 +180,7 @@ export default {
                 fontSize: 9,
                 fontColor: '#808080',
                 maxTicksLimit: 10,
-                callback(label) {
+                callback(label: string) {
                   return `${label}${self.unit}`
                 }
               }
@@ -153,4 +191,6 @@ export default {
     }
   }
 }
+
+export default Vue.extend(options)
 </script>

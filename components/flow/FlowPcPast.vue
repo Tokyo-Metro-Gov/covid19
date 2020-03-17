@@ -83,9 +83,23 @@
         </template>
       </div>
       <div :class="$style.FlowCondition">
-        <em :class="$style.FlowSymptom">{{ $t('発熱') }}</em>
+        <em :class="$style.FlowSymptom">
+          {{ $t('発熱') }}
+          <img
+            :class="$style.FlowSymptomIcon"
+            src="/flow/check_circle-24px.svg"
+            aria-hidden="true"
+          />
+        </em>
         <span :class="$style.FlowText">{{ $t('または') }}</span>
-        <em :class="$style.FlowSymptom">{{ $t('呼吸器症状') }}</em>
+        <em :class="$style.FlowSymptom">
+          {{ $t('呼吸器症状') }}
+          <img
+            :class="$style.FlowSymptomIcon"
+            src="/flow/check_circle-24px.svg"
+            aria-hidden="true"
+          />
+        </em>
         <span :class="$style.FlowText">{{ $t('かつ') }}</span>
         <em :class="$style.FlowSymptom">
           <i18n tag="span" :class="$style.FlowTextSm" path="発熱{temperature}">
@@ -95,6 +109,11 @@
               </span>
             </i18n>
           </i18n>
+          <img
+            :class="$style.FlowSymptomIcon"
+            src="/flow/check_circle-24px.svg"
+            aria-hidden="true"
+          />
         </em>
       </div>
     </div>
@@ -113,8 +132,6 @@ export default {
   }
 }
 </script>
-
-<i18n src="./FlowPcPast.i18n.json"></i18n>
 
 <style module lang="scss">
 .Flow {
@@ -217,16 +234,23 @@ export default {
     font-size: calc(0.875rem + ((1vw - 7.68px) * 0.8929));
     font-weight: bold;
     font-style: normal;
-    &::before {
-      $icon-size: 27px;
-      content: url('/flow/check_circle-24px.svg');
+
+    &Icon {
       position: absolute;
-      top: $icon-size / 2 * -1;
-      left: $icon-size / 2 * -1;
-      width: $icon-size;
-      height: $icon-size;
-      background-color: $white;
-      z-index: 1;
+      left: -8px;
+      top: -8px;
+      width: 24px;
+      height: 24px;
+    }
+
+    &::before {
+      position: absolute;
+      left: -4px;
+      top: -4px;
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      content: '';
     }
     @include largerThan($large) {
       max-width: 190px;
