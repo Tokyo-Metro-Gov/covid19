@@ -8,7 +8,9 @@
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
-      :url="localePath('/flow')"
+      :url="
+        'https://www.pref.yamaguchi.lg.jp/cms/a11000/sodan/koronasoudan.html'
+      "
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
@@ -50,9 +52,9 @@ export default {
     // WhatsNew,
     StaticInfo,
     ConfirmedCasesDetailsCard,
+    TestedNumberCard,
     ConfirmedCasesNumberCard,
-    ConfirmedCasesAttributesCard,
-    TestedNumberCard
+    ConfirmedCasesAttributesCard
     // TelephoneAdvisoryReportsNumberCard,
     // ConsultationDeskReportsNumberCard,
     // MetroCard,
