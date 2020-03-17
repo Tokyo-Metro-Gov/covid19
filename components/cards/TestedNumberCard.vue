@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart-only-all
-      :title="$t('検査実施数')"
+      :title="$t('検査実施数（累計）')"
       :title-id="'number-of-tested'"
       :chart-id="'time-stacked-bar-chart-inspections'"
       :chart-data="inspectionsGraph"
@@ -18,7 +18,8 @@
 <i18n>
 {
   "ja": {
-    "検査実施数": "検査実施数",
+	"検査実施数": "検査実施数",
+	"累計": "累計",
     "都内": "都内",
     "都内発生（疑い例・接触者調査）": "都内発生（疑い例・接触者調査）",
     "その他（チャーター便・クルーズ船）": "その他（チャーター便・クルーズ船）",
