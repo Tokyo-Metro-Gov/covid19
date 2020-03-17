@@ -60,21 +60,21 @@ $ yarn install
 $ docker-compose run --rm app yarn install
 ```
 
-### VSCode + Remote Cotainers 的開發環境
+### VSCode + Remote Containers 的開發環境
 
 1. 安裝 VSCode 的擴充套件「[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」。
 2. 如同 [這個圖像（外部連結）](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)點擊左下角的 「Open Folder in Container」 後選擇 Repository 的資料夾路徑開始建立環境。
 
-[提示]
-- 如果想要變更設定，請更改 `.devcontainer/devcontainer.json` 這隻檔案。<br/>
-    詳細請參考 [devcontainer.json的參考值](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)。
-- Remote Container 啟動時擴充套件只有導入 「ESlint」、如果有必要，請在 `devcontainer.json` 的 `extensions` 中新增。<br/>
-    詳細的步驟請參考 [這裡（外部連結）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)。
+#### 提示
+- 如果想要變更設定，請更改 `.devcontainer/devcontainer.json` 這隻檔案。
+詳細請參考 [devcontainer.json的參考值](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)。
+- Remote Container 啟動時擴充套件只有導入 「ESlint」、如果有必要，請在 `devcontainer.json` 的 `extensions` 中新增。
+詳細的步驟請參考 [這裡（外部連結）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)。
 - 如果要重新建立開發環境，請執行左下角的 「Rebuild Container」。
 
 ### 生產環境/其他環境的判定
 
-關於 `process.env.GENERATE_ENV` 這個值 ,生產環境為 `'production'` ，除此之外為 `'development'` 。
+關於 `process.env.GENERATE_ENV` 這個值 ,生產環境為 `'production'` ，除此之外為 `'development'` 。  
 如果只想要在測試環境中執行的話，請利用這個值作為參考。
 
 ### Deploy 到 Staging 環境以及正式環境的方法
@@ -87,10 +87,10 @@ $ docker-compose run --rm app yarn install
 
 ### 分支規則
 
-只允許推送 Pull Request 到 `development` 、 `dev-i18n` 跟 `dev-hotfix` 。
+只允許推送 Pull Request 到 `development` 、 `dev-i18n` 跟 `dev-hotfix` 。  
 在推送 Pull Request 時，請依照以下命名規則為您的分支命名
 
-新增功能: feature/#{ISSUE_ID}-#{branch_title_name}
+新增功能: feature/#{ISSUE_ID}-#{branch_title_name}  
 Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 #### 基本分支
@@ -106,4 +106,4 @@ Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 | ---- | -------- | ---- | ---- |
 | 正式網站 HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | 生成靜態網站 HTML 的位置 |
 | 正式版預覽 HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 生成靜態網站 HTML 的位置 |
-| OGP 工作用 | deploy / new_obp | 無 | OGP 更新用 |
+| OGP 工作用 | deploy / new_ogp | 無 | OGP 更新用 |
