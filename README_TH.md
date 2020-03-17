@@ -85,31 +85,26 @@ $ docker-compose run --rm app yarn install
 ถ้า 'development' ได้รับการแก้ไขหรือปรับปรุง HTML จะถูกสร้างและส่งไปยัง 'dev-pages' โดยอัตโนมัติ
 และ เว็บไซต์ (https://dev-covid19-tokyo.netlify.com/) จะได้รับการอัพเดท
 
+### กฎการใช้ Branch (Branch rules)
 
-[PLEASE TRANSLATE ME]
-
-### Branch rules
-
-Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.  
-Please use the following naming rules for the branch when sending a Pull Request.
+Pull Request สามารถเปิดรับได้แค่ `development`, `dev-i18n` และ `dev-hotfix` เท่านั้น
+โปรดตั้งชื่อ Pull Request ดังนี้
 
 Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}  
 Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 
-#### Basic branch
-| Purpose | Branch | Confirmation URL | Remarks |
+#### Branch หลัก
+| จุดประสงค์ | Branch | URL | หมายเหตุ |
 | ---- | -------- | ---- | ---- |
-| Development | development | http://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
-| Hotfix branch | dev-hotfix | None | Fixes that should be applied to production in haste. Use this if requested by the administrator |
-| i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | Temporarily used |
-| Staging | staging | https://stg-covid19-tokyo.netlify.com/ | For final confirmation before production. Non-admin pull requests are prohibited |
-Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
+| Development | development | http://dev-covid19-tokyo.netlify.com/ | Branch หลัก ใช้ในการรับ Pull Request |
+| Hotfix branch | dev-hotfix | None | Branch สำหรับ hotfix ของ production - ใช้ในกรณีที่ admin อนุญาตแล้วเท่านั้น |
+| i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | ใช้ชั่วคราว |
+| Staging | staging | https://stg-covid19-tokyo.netlify.com/ | ใช้สำหรับ Stag อัพเดทต่างๆ ก่อนนำไป deploy ลง production - ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
+| Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
 
-#### Branch used by the system
-| Purpose | Branch | Confirmation URL | Remarks |
+#### Branch ที่ถูกใช้โดยระบบ
+| จุดประสงค์ | Branch | URL | หมายเหตุ |
 | ---- | -------- | ---- | ---- |
-| Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
-| Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
-| For OGP working directory | deploy / new_ogp | None | For updating OGP |
-
-[/PLEASE TRANSLATE ME]
+| Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | HTML สำหรับ production |
+| Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | HTML สำหรับ staging |
+| สำหรับ OGP working directory | deploy / new_ogp | None | สำหรับอัพเดท OGP |
