@@ -358,10 +358,10 @@
       </g>
       <text class="b" transform="translate(622 555)">
         <tspan x="-55" y="0">新型コロナ</tspan>
-        <tspan x="-76.67" y="25">コールセンター</tspan>
+        <tspan x="-76.67" y="25">電話相談窓口</tspan>
       </text>
       <text class="c" transform="translate(622 614)">
-        <tspan x="-75.392" y="0">午前9時から午後9時</tspan>
+        <tspan x="-75.392" y="0">午前9時から午後5時</tspan>
         <tspan x="-56" y="20">（土日祝含む）</tspan>
       </text>
       <g class="az" transform="matrix(1, 0, 0, 1, -3, -3)">
@@ -541,33 +541,14 @@
         <tspan x="-56" y="0">帰国者・接触者</tspan>
         <tspan x="-64" y="18">電話相談センター</tspan>
       </text>
-      <g transform="translate(-53 -101)">
-        <rect
-          class="i"
-          height="42"
-          rx="4"
-          transform="translate(876 270)"
-          width="158"
-        />
-        <text class="o" transform="translate(955 298)">
-          <tspan x="-48.816" y="0">24時間対応</tspan>
-        </text>
-      </g>
       <g transform="translate(-45 -100)">
         <text class="p" transform="translate(946 469)">
-          <tspan x="-54" y="0">平日（夜間）</tspan>
           <tspan class="q">
-            <tspan x="-91.392" y="23">午後5時から翌朝午前9時</tspan>
+            <tspan x="-91.392" y="23">午前9時から午後5時</tspan>
           </tspan>
         </text>
       </g>
-      <line class="r" transform="translate(783.5 225.5)" x2="236" />
       <line class="r" transform="translate(783.5 338.5)" x2="236" />
-      <g transform="translate(-64 -102)">
-        <text class="p" transform="translate(965 363)">
-          <tspan x="-54" y="0">平日（日中）</tspan>
-        </text>
-      </g>
       <g transform="translate(-56 55)">
         <text class="p" transform="translate(957 367)">
           <tspan x="-47.997" y="0">土日祝 終日</tspan>
@@ -1053,8 +1034,8 @@
         </text>
         <g transform="translate(-101 1091)">
           <text class="b" transform="translate(238 106)">
-            <tspan x="-77" y="0">東京都健康安全</tspan>
-            <tspan x="-77" y="25">研究センター等</tspan>
+            <tspan x="-77" y="0">千葉市</tspan>
+            <tspan x="-77" y="25">環境保険研究所</tspan>
           </text>
         </g>
       </g>
@@ -1170,7 +1151,7 @@
       </g>
       <g transform="translate(0 7)">
         <text class="an" transform="translate(913 456)">
-          <tspan x="-84.051" y="0">03-5320-4592</tspan>
+          <tspan x="-84.051" y="0">048-238-9966</tspan>
         </text>
         <g transform="translate(800 434)">
           <path class="d" d="M0,0H26V26H0Z" />
@@ -1181,30 +1162,8 @@
           />
         </g>
       </g>
-      <g transform="translate(0 -19)">
-        <g transform="translate(19 5)">
-          <a
-            xlink:href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-            target="_blank"
-            rel="noopener"
-          >
-            <text class="c" transform="translate(803 311)" style="">
-              <tspan x="0" y="0">各保健所の電話番号は</tspan>
-              <tspan x="0" y="22">福祉保健局HPへ</tspan>
-            </text>
-          </a>
-          <g transform="translate(927 318)">
-            <path class="d" d="M0,0H19V19H0Z" />
-            <path
-              class="ao"
-              d="M15.667,15.667H4.583V4.583h5.542V3H4.583A1.583,1.583,0,0,0,3,4.583V15.667A1.583,1.583,0,0,0,4.583,17.25H15.667a1.588,1.588,0,0,0,1.583-1.583V10.125H15.667ZM11.708,3V4.583H14.55L6.768,12.365l1.116,1.116L15.667,5.7V8.542H17.25V3Z"
-              transform="translate(-0.625 -0.625)"
-            />
-          </g>
-        </g>
-      </g>
       <text class="an" transform="translate(633 679)">
-        <tspan x="-79.555" y="0">0570-550571</tspan>
+        <tspan x="-79.555" y="0">048-238-9966</tspan>
       </text>
       <g transform="translate(520 656)">
         <path class="d" d="M0,0H26V26H0Z" />
