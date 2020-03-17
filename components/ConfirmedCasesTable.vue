@@ -361,6 +361,6 @@ export default Vue.extend({
 
 // Vuetify Breakpoints: Extra Small
 @include lessThan(599) {
-  @include variation(600, 3, 14, 240, 40);
+  @include variation(600, 3, 14, 360, 90);
 }
 </style>
