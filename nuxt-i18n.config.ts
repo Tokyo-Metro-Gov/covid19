@@ -43,6 +43,12 @@ export default {
       iso: 'ko-KR',
       file: 'ko.json'
     },
+    {
+      code: 'th',
+      name: 'ภาษาไทย',
+      iso: 'th-TH',
+      file: 'th.json'
+    },
     // #1126, #872 (comment)
     // ポルトガル語は訳が揃っていないため非表示
     // {
