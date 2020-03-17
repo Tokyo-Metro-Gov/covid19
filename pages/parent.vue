@@ -20,7 +20,8 @@
             href="https://tokyodouga.jp/lViN9C_BS-0.html"
             target="_blank"
             rel="noopener"
-          >{{ $t('【参考】感染症予防のための正しい手洗い方法（動画）') }}</a>
+            >{{ $t('【参考】感染症予防のための正しい手洗い方法（動画）') }}</a
+          >
         </li>
         <li>
           {{
@@ -41,7 +42,8 @@
             href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
             target="_blank"
             rel="noopener"
-          >https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html</a>
+            >https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html</a
+          >
         </li>
       </ul>
     </StaticCard>
