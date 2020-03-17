@@ -143,6 +143,9 @@ export default Vue.extend({
         }
       }
     }
+    &:focus {
+      outline: solid $green-1 2px;
+    }
   }
   &-Text {
     color: $gray-1;
