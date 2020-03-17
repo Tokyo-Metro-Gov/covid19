@@ -22,8 +22,6 @@
   </div>
 </template>
 
-<i18n src="./FlowPcPcr.i18n.json"></i18n>
-
 <style module lang="scss">
 .FlowPcPcr {
   @include card-container();

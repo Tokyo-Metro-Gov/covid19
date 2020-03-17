@@ -210,21 +210,19 @@
   </div>
 </template>
 
-<i18n src="./about.i18n.json"></i18n>
-
 <script lang="ts">
+import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import StaticCard from '@/components/StaticCard.vue'
 
-export default {
+export default Vue.extend({
   components: {
     StaticCard
   },
-  head() {
-    return {
-      title: '当サイトについて'
-    }
-  }
-}
+  head: (): MetaInfo => ({
+    title: '当サイトについて'
+  })
+})
 </script>
 
 <style lang="scss">

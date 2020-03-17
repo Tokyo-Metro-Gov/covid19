@@ -1,10 +1,12 @@
 <template>
   <v-app class="app">
-    <div v-if="loading" class="loader">
-      <img src="/logo.svg" alt="東京都" />
-      <scale-loader color="#00A040" />
-    </div>
-    <div v-else-if="hasNavigation" class="appContainer">
+    <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
+      <div class="loader">
+        <img src="/logo.svg" alt="東京都" />
+        <scale-loader color="#00A040" />
+      </div>
+    </v-overlay>
+    <div v-if="hasNavigation" class="appContainer">
       <div class="naviContainer">
         <SideNavigation
           :is-navi-open="isOpenNavigation"
@@ -25,14 +27,17 @@
       </v-container>
     </div>
     <NoScript />
+    <development-mode-mark />
   </v-app>
 </template>
+
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
 import NoScript from '@/components/NoScript.vue'
+import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 
 type LocalData = {
   hasNavigation: boolean
@@ -42,6 +47,7 @@ type LocalData = {
 
 export default Vue.extend({
   components: {
+    DevelopmentModeMark,
     ScaleLoader,
     SideNavigation,
     NoScript
@@ -80,6 +86,67 @@ export default Vue.extend({
           rel: 'canonical',
           href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
         }
+      ],
+      meta: [
+        {
+          hid: 'author',
+          name: 'author',
+          content: this.$tc('東京都')
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$tc(
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+          )
+        },
+        {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          content:
+            this.$t('東京都') +
+            ' ' +
+            this.$t('新型コロナウイルス感染症') +
+            ' ' +
+            this.$t('対策サイト')
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content:
+            this.$t('東京都') +
+            ' ' +
+            this.$t('新型コロナウイルス感染症') +
+            ' ' +
+            this.$t('対策サイト')
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.$tc(
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+          )
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.$tc('ogp.og:image')
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content:
+            this.$t('東京都') +
+            ' ' +
+            this.$t('新型コロナウイルス感染症') +
+            ' ' +
+            this.$t('対策サイト')
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.$tc('ogp.og:image')
+        }
       ]
     }
   }
@@ -92,8 +159,6 @@ export default Vue.extend({
   background-color: inherit !important;
 }
 .embed {
-  display: grid;
-
   .container {
     padding: 0 !important;
   }
@@ -129,6 +194,9 @@ export default Vue.extend({
     overflow-y: auto;
     width: 240px;
     height: 100%;
+    border-right: 1px solid $gray-4;
+    border-left: 1px solid $gray-4;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
     overscroll-behavior: contain;
   }
 }

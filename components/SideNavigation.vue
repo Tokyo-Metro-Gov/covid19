@@ -9,10 +9,10 @@
         mdi-menu
       </v-icon>
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
-        <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('東京都')" />
-        </div>
         <h1 class="SideNavigation-Heading">
+          <div class="SideNavigation-Logo">
+            <img src="/logo.svg" :alt="$t('東京都')" />
+          </div>
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
@@ -91,13 +91,20 @@
   </div>
 </template>
 
-<i18n src="./SideNavigation.i18n.json"></i18n>
-
-<script>
-import ListItem from '@/components/ListItem'
+<script lang="ts">
+import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
+import ListItem from '@/components/ListItem.vue'
 import LanguageSelector from '@/components/LanguageSelector.vue'
 
-export default {
+type Item = {
+  icon?: string
+  title: TranslateResult
+  link: string
+  divider?: boolean
+}
+
+export default Vue.extend({
   components: {
     ListItem,
     LanguageSelector
@@ -109,7 +116,7 @@ export default {
     }
   },
   computed: {
-    items() {
+    items(): Item[] {
       return [
         {
           icon: 'mdi-chart-timeline-variant',
@@ -163,20 +170,17 @@ export default {
           divider: true
         }
       ]
-    },
-    isClass() {
-      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
     }
   },
   methods: {
-    openNavi() {
+    openNavi(): void {
       this.$emit('openNavi')
     },
-    closeNavi() {
+    closeNavi(): void {
       this.$emit('closeNavi')
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -189,11 +193,11 @@ export default {
     padding: 1.25em 0 1.25em 1.25em;
     align-items: center;
     @include lessThan($small) {
-      padding: 7px 0 7px 20px;
+      padding: 7px 10px;
     }
   }
   &-HeadingIcon {
-    margin-right: 16px;
+    margin-right: 10px;
   }
   &-HeadingLink {
     @include lessThan($small) {
@@ -203,25 +207,29 @@ export default {
     text-decoration: none;
   }
   &-ListContainerIcon {
+    width: 21px;
     margin: 24px 16px 0;
   }
   &-ListItemContainer {
     padding: 2px 20px;
   }
   &-Logo {
-    margin: 20px 16px 0 0;
+    margin: 5px 16px 15px 0;
     width: 110px;
     @include lessThan($small) {
-      margin-top: 0;
+      margin: 0 16px 0 0;
     }
   }
   &-Heading {
     margin-top: 8px;
     font-size: 13px;
-    color: #898989;
+    color: #707070;
     padding: 0.5em 0;
     text-decoration: none;
     @include lessThan($small) {
+      display: flex;
+      align-items: center;
+      width: 100%;
       margin-top: 0;
     }
   }
@@ -272,6 +280,11 @@ export default {
     background-color: $white;
     height: 100%;
     overflow-y: scroll;
+  }
+}
+@include lessThan($tiny) {
+  .sp-logo {
+    width: 100px;
   }
 }
 @include largerThan($small) {

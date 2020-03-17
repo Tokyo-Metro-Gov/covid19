@@ -104,21 +104,29 @@
   </div>
 </template>
 
-<i18n src="./worker.i18n.json"></i18n>
-
 <script lang="ts">
+import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import StaticCard from '@/components/StaticCard.vue'
 
-export default {
+type ItemData = {
+  items: Item[]
+}
+
+type Item = {
+  title: string
+  link: string
+  body: string
+}
+
+export default Vue.extend({
   components: {
     StaticCard
   },
-  head() {
-    return {
-      title: '企業の皆様・はたらく皆様へ'
-    }
-  }
-}
+  head: (): MetaInfo => ({
+    title: '企業の皆様・はたらく皆様へ'
+  })
+})
 </script>
 
 <style lang="scss">
