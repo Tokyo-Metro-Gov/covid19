@@ -113,44 +113,51 @@ export default {
           link: this.localePath('/flow'),
           divider: true
         },
+        // {
+        //   icon: 'parent',
+        //   title: this.$t('お子様をお持ちの皆様へ'),
+        //   link: this.localePath('/parent')
+        // },
+        // {
+        //   icon: 'mdi-account-multiple',
+        //   title: this.$t('都民の皆様へ'),
+        //   link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
+        // },
+        // {
+        //   icon: 'mdi-domain',
+        //   title: this.$t('企業の皆様・はたらく皆様へ'),
+        //   link: this.localePath('/worker'),
+        //   divider: true
+        // },
         {
-          icon: 'parent',
-          title: this.$t('お子様をお持ちの皆様へ'),
-          link: this.localePath('/parent')
-        },
-        {
-          icon: 'mdi-account-multiple',
-          title: this.$t('都民の皆様へ'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
-        },
-        {
-          icon: 'mdi-domain',
-          title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: this.localePath('/worker'),
-          divider: true
-        },
-        {
-          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
+          title: this.$t('新潟県対策本部会議開催状況'),
           link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
+            'https://www.pref.niigata.lg.jp/sec/kikitaisaku/shingata-corona.html'
         },
         {
-          title: this.$t('東京都主催等 中止又は延期するイベント等'),
-          link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
+          title: this.$t(
+            '新型コロナウィルス感染症の拡大防止による新潟県内のイベント中止および変更について'
+          ),
+          link: 'https://niigata-kankou.or.jp/news/105'
         },
-        {
-          title: this.$t('知事からのメッセージ'),
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
-        },
+        // {
+        //   title: this.$t('知事からのメッセージ'),
+        //   link:
+        //     'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+        // },
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
         },
         {
-          title: this.$t('東京都公式ホームページ'),
-          link: 'https://www.metro.tokyo.lg.jp/',
+          title: this.$t('新潟県公式ホームページ'),
+          link: 'https://www.pref.niigata.lg.jp/',
+          divider: true
+        },
+        {
+          title: this.$t('県からのお願い'),
+          link:
+            'https://www.pref.niigata.lg.jp/sec/kikitaisaku/shingata-corona.html',
           divider: true
         }
       ]
