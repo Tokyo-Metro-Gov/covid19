@@ -245,8 +245,10 @@ export default class DataView extends Vue {
     font-weight: normal;
     color: $gray-2;
     @include largerThan($large) {
-      width: 50%;
       margin-bottom: 0;
+      &.with-infoPanel {
+        width: 50%;
+      }
     }
   }
   &-CardText {
