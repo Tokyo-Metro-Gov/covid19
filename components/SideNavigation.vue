@@ -133,7 +133,7 @@ export default {
         {
           title: this.$t('新型コロナウイルスに関連する相談窓口'),
           link:
-            'https://www.pref.yamaguchi.lg.jp/cms/a15200/kansensyou/202002250001.html',
+            'https://www.pref.yamaguchi.lg.jp/cms/a11000/sodan/koronasoudan.html',
           divider: true
         },
         {
