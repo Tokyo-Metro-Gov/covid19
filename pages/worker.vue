@@ -9,7 +9,8 @@
           href="https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/03/05/26.html"
           target="_blank"
           rel="noopener"
-        >{{ $t('新型コロナウイルス感染症対応緊急融資') }}</a>
+          >{{ $t('新型コロナウイルス感染症対応緊急融資') }}</a
+        >
       </h3>
       <p>
         {{
@@ -25,7 +26,8 @@
           href="https://www.tokyo-kosha.or.jp/topics/2003/0001.html"
           target="_blank"
           rel="noopener"
-        >{{ $t('新型コロナウイルスによる経営課題に関する専門家派遣') }}</a>
+          >{{ $t('新型コロナウイルスによる経営課題に関する専門家派遣') }}</a
+        >
       </h3>
       <p>
         {{
@@ -41,7 +43,8 @@
           href="https://www.shigotozaidan.or.jp/koyo-kankyo/joseikin/kinkyutaisaku.html"
           target="_blank"
           rel="noopener"
-        >{{ $t('事業継続緊急対策（テレワーク）助成金') }}</a>
+          >{{ $t('事業継続緊急対策（テレワーク）助成金') }}</a
+        >
       </h3>
       <p>
         {{
@@ -57,7 +60,8 @@
           href="https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/01/30/15.html"
           target="_blank"
           rel="noopener"
-        >{{ $t('中小企業者等特別相談窓口') }}</a>
+          >{{ $t('中小企業者等特別相談窓口') }}</a
+        >
       </h3>
       <p>
         {{
@@ -73,7 +77,8 @@
           href="https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2020/02/26/22.html"
           target="_blank"
           rel="noopener"
-        >{{ $t('緊急労働相談ダイヤル') }}</a>
+          >{{ $t('緊急労働相談ダイヤル') }}</a
+        >
       </h3>
       <p>
         {{
@@ -89,9 +94,10 @@
           href="https://smooth-biz.metro.tokyo.lg.jp/"
           target="_blank"
           rel="noopener"
-        >{{
-          $t('新しいワークスタイルや企業活動の東京モデル「スムーズビズ」')
-        }}</a>
+          >{{
+            $t('新しいワークスタイルや企業活動の東京モデル「スムーズビズ」')
+          }}</a
+        >
       </h3>
       <p>
         {{
