@@ -55,8 +55,6 @@
   </div>
 </template>
 
-<i18n src="./FlowPc.i18n.json"></i18n>
-
 <script>
 import FlowPcPast from './FlowPcPast.vue'
 import FlowPcDays from './FlowPcDays.vue'
@@ -90,6 +88,8 @@ export default {
   @include card-container();
   padding: 20px;
   margin-bottom: 20px;
+  word-break: break-word;
+  hyphens: auto;
   > h3 {
     color: $gray-2;
     font-size: 1.5rem;
@@ -133,8 +133,8 @@ export default {
     margin-bottom: 36px;
   }
   &Lower {
-    grid-template-columns: repeat(2, 1fr);
-    -ms-grid-columns: 1fr 12px 1fr;
+    grid-template-columns: repeat(2, calc(50% - 6px));
+    -ms-grid-columns: calc(50% - 6px) 12px calc(50% - 6px);
     grid-template-rows: repeat(3, auto);
     -ms-grid-rows: auto 12px auto 12px auto;
     // HACK: IEでGridの順番がうまくいかない対応
@@ -172,7 +172,7 @@ export default {
 .CardBlock {
   position: relative;
   &::after {
-    content: '';
+    content: url('/flow/flow_arrow.svg');
     position: absolute;
     bottom: 40%;
     right: -30px;
@@ -180,7 +180,6 @@ export default {
     display: block;
     width: 46px;
     height: 46px;
-    background: url('/flow/flow_arrow.svg') no-repeat;
   }
   &Center::after {
     bottom: 40%;
@@ -192,7 +191,7 @@ export default {
     transform: rotate(90deg);
   }
   &Required::before {
-    content: '';
+    content: url('/flow/flow_arrow.svg');
     position: absolute;
     bottom: 12%;
     right: -30px;
@@ -200,7 +199,6 @@ export default {
     display: block;
     width: 46px;
     height: 46px;
-    background: url('/flow/flow_arrow.svg') no-repeat;
   }
   &Pcr::after {
     bottom: auto;
@@ -208,7 +206,7 @@ export default {
     transform: rotateZ(-30deg);
   }
   &Pcr::before {
-    content: '';
+    content: url('/flow/flow_arrow.svg');
     position: absolute;
     bottom: 15%;
     right: -30px;
@@ -216,14 +214,13 @@ export default {
     display: block;
     width: 46px;
     height: 46px;
-    background: url('/flow/flow_arrow.svg') no-repeat;
     transform: rotateZ(30deg);
   }
 }
 .Advisory {
   position: relative;
   &::after {
-    content: '';
+    content: url('/flow/flow_arrow.svg');
     position: absolute;
     left: calc(50% - 23px);
     transform: rotate(-90deg);
@@ -231,7 +228,6 @@ export default {
     display: block;
     width: 46px;
     height: 46px;
-    background: url('/flow/flow_arrow.svg') no-repeat;
   }
 }
 .Past {

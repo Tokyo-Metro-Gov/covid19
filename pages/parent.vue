@@ -52,21 +52,28 @@
   </div>
 </template>
 
-<i18n src="./parent.i18n.json"></i18n>
-
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import StaticCard from '@/components/StaticCard.vue'
 
-export default {
+type ItemData = {
+  items: Item[]
+}
+
+type Item = {
+  title: string
+  body: string
+}
+
+export default Vue.extend({
   components: {
     StaticCard
   },
-  head() {
-    return {
-      title: 'お子様をお持ちの皆様へ'
-    }
-  }
-}
+  head: (): MetaInfo => ({
+    title: 'お子様をお持ちの皆様へ'
+  })
+})
 </script>
 
 <style lang="scss">
