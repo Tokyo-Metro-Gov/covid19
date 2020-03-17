@@ -6,11 +6,13 @@
     class="StaticInfo"
   >
     <span>{{ text }}</span>
+    <!--
     <div v-if="btnText" class="StaticInfo-Button">
       <span>
         {{ btnText }}
       </span>
     </div>
+	-->
   </component>
 </template>
 
