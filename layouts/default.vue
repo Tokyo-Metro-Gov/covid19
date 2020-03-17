@@ -111,6 +111,11 @@ export default Vue.extend({
             this.$t('対策サイト')
         },
         {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+        },
+        {
           hid: 'og:title',
           property: 'og:title',
           content:
