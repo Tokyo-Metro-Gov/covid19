@@ -161,6 +161,7 @@
       }}
     </TextCard>
 
+    <!--
     <TextCard :title="$t('データについて')">
       <i18n
         tag="p"
@@ -176,6 +177,7 @@
         </a>
       </i18n>
     </TextCard>
+	-->
 
     <TextCard :title="$t('ソースコードについて')">
       {{
