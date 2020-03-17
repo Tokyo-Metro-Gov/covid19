@@ -107,4 +107,4 @@ Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 | ---- | -------- | ---- | ---- |
 | Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | HTML สำหรับ production |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | HTML สำหรับ staging |
-| สำหรับ OGP working directory | deploy / new_obp | None | สำหรับอัพเดท OGP |
+| สำหรับ OGP working directory | deploy / new_ogp | None | สำหรับอัพเดท OGP |
