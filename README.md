@@ -33,23 +33,31 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 - 必要となるNode.jsのバージョン: 10.19.0以上
 
 **yarn を使う場合**
-bash
+```bash
 # install dependencies
 $ yarn install
 
 # serve with hot reload at localhost:3000
 $ yarn dev
+```
+
 **docker compose を使う場合**
-bash
+```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
-### Cannot find module **** と怒られた時
+```
+
+### `Cannot find module ****` と怒られた時
+
 **yarn を使う場合**
-bash
+```bash
 $ yarn install
+```
+
 **docker compose を使う場合**
-bash
+```bash
 $ docker-compose run --rm app yarn install
+```
 
 ### VSCode + Remote Cotainersで開発する場合
 
@@ -69,15 +77,15 @@ $ docker-compose run --rm app yarn install
 テスト環境のみで実行したい処理がある場合はこちらの値をご利用ください。
 
 ### ステージング・本番環境への反映
-master ブランチがアップデートされると、自動的に production ブランチにHTML類がbuildされます。
+`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。
 
 そして、本番サイト （未定） が更新されます。
 
-staging ブランチがアップデートされると、自動的に gh-pages ブランチにHTML類がbuildされます。
+`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。
 
 そして、ステージングサイト （未定） が更新されます。
 
-development ブランチがアップデートされると、自動的に dev-pages ブランチにHTML類がbuildされます。
+`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。
 
 ### 開発用環境への反映（新潟県非公式） 
 
@@ -85,7 +93,7 @@ development ブランチがアップデートされると、自動的に dev-pag
 
 ### ブランチルール
 
-development, dev-i18n, dev-hotfix 以外は Pull Request は禁止です。
+`development`, `dev-i18n`, `dev-hotfix` 以外は Pull Request は禁止です。
 Pull Request を送る際の branch は、以下のネーミングルールでお願いします。
 
 機能追加系： feature/#{ISSUE_ID}-#{branch_title_name}
