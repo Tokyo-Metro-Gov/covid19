@@ -145,7 +145,7 @@ export default {
           icon: 'mdi-account-multiple',
           title: this.$t('山口県民の皆様へ'),
           link:
-            'https://www.pref.yamaguchi.lg.jp/cms/a15200/kansensyou/ncorona.html'
+            'https://www.pref.yamaguchi.lg.jp/cms/a11000/korona_kanren/kanren_link.html'
         },
         {
           icon: 'mdi-domain',
