@@ -2,8 +2,18 @@
   <data-view class="SvgCard" :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
-        （注）都内において疑い例または患者の濃厚接触者として検査を行ったものについて掲載<br />
-        （チャーター機帰国者、クルーズ船乗客等は含まれていない。）
+        {{
+          $t(
+            '（注）都内において疑い例または患者の濃厚接触者として検査を行ったものについて掲載'
+          )
+        }}<br />
+        {{ $t('（チャーター機帰国者、クルーズ船乗客等は含まれていない）') }}
+        <br />
+        {{
+          $t(
+            '検査実施人数は、速報値として公開するものであり、後日確定データとして修正される場合があります'
+          )
+        }}
       </p>
     </template>
     <slot />
@@ -24,10 +34,11 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 
-export default {
+export default Vue.extend({
   components: { DataView },
   props: {
     title: {
@@ -43,5 +54,5 @@ export default {
       default: ''
     }
   }
-}
+})
 </script>
