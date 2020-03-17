@@ -1,10 +1,10 @@
 <template>
   <v-list-item
     v-ripple="false"
-    :to="isInternalLink ? link : ''"
-    :href="!isInternalLink ? link : ''"
-    :target="!isInternalLink ? '_blank' : ''"
-    :rel="!isInternalLink ? 'noopener' : ''"
+    :to="isInternalLink(link) ? link : ''"
+    :href="!isInternalLink(link) ? link : ''"
+    :target="!isInternalLink(link) ? '_blank' : ''"
+    :rel="!isInternalLink(link) ? 'noopener' : ''"
     router
     exact
     class="ListItem-Container"
@@ -12,33 +12,33 @@
   >
     <v-list-item-action v-if="icon" class="ListItem-IconContainer">
       <v-icon
-        v-if="iconType === 'material'"
+        v-if="checkIconType(icon) === 'material'"
         class="ListItem-Icon"
-        :class="{ isActive: isActive }"
+        :class="{ isActive: isActive(link) }"
         size="20"
       >
         {{ icon }}
       </v-icon>
       <CovidIcon
-        v-else-if="iconType === 'covid'"
+        v-else-if="checkIconType(icon) === 'covid'"
         class="ListItem-Icon"
-        :class="{ isActive: isActive }"
+        :class="{ isActive: isActive(link) }"
       />
       <ParentIcon
-        v-else-if="iconType === 'parent'"
+        v-else-if="checkIconType(icon) === 'parent'"
         class="ListItem-Icon"
-        :class="{ isActive: isActive }"
+        :class="{ isActive: isActive(link) }"
       />
     </v-list-item-action>
     <v-list-item-content class="ListItem-TextContainer">
       <v-list-item-title
         class="ListItem-Text"
-        :class="{ isActive: isActive }"
+        :class="{ isActive: isActive(link) }"
         v-text="title"
       />
     </v-list-item-content>
     <v-icon
-      v-if="!isInternalLink"
+      v-if="!isInternalLink(link)"
       :aria-label="this.$t('別タブで開く')"
       class="ListItem-ExternalLinkIcon"
       size="12"
@@ -79,22 +79,20 @@ export default Vue.extend({
       default: ''
     }
   },
-  computed: {
-    isInternalLink(): boolean {
-      return !/^https?:\/\//.test(this.link)
+  methods: {
+    isInternalLink(path: string): boolean {
+      return !/^https?:\/\//.test(path)
     },
-    isActive(): boolean {
-      return (
-        this.link === this.$route.path || `${this.link}/` === this.$route.path
-      )
+    isActive(link: string): boolean {
+      return link === this.$route.path || `${link}/` === this.$route.path
     },
-    iconType(): iconType {
-      if (!this.icon) return iconType.none
-      if (this.icon.startsWith('mdi')) {
+    checkIconType(icon?: string): iconType {
+      if (!icon) return iconType.none
+      if (icon.startsWith('mdi')) {
         return iconType.material
-      } else if (this.icon === 'covid') {
+      } else if (icon === 'covid') {
         return iconType.covid
-      } else if (this.icon === 'parent') {
+      } else if (icon === 'parent') {
         return iconType.parent
       } else {
         return iconType.others
@@ -144,9 +142,6 @@ export default Vue.extend({
           }
         }
       }
-    }
-    &:focus {
-      outline: solid $green-1 2px;
     }
   }
   &-Text {
