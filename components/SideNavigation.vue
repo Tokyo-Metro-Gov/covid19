@@ -120,10 +120,18 @@ export default {
           title: this.$t('山口県内の最新感染動向'),
           link: this.localePath('/')
         },
-        {
+        /*
+		{
           icon: 'covid',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
           link: this.localePath('/flow'),
+          divider: true
+		},
+		*/
+        {
+          title: this.$t('新型コロナウイルスに関連する相談窓口'),
+          link:
+            'https://www.pref.yamaguchi.lg.jp/cms/a15200/kansensyou/202002250001.html',
           divider: true
         },
         {
@@ -170,7 +178,12 @@ export default {
         },
         {
           title: this.$t('山口県公式ホームページ'),
-          link: 'https://www.pref.yamaguchi.lg.jp/',
+          link: 'https://www.pref.yamaguchi.lg.jp/'
+        },
+        {
+          title: this.$t('山口県感染症情報センターホームページ'),
+          link:
+            'http://kanpoken.pref.yamaguchi.lg.jp/jyoho/page5-7/page5-7-31.html',
           divider: true
         }
       ]
