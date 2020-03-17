@@ -41,7 +41,7 @@ const config: Configuration = {
         hid: 'og:description',
         property: 'og:description',
         content:
-          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、山口県の有志で集まったチームが開設したものです。'
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、山口県内外の有志が開設したものです。'
       },
       {
         hid: 'og:image',
