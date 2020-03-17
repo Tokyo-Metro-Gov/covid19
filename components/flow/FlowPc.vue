@@ -172,7 +172,7 @@ export default {
 .CardBlock {
   position: relative;
   &::after {
-    content: '';
+    content: url('/flow/flow_arrow.svg');
     position: absolute;
     bottom: 40%;
     right: -30px;
@@ -180,7 +180,6 @@ export default {
     display: block;
     width: 46px;
     height: 46px;
-    background: url('/flow/flow_arrow.svg') no-repeat;
   }
   &Center::after {
     bottom: 40%;
@@ -192,7 +191,7 @@ export default {
     transform: rotate(90deg);
   }
   &Required::before {
-    content: '';
+    content: url('/flow/flow_arrow.svg');
     position: absolute;
     bottom: 12%;
     right: -30px;
@@ -200,7 +199,6 @@ export default {
     display: block;
     width: 46px;
     height: 46px;
-    background: url('/flow/flow_arrow.svg') no-repeat;
   }
   &Pcr::after {
     bottom: auto;
@@ -208,7 +206,7 @@ export default {
     transform: rotateZ(-30deg);
   }
   &Pcr::before {
-    content: '';
+    content: url('/flow/flow_arrow.svg');
     position: absolute;
     bottom: 15%;
     right: -30px;
@@ -216,14 +214,13 @@ export default {
     display: block;
     width: 46px;
     height: 46px;
-    background: url('/flow/flow_arrow.svg') no-repeat;
     transform: rotateZ(30deg);
   }
 }
 .Advisory {
   position: relative;
   &::after {
-    content: '';
+    content: url('/flow/flow_arrow.svg');
     position: absolute;
     left: calc(50% - 23px);
     transform: rotate(-90deg);
@@ -231,7 +228,6 @@ export default {
     display: block;
     width: 46px;
     height: 46px;
-    background: url('/flow/flow_arrow.svg') no-repeat;
   }
 }
 .Past {

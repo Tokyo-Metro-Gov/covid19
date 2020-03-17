@@ -23,11 +23,9 @@
 
 請參考[此連結](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/forkedSites.md)
 
-[please translate me]
+## 給翻譯者的資訊
 
-Please check [How to translate](./.github/TRANSLATION.md) doc.
-
-[/please translate me]
+有要幫忙翻譯的話，請參考 [這個文件](./.github/TRANSLATION_ZH_TW.md) 。
 
 ## 給開發者的資訊
 
@@ -62,19 +60,17 @@ $ yarn install
 $ docker-compose run --rm app yarn install
 ```
 
-[please translate me]
-### VSCode + Remote Cotainersで開発する場合
+### VSCode + Remote Cotainers 的開發環境
 
-1. VSCodeの拡張機能「[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」を導入します。
-2. [この画像（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)のように左下部の「Open Folder in Container」でこのリポジトリのルートを選択すれば環境構築が始まります。
+1. 安裝 VSCode 的擴充套件「[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」。
+2. 如同 [這個圖像（外部連結）](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)點擊左下角的 「Open Folder in Container」 後選擇 Repository 的資料夾路徑開始建立環境。
 
-[Topic]
-- 設定を変更したい場合は、`.devcontainer/devcontainer.json`を修正してください。<br/>
-    詳細は[devcontainer.jsonのリファレンス](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)を参照してください。
-- Remote Container実行時のみ有効な拡張機能「ESlint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。<br/>
-    詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
-- 開発環境を再構築する場合は、左下部の「Rebuild Container」を実行してください。
-[/please translate me]
+[提示]
+- 如果想要變更設定，請更改 `.devcontainer/devcontainer.json` 這隻檔案。<br/>
+    詳細請參考 [devcontainer.json的參考值](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)。
+- Remote Container 啟動時擴充套件只有導入 「ESlint」、如果有必要，請在 `devcontainer.json` 的 `extensions` 中新增。<br/>
+    詳細的步驟請參考 [這裡（外部連結）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)。
+- 如果要重新建立開發環境，請執行左下角的 「Rebuild Container」。
 
 ### 生產環境/其他環境的判定
 
@@ -89,29 +85,25 @@ $ docker-compose run --rm app yarn install
 
 當 `development` 分支被更新時，HTML 檔案將會在 `dev-pages` 分支中被 build 起來，然後開發版網站 https://dev-covid19-tokyo.netlify.com/ 會被更新。
 
-[PLEASE TRANSLATE ME]
+### 分支規則
 
-### Branch rules
+只允許推送 Pull Request 到 `development` 、 `dev-i18n` 跟 `dev-hotfix` 。
+在推送 Pull Request 時，請依照以下命名規則為您的分支命名
 
-Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.
-Please use the following naming rules for the branch when sending a Pull Request.
+新增功能: feature/#{ISSUE_ID}-#{branch_title_name}
+Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 
-Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}
-Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
-
-#### Basic branch
-| Purpose | Branch | Confirmation URL | Remarks |
+#### 基本分支
+| 目的 | 分支 | 預覽用 URL | 備註 |
 | ---- | -------- | ---- | ---- |
-| Development | development | http://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
-| Hotfix branch | dev-hotfix | None | Fixes that should be applied to production in haste. Use this if requested by the administrator |
-| i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | Temporarily used |
-| Staging | staging | https://stg-covid19-tokyo.netlify.com/ | For final confirmation before production. Non-admin pull requests are prohibited |
-Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
-#### Branch used by the system
-| Purpose | Branch | Confirmation URL |
+| 開發 | development | http://dev-covid19-tokyo.netlify.com/ | 基本上請推送 Pull Request 到這裡 |
+| 緊急修復 | dev-hotfix | 無 | 對於正式版的緊急修復。 在管理員的要求下使用。 |
+| i18n 工作用 | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | 暫時使用 |
+| 正式版預覽 | staging | https://stg-covid19-tokyo.netlify.com/ | 對於正式版釋出前的最終確認，禁止管理員以外的人推送 Pull Request。 |
+| 正式版 | master | http://stopcovid19.metro.tokyo.lg.jp/ | 禁止管理員以外的人推送 Pull Request |
+#### 系統所使用的分支
+| 目的 | 分支 | 預覽用 URL | 備註 |
 | ---- | -------- | ---- | ---- |
-Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
-Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
-| For OGP working directory | deploy / new_obp | None | For updating OGP |
-
-[/PLEASE TRANSLATE ME]
+| 正式網站 HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | 生成靜態網站 HTML 的位置 |
+| 正式版預覽 HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 生成靜態網站 HTML 的位置 |
+| OGP 工作用 | deploy / new_obp | 無 | OGP 更新用 |

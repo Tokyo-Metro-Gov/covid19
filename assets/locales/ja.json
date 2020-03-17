@@ -206,10 +206,10 @@
   "濃厚接触": "濃厚接触",
   "流行地域への渡航・居住歴がある方": "流行地域への渡航・居住歴がある方",
   "{you} か {closeContact}をした方": "{you} か {closeContact}をした方",
-  "travel history from {area}": 0,
-  "COVID-19 prevalent area": 0,
-  "been {inCloseContact} with returnees": 0,
-  "in close contact": 0,
+  "travel history from {area}": "travel history from {area}",
+  "COVID-19 prevalent area": "COVID-19 prevalent area",
+  "been {inCloseContact} with returnees": "been {inCloseContact} with returnees",
+  "in close contact": "in close contact",
   "ご本人": "ご本人",
   "発熱": "発熱",
   "または": "または",
@@ -233,5 +233,10 @@
   "新型コロナコールセンター": "新型コロナコールセンター",
   "午前9時から午後9時（土日祝含む）": "午前9時から午後9時（土日祝含む）",
   "新型コロナ受診相談窓口へ": "新型コロナ受診相談窓口へ",
-  "別タブで開く": "別タブで開く"
+  "別タブで開く": "別タブで開く",
+  "2次元コード": "2次元コード",
+  "※最新の情報はWebページをご覧ください": "※最新の情報はWebページをご覧ください",
+  "ogp": {
+    "og:image": "https://stopcovid19.metro.tokyo.lg.jp/ogp.png"
+  }
 }
