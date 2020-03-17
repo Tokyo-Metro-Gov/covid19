@@ -45,7 +45,7 @@ export default {
     ConfirmedCasesAttributesCard,
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
-    ConsultationDeskReportsNumberCard,
+    ConsultationDeskReportsNumberCard
   },
   data() {
     let title, updatedAt

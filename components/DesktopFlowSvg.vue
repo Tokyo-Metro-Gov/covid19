@@ -1190,7 +1190,7 @@
       <g transform="translate(0 -19)">
         <g transform="translate(19 5)">
           <a
-            xlink:href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+            xlink:href="https://www.pref.niigata.lg.jp/sec/kenko/corona-center.html"
             target="_blank"
             rel="noopener"
           >

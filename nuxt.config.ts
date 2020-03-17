@@ -48,7 +48,8 @@ const config: Configuration = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png'
+        content:
+          'https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -68,7 +69,8 @@ const config: Configuration = {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png'
+        content:
+          'https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png'
       },
       {
         hid: 'fb:app_id',
