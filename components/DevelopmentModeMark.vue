@@ -1,13 +1,13 @@
 <template>
   <div v-if="isDevelopmentMode" class="DevelopmentModeMark">
     開発中（development mode）
-    <a
-      href="https://stopcovid19.metro.tokyo.lg.jp/"
-      target="_blank"
-      rel="noopener"
-    >
-      公開サイトへ
-    </a>
+<!--    <a-->
+<!--      href="/"-->
+<!--      target="_blank"-->
+<!--      rel="noopener"-->
+<!--    >-->
+<!--      公開サイトへ-->
+<!--    </a>-->
   </div>
 </template>
 
