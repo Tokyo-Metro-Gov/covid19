@@ -79,7 +79,7 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 Tokyo Metropolitan Government
+          2020 Code For Niigata
         </small>
       </v-footer>
     </div>
@@ -113,26 +113,28 @@ export default {
           link: this.localePath('/flow'),
           divider: true
         },
-        // {
-        //   icon: 'parent',
-        //   title: this.$t('お子様をお持ちの皆様へ'),
-        //   link: this.localePath('/parent')
-        // },
-        // {
-        //   icon: 'mdi-account-multiple',
-        //   title: this.$t('都民の皆様へ'),
-        //   link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
-        // },
-        // {
-        //   icon: 'mdi-domain',
-        //   title: this.$t('企業の皆様・はたらく皆様へ'),
-        //   link: this.localePath('/worker'),
-        //   divider: true
-        // },
         {
           title: this.$t('新潟県対策本部会議開催状況'),
           link:
             'https://www.pref.niigata.lg.jp/sec/kikitaisaku/shingata-corona.html'
+        },
+        {
+          icon: 'mdi-account-multiple',
+          title: this.$t('県民の皆様へ'),
+          link:
+            'https://www.pref.niigata.lg.jp/sec/kikitaisaku/shingata-corona.html'
+        },
+        {
+          icon: 'mdi-domain',
+          title: this.$t('企業の皆様・はたらく皆様へ'),
+          link: this.localePath('/worker'),
+          divider: true
+        },
+        {
+          title: this.$t(
+            '新型コロナウイルス感染症対策情報（産業労働分野）まとめ'
+          ),
+          link: 'https://www.pref.niigata.lg.jp/sec/sangyoseisaku/corona-sangyo'
         },
         {
           title: this.$t(
@@ -140,11 +142,6 @@ export default {
           ),
           link: 'https://niigata-kankou.or.jp/news/105'
         },
-        // {
-        //   title: this.$t('知事からのメッセージ'),
-        //   link:
-        //     'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
-        // },
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
