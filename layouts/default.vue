@@ -116,6 +116,11 @@ export default Vue.extend({
           content: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
         },
         {
+          hid: 'og:locale',
+          property: 'og:locale',
+          content: this.$i18n.locale
+        },
+        {
           hid: 'og:title',
           property: 'og:title',
           content:
