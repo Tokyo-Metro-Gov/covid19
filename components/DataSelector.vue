@@ -41,9 +41,6 @@
     &::before {
       background-color: inherit;
     }
-    &:focus {
-      outline: solid $green-1 2px;
-    }
   }
 
   & .v-btn--active {
