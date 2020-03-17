@@ -2,9 +2,15 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
-        （注）同一の対象者について複数の検体を調査する場合あり
+        {{ $t('（注）同一の対象者について複数の検体を調査する場合あり') }}
+        <br />
+        {{
+          $t(
+            '検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります'
+          )
+        }}
       </p>
-      <data-selector v-model="dataKind" />
+      <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
     <bar
       :chart-id="chartId"
@@ -22,17 +28,83 @@
   </data-view>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-export default {
+interface HTMLElementEvent<T extends HTMLElement> extends Event {
+  currentTarget: T
+}
+type Data = {
+  dataKind: 'transition' | 'cumulative'
+}
+type Methods = {
+  sum: (array: number[]) => number
+  cumulative: (array: number[]) => number[]
+  pickLastNumber: (chartDataArray: number[][]) => number[]
+  cumulativeSum: (chartDataArray: number[][]) => number[]
+  eachArraySum: (chartDataArray: number[][]) => number[]
+}
+
+type Computed = {
+  displayInfo: {
+    lText: string
+    sText: string
+    unit: string
+  }
+  displayData: {
+    labels: string[]
+    datasets: {
+      label: string
+      data: number[]
+      backgroundColor: string
+      borderWidth: number
+    }[]
+  }
+  options: {
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        label: (tooltipItem: any) => string
+        title: (tooltipItem: any, data: any) => string
+      }
+    }
+    responsive: boolean
+    maintainAspectRatio: boolean
+    legend: {
+      display: boolean
+      onHover: (e: HTMLElementEvent<HTMLElement>) => void
+      onLeave: (e: HTMLElementEvent<HTMLElement>) => void
+    }
+    scales: object
+  }
+}
+
+type Props = {
+  title: string
+  titleId: string
+  chartId: string
+  chartData: number[][]
+  date: string
+  items: string[]
+  labels: string[]
+  unit: string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
@@ -42,7 +114,6 @@ export default {
     },
     chartId: {
       type: String,
-      required: false,
       default: 'time-stacked-bar-chart'
     },
     chartData: {
@@ -57,37 +128,36 @@ export default {
     },
     items: {
       type: Array,
-      required: false,
       default: () => []
     },
     labels: {
       type: Array,
-      required: false,
       default: () => []
     },
     unit: {
       type: String,
-      required: false,
       default: ''
     }
   },
-  data() {
-    return {
-      dataKind: 'transition'
-    }
-  },
+  data: () => ({
+    dataKind: 'transition'
+  }),
   computed: {
     displayInfo() {
       if (this.dataKind === 'transition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
-          sText: `${this.labels[this.labels.length - 1]} の合計`,
+          sText: `${this.$t('{date}の合計', {
+            date: this.labels[this.labels.length - 1]
+          })}`,
           unit: this.unit
         }
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.labels[this.labels.length - 1]} の全体累計`,
+        sText: `${this.$t('{date}の全体累計', {
+          date: this.labels[this.labels.length - 1]
+        })}`,
         unit: this.unit
       }
     },
@@ -130,29 +200,44 @@ export default {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label: tooltipItem => {
-              const labelText =
-                this.dataKind === 'transition'
-                  ? `${sumArray[tooltipItem.index]}${unit}（都内: ${
-                      data[0][tooltipItem.index]
-                    }/その他: ${data[1][tooltipItem.index]}）`
-                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（都内: ${
-                      cumulativeData[0][tooltipItem.index]
-                    }/その他: ${cumulativeData[1][tooltipItem.index]}）`
-              return labelText
+            label: (tooltipItem: any) => {
+              const labelTokyo = this.$t('都内')
+              const labelOthers = this.$t('その他')
+              const labelArray = [labelTokyo, labelOthers]
+              let casesTotal, cases
+              if (this.dataKind === 'transition') {
+                casesTotal = sumArray[tooltipItem.index].toLocaleString()
+                cases = data[tooltipItem.datasetIndex][
+                  tooltipItem.index
+                ].toLocaleString()
+              } else {
+                casesTotal = cumulativeSumArray[
+                  tooltipItem.index
+                ].toLocaleString()
+                cases = cumulativeData[tooltipItem.datasetIndex][
+                  tooltipItem.index
+                ].toLocaleString()
+              }
+
+              return `${
+                labelArray[tooltipItem.datasetIndex]
+              }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
             },
             title(tooltipItem, data) {
-              return data.labels[tooltipItem[0].index].replace(
-                /(\w+)\/(\w+)/,
-                '$1月$2日'
-              )
+              return data.labels[tooltipItem[0].index]
             }
           }
         },
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-          display: true
+          display: true,
+          onHover: (e: HTMLElementEvent<HTMLElement>): void => {
+            e.currentTarget.style.cursor = 'pointer'
+          },
+          onLeave: (e: HTMLElementEvent<HTMLElement>): void => {
+            e.currentTarget.style.cursor = 'default'
+          }
         },
         scales: {
           xAxes: [
@@ -168,7 +253,7 @@ export default {
                 fontColor: '#808080',
                 maxRotation: 0,
                 minRotation: 0,
-                callback: label => {
+                callback: (label: string) => {
                   return label.split('/')[1]
                 }
               }
@@ -187,7 +272,7 @@ export default {
                 fontColor: '#808080',
                 padding: 3,
                 fontStyle: 'bold',
-                callback: label => {
+                callback: (label: string) => {
                   const monthStringArry = [
                     'Jan',
                     'Feb',
@@ -232,8 +317,8 @@ export default {
     }
   },
   methods: {
-    cumulative(array) {
-      const cumulativeArray = []
+    cumulative(array: number[]): number[] {
+      const cumulativeArray: number[] = []
       let patSum = 0
       array.forEach(d => {
         patSum += d
@@ -241,25 +326,25 @@ export default {
       })
       return cumulativeArray
     },
-    sum(array) {
+    sum(array: number[]): number {
       return array.reduce((acc, cur) => {
         return acc + cur
       })
     },
-    pickLastNumber(chartDataArray) {
+    pickLastNumber(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array[array.length - 1]
       })
     },
-    cumulativeSum(chartDataArray) {
+    cumulativeSum(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array.reduce((acc, cur) => {
           return acc + cur
         })
       })
     },
-    eachArraySum(chartDataArray) {
-      const sumArray = []
+    eachArraySum(chartDataArray: number[][]) {
+      const sumArray: number[] = []
       for (let i = 0; i < chartDataArray[0].length; i++) {
         sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
       }
@@ -267,11 +352,14 @@ export default {
     }
   }
 }
+
+export default Vue.extend(options)
 </script>
 
 <style lang="scss" scoped>
 .Graph-Desc {
-  margin: 10px 0;
+  width: 100%;
+  margin: 0;
   font-size: 12px;
   color: $gray-3;
 }

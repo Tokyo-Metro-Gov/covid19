@@ -12,8 +12,10 @@
 <style lang="scss">
 .DataView {
   &-DataInfo {
-    margin-top: 20px;
-    text-align: right;
+    @include largerThan($large) {
+      text-align: right;
+      width: 50%;
+    }
     &-summary {
       display: inline-block;
       font-family: Hiragino Sans;
@@ -25,7 +27,7 @@
       }
     }
     &-date {
-      white-space: nowrap;
+      white-space: wrap;
       display: inline-block;
       font-size: 12px;
       line-height: 12px;
@@ -33,36 +35,25 @@
     }
   }
 }
-.DataView {
-  @include card-container();
-  height: 100%;
-  &-Header {
-    background-color: transparent !important;
-    height: auto !important;
-  }
-  &-TitleContainer {
-    padding: 14px 0 8px;
-  }
-  &-Title {
-    @include card-h2();
-  }
-  &-CardText {
-    margin-bottom: 46px;
-    margin-top: 20px;
-  }
-}
-.v-toolbar__content {
-  height: auto !important;
-}
 </style>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 
-@Component
-export default class DataViewBasicInfoPanel extends Vue {
-  @Prop() private lText!: string
-  @Prop() private sText!: string
-  @Prop() private unit!: string
-}
+export default Vue.extend({
+  props: {
+    lText: {
+      type: String,
+      required: true
+    },
+    sText: {
+      type: String,
+      required: true
+    },
+    unit: {
+      type: String,
+      required: true
+    }
+  }
+})
 </script>

@@ -2,9 +2,13 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="MetroGraph-Desc">
-        {{ chartData.base_period }}の利用者数*の平均値を基準としたときの相対値
+        {{
+          $t('{range}の利用者数*の平均値を基準としたときの相対値', {
+            range: $t(chartData.base_period)
+          })
+        }}
         <br />
-        *都営地下鉄4路線の自動改札出場数
+        *{{ $t('都営地下鉄4路線の自動改札出場数') }}
       </p>
     </template>
     <bar
@@ -27,15 +31,40 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ChartOptions, ChartData } from 'chart.js'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 
-export default {
+type Data = {}
+type Methods = {}
+type Computed = {
+  displayData: {
+    labels: (string | undefined)[]
+    datasets: object
+  }
+}
+type Props = {
+  chartData: ChartData
+  chartOption: ChartOptions
+  chartId: string
+  title: string
+  titleId: string
+  date: string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
   components: { DataView },
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
@@ -43,42 +72,35 @@ export default {
       required: false,
       default: ''
     },
+    chartData: Object,
+    chartOption: Object,
     chartId: {
       type: String,
-      required: false,
       default: 'metro-bar-chart'
-    },
-    chartData: {
-      type: Object,
-      required: false,
-      default: () => {}
-    },
-    chartOption: {
-      type: Object,
-      required: false,
-      default: () => {}
     },
     date: {
       type: String,
-      required: true,
-      default: ''
+      required: true
     }
   },
   computed: {
     displayData() {
-      const colors = ['#a6e29f', '#63c765', '#008b41']
+      const colors: string[] = ['#a6e29f', '#63c765', '#008b41']
+      const datasets = this.chartData.labels!.map((label, i) => {
+        return {
+          label,
+          data: this.chartData.datasets!.map(d => d.data![i]),
+          backgroundColor: colors[i],
+          borderWidth: 0
+        }
+      })
       return {
-        labels: this.chartData.datasets.map(d => d.label),
-        datasets: this.chartData.labels.map((label, i) => {
-          return {
-            label,
-            data: this.chartData.datasets.map(d => d.data[i]),
-            backgroundColor: colors[i],
-            borderWidth: 0
-          }
-        })
+        labels: this.chartData.datasets!.map(d => d.label),
+        datasets
       }
     }
   }
 }
+
+export default Vue.extend(options)
 </script>

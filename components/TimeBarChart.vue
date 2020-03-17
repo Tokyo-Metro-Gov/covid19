@@ -1,7 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
-      <data-selector v-model="dataKind" />
+      <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
     <bar
       :chart-id="chartId"
@@ -21,55 +21,105 @@
 
 <style></style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-export default {
+type Data = {
+  dataKind: 'transition' | 'cumulative'
+}
+type Methods = {
+  formatDayBeforeRatio: (dayBeforeRatio: number) => string
+}
+type Computed = {
+  displayCumulativeRatio: string
+  displayTransitionRatio: string
+  displayInfo: {
+    lText: string
+    sText: string
+    unit: string
+  }
+  displayData: {
+    labels: string[]
+    datasets: {
+      label: 'transition' | 'cumulative'
+      data: number[]
+      backgroundColor: string
+      borderWidth: number
+    }[]
+  }
+  displayOption: {
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        label(tooltipItem: any): string
+        title(tooltipItem: any[], data: any): string | undefined
+      }
+    }
+    responsive: boolean
+    maintainAspectRatio: boolean
+    legend: {
+      display: boolean
+    }
+    scales: object
+  }
+  scaledTicksYAxisMax: number
+}
+type Props = {
+  title: string
+  titleId: string
+  chartId: string
+  chartData: GraphDataType[]
+  date: string
+  unit: string
+  url: string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
       type: String,
-      required: false,
       default: ''
     },
     chartId: {
       type: String,
-      required: false,
       default: 'time-bar-chart'
     },
     chartData: {
       type: Array,
-      required: false,
       default: () => []
     },
     date: {
       type: String,
-      required: true,
-      default: ''
+      required: true
     },
     unit: {
       type: String,
-      required: false,
       default: ''
     },
     url: {
       type: String,
-      required: false,
       default: ''
     }
   },
-  data() {
-    return {
-      dataKind: 'transition'
-    }
-  },
+  data: () => ({
+    dataKind: 'transition'
+  }),
   computed: {
     displayCumulativeRatio() {
       const lastDay = this.chartData.slice(-1)[0].cumulative
@@ -85,7 +135,9 @@ export default {
       if (this.dataKind === 'transition') {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `実績値（前日比：${this.displayTransitionRatio} ${this.unit}）`,
+          sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
+            this.displayTransitionRatio
+          } ${this.unit}）`,
           unit: this.unit
         }
       }
@@ -93,9 +145,11 @@ export default {
         lText: this.chartData[
           this.chartData.length - 1
         ].cumulative.toLocaleString(),
-        sText: `${this.chartData.slice(-1)[0].label} 累計値（前日比：${
-          this.displayCumulativeRatio
-        } ${this.unit}）`,
+        sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
+          '累計値'
+        )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
+          this.unit
+        }）`,
         unit: this.unit
       }
     },
@@ -118,9 +172,7 @@ export default {
         }
       }
       return {
-        labels: this.chartData.map(d => {
-          return d.label
-        }),
+        labels: this.chartData.map(d => d.label),
         datasets: [
           {
             label: this.dataKind,
@@ -135,20 +187,19 @@ export default {
     },
     displayOption() {
       const unit = this.unit
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       return {
         tooltips: {
           displayColors: false,
           callbacks: {
             label(tooltipItem) {
-              const labelText =
-                parseInt(tooltipItem.value).toLocaleString() + unit
+              const labelText = `${parseInt(
+                tooltipItem.value
+              ).toLocaleString()} ${unit}`
               return labelText
             },
             title(tooltipItem, data) {
-              return data.labels[tooltipItem[0].index].replace(
-                /(\w+)\/(\w+)/,
-                '$1月$2日'
-              )
+              return data.labels[tooltipItem[0].index]
             }
           }
         },
@@ -171,7 +222,7 @@ export default {
                 fontColor: '#808080',
                 maxRotation: 0,
                 minRotation: 0,
-                callback: label => {
+                callback: (label: string) => {
                   return label.split('/')[1]
                 }
               }
@@ -193,7 +244,7 @@ export default {
                 gridLines: {
                   display: true
                 },
-                callback: label => {
+                callback: (label: string) => {
                   const monthStringArry = [
                     'Jan',
                     'Feb',
@@ -229,16 +280,24 @@ export default {
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080'
+                fontColor: '#808080',
+                suggestedMax: scaledTicksYAxisMax
               }
             }
           ]
         }
       }
+    },
+    scaledTicksYAxisMax() {
+      const yAxisMax = 1.2
+      const dataKind =
+        this.dataKind === 'transition' ? 'transition' : 'cumulative'
+      const values = this.chartData.map(d => d[dataKind])
+      return Math.max(...values) * yAxisMax
     }
   },
   methods: {
-    formatDayBeforeRatio(dayBeforeRatio) {
+    formatDayBeforeRatio(dayBeforeRatio: number): string {
       const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
@@ -251,4 +310,6 @@ export default {
     }
   }
 }
+
+export default Vue.extend(options)
 </script>
