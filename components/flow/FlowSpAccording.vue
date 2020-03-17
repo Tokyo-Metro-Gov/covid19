@@ -158,7 +158,7 @@ export default {
 
 .according {
   .heading {
-    color: $green-1;
+    color: $blue-1;
   }
   .diag {
     margin-top: px2vw(30);
@@ -212,7 +212,7 @@ export default {
       position: relative;
     }
     &.consult {
-      border: px2vw(3) solid $green-1;
+      border: px2vw(3) solid $blue-1;
       flex-basis: 100%;
     }
     &.bgYellow {
@@ -290,7 +290,7 @@ export default {
         padding-top: px2vw((46 + 20 * 2), $vw);
       }
       &.consult {
-        border: px2vw(3, $vw) solid $green-1;
+        border: px2vw(3, $vw) solid $blue-1;
       }
       &:nth-child(n + 3) {
         margin-top: px2vw((486 - 233 - 233), $vw);
