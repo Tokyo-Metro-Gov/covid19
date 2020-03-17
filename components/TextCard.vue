@@ -26,32 +26,29 @@
 </template>
 
 <script lang="ts">
-import { Vue, Prop, Component } from 'vue-property-decorator'
+import Vue from 'vue'
 
-@Component
-export default class TextCard extends Vue {
-  @Prop({
-    default: '',
-    required: false
-  })
-  title!: string
-
-  @Prop({
-    default: '',
-    required: false
-  })
-  link!: string
-
-  @Prop({
-    default: '',
-    required: false
-  })
-  body!: string
-
-  isInternalLink(path: string): boolean {
-    return !/^https?:\/\//.test(path)
+export default Vue.extend({
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    body: {
+      type: String,
+      default: ''
+    },
+    link: {
+      type: String,
+      default: ''
+    }
+  },
+  methods: {
+    isInternalLink(path: string): boolean {
+      return !/^https?:\/\//.test(path)
+    }
   }
-}
+})
 </script>
 
 <style lang="scss">
