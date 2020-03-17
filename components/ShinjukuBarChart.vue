@@ -1,17 +1,13 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
-      <p v-if="dataKind === 'absolute'" :class="$style.ShinjukuDesc">
-        7:30 ~ 8:30 の平均来訪者数について
+      <p :class="$style.ShinjukuDesc">
+        2月3日～2月7日の来訪者数 (※1) の平均値 (※2) を 基準としたときの相対値
         <br />
-        週間平均値（週毎の1日あたりの平均値）を算出
-      </p>
-      <p v-if="dataKind === 'relative'" :class="$style.ShinjukuDesc">
-        7:30 ~ 8:30 の平均来訪者数の週間平均値を、
+        ※1) ヤフーに蓄積された位置情報データなどを元に算出した参考値
         <br />
-        2/3の週を基準とした相対値として算出
+        ※2) 土・日・祝日を除く7:30~8:30の1週間平均値
       </p>
-      <data-selector v-model="dataKind" :data-types="dataTypes" />
     </template>
     <bar
       :chart-id="chartId"
@@ -52,7 +48,6 @@ import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
 import ShinjukuData from '@/data/shinjuku.json'
 import DataView from '@/components/DataView.vue'
-import DataSelector from '@/components/DataSelector.vue'
 
 dayjs.extend(updateLocale)
 dayjs.extend(weekOfYear)
@@ -63,8 +58,13 @@ dayjs.updateLocale('en', {
 })
 
 export default {
-  components: { DataView, DataSelector },
+  components: { DataView },
   props: {
+    title: {
+      type: String,
+      required: false,
+      default: ''
+    },
     titleId: {
       type: String,
       required: false,
@@ -84,24 +84,10 @@ export default {
   data() {
     return {
       chartData: ShinjukuData.data,
-      date: ShinjukuData.date,
-      dataKind: 'absolute',
-      dataTypes: [
-        { value: 'absolute', tKey: '実数値' },
-        { value: 'relative', tKey: '相対値' }
-      ]
+      date: ShinjukuData.date
     }
   },
   computed: {
-    title() {
-      let title = ''
-      if (this.dataKind === 'absolute') {
-        title = '新宿区の来訪者数の推移 (実数値)'
-      } else if (this.dataKind === 'relative') {
-        title = '新宿区の来訪者数の推移 (相対値)'
-      }
-      return title
-    },
     groupByWeekData() {
       const sundays = this.chartData
         .map(d => dayjs(d.date))
@@ -171,7 +157,6 @@ export default {
       }
     },
     displayOptions() {
-      const self = this
       return {
         legend: {
           display: false
@@ -184,7 +169,8 @@ export default {
               return `期間: ${period}`
             },
             label(tooltipItem) {
-              return self.label(tooltipItem)
+              const val = tooltipItem.yLabel
+              return `${val.toFixed(2)}%`
             }
           }
         },
@@ -202,31 +188,12 @@ export default {
                 maxTicksLimit: 8,
                 suggestedMin: 0,
                 callback(value) {
-                  return self.yTicks(value)
+                  return `${value.toFixed(2)}%`
                 }
               }
             }
           ]
         }
-      }
-    }
-  },
-  methods: {
-    label(tooltipItem) {
-      const val = tooltipItem.yLabel
-      if (this.dataKind === 'absolute') {
-        // 小数点以下1桁で四捨五入
-        const personNum = Math.round(val)
-        return `${personNum.toLocaleString()}人`
-      } else {
-        return `${val.toFixed(2)}%`
-      }
-    },
-    yTicks(value) {
-      if (this.dataKind === 'absolute') {
-        return `${value.toLocaleString()}`
-      } else {
-        return `${value.toFixed(2)}%`
       }
     }
   }
