@@ -16,6 +16,9 @@
       :height="240"
     />
     <p :class="$style.ShinjukuDesc">
+      ※本データは2020年3月31日までの掲載となります
+    </p>
+    <p :class="$style.ShinjukuDesc">
       &copy; Yahoo Japan
       <br />
       出典：
@@ -184,12 +187,18 @@ export default {
             {
               gridLines: {
                 display: false
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: '#808080'
               }
             }
           ],
           yAxes: [
             {
               ticks: {
+                fontSize: 11,
+                fontColor: '#808080',
                 maxTicksLimit: 8,
                 suggestedMin: 0,
                 callback(value) {
