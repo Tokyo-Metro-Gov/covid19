@@ -26,7 +26,7 @@
     "tested": "cases",
     "reports": "inquiries"
   },
-  "日付": "Date",
+  "公表日": "Published Date",
   "居住地": "Residence",
   "年代": "Age",
   "性別": "Gender",
@@ -115,6 +115,7 @@
   "第一庁舎計": "TMG No.1 bldg. TTL",
   "第二庁舎計": "TMG No.2 bldg. TTL",
   "議事堂計": "Assembly bldg. TTL",
+  "※土・日・祝日を除く庁舎開庁日の1週間累計数": "Total number in government building business days of the week which exclude Saturdays, Sundays and holidays",
   "検査実施<br />人数": "Number of tested",
   "陽性者数": "Confirmed cases",
   "(累積)": "(Accum.)",
@@ -148,7 +149,7 @@
   "知事からのメッセージ": "Message from Governor Koike on COVID-19 (in Japanese)",
   "このサイトの内容物は": "Content on This Site is Licensed Under a",
   "クリエイティブ・コモンズ 表示 4.0 ライセンス": "Creative Commons Attribution 4.0 International License",
-  "の下に提供されています。": " ",
+  "の下に提供されています。": "provided under ",
   "実績値": "Actual value",
   "累計値": "Cumulative value",
   "前日比": "day-over-day change",
@@ -203,13 +204,13 @@
   "「新型コロナウイルス感染者」と": "with a COVID-19 patient",
   "{closeContact}をした方": "been {closeContact}",
   "濃厚接触": "in close contact",
-  "流行地域への渡航・居住歴がある方": 0,
-  "{you} か {closeContact}をした方": 0,
-  "ご本人": 0,
+  "流行地域への渡航・居住歴がある方": "N/A",
+  "{you} か {closeContact}をした方": "N/A",
   "travel history from {area}": "travel history from {area}",
   "COVID-19 prevalent area": "COVID-19 prevalent area",
   "been {inCloseContact} with returnees": "been {inCloseContact} with returnees",
   "in close contact": "in close contact",
+  "ご本人": "N/A",
   "発熱": "Fever",
   "または": "or",
   "呼吸器症状": "Having respiratory symptoms",
@@ -231,5 +232,11 @@
   "感染の不安": "If you suspect you have COVID-19",
   "新型コロナコールセンター": "Tokyo Metropolitan Telephone Consultation (Support in English, Chinese, Korean and Japanese)",
   "午前9時から午後9時（土日祝含む）": "9:00 am - 9:00 pm (7 days a week)",
-  "新型コロナ受診相談窓口へ": "Go COVID-19 advisory"
+  "新型コロナ受診相談窓口へ": "Go COVID-19 advisory",
+  "別タブで開く": "Open in a new tab",
+  "2次元コード": "2次元コード",
+  "※最新の情報はWebページをご覧ください": "※最新の情報はWebページをご覧ください",
+  "ogp": {
+    "og:image": "https://stopcovid19.metro.tokyo.lg.jp/ogp/en/ogp-image.png"
+  }
 }

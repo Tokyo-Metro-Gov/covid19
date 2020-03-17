@@ -5,7 +5,7 @@
       <h2 class="Flow-Heading-Title">
         {{ $t('新型コロナウイルス感染症が心配なときに') }}
       </h2>
-      <PrinterButton :wrapper-class="'Flow-PullRight'" />
+      <PrinterButton :wrapper-class="'Flow-PullRight'" to="/print/flow" />
     </div>
     <div>
       <div class="only-pc">
