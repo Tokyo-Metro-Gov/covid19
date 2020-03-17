@@ -192,7 +192,7 @@ export default Vue.extend({
   }
 }
 .box {
-  $box-height: 170px;
+  $box-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -346,21 +346,21 @@ export default Vue.extend({
 
 // variables.scss Breakpoints: huge
 @include lessThan(1440) {
-  @include variation(1440, 3, 14, 180, 35);
+  @include variation(1440, 3, 14, 210, 45);
 }
 
 // Vuetify Breakpoints: Large
 @include lessThan(1263) {
-  @include variation(1263, 2, 12, 150, 24);
+  @include variation(1263, 2, 12, 240, 60);
 }
 
 // Vuetify Breakpoints: Small
 @include lessThan(959) {
-  @include variation(960, 4, 16, 250, 40);
+  @include variation(960, 4, 16, 360, 60);
 }
 
 // Vuetify Breakpoints: Extra Small
 @include lessThan(599) {
-  @include variation(600, 3, 14, 200, 35);
+  @include variation(600, 3, 14, 240, 40);
 }
 </style>
