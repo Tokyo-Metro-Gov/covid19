@@ -170,10 +170,8 @@
         </a>
       </i18n>
     </TextCard>
-    <TextCard :title="$t('お問い合わせ先（都のHPサイトポリシーについて）')">
-      {{ $t('東京都生活文化局広報広聴部広報課') }}<br />
-      {{ $t('電話') }}:
-      <a href="tel:03-5388-3085">03-5388-3085</a>
+    <TextCard :title="$t('お問い合わせ先（HPサイトポリシーについて）')">
+      <a href="https://c4ngt.connpass.com/">Code For Niigata</a>
     </TextCard>
   </div>
 </template>
