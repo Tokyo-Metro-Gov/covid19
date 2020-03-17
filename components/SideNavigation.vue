@@ -16,9 +16,12 @@
       </nuxt-link>
     </header>
 
-    <div class="sp-none" :class="{ open: isNaviOpen }">
+    <div
+      class="SideNavigation-BodyContainer sp-none"
+      :class="{ open: isNaviOpen }"
+    >
       <v-icon
-        class="SideNavigation-ListContainerIcon pc-none"
+        class="SideNavigation-HeaderMenu-Close pc-none"
         :aria-label="$t('サイドメニュー項目を閉じる')"
         @click="closeNavi"
       >
@@ -222,6 +225,19 @@ export default Vue.extend({
       margin: 0;
       margin-top: 10px;
     }
+  }
+
+  &-BodyContainer {
+  }
+  &-HeaderMenu-Close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 16px 8px 16px 16px;
+    font-size: 32px;
+  }
+  &-ListItem {
+    padding: 64px 20px !important;
   }
 
   &-HeadingDivider {
