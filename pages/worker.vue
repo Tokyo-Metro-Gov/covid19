@@ -60,7 +60,9 @@
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
           target="_blank"
           rel="noopener"
-          >{{ $t('新型コロナウイルス感染症に係る休業等支援事業（専門家派遣）') }}</a
+          >{{
+            $t('新型コロナウイルス感染症に係る休業等支援事業（専門家派遣）')
+          }}</a
         >
       </h3>
       <p>
@@ -124,12 +126,9 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a
-          href="https://tokyo-telework.jp/"
-          target="_blank"
-          rel="noopener"
-          >{{ $t('テレワークオンラインセミナー開催') }}</a
-        >
+        <a href="https://tokyo-telework.jp/" target="_blank" rel="noopener">{{
+          $t('テレワークオンラインセミナー開催')
+        }}</a>
       </h3>
       <p>
         {{
@@ -149,11 +148,7 @@
         >
       </h3>
       <p>
-        {{
-          $t(
-            '資金繰りに関する相談、経営に関する相談'
-          )
-        }}
+        {{ $t('資金繰りに関する相談、経営に関する相談') }}
       </p>
     </StaticCard>
     <StaticCard>
@@ -167,9 +162,7 @@
       </h3>
       <p>
         {{
-          $t(
-            '資金繰りに関する相談、経営に関する相談（契約におけるトラブル等）'
-          )
+          $t('資金繰りに関する相談、経営に関する相談（契約におけるトラブル等）')
         }}
       </p>
     </StaticCard>
