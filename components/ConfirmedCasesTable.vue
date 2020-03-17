@@ -176,8 +176,8 @@ export default {
   padding-bottom: 26px;
   width: 100%;
   height: $box-height;
-  border: 3px solid $green-1;
-  color: $green-1;
+  border: 3px solid $blue-1;
+  color: $blue-1;
   @include font-size(14);
   text-align: center;
   line-height: 1.2;
@@ -248,7 +248,7 @@ export default {
 .item.recovered > .gutter > .box::before {
   content: '';
   display: block;
-  border: 3px solid $green-1;
+  border: 3px solid $blue-1;
   background-color: $white;
   position: absolute;
   height: 32px;
