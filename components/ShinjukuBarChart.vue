@@ -18,12 +18,10 @@
     <p :class="$style.ShinjukuDesc">
       &copy; Yahoo Japan
       <br />
-      出典：ヤフー・データソリューション（<a
-        href="https://ds.yahoo.co.jp/"
-        target="_blank"
-        rel="noopenner"
-        >https://ds.yahoo.co.jp/</a
-      >)
+      出典：
+      <a href="https://ds.yahoo.co.jp/" target="_blank" rel="noopenner"
+        >ヤフー・データソリューション</a
+      >
     </p>
   </data-view>
 </template>
