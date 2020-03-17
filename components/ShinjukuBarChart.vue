@@ -77,6 +77,11 @@ export default {
       type: String,
       required: true,
       default: ''
+    },
+    startDate: {
+      type: String,
+      required: true,
+      default: ''
     }
   },
   data() {
@@ -94,6 +99,9 @@ export default {
 
       return this.chartData
         .filter(d => {
+          // 休日は除外する
+          if (d.holiday) return false
+
           // 基準日より前日のデータは除外する
           if (dayjs(d.date).isBefore(this.standardDate, 'day')) return false
 
@@ -109,49 +117,48 @@ export default {
         }, {})
     },
     labels() {
-      return Object.keys(this.groupByWeekData).map(weekNum => {
-        const start = dayjs('2020-01-01')
+      return Object.keys(this.targetData).map(weekNum => {
+        const start = dayjs(this.startDate)
           .week(weekNum)
           .startOf('week')
           .format('M/D')
-        const end = dayjs('2020-01-01')
+        const end = dayjs(this.startDate)
           .week(weekNum)
           .endOf('week')
           .format('M/D')
         return `${start}~${end}`
       })
     },
-    weeklyAvg() {
-      return Object.values(this.groupByWeekData).map(days => {
+    standardValue() {
+      const standardDays = this.groupByWeekData[dayjs(this.standardDate).week()]
+      const sum = standardDays.reduce((sum, d) => (sum += d.value), 0)
+      return sum / standardDays.length
+    },
+    targetData() {
+      return Object.keys(this.groupByWeekData).reduce((res, weekNum) => {
+        if (dayjs(this.startDate).week() <= weekNum) {
+          res[weekNum] = this.groupByWeekData[weekNum]
+        }
+        return res
+      }, {})
+    },
+    targetValues() {
+      return Object.values(this.targetData).map(days => {
         return days.reduce((sum, d) => (sum += d.value), 0) / days.length
       })
     },
     displayData() {
-      const graphColor = '#008b41'
-      if (this.dataKind === 'absolute') {
-        return {
-          labels: this.labels,
-          datasets: [
-            {
-              data: this.weeklyAvg,
-              backgroundColor: graphColor
-            }
-          ]
-        }
-      } else {
-        const standardValue = this.weeklyAvg[0]
-        const percentages = this.weeklyAvg.map(
-          val => ((val - standardValue) / standardValue) * 100
-        )
-        return {
-          labels: this.labels,
-          datasets: [
-            {
-              data: percentages,
-              backgroundColor: graphColor
-            }
-          ]
-        }
+      const percentages = this.targetValues.map(
+        val => ((val - this.standardValue) / this.standardValue) * 100
+      )
+      return {
+        labels: this.labels,
+        datasets: [
+          {
+            data: percentages,
+            backgroundColor: '#008b41'
+          }
+        ]
       }
     },
     displayOptions() {
