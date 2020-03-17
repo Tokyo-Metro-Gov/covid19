@@ -208,7 +208,7 @@ export default Vue.extend({
   }
   &-ListContainerIcon {
     width: 21px;
-    margin: 24px 16px 0;
+    margin: 21px 11px;
   }
   &-ListItemContainer {
     padding: 0;
