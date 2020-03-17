@@ -25,7 +25,13 @@
               rel="noopener"
             >
               {{ $t('オープンデータを入手') }}
-              <v-icon class="ExternalLinkIcon" size="15">
+              <v-icon
+                class="ExternalLinkIcon"
+                size="15"
+                :aria-label="this.$t('別タブで開く')"
+                role="img"
+                :aria-hidden="false"
+              >
                 mdi-open-in-new
               </v-icon>
             </a>
@@ -47,7 +53,7 @@
               </v-icon>
             </div>
 
-            <h4>埋め込み用コード</h4>
+            <h4>{{ $t('埋め込み用コード') }}</h4>
 
             <div class="EmbedCode">
               <v-icon
@@ -96,97 +102,114 @@
 
     <div v-if="showOverlay" class="overlay">
       <div class="overlay-text">
-        埋め込みタグをコピーしました
+        {{ $t('埋め込みコードをコピーしました') }}
       </div>
     </div>
   </v-card>
 </template>
 
-<i18n src="./DataView.i18n.json"></i18n>
-
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
-@Component
-export default class DataView extends Vue {
-  @Prop() private title!: string
-  @Prop() private titleId!: string
-  @Prop() private date!: string
-  @Prop() private url!: string
-  @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
-
-  formattedDate: string = convertDatetimeToISO8601Format(this.date)
-
-  openGraphEmbed: boolean = false
-
-  displayShare: boolean = false
-
-  showOverlay: boolean = false
-
-  get graphEmbedValue() {
-    const graphEmbedValue =
-      '<iframe width="560" height="315" src="' +
-      this.permalink(true, true) +
-      '" frameborder="0"></iframe>'
-    return graphEmbedValue
-  }
-
-  toggleShareMenu() {
-    this.displayShare = !this.displayShare
-  }
-
-  closeShareMenu() {
-    this.displayShare = false
-  }
-
-  isCopyAvailable() {
-    return !!navigator.clipboard
-  }
-
-  copyEmbedCode() {
-    const self = this
-    navigator.clipboard.writeText(this.graphEmbedValue).then(() => {
-      self.closeShareMenu()
-
-      self.showOverlay = true
-      setTimeout(() => {
-        self.showOverlay = false
-      }, 2000)
-    })
-  }
-
-  permalink(host: boolean = false, embed: boolean = false) {
-    let permalink = '/cards/' + this.titleId
-    if (embed) {
-      permalink = permalink + '?embed=true'
+export default Vue.extend({
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    titleId: {
+      type: String,
+      default: ''
+    },
+    date: {
+      type: String,
+      default: ''
+    },
+    url: {
+      type: String,
+      default: ''
     }
-    // localePath にするとうまく動かないので一旦外す
-    // permalink = this.localePath(permalink)
-
-    if (host) {
-      permalink = location.protocol + '//' + location.host + permalink
+  },
+  data() {
+    return {
+      openGraphEmbed: false,
+      displayShare: false,
+      showOverlay: false
     }
+  },
+  computed: {
+    formattedDate(): string {
+      return convertDatetimeToISO8601Format(this.date)
+    },
+    graphEmbedValue(): string {
+      const graphEmbedValue =
+        '<iframe width="560" height="315" src="' +
+        this.permalink(true, true) +
+        '" frameborder="0"></iframe>'
+      return graphEmbedValue
+    }
+  },
+  methods: {
+    toggleShareMenu() {
+      this.displayShare = !this.displayShare
+    },
+    closeShareMenu() {
+      this.displayShare = false
+    },
+    isCopyAvailable() {
+      return !!navigator.clipboard
+    },
+    copyEmbedCode() {
+      const self = this
+      navigator.clipboard.writeText(this.graphEmbedValue).then(() => {
+        self.closeShareMenu()
 
-    return permalink
-  }
+        self.showOverlay = true
+        setTimeout(() => {
+          self.showOverlay = false
+        }, 2000)
+      })
+    },
+    permalink(host: boolean = false, embed: boolean = false) {
+      let permalink = '/cards/' + this.titleId
+      if (embed) {
+        permalink = permalink + '?embed=true'
+      }
+      permalink = this.localePath(permalink)
 
-  twitter() {
-    const url = 'https://twitter.com/intent/tweet?url=' + this.permalink(true)
-    window.open(url)
+      if (host) {
+        permalink = location.protocol + '//' + location.host + permalink
+      }
+      return permalink
+    },
+    twitter() {
+      const url =
+        'https://twitter.com/intent/tweet?text=' +
+        this.title +
+        ' / ' +
+        this.$t('東京都') +
+        this.$t('新型コロナウイルス感染症') +
+        this.$t('対策サイト') +
+        '&url=' +
+        this.permalink(true) +
+        '&' +
+        'hashtags=StopCovid19JP'
+      window.open(url)
+    },
+    facebook() {
+      const url =
+        'https://www.facebook.com/sharer.php?u=' + this.permalink(true)
+      window.open(url)
+    },
+    line() {
+      const url =
+        'https://social-plugins.line.me/lineit/share?url=' +
+        this.permalink(true)
+      window.open(url)
+    }
   }
-
-  facebook() {
-    const url = 'https://www.facebook.com/sharer.php?u=' + this.permalink(true)
-    window.open(url)
-  }
-
-  line() {
-    const url =
-      'https://social-plugins.line.me/lineit/share?url=' + this.permalink(true)
-    window.open(url)
-  }
-}
+})
 </script>
 
 <style lang="scss">

@@ -1,9 +1,18 @@
 <template>
   <div class="TextCard">
     <h3 v-if="title" class="TextCard-Heading">
-      <a v-if="link" :href="link" target="_blank" rel="noopener">
-        {{ title }}
-      </a>
+      <div v-if="link">
+        <a :href="link" target="_blank" rel="noopener">
+          {{ title }}
+        </a>
+        <v-icon
+          v-if="!isInternalLink(link)"
+          class="TextCard-ExternalLinkIcon"
+          size="20"
+        >
+          mdi-open-in-new
+        </v-icon>
+      </div>
       <template v-else>
         {{ title }}
       </template>
@@ -17,28 +26,29 @@
 </template>
 
 <script lang="ts">
-import { Vue, Prop, Component } from 'vue-property-decorator'
+import Vue from 'vue'
 
-@Component
-export default class TextCard extends Vue {
-  @Prop({
-    default: '',
-    required: false
-  })
-  title!: string
-
-  @Prop({
-    default: '',
-    required: false
-  })
-  link!: string
-
-  @Prop({
-    default: '',
-    required: false
-  })
-  body!: string
-}
+export default Vue.extend({
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    body: {
+      type: String,
+      default: ''
+    },
+    link: {
+      type: String,
+      default: ''
+    }
+  },
+  methods: {
+    isInternalLink(path: string): boolean {
+      return !/^https?:\/\//.test(path)
+    }
+  }
+})
 </script>
 
 <style lang="scss">
@@ -57,6 +67,10 @@ export default class TextCard extends Vue {
         text-decoration: underline;
       }
     }
+  }
+  &-ExternalLinkIcon {
+    margin-left: 2px;
+    color: $gray-3 !important;
   }
   &-Body {
     * {
