@@ -106,4 +106,4 @@ Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 | ---- | -------- | ---- | ---- |
 | 正式網站 HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | 生成靜態網站 HTML 的位置 |
 | 正式版預覽 HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 生成靜態網站 HTML 的位置 |
-| OGP 工作用 | deploy / new_obp | 無 | OGP 更新用 |
+| OGP 工作用 | deploy / new_ogp | 無 | OGP 更新用 |
