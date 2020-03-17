@@ -1,22 +1,21 @@
 <template>
   <div class="SideNavigation">
-    <header class="SideNavigation-HeadingContainer sp-flex">
+    <header class="SideNavigation-HeaderContainer sp-flex">
       <v-icon
-        class="SideNavigation-HeadingIcon pc-none"
+        class="SideNavigation-HeaderMenu pc-none"
         :aria-label="$t('サイドメニュー項目を開く')"
         @click="openNavi"
       >
         mdi-menu
       </v-icon>
-      <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
-        <h1 class="SideNavigation-Heading">
-          <div class="SideNavigation-Logo">
-            <img src="/logo.svg" :alt="$t('東京都')" />
-          </div>
+      <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderTitle">
+        <img src="/logo.svg" :alt="$t('東京都')" />
+        <h1 class="SideNavigation-HeaderText">
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
     </header>
+
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
         class="SideNavigation-ListContainerIcon pc-none"
@@ -189,49 +188,42 @@ export default Vue.extend({
   height: 100%;
   background: $white;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
-  &-HeadingContainer {
-    padding: 1.25em;
+
+  &-HeaderContainer {
+    height: 64px;
+    padding-left: 56px;
+    @include largerThan($small) {
+      height: auto;
+      padding: 20px;
+    }
+  }
+  &-HeaderMenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 16px 8px 16px 16px;
+    font-size: 32px;
+  }
+  &-HeaderTitle {
+    width: 100%;
+    display: flex;
     align-items: center;
-    @include lessThan($small) {
-      padding: 7px 10px;
-    }
-  }
-  &-HeadingIcon {
-    margin-right: 10px;
-  }
-  &-HeadingLink {
-    @include lessThan($small) {
-      display: flex;
-      align-items: center;
-    }
     text-decoration: none;
-  }
-  &-ListContainerIcon {
-    width: 21px;
-    margin: 21px 11px;
-  }
-  &-ListItemContainer {
-    padding: 0;
-  }
-  &-Logo {
-    margin: 5px 16px 15px 0;
-    width: 110px;
-    @include lessThan($small) {
-      margin: 0 16px 0 0;
+    @include largerThan($small) {
+      display: block;
+      padding: 15px 0;
     }
   }
-  &-Heading {
+  &-HeaderText {
+    margin-left: 10px;
     font-size: 13px;
     color: #707070;
-    padding: 0.5em 0;
-    text-decoration: none;
-    @include lessThan($small) {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      margin-top: 0;
+    @include largerThan($small) {
+      margin: 0;
+      margin-top: 10px;
     }
   }
+
   &-HeadingDivider {
     margin: 0px 20px 4px;
     @include lessThan($small) {
@@ -297,6 +289,7 @@ export default Vue.extend({
     display: none;
   }
 }
+
 @include lessThan($small) {
   .sp-flex {
     display: flex;
