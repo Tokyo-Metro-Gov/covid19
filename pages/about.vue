@@ -5,7 +5,12 @@
     </h2>
     <TextCard>
       当サイトは、千葉県とCivicTechZenChibaの組織を超えた共業のもと、新型コロナウィルス感染症（COVID-19）における公式情報と客観的な数値をわかりやすく伝え、千葉県にお住まいの方、企業の方、観光に訪れる方が、現状を把握して適切な対策を取ることができるようにすることを目的としています。<br />
-      開発は、シビックテック 団体CivicTechZenChibaIが行っています。
+      開発は、シビックテック団体<a
+        href="https://sites.google.com/view/civictechzenchiba/"
+        target="_blank"
+        rel="noopener"
+        >CivicTechZenChiba</a
+      >が行っています。
     </TextCard>
     <TextCard title="ブラウザ環境について">
       当サイトは以下の環境でご覧いただくことを推奨いたします。<br />
@@ -83,28 +88,35 @@
       <br />
       当サイトに掲載されている情報は、予告なしに変更又は削除することがあります。
     </TextCard>
-    <TextCard title="データについて">
+    <!-- TODO: オープンデータ化されたらコメントアウト戻す -->
+    <!-- <TextCard title="データについて">
       本サイトで公表しているデータは、<a
         href="https://portal.data.metro.tokyo.lg.jp/"
         target="_blank"
         rel="noopener"
         >東京都オープンデータカタログサイト</a
       >より誰でも自由にダウンロードが可能です。（データは順次追加予定です）
-    </TextCard>
+    </TextCard> -->
     <TextCard title="ソースコードについて">
-      本サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。詳しくは、<a
-        href="https://github.com/tokyo-metropolitan-gov/covid19"
+      本サイトのソースコードは<a
+        href="https://creativecommons.org/licenses/by/4.0/deed.ja"
+        target="_blank"
+        rel="noopener"
+        >クリエイティブ・コモンズ 表示 4.0 ライセンス</a
+      >で公開されており、誰でも自由に利用することができます。詳しくは、<a
+        href="https://github.com/civictechzenchiba/covid19-chiba"
         target="_blank"
         rel="noopener"
         >GitHub リポジトリ</a
       >をご確認ください。
     </TextCard>
 
-    <TextCard title="お問い合わせ先（都のHPサイトポリシーについて）">
+    <!-- TODO: 問い合わせ窓口が決まったらコメントアウト戻す -->
+    <!-- <TextCard title="お問い合わせ先（都のHPサイトポリシーについて）">
       東京都生活文化局広報広聴部広報課<br />
       電話
       <a href="tel:03-5388-3085">03-5388-3085</a>
-    </TextCard>
+    </TextCard> -->
   </div>
 </template>
 

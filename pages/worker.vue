@@ -57,7 +57,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .Worker {
   &-Heading {
     @include font-size(30);

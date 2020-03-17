@@ -3,6 +3,8 @@
     :is="isInternalLink(url) ? 'nuxt-link' : 'a'"
     :to="isInternalLink(url) ? url : ''"
     :href="isInternalLink(url) ? '' : url"
+    :target="isInternalLink(url) ? '' : '_blank'"
+    :rel="isInternalLink(url) ? '' : 'noopener'"
     class="StaticInfo"
   >
     <span>{{ text }}</span>
