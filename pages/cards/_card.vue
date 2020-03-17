@@ -29,7 +29,6 @@
         this.$route.params.card == 'predicted-number-of-toei-subway-passengers'
       "
     />
-    <agency-card v-else-if="this.$route.params.card == 'agency'" />
   </div>
 </template>
 
@@ -44,7 +43,6 @@ import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
-import AgencyCard from '@/components/cards/AgencyCard.vue'
 
 export default {
   components: {
@@ -54,8 +52,7 @@ export default {
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
-    MetroCard,
-    AgencyCard
+    MetroCard
   },
   data() {
     let title, updatedAt
