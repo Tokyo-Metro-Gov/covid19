@@ -24,7 +24,7 @@
               target="_blank"
               rel="noopener"
             >
-              {{ $t('オープンデータを入手') }}
+              {{ $t('ソースはこちら') }}
               <v-icon
                 class="ExternalLinkIcon"
                 size="15"
