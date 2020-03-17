@@ -70,7 +70,7 @@
     "Chiba": "千葉市",
     "COVID-19": "新型コロナウイルス感染症",
     "Measures site": "対策サイト",
-    "The latest updates": "市内の最新感染動向",
+    "The latest updates": "千葉市内の最新感染動向",
     "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
     "for Families with children": "お子様をお持ちの皆様へ",
     "for Citizens": "市民の皆様へ",
