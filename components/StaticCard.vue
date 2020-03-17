@@ -5,16 +5,9 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-
-@Component
-export default class StaticCard extends Vue {}
-
-/* Prepare for #621
 import Vue from 'vue'
 
 export default Vue.extend()
-*/
 </script>
 
 <style lang="scss">
