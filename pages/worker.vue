@@ -46,7 +46,8 @@ export default {
       ],
       consultation_desk_items: [
         {
-          title: '新型コロナウイルスに関する中小企業者等相談窓口を設置します',
+          title:
+            '新型コロナウイルスに関する中小企業者等相談窓口を設置します（千葉県）',
           link:
             'https://www.pref.chiba.lg.jp/keisei/singata-koronauirusu-kigyousoudan.html',
           body:
@@ -61,7 +62,7 @@ export default {
         },
         {
           title:
-            '新型コロナウイルス関連相談窓口 （日本貿易振興機構（ジェトロ））',
+            '新型コロナウイルス関連相談窓口（ 日本貿易振興機構（ジェトロ））',
           link: 'https://www.jetro.go.jp/world/covid-19.html',
           body:
             'その他の相談に関しても、関東経済産業局、県内各商工会議所及び商工会連合会、日本政策金融公庫、千葉県信用保証協会等においても、経営相談に応じております。'
@@ -70,14 +71,14 @@ export default {
       financial_support_items: [
         {
           title:
-            '新型コロナウイルスの影響を受けた中小企業者に対する金融支援について（令和2年3月13日）',
+            '新型コロナウイルスの影響を受けた中小企業者に対する金融支援について（令和2年3月13日）（千葉県）',
           link: 'https://www.pref.chiba.lg.jp/keishi/ncov/colona4.html',
           body:
             '新型コロナウイルスの影響により、売上高が急減している中小企業・小規模企業者が利用可能な融資制度です。'
         },
         {
           title:
-            '新型コロナウイルス感染症に係る中小企業者対策を講じます（セーフティネット保証4号の指定）',
+            '新型コロナウイルス感染症に係る中小企業者対策を講じます（セーフティネット保証4号の指定）（経済産業省）',
           link:
             'https://www.meti.go.jp/press/2019/02/20200228001/20200228001.html',
           body: '資金使途は運転資金及び設備資金です。'
@@ -85,20 +86,22 @@ export default {
       ],
       telework_items: [
         {
-          title: '新しいワークスタイルや企業活動の東京モデル「スムーズビズ」',
+          title:
+            '新しいワークスタイルや企業活動の東京モデル「スムーズビズ」（東京都）',
           link: 'https://smooth-biz.metro.tokyo.lg.jp/',
           body:
             'テレワーク・時差出勤などスムーズビズの取組は、新型コロナウイルス感染症の対策としても効果的です。感染症対策として、東京2020大会時の交通混雑緩和に向けた取組の前倒しをお願いします。'
         },
         {
-          title: '時間外労働等改善助成金（テレワークコース）',
+          title: '時間外労働等改善助成金（テレワークコース）（厚生労働省）',
           link:
             'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/jikan/syokubaisikitelework.html',
           body:
             '「時間外労働等改善助成金」（※令和２年４月１日以降は「働き方改革推進支援助成金」に名称変更予定）に新型コロナウイルス感染症対策を目的とした取組を行う事業主を支援する特例コースを時限的に設けます。'
         },
         {
-          title: 'テレワーク導入に係る相談（テレワーク総合ポータルサイト）',
+          title:
+            'テレワーク導入に係る相談（テレワーク総合ポータルサイト）（厚生労働省）',
           link: 'https://telework.mhlw.go.jp/',
           body: ''
         },
