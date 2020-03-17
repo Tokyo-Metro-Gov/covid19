@@ -61,22 +61,21 @@ $ yarn install
 $ docker-compose run --rm app yarn install
 ```
 
-### VSCode + Remote Cotainers에서 개발하는 경우
+### VSCode + Remote Containers에서 개발하는 경우
 
 1. VSCode의 확장 프로그램 "[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)"을 추가합니다.
 2. [안내 화면(외부 사이트)](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)과 같이 좌측 하단의 "Open Folder in Container"에서 이 저장소의 루트를 선택하면 환경 구축이 시작됩니다.
 
 #### Topic
-
-- 설정을 변경할 경우에는 `.devcontainer/devcontainer.json`을 수정해주세요.<br/>
-    자세한 내용은 [devcontainer.json의 레퍼런스](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)를 참조해주세요.
-- Remote Container실행시에만 유효한 확장기능 "ESlint"를 도입하고 있습니다만, 필요에 따라서 `devcontainer.json`의 `extensions`에 추가해주세요.<br/> 
-    자세한 순서는 [여기(외부 사이트)](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)를 참조해주세요.
+- 설정을 변경할 경우에는 `.devcontainer/devcontainer.json`을 수정해주세요.
+ 자세한 내용은 [devcontainer.json의 레퍼런스](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)를 참조해주세요.
+- Remote Container실행시에만 유효한 확장기능 "ESLint"를 도입하고 있습니다만, 필요에 따라서 `devcontainer.json`의 `extensions`에 추가해주세요.
+ 자세한 순서는 [여기(외부 사이트)](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)를 참조해주세요.
 - 개발환경을 재구축할 경우, 좌측 하단부의 "Rebuild Container"를 실행해주세요.
 
 ### 프로덕션/기타 환경 감지
 
-프로덕션 환경에서, `'production'` 은 `process.env.GENERATE_ENV` 변수에 할당되고, 다른 환경에서는 `'development'`가 변수에 할당됩니다.
+프로덕션 환경에서, `'production'` 은 `process.env.GENERATE_ENV` 변수에 할당되고, 다른 환경에서는 `'development'`가 변수에 할당됩니다.  
 런타임에서 사용할 환경을 감지하려면 이 변수를 사용하세요.
 
 ### 스테이징 환경 및 운영 환경으로 반영 방법
@@ -92,8 +91,8 @@ $ docker-compose run --rm app yarn install
 풀 리퀘스트(Pull Request)는 오직 `development`, `dev-i18n`, `dev-hotfix`에서만 가능합니다.
 만약, 풀 리퀘스트(Pull Request)를 전달할 때 다음의 네이밍(naming) 규칙를 따라 사용해주시기 바랍니다.
 
-기능 구현: feature/#{ISSUE_ID}-#{branch_title_name}
-핫픽스(hotfix) 커밋: hotfix/#{ISSUE_ID}-{branch_title_name}
+기능 구현: feature/#{ISSUE_ID}-#{branch_title_name}  
+핫픽스(hotfix) 커밋: hotfix/#{ISSUE_ID}-{branch_title_name} 
 
 #### 기본 브랜치(branch)
 | 목적 | 브랜치 | 확인 URL | 비고 |
