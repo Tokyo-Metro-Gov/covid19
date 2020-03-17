@@ -32,7 +32,7 @@
     </v-list-item-action>
     <v-list-item-content class="ListItem-TextContainer">
       <v-list-item-title
-        class="ListItem-Text"
+        class="ListItem-Text sp-text"
         :class="{ isActive: isActive(link) }"
         v-text="title"
       />
@@ -115,26 +115,27 @@ export default Vue.extend({
       overflow: visible;
       white-space: normal;
       font-size: 0.75rem;
+      font-weight: bold;
       line-height: 1.5;
     }
     &:hover {
       color: transparent !important;
       & .ListItem-Text {
-        font-weight: bold;
+        color: $green-1 !important;
       }
       & .ListItem-Icon {
-        color: $gray-1 !important;
+        color: $green-1 !important;
         &.isActive {
           color: $green-1 !important;
         }
       }
       & .ListItem-ExternalLinkIcon {
-        color: $gray-1 !important;
+        color: $gray-2 !important;
       }
       & .ListItem-IconContainer {
         > svg {
           > path:not(:first-of-type) {
-            fill: $gray-1;
+            fill: $green-1;
           }
         }
         > svg.isActive {
@@ -146,7 +147,7 @@ export default Vue.extend({
     }
   }
   &-Text {
-    color: $gray-1;
+    color: $gray-2;
   }
   &-IconContainer {
     margin: 8px 3px 8px 0 !important;
@@ -178,6 +179,12 @@ export default Vue.extend({
 svg.isActive {
   > path:not(:first-of-type) {
     fill: $green-1;
+  }
+}
+
+@include lessThan($small) {
+  .sp-text {
+    font-size: 0.9rem !important;
   }
 }
 </style>
