@@ -5,7 +5,12 @@
     </h2>
     <TextCard>
       当サイトは、千葉県とCivicTechZenChibaの組織を超えた共業のもと、新型コロナウィルス感染症（COVID-19）における公式情報と客観的な数値をわかりやすく伝え、千葉県にお住まいの方、企業の方、観光に訪れる方が、現状を把握して適切な対策を取ることができるようにすることを目的としています。<br />
-      開発は、シビックテック団体<a href="https://sites.google.com/view/civictechzenchiba/"_blank" rel="noopener">CivicTechZenChiba</a>が行っています。
+      開発は、シビックテック団体<a
+        href="https://sites.google.com/view/civictechzenchiba/"
+        target="_blank"
+        rel="noopener"
+        >CivicTechZenChiba</a
+      >が行っています。
     </TextCard>
     <TextCard title="ブラウザ環境について">
       当サイトは以下の環境でご覧いただくことを推奨いたします。<br />
