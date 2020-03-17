@@ -91,17 +91,35 @@
       }}<br />
       <ul>
         <li>
-          <a :href="analyticsTermsURL" target="_blank" rel="noopener">
+          <a
+            :href="
+              $t(
+                'https://marketingplatform.google.com/about/analytics/terms/jp/'
+              )
+            "
+            target="_blank"
+            rel="noopener"
+          >
             {{ $t('Google Analytics利用規約') }}
           </a>
         </li>
         <li>
-          <a :href="analyticsPolicyURL" target="_blank" rel="noopener">
+          <a
+            :href="$t('https://policies.google.com/privacy?hl=ja')"
+            target="_blank"
+            rel="noopener"
+          >
             {{ $t('Googleのプライバシーポリシー') }}
           </a>
         </li>
         <li>
-          <a :href="analyticsInfoURL" target="_blank" rel="noopener">
+          <a
+            :href="
+              $t('https://support.google.com/analytics/answer/6004245?hl=ja')
+            "
+            target="_blank"
+            rel="noopener"
+          >
             {{ $t('Google Analyticsに関する詳細情報') }}
           </a>
         </li>
@@ -174,62 +192,6 @@ import TextCard from '@/components/TextCard.vue'
 export default Vue.extend({
   components: {
     TextCard
-  },
-  computed: {
-    analyticsTermsURL() {
-      switch (this.$i18n.locale) {
-        case 'ja':
-        case 'ja-basic':
-          return 'https://marketingplatform.google.com/about/analytics/terms/jp/'
-        case 'en':
-          return 'https://marketingplatform.google.com/about/analytics/terms/us/'
-        case 'zh-cn':
-          return 'https://marketingplatform.google.com/about/analytics/terms/cn/'
-        case 'zh-tw':
-          return 'https://marketingplatform.google.com/about/analytics/terms/tw/'
-        case 'ko':
-          return 'https://marketingplatform.google.com/about/analytics/terms/kr/'
-        default:
-          // 言語の追加時にabout.vueを変更し忘れた場合でも英語を返す
-          return 'https://marketingplatform.google.com/about/analytics/terms/us/'
-      }
-    },
-    analyticsPolicyURL() {
-      switch (this.$i18n.locale) {
-        case 'ja':
-        case 'ja-basic':
-          return 'https://policies.google.com/privacy?hl=ja'
-        case 'en':
-          return 'https://policies.google.com/privacy?hl=en'
-        case 'zh-cn':
-          return 'https://policies.google.com/privacy?hl=zh-CN'
-        case 'zh-tw':
-          return 'https://policies.google.com/privacy?hl=zh-TW'
-        case 'ko':
-          return 'https://policies.google.com/privacy?hl=ko'
-        default:
-          // 言語の追加時にabout.vueを変更し忘れた場合でも英語を返す
-          return 'https://policies.google.com/privacy?hl=en'
-      }
-    },
-    analyticsInfoURL() {
-      switch (this.$i18n.locale) {
-        case 'ja':
-        case 'ja-basic':
-          return 'https://support.google.com/analytics/answer/6004245?hl=ja'
-        case 'en':
-          return 'https://support.google.com/analytics/answer/6004245?hl=en'
-        case 'zh-cn':
-          return 'https://support.google.com/analytics/answer/6004245?hl=zh-Hans'
-        case 'zh-tw':
-          return 'https://support.google.com/analytics/answer/6004245?hl=zh-Hant'
-        case 'ko':
-          return 'https://support.google.com/analytics/answer/6004245?hl=ko'
-        default:
-          // 言語の追加時にabout.vueを変更し忘れた場合でも英語を返す
-          return 'https://support.google.com/analytics/answer/6004245?hl=en'
-      }
-    }
   },
   head: (): MetaInfo => ({
     title: '当サイトについて'
