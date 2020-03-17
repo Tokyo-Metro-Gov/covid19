@@ -33,6 +33,22 @@
         </a>
       </li>
     </ul>
+    <p class="WhatsNew-notify">
+      最新の情報は、千葉市ウェブサイトの
+      <a
+        href="https://www.city.chiba.jp/hokenfukushi/kenkou/kikaku/kansensyoujyouhou.html"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="WhatsNew-list-item-anchor-link">
+          特設ページ
+          <v-icon class="WhatsNew-item-ExternalLinkIcon" size="12">
+            mdi-open-in-new
+          </v-icon>
+        </span>
+      </a>
+      にてご確認ください。
+    </p>
   </div>
 </template>
 
@@ -77,41 +93,52 @@ export default {
   }
 }
 
-.WhatsNew .WhatsNew-list {
-  padding-left: 0px;
-  list-style-type: none;
+.WhatsNew {
+  .WhatsNew-list {
+    padding-left: 0px;
+    list-style-type: none;
 
-  &-item {
-    &-anchor {
-      display: flex;
-      text-decoration: none;
-      margin: 5px;
-      font-size: 14px;
+    &-item {
+      &-anchor {
+        display: flex;
+        text-decoration: none;
+        margin: 5px;
+        font-size: 14px;
 
-      @include lessThan($medium) {
-        flex-wrap: wrap;
-      }
-
-      &-time {
-        flex: 0 0 90px;
         @include lessThan($medium) {
-          flex: 0 0 100%;
+          flex-wrap: wrap;
         }
-        color: $gray-1;
-      }
 
-      &-link {
-        flex: 0 1 auto;
-        @include text-link();
-        @include lessThan($medium) {
-          padding-left: 8px;
+        &-time {
+          flex: 0 0 90px;
+          @include lessThan($medium) {
+            flex: 0 0 100%;
+          }
+          color: $gray-1;
+        }
+
+        &-link {
+          flex: 0 1 auto;
+          @include text-link();
+          @include lessThan($medium) {
+            padding-left: 8px;
+          }
+        }
+
+        &-ExternalLinkIcon {
+          margin-left: 2px;
+          color: $gray-3 !important;
         }
       }
+    }
+  }
 
-      &-ExternalLinkIcon {
-        margin-left: 2px;
-        color: $gray-3 !important;
-      }
+  .WhatsNew-notify {
+    font-size: 14px;
+    margin: 18px 12px 0;
+
+    a {
+      @include text-link();
     }
   }
 }
