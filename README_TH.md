@@ -93,7 +93,7 @@ Pull Request สามารถเปิดรับได้แค่ `developm
 Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}  
 Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 
-#### Basic branch
+#### Branch หลัก
 | จุดประสงค์ | Branch | URL | หมายเหตุ |
 | ---- | -------- | ---- | ---- |
 | Development | development | http://dev-covid19-tokyo.netlify.com/ | Branch หลัก ใช้ในการรับ Pull Request |
@@ -102,7 +102,7 @@ Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | ใช้สำหรับ Stag อัพเดทต่างๆ ก่อนนำไป deploy ลง production - ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
 | Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
 
-#### Branch used by the system
+#### Branch ที่ถูกใช้โดยระบบ
 | จุดประสงค์ | Branch | URL | หมายเหตุ |
 | ---- | -------- | ---- | ---- |
 | Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | HTML สำหรับ production |
