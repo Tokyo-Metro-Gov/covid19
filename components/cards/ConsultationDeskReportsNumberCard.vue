@@ -1,13 +1,15 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <time-bar-chart
-      :title="$t('新型コロナ受診相談窓口相談件数')"
+    <time-bar-chart-only-all
+      :title="$t('新型コロナ受診相談窓口相談件数（累計）')"
       :title-id="'number-of-reports-to-covid19-consultation-desk'"
       :chart-id="'time-bar-chart-querents'"
       :chart-data="querentsGraph"
       :date="Data.querents.date"
       :unit="$t('件.reports')"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000070'"
+      :url="
+        'https://www.pref.yamaguchi.lg.jp/cms/a15200/kansensyou/ncorona.html'
+      "
     />
     <!-- 件.reports = 窓口相談件数 -->
   </v-col>
@@ -16,7 +18,8 @@
 <i18n>
 {
   "ja": {
-    "新型コロナ受診相談窓口相談件数": "新型コロナ受診相談窓口相談件数",
+	"新型コロナ受診相談窓口相談件数": "新型コロナ受診相談窓口相談件数",
+	"累計": "累計",
     "件": {
       "reports": "件"
     }
@@ -57,11 +60,11 @@
 <script>
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
-import TimeBarChart from '@/components/TimeBarChart.vue'
+import TimeBarChartOnlyAll from '@/components/TimeBarChart_only-all.vue'
 
 export default {
   components: {
-    TimeBarChart
+    TimeBarChartOnlyAll
   },
   data() {
     // 帰国者・接触者電話相談センター相談件数
