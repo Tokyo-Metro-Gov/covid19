@@ -5,6 +5,7 @@
       :title-id="'shinjuku-visitors'"
       :chart-id="'shinjuku-visitors'"
       :standard-date="'2020-02-03'"
+      :start-date="'2020-02-10'"
     />
   </v-col>
 </template>
