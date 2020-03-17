@@ -21,8 +21,9 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp'
-      },
+        content: 'https://covid19-tochigi.netlify.com/'
+      }
+      /*
       {
         hid: 'twitter:card',
         name: 'twitter:card',
@@ -48,10 +49,11 @@ const config: Configuration = {
         property: 'note:card',
         content: 'summary_large_image'
       }
+      */
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
+      //{ rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
       {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
@@ -145,7 +147,7 @@ const config: Configuration = {
     hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: '東京都 新型コロナウイルス感染症対策サイト',
+    name: '栃木県 新型コロナウイルス感染症対策サイト',
     theme_color: '#00a040',
     background_color: '#ffffff',
     display: 'standalone',

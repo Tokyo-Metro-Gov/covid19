@@ -108,7 +108,7 @@ export default {
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
     const description = `${this.updatedAt} | ${this.$t(
-      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+      '当サイトは栃木県の新型コロナウイルス感染症 (COVID-19) に関する情報を提供するために、有志によって開設された非公式なサイトです。'
     )}`
 
     return {
@@ -125,10 +125,10 @@ export default {
           content:
             this.title +
             ' | ' +
-            this.$t('東京都') +
+            this.$t('栃木県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
-            this.$t('対策サイト')
+            this.$t('対策サイト (非公式)')
         },
         {
           hid: 'description',

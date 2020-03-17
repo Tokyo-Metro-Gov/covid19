@@ -86,7 +86,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+          href: `https://covid19-tochigi.netlify.com${this.$route.path}`
         }
       ],
       meta: [
@@ -94,41 +94,45 @@ export default Vue.extend({
           hid: 'description',
           name: 'description',
           content: this.$tc(
-            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+            '当サイトは栃木県の新型コロナウイルス感染症 (COVID-19) に関する情報を提供するために、有志によって開設された非公式なサイトです。'
           )
         },
         {
           hid: 'og:site_name',
           name: 'og:site_name',
-          content: this.$tc('東京都 新型コロナウイルス感染症対策サイト')
+          content: this.$tc('栃木県 新型コロナウイルス感染症対策サイト')
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: this.$tc('東京都 新型コロナウイルス感染症対策サイト')
+          content: this.$tc('栃木県 新型コロナウイルス感染症対策サイト')
         },
         {
           hid: 'og:description',
           name: 'og:description',
           content: this.$tc(
-            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+            '当サイトは栃木県の新型コロナウイルス感染症 (COVID-19) に関する情報を提供するために、有志によって開設された非公式なサイトです。'
           )
         },
+        /*
         {
           hid: 'og:image',
           name: 'og:image',
           content: this.$tc('ogp.og:image')
         },
+        */
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
-          content: this.$tc('東京都 新型コロナウイルス感染症対策サイト')
-        },
+          content: this.$tc('栃木県 新型コロナウイルス感染症対策サイト')
+        }
+        /*
         {
           hid: 'twitter:image',
           name: 'twitter:image',
           content: this.$tc('ogp.og:image')
         }
+        */
       ]
     }
   }
