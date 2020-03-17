@@ -19,7 +19,6 @@
       <tested-number-card />
       <telephone-advisory-reports-number-card />
       <consultation-desk-reports-number-card />
-      <agency-card />
     </v-row>
   </div>
 </template>
@@ -38,7 +37,6 @@ import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttri
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
-import AgencyCard from '@/components/cards/AgencyCard.vue'
 
 export default {
   components: {
@@ -50,8 +48,7 @@ export default {
     ConfirmedCasesAttributesCard,
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
-    ConsultationDeskReportsNumberCard,
-    AgencyCard
+    ConsultationDeskReportsNumberCard
   },
   data() {
     // 退院者グラフ
