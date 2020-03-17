@@ -18,7 +18,7 @@ export default {
       name: '日本語',
       iso: 'ja-JP',
       file: 'ja.json'
-    },
+    }/*日本語以外をコメントアウト,
     {
       code: 'en',
       name: 'English',
@@ -56,6 +56,6 @@ export default {
       name: 'やさしい にほんご',
       iso: 'ja-JP',
       file: 'ja_Hira.json'
-    }
+    }*/
   ]
 }
