@@ -1,13 +1,13 @@
 <template>
-  <div class="SelectLanguage">
-    <div class="SelectLanguage-Background">
+  <div class="LauguageSelector">
+    <div class="LauguageSelector-Background">
       <EarthIcon class="EarthIcon" aria-hidden="true" />
       <SelectMenuIcon class="SelectMenuIcon" aria-hidden="true" />
     </div>
     <select
       id="LanguageSelector"
       v-model="currentLocaleCode"
-      class="SelectLanguage-Menu"
+      class="LauguageSelector-Menu"
       @change="handleChangeLanguage"
     >
       <option
@@ -40,11 +40,11 @@ export default class LanguageSelector extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.SelectLanguage {
+.LauguageSelector {
   position: relative;
 }
 
-.SelectLanguage-Background {
+.LauguageSelector-Background {
   display: flex;
   align-items: center;
   padding: 0 6px;
@@ -64,7 +64,7 @@ export default class LanguageSelector extends Vue {
   }
 }
 
-.SelectLanguage-Menu {
+.LauguageSelector-Menu {
   // select 要素のリセット
   -webkit-appearance: none;
   -moz-appearance: none;
