@@ -25,6 +25,7 @@
         :chart-data="displayChartData"
         :options="displayChartOptions"
         :height="160"
+        @onClick.native="chartClicked"
       />
       <div v-show="loading" class="MapCard-BodyContainer-LoadingScreen" />
     </div>

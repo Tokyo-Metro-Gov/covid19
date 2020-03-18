@@ -32,14 +32,16 @@ export default {
             'https://tokyo-metropolitan-gov.github.io/tokyo-vector-tile/style.json',
           zoom: 14,
           center: [139.69167, 35.689444],
-          antialias: false
+          antialias: false,
+          interactive: false
         }
       }
     }
   },
   data() {
     return {
-      dateSequence: []
+      dateSequence: [],
+      holidays: require('@/data/holiday.json')
     }
   },
   computed: {
