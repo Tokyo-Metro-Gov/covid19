@@ -1,8 +1,8 @@
 <template>
   <div class="Contacts">
-    <h2 class="Contacts-Heading">
+    <page-header class="mb-3">
       {{ $t('お問い合わせ先一覧') }}
-    </h2>
+    </page-header>
     <div class="Contacts-Card">
       <v-simple-table class="Contacts-Card-Table">
         <template v-slot:default>
@@ -120,8 +120,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+import PageHeader from '@/components/PageHeader.vue'
 
 export default Vue.extend({
+  components: {
+    PageHeader
+  },
   head(): MetaInfo {
     return {
       title: this.$t('お問い合わせ先一覧') as string
@@ -132,12 +136,6 @@ export default Vue.extend({
 
 <style lang="scss">
 .Contacts {
-  &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
-    margin-bottom: 12px;
-  }
   &-Card {
     @include card-container();
     padding: 1px; // tr:hover で外枠が消えないように
