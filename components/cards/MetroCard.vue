@@ -1,0 +1,109 @@
+<template>
+  <v-col cols="12" md="6" class="DataCard">
+    <metro-bar-chart
+      :title="$t('都営地下鉄の利用者数の推移')"
+      :title-id="'predicted-number-of-toei-subway-passengers'"
+      :chart-id="'metro-bar-chart'"
+      :chart-data="metroGraph"
+      :chart-option="metroGraphOption"
+      :date="metroGraph.date"
+    />
+  </v-col>
+</template>
+
+<script>
+import Data from '@/data/data.json'
+import MetroData from '@/data/metro.json'
+import MetroBarChart from '@/components/MetroBarChart.vue'
+
+export default {
+  components: {
+    MetroBarChart
+  },
+  data() {
+    // 都営地下鉄の利用者数の推移
+    const metroGraph = MetroData
+    // metroGraph ツールチップ title文字列
+    // this.$t を使うため metroGraphOption の外側へ
+    const metroGraphTooltipTitle = (tooltipItems, _) => {
+      const label = tooltipItems[0].label
+      return this.$t('期間: {duration}', {
+        // duration = label = '2月10日~14日' | '2月17日~21日' | '2月25日~28日'
+        duration: this.$t(label)
+      })
+    }
+    // metroGraph ツールチップ label文字列
+    // this.$t を使うため metroGraphOption の外側へ
+    const metroGraphTooltipLabel = (tooltipItem, data) => {
+      const currentData = data.datasets[tooltipItem.datasetIndex]
+      const percentage = `${currentData.data[tooltipItem.index]}%`
+
+      return this.$t('{duration}の利用者数との相対値: {percentage}', {
+        // duration = metroGraph.base_period = '1月20日~1月24日'
+        duration: this.$t(metroGraph.base_period),
+        percentage
+      })
+    }
+
+    const data = {
+      Data,
+      metroGraph,
+      metroGraphOption: {
+        responsive: true,
+        legend: {
+          display: true,
+          onHover: e => {
+            e.currentTarget.style.cursor = 'pointer'
+          },
+          onLeave: e => {
+            e.currentTarget.style.cursor = 'default'
+          },
+          labels: {
+            boxWidth: 20
+          }
+        },
+        scales: {
+          xAxes: [
+            {
+              position: 'bottom',
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: '#808080'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 12,
+                maxTicksLimit: 10,
+                fontColor: '#808080',
+                callback(value) {
+                  return value.toFixed(2) + '%'
+                }
+              }
+            }
+          ]
+        },
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            title: metroGraphTooltipTitle,
+            label: metroGraphTooltipLabel
+          }
+        }
+      }
+    }
+    return data
+  }
+}
+</script>
