@@ -202,17 +202,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return this.cumulative(item)
       })
       const cumulativeSumArray = this.eachArraySum(cumulativeData)
-      const dLabelLen = this.dataLabels.length
       return {
         tooltips: {
           displayColors: false,
           callbacks: {
             label: (tooltipItem: any) => {
-              const labelMain =
-                dLabelLen >= 1 ? this.dataLabels[0] : this.$t('都内')
-              const labelOthers =
-                dLabelLen >= 2 ? this.dataLabels[1] : this.$t('その他')
-              const labelArray = [labelMain, labelOthers]
               let casesTotal, cases
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index].toLocaleString()
@@ -229,7 +223,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               }
 
               return `${
-                labelArray[tooltipItem.datasetIndex]
+                this.dataLabels[tooltipItem.datasetIndex]
               }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
             },
             title(tooltipItem, data) {
