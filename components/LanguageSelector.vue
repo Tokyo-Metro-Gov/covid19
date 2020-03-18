@@ -1,7 +1,7 @@
 <template>
   <div class="SelectLanguage">
     <div class="SelectLanguage-Menu">
-      <select v-model="$i18n.locale" @change="navigate($i18n.locale)">
+      <select v-model="currentLocaleCode" @change="navigate()">
         <option
           v-for="locale in $i18n.locales"
           :key="locale.code"
@@ -27,20 +27,26 @@ import SelectMenuIcon from '@/static/selectmenu.svg'
   components: { EarthIcon, SelectMenuIcon }
 })
 export default class LanguageSelector extends Vue {
-  navigate(locale: string) {
-    // @fixme 超ダーティーハックです。。。
-    const mypath =
-      ['/en', '/zh-cn', '/zh-tw', '/ko'].indexOf(
-        this.$router.currentRoute.path
-      ) === 0
-        ? this.$router.currentRoute.path + '/'
-        : this.$router.currentRoute.path
-    const matches = mypath.match(/.*(\/.*)/)
-    if (matches === null) {
+  currentLocaleCode: string = this.$root.$i18n.locale
+
+  navigate() {
+    // @fixme 型が・・・
+    // const langs = this.$i18n.locales.filter() ...
+    /* const langs = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
+    const pathes = this.$router.currentRoute.path.split('/').filter(path => {
+      return langs.includes(path) ? undefined : path
+    })
+    if (pathes.length <= 0) {
+      this.$router.push(locale === 'ja' ? '/' : '/' + locale)
       return
     }
-    const path = locale === 'ja' ? matches[1] : '/' + locale + matches[1]
-    this.$router.push(path)
+    const url =
+      locale === 'ja'
+        ? '/' + pathes.join('/')
+        : '/' + locale + '/' + pathes.join('/')
+    this.$router.push(url) */
+    // TODO: 下の実装で問題なければ上のコメントを削除する
+    this.$root.$i18n.setLocale(this.currentLocaleCode)
   }
 }
 </script>
@@ -63,14 +69,13 @@ export default class LanguageSelector extends Vue {
       width: 100%;
       height: 28px;
       background: transparent;
-      padding-left: 58px;
+      padding-left: 76px;
       color: #333;
-      font-size: 12px;
+      font-size: 16px;
+      transform: scale(0.75);
+      transform-origin: center left;
       box-sizing: border-box;
       cursor: pointer;
-      &:focus {
-        outline: none;
-      }
     }
   }
   &-Background {

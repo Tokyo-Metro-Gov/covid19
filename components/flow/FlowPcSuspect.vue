@@ -1,25 +1,44 @@
 <template>
   <div :class="$style.FlowComponent">
     <div :class="[$style.SubtleBox, $style.Box1]">
+      <img
+        :class="$style.Box1Icon"
+        src="/flow/flow_arrow.svg"
+        aria-hidden="true"
+      />
       <div :class="$style.RowItems">
-        <div>
+        <div :class="$style.RowItemsHeader">
           <img
+            :class="$style.RowItemsHeaderIcon"
             src="/flow/sentiment_very_dissatisfied-24px.svg"
-            alt="dissatisfied face icon"
+            aria-hidden="true"
           />
-        </div>
-        <div :class="$style.SmallerText">
           {{ $t('不安に思う方') }}
         </div>
       </div>
       <div :class="$style.RowItems">
         <div :class="$style.CheckBox">
+          <img
+            :class="$style.CheckBoxIcon"
+            src="/flow/check_circle-24px.svg"
+            aria-hidden="true"
+          />
           {{ $t('微熱') }}
         </div>
         <div :class="$style.CheckBox">
+          <img
+            :class="$style.CheckBoxIcon"
+            src="/flow/check_circle-24px.svg"
+            aria-hidden="true"
+          />
           {{ $t('軽い咳') }}
         </div>
         <div :class="$style.CheckBox">
+          <img
+            :class="$style.CheckBoxIcon"
+            src="/flow/check_circle-24px.svg"
+            aria-hidden="true"
+          />
           {{ $t('感染の不安') }}
         </div>
       </div>
@@ -33,68 +52,19 @@
         {{ $t('午前9時から午後9時（土日祝含む）') }}
       </div>
 
-      <div :class="$style.TelLink">
-        <a href="tel:0570550571">
-          <img src="/flow/phone-24px.svg" alt="Phone" />
+      <div :class="$style.Tel">
+        <a :class="$style.TelLink" href="tel:0570550571">
+          <img
+            :class="$style.TelLinkIcon"
+            src="/flow/phone-24px.svg"
+            aria-hidden="true"
+          />
           0570-550571
         </a>
       </div>
     </div>
   </div>
 </template>
-
-<i18n>
-{
-  "ja": {
-    "不安に思う方": "不安に思う方",
-    "微熱": "微熱",
-    "軽い咳": "軽い咳",
-    "感染の不安": "感染の不安",
-    "新型コロナコールセンター": "新型コロナコールセンター",
-    "午前9時から午後9時（土日祝含む）": "午前9時から午後9時（土日祝含む）"
-  },
-  "en": {
-    "不安に思う方": "For those who suspect they have COVID-19 infection",
-    "微熱": "Having slight fever",
-    "軽い咳": "Having minor coughs",
-    "感染の不安": "If you suspect you have COVID-19",
-    "新型コロナコールセンター": "COVID-19 Telephone Advisory Center (Support in English, Chinese, Korean and Japanese)",
-    "午前9時から午後9時（土日祝含む）": "9:00 am - 9:00 pm (7 days a week)"
-  },
-  "zh-cn": {
-    "不安に思う方": "如果您感到不安",
-    "微熱": "发低烧",
-    "軽い咳": "有轻微的咳嗽症状",
-    "感染の不安": "怀疑自己感染新冠肺炎",
-    "新型コロナコールセンター": "新冠肺炎服务专线（提供中文、英语、日语、韩语服务）",
-    "午前9時から午後9時（土日祝含む）": "上午 9 点至晚上 9 点（含周六日及节假日）"
-  },
-  "zh-tw": {
-    "不安に思う方": "若您感到不適",
-    "微熱": "輕微發燒",
-    "軽い咳": "輕微咳嗽",
-    "感染の不安": "覺得自己可能感染新型冠狀病毒",
-    "新型コロナコールセンター": "新型冠狀病毒肺炎服務專線（提供中文、英文、日文、韓文服務）",
-    "午前9時から午後9時（土日祝含む）": "早上 9 點到晚上 9 點（含週末例假日）"
-  },
-  "ko": {
-    "不安に思う方": "코로나19가 의심되는 경우",
-    "微熱": "미열 증상",
-    "軽い咳": "가벼운 기침",
-    "感染の不安": "코로나19가 의심된다면",
-    "新型コロナコールセンター": "코로나19 콜센터(영어, 중국어, 한국어, 일본어 서비스)",
-    "午前9時から午後9時（土日祝含む）": "오전 9:00 - 오후 9:00 (매일)"
-  },
-  "ja-basic": {
-    "不安に思う方": "ふあん、しんぱい な ひと",
-    "微熱": "ちょっと ねつが あるひと",
-    "軽い咳": "ちょっと せきがある",
-    "感染の不安": "びょうきが こわい",
-    "新型コロナコールセンター": "あたらしい コロナについて でんわ できるところ",
-    "午前9時から午後9時（土日祝含む）": "まいにち あさ の ごぜん９じ～よる の ごご９じまで（やすみ の ひも やっています）"
-  }
-}
-</i18n>
 
 <style module lang="scss">
 .FlowComponent {
@@ -104,14 +74,28 @@
   justify-content: space-between;
 }
 
-.TelLink {
+.Tel {
   @include largerThan($medium) {
     font-size: larger;
   }
-  a {
-    color: $gray-2;
+}
+.TelLink {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  &:link,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    color: inherit;
     text-decoration: none;
-    font-weight: bold;
+  }
+  &Icon {
+    display: inline-block;
+    margin-right: 5px;
+    width: 26px;
+    height: 26px;
   }
 }
 
@@ -129,14 +113,15 @@
     font-size: 20px;
   }
 
-  &:after {
+  &Icon {
     position: absolute;
     left: -8px;
     top: -8px;
-    content: url(/flow/check_circle-24px.svg);
+    width: 24px;
+    height: 24px;
   }
 
-  &:before {
+  &::before {
     position: absolute;
     left: -4px;
     top: -4px;
@@ -157,10 +142,11 @@
 
 .Box1 {
   position: relative;
-  flex: 0 0 60%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 60%;
   flex-direction: row;
-  &::after {
-    content: '';
+  &Icon {
     position: absolute;
     bottom: 40%;
     right: -30px;
@@ -168,13 +154,15 @@
     display: block;
     width: 46px;
     height: 46px;
-    background: url('/flow/flow_arrow.svg') no-repeat;
   }
 }
 
 .Box2 {
-  flex: 0 0 38%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 38%;
   flex-direction: column;
+  justify-content: center;
   div {
     margin: 0.5em;
   }
@@ -186,6 +174,16 @@
   margin: 0 4px;
   @include largerThan($large) {
     margin: 0 2em;
+  }
+}
+
+.RowItemsHeader {
+  font-size: smaller;
+  &Icon {
+    display: block;
+    margin: auto;
+    width: 45px;
+    height: 45px;
   }
 }
 

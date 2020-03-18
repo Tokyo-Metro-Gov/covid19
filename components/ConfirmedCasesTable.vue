@@ -91,91 +91,44 @@
   </ul>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "検査実施<br />人数": "検査実施<br />人数",
-    "陽性者数": "陽性者数",
-    "(累積)": "(累積)",
-    "入院中": "入院中",
-    "軽症・<br />中等症": "軽症・<br />中等症",
-    "重症": "重症",
-    "死亡": "死亡",
-    "退院": "退院",
-    "人": "人"
-  },
-  "en": {
-    "検査実施<br />人数": "Number of tested",
-    "陽性者数": "Confirmed cases",
-    "(累積)": "(Accum.)",
-    "入院中": "Hospitalized patients",
-    "軽症・<br />中等症": "Minor to moderate symptoms",
-    "重症": "Severe symptoms",
-    "死亡": "Deaths",
-    "退院": "Recovered",
-    "人": "pers."
-  },
-  "zh-cn": {
-    "検査実施<br />人数": "筛检人数",
-    "陽性者数": "确诊人数",
-    "(累積)": "(累计)",
-    "入院中": "住院人数",
-    "軽症・<br />中等症": "轻症",
-    "重症": "重症",
-    "死亡": "死亡",
-    "退院": "出院",
-    "人": "人"
-  },
-  "zh-tw": {
-    "検査実施<br />人数": "已篩檢<br />人數",
-    "陽性者数": "確診人數",
-    "(累積)": "(累積)",
-    "入院中": "住院人數",
-    "軽症・<br />中等症": "輕症",
-    "重症": "重症",
-    "死亡": "死亡",
-    "退院": "出院",
-    "人": "人"
-  },
-  "ko": {
-    "検査実施<br />人数": "검사자 수",
-    "陽性者数": "확진자 수",
-    "(累積)": "(누적)",
-    "入院中": "병상 확진자 수",
-    "軽症・<br />中等症": "경증-중증 상태",
-    "重症": "위중 상태",
-    "死亡": "사망",
-    "退院": "퇴원",
-    "人": "인"
-  },
-  "ja-basic": {
-    "検査実施<br />人数": "けんさを うけた ひとの かず",
-    "陽性者数": "コロナウイルス の びょうき の ひとの かず",
-    "(累積)": "全部（ぜんぶ）で",
-    "入院中": "にゅういん している ひと の かず",
-    "軽症・<br />中等症": "たいへん ではない",
-    "重症": "たいへん",
-    "死亡": "しんだ",
-    "退院": "なおった",
-    "人": "にん"
-  }
-}
-</i18n>
+<script lang="ts">
+import Vue from 'vue'
 
-<script>
-export default {
-  props: [
-    '検査実施人数',
-    '陽性物数',
-    '入院中',
-    '軽症中等症',
-    '重症',
-    '死亡',
-    '退院'
-  ],
+/* eslint-disable vue/prop-name-casing */
+export default Vue.extend({
+  props: {
+    検査実施人数: {
+      type: Number,
+      required: true
+    },
+    陽性物数: {
+      type: Number,
+      required: true
+    },
+    入院中: {
+      type: Number,
+      required: true
+    },
+    軽症中等症: {
+      type: Number,
+      required: true
+    },
+    重症: {
+      type: Number,
+      required: true
+    },
+    死亡: {
+      type: Number,
+      required: true
+    },
+    退院: {
+      type: Number,
+      required: true
+    }
+  },
   methods: {
     /** 桁数に応じて位置の調整をする */
-    getAdjustX(input) {
+    getAdjustX(input: number) {
       const length = input.toString(10).length
       switch (length) {
         case 1: {
@@ -197,19 +150,19 @@ export default {
     },
     /** グラフ内容がわかる支援技術用テキストの中身を取得する **/
     ariaLabel(
-      inspected,
-      positive,
-      hospitalized,
-      mild,
-      critically,
-      deceased,
-      discharged
+      inspected: number,
+      positive: number,
+      hospitalized: number,
+      mild: number,
+      critically: number,
+      deceased: number,
+      discharged: number
     ) {
       const ariaLabel = `検査陽性者の状況: 検査実施人数は${inspected}人、うち累積の陽性者数は${positive}人です。入院中は${hospitalized}人で、うち軽症・中等症は${mild}人、また重症は${critically}人です。さらに死亡は${deceased}人、退院は${discharged}人です。`
       return ariaLabel
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
