@@ -166,7 +166,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const colorArray = ['#00A040', '#00D154']
       const borderColor = '#ffffff'
       const borderWidth = [
-        { left: 0, top: 2, right: 0, bottom: 0 },
+        { left: 0, top: 1, right: 0, bottom: 0 },
         { left: 0, top: 0, right: 0, bottom: 0 }
       ]
       if (this.dataKind === 'transition') {
