@@ -5,13 +5,14 @@
   "author": "東京都",
   "private": true,
   "engines": {
-    "node": "^10.19.0"
+    "node": ">=10.19.0"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt-ts",
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
-    "generate:deploy": "nuxt-ts generate",
+    "generate:deploy": "cross-env NODE_ENV=production nuxt-ts generate",
+    "generate:dev": "cross-env NODE_ENV=development nuxt-ts generate",
     "generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "lint-and-generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "test": "echo 'skip tests (there is no test)'",
@@ -22,7 +23,8 @@
   "lint-staged": {
     "*.{js,ts,css,vue}": [
       "eslint --fix"
-    ]
+    ],
+    "*.{css,scss,vue}": "stylelint"
   },
   "husky": {
     "hooks": {
@@ -51,6 +53,7 @@
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
     "@nuxtjs/google-analytics": "^2.2.3",
+    "@nuxtjs/stylelint-module": "^3.2.2",
     "@nuxtjs/vuetify": "^1.0.0",
     "@types/chart.js": "^2.9.14",
     "@vue/test-utils": "^1.0.0-beta.27",
@@ -66,6 +69,9 @@
     "nuxt-purgecss": "^0.2.1",
     "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.19.1",
+    "stylelint": "^13.2.0",
+    "rimraf": "^3.0.2",
+    "vue-axe": "^1.0.8",
     "vue-jest": "^4.0.0-0"
   }
 }
