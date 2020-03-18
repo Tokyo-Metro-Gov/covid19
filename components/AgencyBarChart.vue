@@ -115,6 +115,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   computed: {
     displayData() {
       const colors = ['#008b41', '#63c765', '#a6e29f']
+      const borderColor = '#ffffff'
+      const borderWidth = [
+        { left: 0, top: 2, right: 0, bottom: 0 },
+        { left: 0, top: 2, right: 0, bottom: 0 },
+        { left: 0, top: 0, right: 0, bottom: 0 }
+      ]
       return {
         labels: this.chartData.labels as string[],
         datasets: this.chartData.datasets.map((item, index) => {
@@ -122,8 +128,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             label: this.agencies[index] as string,
             data: item.data,
             backgroundColor: colors[index] as string,
-            borderColor: '#ffffff',
-            borderWidth: {left: 0, top: 2, right: 0, bottom: 0}
+            borderColor,
+            borderWidth: borderWidth[index]
           }
         })
       }
