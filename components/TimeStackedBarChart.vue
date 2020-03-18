@@ -137,10 +137,12 @@ export default {
             label: tooltipItem => {
               const labelText =
                 this.dataKind === 'transition'
-                  ? `${sumArray[tooltipItem.index]}${unit}（患者: ${
+                  ? `${sumArray[tooltipItem.index]}${unit}（陽性患者: ${
                       data[0][tooltipItem.index]
                     }/無症状病原体保有者: ${data[1][tooltipItem.index]}）`
-                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（患者: ${
+                  : `${
+                      cumulativeSumArray[tooltipItem.index]
+                    }${unit}（陽性患者: ${
                       cumulativeData[0][tooltipItem.index]
                     }/無症状病原体保有者: ${
                       cumulativeData[1][tooltipItem.index]
