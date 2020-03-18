@@ -329,7 +329,7 @@ export default Vue.extend({
         border-radius: 8px;
         text-align: left;
         font-size: 1rem;
-        z-index: 9000;
+        z-index: 1;
 
         > * {
           padding: 4px 0px;
@@ -393,7 +393,7 @@ export default Vue.extend({
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9000;
+    z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
