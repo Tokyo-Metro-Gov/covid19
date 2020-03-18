@@ -90,7 +90,7 @@ $ docker-compose run --rm app yarn install
 
 ### 開発用環境への反映（新潟県非公式） 
 
-`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト　https://dev-niigata-informal.netlify.com/  が更新されます。　netlifyの開発サイトは廃止され、https://covid19.niigata.prototype-cafe.space/ のみを使う様になる予定です。 後者のサイトへの反映は現在手動で行っています。
+`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト　https://dev-niigata-informal.netlify.com/  が更新されます。
 
 ### ブランチルール
 
@@ -107,7 +107,7 @@ Pull Request を送る際の branch は、以下のネーミングルールで�
 | 緊急適用用 | dev-hotfix | なし | 急ぎ本番に適用するべき修正。管理者から依頼された場合こちらを使ってください |
 | i18n 作業用 | dev-i18n | なし | テンポラリで使っています |
 | ステージング | staging | なし | 本番前の最終確認用。管理者以外の Pull Request は禁止です |
-| 本番 | master | 準備中：https://niigata.stopcovid19.jp/ | 管理者以外の Pull Request は禁止です |
+| 本番 | master | https://niigata.stopcovid19.jp/ | 管理者以外の Pull Request は禁止です |
 
 #### システムで利用しているブランチ
 | 目的 | ブランチ | 確認URL | 備考 |
