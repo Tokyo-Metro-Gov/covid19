@@ -224,9 +224,11 @@ export default Vue.extend({
   components: {
     StaticCard
   },
-  head: (): MetaInfo => ({
-    title: '企業の皆様・はたらく皆様へ'
-  })
+  head(): MetaInfo {
+    return {
+      title: this.$t('企業の皆様・はたらく皆様へ') as string
+    }
+  }
 })
 </script>
 
