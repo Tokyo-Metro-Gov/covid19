@@ -160,11 +160,21 @@ export default Vue.extend({
 
         tbody tr {
           height: auto;
-          line-height: 2em;
 
           .content {
             font-size: 18px;
             font-weight: bold;
+            border-bottom: none !important;
+            padding-top: 14px;
+            padding-bottom: 10px;
+          }
+
+          .bureau {
+            border-bottom: none !important;
+          }
+
+          .tel {
+            padding-bottom: 14px;
           }
         }
         tbody td {
