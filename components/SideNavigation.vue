@@ -187,6 +187,10 @@ export default {
           link:
             'http://kanpoken.pref.yamaguchi.lg.jp/jyoho/page5-7/page5-7-31.html',
           divider: true
+        },
+        {
+          title: this.$t('※当サイトは山口県内外の有志が開設したものです。'),
+          divider: true
         }
       ]
     },
