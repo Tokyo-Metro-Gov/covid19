@@ -100,12 +100,12 @@ Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 | Hotfix branch | dev-hotfix | None | Branch สำหรับ hotfix ของ production - ใช้ในกรณีที่ admin อนุญาตแล้วเท่านั้น |
 | i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | ใช้ชั่วคราว |
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | ใช้สำหรับ Stag อัพเดทต่างๆ ก่อนนำไป deploy ลง production - ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
-| Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
+| Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
 
 #### Branch ที่ถูกใช้โดยระบบ
 | จุดประสงค์ | Branch | URL | หมายเหตุ |
 | ---- | -------- | ---- | ---- |
-| Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | HTML สำหรับ production |
+| Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | HTML สำหรับ production |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | HTML สำหรับ staging |
 <<<<<<< HEAD
 | สำหรับ OGP working directory | deploy / new_obp | None | สำหรับอัพเดท OGP |
