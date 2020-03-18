@@ -26,29 +26,6 @@
   </data-view>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "※退院には、死亡退院を含む": "※退院には、死亡退院を含む"
-  },
-  "en": {
-    "※退院には、死亡退院を含む": "* The number of discharge include discharge due to death"
-  },
-  "zh-cn": {
-    "※退院には、死亡退院を含む": "※ 出院数包含因死亡出院"
-  },
-  "zh-tw": {
-    "※退院には、死亡退院を含む": "※ 出院包含因死亡出院"
-  },
-  "ko": {
-    "※退院には、死亡退院を含む": "※퇴원은 사망으로 인해 퇴원한것을 포함합니다"
-  },
-  "ja-basic": {
-    "※退院には、死亡退院を含む": ""
-  }
-}
-</i18n>
-
 <style lang="scss">
 .cardTable {
   &.v-data-table {
@@ -91,15 +68,16 @@
 .note {
   padding: 8px;
   font-size: 12px;
-  color: #808080;
+  color: $gray-3;
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-export default {
+export default Vue.extend({
   components: { DataView, DataViewBasicInfoPanel },
   props: {
     title: {
@@ -120,14 +98,12 @@ export default {
     },
     info: {
       type: Object,
-      required: false,
       default: () => {}
     },
     url: {
       type: String,
-      required: false,
       default: ''
     }
   }
-}
+})
 </script>
