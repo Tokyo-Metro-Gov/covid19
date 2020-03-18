@@ -88,10 +88,9 @@
           :url="''"
         />
       </v-col>
-      <!--
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="新型コロナ受診相談窓口相談件数"
+          title="帰国者接触者センター相談件数"
           :title-id="'number-of-reports-to-covid19-consultation-desk'"
           :chart-id="'time-bar-chart-querents'"
           :chart-data="querentsGraph"
@@ -100,7 +99,6 @@
           :url="''"
         />
       </v-col>
-      -->
     </v-row>
   </div>
 </template>
