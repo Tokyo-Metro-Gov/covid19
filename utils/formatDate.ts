@@ -5,21 +5,21 @@ type formatByLocale = {
 }
 
 const dateFormatByLocale: formatByLocale = {
-  ja: 'YYYY年 MM月 DD日',
+  ja: 'YYYY年M月D日',
   en: 'MMM DD, YYYY',
-  ko: 'YYYY년 MM월 DD일',
-  'ja-basic': 'YYYY年 MM月 DD日',
-  'zh-cn': 'YYYY年 MM月 DD日',
-  'zh-tw': 'YYYY年 MM月 DD日'
+  ko: 'YYYY년 M월 D일',
+  'ja-basic': 'YYYY年M月D日',
+  'zh-cn': 'YYYY年M月D日',
+  'zh-tw': 'YYYY年M月D日'
 }
 
 const datetimeFormatByLocale: formatByLocale = {
-  ja: 'YYYY年 MM月 DD日 HH:MM',
-  en: 'MMM DD, YYYY HH:MM',
-  ko: 'YYYY년 MM월 DD일 HH:MM',
-  'ja-basic': 'YYYY年 MM月 DD日',
-  'zh-cn': 'YYYY年 MM月 DD日 HH:MM',
-  'zh-tw': 'YYYY年 MM月 DD日 HH:MM'
+  ja: 'YYYY年M月D日 HH:mm',
+  en: 'MMM DD, YYYY A h:mm',
+  ko: 'YYYY년 M월 D일 A h:mm',
+  'ja-basic': 'YYYY年M月D日 HH:mm',
+  'zh-cn': 'YYYY年M月D日 HH:mm',
+  'zh-tw': 'YYYY年M月D日 HH:mm'
 }
 
 /**
