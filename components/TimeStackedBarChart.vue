@@ -28,19 +28,84 @@
   </data-view>
 </template>
 
-<i18n src="./TimeStackedBarChart.i18n.json"></i18n>
-
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
-export default {
+interface HTMLElementEvent<T extends HTMLElement> extends Event {
+  currentTarget: T
+}
+type Data = {
+  dataKind: 'transition' | 'cumulative'
+}
+type Methods = {
+  sum: (array: number[]) => number
+  cumulative: (array: number[]) => number[]
+  pickLastNumber: (chartDataArray: number[][]) => number[]
+  cumulativeSum: (chartDataArray: number[][]) => number[]
+  eachArraySum: (chartDataArray: number[][]) => number[]
+}
+
+type Computed = {
+  displayInfo: {
+    lText: string
+    sText: string
+    unit: string
+  }
+  displayData: {
+    labels: string[]
+    datasets: {
+      label: string
+      data: number[]
+      backgroundColor: string
+      borderColor: string
+      borderWidth: object
+    }[]
+  }
+  options: {
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        label: (tooltipItem: any) => string
+        title: (tooltipItem: any, data: any) => string
+      }
+    }
+    responsive: boolean
+    maintainAspectRatio: boolean
+    legend: {
+      display: boolean
+      onHover: (e: HTMLElementEvent<HTMLElement>) => void
+      onLeave: (e: HTMLElementEvent<HTMLElement>) => void
+    }
+    scales: object
+  }
+}
+
+type Props = {
+  title: string
+  titleId: string
+  chartId: string
+  chartData: number[][]
+  date: string
+  items: string[]
+  labels: string[]
+  unit: string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
@@ -50,7 +115,6 @@ export default {
     },
     chartId: {
       type: String,
-      required: false,
       default: 'time-stacked-bar-chart'
     },
     chartData: {
@@ -65,25 +129,20 @@ export default {
     },
     items: {
       type: Array,
-      required: false,
       default: () => []
     },
     labels: {
       type: Array,
-      required: false,
       default: () => []
     },
     unit: {
       type: String,
-      required: false,
       default: ''
     }
   },
-  data() {
-    return {
-      dataKind: 'transition'
-    }
-  },
+  data: () => ({
+    dataKind: 'transition'
+  }),
   computed: {
     displayInfo() {
       if (this.dataKind === 'transition') {
@@ -105,6 +164,11 @@ export default {
     },
     displayData() {
       const colorArray = ['#00A040', '#00D154']
+      const borderColor = '#ffffff'
+      const borderWidth = [
+        { left: 0, top: 1, right: 0, bottom: 0 },
+        { left: 0, top: 0, right: 0, bottom: 0 }
+      ]
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
@@ -113,7 +177,8 @@ export default {
               label: this.items[index],
               data: item,
               backgroundColor: colorArray[index],
-              borderWidth: 0
+              borderColor,
+              borderWidth: borderWidth[index]
             }
           })
         }
@@ -125,7 +190,8 @@ export default {
             label: this.items[index],
             data: this.cumulative(item),
             backgroundColor: colorArray[index],
-            borderWidth: 0
+            borderColor,
+            borderWidth: borderWidth[index]
           }
         })
       }
@@ -142,7 +208,7 @@ export default {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label: tooltipItem => {
+            label: (tooltipItem: any) => {
               const labelTokyo = this.$t('都内')
               const labelOthers = this.$t('その他')
               const labelArray = [labelTokyo, labelOthers]
@@ -174,10 +240,10 @@ export default {
         maintainAspectRatio: false,
         legend: {
           display: true,
-          onHover: e => {
+          onHover: (e: HTMLElementEvent<HTMLElement>): void => {
             e.currentTarget.style.cursor = 'pointer'
           },
-          onLeave: e => {
+          onLeave: (e: HTMLElementEvent<HTMLElement>): void => {
             e.currentTarget.style.cursor = 'default'
           }
         },
@@ -195,7 +261,7 @@ export default {
                 fontColor: '#808080',
                 maxRotation: 0,
                 minRotation: 0,
-                callback: label => {
+                callback: (label: string) => {
                   return label.split('/')[1]
                 }
               }
@@ -214,7 +280,7 @@ export default {
                 fontColor: '#808080',
                 padding: 3,
                 fontStyle: 'bold',
-                callback: label => {
+                callback: (label: string) => {
                   const monthStringArry = [
                     'Jan',
                     'Feb',
@@ -259,8 +325,8 @@ export default {
     }
   },
   methods: {
-    cumulative(array) {
-      const cumulativeArray = []
+    cumulative(array: number[]): number[] {
+      const cumulativeArray: number[] = []
       let patSum = 0
       array.forEach(d => {
         patSum += d
@@ -268,25 +334,25 @@ export default {
       })
       return cumulativeArray
     },
-    sum(array) {
+    sum(array: number[]): number {
       return array.reduce((acc, cur) => {
         return acc + cur
       })
     },
-    pickLastNumber(chartDataArray) {
+    pickLastNumber(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array[array.length - 1]
       })
     },
-    cumulativeSum(chartDataArray) {
+    cumulativeSum(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array.reduce((acc, cur) => {
           return acc + cur
         })
       })
     },
-    eachArraySum(chartDataArray) {
-      const sumArray = []
+    eachArraySum(chartDataArray: number[][]) {
+      const sumArray: number[] = []
       for (let i = 0; i < chartDataArray[0].length; i++) {
         sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
       }
@@ -294,6 +360,8 @@ export default {
     }
   }
 }
+
+export default Vue.extend(options)
 </script>
 
 <style lang="scss" scoped>
