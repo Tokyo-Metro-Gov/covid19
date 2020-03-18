@@ -97,7 +97,7 @@ $ docker-compose run --rm app yarn install
 #### 기본 브랜치(branch)
 | 목적 | 브랜치 | 확인 URL | 비고 |
 | ---- | -------- | ---- | ---- |
-| 개발 | development | http://dev-covid19-tokyo.netlify.com/ | 기본 브랜치(branch). 기본은 여기로 풀 리퀘스트를 전달하세요.|
+| 개발 | development | https://dev-covid19-tokyo.netlify.com/ | 기본 브랜치(branch). 기본은 여기로 풀 리퀘스트를 전달하세요.|
 | 핫픽스(hotfix) 브랜치 | dev-hotfix | 없음 | 급하게 프로덕션(production)에 적용해야하는 수정사항용 브랜치입니다. 관리자가 요청한 경우에 사용하세요. |
 | i18n 작업용 브랜치 | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | 임시로 사용됩니다. |
 | 스테이징(Staging) | staging | https://stg-covid19-tokyo.netlify.com/ | 프로덕션(production) 적용 전에 최종 확인용 브랜치입니다. 관리자가 아닌 풀 리퀘스트(Pull Request)는 금지입니다. |

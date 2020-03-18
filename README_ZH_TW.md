@@ -96,7 +96,7 @@ Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 #### 基本分支
 | 目的 | 分支 | 預覽用 URL | 備註 |
 | ---- | -------- | ---- | ---- |
-| 開發 | development | http://dev-covid19-tokyo.netlify.com/ | 基本上請推送 Pull Request 到這裡 |
+| 開發 | development | https://dev-covid19-tokyo.netlify.com/ | 基本上請推送 Pull Request 到這裡 |
 | 緊急修復 | dev-hotfix | 無 | 對於正式版的緊急修復。 在管理員的要求下使用。 |
 | i18n 工作用 | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | 暫時使用 |
 | 正式版預覽 | staging | https://stg-covid19-tokyo.netlify.com/ | 對於正式版釋出前的最終確認，禁止管理員以外的人推送 Pull Request。 |
