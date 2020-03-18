@@ -33,6 +33,9 @@
       </nav>
 
       <div class="SideNavigation-Language">
+        <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+          {{ $t('多言語対応選択メニュー') }}
+        </label>
         <LanguageSelector />
       </div>
 
@@ -306,6 +309,12 @@ export default Vue.extend({
 
 .SideNavigation-Language {
   padding-top: 20px;
+}
+
+.SideNavigation-LanguageLabel {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.85rem;
 }
 
 .SideNavigation-Footer {
