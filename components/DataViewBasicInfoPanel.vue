@@ -38,12 +38,22 @@
 </style>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 
-@Component
-export default class DataViewBasicInfoPanel extends Vue {
-  @Prop() private lText!: string
-  @Prop() private sText!: string
-  @Prop() private unit!: string
-}
+export default Vue.extend({
+  props: {
+    lText: {
+      type: String,
+      required: true
+    },
+    sText: {
+      type: String,
+      required: true
+    },
+    unit: {
+      type: String,
+      required: true
+    }
+  }
+})
 </script>
