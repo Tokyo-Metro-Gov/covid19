@@ -29,7 +29,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://development-civictechzenchiba-covid19.netlify.com'
+        content: 'https://covid19.civictech.chiba.jp'
       },
       {
         hid: 'og:title',
@@ -45,8 +45,7 @@ const config: Configuration = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content:
-          'https://development-civictechzenchiba-covid19.netlify.com/ogp.png'
+        content: 'https://covid19.civictech.chiba.jp/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -66,8 +65,7 @@ const config: Configuration = {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content:
-          'https://development-civictechzenchiba-covid19.netlify.com/ogp.png'
+        content: 'https://covid19.civictech.chiba.jp/ogp.png'
       }
     ],
     link: [
