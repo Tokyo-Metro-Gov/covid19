@@ -14,6 +14,18 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
+        <svg-card
+          title="検査陽性者の状況"
+          :title-id="'details-of-confirmed-cases'"
+          :date="headerItem.date"
+        >
+          <confirmed-cases-table
+            aria-label="検査陽性者の状況"
+            v-bind="confirmedCases"
+          />
+        </svg-card>
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
         <!--
         <time-bar-chart
           title="陽性患者数"
@@ -51,20 +63,6 @@
           "
         />
       </v-col>
-      <!--
-      <v-col cols="12" md="6" class="DataCard">
-        <svg-card
-          title="検査陽性者の状況"
-          :title-id="'details-of-confirmed-cases'"
-          :date="headerItem.date"
-        >
-          <confirmed-cases-table
-            aria-label="検査陽性者の状況"
-            v-bind="confirmedCases"
-          />
-        </svg-card>
-      </v-col>
-      -->
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
           title="検査実施数"
@@ -115,6 +113,8 @@ import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import News from '@/data/news.json'
+import SvgCard from '@/components/SvgCard.vue'
+import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
 
 export default {
   components: {
@@ -123,7 +123,9 @@ export default {
     TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
-    DataTable
+    DataTable,
+    SvgCard,
+    ConfirmedCasesTable
   },
   data() {
     // 感染者数グラフ
