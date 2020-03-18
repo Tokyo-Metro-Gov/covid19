@@ -137,7 +137,7 @@ export default class MenuList extends Vue {
   }
 
   &:focus {
-    outline: solid $green-1 2px;
+    outline: 1px dotted $gray-3;
   }
 
   &.nuxt-link-exact-active {
