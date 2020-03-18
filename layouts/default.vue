@@ -58,6 +58,9 @@ export default Vue.extend({
     if (this.$route.query.embed === 'true') {
       hasNavigation = false
       loading = false
+    } else if (this.$route.query.ogp === 'true') {
+      hasNavigation = false
+      loading = false
     }
 
     return {
@@ -102,7 +105,7 @@ export default Vue.extend({
         },
         {
           hid: 'og:site_name',
-          name: 'og:site_name',
+          property: 'og:site_name',
           content:
             this.$t('東京都') +
             ' ' +
@@ -111,8 +114,18 @@ export default Vue.extend({
             this.$t('対策サイト')
         },
         {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+        },
+        {
+          hid: 'og:locale',
+          property: 'og:locale',
+          content: this.$i18n.locale
+        },
+        {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content:
             this.$t('東京都') +
             ' ' +
@@ -122,14 +135,14 @@ export default Vue.extend({
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: this.$tc(
             '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
           )
         },
         {
           hid: 'og:image',
-          name: 'og:image',
+          property: 'og:image',
           content: this.$tc('ogp.og:image')
         },
         {
