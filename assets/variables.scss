@@ -65,6 +65,11 @@ $z-index-map: (
   color: $gray-2;
   font-weight: bold;
 }
+@mixin card-h3 {
+  @include font-size(16);
+  color: $gray-2;
+  font-weight: bold;
+}
 @mixin body-text {
   @include font-size(16);
   color: $gray-1;
