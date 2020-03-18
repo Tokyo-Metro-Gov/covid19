@@ -58,6 +58,9 @@ export default Vue.extend({
     if (this.$route.query.embed === 'true') {
       hasNavigation = false
       loading = false
+    } else if (this.$route.query.ogp === 'true') {
+      hasNavigation = false
+      loading = false
     }
 
     return {
