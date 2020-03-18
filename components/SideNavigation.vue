@@ -328,6 +328,10 @@ export default {
     width: 100%;
     z-index: z-index-of(opened-side-navigation);
     background-color: $white;
+    /* stylelint-disable */
+    overflow-y: scroll; // TODO: Issue#81の暫定対応
+    /* stylelint-enable */
+    -webkit-overflow-scrolling: touch;
   }
 }
 @include largerThan($small) {
