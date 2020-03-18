@@ -10,40 +10,37 @@
       <span>{{ $t('最終更新') }} </span>
       <time :datetime="formattedDate">{{ date }}</time>
     </div>
-    <div v-if="!['ja', 'ja-basic'].includes($i18n.locale)" class="annotation">
+    <div v-show="!['ja', 'ja-basic'].includes($i18n.locale)" class="annotation">
       <span>{{ $t('注釈') }} </span>
     </div>
   </div>
 </template>
 
-<i18n src="./PageHeader.i18n.json"></i18n>
-
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
-export default {
+export default Vue.extend({
   props: {
     title: {
       type: String,
-      required: true,
-      default: ''
+      required: true
     },
     icon: {
       type: String,
-      required: false,
-      default: ''
+      required: true
     },
     date: {
       type: String,
-      required: false,
-      default: ''
+      required: true
     }
   },
-  data() {
-    const formattedDate = convertDatetimeToISO8601Format(this.date)
-    return { formattedDate }
+  computed: {
+    formattedDate(): string {
+      return convertDatetimeToISO8601Format(this.date)
+    }
   }
-}
+})
 </script>
 
 <style lang="scss">

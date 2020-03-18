@@ -21,7 +21,7 @@
             {{ item.date }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
-            {{ $t(item.text) }}
+            {{ item.text }}
             <v-icon
               v-if="!isInternalLink(item.url)"
               class="WhatsNew-item-ExternalLinkIcon"
@@ -36,12 +36,11 @@
   </div>
 </template>
 
-<i18n src="./WhatsNew.i18n.json"></i18n>
-
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 
-export default {
+export default Vue.extend({
   props: {
     items: {
       type: Array,
@@ -49,14 +48,14 @@ export default {
     }
   },
   methods: {
-    isInternalLink(path) {
+    isInternalLink(path: string): boolean {
       return !/^https?:\/\//.test(path)
     },
-    formattedDate(dateString) {
+    formattedDate(dateString: string) {
       return convertDateToISO8601Format(dateString)
     }
   }
-}
+})
 </script>
 
 <style lang="scss">

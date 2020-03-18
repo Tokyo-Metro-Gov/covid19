@@ -5,6 +5,7 @@
       :title="headerItem.title"
       :date="headerItem.date"
     />
+<!--
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
@@ -12,28 +13,33 @@
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
+-->
     <v-row class="DataBlock">
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
+      <telephone-advisory-reports-number-card />
       <tested-number-card />
+<!--
+      <confirmed-cases-details-card />
+      <confirmed-cases-number-card />
+      <confirmed-cases-attributes-card />
       <telephone-advisory-reports-number-card />
       <consultation-desk-reports-number-card />
       <metro-card />
       <agency-card />
+-->
     </v-row>
   </div>
 </template>
 
-<i18n src="./index.i18n.json"></i18n>
-
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
-import formatGraph from '@/utils/formatGraph'
-// import formatTable from '@/utils/formatTable'
 import News from '@/data/news.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -44,7 +50,7 @@ import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDe
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 
-export default {
+export default Vue.extend({
   components: {
     PageHeader,
     WhatsNew,
@@ -54,37 +60,37 @@ export default {
     ConfirmedCasesAttributesCard,
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
-    ConsultationDeskReportsNumberCard,
-    MetroCard,
-    AgencyCard
+    // ConsultationDeskReportsNumberCard,
+    // MetroCard,
+    // AgencyCard
   },
   data() {
+    const data = {
     // 退院者グラフ
-    const dischargesGraph = formatGraph(Data.discharges_summary.data)
+    // const dischargesGraph = formatGraph(Data.discharges_summary.data)
     // 死亡者数
     // #MEMO: 今後使う可能性あるので一時コメントアウト
     // const fatalitiesTable = formatTable(
     //   Data.patients.data.filter(patient => patient['備考'] === '死亡')
     // )
 
-    const data = {
       Data,
-      dischargesGraph,
+      // dischargesGraph,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: this.$t('都内の最新感染動向'),
+        title: this.$t('栃木県内の最新感染動向'),
         date: Data.lastUpdate
       },
       newsItems: News.newsItems
     }
     return data
   },
-  head() {
+  head(): MetaInfo {
     return {
-      title: this.$t('都内の最新感染動向')
+      title: this.$t('栃木県内の最新感染動向') as string
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

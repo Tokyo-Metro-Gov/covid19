@@ -11,7 +11,10 @@
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
         <h1 class="SideNavigation-Heading">
           <div class="SideNavigation-Logo">
+            <!--
             <img src="/logo.svg" :alt="$t('東京都')" />
+            -->
+            <span>【非公式】栃木県</span>
           </div>
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
@@ -44,6 +47,7 @@
       </nav>
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
+          <!--
           <a
             href="https://line.me/R/ti/p/%40822sysfc"
             target="_blank"
@@ -65,6 +69,7 @@
           >
             <img src="/facebook.png" alt="Facebook" />
           </a>
+          -->
           <a
             href="https://github.com/tokyo-metropolitan-gov/covid19"
             target="_blank"
@@ -84,20 +89,29 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
+          <!--
           2020 Tokyo Metropolitan Government
+          -->
         </small>
       </v-footer>
     </div>
   </div>
 </template>
 
-<i18n src="./SideNavigation.i18n.json"></i18n>
-
-<script>
-import ListItem from '@/components/ListItem'
+<script lang="ts">
+import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
+import ListItem from '@/components/ListItem.vue'
 import LanguageSelector from '@/components/LanguageSelector.vue'
 
-export default {
+type Item = {
+  icon?: string
+  title: TranslateResult
+  link: string
+  divider?: boolean
+}
+
+export default Vue.extend({
   components: {
     ListItem,
     LanguageSelector
@@ -109,13 +123,14 @@ export default {
     }
   },
   computed: {
-    items() {
+    items(): Item[] {
       return [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: this.$t('都内の最新感染動向'),
+          title: this.$t('栃木県内の最新感染動向'),
           link: this.localePath('/')
         },
+        /*
         {
           icon: 'covid',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
@@ -153,30 +168,28 @@ export default {
           link:
             'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
         },
+        */
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
         },
         {
-          title: this.$t('東京都公式ホームページ'),
-          link: 'https://www.metro.tokyo.lg.jp/',
+          title: this.$t('栃木県公式ホームページ'),
+          link: 'http://www.pref.tochigi.lg.jp/index.html',
           divider: true
         }
       ]
-    },
-    isClass() {
-      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
     }
   },
   methods: {
-    openNavi() {
+    openNavi(): void {
       this.$emit('openNavi')
     },
-    closeNavi() {
+    closeNavi(): void {
       this.$emit('closeNavi')
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -219,7 +232,7 @@ export default {
   &-Heading {
     margin-top: 8px;
     font-size: 13px;
-    color: #898989;
+    color: #707070;
     padding: 0.5em 0;
     text-decoration: none;
     @include lessThan($small) {
