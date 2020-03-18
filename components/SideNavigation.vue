@@ -277,7 +277,7 @@ export default Vue.extend({
 
 .SideNavigation-CloseIcon {
   width: 21px;
-  margin: 20px 20px 0;
+  margin-top: 20px;
   @include largerThan($small) {
     display: none;
   }
