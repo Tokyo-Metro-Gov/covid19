@@ -5,6 +5,7 @@
       <SelectMenuIcon class="SelectMenuIcon" aria-hidden="true" />
     </div>
     <select
+      id="LanguageSelector"
       v-model="currentLocaleCode"
       class="SelectLanguage-Menu"
       @change="handleChangeLanguage"
@@ -13,6 +14,7 @@
         v-for="locale in $i18n.locales"
         :key="locale.code"
         :value="locale.code"
+        :title="'Switch to ' + locale.description"
       >
         {{ locale.name }}
       </option>
@@ -45,10 +47,9 @@ export default class LanguageSelector extends Vue {
 .SelectLanguage-Background {
   display: flex;
   align-items: center;
-  padding-right: 6px;
-  padding-left: 6px;
+  padding: 0 6px;
   border-radius: 4px;
-  height: 30px;
+  height: 28px;
   .EarthIcon {
     order: -1;
   }
