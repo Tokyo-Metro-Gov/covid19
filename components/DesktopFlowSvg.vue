@@ -1151,7 +1151,7 @@
       </g>
       <g transform="translate(0 7)">
         <text class="an" transform="translate(913 456)">
-          <tspan x="-84.051" y="0">048-238-9966</tspan>
+          <tspan x="-84.051" y="0">043-238-9966</tspan>
         </text>
         <g transform="translate(800 434)">
           <path class="d" d="M0,0H26V26H0Z" />
@@ -1163,7 +1163,7 @@
         </g>
       </g>
       <text class="an" transform="translate(633 679)">
-        <tspan x="-79.555" y="0">048-238-9966</tspan>
+        <tspan x="-79.555" y="0">043-238-9966</tspan>
       </text>
       <g transform="translate(520 656)">
         <path class="d" d="M0,0H26V26H0Z" />
