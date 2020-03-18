@@ -28,21 +28,21 @@
         mdi-close
       </v-icon>
 
-      <nav>
-        <div class="SideNavigation-Menu">
-          <MenuList :items="items" @click="$emit('closeNavi', $event)" />
-        </div>
-        <div class="SideNavigation-Language">
-          <LanguageSelector />
-        </div>
+      <nav class="SideNavigation-Menu">
+        <MenuList :items="items" @click="$emit('closeNavi', $event)" />
       </nav>
 
-      <v-footer class="SideNavigation-Footer">
-        <div class="SideNavigation-SocialLinkContainer">
+      <div class="SideNavigation-Language">
+        <LanguageSelector />
+      </div>
+
+      <footer class="SideNavigation-Footer">
+        <div class="SideNavigation-Social">
           <a
             href="https://line.me/R/ti/p/%40822sysfc"
             target="_blank"
             rel="noopener"
+            class="SideNavigation-SocialLink"
           >
             <img src="/line.png" alt="LINE" />
           </a>
@@ -50,6 +50,7 @@
             href="https://twitter.com/tokyo_bousai"
             target="_blank"
             rel="noopener"
+            class="SideNavigation-SocialLink"
           >
             <img src="/twitter.png" alt="Twitter" />
           </a>
@@ -57,6 +58,7 @@
             href="https://www.facebook.com/tochokoho"
             target="_blank"
             rel="noopener"
+            class="SideNavigation-SocialLink"
           >
             <img src="/facebook.png" alt="Facebook" />
           </a>
@@ -64,6 +66,7 @@
             href="https://github.com/tokyo-metropolitan-gov/covid19"
             target="_blank"
             rel="noopener"
+            class="SideNavigation-SocialLink"
           >
             <img src="/github.png" alt="GitHub" />
           </a>
@@ -71,9 +74,10 @@
         <small class="SideNavigation-Copyright">
           {{ $t('このサイトの内容物は') }}
           <a
-            rel="license"
-            target="_blank"
             :href="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
+            target="_blank"
+            rel="license"
+            class="SideNavigation-LicenseLink"
           >
             {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
           </a>
@@ -81,7 +85,7 @@
           <br />
           2020 Tokyo Metropolitan Government
         </small>
-      </v-footer>
+      </footer>
     </div>
   </div>
 </template>
@@ -165,8 +169,7 @@ export default Vue.extend({
         },
         {
           title: this.$t('東京都公式ホームページ'),
-          link: 'https://www.metro.tokyo.lg.jp/',
-          divider: true
+          link: 'https://www.metro.tokyo.lg.jp/'
         }
       ]
     }
@@ -278,6 +281,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-Body {
+  padding: 0 20px 20px;
   @include lessThan($small) {
     display: none;
     &.-opened {
@@ -297,25 +301,44 @@ export default Vue.extend({
 }
 
 .SideNavigation-Menu {
-  padding: 2px 20px;
+  padding-top: 20px;
 }
 
 .SideNavigation-Language {
-  padding: 0 20px;
-  background: #fff;
+  padding-top: 20px;
 }
 
 .SideNavigation-Footer {
-  padding: 20px;
+  padding-top: 20px;
   background-color: $white;
 }
 
-.SideNavigation-SocialLinkContainer {
+.SideNavigation-Social {
   display: flex;
-  & a:not(:last-of-type) {
-    margin-right: 10px;
+}
+
+.SideNavigation-SocialLink {
+  border: 1px dotted transparent;
+  border-radius: 30px;
+  color: $gray-3;
+  &:link,
+  &:hover,
+  &:focus,
+  &:visited,
+  &:active {
+    color: inherit;
+    text-decoration: none;
   }
-  & img {
+  &:focus {
+    border-color: $gray-3;
+    outline: none;
+  }
+
+  & + & {
+    margin-left: 10px;
+  }
+
+  img {
     width: 30px;
   }
 }
@@ -323,9 +346,15 @@ export default Vue.extend({
 .SideNavigation-Copyright {
   display: block;
   margin-top: 10px;
-  font-size: 8px;
-  line-height: 1.2;
   color: $gray-1;
+  font-size: 10px;
+  line-height: 1.2;
   font-weight: bold;
+}
+
+.SideNavigation-LicenseLink {
+  &:focus {
+    outline: 1px dotted $gray-3;
+  }
 }
 </style>
