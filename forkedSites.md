@@ -14,6 +14,7 @@
 <!-- 23 -->愛知県|https://stopcovid19.code4.nagoya/|[code4nagoya/covid19](https://github.com/code4nagoya/covid19)|
 <!-- 24 -->三重県|https://covid19-mie.netlify.com/|[FlexiblePrintedCircuits/covid19-mie](https://github.com/FlexiblePrintedCircuits/covid19-mie)|
 <!-- 26 -->京都府|https://stopcovid19-kyoto.netlify.com/|[stopcovid19-kyoto/covid19](https://github.com/stopcovid19-kyoto/covid19)|
+<!-- 27 -->大阪府|https://covid19-osaka.info/|[codeforosaka/covid19](https://github.com/codeforosaka/covid19)|
 <!-- 28 -->兵庫県|https://stop-covid19-hyogo.org/|[stop-covid19-hyogo/covid19](https://github.com/stop-covid19-hyogo/covid19)|
 <!-- 29 -->奈良県|https://stopcovid19.code4nara.org/|[code4nara/covid19](https://github.com/code4nara/covid19)|
 <!-- 33 -->岡山県|https://covid19-okayama.netlify.com/||
