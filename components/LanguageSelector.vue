@@ -76,9 +76,6 @@ export default class LanguageSelector extends Vue {
       transform-origin: center left;
       box-sizing: border-box;
       cursor: pointer;
-      &:focus {
-        outline: none;
-      }
     }
   }
   &-Background {
