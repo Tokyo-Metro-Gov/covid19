@@ -122,9 +122,11 @@ import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
 export default Vue.extend({
-  head: (): MetaInfo => ({
-    title: 'お問い合わせ先一覧'
-  })
+  head(): MetaInfo {
+    return {
+      title: this.$t('お問い合わせ先一覧') as string
+    }
+  }
 })
 </script>
 
