@@ -48,6 +48,8 @@ type Computed = {
       label: string
       data: number[]
       backgroundColor: string
+      borderColor: string
+      borderWidth: object
     }[]
   }
   displayOption: any
@@ -119,7 +121,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           return {
             label: this.agencies[index] as string,
             data: item.data,
-            backgroundColor: colors[index] as string
+            backgroundColor: colors[index] as string,
+            borderColor: '#ffffff',
+            borderWidth: {left: 0, top: 2, right: 0, bottom: 0}
           }
         })
       }
