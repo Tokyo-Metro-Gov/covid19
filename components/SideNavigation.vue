@@ -61,14 +61,14 @@
           >
             <img src="/twitter.png" alt="Twitter" />
           </a>
+		  -->
           <a
-            href="https://www.facebook.com/tochokoho"
+            href="https://www.facebook.com/stopcovid19yamaguchi/"
             target="_blank"
             rel="noopener"
           >
             <img src="/facebook.png" alt="Facebook" />
           </a>
-		  -->
           <a
             href="https://github.com/nishidayoshikatsu/covid19-yamaguchi"
             target="_blank"

@@ -196,13 +196,28 @@
         </a>
       </i18n>
     </TextCard>
-    <TextCard :title="$t('お問い合わせ先')">
+    <TextCard :title="$t('お問い合わせ先（開発チームの連絡先）')">
       <!--
       {{ $t('東京都生活文化局広報広聴部広報課') }}<br />
       {{ $t('電話') }}:
       <a href="tel:03-5388-3085">03-5388-3085</a>
 	  -->
-      {{ $t('※準備中') }}
+      <i18n
+        path="当サイトについてのお問い合わせは{facebookYamaguchi}までお願いします。"
+      >
+        <a
+          href="https://www.facebook.com/stopcovid19yamaguchi/"
+          target="_blank"
+          rel="noopener"
+          place="facebookYamaguchi"
+        >
+          {{
+            $t(
+              '山口県 新型コロナウイルス感染症対策サイト 非公式 facebookページ'
+            )
+          }}
+        </a>
+      </i18n>
     </TextCard>
   </div>
 </template>
