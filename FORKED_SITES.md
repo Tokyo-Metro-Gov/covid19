@@ -18,7 +18,7 @@
 [](28)兵庫県|https://stop-covid19-hyogo.org/|[stop-covid19-hyogo/covid19](https://github.com/stop-covid19-hyogo/covid19)|
 [](29)奈良県|https://stopcovid19.code4nara.org/|[code4nara/covid19](https://github.com/code4nara/covid19)|
 [](33)岡山県|https://covid19-okayama.netlify.com/||
-[](34)広島県|https://covid19-hiroshima.netlify.com/|[tatsuya1970](https://github.com/tatsuya1970/covid19)|
+[](34)広島県|https://covid19-hiroshima.netlify.com/|[tatsuya1970/covid19](https://github.com/tatsuya1970/covid19)|
 [](38)愛媛県|https://ehime-covid19.com/|[ehime-covid19/covid19](https://github.com/ehime-covid19/covid19)|
 [](46)鹿児島県|https://covid19.codeforkagoshima.dev/|[codeforkagoshima/covid19](https://github.com/codeforkagoshima/covid19)
 

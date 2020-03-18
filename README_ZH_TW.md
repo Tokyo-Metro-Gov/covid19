@@ -21,7 +21,7 @@
 
 ## 從這個網站衍生出來的東西
 
-請參考[此連結](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/forkedSites.md)
+請參考[此連結](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/FORKED_SITES.md)
 
 ## 給翻譯者的資訊
 
