@@ -66,7 +66,7 @@ export default class LanguageSelector extends Vue {
     width: 100%;
     z-index: 1;
     select {
-      width: 100%;
+      width: 130%;
       height: 28px;
       background: transparent;
       padding-left: 76px;
