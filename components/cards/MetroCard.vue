@@ -7,7 +7,17 @@
       :chart-data="metroGraph"
       :chart-option="metroGraphOption"
       :date="metroGraph.date"
-    />
+    >
+      <template v-slot:description>
+        {{
+          $t('{range}の利用者数*の平均値を基準としたときの相対値', {
+            range: $t(metroGraph.base_period)
+          })
+        }}
+        <br />
+        *{{ $t('都営地下鉄4路線の自動改札出場数') }}
+      </template>
+    </metro-bar-chart>
   </v-col>
 </template>
 
