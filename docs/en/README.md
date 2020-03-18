@@ -1,38 +1,37 @@
-# 东京都 新型冠状病毒对策网
+# Tokyo COVID-19 Task Force website
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
-[![东京都 新型冠状病毒对策网](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
-
-### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md) | [Thai](./README_TH.md) | [French](./README_FR.md)
-
-## 如何贡献
-如果您能对 Issus 中做出各式各样的修改协助，我们将不胜感激。
-
-详细请参照[如何贡献](./.github/CONTRIBUTING_ZH_CN.md)。
+[![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
 
-## 行动准则
-详细请参照[建站行动原则](./.github/CODE_OF_CONDUCT_ZH_CN.md)。
+### [日本語](./../../README.md) | English | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
 
-## 授权
-本软件采用[MIT授权条款](./LICENSE.txt)。
 
-[PLEASE TRANSLATE ME]
+## How to Contribute
 
-Please check [How to translate](./.github/TRANSLATION.md) doc.
+All contributions are welcome!
+Please check [How to contribute](./CONTRIBUTING.md) for details.
 
-[/PLEASE TRANSLATE ME]
+## Code of Conduct
 
-## 面向开发者信息
+Please check [Code of conduct for developers](./CODE_OF_CONDUCT.md) for details.
 
-### 开发环境搭建
+## License
+This software is released under [the MIT License](./../../LICENSE.txt).
 
-- Node.js 版本最低需求: 10.19.0以上
+## For Translators
 
-**使用 yarn 时**
+Please check [How to translate](./../../TRANSLATION.md) doc.
 
-``` bash
+## For Developers
+
+### How to Set Up Environments
+
+- Required Node.js version: 10.19.0 or higher
+
+**Use yarn**
+```bash
 # install dependencies
 $ yarn install
 
@@ -40,11 +39,22 @@ $ yarn install
 $ yarn dev
 ```
 
-**使用 docker compose 时**
-
+**Use docker**
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
+```
+
+### How to resolve `Cannot find module ****` error
+
+**Use yarn**
+```bash
+$ yarn install
+```
+
+**Use docker**
+```bash
+$ docker-compose run --rm app yarn install
 ```
 
 [PLEASE TRANSLATE ME]
@@ -60,22 +70,23 @@ $ docker-compose up --build
 詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
 - 開発環境を再構築する場合は、左下部の「Rebuild Container」を実行してください。
 
+[/PLEASE TRANSLATE ME]
+
 ### Detect production/others environment
 
 On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.  
 Please use the variable to detect which enviroinment is used at the runtime.
 
-[/PLEASE TRANSLATE ME]
+### Deployment to Staging & Production Environments
 
-### 发布到 Staging环境以及正式环境的方法
+When `master` branch is updated, the HTML files will be automatically built onto `production` branch,
+and then the production site (https://stopcovid19.metro.tokyo.lg.jp/) will be also updated.
 
-`master` 分支更新時，自动将 `production` 分支中的HTML类(build)后发布到正式版 https://stopcovid19.metro.tokyo.lg.jp/
+When `staging` branch is updated, the HTML files will be automatically built onto `gh-pages` branch,
+and then the staging site (https://stg-covid19-tokyo.netlify.com/) will be also updated.
 
-`staging` 分支更新時，自动将 `gh-pages` 分支中的HTML类(build)后发布到Staging版 https://stg-covid19-tokyo.netlify.com/
-
-`development` 分支更新時，自动将 `dev-pages` 分支中的HTML类(build)后发布到开发版 https://dev-covid19-tokyo.netlify.com/
-
-[PLEASE TRANSLATE ME]
+When `development` branch is updated, the HTML files will be automatically built onto `dev-pages` branch,
+and then the development site (https://dev-covid19-tokyo.netlify.com/) will be also updated.
 
 ### Branch rules
 
@@ -100,5 +111,3 @@ Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests othe
 | Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
 | For OGP working directory | deploy / new_ogp | None | For updating OGP |
-
-[/PLEASE TRANSLATE ME]

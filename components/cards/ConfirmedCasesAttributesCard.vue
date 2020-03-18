@@ -47,6 +47,7 @@ export default {
     for (const row of patientsTable.datasets) {
       row['居住地'] = this.$t(row['居住地'])
       row['性別'] = this.$t(row['性別'])
+      row['退院'] = this.$t(row['退院'])
 
       if (row['年代'] === '10歳未満') {
         row['年代'] = this.$t('10歳未満')

@@ -1,8 +1,8 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
-    <template v-slot:button>
+    <template v-slot:infoPanel>
       <small :class="$style.DataViewDesc">
-        {{ $t('※土・日・祝日を除く庁舎開庁日の1週間累計数') }}
+        <slot name="description" />
       </small>
     </template>
     <bar
