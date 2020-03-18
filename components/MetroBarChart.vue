@@ -1,15 +1,9 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:button>
-      <p class="MetroGraph-Desc">
-        {{
-          $t('{range}の利用者数*の平均値を基準としたときの相対値', {
-            range: $t(chartData.base_period)
-          })
-        }}
-        <br />
-        *{{ $t('都営地下鉄4路線の自動改札出場数') }}
-      </p>
+    <template v-slot:infoPanel>
+      <small :class="$style.DataViewDesc">
+        <slot name="description" />
+      </small>
     </template>
     <bar
       :chart-id="chartId"
@@ -20,9 +14,9 @@
   </data-view>
 </template>
 
-<style lang="scss">
-.MetroGraph {
-  &-Desc {
+<style module lang="scss">
+.DataView {
+  &Desc {
     margin-top: 10px;
     margin-bottom: 0 !important;
     font-size: 12px;
