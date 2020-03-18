@@ -1,5 +1,5 @@
 <template>
-  <div ref="sidenavigation" class="SideNavigation">
+  <div ref="Side" class="SideNavigation" tabindex="-1">
     <header class="SideNavigation-Header">
       <v-icon
         class="SideNavigation-OpenIcon"
@@ -30,7 +30,7 @@
 
       <nav>
         <div class="SideNavigation-Menu">
-          <MenuList :items="items" @click="handleClickMenu" />
+          <MenuList :items="items" @click="$emit('closeNavi', $event)" />
         </div>
         <div class="SideNavigation-Language">
           <LanguageSelector />
@@ -167,10 +167,18 @@ export default Vue.extend({
       ]
     }
   },
+  watch: {
+    $route: 'handleChageRoute'
+  },
   methods: {
-    handleClickMenu(): void {
-      this.$emit('closeNavi')
-      ;(this.$refs.sidenavigation as HTMLElement).click()
+    handleChageRoute() {
+      // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
+      return this.$nextTick().then(() => {
+        const $Side = this.$refs.Side as HTMLEmbedElement | undefined
+        if ($Side) {
+          $Side.focus()
+        }
+      })
     }
   }
 })
