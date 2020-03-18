@@ -1,10 +1,10 @@
 <template>
-  <div class="SideNavigation">
+  <div ref="sidenavigation" class="SideNavigation">
     <header class="SideNavigation-Header">
       <v-icon
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
-        @click="openNavi"
+        @click="$emit('openNavi', $event)"
       >
         mdi-menu
       </v-icon>
@@ -23,14 +23,14 @@
       <v-icon
         class="SideNavigation-CloseIcon"
         :aria-label="$t('サイドメニュー項目を閉じる')"
-        @click="closeNavi"
+        @click="$emit('closeNavi', $event)"
       >
         mdi-close
       </v-icon>
 
       <nav>
         <div class="SideNavigation-Menu">
-          <MenuList :items="items" @click="closeNavi" />
+          <MenuList :items="items" @click="handleClickMenu" />
         </div>
         <div class="SideNavigation-Language">
           <LanguageSelector />
@@ -168,11 +168,9 @@ export default Vue.extend({
     }
   },
   methods: {
-    openNavi(): void {
-      this.$emit('openNavi')
-    },
-    closeNavi(): void {
+    handleClickMenu(): void {
       this.$emit('closeNavi')
+      ;(this.$refs.sidenavigation as HTMLElement).click()
     }
   }
 })
