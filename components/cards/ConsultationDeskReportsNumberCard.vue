@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <time-bar-chart-only-all
+    <time-bar-chart-only-all2
       :title="$t('新型コロナ受診相談窓口相談件数（累計）')"
       :title-id="'number-of-reports-to-covid19-consultation-desk'"
       :chart-id="'time-bar-chart-querents'"
@@ -60,11 +60,11 @@
 <script>
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
-import TimeBarChartOnlyAll from '@/components/TimeBarChart_only-all.vue'
+import TimeBarChartOnlyAll2 from '@/components/TimeBarChart_only-all2.vue'
 
 export default {
   components: {
-    TimeBarChartOnlyAll
+    TimeBarChartOnlyAll2
   },
   data() {
     // 帰国者・接触者電話相談センター相談件数
