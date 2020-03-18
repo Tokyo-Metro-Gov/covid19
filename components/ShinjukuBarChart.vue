@@ -19,7 +19,7 @@
       ※本データは2020年3月31日までの掲載となります
     </p>
     <p :class="$style.ShinjukuDesc">
-      &copy; Yahoo Japan
+      (C)Yahoo Japan
       <br />
       出典：
       <a href="https://ds.yahoo.co.jp/" target="_blank" rel="noopenner"
