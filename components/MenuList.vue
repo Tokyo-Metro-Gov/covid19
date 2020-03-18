@@ -120,22 +120,18 @@ export default class MenuList extends Vue {
   padding-top: 12px;
   padding-bottom: 12px;
   color: $gray-1;
-  &:link {
-    color: inherit;
-    text-decoration: none;
-  }
+  &:link,
   &:hover,
-  &:focus {
-    color: inherit;
-    font-weight: bold;
-    text-decoration: none;
-  }
+  &:focus,
   &:visited,
   &:active {
     color: inherit;
     text-decoration: none;
   }
-
+  &:hover,
+  &:focus {
+    font-weight: bold;
+  }
   &:focus {
     outline: 1px dotted $gray-3;
   }
