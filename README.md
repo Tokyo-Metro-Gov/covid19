@@ -4,6 +4,7 @@
 
 [![新潟県（非公式） 新型コロナウイルス感染症対策サイト](https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
+(TODO: 日本語以外の対応)
 ### 日本語 | [English](./README_EN.md) | [Español](./README_ES.md) | [한국어](./README_KO.md) | [繁體中文](./README_ZH_TW.md) | [简体中文](./README_ZH_CN.md) | [Tiếng Việt](./README_VI.md) | [ภาษาไทย](./README_TH.md) | [French](./README_FR.md)
 
 ## 貢献の仕方
@@ -89,7 +90,7 @@ $ docker-compose run --rm app yarn install
 
 ### 開発用環境への反映（新潟県非公式） 
 
-`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト　https://dev-niigata-informal.netlify.com/  が更新されます。
+`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト　https://dev-niigata-informal.netlify.com/  が更新されます。　netlifyの開発サイトは廃止され、https://covid19.niigata.prototype-cafe.space/ のみを使う様になる予定です。 後者のサイトへの反映は現在手動で行っています。
 
 ### ブランチルール
 
@@ -102,16 +103,16 @@ Pull Request を送る際の branch は、以下のネーミングルールで�
 #### 基本的なブランチ
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
-| 開発 | development | http://dev-covid19-tokyo.netlify.com/ | base branch。基本はこちらに Pull Requestを送ってください |
+| 開発 | development | http://dev-covid19-tokyo.netlify.com/, https://covid19.niigata.prototype-cafe.space/| base branch。基本はこちらに Pull Requestを送ってください |
 | 緊急適用用 | dev-hotfix | なし | 急ぎ本番に適用するべき修正。管理者から依頼された場合こちらを使ってください |
-| i18n 作業用 | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | テンポラリで使っています |
-| ステージング | staging | https://stg-covid19-tokyo.netlify.com/ | 本番前の最終確認用。管理者以外の Pull Request は禁止です |
-| 本番 | master | http://stopcovid19.metro.tokyo.lg.jp/ | 管理者以外の Pull Request は禁止です |
+| i18n 作業用 | dev-i18n | なし | テンポラリで使っています |
+| ステージング | staging | なし | 本番前の最終確認用。管理者以外の Pull Request は禁止です |
+| 本番 | master | なし | 管理者以外の Pull Request は禁止です |
 
 #### システムで利用しているブランチ
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
-| 本番サイトHTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | 静的ビルドされたHTMLが置いてある場所 |
-| ステージングサイト HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 静的ビルドされたHTMLが置いてある場所 |
+| 本番サイトHTML | production | なし/ | 静的ビルドされたHTMLが置いてある場所 |
+| ステージングサイト HTML | gh-pages | なし | 静的ビルドされたHTMLが置いてある場所 |
 | OGP作業用 | deploy/new_obp | なし | OGPの更新用 |
 
