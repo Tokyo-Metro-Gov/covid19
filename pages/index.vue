@@ -17,7 +17,6 @@
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
       <tested-number-card />
-      <telephone-advisory-reports-number-card />
       <consultation-desk-reports-number-card />
     </v-row>
   </div>
@@ -35,7 +34,6 @@ import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsC
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
-import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 
 export default {
@@ -47,7 +45,6 @@ export default {
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     TestedNumberCard,
-    TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard
   },
   data() {
