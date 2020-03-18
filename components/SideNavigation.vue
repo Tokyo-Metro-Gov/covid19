@@ -39,7 +39,12 @@
           </v-container>
         </v-list>
         <div class="SideNavigation-LanguageMenu">
-          <LanguageSelector />
+          <label>
+            <span class="SideNavigation-LanguageMenu-Title">
+              {{ $t('多言語対応選択メニュー') }}
+            </span>
+            <LanguageSelector />
+          </label>
         </div>
       </nav>
       <v-footer class="SideNavigation-Footer">
@@ -249,6 +254,9 @@ export default Vue.extend({
   &-LanguageMenu {
     padding: 0 20px;
     background: #fff;
+    &-Title {
+      font-size: 0.85rem;
+    }
   }
   &-Footer {
     padding: 20px;
