@@ -85,6 +85,7 @@ export default class LanguageSelector extends Vue {
   width: 100%;
   height: 28px;
   font-size: 12px;
+  line-height: 28px;
 
   &:focus {
     border: 1px dotted $gray-3;
