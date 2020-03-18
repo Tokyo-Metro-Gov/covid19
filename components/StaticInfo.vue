@@ -1,8 +1,8 @@
 <template>
   <component
-    :is="isInternalLink(url) ? 'nuxt-link' : 'a'"
-    :to="isInternalLink(url) ? url : ''"
-    :href="isInternalLink(url) ? '' : url"
+    :is="isInternalLink ? 'nuxt-link' : 'a'"
+    :to="isInternalLink ? url : ''"
+    :href="isInternalLink ? '' : url"
     class="StaticInfo"
   >
     <span>{{ text }}</span>
@@ -32,9 +32,9 @@ export default Vue.extend({
       default: ''
     }
   },
-  methods: {
-    isInternalLink(path: string): boolean {
-      return !/^https?:\/\//.test(path)
+  computed: {
+    isInternalLink(): boolean {
+      return !/^https?:\/\//.test(this.url)
     }
   }
 })
