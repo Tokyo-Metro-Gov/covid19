@@ -48,6 +48,8 @@ type Computed = {
       label: string
       data: number[]
       backgroundColor: string
+      borderColor: string
+      borderWidth: object
     }[]
   }
   displayOption: any
@@ -113,13 +115,21 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   computed: {
     displayData() {
       const colors = ['#008b41', '#63c765', '#a6e29f']
+      const borderColor = '#ffffff'
+      const borderWidth = [
+        { left: 0, top: 1, right: 0, bottom: 0 },
+        { left: 0, top: 1, right: 0, bottom: 0 },
+        { left: 0, top: 0, right: 0, bottom: 0 }
+      ]
       return {
         labels: this.chartData.labels as string[],
         datasets: this.chartData.datasets.map((item, index) => {
           return {
             label: this.agencies[index] as string,
             data: item.data,
-            backgroundColor: colors[index] as string
+            backgroundColor: colors[index] as string,
+            borderColor,
+            borderWidth: borderWidth[index]
           }
         })
       }
