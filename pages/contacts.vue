@@ -142,7 +142,10 @@ export default Vue.extend({
     @include card-container();
     padding: 1px; // tr:hover で外枠が消えないように
     &-Table {
-      td {
+      th {
+        font-size: 14px !important;
+      }
+      tbody tr {
         height: 96px;
       }
       tr:hover {
