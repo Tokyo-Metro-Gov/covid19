@@ -1,0 +1,618 @@
+{
+  "date": "2020\/03\/17 10:00",
+  "type": "FeatureCollection",
+  "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Hokkaido",
+          "prefecture_name": "Hokkaido",
+          "capital_name": "Sapporo",
+          "iso_3166-2": "JP-01",
+          "count": 151
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            141.346940,
+            43.064170
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Tohoku",
+          "prefecture_name": "Miyagi",
+          "capital_name": "Sendai",
+          "iso_3166-2": "JP-04",
+          "count": 1
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            140.871940,
+            38.268890
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Tohoku",
+          "prefecture_name": "Akita",
+          "capital_name": "Akita",
+          "iso_3166-2": "JP-05",
+          "count": 1
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            140.102500,
+            39.718610
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Tohoku",
+          "prefecture_name": "Fukushima",
+          "capital_name": "Fukushima",
+          "iso_3166-2": "JP-07",
+          "count": 2
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            140.467780,
+            37.750000
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kanto",
+          "prefecture_name": "Tochigi",
+          "capital_name": "Utsunomiya",
+          "iso_3166-2": "JP-09",
+          "count": 2
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            139.883610,
+            36.565830
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kanto",
+          "prefecture_name": "Gunma",
+          "capital_name": "Maebashi",
+          "iso_3166-2": "JP-10",
+          "count": 6
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            139.060830,
+            36.391110
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kanto",
+          "prefecture_name": "Saitama",
+          "capital_name": "Saitama",
+          "iso_3166-2": "JP-11",
+          "count": 26
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            139.648890,
+            35.856940
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kanto",
+          "prefecture_name": "Chiba",
+          "capital_name": "Chiba",
+          "iso_3166-2": "JP-12",
+          "count": 29
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            140.123330,
+            35.604720
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kanto",
+          "prefecture_name": "Tokyo",
+          "capital_name": "Tokyo",
+          "iso_3166-2": "JP-13",
+          "count": 84
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            139.691670,
+            35.689440
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kanto",
+          "prefecture_name": "Kanagawa",
+          "capital_name": "Yokohama",
+          "iso_3166-2": "JP-14",
+          "count": 48
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            139.642500,
+            35.447780
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Chubu",
+          "prefecture_name": "Niigata",
+          "capital_name": "Niigata",
+          "iso_3166-2": "JP-15",
+          "count": 14
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            139.023610,
+            37.902220
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Chubu",
+          "prefecture_name": "Ishikawa",
+          "capital_name": "Kanazawa",
+          "iso_3166-2": "JP-17",
+          "count": 5
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            136.625560,
+            36.594440
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Chubu",
+          "prefecture_name": "Yamanashi",
+          "capital_name": "Kofu",
+          "iso_3166-2": "JP-19",
+          "count": 2
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            138.568330,
+            35.663890
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Chubu",
+          "prefecture_name": "Nagano",
+          "capital_name": "Nagano",
+          "iso_3166-2": "JP-20",
+          "count": 3
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            138.181110,
+            36.651390
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Chubu",
+          "prefecture_name": "Gifu",
+          "capital_name": "Gifu",
+          "iso_3166-2": "JP-21",
+          "count": 2
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            138.181110,
+            36.651390
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Chubu",
+          "prefecture_name": "Shizuoka",
+          "capital_name": "Shizuoka",
+          "iso_3166-2": "JP-22",
+          "count": 3
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            138.383060,
+            34.976940
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Chubu",
+          "prefecture_name": "Aichi",
+          "capital_name": "Nagoya",
+          "iso_3166-2": "JP-23",
+          "count": 119
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            136.906670,
+            35.180280
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kansai",
+          "prefecture_name": "Mie",
+          "capital_name": "Tsu",
+          "iso_3166-2": "JP-24",
+          "count": 5
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            136.508610,
+            34.730280
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kansai",
+          "prefecture_name": "Shiga",
+          "capital_name": "Otsu",
+          "iso_3166-2": "JP-25",
+          "count": 3
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            135.868330,
+            35.004440
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kansai",
+          "prefecture_name": "Kyoto",
+          "capital_name": "Kyoto",
+          "iso_3166-2": "JP-26",
+          "count": 14
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            135.755560,
+            35.021390
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kansai",
+          "prefecture_name": "Osaka",
+          "capital_name": "Osaka",
+          "iso_3166-2": "JP-27",
+          "count": 92
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            135.520000,
+            34.686390
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kansai",
+          "prefecture_name": "Hyogo",
+          "capital_name": "Kobge",
+          "iso_3166-2": "JP-28",
+          "count": 60
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            135.183060,
+            34.691390
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kansai",
+          "prefecture_name": "Nara",
+          "capital_name": "Nara",
+          "iso_3166-2": "JP-29",
+          "count": 4
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            135.832780,
+            34.685280
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kansai",
+          "prefecture_name": "Wakayama",
+          "capital_name": "Wakayama",
+          "iso_3166-2": "JP-30",
+          "count": 13
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            135.167500,
+            34.226110
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kansai",
+          "prefecture_name": "Hiroshima",
+          "capital_name": "Hiroshima",
+          "iso_3166-2": "JP-34",
+          "count": 1
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            132.459440,
+            34.396390
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kansai",
+          "prefecture_name": "Yamaguchi",
+          "capital_name": "Yamaguchi",
+          "iso_3166-2": "JP-35",
+          "count": 1
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            131.471390,
+            34.185830
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Shikoku",
+          "prefecture_name": "Ehime",
+          "capital_name": "Matsuyama",
+          "iso_3166-2": "JP-38",
+          "count": 1
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            132.766110,
+            33.841670
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Shikoku",
+          "prefecture_name": "Kochi",
+          "capital_name": "Kochi",
+          "iso_3166-2": "JP-39",
+          "count": 11
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            133.531110,
+            33.559720
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kyushu",
+          "prefecture_name": "Fukuoka",
+          "capital_name": "Fukuoka",
+          "iso_3166-2": "JP-40",
+          "count": 3
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            130.418060,
+            33.606390
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kyushu",
+          "prefecture_name": "Saga",
+          "capital_name": "Saga",
+          "iso_3166-2": "JP-41",
+          "count": 1
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            130.298890,
+            33.249440
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kyushu",
+          "prefecture_name": "Kumamoto",
+          "capital_name": "Kumamoto",
+          "iso_3166-2": "JP-43",
+          "count": 5
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            130.74167,
+            32.789720
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kyushu",
+          "prefecture_name": "Oita",
+          "capital_name": "Oita",
+          "iso_3166-2": "JP-44",
+          "count": 1
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            131.612500,
+            33.238060
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kyushu",
+          "prefecture_name": "Miyazaki",
+          "capital_name": "Miyazaki",
+          "iso_3166-2": "JP-45",
+          "count": 1
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            131.423890,
+            31.911110
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "country_name": "Japan",
+          "region_name": "Kyushu",
+          "prefecture_name": "Okinawa",
+          "capital_name": "Okinawa",
+          "iso_3166-2": "JP-47",
+          "count": 3
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            127.681110,
+            26.212500
+          ]
+        }
+      }
+    ]
+}
