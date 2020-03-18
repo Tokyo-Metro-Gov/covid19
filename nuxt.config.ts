@@ -116,7 +116,7 @@ const config: Configuration = {
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    customVariables: ['@/assets/variables.scss'],
+    customVariables: ['~/assets/variables.scss'],
     defaultAssets: {
       icons: false
     }
