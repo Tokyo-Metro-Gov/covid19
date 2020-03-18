@@ -20,7 +20,7 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 
 ## このサイトから派生したサイト
 
-[Link先](./forkedSites.md)を御覧ください。
+[Link先](./FORKED_SITES.md)を御覧ください。
 
 ## 翻訳者向け情報
 
@@ -106,5 +106,5 @@ Pull Request を送る際の branch は、以下のネーミングルールで�
 | ---- | -------- | ---- | ---- |
 | 本番サイトHTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | 静的ビルドされたHTMLが置いてある場所 |
 | ステージングサイト HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 静的ビルドされたHTMLが置いてある場所 |
-| OGP作業用 | deploy/new_obp | なし | OGPの更新用 |
+| OGP作業用 | deploy/new_ogp | なし | OGPの更新用 |
 

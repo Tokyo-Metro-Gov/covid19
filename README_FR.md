@@ -108,4 +108,4 @@ Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull request d'uti
 | ---- | -------- | ---- | ---- |
 | Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Place ou les pages HTML statiques sont stockees. |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Ou trouver l'HTML statiquement construit. |
-| Dossier de travail OGP | deploy / new_obp | None | Pour mettre a jour OGP |
+| Dossier de travail OGP | deploy / new_ogp | None | Pour mettre a jour OGP |
