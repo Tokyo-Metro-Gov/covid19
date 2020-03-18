@@ -103,16 +103,17 @@
     "詳細は、各学校からのお知らせ等をご確認ください。": "〇 くわしいことは、がっこう からの おしらせ を みてください"
   }
 }
-</i18n>
 
-<script>
-import TextCard from '@/components/TextCard.vue'
+type Item = {
+  title: string
+  body: string
+}
 
-export default {
+export default Vue.extend({
   components: {
     TextCard
   },
-  data() {
+  data(): ItemData {
     return {
       items: [
         {
@@ -134,23 +135,26 @@ export default {
           title: `2. ${this.$t('感染症を疑う場合の対応')}`,
           body: [
             this.$t('各保健所にご相談ください'),
-            this.$t('「新型コロナウイルス感染症にかかる相談窓口について」'),
-            '<a href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html" target="_blank" rel="noopener">https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html</a>'
+            '<a href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html" target="_blank" rel="noopener">' +
+              this.$t(
+                '「新型コロナウイルス感染症にかかる相談窓口について」（東京都福祉保健局）'
+              ) +
+              '</a>'
           ].join('<br />')
         },
         {
           title: `3. ${this.$t('その他')}`,
-          body: this.$t('詳細は、各学校からのお知らせ等をご確認ください。')
+          body: this.$t(
+            '詳細は、各学校からのお知らせ等をご確認ください。'
+          ) as string
         }
       ]
     }
   },
-  head() {
-    return {
-      title: 'お子様をお持ちの皆様へ'
-    }
-  }
-}
+  head: (): MetaInfo => ({
+    title: 'お子様をお持ちの皆様へ'
+  })
+})
 </script>
 
 <style lang="scss">
