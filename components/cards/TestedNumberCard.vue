@@ -1,5 +1,9 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
+    <!-- 
+      You can add dataLabels attribute to time-stacked-bar-chart.
+      this.$t('都内') and this.$t('その他') are set as default value in TimeStackedBarChart.vue
+      -->
     <time-stacked-bar-chart
       :title="$t('検査実施数')"
       :title-id="'number-of-tested'"
