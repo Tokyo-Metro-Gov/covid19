@@ -6,7 +6,7 @@
 ------------ | ------------- | ------------- | -------------
 東京都（このサイト）|https://stopcovid19.metro.tokyo.lg.jp|東京都（**公式**）|[tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19)|
 [](01)北海道|https://stopcovid19.hokkaido.dev/|JUST道IT（有志団体）|[codeforsapporo/covid19](https://github.com/codeforsapporo/covid19)|
-[](11)埼玉県|https://stopcovid19.e-toda.jp/|Code for TODA|[codefortoda/covid19-saitama](https://github.com/codefortoda/covid19-saitama)|
+[](11)埼玉県|https://saitama.stopcovid19.jp/|Code for TODA|[codefortoda/covid19-saitama](https://github.com/codefortoda/covid19-saitama)|
 [](12)千葉県|https://chiba-covid19.mypl.net/|有志団体||
 [](14)神奈川県|https://www.pref.kanagawa.jp/osirase/1369/|神奈川県（**公式**）||
 [](19)山梨県|https://stopcovid19.yamanashi.dev/|有志団体|[covid19-yamanashi/covid19](https://github.com/covid19-yamanashi/covid19)|
