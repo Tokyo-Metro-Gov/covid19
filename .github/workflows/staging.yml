@@ -26,7 +26,7 @@ jobs:
 
       - run: yarn install --frozen-lockfile
       - run: yarn run test
-      - run: yarn run generate:deploy --fail-on-page-error
+      - run: yarn run generate:dev --fail-on-page-error
       - run: "echo \"User-agent: *\nDisallow: /\" > ./dist/robots.txt"
 
       - name: deploy

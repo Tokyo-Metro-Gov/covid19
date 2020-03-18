@@ -82,13 +82,20 @@
   </div>
 </template>
 
-<i18n src="./SideNavigation.i18n.json"></i18n>
-
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
 import LanguageSelector from '@/components/LanguageSelector.vue'
 import MenuList from '@/components/MenuList.vue'
 
-export default {
+type Item = {
+  icon?: string
+  title: TranslateResult
+  link: string
+  divider?: boolean
+}
+
+export default Vue.extend({
   components: {
     LanguageSelector,
     MenuList
@@ -100,7 +107,7 @@ export default {
     }
   },
   computed: {
-    items() {
+    items(): Item[] {
       return [
         {
           icon: 'mdi-chart-timeline-variant',
@@ -154,20 +161,17 @@ export default {
           divider: true
         }
       ]
-    },
-    isClass() {
-      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
     }
   },
   methods: {
-    openNavi() {
+    openNavi(): void {
       this.$emit('openNavi')
     },
-    closeNavi() {
+    closeNavi(): void {
       this.$emit('closeNavi')
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -204,16 +208,19 @@ export default {
     margin: 5px 16px 15px 0;
     width: 110px;
     @include lessThan($small) {
-      margin-top: 0;
+      margin: 0 16px 0 0;
     }
   }
   &-Heading {
     margin-top: 8px;
     font-size: 13px;
-    color: #898989;
+    color: #707070;
     padding: 0.5em 0;
     text-decoration: none;
     @include lessThan($small) {
+      display: flex;
+      align-items: center;
+      width: 100%;
       margin-top: 0;
     }
   }
