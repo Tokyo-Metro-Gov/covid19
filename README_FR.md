@@ -53,24 +53,23 @@ $ yarn install
 $ docker-compose run --rm app yarn install
 ```
 
-[PLEASE TRANSLATE ME]
-### VSCode + Remote Containersで開発する場合
+[please translate me]
+### VSCode + Remote Cotainersで開発する場合
 
 1. VSCodeの拡張機能「[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」を導入します。
 2. [この画像（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)のように左下部の「Open Folder in Container」でこのリポジトリのルートを選択すれば環境構築が始まります。
 
-#### Topic
-- 設定を変更したい場合は、`.devcontainer/devcontainer.json`を修正してください。
-詳細は[devcontainer.jsonのリファレンス](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)を参照してください。
-- Remote Container実行時のみ有効な拡張機能「ESLint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。
-詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
+[Topic]
+- 設定を変更したい場合は、`.devcontainer/devcontainer.json`を修正してください。<br/>
+    詳細は[devcontainer.jsonのリファレンス](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)を参照してください。
+- Remote Container実行時のみ有効な拡張機能「ESlint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。<br/>
+    詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
 - 開発環境を再構築する場合は、左下部の「Rebuild Container」を実行してください。
-
-[/PLEASE TRANSLATE ME]
+[/please translate me]
 
 ### Detecter le type d'environnement
 
-Dans l'environnement de production, la valeur `'production'` est attribuée à la variable `process.env.GENERATE_ENV`, le reste du temps la valeur assignée est `'development'`.  
+Dans l'environnement de production, la valeur `'production'` est attribuée à la variable `process.env.GENERATE_ENV`, le reste du temps la valeur assignée est `'development'`.
 Veuillez utiliser cette variable pour détecter quel type d'environnement est executé.
 
 ### Deployer vers les environnements Staging & Production
@@ -86,10 +85,10 @@ et le site development (https://dev-covid19-tokyo.netlify.com/) est aussi mis-à
 
 ### Regles sur les branches
 
-Les Pull Request sont permises seulement sur `development`, `dev-i18n`, et `dev-hotfix`.  
+Les Pull Request sont permises seulement sur `development`, `dev-i18n`, et `dev-hotfix`.
 Veuillez utiliser le schema suivant pour nommer vos Pull Request:
 
-Nouvelle feature: feature/#{ISSUE_ID}-#{nom_de_la_branche}  
+Nouvelle feature: feature/#{ISSUE_ID}-#{nom_de_la_branche}
 Hotfix: hotfix/#{ISSUE_ID}-{nom_de_la_branche}
 
 #### Branches basiques
@@ -104,7 +103,7 @@ Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull request d'uti
 
 #### Branches utilisees par le systeme
 
-| But | Branche | URL | Notes |
+| But | Branche | URL |
 | ---- | -------- | ---- | ---- |
 | Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Place ou les pages HTML statiques sont stockees. |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Ou trouver l'HTML statiquement construit. |
