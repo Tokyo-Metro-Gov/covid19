@@ -75,7 +75,7 @@
           :unit="'件'"
         />
       </v-col>
-      <v-col cols="12" md="6" class="DataCard">
+      <!-- <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
           :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
@@ -85,7 +85,7 @@
           :unit="'件'"
           :url="''"
         />
-      </v-col>
+      </v-col> -->
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="帰国者接触者センター相談件数"
