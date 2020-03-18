@@ -49,6 +49,7 @@ export default Vue.extend({
           title: `2. ${this.$t('感染症を疑う場合の対応')}`,
           body: [
             this.$t('各保健所にご相談ください'),
+            this.$t('各保健所の電話番号について'),
             '<a href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html" target="_blank" rel="noopener">' +
               this.$t(
                 '「新型コロナウイルス感染症にかかる相談窓口について」（東京都福祉保健局）'
