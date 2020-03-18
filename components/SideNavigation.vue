@@ -328,6 +328,7 @@ export default {
     width: 100%;
     z-index: z-index-of(opened-side-navigation);
     background-color: $white;
+    overflow-y: scroll;
   }
 }
 @include largerThan($small) {
