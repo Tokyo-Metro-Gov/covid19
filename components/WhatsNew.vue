@@ -1,11 +1,11 @@
 <template>
   <div class="WhatsNew">
-    <h2 class="WhatsNew-heading">
+    <h3 class="WhatsNew-heading">
       <v-icon size="24" class="WhatsNew-heading-icon">
         mdi-information
       </v-icon>
       {{ $t('最新のお知らせ') }}
-    </h2>
+    </h3>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
         <a
@@ -21,7 +21,7 @@
             {{ item.date }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
-            {{ $t(item.text) }}
+            {{ item.text }}
             <v-icon
               v-if="!isInternalLink(item.url)"
               class="WhatsNew-item-ExternalLinkIcon"
@@ -36,12 +36,11 @@
   </div>
 </template>
 
-<i18n src="./WhatsNew.i18n.json"></i18n>
-
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 
-export default {
+export default Vue.extend({
   props: {
     items: {
       type: Array,
@@ -49,14 +48,14 @@ export default {
     }
   },
   methods: {
-    isInternalLink(path) {
+    isInternalLink(path: string): boolean {
       return !/^https?:\/\//.test(path)
     },
-    formattedDate(dateString) {
+    formattedDate(dateString: string) {
       return convertDateToISO8601Format(dateString)
     }
   }
-}
+})
 </script>
 
 <style lang="scss">
@@ -85,12 +84,13 @@ export default {
 
   &-item {
     &-anchor {
-      display: flex;
+      display: inline-block;
       text-decoration: none;
       margin: 5px;
       font-size: 14px;
 
       @include lessThan($medium) {
+        display: flex;
         flex-wrap: wrap;
       }
 
