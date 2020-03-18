@@ -5,24 +5,24 @@
 [![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
 
-### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md) | [Thai](./README_TH.md) | [French](./README_FR.md)
+### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | ภาษาไทย | [Français](./../fr/README.md)
 
 
 ## การร่วมพัฒนา (How to Contribute)
 
 เปิดรับการพัฒนาและอัพเดทต่างๆ!
-โปรดอ่าน [How to contribute](./.github/CONTRIBUTING_TH.md)
+โปรดอ่าน [How to contribute](./CONTRIBUTING.md)
 
 ## จรรยาบรรณ (Code of Conduct)
 
-โปรดอ่าน [Code of conduct for developers](./.github/CODE_OF_CONDUCT_TH.md)
+โปรดอ่าน [Code of conduct for developers](./CODE_OF_CONDUCT.md)
 
 ## ลิขสิทธิ์ (License)
-ซอฟต์แวร์อยู่ภายใต้ลิขสิทธิ์ [the MIT License](./LICENSE.txt).
+ซอฟต์แวร์อยู่ภายใต้ลิขสิทธิ์ [the MIT License](./../../LICENSE.txt).
 
 [PLEASE TRANSLATE ME]
 
-Please check [How to translate](./.github/TRANSLATION.md) doc.
+Please check [How to translate](./../../TRANSLATION.md) doc.
 
 [/PLEASE TRANSLATE ME]
 
@@ -107,8 +107,4 @@ Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 | ---- | -------- | ---- | ---- |
 | Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | HTML สำหรับ production |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | HTML สำหรับ staging |
-<<<<<<< HEAD
-| สำหรับ OGP working directory | deploy / new_obp | None | สำหรับอัพเดท OGP |
-=======
 | สำหรับ OGP working directory | deploy / new_ogp | None | สำหรับอัพเดท OGP |
->>>>>>> parent of e1aa2bf5... Merge branch 'staging' into development

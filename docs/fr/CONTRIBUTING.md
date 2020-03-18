@@ -20,7 +20,7 @@ Cette page explique comment contribuer au developpement de ce site.
 * Joignez le Channel `#covid19`
 
 ## Pour participer
-* Veuillez lire le [Principes / Code de Conduite](CODE_OF_CONDUCT_EN.md) avant de participer au developpement.
+* Veuillez lire le [Principes / Code de Conduite](./CODE_OF_CONDUCT.md) avant de participer au developpement.
 * Pour communiquer, veuillez lire le [Code de Conduite](https://github.com/codeforjapan/codeofconduct) de Code for Japan's.
 * Si vous prevoyez de travailler sur une issue, laissez un commentaire pour prevenir.
 * Pour les debutants, le label [good first issue label](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) est recommande.

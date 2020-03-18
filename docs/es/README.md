@@ -1,35 +1,37 @@
-# Cổng thông tin chống dịch CoVid-19 của TP Tokyo
+# Sitio web del Grupo de trabajo COVID-19 de Tokio
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
-[![Cổng thông tin chống dịch CoVid-19 của TP Tokyo](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md) | [Thai](./README_TH.md) | [French](./README_FR.md)
-
-## Làm thế nào để đóng góp
-Mọi đóng góp của các bạn đều được chào đón.
-Xin vui lòng đọc [tại đây](./.github/CONTRIBUTING_VI.md) để biết thêm chi tiết.
+### [日本語](./../../README.md) | [English](./../en/README.md) | Español | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
 
 
-## Quy tắc ứng xử
-Chi tiết vui lòng xem [tại đây](./.github/CODE_OF_CONDUCT_VI.md)
+## Cómo Contribuir
 
-## Giấy phép
-Phần mềm này được phân phối dưới giấy phép [MIT](./LICENSE.txt)
+Todas las contribuciones son bienvenidas.!
+Por favor, consulte [Cómo contribuir](./CONTRIBUTING.md) para obtener más detalles.
+
+## Código de Conducta
+
+Por favor, consulte el [Código de conducta para desarrolladores](./CODE_OF_CONDUCT.md) para más detalles.
+
+## Licencia
+Este software se publica bajo la [licencia MIT](./../../LICENSE.txt).
 
 [PLEASE TRANSLATE ME]
 
-Please check [How to translate](./.github/TRANSLATION.md) doc.
+Please check [How to translate](./../../TRANSLATION.md) doc.
 
 [/PLEASE TRANSLATE ME]
 
-## Thông tin cho nhà phát triển
+## Para Desarrolladoras
 
-### Xây dựng môi trường
+### Cómo Configurar Entornos
 
-- Node.js phiên bản: 10.19.0 hoặc cao hơn
+- Versión requerida de Node.js: 10.19.0 o superior
 
-**Nếu dùng yarn**
+**Use yarn**
 ```bash
 # install dependencies
 $ yarn install
@@ -38,7 +40,7 @@ $ yarn install
 $ yarn dev
 ```
 
-**Nếu dùng docker compose**
+**Use docker**
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
@@ -64,14 +66,16 @@ Please use the variable to detect which enviroinment is used at the runtime.
 
 [/PLEASE TRANSLATE ME]
 
-### Triển khai lên môi trường staging và production
+### Implementación en entornos de preparación y producción
 
-Khi nhánh `master` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `production`. Sau đó https://stopcovid19.metro.tokyo.lg.jp/ sẽ được cập nhật.
+Cuando se actualiza la rama `master`, los archivos HTML se construirán automáticamente en la rama de `production`,
+y luego el sitio de producción (https://stopcovid19.metro.tokyo.lg.jp/) también se actualizará.
 
-Khi nhánh `staging` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `gh-pages`. Sau đó https://stg-covid19-tokyo.netlify.com/ sẽ được cập nhật.
+Cuando se actualiza la rama `staging`, los archivos HTML se construirán automáticamente en la rama `gh-pages`,
+  y luego el sitio de preparación (https://stg-covid19-tokyo.netlify.com/) también se actualizará.
 
-Khi nhánh `development` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `dev-pages`. Sau đó https://dev-covid19-tokyo.netlify.com/ sẽ được cập nhật.
-
+Cuando se actualiza la rama `development`, los archivos HTML se construirán automáticamente en la rama` dev-pages`,
+y luego el sitio de desarrollo (https://dev-covid19-tokyo.netlify.com/) también se actualizará.
 
 [PLEASE TRANSLATE ME]
 
@@ -80,7 +84,7 @@ Khi nhánh `development` được cập nhật, file HTML sẽ tự động đư
 Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.  
 Please use the following naming rules for the branch when sending a Pull Request.
 
-Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}
+Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}  
 Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 #### Basic branch
