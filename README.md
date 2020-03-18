@@ -103,11 +103,11 @@ Pull Request を送る際の branch は、以下のネーミングルールで�
 #### 基本的なブランチ
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
-| 開発 | development | https://dev-niigata-informal.netlify.com/, https://covid19.niigata.prototype-cafe.space/| base branch。基本はこちらに Pull Requestを送ってください |
+| 開発 | development | https://dev-niigata-informal.netlify.com/| base branch。基本はこちらに Pull Requestを送ってください |
 | 緊急適用用 | dev-hotfix | なし | 急ぎ本番に適用するべき修正。管理者から依頼された場合こちらを使ってください |
 | i18n 作業用 | dev-i18n | なし | テンポラリで使っています |
 | ステージング | staging | なし | 本番前の最終確認用。管理者以外の Pull Request は禁止です |
-| 本番 | master | なし | 管理者以外の Pull Request は禁止です |
+| 本番 | master | 準備中：https://niigata.stopcovid19.jp/ | 管理者以外の Pull Request は禁止です |
 
 #### システムで利用しているブランチ
 | 目的 | ブランチ | 確認URL | 備考 |
