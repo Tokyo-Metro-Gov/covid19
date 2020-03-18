@@ -40,8 +40,7 @@ export default {
   },
   data() {
     return {
-      dateSequence: [],
-      holidays: require('@/data/holiday.json')
+      dateSequence: []
     }
   },
   computed: {
