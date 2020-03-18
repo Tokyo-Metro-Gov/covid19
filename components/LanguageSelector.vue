@@ -7,7 +7,7 @@
     <select
       v-model="currentLocaleCode"
       class="SelectLanguage-Menu"
-      @change="navigate()"
+      @change="handleChangeLanguage"
     >
       <option
         v-for="locale in $i18n.locales"
@@ -31,7 +31,7 @@ import SelectMenuIcon from '@/static/selectmenu.svg'
 export default class LanguageSelector extends Vue {
   currentLocaleCode: string = this.$root.$i18n.locale
 
-  navigate() {
+  handleChangeLanguage() {
     this.$root.$i18n.setLocale(this.currentLocaleCode)
   }
 }
