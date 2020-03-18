@@ -160,6 +160,10 @@ export default Vue.extend({
           link: this.localePath('/about')
         },
         {
+          title: this.$t('お問い合わせ先一覧'),
+          link: this.localePath('/contacts')
+        },
+        {
           title: this.$t('東京都公式ホームページ'),
           link: 'https://www.metro.tokyo.lg.jp/',
           divider: true
