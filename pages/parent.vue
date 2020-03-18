@@ -72,9 +72,11 @@ export default Vue.extend({
   components: {
     StaticCard
   },
-  head: (): MetaInfo => ({
-    title: 'お子様をお持ちの皆様へ'
-  })
+  head(): MetaInfo {
+    return {
+      title: this.$t('お子様をお持ちの皆様へ') as string
+    }
+  }
 })
 </script>
 
