@@ -162,11 +162,10 @@ export default Vue.extend({
           height: auto;
 
           .content {
-            font-size: 18px;
             font-weight: bold;
             border-bottom: none !important;
-            padding-top: 14px;
-            padding-bottom: 10px;
+            padding-top: 12px;
+            padding-bottom: 8px;
           }
 
           .bureau {
@@ -174,7 +173,7 @@ export default Vue.extend({
           }
 
           .tel {
-            padding-bottom: 14px;
+            padding-bottom: 12px;
           }
         }
         tbody td {
