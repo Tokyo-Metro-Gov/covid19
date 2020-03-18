@@ -1,24 +1,11 @@
 <template>
   <ul :class="$style.container">
-    <li :class="[$style.box, $style.tall, $style.tested]">
-      <div :class="[$style.pillar]">
-        <div :class="$style.content">
-          <!-- eslint-disable vue/no-v-html-->
-          <span v-html="$t('検査実施<br />人数')" />
-          <!-- eslint-enable vue/no-v-html-->
-          <span>
-            <b>{{ 検査実施人数 }}</b>
-            <span :class="$style.unit">{{ $t('人') }}</span>
-          </span>
-        </div>
-      </div>
-    </li>
     <li :class="[$style.box, $style.tall, $style.parent, $style.confirmed]">
       <div :class="$style.pillar">
         <div :class="$style.content">
           <span>
             {{ $t('陽性者数') }}
-            <br />{{ $t('(累積)') }}
+            <br />({{ $t('累計') }})
           </span>
           <span>
             <b>{{ 陽性物数 }}</b>
@@ -167,6 +154,7 @@ export default Vue.extend({
 
 <style lang="scss" module>
 $default-bdw: 3px;
+$default-boxh: 150px;
 $default-boxdiff: 35px;
 
 .container {
@@ -187,8 +175,6 @@ $default-boxdiff: 35px;
 }
 .box {
   display: flex;
-  align-items: flex-end;
-  flex: 0 0 auto;
   &.parent {
     border-top: $default-bdw solid $green-1;
     border-left: $default-bdw solid $green-1;
@@ -204,24 +190,14 @@ $default-boxdiff: 35px;
       border-left: $default-bdw solid $green-1;
     }
     > .pillar {
-      margin-top: -$default-boxdiff;
+      margin-top: -($default-boxdiff - $default-bdw * 2);
       border-top: none;
       border-right: none;
       border-left: none;
     }
   }
-  &.tested {
-    // [7列] 1/7セル
-    width: calc((100% - #{$default-bdw} * 6) / 7);
-    color: $gray-1;
-    > .pillar {
-      border-color: $gray-1;
-    }
-  }
   &.confirmed {
-    margin-left: $default-bdw;
-    // [7列] 6/7
-    width: calc((100% - #{$default-bdw} * 6) / 7 * 6 + #{$default-bdw} * 5);
+    width: 100%;
     > .pillar {
       // [6列] 1/6
       width: calc((100% + #{$default-bdw} * 2) / 6 - #{$default-bdw} * 3);
@@ -264,44 +240,38 @@ $default-boxdiff: 35px;
   flex: 0 0 auto;
   text-align: center;
   width: 100%;
-  height: 100%;
   border: $default-bdw solid $green-1;
+}
+.group {
+  display: flex;
+  flex: 0 0 auto;
+  padding-left: 0;
+  padding-top: $default-bdw;
+  border-top: $default-bdw solid $green-1;
+  border-left: $default-bdw solid $green-1;
+}
+.content {
+  min-height: $default-boxh;
+  padding: 10px 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  > span:not(:last-child) {
+    word-break: break-all;
+  }
   > span {
     display: block;
-    @include font-size(14);
+    @include font-size(16);
     &:last-child {
       margin-top: 0.1em;
     }
   }
   span b {
-    @include font-size(16);
+    @include font-size(18);
   }
   span.unit {
-    @include font-size(14);
-  }
-}
-.group {
-  height: 100%;
-  padding-left: 0;
-  padding-top: $default-bdw;
-  border-top: $default-bdw solid $green-1;
-  border-left: $default-bdw solid $green-1;
-  display: flex;
-  align-items: flex-end;
-  .box {
-    height: 100%;
-  }
-}
-.content {
-  height: 100%;
-  min-height: 150px;
-  padding: 10px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  > span:first-child {
-    word-break: break-all;
+    @include font-size(16);
   }
 }
 
@@ -324,17 +294,10 @@ $default-boxdiff: 35px;
         border-left-width: px2vw($bdw, $vw);
       }
       > .pillar {
-        margin-top: px2vw((-$boxdiff), $vw);
+        margin-top: px2vw((-($boxdiff - $bdw * 2)), $vw);
       }
     }
-    &.tested {
-      width: calc((100% - #{px2vw($bdw, $vw)} * 6) / 7);
-    }
     &.confirmed {
-      margin-left: px2vw($bdw, $vw);
-      width: calc(
-        (100% - #{px2vw($bdw, $vw)} * 6) / 7 * 6 + #{px2vw($bdw, $vw)} * 5
-      );
       > .pillar {
         width: calc(
           (100% + #{px2vw($bdw, $vw)} * 2) / 6 - #{px2vw($bdw, $vw)} * 3
@@ -372,7 +335,14 @@ $default-boxdiff: 35px;
     }
   }
   .pillar {
-    border: px2vw($bdw, $vw) solid $green-1;
+    border-width: px2vw($bdw, $vw);
+  }
+  .group {
+    padding-top: px2vw($bdw, $vw);
+    border-top-width: px2vw($bdw, $vw);
+    border-left-width: px2vw($bdw, $vw);
+  }
+  .content {
     > span {
       @include font-size($fz);
     }
@@ -383,34 +353,29 @@ $default-boxdiff: 35px;
       @include font-size($fz);
     }
   }
-  .group {
-    padding-top: px2vw($bdw, $vw);
-    border-top-width: px2vw($bdw, $vw);
-    border-left-width: px2vw($bdw, $vw);
-  }
 }
 
 // variables.scss Breakpoints: huge (1440)
 @include lessThan(1440) {
-  @include override(1440, 3, 14, 150, 35);
+  @include override(1440, 3, 15, 150, 35);
 }
 
 // Vuetify Breakpoints: Large (1264)
 @include lessThan(1263) {
-  @include override(1263, 2, 12, 107, 24);
+  @include override(1263, 2, 13, 107, 24);
 }
 
 // variables.scss Breakpoints: large (1170)
 @include lessThan(1170) {
-  @include override(1170, 2, 11, 107, 24);
+  @include override(1170, 2, 13, 107, 24);
 }
 
 // Vuetify Breakpoints: Small (960)
 @include lessThan(959) {
-  @include override(960, 4, 16, 180, 40);
+  @include override(960, 4, 14, 180, 40);
 }
 @include lessThan(767) {
-  @include override(960, 3, 12, 180, 40);
+  @include override(960, 3, 14, 180, 40);
 }
 
 // Vuetify Breakpoints: Extra Small (600)
@@ -418,6 +383,6 @@ $default-boxdiff: 35px;
   @include override(600, 3, 14, 150, 35);
 }
 @include lessThan(420) {
-  @include override(600, 2, 10, 150, 35);
+  @include override(600, 2, 12, 150, 35);
 }
 </style>
