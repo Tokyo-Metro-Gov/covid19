@@ -64,6 +64,7 @@
           />
         </svg-card>
       </v-col>
+      -->
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
           title="検査実施数"
@@ -87,6 +88,7 @@
           :url="''"
         />
       </v-col>
+      <!--
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナ受診相談窓口相談件数"
@@ -105,6 +107,7 @@
 
 <script>
 import PageHeader from '@/components/PageHeader.vue'
+import TimeBarChart from '@/components/TimeBarChart.vue'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
@@ -118,6 +121,7 @@ import News from '@/data/news.json'
 export default {
   components: {
     PageHeader,
+    TimeBarChart,
     TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
@@ -139,7 +143,7 @@ export default {
     // 都営地下鉄の利用者数の推移
     // 検査実施日別状況
     const inspectionsGraph = [
-      Data.inspections_summary.data['都内'],
+      Data.inspections_summary.data['県内'],
       Data.inspections_summary.data['その他']
     ]
     const inspectionsItems = [
