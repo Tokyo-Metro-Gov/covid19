@@ -7929,10 +7929,10 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-i18n@^6.6.0:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-6.6.0.tgz#f7390d428ab54e4adada5bbc287b17682370f1fd"
-  integrity sha512-EIqCJXdnV+wU9Z/+wtPtNOOWPirAvFZ2nnOzI0ja86TfaZuUv2xxQ4Tj42GpMHBBh9CVnOCY5WseclXSz5O2iQ==
+nuxt-i18n@^6.6.1:
+  version "6.6.1"
+  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-6.6.1.tgz#9db2b0a28e16dbabce7c74ed1d1c7258473edb4d"
+  integrity sha512-cKuPZF9wZQ8LcUh7GcqjCOzJqqfg9AyC9otAClUXgP//DOXyUC8VMB++5CBlsifwznX6IM71GZ0huHGXD1FNWg==
   dependencies:
     "@babel/parser" "^7.5.5"
     "@babel/traverse" "^7.5.5"
