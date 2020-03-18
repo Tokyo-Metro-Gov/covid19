@@ -96,7 +96,7 @@ Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 #### Branch หลัก
 | จุดประสงค์ | Branch | URL | หมายเหตุ |
 | ---- | -------- | ---- | ---- |
-| Development | development | http://dev-covid19-tokyo.netlify.com/ | Branch หลัก ใช้ในการรับ Pull Request |
+| Development | development | https://dev-covid19-tokyo.netlify.com/ | Branch หลัก ใช้ในการรับ Pull Request |
 | Hotfix branch | dev-hotfix | None | Branch สำหรับ hotfix ของ production - ใช้ในกรณีที่ admin อนุญาตแล้วเท่านั้น |
 | i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | ใช้ชั่วคราว |
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | ใช้สำหรับ Stag อัพเดทต่างๆ ก่อนนำไป deploy ลง production - ห้ามสร้าง pull request ยกเว้นจาก admin เอง |

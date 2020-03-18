@@ -96,7 +96,7 @@ Hotfix: hotfix/#{ISSUE_ID}-{nom_de_la_branche}
 
 | But | Branche | URL | Notes |
 | ---- | -------- | ---- | ---- |
-| Development | development | http://dev-covid19-tokyo.netlify.com/ | Branche de base. Faites votre Pull Request ici. |
+| Development | development | https://dev-covid19-tokyo.netlify.com/ | Branche de base. Faites votre Pull Request ici. |
 | Hotfix branch | dev-hotfix | None | Fixs qui devraient etre appliques a l'environnement de production rapidement. Utilisez cette branche si demande par l'administrateur. |
 | i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | Branche temporaire. |
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | Pour confirmation avant production. Pull request d'utilisateurs non-admin sont defendues. |
