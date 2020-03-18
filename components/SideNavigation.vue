@@ -331,6 +331,7 @@ export default {
     /* stylelint-disable */
     overflow-y: scroll; // TODO: Issue#81の暫定対応
     /* stylelint-enable */
+    -webkit-overflow-scrolling: touch;
   }
 }
 @include largerThan($small) {
