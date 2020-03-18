@@ -130,7 +130,7 @@ function readPatientsV2() : array
         return $rows->count();
       })),
       '退院者数' => makeDateArray('2020-01-24')->merge($base_data->filter(function ($row) {
-        return $row['退院'] === '〇' && !preg_match('/死亡$/', trim($row['備考']));
+        return $row['退院'] === '○' && !preg_match('/死亡$/', trim($row['備考']));
       })->groupBy('リリース日')->map(function ($rows) {
         return $rows->count();
       })),
@@ -140,17 +140,17 @@ function readPatientsV2() : array
         return $rows->count();
       })),
       '軽症' => makeDateArray('2020-01-24')->merge($base_data->filter(function ($row) {
-        return $row['退院'] !== '〇' && trim($row['備考']) == '';
+        return $row['退院'] !== '○' && trim($row['備考']) == '';
       })->groupBy('リリース日')->map(function ($rows) {
         return $rows->count();
       })),
       '中等症' => makeDateArray('2020-01-24')->merge($base_data->filter(function ($row) {
-        return $row['退院'] !== '〇' && preg_match('/中等症$/', trim($row['備考']));
+        return $row['退院'] !== '○' && preg_match('/中等症$/', trim($row['備考']));
       })->groupBy('リリース日')->map(function ($rows) {
         return $rows->count();
       })),
       '重症' => makeDateArray('2020-01-24')->merge($base_data->filter(function ($row) {
-        return $row['退院'] !== '〇' && preg_match('/重症$/', trim($row['備考']));
+        return $row['退院'] !== '○' && preg_match('/重症$/', trim($row['備考']));
       })->groupBy('リリース日')->map(function ($rows) {
         return $rows->count();
       }))
@@ -204,7 +204,7 @@ function discharges(array $patients) : array {
   return [
     'date' => $patients['date'],
     'data' => $patients['data']->filter(function ($row) {
-      return $row['退院'] === '〇';
+      return $row['退院'] === '○';
     })->values()
   ];
 }
