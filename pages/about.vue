@@ -92,7 +92,11 @@
       <ul>
         <li>
           <a
-            href="https://marketingplatform.google.com/about/analytics/terms/jp"
+            :href="
+              $t(
+                'https://marketingplatform.google.com/about/analytics/terms/jp/'
+              )
+            "
             target="_blank"
             rel="noopener"
           >
@@ -101,7 +105,7 @@
         </li>
         <li>
           <a
-            href="https://policies.google.com/privacy?hl=ja"
+            :href="$t('https://policies.google.com/privacy?hl=ja')"
             target="_blank"
             rel="noopener"
           >
@@ -110,7 +114,9 @@
         </li>
         <li>
           <a
-            href="https://support.google.com/analytics/answer/6004245"
+            :href="
+              $t('https://support.google.com/analytics/answer/6004245?hl=ja')
+            "
             target="_blank"
             rel="noopener"
           >
