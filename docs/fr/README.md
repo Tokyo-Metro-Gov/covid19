@@ -5,20 +5,20 @@
 [![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
 
-### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md) | [Thai](./README_TH.md) | [French](./README_FR.md)
+### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | Français
 
 
 ## Comment Contribuer
 
 Toute contribution est bienvenue !
-Veuillez checker [Comment contribuer](./.github/CONTRIBUTING_FR.md) pour plus d'informations.
+Veuillez checker [Comment contribuer](./CONTRIBUTING.md) pour plus d'informations.
 
 ## Code of Conduct
 
-Veuillew checker [Code de conduite des développeurs](./.github/CODE_OF_CONDUCT_FR.md) pour plus d'informations.
+Veuillew checker [Code de conduite des développeurs](./CODE_OF_CONDUCT.md) pour plus d'informations.
 
 ## License
-Ce logiciel est sous [license MIT](./LICENSE.txt).
+Ce logiciel est sous [license MIT](./../../LICENSE.txt).
 
 ## Pour les développeurs
 
@@ -53,23 +53,24 @@ $ yarn install
 $ docker-compose run --rm app yarn install
 ```
 
-[please translate me]
-### VSCode + Remote Cotainersで開発する場合
+[PLEASE TRANSLATE ME]
+### VSCode + Remote Containersで開発する場合
 
 1. VSCodeの拡張機能「[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」を導入します。
 2. [この画像（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)のように左下部の「Open Folder in Container」でこのリポジトリのルートを選択すれば環境構築が始まります。
 
-[Topic]
-- 設定を変更したい場合は、`.devcontainer/devcontainer.json`を修正してください。<br/>
-    詳細は[devcontainer.jsonのリファレンス](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)を参照してください。
-- Remote Container実行時のみ有効な拡張機能「ESlint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。<br/>
-    詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
+#### Topic
+- 設定を変更したい場合は、`.devcontainer/devcontainer.json`を修正してください。
+詳細は[devcontainer.jsonのリファレンス](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)を参照してください。
+- Remote Container実行時のみ有効な拡張機能「ESLint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。
+詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
 - 開発環境を再構築する場合は、左下部の「Rebuild Container」を実行してください。
-[/please translate me]
+
+[/PLEASE TRANSLATE ME]
 
 ### Detecter le type d'environnement
 
-Dans l'environnement de production, la valeur `'production'` est attribuée à la variable `process.env.GENERATE_ENV`, le reste du temps la valeur assignée est `'development'`.
+Dans l'environnement de production, la valeur `'production'` est attribuée à la variable `process.env.GENERATE_ENV`, le reste du temps la valeur assignée est `'development'`.  
 Veuillez utiliser cette variable pour détecter quel type d'environnement est executé.
 
 ### Deployer vers les environnements Staging & Production
@@ -85,10 +86,10 @@ et le site development (https://dev-covid19-tokyo.netlify.com/) est aussi mis-à
 
 ### Regles sur les branches
 
-Les Pull Request sont permises seulement sur `development`, `dev-i18n`, et `dev-hotfix`.
+Les Pull Request sont permises seulement sur `development`, `dev-i18n`, et `dev-hotfix`.  
 Veuillez utiliser le schema suivant pour nommer vos Pull Request:
 
-Nouvelle feature: feature/#{ISSUE_ID}-#{nom_de_la_branche}
+Nouvelle feature: feature/#{ISSUE_ID}-#{nom_de_la_branche}  
 Hotfix: hotfix/#{ISSUE_ID}-{nom_de_la_branche}
 
 #### Branches basiques
@@ -103,8 +104,8 @@ Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull request d'uti
 
 #### Branches utilisees par le systeme
 
-| But | Branche | URL |
+| But | Branche | URL | Notes |
 | ---- | -------- | ---- | ---- |
 | Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Place ou les pages HTML statiques sont stockees. |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Ou trouver l'HTML statiquement construit. |
-| Dossier de travail OGP | deploy / new_obp | None | Pour mettre a jour OGP |
+| Dossier de travail OGP | deploy / new_ogp | None | Pour mettre a jour OGP |
