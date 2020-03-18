@@ -28,7 +28,7 @@
         />
         -->
         <time-stacked-bar-chart
-          title="患者の推移"
+          title="陽性反応者数の推移"
           :title-id="'number-of-tested'"
           :chart-id="'time-stacked-bar-chart-inspections'"
           :chart-data="patientsAndNoSymptomsGraph"
@@ -153,7 +153,7 @@ export default {
       Data.patients_and_no_symptoms_summary.data['患者'],
       Data.patients_and_no_symptoms_summary.data['無症状病原体保有者']
     ]
-    const patientsAndNoSymptomsItems = ['患者', '無症状病原体保有者']
+    const patientsAndNoSymptomsItems = ['陽性患者', '無症状病原体保有者']
     const patientsAndNoSymptomsLabels =
       Data.patients_and_no_symptoms_summary.labels
     // 死亡者数
