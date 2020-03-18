@@ -39,9 +39,7 @@
           <div>
             <a class="Permalink" :href="permalink()">
               <time :datetime="formattedDate">
-                {{
-                  $t('{formattedDateByLocale} 更新', { formattedDateByLocale })
-                }}
+                {{ $t('{date} 更新', { date: formattedDateByLocale }) }}
               </time>
             </a>
           </div>
