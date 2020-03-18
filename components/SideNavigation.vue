@@ -328,7 +328,9 @@ export default {
     width: 100%;
     z-index: z-index-of(opened-side-navigation);
     background-color: $white;
-    overflow-y: scroll;
+    /* stylelint-disable */
+    overflow-y: scroll; // TODO: Issue#81の暫定対応
+    /* stylelint-enable */
   }
 }
 @include largerThan($small) {
