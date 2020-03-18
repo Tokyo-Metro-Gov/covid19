@@ -26,7 +26,7 @@
 * 当您通过邀请并登录到 Slack 后，请参与到 `#covid19` 频道并畅所欲言。
 
 ## 关于参与开发
-* 当您希望参与到开发之前，请您先花点时间阅读我们的[Principle/行动规范](CODE_OF_CONDUCT_ZH_CN.md) 。
+* 当您希望参与到开发之前，请您先花点时间阅读我们的[Principle/行动规范](./CODE_OF_CONDUCT.md) 。
 * 在您进行交流时也请希望您能够遵守 Code for Japan 的[行动规范（日文网页）](https://github.com/codeforjapan/codeofconduct) 。
 * 如果您看到自己可以处理而且没有被指派（Assign）给他人的 Issue 的话，请您在该 Issue 下回复「やります！（让我来做吧！）」后，方可着手进行开发。
 * 我推荐您可以先查找一下[带有 good first issue 标签](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)的 Issue 来小试身手。
