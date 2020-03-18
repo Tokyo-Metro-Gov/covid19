@@ -48,7 +48,10 @@
       </i18n>
     </p>
     <a
-      v-scroll-to="'#consult'"
+      v-scroll-to="{
+        el: '#consult',
+        onDone: onDoneScroll
+      }"
       href="#consult"
       :class="[$style.button, $style.clickable]"
     >
@@ -58,13 +61,13 @@
   </div>
 </template>
 
-<i18n src="./FlowSpGeneral.i18n.json"></i18n>
-
 <script lang="ts">
+import { onDoneScroll } from '@/utils/vueScrollTo'
 import HumanIcon from '@/static/flow/responsive/accessibility.svg'
 import ArrowForwardIcon from '@/static/flow/responsive/arrow_forward.svg'
 export default {
-  components: { HumanIcon, ArrowForwardIcon }
+  components: { HumanIcon, ArrowForwardIcon },
+  methods: { onDoneScroll }
 }
 </script>
 

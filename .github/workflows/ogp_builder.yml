@@ -38,28 +38,23 @@ jobs:
     steps:
     - uses: actions/checkout@master
       with:
-        ref: deploy/new_ogp
+        ref: staging
     - name: Download ogp images
       uses: actions/download-artifact@v1
       with:
         name: ogp
     - name: Commit files
       run: |
-        mv ogp/* static/
-        rm -rf ogp
+        mkdir -p static/ogp/
+        rm -rf static/ogp
+        mv ogp static/
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add static
-        git commit -m "Add changes" 
+        git commit -m "Add changes"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: deploy/new_ogp
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v2
-      with:
-        title: '[DEPLOY] OGP refresh pull request'
-        token: ${{ secrets.GITHUB_TOKEN }}
-        branch: deploy/new_ogp
-        base: staging
+        force: true
