@@ -1,26 +1,12 @@
 import dayjs from 'dayjs'
+import 'dayjs/locale/en'
+import 'dayjs/locale/ja'
+import 'dayjs/locale/ko'
+import 'dayjs/locale/zh-cn'
+import 'dayjs/locale/zh-tw'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
 
-type formatByLocale = {
-  [key: string]: string
-}
-
-const dateFormatByLocale: formatByLocale = {
-  ja: 'YYYY年M月D日',
-  en: 'MMM DD, YYYY',
-  ko: 'YYYY년 M월 D일',
-  'ja-basic': 'YYYY年M月D日',
-  'zh-cn': 'YYYY年M月D日',
-  'zh-tw': 'YYYY年M月D日'
-}
-
-const datetimeFormatByLocale: formatByLocale = {
-  ja: 'YYYY年M月D日 HH:mm',
-  en: 'MMM DD, YYYY A h:mm',
-  ko: 'YYYY년 M월 D일 A h:mm',
-  'ja-basic': 'YYYY年M月D日 HH:mm',
-  'zh-cn': 'YYYY年M月D日 HH:mm',
-  'zh-tw': 'YYYY年M月D日 HH:mm'
-}
+dayjs.extend(localizedFormat)
 
 /**
  * Get datetime string formatted ISO8601(YYYY-MM-DDTHH:mm:ss)
@@ -52,7 +38,14 @@ export const convertDateByCountryPreferTimeFormat = (
   dateString: string,
   locale: string
 ): string => {
-  return dayjs(dateString).format(dateFormatByLocale[locale])
+  if (locale === 'ja-basic') {
+    return dayjs(dateString)
+      .locale('ja')
+      .format('LL')
+  }
+  return dayjs(dateString)
+    .locale(locale)
+    .format('LL')
 }
 
 /**
@@ -67,5 +60,12 @@ export const convertDateTimeByCountryPreferTimeFormat = (
   dateString: string,
   locale: string
 ): string => {
-  return dayjs(dateString).format(datetimeFormatByLocale[locale])
+  if (locale === 'ja-basic') {
+    return dayjs(dateString)
+      .locale('ja')
+      .format('LLL')
+  }
+  return dayjs(dateString)
+    .locale(locale)
+    .format('LLL')
 }
