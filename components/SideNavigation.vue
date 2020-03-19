@@ -20,26 +20,6 @@
       </nuxt-link>
     </header>
 
-    <!-- <header class="SideNavigation-Header">
-      <v-icon
-        class="SideNavigation-OpenIcon"
-        :aria-label="$t('サイドメニュー項目を開く')"
-        @click="$emit('openNavi', $event)"
-      >
-        mdi-menu
-      </v-icon>
-      <h1 class="SideNavigation-Heading">
-        <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
-          <div class="SideNavigation-HeaderLogo">
-            <img src="/logo.svg" :alt="$t('東京都')" />
-          </div>
-          <div class="SideNavigation-HeaderLogoLinkText">
-            {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
-          </div>
-        </nuxt-link>
-      </h1>
-    </header> -->
-
     <div :class="['SideNavigation-Body', { '-opened': isNaviOpen }]">
       <v-icon
         class="SideNavigation-CloseIcon"
@@ -240,6 +220,7 @@ export default Vue.extend({
     padding-left: 44px;
   }
 }
+
 .SideNavigation-OpenIcon {
   position: absolute;
   top: 0;
@@ -256,6 +237,7 @@ export default Vue.extend({
     display: none;
   }
 }
+
 .SideNavigation-HeaderLink {
   width: 100%;
   display: flex;
@@ -275,17 +257,18 @@ export default Vue.extend({
   &:focus {
     outline: 1px dotted $gray-3;
   }
-
   @include largerThan($small) {
     display: block;
     padding: 15px 0;
   }
 }
+
 .SideNavigation-HeaderLogo {
   @include lessThan($tiny) {
     width: 100px;
   }
 }
+
 .SideNavigation-HeaderTitle {
   margin-left: 10px;
   font-size: 13px;
@@ -295,68 +278,6 @@ export default Vue.extend({
     margin-top: 10px;
   }
 }
-
-// .SideNavigation-Heading {
-//   font-size: 13px;
-//   color: $gray-3;
-// }
-
-// .SideNavigation-HeadingLink {
-//   display: flex;
-//   width: 100%;
-//   color: $gray-3;
-//   &:link,
-//   &:hover,
-//   &:focus,
-//   &:visited,
-//   &:active {
-//     color: inherit;
-//     text-decoration: none;
-//   }
-//   &:hover,
-//   &:focus {
-//     font-weight: bold;
-//   }
-//   &:focus {
-//     outline: 1px dotted $gray-3;
-//   }
-
-//   @include lessThan($small) {
-//     align-items: center;
-//   }
-//   @include largerThan($small) {
-//     flex-direction: column;
-//   }
-// }
-
-// .SideNavigation-HeaderLogo {
-//   @include lessThan($tiny) {
-//     width: 90px;
-//   }
-// }
-
-// .SideNavigation-HeaderLogoLinkText {
-//   @include lessThan($small) {
-//     flex-grow: auto;
-//     margin-left: 16px;
-//   }
-//   @include lessThan($tiny) {
-//     margin-left: 10px;
-//   }
-//   @include largerThan($small) {
-//     margin-top: 15px;
-//   }
-// }
-
-// .SideNavigation-OpenIcon {
-//   margin-right: 20px;
-//   @include lessThan($tiny) {
-//     margin-right: 10px;
-//   }
-//   @include largerThan($small) {
-//     display: none;
-//   }
-// }
 
 .SideNavigation-CloseIcon {
   position: absolute;
@@ -370,11 +291,11 @@ export default Vue.extend({
 }
 
 .SideNavigation-Body {
-  padding: 20px;
+  padding: 0 20px 20px;
   background-color: $white;
   @include lessThan($small) {
     display: none;
-    padding: 36px;
+    padding: 0 36px 36px;
     &.-opened {
       position: fixed;
       top: 0;
@@ -393,7 +314,7 @@ export default Vue.extend({
 
 .SideNavigation-Menu {
   @include lessThan($small) {
-    padding-top: 20px;
+    padding-top: 50px;
   }
 }
 
@@ -454,15 +375,6 @@ export default Vue.extend({
 .SideNavigation-LicenseLink {
   &:focus {
     outline: 1px dotted $gray-3;
-  }
-}
-
-@include lessThan($small) {
-  .sp-flex {
-    display: flex;
-  }
-  .sp-none {
-    display: none;
   }
 }
 </style>

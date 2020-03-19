@@ -107,6 +107,7 @@ export default class MenuList extends Vue {
   line-height: 1.2;
   white-space: normal;
   @include lessThan($small) {
+    font-size: 0.9rem;
     font-weight: bold;
   }
 
