@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-stacked-bar-chart
-      :title="$t('検査実施数')"
+      :title="$t('検査実施件数')"
       :title-id="'number-of-tested'"
       :chart-id="'time-stacked-bar-chart-inspections'"
       :chart-data="inspectionsGraph"
@@ -9,6 +9,7 @@
       :items="inspectionsItems"
       :labels="inspectionsLabels"
       :unit="$t('件.tested')"
+      :data-labels="inspectionsDataLabels"
     />
     <!-- 件.tested = 検査数 -->
   </v-col>
@@ -33,12 +34,14 @@ export default {
       this.$t('その他（チャーター便・クルーズ船）')
     ]
     const inspectionsLabels = Data.inspections_summary.labels
+    const inspectionsDataLabels = [this.$t('都内'), this.$t('その他')]
 
     const data = {
       Data,
       inspectionsGraph,
       inspectionsItems,
-      inspectionsLabels
+      inspectionsLabels,
+      inspectionsDataLabels
     }
     return data
   }
