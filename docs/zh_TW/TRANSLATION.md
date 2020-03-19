@@ -9,7 +9,7 @@ https://www.transifex.com/stopcovid19-tokyo/stopcovid19tokyo
 
 請加入我們的小組，點擊 `協助翻譯 "StopCovid19Tokyo"` 按鈕。在加入小組之前會需要建立或是登入帳號。
 
-![](../../.github/img/img/2020-03-16-16-05-37.png)
+![](../../.github/img/2020-03-16-16-05-37.png)
 
 加入後，前往儀表板頁面。
 
@@ -17,7 +17,7 @@ https://www.transifex.com/stopcovid19-tokyo/stopcovid19tokyo/dashboard/
 
 在想要幫忙翻譯的語言上面按下 `翻譯` 按鈕。
 
-![](img/2020-03-16-16-09-47.png)
+![](../../.github/img/2020-03-16-16-09-47.png)
 
 您會看到翻譯編輯器。在左邊的區塊搜尋想要翻譯的文字，然後在右邊的區塊輸入翻譯過後的文字。
 
