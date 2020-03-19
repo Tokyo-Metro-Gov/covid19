@@ -199,7 +199,8 @@ export default Vue.extend({
   position: relative;
   height: 100%;
   background: $white;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+
   &:focus {
     outline: none;
   }
@@ -207,6 +208,7 @@ export default Vue.extend({
 
 .SideNavigation-Header {
   padding: 40px 20px 25px;
+
   @include lessThan($small) {
     display: flex;
     padding: 14px 0 13px 20px;
@@ -222,6 +224,7 @@ export default Vue.extend({
   display: flex;
   width: 100%;
   color: $gray-3;
+
   &:link,
   &:hover,
   &:focus,
@@ -230,10 +233,12 @@ export default Vue.extend({
     color: inherit;
     text-decoration: none;
   }
+
   &:hover,
   &:focus {
     font-weight: bold;
   }
+
   &:focus {
     outline: 1px dotted $gray-3;
   }
@@ -241,6 +246,7 @@ export default Vue.extend({
   @include lessThan($small) {
     align-items: center;
   }
+
   @include largerThan($small) {
     flex-direction: column;
   }
@@ -257,9 +263,11 @@ export default Vue.extend({
     flex-grow: auto;
     margin-left: 16px;
   }
+
   @include lessThan($tiny) {
     margin-left: 10px;
   }
+
   @include largerThan($small) {
     margin-top: 15px;
   }
@@ -267,9 +275,11 @@ export default Vue.extend({
 
 .SideNavigation-OpenIcon {
   margin-right: 20px;
+
   @include lessThan($tiny) {
     margin-right: 10px;
   }
+
   @include largerThan($small) {
     display: none;
   }
@@ -278,6 +288,7 @@ export default Vue.extend({
 .SideNavigation-CloseIcon {
   width: 21px;
   margin-top: 20px;
+
   @include largerThan($small) {
     display: none;
   }
@@ -285,8 +296,10 @@ export default Vue.extend({
 
 .SideNavigation-Body {
   padding: 0 20px 20px;
+
   @include lessThan($small) {
     display: none;
+
     &.-opened {
       position: fixed;
       top: 0;
@@ -330,6 +343,7 @@ export default Vue.extend({
   border: 1px dotted transparent;
   border-radius: 30px;
   color: $gray-3;
+
   &:link,
   &:hover,
   &:focus,
@@ -338,6 +352,7 @@ export default Vue.extend({
     color: inherit;
     text-decoration: none;
   }
+
   &:focus {
     border-color: $gray-3;
     outline: none;

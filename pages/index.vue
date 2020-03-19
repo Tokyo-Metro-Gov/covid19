@@ -86,10 +86,12 @@ export default Vue.extend({
 .MainPage {
   .DataBlock {
     margin: 20px -8px;
+
     .DataCard {
       @include largerThan($medium) {
         padding: 10px;
       }
+
       @include lessThan($small) {
         padding: 4px 8px;
       }
