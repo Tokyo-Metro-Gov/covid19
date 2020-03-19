@@ -52,7 +52,6 @@ import 'dayjs/locale/en'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
-import ShinjukuData from '@/data/shinjuku.json'
 import DataView from '@/components/DataView.vue'
 import { single as color } from '@/utils/colors'
 
@@ -82,6 +81,21 @@ export default {
       required: false,
       default: ''
     },
+    chartData: {
+      type: Array,
+      required: true,
+      default: () => []
+    },
+    date: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    tooltipTitle: {
+      type: Function,
+      required: false,
+      default: () => {}
+    },
     standardDate: {
       type: String,
       required: true,
@@ -91,12 +105,6 @@ export default {
       type: String,
       required: true,
       default: ''
-    }
-  },
-  data() {
-    return {
-      chartData: ShinjukuData.data,
-      date: ShinjukuData.date
     }
   },
   computed: {
@@ -171,6 +179,7 @@ export default {
       }
     },
     displayOptions() {
+      const self = this
       return {
         legend: {
           display: false
@@ -178,10 +187,7 @@ export default {
         tooltips: {
           displayColors: false,
           callbacks: {
-            title(tooltipItem) {
-              const period = tooltipItem[0].label
-              return `期間: ${period}`
-            },
+            title: self.tooltipTitle,
             label(tooltipItem) {
               const val = tooltipItem.yLabel
               return `${val.toFixed(2)}%`
