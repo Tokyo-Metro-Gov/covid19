@@ -2,11 +2,15 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p :class="$style.ShinjukuDesc">
-        2月3日～2月7日の来訪者数 (※1) の平均値 (※2) を 基準としたときの相対値
+        {{
+          $t(
+            '2月3日～2月7日の来訪者数 (※1) の平均値 (※2) を 基準としたときの相対値'
+          )
+        }}
         <br />
-        ※1) ヤフーに蓄積された位置情報データなどを元に算出した参考値
+        {{ $t('※1) ヤフーに蓄積された位置情報データなどを元に算出した参考値') }}
         <br />
-        ※2) 土・日・祝日を除く7:30~8:30の1週間平均値
+        {{ $t('※2) 土・日・祝日を除く7:30~8:30の1週間平均値') }}
       </p>
     </template>
     <bar
@@ -16,15 +20,15 @@
       :height="240"
     />
     <p :class="$style.ShinjukuDesc">
-      ※本データは2020年3月31日までの掲載となります
+      {{ $t('※本データは2020年3月31日までの掲載となります') }}
     </p>
     <p :class="$style.ShinjukuDesc">
-      出典：
+      {{ $t('出典：') }}
       <a
         href="https://ds.yahoo.co.jp/datapolicy/"
         target="_blank"
         rel="noopenner"
-        >ヤフー・データソリューション</a
+        >{{ $t('ヤフー・データソリューション') }}</a
       >
     </p>
   </data-view>
