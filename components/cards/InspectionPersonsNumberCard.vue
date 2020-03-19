@@ -2,8 +2,8 @@
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
       :title="$t('検査実施人数')"
-      :title-id="'number-of-tested-person'"
-      :chart-id="'time-stacked-bar-chart-tested-person'"
+      :title-id="'number-of-inspection-persons'"
+      :chart-id="'number-of-inspection-persons'"
       :chart-data="graphData"
       :date="data.date"
       :unit="$t('人')"
