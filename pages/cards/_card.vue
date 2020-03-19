@@ -73,7 +73,7 @@ export default {
         updatedAt = Data.patients.date
         break
       case 'number-of-tested':
-        title = this.$t('検査実施数')
+        title = this.$t('検査実施件数')
         updatedAt = Data.inspections_summary.date
         break
       case 'number-of-reports-to-covid19-telephone-advisory-center':
