@@ -19,6 +19,9 @@
       <div class="DataView-CardText">
         <slot />
       </div>
+      <div class="DataView-Description">
+        <slot name="footer-description" />
+      </div>
       <div class="DataView-Footer">
         <div class="Footer-Left">
           <div>
@@ -287,7 +290,8 @@ export default Vue.extend({
     margin: 10px 0 0;
     font-size: 12px;
     color: $gray-3;
-    ul {
+    ul,
+    ol {
       list-style-type: none;
       padding: 0;
     }
