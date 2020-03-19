@@ -41,12 +41,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import PageHeader from '@/components/PageHeader.vue'
-import WhatsNew from '@/components/index/WhatsNew.vue'
-import StaticInfo from '@/components/index/StaticInfo.vue'
 
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
+
+import PageHeader from '@/components/PageHeader.vue'
+import WhatsNew from '@/components/index/WhatsNew.vue'
+import StaticInfo from '@/components/index/StaticInfo.vue'
 
 import ConfirmedCasesDetailsCard from '@/components/index/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/index/cards/TestedCasesDetailsCard.vue'
