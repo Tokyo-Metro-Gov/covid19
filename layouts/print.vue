@@ -32,7 +32,7 @@
                 ※最新の情報はWebページをご覧ください
               </p>
               <p class="PrintMeta-Link">
-                https://stopcovid19.metro.tokyo.lg.jp/
+                https://covid19.civictech.chiba.jp/
               </p>
             </v-card>
           </v-card>
@@ -77,7 +77,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+          href: `https://covid19.civictech.chiba.jp${this.$route.path}`
         }
       ]
     }
