@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <data-table
+    <comfirmed-cases-attributes-table
       :title="$t('陽性患者の属性')"
       :title-id="'attributes-of-confirmed-cases'"
       :chart-data="patientsTable"
@@ -17,11 +17,11 @@
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
-import DataTable from '@/components/DataTable.vue'
+import ComfirmedCasesAttributesTable from '@/components/index/cards/charts/ComfirmedCasesAttributesTable.vue'
 
 export default {
   components: {
-    DataTable
+    ComfirmedCasesAttributesTable
   },
   data() {
     // 感染者数グラフ
