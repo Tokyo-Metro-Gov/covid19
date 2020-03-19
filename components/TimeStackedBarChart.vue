@@ -102,7 +102,7 @@ export default {
       }
     },
     displayData() {
-      const colorArray = ['#3b5998', '#3b6ef1']
+      const colorArray = ['#3b5998']
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
@@ -142,8 +142,7 @@ export default {
           callbacks: {
             label: tooltipItem => {
               const labelTokyo = this.$t('都内')
-              const labelOthers = this.$t('その他')
-              const labelArray = [labelTokyo, labelOthers]
+              const labelArray = [labelTokyo]
               let casesTotal, cases
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index].toLocaleString()
@@ -286,7 +285,7 @@ export default {
     eachArraySum(chartDataArray) {
       const sumArray = []
       for (let i = 0; i < chartDataArray[0].length; i++) {
-        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
+        sumArray.push(chartDataArray[0][i])
       }
       return sumArray
     }
