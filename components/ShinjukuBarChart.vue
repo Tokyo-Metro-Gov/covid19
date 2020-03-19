@@ -46,12 +46,15 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import dayjs from 'dayjs'
 import 'dayjs/locale/en'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
+import shinjukuData from '@/data/shinjuku.json'
 import DataView from '@/components/DataView.vue'
 import { single as color } from '@/utils/colors'
 
@@ -63,7 +66,61 @@ dayjs.updateLocale('en', {
   weekStart: 1 // 月曜始まり
 })
 
-export default {
+type Data = {}
+type Methods = {}
+type Computed = {
+  groupByWeekData: {
+    [weekNum: number]: typeof shinjukuData.data
+  }
+  labels: string[]
+  standardValue: number
+  targetData: {
+    [weekNum: number]: typeof shinjukuData.data
+  }
+  targetValues: number[]
+  displayData: {
+    labels: string[]
+    datasets: {
+      data: number[]
+      backgroundColor: string
+    }[]
+  }
+  displayOptions: {
+    responsive: boolean
+    legend: {
+      display: boolean
+    }
+    scales: {
+      xAxes: object[]
+      yAxes: object[]
+    }
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        title: (tooltipItems: any, data: any) => string
+        label: (tooltipItems: any, data: any) => string
+      }
+    }
+  }
+}
+type Props = {
+  title: string
+  titleId: string
+  chartId: string
+  chartData: typeof shinjukuData.data
+  date: string
+  tooltipTitle: (tooltipItems: any, data: any) => string
+  standardDate: string
+  startDate: string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
   components: { DataView },
   props: {
     title: {
@@ -81,11 +138,7 @@ export default {
       required: false,
       default: ''
     },
-    chartData: {
-      type: Array,
-      required: true,
-      default: () => []
-    },
+    chartData: [],
     date: {
       type: String,
       required: false,
@@ -93,8 +146,7 @@ export default {
     },
     tooltipTitle: {
       type: Function,
-      required: false,
-      default: () => {}
+      required: true
     },
     standardDate: {
       type: String,
@@ -131,10 +183,10 @@ export default {
           const weekNum = dayjs(d.date).week()
           if (!res[weekNum]) res[weekNum] = []
           return res[weekNum].push(d) && res
-        }, {})
+        }, {} as any)
     },
     labels() {
-      return Object.keys(this.targetData).map(weekNum => {
+      return Object.keys(this.targetData).map((weekNum: any) => {
         const start = dayjs(this.startDate)
           .week(weekNum)
           .startOf('week')
@@ -148,25 +200,31 @@ export default {
     },
     standardValue() {
       const standardDays = this.groupByWeekData[dayjs(this.standardDate).week()]
-      const sum = standardDays.reduce((sum, d) => (sum += d.value), 0)
+      const sum: number = standardDays.reduce(
+        (sum: number, d: { value: number }) => (sum += d.value),
+        0
+      )
       return sum / standardDays.length
     },
     targetData() {
-      return Object.keys(this.groupByWeekData).reduce((res, weekNum) => {
+      return Object.keys(this.groupByWeekData).reduce((res, weekNum: any) => {
         if (dayjs(this.startDate).week() <= weekNum) {
           res[weekNum] = this.groupByWeekData[weekNum]
         }
         return res
-      }, {})
+      }, {} as any)
     },
     targetValues() {
-      return Object.values(this.targetData).map(days => {
-        return days.reduce((sum, d) => (sum += d.value), 0) / days.length
+      return Object.values(this.targetData).map((days: any) => {
+        const sum = days.reduce((sum: number, d: { value: number }) => {
+          return (sum += d.value)
+        }, 0)
+        return sum / days.length
       })
     },
     displayData() {
       const percentages = this.targetValues.map(
-        val => ((val - this.standardValue) / this.standardValue) * 100
+        (val: number) => ((val - this.standardValue) / this.standardValue) * 100
       )
       return {
         labels: this.labels,
@@ -181,6 +239,7 @@ export default {
     displayOptions() {
       const self = this
       return {
+        responsive: true,
         legend: {
           display: false
         },
@@ -188,7 +247,7 @@ export default {
           displayColors: false,
           callbacks: {
             title: self.tooltipTitle,
-            label(tooltipItem) {
+            label(tooltipItem: any) {
               const val = tooltipItem.yLabel
               return `${val.toFixed(2)}%`
             }
@@ -213,7 +272,7 @@ export default {
                 fontColor: '#808080',
                 maxTicksLimit: 8,
                 suggestedMin: 0,
-                callback(value) {
+                callback(value: Number) {
                   return `${value.toFixed(2)}%`
                 }
               }
@@ -224,4 +283,6 @@ export default {
     }
   }
 }
+
+export default Vue.extend(options)
 </script>
