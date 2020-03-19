@@ -33,8 +33,6 @@
   </div>
 </template>
 
-<i18n src="./_card.i18n.json"></i18n>
-
 <script>
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
@@ -103,12 +101,15 @@ export default {
     return data
   },
   head() {
-    const url = 'https://deploy-preview-835--dev-covid19-tokyo.netlify.com'
-    const ogpImage = url + '/ogp-' + this.$route.params.card + '.png'
-    const description =
-      this.updatedAt +
-      ' 更新 | ' +
-      '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+    const url = 'https://stopcovid19.metro.tokyo.lg.jp'
+    const timestamp = new Date().getTime()
+    const ogpImage =
+      this.$i18n.locale === 'ja'
+        ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
+        : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
+    const description = `${this.updatedAt} | ${this.$t(
+      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+    )}`
 
     return {
       title: this.title,
@@ -116,12 +117,18 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: url + this.$route.path
+          content: url + this.$route.path + '/'
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.title + ' | 東京都 新型コロナウイルス感染症対策サイト'
+          content:
+            this.title +
+            ' | ' +
+            this.$t('東京都') +
+            ' ' +
+            this.$t('新型コロナウイルス感染症') +
+            this.$t('対策サイト')
         },
         {
           hid: 'description',

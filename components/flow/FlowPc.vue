@@ -14,6 +14,9 @@
       <div :class="$style.Advisory">
         <flow-pc-advisory />
       </div>
+      <div :class="$style.Advisory2">
+        <flow-pc-advisory2 />
+      </div>
     </div>
     <h3>
       <i18n
@@ -52,13 +55,12 @@
   </div>
 </template>
 
-<i18n src="./FlowPc.i18n.json"></i18n>
-
 <script>
 import FlowPcPast from './FlowPcPast.vue'
 import FlowPcDays from './FlowPcDays.vue'
 import FlowPcSuspect from './FlowPcSuspect.vue'
 import FlowPcAdvisory from './FlowPcAdvisory.vue'
+import FlowPcAdvisory2 from './FlowPcAdvisory2.vue'
 import FlowPcRequired from './FlowPcRequired.vue'
 import FlowPcPcr from './FlowPcPcr.vue'
 import FlowPcNotRequired from './FlowPcNotRequired.vue'
@@ -70,6 +72,7 @@ export default {
     FlowPcDays,
     FlowPcSuspect,
     FlowPcAdvisory,
+    FlowPcAdvisory2,
     FlowPcRequired,
     FlowPcPcr,
     FlowPcNotRequired,
@@ -85,6 +88,8 @@ export default {
   @include card-container();
   padding: 20px;
   margin-bottom: 20px;
+  word-break: break-word;
+  hyphens: auto;
   > h3 {
     color: $gray-2;
     font-size: 1.5rem;
@@ -99,12 +104,59 @@ export default {
   grid-gap: 12px;
   &Upper {
     grid-template-columns: 70% 30%;
+    -ms-grid-columns: 70% 12px 30%;
     grid-template-rows: repeat(3, auto);
+    -ms-grid-rows: auto 12px auto 12px auto;
+    // HACK: IEでGridの順番がうまくいかない対応
+    // https://github.com/tokyo-metropolitan-gov/covid19/issues/1313
+    & > *:nth-child(1) {
+      -ms-grid-column: 1;
+      -ms-grid-row: 1;
+    }
+    & > *:nth-child(2) {
+      -ms-grid-column: 1;
+      -ms-grid-row: 3;
+    }
+    & > *:nth-child(3) {
+      -ms-grid-column: 1;
+      -ms-grid-row: 5;
+    }
+    & > *:nth-child(4) {
+      -ms-grid-column: 3;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 3;
+    }
+    & > *:nth-child(5) {
+      -ms-grid-column: 3;
+      -ms-grid-row: 5;
+    }
     margin-bottom: 36px;
   }
   &Lower {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, calc(50% - 6px));
+    -ms-grid-columns: calc(50% - 6px) 12px calc(50% - 6px);
     grid-template-rows: repeat(3, auto);
+    -ms-grid-rows: auto 12px auto 12px auto;
+    // HACK: IEでGridの順番がうまくいかない対応
+    // https://github.com/tokyo-metropolitan-gov/covid19/issues/1313
+    & > *:nth-child(1) {
+      -ms-grid-column: 1;
+      -ms-grid-row: 1;
+    }
+    & > *:nth-child(2) {
+      -ms-grid-column: 1;
+      -ms-grid-row: 3;
+      -ms-grid-row-span: 3;
+    }
+    & > *:nth-child(3) {
+      -ms-grid-column: 3;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 3;
+    }
+    & > *:nth-child(4) {
+      -ms-grid-column: 3;
+      -ms-grid-row: 5;
+    }
   }
 }
 .Title {
@@ -120,7 +172,7 @@ export default {
 .CardBlock {
   position: relative;
   &::after {
-    content: '';
+    content: url('/flow/flow_arrow.svg');
     position: absolute;
     bottom: 40%;
     right: -30px;
@@ -128,7 +180,6 @@ export default {
     display: block;
     width: 46px;
     height: 46px;
-    background: url('/flow/flow_arrow.svg') no-repeat;
   }
   &Center::after {
     bottom: 40%;
@@ -140,7 +191,7 @@ export default {
     transform: rotate(90deg);
   }
   &Required::before {
-    content: '';
+    content: url('/flow/flow_arrow.svg');
     position: absolute;
     bottom: 12%;
     right: -30px;
@@ -148,7 +199,6 @@ export default {
     display: block;
     width: 46px;
     height: 46px;
-    background: url('/flow/flow_arrow.svg') no-repeat;
   }
   &Pcr::after {
     bottom: auto;
@@ -156,7 +206,7 @@ export default {
     transform: rotateZ(-30deg);
   }
   &Pcr::before {
-    content: '';
+    content: url('/flow/flow_arrow.svg');
     position: absolute;
     bottom: 15%;
     right: -30px;
@@ -164,8 +214,20 @@ export default {
     display: block;
     width: 46px;
     height: 46px;
-    background: url('/flow/flow_arrow.svg') no-repeat;
     transform: rotateZ(30deg);
+  }
+}
+.Advisory {
+  position: relative;
+  &::after {
+    content: url('/flow/flow_arrow.svg');
+    position: absolute;
+    left: calc(50% - 23px);
+    transform: rotate(-90deg);
+    z-index: 1;
+    display: block;
+    width: 46px;
+    height: 46px;
   }
 }
 .Past {
@@ -182,7 +244,11 @@ export default {
 }
 .Advisory {
   grid-column: 2 / 3;
-  grid-row: 1 / 4;
+  grid-row: 1 / 3;
+}
+.Advisory2 {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
 }
 .Required {
   grid-column: 1 / 2;

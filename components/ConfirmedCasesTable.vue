@@ -91,22 +91,44 @@
   </ul>
 </template>
 
-<i18n src="./ConfirmedCasesTable.i18n.json"></i18n>
+<script lang="ts">
+import Vue from 'vue'
 
-<script>
-export default {
-  props: [
-    '検査実施人数',
-    '陽性物数',
-    '入院中',
-    '軽症中等症',
-    '重症',
-    '死亡',
-    '退院'
-  ],
+/* eslint-disable vue/prop-name-casing */
+export default Vue.extend({
+  props: {
+    検査実施人数: {
+      type: Number,
+      required: true
+    },
+    陽性物数: {
+      type: Number,
+      required: true
+    },
+    入院中: {
+      type: Number,
+      required: true
+    },
+    軽症中等症: {
+      type: Number,
+      required: true
+    },
+    重症: {
+      type: Number,
+      required: true
+    },
+    死亡: {
+      type: Number,
+      required: true
+    },
+    退院: {
+      type: Number,
+      required: true
+    }
+  },
   methods: {
     /** 桁数に応じて位置の調整をする */
-    getAdjustX(input) {
+    getAdjustX(input: number) {
       const length = input.toString(10).length
       switch (length) {
         case 1: {
@@ -128,19 +150,19 @@ export default {
     },
     /** グラフ内容がわかる支援技術用テキストの中身を取得する **/
     ariaLabel(
-      inspected,
-      positive,
-      hospitalized,
-      mild,
-      critically,
-      deceased,
-      discharged
+      inspected: number,
+      positive: number,
+      hospitalized: number,
+      mild: number,
+      critically: number,
+      deceased: number,
+      discharged: number
     ) {
       const ariaLabel = `検査陽性者の状況: 検査実施人数は${inspected}人、うち累積の陽性者数は${positive}人です。入院中は${hospitalized}人で、うち軽症・中等症は${mild}人、また重症は${critically}人です。さらに死亡は${deceased}人、退院は${discharged}人です。`
       return ariaLabel
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
