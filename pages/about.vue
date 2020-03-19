@@ -156,7 +156,7 @@
       </i18n>
     </TextCard>
     <TextCard :title="$t('お問い合わせ先（HPサイトポリシーについて）')">
-      <a href="https://c4ngt.connpass.com/">Code For Niigata</a>
+      <a href="https://www.codeforniigata.org/">Code For Niigata</a>
     </TextCard>
   </div>
 </template>
