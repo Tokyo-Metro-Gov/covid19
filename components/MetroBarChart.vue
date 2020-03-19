@@ -1,30 +1,22 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:button>
-      <p class="MetroGraph-Desc">
-        {{
-          $t('{range}の利用者数*の平均値を基準としたときの相対値', {
-            range: $t(chartData.base_period)
-          })
-        }}
-        <br />
-        *{{ $t('都営地下鉄4路線の自動改札出場数') }}
-      </p>
+    <template v-slot:infoPanel>
+      <small :class="$style.DataViewDesc">
+        <slot name="description" />
+      </small>
     </template>
     <bar
       :chart-id="chartId"
       :chart-data="displayData"
-      :options="chartOption"
+      :options="displayOption"
       :height="240"
     />
   </data-view>
 </template>
 
-<i18n src="./MetroBarChart.i18n.json"></i18n>
-
-<style lang="scss">
-.MetroGraph {
-  &-Desc {
+<style module lang="scss">
+.DataView {
+  &Desc {
     margin-top: 10px;
     margin-bottom: 0 !important;
     font-size: 12px;
@@ -33,15 +25,70 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ChartOptions, ChartData } from 'chart.js'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
+import { triple as colors } from '@/utils/colors'
 
-export default {
+interface HTMLElementEvent<T extends HTMLElement> extends Event {
+  currentTarget: T
+}
+
+type Data = {}
+type Methods = {}
+type Computed = {
+  displayData: {
+    labels: (string | undefined)[]
+    datasets: object
+  }
+  displayOption: {
+    responsive: boolean
+    legend: {
+      display: boolean
+      onHover: (e: HTMLElementEvent<HTMLInputElement>) => void
+      onLeave: (e: HTMLElementEvent<HTMLInputElement>) => void
+      labels: {
+        boxWidth: number
+      }
+    }
+    scales: {
+      xAxes: object[]
+      yAxes: object[]
+    }
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        title: (tooltipItems: any, data: any) => string
+        label: (tooltipItems: any, data: any) => string
+      }
+    }
+  }
+}
+type Props = {
+  chartData: ChartData
+  chartOption: ChartOptions
+  chartId: string
+  title: string
+  titleId: string
+  date: string
+  unit: string
+  tooltipsTitle: (tooltipItems: any, data: any) => string
+  tooltipsLabel: (tooltipItems: any, data: any) => string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
   components: { DataView },
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
@@ -49,42 +96,104 @@ export default {
       required: false,
       default: ''
     },
+    chartData: Object,
+    chartOption: Object,
     chartId: {
       type: String,
-      required: false,
       default: 'metro-bar-chart'
-    },
-    chartData: {
-      type: Object,
-      required: false,
-      default: () => {}
-    },
-    chartOption: {
-      type: Object,
-      required: false,
-      default: () => {}
     },
     date: {
       type: String,
-      required: true,
-      default: ''
+      required: true
+    },
+    unit: {
+      type: String,
+      required: false,
+      default: '%'
+    },
+    tooltipsTitle: {
+      type: Function,
+      required: true
+    },
+    tooltipsLabel: {
+      type: Function,
+      required: true
     }
   },
   computed: {
     displayData() {
-      const colors = ['#a6e29f', '#63c765', '#008b41']
+      const datasets = this.chartData.labels!.map((label, i) => {
+        return {
+          label,
+          data: this.chartData.datasets!.map(d => d.data![i]),
+          backgroundColor: colors[i],
+          borderWidth: 0
+        }
+      })
       return {
-        labels: this.chartData.datasets.map(d => d.label),
-        datasets: this.chartData.labels.map((label, i) => {
-          return {
-            label,
-            data: this.chartData.datasets.map(d => d.data[i]),
-            backgroundColor: colors[i],
-            borderWidth: 0
+        labels: this.chartData.datasets!.map(d => d.label),
+        datasets
+      }
+    },
+    displayOption() {
+      const self = this
+      return {
+        responsive: true,
+        legend: {
+          display: true,
+          onHover: (e: HTMLElementEvent<HTMLInputElement>) => {
+            e.currentTarget.style.cursor = 'pointer'
+          },
+          onLeave: (e: HTMLElementEvent<HTMLInputElement>) => {
+            e.currentTarget.style.cursor = 'default'
+          },
+          labels: {
+            boxWidth: 20
           }
-        })
+        },
+        scales: {
+          xAxes: [
+            {
+              position: 'bottom',
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: '#808080'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 12,
+                maxTicksLimit: 10,
+                fontColor: '#808080',
+                callback(value: any) {
+                  return value.toFixed(2) + self.unit
+                }
+              }
+            }
+          ]
+        },
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            title: self.tooltipsTitle,
+            label: self.tooltipsLabel
+          }
+        }
       }
     }
   }
 }
+
+export default Vue.extend(options)
 </script>

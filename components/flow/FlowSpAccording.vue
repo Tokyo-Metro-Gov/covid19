@@ -1,7 +1,7 @@
 <template>
-  <div :class="$style.container">
-    <i18n tag="h4" :class="$style.heading" path="{advisory}による相談結果">
-      <span place="advisory">
+  <div :class="[$style.container, $style.according]">
+    <i18n tag="div" :class="$style.heading" path="{advisory}による相談結果">
+      <span :class="[$style.fzLarge, $style.break]" place="advisory">
         {{ $t('新型コロナ受診相談窓口') }}
       </span>
     </i18n>
@@ -10,61 +10,63 @@
       :class="$style.diag"
       path="新型コロナ外来 {advice} と判断された場合"
     >
-      <span :class="[$style.line, $style.large]" place="advice">
+      <span :class="[$style.fzXLLarge, $style.break]" place="advice">
         {{ $t('受診が必要') }}
       </span>
     </i18n>
     <p :class="$style.decision">
-      <span :class="$style.small">
+      <span :class="$style.fzSmall">
         {{ $t('新型コロナ外来（帰国者・接触者外来）') }}
       </span>
-      <span>{{ $t('医師による判断') }}</span>
+      <span :class="[$style.fzLarge, $style.break]">{{
+        $t('医師による判断')
+      }}</span>
     </p>
-    <div :class="$style.rectContainer">
+    <div :class="[$style.rectContainer, $style.double]">
       <a
         v-scroll-to="'#not_required'"
-        :class="[$style.rect, $style.shadow]"
+        :class="[$style.rect, $style.result, $style.clickable]"
         href="#not_required"
       >
         <p>
           <i18n path="検査の必要{ifRequired}">
-            <span :class="[$style.large, $style.line]" place="ifRequired">
+            <span :class="[$style.fzXLarge, $style.break]" place="ifRequired">
               {{ $t('なし') }}
             </span>
           </i18n>
         </p>
-        <div :class="$style.arrow">
+        <div :class="$style.arrow" aria-hidden="true">
           <GreenArrow />
         </div>
       </a>
       <a
         v-scroll-to="'#pcr'"
-        :class="[$style.rect, $style.shadow, $style.bgYellow]"
+        :class="[$style.rect, $style.result, $style.clickable, $style.bgYellow]"
         href="#pcr"
       >
         <p>
           <i18n path="検査の必要{ifRequired}">
-            <span :class="[$style.large, $style.line]" place="ifRequired">
+            <span :class="[$style.fzXLarge, $style.break]" place="ifRequired">
               {{ $t('あり') }}
             </span>
           </i18n>
         </p>
-        <div :class="$style.arrow">
+        <div :class="$style.arrow" aria-hidden="true">
           <Arrow />
         </div>
       </a>
     </div>
     <p id="pcr" :class="[$style.diag, $style.hr]">
-      <span :class="$style.line">
+      <span :class="$style.break">
         <!-- 改行によって空白が入らないように-->
         <!-- eslint-disable -->
-        <span :class="$style.large">{{ $t('PCR検査') }}</span>{{ $t('※') }}
+        <span :class="$style.fzXLLarge">{{ $t('PCR検査') }}</span>{{ $t('※') }}
         <!-- eslint-enable -->
       </span>
-      <span :class="[$style.place, $style.line]">
+      <span :class="$style.break">
         {{ $t('東京都健康安全研究センター等') }}
       </span>
-      <small :class="[$style.note, $style.line]">
+      <small :class="[$style.note, $style.fzSmall, $style.break]">
         {{
           $t(
             '※保険適用となる検査は、当面の間、院内感染防止等の観点から、「帰国者・接触者外来」等の医療機関で実施'
@@ -72,28 +74,28 @@
         }}
       </small>
     </p>
-    <div :class="$style.rectContainer">
+    <div :class="[$style.rectContainer, $style.double]">
       <a
         v-scroll-to="'#not_required'"
-        :class="[$style.rect, $style.shadow]"
+        :class="[$style.rect, $style.result, $style.clickable]"
         href="#not_required"
       >
         <p>
-          <span :class="$style.large">{{ $t('陰性') }}</span>
+          <span :class="$style.fzXLarge">{{ $t('陰性') }}</span>
         </p>
-        <div :class="$style.arrow">
+        <div :class="$style.arrow" aria-hidden="true">
           <GreenArrow />
         </div>
       </a>
       <a
         v-scroll-to="'#hospitalized'"
-        :class="[$style.rect, $style.shadow, $style.bgYellow]"
+        :class="[$style.rect, $style.result, $style.clickable, $style.bgYellow]"
         href="#hospitalized"
       >
         <p>
-          <span :class="$style.large">{{ $t('陽性') }}</span>
+          <span :class="$style.fzXLarge">{{ $t('陽性') }}</span>
         </p>
-        <div :class="$style.arrow">
+        <div :class="$style.arrow" aria-hidden="true">
           <Arrow />
         </div>
       </a>
@@ -104,31 +106,29 @@
       :class="[$style.diag, $style.hr]"
       path="新型コロナ外来 {advice} と判断された場合"
     >
-      <span :class="[$style.line, $style.large]" place="advice">
+      <span :class="[$style.break, $style.fzXLLarge]" place="advice">
         {{ $t('受診が不要') }}
       </span>
     </i18n>
-    <div :class="$style.rectContainer">
-      <div :class="[$style.rect, $style.border]">
-        <div :class="$style.icon">
+    <div :class="[$style.rectContainer, $style.double]">
+      <div :class="[$style.rect, $style.solution]">
+        <div :class="$style.icon" aria-hidden="true">
           <House />
         </div>
         <p>{{ $t('自宅で安静に過ごす') }}</p>
       </div>
-      <div :class="[$style.rect, $style.border]">
-        <div :class="$style.icon">
+      <div :class="[$style.rect, $style.solution]">
+        <div :class="$style.icon" aria-hidden="true">
           <Apartment />
         </div>
         <p>{{ $t('一般の医療機関を受診') }}</p>
       </div>
-    </div>
-    <div :class="$style.rectContainer">
-      <div :class="[$style.rect, $style.wide, $style.border, $style.bdGreen]">
+      <div :class="[$style.rect, $style.consult]">
         <p>
           <i18n path="{getWorse}{advisory}に相談">
             <i18n place="getWorse" path="症状が良くならない場合は" />
             <strong :class="$style.advisory" place="advisory">
-              {{ $t('新型コロナ受診相談窓口') }}
+              {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
             </strong>
           </i18n>
         </p>
@@ -137,13 +137,11 @@
   </div>
 </template>
 
-<i18n src="./FlowSpAccording.i18n.json"></i18n>
-
 <script>
-import Apartment from '../../static/flow/apartment-24px.svg'
-import House from '../../static/flow/house-24px.svg'
-import Arrow from '../../static/flow/arrow_downward.svg'
-import GreenArrow from '../../static/flow/arrow_green.svg'
+import Apartment from '@/static/flow/responsive/apartment.svg'
+import House from '@/static/flow/responsive/house.svg'
+import Arrow from '@/static/flow/responsive/arrow_downward.svg'
+import GreenArrow from '@/static/flow/responsive/arrow_green.svg'
 
 export default {
   components: {
@@ -156,209 +154,168 @@ export default {
 </script>
 
 <style module lang="scss">
-@function px2vw($px, $vw: 600) {
-  @return $px / $vw * 100vw;
-}
+@import '@/components/flow/flow_sp.scss';
 
-.container {
-  color: $gray-2;
-  font-size: px2vw(22);
-  line-height: 1.15;
-  // override default styles
-  em {
-    font-style: normal;
+.according {
+  .heading {
+    color: $green-1;
   }
-  // override Vuetify styles
-  p {
-    margin-bottom: 0;
+  .diag {
+    margin-top: px2vw(30);
+    text-align: center;
+    line-height: 1.5;
+    &.hr {
+      border-top: 1px solid $gray-4;
+      padding-top: px2vw(30);
+    }
   }
-}
-.heading {
-  color: $green-1;
-  text-align: center;
-  font-weight: bold;
-  line-height: 1.5;
-  > span {
-    display: block;
-    font-size: px2vw(38);
-  }
-}
-.diag {
-  margin-top: px2vw(30);
-  font-weight: bold;
-  text-align: center;
-  line-height: 1.35;
-  &.hr {
-    border-top: 1px solid $gray-4;
-    padding-top: px2vw(30);
-  }
-  .large {
-    font-size: px2vw(64);
-  }
-  .line {
-    display: block;
-  }
-  .place {
-    font-size: px2vw(30);
+  .decision {
+    margin-top: px2vw(20);
+    padding: px2vw(20);
+    background-color: $gray-2;
+    border-radius: px2vw(6);
+    color: $white;
+    text-align: center;
+    line-height: 1.65;
   }
   .note {
     margin-top: px2vw(10);
   }
-}
-.decision {
-  margin-top: px2vw(20);
-  padding: px2vw(25);
-  background-color: $gray-2;
-  border-radius: px2vw(5);
-  color: $white;
-  text-align: center;
-  font-weight: bold;
-  line-height: 1.65;
-  > span {
-    display: block;
-    &.small {
-      font-size: px2vw(18);
-    }
+  .fzXLLarge {
+    font-size: px2vw(56);
   }
 }
 .rectContainer {
-  margin-top: px2vw(25);
-  display: flex;
-  justify-content: space-between;
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-}
-.rect {
-  width: 47%;
-  min-height: px2vw(188);
-  flex: 0 0 auto;
-  display: block;
-  border-radius: px2vw(5);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  font-size: px2vw(24);
-  text-decoration: none !important;
-  color: inherit !important;
-  text-align: center;
-  font-weight: bold;
-  &.shadow {
-    padding-top: 12px;
-    box-shadow: 0 px2vw(3) px2vw(6) $gray-3;
-  }
-  &.border {
-    border: px2vw(3) solid $gray-4;
-    padding: px2vw(20);
-  }
-  &.bdGreen {
-    border-color: $green-1;
-  }
-  &.bgYellow {
-    background-color: #ffe200;
-  }
-  &.wide {
-    width: 100%;
-  }
-  .large {
-    font-size: px2vw(42);
-  }
-  .advisory {
-    font-size: px2vw(38);
-    display: block;
-    margin-top: px2vw(10);
-    margin-bottom: px2vw(10);
-  }
-  .line {
-    margin-top: px2vw(5);
-    display: block;
-  }
-  .arrow {
-    margin-top: px2vw(10);
-    width: 100%;
+  .rect {
+    min-height: px2vw(188);
+    padding: px2vw(20) px2vw(10);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex: 0 0 48%;
+    border-radius: px2vw(6);
+    font-size: px2vw(24);
+    text-decoration: none !important;
+    color: inherit !important;
     text-align: center;
-    line-height: 0;
-    vertical-align: bottom;
-  }
-  .icon {
-    margin-bottom: px2vw(10);
-    width: 100%;
-    text-align: center;
-    line-height: 0;
-    vertical-align: bottom;
+    font-weight: bold;
+    &.result {
+      // icon
+      padding-bottom: px2vw((56 + 20 * 2));
+      position: relative;
+    }
+    &.solution {
+      border: px2vw(3) solid $gray-4;
+      // icon
+      padding-top: px2vw((46 + 20 * 2));
+      position: relative;
+    }
+    &.consult {
+      border: px2vw(3) solid $green-1;
+      flex-basis: 100%;
+    }
+    &.bgYellow {
+      background-color: #ffe200;
+    }
+    &:nth-child(n + 3) {
+      margin-top: px2vw((486 - 233 - 233));
+    }
+    .large {
+      font-size: px2vw(42);
+    }
+    .advisory {
+      font-size: px2vw(38);
+      display: block;
+      margin-top: px2vw(10);
+      margin-bottom: px2vw(10);
+    }
+    .line {
+      margin-top: px2vw(5);
+      display: block;
+    }
+    .arrow,
+    .icon {
+      margin: 0 auto;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .arrow {
+      width: px2vw(56);
+      height: px2vw(56);
+      bottom: px2vw(20);
+    }
+    .icon {
+      width: px2vw(46);
+      height: px2vw(46);
+      top: px2vw(20);
+    }
   }
 }
 
-// 601-768 (769以上はPC版)
 @include largerThan($small) {
-  .container {
-    font-size: px2vw(20, 768);
-  }
-  .heading {
-    > span {
-      font-size: px2vw(32, 768);
+  $vw: 960;
+  .according {
+    .diag {
+      margin-top: px2vw(30, $vw);
+      &.hr {
+        padding-top: px2vw(30, $vw);
+      }
     }
-  }
-  .diag {
-    margin-top: px2vw(30, 768);
-    &.hr {
-      padding-top: px2vw(30, 768);
-    }
-    .large {
-      font-size: px2vw(48, 768);
-    }
-    .place {
-      font-size: px2vw(26, 768);
+    .decision {
+      margin-top: px2vw(20, $vw);
+      padding: px2vw(20, $vw);
+      border-radius: px2vw(6, $vw);
     }
     .note {
-      margin-top: px2vw(10, 768);
+      text-align: left;
+      margin-top: px2vw(10, $vw);
     }
-  }
-  .decision {
-    margin-top: px2vw(20, 768);
-    padding: px2vw(25, 768);
-    border-radius: px2vw(5, 768);
-    > span {
-      &.small {
-        font-size: px2vw(18, 768);
-      }
+    .fzXLLarge {
+      font-size: px2vw(56, $vw);
     }
   }
   .rectContainer {
-    margin-top: px2vw(25, 768);
-  }
-  .rect {
-    min-height: px2vw(188, 768);
-    border-radius: px2vw(5, 768);
-    font-size: px2vw(24, 768);
-    &.shadow {
-      box-shadow: 0 px2vw(3, 768) px2vw(6, 768) $gray-3;
-    }
-    &.border {
-      border: px2vw(3, 768) solid $gray-4;
-      padding: px2vw(10, 768);
-    }
-    &.bdGreen {
-      padding: px2vw(20, 768);
-    }
-    .large {
-      font-size: px2vw(36, 768);
-    }
-    .advisory {
-      font-size: px2vw(32, 768);
-      margin-top: px2vw(10, 768);
-      margin-bottom: px2vw(10, 768);
-    }
-    .line {
-      margin-top: px2vw(5, 768);
-    }
-    .arrow {
-      margin-top: px2vw(10, 768);
-    }
-    .icon {
-      margin-bottom: px2vw(10, 768);
+    .rect {
+      min-height: px2vw(188, $vw);
+      padding: px2vw(20, $vw) px2vw(10, $vw);
+      border-radius: px2vw(6, $vw);
+      font-size: px2vw(24, $vw);
+      &.result {
+        padding-bottom: px2vw((56 + 20 * 2), $vw);
+      }
+      &.solution {
+        border: px2vw(3, $vw) solid $gray-4;
+        padding-top: px2vw((46 + 20 * 2), $vw);
+      }
+      &.consult {
+        border: px2vw(3, $vw) solid $green-1;
+      }
+      &:nth-child(n + 3) {
+        margin-top: px2vw((486 - 233 - 233), $vw);
+      }
+      .large {
+        font-size: px2vw(42, $vw);
+      }
+      .advisory {
+        font-size: px2vw(38, $vw);
+        margin-top: px2vw(10, $vw);
+        margin-bottom: px2vw(10, $vw);
+      }
+      .line {
+        margin-top: px2vw(5, $vw);
+      }
+      .arrow {
+        width: px2vw(56, $vw);
+        height: px2vw(56, $vw);
+        bottom: px2vw(20, $vw);
+      }
+      .icon {
+        width: px2vw(46, $vw);
+        height: px2vw(46, $vw);
+        top: px2vw(20, $vw);
+      }
     }
   }
 }
