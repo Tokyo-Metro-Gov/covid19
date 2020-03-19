@@ -288,7 +288,9 @@ $default-boxdiff: 35px;
 @function px2vw($px, $vw: 0) {
   @if $vw > 0 {
     @return ceil($px / $vw * 100000vw) / 1000;
-  } @else {
+  }
+
+  @else {
     @return $px * 1px;
   }
 }
@@ -312,15 +314,17 @@ $default-boxdiff: 35px;
 
     &.confirmed {
       > .pillar {
-        width: calc(
-          (100% + #{px2vw($bdw, $vw)} * 2) / 6 - #{px2vw($bdw, $vw)} * 3
-        );
+        width:
+          calc(
+            (100% + #{px2vw($bdw, $vw)} * 2) / 6 - #{px2vw($bdw, $vw)} * 3
+          );
       }
 
       > .group {
-        width: calc(
-          (100% + #{px2vw($bdw, $vw)} * 2) / 6 * 5 + #{px2vw($bdw, $vw)}
-        );
+        width:
+          calc(
+            (100% + #{px2vw($bdw, $vw)} * 2) / 6 * 5 + #{px2vw($bdw, $vw)}
+          );
       }
     }
 
@@ -329,15 +333,17 @@ $default-boxdiff: 35px;
       width: calc(100% / 5 * 3 - #{px2vw($bdw, $vw)});
 
       > .pillar {
-        width: calc(
-          (100% + #{px2vw($bdw, $vw)} * 2) / 3 - #{px2vw($bdw, $vw)} * 3
-        );
+        width:
+          calc(
+            (100% + #{px2vw($bdw, $vw)} * 2) / 3 - #{px2vw($bdw, $vw)} * 3
+          );
       }
 
       > .group {
-        width: calc(
-          (100% + #{px2vw($bdw, $vw)} * 2) / 3 * 2 + #{px2vw($bdw, $vw)}
-        );
+        width:
+          calc(
+            (100% + #{px2vw($bdw, $vw)} * 2) / 3 * 2 + #{px2vw($bdw, $vw)}
+          );
       }
     }
 
