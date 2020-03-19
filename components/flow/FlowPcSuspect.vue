@@ -28,8 +28,8 @@
       </div>
 
       <div :class="$style.Tel">
-        <a :class="$style.TelLink" href="tel:0570550571">
-          0570-550571
+        <a :class="$style.TelLink" href="tel:0252821754">
+          025-282-1754
         </a>
       </div>
     </div>
