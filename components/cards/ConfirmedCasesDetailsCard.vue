@@ -1,7 +1,6 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <data-view
-      :class="$style.SvgCard"
       :title="$t('検査陽性者の状況')"
       :title-id="'details-of-confirmed-cases'"
       :date="Data.inspections_summary.date"
@@ -55,11 +54,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-.SvgCard {
-  ::v-deep svg {
-    width: 100%;
-  }
-}
 .GraphDesc {
   margin-top: 10px;
   margin-bottom: 0;
