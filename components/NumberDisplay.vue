@@ -13,7 +13,7 @@
 
 <style lang="scss" scoped>
 .TheNumber {
-  font-family: Hiragino Sans;
+  font-family: Hiragino Sans, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 60px;
@@ -26,7 +26,7 @@
 }
 
 .TheUnit {
-  font-family: Hiragino Sans;
+  font-family: Hiragino Sans, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 40px;
