@@ -42,7 +42,7 @@
       background-color: inherit;
     }
     &:focus {
-      outline: solid $link 2px;
+      outline: dotted $gray-3 1px;
     }
   }
 

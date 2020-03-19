@@ -89,7 +89,7 @@ export default class LanguageSelector extends Vue {
   line-height: 28px;
 
   &:focus {
-    border: 2px dotted $link;
+    border: 1px dotted $gray-3;
     outline: none;
   }
 }

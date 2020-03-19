@@ -201,7 +201,7 @@ export default Vue.extend({
   background: $white;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &:focus {
-    outline: 2px dotted $link;
+    outline: 1px dotted $gray-3;
   }
 }
 
@@ -235,7 +235,7 @@ export default Vue.extend({
     font-weight: bold;
   }
   &:focus {
-    outline: 2px dotted $link;
+    outline: dotted $gray-3 1px;
   }
 
   @include lessThan($small) {
@@ -332,14 +332,15 @@ export default Vue.extend({
   color: $gray-3;
   &:link,
   &:hover,
-  &:focus,
   &:visited,
   &:active {
     color: inherit;
     text-decoration: none;
   }
   &:focus {
-    border-color: $link;
+    color: inherit;
+    text-decoration: none;
+    border: 1px dotted $gray-3;
     outline: none;
   }
 
@@ -363,7 +364,7 @@ export default Vue.extend({
 
 .SideNavigation-LicenseLink {
   &:focus {
-    outline: 1px dotted $link;
+    outline: 1px dotted $gray-3;
   }
 }
 </style>
