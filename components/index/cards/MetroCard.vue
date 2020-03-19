@@ -32,7 +32,7 @@
 <script>
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
-import MetroBarChart from '@/components/MetroBarChart.vue'
+import MetroBarChart from '@/components/index/cards/charts/MetroBarChart.vue'
 
 export default {
   components: {
