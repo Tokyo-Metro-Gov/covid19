@@ -116,8 +116,8 @@ Tokyo Covid-19 response site contributors
 | showyou | [@showyou](https://github.com/showyou) | [@showyou](https://twitter.com/showyou) | Issue reporter |
 | [Ryota Umebayashi (@lesgrandsballet)](https://qiita.com/umerin) | [@RyotaUmebayashi](https://github.com/RyotaUmebayashi) | | Kaizen |
 | takoba (Takuya Obara) | [@takoba](https://github.com/takoba) | | Kaizen |
-| Ryo KUTSUZAWA | [@bookun](https://github.com/bookun)) | | Coding |
-| Hiroaki MASAKI | [@maasa22](https://github.com/maasa22)) | | Coding |
+| Ryo KUTSUZAWA | [@bookun](https://github.com/bookun) | | Coding |
+| Hiroaki MASAKI | [@maasa22](https://github.com/maasa22) | | Coding |
 | Dongsik | [@dongsiku](https://github.com/dongsiku) | | Translation (Japanese -> Korean) |
 
 ご協力に感謝です！！！
