@@ -8,7 +8,7 @@
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
-      url="https://www.pref.chiba.lg.jp/kenfuku/kansenshou/singata-korona-soudan.html#meyasu"
+      url="https://www.pref.chiba.lg.jp/kenfuku/kansenshou/corona-soudancenter.html#meyasu"
       :text="'自分や家族の症状に不安や心配があればまずは電話相談をどうぞ'"
       :btn-text="'相談の手順を見る'"
     />
