@@ -14,6 +14,18 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
+        <svg-card
+          title="検査陽性者の状況"
+          :title-id="'details-of-confirmed-cases'"
+          :date="headerItem.date"
+        >
+          <confirmed-cases-table
+            aria-label="検査陽性者の状況"
+            v-bind="confirmedCases"
+          />
+        </svg-card>
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
         <!--
         <time-bar-chart
           title="陽性患者数"
@@ -28,7 +40,7 @@
         />
         -->
         <time-stacked-bar-chart
-          title="患者の推移"
+          title="陽性反応者数の推移"
           :title-id="'number-of-tested'"
           :chart-id="'time-stacked-bar-chart-inspections'"
           :chart-data="patientsAndNoSymptomsGraph"
@@ -36,7 +48,15 @@
           :items="patientsAndNoSymptomsItems"
           :labels="patientsAndNoSymptomsLabels"
           :unit="'件'"
-        />
+        >
+          <template #supplement>
+            <p class="Graph-Desc">
+              無症状病原体保有者：症状は無いがＰＣＲ検査が陽性だった者で、
+              他者へ感染させる可能性は低いとみられている。（出典：厚生労働省Ｑ＆Ａ一部改
+              変）
+            </p>
+          </template>
+        </time-stacked-bar-chart>
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <data-table
@@ -51,19 +71,6 @@
           "
         />
       </v-col>
-      <!--
-      <v-col cols="12" md="6" class="DataCard">
-        <svg-card
-          title="検査陽性者の状況"
-          :title-id="'details-of-confirmed-cases'"
-          :date="headerItem.date"
-        >
-          <confirmed-cases-table
-            aria-label="検査陽性者の状況"
-            v-bind="confirmedCases"
-          />
-        </svg-card>
-      </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-stacked-bar-chart
           title="検査実施数"
@@ -76,7 +83,7 @@
           :unit="'件'"
         />
       </v-col>
-      <v-col cols="12" md="6" class="DataCard">
+      <!-- <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           title="新型コロナコールセンター相談件数"
           :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
@@ -86,10 +93,10 @@
           :unit="'件'"
           :url="''"
         />
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
+      </v-col> -->
+      <!-- <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="新型コロナ受診相談窓口相談件数"
+          title="帰国者接触者センター相談件数"
           :title-id="'number-of-reports-to-covid19-consultation-desk'"
           :chart-id="'time-bar-chart-querents'"
           :chart-data="querentsGraph"
@@ -97,14 +104,14 @@
           :unit="'件'"
           :url="''"
         />
-      </v-col>
-      -->
+      </v-col> -->
     </v-row>
   </div>
 </template>
 
 <script>
 import PageHeader from '@/components/PageHeader.vue'
+// import TimeBarChart from '@/components/TimeBarChart.vue'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
@@ -114,14 +121,19 @@ import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import News from '@/data/news.json'
+import SvgCard from '@/components/SvgCard.vue'
+import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
 
 export default {
   components: {
     PageHeader,
+    // TimeBarChart,
     TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
-    DataTable
+    DataTable,
+    SvgCard,
+    ConfirmedCasesTable
   },
   data() {
     // 感染者数グラフ
@@ -132,14 +144,14 @@ export default {
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
     // 退院者数
     const dischargesTable = formatTable(Data.discharges.data)
-    // 相談件数
-    const contactsGraph = formatGraph(Data.contacts.data)
-    // 帰国者・接触者電話相談センター相談件数
-    const querentsGraph = formatGraph(Data.querents.data)
+    // // 相談件数
+    // const contactsGraph = formatGraph(Data.contacts.data)
+    // // 帰国者・接触者電話相談センター相談件数
+    // const querentsGraph = formatGraph(Data.querents.data)
     // 都営地下鉄の利用者数の推移
     // 検査実施日別状況
     const inspectionsGraph = [
-      Data.inspections_summary.data['都内'],
+      Data.inspections_summary.data['県内'],
       Data.inspections_summary.data['その他']
     ]
     const inspectionsItems = [
@@ -147,11 +159,12 @@ export default {
       'その他（チャーター便・クルーズ便）'
     ]
     const inspectionsLabels = Data.inspections_summary.labels
+    // 千葉県用データ
     const patientsAndNoSymptomsGraph = [
       Data.patients_and_no_symptoms_summary.data['患者'],
       Data.patients_and_no_symptoms_summary.data['無症状病原体保有者']
     ]
-    const patientsAndNoSymptomsItems = ['患者', '無症状病原体保有者']
+    const patientsAndNoSymptomsItems = ['陽性患者', '無症状病原体保有者']
     const patientsAndNoSymptomsLabels =
       Data.patients_and_no_symptoms_summary.labels
     // 死亡者数
@@ -176,8 +189,8 @@ export default {
       patientsGraph,
       dischargesTable,
       dischargesGraph,
-      contactsGraph,
-      querentsGraph,
+      // contactsGraph,
+      // querentsGraph,
       inspectionsGraph,
       inspectionsItems,
       inspectionsLabels,

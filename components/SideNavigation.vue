@@ -84,15 +84,29 @@
             />
           </a>
           <div class="sponsor">
-            Data by:<br />
-            <a
-              href="https://www.pref.chiba.lg.jp/"
-              target="_blank"
-              rel="noopener"
-              class="sponsor__pref"
-            >
-              千葉県
-            </a>
+            <dl>
+              <dt>Data by:</dt>
+              <dd>
+                <a
+                  href="https://www.pref.chiba.lg.jp/"
+                  target="_blank"
+                  rel="noopener"
+                  class="sponsor__data"
+                >
+                  {{ $t('Chiba Prefecture') }}
+                </a>
+              </dd>
+              <dd>
+                <a
+                  href="https://www.city.chiba.jp/hokenfukushi/kenkou/kikaku/kansensyoujyouhou.html"
+                  target="_blank"
+                  rel="noopener"
+                  class="sponsor__data"
+                >
+                  {{ $t('Chiba City') }}
+                </a>
+              </dd>
+            </dl>
           </div>
           <div class="sponsor">
             Operations by:<br />
@@ -124,6 +138,7 @@
     "COVID-19": "新型コロナウイルス感染症",
     "Measures site": "対策サイト",
     "Chiba Prefecture": "千葉県",
+    "Chiba City": "千葉市",
     "The latest updates": "県内の最新感染動向",
     "for Families with children": "お子様をお持ちの皆様へ",
     "for Citizens": "県民の皆様へ",
@@ -313,6 +328,10 @@ export default {
     width: 100%;
     z-index: z-index-of(opened-side-navigation);
     background-color: $white;
+    /* stylelint-disable */
+    overflow-y: scroll; // TODO: Issue#81の暫定対応
+    /* stylelint-enable */
+    -webkit-overflow-scrolling: touch;
   }
 }
 @include largerThan($small) {
@@ -353,7 +372,7 @@ export default {
     margin-top: 12px;
   }
 
-  &__pref {
+  &__data {
     font-size: 26px;
     text-decoration: none;
     color: $gray-1;
