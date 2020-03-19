@@ -146,7 +146,7 @@ export default Vue.extend({
       }
     }
     &:focus {
-      outline: solid $green-1 2px;
+      outline: solid $link 2px;
     }
   }
   &-Text {
