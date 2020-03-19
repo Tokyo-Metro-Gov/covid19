@@ -229,8 +229,21 @@ export default Vue.extend({
   font-size: 28px;
   @include lessThan($tiny) {
     font-size: 24px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 20px 10px;
+  }
+  @include largerThan($small) {
+    display: none;
+  }
+}
+
+.SideNavigation-CloseIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 18px 8px 18px 16px;
+  font-size: 28px;
+  @include lessThan($tiny) {
+    font-size: 24px;
     padding: 20px 10px;
   }
   @include largerThan($small) {
@@ -276,17 +289,6 @@ export default Vue.extend({
   @include largerThan($small) {
     margin: 0;
     margin-top: 10px;
-  }
-}
-
-.SideNavigation-CloseIcon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 18px 8px 18px 16px;
-  font-size: 28px;
-  @include largerThan($small) {
-    display: none;
   }
 }
 
