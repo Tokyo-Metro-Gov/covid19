@@ -264,9 +264,7 @@ export default Vue.extend({
       display: inline-block;
     }
   }
-}
 
-.DataView {
   &-Inner {
     display: flex;
     flex-flow: column;
