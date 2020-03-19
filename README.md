@@ -1,10 +1,10 @@
-# 東京都 新型コロナウイルス感染症対策サイト
+# 福井県 新型コロナウイルス感染症対策サイト
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
-[![東京都 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![福井県 新型コロナウイルス感染症対策サイト](https://github.com/westar7/fukui-covid19/blob/development/static/ogp.png)](https://covid19-fukui.bosai-signal.jp/)
 
-### 日本語 | [English](./docs/en/README.md) | [Español](./docs/es/README.md) | [한국어](./docs/ko/README.md) | [繁體中文](./docs/zh_TW/README.md) | [简体中文](./docs/zh_CN/README.md) | [Tiếng Việt](./docs/vi/README.md) | [ภาษาไทย](./docs/th/README.md) | [Français](./docs/fr/README.md)
+### 日本語 | [English](./docs/en/README.md) | [Espanol](./docs/es/README.md) | [???](./docs/ko/README.md) | [繁體中文](./docs/zh_TW/README.md) | [?体中文](./docs/zh_CN/README.md) | [Ti?ng Vi?t](./docs/vi/README.md) | [???????](./docs/th/README.md) | [Francais](./docs/fr/README.md)
 
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
@@ -75,14 +75,6 @@ $ docker-compose run --rm app yarn install
 
 `process.env.GENERATE_ENV` の値が、本番の場合は`'production'`に、それ以外の場合は `'development'` になっています。  
 テスト環境のみで実行したい処理がある場合はこちらの値をご利用ください。
-
-### ステージング・本番環境への反映
-
-`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.metro.tokyo.lg.jp/ が更新されます。
-
-`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト https://stg-covid19-tokyo.netlify.com/ が更新されます。
-
-`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-covid19-tokyo.netlify.com/ が更新されます。
 
 ### ブランチルール
 
