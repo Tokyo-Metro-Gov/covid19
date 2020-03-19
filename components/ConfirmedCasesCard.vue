@@ -1,7 +1,7 @@
 <template>
-  <data-view class="SvgCard" :title="title" :title-id="titleId" :date="date">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
-      <p class="Graph-Desc">
+      <p :class="$style.note">
         {{ $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
       </p>
     </template>
@@ -9,17 +9,12 @@
   </data-view>
 </template>
 
-<style lang="scss" scoped>
-.SvgCard {
-  ::v-deep svg {
-    width: 100%;
-  }
-  .Graph-Desc {
-    margin-top: 10px;
-    margin-bottom: 0;
-    font-size: 12px;
-    color: $gray-3;
-  }
+<style lang="scss" module>
+.note {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 12px;
+  color: $gray-3;
 }
 </style>
 
