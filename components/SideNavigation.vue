@@ -52,7 +52,7 @@
             <figure>
               <img src="/twitter.png" alt="Twitter" />
               <figcaption>
-                新潟市<br>危機管理防災局
+                新潟市<br />危機管理防災局
               </figcaption>
             </figure>
           </a>
