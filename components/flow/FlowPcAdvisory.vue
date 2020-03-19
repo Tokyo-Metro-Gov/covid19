@@ -73,6 +73,9 @@
             03-5320-4592
           </a>
         </div>
+        <div class="pt-8">
+          <span>{{ $t('ひまわり') }}</span>
+        </div>
       </div>
     </div>
   </div>
