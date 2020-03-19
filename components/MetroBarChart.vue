@@ -30,6 +30,7 @@ import Vue from 'vue'
 import { ChartOptions, ChartData } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
+import { triple as colors } from '@/utils/colors'
 
 interface HTMLElementEvent<T extends HTMLElement> extends Event {
   currentTarget: T
@@ -121,7 +122,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   computed: {
     displayData() {
-      const colors: string[] = ['#a6e29f', '#63c765', '#008b41']
       const datasets = this.chartData.labels!.map((label, i) => {
         return {
           label,
