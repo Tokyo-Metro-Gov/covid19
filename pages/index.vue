@@ -42,7 +42,7 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import PageHeader from '@/components/PageHeader.vue'
-import WhatsNew from '@/components/WhatsNew.vue'
+import WhatsNew from '@/components/index/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
