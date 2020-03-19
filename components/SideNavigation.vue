@@ -11,10 +11,10 @@
       <h1 class="SideNavigation-Heading">
         <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
           <div class="SideNavigation-HeaderLogo">
-            <img src="/logo.svg" :alt="$t('東京都')" />
+            <img src="/logo.svg" :alt="$t('福井県')" />
           </div>
           <div class="SideNavigation-HeaderLogoLinkText">
-            {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
+            {{ $t('福井県') }}<br />{{ $t('新型コロナウイルス対策サイト（非公式）') }}
           </div>
         </nuxt-link>
       </h1>
@@ -33,14 +33,14 @@
       </nav>
 
       <div class="SideNavigation-Language">
-        <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+        <!--<label class="SideNavigation-LanguageLabel" for="LanguageSelector">
           {{ $t('多言語対応選択メニュー') }}
         </label>
-        <LanguageSelector />
+        <LanguageSelector />-->
       </div>
 
       <footer class="SideNavigation-Footer">
-        <div class="SideNavigation-Social">
+        <!--<div class="SideNavigation-Social">
           <a
             href="https://line.me/R/ti/p/%40822sysfc"
             target="_blank"
@@ -73,20 +73,10 @@
           >
             <img src="/github.png" alt="GitHub" />
           </a>
-        </div>
+        </div>-->
         <small class="SideNavigation-Copyright">
-          {{ $t('このサイトの内容物は') }}
-          <a
-            :href="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
-            target="_blank"
-            rel="license"
-            class="SideNavigation-LicenseLink"
-          >
-            {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
-          </a>
-          {{ $t('の下に提供されています。') }}
-          <br />
-          2020 Tokyo Metropolitan Government
+            Operations by:<br>
+            <a href="https://www.t-catv.co.jp/" target="_blank"><img src="/catvlogo.svg" :alt="$t('福井県')" /></a>
         </small>
       </footer>
     </div>
@@ -122,57 +112,43 @@ export default Vue.extend({
       return [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: this.$t('都内の最新感染動向'),
+          title: this.$t('県内の最新感染動向'),
           link: this.localePath('/')
         },
         {
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: this.localePath('/flow'),
+          link: 'https://www.pref.fukui.lg.jp/doc/kouho/navi.html',
           divider: true
-        },
-        {
-          icon: 'ParentIcon',
-          title: this.$t('お子様をお持ちの皆様へ'),
-          link: this.localePath('/parent')
         },
         {
           icon: 'mdi-account-multiple',
-          title: this.$t('都民の皆様へ'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
+          title: this.$t('県民の皆様へ'),
+          link: 'https://www.pref.fukui.lg.jp/doc/kenkou/kansensyo-yobousessyu/corona.html#kenmin'
+        },
+        {
+          icon: 'ParentIcon',
+          title: this.$t('保護者の皆様へ'),
+          link: 'https://www.pref.fukui.lg.jp/doc/kyousei/korona_kyouiku.html'
         },
         {
           icon: 'mdi-domain',
-          title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: this.localePath('/worker'),
+          title: this.$t('企業の皆様へ'),
+          link: 'https://www.pref.fukui.lg.jp/doc/kenkou/kansensyo-yobousessyu/corona.html#kigyou',
+        },
+        {
+          icon: 'mdi-domain',
+          title: this.$t('医療機関の皆様へ'),
+          link: 'https://www.pref.fukui.lg.jp/doc/kenkou/kansensyo-yobousessyu/corona.html#iryou',
           divider: true
-        },
-        {
-          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
-          link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
-        },
-        {
-          title: this.$t('東京都主催等 中止又は延期するイベント等'),
-          link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
-        },
-        {
-          title: this.$t('知事からのメッセージ'),
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
         },
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
         },
         {
-          title: this.$t('お問い合わせ先一覧'),
-          link: this.localePath('/contacts')
-        },
-        {
-          title: this.$t('東京都公式ホームページ'),
-          link: 'https://www.metro.tokyo.lg.jp/'
+          title: this.$t('福井県公式ホームページ'),
+          link: 'https://www.pref.fukui.lg.jp/'
         }
       ]
     }
@@ -356,9 +332,14 @@ export default Vue.extend({
   display: block;
   margin-top: 10px;
   color: $gray-1;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.2;
   font-weight: bold;
+}
+
+.SideNavigation-Copyright img {
+    width: 150px;
+    margin: 10px 0 0 0;
 }
 
 .SideNavigation-LicenseLink {

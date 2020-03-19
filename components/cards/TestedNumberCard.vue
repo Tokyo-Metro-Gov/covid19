@@ -25,12 +25,12 @@ export default {
   data() {
     // 検査実施日別状況
     const inspectionsGraph = [
-      Data.inspections_summary.data['都内'],
+      Data.inspections_summary.data['県内'],
       Data.inspections_summary.data['その他']
     ]
     const inspectionsItems = [
-      this.$t('都内発生（疑い例・接触者調査）'),
-      this.$t('その他（チャーター便・クルーズ船）')
+      this.$t('県内'),
+      this.$t('その他')
     ]
     const inspectionsLabels = Data.inspections_summary.labels
 

@@ -209,7 +209,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             label: (tooltipItem: any) => {
-              const labelTokyo = this.$t('都内')
+              const labelTokyo = this.$t('県内')
               const labelOthers = this.$t('その他')
               const labelArray = [labelTokyo, labelOthers]
               let casesTotal, cases
@@ -249,61 +249,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         },
         scales: {
           xAxes: [
-            {
-              id: 'day',
-              stacked: true,
-              gridLines: {
-                display: false
-              },
-              ticks: {
-                fontSize: 9,
-                maxTicksLimit: 20,
-                fontColor: '#808080',
-                maxRotation: 0,
-                minRotation: 0,
-                callback: (label: string) => {
-                  return label.split('/')[1]
-                }
-              }
-            },
-            {
-              id: 'month',
-              stacked: true,
-              gridLines: {
-                drawOnChartArea: false,
-                drawTicks: true,
-                drawBorder: false,
-                tickMarkLength: 10
-              },
-              ticks: {
-                fontSize: 11,
-                fontColor: '#808080',
-                padding: 3,
-                fontStyle: 'bold',
-                callback: (label: string) => {
-                  const monthStringArry = [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec'
-                  ]
-                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
-                  return month + '月'
-                }
-              },
-              type: 'time',
-              time: {
-                unit: 'month'
-              }
-            }
           ],
           yAxes: [
             {

@@ -1,8 +1,8 @@
 {
   "name": "covid19",
   "version": "1.0.0",
-  "description": "東京都 新型コロナウイルス感染症対策サイト",
-  "author": "東京都",
+  "description": "福井県 新型コロナウイルス感染症対策サイト",
+  "author": "丹南ケーブルテレビ",
   "private": true,
   "engines": {
     "node": ">=10.19.0"
@@ -13,23 +13,10 @@
     "start": "cross-env NODE_ENV=production nuxt-ts start",
     "generate:deploy": "cross-env NODE_ENV=production nuxt-ts generate",
     "generate:dev": "cross-env NODE_ENV=development nuxt-ts generate",
-    "generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
-    "lint-and-generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
+    "generate": "nuxt-ts generate",
+    "lint-and-generate": "nuxt-ts generate",
     "test": "echo 'skip tests (there is no test)'",
-    "lint": "eslint './**/*.{js,ts,vue}'",
-    "lint:fix": "eslint './**/*.{js,ts,vue}' --fix",
     "clean-hardsource": "rimraf ./node_modules/.cache/hard-source"
-  },
-  "lint-staged": {
-    "*.{js,ts,css,vue}": [
-      "eslint --fix"
-    ],
-    "*.{css,scss,vue}": "stylelint"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.0",
