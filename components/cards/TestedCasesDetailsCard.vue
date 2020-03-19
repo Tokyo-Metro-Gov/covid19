@@ -3,7 +3,7 @@
     <tested-cases-card
       :title="$t('検査実施状況')"
       :title-id="'details-of-tested-cases'"
-      :date="Data.inspections_summary.date"
+      :date="Data.inspection_status_summary.date"
     >
       <tested-cases-table
         :aria-label="$t('検査実施状況')"

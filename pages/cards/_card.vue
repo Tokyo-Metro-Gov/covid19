@@ -71,7 +71,7 @@ export default {
         break
       case 'details-of-tested-cases':
         title = this.$t('検査実施状況')
-        updatedAt = Data.inspections_summary.date
+        updatedAt = Data.inspection_status_summary.date
         break
       case 'number-of-confirmed-cases':
         title = this.$t('陽性患者数')
