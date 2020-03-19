@@ -133,7 +133,7 @@ export default class MenuList extends Vue {
     font-weight: bold;
   }
   &:focus {
-    outline: 1px dotted $gray-3;
+    outline: 2px dotted $link;
   }
 
   &.nuxt-link-exact-active {

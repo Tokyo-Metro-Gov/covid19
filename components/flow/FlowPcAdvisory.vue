@@ -142,6 +142,7 @@
     &:focus {
       color: inherit;
       text-decoration: none;
+      outline: 2px dotted $link;
     }
     &Icon {
       display: inline-block;
