@@ -206,7 +206,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-Header {
-  padding: 40px 20px 25px;
+  padding: 40px 20px 20px;
   @include lessThan($small) {
     display: flex;
     padding: 14px 0 13px 20px;
@@ -284,9 +284,11 @@ export default Vue.extend({
 }
 
 .SideNavigation-Body {
-  padding: 0 20px 20px;
+  padding: 20px;
+  background-color: $white;
   @include lessThan($small) {
     display: none;
+    padding: 36px;
     &.-opened {
       position: fixed;
       top: 0;
@@ -304,7 +306,9 @@ export default Vue.extend({
 }
 
 .SideNavigation-Menu {
-  padding-top: 20px;
+  @include lessThan($small) {
+    padding-top: 20px;
+  }
 }
 
 .SideNavigation-Language {
@@ -354,10 +358,10 @@ export default Vue.extend({
 
 .SideNavigation-Copyright {
   display: block;
-  margin-top: 10px;
+  margin-top: 15px;
   color: $gray-1;
   font-size: 10px;
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: bold;
 }
 
