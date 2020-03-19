@@ -10,7 +10,7 @@
           </span>
           <!-- eslint-enable vue/no-v-html-->
           <span>
-            <b>00000</b>
+            <b>{{ 累計人数 }}</b>
             <span :class="$style.unit">{{ $t('人') }}</span>
           </span>
         </div>
@@ -25,7 +25,7 @@
         <div :class="$style.content">
           <span>{{ $t('合計') }}</span>
           <span>
-            <b>00000</b>
+            <b>{{ 合計件数 }}</b>
             <span :class="$style.unit">{{ $t('件.tested') }}</span>
           </span>
         </div>
@@ -36,7 +36,7 @@
             <div :class="$style.content">
               <span>{{ $t('都内発生') }}</span>
               <span>
-                <b>00000</b>
+                <b>{{ 都内発生件数 }}</b>
                 <span :class="$style.unit">{{ $t('件.tested') }}</span>
               </span>
             </div>
@@ -50,7 +50,7 @@
                 $t('（チャーター機・クルーズ船等）')
               }}</span>
               <span>
-                <b>00000</b>
+                <b>{{ その他件数 }}</b>
                 <span :class="$style.unit">{{ $t('件.tested') }}</span>
               </span>
             </div>
@@ -64,7 +64,50 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend()
+/* eslint-disable vue/prop-name-casing */
+export default Vue.extend({
+  props: {
+    累計人数: {
+      type: Number,
+      required: true
+    },
+    合計件数: {
+      type: Number,
+      required: true
+    },
+    都内発生件数: {
+      type: Number,
+      required: true
+    },
+    その他件数: {
+      type: Number,
+      required: true
+    }
+  },
+  methods: {
+    /** 桁数に応じて位置の調整をする */
+    getAdjustX(input: number) {
+      const length = input.toString(10).length
+      switch (length) {
+        case 1: {
+          return 3
+        }
+        case 2: {
+          return 0
+        }
+        case 3: {
+          return -3
+        }
+        case 4: {
+          return -8
+        }
+        default: {
+          return 0
+        }
+      }
+    }
+  }
+})
 </script>
 
 <style lang="scss" module>
