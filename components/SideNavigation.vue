@@ -1,6 +1,42 @@
 <template>
   <div ref="Side" class="SideNavigation" tabindex="-1">
-    <header class="SideNavigation-Header">
+    <header class="SideNavigation-HeaderContainer sp-flex">
+      <v-icon
+        class="SideNavigation-HeaderMenu pc-none"
+        :aria-label="$t('サイドメニュー項目を開く')"
+        @click="openNavi"
+      >
+        mdi-menu
+      </v-icon>
+      <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderTitle">
+        <img
+          class="SideNavigation-HeaderTitleLogo"
+          src="/logo.svg"
+          :alt="$t('東京都')"
+        />
+        <h1 class="SideNavigation-HeaderText">
+          {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
+        </h1>
+      </nuxt-link>
+    </header>
+
+    <!-- <header class="SideNavigation-HeaderContainer sp-flex">
+      <v-icon
+        class="SideNavigation-OpenIcon"
+        :aria-label="$t('サイドメニュー項目を開く')"
+        @click="$emit('openNavi', $event)"
+      >
+        mdi-menu
+      </v-icon>
+       <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderTitle">
+        <img src="/logo.svg" :alt="$t('東京都')" />
+        <h1 class="SideNavigation-HeaderText">
+          {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
+        </h1>
+      </nuxt-link>
+    </header> -->
+
+    <!-- <header class="SideNavigation-Header">
       <v-icon
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
@@ -18,7 +54,8 @@
           </div>
         </nuxt-link>
       </h1>
-    </header>
+    </header> -->
+
     <div :class="['SideNavigation-Body', { '-opened': isNaviOpen }]">
       <v-icon
         class="SideNavigation-CloseIcon"
@@ -205,11 +242,52 @@ export default Vue.extend({
   }
 }
 
-.SideNavigation-Header {
-  padding: 40px 20px 20px;
-  @include lessThan($small) {
-    display: flex;
-    padding: 14px 0 13px 20px;
+.SideNavigation-HeaderContainer {
+  height: 64px;
+  padding-left: 52px;
+  @include largerThan($small) {
+    height: auto;
+    padding: 20px;
+  }
+  @include lessThan($tiny) {
+    padding-left: 44px;
+  }
+}
+.SideNavigation-HeaderMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 18px 8px 18px 16px;
+  font-size: 28px;
+  @include lessThan($tiny) {
+    font-size: 24px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding: 20px 10px;
+  }
+}
+.SideNavigation-HeaderTitle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  @include largerThan($small) {
+    display: block;
+    padding: 15px 0;
+  }
+}
+.SideNavigation-HeaderTitleLogo {
+  @include largerThan($small) {
+    width: 100px;
+  }
+}
+.SideNavigation-HeaderText {
+  margin-left: 10px;
+  font-size: 13px;
+  color: #707070;
+  @include largerThan($small) {
+    margin: 0;
+    margin-top: 10px;
   }
 }
 
@@ -368,6 +446,15 @@ export default Vue.extend({
 .SideNavigation-LicenseLink {
   &:focus {
     outline: 1px dotted $gray-3;
+  }
+}
+
+@include lessThan($small) {
+  .sp-flex {
+    display: flex;
+  }
+  .sp-none {
+    display: none;
   }
 }
 </style>
