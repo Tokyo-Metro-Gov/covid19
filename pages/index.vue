@@ -48,7 +48,15 @@
           :items="patientsAndNoSymptomsItems"
           :labels="patientsAndNoSymptomsLabels"
           :unit="'件'"
-        />
+        >
+          <template #supplement>
+            <p class="Graph-Desc">
+              無症状病原体保有者：症状は無いがＰＣＲ検査が陽性だった者で、
+              他者へ感染させる可能性は低いとみられている。（出典：厚生労働省Ｑ＆Ａ一部改
+              変）
+            </p>
+          </template>
+        </time-stacked-bar-chart>
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <data-table
