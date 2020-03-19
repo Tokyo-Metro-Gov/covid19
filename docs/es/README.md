@@ -1,38 +1,38 @@
-# 东京都 新型冠状病毒对策网
+# Sitio web del Grupo de trabajo COVID-19 de Tokio
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
-[![东京都 新型冠状病毒对策网](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md) | [Thai](./README_TH.md) | [French](./README_FR.md)
-
-## 如何贡献
-如果您能对 Issus 中做出各式各样的修改协助，我们将不胜感激。
-
-详细请参照[如何贡献](./.github/CONTRIBUTING_ZH_CN.md)。
+### [日本語](./../../README.md) | [English](./../en/README.md) | Español | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
 
 
-## 行动准则
-详细请参照[建站行动原则](./.github/CODE_OF_CONDUCT_ZH_CN.md)。
+## Cómo Contribuir
 
-## 授权
-本软件采用[MIT授权条款](./LICENSE.txt)。
+Todas las contribuciones son bienvenidas.!
+Por favor, consulte [Cómo contribuir](./CONTRIBUTING.md) para obtener más detalles.
+
+## Código de Conducta
+
+Por favor, consulte el [Código de conducta para desarrolladores](./CODE_OF_CONDUCT.md) para más detalles.
+
+## Licencia
+Este software se publica bajo la [licencia MIT](./../../LICENSE.txt).
 
 [PLEASE TRANSLATE ME]
 
-Please check [How to translate](./.github/TRANSLATION.md) doc.
+Please check [How to translate](./../../TRANSLATION.md) doc.
 
 [/PLEASE TRANSLATE ME]
 
-## 面向开发者信息
+## Para Desarrolladoras
 
-### 开发环境搭建
+### Cómo Configurar Entornos
 
-- Node.js 版本最低需求: 10.19.0以上
+- Versión requerida de Node.js: 10.19.0 o superior
 
-**使用 yarn 时**
-
-``` bash
+**Use yarn**
+```bash
 # install dependencies
 $ yarn install
 
@@ -40,8 +40,7 @@ $ yarn install
 $ yarn dev
 ```
 
-**使用 docker compose 时**
-
+**Use docker**
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
@@ -67,13 +66,16 @@ Please use the variable to detect which enviroinment is used at the runtime.
 
 [/PLEASE TRANSLATE ME]
 
-### 发布到 Staging环境以及正式环境的方法
+### Implementación en entornos de preparación y producción
 
-`master` 分支更新時，自动将 `production` 分支中的HTML类(build)后发布到正式版 https://stopcovid19.metro.tokyo.lg.jp/
+Cuando se actualiza la rama `master`, los archivos HTML se construirán automáticamente en la rama de `production`,
+y luego el sitio de producción (https://stopcovid19.metro.tokyo.lg.jp/) también se actualizará.
 
-`staging` 分支更新時，自动将 `gh-pages` 分支中的HTML类(build)后发布到Staging版 https://stg-covid19-tokyo.netlify.com/
+Cuando se actualiza la rama `staging`, los archivos HTML se construirán automáticamente en la rama `gh-pages`,
+  y luego el sitio de preparación (https://stg-covid19-tokyo.netlify.com/) también se actualizará.
 
-`development` 分支更新時，自动将 `dev-pages` 分支中的HTML类(build)后发布到开发版 https://dev-covid19-tokyo.netlify.com/
+Cuando se actualiza la rama `development`, los archivos HTML se construirán automáticamente en la rama` dev-pages`,
+y luego el sitio de desarrollo (https://dev-covid19-tokyo.netlify.com/) también se actualizará.
 
 [PLEASE TRANSLATE ME]
 
@@ -99,6 +101,6 @@ Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests othe
 | ---- | -------- | ---- | ---- |
 | Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
-| For OGP working directory | deploy / new_obp | None | For updating OGP |
+| For OGP working directory | deploy / new_ogp | None | For updating OGP |
 
 [/PLEASE TRANSLATE ME]

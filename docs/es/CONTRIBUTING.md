@@ -25,7 +25,7 @@ Esta página muestra cómo puede contribuir al desarrollo de este sitio.
 * Únete al canal `#covid19`
 
 ## Para participar
-* Por favor lea [Principio / Código de conducta](CODE_OF_CONDUCT_ES.md) antes de participar en desarrollos.
+* Por favor lea [Principio / Código de conducta](./CODE_OF_CONDUCT.md) antes de participar en desarrollos.
 * Para comunicaciones, verifique también el Código de Japón [Código de Conducta](https://github.com/codeforjapan/codeofconduct).
 * Si encuentra algunos problemas que puede hacer, ¡por favor, asigne usted mismo!
 * [good first issue label](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) se recomienda para principiantes
