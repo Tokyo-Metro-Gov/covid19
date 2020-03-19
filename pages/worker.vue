@@ -40,7 +40,7 @@ export default {
         {
           title: '農林漁業者向け',
           body:
-            '<a href="https://www.pref.chiba.lg.jp/nousui/nousaigaisien/ncov-index.html" target="_blank" rel="noopener">https://www.pref.chiba.lg.jp/nousui/nousaigaisien/ncov-index.html</a> <br />農林漁業者向けに新型コロナウイルスの情報がまとめてあります。'
+            '<a href="https://www.pref.chiba.lg.jp/nousui/nousaigaisien/n_coronavirus_agri.html" target="_blank" rel="noopener">https://www.pref.chiba.lg.jp/nousui/nousaigaisien/n_coronavirus_agri.html</a> <br />新型コロナウイルス感染症の影響により、農林漁業経営の維持が困難な農林漁業者を対象に、一時的な影響に対し、緊急的に対応するために必要な長期資金を日本政策金融公庫が融資しています。'
         },
         {
           title: '社会福祉事業者向け',
