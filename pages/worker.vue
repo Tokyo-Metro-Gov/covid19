@@ -22,11 +22,11 @@ export default {
           body:
             '<a href="https://www.pref.chiba.lg.jp/keishi/ncov/colona4.html" target="_blank" rel="noopener">https://www.pref.chiba.lg.jp/keishi/ncov/colona4.htmll</a><br />新型コロナウイルス感染症により事業活動に影響を受けている中小企業等を対象とした緊急融資制度です。'
         },
-        /* {
+        {
           title: '新型コロナウイルスによる経営課題に関する専門家派遣',
           body:
             '<a href="https://www.pref.chiba.lg.jp/keisei/singata-koronauirusu-kigyousoudan.html" target="_blank" rel="noopener">https://www.pref.chiba.lg.jp/keisei/singata-koronauirusu-kigyousoudan.html</a><br />今般の新型コロナウイルスの流行により、事業活動に影響を受ける、または、その恐れがある中小企業者等を支援するため、以下のとおり相談窓口を設置します。'
-        }, */
+        },
         {
           title: '雇用調整助成金',
           body:
@@ -41,12 +41,12 @@ export default {
           title: '農林漁業者向け',
           body:
             '<a href="https://www.pref.chiba.lg.jp/nousui/nousaigaisien/n_coronavirus_agri.html" target="_blank" rel="noopener">https://www.pref.chiba.lg.jp/nousui/nousaigaisien/n_coronavirus_agri.html</a> <br />新型コロナウイルス感染症の影響により、農林漁業経営の維持が困難な農林漁業者を対象に、一時的な影響に対し、緊急的に対応するために必要な長期資金を日本政策金融公庫が融資しています。'
-        },
-        {
+        }
+        /* {
           title: '社会福祉事業者向け',
           body:
             '<a href="https://www.pref.chiba.lg.jp/kenshidou/shafuku-hojin/ncov-index.html" target="_blank" rel="noopener">https://www.pref.chiba.lg.jp/kenshidou/shafuku-hojin/ncov-index.html/</a><br />社会福祉事業者向けに新型コロナウイルス感染症の情報がまとめてあります。'
-        }
+        } */
       ]
     }
   },
