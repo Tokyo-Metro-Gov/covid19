@@ -111,7 +111,11 @@
       <ul>
         <li>
           <a
-            href="https://marketingplatform.google.com/about/analytics/terms/jp"
+            :href="
+              $t(
+                'https://marketingplatform.google.com/about/analytics/terms/jp/'
+              )
+            "
             target="_blank"
             rel="noopener"
           >
@@ -120,7 +124,7 @@
         </li>
         <li>
           <a
-            href="https://policies.google.com/privacy?hl=ja"
+            :href="$t('https://policies.google.com/privacy?hl=ja')"
             target="_blank"
             rel="noopener"
           >
@@ -129,7 +133,9 @@
         </li>
         <li>
           <a
-            href="https://support.google.com/analytics/answer/6004245"
+            :href="
+              $t('https://support.google.com/analytics/answer/6004245?hl=ja')
+            "
             target="_blank"
             rel="noopener"
           >
@@ -198,18 +204,6 @@
         </i18n>
       </p>
     </StaticCard>
-    <StaticCard>
-      <h2>{{ $t('お問い合わせ先（都のHPサイトポリシーについて）') }}</h2>
-      <dl>
-        <dt>
-          {{ $t('東京都生活文化局広報広聴部広報課') }}
-        </dt>
-        <dd>
-          {{ $t('電話') }}:
-          <a href="tel:03-5388-3085">03-5388-3085</a>
-        </dd>
-      </dl>
-    </StaticCard>
   </div>
 </template>
 
@@ -222,9 +216,11 @@ export default Vue.extend({
   components: {
     StaticCard
   },
-  head: (): MetaInfo => ({
-    title: '当サイトについて'
-  })
+  head(): MetaInfo {
+    return {
+      title: this.$t('当サイトについて') as string
+    }
+  }
 })
 </script>
 
