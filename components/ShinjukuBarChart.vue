@@ -1,17 +1,21 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:button>
-      <p :class="$style.ShinjukuDesc">
+    <template v-slot:description>
+      <p :class="$style.Text">
         {{
           $t(
             '2月3日～2月7日の来訪者数 (※1) の平均値 (※2) を 基準としたときの相対値'
           )
         }}
-        <br />
-        {{ $t('※1) ヤフーに蓄積された位置情報データなどを元に算出した参考値') }}
-        <br />
-        {{ $t('※2) 土・日・祝日を除く7:30~8:30の1週間平均値') }}
       </p>
+      <ol>
+        <li>
+          {{
+            $t('※1) ヤフーに蓄積された位置情報データなどを元に算出した参考値')
+          }}
+        </li>
+        <li>{{ $t('※2) 土・日・祝日を除く7:30~8:30の1週間平均値') }}</li>
+      </ol>
     </template>
     <bar
       :chart-id="chartId"
@@ -19,30 +23,26 @@
       :options="displayOptions"
       :height="240"
     />
-    <p :class="$style.ShinjukuDesc">
-      {{ $t('※本データは2020年3月31日までの掲載となります') }}
-    </p>
-    <p :class="$style.ShinjukuDesc">
-      {{ $t('出典：') }}
-      <a
-        href="https://ds.yahoo.co.jp/datapolicy/"
-        target="_blank"
-        rel="noopenner"
-        >{{ $t('ヤフー・データソリューション') }}</a
-      >
-    </p>
+    <template v-slot:footer-description>
+      <p>
+        {{ $t('※本データは2020年3月31日までの掲載となります') }}
+      </p>
+      <p>
+        {{ $t('出典') }}：
+        <a
+          href="https://ds.yahoo.co.jp/datapolicy/"
+          target="_blank"
+          rel="noopenner"
+          >{{ $t('ヤフー・データソリューション') }}</a
+        >
+      </p>
+    </template>
   </data-view>
 </template>
 
 <style module lang="scss">
-.Shinjuku {
-  &Desc {
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    font-size: 12px;
-    color: $gray-3;
-  }
+.Text {
+  margin: 0 !important;
 }
 </style>
 
