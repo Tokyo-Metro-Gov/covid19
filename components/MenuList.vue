@@ -106,6 +106,9 @@ export default class MenuList extends Vue {
   font-size: 0.85rem;
   line-height: 1.2;
   white-space: normal;
+  @include lessThan($small) {
+    font-weight: bold;
+  }
 
   &.-border {
     margin-bottom: 12px;
@@ -172,7 +175,10 @@ export default class MenuList extends Vue {
 }
 
 .MenuList-ExternalIcon {
-  margin-left: 2px;
+  margin-left: 5px;
   color: $gray-3;
+  @include lessThan($small) {
+    font-size: 14px !important;
+  }
 }
 </style>
