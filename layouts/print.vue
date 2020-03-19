@@ -32,7 +32,7 @@
                 ※最新の情報はWebページをご覧ください
               </p>
               <p class="PrintMeta-Link">
-                http://yamaguchi.stopcovid19.jp/
+                https://yamaguchi.stopcovid19.jp/
               </p>
             </v-card>
           </v-card>
@@ -77,7 +77,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `http://yamaguchi.stopcovid19.jp${this.$route.path}`
+          href: `https://yamaguchi.stopcovid19.jp${this.$route.path}`
         }
       ]
     }

@@ -30,7 +30,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://covid19-yamaguchi.netlify.com/'
+        content: 'https://yamaguchi.stopcovid19.jp/'
       },
       {
         hid: 'og:title',
@@ -68,7 +68,7 @@ const config: Configuration = {
         hid: 'twitter:image',
         name: 'twitter:image',
         content:
-          'https://user-images.githubusercontent.com/42875682/76772976-17a3bd80-67e5-11ea-8f4e-ab01df696fc6.png'
+          'https://user-images.githubusercontent.com/42875682/77060802-87e85400-6a1c-11ea-89fa-32265810cbb5.png'
       },
       {
         hid: 'fb:app_id',
