@@ -51,9 +51,7 @@
           >
             <figure>
               <img src="/twitter.png" alt="Twitter" />
-              <figcaption>
-                新潟市<br />危機管理防災局
-              </figcaption>
+              <figcaption>新潟市<br />危機管理防災局</figcaption>
             </figure>
           </a>
           <a
@@ -63,9 +61,7 @@
           >
             <figure>
               <img src="/twitter.png" alt="Twitter" />
-              <figcaption>
-                新潟県広報課
-              </figcaption>
+              <figcaption>新潟県広報課</figcaption>
             </figure>
           </a>
           <a
