@@ -21,5 +21,5 @@ Chiba Covid19 response site contributors
 | [potyam(student)](https://twitter.com/PotyaExea) | Frontend |
 ​
 | SpecialThanks | 
-| [(project menbero fJust DOU IT)](https://stopcovid19.hokkaido.dev) |
+| [(project menber of Just DOU IT)](https://stopcovid19.hokkaido.dev) |
 ご協力に感謝です！！！
