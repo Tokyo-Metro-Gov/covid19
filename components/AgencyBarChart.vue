@@ -31,6 +31,7 @@ import VueI18n from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
+import { triple as colors } from '@/utils/colors'
 
 interface HTMLElementEvent<T extends HTMLElement> extends Event {
   currentTarget: T
@@ -114,7 +115,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   computed: {
     displayData() {
-      const colors = ['#008b41', '#63c765', '#a6e29f']
       const borderColor = '#ffffff'
       const borderWidth = [
         { left: 0, top: 1, right: 0, bottom: 0 },
