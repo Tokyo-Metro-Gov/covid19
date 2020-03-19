@@ -306,10 +306,6 @@ export default Vue.extend({
   padding-top: 20px;
 }
 
-.SideNavigation-Language {
-  padding-top: 20px;
-}
-
 .SideNavigation-LanguageLabel {
   display: block;
   margin-bottom: 5px;
