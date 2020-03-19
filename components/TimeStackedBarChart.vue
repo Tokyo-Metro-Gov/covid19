@@ -18,6 +18,9 @@
       :options="options"
       :height="240"
     />
+    <p :class="$style.DataViewDesc">
+      <slot name="additionalNotes" />
+    </p>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -361,7 +364,17 @@ export default Vue.extend(options)
   &Desc {
     width: 100%;
     margin: 0;
+    margin-bottom: 0 !important;
     font-size: 12px;
+    color: $gray-3;
+  }
+}
+.DataView {
+  &Desc {
+    margin-top: 10px;
+    margin-bottom: 0 !important;
+    font-size: 12px;
+    line-height: 15px;
     color: $gray-3;
   }
 }
