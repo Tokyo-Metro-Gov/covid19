@@ -119,6 +119,13 @@ Tokyo Covid-19 response site contributors
 | Ryo KUTSUZAWA | [@bookun](https://github.com/bookun) | | Coding |
 | Hiroaki MASAKI | [@maasa22](https://github.com/maasa22) | | Coding |
 | Dongsik | [@dongsiku](https://github.com/dongsiku) | | Translation (Japanese -> Korean) |
+| Timothy Lin | [@timothylin](https://github.com/timothylin) | | Translation, Coding |
+| yuseiito | [@YuseiIto](https://github.com/YuseiIto) | | Coding |
+| whisky_shusuky | [@whisky-shusuky](https://github.com/whisky-shusuky) | [@Whisky_shusuky](https://twitter.com/Whisky_shusuky) | Coding |
+| Dai | [@dmamira](https://github.com/dmamira) | [@damarai0422](https://twitter.com/damarai0422) | Coding |
+| Tomoki Nakama | [@tomopict](https://github.com/tomopict) | [@tomopict](https://twitter.com/tomopict) | Frontend |
+| oti | [@oti](https://github.com/oti) | [@otiext](https://twitter.com/otiext) | Frontend, A11y, Triage |
+| Yoshiki Honda | [@yoshidev523](https://github.com/yoshidev523) | [@yoyoyop523](https://twitter.com/yoyoyop523) | Frontend |
 
 ご協力に感謝です！！！
 
