@@ -1,36 +1,38 @@
-# Cổng thông tin chống dịch CoVid-19 của TP Tokyo
+# 东京都 新型冠状病毒对策网
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
-[![Cổng thông tin chống dịch CoVid-19 của TP Tokyo](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![东京都 新型冠状病毒对策网](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md) | [Thai](./README_TH.md) | [French](./README_FR.md)
+### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | 简体中文 | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
 
-## Làm thế nào để đóng góp
-Mọi đóng góp của các bạn đều được chào đón.
-Xin vui lòng đọc [tại đây](./.github/CONTRIBUTING_VI.md) để biết thêm chi tiết.
+## 如何贡献
+如果您能对 Issus 中做出各式各样的修改协助，我们将不胜感激。
+
+详细请参照[如何贡献](./CONTRIBUTING.md)。
 
 
-## Quy tắc ứng xử
-Chi tiết vui lòng xem [tại đây](./.github/CODE_OF_CONDUCT_VI.md)
+## 行动准则
+详细请参照[建站行动原则](./CODE_OF_CONDUCT.md)。
 
-## Giấy phép
-Phần mềm này được phân phối dưới giấy phép [MIT](./LICENSE.txt)
+## 授权
+本软件采用[MIT授权条款](./../../LICENSE.txt)。
 
 [PLEASE TRANSLATE ME]
 
-Please check [How to translate](./.github/TRANSLATION.md) doc.
+Please check [How to translate](./../../TRANSLATION.md) doc.
 
 [/PLEASE TRANSLATE ME]
 
-## Thông tin cho nhà phát triển
+## 面向开发者信息
 
-### Xây dựng môi trường
+### 开发环境搭建
 
-- Node.js phiên bản: 10.19.0 hoặc cao hơn
+- Node.js 版本最低需求: 10.19.0以上
 
-**Nếu dùng yarn**
-```bash
+**使用 yarn 时**
+
+``` bash
 # install dependencies
 $ yarn install
 
@@ -38,7 +40,8 @@ $ yarn install
 $ yarn dev
 ```
 
-**Nếu dùng docker compose**
+**使用 docker compose 时**
+
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
@@ -64,14 +67,13 @@ Please use the variable to detect which enviroinment is used at the runtime.
 
 [/PLEASE TRANSLATE ME]
 
-### Triển khai lên môi trường staging và production
+### 发布到 Staging环境以及正式环境的方法
 
-Khi nhánh `master` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `production`. Sau đó https://stopcovid19.metro.tokyo.lg.jp/ sẽ được cập nhật.
+`master` 分支更新時，自动将 `production` 分支中的HTML类(build)后发布到正式版 https://stopcovid19.metro.tokyo.lg.jp/
 
-Khi nhánh `staging` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `gh-pages`. Sau đó https://stg-covid19-tokyo.netlify.com/ sẽ được cập nhật.
+`staging` 分支更新時，自动将 `gh-pages` 分支中的HTML类(build)后发布到Staging版 https://stg-covid19-tokyo.netlify.com/
 
-Khi nhánh `development` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `dev-pages`. Sau đó https://dev-covid19-tokyo.netlify.com/ sẽ được cập nhật.
-
+`development` 分支更新時，自动将 `dev-pages` 分支中的HTML类(build)后发布到开发版 https://dev-covid19-tokyo.netlify.com/
 
 [PLEASE TRANSLATE ME]
 
@@ -80,7 +82,7 @@ Khi nhánh `development` được cập nhật, file HTML sẽ tự động đư
 Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.  
 Please use the following naming rules for the branch when sending a Pull Request.
 
-Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}
+Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}  
 Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 #### Basic branch

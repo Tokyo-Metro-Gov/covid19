@@ -39,6 +39,6 @@ If you have something new texts which needs translation, please add the strings 
 
 We are using [nuxt-i18n](https://github.com/nuxt-community/nuxt-i18n) as a translation system. Please refer [their document](https://nuxtjs.org/examples/i18n/) to know how to use the library.
 
-When you need to get translated text immediately, please ask to push the latest changes from Transifex in the #covid19 channel in Code for Japan Slack (see [our respos](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/.github/CONTRIBUTING_EN.md#how-to-participate-in-communications)).
+When you need to get translated text immediately, please ask to push the latest changes from Transifex in the #covid19 channel in Code for Japan Slack (see [our respos](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/docs/en/CONTRIBUTING.md#how-to-participate-in-communications)).
 
 After the text was translated, an organizer will apply new resources on the `dev-i18n` branch.
