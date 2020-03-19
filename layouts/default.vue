@@ -183,7 +183,7 @@ export default Vue.extend({
   position: relative;
   @include largerThan($small) {
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 240px 1fr;
     grid-template-rows: auto;
   }
   @include largerThan($huge) {
@@ -205,7 +205,7 @@ export default Vue.extend({
     position: fixed;
     top: 0;
     overflow-y: auto;
-    width: 220px;
+    width: 240px;
     height: 100%;
     border-right: 1px solid $gray-4;
     border-left: 1px solid $gray-4;
