@@ -49,16 +49,20 @@
             target="_blank"
             rel="noopener"
           >
-            <img src="/twitter.png" alt="Twitter" />
-            新潟市危機管理防災局
+            <figure>
+              <img src="/twitter.png" alt="Twitter" />
+              <figcaption>新潟市<br />危機管理防災局</figcaption>
+            </figure>
           </a>
           <a
             href="https://twitter.com/Niigata_Press"
             target="_blank"
             rel="noopener"
           >
-            <img src="/twitter.png" alt="Twitter" />
-            新潟県広報課
+            <figure>
+              <img src="/twitter.png" alt="Twitter" />
+              <figcaption>新潟県広報課</figcaption>
+            </figure>
           </a>
           <a
             href="https://github.com/CodeForNiigata/covid19"
@@ -244,10 +248,16 @@ export default {
   &-SocialLinkContainer {
     display: flex;
     & a:not(:last-of-type) {
-      margin-right: 10px;
+      margin-right: 5px;
     }
     & img {
       width: 30px;
+    }
+    & figure {
+      text-align: center;
+      & figcaption {
+        font-size: 10px;
+      }
     }
   }
   &-Copyright {
