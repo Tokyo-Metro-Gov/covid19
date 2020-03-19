@@ -244,21 +244,6 @@ export default {
   }
 }
 
-.Advisory {
-  position: relative;
-
-  &::after {
-    content: url('/flow/flow_arrow.svg');
-    position: absolute;
-    left: calc(50% - 23px);
-    transform: rotate(-90deg);
-    z-index: 1;
-    display: block;
-    width: 46px;
-    height: 46px;
-  }
-}
-
 .Past {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -277,6 +262,18 @@ export default {
 .Advisory {
   grid-column: 2 / 3;
   grid-row: 1 / 3;
+  position: relative;
+
+  &::after {
+    content: url('/flow/flow_arrow.svg');
+    position: absolute;
+    left: calc(50% - 23px);
+    transform: rotate(-90deg);
+    z-index: 1;
+    display: block;
+    width: 46px;
+    height: 46px;
+  }
 }
 
 .Advisory2 {
