@@ -26,10 +26,10 @@ for lang in ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']:
     for path, size in PATHS.items():
         driver.set_window_size(size[0], size[1])
         if lang == 'ja':
-            driver.get("http://localhost:8000"+path+"?embed=true")
+            driver.get("http://localhost:8000"+path+"?ogp=true")
             time.sleep(5)
             driver.save_screenshot('ogp/'+path.replace('/cards/', '').replace('/', '_')+'.png')
         else:
-            driver.get("http://localhost:8000/"+lang+path+"?embed=true")
+            driver.get("http://localhost:8000/"+lang+path+"?ogp=true")
             time.sleep(5)
             driver.save_screenshot('ogp/'+lang+'/'+path.replace('/cards/', '').replace('/', '_')+'.png')
