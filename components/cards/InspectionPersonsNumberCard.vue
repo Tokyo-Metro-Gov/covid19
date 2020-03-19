@@ -7,8 +7,17 @@
       :chart-data="graphData"
       :date="data.date"
       :unit="$t('人')"
-    />
-    <!-- 件.tested = 検査数 -->
+    >
+      <template v-slot:description>
+        <ul>
+          <li>（注）医療機関が保険適用で行った検査は含まれていない</li>
+          <li>（注）チャーター機帰国者、クルーズ船乗客等は含まれていない</li>
+          <li>
+            （注）速報値として公開するものであり、後日確定データとして修正される場合あり
+          </li>
+        </ul>
+      </template>
+    </time-bar-chart>
   </v-col>
 </template>
 
