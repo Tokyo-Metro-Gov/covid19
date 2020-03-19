@@ -1,7 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
-      <p class="Graph-Desc">
+      <p :class="$style.GraphDesc">
         {{ $t('（注）同一の対象者について複数の検体を調査する場合あり') }}
         <br />
         {{
@@ -356,11 +356,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 export default Vue.extend(options)
 </script>
 
-<style lang="scss" scoped>
-.Graph-Desc {
-  width: 100%;
-  margin: 0;
-  font-size: 12px;
-  color: $gray-3;
+<style module lang="scss">
+.Graph {
+  &Desc {
+    width: 100%;
+    margin: 0;
+    font-size: 12px;
+    color: $gray-3;
+  }
 }
 </style>
