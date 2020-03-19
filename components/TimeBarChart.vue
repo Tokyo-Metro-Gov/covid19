@@ -22,8 +22,6 @@
   </data-view>
 </template>
 
-<style></style>
-
 <script lang="ts">
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
