@@ -71,6 +71,7 @@
     "rimraf": "^3.0.2",
     "stylelint": "^13.2.0",
     "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.15.0",
     "vue-axe": "^1.0.8",
     "vue-jest": "^4.0.0-0"
   }
