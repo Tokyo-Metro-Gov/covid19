@@ -25,8 +25,7 @@
   "lint-staged": {
     "*.{js,ts,css,vue}": [
       "eslint --fix"
-    ],
-    "*.{css,scss,vue}": "stylelint"
+    ]
   },
   "husky": {
     "hooks": {
