@@ -14,6 +14,7 @@
 [](14)神奈川県|https://www.pref.kanagawa.jp/osirase/1369/|神奈川県（**公式**）||
 [](15)新潟県|https://niigata.stopcovid19.jp/|Code for Niigata|[CodeForNiigata/covid19](https://github.com/CodeForNiigata/covid19)|
 [](15)新潟県|https://stopcovid19-niigata-unofficial.netlify.com|air-h-128k-il|[air-h-128k-il/covid19](https://github.com/air-h-128k-il/covid19)|
+[](18)福井県|https://covid19-fukui.bosai-signal.jp/|丹南ケーブルテレビ株式会社|[westar7/fukui-covid19](https://github.com/westar7/fukui-covid19)|
 [](19)山梨県|https://stopcovid19.yamanashi.dev/|stopcovid19.yamanashi.devチーム|[covid19-yamanashi/covid19](https://github.com/covid19-yamanashi/covid19)|
 [](20)長野県|https://stop-covid19-nagano.netlify.com/|有志|[hisayan/covid19](https://github.com/hisayan/covid19)|
 [](21)岐阜県|https://covid19-gifu.netlify.com/|個人|[CODE-for-GIFU/covid19](https://github.com/CODE-for-GIFU/covid19)|
