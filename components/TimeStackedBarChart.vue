@@ -31,6 +31,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { TranslateResult } from 'vue-i18n'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
@@ -92,6 +93,7 @@ type Props = {
   date: string
   items: string[]
   labels: string[]
+  dataLabels: string[] | TranslateResult[]
   unit: string
 }
 
@@ -132,6 +134,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: () => []
     },
     labels: {
+      type: Array,
+      default: () => []
+    },
+    dataLabels: {
       type: Array,
       default: () => []
     },
@@ -209,9 +215,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             label: (tooltipItem: any) => {
-              const labelTokyo = this.$t('都内')
-              const labelOthers = this.$t('その他')
-              const labelArray = [labelTokyo, labelOthers]
               let casesTotal, cases
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index].toLocaleString()
@@ -228,7 +231,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               }
 
               return `${
-                labelArray[tooltipItem.datasetIndex]
+                this.dataLabels[tooltipItem.datasetIndex]
               }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
             },
             title(tooltipItem, data) {
