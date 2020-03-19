@@ -43,6 +43,7 @@
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
 import agencyData from '@/data/agency.json'
+
 import ConfirmedCasesDetailsCard from '@/components/index/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/index/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/index/cards/ConfirmedCasesNumberCard.vue'

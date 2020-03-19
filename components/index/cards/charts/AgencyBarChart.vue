@@ -48,6 +48,7 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import { ChartOptions } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'

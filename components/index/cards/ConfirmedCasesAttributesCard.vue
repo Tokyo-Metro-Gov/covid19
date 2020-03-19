@@ -15,8 +15,10 @@
 
 <script>
 import Data from '@/data/data.json'
+
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
+
 import ComfirmedCasesAttributesTable from '@/components/index/cards/charts/ComfirmedCasesAttributesTable.vue'
 
 export default {
