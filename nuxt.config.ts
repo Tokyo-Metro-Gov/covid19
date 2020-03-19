@@ -53,7 +53,7 @@ const config: Configuration = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      //{ rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
+      // { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
       {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
@@ -124,7 +124,7 @@ const config: Configuration = {
     }
   },
   googleAnalytics: {
-    id: 'UA-159417676-1'
+    id: 'UA-161205999-1'
   },
   build: {
     postcss: {
