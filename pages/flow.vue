@@ -1,11 +1,11 @@
 <template>
   <div class="Flow">
     <div class="Flow-Heading">
-      <CovidIcon />
+      <CovidIcon aria-hidden="true" />
       <h2 class="Flow-Heading-Title">
         {{ $t('新型コロナウイルス感染症が心配なときに') }}
       </h2>
-      <PrinterButton :wrapper-class="'Flow-PullRight'" />
+      <PrinterButton :wrapper-class="'Flow-PullRight'" to="/print/flow" />
     </div>
     <div>
       <div class="only-pc">
@@ -21,7 +21,7 @@
           rel="noopener"
           class="Flow-Card-Button"
         >
-          {{ $t('詳細を見る(東京都福祉保健局)') }}
+          {{ $t('詳細を見る（東京都福祉保健局）') }}
           <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
             mdi-open-in-new
           </v-icon>
@@ -31,27 +31,30 @@
   </div>
 </template>
 
-<i18n src="./flow.i18n.json"></i18n>
-
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
 import CovidIcon from '@/static/covid.svg'
-import PrinterButton from '@/components/PrinterButton'
+import PrinterButton from '@/components/PrinterButton.vue'
 import FlowPc from '@/components/flow/FlowPc.vue'
 import FlowSp from '@/components/flow/FlowSp.vue'
 
-export default {
+export default Vue.extend({
   components: {
     CovidIcon,
     PrinterButton,
     FlowPc,
     FlowSp
   },
-  head() {
+  head(): any {
+    const title: TranslateResult = this.$t(
+      '新型コロナウイルス感染症が心配なときに'
+    )
     return {
-      title: this.$t('新型コロナウイルス感染症が心配なときに')
+      title
     }
   }
-}
+})
 </script>
 
 <style lang="scss">
