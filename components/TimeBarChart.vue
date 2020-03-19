@@ -31,6 +31,7 @@ import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import { single as color } from '@/utils/colors'
 
 type Data = {
   dataKind: 'transition' | 'cumulative'
@@ -168,7 +169,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               data: this.chartData.map(d => {
                 return d.transition
               }),
-              backgroundColor: '#00B849',
+              backgroundColor: color,
               borderWidth: 0
             }
           ]
@@ -182,7 +183,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             data: this.chartData.map(d => {
               return d.cumulative
             }),
-            backgroundColor: '#00B849',
+            backgroundColor: color,
             borderWidth: 0
           }
         ]
