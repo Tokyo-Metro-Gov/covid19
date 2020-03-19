@@ -1,26 +1,6 @@
 <template>
   <div ref="Side" class="SideNavigation" tabindex="-1">
-    <header class="SideNavigation-HeaderContainer sp-flex">
-      <v-icon
-        class="SideNavigation-HeaderMenu pc-none"
-        :aria-label="$t('サイドメニュー項目を開く')"
-        @click="openNavi"
-      >
-        mdi-menu
-      </v-icon>
-      <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderTitle">
-        <img
-          class="SideNavigation-HeaderTitleLogo"
-          src="/logo.svg"
-          :alt="$t('東京都')"
-        />
-        <h1 class="SideNavigation-HeaderText">
-          {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
-        </h1>
-      </nuxt-link>
-    </header>
-
-    <!-- <header class="SideNavigation-HeaderContainer sp-flex">
+    <header class="SideNavigation-Header">
       <v-icon
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
@@ -28,13 +8,17 @@
       >
         mdi-menu
       </v-icon>
-       <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderTitle">
-        <img src="/logo.svg" :alt="$t('東京都')" />
-        <h1 class="SideNavigation-HeaderText">
+      <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderLink">
+        <img
+          class="SideNavigation-HeaderLogo"
+          src="/logo.svg"
+          :alt="$t('東京都')"
+        />
+        <h1 class="SideNavigation-HeaderTitle">
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
-    </header> -->
+    </header>
 
     <!-- <header class="SideNavigation-Header">
       <v-icon
@@ -242,18 +226,21 @@ export default Vue.extend({
   }
 }
 
-.SideNavigation-HeaderContainer {
+.SideNavigation-Header {
   height: 64px;
   padding-left: 52px;
   @include largerThan($small) {
     height: auto;
     padding: 20px;
   }
+  @include lessThan($small) {
+    display: flex;
+  }
   @include lessThan($tiny) {
     padding-left: 44px;
   }
 }
-.SideNavigation-HeaderMenu {
+.SideNavigation-OpenIcon {
   position: absolute;
   top: 0;
   left: 0;
@@ -265,41 +252,14 @@ export default Vue.extend({
     padding-right: 10px;
     padding: 20px 10px;
   }
+  @include largerThan($small) {
+    display: none;
+  }
 }
-.SideNavigation-HeaderTitle {
+.SideNavigation-HeaderLink {
   width: 100%;
   display: flex;
   align-items: center;
-  text-decoration: none;
-  @include largerThan($small) {
-    display: block;
-    padding: 15px 0;
-  }
-}
-.SideNavigation-HeaderTitleLogo {
-  @include largerThan($small) {
-    width: 100px;
-  }
-}
-.SideNavigation-HeaderText {
-  margin-left: 10px;
-  font-size: 13px;
-  color: #707070;
-  @include largerThan($small) {
-    margin: 0;
-    margin-top: 10px;
-  }
-}
-
-.SideNavigation-Heading {
-  font-size: 13px;
-  color: $gray-3;
-}
-
-.SideNavigation-HeadingLink {
-  display: flex;
-  width: 100%;
-  color: $gray-3;
   &:link,
   &:hover,
   &:focus,
@@ -316,46 +276,94 @@ export default Vue.extend({
     outline: 1px dotted $gray-3;
   }
 
-  @include lessThan($small) {
-    align-items: center;
-  }
   @include largerThan($small) {
-    flex-direction: column;
+    display: block;
+    padding: 15px 0;
   }
 }
-
 .SideNavigation-HeaderLogo {
   @include lessThan($tiny) {
-    width: 90px;
+    width: 100px;
+  }
+}
+.SideNavigation-HeaderTitle {
+  margin-left: 10px;
+  font-size: 13px;
+  color: #707070;
+  @include largerThan($small) {
+    margin: 0;
+    margin-top: 10px;
   }
 }
 
-.SideNavigation-HeaderLogoLinkText {
-  @include lessThan($small) {
-    flex-grow: auto;
-    margin-left: 16px;
-  }
-  @include lessThan($tiny) {
-    margin-left: 10px;
-  }
-  @include largerThan($small) {
-    margin-top: 15px;
-  }
-}
+// .SideNavigation-Heading {
+//   font-size: 13px;
+//   color: $gray-3;
+// }
 
-.SideNavigation-OpenIcon {
-  margin-right: 20px;
-  @include lessThan($tiny) {
-    margin-right: 10px;
-  }
-  @include largerThan($small) {
-    display: none;
-  }
-}
+// .SideNavigation-HeadingLink {
+//   display: flex;
+//   width: 100%;
+//   color: $gray-3;
+//   &:link,
+//   &:hover,
+//   &:focus,
+//   &:visited,
+//   &:active {
+//     color: inherit;
+//     text-decoration: none;
+//   }
+//   &:hover,
+//   &:focus {
+//     font-weight: bold;
+//   }
+//   &:focus {
+//     outline: 1px dotted $gray-3;
+//   }
+
+//   @include lessThan($small) {
+//     align-items: center;
+//   }
+//   @include largerThan($small) {
+//     flex-direction: column;
+//   }
+// }
+
+// .SideNavigation-HeaderLogo {
+//   @include lessThan($tiny) {
+//     width: 90px;
+//   }
+// }
+
+// .SideNavigation-HeaderLogoLinkText {
+//   @include lessThan($small) {
+//     flex-grow: auto;
+//     margin-left: 16px;
+//   }
+//   @include lessThan($tiny) {
+//     margin-left: 10px;
+//   }
+//   @include largerThan($small) {
+//     margin-top: 15px;
+//   }
+// }
+
+// .SideNavigation-OpenIcon {
+//   margin-right: 20px;
+//   @include lessThan($tiny) {
+//     margin-right: 10px;
+//   }
+//   @include largerThan($small) {
+//     display: none;
+//   }
+// }
 
 .SideNavigation-CloseIcon {
-  width: 21px;
-  margin-top: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 18px 8px 18px 16px;
+  font-size: 28px;
   @include largerThan($small) {
     display: none;
   }
