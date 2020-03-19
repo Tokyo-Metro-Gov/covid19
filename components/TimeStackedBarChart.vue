@@ -134,7 +134,7 @@ export default {
                     `${itemTitle}: ${data[index][tooltipItem.index]}`
                 )
                 .reduce((acc, labelByTitle) => `${acc} / ${labelByTitle}`)
-              return `${selectedSum} (${sumByTitle})`
+              return `${selectedSum}（${sumByTitle}）`
             },
             title(tooltipItem, data) {
               return data.labels[tooltipItem[0].index].replace(
