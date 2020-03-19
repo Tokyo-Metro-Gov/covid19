@@ -9,7 +9,7 @@ const config: Configuration = {
    */
   head: {
     htmlAttrs: {
-      prefix: 'og: http://ogp.me/ns#'
+      prefix: 'og: https://ogp.me/ns#'
     },
     titleTemplate: '%s | 山口県 新型コロナウイルス感染症対策サイト',
     meta: [
