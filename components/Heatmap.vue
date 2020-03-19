@@ -23,6 +23,10 @@ export default {
         return []
       }
     },
+    dataDate: {
+      type: String,
+      default: ''
+    },
     mapOptions: {
       type: Object,
       required: false,
@@ -40,12 +44,32 @@ export default {
   },
   data() {
     return {
-      dateSequence: []
+      dateSequence: [],
+      mapObject: null,
+      legend: null
     }
   },
   computed: {
     actualMapOptions() {
       return { container: this.mapId, ...this.mapOptions }
+    },
+    paintPropertyX() {
+      if (this.dataDate !== '') {
+        const p = [
+          'step',
+          ['get', this.dataDate],
+          '#1B75BC',
+          this.legend[0],
+          '#238B45',
+          this.legend[1],
+          '#006D2C',
+          this.legend[2],
+          '#00441B'
+        ]
+        this.mapObject.setPaintProperty('heatmap', 'fill-color', p)
+        return p
+      }
+      return []
     }
   },
   methods: {
@@ -69,22 +93,31 @@ export default {
       })
       const ceil = 10000 + Math.floor(m * 0.0001) * 10000
       const unit = 0.25 * ceil
+      this.legend = [unit, 2 * unit, 3 * unit]
       map.setPaintProperty('heatmap', 'fill-color', [
         'step',
         ['get', lastDate],
         '#1B75BC',
-        unit,
+        this.legend[0],
         '#238B45',
-        2 * unit,
+        this.legend[1],
         '#006D2C',
-        3 * unit,
+        this.legend[2],
         '#00441B'
       ])
       self.$emit('legendUpdated', [
-        { color: '#1B75BC', valueFrom: 0, valueTo: unit },
-        { color: '#238B45', valueFrom: unit, valueTo: 2 * unit },
-        { color: '#006D2C', valueFrom: 2 * unit, valueTo: 3 * unit },
-        { color: '#00441B', valueFrom: 3 * unit, valueTo: null }
+        { color: '#1B75BC', valueFrom: 0, valueTo: this.legend[0] },
+        {
+          color: '#238B45',
+          valueFrom: this.legend[0],
+          valueTo: this.legend[1]
+        },
+        {
+          color: '#006D2C',
+          valueFrom: this.legend[1],
+          valueTo: this.legend[2]
+        },
+        { color: '#00441B', valueFrom: this.legend[2], valueTo: null }
       ])
       self.$emit('input', self.getChartData(map))
       map.on('moveend', _e => {
@@ -97,8 +130,8 @@ export default {
       if (this.dateSequence.length === 0) {
         if (features.length === 0) {
           return [
-            { date: 0, value: 0 },
-            { date: 1, value: 0 }
+            { date: '20200201', value: 0 },
+            { date: '20200202', value: 0 }
           ]
         }
         this.dateSequence = Object.keys(features[0]).sort()

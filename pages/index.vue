@@ -121,8 +121,10 @@
             [139.706397, 35.694493]
           ]"
           :unit="'人'"
-          :url="'https://ds.yahoo.co.jp/'"
-          :source-link-header="'(C) Yahoo Japan'"
+          :url="'https://ds.yahoo.co.jp/datapolicy/'"
+          :source-link-header="
+            $t('※本データは2020年3月31日までの掲載となります')
+          "
           :link-string="$t('ヤフー・データソリューション')"
           :date="''"
         />
@@ -139,8 +141,10 @@
             [139.773774, 35.686703]
           ]"
           :unit="'人'"
-          :url="'https://ds.yahoo.co.jp/'"
-          :source-link-header="'(C) Yahoo Japan'"
+          :url="'https://ds.yahoo.co.jp/datapolicy/'"
+          :source-link-header="
+            $t('※本データは2020年3月31日までの掲載となります')
+          "
           :link-string="$t('ヤフー・データソリューション')"
           :date="''"
         />
