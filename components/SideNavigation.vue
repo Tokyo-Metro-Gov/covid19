@@ -8,16 +8,18 @@
       >
         mdi-menu
       </v-icon>
-      <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderLink">
-        <img
-          class="SideNavigation-HeaderLogo"
-          src="/logo.svg"
-          :alt="$t('東京都')"
-        />
-        <h1 class="SideNavigation-HeaderTitle">
-          {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
-        </h1>
-      </nuxt-link>
+      <h1 class="SideNavigation-HeaderTitle">
+        <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderLink">
+          <img
+            class="SideNavigation-HeaderLogo"
+            src="/logo.svg"
+            :alt="$t('東京都')"
+          />
+          <div class="SideNavigation-HeaderText">
+            {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
+          </div>
+        </nuxt-link>
+      </h1>
     </header>
 
     <div :class="['SideNavigation-Body', { '-opened': isNaviOpen }]">
@@ -251,10 +253,24 @@ export default Vue.extend({
   }
 }
 
-.SideNavigation-HeaderLink {
+.SideNavigation-HeaderTitle {
   width: 100%;
+  font-size: 13px;
+  color: #707070;
+  @include largerThan($small) {
+    margin: 0;
+    margin-top: 10px;
+  }
+}
+
+.SideNavigation-HeaderLink {
   display: flex;
   align-items: center;
+  height: 64px;
+  padding-right: 10px;
+  @include lessThan($tiny) {
+    justify-content: space-between;
+  }
   &:link,
   &:hover,
   &:focus,
@@ -282,13 +298,9 @@ export default Vue.extend({
   }
 }
 
-.SideNavigation-HeaderTitle {
-  margin-left: 10px;
-  font-size: 13px;
-  color: #707070;
-  @include largerThan($small) {
-    margin: 0;
-    margin-top: 10px;
+.SideNavigation-HeaderText {
+  @include largerThan($tiny) {
+    margin-left: 10px;
   }
 }
 
