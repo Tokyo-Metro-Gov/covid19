@@ -34,6 +34,7 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import { double as colors } from '@/utils/colors'
 
 interface HTMLElementEvent<T extends HTMLElement> extends Event {
   currentTarget: T
@@ -163,7 +164,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
-      const colorArray = ['#00A040', '#00D154']
       const borderColor = '#ffffff'
       const borderWidth = [
         { left: 0, top: 1, right: 0, bottom: 0 },
@@ -176,7 +176,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             return {
               label: this.items[index],
               data: item,
-              backgroundColor: colorArray[index],
+              backgroundColor: colors[index],
               borderColor,
               borderWidth: borderWidth[index]
             }
@@ -189,7 +189,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           return {
             label: this.items[index],
             data: this.cumulative(item),
-            backgroundColor: colorArray[index],
+            backgroundColor: colors[index],
             borderColor,
             borderWidth: borderWidth[index]
           }
