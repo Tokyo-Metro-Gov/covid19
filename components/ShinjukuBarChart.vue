@@ -54,6 +54,7 @@ import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
 import ShinjukuData from '@/data/shinjuku.json'
 import DataView from '@/components/DataView.vue'
+import { single as color } from '@/utils/colors'
 
 dayjs.extend(updateLocale)
 dayjs.extend(weekOfYear)
@@ -164,7 +165,7 @@ export default {
         datasets: [
           {
             data: percentages,
-            backgroundColor: '#008b41'
+            backgroundColor: color
           }
         ]
       }
