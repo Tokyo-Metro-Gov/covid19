@@ -1,9 +1,9 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <time-stacked-bar-chart
+    <tested-number-chart
       :title="$t('検査実施件数')"
       :title-id="'number-of-tested'"
-      :chart-id="'time-stacked-bar-chart-inspections'"
+      :chart-id="'tested-number-chart-inspections'"
       :chart-data="inspectionsGraph"
       :date="Data.inspections_summary.date"
       :items="inspectionsItems"
@@ -17,17 +17,17 @@
         <br />
         {{ $t('※2: チャーター便・クルーズ船') }}
       </template>
-    </time-stacked-bar-chart>
+    </tested-number-chart>
   </v-col>
 </template>
 
 <script>
 import Data from '@/data/data.json'
-import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
+import TestedNumberChart from '@/components/index/cards/charts/TestedNumberChart.vue'
 
 export default {
   components: {
-    TimeStackedBarChart
+    TestedNumberChart
   },
   data() {
     // 検査実施日別状況

@@ -160,7 +160,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     chartId: {
       type: String,
-      default: 'time-stacked-bar-chart'
+      default: 'tested-number-chart'
     },
     chartData: {
       type: Array,
