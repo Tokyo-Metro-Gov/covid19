@@ -97,6 +97,7 @@ export default Vue.extend()
     margin-right: 0.2em;
     display: inline-block;
     text-decoration: none;
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
     font: normal normal normal 24px/1 'Material Design Icons';
     font-size: inherit;
     text-rendering: auto;
