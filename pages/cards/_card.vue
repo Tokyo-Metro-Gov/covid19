@@ -162,7 +162,7 @@ export default {
         updatedAt = agencyData.date
         break
       case 'shinjuku-visitors':
-        title = '新宿区の来訪者数の推移'
+        title = this.$t('新宿区の来訪者数の推移')
         updatedAt = ShinjukuData.date
         break
     }

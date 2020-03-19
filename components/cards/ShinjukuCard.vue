@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <shinjuku-bar-chart
-      :title="'新宿区エリアの来訪者推移（参考値）'"
+      :title="$t('新宿区エリアの来訪者推移（参考値）')"
       :title-id="'shinjuku-visitors'"
       :chart-id="'shinjuku-visitors'"
       :standard-date="'2020-02-03'"

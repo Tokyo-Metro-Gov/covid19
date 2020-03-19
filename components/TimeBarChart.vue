@@ -1,7 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
-      <data-selector v-model="dataKind" :data-types="dataTypes" />
+      <data-selector v-model="dataKind" />
     </template>
     <bar
       :chart-id="chartId"
@@ -69,11 +69,7 @@ export default {
   },
   data() {
     return {
-      dataKind: 'transition',
-      dataTypes: [
-        { value: 'transition', tKey: '日別' },
-        { value: 'cumulative', tKey: '累計' }
-      ]
+      dataKind: 'transition'
     }
   },
   computed: {
