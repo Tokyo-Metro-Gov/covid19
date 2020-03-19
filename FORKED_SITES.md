@@ -26,7 +26,7 @@
 [](29)奈良県|https://stopcovid19.code4nara.org/|有志|[code4nara/covid19](https://github.com/code4nara/covid19)|
 [](33)岡山県|https://covid19-okayama.netlify.com/|学生エンジニア(有志)||
 [](34)広島県|https://covid19-hiroshima.netlify.com/|個人|[tatsuya1970/covid19](https://github.com/tatsuya1970/covid19)|
-[](35)山口県|https://dev-covid19-yamaguchi.netlify.com|有志|[nishidayoshikatsu/covid19-yamaguchi](https://github.com/nishidayoshikatsu/covid19-yamaguchi)|
+[](35)山口県|https://covid19-yamaguchi.netlify.com|有志|[nishidayoshikatsu/covid19-yamaguchi](https://github.com/nishidayoshikatsu/covid19-yamaguchi)|
 [](38)愛媛県|https://ehime-covid19.com/|ボランティア(有志)|[ehime-covid19/covid19](https://github.com/ehime-covid19/covid19)|
 [](39)高知県|https://covid19-kochi.netlify.com|学生エンジニア(有志)||
 []()九州|https://dev-covid19-kyusyu.netlify.com|九州(有志)|[Code-for-Kyushu/covid19](https://github.com/Code-for-Kyushu/covid19)|
