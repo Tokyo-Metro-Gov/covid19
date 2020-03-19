@@ -254,9 +254,7 @@ $default-boxh: 150px;
 @function px2vw($px, $vw: 0) {
   @if $vw > 0 {
     @return ceil($px / $vw * 100000vw) / 1000;
-  }
-
-  @else {
+  } @else {
     @return $px * 1px;
   }
 }
@@ -278,10 +276,9 @@ $default-boxh: 150px;
 
     &.cases {
       margin-left: px2vw($bdw, $vw);
-      width:
-        calc(
-          (100% - #{px2vw($bdw, $vw)} * 3) / 4 * 3 + #{px2vw($bdw, $vw)} * 2
-        );
+      width: calc(
+        (100% - #{px2vw($bdw, $vw)} * 3) / 4 * 3 + #{px2vw($bdw, $vw)} * 2
+      );
 
       > .title {
         margin-top: -1px;
@@ -290,17 +287,15 @@ $default-boxh: 150px;
       }
 
       > .pillar {
-        width:
-          calc(
-            (100% + #{px2vw($bdw, $vw)} * 2) / 3 - #{px2vw($bdw, $vw)} * 3
-          );
+        width: calc(
+          (100% + #{px2vw($bdw, $vw)} * 2) / 3 - #{px2vw($bdw, $vw)} * 3
+        );
       }
 
       > .group {
-        width:
-          calc(
-            (100% + #{px2vw($bdw, $vw)} * 2) / 3 * 2 + #{px2vw($bdw, $vw)}
-          );
+        width: calc(
+          (100% + #{px2vw($bdw, $vw)} * 2) / 3 * 2 + #{px2vw($bdw, $vw)}
+        );
       }
     }
 
