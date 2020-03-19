@@ -228,6 +228,7 @@ export default Vue.extend({
 .About {
   &-Heading {
     @include font-size(30);
+
     font-weight: normal;
     color: $gray-2;
     margin-bottom: 12px;

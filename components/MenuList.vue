@@ -96,6 +96,7 @@ export default class MenuList extends Vue {
 .MenuList {
   padding: 12px 0;
   border-bottom: 1px solid $gray-4;
+
   @include largerThan($small) {
     border-top: 1px solid $gray-4;
   }
@@ -120,6 +121,7 @@ export default class MenuList extends Vue {
   padding-top: 12px;
   padding-bottom: 12px;
   color: $gray-1;
+
   &:link,
   &:hover,
   &:focus,
@@ -128,16 +130,19 @@ export default class MenuList extends Vue {
     color: inherit;
     text-decoration: none;
   }
+
   &:hover,
   &:focus {
     font-weight: bold;
   }
+
   &:focus {
     outline: 1px dotted $gray-3;
   }
 
   &.nuxt-link-exact-active {
     font-weight: bold;
+
     &:link,
     &:hover,
     &:focus,
