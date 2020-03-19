@@ -13,7 +13,8 @@
     </div>
     <div :class="$style.Row">
       <div :class="[$style.Card, $style.CardLarge, $style.CardGray]">
-        <p :class="$style.Outpatient">
+        <!-- 英訳の場合は非表示にする -->
+        <p v-if="$i18n.locale !== 'en'" :class="$style.Outpatient">
           {{ $t('新型コロナ外来（帰国者・接触者外来）') }}
         </p>
         <p :class="$style.Judge">

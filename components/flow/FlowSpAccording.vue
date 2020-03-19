@@ -15,7 +15,8 @@
       </span>
     </i18n>
     <p :class="$style.decision">
-      <span :class="$style.fzSmall">
+      <!-- 英訳の場合は非表示にする -->
+      <span v-if="$i18n.locale !== 'en'" :class="$style.fzSmall">
         {{ $t('新型コロナ外来（帰国者・接触者外来）') }}
       </span>
       <span :class="[$style.fzLarge, $style.break]">{{
