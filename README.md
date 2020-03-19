@@ -1,12 +1,11 @@
-# 東京都 新型コロナウイルス感染症対策サイト
+# 千葉市 新型コロナウイルス感染症対策サイト
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bc7ec303-8d98-478d-85d3-c876109bb55d/deploy-status)](https://app.netlify.com/sites/stopcovid19-chiba/deploys)
 
-[![東京都 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
-
-### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md)
+[![千葉市 新型コロナウイルス感染症対策サイト](https://github.com/codeforchiba/covid19/blob/development/static/ogp.png?raw=true)](https://stopcovid19.code4chiba.org/)
 
 ## 貢献の仕方
+
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
 
 詳しくは[貢献の仕方](./.github/CONTRIBUTING.md)を御覧ください。
@@ -38,11 +37,3 @@ $ yarn dev
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
 ```
-
-### ステージング・本番環境への反映
-
-`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.metro.tokyo.lg.jp/ が更新されます。
-
-`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト https://stg-covid19-tokyo.netlify.com/ が更新されます。
-
-`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-covid19-tokyo.netlify.com/ が更新されます。
