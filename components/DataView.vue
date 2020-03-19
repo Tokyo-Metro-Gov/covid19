@@ -85,7 +85,7 @@
               </button>
             </div>
           </div>
-          <div class="DataView-Share-Opener" @click="toggleShareMenu">
+          <button class="DataView-Share-Opener" @click="toggleShareMenu">
             <svg
               width="14"
               height="16"
@@ -100,7 +100,7 @@
                 fill="#808080"
               />
             </svg>
-          </div>
+          </button>
         </div>
       </div>
     </div>
