@@ -191,6 +191,9 @@ export default Vue.extend({
     grid-template-rows: auto;
   }
 }
+.naviContainer {
+  background-color: $white;
+}
 @include lessThan($small) {
   .naviContainer {
     position: sticky;
