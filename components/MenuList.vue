@@ -135,13 +135,13 @@ export default class MenuList extends Vue {
     text-decoration: none;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     font-weight: bold;
   }
 
   &:focus {
-    outline: 1px dotted $gray-3;
+    font-weight: bold;
+    outline: dotted $gray-3 1px;
   }
 
   &.nuxt-link-exact-active {
@@ -149,10 +149,13 @@ export default class MenuList extends Vue {
 
     &:link,
     &:hover,
-    &:focus,
     &:visited,
     &:active {
       color: $green-1;
+    }
+    &:focus {
+      color: $green-1;
+      outline: dotted $gray-3 1px;
     }
   }
 }
