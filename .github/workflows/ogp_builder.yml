@@ -36,7 +36,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
       with:
         ref: staging
     - name: Download ogp images
