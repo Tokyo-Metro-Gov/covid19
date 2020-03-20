@@ -48,7 +48,10 @@
   "感染症を疑う場合の対応": "If you think your child is infected",
   "各保健所にご相談ください": "If your child has cold-like symptoms, a fever of 37.5 degrees or higher for at least four days, extreme fatigue, or diffficulty breathing, call your public health center.",
   "「新型コロナウイルス感染症にかかる相談窓口について」": "See the web page: Consultation Desks for COVID-19  (Tokyo Metropolitan Government Bureau of Social Welfare and Public Health)",
-  "その他": "Other information",
+  "その他": {
+    "parent": "Other information",
+    "graph": "Elsewhere"
+  },
   "詳細は、各学校からのお知らせ等をご確認ください。": "For details: check information from your school.",
   "企業の皆様・はたらく皆様へ": "To companies and those working in Tokyo",
   "新型コロナウイルス感染症に対応した制度融資": "Policy-based directed credits against COVID-19",
@@ -128,9 +131,8 @@
   "第二庁舎計": "No. 2 Bldg. total",
   "議事堂計": "Metropolitan Assembly Bldg. total",
   "※土・日・祝日を除く庁舎開庁日の1週間累計数": " Total number in government building business days of the week which exclude Saturdays: Sundays and holidays",
-  "検査実施<br />人数": " Number of tested",
   "陽性者数": "Total number of people testing positive",
-  "(累積)": " (Accum.)",
+  "(累計)": "(Total)",
   "入院中": "Hospitalized",
   "軽症・<br />中等症": " Minor to moderate symptoms",
   "重症": "Severe symptoms",
@@ -285,7 +287,7 @@
   "都営交通に関すること": "For Tokyo public transportation",
   "交通局": "Bureau of Transportation",
   "（都営交通お客様センター）": "(Toei Transportation Customer Center)",
-  "検査実施人数": "Number of tests conducted",
+  "検査実施人数": "Number of people tested",
   "（注）医療機関が保険適用で行った検査は含まれていない": "(Note) Excluding the examinations covered by insurance conducted at medical institutions.",
   "（注）チャーター機帰国者、クルーズ船乗客等は含まれていない": "(Note) Excluding the returnees on charter flights or the cruise ship passengers",
   "（注）速報値として公開するものであり、後日確定データとして修正される場合あり": "(Note) The number is published as preliminary figures and may be revised as confirmed data at a later date ",
@@ -296,5 +298,9 @@
   "※2) 土・日・祝日を除く7:30~8:30の1週間平均値": "*2 Average value from 7:30 to 8:30 during business days of the week which exclude Saturdays, Sundays and holidays",
   "※本データは2020年3月31日までの掲載となります": " *  This data is only available until March 31, 2020 and not after.",
   "出典: {source}": "Source: {source}",
-  "ヤフー・データソリューション": "Yahoo DATA SOLUTION"
+  "ヤフー・データソリューション": "Yahoo DATA SOLUTION",
+  "検査実施状況": "Status of conducted tests",
+  "都内発生": "Outbreaks in Tokyo",
+  "（チャーター機・クルーズ船等）": "(Returnees or cruise ship passengers)",
+  "（注）検査実施人数には、チャーター機帰国者、クルーズ船乗客等は含まれていない": "(Note) The number of people tested does not include the returnees on charter flights or the cruise ship passengers"
 }
