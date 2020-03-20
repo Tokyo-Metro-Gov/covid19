@@ -13,7 +13,9 @@
           <div class="SideNavigation-Logo">
             <img src="/logo.png" :alt="$t('新潟県')" />
           </div>
-          {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
+          (非公式){{ $t('新型コロナウイルス感染症') }}<br />{{
+            $t('対策サイト')
+          }}
         </h1>
       </nuxt-link>
     </header>
