@@ -27,14 +27,17 @@ export default Vue.extend({
   align-items: flex-end;
   flex-wrap: wrap;
 }
+
 .pageTitle {
+  @include font-size(30);
+
   color: $gray-2;
   display: flex;
   align-items: center;
-  @include font-size(30);
   line-height: 1;
   font-weight: normal;
   margin: 0 0.5em 0 0;
+
   @include lessThan($small) {
     @include font-size(20);
   }

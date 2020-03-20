@@ -4,13 +4,31 @@
       <slot name="description" />
     </template>
     <template v-slot:button>
-      <data-selector v-model="dataKind" :target-id="chartId" />
+      <data-selector
+        v-model="dataKind"
+        :target-id="chartId"
+        :style="{ display: canvas ? 'block' : 'none' }"
+      />
     </template>
     <bar
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="displayOption"
       :height="240"
+    />
+    <v-data-table
+      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
+      :headers="tableHeaders"
+      :items="tableData"
+      :items-per-page="-1"
+      :hide-default-footer="true"
+      :hide-default-header="true"
+      :height="240"
+      :fixed-header="true"
+      :mobile-breakpoint="0"
+      class="cardTable"
+      item-key="name"
     />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -21,8 +39,6 @@
     </template>
   </data-view>
 </template>
-
-<style></style>
 
 <script lang="ts">
 import Vue from 'vue'
@@ -35,6 +51,7 @@ import { single as color } from '@/utils/colors'
 
 type Data = {
   dataKind: 'transition' | 'cumulative'
+  canvas: boolean
 }
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
@@ -72,6 +89,13 @@ type Computed = {
     scales: object
   }
   scaledTicksYAxisMax: number
+  tableHeaders: {
+    text: string
+    value: string
+  }[]
+  tableData: {
+    [key: number]: number
+  }[]
 }
 type Props = {
   title: string
@@ -90,6 +114,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
@@ -122,7 +149,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
-    dataKind: 'transition'
+    dataKind: 'transition',
+    canvas: true
   }),
   computed: {
     displayCumulativeRatio() {
@@ -192,17 +220,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOption() {
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
-      return {
+      const options = {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem) {
+            label(tooltipItem: any) {
               const labelText = `${parseInt(
                 tooltipItem.value
               ).toLocaleString()} ${unit}`
               return labelText
             },
-            title(tooltipItem, data) {
+            title(tooltipItem: any, data: any) {
               return data.labels[tooltipItem[0].index]
             }
           }
@@ -291,6 +319,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ]
         }
       }
+      if (this.$route.query.ogp === 'true') {
+        Object.assign(options, { animation: { duration: 0 } })
+      }
+      return options
     },
     scaledTicksYAxisMax() {
       const yAxisMax = 1.2
@@ -298,6 +330,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         this.dataKind === 'transition' ? 'transition' : 'cumulative'
       const values = this.chartData.map(d => d[dataKind])
       return Math.max(...values) * yAxisMax
+    },
+    tableHeaders() {
+      return [
+        { text: '', value: 'text' },
+        { text: this.title, value: '0' }
+      ]
+    },
+    tableData() {
+      return this.displayData.datasets[0].data.map((_, i) => {
+        return Object.assign(
+          { text: this.displayData.labels[i] },
+          { '0': this.displayData.datasets[0].data[i] }
+        )
+      })
     }
   },
   methods: {
