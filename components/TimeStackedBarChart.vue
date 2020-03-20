@@ -216,7 +216,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return this.cumulative(item)
       })
       const cumulativeSumArray = this.eachArraySum(cumulativeData)
-      let options = {
+      const options = {
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -240,7 +240,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 this.dataLabels[tooltipItem.datasetIndex]
               }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
             },
-            title(tooltipItem, data) {
+            title(tooltipItem: any, data: any) {
               return data.labels[tooltipItem[0].index]
             }
           }
@@ -332,7 +332,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       if (this.$route.query.ogp === 'true') {
-        Object.assign(options, {animation:{duration: 0}})
+        Object.assign(options, { animation: { duration: 0 } })
       }
       return options
     }
