@@ -54,7 +54,10 @@
             rel="noopener"
             class="SideNavigation-SocialLink"
           >
-            <img src="/line.png" alt="LINE" />
+            <picture>
+              <source srcset="/line.webp" type="image/webp" />
+              <img src="/line.png" alt="LINE" />
+            </picture>
           </a>
           <a
             href="https://twitter.com/tokyo_bousai"
@@ -62,7 +65,10 @@
             rel="noopener"
             class="SideNavigation-SocialLink"
           >
-            <img src="/twitter.png" alt="Twitter" />
+            <picture>
+              <source srcset="/twitter.webp" type="image/webp" />
+              <img src="/twitter.png" alt="Twitter" />
+            </picture>
           </a>
           <a
             href="https://www.facebook.com/tochokoho"
@@ -70,7 +76,10 @@
             rel="noopener"
             class="SideNavigation-SocialLink"
           >
-            <img src="/facebook.png" alt="Facebook" />
+            <picture>
+              <source srcset="/facebook.webp" type="image/webp" />
+              <img src="/facebook.png" alt="Facebook" />
+            </picture>
           </a>
           <a
             href="https://github.com/tokyo-metropolitan-gov/covid19"
@@ -78,7 +87,10 @@
             rel="noopener"
             class="SideNavigation-SocialLink"
           >
-            <img src="/github.png" alt="GitHub" />
+            <picture>
+              <source srcset="/github.webp" type="image/webp" />
+              <img src="/github.png" alt="GitHub" />
+            </picture>
           </a>
         </div>
         <small class="SideNavigation-Copyright">
