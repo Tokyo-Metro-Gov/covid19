@@ -47,7 +47,6 @@
     position: relative;
     &::before {
       content: '';
-      position: absolute;
       margin: auto;
       width: px2vw(50);
       height: px2vw(50);
