@@ -32,7 +32,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://dev-niigata-informal.netlify.com/'
+        content: 'https://niigata.stopcovid19.jp/'
       },
       {
         hid: 'og:title',
@@ -48,8 +48,7 @@ const config: Configuration = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content:
-          'https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png'
+        content: 'https://niigata.stopcovid19.jp/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -59,23 +58,22 @@ const config: Configuration = {
       {
         hid: 'twitter:site',
         name: 'twitter:site',
-        content: '@tokyo_bousai'
+        content: '@code4niigata'
       },
       {
         hid: 'twitter:creator',
         name: 'twitter:creator',
-        content: '@tokyo_bousai'
+        content: '@code4niigata'
       },
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content:
-          'https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png'
+        content: 'https://niigata.stopcovid19.jp/ogp.png'
       },
       {
         hid: 'fb:app_id',
         property: 'fb:app_id',
-        content: '2879625188795443'
+        content: '208665406903237'
       },
       {
         hid: 'note:card',
