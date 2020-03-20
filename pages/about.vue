@@ -1,8 +1,8 @@
 <template>
   <div class="About">
-    <h2 class="About-Heading">
+    <page-header class="mb-3">
       {{ $t('当サイトについて') }}
-    </h2>
+    </page-header>
     <StaticCard>
       {{
         $t(
@@ -212,10 +212,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+import PageHeader from '@/components/PageHeader.vue'
 import StaticCard from '@/components/StaticCard.vue'
 
 export default Vue.extend({
   components: {
+    PageHeader,
     StaticCard
   },
   head(): MetaInfo {
@@ -225,14 +227,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="scss">
-.About {
-  &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
-    margin-bottom: 12px;
-  }
-}
-</style>

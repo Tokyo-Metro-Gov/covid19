@@ -1,8 +1,8 @@
 <template>
   <div class="Worker">
-    <h2 class="Worker-Heading">
+    <page-header class="mb-3">
       {{ $t('企業の皆様・はたらく皆様へ') }}
-    </h2>
+    </page-header>
     <StaticCard>
       <h3>
         <a
@@ -178,7 +178,7 @@
       <p>
         {{
           $t(
-            '新型コロナウイルスに関する休暇や休業の取り扱い、職場のハラスメントなどについての相談'
+            '新型コロナウイルスに関する休暇や休業の取り扱い、職場のハラスメント、内定取り消しなどについての相談'
           )
         }}
       </p>
@@ -209,19 +209,11 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import StaticCard from '@/components/StaticCard.vue'
-
-type ItemData = {
-  items: Item[]
-}
-
-type Item = {
-  title: string
-  link: string
-  body: string
-}
+import PageHeader from '@/components/PageHeader.vue'
 
 export default Vue.extend({
   components: {
+    PageHeader,
     StaticCard
   },
   head(): MetaInfo {
@@ -231,14 +223,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="scss">
-.Worker {
-  &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
-    margin-bottom: 12px;
-  }
-}
-</style>
