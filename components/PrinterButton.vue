@@ -3,7 +3,7 @@
     <v-btn
       class="PrinterButton"
       outlined
-      href="/print/flow"
+      :to="localePath(to)"
       target="_blank"
       @mouseover="mouseover"
       @mouseleave="mouseleave"
@@ -31,8 +31,11 @@ export default {
   props: {
     wrapperClass: {
       type: String,
-      required: false,
       default: ''
+    },
+    to: {
+      type: String,
+      required: true
     }
   },
   data() {
