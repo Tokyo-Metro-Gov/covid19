@@ -43,12 +43,14 @@
 <style module lang="scss">
 .Container {
   @include card-container();
+
   display: flex;
   flex-direction: column;
   position: relative;
   padding: 20px 30px !important;
   text-align: center;
 }
+
 .Row {
   flex-grow: 1;
   display: flex;
@@ -56,20 +58,24 @@
   justify-content: center;
   margin-bottom: 15px;
 }
+
 .Row:last-of-type {
   margin: 0;
 }
+
 .TwoRow {
   flex-grow: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .Catch {
   color: $gray-2;
   font-weight: bold;
   margin: 0 !important;
 }
+
 .Card {
   width: 48%;
   display: flex;
@@ -78,39 +84,49 @@
   align-items: center;
   border-radius: 4px;
   padding: 10px;
+
   p {
     margin: 0 !important; // FIXME: IEだとv-applicationのmarginが優先される
   }
 }
+
 .CardLarge {
   flex-basis: 100%;
 }
+
 .CardGray {
   color: $white;
   background-color: $gray-2;
   border: 0.5px solid $gray-4 !important;
 }
+
 .CardWhite {
   background-color: $white;
   border: 2px solid $green-1 !important;
+
   &Text {
     font-size: 22px;
     color: $gray-2;
   }
 }
+
 .CardGreen {
   background-color: $green-1;
+
   &Text {
     color: $white;
     font-size: 22px;
   }
 }
+
 .Outpatient {
   font-size: 18px;
 }
+
 .Judge {
   font-size: 20px;
 }
+
 .Emphasis {
   font-size: 28px;
 }

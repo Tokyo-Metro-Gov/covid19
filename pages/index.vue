@@ -102,14 +102,18 @@ export default Vue.extend({
   .Header {
     display: flex;
     align-items: baseline;
+
     @include lessThan($small) {
       flex-direction: column;
     }
   }
+
   .UpdatedAt {
     @include font-size(14);
+
     color: $gray-3;
   }
+
   .annotation {
     font-size: 0.75rem;
     color: $gray-3;
@@ -121,10 +125,12 @@ export default Vue.extend({
   }
   .DataBlock {
     margin: 20px -8px;
+
     .DataCard {
       @include largerThan($medium) {
         padding: 10px;
       }
+
       @include lessThan($small) {
         padding: 4px 8px;
       }
