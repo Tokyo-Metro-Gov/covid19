@@ -218,8 +218,10 @@ export default Vue.extend({
     PageHeader,
     StaticCard
   },
-  head: (): MetaInfo => ({
-    title: '当サイトについて'
-  })
+  head(): MetaInfo {
+    return {
+      title: this.$t('当サイトについて') as string
+    }
+  }
 })
 </script>
