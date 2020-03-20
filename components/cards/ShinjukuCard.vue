@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import ShinjukuData from '@/data/shinjuku.json'
+import ShinjukuData from '@/data/13104_daily_visitors.json'
 import ShinjukuBarChart from '@/components/ShinjukuBarChart.vue'
 
 export default {
