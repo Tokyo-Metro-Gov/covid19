@@ -16,7 +16,9 @@
             :alt="$t('東京都')"
           />
           <div class="SideNavigation-HeaderText">
-            {{ $t('新型コロナウイルス感染症-') }}<br />{{ $t('対策サイト') }}
+            {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
+              $t('menu/策サイト')
+            }}
           </div>
         </nuxt-link>
       </h1>
