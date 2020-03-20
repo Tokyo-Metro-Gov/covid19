@@ -300,7 +300,7 @@ export default Vue.extend({
     margin: 10px 0 0;
     font-size: 12px;
     color: $gray-3;
-    
+
     ul,
     ol {
       list-style-type: none;
