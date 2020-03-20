@@ -159,6 +159,7 @@
     &:focus {
       color: inherit;
       text-decoration: none;
+      outline: 1px dotted $gray-3;
     }
 
     &Icon {
