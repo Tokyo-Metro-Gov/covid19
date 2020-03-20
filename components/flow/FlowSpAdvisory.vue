@@ -50,10 +50,13 @@
             </span>
             <a href="tel:0353204592">03-5320-4592</a>
           </div>
-          <div :class="[$style.phone, $style.fzNumeric]">
-              <span :class="[$style.fzMedium, $style.break, $style.mb10]">
-                {{ $t('ひまわり') }}
-              </span>
+          <div
+            v-if="!['ja', 'ja-basic'].includes($i18n.locale)"
+            :class="[$style.phone, $style.fzNumeric]"
+          >
+            <span :class="[$style.fzMedium, $style.break, $style.mb10]">
+              {{ $t('ひまわり') }}
+            </span>
           </div>
         </dd>
       </div>
