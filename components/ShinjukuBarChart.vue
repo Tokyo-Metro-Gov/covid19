@@ -54,7 +54,7 @@ import 'dayjs/locale/en'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
-import shinjukuData from '@/data/shinjuku.json'
+import shinjukuData from '@/data/13104_daily_visitors.json'
 import DataView from '@/components/DataView.vue'
 import { single as color } from '@/utils/colors'
 
@@ -201,7 +201,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     standardValue() {
       const standardDays = this.groupByWeekData[dayjs(this.standardDate).week()]
       const sum: number = standardDays.reduce(
-        (sum: number, d: { value: number }) => (sum += d.value),
+        (sum: number, d: { population: number }) => (sum += d.population),
         0
       )
       return sum / standardDays.length
@@ -216,8 +216,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     targetValues() {
       return Object.values(this.targetData).map((days: any) => {
-        const sum = days.reduce((sum: number, d: { value: number }) => {
-          return (sum += d.value)
+        const sum = days.reduce((sum: number, d: { population: number }) => {
+          return (sum += d.population)
         }, 0)
         return sum / days.length
       })
