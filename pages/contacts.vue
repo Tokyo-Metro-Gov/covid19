@@ -134,17 +134,21 @@ export default Vue.extend({
 .Contacts {
   &-Heading {
     @include font-size(30);
+
     font-weight: normal;
     color: $gray-2;
     margin-bottom: 12px;
   }
+
   &-Card {
     @include card-container();
+
     padding: 1px; // tr:hover で外枠が消えないように
     &-Table {
       th {
         font-size: 14px !important;
       }
+
       tr:hover {
         background: $white !important;
       }
@@ -178,9 +182,11 @@ export default Vue.extend({
             padding-bottom: 12px;
           }
         }
+
         tbody td {
           height: auto;
         }
+
         td {
           display: block;
         }
