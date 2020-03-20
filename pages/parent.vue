@@ -48,7 +48,7 @@
       </ul>
     </StaticCard>
     <StaticCard>
-      <h3>3. {{ $t('その他') }}</h3>
+      <h3>3. {{ $t('その他.parent') }}</h3>
       <p>{{ $t('詳細は、各学校からのお知らせ等をご確認ください。') }}</p>
     </StaticCard>
   </div>
@@ -84,6 +84,7 @@ export default Vue.extend({
 .Parent {
   &-Heading {
     @include font-size(30);
+
     font-weight: normal;
     color: $gray-2;
     margin-bottom: 12px;

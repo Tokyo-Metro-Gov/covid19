@@ -72,6 +72,7 @@ export default {
   margin-top: px2vw(20);
   display: flex;
   justify-content: center;
+
   > span {
     display: flex;
     justify-content: center;
@@ -82,34 +83,42 @@ export default {
     border-radius: px2vw(6);
   }
 }
+
 .daytime {
   margin-top: px2vw(20);
   display: flex;
   border-top: 1px solid $gray-4;
   border-bottom: 1px solid $gray-4;
+
   > * {
     padding: px2vw(30) px2vw(10);
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
   .title {
     text-align: center;
     flex-basis: 40%;
   }
+
   .link {
     flex-basis: 60%;
+
     > a {
       text-decoration: none;
     }
   }
 }
+
 .night {
   margin: px2vw(30) auto;
   padding-left: 0 !important;
   text-align: center;
+
   > li {
     list-style-type: none;
+
     &:not(:first-child) {
       margin-top: px2vw(20);
     }
@@ -118,21 +127,27 @@ export default {
 
 @include largerThan($small) {
   $vw: 960;
+
   .open {
     margin-top: px2vw(20, $vw);
+
     > span {
       padding: px2vw(20) px2vw(40, $vw);
       border-radius: px2vw(6, $vw);
     }
   }
+
   .daytime {
     margin-top: px2vw(20, $vw);
+
     > * {
       padding: px2vw(30) px2vw(10, $vw);
     }
   }
+
   .night {
     margin: px2vw(30, $vw) auto;
+
     > li {
       &:not(:first-child) {
         margin-top: px2vw(20, $vw);
