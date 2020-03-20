@@ -110,7 +110,7 @@ export default {
   props: ['height', 'chartData'],
   data() {
     return {
-      marginLeft: 60,
+      marginLeft: 70,
       marginTop: 4,
       marginRight: 4,
       marginBottom: 40,

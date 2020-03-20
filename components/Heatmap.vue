@@ -1,6 +1,5 @@
 <template>
   <mapbox
-    class="MapCardMap"
     :access-token="''"
     :map-options="actualMapOptions"
     @map-load="loaded"
@@ -28,14 +27,7 @@ export default {
       type: Object,
       required: false,
       default: () => {
-        return {
-          style:
-            'https://tokyo-metropolitan-gov.github.io/tokyo-vector-tile/style.json',
-          zoom: 14,
-          center: [139.69167, 35.689444],
-          antialias: false,
-          interactive: false
-        }
+        return {}
       }
     }
   },
@@ -48,7 +40,16 @@ export default {
   },
   computed: {
     actualMapOptions() {
-      return { container: this.mapId, ...this.mapOptions }
+      return {
+        style:
+          'https://tokyo-metropolitan-gov.github.io/tokyo-vector-tile/style.json',
+        zoom: 14,
+        center: [139.69167, 35.689444],
+        antialias: false,
+        interactive: false,
+        ...this.mapOptions,
+        container: this.mapId
+      }
     }
   },
   methods: {
@@ -133,9 +134,9 @@ export default {
     },
     loaded(map) {
       // const tileUrl = `https://map-covid19-tokyo.netlify.com/mashed_tiles/{z}/{x}/{y}.pbf`
-      // const tileUrl = `http://localhost:3000/mashed_tiles/{z}/{x}/{y}.pbf`
-      const tileUrl =
-        'https://deploy-preview-2--map-covid19-tokyo.netlify.com/mashed_tiles/{z}/{x}/{y}.pbf'
+      const tileUrl = `http://localhost:3000/mashed_tiles/{z}/{x}/{y}.pbf`
+      // const tileUrl =
+      //  'https://deploy-preview-2--map-covid19-tokyo.netlify.com/mashed_tiles/{z}/{x}/{y}.pbf'
       if (
         this.initialBounds.length > 1 &&
         this.initialBounds[0].length > 1 &&

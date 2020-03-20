@@ -16,8 +16,10 @@
         ref="heatmapComponentRef"
         v-model="rawChartData"
         class="MapCard-Heatmap"
+        :style="{ height: mapHeight + 'px' }"
         :map-id="mapId"
         :initial-bounds="initialBounds"
+        :map-options="mapOptions"
         @legendUpdated="updateLegend"
         @loadCompleted="loadCompleted"
       />
@@ -76,6 +78,10 @@ export default {
       type: String,
       default: ''
     },
+    mapHeight: {
+      type: Number,
+      default: 240
+    },
     linkString: {
       type: String,
       default: ''
@@ -83,6 +89,13 @@ export default {
     sourceLinkHeader: {
       type: String,
       default: ''
+    },
+    mapOptions: {
+      type: Object,
+      default: () => {
+        return {}
+      },
+      required: false
     },
     initialBounds: {
       type: Array,
@@ -133,9 +146,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.MapCardMap {
-  height: 240px;
-}
 .MapCard-BodyContainer {
   position: relative;
   &-LoadingScreen {
