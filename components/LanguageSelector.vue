@@ -50,12 +50,15 @@ export default class LanguageSelector extends Vue {
   padding: 0 6px;
   border-radius: 4px;
   height: 28px;
+
   .EarthIcon {
     order: -1;
   }
+
   .SelectMenuIcon {
     margin-left: auto;
   }
+
   &::before {
     content: 'Lang:';
     margin-left: 4px;
