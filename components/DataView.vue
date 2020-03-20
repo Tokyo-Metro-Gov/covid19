@@ -51,7 +51,11 @@
         </div>
 
         <div v-if="this.$route.query.embed != 'true'" class="Footer-Right">
-          <div v-if="displayShare" class="DataView-Share-Buttons py-2">
+          <div
+            v-if="displayShare"
+            class="DataView-Share-Buttons py-2"
+            @click="stopClosingShareMenu"
+          >
             <div class="Close-Button">
               <v-icon @click="closeShareMenu">
                 mdi-close
@@ -155,8 +159,21 @@ export default Vue.extend({
       return graphEmbedValue
     }
   },
+  watch: {
+    displayShare(isShow: boolean) {
+      if (isShow) {
+        document.documentElement.addEventListener('click', this.toggleShareMenu)
+      } else {
+        document.documentElement.removeEventListener(
+          'click',
+          this.toggleShareMenu
+        )
+      }
+    }
+  },
   methods: {
-    toggleShareMenu() {
+    toggleShareMenu(e: Event) {
+      e.stopPropagation()
       this.displayShare = !this.displayShare
     },
     closeShareMenu() {
@@ -175,6 +192,9 @@ export default Vue.extend({
           self.showOverlay = false
         }, 2000)
       })
+    },
+    stopClosingShareMenu(e: Event) {
+      e.stopPropagation()
     },
     permalink(host: boolean = false, embed: boolean = false) {
       let permalink = '/cards/' + this.titleId
