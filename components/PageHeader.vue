@@ -34,7 +34,7 @@ export default Vue.extend({
   color: $gray-2;
   display: flex;
   align-items: center;
-  line-height: 1;
+  line-height: 1.35;
   font-weight: normal;
   margin: 0 0.5em 0 0;
 
