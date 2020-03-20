@@ -204,7 +204,8 @@ export default Vue.extend({
   position: relative;
   height: 100%;
   background: $white;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+
   &:focus {
     outline: none;
   }
@@ -283,13 +284,16 @@ export default Vue.extend({
     color: inherit;
     text-decoration: none;
   }
+
   &:hover,
   &:focus {
     font-weight: bold;
   }
+
   &:focus {
     outline: 1px dotted $gray-3;
   }
+
   @include largerThan($small) {
     display: block;
     padding: 15px 0;
@@ -307,6 +311,7 @@ export default Vue.extend({
   @include lessThan($small) {
     margin: 0 0 0 10px;
   }
+
   @include lessThan($tiny) {
     margin: 0;
   }
@@ -363,6 +368,7 @@ export default Vue.extend({
   border: 1px dotted transparent;
   border-radius: 30px;
   color: $gray-3;
+
   &:link,
   &:hover,
   &:focus,
@@ -371,6 +377,7 @@ export default Vue.extend({
     color: inherit;
     text-decoration: none;
   }
+
   &:focus {
     border-color: $gray-3;
     outline: none;

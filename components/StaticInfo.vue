@@ -54,13 +54,17 @@ export default Vue.extend({
   box-shadow: $shadow;
   border-radius: 4px;
   padding: 0.5em 1em;
+
   @include text-link();
+
   &-Button {
     flex: 1 0 auto;
     text-align: right;
+
     > span {
       @include button-text('sm');
     }
+
     @include lessThan($small) {
       margin-top: 4px;
     }
