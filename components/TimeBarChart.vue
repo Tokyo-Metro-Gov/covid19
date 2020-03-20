@@ -192,17 +192,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOption() {
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
-      let options = {
+      const options = {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem) {
+            label(tooltipItem: any) {
               const labelText = `${parseInt(
                 tooltipItem.value
               ).toLocaleString()} ${unit}`
               return labelText
             },
-            title(tooltipItem, data) {
+            title(tooltipItem: any, data: any) {
               return data.labels[tooltipItem[0].index]
             }
           }
@@ -292,7 +292,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       if (this.$route.query.ogp === 'true') {
-        Object.assign(options, {animation:{duration: 0}})
+        Object.assign(options, { animation: { duration: 0 } })
       }
       return options
     },
