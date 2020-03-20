@@ -3,6 +3,7 @@
     <template v-slot:button>
       <data-selector
         v-model="dataKind"
+        :target-id="chartId"
         :style="{ display: canvas ? 'block' : 'none' }"
       />
     </template>
@@ -35,8 +36,6 @@
     </template>
   </data-view>
 </template>
-
-<i18n src="./TimeBarChart.i18n.json"></i18n>
 
 <style></style>
 

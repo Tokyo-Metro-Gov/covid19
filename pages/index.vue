@@ -25,8 +25,6 @@
   </div>
 </template>
 
-<i18n src="./index.i18n.json"></i18n>
-
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'

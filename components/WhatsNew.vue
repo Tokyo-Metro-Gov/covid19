@@ -1,11 +1,11 @@
 <template>
   <div class="WhatsNew">
-    <h2 class="WhatsNew-heading">
+    <h3 class="WhatsNew-heading">
       <v-icon size="24" class="WhatsNew-heading-icon">
         mdi-information
       </v-icon>
       {{ $t('最新のお知らせ') }}
-    </h2>
+    </h3>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
         <a
@@ -21,7 +21,7 @@
             {{ item.date }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
-            {{ $t(item.text) }}
+            {{ item.text }}
             <v-icon
               v-if="!isInternalLink(item.url)"
               class="WhatsNew-item-ExternalLinkIcon"
@@ -35,8 +35,6 @@
     </ul>
   </div>
 </template>
-
-<i18n src="./WhatsNew.i18n.json"></i18n>
 
 <script lang="ts">
 import Vue from 'vue'
@@ -86,12 +84,13 @@ export default Vue.extend({
 
   &-item {
     &-anchor {
-      display: flex;
+      display: inline-block;
       text-decoration: none;
       margin: 5px;
       font-size: 14px;
 
       @include lessThan($medium) {
+        display: flex;
         flex-wrap: wrap;
       }
 

@@ -2,7 +2,7 @@
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
       <small :class="$style.DataViewDesc">
-        ※土・日・祝日を除く庁舎開庁日の1週間累計数
+        {{ $t('※土・日・祝日を除く庁舎開庁日の1週間累計数') }}
       </small>
     </template>
     <bar
@@ -27,8 +27,6 @@
   </data-view>
 </template>
 
-<i18n src="./AgencyBarChart.i18n.json"></i18n>
-
 <style module lang="scss">
 .DataView {
   &Desc {
@@ -48,6 +46,9 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
 
+interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
+  currentTarget: T
+}
 type Data = {
   canvas: boolean
   chartData: typeof agencyData
@@ -164,19 +165,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             label(tooltipItem, data) {
               const index = tooltipItem.datasetIndex!
               const title = self.$t(data.datasets![index].label!)
-              const num = tooltipItem.value
+              const num = parseInt(tooltipItem.value!).toLocaleString()
               const unit = self.$t(self.unit)
-              return `${title}: ${num}${unit}`
+              return `${title}: ${num} ${unit}`
             }
           }
         },
         legend: {
           display: true,
-          onHover: e => {
-            ;(e!.currentTarget as HTMLElement).style!.cursor = 'pointer'
+          onHover: (e: HTMLElementEvent<HTMLInputElement>) => {
+            e.currentTarget!.style!.cursor = 'pointer'
           },
-          onLeave: e => {
-            ;(e!.currentTarget as HTMLElement).style!.cursor = 'default'
+          onLeave: (e: HTMLElementEvent<HTMLInputElement>) => {
+            e.currentTarget!.style!.cursor = 'default'
+          },
+          labels: {
+            boxWidth: 20
           }
         },
         scales: {
