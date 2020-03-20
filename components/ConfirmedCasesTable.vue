@@ -8,7 +8,7 @@
             <br />({{ $t('累計') }})
           </span>
           <span>
-            <b>{{ 陽性物数 }}</b>
+            <strong>{{ 陽性物数 }}</strong>
             <span :class="$style.unit">{{ $t('人') }}</span>
           </span>
         </div>
@@ -19,7 +19,7 @@
             <div :class="$style.content">
               <span>{{ $t('入院中') }}</span>
               <span>
-                <b>{{ 入院中 }}</b>
+                <strong>{{ 入院中 }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </span>
             </div>
@@ -32,7 +32,7 @@
                   <span v-html="$t('軽症・<br />中等症')" />
                   <!-- eslint-enable vue/no-v-html-->
                   <span>
-                    <b>{{ 軽症中等症 }}</b>
+                    <strong>{{ 軽症中等症 }}</strong>
                     <span :class="$style.unit">{{ $t('人') }}</span>
                   </span>
                 </div>
@@ -43,7 +43,7 @@
                 <div :class="$style.content">
                   <span>{{ $t('重症') }}</span>
                   <span>
-                    <b>{{ 重症 }}</b>
+                    <strong>{{ 重症 }}</strong>
                     <span :class="$style.unit">{{ $t('人') }}</span>
                   </span>
                 </div>
@@ -56,7 +56,7 @@
             <div :class="$style.content">
               <span>{{ $t('死亡') }}</span>
               <span>
-                <b>{{ 死亡 }}</b>
+                <strong>{{ 死亡 }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </span>
             </div>
@@ -67,7 +67,7 @@
             <div :class="$style.content">
               <span>{{ $t('退院') }}</span>
               <span>
-                <b>{{ 退院 }}</b>
+                <strong>{{ 退院 }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </span>
             </div>
@@ -275,8 +275,7 @@ $default-boxdiff: 35px;
       margin-top: 0.1em;
     }
   }
-
-  span b {
+  span strong {
     @include font-size(18);
   }
 
@@ -368,8 +367,7 @@ $default-boxdiff: 35px;
     > span {
       @include font-size($fz);
     }
-
-    span b {
+    span strong {
       @include font-size($fz + 2);
     }
 

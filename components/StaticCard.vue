@@ -17,6 +17,7 @@ export default Vue.extend()
   padding: 20px;
   margin-bottom: 20px;
 
+  overflow-wrap: break-word;
   > *:not(:first-child) {
     margin-top: 1.2em;
   }

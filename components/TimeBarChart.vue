@@ -190,7 +190,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOption() {
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
-      return {
+      let options = {
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -289,6 +289,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ]
         }
       }
+      if (this.$route.query.ogp === 'true') {
+        Object.assign(options, {animation:{duration: 0}})
+      }
+      return options
     },
     scaledTicksYAxisMax() {
       const yAxisMax = 1.2

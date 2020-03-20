@@ -1,10 +1,5 @@
 <template>
-  <component
-    :is="isInternalLink ? 'nuxt-link' : 'a'"
-    :to="isInternalLink ? url : ''"
-    :href="isInternalLink ? '' : url"
-    class="StaticInfo"
-  >
+  <component :is="linkTag" v-bind="linkAttrs">
     <span>{{ text }}</span>
     <div v-if="btnText" class="StaticInfo-Button">
       <span>
@@ -33,6 +28,14 @@ export default Vue.extend({
     }
   },
   computed: {
+    linkTag(): string {
+      return this.isInternalLink ? 'nuxt-link' : 'a'
+    },
+    linkAttrs(): any {
+      return this.isInternalLink
+        ? { to: this.url, class: 'StaticInfo' }
+        : { href: this.url, class: 'StaticInfo' }
+    },
     isInternalLink(): boolean {
       return !/^https?:\/\//.test(this.url)
     }
