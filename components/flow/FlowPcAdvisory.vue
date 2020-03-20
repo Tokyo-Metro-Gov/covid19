@@ -85,6 +85,7 @@
   justify-content: space-between;
   height: 100%;
   color: $gray-2;
+
   &Container {
     background-color: $gray-5;
     border-radius: 4px;
@@ -93,48 +94,61 @@
     margin-bottom: 10px;
     text-align: center;
   }
+
   &Contents {
     font-weight: bold;
+
     &:not(:first-child) {
       border-top: 0.5px solid $gray-4;
     }
+
     &Title {
       font-size: 26px;
       line-height: 28px;
     }
+
     &Title2 {
       font-size: 18px;
     }
+
     &SubTitle {
       font-size: 18px;
     }
+
     &ColsSentense {
       line-height: 18px;
     }
   }
+
   &BlockCentering {
     display: flex;
     justify-content: center;
   }
+
   &Link {
     line-height: 22px;
     text-align: left;
+
     a {
       color: rgba(0, 0, 0, 0.87);
       text-decoration: none;
+
       &:hover {
         text-decoration: underline;
       }
     }
   }
+
   &TelephoneArea {
     display: inline-flex;
   }
+
   &Telephone {
     display: flex;
     align-items: center;
     font-size: 27px;
     font-weight: bold;
+
     &:link,
     &:visited,
     &:hover,
@@ -143,6 +157,7 @@
       color: inherit;
       text-decoration: none;
     }
+
     &Icon {
       display: inline-block;
       margin-right: 5px;
@@ -150,16 +165,19 @@
       height: 26px;
     }
   }
+
   &BoxContainer {
     border-radius: 4px;
     text-align: center;
     padding: 20px 10px;
     margin: 24px auto;
   }
+
   &WhiteBox {
     background-color: $white;
     width: 160px;
     padding: 10px;
+
     &Sentense {
       color: $green-1;
       font-size: 18px;

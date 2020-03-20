@@ -16,14 +16,32 @@
           }}
         </li>
       </ul>
-      <data-selector v-model="dataKind" :target-id="chartId" />
+      <data-selector
+        v-model="dataKind"
+        :target-id="chartId"
+        :style="{ display: canvas ? 'block' : 'none' }"
+      />
     </template>
     <bar
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="options"
       :height="240"
     />
+    <v-data-table
+      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
+      :headers="tableHeaders"
+      :items="tableData"
+      :items-per-page="-1"
+      :hide-default-footer="true"
+      :height="240"
+      :fixed-header="true"
+      :mobile-breakpoint="0"
+      class="cardTable"
+      item-key="name"
+    />
+
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -48,6 +66,7 @@ interface HTMLElementEvent<T extends HTMLElement> extends Event {
 }
 type Data = {
   dataKind: 'transition' | 'cumulative'
+  canvas: boolean
 }
 type Methods = {
   sum: (array: number[]) => number
@@ -73,6 +92,13 @@ type Computed = {
       borderWidth: object
     }[]
   }
+  tableHeaders: {
+    text: string
+    value: string
+  }[]
+  tableData: {
+    [key: number]: number
+  }[]
   options: {
     tooltips: {
       displayColors: boolean
@@ -111,6 +137,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
@@ -154,7 +183,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
-    dataKind: 'transition'
+    dataKind: 'transition',
+    canvas: true
   }),
   computed: {
     displayInfo() {
@@ -208,6 +238,26 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         })
       }
     },
+    tableHeaders() {
+      return [
+        { text: '', value: 'text' },
+        ...this.items.map((text, value) => {
+          return { text, value: String(value) }
+        })
+      ]
+    },
+    tableData() {
+      return this.displayData.datasets[0].data.map((_, i) => {
+        return Object.assign(
+          { text: this.labels[i] },
+          ...this.items.map((_, j) => {
+            return {
+              [j]: this.displayData.datasets[j].data[i]
+            }
+          })
+        )
+      })
+    },
     options() {
       const unit = this.unit
       const sumArray = this.eachArraySum(this.chartData)
@@ -240,7 +290,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 this.dataLabels[tooltipItem.datasetIndex]
               }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
             },
-            title(tooltipItem, data) {
+            title(tooltipItem: any, data: any) {
               return data.labels[tooltipItem[0].index]
             }
           }
@@ -381,7 +431,7 @@ export default Vue.extend(options)
 .Graph-Desc {
   width: 100%;
   margin: 0;
-  padding-left: 0px;
+  padding-left: 0;
   list-style: none;
   font-size: 12px;
   color: $gray-3;

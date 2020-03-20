@@ -6,10 +6,23 @@
       </small>
     </template>
     <bar
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="displayOption"
       :height="240"
+    />
+    <v-data-table
+      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
+      :headers="tableHeaders"
+      :items="tableData"
+      :items-per-page="-1"
+      :hide-default-footer="true"
+      :height="240"
+      :fixed-header="true"
+      :mobile-breakpoint="0"
+      class="cardTable"
+      item-key="name"
     />
   </data-view>
 </template>
@@ -28,15 +41,17 @@
 <script lang="ts">
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
+import { ChartOptions } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
 import { triple as colors } from '@/utils/colors'
 
-interface HTMLElementEvent<T extends HTMLElement> extends Event {
+interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
 }
 type Data = {
+  canvas: boolean
   chartData: typeof agencyData
   date: string
   agencies: VueI18n.TranslateResult[]
@@ -53,7 +68,14 @@ type Computed = {
       borderWidth: object
     }[]
   }
-  displayOption: any
+  displayOption: ChartOptions
+  tableHeaders: {
+    text: string
+    value: string
+  }[]
+  tableData: {
+    [key: number]: number
+  }[]
 }
 type Props = {
   title: string
@@ -70,6 +92,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView },
   props: {
     title: {
@@ -108,6 +133,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       dataset.label = this.$t(dataset.label) as string
     })
     return {
+      canvas: true,
       chartData: agencyData,
       date: agencyData.date,
       agencies
@@ -136,20 +162,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOption() {
       const self = this
-      const options = {
+      const options: ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
-            title(tooltipItem: any) {
+            title(tooltipItem) {
               const dateString = tooltipItem[0].label
               return self.$t('期間: {duration}', {
                 duration: dateString!
               }) as string
             },
-            label(tooltipItem: any, data: any) {
+            label(tooltipItem, data) {
               const index = tooltipItem.datasetIndex!
-              const title = self.$t(data.datasets[index].label!)
-              const num = parseInt(tooltipItem.value).toLocaleString()
+              const title = self.$t(data.datasets![index].label!)
+              const num = parseInt(tooltipItem.value!).toLocaleString()
               const unit = self.$t(self.unit)
               return `${title}: ${num} ${unit}`
             }
@@ -158,10 +184,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         legend: {
           display: true,
           onHover: (e: HTMLElementEvent<HTMLInputElement>) => {
-            e!.currentTarget.style!.cursor = 'pointer'
+            e.currentTarget!.style!.cursor = 'pointer'
           },
           onLeave: (e: HTMLElementEvent<HTMLInputElement>) => {
-            e!.currentTarget.style!.cursor = 'default'
+            e.currentTarget!.style!.cursor = 'default'
           },
           labels: {
             boxWidth: 20
@@ -190,7 +216,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 9,
                 fontColor: '#808080',
                 maxTicksLimit: 10,
-                callback(label: string) {
+                callback(label) {
                   return `${label}${self.unit}`
                 }
               }
@@ -202,6 +228,26 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         Object.assign(options, { animation: { duration: 0 } })
       }
       return options
+    },
+    tableHeaders() {
+      return [
+        { text: '', value: 'text' },
+        ...this.displayData.datasets.map((text, value) => {
+          return { text: text.label, value: String(value) }
+        })
+      ]
+    },
+    tableData() {
+      return this.displayData.datasets[0].data.map((_, i) => {
+        return Object.assign(
+          { text: this.displayData.labels[i] as string },
+          ...this.displayData.datasets!.map((_, j) => {
+            return {
+              [j]: this.displayData.datasets[0].data[i]
+            }
+          })
+        )
+      })
     }
   }
 }

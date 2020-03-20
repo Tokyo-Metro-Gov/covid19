@@ -84,6 +84,7 @@ export default Vue.extend({
 .Parent {
   &-Heading {
     @include font-size(30);
+
     font-weight: normal;
     color: $gray-2;
     margin-bottom: 12px;
