@@ -13,12 +13,19 @@
     </div>
     <div :class="$style.Row">
       <div :class="[$style.Card, $style.CardLarge, $style.CardGray]">
-        <p :class="$style.Outpatient">
-          {{ $t('新型コロナ外来（帰国者・接触者外来）') }}
-        </p>
-        <p :class="$style.Judge">
-          {{ $t('医師による判断') }}
-        </p>
+        <template v-if="!langsWithoutOutpatient.includes($i18n.locale)">
+          <p :class="$style.Outpatient">
+            {{ $t('新型コロナ外来（帰国者・接触者外来）') }}
+          </p>
+          <p :class="$style.Judge">
+            {{ $t('医師による判断') }}
+          </p>
+        </template>
+        <template v-else>
+          <p :class="$style.Judge">
+            {{ $t('Diagnosis by a doctor at a COVID-19 outpatient facility') }}
+          </p>
+        </template>
       </div>
     </div>
     <div :class="$style.TwoRow">
@@ -39,6 +46,16 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    langsWithoutOutpatient() {
+      return ['en']
+    }
+  }
+}
+</script>
 
 <style module lang="scss">
 .Container {
