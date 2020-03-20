@@ -12,16 +12,6 @@ img {
   vertical-align: bottom;
 }
 
-/* TODO: stylelintのno-descending-specificityの動作確認用 */
-.foo .bar {
-  color: #fff;
-}
-
-/* TODO: stylelintのno-descending-specificityの動作確認用 */
-.bar {
-  color: #fff;
-}
-
 .clearfix {
   &::after {
     content: "";
