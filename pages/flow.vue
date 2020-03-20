@@ -1,7 +1,7 @@
 <template>
   <div class="Flow">
     <div class="Flow-Heading">
-      <CovidIcon />
+      <CovidIcon aria-hidden="true" />
       <h2 class="Flow-Heading-Title">
         {{ $t('新型コロナウイルス感染症が心配なときに') }}
       </h2>
@@ -21,7 +21,7 @@
           rel="noopener"
           class="Flow-Card-Button"
         >
-          {{ $t('詳細を見る(東京都福祉保健局)') }}
+          {{ $t('詳細を見る（東京都福祉保健局）') }}
           <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
             mdi-open-in-new
           </v-icon>
@@ -30,8 +30,6 @@
     </div>
   </div>
 </template>
-
-<i18n src="./flow.i18n.json"></i18n>
 
 <script lang="ts">
 import Vue from 'vue'

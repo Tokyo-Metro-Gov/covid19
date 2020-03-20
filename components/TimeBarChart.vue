@@ -3,6 +3,7 @@
     <template v-slot:button>
       <data-selector
         v-model="dataKind"
+        :target-id="chartId"
         :style="{ display: canvas ? 'block' : 'none' }"
       />
     </template>
@@ -14,7 +15,7 @@
       :height="240"
     />
     <v-data-table
-      :style="{ display: canvas ? 'none' : 'block' }"
+      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
       :headers="tableHeaders"
       :items="tableData"
       :items-per-page="-1"
@@ -36,8 +37,6 @@
     <a @click="download()">csv</a>
   </data-view>
 </template>
-
-<i18n src="./TimeBarChart.i18n.json"></i18n>
 
 <style></style>
 

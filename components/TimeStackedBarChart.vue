@@ -12,6 +12,7 @@
       </p>
       <data-selector
         v-model="dataKind"
+        :target-id="chartId"
         :style="{ display: canvas ? 'block' : 'none' }"
       />
     </template>
@@ -23,7 +24,7 @@
       :height="240"
     />
     <v-data-table
-      :style="{ display: canvas ? 'none' : 'block' }"
+      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
       :headers="tableHeaders"
       :items="tableData"
       :items-per-page="-1"
@@ -45,8 +46,6 @@
     </template>
   </data-view>
 </template>
-
-<i18n src="./TimeStackedBarChart.i18n.json"></i18n>
 
 <script lang="ts">
 import Vue from 'vue'

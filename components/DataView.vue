@@ -25,7 +25,13 @@
               rel="noopener"
             >
               {{ $t('オープンデータを入手') }}
-              <v-icon class="ExternalLinkIcon" size="15">
+              <v-icon
+                class="ExternalLinkIcon"
+                size="15"
+                :aria-label="this.$t('別タブで開く')"
+                role="img"
+                :aria-hidden="false"
+              >
                 mdi-open-in-new
               </v-icon>
             </a>
@@ -47,7 +53,7 @@
               </v-icon>
             </div>
 
-            <h4>埋め込み用コード</h4>
+            <h4>{{ $t('埋め込み用コード') }}</h4>
 
             <div class="EmbedCode">
               <v-icon
@@ -96,13 +102,11 @@
 
     <div v-if="showOverlay" class="overlay">
       <div class="overlay-text">
-        埋め込みタグをコピーしました
+        {{ $t('埋め込みコードをコピーしました') }}
       </div>
     </div>
   </v-card>
 </template>
-
-<i18n src="./DataView.i18n.json"></i18n>
 
 <script lang="ts">
 import Vue from 'vue'
@@ -147,16 +151,16 @@ export default Vue.extend({
     }
   },
   methods: {
-    toggleShareMenu(): void {
+    toggleShareMenu() {
       this.displayShare = !this.displayShare
     },
-    closeShareMenu(): void {
+    closeShareMenu() {
       this.displayShare = false
     },
-    isCopyAvailable(): boolean {
+    isCopyAvailable() {
       return !!navigator.clipboard
     },
-    copyEmbedCode(): void {
+    copyEmbedCode() {
       const self = this
       navigator.clipboard.writeText(this.graphEmbedValue).then(() => {
         self.closeShareMenu()
@@ -177,11 +181,20 @@ export default Vue.extend({
       if (host) {
         permalink = location.protocol + '//' + location.host + permalink
       }
-
       return permalink
     },
     twitter() {
-      const url = 'https://twitter.com/intent/tweet?url=' + this.permalink(true)
+      const url =
+        'https://twitter.com/intent/tweet?text=' +
+        this.title +
+        ' / ' +
+        this.$t('東京都') +
+        this.$t('新型コロナウイルス感染症') +
+        this.$t('対策サイト') +
+        '&url=' +
+        this.permalink(true) +
+        '&' +
+        'hashtags=StopCovid19JP'
       window.open(url)
     },
     facebook() {
