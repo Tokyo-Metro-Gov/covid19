@@ -15,12 +15,19 @@
       </span>
     </i18n>
     <p :class="$style.decision">
-      <span :class="$style.fzSmall">
-        {{ $t('新型コロナ外来（帰国者・接触者外来）') }}
-      </span>
-      <span :class="[$style.fzLarge, $style.break]">{{
-        $t('医師による判断')
-      }}</span>
+      <template v-if="!langsWithoutOutpatient.includes($i18n.locale)">
+        <span :class="$style.fzSmall">
+          {{ $t('新型コロナ外来（帰国者・接触者外来）') }}
+        </span>
+        <span :class="[$style.fzLarge, $style.break]">{{
+          $t('医師による判断')
+        }}</span>
+      </template>
+      <template v-else>
+        <span :class="[$style.fzLarge, $style.break]">
+          {{ $t('Diagnosis by a doctor at a COVID-19 outpatient facility') }}
+        </span>
+      </template>
     </p>
     <div :class="[$style.rectContainer, $style.double]">
       <a
@@ -149,6 +156,11 @@ export default {
     House,
     Arrow,
     GreenArrow
+  },
+  computed: {
+    langsWithoutOutpatient() {
+      return ['en']
+    }
   }
 }
 </script>
