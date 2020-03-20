@@ -132,8 +132,8 @@ export default {
       })
     },
     loaded(map) {
-      const tileUrl = `https://map-covid19-tokyo.netlify.com/mashed_tiles/{z}/{x}/{y}.pbf`
-      // const tileUrl = `http://localhost:3000/mashed_tiles/{z}/{x}/{y}.pbf`
+      // const tileUrl = `https://map-covid19-tokyo.netlify.com/mashed_tiles/{z}/{x}/{y}.pbf`
+      const tileUrl = `http://localhost:3000/mashed_tiles/{z}/{x}/{y}.pbf`
       if (
         this.initialBounds.length > 1 &&
         this.initialBounds[0].length > 1 &&

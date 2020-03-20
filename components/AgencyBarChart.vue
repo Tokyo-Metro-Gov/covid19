@@ -60,7 +60,6 @@ type Props = {
   titleId: string
   chartId: string
   unit: string
-  url: string
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<

@@ -97,7 +97,7 @@ export default Vue.extend({
     PageHeader,
     WhatsNew,
     StaticInfo,
-    MapCard
+    MapCard,
     ConfirmedCasesDetailsCard,
     TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
