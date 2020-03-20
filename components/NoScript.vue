@@ -6,6 +6,9 @@
         .loader {
           display: none;
         }
+        .v-overlay {
+          display: none;
+        }
       </style>
       <div class="noscript-heading">
         <img src="/logo.svg" :alt="$t('東京都')" />
