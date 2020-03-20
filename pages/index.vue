@@ -102,6 +102,7 @@ export default Vue.extend({
   .Header {
     display: flex;
     align-items: baseline;
+    flex-wrap: wrap;
 
     @include lessThan($small) {
       flex-direction: column;
