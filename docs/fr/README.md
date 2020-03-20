@@ -5,20 +5,20 @@
 [![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
 
-### [日本語](./README.md) | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md) | [Thai](./README_TH.md) | [French](./README_FR.md)
+### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | Français
 
 
 ## Comment Contribuer
 
 Toute contribution est bienvenue !
-Veuillez checker [Comment contribuer](./.github/CONTRIBUTING_FR.md) pour plus d'informations.
+Veuillez checker [Comment contribuer](./CONTRIBUTING.md) pour plus d'informations.
 
 ## Code of Conduct
 
-Veuillew checker [Code de conduite des développeurs](./.github/CODE_OF_CONDUCT_FR.md) pour plus d'informations.
+Veuillew checker [Code de conduite des développeurs](./CODE_OF_CONDUCT.md) pour plus d'informations.
 
 ## License
-Ce logiciel est sous [license MIT](./LICENSE.txt).
+Ce logiciel est sous [license MIT](./../../LICENSE.txt).
 
 ## Pour les développeurs
 

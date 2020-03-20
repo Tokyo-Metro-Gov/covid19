@@ -20,7 +20,7 @@
 * เข้าร่วมกลุ่ม `#covid19`
 
 ## สำหรับการเข้าร่วมพัฒนา (For participation)
-* โปรดอ่าน [Principle / Code of Conduct](CODE_OF_CONDUCT_TH.md)
+* โปรดอ่าน [Principle / Code of Conduct](./CODE_OF_CONDUCT.md)
 * สำหรับการติดต่อสื่อสาร โปรดอ่าน Code for Japan's [Code of Conduct](https://github.com/codeforjapan/codeofconduct).
 * ถ้าวางแผนที่จะแก้ issue โปรดคอมเมนต์ เพื่อให้ทุกคนได้ทราบ
 * ถ้า issue ไม่มีการอัพเดทภายใน"ครึ่งวัน" เราอาจถอดถอนการมอบหมายงาน

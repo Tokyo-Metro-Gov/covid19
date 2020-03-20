@@ -19,7 +19,7 @@
 * `#covid19` 채널에 많은 참여 부탁드립니다.
 
 ## 참여하기에 앞서
-* 개발에 참가하기 전에, [Principle/행동강령](CODE_OF_CONDUCT_KO.md) 를 읽어주시기 바랍니다.
+* 개발에 참가하기 전에, [Principle/행동강령](./CODE_OF_CONDUCT.md) 를 읽어주시기 바랍니다.
 * 커뮤니케이션에 대해서는, Code for Japan의 [행동강령](https://github.com/codeforjapan/codeofconduct) 을 확인해주세요.
 * 내가 참여할수 있는 Issue에 누구도 배정되지 않은 경우, Issue에 "제가 하겠습니다!"등의 댓글을 달아 주신 후 개발을 시작해주세요.
 * [good first issue 라벨이 붙은 이슈](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)는 초보자에게 추천합니다.
