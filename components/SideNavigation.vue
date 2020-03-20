@@ -10,7 +10,7 @@
       </v-icon>
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo_side.png" :alt="$t('鹿児島県')" />
+          <img src="/logo.svg" :alt="$t('鹿児島県')" />
         </div>
         <h1 class="SideNavigation-Heading">
           {{ $t('鹿児島県') }}<br />{{ $t('新型コロナウイルス感染症') }}<br />{{
