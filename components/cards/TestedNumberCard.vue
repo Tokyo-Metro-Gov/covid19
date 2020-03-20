@@ -34,7 +34,7 @@ export default {
       this.$t('その他（チャーター便・クルーズ船）')
     ]
     const inspectionsLabels = Data.inspections_summary.labels
-    const inspectionsDataLabels = [this.$t('都内'), this.$t('その他')]
+    const inspectionsDataLabels = [this.$t('都内'), this.$t('その他.graph')]
 
     const data = {
       Data,
