@@ -8,7 +8,7 @@
         <span>{{ $t('最終更新') }} </span>
         <time :datetime="updatedAt">{{ Data.lastUpdate }}</time>
       </div>
-      <div v-if="!['ja', 'ja-basic'].includes($i18n.locale)" class="annotation">
+      <div v-if="!['ja', 'ja-basic'].includes($i18n.locale)" class="Annotation">
         <span>{{ $t('注釈') }} </span>
       </div>
     </div>
@@ -101,11 +101,12 @@ export default Vue.extend({
 .MainPage {
   .Header {
     display: flex;
-    align-items: baseline;
     flex-wrap: wrap;
+    align-items: flex-end;
 
     @include lessThan($small) {
       flex-direction: column;
+      align-items: baseline;
     }
   }
 
@@ -113,14 +114,14 @@ export default Vue.extend({
     @include font-size(14);
 
     color: $gray-3;
+    margin-bottom: 0.2rem;
   }
 
-  .annotation {
-    font-size: 0.75rem;
+  .Annotation {
+    @include font-size(12);
+
     color: $gray-3;
-  }
-  @include largerThan($small) {
-    .annotation {
+    @include largerThan($small) {
       margin: 0 0 0 auto;
     }
   }
