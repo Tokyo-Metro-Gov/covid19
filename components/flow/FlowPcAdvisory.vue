@@ -73,7 +73,7 @@
             03-5320-4592
           </a>
         </div>
-        <div class="pt-8">
+        <div v-if="!['ja', 'ja-basic'].includes($i18n.locale)" class="pt-8">
           <span>{{ $t('ひまわり') }}</span>
         </div>
       </div>
