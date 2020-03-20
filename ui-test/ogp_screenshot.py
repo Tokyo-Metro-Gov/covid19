@@ -13,7 +13,7 @@ PATHS = {
     '/cards/number-of-reports-to-covid19-consultation-desk': [959,500],
     '/cards/predicted-number-of-toei-subway-passengers': [959,750],
     '/cards/agency': [959,730],
-    '/cards/details-of-tested-cases': [959, 400],
+    '/cards/details-of-tested-cases': [959, 500],
     '/cards/number-of-inspection-persons': [959, 600]
 }
 
@@ -29,9 +29,7 @@ for lang in ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']:
         driver.set_window_size(size[0], size[1])
         if lang == 'ja':
             driver.get("http://localhost:8000"+path+"?ogp=true")
-            time.sleep(5)
             driver.save_screenshot('ogp/'+path.replace('/cards/', '').replace('/', '_')+'.png')
         else:
             driver.get("http://localhost:8000/"+lang+path+"?ogp=true")
-            time.sleep(5)
             driver.save_screenshot('ogp/'+lang+'/'+path.replace('/cards/', '').replace('/', '_')+'.png')

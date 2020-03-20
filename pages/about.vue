@@ -1,8 +1,8 @@
 <template>
   <div class="About">
-    <h2 class="About-Heading">
+    <page-header class="mb-3">
       {{ $t('当サイトについて') }}
-    </h2>
+    </page-header>
     <StaticCard>
       {{
         $t(
@@ -24,8 +24,10 @@
       <ul>
         <li>{{ $t('Microsoft Edge 最新版') }}</li>
         <li>{{ $t('Mozilla Firefox 最新版') }}</li>
-        <li>{{ $t('Google Chrome 最新版（Windows 10以上）') }}</li>
-        <li>{{ $t('Apple Safari (macOS) 最新版') }}</li>
+        <li>
+          {{ $t('Google Chrome 最新版（Windows 10以上, Android 8.0以上）') }}
+        </li>
+        <li>{{ $t('Safari 最新版（macOS, iOS）') }}</li>
         <li>{{ $t('Opera Software ASA Opera 最新版') }}</li>
       </ul>
       <p class="StaticCard-Note">
@@ -210,10 +212,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+import PageHeader from '@/components/PageHeader.vue'
 import StaticCard from '@/components/StaticCard.vue'
 
 export default Vue.extend({
   components: {
+    PageHeader,
     StaticCard
   },
   head(): MetaInfo {
@@ -223,14 +227,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="scss">
-.About {
-  &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
-    margin-bottom: 12px;
-  }
-}
-</style>
