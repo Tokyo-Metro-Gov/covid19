@@ -67,7 +67,9 @@ dayjs.updateLocale('en', {
 })
 
 type Data = {}
-type Methods = {}
+type Methods = {
+  tooltipTitle: (tooltipItems: any, data: any) => string
+}
 type Computed = {
   groupByWeekData: {
     [weekNum: number]: typeof shinjukuData.data
@@ -109,7 +111,6 @@ type Props = {
   chartId: string
   chartData: typeof shinjukuData.data
   date: string
-  tooltipTitle: (tooltipItems: any, data: any) => string
   standardDate: string
   startDate: string
 }
@@ -143,10 +144,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       required: false,
       default: ''
-    },
-    tooltipTitle: {
-      type: Function,
-      required: true
     },
     standardDate: {
       type: String,
@@ -280,6 +277,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ]
         }
       }
+    }
+  },
+  methods: {
+    tooltipTitle(tooltipItems: any): string {
+      const label = tooltipItems[0].label
+      return this.$t('期間: {duration}', {
+        duration: this.$t(label)
+      }) as string
     }
   }
 }
