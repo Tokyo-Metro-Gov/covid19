@@ -16,16 +16,19 @@
       text-align: right;
       width: 50%;
     }
+
     &-summary {
       display: inline-block;
-      font-family: Hiragino Sans;
+      font-family: Hiragino Sans, sans-serif;
       font-style: normal;
       font-size: 30px;
       line-height: 30px;
+
       &-unit {
         font-size: 0.6em;
       }
     }
+
     &-date {
       white-space: wrap;
       display: inline-block;
