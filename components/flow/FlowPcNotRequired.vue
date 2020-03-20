@@ -19,14 +19,14 @@
       <div :class="$style.nextAction">
         <i18n path="{getWorse}{advisory}に相談" :class="$style.content">
           <span place="getWorse">{{ $t('症状が良くならない場合は') }}</span>
-          <strong place="advisory">{{ $t('新型コロナ受診相談窓口') }}</strong>
+          <strong place="advisory">{{
+            $t('新型コロナ受診相談窓口（日本語のみ）')
+          }}</strong>
         </i18n>
       </div>
     </div>
   </div>
 </template>
-
-<i18n src="./FlowPcNotRequired.i18n.json"></i18n>
 
 <style module lang="scss">
 .flowContainer {
@@ -91,7 +91,7 @@
 .nextAction {
   width: 49%;
   padding: 1rem;
-  border: $green-1 1.5px solid;
+  border: $blue-1 1.5px solid;
   border-radius: 4px;
   text-align: center;
   .content {

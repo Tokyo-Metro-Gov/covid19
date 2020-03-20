@@ -28,15 +28,13 @@
       </div>
 
       <div :class="$style.Tel">
-        <a :class="$style.TelLink" href="tel:0570550571">
-          0570-550571
+        <a :class="$style.TelLink" href="tel:0252821754">
+          025-282-1754
         </a>
       </div>
     </div>
   </div>
 </template>
-
-<i18n src="./FlowPcSuspect.i18n.json"></i18n>
 
 <style module lang="scss">
 .FlowComponent {
@@ -77,7 +75,7 @@
 
 .CheckBox {
   position: relative;
-  border: 2px solid $green-1;
+  border: 2px solid $blue-1;
   border-radius: 4px;
   margin: 8px 0;
   padding: 10px;

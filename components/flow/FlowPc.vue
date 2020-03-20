@@ -55,8 +55,6 @@
   </div>
 </template>
 
-<i18n src="./FlowPc.i18n.json"></i18n>
-
 <script>
 import FlowPcPast from './FlowPcPast.vue'
 import FlowPcDays from './FlowPcDays.vue'
@@ -163,7 +161,7 @@ export default {
 }
 .Title {
   @include font-size(28);
-  color: $green-1;
+  color: $blue-1;
   &Small {
     @include font-size(20);
   }

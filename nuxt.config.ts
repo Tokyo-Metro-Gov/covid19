@@ -1,12 +1,11 @@
 import { Configuration } from '@nuxt/types'
+import i18n from './nuxt-i18n.config'
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
 const environment = process.env.NODE_ENV || 'development'
-const envSet = require(`./config/${environment}.ts`)
 
 const config: Configuration = {
   mode: 'universal',
-  env: envSet,
   /*
    ** Headers of the page
    */
@@ -14,7 +13,7 @@ const config: Configuration = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | 東京都 新型コロナウイルス感染症対策サイト',
+    titleTemplate: '%s | 新潟県 新型コロナウイルス感染症対策サイト',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -22,34 +21,35 @@ const config: Configuration = {
         hid: 'description',
         name: 'description',
         content:
-          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、Code for Niigataが開設したものです。'
       },
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: '東京都 新型コロナウイルス感染症対策サイト'
+        content: '新潟県 新型コロナウイルス感染症対策サイト'
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp'
+        content: 'https://dev-niigata-informal.netlify.com/'
       },
       {
         hid: 'og:title',
         property: 'og:title',
-        content: '東京都 新型コロナウイルス感染症対策サイト'
+        content: '新潟県 新型コロナウイルス感染症対策サイト'
       },
       {
         hid: 'og:description',
         property: 'og:description',
         content:
-          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、Code for Niigataが開設したものです。'
       },
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+        content:
+          'https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -69,12 +69,18 @@ const config: Configuration = {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp/ogp.png'
+        content:
+          'https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png'
       },
       {
         hid: 'fb:app_id',
         property: 'fb:app_id',
         content: '2879625188795443'
+      },
+      {
+        hid: 'note:card',
+        property: 'note:card',
+        content: 'summary_large_image'
       }
     ],
     link: [
@@ -115,6 +121,7 @@ const config: Configuration = {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
     '@nuxtjs/google-analytics'
@@ -127,64 +134,8 @@ const config: Configuration = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
-    [
-      'nuxt-i18n',
-      {
-        strategy: 'prefix_except_default',
-        detectBrowserLanguage: {
-          useCookie: true,
-          cookieKey: 'i18n_redirected'
-        },
-        locales: [
-          {
-            code: 'ja',
-            name: '日本語',
-            iso: 'ja-JP'
-          },
-          {
-            code: 'en',
-            name: 'English',
-            iso: 'en-US'
-          },
-          {
-            code: 'zh-cn',
-            name: '簡体字',
-            iso: 'zh-CN'
-          },
-          {
-            code: 'zh-tw',
-            name: '繁體字',
-            iso: 'zh-TW'
-          },
-          {
-            code: 'ko',
-            name: '한국어',
-            iso: 'ko-KR'
-          },
-          // ,
-          // #1126, #872 (comment)
-          // ポルトガル語は訳が揃っていないため非表示
-          // 「やさしい日本語」はコンポーネントが崩れるため非表示
-          // {
-          //   code: 'pt-BR',
-          //   name: 'Portuguese',
-          //   iso: 'pt-BR'
-          // },
-          {
-            code: 'ja-basic',
-            name: 'やさしい にほんご',
-            iso: 'ja-JP'
-          }
-        ],
-        defaultLocale: 'ja',
-        vueI18n: {
-          fallbackLocale: 'ja',
-          formatFallbackMessages: true
-        },
-        vueI18nLoader: true
-      }
-    ],
+    ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
+    ['nuxt-i18n', i18n],
     'nuxt-svg-loader',
     'nuxt-purgecss',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }]
@@ -205,7 +156,7 @@ const config: Configuration = {
     }
   },
   googleAnalytics: {
-    id: 'UA-159417676-1'
+    id: 'UA-160880275-1'
   },
   build: {
     postcss: {
@@ -228,7 +179,7 @@ const config: Configuration = {
     hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: '東京都 新型コロナウイルス感染症対策サイト',
+    name: '新潟県 新型コロナウイルス感染症対策サイト',
     theme_color: '#00a040',
     background_color: '#ffffff',
     display: 'standalone',

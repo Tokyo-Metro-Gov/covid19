@@ -4,7 +4,7 @@
       <div :class="$style.AdvisoryContents">
         <div>
           <span :class="$style.AdvisoryContentsTitle">{{
-            $t('新型コロナ受診相談窓口')
+            $t('新型コロナ受診相談窓口（日本語のみ）')
           }}</span>
         </div>
         <div :class="[$style.AdvisoryContentsColsSentense, 'mt-4']">
@@ -22,7 +22,7 @@
       <div :class="$style.AdvisoryContents">
         <div class="py-8">
           <div :class="$style.AdvisoryContentsTitle2">
-            {{ $t('平日（日中）') }}
+            {{ $t('平日日中/夜間') }}
           </div>
           <div
             :class="[
@@ -32,11 +32,45 @@
             ]"
           >
             <a
-              href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+              href="https://www.pref.niigata.lg.jp/sec/kenko/corona-center.html"
               target="_blank"
               rel="noopener"
             >
-              <span>{{ $t('各保健所の電話番号は福祉保健局HPへ') }}</span>
+              <span>{{ $t('県内各保健所の電話/FAX番号') }}</span>
+              <v-icon size="18">
+                mdi-open-in-new
+              </v-icon>
+              <br />
+              <span :class="$style.fzMedium">{{
+                $t(
+                  '※【夜間緊急連絡先】は警備員室につながります。電話番号をお伝えいただき、担当から折り返し御連絡します。'
+                )
+              }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div :class="$style.AdvisoryContents">
+        <div class="py-8">
+          <div :class="$style.AdvisoryContentsTitle2">
+            {{ $t('FAXの場合') }}
+          </div>
+          <div
+            :class="[
+              $style.AdvisoryLink,
+              $style.AdvisoryBlockCentering,
+              'mt-4'
+            ]"
+          >
+            <a
+              href="https://www.pref.niigata.lg.jp/uploaded/attachment/206773.docx"
+              target="_blank"
+              rel="noopener"
+            >
+              <span :class="$style.fzMedium"
+                >{{ $t('この様式にて対応') }} (Word)
+              </span>
               <v-icon size="18">
                 mdi-open-in-new
               </v-icon>
@@ -44,38 +78,15 @@
           </div>
         </div>
       </div>
-
-      <div :class="$style.AdvisoryContents">
-        <div class="pt-8">
-          <div :class="$style.AdvisoryContentsTitle2">
-            {{ $t('平日（夜間）') }}
-          </div>
-          <span>{{ $t('午後5時から翌朝午前9時') }}</span>
-        </div>
-        <div class="mt-1">
-          <span :class="$style.AdvisoryContentsSubTitle">
-            {{ $t('土日祝 終日') }}
-          </span>
-        </div>
-        <div
-          :class="[
-            $style.AdvisoryTelephoneArea,
-            $style.AdvisoryBlockCentering,
-            'mt-1'
-          ]"
-        >
-          <a :class="$style.AdvisoryTelephone" href="tel:0353204592">
-            03-5320-4592
-          </a>
-        </div>
-      </div>
     </div>
   </div>
 </template>
 
-<i18n src="./FlowPcAdvisory.i18n.json"></i18n>
-
 <style module lang="scss">
+.fzMedium {
+  font-size: 12px;
+  font-weight: normal;
+}
 .Advisory {
   display: flex;
   flex-direction: column;
@@ -162,7 +173,7 @@
     width: 160px;
     padding: 10px;
     &Sentense {
-      color: $green-1;
+      color: $blue-1;
       font-size: 18px;
       font-weight: bold;
     }

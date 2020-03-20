@@ -28,8 +28,6 @@
   </data-view>
 </template>
 
-<i18n src="./TimeStackedBarChart.i18n.json"></i18n>
-
 <script>
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
@@ -104,7 +102,7 @@ export default {
       }
     },
     displayData() {
-      const colorArray = ['#00A040', '#00D154']
+      const colorArray = ['#3b5998']
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
@@ -144,8 +142,7 @@ export default {
           callbacks: {
             label: tooltipItem => {
               const labelTokyo = this.$t('都内')
-              const labelOthers = this.$t('その他')
-              const labelArray = [labelTokyo, labelOthers]
+              const labelArray = [labelTokyo]
               let casesTotal, cases
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index].toLocaleString()
@@ -288,7 +285,7 @@ export default {
     eachArraySum(chartDataArray) {
       const sumArray = []
       for (let i = 0; i < chartDataArray[0].length; i++) {
-        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
+        sumArray.push(chartDataArray[0][i])
       }
       return sumArray
     }

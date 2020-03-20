@@ -1,32 +1,32 @@
 type DataType = {
   attr: '検査実施人数'
-  value: number
+  value: number | null
   children: [
     {
       attr: '陽性患者数'
-      value: number
+      value: number | null
       children: [
         {
           attr: '入院中'
-          value: number
+          value: number | null
           children: [
             {
               attr: '軽症・中等症'
-              value: number
+              value: number | null
             },
             {
               attr: '重症'
-              value: number
+              value: number | null
             }
           ]
         },
         {
           attr: '退院'
-          value: number
+          value: number | null
         },
         {
           attr: '死亡'
-          value: number
+          value: number | null
         }
       ]
     }
@@ -34,13 +34,13 @@ type DataType = {
 }
 
 type ConfirmedCasesType = {
-  検査実施人数: number
-  陽性物数: number
-  入院中: number
-  軽症中等症: number
-  重症: number
-  死亡: number
-  退院: number
+  検査実施人数: number | null
+  陽性物数: number | null
+  入院中: number | null
+  軽症中等症: number | null
+  重症: number | null
+  死亡: number | null
+  退院: number | null
 }
 
 /**

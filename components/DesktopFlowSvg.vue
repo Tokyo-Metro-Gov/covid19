@@ -93,7 +93,7 @@
         .j,
         .o,
         .v {
-          fill: #00a040;
+          fill: #3b4958;
         }
 
         .k,
@@ -156,7 +156,7 @@
 
         .ab,
         .x {
-          stroke: #00a040;
+          stroke: #3b4958;
         }
 
         .ak,
@@ -1190,7 +1190,7 @@
       <g transform="translate(0 -19)">
         <g transform="translate(19 5)">
           <a
-            xlink:href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+            xlink:href="https://www.pref.niigata.lg.jp/sec/kenko/corona-center.html"
             target="_blank"
             rel="noopener"
           >
@@ -1210,7 +1210,7 @@
         </g>
       </g>
       <text class="an" transform="translate(633 679)">
-        <tspan x="-79.555" y="0">0570-550571</tspan>
+        <tspan x="-79.555" y="0">025-282-1754</tspan>
       </text>
       <g transform="translate(520 656)">
         <path class="d" d="M0,0H26V26H0Z" />

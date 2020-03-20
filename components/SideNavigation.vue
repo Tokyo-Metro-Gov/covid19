@@ -11,7 +11,7 @@
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
         <h1 class="SideNavigation-Heading">
           <div class="SideNavigation-Logo">
-            <img src="/logo.svg" :alt="$t('東京都')" />
+            <img src="/logo.png" :alt="$t('新潟県')" />
           </div>
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
@@ -39,34 +39,33 @@
           </v-container>
         </v-list>
         <div class="SideNavigation-LanguageMenu">
-          <LanguageSelector />
+          <!--<LanguageSelector />-->
         </div>
       </nav>
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
-            href="https://line.me/R/ti/p/%40822sysfc"
+            href="https://twitter.com/niigatacity_kib"
             target="_blank"
             rel="noopener"
           >
-            <img src="/line.png" alt="LINE" />
+            <figure>
+              <img src="/twitter.png" alt="Twitter" />
+              <figcaption>新潟市<br />危機管理防災局</figcaption>
+            </figure>
           </a>
           <a
-            href="https://twitter.com/tokyo_bousai"
+            href="https://twitter.com/Niigata_Press"
             target="_blank"
             rel="noopener"
           >
-            <img src="/twitter.png" alt="Twitter" />
+            <figure>
+              <img src="/twitter.png" alt="Twitter" />
+              <figcaption>新潟県広報課</figcaption>
+            </figure>
           </a>
           <a
-            href="https://www.facebook.com/tochokoho"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/facebook.png" alt="Facebook" />
-          </a>
-          <a
-            href="https://github.com/tokyo-metropolitan-gov/covid19"
+            href="https://github.com/CodeForNiigata/covid19"
             target="_blank"
             rel="noopener"
           >
@@ -84,23 +83,19 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 Tokyo Metropolitan Government
+          2020 Code For Niigata
         </small>
       </v-footer>
     </div>
   </div>
 </template>
 
-<i18n src="./SideNavigation.i18n.json"></i18n>
-
 <script>
 import ListItem from '@/components/ListItem'
-import LanguageSelector from '@/components/LanguageSelector.vue'
 
 export default {
   components: {
-    ListItem,
-    LanguageSelector
+    ListItem
   },
   props: {
     isNaviOpen: {
@@ -113,7 +108,7 @@ export default {
       return [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: this.$t('都内の最新感染動向'),
+          title: this.$t('県内の最新感染動向'),
           link: this.localePath('/')
         },
         {
@@ -123,14 +118,15 @@ export default {
           divider: true
         },
         {
-          icon: 'parent',
-          title: this.$t('お子様をお持ちの皆様へ'),
-          link: this.localePath('/parent')
+          title: this.$t('新潟県対策本部会議開催状況'),
+          link:
+            'https://www.pref.niigata.lg.jp/sec/kikitaisaku/shingata-corona.html'
         },
         {
           icon: 'mdi-account-multiple',
-          title: this.$t('都民の皆様へ'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
+          title: this.$t('県民の皆様へ'),
+          link:
+            'https://www.pref.niigata.lg.jp/sec/kikitaisaku/shingata-corona.html'
         },
         {
           icon: 'mdi-domain',
@@ -139,27 +135,30 @@ export default {
           divider: true
         },
         {
-          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
-          link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
+          title: this.$t(
+            '新型コロナウイルス感染症対策情報（産業労働分野）まとめ'
+          ),
+          link: 'https://www.pref.niigata.lg.jp/sec/sangyoseisaku/corona-sangyo'
         },
         {
-          title: this.$t('東京都主催等 中止又は延期するイベント等'),
-          link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
-        },
-        {
-          title: this.$t('知事からのメッセージ'),
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+          title: this.$t(
+            '新型コロナウィルス感染症の拡大防止による新潟県内のイベント中止および変更について'
+          ),
+          link: 'https://niigata-kankou.or.jp/news/105'
         },
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
         },
         {
-          title: this.$t('東京都公式ホームページ'),
-          link: 'https://www.metro.tokyo.lg.jp/',
+          title: this.$t('新潟県公式ホームページ'),
+          link: 'https://www.pref.niigata.lg.jp/',
+          divider: true
+        },
+        {
+          title: this.$t('県からのお願い'),
+          link:
+            'https://www.pref.niigata.lg.jp/sec/kikitaisaku/shingata-corona.html',
           divider: true
         }
       ]
@@ -219,7 +218,7 @@ export default {
   &-Heading {
     margin-top: 8px;
     font-size: 13px;
-    color: #898989;
+    color: #707070;
     padding: 0.5em 0;
     text-decoration: none;
     @include lessThan($small) {
@@ -249,10 +248,16 @@ export default {
   &-SocialLinkContainer {
     display: flex;
     & a:not(:last-of-type) {
-      margin-right: 10px;
+      margin-right: 5px;
     }
     & img {
       width: 30px;
+    }
+    & figure {
+      text-align: center;
+      & figcaption {
+        font-size: 10px;
+      }
     }
   }
   &-Copyright {

@@ -2,8 +2,8 @@
   <v-app class="app">
     <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
-        <img src="/logo.svg" alt="東京都" />
-        <scale-loader color="#00A040" />
+        <img src="/logo.png" alt="新潟県" />
+        <scale-loader color="#3BA040" />
       </div>
     </v-overlay>
     <div v-if="hasNavigation" class="appContainer">
@@ -27,6 +27,7 @@
       </v-container>
     </div>
     <NoScript />
+    <development-mode-mark />
   </v-app>
 </template>
 <script lang="ts">
@@ -35,6 +36,7 @@ import { MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
 import NoScript from '@/components/NoScript.vue'
+import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 
 type LocalData = {
   hasNavigation: boolean
@@ -44,6 +46,7 @@ type LocalData = {
 
 export default Vue.extend({
   components: {
+    DevelopmentModeMark,
     ScaleLoader,
     SideNavigation,
     NoScript

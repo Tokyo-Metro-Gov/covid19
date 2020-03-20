@@ -64,7 +64,7 @@
         <!-- eslint-enable -->
       </span>
       <span :class="$style.break">
-        {{ $t('東京都健康安全研究センター等') }}
+        {{ $t('新潟市保健所等') }}
       </span>
       <small :class="[$style.note, $style.fzSmall, $style.break]">
         {{
@@ -128,7 +128,7 @@
           <i18n path="{getWorse}{advisory}に相談">
             <i18n place="getWorse" path="症状が良くならない場合は" />
             <strong :class="$style.advisory" place="advisory">
-              {{ $t('新型コロナ受診相談窓口') }}
+              {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
             </strong>
           </i18n>
         </p>
@@ -136,8 +136,6 @@
     </div>
   </div>
 </template>
-
-<i18n src="./FlowSpAccording.i18n.json"></i18n>
 
 <script>
 import Apartment from '@/static/flow/responsive/apartment.svg'
@@ -160,7 +158,7 @@ export default {
 
 .according {
   .heading {
-    color: $green-1;
+    color: $blue-1;
   }
   .diag {
     margin-top: px2vw(30);
@@ -214,7 +212,7 @@ export default {
       position: relative;
     }
     &.consult {
-      border: px2vw(3) solid $green-1;
+      border: px2vw(3) solid $blue-1;
       flex-basis: 100%;
     }
     &.bgYellow {
@@ -292,7 +290,7 @@ export default {
         padding-top: px2vw((46 + 20 * 2), $vw);
       }
       &.consult {
-        border: px2vw(3, $vw) solid $green-1;
+        border: px2vw(3, $vw) solid $blue-1;
       }
       &:nth-child(n + 3) {
         margin-top: px2vw((486 - 233 - 233), $vw);

@@ -6,13 +6,13 @@
     <TextCard>
       {{
         $t(
-          '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+          '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、Code for Niigataが開設したものです。'
         )
       }}<br />
       <br />
       {{
         $t(
-          '東京都による公式情報と客観的な数値をわかりやすく伝えることで、東京都にお住まいの方や、東京都内に拠点を持つ企業の方、東京都を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。'
+          '新潟県による公式情報と客観的な数値をわかりやすく伝えることで、新潟県にお住まいの方や、新潟県内に拠点を持つ企業の方、新潟県を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。'
         )
       }}
     </TextCard>
@@ -122,7 +122,7 @@
     <TextCard :title="$t('免責事項')">
       {{
         $t(
-          '当サイトに掲載されている情報の正確性については万全を期していますが、東京都は利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。'
+          '当サイトに掲載されている情報の正確性については万全を期していますが、Code for Niigataは利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。'
         )
       }}<br />
       <br />
@@ -138,21 +138,6 @@
         )
       }}
     </TextCard>
-    <TextCard :title="$t('データについて')">
-      <i18n
-        tag="p"
-        path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
-      >
-        <a
-          href="https://portal.data.metro.tokyo.lg.jp/"
-          target="_blank"
-          rel="noopener"
-          place="catalogWebsite"
-        >
-          {{ $t('東京都オープンデータカタログサイト') }}
-        </a>
-      </i18n>
-    </TextCard>
     <TextCard :title="$t('ソースコードについて')">
       {{
         $t(
@@ -161,7 +146,7 @@
       }}
       <i18n path="詳しくは、{githubRepo}をご確認ください。">
         <a
-          href="https://github.com/tokyo-metropolitan-gov/covid19"
+          href="https://github.com/CodeForNiigata/covid19"
           target="_blank"
           rel="noopener"
           place="githubRepo"
@@ -170,15 +155,11 @@
         </a>
       </i18n>
     </TextCard>
-    <TextCard :title="$t('お問い合わせ先（都のHPサイトポリシーについて）')">
-      {{ $t('東京都生活文化局広報広聴部広報課') }}<br />
-      {{ $t('電話') }}:
-      <a href="tel:03-5388-3085">03-5388-3085</a>
+    <TextCard :title="$t('お問い合わせ先（HPサイトポリシーについて）')">
+      <a href="https://www.codeforniigata.org/">Code For Niigata</a>
     </TextCard>
   </div>
 </template>
-
-<i18n src="./about.i18n.json"></i18n>
 
 <script lang="ts">
 import TextCard from '@/components/TextCard.vue'

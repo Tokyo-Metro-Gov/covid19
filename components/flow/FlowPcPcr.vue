@@ -7,7 +7,7 @@
           <span :class="$style.small">{{ $t('※') }}</span>
         </p>
         <p :class="$style.content">
-          {{ $t('東京都健康安全研究センター等') }}
+          {{ $t('新潟市保健所等') }}
         </p>
       </div>
     </div>
@@ -21,8 +21,6 @@
     </div>
   </div>
 </template>
-
-<i18n src="./FlowPcPcr.i18n.json"></i18n>
 
 <style module lang="scss">
 .FlowPcPcr {
@@ -75,12 +73,12 @@
 .ResultLabel {
   @include font-size(20);
   border-radius: 4px;
-  border: 2px solid $green-1;
+  border: 2px solid $blue-1;
   line-height: 1;
   padding: 2.5rem 0.1rem;
 
   &.positive {
-    background: $green-1;
+    background: $blue-1;
     color: $white;
   }
 }

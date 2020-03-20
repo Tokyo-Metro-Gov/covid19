@@ -7,7 +7,7 @@
           <span v-html="$t('検査実施<br />人数')" />
           <!-- eslint-enable vue/no-v-html-->
           <span>
-            <b>{{ 検査実施人数 }}</b>
+            <b>{{ 検査実施人数 || '-' }}</b>
             <span class="unit">{{ $t('人') }}</span>
           </span>
         </div>
@@ -21,7 +21,7 @@
             <br />{{ $t('(累積)') }}
           </span>
           <span>
-            <b>{{ 陽性物数 }}</b>
+            <b>{{ 陽性物数 || '-' }}</b>
             <span class="unit">{{ $t('人') }}</span>
           </span>
         </div>
@@ -32,7 +32,7 @@
             <div class="box">
               <span>{{ $t('入院中') }}</span>
               <span>
-                <b>{{ 入院中 }}</b>
+                <b>{{ 入院中 || '-' }}</b>
                 <span class="unit">{{ $t('人') }}</span>
               </span>
             </div>
@@ -45,7 +45,7 @@
                   <span v-html="$t('軽症・<br />中等症')" />
                   <!-- eslint-enable vue/no-v-html-->
                   <span>
-                    <b>{{ 軽症中等症 }}</b>
+                    <b>{{ 軽症中等症 || '-' }}</b>
                     <span class="unit">{{ $t('人') }}</span>
                   </span>
                 </div>
@@ -56,7 +56,7 @@
                 <div class="box short">
                   <span>{{ $t('重症') }}</span>
                   <span>
-                    <b>{{ 重症 }}</b>
+                    <b>{{ 重症 || '-' }}</b>
                     <span class="unit">{{ $t('人') }}</span>
                   </span>
                 </div>
@@ -69,7 +69,7 @@
             <div class="box">
               <span>{{ $t('死亡') }}</span>
               <span>
-                <b>{{ 死亡 }}</b>
+                <b>{{ 死亡 || '-' }}</b>
                 <span class="unit">{{ $t('人') }}</span>
               </span>
             </div>
@@ -80,7 +80,7 @@
             <div class="box">
               <span>{{ $t('退院') }}</span>
               <span>
-                <b>{{ 退院 }}</b>
+                <b>{{ 退院 || '-' }}</b>
                 <span class="unit">{{ $t('人') }}</span>
               </span>
             </div>
@@ -90,8 +90,6 @@
     </li>
   </ul>
 </template>
-
-<i18n src="./ConfirmedCasesTable.i18n.json"></i18n>
 
 <script>
 export default {
@@ -178,8 +176,8 @@ export default {
   padding-bottom: 26px;
   width: 100%;
   height: $box-height;
-  border: 3px solid $green-1;
-  color: $green-1;
+  border: 3px solid $blue-1;
+  color: $blue-1;
   @include font-size(14);
   text-align: center;
   line-height: 1.2;
@@ -250,7 +248,7 @@ export default {
 .item.recovered > .gutter > .box::before {
   content: '';
   display: block;
-  border: 3px solid $green-1;
+  border: 3px solid $blue-1;
   background-color: $white;
   position: absolute;
   height: 32px;
