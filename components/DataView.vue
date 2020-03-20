@@ -92,6 +92,8 @@
               viewBox="0 0 14 16"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              :aria-label="$t('{title}のグラフをシェア', { title })"
             >
               <path
                 fill-rule="evenodd"
