@@ -1,11 +1,11 @@
 <template>
   <div class="WhatsNew">
-    <h2 class="WhatsNew-heading">
+    <h3 class="WhatsNew-heading">
       <v-icon size="24" class="WhatsNew-heading-icon">
         mdi-information
       </v-icon>
       {{ $t('最新のお知らせ') }}
-    </h2>
+    </h3>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
         <a
@@ -21,7 +21,7 @@
             {{ item.date }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
-            {{ $t(item.text) }}
+            {{ item.text }}
             <v-icon
               v-if="!isInternalLink(item.url)"
               class="WhatsNew-item-ExternalLinkIcon"
@@ -36,50 +36,11 @@
   </div>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "最新のお知らせ": "最新のお知らせ",
-    "都の備蓄マスク20万枚を都内全区市町村へ提供": "都の備蓄マスク20万枚を都内全区市町村へ提供",
-    "都内医療機関及び保健所等へのマスクの配布について": "都内医療機関及び保健所等へのマスクの配布について"
-  },
-  "en": {
-    "最新のお知らせ": "What's new",
-    "都の備蓄マスク20万枚を都内全区市町村へ提供": "Tokyo Metropolitan Government provides the stockpile of masks for all the wards, and the municipalities in Tokyo (in Japanese)",
-    "都内医療機関及び保健所等へのマスクの配布について": "About distribution of the mask for the medical facilities and the public health centers in Tokyo (in Japanese)"
-  },
-  "zh-cn": {
-    "最新のお知らせ": "最新消息",
-    "都の備蓄マスク20万枚を都内全区市町村へ提供": "东京都政府向都内全部区市町村提供20万枚口罩（内容为日语）",
-    "都内医療機関及び保健所等へのマスクの配布について": "东京都政府向都内医疗机构及保健所配发口罩的通告（内容为日语）"
-  },
-  "zh-tw": {
-    "最新のお知らせ": "最新消息",
-    "都の備蓄マスク20万枚を都内全区市町村へ提供": "東京都向都內全部區市町村提供20萬枚口罩（日文網站）",
-    "都内医療機関及び保健所等へのマスクの配布について": "東京都向都內醫療機關及保健所配給口罩的相關資訊（日文網站）"
-  },
-  "ko": {
-    "最新のお知らせ": "최신소식",
-    "都の備蓄マスク20万枚を都内全区市町村へ提供": "도쿄도의 비축 마스크 20만장을 도쿄도 내의 모든 구, 시정촌에 제공 (일본어)",
-    "都内医療機関及び保健所等へのマスクの配布について": "도쿄도 내의 의료기관 및 보건소등에서 마스크 배포에 대해 (일본어)"
-  },
-  "pt-BR": {
-    "最新のお知らせ": "",
-    "都の備蓄マスク20万枚を都内全区市町村へ提供": "",
-    "都内医療機関及び保健所等へのマスクの配布について": ""
-  },
-  "ja-basic": {
-    "最新のお知らせ": "いちばん あたらしい おしらせ",
-    "都の備蓄マスク20万枚を都内全区市町村へ提供": "とうきょうと が もっている マスク を とうきょう の し や まち に くばります",
-    "都内医療機関及び保健所等へのマスクの配布について": "びょういん や ほけんじょ に マスク を くばること の おはなし"
-  }
-}
-</i18n>
-
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 
-export default {
+export default Vue.extend({
   props: {
     items: {
       type: Array,
@@ -87,14 +48,14 @@ export default {
     }
   },
   methods: {
-    isInternalLink(path) {
+    isInternalLink(path: string): boolean {
       return !/^https?:\/\//.test(path)
     },
-    formattedDate(dateString) {
+    formattedDate(dateString: string) {
       return convertDateToISO8601Format(dateString)
     }
   }
-}
+})
 </script>
 
 <style lang="scss">
@@ -123,12 +84,13 @@ export default {
 
   &-item {
     &-anchor {
-      display: flex;
+      display: inline-block;
       text-decoration: none;
       margin: 5px;
       font-size: 14px;
 
       @include lessThan($medium) {
+        display: flex;
         flex-wrap: wrap;
       }
 

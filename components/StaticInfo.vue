@@ -1,8 +1,8 @@
 <template>
   <component
-    :is="isInternalLink(url) ? 'nuxt-link' : 'a'"
-    :to="isInternalLink(url) ? url : ''"
-    :href="isInternalLink(url) ? '' : url"
+    :is="isInternalLink ? 'nuxt-link' : 'a'"
+    :to="isInternalLink ? url : ''"
+    :href="isInternalLink ? '' : url"
     class="StaticInfo"
   >
     <span>{{ text }}</span>
@@ -15,23 +15,29 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 
-@Component
-export default class StaticInfo extends Vue {
-  @Prop({ default: '', required: false })
-  url!: string
-
-  @Prop({ default: '', required: false })
-  text!: string
-
-  @Prop({ default: '', required: false })
-  btnText!: string
-
-  isInternalLink(path: string): boolean {
-    return !/^https?:\/\//.test(path)
+export default Vue.extend({
+  props: {
+    url: {
+      type: String,
+      default: ''
+    },
+    text: {
+      type: String,
+      default: ''
+    },
+    btnText: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    isInternalLink(): boolean {
+      return !/^https?:\/\//.test(this.url)
+    }
   }
-}
+})
 </script>
 
 <style lang="scss">

@@ -1,7 +1,10 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+    <template v-slot:description>
+      <slot name="description" />
+    </template>
     <template v-slot:button>
-      <data-selector v-model="dataKind" />
+      <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
     <bar
       :chart-id="chartId"
@@ -22,98 +25,110 @@
   </data-view>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "実績値": "実績値",
-    "累計値": "累計値",
-    "前日比": "前日比"
-  },
-  "en": {
-    "実績値": "Actual value",
-    "累計値": "Cumulative value",
-    "前日比": "day-over-day change"
-  },
-  "zh-cn": {
-    "実績値": "实际值",
-    "累計値": "累计值",
-    "前日比": "较前一天"
-  },
-  "zh-tw": {
-    "実績値": "實際值",
-    "累計値": "累計值",
-    "前日比": "與前日相比"
-  },
-  "ko": {
-    "実績値": "실제 값",
-    "累計値": "누계 값",
-    "前日比": "전일대비 확진환자 증감"
-  },
-  "pt-BR": {
-    "実績値": "Valor real",
-    "累計値": "Valor acumulado",
-    "前日比": "anterior"
-  },
-  "ja-basic": {
-    "実績値": "そのときの すうじ",
-    "累計値": "これまでの ぜんぶのすうじ",
-    "前日比": "まえのひ と くらべると"
-  }
-}
-</i18n>
-
 <style></style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 
-export default {
+import { single as color } from '@/utils/colors'
+
+type Data = {
+  dataKind: 'transition' | 'cumulative'
+}
+type Methods = {
+  formatDayBeforeRatio: (dayBeforeRatio: number) => string
+}
+type Computed = {
+  displayCumulativeRatio: string
+  displayTransitionRatio: string
+  displayInfo: {
+    lText: string
+    sText: string
+    unit: string
+  }
+  displayData: {
+    labels: string[]
+    datasets: {
+      label: 'transition' | 'cumulative'
+      data: number[]
+      backgroundColor: string
+      borderWidth: number
+    }[]
+  }
+  displayOption: {
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        label(tooltipItem: any): string
+        title(tooltipItem: any[], data: any): string | undefined
+      }
+    }
+    responsive: boolean
+    maintainAspectRatio: boolean
+    legend: {
+      display: boolean
+    }
+    scales: object
+  }
+  scaledTicksYAxisMax: number
+}
+type Props = {
+  title: string
+  titleId: string
+  chartId: string
+  chartData: GraphDataType[]
+  date: string
+  unit: string
+  url: string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
   components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
       type: String,
-      required: false,
       default: ''
     },
     chartId: {
       type: String,
-      required: false,
       default: 'time-bar-chart'
     },
     chartData: {
       type: Array,
-      required: false,
       default: () => []
     },
     date: {
       type: String,
-      required: true,
-      default: ''
+      required: true
     },
     unit: {
       type: String,
-      required: false,
       default: ''
     },
     url: {
       type: String,
-      required: false,
       default: ''
     }
   },
-  data() {
-    return {
-      dataKind: 'transition'
-    }
-  },
+  data: () => ({
+    dataKind: 'transition'
+  }),
   computed: {
     displayCumulativeRatio() {
       const lastDay = this.chartData.slice(-1)[0].cumulative
@@ -159,23 +174,21 @@ export default {
               data: this.chartData.map(d => {
                 return d.transition
               }),
-              backgroundColor: '#00B849',
+              backgroundColor: color,
               borderWidth: 0
             }
           ]
         }
       }
       return {
-        labels: this.chartData.map(d => {
-          return d.label
-        }),
+        labels: this.chartData.map(d => d.label),
         datasets: [
           {
             label: this.dataKind,
             data: this.chartData.map(d => {
               return d.cumulative
             }),
-            backgroundColor: '#00B849',
+            backgroundColor: color,
             borderWidth: 0
           }
         ]
@@ -218,7 +231,7 @@ export default {
                 fontColor: '#808080',
                 maxRotation: 0,
                 minRotation: 0,
-                callback: label => {
+                callback: (label: string) => {
                   return label.split('/')[1]
                 }
               }
@@ -240,7 +253,7 @@ export default {
                 gridLines: {
                   display: true
                 },
-                callback: label => {
+                callback: (label: string) => {
                   const monthStringArry = [
                     'Jan',
                     'Feb',
@@ -293,7 +306,7 @@ export default {
     }
   },
   methods: {
-    formatDayBeforeRatio(dayBeforeRatio) {
+    formatDayBeforeRatio(dayBeforeRatio: number): string {
       const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
@@ -306,4 +319,6 @@ export default {
     }
   }
 }
+
+export default Vue.extend(options)
 </script>
