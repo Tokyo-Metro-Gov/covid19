@@ -223,15 +223,19 @@ export default Vue.extend({
 <style lang="scss">
 .DataView {
   @include card-container();
+
   height: 100%;
+
   &-Header {
     display: flex;
     align-items: flex-start;
     flex-flow: column;
     padding: 0 10px;
+
     @include largerThan($medium) {
       padding: 0 5px;
     }
+
     @include largerThan($large) {
       width: 100%;
       flex-flow: row;
@@ -239,19 +243,22 @@ export default Vue.extend({
       padding: 0;
     }
   }
+
   &-DataInfo {
     &-summary {
       color: $gray-2;
-      font-family: Hiragino Sans;
+      font-family: Hiragino Sans, sans-serif;
       font-style: normal;
       font-size: 30px;
       line-height: 30px;
       white-space: nowrap;
+
       &-unit {
         font-size: 0.6em;
         width: 100%;
       }
     }
+
     &-date {
       font-size: 12px;
       line-height: 12px;
@@ -260,8 +267,7 @@ export default Vue.extend({
       display: inline-block;
     }
   }
-}
-.DataView {
+
   &-Inner {
     display: flex;
     flex-flow: column;
@@ -269,6 +275,7 @@ export default Vue.extend({
     padding: 22px;
     height: 100%;
   }
+
   &-Title {
     width: 100%;
     margin-bottom: 10px;
@@ -276,6 +283,7 @@ export default Vue.extend({
     line-height: 1.5;
     font-weight: normal;
     color: $gray-2;
+
     @include largerThan($large) {
       margin-bottom: 0;
       &.with-infoPanel {
@@ -283,28 +291,35 @@ export default Vue.extend({
       }
     }
   }
+
   &-CardText {
     margin: 16px 0;
   }
+
   &-Description {
     margin: 10px 0 0;
     font-size: 12px;
     color: $gray-3;
+
     ul,
     ol {
       list-style-type: none;
       padding: 0;
     }
   }
+
   &-CardTextForXS {
     margin-bottom: 46px;
     margin-top: 70px;
   }
+
   &-Embed {
     background-color: $gray-5;
   }
+
   &-Footer {
     @include font-size(12);
+
     padding: 0 !important;
     display: flex;
     justify-content: space-between;
@@ -315,8 +330,10 @@ export default Vue.extend({
     .Permalink {
       color: $gray-3 !important;
     }
+
     .OpenDataLink {
       text-decoration: none;
+
       .ExternalLinkIcon {
         vertical-align: text-bottom;
       }
@@ -328,16 +345,18 @@ export default Vue.extend({
 
     .Footer-Right {
       position: relative;
-
       display: flex;
       align-items: flex-end;
+
       .DataView-Share-Opener {
         cursor: pointer;
         margin-right: 6px;
+
         > svg {
           width: auto !important;
         }
       }
+
       .DataView-Share-Buttons {
         position: absolute;
         padding: 8px;
@@ -352,7 +371,7 @@ export default Vue.extend({
         z-index: 1;
 
         > * {
-          padding: 4px 0px;
+          padding: 4px 0;
         }
 
         > .Close-Button {
@@ -368,7 +387,6 @@ export default Vue.extend({
           color: rgb(3, 3, 3);
           border: solid 1px #eee;
           border-radius: 8px;
-
           font-size: 12px;
 
           .EmbedCode-Copy {
@@ -396,9 +414,11 @@ export default Vue.extend({
               color: #fff;
               background: #2a96eb;
             }
+
             &.facebook {
               color: #364e8a;
             }
+
             &.line {
               color: #1cb127;
             }

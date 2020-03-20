@@ -41,6 +41,7 @@
 <style module lang="scss">
 .flowContainer {
   @include card-container();
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -49,6 +50,7 @@
   height: 100%;
   color: $gray-2;
 }
+
 .sectionTitle {
   display: flex;
   flex-direction: row;
@@ -58,16 +60,19 @@
   text-align: center;
   width: 100%;
   margin-bottom: 1rem;
+
   strong {
     margin: 0 0.2em;
     font-size: 28px;
     font-weight: bold;
   }
 }
+
 .actionContainer {
   display: flex;
   justify-content: space-between;
 }
+
 .actions {
   width: 49%;
   display: flex;
@@ -75,12 +80,14 @@
   justify-content: center;
   padding-left: 0 !important; // FIXME: for ul element
 }
+
 .actionsList {
   list-style-type: none;
   text-align: start;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
+
   &Icon {
     min-width: 30px;
     min-height: 30px;
@@ -88,21 +95,25 @@
     margin-right: 10px;
   }
 }
+
 .icon {
   margin-right: 10px;
 }
+
 .nextAction {
   width: 49%;
   padding: 1rem;
   border: $green-1 1.5px solid;
   border-radius: 4px;
   text-align: center;
+
   .content {
     display: flex;
     flex-direction: column;
     height: 100%;
     justify-content: space-around;
   }
+
   strong {
     font-size: 1.5rem;
   }

@@ -431,7 +431,7 @@ export default Vue.extend(options)
 .Graph-Desc {
   width: 100%;
   margin: 0;
-  padding-left: 0px;
+  padding-left: 0;
   list-style: none;
   font-size: 12px;
   color: $gray-3;
