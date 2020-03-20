@@ -21,6 +21,7 @@
   align-items: center;
   padding: 30px 15px 30px 20px;
   color: $gray-2;
+
   @include card-container();
 
   &Heading {
@@ -40,6 +41,7 @@
 
   &subHeading {
     @include font-size(20);
+
     margin: 0 !important;
   }
 }
