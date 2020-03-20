@@ -30,7 +30,7 @@
               class="OpenDataLink"
               :href="url"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
             >
               {{ $t('オープンデータを入手') }}
               <v-icon

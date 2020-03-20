@@ -18,7 +18,7 @@
           <a
             href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('各保健所の電話番号は福祉保健局HPへ') }}
             <v-icon size="16">
@@ -51,9 +51,9 @@
             <a href="tel:0353204592">03-5320-4592</a>
           </div>
           <div :class="[$style.phone, $style.fzNumeric]">
-              <span :class="[$style.fzMedium, $style.break, $style.mb10]">
-                {{ $t('ひまわり') }}
-              </span>
+            <span :class="[$style.fzMedium, $style.break, $style.mb10]">
+              {{ $t('ひまわり') }}
+            </span>
           </div>
         </dd>
       </div>

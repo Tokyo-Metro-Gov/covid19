@@ -2,7 +2,7 @@
   <div class="TextCard">
     <h3 v-if="title" class="TextCard-Heading">
       <div v-if="link">
-        <a :href="link" target="_blank" rel="noopener">
+        <a :href="link" target="_blank" rel="noopener noreferrer">
           {{ title }}
         </a>
         <v-icon

@@ -4,7 +4,7 @@
     <a
       href="https://stopcovid19.metro.tokyo.lg.jp/"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
     >
       公開サイトへ
     </a>

@@ -4,7 +4,7 @@
     :to="isInternalLink ? link : ''"
     :href="!isInternalLink ? link : ''"
     :target="!isInternalLink ? '_blank' : ''"
-    :rel="!isInternalLink ? 'noopener' : ''"
+    :rel="!isInternalLink ? 'noopener noreferrer' : ''"
     router
     exact
     class="ListItem-Container"

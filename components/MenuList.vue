@@ -58,7 +58,7 @@ export default class MenuList extends Vue {
       ? {
           href: link,
           target: '_blank',
-          rel: 'noopener',
+          rel: 'noopener noreferrer',
           class: 'MenuList-Link'
         }
       : {

@@ -12,7 +12,7 @@
           class="WhatsNew-list-item-anchor"
           :href="item.url"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <time
             class="WhatsNew-list-item-anchor-time px-2"

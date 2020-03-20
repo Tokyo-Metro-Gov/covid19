@@ -119,7 +119,7 @@
               )
             "
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('Google Analytics利用規約') }}
           </a>
@@ -128,7 +128,7 @@
           <a
             :href="$t('https://policies.google.com/privacy?hl=ja')"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('Googleのプライバシーポリシー') }}
           </a>
@@ -139,7 +139,7 @@
               $t('https://support.google.com/analytics/answer/6004245?hl=ja')
             "
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('Google Analyticsに関する詳細情報') }}
           </a>
@@ -179,7 +179,7 @@
         <a
           href="https://portal.data.metro.tokyo.lg.jp/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           place="catalogWebsite"
         >
           {{ $t('東京都オープンデータカタログサイト') }}
@@ -198,7 +198,7 @@
           <a
             href="https://github.com/tokyo-metropolitan-gov/covid19"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             place="githubRepo"
           >
             {{ $t('GitHub リポジトリ') }}
