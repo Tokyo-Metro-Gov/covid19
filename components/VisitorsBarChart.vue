@@ -54,7 +54,6 @@ import 'dayjs/locale/en'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
-import shinjukuData from '@/data/13104_daily_visitors.json'
 import DataView from '@/components/DataView.vue'
 import { single as color } from '@/utils/colors'
 
@@ -66,18 +65,24 @@ dayjs.updateLocale('en', {
   weekStart: 1 // 月曜始まり
 })
 
+type VisitorData = {
+  date: string
+  population: number
+  holiday: boolean
+}
+
 type Data = {}
 type Methods = {
   tooltipTitle: (tooltipItems: any, data: any) => string
 }
 type Computed = {
   groupByWeekData: {
-    [weekNum: number]: typeof shinjukuData.data
+    [weekNum: number]: VisitorData[]
   }
   labels: string[]
   standardValue: number
   targetData: {
-    [weekNum: number]: typeof shinjukuData.data
+    [weekNum: number]: VisitorData[]
   }
   targetValues: number[]
   displayData: {
@@ -109,7 +114,7 @@ type Props = {
   title: string
   titleId: string
   chartId: string
-  chartData: typeof shinjukuData.data
+  chartData: VisitorData[]
   date: string
   standardDate: string
   startDate: string
@@ -139,7 +144,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: false,
       default: ''
     },
-    chartData: [],
+    chartData: {
+      type: Array,
+      required: false,
+      default: () => []
+    },
     date: {
       type: String,
       required: false,
