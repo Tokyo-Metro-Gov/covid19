@@ -375,6 +375,10 @@ export default Vue.extend({
         > svg {
           width: auto !important;
         }
+
+        &:focus {
+          outline: dotted $gray-3 1px;
+        }
       }
 
       .DataView-Share-Buttons {
