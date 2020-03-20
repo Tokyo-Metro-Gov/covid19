@@ -10,7 +10,7 @@
           </span>
           <!-- eslint-enable vue/no-v-html-->
           <span>
-            <b>{{ 累計人数 }}</b>
+            <strong>{{ 累計人数 }}</strong>
             <span :class="$style.unit">{{ $t('人') }}</span>
           </span>
         </div>
@@ -25,7 +25,7 @@
         <div :class="$style.content">
           <span>{{ $t('合計') }}</span>
           <span>
-            <b>{{ 合計件数 }}</b>
+            <strong>{{ 合計件数 }}</strong>
             <span :class="$style.unit">{{ $t('件.tested') }}</span>
           </span>
         </div>
@@ -36,7 +36,7 @@
             <div :class="$style.content">
               <span>{{ $t('都内発生') }}</span>
               <span>
-                <b>{{ 都内発生件数 }}</b>
+                <strong>{{ 都内発生件数 }}</strong>
                 <span :class="$style.unit">{{ $t('件.tested') }}</span>
               </span>
             </div>
@@ -50,7 +50,7 @@
                 $t('（チャーター機・クルーズ船等）')
               }}</span>
               <span>
-                <b>{{ その他件数 }}</b>
+                <strong>{{ その他件数 }}</strong>
                 <span :class="$style.unit">{{ $t('件.tested') }}</span>
               </span>
             </div>
@@ -218,7 +218,7 @@ $default-boxh: 150px;
       margin-top: 0.1em;
     }
   }
-  span b {
+  span strong {
     @include font-size(18);
   }
   span.unit {
@@ -288,7 +288,7 @@ $default-boxh: 150px;
     > span {
       @include font-size($fz);
     }
-    span b {
+    span strong {
       @include font-size($fz + 2);
     }
     span.unit {

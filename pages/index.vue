@@ -23,6 +23,7 @@
       <consultation-desk-reports-number-card />
       <metro-card />
       <agency-card />
+      <shinjuku-visitors-card />
     </v-row>
   </div>
 </template>
@@ -45,6 +46,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
 
 export default Vue.extend({
   components: {
@@ -60,7 +62,8 @@ export default Vue.extend({
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
     MetroCard,
-    AgencyCard
+    AgencyCard,
+    ShinjukuVisitorsCard
   },
   data() {
     const data = {
