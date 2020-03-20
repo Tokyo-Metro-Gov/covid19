@@ -7,7 +7,7 @@
       <data-selector
         v-model="dataKind"
         :target-id="chartId"
-        :style="{ display: canvas ? 'block' : 'none' }"
+        :style="{ display: canvas ? 'inline-block' : 'none' }"
       />
     </template>
     <bar
