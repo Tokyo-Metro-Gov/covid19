@@ -33,8 +33,6 @@
   </data-view>
 </template>
 
-<i18n src="./MetroBarChart.i18n.json"></i18n>
-
 <style lang="scss">
 .MetroGraph {
   &-Desc {

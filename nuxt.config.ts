@@ -1,6 +1,8 @@
 import { Configuration } from '@nuxt/types'
+import i18n from './nuxt-i18n.config'
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
+const environment = process.env.NODE_ENV || 'development'
 
 const config: Configuration = {
   mode: 'universal',
@@ -72,6 +74,11 @@ const config: Configuration = {
         hid: 'fb:app_id',
         property: 'fb:app_id',
         content: '2879625188795443'
+      },
+      {
+        hid: 'note:card',
+        property: 'note:card',
+        content: 'summary_large_image'
       }
     ],
     link: [
@@ -100,6 +107,10 @@ const config: Configuration = {
       ssr: true
     },
     {
+      src: '@/plugins/axe',
+      ssr: true
+    },
+    {
       src: '@/plugins/vuetify.ts',
       ssr: true
     }
@@ -108,6 +119,7 @@ const config: Configuration = {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
     '@nuxtjs/google-analytics'
@@ -120,64 +132,8 @@ const config: Configuration = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
-    [
-      'nuxt-i18n',
-      {
-        strategy: 'prefix_except_default',
-        detectBrowserLanguage: {
-          useCookie: true,
-          cookieKey: 'i18n_redirected'
-        },
-        locales: [
-          {
-            code: 'ja',
-            name: '日本語',
-            iso: 'ja-JP'
-          },
-          {
-            code: 'en',
-            name: 'English',
-            iso: 'en-US'
-          },
-          {
-            code: 'zh-cn',
-            name: '簡体字',
-            iso: 'zh-CN'
-          },
-          {
-            code: 'zh-tw',
-            name: '繁體字',
-            iso: 'zh-TW'
-          },
-          {
-            code: 'ko',
-            name: '한국어',
-            iso: 'ko-KR'
-          },
-          // ,
-          // #1126, #872 (comment)
-          // ポルトガル語は訳が揃っていないため非表示
-          // 「やさしい日本語」はコンポーネントが崩れるため非表示
-          // {
-          //   code: 'pt-BR',
-          //   name: 'Portuguese',
-          //   iso: 'pt-BR'
-          // },
-          {
-            code: 'ja-basic',
-            name: 'やさしい にほんご',
-            iso: 'ja-JP'
-          }
-        ],
-        defaultLocale: 'ja',
-        vueI18n: {
-          fallbackLocale: 'ja',
-          formatFallbackMessages: true
-        },
-        vueI18nLoader: true
-      }
-    ],
+    ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
+    ['nuxt-i18n', i18n],
     'nuxt-svg-loader',
     'nuxt-purgecss',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }]
@@ -201,7 +157,6 @@ const config: Configuration = {
     id: 'UA-159417676-1'
   },
   build: {
-    extractCSS: true,
     postcss: {
       plugins: [
         autoprefixer({ grid: 'autoplace' }),
@@ -232,16 +187,32 @@ const config: Configuration = {
   },
   generate: {
     fallback: true,
-    routes: [
-      '/cards/details-of-confirmed-cases',
-      '/cards/number-of-confirmed-cases',
-      '/cards/attributes-of-confirmed-cases',
-      '/cards/number-of-tested',
-      '/cards/number-of-reports-to-covid19-telephone-advisory-center',
-      '/cards/number-of-reports-to-covid19-consultation-desk',
-      '/cards/predicted-number-of-toei-subway-passengers',
-      '/cards/agency'
-    ]
+    routes() {
+      const locales = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
+      const pages = [
+        '/cards/details-of-confirmed-cases',
+        '/cards/number-of-confirmed-cases',
+        '/cards/attributes-of-confirmed-cases',
+        '/cards/number-of-tested',
+        '/cards/number-of-reports-to-covid19-telephone-advisory-center',
+        '/cards/number-of-reports-to-covid19-consultation-desk',
+        '/cards/predicted-number-of-toei-subway-passengers',
+        '/cards/agency'
+      ]
+
+      const routes: string[] = []
+      locales.forEach(locale => {
+        pages.forEach(page => {
+          if (locale === 'ja') {
+            routes.push(page)
+            return
+          }
+          const route = `/${locale}${page}`
+          routes.push(route)
+        })
+      })
+      return routes
+    }
   },
   // /*
   // ** hot read configuration for docker
