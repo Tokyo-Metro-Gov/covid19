@@ -179,12 +179,12 @@ export default Vue.extend({
           }
         }
 
-        tbody td {
-          height: auto;
-        }
-
         td {
           display: block;
+        }
+
+        tbody td {
+          height: auto;
         }
       }
     }
