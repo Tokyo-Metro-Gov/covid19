@@ -19,6 +19,9 @@
       <div class="DataView-CardText">
         <slot />
       </div>
+      <div class="DataView-Description">
+        <slot name="footer-description" />
+      </div>
       <div class="DataView-Footer">
         <div class="Footer-Left">
           <div>
@@ -51,7 +54,27 @@
         </div>
 
         <div v-if="this.$route.query.embed != 'true'" class="Footer-Right">
-          <div v-if="displayShare" class="DataView-Share-Buttons py-2">
+          <button class="DataView-Share-Opener" @click="toggleShareMenu">
+            <svg
+              width="14"
+              height="16"
+              viewBox="0 0 14 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7.59999 3.5H9.5L7 0.5L4.5 3.5H6.39999V11H7.59999V3.5ZM8.5 5.75H11.5C11.9142 5.75 12.25 6.08579 12.25 6.5V13.5C12.25 13.9142 11.9142 14.25 11.5 14.25H2.5C2.08579 14.25 1.75 13.9142 1.75 13.5V6.5C1.75 6.08579 2.08579 5.75 2.5 5.75H5.5V4.5H2.5C1.39543 4.5 0.5 5.39543 0.5 6.5V13.5C0.5 14.6046 1.39543 15.5 2.5 15.5H11.5C12.6046 15.5 13.5 14.6046 13.5 13.5V6.5C13.5 5.39543 12.6046 4.5 11.5 4.5H8.5V5.75Z"
+                fill="#808080"
+              />
+            </svg>
+          </button>
+          <div
+            v-if="displayShare"
+            class="DataView-Share-Buttons py-2"
+            @click="stopClosingShareMenu"
+          >
             <div class="Close-Button">
               <v-icon @click="closeShareMenu">
                 mdi-close
@@ -84,22 +107,6 @@
                 <img src="/facebook.png" class="icon-resize facebook" />
               </button>
             </div>
-          </div>
-          <div class="DataView-Share-Opener" @click="toggleShareMenu">
-            <svg
-              width="14"
-              height="16"
-              viewBox="0 0 14 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M7.59999 3.5H9.5L7 0.5L4.5 3.5H6.39999V11H7.59999V3.5ZM8.5 5.75H11.5C11.9142 5.75 12.25 6.08579 12.25 6.5V13.5C12.25 13.9142 11.9142 14.25 11.5 14.25H2.5C2.08579 14.25 1.75 13.9142 1.75 13.5V6.5C1.75 6.08579 2.08579 5.75 2.5 5.75H5.5V4.5H2.5C1.39543 4.5 0.5 5.39543 0.5 6.5V13.5C0.5 14.6046 1.39543 15.5 2.5 15.5H11.5C12.6046 15.5 13.5 14.6046 13.5 13.5V6.5C13.5 5.39543 12.6046 4.5 11.5 4.5H8.5V5.75Z"
-                fill="#808080"
-              />
-            </svg>
           </div>
         </div>
       </div>
@@ -155,8 +162,21 @@ export default Vue.extend({
       return graphEmbedValue
     }
   },
+  watch: {
+    displayShare(isShow: boolean) {
+      if (isShow) {
+        document.documentElement.addEventListener('click', this.toggleShareMenu)
+      } else {
+        document.documentElement.removeEventListener(
+          'click',
+          this.toggleShareMenu
+        )
+      }
+    }
+  },
   methods: {
-    toggleShareMenu() {
+    toggleShareMenu(e: Event) {
+      e.stopPropagation()
       this.displayShare = !this.displayShare
     },
     closeShareMenu() {
@@ -175,6 +195,9 @@ export default Vue.extend({
           self.showOverlay = false
         }, 2000)
       })
+    },
+    stopClosingShareMenu(e: Event) {
+      e.stopPropagation()
     },
     permalink(host: boolean = false, embed: boolean = false) {
       let permalink = '/cards/' + this.titleId
@@ -220,15 +243,19 @@ export default Vue.extend({
 <style lang="scss">
 .DataView {
   @include card-container();
+
   height: 100%;
+
   &-Header {
     display: flex;
     align-items: flex-start;
     flex-flow: column;
     padding: 0 10px;
+
     @include largerThan($medium) {
       padding: 0 5px;
     }
+
     @include largerThan($large) {
       width: 100%;
       flex-flow: row;
@@ -236,19 +263,22 @@ export default Vue.extend({
       padding: 0;
     }
   }
+
   &-DataInfo {
     &-summary {
       color: $gray-2;
-      font-family: Hiragino Sans;
+      font-family: Hiragino Sans, sans-serif;
       font-style: normal;
       font-size: 30px;
       line-height: 30px;
       white-space: nowrap;
+
       &-unit {
         font-size: 0.6em;
         width: 100%;
       }
     }
+
     &-date {
       font-size: 12px;
       line-height: 12px;
@@ -257,8 +287,7 @@ export default Vue.extend({
       display: inline-block;
     }
   }
-}
-.DataView {
+
   &-Inner {
     display: flex;
     flex-flow: column;
@@ -266,6 +295,7 @@ export default Vue.extend({
     padding: 22px;
     height: 100%;
   }
+
   &-Title {
     width: 100%;
     margin-bottom: 10px;
@@ -273,32 +303,43 @@ export default Vue.extend({
     line-height: 1.5;
     font-weight: normal;
     color: $gray-2;
+
     @include largerThan($large) {
-      width: 50%;
       margin-bottom: 0;
+      &.with-infoPanel {
+        width: 50%;
+      }
     }
   }
+
   &-CardText {
     margin: 16px 0;
   }
+
   &-Description {
     margin: 10px 0 0;
     font-size: 12px;
     color: $gray-3;
-    ul {
+
+    ul,
+    ol {
       list-style-type: none;
       padding: 0;
     }
   }
+
   &-CardTextForXS {
     margin-bottom: 46px;
     margin-top: 70px;
   }
+
   &-Embed {
     background-color: $gray-5;
   }
+
   &-Footer {
     @include font-size(12);
+
     padding: 0 !important;
     display: flex;
     justify-content: space-between;
@@ -309,8 +350,10 @@ export default Vue.extend({
     .Permalink {
       color: $gray-3 !important;
     }
+
     .OpenDataLink {
       text-decoration: none;
+
       .ExternalLinkIcon {
         vertical-align: text-bottom;
       }
@@ -322,16 +365,18 @@ export default Vue.extend({
 
     .Footer-Right {
       position: relative;
-
       display: flex;
       align-items: flex-end;
+
       .DataView-Share-Opener {
         cursor: pointer;
         margin-right: 6px;
+
         > svg {
           width: auto !important;
         }
       }
+
       .DataView-Share-Buttons {
         position: absolute;
         padding: 8px;
@@ -346,7 +391,7 @@ export default Vue.extend({
         z-index: 1;
 
         > * {
-          padding: 4px 0px;
+          padding: 4px 0;
         }
 
         > .Close-Button {
@@ -362,7 +407,6 @@ export default Vue.extend({
           color: rgb(3, 3, 3);
           border: solid 1px #eee;
           border-radius: 8px;
-
           font-size: 12px;
 
           .EmbedCode-Copy {
@@ -390,9 +434,11 @@ export default Vue.extend({
               color: #fff;
               background: #2a96eb;
             }
+
             &.facebook {
               color: #364e8a;
             }
+
             &.line {
               color: #1cb127;
             }

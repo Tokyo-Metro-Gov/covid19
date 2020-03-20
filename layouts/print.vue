@@ -92,6 +92,7 @@ export default Vue.extend({
   margin: 0 auto;
   background-color: inherit !important;
 }
+
 .loader {
   height: 200px;
   width: 150px;
@@ -99,6 +100,7 @@ export default Vue.extend({
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
+
   img {
     display: block;
     margin: 0 auto 20px;
@@ -109,21 +111,25 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .PrintMeta {
   margin-bottom: 1em;
+
   &-HeadingWrapper {
     display: flex;
     align-items: center;
     text-decoration: none;
   }
+
   &-Logo {
     margin: 0 16px 0 0;
     width: 110px;
   }
+
   &-Heading {
     font-size: 13px;
     color: #898989;
     padding: 0.5em 0;
     text-decoration: none;
   }
+
   &-QR {
     height: 60px;
     width: 60px;
@@ -133,6 +139,7 @@ export default Vue.extend({
       max-width: 100%;
     }
   }
+
   &-Text {
     font-size: 13px;
     color: gray;
@@ -140,6 +147,7 @@ export default Vue.extend({
     padding-top: 1em;
     width: max-content;
   }
+
   &-Link {
     font-size: 13px;
     color: gray;
