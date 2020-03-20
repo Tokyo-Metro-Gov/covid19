@@ -40,7 +40,11 @@
             : xScale(sequence[i].date) - xScale(sequence[i - 1].date)
         "
         @click="handleClick"
-      />
+      >
+        <title>
+          {{ `${d.date} ${d.value}` }}
+        </title>
+      </rect>
     </g>
   </svg>
 </template>

@@ -13,6 +13,7 @@
     <div class="MapCard-BodyContainer">
       <heatmap-legend :legend-data="legendData" />
       <heatmap
+        ref="heatmapComponentRef"
         v-model="rawChartData"
         class="MapCard-Heatmap"
         :map-id="mapId"
@@ -125,6 +126,7 @@ export default {
     },
     handleFocusChanged(e) {
       this.dataDate = e
+      this.$refs.heatmapComponentRef.updatePaintProperty(e)
     }
   }
 }

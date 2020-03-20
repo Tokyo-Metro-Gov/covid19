@@ -4,6 +4,7 @@
     :access-token="''"
     :map-options="actualMapOptions"
     @map-load="loaded"
+    @map-init="mapInitialized"
   />
 </template>
 
@@ -22,10 +23,6 @@ export default {
       default: () => {
         return []
       }
-    },
-    dataDate: {
-      type: String,
-      default: ''
     },
     mapOptions: {
       type: Object,
@@ -52,24 +49,6 @@ export default {
   computed: {
     actualMapOptions() {
       return { container: this.mapId, ...this.mapOptions }
-    },
-    paintPropertyX() {
-      if (this.dataDate !== '') {
-        const p = [
-          'step',
-          ['get', this.dataDate],
-          '#1B75BC',
-          this.legend[0],
-          '#238B45',
-          this.legend[1],
-          '#006D2C',
-          this.legend[2],
-          '#00441B'
-        ]
-        this.mapObject.setPaintProperty('heatmap', 'fill-color', p)
-        return p
-      }
-      return []
     }
   },
   methods: {
@@ -179,6 +158,25 @@ export default {
         }
       })
       this.dataDrivenInitialization(map)
+    },
+    mapInitialized(map) {
+      this.mapObject = map
+    },
+    updatePaintProperty(targetDate) {
+      if (this.mapObject !== null && this.legend !== null) {
+        const p = [
+          'step',
+          ['get', targetDate],
+          '#1B75BC',
+          this.legend[0],
+          '#238B45',
+          this.legend[1],
+          '#006D2C',
+          this.legend[2],
+          '#00441B'
+        ]
+        this.mapObject.setPaintProperty('heatmap', 'fill-color', p)
+      }
     }
   }
 }
