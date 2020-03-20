@@ -1,12 +1,18 @@
 {
     "newsItems": [
         {
-            "date": "2020\/3\/17",
+            "date": "2020\/3\/20",
+            "url": "https:\/\/city.niigata.lg.jp\/iryo\/kenko\/yobou_kansen\/kansen\/coronavirus.html",
+            "text": "新型コロナウイルス感染症について"
+        },
+        {
+            "date": "2020\/3\/19",
             "url": "https:\/\/www.pref.niigata.lg.jp\/sec\/kenko\/bukan-haien.html",
             "text": "新潟県の最新の発表"
         },
+
         {
-            "date": "2020\/3\/17",
+            "date": "2020\/3\/20",
             "url": "https:\/\/www.pref.niigata.lg.jp\/sec\/zaisei\/020317koronakinkyutaisaku.html",
             "text": "新潟県が新型コロナウイルス感染症の発生に伴う緊急的な対策を発表"
         }
