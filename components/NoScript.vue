@@ -57,3 +57,11 @@
   color: rgba(0, 0, 0, 0.87);
 }
 </style>
+
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  //
+})
+</script>

@@ -23,9 +23,8 @@ Tokyo Covid-19 response site contributors
 | amotarao | [@amotarao](https://github.com/amotarao) | | Frontend |
 | Taro Matsuzawa | [@smellman](https://github.com/smellman) | [@smellman](https://twitter.com/smellman) | Coding |
 | [Riki Singh Khorana](https://www.linkedin.com/in/rikilele/) | [@Rikilele](https://github.com/Rikilele) | | Translations / A11y |
-| Koki Kobayashi | | | Translations |
+| Koki Kobayashi | [@koki-koba](https://github.com/koki-koba) | | Translations |
 | Fujita Shu | [@nard-tech](https://github.com/nard-tech) | | Coding, i18n |
-| kaizumaki | [@kaizumaki](https://github.com/kaizumaki) | | |
 | Shigetaka Shirouchi | [@shgtkshruch](https://github.com/shgtkshruch) | | |
 | Kawokas | [@kawoka](https://github.com/kawoka) | | |
 | Spenser Black | [@spenserblack](https://github.com/spenserblack) | | |
@@ -96,17 +95,34 @@ Tokyo Covid-19 response site contributors
 | Kouki Okajima | [@Okahill](https://github.com/Okahill) | | Coding |
 | Tomoki Shigeta | [@matoruru](https://github.com/matoruru) | | Coding |
 | Shun Kawahara | [@shun91](https://github.com/shun91) | [@kojo_73](https://twitter.com/kojo_73) | Frontend |
-| Yuichi Yokoyama | [@dj_yoko](https://twitter.com/dj_yoko) | [@DJYoko](https://github.com/DJYoko) | Coding |
-| dafujii | [@dafujii_k](https://twitter.com/dafujii_k) | [@dafujii](https://github.com/dafujii) | Kaizen |
+| Yuichi Yokoyama | [@DJYoko](https://github.com/DJYoko) | [@dj_yoko](https://twitter.com/dj_yoko) | Coding |
+| dafujii | [@dafujii](https://github.com/dafujii) | [@dafujii_k](https://twitter.com/dafujii_k) | Kaizen |
 | 7iva | [@7iva](https://github.com/7iva) | [@7iva](https://twitte@r.com/_7iva) | Translations |
 | Jun Shindo | [@jay-es](https://github.com/jay-es) | | Frontend |
 | Koki Fukushima | [@f-koki](https://github.com/f-koki) | | |
 | mkfsn | [@mkfsn](https://github.com/mkfsn) | [@mkfsn](https://twitter.com/mkfsn) | Coding, i18n |
 | Thien Le Vinh | [@omygodvt95](https://github.com/omygodvt95) | | Translation |
+| Yuuki Kanasugi (OKAN inc) | [@knsg16](https://github.com/knsg16) | [@OKanasugi](https://twitter.com/OKanasugi) | Frontend |
+| Toshihiro Naka (HALTO) | [@bapex](https://github.com/bapex) | | Frontend |
+| Haruka Kawanaka（かふー） | [@harukakawanaka](https://github.com/harukakawanaka) | | Frontend |
+| DaeHyun Sung | [@studioego](https://github.com/studioego) | | Translations |
+| Kazuki Iwai | [@yubachiri](https://github.com/yubachiri) | [@yubachiri](https://twitter.com/yubachiri) | Frontend |
+| t-yng | [@t-yng](https://github.com/t-yng) | [@TGreenmonkey](https://twitter.com/TGreenmonkey) | Frontend |
+| Yukihiko Eda | [@paichi81](https://github.com/paichi81) | | Translations |
+| rikupin | [@rikupin1105](https://github.com/rikupin1105) | [@rikupin_1105](https://twitter.com/rikupin_1105) | Kaizen |
+| [Shingo OKAMOTO](https://hagechin.github.io/) | [@hagechin](https://github.com/hagechin) | | Frontend |
+| kuromoka | [@kuromoka](https://github.com/kuromoka) | [@kuromoka16](https://twitter.com/kuromoka16) | Frontend |
+| Michiya Tominaga | [@nuwaa](https://github.com/nuwaa) | [@nuwaa](https://twitter.com/nuwaa) | Translations |
+| showyou | [@showyou](https://github.com/showyou) | [@showyou](https://twitter.com/showyou) | Issue reporter |
+| [Ryota Umebayashi (@lesgrandsballet)](https://qiita.com/umerin) | [@RyotaUmebayashi](https://github.com/RyotaUmebayashi) | | Kaizen |
+| takoba (Takuya Obara) | [@takoba](https://github.com/takoba) | | Kaizen |
+| Ryo KUTSUZAWA | [@bookun](https://github.com/bookun)) | | Coding |
+| Hiroaki MASAKI | [@maasa22](https://github.com/maasa22)) | | Coding |
+| Dongsik | [@dongsiku](https://github.com/dongsiku) | | Translation (Japanese -> Korean) |
 
 ご協力に感謝です！！！
 
-お名前の掲載をご希望の方は，[#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654)にコメントをお願いします．
+お名前の掲載をご希望の方は，[#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654)にコメントをお願いします。
 
 If you want to add your name, please comment on [#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654).
 
