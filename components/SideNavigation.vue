@@ -16,7 +16,7 @@
             :alt="$t('東京都')"
           />
           <div class="SideNavigation-HeaderText">
-            {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
+            {{ $t('新型コロナウイルス感染症-') }}<br />{{ $t('対策サイト') }}
           </div>
         </nuxt-link>
       </h1>
@@ -33,7 +33,10 @@
 
       <nav class="SideNavigation-Menu">
         <MenuList :items="items" @click="$emit('closeNavi', $event)" />
-        <div class="SideNavigation-Language">
+        <div
+          v-if="this.$i18n.locales.length > 1"
+          class="SideNavigation-Language"
+        >
           <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
             {{ $t('多言語対応選択メニュー') }}
           </label>
