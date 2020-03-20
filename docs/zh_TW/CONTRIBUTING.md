@@ -21,7 +21,7 @@
 * 請參加 `#covid19` 頻道。
 
 ## 給參加者
-* 進行參與開發之前、請先閱讀 [Principle/行動規範](CODE_OF_CONDUCT_ZH_TW.md) 。
+* 進行參與開發之前、請先閱讀 [Principle/行動規範](./CODE_OF_CONDUCT.md) 。
 * 交流時也請先確認 Code for Japan 的[行動規範（日文網頁）](https://github.com/codeforjapan/codeofconduct) 。
 * 如果有自己可以做而且沒有被指派（assign）的 Issue 的話、請在 Issue 下回應「やります！（我來做）」後再開始開發。
 * [關於 good first issue 標籤](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) 是推薦給新手的。
