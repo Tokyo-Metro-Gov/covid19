@@ -96,15 +96,36 @@
 
             <div class="Buttons">
               <button @click="line">
-                <img src="/line.png" class="icon-resize line" />
+                <picture>
+                  <source
+                    srcset="/line.webp"
+                    type="image/webp"
+                    class="icon-resize line"
+                  />
+                  <img src="/line.png" class="icon-resize line" />
+                </picture>
               </button>
 
               <button @click="twitter">
-                <img src="/twitter.png" class="icon-resize twitter" />
+                <picture>
+                  <source
+                    srcset="/twitter.webp"
+                    type="image/webp"
+                    class="icon-resize twitter"
+                  />
+                  <img src="/twitter.png" class="icon-resize twitter" />
+                </picture>
               </button>
 
               <button @click="facebook">
-                <img src="/facebook.png" class="icon-resize facebook" />
+                <picture>
+                  <source
+                    srcset="/facebook.webp"
+                    type="image/webp"
+                    class="icon-resize facebook"
+                  />
+                  <img src="/facebook.png" class="icon-resize facebook" />
+                </picture>
               </button>
             </div>
           </div>
