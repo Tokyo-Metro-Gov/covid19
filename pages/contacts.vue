@@ -4,7 +4,7 @@
       {{ $t('お問い合わせ先一覧') }}
     </h2>
     <div class="Contacts-Card">
-      <table class="Contacts-Card-Table">
+      <table class="Contacts-Card-Table" role="presentation">
         <thead>
           <tr>
             <th class="text-center">{{ $t('お問い合わせ内容') }}</th>
@@ -14,12 +14,14 @@
         </thead>
         <tbody>
           <tr>
-            <td class="content">{{ $t('サイト全般に関すること') }}</td>
+            <td class="content" role="heading" aria-level="3">
+              {{ $t('サイト全般に関すること') }}
+            </td>
             <td class="bureau">{{ $t('政策企画局') }}</td>
             <td class="tel"><a href="tel:03-5388-2171">03-5388-2171</a></td>
           </tr>
           <tr>
-            <td class="content">
+            <td class="content" role="heading" aria-level="3">
               {{ $t('サイトの技術面に関すること') }}<br />{{
                 $t('オープンデータ、オープンソースに関すること')
               }}
@@ -28,7 +30,7 @@
             <td class="tel"><a href="tel:03-5320-7930">03-5320-7930</a></td>
           </tr>
           <tr>
-            <td class="content">
+            <td class="content" role="heading" aria-level="3">
               {{ $t('新型コロナウイルス感染症対策本部会議に関すること')
               }}<br />{{ $t('都庁来庁者データに関すること') }}
             </td>
@@ -45,7 +47,7 @@
             </td>
           </tr>
           <tr>
-            <td class="content">
+            <td class="content" role="heading" aria-level="3">
               {{ $t('都公式ホームページに関すること') }}<br />{{
                 $t('都公式SNSアカウントに関すること')
               }}
@@ -63,7 +65,7 @@
             </td>
           </tr>
           <tr>
-            <td class="content">
+            <td class="content" role="heading" aria-level="3">
               {{ $t('中小企業支援、テレワークに関すること') }}
             </td>
             <td class="bureau">{{ $t('産業労働局') }}</td>
@@ -80,7 +82,7 @@
             </td>
           </tr>
           <tr>
-            <td class="content">
+            <td class="content" role="heading" aria-level="3">
               {{ $t('新型コロナウイルス感染症の予防・検査・医療に関すること') }}
             </td>
             <td class="bureau">{{ $t('福祉保健局') }}</td>
@@ -90,17 +92,23 @@
             </td>
           </tr>
           <tr>
-            <td class="content">{{ $t('都立学校に関すること') }}</td>
+            <td class="content" role="heading" aria-level="3">
+              {{ $t('都立学校に関すること') }}
+            </td>
             <td class="bureau">{{ $t('教育庁') }}</td>
             <td class="tel"><a href="tel:03-5320-6705">03-5320-6705</a></td>
           </tr>
           <tr>
-            <td class="content">{{ $t('スムーズビズに関すること') }}</td>
+            <td class="content" role="heading" aria-level="3">
+              {{ $t('スムーズビズに関すること') }}
+            </td>
             <td class="bureau">{{ $t('都市整備局') }}</td>
             <td class="tel"><a href="tel:03-5388-3317">03-5388-3317</a></td>
           </tr>
           <tr>
-            <td class="content">{{ $t('都営交通に関すること') }}</td>
+            <td class="content" role="heading" aria-level="3">
+              {{ $t('都営交通に関すること') }}
+            </td>
             <td class="bureau">{{ $t('交通局') }}</td>
             <td class="tel">
               <a href="tel:03-3816-5700">03-3816-5700</a><br />
