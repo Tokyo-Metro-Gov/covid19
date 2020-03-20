@@ -163,7 +163,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: false,
       default: ''
     },
-    chartData: [],
+    chartData: {
+      type: Array,
+      required: true,
+      default: []
+    },
     date: {
       type: String,
       required: false,
