@@ -30,6 +30,7 @@
     <development-mode-mark />
   </v-app>
 </template>
+
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
@@ -55,6 +56,9 @@ export default Vue.extend({
     let hasNavigation = true
     let loading = true
     if (this.$route.query.embed === 'true') {
+      hasNavigation = false
+      loading = false
+    } else if (this.$route.query.ogp === 'true') {
       hasNavigation = false
       loading = false
     }
@@ -84,6 +88,77 @@ export default Vue.extend({
         {
           rel: 'canonical',
           href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+        }
+      ],
+      meta: [
+        {
+          hid: 'author',
+          name: 'author',
+          content: this.$tc('東京都')
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$tc(
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+          )
+        },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content:
+            this.$t('東京都') +
+            ' ' +
+            this.$t('新型コロナウイルス感染症') +
+            ' ' +
+            this.$t('対策サイト')
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+        },
+        {
+          hid: 'og:locale',
+          property: 'og:locale',
+          content: this.$i18n.locale
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content:
+            this.$t('東京都') +
+            ' ' +
+            this.$t('新型コロナウイルス感染症') +
+            ' ' +
+            this.$t('対策サイト')
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.$tc(
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+          )
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.$tc('ogp.og:image')
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content:
+            this.$t('東京都') +
+            ' ' +
+            this.$t('新型コロナウイルス感染症') +
+            ' ' +
+            this.$t('対策サイト')
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.$tc('ogp.og:image')
         }
       ]
     }
