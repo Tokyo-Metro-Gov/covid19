@@ -81,10 +81,30 @@ import * as d3 from 'd3'
 export default {
   directives: {
     xAxis(el, _, vnode) {
-      d3.select(el).call(d3.axisBottom().scale(vnode.context.xScale))
+      d3.select(el)
+        .call(
+          d3
+            .axisBottom()
+            .scale(vnode.context.xScale)
+            .tickFormat(d => d3.timeFormat('%m/%d')(d))
+        )
+        .call(g =>
+          g
+            .selectAll('.tick text')
+            .attr('y', 0)
+            .attr('x', 9)
+            .attr('dy', '.35em')
+            .attr('text-anchor', 'start')
+            .attr('transform', 'rotate(90)')
+        )
     },
     yAxis(el, _, vnode) {
-      d3.select(el).call(d3.axisLeft().scale(vnode.context.yScale))
+      d3.select(el).call(
+        d3
+          .axisLeft()
+          .scale(vnode.context.yScale)
+          .ticks(3)
+      )
     }
   },
   props: ['height', 'chartData'],
@@ -93,7 +113,7 @@ export default {
       marginLeft: 60,
       marginTop: 4,
       marginRight: 4,
-      marginBottom: 20,
+      marginBottom: 40,
       width: 480,
       timeFormat: d3.timeFormat('%Y%m%d'),
       timeParse: d3.timeParse('%Y%m%d'),
