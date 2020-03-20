@@ -216,7 +216,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return this.cumulative(item)
       })
       const cumulativeSumArray = this.eachArraySum(cumulativeData)
-      let options = {
+      const options = {
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -332,7 +332,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       if (this.$route.query.ogp === 'true') {
-        Object.assign(options, {animation:{duration: 0}})
+        Object.assign(options, { animation: { duration: 0 } })
       }
       return options
     }
