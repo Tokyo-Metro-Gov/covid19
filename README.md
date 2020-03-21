@@ -47,6 +47,12 @@ $ yarn dev
 $ docker-compose up --build
 ```
 
+**Vagrant を使う場合**
+```bash
+# serve with hot reload at localhost:3000
+$ vagrant up
+```
+
 ### `Cannot find module ****` と怒られた時
 
 **yarn を使う場合**
@@ -107,4 +113,3 @@ Pull Request を送る際の branch は、以下のネーミングルールで�
 | 本番サイトHTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | 静的ビルドされたHTMLが置いてある場所 |
 | ステージングサイト HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 静的ビルドされたHTMLが置いてある場所 |
 | OGP作業用 | deploy/new_ogp | なし | OGPの更新用 |
-
