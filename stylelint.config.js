@@ -3,12 +3,6 @@ module.exports = {
   plugins: ['stylelint-scss'],
   rules: {
     'at-rule-no-unknown': null,
-    'scss/at-rule-no-unknown': true,
-    'no-descending-specificity': [
-      true,
-      {
-        severity: 'warning'
-      }
-    ]
+    'scss/at-rule-no-unknown': true
   }
 }
