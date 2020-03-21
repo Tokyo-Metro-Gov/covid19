@@ -1,23 +1,47 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
-      <p class="Graph-Desc">
-        {{ $t('（注）同一の対象者について複数の検体を調査する場合あり') }}
-        <br />
-        {{
-          $t(
-            '検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります'
-          )
-        }}
-      </p>
-      <data-selector v-model="dataKind" />
+      <ul class="Graph-Desc">
+        <li>
+          {{ $t('（注）医療機関が保険適用で行った検査は含まれていない') }}
+        </li>
+        <li>
+          {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
+        </li>
+        <li>
+          {{
+            $t(
+              '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+            )
+          }}
+        </li>
+      </ul>
+      <data-selector
+        v-model="dataKind"
+        :target-id="chartId"
+        :style="{ display: canvas ? 'inline-block' : 'none' }"
+      />
     </template>
     <bar
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="options"
       :height="240"
     />
+    <v-data-table
+      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
+      :headers="tableHeaders"
+      :items="tableData"
+      :items-per-page="-1"
+      :hide-default-footer="true"
+      :height="240"
+      :fixed-header="true"
+      :mobile-breakpoint="0"
+      class="cardTable"
+      item-key="name"
+    />
+
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -28,71 +52,98 @@
   </data-view>
 </template>
 
-<i18n>
- {
-   "ja": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "（注）同一の対象者について複数の検体を調査する場合あり",
-     "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります",
-     "{date}の全体累計": "%{date}の全体累計",
-     "{date}の合計": "%{date}の合計",
-     "都内": "都内",
-     "その他": "その他",
-     "合計": "合計"
-   },
-   "en": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "(Note) More than one sample from the same subject may be tested.",
-     "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "The number of tests conducted is published as preliminary figures and may be revised as confirmed data at a later date",
-     "{date}の全体累計": "Cumulative total as of %{date}",
-     "都内": "Tokyo",
-     "その他": "Others",
-     "合計": "Total"
-   },
-   "zh-cn": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "(註) 同一個案可能被多次檢查",
-     "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "The number of tests conducted is published as preliminary figures and may be revised as confirmed data at a later date",
-     "{date}の全体累計": "截至 %{date}",
-     "都内": "东京都",
-     "その他": "其它",
-     "合計": "总计"
-   },
-   "zh-tw": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "（註）同一個案可能被多次檢查",
-     "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "The number of tests conducted is published as preliminary figures and may be revised as confirmed data at a later date",
-     "{date}の全体累計": "累計至 %{date}",
-     "都内": "東京都",
-     "その他": "其它",
-     "合計": "合計"
-   },
-   "ko": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "(주의) 동일 대상자에 대하여 여러번의 검체를 조사하는 경우가 있음",
-     "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "The number of tests conducted is published as preliminary figures and may be revised as confirmed data at a later date",
-     "{date}の全体累計": "%{date}의 누적 수",
-     "都内": "도쿄도내",
-     "その他": "기타",
-     "合計": "합계"
-   },
-   "ja-basic": {
-     "（注）同一の対象者について複数の検体を調査する場合あり": "(ちゅうい) おなじ ひとに なんどか けんさ を する とき が あります",
-     "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります",
-     "{date}の全体累計": "%{date} ぜんぶで",
-     "都内": "とうきょうと の なか",
-     "その他": "そのほか",
-     "合計": "ごうけい"
-   }
- }
- </i18n>
-
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { TranslateResult } from 'vue-i18n'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import { double as colors } from '@/utils/colors'
 
-export default {
+interface HTMLElementEvent<T extends HTMLElement> extends Event {
+  currentTarget: T
+}
+type Data = {
+  dataKind: 'transition' | 'cumulative'
+  canvas: boolean
+}
+type Methods = {
+  sum: (array: number[]) => number
+  cumulative: (array: number[]) => number[]
+  pickLastNumber: (chartDataArray: number[][]) => number[]
+  cumulativeSum: (chartDataArray: number[][]) => number[]
+  eachArraySum: (chartDataArray: number[][]) => number[]
+}
+
+type Computed = {
+  displayInfo: {
+    lText: string
+    sText: string
+    unit: string
+  }
+  displayData: {
+    labels: string[]
+    datasets: {
+      label: string
+      data: number[]
+      backgroundColor: string
+      borderColor: string
+      borderWidth: object
+    }[]
+  }
+  tableHeaders: {
+    text: string
+    value: string
+  }[]
+  tableData: {
+    [key: number]: number
+  }[]
+  options: {
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        label: (tooltipItem: any) => string
+        title: (tooltipItem: any, data: any) => string
+      }
+    }
+    responsive: boolean
+    maintainAspectRatio: boolean
+    legend: {
+      display: boolean
+      onHover: (e: HTMLElementEvent<HTMLElement>) => void
+      onLeave: (e: HTMLElementEvent<HTMLElement>) => void
+    }
+    scales: object
+  }
+}
+
+type Props = {
+  title: string
+  titleId: string
+  chartId: string
+  chartData: number[][]
+  date: string
+  items: string[]
+  labels: string[]
+  dataLabels: string[] | TranslateResult[]
+  unit: string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
@@ -102,7 +153,6 @@ export default {
     },
     chartId: {
       type: String,
-      required: false,
       default: 'time-stacked-bar-chart'
     },
     chartData: {
@@ -117,25 +167,25 @@ export default {
     },
     items: {
       type: Array,
-      required: false,
       default: () => []
     },
     labels: {
       type: Array,
-      required: false,
+      default: () => []
+    },
+    dataLabels: {
+      type: Array,
       default: () => []
     },
     unit: {
       type: String,
-      required: false,
       default: ''
     }
   },
-  data() {
-    return {
-      dataKind: 'transition'
-    }
-  },
+  data: () => ({
+    dataKind: 'transition',
+    canvas: true
+  }),
   computed: {
     displayInfo() {
       if (this.dataKind === 'transition') {
@@ -156,7 +206,11 @@ export default {
       }
     },
     displayData() {
-      const colorArray = ['#00A040', '#00D154']
+      const borderColor = '#ffffff'
+      const borderWidth = [
+        { left: 0, top: 1, right: 0, bottom: 0 },
+        { left: 0, top: 0, right: 0, bottom: 0 }
+      ]
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
@@ -164,8 +218,9 @@ export default {
             return {
               label: this.items[index],
               data: item,
-              backgroundColor: colorArray[index],
-              borderWidth: 0
+              backgroundColor: colors[index],
+              borderColor,
+              borderWidth: borderWidth[index]
             }
           })
         }
@@ -176,11 +231,32 @@ export default {
           return {
             label: this.items[index],
             data: this.cumulative(item),
-            backgroundColor: colorArray[index],
-            borderWidth: 0
+            backgroundColor: colors[index],
+            borderColor,
+            borderWidth: borderWidth[index]
           }
         })
       }
+    },
+    tableHeaders() {
+      return [
+        { text: '', value: 'text' },
+        ...this.items.map((text, value) => {
+          return { text, value: String(value) }
+        })
+      ]
+    },
+    tableData() {
+      return this.displayData.datasets[0].data.map((_, i) => {
+        return Object.assign(
+          { text: this.labels[i] },
+          ...this.items.map((_, j) => {
+            return {
+              [j]: this.displayData.datasets[j].data[i]
+            }
+          })
+        )
+      })
     },
     options() {
       const unit = this.unit
@@ -190,14 +266,11 @@ export default {
         return this.cumulative(item)
       })
       const cumulativeSumArray = this.eachArraySum(cumulativeData)
-      return {
+      const options = {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label: tooltipItem => {
-              const labelTokyo = this.$t('都内')
-              const labelOthers = this.$t('その他')
-              const labelArray = [labelTokyo, labelOthers]
+            label: (tooltipItem: any) => {
               let casesTotal, cases
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index].toLocaleString()
@@ -214,10 +287,10 @@ export default {
               }
 
               return `${
-                labelArray[tooltipItem.datasetIndex]
+                this.dataLabels[tooltipItem.datasetIndex]
               }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
             },
-            title(tooltipItem, data) {
+            title(tooltipItem: any, data: any) {
               return data.labels[tooltipItem[0].index]
             }
           }
@@ -226,10 +299,10 @@ export default {
         maintainAspectRatio: false,
         legend: {
           display: true,
-          onHover: e => {
+          onHover: (e: HTMLElementEvent<HTMLElement>): void => {
             e.currentTarget.style.cursor = 'pointer'
           },
-          onLeave: e => {
+          onLeave: (e: HTMLElementEvent<HTMLElement>): void => {
             e.currentTarget.style.cursor = 'default'
           }
         },
@@ -247,7 +320,7 @@ export default {
                 fontColor: '#808080',
                 maxRotation: 0,
                 minRotation: 0,
-                callback: label => {
+                callback: (label: string) => {
                   return label.split('/')[1]
                 }
               }
@@ -266,7 +339,7 @@ export default {
                 fontColor: '#808080',
                 padding: 3,
                 fontStyle: 'bold',
-                callback: label => {
+                callback: (label: string) => {
                   const monthStringArry = [
                     'Jan',
                     'Feb',
@@ -308,11 +381,15 @@ export default {
           ]
         }
       }
+      if (this.$route.query.ogp === 'true') {
+        Object.assign(options, { animation: { duration: 0 } })
+      }
+      return options
     }
   },
   methods: {
-    cumulative(array) {
-      const cumulativeArray = []
+    cumulative(array: number[]): number[] {
+      const cumulativeArray: number[] = []
       let patSum = 0
       array.forEach(d => {
         patSum += d
@@ -320,25 +397,25 @@ export default {
       })
       return cumulativeArray
     },
-    sum(array) {
+    sum(array: number[]): number {
       return array.reduce((acc, cur) => {
         return acc + cur
       })
     },
-    pickLastNumber(chartDataArray) {
+    pickLastNumber(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array[array.length - 1]
       })
     },
-    cumulativeSum(chartDataArray) {
+    cumulativeSum(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array.reduce((acc, cur) => {
           return acc + cur
         })
       })
     },
-    eachArraySum(chartDataArray) {
-      const sumArray = []
+    eachArraySum(chartDataArray: number[][]) {
+      const sumArray: number[] = []
       for (let i = 0; i < chartDataArray[0].length; i++) {
         sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
       }
@@ -346,12 +423,16 @@ export default {
     }
   }
 }
+
+export default Vue.extend(options)
 </script>
 
 <style lang="scss" scoped>
 .Graph-Desc {
   width: 100%;
   margin: 0;
+  padding-left: 0;
+  list-style: none;
   font-size: 12px;
   color: $gray-3;
 }

@@ -16,16 +16,19 @@
       text-align: right;
       width: 50%;
     }
+
     &-summary {
       display: inline-block;
-      font-family: Hiragino Sans;
+      font-family: Hiragino Sans, sans-serif;
       font-style: normal;
       font-size: 30px;
       line-height: 30px;
+
       &-unit {
         font-size: 0.6em;
       }
     }
+
     &-date {
       white-space: wrap;
       display: inline-block;
@@ -38,12 +41,22 @@
 </style>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 
-@Component
-export default class DataViewBasicInfoPanel extends Vue {
-  @Prop() private lText!: string
-  @Prop() private sText!: string
-  @Prop() private unit!: string
-}
+export default Vue.extend({
+  props: {
+    lText: {
+      type: String,
+      required: true
+    },
+    sText: {
+      type: String,
+      required: true
+    },
+    unit: {
+      type: String,
+      required: true
+    }
+  }
+})
 </script>

@@ -5,22 +5,28 @@
   "author": "東京都",
   "private": true,
   "engines": {
-    "node": "^10.19.0"
+    "node": ">=10.19.0"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt-ts",
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
-    "generate:deploy": "nuxt-ts generate",
+    "generate:deploy": "cross-env NODE_ENV=production nuxt-ts generate",
+    "generate:dev": "cross-env NODE_ENV=development nuxt-ts generate",
     "generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "lint-and-generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "test": "echo 'skip tests (there is no test)'",
-    "lint": "eslint './**/*.{js,ts,vue}' --fix"
+    "lint": "eslint './**/*.{js,ts,vue}'",
+    "lint:fix": "eslint './**/*.{js,ts,vue}' --fix",
+    "stylelint": "stylelint '**/*.{css,scss,vue}'",
+    "stylelint:fix": "stylelint --fix '**/*.{css,scss,vue}'",
+    "clean-hardsource": "rimraf ./node_modules/.cache/hard-source"
   },
   "lint-staged": {
     "*.{js,ts,css,vue}": [
       "eslint --fix"
-    ]
+    ],
+    "*.{css,scss,vue}": "stylelint"
   },
   "husky": {
     "hooks": {
@@ -29,7 +35,6 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.0",
-    "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "chart.js": "^2.9.3",
@@ -49,6 +54,7 @@
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
     "@nuxtjs/google-analytics": "^2.2.3",
+    "@nuxtjs/stylelint-module": "^3.2.2",
     "@nuxtjs/vuetify": "^1.0.0",
     "@types/chart.js": "^2.9.14",
     "@vue/test-utils": "^1.0.0-beta.27",
@@ -56,6 +62,7 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-tsdoc": "^0.2.3",
     "husky": "^4.2.3",
     "jest": "^24.1.0",
     "lint-staged": "^10.0.8",
@@ -63,6 +70,12 @@
     "nuxt-purgecss": "^0.2.1",
     "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "stylelint": "^13.2.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.15.0",
+    "vue-axe": "^1.0.8",
     "vue-jest": "^4.0.0-0"
   }
 }

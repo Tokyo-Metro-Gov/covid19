@@ -1,68 +1,35 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:button>
-      <p class="MetroGraph-Desc">
-        {{
-          $t('{range}の利用者数*の平均値を基準としたときの相対値', {
-            range: $t(chartData.base_period)
-          })
-        }}
-        <br />
-        *{{ $t('都営地下鉄4路線の自動改札出場数') }}
-      </p>
+    <template v-slot:infoPanel>
+      <small :class="$style.DataViewDesc">
+        <slot name="description" />
+      </small>
     </template>
     <bar
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
-      :options="chartOption"
+      :options="displayOption"
       :height="240"
+    />
+    <v-data-table
+      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
+      :headers="tableHeaders"
+      :items="tableData"
+      :items-per-page="-1"
+      :hide-default-footer="true"
+      :height="240"
+      :fixed-header="true"
+      :mobile-breakpoint="0"
+      class="cardTable"
+      item-key="name"
     />
   </data-view>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "{range}の利用者数*の平均値を基準としたときの相対値",
-    "都営地下鉄4路線の自動改札出場数": "都営地下鉄4路線の自動改札出場数",
-    "1月20日~1月24日": "1月20日~1月24日"
-  },
-  "en": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "Relative value based on the average number of users {range}",
-    "都営地下鉄4路線の自動改札出場数": "Total number of passengers using four Toei subway lines",
-    "1月20日~1月24日": "from January 20 to 24"
-  },
-  "zh-cn": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "基于{range}间平均乘客数*的相对值",
-    "都営地下鉄4路線の自動改札出場数": "都营地下铁 4 条路线的出站乘客数",
-    "1月20日~1月24日": "1月20日~1月24日"
-  },
-  "zh-tw": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "基於{range}的平均搭乘人數*之相對數值",
-    "都営地下鉄4路線の自動改札出場数": "都營地下鐵 4 條路線的出站人數",
-    "1月20日~1月24日": "1月20日~1月24日"
-  },
-  "ko": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "{range}의 이용자수*의 평균치를 기준으로 했을때의 상대치",
-    "都営地下鉄4路線の自動改札出場数": "도에이 전철 4개 노선을 이용한 승객 수",
-    "1月20日~1月24日": "1월 20일~1월24일"
-  },
-  "pt-BR": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "",
-    "都営地下鉄4路線の自動改札出場数": "Total de usuarios das 4 linhas de metro Toei",
-    "1月20日~1月24日": ""
-  },
-  "ja-basic": {
-    "{range}の利用者数*の平均値を基準としたときの相対値": "ひとの かずを くらべると",
-    "都営地下鉄4路線の自動改札出場数": "ちかてつから でてきた ひとの かず",
-    "1月20日~1月24日": "1がつ20にち から 1がつ24にち"
-  }
-}
-</i18n>
-
-<style lang="scss">
-.MetroGraph {
-  &-Desc {
+<style module lang="scss">
+.DataView {
+  &Desc {
     margin-top: 10px;
     margin-bottom: 0 !important;
     font-size: 12px;
@@ -71,15 +38,87 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ChartOptions, ChartData } from 'chart.js'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
+import { triple as colors } from '@/utils/colors'
 
-export default {
+interface HTMLElementEvent<T extends HTMLElement> extends Event {
+  currentTarget: T
+}
+
+type Data = {
+  canvas: boolean
+}
+type Methods = {}
+type Computed = {
+  displayData: {
+    labels: string[]
+    datasets: {
+      label: string
+      data: number[]
+      backgroundColor: string
+      borderWidth: number
+    }[]
+  }
+  tableHeaders: {
+    text: string
+    value: string
+  }[]
+  tableData: {
+    [key: number]: number
+  }[]
+  displayOption: {
+    responsive: boolean
+    legend: {
+      display: boolean
+      onHover: (e: HTMLElementEvent<HTMLInputElement>) => void
+      onLeave: (e: HTMLElementEvent<HTMLInputElement>) => void
+      labels: {
+        boxWidth: number
+      }
+    }
+    scales: {
+      xAxes: object[]
+      yAxes: object[]
+    }
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        title: (tooltipItems: any, data: any) => string
+        label: (tooltipItems: any, data: any) => string
+      }
+    }
+  }
+}
+type Props = {
+  chartData: ChartData
+  chartOption: ChartOptions
+  chartId: string
+  title: string
+  titleId: string
+  date: string
+  unit: string
+  tooltipsTitle: (tooltipItems: any, data: any) => string
+  tooltipsLabel: (tooltipItems: any, data: any) => string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView },
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
@@ -87,42 +126,131 @@ export default {
       required: false,
       default: ''
     },
+    chartData: Object,
+    chartOption: Object,
     chartId: {
       type: String,
-      required: false,
       default: 'metro-bar-chart'
-    },
-    chartData: {
-      type: Object,
-      required: false,
-      default: () => {}
-    },
-    chartOption: {
-      type: Object,
-      required: false,
-      default: () => {}
     },
     date: {
       type: String,
-      required: true,
-      default: ''
+      required: true
+    },
+    unit: {
+      type: String,
+      required: false,
+      default: '%'
+    },
+    tooltipsTitle: {
+      type: Function,
+      required: true
+    },
+    tooltipsLabel: {
+      type: Function,
+      required: true
     }
   },
+  data: () => ({
+    canvas: true
+  }),
   computed: {
     displayData() {
-      const colors = ['#a6e29f', '#63c765', '#008b41']
+      const datasets = this.chartData.labels!.map((label, i) => {
+        return {
+          label: label as string,
+          data: this.chartData.datasets!.map(d => d.data![i]) as number[],
+          backgroundColor: colors[i],
+          borderWidth: 0
+        }
+      })
       return {
-        labels: this.chartData.datasets.map(d => d.label),
-        datasets: this.chartData.labels.map((label, i) => {
-          return {
-            label,
-            data: this.chartData.datasets.map(d => d.data[i]),
-            backgroundColor: colors[i],
-            borderWidth: 0
-          }
-        })
+        labels: this.chartData.datasets!.map(d => d.label!),
+        datasets
       }
+    },
+    tableHeaders() {
+      return [
+        { text: '', value: 'text' },
+        ...this.chartData.labels!.map((text, value) => {
+          return { text: text as string, value: String(value) }
+        })
+      ]
+    },
+    tableData() {
+      return this.displayData.datasets[0].data.map((_, i) => {
+        return Object.assign(
+          { text: this.chartData.datasets![i].label as string },
+          ...this.chartData.datasets!.map((_, j) => {
+            return {
+              [j]: this.displayData.datasets[0].data[i]
+            }
+          })
+        )
+      })
+    },
+    displayOption() {
+      const self = this
+      const options = {
+        responsive: true,
+        legend: {
+          display: true,
+          onHover: (e: HTMLElementEvent<HTMLInputElement>) => {
+            e.currentTarget.style.cursor = 'pointer'
+          },
+          onLeave: (e: HTMLElementEvent<HTMLInputElement>) => {
+            e.currentTarget.style.cursor = 'default'
+          },
+          labels: {
+            boxWidth: 20
+          }
+        },
+        scales: {
+          xAxes: [
+            {
+              position: 'bottom',
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: '#808080'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              stacked: false,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                fontSize: 12,
+                maxTicksLimit: 10,
+                fontColor: '#808080',
+                callback(value: any) {
+                  return value.toFixed(2) + self.unit
+                }
+              }
+            }
+          ]
+        },
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            title: self.tooltipsTitle,
+            label: self.tooltipsLabel
+          }
+        }
+      }
+      if (this.$route.query.ogp === 'true') {
+        Object.assign(options, { animation: { duration: 0 } })
+      }
+      return options
     }
   }
 }
+
+export default Vue.extend(options)
 </script>

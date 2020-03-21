@@ -1,20 +1,24 @@
 <template>
-  <div class="SelectLanguage">
-    <div class="SelectLanguage-Menu">
-      <select v-model="$i18n.locale" @change="navigate($i18n.locale)">
-        <option
-          v-for="locale in $i18n.locales"
-          :key="locale.code"
-          :value="locale.code"
-        >
-          {{ locale.name }}
-        </option>
-      </select>
+  <div class="LauguageSelector">
+    <div class="LauguageSelector-Background">
+      <EarthIcon class="EarthIcon" aria-hidden="true" />
+      <SelectMenuIcon class="SelectMenuIcon" aria-hidden="true" />
     </div>
-    <div class="SelectLanguage-Background">
-      <EarthIcon class="EarthIcon" />
-      <SelectMenuIcon class="SelectMenuIcon" />
-    </div>
+    <select
+      id="LanguageSelector"
+      v-model="currentLocaleCode"
+      class="LauguageSelector-Menu"
+      @change="handleChangeLanguage"
+    >
+      <option
+        v-for="locale in $i18n.locales"
+        :key="locale.code"
+        :value="locale.code"
+        :title="'Switch to ' + locale.description"
+      >
+        {{ locale.name }}
+      </option>
+    </select>
   </div>
 </template>
 
@@ -27,79 +31,69 @@ import SelectMenuIcon from '@/static/selectmenu.svg'
   components: { EarthIcon, SelectMenuIcon }
 })
 export default class LanguageSelector extends Vue {
-  navigate(locale: string) {
-    // @fixme 型が・・・
-    // const langs = this.$i18n.locales.filter() ...
-    const langs = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
-    const pathes = this.$router.currentRoute.path.split('/').filter(path => {
-      return langs.includes(path) ? undefined : path
-    })
-    if (pathes.length <= 0) {
-      this.$router.push(locale === 'ja' ? '/' : '/' + locale)
-      return
-    }
-    const url =
-      locale === 'ja'
-        ? '/' + pathes.join('/')
-        : '/' + locale + '/' + pathes.join('/')
-    this.$router.push(url)
+  currentLocaleCode: string = this.$root.$i18n.locale
+
+  handleChangeLanguage() {
+    this.$root.$i18n.setLocale(this.currentLocaleCode)
   }
 }
 </script>
 
-<style lang="scss">
-.SelectLanguage {
+<style lang="scss" scoped>
+.LauguageSelector {
   position: relative;
+}
+
+.LauguageSelector-Background {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  background: #fff;
-  border: 1px solid #d9d9d9;
+  padding: 0 6px;
   border-radius: 4px;
-  cursor: pointer;
-  &-Menu {
-    width: 100%;
-    z-index: 1;
-    select {
-      width: 100%;
-      height: 28px;
-      background: transparent;
-      padding-left: 58px;
-      color: #333;
-      font-size: 12px;
-      box-sizing: border-box;
-      cursor: pointer;
-      &:focus {
-        outline: none;
-      }
-    }
+  height: 28px;
+
+  .EarthIcon {
+    order: -1;
   }
-  &-Background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    .EarthIcon {
-      position: absolute;
-      left: 6px;
-      height: 28px;
-    }
-    .SelectMenuIcon {
-      position: absolute;
-      right: 6px;
-      height: 28px;
-    }
-    &:before {
-      content: 'Lang:';
-      display: inline-block;
-      position: absolute;
-      left: 24px;
-      color: #333;
-      font-size: 12px;
-      line-height: 28px;
-    }
+
+  .SelectMenuIcon {
+    margin-left: auto;
+  }
+
+  &::before {
+    content: 'Lang:';
+    margin-left: 4px;
+    color: $gray-1;
+    font-size: 12px;
+  }
+}
+
+.LauguageSelector-Menu {
+  // select 要素のリセット
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  // IEで矢印ボタンを消す
+  &::-ms-expand {
+    display: none;
+  }
+
+  border: 1px solid $gray-4;
+
+  // 背景に被せて位置など調整
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 60px;
+  width: 100%;
+  height: 28px;
+  font-size: 12px;
+  line-height: 28px;
+
+  &:focus {
+    border: 1px dotted $gray-3;
+    outline: none;
   }
 }
 </style>
