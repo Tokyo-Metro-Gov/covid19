@@ -173,10 +173,6 @@
         text-align: left;
         list-style: none;
 
-        &Item + &Item {
-          margin-top: 14px;
-        }
-
         &Item {
           display: flex;
           align-items: center;
@@ -186,6 +182,10 @@
             width: 30px;
             height: 30px;
           }
+        }
+
+        &Item + &Item {
+          margin-top: 14px;
         }
       }
     }
