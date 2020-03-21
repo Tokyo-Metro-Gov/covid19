@@ -402,6 +402,16 @@ export default Vue.extend({
           display: flex;
           justify-content: flex-end;
           color: $gray-3;
+
+          button {
+            border-radius: 50%;
+            border: 1px solid #fff;
+
+            &:focus {
+              border: 1px dotted #707070;
+              outline: none;
+            }
+          }
         }
 
         > .EmbedCode {
@@ -419,6 +429,16 @@ export default Vue.extend({
             right: 0.3em;
             color: $gray-3;
           }
+
+          button {
+            border-radius: 50%;
+            border: solid 1px #eee;
+
+            &:focus {
+              border: 1px dotted #707070;
+              outline: none;
+            }
+          }
         }
 
         > .Buttons {
@@ -428,11 +448,7 @@ export default Vue.extend({
 
           .icon-resize {
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
             font-size: 30px;
-            margin-left: 4px;
-            margin-right: 4px;
 
             &.twitter {
               color: #fff;
@@ -445,6 +461,19 @@ export default Vue.extend({
 
             &.line {
               color: #1cb127;
+            }
+          }
+
+          button {
+            width: 30px;
+            height: 30px;
+            margin-left: 4px;
+            margin-right: 4px;
+
+            &:focus {
+              border-radius: 50%;
+              border: 1px dotted #707070;
+              outline: none;
             }
           }
         }
