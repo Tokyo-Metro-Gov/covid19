@@ -34,7 +34,7 @@ import PageHeader from '@/components/PageHeader.vue'
 // import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
-import formatGraph from '@/utils/formatGraph'
+// import formatGraph from '@/utils/formatGraph'
 // import formatTable from '@/utils/formatTable'
 import News from '@/data/news.json'
 // import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
@@ -62,7 +62,7 @@ export default {
   },
   data() {
     // 退院者グラフ
-    const dischargesGraph = formatGraph(Data.discharges_summary.data)
+    // const dischargesGraph = formatGraph(Data.discharges_summary.data)
     // 死亡者数
     // #MEMO: 今後使う可能性あるので一時コメントアウト
     // const fatalitiesTable = formatTable(
@@ -71,7 +71,7 @@ export default {
 
     const data = {
       Data,
-      dischargesGraph,
+      // dischargesGraph,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: this.$t('山口県内の最新感染動向'),

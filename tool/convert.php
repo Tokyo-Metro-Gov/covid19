@@ -238,7 +238,7 @@ function readInspectionsSummary(array $inspections) : array
   ];
 }
 
-
+/*
 $contacts = readContacts();
 $querents = readQuerents();
 
@@ -312,3 +312,4 @@ $data['main_summary'] = [
 ];
 
 file_put_contents(__DIR__.'/../data/data.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK));
+*/
