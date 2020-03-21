@@ -1,9 +1,9 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <data-view
+    <confirmed-cases-card
       :title="$t('検査陽性者の状況')"
       :title-id="'details-of-confirmed-cases'"
-      :date="Data.inspections_summary.date"
+      :date="Data.patients.date"
     >
       <template v-slot:infoPanel>
         <p :class="$style.GraphDesc">
@@ -25,19 +25,19 @@
         :aria-label="$t('検査陽性者の状況')"
         v-bind="confirmedCases"
       />
-    </data-view>
+    </confirmed-cases-card>
   </v-col>
 </template>
 
 <script>
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
-import DataView from '@/components/DataView.vue'
+import ConfirmedCasesCard from '@/components/ConfirmedCasesCard.vue'
 import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
 
 export default {
   components: {
-    DataView,
+    ConfirmedCasesCard,
     ConfirmedCasesTable
   },
   data() {

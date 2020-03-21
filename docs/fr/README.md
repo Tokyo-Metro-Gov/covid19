@@ -96,16 +96,16 @@ Hotfix: hotfix/#{ISSUE_ID}-{nom_de_la_branche}
 
 | But | Branche | URL | Notes |
 | ---- | -------- | ---- | ---- |
-| Development | development | http://dev-covid19-tokyo.netlify.com/ | Branche de base. Faites votre Pull Request ici. |
+| Development | development | https://dev-covid19-tokyo.netlify.com/ | Branche de base. Faites votre Pull Request ici. |
 | Hotfix branch | dev-hotfix | None | Fixs qui devraient etre appliques a l'environnement de production rapidement. Utilisez cette branche si demande par l'administrateur. |
 | i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | Branche temporaire. |
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | Pour confirmation avant production. Pull request d'utilisateurs non-admin sont defendues. |
-Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull request d'utilisateurs non-admin sont defendues. |
+Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | Pull request d'utilisateurs non-admin sont defendues. |
 
 #### Branches utilisees par le systeme
 
 | But | Branche | URL | Notes |
 | ---- | -------- | ---- | ---- |
-| Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Place ou les pages HTML statiques sont stockees. |
+| Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | Place ou les pages HTML statiques sont stockees. |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Ou trouver l'HTML statiquement construit. |
 | Dossier de travail OGP | deploy / new_ogp | None | Pour mettre a jour OGP |
