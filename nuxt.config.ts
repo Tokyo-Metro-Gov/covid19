@@ -133,7 +133,7 @@ const config: Configuration = {
           whitelistPatterns: [/(col|row)/]
         })
       ]
-    },
+    }
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
   },
@@ -161,7 +161,8 @@ const config: Configuration = {
         '/cards/number-of-reports-to-covid19-consultation-desk',
         '/cards/predicted-number-of-toei-subway-passengers',
         '/cards/agency',
-        '/cards/shinjuku-visitors'
+        '/cards/shinjuku-visitors',
+        '/cards/chiyoda-visitors'
       ]
 
       const routes: string[] = []
