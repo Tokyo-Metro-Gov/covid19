@@ -27,6 +27,7 @@ jobs:
           commit-message: BOT; UPDATE DATA
           title: BOT; UPDATE DATA to development
           base: development
+          branch: data-bot/development
       - name: Check outputs
         run: |
           echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
@@ -52,6 +53,7 @@ jobs:
           commit-message: BOT; UPDATE DATA
           title: BOT; UPDATE DATA to staging
           base: staging
+          branch: data-bot/staging
       - name: Check outputs
         run: |
           echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
