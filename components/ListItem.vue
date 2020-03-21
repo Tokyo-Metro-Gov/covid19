@@ -105,6 +105,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+/* stylelint-disable no-descending-specificity */
 .ListItem {
   &-Container {
     min-height: 30px;
@@ -156,7 +157,7 @@ export default Vue.extend({
     }
 
     &:focus {
-      outline: solid $green-1 2px;
+      outline: dotted $gray-3 1px;
     }
   }
 
@@ -202,4 +203,5 @@ svg.isActive {
     fill: $green-1;
   }
 }
+/* stylelint-enable no-descending-specificity */
 </style>

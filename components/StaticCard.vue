@@ -106,10 +106,11 @@ export default Vue.extend()
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* stylelint-disable no-descending-specificity */
   &-Note {
     display: flex;
 
-    span {
+    > span {
       display: block;
 
       &:first-child {
@@ -125,7 +126,7 @@ export default Vue.extend()
       display: flex;
       list-style-type: none;
 
-      span {
+      > span {
         display: block;
 
         &:first-child {
@@ -134,5 +135,6 @@ export default Vue.extend()
       }
     }
   }
+  /* stylelint-enable no-descending-specificity */
 }
 </style>
