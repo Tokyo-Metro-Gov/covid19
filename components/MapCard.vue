@@ -45,8 +45,6 @@
   </data-view>
 </template>
 
-<style></style>
-
 <script>
 import DataView from '@/components/DataView.vue'
 import Heatmap from '@/components/Heatmap.vue'
