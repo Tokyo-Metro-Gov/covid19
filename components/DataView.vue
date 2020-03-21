@@ -264,6 +264,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+/* stylelint-disable no-descending-specificity */
+
 .DataView {
   @include card-container();
 
