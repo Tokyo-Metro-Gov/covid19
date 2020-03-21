@@ -20,7 +20,7 @@ export default {
         {
           title: '新型コロナウイルス感染症対応緊急融資',
           body:
-            '<a href="https://www.pref.chiba.lg.jp/keishi/ncov/colona4.html" target="_blank" rel="noopener">https://www.pref.chiba.lg.jp/keishi/ncov/colona4.htmll</a><br />新型コロナウイルス感染症により事業活動に影響を受けている中小企業等を対象とした緊急融資制度です。'
+            '<a href="https://www.pref.chiba.lg.jp/keishi/ncov/colona4.html" target="_blank" rel="noopener">https://www.pref.chiba.lg.jp/keishi/ncov/colona4.html</a><br />新型コロナウイルス感染症により事業活動に影響を受けている中小企業等を対象とした緊急融資制度です。'
         },
         {
           title: '新型コロナウイルスによる経営課題に関する専門家派遣',
