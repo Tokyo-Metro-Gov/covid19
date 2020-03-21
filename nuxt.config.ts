@@ -1,6 +1,6 @@
 import { Configuration } from '@nuxt/types'
-const webpack = require('webpack')
 import i18n from './nuxt-i18n.config'
+const webpack = require('webpack')
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
 const environment = process.env.NODE_ENV || 'development'
@@ -139,7 +139,7 @@ const config: Configuration = {
           whitelistPatterns: [/(col|row)/]
         })
       ]
-    }
+    },
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
     hardSource: false
