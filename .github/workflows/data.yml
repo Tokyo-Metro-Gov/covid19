@@ -1,0 +1,58 @@
+name: data deploy
+
+on:
+  push:
+    branches:
+      - deploy/resources
+
+jobs:
+  pr-development:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: resources
+      - uses: actions/checkout@v2
+        with:
+          ref: development
+          path: development
+      - run: |
+          cp -rf resources/data/* development/data/
+          cp -rf resources/open_data/* development/static/data/
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: development
+          commit-message: BOT; UPDATE DATA
+          title: BOT; UPDATE DATA to development
+          base: development
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pr_number }}"
+  pr-staging:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: resources
+      - uses: actions/checkout@v2
+        with:
+          ref: staging
+          path: staging
+      - run: |
+          cp -rf resources/data/* staging/data/
+          cp -rf resources/open_data/* staging/static/data/
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: staging
+          commit-message: BOT; UPDATE DATA
+          title: BOT; UPDATE DATA to staging
+          base: staging
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pr_number }}"
