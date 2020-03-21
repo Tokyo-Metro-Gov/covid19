@@ -8,7 +8,7 @@
     router
     exact
     class="ListItem-Container"
-    style="color: transparent"
+    style="color: transparent;"
   >
     <v-list-item-action v-if="icon" class="ListItem-IconContainer">
       <v-icon
@@ -105,39 +105,49 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+/* stylelint-disable no-descending-specificity */
 .ListItem {
   &-Container {
     min-height: 30px;
     padding: 0;
     color: transparent !important;
+
     & .ListItem-TextContainer {
       max-width: calc(100% - 20px);
     }
+
     & .ListItem-Text {
       overflow: visible;
       white-space: normal;
       font-size: 0.85rem;
     }
+
     &:hover {
       color: transparent !important;
+
       & .ListItem-Text {
         font-weight: bold;
       }
+
       & .ListItem-Icon {
         color: $gray-1 !important;
+
         &.isActive {
           color: $green-1 !important;
         }
       }
+
       & .ListItem-ExternalLinkIcon {
         color: $gray-1 !important;
       }
+
       & .ListItem-IconContainer {
         > svg {
           > path:not(:first-of-type) {
             fill: $gray-1;
           }
         }
+
         > svg.isActive {
           > path:not(:first-of-type) {
             fill: $green-1;
@@ -145,42 +155,53 @@ export default Vue.extend({
         }
       }
     }
+
     &:focus {
-      outline: solid $green-1 2px;
+      outline: dotted $gray-3 1px;
     }
   }
+
   &-Text {
     color: $gray-1;
   }
+
   &-IconContainer {
     margin: 8px 3px 8px 0 !important;
+
     > svg {
       > path:not(:first-of-type) {
         fill: $gray-2;
       }
+
       width: 20px;
       height: 20px;
     }
   }
+
   &-Icon {
     color: $gray-2 !important;
   }
+
   &-TextContainer {
     display: inline-block;
     flex: none;
   }
+
   &-ExternalLinkIcon {
     margin-left: 2px;
     color: $gray-3 !important;
   }
 }
+
 .isActive {
   color: $green-1 !important;
   font-weight: 600;
 }
+
 svg.isActive {
   > path:not(:first-of-type) {
     fill: $green-1;
   }
 }
+/* stylelint-enable no-descending-specificity */
 </style>
