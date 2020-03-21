@@ -28,6 +28,11 @@
         :chart-data="rawChartData"
         @focusChanged="handleFocusChanged"
       />
+      <div v-show="detailPageUrl !== ''" class="DetailPageLink">
+        <nuxt-link :to="detailPageUrl">
+          {{ detailPageString }}
+        </nuxt-link>
+      </div>
       <div v-show="loading" class="MapCard-BodyContainer-LoadingScreen" />
     </div>
     <template v-slot:footer>
@@ -71,6 +76,14 @@ export default {
       default: ''
     },
     caption: {
+      type: String,
+      default: ''
+    },
+    detailPageUrl: {
+      type: String,
+      default: ''
+    },
+    detailPageString: {
       type: String,
       default: ''
     },

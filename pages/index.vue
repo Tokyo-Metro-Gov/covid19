@@ -43,6 +43,8 @@
           :source-link-header="
             $t('※本データは2020年3月31日までの掲載となります')
           "
+          :detail-page-url="'/largemap'"
+          :detail-page-string="$t('東京23区の人口推移（参考値）')"
           :link-string="$t('ヤフー・データソリューション')"
           :date="''"
         />
@@ -63,6 +65,8 @@
           :source-link-header="
             $t('※本データは2020年3月31日までの掲載となります')
           "
+          :detail-page-url="'/largemap'"
+          :detail-page-string="$t('東京23区の人口推移（参考値）')"
           :link-string="$t('ヤフー・データソリューション')"
           :date="''"
         />
