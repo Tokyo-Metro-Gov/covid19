@@ -14,7 +14,8 @@ PATHS = {
     '/cards/predicted-number-of-toei-subway-passengers': [959,750],
     '/cards/agency': [959,730],
     '/cards/details-of-tested-cases': [959, 500],
-    '/cards/number-of-inspection-persons': [959, 600]
+    '/cards/number-of-inspection-persons': [959, 600],
+    '/cards/chiyoda-visitors': [959, 820]
 }
 
 options = webdriver.ChromeOptions()
