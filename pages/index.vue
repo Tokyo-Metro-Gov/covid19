@@ -31,6 +31,7 @@
       <metro-card />
       <agency-card />
       <shinjuku-visitors-card />
+      <chiyoda-visitors-card />
     </v-row>
   </div>
 </template>
@@ -55,6 +56,7 @@ import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
+import ChiyodaVisitorsCard from '@/components/cards/ChiyodaVisitorsCard.vue'
 
 export default Vue.extend({
   components: {
@@ -71,7 +73,8 @@ export default Vue.extend({
     ConsultationDeskReportsNumberCard,
     MetroCard,
     AgencyCard,
-    ShinjukuVisitorsCard
+    ShinjukuVisitorsCard,
+    ChiyodaVisitorsCard
   },
   data() {
     const data = {
