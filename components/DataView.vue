@@ -76,7 +76,7 @@
             @click="stopClosingShareMenu"
           >
             <div class="Close-Button">
-              <v-icon :aria-label="$t('閉じる')" @click="closeShareMenu">
+              <v-icon @click="closeShareMenu">
                 mdi-close
               </v-icon>
             </div>
@@ -86,7 +86,6 @@
             <div class="EmbedCode">
               <v-icon
                 v-if="isCopyAvailable()"
-                :aria-label="$t('コードをクリップボードにコピー')"
                 class="EmbedCode-Copy"
                 @click="copyEmbedCode"
               >
@@ -96,24 +95,16 @@
             </div>
 
             <div class="Buttons">
-              <button :aria-label="$t('LINEで共有')" @click="line">
-                <img src="/line.png" alt="LINE" class="icon-resize line" />
+              <button @click="line">
+                <img src="/line.png" class="icon-resize line" />
               </button>
 
-              <button :aria-label="$t('Twitterで共有')" @click="twitter">
-                <img
-                  src="/twitter.png"
-                  alt="Twitter"
-                  class="icon-resize twitter"
-                />
+              <button @click="twitter">
+                <img src="/twitter.png" class="icon-resize twitter" />
               </button>
 
-              <button :aria-label="$t('Facebookで共有')" @click="facebook">
-                <img
-                  src="/facebook.png"
-                  alt="Facebook"
-                  class="icon-resize facebook"
-                />
+              <button @click="facebook">
+                <img src="/facebook.png" class="icon-resize facebook" />
               </button>
             </div>
           </div>
