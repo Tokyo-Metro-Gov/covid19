@@ -1,0 +1,14 @@
+{
+"name": "/tmpheatmap8",
+"description": "/tmpheatmap8",
+"version": "2",
+"minzoom": "8",
+"maxzoom": "8",
+"center": "139.921875,36.000000,8",
+"bounds": "139.000000,35.333333,140.000000,36.000000",
+"type": "overlay",
+"format": "pbf",
+"generator": "tippecanoe v1.34.3",
+"generator_options": "tippecanoe -l dfi-place-heatmap-population -F -e /tmpheatmap8 --generate-ids -pk -z8 -Z8 /tmp/heatmap8_8_6890911455329681575.geojson",
+"json": "{\"vector_layers\": [ { \"id\": \"dfi-place-heatmap-population\", \"description\": \"\", \"minzoom\": 8, \"maxzoom\": 8, \"fields\": {\"max\": \"Number\"} } ],\"tilestats\": {\"layerCount\": 1,\"layers\": [{\"layer\": \"dfi-place-heatmap-population\",\"count\": 20627,\"geometry\": \"Polygon\",\"attributeCount\": 1,\"attributes\": [{\"attribute\": \"max\",\"count\": 1000,\"type\": \"number\",\"values\": [100,1000,10003,10009,1001,10011,10013,1002,10021,10029,1003,10031,10035,10037,1004,1005,10056,10057,10059,1006,10060,10064,10065,10068,1007,10077,1008,10081,1009,10098,101,1010,10101,10107,1011,10110,10119,1012,10121,10124,10125,10127,10129,1013,10130,10135,1014,1015,10150,1016,10162,10164,10167,10168,10169,1017,10171,10173,10175,1018,10185,102,10200,10205,1021,10213,1022,1023,10231,10239,1024,10244,10248,1025,10251,10255,10257,1026,1027,10270,10277,1028,1029,10290,10295,10297,103,1030,10306,1031,10311,10312,10314,1032,10326,10329,1033,10332,10335,1034],\"min\": 30,\"max\": 254169}]}]}}"
+}

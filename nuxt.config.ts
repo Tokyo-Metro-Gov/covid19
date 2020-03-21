@@ -1,4 +1,5 @@
 import { Configuration } from '@nuxt/types'
+const webpack = require('webpack')
 import i18n from './nuxt-i18n.config'
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
@@ -118,6 +119,11 @@ const config: Configuration = {
     id: 'UA-159417676-1'
   },
   build: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        mapboxgl: 'mapbox-gl'
+      })
+    ],
     postcss: {
       plugins: [
         autoprefixer({ grid: 'autoplace' }),
@@ -136,6 +142,7 @@ const config: Configuration = {
     }
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
+    hardSource: false
   },
   manifest: {
     name: '東京都 新型コロナウイルス感染症対策サイト',

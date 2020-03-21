@@ -1,5 +1,5 @@
 <template>
-  <v-card class="DataView">
+  <v-card class="DataView" :loading="loading">
     <div class="DataView-Inner">
       <div class="DataView-Header">
         <h3
@@ -24,26 +24,7 @@
       </div>
       <div class="DataView-Footer">
         <div class="Footer-Left">
-          <div>
-            <a
-              v-if="url"
-              class="OpenDataLink"
-              :href="url"
-              target="_blank"
-              rel="noopener"
-            >
-              {{ $t('オープンデータを入手') }}
-              <v-icon
-                class="ExternalLinkIcon"
-                size="15"
-                :aria-label="this.$t('別タブで開く')"
-                role="img"
-                :aria-hidden="false"
-              >
-                mdi-open-in-new
-              </v-icon>
-            </a>
-          </div>
+          <slot name="footer" />
           <div>
             <a class="Permalink" :href="permalink()">
               <time :datetime="formattedDate">
@@ -139,6 +120,10 @@
       <div class="overlay-text">
         {{ $t('埋め込みコードをコピーしました') }}
       </div>
+      <v-footer class="DataView-Footer">
+        <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
+        <slot name="footer" />
+      </v-footer>
     </div>
   </v-card>
 </template>
@@ -161,9 +146,15 @@ export default Vue.extend({
       type: String,
       default: ''
     },
+    loading: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
     url: {
       type: String,
-      default: ''
+      default: '',
+      required: false
     }
   },
   data() {
@@ -369,7 +360,6 @@ export default Vue.extend({
     color: $gray-3 !important;
     text-align: right;
     background-color: $white !important;
-
     .Permalink {
       color: $gray-3 !important;
     }
