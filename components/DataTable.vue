@@ -12,7 +12,6 @@
       :fixed-header="true"
       :mobile-breakpoint="0"
       class="cardTable"
-      tabindex="0"
     />
     <div class="note">
       {{ $t('※退院には、死亡退院を含む') }}
@@ -119,7 +118,7 @@ export default Vue.extend({
   mounted() {
     const elementList = document.querySelectorAll('.sortable span')
     elementList.forEach(element => {
-      element.setAttribute('tabIndex', '0')
+      element.setAttribute('tabindex', '0')
     })
   }
 })
