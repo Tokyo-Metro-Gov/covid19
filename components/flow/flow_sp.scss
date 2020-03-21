@@ -19,6 +19,7 @@
 // common
 .heading {
   text-align: center;
+
   .icon {
     display: block;
     margin: 0 auto px2vw(20);
@@ -34,6 +35,7 @@
   justify-content: space-between;
   // override Vuetify sytle (ul)
   padding-left: 0 !important;
+
   .symptom {
     display: flex;
     justify-content: center;
@@ -45,6 +47,7 @@
     border-radius: px2vw(5);
     text-align: center;
     position: relative;
+
     &::before {
       content: '';
       position: absolute;
@@ -55,7 +58,6 @@
       border-radius: px2vw(25);
       background-image: url(/flow/check_circle-24px.svg);
       background-size: cover;
-      position: absolute;
       left: 0;
       right: 0;
       top: px2vw(-8);
@@ -65,8 +67,10 @@
   // general, elder
   &.double {
     flex-wrap: wrap;
+
     > .symptom {
       flex-basis: 48%;
+
       &:nth-child(n + 3) {
         margin-top: px2vw(45);
       }
@@ -84,21 +88,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   &:not(:first-child) {
     margin-top: px2vw(30);
   }
+
   > * {
     display: block;
   }
+
   .icon {
     width: px2vw(42);
     height: px2vw(42);
     margin-right: px2vw(10);
+
     > img,
     > svg {
       display: block;
     }
   }
+
   a {
     line-height: 1;
     text-decoration: none;
@@ -115,9 +124,11 @@
   background-color: #ffe200;
   border-radius: px2vw(6);
   text-decoration: none;
+
   .text {
     color: $gray-2;
   }
+
   .icon {
     margin-left: px2vw(10);
     width: px2vw(45);
@@ -130,36 +141,47 @@
 .fzSmall {
   font-size: px2vw(18);
 }
+
 .fzRegular {
   font-size: px2vw(22);
 }
+
 .fzMedium {
   font-size: px2vw(24);
 }
+
 .fzLarge {
   font-size: px2vw(30);
 }
+
 .fzXLarge {
   font-size: px2vw(36);
 }
+
 .fzNumeric {
   font-size: px2vw(50);
 }
+
 .mt5 {
   margin-top: px2vw(5);
 }
+
 .mt10 {
   margin-top: px2vw(10);
 }
+
 .mb10 {
   margin-bottom: px2vw(10);
 }
+
 .underline {
   border-bottom: px2vw(4) solid $green-1;
 }
+
 .break {
   display: block;
 }
+
 .clickable {
   box-shadow: 0 px2vw(1.2) px2vw(6) $gray-3;
 }
@@ -183,12 +205,14 @@
   // past, general, older ,suspect
   .rectContainer {
     margin-top: px2vw(20, $vw);
+
     .symptom {
       min-height: px2vw(92, $vw);
       margin-top: px2vw(30, $vw);
       padding: px2vw(15, $vw) px2vw(15, $vw) px2vw(10, $vw);
       border: px2vw(4, $vw) solid $green-1;
       border-radius: px2vw(5, $vw);
+
       &::before {
         width: px2vw(50, $vw);
         height: px2vw(50, $vw);
@@ -214,6 +238,7 @@
     &:not(:first-child) {
       margin-top: px2vw(30, $vw);
     }
+
     .icon {
       width: px2vw(42, $vw);
       height: px2vw(42, $vw);
@@ -226,6 +251,7 @@
     padding: 0 px2vw(30, $vw) 0 px2vw(36, $vw);
     height: px2vw(96, $vw);
     border-radius: px2vw(6, $vw);
+
     .icon {
       margin-left: px2vw(10, $vw);
       width: px2vw(45, $vw);
@@ -236,24 +262,31 @@
   .fzSmall {
     font-size: px2vw(18, $vw);
   }
+
   .fzRegular {
     font-size: px2vw(22, $vw);
   }
+
   .fzMedium {
     font-size: px2vw(24, $vw);
   }
+
   .fzLarge {
     font-size: px2vw((30 - 2), $vw);
   }
+
   .fzXLarge {
     font-size: px2vw((36 - 4), $vw);
   }
+
   .fzNumeric {
     font-size: px2vw((50 - 4), $vw);
   }
+
   .underline {
     border-bottom: px2vw(4, $vw) solid $green-1;
   }
+
   .clickable {
     box-shadow: 0 px2vw(1.2, $vw) px2vw(6, $vw) $gray-3;
   }
