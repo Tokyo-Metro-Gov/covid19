@@ -32,6 +32,7 @@ ul.notes {
   padding-left: 0 !important;
   font-size: 12px;
   color: $gray-3;
+
   > li {
     list-style-type: none;
   }
