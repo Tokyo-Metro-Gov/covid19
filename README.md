@@ -1,8 +1,8 @@
 # 新潟県（非公式） 新型コロナウイルス感染症対策サイト
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
+![](https://github.com/CodeForNiigata/covid19/workflows/production%20deploy/badge.svg)
 
-[![新潟県（非公式） 新型コロナウイルス感染症対策サイト](https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![新潟県（非公式） 新型コロナウイルス感染症対策サイト](https://github.com/CodeForNiigata/covid19/blob/development/static/ogp.png)](https://niigata.stopcovid19.jp/)
 
 (TODO: 日本語以外の対応)
 ### 日本語 | [English](./README_EN.md) | [Español](./README_ES.md) | [한국어](./README_KO.md) | [繁體中文](./README_ZH_TW.md) | [简体中文](./README_ZH_CN.md) | [Tiếng Việt](./README_VI.md) | [ภาษาไทย](./README_TH.md) | [French](./README_FR.md)
