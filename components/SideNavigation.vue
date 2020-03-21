@@ -16,7 +16,9 @@
             :alt="$t('東京都')"
           />
           <div class="SideNavigation-HeaderText">
-            {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
+            {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
+              $t('menu/対策サイト')
+            }}
           </div>
         </nuxt-link>
       </h1>
@@ -207,7 +209,7 @@ export default Vue.extend({
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
 
   &:focus {
-    outline: none;
+    outline: 1px dotted $gray-3;
   }
 }
 
@@ -291,7 +293,7 @@ export default Vue.extend({
   }
 
   &:focus {
-    outline: 1px dotted $gray-3;
+    outline: dotted $gray-3 1px;
   }
 
   @include largerThan($small) {
@@ -371,7 +373,6 @@ export default Vue.extend({
 
   &:link,
   &:hover,
-  &:focus,
   &:visited,
   &:active {
     color: inherit;
@@ -379,7 +380,9 @@ export default Vue.extend({
   }
 
   &:focus {
-    border-color: $gray-3;
+    color: inherit;
+    text-decoration: none;
+    border: 1px dotted $gray-3;
     outline: none;
   }
 

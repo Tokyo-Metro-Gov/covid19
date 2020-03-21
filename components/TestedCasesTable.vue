@@ -45,7 +45,7 @@
         <li :class="[$style.box, $style.others]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <span>{{ $t('その他') }}</span>
+              <span>{{ $t('その他.graph') }}</span>
               <span :class="$style.small">{{
                 $t('（チャーター機・クルーズ船等）')
               }}</span>

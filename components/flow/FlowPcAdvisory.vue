@@ -73,6 +73,9 @@
             03-5320-4592
           </a>
         </div>
+        <div v-if="!['ja', 'ja-basic'].includes($i18n.locale)" class="pt-8">
+          <span>{{ $t('ひまわり') }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -156,6 +159,7 @@
     &:focus {
       color: inherit;
       text-decoration: none;
+      outline: 1px dotted $gray-3;
     }
 
     &Icon {

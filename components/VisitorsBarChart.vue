@@ -18,10 +18,23 @@
       </ol>
     </template>
     <bar
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="displayOptions"
       :height="240"
+    />
+    <v-data-table
+      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
+      :headers="tableHeaders"
+      :items="tableData"
+      :items-per-page="-1"
+      :hide-default-footer="true"
+      :height="240"
+      :fixed-header="true"
+      :mobile-breakpoint="0"
+      class="cardTable"
+      item-key="name"
     />
     <template v-slot:footer-description>
       <p>
@@ -70,8 +83,9 @@ type VisitorData = {
   population: number
   holiday: boolean
 }
-
-type Data = {}
+type Data = {
+  canvas: boolean
+}
 type Methods = {
   tooltipTitle: (tooltipItems: any, data: any) => string
 }
@@ -81,6 +95,13 @@ type Computed = {
   }
   labels: string[]
   standardValue: number
+  tableHeaders: {
+    text: string
+    value: string
+  }[]
+  tableData: {
+    [key: number]: number
+  }[]
   targetData: {
     [weekNum: number]: VisitorData[]
   }
@@ -127,6 +148,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView },
   props: {
     title: {
@@ -146,7 +170,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     chartData: {
       type: Array,
-      required: false,
+      required: true,
       default: () => []
     },
     date: {
@@ -241,6 +265,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           }
         ]
       }
+    },
+    tableHeaders() {
+      return [
+        { text: '', value: 'header' },
+        { text: this.title, value: 'visitor' }
+      ]
+    },
+    tableData() {
+      return this.displayData.datasets[0].data.map((_, i) => {
+        return Object.assign(
+          { header: this.displayData.labels[i] },
+          { visitor: this.displayData.datasets[0].data[i] }
+        )
+      })
     },
     displayOptions() {
       const self = this
