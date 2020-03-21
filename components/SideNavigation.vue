@@ -10,7 +10,7 @@
       </v-icon>
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.png" :alt="$t('鹿児島県')" />
+          <img src="/logo.svg" :alt="$t('鹿児島県')" />
         </div>
         <h1 class="SideNavigation-Heading">
           {{ $t('鹿児島県') }}<br />{{ $t('新型コロナウイルス感染症') }}<br />{{
@@ -148,6 +148,12 @@ export default {
           divider: true
         },
         {
+          icon: 'mdi-account-multiple',
+          title: this.$t('ｲﾍﾞﾝﾄ開催・延期・中止情報'),
+          link: 'https://sakura.mbc.co.jp/dbsites/poster/poster15.php',
+          divider: true
+        },
+        {
           title: this.$t('新型コロナウイルス感染症に関する情報'),
           link:
             'http://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/coronavirus.html'
@@ -214,7 +220,7 @@ export default {
   }
   &-Logo {
     margin: 20px 16px 0 0;
-    width: 110px;
+    width: 100%;
     @include lessThan($small) {
       margin-top: 0;
     }
