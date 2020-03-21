@@ -1,8 +1,8 @@
 <template>
   <div class="About">
-    <h2 class="About-Heading">
+    <page-header class="mb-3">
       {{ $t('当サイトについて') }}
-    </h2>
+    </page-header>
     <StaticCard>
       {{
         $t(
@@ -24,8 +24,10 @@
       <ul>
         <li>{{ $t('Microsoft Edge 最新版') }}</li>
         <li>{{ $t('Mozilla Firefox 最新版') }}</li>
-        <li>{{ $t('Google Chrome 最新版（Windows 10以上）') }}</li>
-        <li>{{ $t('Apple Safari (macOS) 最新版') }}</li>
+        <li>
+          {{ $t('Google Chrome 最新版（Windows 10以上, Android 8.0以上）') }}
+        </li>
+        <li>{{ $t('Safari 最新版（macOS, iOS）') }}</li>
         <li>{{ $t('Opera Software ASA Opera 最新版') }}</li>
       </ul>
       <p class="StaticCard-Note">
@@ -204,43 +206,24 @@
         </i18n>
       </p>
     </StaticCard>
-    <StaticCard>
-      <h2>{{ $t('お問い合わせ先（都のHPサイトポリシーについて）') }}</h2>
-      <dl>
-        <dt>
-          {{ $t('東京都生活文化局広報広聴部広報課') }}
-        </dt>
-        <dd>
-          {{ $t('電話') }}:
-          <a href="tel:03-5388-3085">03-5388-3085</a>
-        </dd>
-      </dl>
-    </StaticCard>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+import PageHeader from '@/components/PageHeader.vue'
 import StaticCard from '@/components/StaticCard.vue'
 
 export default Vue.extend({
   components: {
+    PageHeader,
     StaticCard
   },
-  head: (): MetaInfo => ({
-    title: '当サイトについて'
-  })
+  head(): MetaInfo {
+    return {
+      title: this.$t('当サイトについて') as string
+    }
+  }
 })
 </script>
-
-<style lang="scss">
-.About {
-  &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
-    margin-bottom: 12px;
-  }
-}
-</style>
