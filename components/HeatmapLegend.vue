@@ -28,7 +28,7 @@ ul {
   margin: 0;
   padding: 0;
 }
-.clearfix:after {
+.clearfix::after {
   content: '';
   display: block;
   clear: both;
