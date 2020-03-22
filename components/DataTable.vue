@@ -4,6 +4,7 @@
       <span />
     </template>
     <v-data-table
+      :ref="'displayedTable'"
       :headers="chartData.headers"
       :items="chartData.datasets"
       :items-per-page="-1"
@@ -11,7 +12,7 @@
       :height="240"
       :fixed-header="true"
       :mobile-breakpoint="0"
-      class="cardTable displayedTable"
+      class="cardTable"
     />
     <div class="note">
       {{ $t('※退院には、死亡退院を含む') }}
@@ -116,8 +117,11 @@ export default Vue.extend({
     }
   },
   mounted() {
-    const tables = document.querySelectorAll('.displayedTable table')
-    tables.forEach(table => {
+    const vTables = this.$refs.displayedTable as Vue
+    const vTableElement = vTables.$el
+    const tables = vTableElement.querySelectorAll('table')
+
+    tables.forEach((table: HTMLElement) => {
       table.setAttribute('tabindex', '0')
     })
   }
