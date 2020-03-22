@@ -356,8 +356,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                     'Nov',
                     'Dec'
                   ]
-                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
-                  return month + '月'
+                  const mm = monthStringArry.indexOf(label.split(' ')[0]) + 1
+                  const year = new Date().getFullYear()
+                  const mdate = new Date(year + '-' + mm + '-1')
+                  return mdate.toLocaleString(this.$root.$i18n.locale, {month:'short'})
                 }
               },
               type: 'time',
