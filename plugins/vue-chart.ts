@@ -13,7 +13,10 @@ type ChartVCProps = { options: Object }
 
 const VueChartPlugin: Plugin = ({ app }) => {
   useDayjsAdapter(app.i18n)
+  createCustomChart()
+}
 
+const createCustomChart = () => {
   const { reactiveProp } = mixins
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
