@@ -4,6 +4,7 @@
       <span />
     </template>
     <v-data-table
+      id="confirmedCasesData"
       :headers="chartData.headers"
       :items="chartData.datasets"
       :items-per-page="-1"
@@ -116,9 +117,9 @@ export default Vue.extend({
     }
   },
   mounted() {
-    const elementList = document.querySelectorAll('.sortable span')
-    elementList.forEach(element => {
-      element.setAttribute('tabindex', '0')
+    const tables = document.querySelectorAll('#confirmedCasesData table')
+    tables.forEach(table => {
+      table.setAttribute('tabindex', '0')
     })
   }
 })
