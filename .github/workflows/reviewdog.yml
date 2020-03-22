@@ -3,7 +3,7 @@ name: reviewdog
 on:
   pull_request:
     branches:
-      - development
+      - months-test
 
 jobs:
   eslint:
