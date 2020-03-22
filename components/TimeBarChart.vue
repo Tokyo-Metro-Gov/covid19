@@ -16,6 +16,15 @@
       :chart-data="displayData"
       :options="displayOption"
       :height="240"
+      :width="800"
+    />
+    <bar-header
+      :style="{ display: canvas ? 'block' : 'none' }"
+      :chart-id="chartId"
+      :chart-data="displayData"
+      :options="displayOptionHeader"
+      :height="240"
+      :width="800"
     />
     <v-data-table
       :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
@@ -74,6 +83,21 @@ type Computed = {
     }[]
   }
   displayOption: {
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        label(tooltipItem: any): string
+        title(tooltipItem: any[], data: any): string | undefined
+      }
+    }
+    responsive: boolean
+    maintainAspectRatio: boolean
+    legend: {
+      display: boolean
+    }
+    scales: object
+  }
+  displayOptionHeader: {
     tooltips: {
       displayColors: boolean
       callbacks: {
@@ -235,7 +259,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             }
           }
         },
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: false,
         legend: {
           display: false
@@ -331,6 +355,114 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
       if (this.$route.query.ogp === 'true') {
         Object.assign(options, { animation: { duration: 0 } })
+      }
+      return options
+    },
+    displayOptionHeader() {
+      const unit = this.unit
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+      const options = {
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            label(tooltipItem: any) {
+              const labelText = `${parseInt(
+                tooltipItem.value
+              ).toLocaleString()} ${unit}`
+              return labelText
+            },
+            title(tooltipItem: any, data: any) {
+              return data.labels[tooltipItem[0].index]
+            }
+          }
+        },
+        responsive: false,
+        maintainAspectRatio: false,
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [
+            {
+              id: 'day',
+              stacked: true,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                fontSize: 9,
+                maxTicksLimit: 20,
+                fontColor: 'transparent',
+                maxRotation: 0,
+                minRotation: 0,
+                callback: (label: string) => {
+                  return label.split('/')[1]
+                }
+              }
+            },
+            {
+              id: 'month',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: false, // true -> false
+                drawBorder: false,
+                tickMarkLength: 10
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: 'transparent', // #808080
+                padding: 13, // 3 + 10(tickMarkLength) + 9(day:fontSize) * 1.2(tick default line-height)
+                fontStyle: 'bold',
+                gridLines: {
+                  display: true
+                },
+                callback: (label: string) => {
+                  const monthStringArry = [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                  ]
+                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
+                  return month + '月'
+                }
+              },
+              type: 'time',
+              time: {
+                unit: 'month'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              location: 'bottom',
+              stacked: true,
+              gridLines: {
+                display: true,
+                drawOnChartArea: false,
+                color: '#E5E5E5' // #E5E5E5
+              },
+              ticks: {
+                suggestedMin: 0,
+                maxTicksLimit: 8,
+                fontColor: '#808080', // #808080
+                suggestedMax: scaledTicksYAxisMax
+              }
+            }
+          ]
+        },
+        animation: {
+          duration: 0
+        }
       }
       return options
     },

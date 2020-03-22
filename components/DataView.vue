@@ -357,6 +357,16 @@ export default Vue.extend({
 
   &-CardText {
     margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+    > div:first-child {
+      overflow-x: scroll;
+    }
+    > div:nth-child(2) {
+      position: absolute;
+      top: 0;
+      pointer-events: none;
+    }
   }
 
   &-Description {
