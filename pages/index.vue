@@ -8,6 +8,14 @@
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
+      :url="
+        'https://www.city.niigata.lg.jp/iryo/kenko/yobou_kansen/kansen/coronavirus-shisetsu.html'
+      "
+      :text="$t('不特定多数の方が利用していた施設と相談のお願い')"
+      :btn-text="$t('お願いを見る')"
+    />
+    <static-info
+      class="mb-4"
       :url="localePath('/flow')"
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
