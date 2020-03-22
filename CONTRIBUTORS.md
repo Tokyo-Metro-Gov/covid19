@@ -126,6 +126,11 @@ Tokyo Covid-19 response site contributors
 | Tomoki Nakama | [@tomopict](https://github.com/tomopict) | [@tomopict](https://twitter.com/tomopict) | Frontend |
 | oti | [@oti](https://github.com/oti) | [@otiext](https://twitter.com/otiext) | Frontend, A11y, Triage |
 | Yoshiki Honda | [@yoshidev523](https://github.com/yoshidev523) | [@yoyoyop523](https://twitter.com/yoyoyop523) | Frontend |
+| Toshiya Takami | [@icnmyb](https://github.com/icnmyb) | | Coding |
+| mnomura3 | [@mnomura3](https://github.com/mnomura3) | | Frontend |
+| ShunIto | [@shunito](https://github.com/shunito) | | Accessibility / Frontend |
+| Tomoya Tajiri | [@t-tajiri](https://github.com/t-tajiri) | | Coding |
+| [Yuji Konishi](https://yuji-k64613.github.io/hp/) | [@yuji-k64613](https://github.com/yuji-k64613) | | Coding |
 
 ご協力に感謝です！！！
 
