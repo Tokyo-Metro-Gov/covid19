@@ -1,8 +1,8 @@
-# 鹿児島県 新型コロナウイルス感染症対策サイト
+# 鹿児島県新型コロナウイルスまとめサイト
 
 ![](https://github.com/codeforkagoshima/covid19/workflows/production%20deploy/badge.svg)
 
-[![鹿児島県 新型コロナウイルス感染症対策サイト](./static/ogp.png)](https://covid19.codeforkagoshima.dev/)
+[![鹿児島県新型コロナウイルスまとめサイト](./static/ogp.png)](https://covid19.codeforkagoshima.dev/)
 
 ### 日本語 | [English](./README_EN.md)
 
