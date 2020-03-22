@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { _adapters } from 'chart.js'
+import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
 
 const DEFAULT_FORMATS = {
   datetime: 'MMM D, YYYY, h:mm:ss a',
@@ -14,40 +15,45 @@ const DEFAULT_FORMATS = {
   year: 'YYYY'
 }
 
-_adapters._date.override({
-  _id: 'dayjs', // for debug
+export function useDayjsAdapter() {
+  dayjs.extend(customParseFormat)
 
-  formats() {
-    return DEFAULT_FORMATS
-  },
+  _adapters._date.override({
+    _id: 'dayjs', // for debug
 
-  parse(value, fmt) {
-    // TOOD
-    return null
-  },
+    formats() {
+      return DEFAULT_FORMATS
+    },
 
-  format(time, fmt) {
-    // TODO
-    return null
-  },
+    parse(time, format) {
+      let value
+      if (typeof time === 'string' && typeof format === 'string') {
+        value = dayjs(time, format)
+      } else if (!(time instanceof dayjs)) {
+        value = dayjs(time)
+      }
 
-  add(time, amount, unit) {
-    // TODO
-    return null
-  },
+      return value.isValid() ? value.valueOf() : null
+    },
 
-  diff(max, min, unit) {
-    // TODO
-    return null
-  },
+    format(time, format) {
+      return dayjs(time).format(format)
+    },
 
-  startOf(time, unit, weekday) {
-    // TODO
-    return null
-  },
+    add(time, amount, unit) {
+      return dayjs(time).add(amount, unit)
+    },
 
-  endOf(time, unit) {
-    // TODO
-    return null
-  }
-})
+    diff(max, min, unit) {
+      return dayjs(max).diff(dayjs(min), unit)
+    },
+
+    startOf(time, unit, _) {
+      return dayjs(time).startOf(unit)
+    },
+
+    endOf(time, unit) {
+      return dayjs(time).endOf(unit)
+    }
+  })
+}
