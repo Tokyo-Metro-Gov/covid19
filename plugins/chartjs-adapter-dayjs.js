@@ -27,15 +27,10 @@ export function useDayjsAdapter(nuxtI18n) {
   dayjs.extend(customParseFormat)
 
   // set locale when page onload
-  dayjs.locale(nuxtI18n.locale)
+  setLocale(nuxtI18n.locale)
 
   nuxtI18n.onLanguageSwitched = (_, newLocale) => {
-    let locale = newLocale
-    if (locale.includes('ja')) {
-      locale = 'ja'
-    }
-
-    dayjs.locale(locale)
+    setLocale(newLocale)
   }
 
   _adapters._date.override({
@@ -76,4 +71,14 @@ export function useDayjsAdapter(nuxtI18n) {
       return dayjs(time).endOf(unit)
     }
   })
+}
+
+function setLocale(newLocale) {
+  let locale = newLocale
+
+  if (locale.includes('ja')) {
+    locale = 'ja'
+  }
+
+  dayjs.locale(locale)
 }
