@@ -1,6 +1,14 @@
 import { _adapters } from 'chart.js'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
+import 'dayjs/locale/en'
+import 'dayjs/locale/ja'
+import 'dayjs/locale/ko'
+import 'dayjs/locale/pt-br'
+import 'dayjs/locale/th'
+import 'dayjs/locale/vi'
+import 'dayjs/locale/zh-cn'
+import 'dayjs/locale/zh-tw'
 
 const DEFAULT_FORMATS = {
   datetime: 'MMM D, YYYY, h:mm:ss a',
@@ -15,8 +23,15 @@ const DEFAULT_FORMATS = {
   year: 'YYYY'
 }
 
-export function useDayjsAdapter() {
+export function useDayjsAdapter(nuxtI18n) {
   dayjs.extend(customParseFormat)
+
+  // set locale when page onload
+  dayjs.locale(nuxtI18n.locale)
+
+  nuxtI18n.onLanguageSwitched = (_, newLocale) => {
+    dayjs.locale(newLocale)
+  }
 
   _adapters._date.override({
     _id: 'dayjs', // for debug

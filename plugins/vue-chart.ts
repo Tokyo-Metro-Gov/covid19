@@ -11,8 +11,8 @@ type ChartVCMethod = {
 type ChartVCComputed = unknown
 type ChartVCProps = { options: Object }
 
-const VueChartPlugin: Plugin = () => {
-  useDayjsAdapter()
+const VueChartPlugin: Plugin = ({ app }) => {
+  useDayjsAdapter(app.i18n)
 
   const { reactiveProp } = mixins
 
