@@ -78,7 +78,8 @@
     "Twitter by mayor kumagai": "熊谷市長 Twitter",
     "Twitter by Chiba PR": "千葉市広報広聴課 Twitter",
     "Government official website": "千葉市公式ホームページ",
-    "About us": "当サイトについて"
+    "About us": "当サイトについて",
+    "Chiba pref edition": "千葉県版コロナ対策サイト"
   }
 }
 </i18n>
@@ -142,11 +143,16 @@ export default {
         },
         {
           title: this.$t('Government official website'),
-          link: 'https://www.city.chiba.jp/',
+          link: 'https://www.city.chiba.jp/'
+        },
+        {
+          title: this.$t('Chiba pref edition'),
+          link: 'https://covid19.civictech.chiba.jp/',
           divider: true
         }
       ]
     },
+
     isClass() {
       return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
     }
