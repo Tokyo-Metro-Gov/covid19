@@ -31,7 +31,7 @@
 
 <script>
 import PageHeader from '@/components/PageHeader.vue'
-// import WhatsNew from '@/components/WhatsNew.vue'
+import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 // import formatGraph from '@/utils/formatGraph'
@@ -49,7 +49,7 @@ import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDe
 export default {
   components: {
     PageHeader,
-    // WhatsNew,
+    WhatsNew,
     StaticInfo,
     // ConfirmedCasesDetailsCard,
     TestedNumberCard,
