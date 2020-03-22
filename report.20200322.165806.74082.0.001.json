@@ -1,0 +1,596 @@
+
+{
+  "header": {
+    "reportVersion": 2,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200322.165806.74082.0.001.json",
+    "dumpEventTime": "2020-03-22T16:58:06Z",
+    "dumpEventTimeStamp": "1584863886744",
+    "processId": 74082,
+    "threadId": null,
+    "cwd": "/Users/sf/freshcl_git/covid19-yamaguchi",
+    "commandLine": [
+      "/opt/homebrew/Cellar/node/13.11.0/bin/node",
+      "/Users/sf/freshcl_git/covid19-yamaguchi/node_modules/.bin/nuxt-ts"
+    ],
+    "nodejsVersion": "v13.11.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "darwin",
+    "componentVersions": {
+      "node": "13.11.0",
+      "v8": "7.9.317.25-node.29",
+      "uv": "1.34.2",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "79",
+      "nghttp2": "1.40.0",
+      "napi": "6",
+      "llhttp": "2.0.4",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v13.11.0/node-v13.11.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v13.11.0/node-v13.11.0.tar.gz"
+    },
+    "osName": "Darwin",
+    "osRelease": "15.6.0",
+    "osVersion": "Darwin Kernel Version 15.6.0: Thu Jun 21 20:07:40 PDT 2018; root:xnu-3248.73.11~1/RELEASE_X86_64",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i5-3230M CPU @ 2.60GHz",
+        "speed": 2600,
+        "user": 52685950,
+        "nice": 0,
+        "sys": 34586200,
+        "idle": 756372120,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-3230M CPU @ 2.60GHz",
+        "speed": 2600,
+        "user": 15160320,
+        "nice": 0,
+        "sys": 8424100,
+        "idle": 820056180,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-3230M CPU @ 2.60GHz",
+        "speed": 2600,
+        "user": 43980230,
+        "nice": 0,
+        "sys": 21651000,
+        "idle": 778009600,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-3230M CPU @ 2.60GHz",
+        "speed": 2600,
+        "user": 15639170,
+        "nice": 0,
+        "sys": 8590050,
+        "idle": 819411180,
+        "irq": 0
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "lo0",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "lo0",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "lo0",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "fe80::1",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 1
+      },
+      {
+        "name": "en0",
+        "internal": false,
+        "mac": "20:c9:d0:8a:78:7d",
+        "address": "fe80::22c9:d0ff:fe8a:787d",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 4
+      },
+      {
+        "name": "en0",
+        "internal": false,
+        "mac": "20:c9:d0:8a:78:7d",
+        "address": "192.168.1.105",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "awdl0",
+        "internal": false,
+        "mac": "e2:21:26:aa:2f:73",
+        "address": "fe80::e021:26ff:feaa:2f73",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 8
+      }
+    ],
+    "host": "fukiyasadako-no-MacBook-Pro.local"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x0000000100177ba6",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, v8::Local<v8::String>) [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    },
+    {
+      "pc": "0x000000010008930b",
+      "symbol": "node::OnFatalError(char const*, char const*) [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001001a1b45",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001001a1aef",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001002c62c9",
+      "symbol": "v8::internal::Heap::FatalProcessOutOfMemory(char const*) [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001002c76c4",
+      "symbol": "v8::internal::Heap::MarkCompactPrologue() [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001002c516c",
+      "symbol": "v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001002c3aa0",
+      "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001002cb7e6",
+      "symbol": "v8::internal::Heap::AllocateRawWithLightRetrySlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment) [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001002cb842",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFailSlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment) [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001002a78cd",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationType, v8::internal::AllocationOrigin) [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001005119c5",
+      "symbol": "v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*) [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    },
+    {
+      "pc": "0x000000010079f619",
+      "symbol": "Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_NoBuiltinExit [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    },
+    {
+      "pc": "0x0000361e67ab3d2e",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000010072b79b",
+      "symbol": "Builtins_InterpreterEntryTrampoline [/opt/homebrew/Cellar/node/13.11.0/bin/node]"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2156224512,
+    "totalCommittedMemory": 2152372976,
+    "usedMemory": 2111120936,
+    "availableMemory": 50285096,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 33328,
+        "capacity": 33040,
+        "used": 33040,
+        "available": 0
+      },
+      "new_space": {
+        "memorySize": 5242880,
+        "committedMemory": 1833632,
+        "capacity": 2618560,
+        "used": 599096,
+        "available": 2019464
+      },
+      "old_space": {
+        "memorySize": 1934241792,
+        "committedMemory": 1934142224,
+        "capacity": 1929964408,
+        "used": 1925908120,
+        "available": 4056288
+      },
+      "code_space": {
+        "memorySize": 2789376,
+        "committedMemory": 2678016,
+        "capacity": 2361024,
+        "used": 2361024,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 40898560,
+        "committedMemory": 40896016,
+        "capacity": 10014560,
+        "used": 10014560,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 171880448,
+        "committedMemory": 171880448,
+        "capacity": 171389192,
+        "used": 171389192,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 909312,
+        "committedMemory": 909312,
+        "capacity": 815904,
+        "used": 815904,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 2618560,
+        "used": 0,
+        "available": 2618560
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 137.457,
+    "kernelCpuSeconds": 40.3765,
+    "cpuConsumptionPercent": 119.351,
+    "maxRss": 2129653661696,
+    "pageFaults": {
+      "IORequired": 33,
+      "IONotRequired": 944758
+    },
+    "fsActivity": {
+      "reads": 627,
+      "writes": 52
+    }
+  },
+  "libuv": [
+  ],
+  "workers": [
+  ],
+  "environmentVariables": {
+    "npm_package_devDependencies_lint_staged": "^10.0.8",
+    "npm_package_devDependencies_prettier": "^1.19.1",
+    "TERM_PROGRAM": "Apple_Terminal",
+    "NODE": "/opt/homebrew/Cellar/node/13.11.0/bin/node",
+    "npm_config_version_git_tag": "true",
+    "INIT_CWD": "/Users/sf/freshcl_git/covid19-yamaguchi",
+    "npm_package_dependencies_vue_scrollto": "^2.17.1",
+    "npm_package_devDependencies_jest": "^24.1.0",
+    "TERM": "xterm-256color",
+    "SHELL": "/bin/bash",
+    "npm_package_devDependencies_rimraf": "^3.0.2",
+    "TMPDIR": "/var/folders/v1/y10hmgrn4610k62ls4z0t1300000gn/T/",
+    "npm_config_init_license": "MIT",
+    "npm_package_scripts_lint": "eslint './**/*.{js,ts,vue}'",
+    "npm_package_dependencies__nuxtjs_axios": "^5.3.6",
+    "Apple_PubSub_Socket_Render": "/private/tmp/com.apple.launchd.iwld6qvZzq/Render",
+    "TERM_PROGRAM_VERSION": "361.2",
+    "npm_package_scripts_dev": "cross-env NODE_ENV=development nuxt-ts",
+    "npm_package_lint_staged____js_ts_css_vue__0": "eslint --fix",
+    "npm_package_devDependencies__nuxt_typescript_build": "^0.6.0",
+    "TERM_SESSION_ID": "AA043DB5-DA7E-4E76-B6F3-8DC80630515A",
+    "npm_config_registry": "https://registry.yarnpkg.com",
+    "npm_package_private": "true",
+    "npm_package_scripts_generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
+    "npm_package_devDependencies__types_chart_js": "^2.9.14",
+    "npm_package_dependencies_dayjs": "^1.8.21",
+    "npm_package_readmeFilename": "README.md",
+    "npm_config_python": "/usr/bin/python",
+    "npm_package_description": "山口県 新型コロナウイルス感染症対策サイト",
+    "USER": "sf",
+    "npm_package_license": "MIT",
+    "npm_package_dependencies__nuxtjs_dotenv": "^1.4.0",
+    "npm_package_dependencies__nuxtjs_pwa": "^3.0.0-0",
+    "npm_package_dependencies_vue_chartjs": "^3.5.0",
+    "npm_package_dependencies_vue_property_decorator": "^8.4.0",
+    "npm_package_devDependencies_babel_jest": "^24.1.0",
+    "npm_package_dependencies__nuxt_typescript_runtime": "^0.4.0",
+    "npm_package_devDependencies__nuxtjs_vuetify": "^1.0.0",
+    "SSH_AUTH_SOCK": "/private/tmp/com.apple.launchd.28FGg1vHv9/Listeners",
+    "npm_package_devDependencies_eslint": "^6.8.0",
+    "__CF_USER_TEXT_ENCODING": "0x1F5:0x1:0xE",
+    "npm_package_husky_hooks_pre_commit": "lint-staged",
+    "npm_execpath": "/opt/homebrew/Cellar/yarn/1.22.4/libexec/bin/yarn.js",
+    "npm_package_author_name": "山口県",
+    "npm_package_devDependencies__fullhuman_postcss_purgecss": "^2.1.0",
+    "HOMEBREW_CACHE": "/opt/homebrew/cache",
+    "npm_package_devDependencies_eslint_plugin_prettier": "^3.1.2",
+    "npm_package_devDependencies__nuxtjs_google_analytics": "^2.2.3",
+    "npm_package_scripts_lint_fix": "eslint './**/*.{js,ts,vue}' --fix",
+    "npm_config_argv": "{\"remain\":[],\"cooked\":[\"run\",\"dev\"],\"original\":[\"dev\"]}",
+    "PATH": "/var/folders/v1/y10hmgrn4610k62ls4z0t1300000gn/T/yarn--1584863737284-0.03898793604550255:/Users/sf/freshcl_git/covid19-yamaguchi/node_modules/.bin:/Users/sf/.config/yarn/link/node_modules/.bin:/opt/homebrew/Cellar/node/13.11.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/opt/homebrew/Cellar/node/13.11.0/lib/node_modules/npm/bin/node-gyp-bin:/opt/homebrew/Cellar/node/13.11.0/bin/node_modules/npm/bin/node-gyp-bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin",
+    "_": "/Users/sf/freshcl_git/covid19-yamaguchi/node_modules/.bin/cross-env",
+    "PWD": "/Users/sf/freshcl_git/covid19-yamaguchi",
+    "npm_package_devDependencies_nuxt_svg_loader": "^1.2.0",
+    "npm_package_scripts_lint_and_generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
+    "npm_package_dependencies_cross_env": "^5.2.0",
+    "npm_lifecycle_event": "dev",
+    "npm_package_name": "covid19",
+    "LANG": "ja_JP.UTF-8",
+    "npm_package_dependencies_vue_spinner": "^1.0.3",
+    "npm_package_devDependencies_vue_axe": "^1.0.8",
+    "npm_config_version_commit_hooks": "true",
+    "npm_package_scripts_build": "nuxt-ts build",
+    "npm_package_scripts_start": "cross-env NODE_ENV=production nuxt-ts start",
+    "npm_package_devDependencies__nuxtjs_eslint_config_typescript": "^1.0.2",
+    "npm_package_devDependencies__vue_test_utils": "^1.0.0-beta.27",
+    "npm_package_scripts_generate_deploy": "nuxt-ts generate",
+    "XPC_FLAGS": "0x0",
+    "NODE_ENV": "development",
+    "npm_config_bin_links": "true",
+    "npm_package_engines_node": ">=10.19.0",
+    "npm_package_devDependencies_eslint_config_prettier": "^6.10.0",
+    "npm_package_version": "1.0.0",
+    "npm_package_dependencies_chart_js": "^2.9.3",
+    "XPC_SERVICE_NAME": "0",
+    "HOME": "/Users/sf",
+    "SHLVL": "2",
+    "npm_package_scripts_test": "echo 'skip tests (there is no test)'",
+    "npm_config_strict_ssl": "true",
+    "npm_config_save_prefix": "^",
+    "npm_config_version_git_message": "v%s",
+    "npm_package_devDependencies_husky": "^4.2.3",
+    "npm_package_dependencies_nuxt_i18n": "^6.6.0",
+    "npm_package_devDependencies_vue_jest": "^4.0.0-0",
+    "NPM_CONFIG_PYTHON": "/usr/bin/python",
+    "YARN_WRAP_OUTPUT": "false",
+    "LOGNAME": "sf",
+    "npm_lifecycle_script": "cross-env NODE_ENV=development nuxt-ts",
+    "PREFIX": "/opt/homebrew",
+    "PGDATA": "/usr/local/pgsql/data",
+    "npm_config_user_agent": "yarn/1.22.4 npm/? node/v13.11.0 darwin x64",
+    "npm_config_ignore_scripts": "",
+    "npm_config_version_git_sign": "",
+    "npm_package_scripts_clean_hardsource": "rimraf ./node_modules/.cache/hard-source",
+    "npm_package_dependencies_nuxt": "^2.11.0",
+    "DISPLAY": "/private/tmp/com.apple.launchd.I9oyOsroFK/org.macosforge.xquartz:0",
+    "npm_package_dependencies_express": "^4.16.4",
+    "npm_package_devDependencies__mdi_font": "^5.0.45",
+    "npm_config_ignore_optional": "",
+    "npm_config_init_version": "1.0.0",
+    "npm_package_devDependencies_nuxt_purgecss": "^0.2.1",
+    "npm_package_devDependencies_eslint_plugin_tsdoc": "^0.2.3",
+    "npm_package_devDependencies_nodemon": "^1.18.9",
+    "npm_config_version_tag_prefix": "v",
+    "npm_node_execpath": "/opt/homebrew/Cellar/node/13.11.0/bin/node",
+    "_AXIOS_BASE_URL_": "http://localhost:3000/",
+    "VUE_ENV": "server"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": 0,
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 10240,
+      "hard": "unlimited"
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": 67104768
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 709,
+      "hard": 1064
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "/opt/homebrew/Cellar/node/13.11.0/bin/node",
+    "/opt/homebrew/opt/icu4c/lib/libicui18n.64.dylib",
+    "/opt/homebrew/opt/icu4c/lib/libicuuc.64.dylib",
+    "/opt/homebrew/opt/icu4c/lib/libicudata.64.dylib",
+    "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+    "/usr/lib/libSystem.B.dylib",
+    "/usr/lib/libc++.1.dylib",
+    "/usr/lib/system/libcache.dylib",
+    "/usr/lib/system/libcommonCrypto.dylib",
+    "/usr/lib/system/libcompiler_rt.dylib",
+    "/usr/lib/system/libcopyfile.dylib",
+    "/usr/lib/system/libcorecrypto.dylib",
+    "/usr/lib/system/libdispatch.dylib",
+    "/usr/lib/system/libdyld.dylib",
+    "/usr/lib/system/libkeymgr.dylib",
+    "/usr/lib/system/liblaunch.dylib",
+    "/usr/lib/system/libmacho.dylib",
+    "/usr/lib/system/libquarantine.dylib",
+    "/usr/lib/system/libremovefile.dylib",
+    "/usr/lib/system/libsystem_asl.dylib",
+    "/usr/lib/system/libsystem_blocks.dylib",
+    "/usr/lib/system/libsystem_c.dylib",
+    "/usr/lib/system/libsystem_configuration.dylib",
+    "/usr/lib/system/libsystem_coreservices.dylib",
+    "/usr/lib/system/libsystem_coretls.dylib",
+    "/usr/lib/system/libsystem_dnssd.dylib",
+    "/usr/lib/system/libsystem_info.dylib",
+    "/usr/lib/system/libsystem_kernel.dylib",
+    "/usr/lib/system/libsystem_m.dylib",
+    "/usr/lib/system/libsystem_malloc.dylib",
+    "/usr/lib/system/libsystem_network.dylib",
+    "/usr/lib/system/libsystem_networkextension.dylib",
+    "/usr/lib/system/libsystem_notify.dylib",
+    "/usr/lib/system/libsystem_platform.dylib",
+    "/usr/lib/system/libsystem_pthread.dylib",
+    "/usr/lib/system/libsystem_sandbox.dylib",
+    "/usr/lib/system/libsystem_secinit.dylib",
+    "/usr/lib/system/libsystem_trace.dylib",
+    "/usr/lib/system/libunc.dylib",
+    "/usr/lib/system/libunwind.dylib",
+    "/usr/lib/system/libxpc.dylib",
+    "/usr/lib/libobjc.A.dylib",
+    "/usr/lib/libauto.dylib",
+    "/usr/lib/libc++abi.dylib",
+    "/usr/lib/libDiagnosticMessagesClient.dylib",
+    "/usr/lib/libicucore.A.dylib",
+    "/usr/lib/libz.1.dylib",
+    "/System/Library/CoreServices/Encodings/libJapaneseConverter.dylib",
+    "/Users/sf/freshcl_git/covid19-yamaguchi/node_modules/chokidar/node_modules/fsevents/fsevents.node",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices",
+    "/System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SharedFileList.framework/Versions/A/SharedFileList",
+    "/usr/lib/libbsm.0.dylib",
+    "/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit",
+    "/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration",
+    "/System/Library/Frameworks/Security.framework/Versions/A/Security",
+    "/usr/lib/libsqlite3.dylib",
+    "/usr/lib/libxml2.2.dylib",
+    "/usr/lib/libenergytrace.dylib",
+    "/usr/lib/system/libkxld.dylib",
+    "/usr/lib/libxar.1.dylib",
+    "/usr/lib/libpam.2.dylib",
+    "/usr/lib/libOpenScriptingUtil.dylib",
+    "/usr/lib/libbz2.1.0.dylib",
+    "/System/Library/Frameworks/DiskArbitration.framework/Versions/A/DiskArbitration",
+    "/System/Library/Frameworks/NetFS.framework/Versions/A/NetFS",
+    "/System/Library/PrivateFrameworks/NetAuth.framework/Versions/A/NetAuth",
+    "/System/Library/PrivateFrameworks/login.framework/Versions/A/Frameworks/loginsupport.framework/Versions/A/loginsupport",
+    "/System/Library/PrivateFrameworks/TCC.framework/Versions/A/TCC",
+    "/usr/lib/libmecabra.dylib",
+    "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+    "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices",
+    "/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics",
+    "/System/Library/Frameworks/CoreText.framework/Versions/A/CoreText",
+    "/System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO",
+    "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/ATS",
+    "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ColorSync.framework/Versions/A/ColorSync",
+    "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices",
+    "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/LangAnalysis.framework/Versions/A/LangAnalysis",
+    "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore",
+    "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD",
+    "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis",
+    "/System/Library/Frameworks/IOSurface.framework/Versions/A/IOSurface",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+    "/System/Library/PrivateFrameworks/MultitouchSupport.framework/Versions/A/MultitouchSupport",
+    "/System/Library/Frameworks/Metal.framework/Versions/A/Metal",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLinearAlgebra.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparseBLAS.dylib",
+    "/System/Library/PrivateFrameworks/GPUCompiler.framework/libmetal_timestamp.dylib",
+    "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreFSCache.dylib",
+    "/System/Library/PrivateFrameworks/IOAccelerator.framework/Versions/A/IOAccelerator",
+    "/usr/lib/libextension.dylib",
+    "/usr/lib/libarchive.2.dylib",
+    "/usr/lib/liblangid.dylib",
+    "/usr/lib/libCRFSuite.dylib",
+    "/usr/lib/liblzma.5.dylib",
+    "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontParser.dylib",
+    "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontRegistry.dylib",
+    "/System/Library/PrivateFrameworks/AppleVPA.framework/Versions/A/AppleVPA",
+    "/System/Library/PrivateFrameworks/AppleJPEG.framework/Versions/A/AppleJPEG",
+    "/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJPEG.dylib",
+    "/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libTIFF.dylib",
+    "/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libPng.dylib",
+    "/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libGIF.dylib",
+    "/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJP2.dylib",
+    "/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libRadiance.dylib",
+    "/System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL",
+    "/System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo",
+    "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib",
+    "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGFXShared.dylib",
+    "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib",
+    "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLImage.dylib",
+    "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCVMSPluginSupport.dylib",
+    "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreVMClient.dylib",
+    "/usr/lib/libcompression.dylib",
+    "/usr/lib/libcups.2.dylib",
+    "/System/Library/Frameworks/Kerberos.framework/Versions/A/Kerberos",
+    "/System/Library/Frameworks/GSS.framework/Versions/A/GSS",
+    "/usr/lib/libresolv.9.dylib",
+    "/usr/lib/libiconv.2.dylib",
+    "/System/Library/PrivateFrameworks/Heimdal.framework/Versions/A/Heimdal",
+    "/usr/lib/libheimdal-asn1.dylib",
+    "/System/Library/Frameworks/OpenDirectory.framework/Versions/A/OpenDirectory",
+    "/System/Library/PrivateFrameworks/CommonAuth.framework/Versions/A/CommonAuth",
+    "/System/Library/Frameworks/OpenDirectory.framework/Versions/A/Frameworks/CFOpenDirectory.framework/Versions/A/CFOpenDirectory",
+    "/System/Library/Frameworks/SecurityFoundation.framework/Versions/A/SecurityFoundation",
+    "/System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio",
+    "/System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox",
+    "/System/Library/PrivateFrameworks/LanguageModeling.framework/Versions/A/LanguageModeling",
+    "/usr/lib/libmarisa.dylib",
+    "/usr/lib/libChineseTokenizer.dylib",
+    "/usr/lib/libcmph.dylib",
+    "/System/Library/Frameworks/CoreData.framework/Versions/A/CoreData",
+    "/System/Library/Frameworks/ServiceManagement.framework/Versions/A/ServiceManagement",
+    "/usr/lib/libxslt.1.dylib",
+    "/Users/sf/freshcl_git/covid19-yamaguchi/node_modules/fibers/bin/darwin-x64-79/fibers.node",
+    "/Users/sf/freshcl_git/covid19-yamaguchi/node_modules/fsevents/build/Release/fse.node"
+  ]
+}
