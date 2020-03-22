@@ -59,7 +59,7 @@
             @click="stopClosingShareMenu"
           >
             <div class="Close-Button">
-              <v-icon @click="closeShareMenu">
+              <v-icon :aria-label="$t('閉じる')" @click="closeShareMenu">
                 mdi-close
               </v-icon>
             </div>
@@ -70,6 +70,7 @@
               <v-icon
                 v-if="isCopyAvailable()"
                 class="EmbedCode-Copy"
+                :aria-label="$t('クリップボードにコピー')"
                 @click="copyEmbedCode"
               >
                 far fa-clipboard
@@ -78,36 +79,53 @@
             </div>
 
             <div class="Buttons">
-              <button @click="line">
+              <button
+                :aria-label="$t('Lineで{title}のグラフをシェア', { title })"
+                @click="line"
+              >
                 <picture>
                   <source
                     srcset="/line.webp"
                     type="image/webp"
                     class="icon-resize line"
                   />
-                  <img src="/line.png" class="icon-resize line" />
+                  <img src="/line.png" alt="LINE" class="icon-resize line" />
                 </picture>
               </button>
 
-              <button @click="twitter">
+              <button
+                :aria-label="$t('Twitterで{title}のグラフをシェア', { title })"
+                @click="twitter"
+              >
                 <picture>
                   <source
                     srcset="/twitter.webp"
                     type="image/webp"
                     class="icon-resize twitter"
                   />
-                  <img src="/twitter.png" class="icon-resize twitter" />
+                  <img
+                    src="/twitter.png"
+                    alt="Twitter"
+                    class="icon-resize twitter"
+                  />
                 </picture>
               </button>
 
-              <button @click="facebook">
+              <button
+                :aria-label="$t('facebookで{title}のグラフをシェア', { title })"
+                @click="facebook"
+              >
                 <picture>
                   <source
                     srcset="/facebook.webp"
                     type="image/webp"
                     class="icon-resize facebook"
                   />
-                  <img src="/facebook.png" class="icon-resize facebook" />
+                  <img
+                    src="/facebook.png"
+                    alt="facebook"
+                    class="icon-resize facebook"
+                  />
                 </picture>
               </button>
             </div>
@@ -255,6 +273,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+/* stylelint-disable no-descending-specificity */
+
 .DataView {
   @include card-container();
 
@@ -415,6 +435,16 @@ export default Vue.extend({
           display: flex;
           justify-content: flex-end;
           color: $gray-3;
+
+          button {
+            border-radius: 50%;
+            border: 1px solid #fff;
+
+            &:focus {
+              border: 1px dotted #707070;
+              outline: none;
+            }
+          }
         }
 
         > .EmbedCode {
@@ -432,6 +462,16 @@ export default Vue.extend({
             right: 0.3em;
             color: $gray-3;
           }
+
+          button {
+            border-radius: 50%;
+            border: solid 1px #eee;
+
+            &:focus {
+              border: 1px dotted #707070;
+              outline: none;
+            }
+          }
         }
 
         > .Buttons {
@@ -441,11 +481,7 @@ export default Vue.extend({
 
           .icon-resize {
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
             font-size: 30px;
-            margin-left: 4px;
-            margin-right: 4px;
 
             &.twitter {
               color: #fff;
@@ -458,6 +494,19 @@ export default Vue.extend({
 
             &.line {
               color: #1cb127;
+            }
+          }
+
+          button {
+            width: 30px;
+            height: 30px;
+            margin-left: 4px;
+            margin-right: 4px;
+
+            &:focus {
+              border-radius: 50%;
+              border: 1px dotted #707070;
+              outline: none;
             }
           }
         }

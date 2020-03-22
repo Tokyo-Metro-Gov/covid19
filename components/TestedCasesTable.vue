@@ -114,6 +114,8 @@ export default Vue.extend({
 $default-bdw: 3px;
 $default-boxh: 150px;
 
+// .container > .box > (.group > .box > ...) .pillar > .content
+
 .container {
   width: 100%;
   display: flex;
@@ -130,6 +132,60 @@ $default-boxh: 150px;
 
   ul {
     padding-left: 0;
+  }
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+  text-align: center;
+  width: 100%;
+  border: $default-bdw solid $green-1;
+}
+
+.group {
+  display: flex;
+  flex: 0 0 auto;
+  padding-left: 0;
+  padding-top: $default-bdw;
+  border-top: $default-bdw solid $green-1;
+  border-left: $default-bdw solid $green-1;
+}
+
+.content {
+  min-height: $default-boxh;
+  padding: 10px 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  > span {
+    display: block;
+
+    @include font-size(16);
+
+    &:last-child {
+      margin-top: 0.1em;
+    }
+
+    &:not(:last-child) {
+      word-break: break-all;
+    }
+  }
+
+  span strong {
+    @include font-size(18);
+  }
+
+  span.unit {
+    @include font-size(16);
+  }
+
+  .small {
+    @include font-size(14);
   }
 }
 
@@ -197,60 +253,6 @@ $default-boxh: 150px;
   }
 }
 
-.pillar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex: 0 0 auto;
-  text-align: center;
-  width: 100%;
-  border: $default-bdw solid $green-1;
-}
-
-.group {
-  display: flex;
-  flex: 0 0 auto;
-  padding-left: 0;
-  padding-top: $default-bdw;
-  border-top: $default-bdw solid $green-1;
-  border-left: $default-bdw solid $green-1;
-}
-
-.content {
-  min-height: $default-boxh;
-  padding: 10px 2px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-
-  > span:not(:last-child) {
-    word-break: break-all;
-  }
-
-  > span {
-    display: block;
-
-    @include font-size(16);
-
-    &:last-child {
-      margin-top: 0.1em;
-    }
-  }
-
-  span strong {
-    @include font-size(18);
-  }
-
-  span.unit {
-    @include font-size(16);
-  }
-
-  .small {
-    @include font-size(14);
-  }
-}
-
 @function px2vw($px, $vw: 0) {
   @if $vw > 0 {
     @return ceil($px / $vw * 100000vw) / 1000;
@@ -260,6 +262,38 @@ $default-boxh: 150px;
 }
 
 @mixin override($vw, $bdw, $fz, $boxh) {
+  .pillar {
+    border-width: px2vw($bdw, $vw);
+  }
+
+  .group {
+    padding-top: px2vw($bdw, $vw);
+    border-top-width: px2vw($bdw, $vw);
+    border-left-width: px2vw($bdw, $vw);
+  }
+
+  .content {
+    span strong {
+      @include font-size($fz + 2);
+    }
+
+    span.unit {
+      @include font-size($fz);
+    }
+
+    > span {
+      @include font-size($fz);
+    }
+
+    .unit {
+      @include font-size($fz - 2);
+    }
+
+    .small {
+      @include font-size($fz - 1);
+    }
+  }
+
   .box {
     &.parent {
       border-top-width: px2vw($bdw, $vw);
@@ -303,38 +337,6 @@ $default-boxh: 150px;
     &.others {
       margin-left: px2vw($bdw, $vw);
       width: calc(100% / 2 - #{px2vw($bdw, $vw)});
-    }
-  }
-
-  .pillar {
-    border-width: px2vw($bdw, $vw);
-  }
-
-  .group {
-    padding-top: px2vw($bdw, $vw);
-    border-top-width: px2vw($bdw, $vw);
-    border-left-width: px2vw($bdw, $vw);
-  }
-
-  .content {
-    > span {
-      @include font-size($fz);
-    }
-
-    span strong {
-      @include font-size($fz + 2);
-    }
-
-    span.unit {
-      @include font-size($fz);
-    }
-
-    .unit {
-      @include font-size($fz - 2);
-    }
-
-    .small {
-      @include font-size($fz - 1);
     }
   }
 }
