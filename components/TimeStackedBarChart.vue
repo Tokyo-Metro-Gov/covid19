@@ -1,7 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
-      <ul class="Graph-Desc">
+      <ul :class="$style.GraphDesc">
         <li>
           {{ $t('（注）医療機関が保険適用で行った検査は含まれていない') }}
         </li>
@@ -16,14 +16,34 @@
           }}
         </li>
       </ul>
-      <data-selector v-model="dataKind" :target-id="chartId" />
+      <data-selector
+        v-model="dataKind"
+        :target-id="chartId"
+        :style="{ display: canvas ? 'inline-block' : 'none' }"
+      />
     </template>
     <bar
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="options"
       :height="240"
     />
+    <v-data-table
+      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
+      :headers="tableHeaders"
+      :items="tableData"
+      :items-per-page="-1"
+      :hide-default-footer="true"
+      :height="240"
+      :fixed-header="true"
+      :mobile-breakpoint="0"
+      class="cardTable"
+      item-key="name"
+    />
+    <p :class="$style.DataViewDesc">
+      <slot name="additionalNotes" />
+    </p>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -48,6 +68,7 @@ interface HTMLElementEvent<T extends HTMLElement> extends Event {
 }
 type Data = {
   dataKind: 'transition' | 'cumulative'
+  canvas: boolean
 }
 type Methods = {
   sum: (array: number[]) => number
@@ -73,6 +94,13 @@ type Computed = {
       borderWidth: object
     }[]
   }
+  tableHeaders: {
+    text: string
+    value: string
+  }[]
+  tableData: {
+    [key: number]: number
+  }[]
   options: {
     tooltips: {
       displayColors: boolean
@@ -111,6 +139,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
@@ -154,7 +185,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
-    dataKind: 'transition'
+    dataKind: 'transition',
+    canvas: true
   }),
   computed: {
     displayInfo() {
@@ -207,6 +239,26 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           }
         })
       }
+    },
+    tableHeaders() {
+      return [
+        { text: '', value: 'text' },
+        ...this.items.map((text, value) => {
+          return { text, value: String(value) }
+        })
+      ]
+    },
+    tableData() {
+      return this.displayData.datasets[0].data.map((_, i) => {
+        return Object.assign(
+          { text: this.labels[i] },
+          ...this.items.map((_, j) => {
+            return {
+              [j]: this.displayData.datasets[j].data[i]
+            }
+          })
+        )
+      })
     },
     options() {
       const unit = this.unit
@@ -377,13 +429,25 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 export default Vue.extend(options)
 </script>
 
-<style lang="scss" scoped>
-.Graph-Desc {
-  width: 100%;
-  margin: 0;
-  padding-left: 0px;
-  list-style: none;
-  font-size: 12px;
-  color: $gray-3;
+<style module lang="scss">
+.Graph {
+  &Desc {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 0 !important;
+    padding-left: 0 !important;
+    font-size: 12px;
+    color: $gray-3;
+    list-style: none;
+  }
+}
+.DataView {
+  &Desc {
+    margin-top: 10px;
+    margin-bottom: 0 !important;
+    font-size: 12px;
+    line-height: 15px;
+    color: $gray-3;
+  }
 }
 </style>
