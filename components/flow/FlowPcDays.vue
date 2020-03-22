@@ -7,6 +7,7 @@
             :class="$style.FlowRowRowThreeGeneralIcon"
             src="/flow/accessibility-24px.svg"
             aria-hidden="true"
+            :alt="$t('一般の方')"
           />
           {{ $t('一般の方') }}
         </p>
@@ -71,6 +72,7 @@
           :class="$style.FlowRowConditionIcon"
           src="/flow/check_circle-24px.svg"
           aria-hidden="true"
+          :alt="$t('強いだるさ')"
         />
       </div>
       <div :class="$style.FlowRowCondition">
@@ -79,6 +81,7 @@
           :class="$style.FlowRowConditionIcon"
           src="/flow/check_circle-24px.svg"
           aria-hidden="true"
+          :alt="$t('息苦しさ')"
         />
       </div>
     </div>
@@ -90,6 +93,7 @@
               :class="$style.FlowRowRowThreeCareTargetListItemIcon"
               src="/flow/directions_walk-24px.svg"
               aria-hidden="true"
+              :alt="$t('ご高齢な方')"
             />
             {{ $t('ご高齢な方') }}
           </li>
@@ -98,6 +102,7 @@
               :class="$style.FlowRowRowThreeCareTargetListItemIcon"
               src="/flow/accessible-24px.svg"
               aria-hidden="true"
+              :alt="$t('基礎疾患のある方')"
             />
             {{ $t('基礎疾患のある方') }}
           </li>
@@ -106,6 +111,7 @@
               :class="$style.FlowRowRowThreeCareTargetListItemIcon"
               src="/flow/pregnant_woman-24px.svg"
               aria-hidden="true"
+              :alt="$t('妊娠中の方')"
             />
             {{ $t('妊娠中の方') }}
           </li>
