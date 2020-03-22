@@ -69,6 +69,9 @@
         }
       }
     }
+    &:focus {
+      outline: dotted $gray-3 1px;
+    }
   }
 }
 
@@ -111,6 +114,12 @@ export default Vue.extend({
       type: String,
       default: ''
     }
+  },
+  mounted() {
+    const elementList = document.querySelectorAll('.sortable span')
+    elementList.forEach(element => {
+      element.setAttribute('tabindex', '0')
+    })
   }
 })
 </script>
