@@ -1,10 +1,8 @@
 <template>
   <div class="MainPage">
-    <page-header
-      :icon="headerItem.icon"
-      :title="headerItem.title"
-      :date="headerItem.date"
-    />
+    <page-header :icon="headerItem.icon">
+      {{ headerItem.title }}
+    </page-header>
     <v-row class="DataBlock">
       <v-col cols="12" md="12" class="DataCard">
         <map-card
