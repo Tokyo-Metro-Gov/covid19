@@ -1,7 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
-      <ul class="Graph-Desc">
+      <ul :class="$style.GraphDesc">
         <li>
           {{ $t('（注）医療機関が保険適用で行った検査は含まれていない') }}
         </li>
@@ -41,7 +41,9 @@
       class="cardTable"
       item-key="name"
     />
-
+    <p :class="$style.DataViewDesc">
+      <slot name="additionalNotes" />
+    </p>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -427,13 +429,25 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 export default Vue.extend(options)
 </script>
 
-<style lang="scss" scoped>
-.Graph-Desc {
-  width: 100%;
-  margin: 0;
-  padding-left: 0;
-  list-style: none;
-  font-size: 12px;
-  color: $gray-3;
+<style module lang="scss">
+.Graph {
+  &Desc {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 0 !important;
+    padding-left: 0 !important;
+    font-size: 12px;
+    color: $gray-3;
+    list-style: none;
+  }
+}
+.DataView {
+  &Desc {
+    margin-top: 10px;
+    margin-bottom: 0 !important;
+    font-size: 12px;
+    line-height: 15px;
+    color: $gray-3;
+  }
 }
 </style>

@@ -71,6 +71,12 @@ export default Vue.extend({
   },
   mounted() {
     this.loading = false
+    const elementList = document.querySelectorAll(
+      '.v-data-table__wrapper table'
+    )
+    elementList.forEach(element => {
+      element.setAttribute('tabindex', '0')
+    })
   },
   methods: {
     openNavigation(): void {
