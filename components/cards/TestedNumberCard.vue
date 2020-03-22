@@ -7,7 +7,7 @@
       :chart-data="inspectionsGraph"
       :date="Data.inspections_summary.date"
       :unit="$t('件.tested')"
-      :url="'https://www.pref.mie.lg.jp/YAKUMUS/HP/m0068000071_00005.htm'"
+      :url="'https://www.pref.oita.jp/site/bosaianzen/shingatacorona.html'"
     />
   </v-col>
 </template>
