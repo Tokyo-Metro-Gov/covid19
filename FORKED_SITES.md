@@ -4,7 +4,7 @@
 
 都道府県名 | 公開サイト | 運営者 | プロジェクト
 ------------ | ------------- | ------------- | -------------
-東京都（このサイト）|https://stopcovid19.metro.tokyo.lg.jp|東京都（**公式**）|[tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19)|
+青森県（このサイト）|https://stopcovid19.metro.tokyo.lg.jp|青森県（**公式**）|[tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19)|
 [](01)北海道|https://stopcovid19.hokkaido.dev/|JUST道IT（有志団体）|[codeforsapporo/covid19](https://github.com/codeforsapporo/covid19)|
 [](07)福島県|https://fukushima-covid19.firebaseapp.com|GDG Fukushima|[donuzium/covid19](https://github.com/donuzium/covid19)|
 [](08)茨城県|https://covid19-ibaraki.netlify.com/|個人|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
@@ -40,8 +40,8 @@
 
 ## 都道府県追加時のルール
 
-1. 東京都: 先頭で固定とする。
-1. 東京都以外: 厚生労働省発行のPDF([都道府県番号 - tp0727-1d.pdf](https://www.mhlw.go.jp/topics/2007/07/dl/tp0727-1d.pdf))に従って、表に以下の情報を追加する。
+1. 青森県: 先頭で固定とする。
+1. 青森県以外: 厚生労働省発行のPDF([都道府県番号 - tp0727-1d.pdf](https://www.mhlw.go.jp/topics/2007/07/dl/tp0727-1d.pdf))に従って、表に以下の情報を追加する。
    - 公開しているサイト: URLを記載する。
    - プロジェクト
       - Private Repository: 未記入とする。

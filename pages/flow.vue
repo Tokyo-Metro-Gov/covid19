@@ -21,7 +21,7 @@
           rel="noopener"
           class="Flow-Card-Button"
         >
-          {{ $t('詳細を見る（東京都福祉保健局）') }}
+          {{ $t('詳細を見る（青森県福祉保健局）') }}
           <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
             mdi-open-in-new
           </v-icon>
