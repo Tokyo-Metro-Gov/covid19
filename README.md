@@ -2,6 +2,7 @@
 
 ![](https://github.com/covid-oita/covid19/workflows/production%20deploy/badge.svg)
 
+[![大分県 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/24912801/77246566-1f8fb180-6c6c-11ea-81b5-ebda94b8c163.png)](https://covid19-oita.netlify.com)
 
 ### 日本語 | [English](./docs/en/README.md)
 
