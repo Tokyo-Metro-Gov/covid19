@@ -71,7 +71,7 @@ type Computed = {
   }
   displayOption: ChartOptions
   tableHeaders: {
-    text: string
+    text: VueI18n.TranslateResult
     value: string
   }[]
   tableData: {

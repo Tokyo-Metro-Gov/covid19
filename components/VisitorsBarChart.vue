@@ -62,6 +62,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import dayjs from 'dayjs'
 import 'dayjs/locale/en'
@@ -97,7 +98,7 @@ type Computed = {
   labels: string[]
   standardValue: number
   tableHeaders: {
-    text: string
+    text: TranslateResult
     value: string
   }[]
   tableData: {
