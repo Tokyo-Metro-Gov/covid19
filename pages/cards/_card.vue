@@ -30,6 +30,12 @@
           'number-of-reports-to-covid19-consultation-desk'
       "
     />
+    <inspection-persons-number-per-consultation-desk-reports-number-card
+      v-else-if="
+        this.$route.params.card ==
+          'inspection-persons-number-per-consultation-desk-reports-number'
+      "
+    />
     <metro-card
       v-else-if="
         this.$route.params.card == 'predicted-number-of-toei-subway-passengers'
@@ -59,6 +65,7 @@ import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import InspectionPersonsNumberPerConsultationDeskReportsNumberCard from '@/components/cards/InspectionPersonsNumberPerConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
@@ -74,6 +81,7 @@ export default {
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
+    InspectionPersonsNumberPerConsultationDeskReportsNumberCard,
     MetroCard,
     AgencyCard,
     ShinjukuVisitorsCard,
@@ -112,6 +120,12 @@ export default {
         break
       case 'number-of-reports-to-covid19-consultation-desk':
         title = this.$t('新型コロナ受診相談窓口相談件数')
+        updatedAt = Data.querents.date
+        break
+      case 'inspection-persons-number-per-consultation-desk-reports-number':
+        title = this.$t(
+          '新型コロナ受診相談窓口相談件数あたりの検査実施件数の割合(%)'
+        )
         updatedAt = Data.querents.date
         break
       case 'predicted-number-of-toei-subway-passengers':

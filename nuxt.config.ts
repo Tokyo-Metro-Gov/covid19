@@ -159,6 +159,7 @@ const config: Configuration = {
         '/cards/number-of-inspection-persons',
         '/cards/number-of-reports-to-covid19-telephone-advisory-center',
         '/cards/number-of-reports-to-covid19-consultation-desk',
+        '/cards/inspection-persons-number-per-consultation-desk-reports-number',
         '/cards/predicted-number-of-toei-subway-passengers',
         '/cards/agency',
         '/cards/shinjuku-visitors',

@@ -11,6 +11,7 @@ attributes-of-confirmed-cases
 number-of-tested
 number-of-reports-to-covid19-telephone-advisory-center
 number-of-reports-to-covid19-consultation-desk
+inspection-persons-number-per-consultation-desk-reports-number
 predicted-number-of-toei-subway-passengers
 agency
 EOT

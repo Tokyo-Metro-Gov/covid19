@@ -28,6 +28,7 @@
       <tested-number-card />
       <telephone-advisory-reports-number-card />
       <consultation-desk-reports-number-card />
+      <inspection-persons-number-per-consultation-desk-reports-number-card />
       <metro-card />
       <agency-card />
       <shinjuku-visitors-card />
@@ -52,6 +53,7 @@ import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import InspectionPersonsNumberPerConsultationDeskReportsNumberCard from '@/components/cards/InspectionPersonsNumberPerConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
@@ -71,6 +73,7 @@ export default Vue.extend({
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
+    InspectionPersonsNumberPerConsultationDeskReportsNumberCard,
     MetroCard,
     AgencyCard,
     ShinjukuVisitorsCard,
