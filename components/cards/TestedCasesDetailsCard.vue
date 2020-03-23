@@ -5,7 +5,7 @@
       :title-id="'details-of-tested-cases'"
       :date="Data.inspection_status_summary.date"
     >
-      <tested-cases-table
+      <tested-cases-details-table
         :aria-label="$t('検査実施状況')"
         v-bind="testedCases"
       />
@@ -17,12 +17,12 @@
 import Data from '@/data/data.json'
 import formatTestedCases from '@/utils/formatTestedCases'
 import TestedCasesCard from '@/components/TestedCasesCard.vue'
-import TestedCasesTable from '@/components/TestedCasesTable.vue'
+import TestedCasesDetailsTable from '@/components/TestedCasesDetailsTable.vue'
 
 export default {
   components: {
     TestedCasesCard,
-    TestedCasesTable
+    TestedCasesDetailsTable
   },
   data() {
     // 検査陽性者の状況
