@@ -8,7 +8,7 @@ unchangeable_files=(
   ^assets/locales/pt_BR.json
   ^assets/locales/th.json
   ^assets/locales/vi.json
-  ^assets/locales/zh_CM.json
+  ^assets/locales/zh_CN.json
   ^assets/locales/zh_TW.json
 )
 
@@ -26,6 +26,6 @@ for FILE in `git diff --cached --name-status $against -- | cut -c3-`; do
 done
 
 if [ "$CHANGE_DETECTED" ]; then
-  echo "Failed to commit because of modification of files above."
+  echo "Failed to commit because of the modification of the files above. {lang}.json files are only allowed to edit from Transifex. See issue #1985 for the details. "
   exit 1
 fi
