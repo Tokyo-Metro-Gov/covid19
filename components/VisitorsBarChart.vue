@@ -216,14 +216,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }, {} as any)
     },
     labels() {
-      return Object.keys(this.targetData).map((weekNum: any) => {
+      return Object.keys(this.targetData).map((weekNum: string) => {
+        // 日付範囲は月曜日から金曜日（平日のみ）
         const start = dayjs(this.startDate)
-          .week(weekNum)
-          .startOf('week')
+          .week(parseInt(weekNum, 10))
+          .day(1)
           .format('M/D')
         const end = dayjs(this.startDate)
-          .week(weekNum)
-          .endOf('week')
+          .week(parseInt(weekNum, 10))
+          .day(5)
           .format('M/D')
         return `${start}~${end}`
       })
