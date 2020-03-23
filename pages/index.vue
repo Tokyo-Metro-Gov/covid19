@@ -83,7 +83,7 @@ export default Vue.extend({
   },
   head(): MetaInfo {
     return {
-      title: this.$t('岩手県コロナウイルス感染症対策サイト非公式') as string
+      title: this.$t('非公式岩手県コロナウイルス感染症対策サイト') as string
     }
   }
 })

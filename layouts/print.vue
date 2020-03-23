@@ -12,7 +12,9 @@
               <!--<img src="" :alt="$t('岩手県')" /> -->
             </div>
             <h1 class="PrintMeta-Heading">
-              {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
+              {{ $t('新型コロナウイルス感染症') }}<br />{{
+                $t('対策サイト非公式')
+              }}
             </h1>
           </div>
         </v-col>
@@ -31,9 +33,7 @@
               <p class="PrintMeta-Text">
                 {{ $t('※最新の情報はWebページをご覧ください') }}
               </p>
-              <p class="PrintMeta-Link">
-                https://stopcovid19.metro.tokyo.lg.jp/
-              </p>
+              <p class="PrintMeta-Link" />
             </v-card>
           </v-card>
         </v-col>

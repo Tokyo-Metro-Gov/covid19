@@ -94,7 +94,7 @@ export default Vue.extend({
         {
           hid: 'author',
           name: 'author',
-          content: this.$tc('岩手県')
+          content: this.$tc('岩手県内の有志')
         },
         {
           hid: 'description',
@@ -131,7 +131,7 @@ export default Vue.extend({
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('対策サイト')
+            this.$t('対策サイト非公式')
         },
         {
           hid: 'og:description',
@@ -153,7 +153,7 @@ export default Vue.extend({
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('対策サイト')
+            this.$t('対策サイト非公式')
         },
         {
           hid: 'twitter:image',
