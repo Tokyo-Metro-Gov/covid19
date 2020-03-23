@@ -1,19 +1,32 @@
 {
     "newsItems": [
       {
+          "date": "2020\/3\/23",
+          "url": "https:\/\/www.pref.yamaguchi.lg.jp\/cms\/a15200\/kansensyou\/koronahassei.html",
+          "text": "新型コロナウイルス感染症の山口県内での発生について　県内4例目、下関市"
+      },
+      {
+          "date": "2020\/3\/23",
+          "url": "https:\/\/www.city-yanai.jp\/site\/covid-19\/covid-19-event.html",
+          "text": "新型コロナウイルス発生に伴うイベント中止・変更情報（柳井市）"
+      },
+      {
           "date": "2020\/3\/19",
-          "url": "http:\/\/www.city.shimonoseki.lg.jp\/www\/contents\/1584526742499\/index.html",
-          "text": "「新型コロナウイルス感染症」に関する「下関市新型コロナウイルスよくある質問」の開設（下関市公式ウェブサイト・ＬＩＮＥ公式アカウント）について」"
+          "url": "https:\/\/www.city.hofu.yamaguchi.jp\/site\/siawasemasukensin\/r2iganenki.html",
+          "text": "令和2年度胃がん集団検診～胃部エックス線（バリウム）検診～延期のお知らせ（防府市）"
       },
       {
-          "date": "2020\/3\/16",
-          "url": "https:\/\/www.pref.yamaguchi.lg.jp\/press\/202003\/045864.html",
-          "text": "各省庁が保有する医療機関向けマスクの配布について（山口県）"
+          "date": "2020\/3\/19",
+          "url": "https:\/\/www.city.sanyo-onoda.lg.jp\/soshiki\/2\/covid-event.html
+          ",
+          "text": "新型コロナウイルス対策で延期、又は中止が決定したイベント、集会等（山陽小野田市）"
       },
       {
-          "date": "2020\/3\/16",
-          "url": "https:\/\/www.pref.yamaguchi.lg.jp\/press\/202003\/045860.html",
-          "text": "新型コロナウイルス感染症にかかる相談件数等について（山口県）"
+          "date": "2020\/3\/19",
+          "url": "https:\/\/www.city.nagato.yamaguchi.jp\/soshiki\/3\/29809.html
+          ",
+          "text": "イベント中止・延期のお知らせ（長門市）"
       }
+
     ]
 }
