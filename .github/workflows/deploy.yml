@@ -2,8 +2,6 @@ name: production deploy
 
 on:
   push:
-    branches:
-      - master
     tags:
       - 'v*.*.*'
 
@@ -12,6 +10,8 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: master
 
       - name: Setup Node
         uses: actions/setup-node@v1
@@ -38,7 +38,7 @@ jobs:
           echo "::set-output name=tag_name::${TAG_NAME}"
           echo "::set-output name=deploy_tag_name::deploy-${TAG_NAME}"
 
-      - name: deploy
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -46,3 +46,16 @@ jobs:
           publish_branch: production
           tag_name: ${{ steps.prepare_tag.outputs.deploy_tag_name }}
           tag_message: 'Deployment ${{ steps.prepare_tag.outputs.tag_name }}'
+
+      - name: Release
+        release:
+          name: Create Release
+          id: create_release
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            tag_name: ${{ steps.prepare_tag.outputs.deploy_tag_name }}
+            release_name: Release ${{ github.ref }}
+            draft: false
+            prerelease: false
