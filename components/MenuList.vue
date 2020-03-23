@@ -17,7 +17,7 @@
           v-if="isExternal(item.link)"
           role="img"
           aria-hidden="false"
-          :aria-label="this.$t('別タブで開く')"
+          :aria-label="$t('別タブで開く')"
           class="MenuList-ExternalIcon"
           size="12"
         >
