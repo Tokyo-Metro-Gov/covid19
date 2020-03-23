@@ -13,9 +13,13 @@ img {
 }
 
 .clearfix {
-  &:after {
+  &::after {
     content: "";
     display: block;
     clear: both;
   }
+}
+
+*:focus {
+  outline: dotted $gray-3 1px;
 }

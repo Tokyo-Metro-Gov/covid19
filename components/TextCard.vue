@@ -54,32 +54,43 @@ export default Vue.extend({
 <style lang="scss">
 .TextCard {
   @include card-container();
+
   padding: 20px;
   margin-bottom: 20px;
+
   &-Heading {
     @include card-h1();
+
     margin-bottom: 12px;
+
     a {
       @include card-h1();
+
       color: $link !important;
       text-decoration: none;
+
       &:hover {
         text-decoration: underline;
       }
     }
   }
+
   &-ExternalLinkIcon {
     margin-left: 2px;
     color: $gray-3 !important;
   }
+
   &-Body {
     * {
       @include body-text();
     }
+
+    // stylelint-disable-next-line no-descending-specificity
     a {
       word-break: break-all;
       color: $link;
       text-decoration: none;
+
       &:hover {
         text-decoration: underline;
       }
