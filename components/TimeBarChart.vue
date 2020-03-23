@@ -20,7 +20,7 @@
     />
     <bar-header
       :style="{ display: canvas ? 'block' : 'none' }"
-      :chart-id="chartId"
+      :chart-id="`${chartId}-header`"
       :chart-data="displayData"
       :options="displayOptionHeader"
       :height="240"
