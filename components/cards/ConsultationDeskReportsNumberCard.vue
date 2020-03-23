@@ -1,14 +1,26 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('新型コロナ受診相談窓口相談件数')"
+      :title="$t('（一般相談）受付への相談件数')"
       :title-id="'number-of-reports-to-covid19-consultation-desk'"
       :chart-id="'time-bar-chart-querents'"
       :chart-data="querentsGraph"
       :date="Data.querents.date"
       :unit="$t('件.reports')"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000070'"
-    />
+    >
+      <template v-slot:description>
+        <ul>
+          <li>
+            {{
+              $t(
+                '（注）2/8(土)から3/12(木)までに1038件の相談受付がありました。'
+              )
+            }}
+          </li>
+        </ul>
+      </template>
+    </time-bar-chart>
     <!-- 件.reports = 窓口相談件数 -->
   </v-col>
 </template>
