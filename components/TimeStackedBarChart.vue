@@ -37,6 +37,7 @@
       :hide-default-footer="true"
       :height="240"
       :fixed-header="true"
+      :disable-sort="true"
       :mobile-breakpoint="0"
       class="cardTable"
       item-key="name"
@@ -242,7 +243,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     tableHeaders() {
       return [
-        { text: '', value: 'text' },
+        { text: this.$t('日付'), value: 'text' },
         ...this.items.map((text, value) => {
           return { text, value: String(value) }
         })
