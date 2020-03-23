@@ -11,7 +11,7 @@
         }
       </style>
       <div class="noscript-heading">
-        <img src="/logo.svg" :alt="$t('東京都')" />
+        <img src="/logo.svg" :alt="$t('青森県')" />
         {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
       </div>
       <div class="noscript-body">
