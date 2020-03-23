@@ -43,6 +43,31 @@
       </nav>
 
       <footer class="SideNavigation-Footer">
+        <div class="SideNavigation-Social">
+          <a
+            href="https://twitter.com/phonedropper"
+            target="_blank"
+            rel="noopener"
+            class="SideNavigation-SocialLink"
+          >
+            <picture>
+              <source srcset="/twitter.webp" type="image/webp" />
+              <img src="/twitter.png" alt="Twitter" />
+            </picture>
+          </a>
+          <a
+            href="https://github.com/MeditationDuck/covid19"
+            target="_blank"
+            rel="noopener"
+            class="SideNavigation-SocialLink"
+          >
+            <picture>
+              <source srcset="/github.webp" type="image/webp" />
+              <img src="/github.png" alt="GitHub" />
+            </picture>
+          </a>
+        </div>
+
         <small class="SideNavigation-Copyright">
           {{ $t('このサイトの内容物は') }}
           <a
@@ -55,7 +80,7 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 Tokyo Metropolitan Government
+          Meditation Duck
         </small>
       </footer>
     </div>
