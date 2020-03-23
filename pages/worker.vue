@@ -68,10 +68,17 @@ export default {
           body: '新潟県　健康対策課'
         },
         {
-          title: 'テレワークに関する助成、補助',
+          title:
+            'テレワークに関する助成、補助（一般社団法人　日本テレワーク協会）',
           link: 'https://japan-telework.or.jp/tw_about-2/subsidy/',
           body:
             '助成や補助の実施期間や申請締め切りについては各事業ページでご確認ください。'
+        },
+        {
+          title: 'テレワークに関する助成、補助（厚生労働省）',
+          link:
+            'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/jikan/syokubaisiki.html',
+          body: '時間外労働等改善助成金（職場意識改善特例コース）'
         }
         /*        {
           title: '中小企業者等特別相談窓口',
