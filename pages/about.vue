@@ -4,15 +4,36 @@
       {{ $t('当サイトについて') }}
     </h2>
     <StaticCard>
-      {{
-        $t(
-          '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
-        )
-      }}<br />
+      <i18n
+        tag="p"
+        path="当サイトは大分県内における新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、{founder}が開設したものです。"
+      >
+        <a
+          href="https://github.com/covid19-oita"
+          target="_blank"
+          rel="noopener"
+          place="founder"
+        >
+          {{ $t('有志') }}
+        </a>
+      </i18n>
+      <i18n
+        tag="p"
+        path="複製・改変が許されたオープンソースライセンスで公開されている、{tokyo}のしくみを利用しています。"
+      >
+        <a
+          href="https://stopcovid19.metro.tokyo.lg.jp/"
+          target="_blank"
+          rel="noopener"
+          place="tokyo"
+        >
+          {{ $t('東京都 新型コロナウイルス対策サイト') }}
+        </a>
+      </i18n>
       <br />
       {{
         $t(
-          '東京都による公式情報と客観的な数値をわかりやすく伝えることで、東京都にお住まいの方や、東京都内に拠点を持つ企業の方、東京都を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。'
+          '大分県による公式情報と客観的な数値をわかりやすく伝えることにより、大分県にお住まいの方や、大分県内に拠点を持つ企業の方、大分県を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。'
         )
       }}
     </StaticCard>
@@ -149,7 +170,7 @@
       <p>
         {{
           $t(
-            '当サイトに掲載されている情報の正確性については万全を期していますが、東京都は利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。'
+            '当サイトに掲載されている情報の正確性については万全を期していますが、大分県および当サイトの開発者は利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。'
           )
         }}
       </p>
@@ -169,22 +190,6 @@
       </p>
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('データについて') }}</h2>
-      <i18n
-        tag="p"
-        path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
-      >
-        <a
-          href="https://portal.data.metro.tokyo.lg.jp/"
-          target="_blank"
-          rel="noopener"
-          place="catalogWebsite"
-        >
-          {{ $t('東京都オープンデータカタログサイト') }}
-        </a>
-      </i18n>
-    </StaticCard>
-    <StaticCard>
       <h2>{{ $t('ソースコードについて') }}</h2>
       <p>
         {{
@@ -194,7 +199,7 @@
         }}
         <i18n path="詳しくは、{githubRepo}をご確認ください。">
           <a
-            href="https://github.com/tokyo-metropolitan-gov/covid19"
+            href="https://github.com/covid19-oita/covid19"
             target="_blank"
             rel="noopener"
             place="githubRepo"

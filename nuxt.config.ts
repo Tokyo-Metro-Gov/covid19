@@ -13,7 +13,7 @@ const config: Configuration = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | 東京都 新型コロナウイルス感染症対策サイト',
+    titleTemplate: '%s | 大分県 新型コロナウイルス感染症対策サイト (非公式)',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -138,7 +138,7 @@ const config: Configuration = {
     hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: '東京都 新型コロナウイルス感染症対策サイト',
+    name: '大分県 新型コロナウイルス感染症対策サイト',
     theme_color: '#00a040',
     background_color: '#ffffff',
     display: 'standalone',

@@ -11,8 +11,8 @@
       <h1 class="SideNavigation-Heading">
         <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
           <div class="SideNavigation-HeaderLogo">
-            <img src="/logo.png" :alt="$t('東京都')" />
-          </div>
+            <img src="/logo.png" :alt="$t('大分県')" />
+         </div>
           <div class="SideNavigation-HeaderLogoLinkText">
             {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
           </div>
@@ -32,12 +32,13 @@
         <MenuList :items="items" @click="$emit('closeNavi', $event)" />
       </nav>
 
-      <div class="SideNavigation-Language">
+      <!-- TODO: 多言語対応 -->
+      <!-- <div class="SideNavigation-Language">
         <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
           {{ $t('多言語対応選択メニュー') }}
         </label>
         <LanguageSelector />
-      </div>
+      </div> -->
 
       <footer class="SideNavigation-Footer">
         <div class="SideNavigation-Social">
@@ -78,7 +79,9 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 Tokyo Metropolitan Government
+          Copyright © 2020
+          <a href="https://github.com/covid19-oita/">covid19-oita</a>. All
+          Rights Reserved.
         </small>
       </footer>
     </div>
@@ -88,7 +91,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
-import LanguageSelector from '@/components/LanguageSelector.vue'
+// import LanguageSelector from '@/components/LanguageSelector.vue'
 import MenuList from '@/components/MenuList.vue'
 
 type Item = {
@@ -100,7 +103,7 @@ type Item = {
 
 export default Vue.extend({
   components: {
-    LanguageSelector,
+    // LanguageSelector,
     MenuList
   },
   props: {
