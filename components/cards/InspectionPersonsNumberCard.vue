@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('検査実施人数')"
+      :title="$t('これまでの検査実施人数')"
       :title-id="'number-of-inspection-persons'"
       :chart-id="'number-of-inspection-persons'"
       :chart-data="graphData"
@@ -22,6 +22,13 @@
             {{
               $t(
                 '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+              )
+            }}
+          </li>
+          <li>
+            {{
+              $t(
+                '（注）一人あたり一回の検査とした場合の数値。現在データ不足であり今後正当な情報を掲載していく'
               )
             }}
           </li>
