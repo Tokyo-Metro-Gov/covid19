@@ -11,7 +11,7 @@ const config: Configuration = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | 鹿児島県 新型コロナウイルス感染症対策サイト',
+    titleTemplate: '%s | 鹿児島県新型コロナウイルスまとめサイト',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -24,7 +24,7 @@ const config: Configuration = {
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: '鹿児島県 新型コロナウイルス感染症対策サイト'
+        content: '鹿児島県新型コロナウイルスまとめサイト'
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -35,7 +35,7 @@ const config: Configuration = {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: '鹿児島県 新型コロナウイルス感染症対策サイト'
+        content: '鹿児島県新型コロナウイルスまとめサイト'
       },
       {
         hid: 'og:description',
@@ -107,10 +107,7 @@ const config: Configuration = {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    '@nuxtjs/vuetify',
-    '@nuxt/typescript-build'
-  ],
+  buildModules: ['@nuxtjs/vuetify', '@nuxt/typescript-build'],
   /*
    ** Nuxt.js modules
    */
@@ -217,7 +214,7 @@ const config: Configuration = {
     hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: '鹿児島県 新型コロナウイルス感染症対策サイト',
+    name: '鹿児島県新型コロナウイルスまとめサイト',
     theme_color: '#00a040',
     background_color: '#ffffff',
     display: 'standalone',

@@ -148,7 +148,7 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.title + ' | 鹿児島県 新型コロナウイルス感染症対策サイト'
+          content: this.title + ' | 鹿児島県新型コロナウイルスまとめサイト'
         },
         {
           hid: 'description',
