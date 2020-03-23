@@ -142,12 +142,6 @@ export default {
             'https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/coronavirus.html'
         },
         {
-          icon: 'mdi-domain',
-          title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: this.localePath('/worker'),
-          divider: true
-        },
-        {
           icon: 'mdi-account-multiple',
           title: this.$t('ｲﾍﾞﾝﾄ開催・延期・中止情報'),
           link: 'https://sakura.mbc.co.jp/dbsites/poster/poster15.php',
