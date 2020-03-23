@@ -36,8 +36,9 @@
       <h3>2. {{ $t('感染症を疑う場合の対応') }}</h3>
       <ul>
         <li>{{ $t('各保健所にご相談ください') }}</li>
-        <li>{{ $t('各保健所の電話番号について') }}</li>
         <li>
+          {{ $t('各保健所の電話番号について') }}
+          <br />
           <a
             href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
             target="_blank"
