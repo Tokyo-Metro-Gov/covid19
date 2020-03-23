@@ -41,6 +41,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
 import { ChartOptions, ChartData } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
@@ -65,7 +66,7 @@ type Computed = {
     }[]
   }
   tableHeaders: {
-    text: string
+    text: TranslateResult
     value: string
   }[]
   tableData: {

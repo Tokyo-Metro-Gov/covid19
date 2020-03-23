@@ -96,7 +96,7 @@ type Computed = {
     }[]
   }
   tableHeaders: {
-    text: string
+    text: TranslateResult
     value: string
   }[]
   tableData: {
