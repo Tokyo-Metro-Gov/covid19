@@ -15,8 +15,7 @@
         href="https://stopcovid19.metro.tokyo.lg.jp/"
         target="_blank"
         rel="noopener"
-        >東京都公式新型コロナウイルス対策サイト</a
-        >の仕組みを利用しています。
+        >東京都公式新型コロナウイルス対策サイト</a>の仕組みを利用しています。
     </TextCard>
     <TextCard title="ブラウザ環境について">
       当サイトは以下の環境でご覧いただくことを推奨いたします。<br />
