@@ -20,18 +20,18 @@
       :btn-text="$t('相談の手順を見る')"
     />
     <v-row class="DataBlock">
-      <confirmed-cases-details-card />
-      <tested-cases-details-card />
+      <!-- <confirmed-cases-details-card /> -->
+      <!-- <tested-cases-details-card /> -->
       <confirmed-cases-attributes-card />
       <confirmed-cases-number-card />
-      <inspection-persons-number-card />
+      <!-- <inspection-persons-number-card /> -->
       <tested-number-card />
-      <telephone-advisory-reports-number-card />
+      <!-- <telephone-advisory-reports-number-card /> -->
       <consultation-desk-reports-number-card />
-      <metro-card />
-      <agency-card />
-      <shinjuku-visitors-card />
-      <chiyoda-visitors-card />
+      <!-- <metro-card /> -->
+      <!-- <agency-card /> -->
+      <!-- <shinjuku-visitors-card /> -->
+      <!-- <chiyoda-visitors-card /> -->
     </v-row>
   </div>
 </template>
@@ -44,44 +44,44 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
-import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
-import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
+// import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
+// import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
-import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
-import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
+// import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
+// import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
-import MetroCard from '@/components/cards/MetroCard.vue'
-import AgencyCard from '@/components/cards/AgencyCard.vue'
+// import MetroCard from '@/components/cards/MetroCard.vue'
+// import AgencyCard from '@/components/cards/AgencyCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
-import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
-import ChiyodaVisitorsCard from '@/components/cards/ChiyodaVisitorsCard.vue'
+// import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
+// import ChiyodaVisitorsCard from '@/components/cards/ChiyodaVisitorsCard.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
     WhatsNew,
     StaticInfo,
-    ConfirmedCasesDetailsCard,
-    TestedCasesDetailsCard,
+    // ConfirmedCasesDetailsCard,
+    // TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     TestedNumberCard,
-    InspectionPersonsNumberCard,
-    TelephoneAdvisoryReportsNumberCard,
-    ConsultationDeskReportsNumberCard,
-    MetroCard,
-    AgencyCard,
-    ShinjukuVisitorsCard,
-    ChiyodaVisitorsCard
+    // InspectionPersonsNumberCard,
+    // TelephoneAdvisoryReportsNumberCard,
+    ConsultationDeskReportsNumberCard
+    // MetroCard,
+    // AgencyCard,
+    // ShinjukuVisitorsCard,
+    // ChiyodaVisitorsCard
   },
   data() {
     const data = {
       Data,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: this.$t('都内の最新感染動向')
+        title: this.$t('県内の最新感染動向')
       },
       newsItems: News.newsItems
     }
