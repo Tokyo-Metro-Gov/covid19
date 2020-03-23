@@ -3,7 +3,7 @@
     <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
         <img src="/logo.png" alt="大分県" />
-       <scale-loader color="#00A040" />
+        <scale-loader color="#00A040" />
       </div>
     </v-overlay>
     <div v-if="hasNavigation" class="appContainer">
@@ -87,7 +87,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+          href: `https://covid19-oita.netlify.com${this.$route.path}`
         }
       ],
       meta: [
@@ -116,7 +116,7 @@ export default Vue.extend({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+          content: `https://covid19-oita.netlify.com${this.$route.path}`
         },
         {
           hid: 'og:locale',
