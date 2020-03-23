@@ -124,7 +124,7 @@ export default {
         break
       case 'inspection-persons-number-per-consultation-desk-reports-number':
         title = this.$t(
-          '新型コロナ受診相談窓口相談人数あたりの検査実施件数の割合(%)'
+          '新型コロナ受診相談窓口相談件数あたりの検査実施人数の割合(%)'
         )
         updatedAt = Data.querents.date
         break

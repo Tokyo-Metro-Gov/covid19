@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <single-time-bar-chart
-      :title="$t('新型コロナ受診相談窓口相談人数あたりの検査実施件数の割合(%)')"
+      :title="$t('新型コロナ受診相談窓口相談件数あたりの検査実施人数の割合(%)')"
       :title-id="
         'inspection-persons-number-per-consultation-desk-reports-number'
       "
