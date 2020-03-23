@@ -16,8 +16,7 @@
         target="_blank"
         rel="noopener"
         >東京都公式新型コロナウイルス対策サイト</a
-        >の<a 
-        href="https://github.com/tokyo-metropolitan-gov/covid19"
+        >の<a href="https://github.com/tokyo-metropolitan-gov/covid19"
         target="_blank"
         rel="noopener"
         >仕組み</a
