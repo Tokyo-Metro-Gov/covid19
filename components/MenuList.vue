@@ -32,64 +32,67 @@
 </template>
 
 <script lang="ts">
-import { Vue, Prop, Component } from 'vue-property-decorator'
+import Vue, { PropType } from 'vue'
 import CovidIcon from '@/static/covid.svg'
 import ParentIcon from '@/static/parent.svg'
 
-type menuItem = {
+type MenuItem = {
   icon?: string
   title: string
   link: string
   divider?: boolean
 }
 
-@Component({
-  components: { CovidIcon, ParentIcon }
-})
-export default class MenuList extends Vue {
-  @Prop({ required: true }) items!: menuItem[]
-
-  linkTag(link: menuItem['link']) {
-    return this.isExternal(link) ? 'a' : 'nuxt-link'
-  }
-
-  linkAttrs(link: menuItem['link']) {
-    return this.isExternal(link)
-      ? {
-          href: link,
-          target: '_blank',
-          rel: 'noopener',
-          class: 'MenuList-Link'
-        }
-      : {
-          to: link,
-          router: true,
-          class: 'MenuList-Link'
-        }
-  }
-
-  prefixIconTag(icon: menuItem['icon']) {
-    return icon ? (icon.startsWith('mdi') ? 'v-icon' : icon) : null
-  }
-
-  prefixIconAttrs(icon: menuItem['icon']) {
-    return icon
-      ? icon.startsWith('mdi')
+export default Vue.extend({
+  components: {
+    CovidIcon,
+    ParentIcon
+  },
+  props: {
+    items: {
+      type: Array as PropType<MenuItem[]>,
+      required: true
+    }
+  },
+  methods: {
+    linkTag(link: MenuItem['link']) {
+      return this.isExternal(link) ? 'a' : 'nuxt-link'
+    },
+    linkAttrs(link: MenuItem['link']) {
+      return this.isExternal(link)
         ? {
-            size: 20,
-            class: 'MenuList-MdIcon'
+            href: link,
+            target: '_blank',
+            rel: 'noopener',
+            class: 'MenuList-Link'
           }
         : {
-            'aria-hidden': true,
-            class: 'MenuList-SvgIcon'
+            to: link,
+            router: true,
+            class: 'MenuList-Link'
           }
-      : null
+    },
+    prefixIconTag(icon: MenuItem['icon']) {
+      return icon ? (icon.startsWith('mdi') ? 'v-icon' : icon) : null
+    },
+    prefixIconAttrs(icon: MenuItem['icon']) {
+      return icon
+        ? icon.startsWith('mdi')
+          ? {
+              size: 20,
+              class: 'MenuList-MdIcon'
+            }
+          : {
+              'aria-hidden': true,
+              class: 'MenuList-SvgIcon'
+            }
+        : null
+    },
+    isExternal(path: MenuItem['link']): boolean {
+      return /^https?:\/\//.test(path)
+    }
   }
-
-  isExternal(path: menuItem['link']): boolean {
-    return /^https?:\/\//.test(path)
-  }
-}
+})
 </script>
 
 <style lang="scss" scoped>
