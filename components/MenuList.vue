@@ -8,10 +8,7 @@
     >
       <component :is="linkTag(item.link)" v-bind="linkAttrs(item.link)">
         <span v-if="item.icon" class="MenuList-Icon">
-          <component
-            :is="prefixIconTag(item.icon)"
-            v-bind="prefixIconAttrs(item.icon)"
-          >
+          <component :is="iconTag(item.icon)" v-bind="iconAttrs(item.icon)">
             {{ item.icon }}
           </component>
         </span>
@@ -72,10 +69,10 @@ export default Vue.extend({
             class: 'MenuList-Link'
           }
     },
-    prefixIconTag(icon: MenuItem['icon']) {
+    iconTag(icon: MenuItem['icon']) {
       return icon ? (icon.startsWith('mdi') ? 'v-icon' : icon) : null
     },
-    prefixIconAttrs(icon: MenuItem['icon']) {
+    iconAttrs(icon: MenuItem['icon']) {
       return icon
         ? icon.startsWith('mdi')
           ? {
