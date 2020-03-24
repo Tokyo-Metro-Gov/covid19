@@ -27,19 +27,17 @@ const config: Configuration = {
         hid: 'og:title',
         property: 'og: title',
         content: '岩手県　非公式　コロナウイルス対策サイト'
-      }
-      /*
+      },
       {
         hid: 'og:image',
         property: 'og:image',
         content: 'https://covid19-iwate.netlify.com/ogp.png'
       }
-      */
     ],
 
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/' },
-      { rel: 'apple-touch-icon', href: '/' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'apple-touch-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
