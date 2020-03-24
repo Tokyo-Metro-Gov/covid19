@@ -422,23 +422,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOptionHeader() {
-      const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const options = {
-        tooltips: {
-          displayColors: false,
-          callbacks: {
-            label(tooltipItem: any) {
-              const labelText = `${parseInt(
-                tooltipItem.value
-              ).toLocaleString()} ${unit}`
-              return labelText
-            },
-            title(tooltipItem: any, data: any) {
-              return data.labels[tooltipItem[0].index]
-            }
-          }
-        },
         responsive: false,
         maintainAspectRatio: false,
         legend: {
@@ -475,7 +460,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 11,
                 fontColor: 'transparent', // #808080
-                padding: 13, // 3 + 10(tickMarkLength) + 9(day:fontSize) * 1.2(tick default line-height)
+                padding: 13, // 3 + 10(tickMarkLength)
                 fontStyle: 'bold',
                 gridLines: {
                   display: true
@@ -523,14 +508,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             }
           ]
         },
-        animation: {
-          duration: 0
-        },
-        plugins: [
-          {
-            fill: {}
-          }
-        ]
+        animation: false
       }
       return options
     },
