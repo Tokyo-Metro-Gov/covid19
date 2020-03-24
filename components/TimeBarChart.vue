@@ -160,9 +160,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayWeeklyRatio() {
-      const lastDay = this.chartData.slice(-1)[0].weeklyLastWeek
-      const lastDayBefore = this.chartData.slice(-2)[0].weeklyBeforeLastWeek
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      const lastWeek = this.chartData.slice(-1)[0].weeklyLastWeek
+      const lastWeekBefore = this.chartData.slice(-2)[0].weeklyBeforeLastWeek
+      return this.formatDayBeforeRatio(lastWeek - lastWeekBefore)
     },
     displayTransitionRatio() {
       const lastDay = this.chartData.slice(-1)[0].transition
@@ -369,7 +369,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     scaledTicksYAxisMax() {
       const yAxisMax = 1.2
       const dataKind = this.dataKind
-      // const dataKind = 'transition'
       // this.dataKind === 'transition' ? 'transition' : 'cumulative'
       const values = this.chartData.map(d => d[dataKind])
       return Math.max(...values) * yAxisMax
