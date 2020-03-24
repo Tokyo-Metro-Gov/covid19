@@ -48,6 +48,7 @@
 
       <footer class="SideNavigation-Footer">
         <div class="SideNavigation-Social">
+          <!--
           <a
             href="https://line.me/R/ti/p/%40822sysfc"
             target="_blank"
@@ -59,6 +60,7 @@
               <img src="/line.png" alt="LINE" />
             </picture>
           </a>
+          -->
           <a
             href="https://twitter.com/AomoriPref"
             target="_blank"
@@ -70,6 +72,7 @@
               <img src="/twitter.png" alt="Twitter" />
             </picture>
           </a>
+          <!--
           <a
             href="https://www.facebook.com/tochokoho"
             target="_blank"
@@ -81,6 +84,7 @@
               <img src="/facebook.png" alt="Facebook" />
             </picture>
           </a>
+          -->
           <a
             href="https://github.com/covid19-aomori/website"
             target="_blank"
