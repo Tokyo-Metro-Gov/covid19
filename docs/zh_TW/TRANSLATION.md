@@ -35,10 +35,10 @@ Transifex 有很多有用的功能，像是字典功能，如果您覺得好用�
 
 ## 給開發者
 
-如果你有新增文字需要翻譯，請把字串加到 `../assets/locales/ja.json` 並推送 Pull Request 到 `dev-i18n` 分支。 您可以用相同字串作為 key 和 value 。
+如果你有新增文字需要翻譯，請把字串加到 `../assets/locales/ja.json` 並推送 Pull Request 到 `development` 分支。 您可以用相同字串作為 key 和 value 。
 
 我們正在使用 [nuxt-i18n](https://github.com/nuxt-community/nuxt-i18n) 作為翻譯引擎。請參考 [他們的文件](https://nuxtjs.org/examples/i18n/) 來了解如何使用這個函式庫（Library）。
 
 如果你急需這個文字的翻譯的話，請在 Code for Japan Slack (查看 [教學](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/docs/zh_TW/CONTRIBUTING.md#%E5%A6%82%E4%BD%95%E5%8F%83%E8%88%87%E4%BA%A4%E6%B5%81)) 的 #covid19 頻道中，要求從 Transifex 推送最新的更新。 
 
-文字翻譯過後，組織者會把新的資源檔套用到 `dev-i18n` 分支上。
+文字翻譯過後，組織者會把新的資源檔套用到 `development` 分支上。
