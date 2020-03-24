@@ -12,7 +12,7 @@
         <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
           <div class="SideNavigation-HeaderLogo">
             <img src="/logo.png" :alt="$t('大分県')" />
-         </div>
+          </div>
           <div class="SideNavigation-HeaderLogoLinkText">
             {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
           </div>
@@ -211,9 +211,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-HeaderLogo {
-  @include lessThan($tiny) {
-    width: 90px;
-  }
+  width: 130px;
 }
 
 .SideNavigation-HeaderLogoLinkText {
