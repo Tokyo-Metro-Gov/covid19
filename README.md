@@ -2,7 +2,7 @@
 
 ![](https://github.com/codeforkagoshima/covid19/workflows/production%20deploy/badge.svg)
 
-[![鹿児島県新型コロナウイルスまとめサイト](./static/ogp.png)](https://covid19.codeforkagoshima.dev/)
+[![鹿児島県新型コロナウイルスまとめサイト](./static/ogp.png)](https://covid19.code4kagoshima.org/)
 
 ### 日本語 | [English](./README_EN.md)
 
@@ -59,10 +59,10 @@ $ docker-compose run --rm app yarn install
 GitHub Actionsでデプロイをしています。設定は `.github/workflows/` 以下のファイルをご確認ください。
 
 #### 本番環境
-https://covid19.codeforkagoshima.dev/
+https://covid19.code4kagoshima.org/
 
 #### ステージング環境
-https://staging-covid19.codeforkagoshima.dev/
+https://staging-covid19.code4kagoshima.org/
 
 #### 開発環境
-https://development-covid19.codeforkagoshima.dev/
+https://development-covid19.code4kagoshima.org/

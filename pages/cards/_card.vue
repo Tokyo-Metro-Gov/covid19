@@ -130,7 +130,7 @@ export default {
     return data
   },
   head() {
-    const url = 'https://covid19.codeforkagoshima.dev/'
+    const url = 'https://covid19.code4kagoshima.org/'
     const ogpImage = url + '/ogp-' + this.$route.params.card + '.png'
     const description =
       this.updatedAt +
