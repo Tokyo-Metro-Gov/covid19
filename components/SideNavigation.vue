@@ -145,6 +145,11 @@ export default Vue.extend({
           link: this.localePath('/')
         },
         {
+          icon: 'mdi-chart-timeline-variant',
+          title: this.$t('全国の最新感染動向'),
+          link: 'https://www.stopcovid19.jp/'
+        },
+        {
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
           link: this.localePath('/flow'),
