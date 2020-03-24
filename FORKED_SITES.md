@@ -23,6 +23,7 @@
 [](21)岐阜県|https://covid19-gifu.netlify.com/|個人|[CODE-for-GIFU/covid19](https://github.com/CODE-for-GIFU/covid19)|
 [](23)愛知県|https://stopcovid19.code4.nagoya/|有志|[code4nagoya/covid19](https://github.com/code4nagoya/covid19)|
 [](24)三重県|https://covid19-mie.netlify.com/|高専生チーム(有志)|[FlexiblePrintedCircuits/covid19-mie](https://github.com/FlexiblePrintedCircuits/covid19-mie)|
+[](25)滋賀県|https://stopcovid19.pref.shiga.jp/|滋賀県（**公式**)|[Shiga-pref-org/covid19](https://github.com/Shiga-pref-org/covid19)|
 [](26)京都府|https://stopcovid19-kyoto.netlify.com/|有志|[stopcovid19-kyoto/covid19](https://github.com/stopcovid19-kyoto/covid19)|
 [](27)大阪府|https://covid19-osaka.info/|大阪府（**公式**）|[codeforosaka/covid19](https://github.com/codeforosaka/covid19)|
 [](28)兵庫県|https://stop-covid19-hyogo.org/|有志|[stop-covid19-hyogo/covid19](https://github.com/stop-covid19-hyogo/covid19)|
