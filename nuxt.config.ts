@@ -30,7 +30,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://covid19.codeforkagoshima.dev/'
+        content: 'https://covid19.code4kagoshima.org/'
       },
       {
         hid: 'og:title',
@@ -46,7 +46,7 @@ const config: Configuration = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://covid19.codeforkagoshima.dev/ogp.png'
+        content: 'https://covid19.code4kagoshima.org/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -66,7 +66,7 @@ const config: Configuration = {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://covid19.codeforkagoshima.dev/ogp.png'
+        content: 'https://covid19.code4kagoshima.org/ogp.png'
       },
       {
         hid: 'fb:app_id',
