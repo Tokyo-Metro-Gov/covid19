@@ -116,7 +116,7 @@ export default Vue.extend({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+          content: `https://covid19-aomori.info${this.$route.path}`
         },
         {
           hid: 'og:locale',
