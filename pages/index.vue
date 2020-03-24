@@ -6,7 +6,17 @@
       :date="headerItem.date"
     />
     <div>
-      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <a
+        href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+        class="twitter-share-button"
+        data-show-count="false"
+        >Tweet</a
+      >
+      <script
+        async
+        src="https://platform.twitter.com/widgets.js"
+        charset="utf-8"
+      />
     </div>
     <v-row class="DataBlock">
       <confirmed-cases-number-card />
@@ -20,11 +30,8 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import PageHeader from '@/components/PageHeader.vue'
-import WhatsNew from '@/components/WhatsNew.vue'
-import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
-import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
@@ -32,8 +39,6 @@ import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 export default Vue.extend({
   components: {
     PageHeader,
-    WhatsNew,
-    StaticInfo,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     TestedNumberCard
