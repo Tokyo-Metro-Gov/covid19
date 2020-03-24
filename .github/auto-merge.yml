@@ -67,3 +67,5 @@ blockingTitleRegex: '\bwip\b'
 
 requiredLabels:
   - auto-merge
+
+reportStatus: true
