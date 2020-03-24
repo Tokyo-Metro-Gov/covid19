@@ -2,7 +2,7 @@
 
 
 
-[![大分県 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/24912801/77246566-1f8fb180-6c6c-11ea-81b5-ebda94b8c163.png)](https://covid19-oita.netlify.com)
+[![大分県 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/24912801/77246566-1f8fb180-6c6c-11ea-81b5-ebda94b8c163.png)](https://oita.stopcovid19.jp/)
 
 
 ### [日本語](./../../README.md) | English 
@@ -12,10 +12,6 @@
 
 All contributions are welcome!
 Please check [How to contribute](./CONTRIBUTING.md) for details.
-
-## Code of Conduct
-
-Please check [Code of conduct for developers](./CODE_OF_CONDUCT.md) for details.
 
 ## License
 This software is released under [the MIT License](./../../LICENSE.txt).
@@ -82,9 +78,6 @@ Please use the variable to detect which enviroinment is used at the runtime.
 When `master` branch is updated, the HTML files will be automatically built onto `production` branch,
 and then the production site (https://covid19-oita.netlify.com/) will be also updated.
 
-When `staging` branch is updated, the HTML files will be automatically built onto `gh-pages` branch,
-and then the staging site (https://stg-covid19-oita.netlify.com/) will be also updated.
-
 When `development` branch is updated, the HTML files will be automatically built onto `dev-pages` branch,
 and then the development site (https://dev-covid19-oita.netlify.com/) will be also updated.
 
@@ -100,14 +93,9 @@ Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 | Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
 | Development | development | http://dev-covid19-oita.netlify.com/ | base branch. Basically send a Pull Request here |
-| Hotfix branch | dev-hotfix | None | Fixes that should be applied to production in haste. Use this if requested by the administrator |
-| i18n working branch | dev-i18n | https://i18n-covid-oita.netlify.com/ | Temporarily used |
-| Staging | staging | https://stg-covid19-oita.netlify.com/ | For final confirmation before production. Non-admin pull requests are prohibited |
-Production | master | https://covid19-oita.netlify.com/ | Pull Requests other than Administrators are prohibited |
+Production | master | https://oita.stopcovid19.jp/ | Pull Requests other than Administrators are prohibited |
 
 #### Branch used by the system
 | Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
-| Production site HTML | production | https://covid19-oita.netlify.com/ | Location where statically built HTML is located |
-| Staging site HTML | gh-pages | https://stg-covid19-oita.netlify.com/ | Where to find statically built HTML |
-| For OGP working directory | deploy / new_ogp | None | For updating OGP |
+| Production site HTML | production | https://oita.stopcovid19.jp/ | Location where statically built HTML is located |

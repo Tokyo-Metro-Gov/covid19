@@ -12,9 +12,6 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 詳しくは[貢献の仕方](./CONTRIBUTING.md)を御覧ください。
 
 
-## 行動原則
-詳しくは[サイト構築にあたっての行動原則](./CODE_OF_CONDUCT.md)を御覧ください。
-
 ## ライセンス
 本ソフトウェアは、[MITライセンス](./LICENSE.txt)の元提供されています。
 
@@ -73,13 +70,11 @@ $ docker-compose run --rm app yarn install
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://covid19-oita.netlify.com/ が更新されます。
 
-`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト https://stg-covid19-oita.netlify.com/ が更新されます。
-
 `development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-covid19-oita.netlify.com/ が更新されます。
 
 ### ブランチルール
 
-development, dev-i18n, dev-hotfix 以外は Pull Request は禁止です。
+development以外は Pull Request は禁止です。
 Pull Request を送る際の branch は、以下のネーミングルールでお願いします。
 
 機能追加系： feature/#{ISSUE_ID}-#{branch_title_name}
@@ -89,15 +84,10 @@ Pull Request を送る際の branch は、以下のネーミングルールで�
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
 | 開発 | development | http://dev-covid19-oita.netlify.com/ | base branch。基本はこちらに Pull Requestを送ってください |
-| 緊急適用用 | dev-hotfix | なし | 急ぎ本番に適用するべき修正。管理者から依頼された場合こちらを使ってください |
-| i18n 作業用 | dev-i18n | https://i18n-covid-oita.netlify.com/ | テンポラリで使っています |
-| ステージング | staging | https://stg-covid19-oita.netlify.com/ | 本番前の最終確認用。管理者以外の Pull Request は禁止です |
-| 本番 | master | https://covid19-oita.netlify.com/ | 管理者以外の Pull Request は禁止です |
+| 本番 | master | https://oita.stopcovid19.jp/ | 管理者以外の Pull Request は禁止です |
 
 #### システムで利用しているブランチ
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
-| 本番サイトHTML | production | https://covid19-oita.netlify.com/ | 静的ビルドされたHTMLが置いてある場所 |
-| ステージングサイト HTML | gh-pages | https://stg-covid19-oita.netlify.com/ | 静的ビルドされたHTMLが置いてある場所 |
-| OGP作業用 | deploy/new_ogp | なし | OGPの更新用 |
+| 本番サイト | production | https://oita.stopcovid19.jp/ | 静的ビルドされたHTMLが置いてある場所 |
 
