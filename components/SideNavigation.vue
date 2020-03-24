@@ -216,10 +216,9 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  height: 100%;
-  background: $white;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-
+  @include lessThan($small) {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+  }
   &:focus {
     outline: 1px dotted $gray-3;
   }
@@ -333,7 +332,6 @@ export default Vue.extend({
 
 .SideNavigation-Body {
   padding: 0 20px 20px;
-  background-color: $white;
   @include lessThan($small) {
     display: none;
     padding: 0 36px 36px;
@@ -371,7 +369,6 @@ export default Vue.extend({
 
 .SideNavigation-Footer {
   padding-top: 20px;
-  background-color: $white;
 }
 
 .SideNavigation-Social {
