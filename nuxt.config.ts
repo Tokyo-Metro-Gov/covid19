@@ -117,6 +117,14 @@ const config: Configuration = {
   googleAnalytics: {
     id: 'UA-159417676-1'
   },
+  optionalCookies: [
+    {
+      name: 'i18n_redirected',
+      label: 'i18n Redirection Cookie',
+      description: 'Used for automatically switching UI languages in accordance with locale preferences in the web browser configuration.',
+      cookies: [ 'i18n_redirected' ]
+    }
+  ],
   build: {
     postcss: {
       plugins: [
