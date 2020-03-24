@@ -2,6 +2,7 @@
   <mapbox
     :access-token="''"
     :map-options="actualMapOptions"
+    :nav-control="{ show: false }"
     :attribution-control="{ show: true, position: 'top-right' }"
     @map-load="loaded"
     @map-init="mapInitialized"
