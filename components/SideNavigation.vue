@@ -205,7 +205,7 @@ export default {
         {
           title: this.$t('About information counter'),
           link:
-            'https://www.pref.chiba.lg.jp/kenfuku/kansenshou/singata-koronauirusu-kannrennhaienn.html'
+            'https://www.pref.chiba.lg.jp/kenfuku/kansenshou/corona-soudan.html'
         },
         {
           title: this.$t('Cancelled public events'),
