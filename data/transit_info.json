@@ -1,0 +1,39 @@
+{
+    "transitItems": [
+        {
+            "title": "新潟交通",
+            "items": [
+                {
+                    "date": "2020\/3\/18",
+                    "url": "http://www.niigata-kotsu.co.jp/~noriai/route-bus/info/gakkyu_200316-0406.html",
+                    "text": "スポーツ公園線一部運休について（期間延長）"
+                }
+            ]
+        },
+        {
+            "title": "JR東日本 新潟支社",
+            "items": [
+                {
+                    "date": null,
+                    "url": "https://www.jrniigata.co.jp/top/ibento04.pdf",
+                    "text": "イベント中止に伴う、臨時列車の運休について（４月）"
+                },
+                {
+                    "date": null,
+                    "url": "https://www.jrniigata.co.jp/top/ibento05.pdf",
+                    "text": "イベント中止に伴う、臨時列車の運休について（５月）"
+                }
+            ]
+        },
+        {
+            "title": "新潟空港",
+            "items": [
+                {
+                    "date": "2020\/3\/23",
+                    "url": "http://www.niigata-airport.gr.jp/news/view.php?id=725",
+                    "text": "国内線減便のお知らせ（3月23日現在）"
+                }
+            ]
+        }
+    ]
+}

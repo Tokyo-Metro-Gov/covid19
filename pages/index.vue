@@ -20,6 +20,12 @@
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
+    <static-info
+      class="mb-4"
+      :url="localePath('/transit')"
+      :text="$t('新型コロナウイルスの影響による公共交通機関への影響')"
+      :btn-text="$t('公共交通機関の情報を見る')"
+    />
     <v-row class="DataBlock">
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
