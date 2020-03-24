@@ -39,4 +39,5 @@ jobs:
       - name: Create GitHub release
         uses: rymndhng/release-on-push-action@master
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           bump_version_scheme: minor
