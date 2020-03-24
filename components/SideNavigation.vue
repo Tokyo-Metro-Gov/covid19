@@ -10,14 +10,10 @@
       </v-icon>
       <h1 class="SideNavigation-HeaderTitle">
         <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderLink">
-          <img
-            class="SideNavigation-HeaderLogo"
-            src="/logo.svg"
-            :alt="$t('東京都')"
-          />
+          <h1>岩手県</h1>
           <div class="SideNavigation-HeaderText">
             {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
-              $t('menu/対策サイト')
+              $t('対策サイト非公式')
             }}
           </div>
         </nuxt-link>
@@ -49,18 +45,7 @@
       <footer class="SideNavigation-Footer">
         <div class="SideNavigation-Social">
           <a
-            href="https://line.me/R/ti/p/%40822sysfc"
-            target="_blank"
-            rel="noopener"
-            class="SideNavigation-SocialLink"
-          >
-            <picture>
-              <source srcset="/line.webp" type="image/webp" />
-              <img src="/line.png" alt="LINE" />
-            </picture>
-          </a>
-          <a
-            href="https://twitter.com/tokyo_bousai"
+            href="https://twitter.com/phonedropper"
             target="_blank"
             rel="noopener"
             class="SideNavigation-SocialLink"
@@ -71,18 +56,7 @@
             </picture>
           </a>
           <a
-            href="https://www.facebook.com/tochokoho"
-            target="_blank"
-            rel="noopener"
-            class="SideNavigation-SocialLink"
-          >
-            <picture>
-              <source srcset="/facebook.webp" type="image/webp" />
-              <img src="/facebook.png" alt="Facebook" />
-            </picture>
-          </a>
-          <a
-            href="https://github.com/tokyo-metropolitan-gov/covid19"
+            href="https://github.com/MeditationDuck/covid19"
             target="_blank"
             rel="noopener"
             class="SideNavigation-SocialLink"
@@ -93,6 +67,7 @@
             </picture>
           </a>
         </div>
+
         <small class="SideNavigation-Copyright">
           {{ $t('このサイトの内容物は') }}
           <a
@@ -105,7 +80,7 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 Tokyo Metropolitan Government
+          Meditation Duck
         </small>
       </footer>
     </div>
@@ -141,57 +116,25 @@ export default Vue.extend({
       return [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: this.$t('都内の最新感染動向'),
+          title: this.$t('県内の最新感染動向'),
           link: this.localePath('/')
         },
-        {
-          icon: 'CovidIcon',
-          title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: this.localePath('/flow'),
-          divider: true
-        },
-        {
-          icon: 'ParentIcon',
-          title: this.$t('お子様をお持ちの皆様へ'),
-          link: this.localePath('/parent')
-        },
+
         {
           icon: 'mdi-account-multiple',
-          title: this.$t('都民の皆様へ'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
-        },
-        {
-          icon: 'mdi-domain',
-          title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: this.localePath('/worker'),
-          divider: true
-        },
-        {
-          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
+          title: this.$t('新型コロナウイルス感染症に関する情報《岩手県》'),
           link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
+            'https://www.pref.iwate.jp/kurashikankyou/iryou/kenkou/jouhou/1026260.html'
         },
+
         {
-          title: this.$t('東京都主催等 中止又は延期するイベント等'),
+          title: this.$t('知事から県民の皆様へのメッセージ'),
           link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
-        },
-        {
-          title: this.$t('知事からのメッセージ'),
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+            'https://www.pref.iwate.jp/governor/hatsugen/1019040/1027865.html'
         },
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
-        },
-        {
-          title: this.$t('お問い合わせ先一覧'),
-          link: this.localePath('/contacts')
-        },
-        {
-          title: this.$t('東京都公式ホームページ'),
-          link: 'https://www.metro.tokyo.lg.jp/'
         }
       ]
     }
@@ -216,10 +159,9 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  height: 100%;
-  background: $white;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-
+  @include lessThan($small) {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+  }
   &:focus {
     outline: 1px dotted $gray-3;
   }
@@ -333,7 +275,6 @@ export default Vue.extend({
 
 .SideNavigation-Body {
   padding: 0 20px 20px;
-  background-color: $white;
   @include lessThan($small) {
     display: none;
     padding: 0 36px 36px;
@@ -371,7 +312,6 @@ export default Vue.extend({
 
 .SideNavigation-Footer {
   padding-top: 20px;
-  background-color: $white;
 }
 
 .SideNavigation-Social {

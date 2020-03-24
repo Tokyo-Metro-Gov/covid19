@@ -1,8 +1,8 @@
 {
   "name": "covid19",
   "version": "1.0.0",
-  "description": "東京都 新型コロナウイルス感染症対策サイト",
-  "author": "東京都",
+  "description": "岩手県 非公式 新型コロナウイルス感染症対策サイト",
+  "author": "非公式",
   "private": true,
   "engines": {
     "node": ">=10.19.0"
@@ -44,7 +44,6 @@
     "nuxt": "^2.11.0",
     "nuxt-i18n": "^6.6.0",
     "vue-chartjs": "^3.5.0",
-    "vue-property-decorator": "^8.4.0",
     "vue-scrollto": "^2.17.1",
     "vue-spinner": "^1.0.3"
   },
