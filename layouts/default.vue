@@ -87,15 +87,10 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: ``
+          href: `https://covid19-iwate.netlify.com/${this.$route.path}`
         }
       ],
       meta: [
-        {
-          hid: 'author',
-          name: 'author',
-          content: this.$tc('岩手県内の有志')
-        },
         {
           hid: 'description',
           name: 'description',
@@ -107,11 +102,11 @@ export default Vue.extend({
           hid: 'og:site_name',
           property: 'og:site_name',
           content:
-            this.$t('岩手県') +
+            this.$t('非公式岩手県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('対策サイト非公式')
+            this.$t('対策サイト')
         },
         {
           hid: 'og:url',
@@ -127,11 +122,11 @@ export default Vue.extend({
           hid: 'og:title',
           property: 'og:title',
           content:
-            this.$t('岩手県') +
+            this.$t('非公式岩手県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('対策サイト非公式')
+            this.$t('対策サイト')
         },
         {
           hid: 'og:description',
@@ -143,22 +138,17 @@ export default Vue.extend({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.$tc('')
+          content: this.$tc('https://covid19-iwate.netlify.com/ogp.png')
         },
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
           content:
-            this.$t('岩手県') +
+            this.$t('非公式岩手県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('対策サイト非公式')
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: this.$tc('ogp.og:image')
+            this.$t('対策サイト')
         }
       ]
     }

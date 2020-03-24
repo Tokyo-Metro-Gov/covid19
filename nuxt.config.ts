@@ -13,7 +13,7 @@ const config: Configuration = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s ',
+    titleTemplate: '%s　｜岩手県　非公式　コロナウイルス感染症対策サイト ',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -21,38 +21,23 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://covid19-iwate.netlify.com'
+        content: 'https://covid19-iwate.netlify.com/'
+      },
+      {  
+        hid: 'og:title',
+        property: 'og: title',
+        content: '岩手県　非公式　コロナウイルス対策サイト'
       },
       {
-        hid: 'twitter:card',
-        name: 'twitter:card',
-        content: 'summary_large_image'
-      },
-      {
-        hid: 'twitter:site',
-        name: 'twitter:site',
-        content: '@'
-      },
-      {
-        hid: 'twitter:creator',
-        name: 'twitter:creator',
-        content: '@'
-      },
-      {
-        hid: 'fb:app_id',
-        property: 'fb:app_id',
-        content: ''
-      },
-      {
-        hid: 'note:card',
-        property: 'note:card',
-        content: 'summary_large_image'
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://covid19-iwate.netlify.com/ogp.png'
       }
     ],
     
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '@/static/favicon.ico' },
-      { rel: 'apple-touch-icon', href: '@/static/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'apple-touch-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
