@@ -86,7 +86,7 @@ et le site development (https://dev-covid19-tokyo.netlify.com/) est aussi mis-à
 
 ### Regles sur les branches
 
-Les Pull Request sont permises seulement sur `development`, `dev-i18n`, et `dev-hotfix`.  
+Les Pull Request sont permises seulement sur `development`, et `dev-hotfix`.
 Veuillez utiliser le schema suivant pour nommer vos Pull Request:
 
 Nouvelle feature: feature/#{ISSUE_ID}-#{nom_de_la_branche}  
@@ -98,7 +98,6 @@ Hotfix: hotfix/#{ISSUE_ID}-{nom_de_la_branche}
 | ---- | -------- | ---- | ---- |
 | Development | development | https://dev-covid19-tokyo.netlify.com/ | Branche de base. Faites votre Pull Request ici. |
 | Hotfix branch | dev-hotfix | None | Fixs qui devraient etre appliques a l'environnement de production rapidement. Utilisez cette branche si demande par l'administrateur. |
-| i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | Branche temporaire. |
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | Pour confirmation avant production. Pull request d'utilisateurs non-admin sont defendues. |
 Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | Pull request d'utilisateurs non-admin sont defendues. |
 

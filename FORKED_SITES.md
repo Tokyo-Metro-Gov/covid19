@@ -6,6 +6,7 @@
 ------------ | ------------- | ------------- | -------------
 東京都（このサイト）|https://stopcovid19.metro.tokyo.lg.jp|東京都（**公式**）|[tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19)|
 [](01)北海道|https://stopcovid19.hokkaido.dev/|JUST道IT（有志団体）|[codeforsapporo/covid19](https://github.com/codeforsapporo/covid19)|
+[](02)青森県|https://covid19.codeforaomori.org|Code for Aomori|[CodeForAomori/covid19](https://github.com/CodeForAomori/covid19)|
 [](07)福島県|https://fukushima-covid19.firebaseapp.com|GDG Fukushima|[donuzium/covid19](https://github.com/donuzium/covid19)|
 [](08)茨城県|https://covid19-ibaraki.netlify.com/|個人|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
 [](10)群馬県|https://stopcovid19-gunma.netlify.com/|個人|[SatoshiRC/covid19-gunma](https://github.com/SatoshiRC/covid19-gunma)|
@@ -23,6 +24,7 @@
 [](21)岐阜県|https://covid19-gifu.netlify.com/|個人|[CODE-for-GIFU/covid19](https://github.com/CODE-for-GIFU/covid19)|
 [](23)愛知県|https://stopcovid19.code4.nagoya/|有志|[code4nagoya/covid19](https://github.com/code4nagoya/covid19)|
 [](24)三重県|https://covid19-mie.netlify.com/|高専生チーム(有志)|[FlexiblePrintedCircuits/covid19-mie](https://github.com/FlexiblePrintedCircuits/covid19-mie)|
+[](25)滋賀県|https://stopcovid19.pref.shiga.jp/|滋賀県（**公式**)|[Shiga-pref-org/covid19](https://github.com/Shiga-pref-org/covid19)|
 [](26)京都府|https://stopcovid19-kyoto.netlify.com/|有志|[stopcovid19-kyoto/covid19](https://github.com/stopcovid19-kyoto/covid19)|
 [](27)大阪府|https://covid19-osaka.info/|大阪府（**公式**）|[codeforosaka/covid19](https://github.com/codeforosaka/covid19)|
 [](28)兵庫県|https://stop-covid19-hyogo.org/|有志|[stop-covid19-hyogo/covid19](https://github.com/stop-covid19-hyogo/covid19)|
