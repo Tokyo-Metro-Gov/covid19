@@ -60,7 +60,7 @@
             </picture>
           </a>
           <a
-            href="https://twitter.com/tokyo_bousai"
+            href="https://twitter.com/AomoriPref"
             target="_blank"
             rel="noopener"
             class="SideNavigation-SocialLink"
