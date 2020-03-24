@@ -15,14 +15,16 @@
       :chart-id="chartId"
       :chart-data="displayData"
       :options="displayOption"
+      :plugins="scrollPlugin"
       :height="240"
       :width="800"
     />
-    <bar-header
+    <bar
       :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="`${chartId}-header`"
-      :chart-data="displayData"
+      :chart-data="displayDataHeader"
       :options="displayOptionHeader"
+      :plugins="yAxesBgPlugin"
       :height="240"
       :width="800"
     />
@@ -97,21 +99,8 @@ type Computed = {
     }
     scales: object
   }
-  displayOptionHeader: {
-    tooltips: {
-      displayColors: boolean
-      callbacks: {
-        label(tooltipItem: any): string
-        title(tooltipItem: any[], data: any): string | undefined
-      }
-    }
-    responsive: boolean
-    maintainAspectRatio: boolean
-    legend: {
-      display: boolean
-    }
-    scales: object
-  }
+  displayDataHeader: any
+  displayOptionHeader: any
   scaledTicksYAxisMax: number
   tableHeaders: {
     text: string
@@ -129,6 +118,8 @@ type Props = {
   date: string
   unit: string
   url: string
+  scrollPlugin: any[]
+  yAxesBgPlugin: any[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -170,6 +161,52 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     url: {
       type: String,
       default: ''
+    },
+    scrollPlugin: {
+      type: Array,
+      default: () => [
+        {
+          beforeInit(chartInstance: any) {
+            chartInstance.canvas.parentNode.scrollLeft = chartInstance.width
+          }
+        }
+      ]
+    },
+    yAxesBgPlugin: {
+      type: Array,
+      default: () => [
+        {
+          beforeDraw(chartInstance: any) {
+            const { ctx } = chartInstance.chart
+
+            // プロットエリアマスク用
+            ctx.fillStyle = '#fff'
+            ctx.fillRect(
+              0,
+              0,
+              chartInstance.chartArea.left,
+              chartInstance.chartArea.bottom + 1
+            )
+
+            // 横軸マスク用
+            const gradient = ctx.createLinearGradient(
+              0,
+              0,
+              chartInstance.chartArea.left,
+              0
+            )
+            gradient.addColorStop(0, 'rgba(255,255,255,1)')
+            gradient.addColorStop(1, 'rgba(255,255,255,0)')
+            ctx.fillStyle = gradient
+            ctx.fillRect(
+              0,
+              chartInstance.chartArea.bottom + 1,
+              chartInstance.chartArea.left,
+              chartInstance.height - chartInstance.chartArea.bottom - 1
+            )
+          }
+        }
+      ]
     }
   },
   data: () => ({
@@ -358,6 +395,32 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
       return options
     },
+    displayDataHeader() {
+      if (this.dataKind === 'transition') {
+        return {
+          labels: ['1/1'],
+          datasets: [
+            {
+              label: this.dataKind,
+              data: [Math.max(...this.chartData.map(d => d.transition))],
+              backgroundColor: 'transparent',
+              borderWidth: 0
+            }
+          ]
+        }
+      }
+      return {
+        labels: ['1/1'],
+        datasets: [
+          {
+            label: this.dataKind,
+            data: [Math.max(...this.chartData.map(d => d.cumulative))],
+            backgroundColor: 'transparent',
+            borderWidth: 0
+          }
+        ]
+      }
+    },
     displayOptionHeader() {
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
@@ -462,7 +525,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         },
         animation: {
           duration: 0
-        }
+        },
+        plugins: [
+          {
+            fill: {}
+          }
+        ]
       }
       return options
     },
