@@ -316,6 +316,10 @@ export default Vue.extend({
   @include lessThan($tiny) {
     width: 100px;
   }
+
+  @media screen and (max-width: 480px) {
+    width: 10rem;
+  }
 }
 
 .SideNavigation-HeaderText {
@@ -326,6 +330,11 @@ export default Vue.extend({
 
   @include lessThan($tiny) {
     margin: 0;
+  }
+
+  @media screen and (max-width: 480px) {
+    margin-left: 0;
+    font-size: 0.7rem;
   }
 }
 
