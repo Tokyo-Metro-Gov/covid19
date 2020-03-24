@@ -2,12 +2,14 @@
   <data-view class="SvgCard" :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
-        {{
+        <!-- {{
           $t(
             '（注）県内において疑い例または患者の濃厚接触者として検査を行ったものについて掲載'
           )
         }}<br />
         {{ $t('（チャーター機帰国者、クルーズ船乗客等は含まれていない）') }}
+        <br /> -->
+        ※ 現時点では日別のデータが公開されていないため、総数のみ表示しています。
         <br />
         {{
           $t(
