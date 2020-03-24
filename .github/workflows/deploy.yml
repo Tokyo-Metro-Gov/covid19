@@ -2,8 +2,8 @@ name: production deploy
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
+    branches:
+      - master
 
 jobs:
   deploy:
@@ -46,14 +46,7 @@ jobs:
           publish_branch: production
           tag_name: ${{ steps.prepare_tag.outputs.deploy_tag_name }}
           tag_message: 'Deployment ${{ steps.prepare_tag.outputs.tag_name }}'
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create GitHub release
+        uses: rymndhng/release-on-push-action@master
         with:
-          tag_name: ${{ steps.prepare_tag.outputs.deploy_tag_name }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
+          bump_version_scheme: minor
