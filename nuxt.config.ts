@@ -121,7 +121,8 @@ const config: Configuration = {
     {
       name: 'i18n_redirected',
       label: 'i18n Redirection Cookie',
-      description: 'For automatically switching UI languages in accordance with locale preferences in the web browser configuration.',
+      description:
+        'For automatically switching UI languages in accordance with locale preferences in the web browser configuration.',
       cookies: ['i18n_redirected']
     }
   ],
