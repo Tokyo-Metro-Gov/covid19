@@ -21,13 +21,13 @@
     <!--    />-->
     <v-row class="DataBlock">
       <!-- <confirmed-cases-details-card /> -->
-      <!-- <tested-cases-details-card /> -->
+      <tested-cases-details-card />
       <confirmed-cases-attributes-card />
       <confirmed-cases-number-card />
       <!-- <inspection-persons-number-card /> -->
-      <!-- <tested-number-card /> -->
+      <tested-number-card />
       <!-- <telephone-advisory-reports-number-card /> -->
-      <consultation-desk-reports-number-card />
+      <!-- <consultation-desk-reports-number-card /> -->
       <!-- <metro-card /> -->
       <!-- <agency-card /> -->
       <!-- <shinjuku-visitors-card /> -->
@@ -48,7 +48,7 @@ import News from '@/data/news.json'
 // import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
-// import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 // import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 // import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 // import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
@@ -66,8 +66,8 @@ export default Vue.extend({
     // ConfirmedCasesDetailsCard,
     // TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
-    ConfirmedCasesAttributesCard
-    // TestedNumberCard,
+    ConfirmedCasesAttributesCard,
+    TestedNumberCard
     // InspectionPersonsNumberCard,
     // TelephoneAdvisoryReportsNumberCard,
     // ConsultationDeskReportsNumberCard

@@ -15,6 +15,9 @@
             )
           }}
         </li>
+        <li>
+          {{ $t('（注）3/23の件数はそれまでの累計です') }}
+        </li>
       </ul>
       <data-selector
         v-model="dataKind"
