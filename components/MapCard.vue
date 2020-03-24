@@ -7,8 +7,15 @@
     :loading="loading"
     class="MapCard"
   >
-    <template v-slot:button>
-      {{ caption }}
+    <template v-slot:description>
+      <ol>
+        <li>
+          {{
+            $t('※1) ヤフーに蓄積された位置情報データなどを元に算出した参考値')
+          }}
+        </li>
+        <li>{{ $t('※2) 土・日・祝日を除く7:30~8:30の平均値') }}</li>
+      </ol>
     </template>
     <div class="MapCard-BodyContainer">
       <heatmap-legend :legend-data="legendData" />
