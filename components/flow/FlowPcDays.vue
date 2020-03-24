@@ -6,7 +6,7 @@
           <img
             :class="$style.FlowRowRowThreeGeneralIcon"
             src="/flow/accessibility-24px.svg"
-            aria-hdden="true"
+            aria-hidden="true"
           />
           {{ $t('一般の方') }}
         </p>
