@@ -2,7 +2,7 @@
 
 ![](https://github.com/codeforkagoshima/covid19/workflows/production%20deploy/badge.svg)
 
-[![Kagoshima COVID-19 Task Force Website](./static/ogp.png)](https://covid19.codeforkagoshima.dev/)
+[![Kagoshima COVID-19 Task Force Website](./static/ogp.png)](https://covid19.code4kagoshima.org/)
 
 ### [日本語](./README.md) | English
 
@@ -53,8 +53,8 @@ $ docker-compose run --rm app yarn install
 
 ### Deployment to Staging & Production Environments
 
-When `master` branch is updated, the production site (https://covid19.codeforkagoshima.dev/) will be also updated.
+When `master` branch is updated, the production site (https://covid19.code4kagoshima.org/) will be also updated.
 
-When `staging` branch is updated, the staging site (https://staging-covid19.codeforkagoshima.dev/) will be also updated.
+When `staging` branch is updated, the staging site (https://staging-covid19.code4kagoshima.org/) will be also updated.
 
-When `development` branch is updated, the development site (https://development-covid19.codeforkagoshima.dev/) will be also updated.
+When `development` branch is updated, the development site (https://development-covid19.code4kagoshima.org/) will be also updated.

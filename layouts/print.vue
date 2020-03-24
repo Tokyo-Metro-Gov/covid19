@@ -77,7 +77,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `https://covid19.codeforkagoshima.dev${this.$route.path}`
+          href: `https://covid19.code4kagoshima.org${this.$route.path}`
         }
       ]
     }
