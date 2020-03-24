@@ -7,6 +7,8 @@ export type GraphDataType = {
   label: string
   transition: number
   weekly: number
+  weeklyLastWeek: number
+  weeklyBeforeLastWeek: number
   cumulative: number
 }
 
@@ -21,16 +23,19 @@ export default (data: DataType[]) => {
   let patSum = 0
   let daysCount = 1
   let weekSum = 0
+  let weekSumLastWeek = 0
+  let weekSumBeforeLastWeek = 0
   data
     .filter(d => new Date(d['日付']) < today)
     .forEach(d => {
       const date = new Date(d['日付'])
       const subTotal = d['小計']
-
       let weekSumLocal = 0
       if (daysCount % 7 === 0) {
+        weekSumBeforeLastWeek = weekSumLastWeek
         weekSum += subTotal
         weekSumLocal = weekSum
+        weekSumLastWeek = weekSum
         weekSum = 0
       } else {
         weekSum += subTotal
@@ -44,6 +49,8 @@ export default (data: DataType[]) => {
           label: `${date.getMonth() + 1}/${date.getDate()}`,
           transition: subTotal,
           weekly: weekSumLocal,
+          weeklyLastWeek: weekSumLastWeek,
+          weeklyBeforeLastWeek: weekSumBeforeLastWeek,
           cumulative: patSum
         })
       }

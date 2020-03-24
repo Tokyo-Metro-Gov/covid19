@@ -160,9 +160,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayWeeklyRatio() {
-      // TODO: この計算どうするかなー
-      const lastDay = this.chartData.slice(-1)[0].weekly
-      const lastDayBefore = this.chartData.slice(-2)[0].weekly
+      const lastDay = this.chartData.slice(-1)[0].weeklyLastWeek
+      const lastDayBefore = this.chartData.slice(-2)[0].weeklyBeforeLastWeek
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayTransitionRatio() {
@@ -181,7 +180,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       } else if (this.dataKind === 'weekly') {
         return {
-          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
+          lText: `${this.chartData
+            .slice(-1)[0]
+            .weeklyLastWeek.toLocaleString()}`,
           sText: `${this.$t('週間値')}（${this.$t('前週比')}: ${
             this.displayWeeklyRatio
           } ${this.unit}）`,
