@@ -70,7 +70,7 @@ export default Vue.extend({
     TestedNumberCard,
     // InspectionPersonsNumberCard,
     // TelephoneAdvisoryReportsNumberCard,
-    //ConsultationDeskReportsNumberCard
+    // ConsultationDeskReportsNumberCard
     // MetroCard,
     // AgencyCard,
     // ShinjukuVisitorsCard,
