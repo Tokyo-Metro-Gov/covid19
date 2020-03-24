@@ -89,6 +89,7 @@
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
         </em>
         <span :class="$style.FlowText">{{ $t('または') }}</span>
@@ -98,6 +99,7 @@
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
         </em>
         <span :class="$style.FlowText">{{ $t('かつ') }}</span>
@@ -113,6 +115,7 @@
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
         </em>
       </div>

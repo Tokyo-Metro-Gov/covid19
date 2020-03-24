@@ -5,6 +5,7 @@
         :class="$style.FlowPcHospitalizedHeadingIcon"
         src="/flow/hotel-24px.svg"
         aria-hidden="true"
+        alt=" "
       />
       {{ $t('入院となります') }}
     </p>
