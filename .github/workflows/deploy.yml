@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -39,5 +41,4 @@ jobs:
       - name: Create GitHub release
         uses: rymndhng/release-on-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           bump_version_scheme: minor
