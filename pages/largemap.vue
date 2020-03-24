@@ -12,8 +12,8 @@
           :chart-id="'tokyo-city-chart'"
           :map-id="'tokyo-city-map'"
           :initial-bounds="[
-            [139.761908, 35.676437],
-            [139.773774, 35.686703]
+            [139.695239, 35.676437],
+            [139.773774, 35.694493]
           ]"
           :map-height="640"
           :map-options="{ interactive: true }"
@@ -22,6 +22,7 @@
           :source-link-header="
             $t('※本データは2020年3月31日までの掲載となります')
           "
+          :heatmap-legend="[20000, 40000, 60000]"
           :link-string="$t('ヤフー・データソリューション')"
           :date="''"
         />

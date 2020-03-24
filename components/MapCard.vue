@@ -25,6 +25,7 @@
         :map-id="mapId"
         :initial-bounds="initialBounds"
         :map-options="mapOptions"
+        :legend="heatmapLegend"
         @legendUpdated="updateLegend"
         @loadCompleted="loadCompleted"
       />
@@ -105,6 +106,10 @@ export default {
     sourceLinkHeader: {
       type: String,
       default: ''
+    },
+    heatmapLegend: {
+      type: Array,
+      default: () => []
     },
     mapOptions: {
       type: Object,
