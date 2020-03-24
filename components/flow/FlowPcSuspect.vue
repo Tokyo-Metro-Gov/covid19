@@ -12,7 +12,6 @@
             :class="$style.RowItemsHeaderIcon"
             src="/flow/sentiment_very_dissatisfied-24px.svg"
             aria-hidden="true"
-            :alt="$t('不安に思う方')"
           />
           {{ $t('不安に思う方') }}
         </div>
@@ -23,7 +22,6 @@
             :class="$style.CheckBoxIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
-            :alt="$t('微熱')"
           />
           {{ $t('微熱') }}
         </div>
@@ -32,7 +30,6 @@
             :class="$style.CheckBoxIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
-            :alt="$t('軽い咳')"
           />
           {{ $t('軽い咳') }}
         </div>
@@ -41,7 +38,6 @@
             :class="$style.CheckBoxIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
-            :alt="$t('感染の不安')"
           />
           {{ $t('感染の不安') }}
         </div>

@@ -89,7 +89,6 @@
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
-            :alt="$t('発熱')"
           />
         </em>
         <span :class="$style.FlowText">{{ $t('または') }}</span>
@@ -99,7 +98,6 @@
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
-            :alt="$t('呼吸器症状')"
           />
         </em>
         <span :class="$style.FlowText">{{ $t('かつ') }}</span>

@@ -14,7 +14,6 @@
             :class="$style.actionsListIcon"
             src="/flow/house-24px.svg"
             aria-hidden="true"
-            :alt="$t('自宅で安静に過ごす')"
           />
           {{ $t('自宅で安静に過ごす') }}
         </li>
@@ -23,7 +22,6 @@
             :class="$style.actionsListIcon"
             src="/flow/apartment-24px.svg"
             aria-hidden="true"
-            :alt="$t('一般の医療機関を受診')"
           />
           {{ $t('一般の医療機関を受診') }}
         </li>
