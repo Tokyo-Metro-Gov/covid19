@@ -9,6 +9,7 @@ import 'dayjs/locale/th'
 import 'dayjs/locale/vi'
 import 'dayjs/locale/zh-cn'
 import 'dayjs/locale/zh-tw'
+import { NuxtAppOptions } from '@nuxt/types/app/index'
 
 const DEFAULT_FORMATS = {
   datetime: 'MMM D, YYYY, h:mm:ss a',
@@ -23,13 +24,12 @@ const DEFAULT_FORMATS = {
   year: 'YYYY'
 }
 
-export function useDayjsAdapter(nuxtI18n) {
+export function useDayjsAdapter(nuxtI18n: NuxtAppOptions['i18n']) {
   dayjs.extend(customParseFormat)
 
   // set locale when page onload
   setLocale(nuxtI18n.locale)
-
-  nuxtI18n.onLanguageSwitched = (_, newLocale) => {
+  nuxtI18n.onLanguageSwitched = (_: string, newLocale: string) => {
     setLocale(newLocale)
   }
 
@@ -48,7 +48,7 @@ export function useDayjsAdapter(nuxtI18n) {
         value = dayjs(time)
       }
 
-      return value.isValid() ? value.valueOf() : null
+      return value && value.isValid() ? value.valueOf() : null
     },
 
     format(time, format) {
@@ -73,7 +73,7 @@ export function useDayjsAdapter(nuxtI18n) {
   })
 }
 
-function setLocale(newLocale) {
+function setLocale(newLocale: string) {
   let locale = newLocale
 
   if (locale.includes('ja')) {
