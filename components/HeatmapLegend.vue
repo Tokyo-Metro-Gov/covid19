@@ -2,7 +2,12 @@
   <div>
     <ul class="clearfix">
       <li v-for="item in legendData" :key="item.valueFrom">
-        <span class="LegendBlock" :style="`background-color: ${item.color}`" />
+        <span
+          class="LegendBlock"
+          :style="
+            `background-color: ${item.color}; border: 1px solid ${item.borderColor}`
+          "
+        />
         {{ `${item.valueFrom}〜${item.valueTo !== null ? item.valueTo : ''}` }}
       </li>
     </ul>

@@ -35,6 +35,13 @@ export default {
     return {
       dateSequence: [],
       mapObject: null,
+      colors: [
+        'rgba(80, 91, 0, 0.25)',
+        'rgba(27, 117, 188, 0.5)',
+        'rgba(0, 100, 0, 0.6)',
+        'rgba(0, 68, 27, 0.7)'
+      ],
+      borderColors: ['#505B00', '#1B75BC', '#006400', '#00441B'],
       legend: null
     }
   },
@@ -77,27 +84,39 @@ export default {
       map.setPaintProperty('heatmap', 'fill-color', [
         'step',
         ['get', lastDate],
-        '#505B00',
+        this.colors[0],
         this.legend[0],
-        '#1B75BC',
+        this.colors[1],
         this.legend[1],
-        '#006400',
+        this.colors[2],
         this.legend[2],
-        '#00441B'
+        this.colors[3]
       ])
       self.$emit('legendUpdated', [
-        { color: '#505B00', valueFrom: 0, valueTo: this.legend[0] },
         {
-          color: '#1B75BC',
+          borderColor: this.borderColors[0],
+          color: this.colors[0],
+          valueFrom: 0,
+          valueTo: this.legend[0]
+        },
+        {
+          borderColor: this.borderColors[1],
+          color: this.colors[1],
           valueFrom: this.legend[0],
           valueTo: this.legend[1]
         },
         {
-          color: '#006400',
+          borderColor: this.borderColors[2],
+          color: this.colors[2],
           valueFrom: this.legend[1],
           valueTo: this.legend[2]
         },
-        { color: '#00441B', valueFrom: this.legend[2], valueTo: null }
+        {
+          borderColor: this.borderColors[3],
+          color: this.colors[3],
+          valueFrom: this.legend[2],
+          valueTo: null
+        }
       ])
       self.$emit('input', self.getChartData(map))
       map.on('moveend', _e => {
@@ -160,7 +179,7 @@ export default {
         paint: {
           'fill-color': '#fff',
           'fill-opacity': 0.5,
-          'fill-outline-color': '#ffffff'
+          'fill-outline-color': 'rgba(0, 0, 0, 0)'
         }
       })
       this.dataDrivenInitialization(map)
@@ -173,13 +192,13 @@ export default {
         const p = [
           'step',
           ['get', targetDate],
-          '#505B00',
+          this.colors[0],
           this.legend[0],
-          '#1B75BC',
+          this.colors[1],
           this.legend[1],
-          '#006400',
+          this.colors[2],
           this.legend[2],
-          '#00441B'
+          this.colors[3]
         ]
         this.mapObject.setPaintProperty('heatmap', 'fill-color', p)
       }
