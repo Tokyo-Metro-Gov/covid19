@@ -16,6 +16,14 @@
     </v-btn>
     <v-btn
       v-ripple="false"
+      :aria-pressed="value === 'weekly' ? 'true' : 'false'"
+      value="weekly"
+      class="DataSelector-Button"
+    >
+      {{ $t('週別') }}
+    </v-btn>
+    <v-btn
+      v-ripple="false"
       :aria-pressed="value === 'cumulative' ? 'true' : 'false'"
       value="cumulative"
       class="DataSelector-Button"

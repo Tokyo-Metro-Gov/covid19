@@ -50,7 +50,7 @@ import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import { single as color } from '@/utils/colors'
 
 type Data = {
-  dataKind: 'transition' | 'cumulative'
+  dataKind: 'transition' | 'weekly' | 'cumulative'
   canvas: boolean
 }
 type Methods = {
@@ -58,6 +58,7 @@ type Methods = {
 }
 type Computed = {
   displayCumulativeRatio: string
+  displayWeeklyRatio: string
   displayTransitionRatio: string
   displayInfo: {
     lText: string
@@ -67,7 +68,7 @@ type Computed = {
   displayData: {
     labels: string[]
     datasets: {
-      label: 'transition' | 'cumulative'
+      label: 'transition' | 'weekly' | 'cumulative'
       data: number[]
       backgroundColor: string
       borderWidth: number
@@ -158,6 +159,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const lastDayBefore = this.chartData.slice(-2)[0].cumulative
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
+    displayWeeklyRatio() {
+      // TODO: この計算どうするかなー
+      const lastDay = this.chartData.slice(-1)[0].weekly
+      const lastDayBefore = this.chartData.slice(-2)[0].weekly
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+    },
     displayTransitionRatio() {
       const lastDay = this.chartData.slice(-1)[0].transition
       const lastDayBefore = this.chartData.slice(-2)[0].transition
@@ -169,6 +176,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
           sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
             this.displayTransitionRatio
+          } ${this.unit}）`,
+          unit: this.unit
+        }
+      } else if (this.dataKind === 'weekly') {
+        return {
+          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
+          sText: `${this.$t('週間値')}（${this.$t('前週比')}: ${
+            this.displayWeeklyRatio
           } ${this.unit}）`,
           unit: this.unit
         }
@@ -196,6 +211,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               label: this.dataKind,
               data: this.chartData.map(d => {
                 return d.transition
+              }),
+              backgroundColor: color,
+              borderWidth: 0
+            }
+          ]
+        }
+      } else if (this.dataKind === 'weekly') {
+        return {
+          labels: this.chartData.map(d => {
+            return d.label
+          }),
+          datasets: [
+            {
+              label: this.dataKind,
+              data: this.chartData.map(d => {
+                return d.weekly
               }),
               backgroundColor: color,
               borderWidth: 0
@@ -336,8 +367,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     scaledTicksYAxisMax() {
       const yAxisMax = 1.2
-      const dataKind =
-        this.dataKind === 'transition' ? 'transition' : 'cumulative'
+      const dataKind = this.dataKind
+      // const dataKind = 'transition'
+      // this.dataKind === 'transition' ? 'transition' : 'cumulative'
       const values = this.chartData.map(d => d[dataKind])
       return Math.max(...values) * yAxisMax
     },
