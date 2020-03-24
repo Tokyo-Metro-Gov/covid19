@@ -89,5 +89,5 @@ Pull Request を送る際の branch は、以下のネーミングルールで�
 #### システムで利用しているブランチ
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
-| 本番サイト | production | https://oita.stopcovid19.jp | 静的ビルドされたHTMLが置いてある場所 |
+| 本番サイト | production | https://oita.stopcovid19.jp/ | 静的ビルドされたHTMLが置いてある場所 |
 
