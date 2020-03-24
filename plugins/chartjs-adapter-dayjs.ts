@@ -41,14 +41,9 @@ export function useDayjsAdapter(nuxtI18n: NuxtAppOptions['i18n']) {
     },
 
     parse(time, format) {
-      let value
-      if (typeof time === 'string' && typeof format === 'string') {
-        value = dayjs(time, format)
-      } else if (!(time instanceof dayjs)) {
-        value = dayjs(time)
-      }
+      const value = format ? dayjs(time, format) : dayjs(time)
 
-      return value && value.isValid() ? value.valueOf() : null
+      return value.isValid() ? value.valueOf() : null
     },
 
     format(time, format) {

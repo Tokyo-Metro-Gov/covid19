@@ -12,7 +12,7 @@ declare module 'chart.js' {
   interface Options {
     _id: string
     formats: () => DateAdapterFormats
-    parse: (time: ConfigType, format: string) => number | null
+    parse: (time: ConfigType, format: string | undefined) => number | null
     format: (time: ConfigType, format: string) => string
     add: (time: ConfigType, amount: number, unit: OpUnitType) => Dayjs
     diff: (
