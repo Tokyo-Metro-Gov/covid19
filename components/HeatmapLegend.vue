@@ -14,6 +14,7 @@
   width: 16px;
   height: 16px;
   display: inline-block;
+  opacity: 0.5;
 }
 li {
   list-style: none;
