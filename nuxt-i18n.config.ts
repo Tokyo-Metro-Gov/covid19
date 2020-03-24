@@ -26,13 +26,6 @@ export default {
       iso: 'en-US',
       file: 'en.json',
       description: 'English'
-    },
-    {
-      code: 'ja-basic',
-      name: 'やさしい にほんご',
-      iso: 'ja-JP',
-      file: 'ja-Hira.json',
-      description: 'Easy Japanese'
     }
   ]
 }
