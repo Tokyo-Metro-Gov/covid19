@@ -45,7 +45,7 @@ export default {
     SingleTimeBarChart
   },
   data() {
-    // 帰国者・接触者 電話相談センター 相談件数
+    // 帰国者・接触者 電話相談センター 相談件数グラフ
     const querentsGraph = formatGraph(Data.querents.data)
 
     const formatData = Data.inspection_persons.labels.map((date, i) => {
@@ -66,6 +66,7 @@ export default {
     const resultData = querentsGraph.map(querent => {
       // 検査実施人数
       const inspectionPersons = dict[querent.label]
+      // 帰国者・接触者 電話相談センター 相談件数
       const consultationDeskReportsNumber = querent.transition
       return {
         日付: querent.label,
