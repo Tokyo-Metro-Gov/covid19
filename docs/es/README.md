@@ -81,7 +81,7 @@ y luego el sitio de desarrollo (https://dev-covid19-tokyo.netlify.com/) también
 
 ### Branch rules
 
-Pull Request is allowed only for `development`, `dev-i18n` and `dev-hotfix`.  
+Pull Request is allowed only for `development` and `dev-hotfix`.
 Please use the following naming rules for the branch when sending a Pull Request.
 
 Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}  
@@ -92,7 +92,6 @@ Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 | ---- | -------- | ---- | ---- |
 | Development | development | https://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
 | Hotfix branch | dev-hotfix | None | Fixes that should be applied to production in haste. Use this if requested by the administrator |
-| i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | Temporarily used |
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | For final confirmation before production. Non-admin pull requests are prohibited |
 Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
 
