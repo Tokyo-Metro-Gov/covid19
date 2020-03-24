@@ -77,23 +77,23 @@ export default {
       map.setPaintProperty('heatmap', 'fill-color', [
         'step',
         ['get', lastDate],
-        '#1B75BC',
+        '#505B00',
         this.legend[0],
-        '#238B45',
+        '#1B75BC',
         this.legend[1],
-        '#006D2C',
+        '#006400',
         this.legend[2],
         '#00441B'
       ])
       self.$emit('legendUpdated', [
-        { color: '#1B75BC', valueFrom: 0, valueTo: this.legend[0] },
+        { color: '#505B00', valueFrom: 0, valueTo: this.legend[0] },
         {
-          color: '#238B45',
+          color: '#1B75BC',
           valueFrom: this.legend[0],
           valueTo: this.legend[1]
         },
         {
-          color: '#006D2C',
+          color: '#006400',
           valueFrom: this.legend[1],
           valueTo: this.legend[2]
         },
@@ -173,11 +173,11 @@ export default {
         const p = [
           'step',
           ['get', targetDate],
-          '#1B75BC',
+          '#505B00',
           this.legend[0],
-          '#238B45',
+          '#1B75BC',
           this.legend[1],
-          '#006D2C',
+          '#006400',
           this.legend[2],
           '#00441B'
         ]
