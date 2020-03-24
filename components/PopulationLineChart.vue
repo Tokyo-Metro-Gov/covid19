@@ -81,11 +81,23 @@ import * as d3 from 'd3'
 export default {
   directives: {
     xAxis(el, _, vnode) {
+      const tickValues = []
+      vnode.context.sequence.forEach(function(d) {
+        if (tickValues.length === 0) {
+          tickValues.push(d.date)
+        } else if (
+          d.date - tickValues[tickValues.length - 1] >
+          60 * 60 * 24 * 1000 + 100
+        ) {
+          tickValues.push(d.date)
+        }
+      })
       d3.select(el)
         .call(
           d3
             .axisBottom()
             .scale(vnode.context.xScale)
+            .tickValues(tickValues)
             .tickFormat(d => d3.timeFormat('%m/%d')(d))
         )
         .call(g =>
