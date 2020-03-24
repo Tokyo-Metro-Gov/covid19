@@ -105,7 +105,7 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 @fukuiretu
+          2020 Aomori Hackers
         </small>
       </footer>
     </div>
