@@ -60,7 +60,7 @@
             </picture>
           </a>
           <a
-            href="https://twitter.com/tokyo_bousai"
+            href="https://twitter.com/AomoriPref"
             target="_blank"
             rel="noopener"
             class="SideNavigation-SocialLink"
@@ -82,7 +82,7 @@
             </picture>
           </a>
           <a
-            href="https://github.com/tokyo-metropolitan-gov/covid19"
+            href="https://github.com/covid19-aomori/website"
             target="_blank"
             rel="noopener"
             class="SideNavigation-SocialLink"
