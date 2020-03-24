@@ -135,11 +135,12 @@ export default Vue.extend({
             '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、岩手県の有志が開設したものです。'
           )
         },
-        {
+        /*  {
           hid: 'og:image',
           property: 'og:image',
           content: this.$tc('https://covid19-iwate.netlify.com/ogp.png')
-        },
+        }, 
+        */
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',

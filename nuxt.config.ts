@@ -23,18 +23,20 @@ const config: Configuration = {
         property: 'og:url',
         content: 'https://covid19-iwate.netlify.com/'
       },
-      {  
+      {
         hid: 'og:title',
         property: 'og: title',
         content: '岩手県　非公式　コロナウイルス対策サイト'
-      },
+      }
+      /*
       {
         hid: 'og:image',
         property: 'og:image',
         content: 'https://covid19-iwate.netlify.com/ogp.png'
       }
+      */
     ],
-    
+
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'apple-touch-icon', href: '/favicon.ico' },
@@ -43,7 +45,6 @@ const config: Configuration = {
         href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
       }
     ]
-    
   },
   /*
    ** Customize the progress-bar color
@@ -146,8 +147,7 @@ const config: Configuration = {
         '/cards/number-of-inspection-persons',
         '/cards/number-of-reports-to-covid19-telephone-advisory-center',
         '/cards/number-of-reports-to-covid19-consultation-desk',
-        '/cards/predicted-number-of-toei-subway-passengers',
-        
+        '/cards/predicted-number-of-toei-subway-passengers'
       ]
 
       const routes: string[] = []
