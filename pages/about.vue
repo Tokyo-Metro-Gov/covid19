@@ -119,11 +119,6 @@
         </a>
       </i18n>
     </TextCard>
-    <TextCard :title="$t('お問い合わせ先（準備中）')">
-      <a href="http://www.pref.kagoshima.jp/aa02/otoiawase.html">
-        http://www.pref.kagoshima.jp/aa02/otoiawase.html
-      </a>
-    </TextCard>
   </div>
 </template>
 
