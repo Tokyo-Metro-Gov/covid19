@@ -90,7 +90,7 @@
     <TextCard :title="$t('データについて')">
       <i18n
         tag="p"
-        path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
+        path="本サイトで公表しているデータは、 {catalogWebsite}に掲載されているものです。"
       >
         <a
           href="http://www.pref.kagoshima.jp/ac03/infra/info/opendata/index.html"
@@ -98,7 +98,7 @@
           rel="noopener"
           place="catalogWebsite"
         >
-          {{ $t('鹿児島県オープンデータカタログサイト') }}
+          {{ $t('鹿児島県公式サイト') }}
         </a>
       </i18n>
     </TextCard>
