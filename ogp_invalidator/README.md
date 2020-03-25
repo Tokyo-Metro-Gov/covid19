@@ -6,7 +6,7 @@
 
 # Usage
 
-- pip install -r requirements.txt
+- pip install selenium
 - set following environment valiables
   - TWITTER_USERNAME
   - TWITTER_PASSWORD
