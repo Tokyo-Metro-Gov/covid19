@@ -9,9 +9,9 @@
     <confirmed-cases-attributes-card
       v-else-if="this.$route.params.card == 'attributes-of-confirmed-cases'"
     />
-    <tested-number-card
+    <!-- <tested-number-card
       v-else-if="this.$route.params.card == 'number-of-tested'"
-    />
+    /> -->
   </div>
 </template>
 
