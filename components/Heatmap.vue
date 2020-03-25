@@ -80,6 +80,7 @@ export default {
         return
       }
       this.dateSequence = Object.keys(features[0].properties).sort()
+      this.$emit('dateTicksUpdated', this.dateSequence)
       const lastDate = this.dateSequence[this.dateSequence.length - 1]
       let m = 0
       features.forEach(feature => {
@@ -127,47 +128,11 @@ export default {
           valueTo: null
         }
       ])
-      self.$emit('input', self.getChartData(map))
-      map.on('moveend', _e => {
-        self.$emit('input', self.getChartData(map))
-      })
       self.$emit('loadCompleted')
     },
-    getChartData(map) {
-      const features = map.queryRenderedFeatures({ layers: ['heatmap'] })
-      if (this.dateSequence.length === 0) {
-        if (features.length === 0) {
-          return [
-            { date: '20200201', value: 0 },
-            { date: '20200202', value: 0 }
-          ]
-        }
-        this.dateSequence = Object.keys(features[0]).sort()
-      }
-      const dateValueMap = {}
-      this.dateSequence.forEach(d => {
-        dateValueMap[d] = 0
-      })
-      features.forEach(feature => {
-        Object.keys(feature.properties).forEach(k => {
-          dateValueMap[k] += feature.properties[k]
-        })
-      })
-      return Object.keys(dateValueMap).map(d => {
-        return {
-          date: d,
-          value: dateValueMap[d]
-        }
-      })
-    },
     loaded(map) {
-      // const tileUrl = `https://map-covid19-tokyo.netlify.com/mashed_tiles/{z}/{x}/{y}.pbf`
-      // const tileUrl = `http://localhost:3000/mashed_tiles/{z}/{x}/{y}.pbf`
       const tileUrl =
-        location.protocol +
-        '//' +
-        location.host +
-        '/mashed_tiles/{z}/{x}/{y}.pbf'
+        'https://tokyo-metropolitan-gov.github.io/data/tiles/{z}/{x}/{y}.pbf'
       if (
         this.initialBounds.length > 1 &&
         this.initialBounds[0].length > 1 &&
@@ -202,11 +167,11 @@ export default {
           'step',
           ['get', targetDate],
           this.colors[0],
-          this.legend[0],
+          this.actualLegend[0],
           this.colors[1],
-          this.legend[1],
+          this.actualLegend[1],
           this.colors[2],
-          this.legend[2],
+          this.actualLegend[2],
           this.colors[3]
         ]
         this.mapObject.setPaintProperty('heatmap', 'fill-color', p)
