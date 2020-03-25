@@ -1,3 +1,4 @@
+import argparse
 import time
 import os
 
@@ -8,7 +9,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 USERNAME = os.environ['TWITTER_USERNAME']
 PASSWORD = os.environ['TWITTER_PASSWORD']
 
+parser = argparse.ArgumentParser()
+parser.add_argument('-o', '--out', action='store_true', help='output screenshots.')
+args = parser.parse_args()
+
 HOST = 'https://stopcovid19.metro.tokyo.lg.jp'
+OUT_DIR = 'out'
 
 PATHS = (
     'cards/details-of-confirmed-cases',
@@ -32,13 +38,13 @@ LANGS = (
     'ja-basic',
 )
 
-URLS = ['/'.join([HOST, path] if lang == 'ja' else [HOST, lang, path]) for lang in LANGS for path in PATHS]
-
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")
+options.add_argument("--hide-scrollbars")
 
 
 driver = webdriver.Chrome(options=options)
+driver.set_window_size(1280, 1080)
 wait = WebDriverWait(driver, 10)
 
 driver.get('https://twitter.com/login?redirect_after_login=https%3A%2F%2Fcards-dev.twitter.com%2Fvalidator')
@@ -60,8 +66,16 @@ def twitter_card_validate(url):
     submit_button.click()
 
 
-for url in URLS:
-    twitter_card_validate(url)
-    time.sleep(5)
+for lang in LANGS:
+    for path in PATHS:
+        url = '/'.join([HOST, path] if lang == 'ja' else [HOST, lang, path])
+        twitter_card_validate(url)
+        time.sleep(5)
+
+        if args.out:
+            dir_path = f'{OUT_DIR}/{lang}'
+            os.makedirs(dir_path, exist_ok=True)
+            file_name = path.replace('cards/', '')
+            driver.save_screenshot(f'{dir_path}/{file_name}.png')
 
 driver.quit()
