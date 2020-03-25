@@ -16,10 +16,14 @@
 }
 </style>
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 
-@Component
-export default class OpenDataLink extends Vue {
-  @Prop() private url!: string
-}
+export default Vue.extend({
+  props: {
+    url: {
+      type: String,
+      default: ''
+    }
+  }
+})
 </script>

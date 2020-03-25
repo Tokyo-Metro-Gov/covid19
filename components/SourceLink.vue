@@ -28,12 +28,22 @@
 }
 </style>
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 
-@Component
-export default class SourceLink extends Vue {
-  @Prop() private url!: string
-  @Prop() private linkString!: string
-  @Prop() private header!: string
-}
+export default Vue.extend({
+  props: {
+    url: {
+      type: String,
+      default: ''
+    },
+    linkString: {
+      type: String,
+      default: ''
+    },
+    header: {
+      type: String,
+      default: ''
+    }
+  }
+})
 </script>
