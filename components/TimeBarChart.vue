@@ -23,9 +23,9 @@
       :items="tableData"
       :items-per-page="-1"
       :hide-default-footer="true"
-      :hide-default-header="true"
       :height="240"
       :fixed-header="true"
+      :disable-sort="true"
       :mobile-breakpoint="0"
       class="cardTable"
       item-key="name"
@@ -42,6 +42,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
@@ -90,7 +91,7 @@ type Computed = {
   }
   scaledTicksYAxisMax: number
   tableHeaders: {
-    text: string
+    text: TranslateResult
     value: string
   }[]
   tableData: {
@@ -343,7 +344,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     tableHeaders() {
       return [
-        { text: '', value: 'text' },
+        { text: this.$t('日付'), value: 'text' },
         { text: this.title, value: '0' }
       ]
     },
