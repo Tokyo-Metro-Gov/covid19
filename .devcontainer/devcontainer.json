@@ -1,0 +1,16 @@
+{
+    "name": "covid19",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "appPort": [
+        3000
+    ],
+    "service": "app",
+    "extensions": [
+        "dbaeumer.vscode-eslint"
+    ],
+    "postCreateCommand": "yarn install",
+    "workspaceFolder": "/app",
+    "shutdownAction": "stopCompose"
+}

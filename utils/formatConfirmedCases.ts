@@ -43,6 +43,11 @@ type ConfirmedCasesType = {
   退院: number
 }
 
+/**
+ * Format for *Chart component
+ *
+ * @param data - Raw data
+ */
 export default (data: DataType) => {
   const formattedData: ConfirmedCasesType = {
     検査実施人数: data.value,

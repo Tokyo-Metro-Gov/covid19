@@ -13,22 +13,25 @@
 
 <style lang="scss" scoped>
 .TheNumber {
-  font-family: Hiragino Sans;
+  font-family: Hiragino Sans, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 60px;
   line-height: 90px;
+
   /* identical to box height */
 
   text-align: center;
   color: $gray-2;
 }
+
 .TheUnit {
-  font-family: Hiragino Sans;
+  font-family: Hiragino Sans, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 40px;
   line-height: 90px;
+
   /* identical to box height */
 
   text-align: center;
@@ -36,11 +39,25 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 
-export default {
+export default Vue.extend({
   components: { DataView },
-  props: ['title', 'number', 'unit']
-}
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    number: {
+      type: String,
+      default: ''
+    },
+    unit: {
+      type: String,
+      default: ''
+    }
+  }
+})
 </script>

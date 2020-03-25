@@ -1,10 +1,5 @@
 <template>
-  <component
-    :is="isInternalLink(url) ? 'nuxt-link' : 'a'"
-    :to="isInternalLink(url) ? url : ''"
-    :href="isInternalLink(url) ? '' : url"
-    class="StaticInfo"
-  >
+  <component :is="linkTag" v-bind="linkAttrs">
     <span>{{ text }}</span>
     <div v-if="btnText" class="StaticInfo-Button">
       <span>
@@ -15,23 +10,37 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 
-@Component
-export default class StaticInfo extends Vue {
-  @Prop({ default: '', required: false })
-  url!: string
-
-  @Prop({ default: '', required: false })
-  text!: string
-
-  @Prop({ default: '', required: false })
-  btnText!: string
-
-  isInternalLink(path: string): boolean {
-    return !/^https?:\/\//.test(path)
+export default Vue.extend({
+  props: {
+    url: {
+      type: String,
+      default: ''
+    },
+    text: {
+      type: String,
+      default: ''
+    },
+    btnText: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    linkTag(): string {
+      return this.isInternalLink ? 'nuxt-link' : 'a'
+    },
+    linkAttrs(): any {
+      return this.isInternalLink
+        ? { to: this.url, class: 'StaticInfo' }
+        : { href: this.url, class: 'StaticInfo' }
+    },
+    isInternalLink(): boolean {
+      return !/^https?:\/\//.test(this.url)
+    }
   }
-}
+})
 </script>
 
 <style lang="scss">
@@ -45,13 +54,17 @@ export default class StaticInfo extends Vue {
   box-shadow: $shadow;
   border-radius: 4px;
   padding: 0.5em 1em;
+
   @include text-link();
+
   &-Button {
     flex: 1 0 auto;
     text-align: right;
+
     > span {
       @include button-text('sm');
     }
+
     @include lessThan($small) {
       margin-top: 4px;
     }
