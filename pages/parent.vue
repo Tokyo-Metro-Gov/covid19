@@ -43,9 +43,8 @@
             href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
             target="_blank"
             rel="noopener noreferrer"
+            >{{ $t('「新型コロナウイルス感染症にかかる相談窓口について」') }}</a
           >
-            {{ $t('「新型コロナウイルス感染症にかかる相談窓口について」') }}
-          </a>
         </li>
       </ul>
     </StaticCard>
