@@ -2,7 +2,7 @@
   <div :class="$style.FlowComponent2">
     <div :class="[$style.SubtleBox, $style.Box3, $style.Center]">
       <div :class="$style.LargerText">
-        {{ $t('新型コロナ感染症コールセンター') }}
+        {{ $t('新型コロナウイルス感染症コールセンター') }}
       </div>
       <div :class="$style.SmallerText">
         {{ $t('24時間対応（土日祝含む）') }}
