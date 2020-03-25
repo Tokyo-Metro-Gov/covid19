@@ -19,7 +19,6 @@
       <heatmap-legend :legend-data="legendData" />
       <heatmap
         ref="heatmapComponentRef"
-        v-model="rawChartData"
         class="MapCard-Heatmap"
         :style="{ height: mapHeight + 'px' }"
         :map-id="mapId"
@@ -28,11 +27,15 @@
         :legend="heatmapLegend"
         @legendUpdated="updateLegend"
         @loadCompleted="loadCompleted"
+        @dateTicksUpdated="dateTicksUpdated"
       />
-      <population-line-chart
-        :height="160"
-        :chart-data="rawChartData"
-        @focusChanged="handleFocusChanged"
+      <v-slider
+        v-model="dateSliderValue"
+        :tick-labels="dateTickValue"
+        :max="dateTicks.length - 1"
+        step="1"
+        tick-size="4"
+        @input="handleFocusChanged"
       />
       <div v-show="detailPageUrl !== ''" class="DetailPageLink">
         <nuxt-link :to="detailPageUrl">
@@ -56,15 +59,13 @@ import DataView from '@/components/DataView.vue'
 import Heatmap from '@/components/Heatmap.vue'
 import SourceLink from '@/components/SourceLink.vue'
 import HeatmapLegend from '@/components/HeatmapLegend.vue'
-import PopulationLineChart from '@/components/PopulationLineChart.vue'
 
 export default {
   components: {
     DataView,
     SourceLink,
     Heatmap,
-    HeatmapLegend,
-    PopulationLineChart
+    HeatmapLegend
   },
   props: {
     title: {
@@ -76,10 +77,6 @@ export default {
       default: ''
     },
     date: {
-      type: String,
-      default: ''
-    },
-    caption: {
       type: String,
       default: ''
     },
@@ -124,19 +121,9 @@ export default {
         return []
       }
     },
-    chartId: {
-      type: String,
-      default: ''
-    },
     unit: {
       type: String,
       default: ''
-    },
-    chartOptions: {
-      type: Object,
-      default: () => {
-        return {}
-      }
     },
     mapId: {
       type: String,
@@ -144,13 +131,24 @@ export default {
     }
   },
   data: () => {
-    const rawChartData = []
+    const dateTicks = ['20200201']
+    const dateSliderValue = 0
     const legendData = []
     const loading = true
-    const dataDate = null
-    return { rawChartData, legendData, loading, dataDate }
+    return { dateTicks, legendData, loading, dateSliderValue }
   },
-  computed: {},
+  computed: {
+    dataDate() {
+      return this.dateTicks[this.dateSliderValue]
+    },
+    dateTickValue() {
+      return this.dateTicks.map((d, i) => {
+        return (this.dateTicks.length - i) % 6 === 1
+          ? `${d.substring(4, 6)}/${d.substring(6)}`
+          : ''
+      })
+    }
+  },
   methods: {
     updateLegend(legendData) {
       this.legendData = legendData
@@ -158,15 +156,21 @@ export default {
     loadCompleted() {
       this.loading = false
     },
-    handleFocusChanged(e) {
-      this.dataDate = e
-      this.$refs.heatmapComponentRef.updatePaintProperty(e)
+    handleFocusChanged(_) {
+      this.$refs.heatmapComponentRef.updatePaintProperty(this.dataDate)
+    },
+    dateTicksUpdated(dateTicks) {
+      this.dateTicks = dateTicks
+      this.dateSliderValue = this.dateTicks.length - 1
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+.v-slider__tick-label {
+  transform: rorate(90deg);
+}
 .MapCard-BodyContainer {
   position: relative;
   &-LoadingScreen {
