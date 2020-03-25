@@ -85,6 +85,7 @@ export default Vue.extend({
       @include body-text();
     }
 
+    // stylelint-disable-next-line no-descending-specificity
     a {
       word-break: break-all;
       color: $link;

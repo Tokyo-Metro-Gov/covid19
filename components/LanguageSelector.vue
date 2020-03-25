@@ -23,20 +23,30 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import Vue from 'vue'
 import EarthIcon from '@/static/earth.svg'
 import SelectMenuIcon from '@/static/selectmenu.svg'
 
-@Component({
-  components: { EarthIcon, SelectMenuIcon }
-})
-export default class LanguageSelector extends Vue {
-  currentLocaleCode: string = this.$root.$i18n.locale
-
-  handleChangeLanguage() {
-    this.$root.$i18n.setLocale(this.currentLocaleCode)
-  }
+type LocalData = {
+  currentLocaleCode: string
 }
+
+export default Vue.extend({
+  components: {
+    EarthIcon,
+    SelectMenuIcon
+  },
+  data(): LocalData {
+    return {
+      currentLocaleCode: this.$root.$i18n.locale
+    }
+  },
+  methods: {
+    handleChangeLanguage() {
+      this.$root.$i18n.setLocale(this.currentLocaleCode)
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>

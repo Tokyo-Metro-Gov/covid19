@@ -4,6 +4,7 @@
       <span />
     </template>
     <v-data-table
+      :ref="'displayedTable'"
       :headers="chartData.headers"
       :items="chartData.datasets"
       :items-per-page="-1"
@@ -69,6 +70,9 @@
         }
       }
     }
+    &:focus {
+      outline: dotted $gray-3 1px;
+    }
   }
 }
 
@@ -111,6 +115,15 @@ export default Vue.extend({
       type: String,
       default: ''
     }
+  },
+  mounted() {
+    const vTables = this.$refs.displayedTable as Vue
+    const vTableElement = vTables.$el
+    const tables = vTableElement.querySelectorAll('table')
+
+    tables.forEach((table: HTMLElement) => {
+      table.setAttribute('tabindex', '0')
+    })
   }
 })
 </script>

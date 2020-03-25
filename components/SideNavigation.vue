@@ -16,7 +16,9 @@
             :alt="$t('東京都')"
           />
           <div class="SideNavigation-HeaderText">
-            {{ $t('新型コロナウイルス感染症-') }}<br />{{ $t('対策サイト') }}
+            {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
+              $t('menu/対策サイト')
+            }}
           </div>
         </nuxt-link>
       </h1>
@@ -52,7 +54,10 @@
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
           >
-            <img src="/line.png" alt="LINE" />
+            <picture>
+              <source srcset="/line.webp" type="image/webp" />
+              <img src="/line.png" alt="LINE" />
+            </picture>
           </a>
           <a
             href="https://twitter.com/tokyo_bousai"
@@ -60,7 +65,10 @@
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
           >
-            <img src="/twitter.png" alt="Twitter" />
+            <picture>
+              <source srcset="/twitter.webp" type="image/webp" />
+              <img src="/twitter.png" alt="Twitter" />
+            </picture>
           </a>
           <a
             href="https://www.facebook.com/tochokoho"
@@ -68,7 +76,10 @@
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
           >
-            <img src="/facebook.png" alt="Facebook" />
+            <picture>
+              <source srcset="/facebook.webp" type="image/webp" />
+              <img src="/facebook.png" alt="Facebook" />
+            </picture>
           </a>
           <a
             href="https://github.com/tokyo-metropolitan-gov/covid19"
@@ -76,7 +87,10 @@
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
           >
-            <img src="/github.png" alt="GitHub" />
+            <picture>
+              <source srcset="/github.webp" type="image/webp" />
+              <img src="/github.png" alt="GitHub" />
+            </picture>
           </a>
         </div>
         <small class="SideNavigation-Copyright">
@@ -202,12 +216,11 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  height: 100%;
-  background: $white;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-
+  @include lessThan($small) {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+  }
   &:focus {
-    outline: none;
+    outline: 1px dotted $gray-3;
   }
 }
 
@@ -291,7 +304,7 @@ export default Vue.extend({
   }
 
   &:focus {
-    outline: 1px dotted $gray-3;
+    outline: dotted $gray-3 1px;
   }
 
   @include largerThan($small) {
@@ -319,7 +332,6 @@ export default Vue.extend({
 
 .SideNavigation-Body {
   padding: 0 20px 20px;
-  background-color: $white;
   @include lessThan($small) {
     display: none;
     padding: 0 36px 36px;
@@ -357,7 +369,6 @@ export default Vue.extend({
 
 .SideNavigation-Footer {
   padding-top: 20px;
-  background-color: $white;
 }
 
 .SideNavigation-Social {
@@ -371,7 +382,6 @@ export default Vue.extend({
 
   &:link,
   &:hover,
-  &:focus,
   &:visited,
   &:active {
     color: inherit;
@@ -379,7 +389,9 @@ export default Vue.extend({
   }
 
   &:focus {
-    border-color: $gray-3;
+    color: inherit;
+    text-decoration: none;
+    border: 1px dotted $gray-3;
     outline: none;
   }
 

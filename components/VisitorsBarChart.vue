@@ -18,10 +18,23 @@
       </ol>
     </template>
     <bar
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="displayOptions"
       :height="240"
+    />
+    <v-data-table
+      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
+      :headers="tableHeaders"
+      :items="tableData"
+      :items-per-page="-1"
+      :hide-default-footer="true"
+      :height="240"
+      :fixed-header="true"
+      :mobile-breakpoint="0"
+      class="cardTable"
+      item-key="name"
     />
     <template v-slot:footer-description>
       <p>
@@ -54,7 +67,6 @@ import 'dayjs/locale/en'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
-import shinjukuData from '@/data/13104_daily_visitors.json'
 import DataView from '@/components/DataView.vue'
 import { single as color } from '@/utils/colors'
 
@@ -66,16 +78,32 @@ dayjs.updateLocale('en', {
   weekStart: 1 // 月曜始まり
 })
 
-type Data = {}
-type Methods = {}
+type VisitorData = {
+  date: string
+  population: number
+  holiday: boolean
+}
+type Data = {
+  canvas: boolean
+}
+type Methods = {
+  tooltipTitle: (tooltipItems: any, data: any) => string
+}
 type Computed = {
   groupByWeekData: {
-    [weekNum: number]: typeof shinjukuData.data
+    [weekNum: number]: VisitorData[]
   }
   labels: string[]
   standardValue: number
+  tableHeaders: {
+    text: string
+    value: string
+  }[]
+  tableData: {
+    [key: number]: number
+  }[]
   targetData: {
-    [weekNum: number]: typeof shinjukuData.data
+    [weekNum: number]: VisitorData[]
   }
   targetValues: number[]
   displayData: {
@@ -107,9 +135,8 @@ type Props = {
   title: string
   titleId: string
   chartId: string
-  chartData: typeof shinjukuData.data
+  chartData: VisitorData[]
   date: string
-  tooltipTitle: (tooltipItems: any, data: any) => string
   standardDate: string
   startDate: string
 }
@@ -121,6 +148,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView },
   props: {
     title: {
@@ -138,15 +168,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: false,
       default: ''
     },
-    chartData: [],
+    chartData: {
+      type: Array,
+      required: true,
+      default: () => []
+    },
     date: {
       type: String,
       required: false,
       default: ''
-    },
-    tooltipTitle: {
-      type: Function,
-      required: true
     },
     standardDate: {
       type: String,
@@ -186,14 +216,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }, {} as any)
     },
     labels() {
-      return Object.keys(this.targetData).map((weekNum: any) => {
+      return Object.keys(this.targetData).map((weekNum: string) => {
+        // 日付範囲は月曜日から金曜日（平日のみ）
         const start = dayjs(this.startDate)
-          .week(weekNum)
-          .startOf('week')
+          .week(parseInt(weekNum, 10))
+          .day(1)
           .format('M/D')
         const end = dayjs(this.startDate)
-          .week(weekNum)
-          .endOf('week')
+          .week(parseInt(weekNum, 10))
+          .day(5)
           .format('M/D')
         return `${start}~${end}`
       })
@@ -235,6 +266,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           }
         ]
       }
+    },
+    tableHeaders() {
+      return [
+        { text: '', value: 'header' },
+        { text: this.title, value: 'visitor' }
+      ]
+    },
+    tableData() {
+      return this.displayData.datasets[0].data.map((_, i) => {
+        return Object.assign(
+          { header: this.displayData.labels[i] },
+          { visitor: this.displayData.datasets[0].data[i] }
+        )
+      })
     },
     displayOptions() {
       const self = this
@@ -280,6 +325,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ]
         }
       }
+    }
+  },
+  methods: {
+    tooltipTitle(tooltipItems: any): string {
+      const label = tooltipItems[0].label
+      return this.$t('期間: {duration}', {
+        duration: this.$t(label)
+      }) as string
     }
   }
 }

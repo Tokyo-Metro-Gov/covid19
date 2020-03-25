@@ -19,3 +19,7 @@ img {
     clear: both;
   }
 }
+
+*:focus {
+  outline: dotted $gray-3 1px;
+}
