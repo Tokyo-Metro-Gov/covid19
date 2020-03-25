@@ -47,20 +47,6 @@
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
-            href="https://twitter.com/kikikanrikago"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/twitter.png" alt="Twitter" />
-          </a>
-          <a
-            href="https://www.facebook.com/pref.kagoshima"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/facebook.png" alt="Facebook" />
-          </a>
-          <a
             href="https://github.com/codeforkagoshima/covid19"
             target="_blank"
             rel="noopener"
@@ -128,7 +114,7 @@ export default {
         },
         {
           icon: 'mdi-account-multiple',
-          title: this.$t('ｲﾍﾞﾝﾄ開催・延期・中止情報'),
+          title: this.$t('イベントに関する情報'),
           link: 'https://sakura.mbc.co.jp/dbsites/poster/poster15.php',
           divider: true
         },
