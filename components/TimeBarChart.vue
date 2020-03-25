@@ -1,5 +1,11 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :url="url"
+    :source="source"
+  >
     <template v-slot:description>
       <slot name="description" />
     </template>
@@ -106,6 +112,7 @@ type Props = {
   date: string
   unit: string
   url: string
+  source: string
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -146,6 +153,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     url: {
       type: String,
+      default: ''
+    },
+    source: {
+      type: String,
+      required: false,
       default: ''
     }
   },
