@@ -181,12 +181,12 @@ export default Vue.extend({
         //     'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
         // },
         {
-          title: this.$t('知事からのメッセージ'),
-          link: 'https://www.pref.aomori.lg.jp/koho/R020228message.html'
-        },
-        {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
+        },
+        {
+          title: this.$t('知事からのメッセージ'),
+          link: 'https://www.pref.aomori.lg.jp/koho/R020228message.html'
         },
         // {
         //   title: this.$t('お問い合わせ先一覧'),
