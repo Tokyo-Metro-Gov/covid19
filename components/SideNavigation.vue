@@ -47,20 +47,6 @@
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
-            href="https://twitter.com/kikikanrikago"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/twitter.png" alt="Twitter" />
-          </a>
-          <a
-            href="https://www.facebook.com/pref.kagoshima"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/facebook.png" alt="Facebook" />
-          </a>
-          <a
             href="https://github.com/codeforkagoshima/covid19"
             target="_blank"
             rel="noopener"
