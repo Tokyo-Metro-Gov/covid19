@@ -1,0 +1,16 @@
+name: Create pull request from development to staging
+on:
+  push:
+    branches:
+      - development
+jobs:
+  productionPromotion:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: pull-request
+      uses: repo-sync/pull-request@v2
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        destination_branch: "staging"
+        source_branch: "development"
