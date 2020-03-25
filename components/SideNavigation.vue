@@ -195,6 +195,10 @@ export default Vue.extend({
         {
           title: this.$t('青森県公式ホームページ'),
           link: 'https://www.pref.aomori.lg.jp/index.html'
+        },
+        {
+          title: this.$t('各市区町村のリンク'),
+          link: this.localePath('/links')
         }
       ]
     }
