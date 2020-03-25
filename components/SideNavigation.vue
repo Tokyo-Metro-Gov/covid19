@@ -16,8 +16,8 @@
             :alt="$t('青森県')"
           />
           <div class="SideNavigation-HeaderText">
-            {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
-              $t('menu/対策サイト')
+            {{ $t('新型コロナウイルス感染症') }}<br />{{
+              $t('対策サイト【有志作成版】')
             }}
           </div>
         </nuxt-link>
@@ -145,7 +145,7 @@ export default Vue.extend({
       return [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: this.$t('県内の最新感染動向【有志作成版】'),
+          title: this.$t('県内の最新感染動向'),
           link: this.localePath('/')
         },
         // {
@@ -328,6 +328,8 @@ export default Vue.extend({
 
 .SideNavigation-HeaderText {
   margin: 10px 0 0 0;
+  text-align: center;
+
   @include lessThan($small) {
     margin: 0 0 0 10px;
   }
@@ -338,6 +340,7 @@ export default Vue.extend({
 
   @media screen and (max-width: 480px) {
     margin-left: 0;
+    text-align: left;
     font-size: 0.7rem;
   }
 }
