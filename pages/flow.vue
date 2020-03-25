@@ -14,19 +14,6 @@
       <div class="only-sp">
         <flow-sp />
       </div>
-      <!--      <div class="Flow-Card-Button-Wrapper mt-6">-->
-      <!--        <a-->
-      <!--          href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"-->
-      <!--          target="_blank"-->
-      <!--          rel="noopener"-->
-      <!--          class="Flow-Card-Button"-->
-      <!--        >-->
-      <!--          {{ $t('詳細を見る（青森県福祉保健局）') }}-->
-      <!--          <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">-->
-      <!--            mdi-open-in-new-->
-      <!--          </v-icon>-->
-      <!--        </a>-->
-      <!--      </div>-->
     </div>
   </div>
 </template>
