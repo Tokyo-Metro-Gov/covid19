@@ -88,19 +88,11 @@
       }}
     </TextCard>
     <TextCard :title="$t('データについて')">
-      <i18n
-        tag="p"
-        path="本サイトで公表しているデータは、 {catalogWebsite}に掲載されているものです。"
-      >
-        <a
-          href="http://www.pref.kagoshima.jp/ac03/infra/info/opendata/index.html"
-          target="_blank"
-          rel="noopener"
-          place="catalogWebsite"
-        >
-          {{ $t('鹿児島県公式サイト') }}
-        </a>
-      </i18n>
+      {{
+        $t(
+          '本サイトで公表しているデータは、鹿児島県公式サイトに掲載されているものです。'
+        )
+      }}
     </TextCard>
     <TextCard :title="$t('ソースコードについて')">
       {{
