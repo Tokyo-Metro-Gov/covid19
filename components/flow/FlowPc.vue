@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.FlowCard">
-    <h3>{{ $t('新型コロナウイルス感染症にかかる相談窓口について') }}</h3>
+    <h3>{{ $t('帰国者・相談者相談センターにご相談いただく目安') }}</h3>
     <div :class="[$style.Outer, $style.OuterUpper]">
       <div :class="[$style.CardBlock, $style.Past]">
         <flow-pc-past />
@@ -14,8 +14,8 @@
       <div :class="$style.Advisory">
         <flow-pc-advisory />
       </div>
-      <div :class="$style.Advisory2">
-        <flow-pc-advisory2 />
+      <div :class="$style.Suspect2">
+        <flow-pc-suspect2 />
       </div>
     </div>
     <h3>
@@ -29,29 +29,6 @@
         </span>
       </i18n>
     </h3>
-    <div :class="[$style.Outer, $style.OuterLower]">
-      <div
-        :class="[$style.CardBlock, $style.CardBlockRequired, $style.Required]"
-      >
-        <flow-pc-required />
-      </div>
-      <div :class="[$style.CardBlock, $style.CardBlockPcr, $style.Pcr]">
-        <flow-pc-pcr />
-      </div>
-      <div :class="$style.NotRequired">
-        <flow-pc-not-required />
-      </div>
-      <div :class="$style.Hospitalized">
-        <flow-pc-hospitalized />
-      </div>
-    </div>
-    <p :class="$style.Note">
-      {{
-        $t(
-          '※保険適用となる検査は、当面の間、院内感染防止等の観点から、「帰国者・接触者外来」等の医療機関で実施'
-        )
-      }}
-    </p>
   </div>
 </template>
 
@@ -59,12 +36,13 @@
 import FlowPcPast from './FlowPcPast.vue'
 import FlowPcDays from './FlowPcDays.vue'
 import FlowPcSuspect from './FlowPcSuspect.vue'
+import FlowPcSuspect2 from './FlowPcSuspect2.vue'
 import FlowPcAdvisory from './FlowPcAdvisory.vue'
-import FlowPcAdvisory2 from './FlowPcAdvisory2.vue'
-import FlowPcRequired from './FlowPcRequired.vue'
-import FlowPcPcr from './FlowPcPcr.vue'
-import FlowPcNotRequired from './FlowPcNotRequired.vue'
-import FlowPcHospitalized from './FlowPcHospitalized.vue'
+// import FlowPcAdvisory2 from './FlowPcAdvisory2.vue'
+// import FlowPcRequired from './FlowPcRequired.vue'
+// import FlowPcPcr from './FlowPcPcr.vue'
+// import FlowPcNotRequired from './FlowPcNotRequired.vue'
+// import FlowPcHospitalized from './FlowPcHospitalized.vue'
 
 export default {
   components: {
@@ -72,11 +50,11 @@ export default {
     FlowPcDays,
     FlowPcSuspect,
     FlowPcAdvisory,
-    FlowPcAdvisory2,
-    FlowPcRequired,
-    FlowPcPcr,
-    FlowPcNotRequired,
-    FlowPcHospitalized
+    FlowPcSuspect2
+    // FlowPcRequired,
+    // FlowPcPcr,
+    // FlowPcNotRequired,
+    // FlowPcHospitalized
   }
 }
 </script>
@@ -259,26 +237,22 @@ export default {
   grid-row: 3 / 4;
 }
 
+.Suspect2 {
+  // grid-column: 2 / 3;
+  width: 100% !important;
+  grid-row: 3 / 4;
+  position: relative;
+}
+
 .Advisory {
   grid-column: 2 / 3;
   grid-row: 1 / 3;
   position: relative;
-
-  &::after {
-    content: url('/flow/flow_arrow.svg');
-    position: absolute;
-    left: calc(50% - 23px);
-    transform: rotate(-90deg);
-    z-index: 1;
-    display: block;
-    width: 46px;
-    height: 46px;
-  }
 }
 
 .Advisory2 {
   grid-column: 2 / 3;
-  grid-row: 3 / 4;
+  grid-row: 1 / 2;
 }
 
 .Required {
