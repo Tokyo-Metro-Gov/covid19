@@ -80,7 +80,7 @@
 
             <div class="Buttons">
               <button
-                :aria-label="$t('Lineで{title}のグラフをシェア', { title })"
+                :aria-label="$t('LINEで{title}のグラフをシェア', { title })"
                 @click="line"
               >
                 <picture>

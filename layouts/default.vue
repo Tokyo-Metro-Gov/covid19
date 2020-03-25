@@ -71,12 +71,6 @@ export default Vue.extend({
   },
   mounted() {
     this.loading = false
-    const elementList = document.querySelectorAll(
-      '.v-data-table__wrapper table'
-    )
-    elementList.forEach(element => {
-      element.setAttribute('tabindex', '0')
-    })
   },
   methods: {
     openNavigation(): void {
@@ -205,6 +199,10 @@ export default Vue.extend({
     grid-template-columns: 325px 1fr;
     grid-template-rows: auto;
   }
+}
+
+.naviContainer {
+  background-color: $white;
 }
 
 @include lessThan($small) {
