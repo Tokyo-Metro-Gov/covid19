@@ -1,7 +1,24 @@
 <template>
   <div :class="$style.FlowCard">
-    <h3>{{ $t('新型コロナウイルス感染症にかかる相談窓口について') }}</h3>
-    <div :class="[$style.Outer, $style.OuterUpper]">
+    <h3>{{ $t('相談・受診前に心がけていただきたいこと') }}</h3>
+    <div :class="[$style.OuterUpper, $style.Knowledge]">
+      <ul>
+        <li>
+          {{
+            $t(
+              '発熱等の風邪症状がみられるときには、学校や会社を休み外出を控える。'
+            )
+          }}
+        </li>
+        <li>
+          {{
+            $t('発熱等の風邪症状がみられたら、学校や会社を休み外出を控える。')
+          }}
+        </li>
+      </ul>
+    </div>
+    <h3>{{ $t('帰国者・相談者相談センターにご相談いただく目安') }}</h3>
+    <div :class="[$style.Outer]">
       <div :class="[$style.CardBlock, $style.Past]">
         <flow-pc-past />
       </div>
@@ -14,44 +31,225 @@
       <div :class="$style.Advisory">
         <flow-pc-advisory />
       </div>
-      <div :class="$style.Advisory2">
-        <flow-pc-advisory2 />
+      <div :class="$style.Suspect2">
+        <flow-pc-suspect2 />
       </div>
     </div>
-    <h3>
-      <i18n
-        :class="$style.TitleSmall"
-        tag="span"
-        path="{advisory}による相談結果"
-      >
-        <span :class="$style.TitleLarge" place="advisory">
-          {{ $t('新型コロナ受診相談窓口') }}
-        </span>
-      </i18n>
-    </h3>
-    <div :class="[$style.Outer, $style.OuterLower]">
-      <div
-        :class="[$style.CardBlock, $style.CardBlockRequired, $style.Required]"
-      >
-        <flow-pc-required />
-      </div>
-      <div :class="[$style.CardBlock, $style.CardBlockPcr, $style.Pcr]">
-        <flow-pc-pcr />
-      </div>
-      <div :class="$style.NotRequired">
-        <flow-pc-not-required />
-      </div>
-      <div :class="$style.Hospitalized">
-        <flow-pc-hospitalized />
-      </div>
+    <div :class="[$style.OuterUpper, $style.Annotations]">
+      <p>
+        {{
+          $t(
+            '＊妊婦の方については、念の為、重症化しやすい方と同様に、早めに帰国者・接触者センターにご相談ください。'
+          )
+        }}
+      </p>
+      <p>
+        {{
+          $t(
+            '＊小児については、現時点で重症化しやすいとの報告はなく、新型コロナウイルス感染症については、目安どおりの対応をお願いします。'
+          )
+        }}
+      </p>
+      <p>
+        {{
+          $t(
+            'なお、現時点では新型コロナウイルス感染症以外の病気の方が圧倒的に多い状況であり、インフルエンザ等の心配があるときには、通常と同様に、かかりつけ医等にご相談ください。'
+          )
+        }}
+      </p>
     </div>
-    <p :class="$style.Note">
-      {{
-        $t(
-          '※保険適用となる検査は、当面の間、院内感染防止等の観点から、「帰国者・接触者外来」等の医療機関で実施'
-        )
-      }}
-    </p>
+    <h3>{{ $t('相談後、医療機関にかかる時のお願い') }}</h3>
+    <div :class="[$style.OuterUpper, $style.Knowledge]">
+      <ul>
+        <li>
+          {{
+            $t(
+              '帰国者・接触者センターから受診を勧められた医療機関を受診してください。複数の医療機関を受診することはお控えください。'
+            )
+          }}
+        </li>
+        <li>
+          {{
+            $t(
+              '医療機関を受診する際には、マスクを着用するほか、手洗いや咳エチケット（咳やくしゃみをする際に、マスクやティッシュ、ハンカチ、袖を使って、口や鼻をおさえる）の徹底をお願いします。'
+            )
+          }}
+        </li>
+      </ul>
+    </div>
+    <h3>{{ $t('帰国者、接触者相談センター（各保健所）一覧') }}</h3>
+    <div :class="[$style.OuterUpper, $style.HealthCenterList]">
+      <ul class="mb-3">
+        <li>
+          {{
+            $t(
+              '帰国者・接触者センターは、感染が疑われる方について、医療機関の紹介や連絡方法をお伝えし、受診調整を行います。'
+            )
+          }}
+        </li>
+        <li>
+          {{
+            $t(
+              '今後、国内での感染を広げないためにも、上記のような症状がある場合には、医療機関を受診する前に、まずは各保健所に設置している「帰国者・接触者相談センター」へご連絡ください。'
+            )
+          }}
+        </li>
+      </ul>
+      <table :class="[$style.HealthCenterListTable, 'mt-4']">
+        <thead>
+          <tr>
+            <th>{{ $t('保健所名') }}</th>
+            <th>{{ $t('電話番号') }}</th>
+            <th>{{ $t('管轄市区町村') }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ $t('東地方保健所') }}</td>
+            <td>
+              <a href="tel:0177395421" :class="$style.TelLinkTextNormal">
+                017-739-5421
+              </a>
+            </td>
+            <td>{{ $t('平内町、今別町、蓬田村、外ヶ浜町') }}</td>
+          </tr>
+          <tr>
+            <td>{{ $t('弘前保健所') }}</td>
+            <td>
+              <a href="tel:0172338521" :class="$style.TelLinkTextNormal">
+                0172-33-8521
+              </a>
+            </td>
+            <td>
+              {{
+                $t(
+                  '弘前市、黒石市、平川市、西目屋村、藤原町、大鰐町、田舎館村、板柳町'
+                )
+              }}
+            </td>
+          </tr>
+          <tr>
+            <td>{{ $t('三戸地方保健所') }}</td>
+            <td>
+              <a href="tel:0178275111" :class="$style.TelLinkTextNormal">
+                0178-27-5111
+              </a>
+            </td>
+            <td>
+              {{
+                $t('三戸町、五戸町、田子町、南部町、階上町、新郷村、おいらせ町')
+              }}
+            </td>
+          </tr>
+          <tr>
+            <td>{{ $t('五所川原保健所') }}</td>
+            <td>
+              <a href="tel:0173342108" :class="$style.TelLinkTextNormal">
+                0173-34-2108
+              </a>
+            </td>
+            <td>
+              {{ $t('五所川原市、つがる市、鯵ヶ沢町、深浦町、鶴田町、中泊町') }}
+            </td>
+          </tr>
+          <tr>
+            <td>{{ $t('上十三保健所') }}</td>
+            <td>
+              <a href="tel:0176223510" :class="$style.TelLinkTextNormal">
+                0176-22-3510
+              </a>
+            </td>
+            <td>
+              {{
+                $t(
+                  '十和田市、三沢町、野辺地町、七戸町、六戸町、横浜町、東北町、六ヶ所村'
+                )
+              }}
+            </td>
+          </tr>
+          <tr>
+            <td>{{ $t('むつ保健所') }}</td>
+            <td>
+              <a href="tel:0175311891" :class="$style.TelLinkTextNormal">
+                0175-31-1891
+              </a>
+            </td>
+            <td>{{ $t('むつ市、大間町、東通村、風間浦村、佐井村') }}</td>
+          </tr>
+          <tr>
+            <td>{{ $t('青森市保健所') }}</td>
+            <td>
+              <a href="tel:0177655280" :class="$style.TelLinkTextNormal">
+                017-765-5280
+              </a>
+            </td>
+            <td>
+              {{ $t('青森市') }}
+              <a href="http://www.city.aomori.aomori.jp/">
+                {{ $t('青森市ホームページへ') }}
+                <v-icon
+                  role="img"
+                  aria-hidden="false"
+                  :aria-label="$t('別タブで開く')"
+                  class="MenuList-ExternalIcon"
+                  size="14"
+                >
+                  mdi-open-in-new
+                </v-icon>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>{{ $t('八戸市保健所') }}</td>
+            <td>
+              <a href="tel:0178432291" :class="$style.TelLinkTextNormal">
+                0178-43-2291
+              </a>
+            </td>
+            <td>
+              {{ $t('八戸市') }}
+              <a href="https://www.city.hachinohe.aomori.jp/">
+                {{ $t('八戸市ホームページへ') }}
+                <v-icon
+                  role="img"
+                  aria-hidden="false"
+                  :aria-label="$t('別タブで開く')"
+                  class="MenuList-ExternalIcon"
+                  size="14"
+                >
+                  mdi-open-in-new
+                </v-icon>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>{{ $t('厚生労働省電話相談窓口（コールセンター）のご案内') }}</h3>
+    <div :class="$style.CallCenter">
+      <p>
+        {{
+          $t(
+            '厚生労働省でも新型コロナウイルスに関する電話相談窓口を開設しています。'
+          )
+        }}
+      </p>
+      <p>
+        {{ $t('電話番号') }}
+        <a href="tel:0120565653" :class="$style.TelLinkTextBolder">
+          0120-565-653
+        </a>
+        {{ $t('（フリーダイヤル）') }}
+      </p>
+      <p>{{ $t('受付時間 9時00分〜21時00分（土日・祝日も実施）') }}</p>
+      <p>
+        {{
+          $t(
+            '聴覚に障害のある方をはじめ、電話でのご相談が難しい方 FAX 03-3595-2756'
+          )
+        }}
+      </p>
+    </div>
   </div>
 </template>
 
@@ -59,12 +257,13 @@
 import FlowPcPast from './FlowPcPast.vue'
 import FlowPcDays from './FlowPcDays.vue'
 import FlowPcSuspect from './FlowPcSuspect.vue'
+import FlowPcSuspect2 from './FlowPcSuspect2.vue'
 import FlowPcAdvisory from './FlowPcAdvisory.vue'
-import FlowPcAdvisory2 from './FlowPcAdvisory2.vue'
-import FlowPcRequired from './FlowPcRequired.vue'
-import FlowPcPcr from './FlowPcPcr.vue'
-import FlowPcNotRequired from './FlowPcNotRequired.vue'
-import FlowPcHospitalized from './FlowPcHospitalized.vue'
+// import FlowPcAdvisory2 from './FlowPcAdvisory2.vue'
+// import FlowPcRequired from './FlowPcRequired.vue'
+// import FlowPcPcr from './FlowPcPcr.vue'
+// import FlowPcNotRequired from './FlowPcNotRequired.vue'
+// import FlowPcHospitalized from './FlowPcHospitalized.vue'
 
 export default {
   components: {
@@ -72,11 +271,11 @@ export default {
     FlowPcDays,
     FlowPcSuspect,
     FlowPcAdvisory,
-    FlowPcAdvisory2,
-    FlowPcRequired,
-    FlowPcPcr,
-    FlowPcNotRequired,
-    FlowPcHospitalized
+    FlowPcSuspect2
+    // FlowPcRequired,
+    // FlowPcPcr,
+    // FlowPcNotRequired,
+    // FlowPcHospitalized
   }
 }
 </script>
@@ -259,26 +458,22 @@ export default {
   grid-row: 3 / 4;
 }
 
+.Suspect2 {
+  // grid-column: 2 / 3;
+  width: 100% !important;
+  grid-row: 3 / 4;
+  position: relative;
+}
+
 .Advisory {
   grid-column: 2 / 3;
   grid-row: 1 / 3;
   position: relative;
-
-  &::after {
-    content: url('/flow/flow_arrow.svg');
-    position: absolute;
-    left: calc(50% - 23px);
-    transform: rotate(-90deg);
-    z-index: 1;
-    display: block;
-    width: 46px;
-    height: 46px;
-  }
 }
 
 .Advisory2 {
   grid-column: 2 / 3;
-  grid-row: 3 / 4;
+  grid-row: 1 / 2;
 }
 
 .Required {
@@ -303,5 +498,108 @@ export default {
 
 .Note {
   margin: 16px 0;
+}
+
+@mixin flowText($color: #4d4d4d, $font-weight: normal) {
+  color: $color !important;
+  font-weight: $font-weight;
+}
+
+@mixin tableCellStyle($font-weight: normal) {
+  border: solid 1px #e5e5e5;
+  padding: 0.5em 1em;
+  @include flowText(#4d4d4d, $font-weight);
+}
+
+@mixin telLink {
+  margin-left: 0 !important;
+  text-decoration: none;
+  outline: 1px dotted #707070;
+}
+
+.Knowledge {
+  ul {
+    @include flowText(#008830, bolder);
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li::before {
+      content: '';
+      top: -2px;
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      background-color: #008830;
+      border-radius: 50%;
+    }
+  }
+}
+
+.HealthCenterList {
+  ul {
+    @include flowText(#4d4d4d, bolder);
+  }
+
+  &Table {
+    margin-left: 1em;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: solid 1px #e5e5e5;
+
+    thead {
+      background-color: #efefef;
+
+      > tr > th {
+        @include tableCellStyle(bolder);
+      }
+    }
+
+    tbody > tr > td {
+      @include tableCellStyle(normal);
+
+      a {
+        margin-left: 1em;
+      }
+    }
+  }
+}
+
+.Annotations {
+  p {
+    @include flowText(#4d4d4d, bolder);
+
+    &:first-of-type {
+      margin: 16px 0 0;
+    }
+    &:last-of-type {
+      color: #008830;
+      font-weight: bolder;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.CallCenter {
+  @include flowText(#4d4d4d, bolder);
+
+  p:not(:last-of-type) {
+    &:nth-of-type(n + 2) {
+      margin: 0;
+    }
+  }
+}
+
+.TelLink {
+  &TextNormal {
+    @include telLink;
+    @include flowText(#4d4d4d, normal);
+  }
+
+  &TextBolder {
+    @include telLink;
+    @include flowText(#4d4d4d, bolder);
+  }
 }
 </style>
