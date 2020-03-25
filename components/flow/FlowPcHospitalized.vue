@@ -30,6 +30,7 @@
     align-items: center;
     margin: 0 !important;
     padding: 0 5px 0 0;
+    width: 50%;
 
     &Icon {
       min-width: 30px;
@@ -43,6 +44,7 @@
     @include font-size(20);
 
     margin: 0 !important;
+    width: 50%;
   }
 }
 </style>
