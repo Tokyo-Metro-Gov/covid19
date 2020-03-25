@@ -13,9 +13,9 @@
           <img src="/logo.svg" :alt="$t('鹿児島県')" />
         </div>
         <h1 class="SideNavigation-Heading">
-          <span>{{ $t('鹿児島県') }}</span
-          ><span>{{ $t('新型コロナウイルス感染症') }}</span
-          ><span>{{ $t('対策サイト') }}</span>
+          <span>{{ $t('鹿児島県') }}</span>
+          <span>{{ $t('新型コロナウイルス感染症') }}</span>
+          <span>{{ $t('対策サイト') }}</span>
         </h1>
       </nuxt-link>
     </header>
