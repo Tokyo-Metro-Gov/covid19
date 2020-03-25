@@ -13,9 +13,9 @@
           <img src="/logo.svg" :alt="$t('鹿児島県')" />
         </div>
         <h1 class="SideNavigation-Heading">
-          {{ $t('鹿児島県') }}<br />{{ $t('新型コロナウイルス感染症') }}<br />{{
-            $t('対策サイト')
-          }}
+          <span>{{ $t('鹿児島県') }}</span
+          ><span>{{ $t('新型コロナウイルス感染症') }}</span
+          ><span>{{ $t('対策サイト') }}</span>
         </h1>
       </nuxt-link>
     </header>
@@ -198,6 +198,9 @@ export default {
     text-decoration: none;
     @include lessThan($small) {
       margin-top: 0;
+    }
+    span {
+      display: inline-block;
     }
   }
   &-HeadingDivider {
