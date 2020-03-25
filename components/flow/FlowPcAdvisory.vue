@@ -179,7 +179,7 @@
 
   &WhiteBox {
     background-color: $white;
-    width: 160px;
+    max-width: 160px;
     padding: 10px;
 
     &Sentense {
