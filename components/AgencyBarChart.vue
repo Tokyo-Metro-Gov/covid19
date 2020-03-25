@@ -20,6 +20,7 @@
       :hide-default-footer="true"
       :height="240"
       :fixed-header="true"
+      :disable-sort="true"
       :mobile-breakpoint="0"
       class="cardTable"
       item-key="name"
@@ -70,7 +71,7 @@ type Computed = {
   }
   displayOption: ChartOptions
   tableHeaders: {
-    text: string
+    text: VueI18n.TranslateResult
     value: string
   }[]
   tableData: {
@@ -231,7 +232,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     tableHeaders() {
       return [
-        { text: '', value: 'text' },
+        { text: this.$t('日付'), value: 'text' },
         ...this.displayData.datasets.map((text, value) => {
           return { text: text.label, value: String(value) }
         })
