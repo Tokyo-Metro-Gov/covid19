@@ -13,7 +13,7 @@
 Todas as contribuições são bem-vindas!
 Por favor, confira [Como contribuir](./CONTRIBUTING.md) para maiores informações.
 
-## Códito de conduta
+## Código de conduta
 
 Por favor, confira o nosso [Código de conduta](./CODE_OF_CONDUCT.md) para maiores informações.
 
