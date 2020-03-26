@@ -1,7 +1,11 @@
 <template>
   <div v-if="isDevelopmentMode" class="DevelopmentModeMark">
-    開発中（development mode）
-    <a href="https://covid19-iwate.netlify.com/" target="_blank" rel="noopener">
+    最新情報は岩手県の
+    <a
+      href="https://www.pref.iwate.jp/kurashikankyou/iryou/kenkou/jouhou/1026260.html"
+      target="_blank"
+      rel="noopener"
+    >
       公開サイトへ
     </a>
   </div>
