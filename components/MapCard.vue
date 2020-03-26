@@ -2,7 +2,7 @@
   <data-view
     :title="title"
     :title-id="titleId"
-    :date="date"
+    :date="updateDate"
     :url="url"
     :loading="loading"
     class="MapCard"
@@ -76,10 +76,6 @@ export default {
       type: String,
       default: ''
     },
-    date: {
-      type: String,
-      default: ''
-    },
     detailPageUrl: {
       type: String,
       default: ''
@@ -135,7 +131,8 @@ export default {
     const dateSliderValue = 0
     const legendData = []
     const loading = true
-    return { dateTicks, legendData, loading, dateSliderValue }
+    const updateDate = ''
+    return { dateTicks, legendData, loading, dateSliderValue, updateDate }
   },
   computed: {
     dataDate() {
@@ -148,6 +145,13 @@ export default {
           : ''
       })
     }
+  },
+  created() {
+    const self = this
+    fetch('https://tokyo-metropolitan-gov.github.io/data/stat.json')
+      .then(response => response.json())
+      .then(res => (self.updateDate = res.yahootile.lastUpdate))
+      .catch(_ => (self.updateDate = ''))
   },
   methods: {
     updateLegend(legendData) {
