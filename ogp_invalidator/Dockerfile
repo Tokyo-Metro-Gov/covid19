@@ -4,7 +4,9 @@ ENV PROJECT_ROOTDIR /app/
 
 WORKDIR $PROJECT_ROOTDIR
 
-RUN apt-get -y update && apt-get -y upgrade && apt-get install -y chromium-chromedriver python3-selenium
+COPY install_dependencies.sh $PROJECT_ROOTDIR
+
+RUN ./install_dependencies.sh
 
 COPY twitter_card_invalidator.py $PROJECT_ROOTDIR
 
