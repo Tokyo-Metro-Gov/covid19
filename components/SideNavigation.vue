@@ -124,7 +124,7 @@ export default Vue.extend({
           icon: 'mdi-account-multiple',
           title: this.$t('新型コロナウイルス感染症に関する情報《岩手県》'),
           link:
-            'https://www.pref.iwate.jp/kurashikankyou/iryou/kenkou/jouhou/1026260.html'
+            'https://www.pref.iwate.jp/kurashikankyou/iryou/kenkou/jouhou/1028020.html'
         },
 
         {
