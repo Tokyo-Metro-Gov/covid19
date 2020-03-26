@@ -37,12 +37,13 @@
       <ul>
         <li>{{ $t('各保健所にご相談ください') }}</li>
         <li>
-          {{ $t('「新型コロナウイルス感染症にかかる相談窓口について」') }}<br />
+          {{ $t('各保健所の電話番号について') }}
+          <br />
           <a
             href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
             target="_blank"
             rel="noopener"
-            >https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html</a
+            >{{ $t('「新型コロナウイルス感染症にかかる相談窓口について」') }}</a
           >
         </li>
       </ul>
