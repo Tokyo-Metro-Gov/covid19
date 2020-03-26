@@ -146,6 +146,10 @@ export default Vue.extend({
           link: 'https://www3.nhk.or.jp/lnews/oita/'
         },
         {
+          title: this.$t('全国の最新感染動向'),
+          link: 'https://www.stopcovid19.jp/'
+        },
+        {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
         }
