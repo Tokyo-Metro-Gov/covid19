@@ -1,0 +1,11 @@
+version: "3"
+services:
+  twitter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    env_file: .env
+    volumes:
+        - ./twitter_card_invalidator.py:/app/twitter_card_invalidator.p
+        - ./out:/app/out
