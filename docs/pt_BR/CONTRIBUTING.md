@@ -1,40 +1,40 @@
-# How to contribute
+# Como contribuir
 
-Contributors, thank you for participating in this project!
+Contribuidores, agradecemos por você participar neste projeto!
 
-I'm Seki, the development manager. If you have any questions, feel free to ask me on Slack etc.
+Meu nome é Seki, sou o gerente de desenvolvimento. Caso tenha perguntas, sinta-se livre para me perguntar no Slack, etc.
 
-This page shows how you can contribute to the development of this site.
+Esta página exemplifica como você pode contribuir para o desenvolvimento deste site.
 
-## Comments on Issues and Pull Requests
-* Feel free to comment on any Issues! Questions and suggestions are also welcome.
-* Please search existing issues to make sure there is no similar issues before making a new issue.
-* When you send a new Pull Request, please specify a related issue ID. We don't accept Pull Requests which has no issue ID.
-* Note that Issues for improvement suggestions (labeled with `improve`) may not be always accepted (especially ones for UI)
-* All issues and Pull requests including major content changes such as language expression or the UI are subject to the organizer's review. They may not necessarily be always accepted.
-* The Issue with `waiting` label is under review by the organizer.  The implementation should be refrained until the requirement is fixed.
-* We appreciate if you give priority to the issues labelled [good first issue / help wanted / bug]
+## Comentários on Issues e Pull Requests
+* Sinta-se livre para comentar em quaisquer Issues! Dúvidas e sugestões também são bem-vindas.
+* Por favor, procure por Issues existentes antes de criar uma nova para ter certeza de que não haverá duplicadas.
+* Quando enviar um novo Pull Request, por favor, especifique o ID da Issue em questão. Nós não aceitamos Pull Requests que não tenham ID de Issue.
+* Vale notar que Issue com sugestão de melhorias (marcados com `improve`) nem sempre são aceitas (em especial para UI)
+* Todas as Issues e Pull Requests incluindo grandes mudanças de conteúdo tais quais expressões de linguagem ou UI estão sujeitas à revisão do organizador. Estas não são necessariamente sempre aceitas.
+* Issues com a label `waiting` (esperando) estão sob revisão do organizador. Você deve evitar implementar até que o requerimento seja concluído.
+* Nós apreciamos caso você possa dar prioridade para Issues com as seguintes labels: [good first issue / help wanted / bug]
 
-## How to participate in communications
-* If you do not have a "Code for Japan" Slack account, please register [here](https://cfjslackin.herokuapp.com/)
-* Join `#covid19` Channel
+## Como participar na comunicação
+* Se você não tem uma conta no Slack do "Code for Japan", por favor, registre-se [aqui](https://cfjslackin.herokuapp.com/)
+* Entre no canal `#covid19`
 
-## For participation
-* Please read [Principle / Code of Conduct](./CODE_OF_CONDUCT.md) before participating in development.
-* For communication, please also check Code for Japan's [Code of Conduct](https://github.com/codeforjapan/codeofconduct).
-* If you plan to work on an issue, please leave a comment behind to give a heads-up.
-* [good first issue label](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) is recommended for beginners.
-* If you can't make any progress for more than half a day, make sure that others can take over your work.
-* If an issue is not updated for more than one day, we may remove the assignment.
-* A [Draft Pull Request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests) is recommended for any work in progress, so that everyone understands the situation.
-* Please discuss questions related to an Issue in the Issue comments instead of on Slack.
-* We also accept suggestions! Please feel free to create new issues.
+## Para participar
+* Por favor, leia o [Código de conduta](./CODE_OF_CONDUCT.md) antes de participar no desenvolvimento.
+* Para comunicação, também confira o [código de conduta](https://github.com/codeforjapan/codeofconduct) do Code for Japan.
+* Se você planeja em trabalhar em alguma Issue, por favor deixe um comentário para notificar-nos.
+* Issues com a label [good first issue](https://github.com/tokyo-metropolitan-gov/covid19/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) são recomendadas para principiantes.
+* Se você não puder fazer nenhum progresso por mais de meio dia, assegure-se de que outros possam continuar o seu trabalho.
+* Se uma Issue não for atualizada por mais de meio dia, é possível de que ela seja reatribuída.
+* Um [Pull Request de rascunho](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests) é recomendado para qualquer trabalho em progresso para que todos entendam a situação.
+* Por favor, discuta questões relacionadas à uma Issue nos comentários da mesma e não por Slack.
+* Nós também aceitamos sugestões! Sinta-se à vontade para criar novas Issues.
 
-## Development information
-* Development site https://dev-covid19-tokyo.netlify.com/
-* Staging site https://stg-covid19-tokyo.netlify.com/
-* Production site https://stopcovid19.metro.tokyo.lg.jp/
+## Informação de desenvolvimento
+* Site de desenvolvimento https://dev-covid19-tokyo.netlify.com/
+* Ambiente de Staging https://stg-covid19-tokyo.netlify.com/
+* Ambiente de Produção https://stopcovid19.metro.tokyo.lg.jp/
 * [Design](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
-* [Translation Spreadsheet](https://docs.google.com/spreadsheets/d/1avT6QGInyQseYjoc_TxL8RPZfutyvrv4BtJkXfk1Nko)
+* [Planilha de Tradução](https://docs.google.com/spreadsheets/d/1avT6QGInyQseYjoc_TxL8RPZfutyvrv4BtJkXfk1Nko)
 
-Updates to this document are also welcome!
+Atualizações para este documento também são bem-vindas!
