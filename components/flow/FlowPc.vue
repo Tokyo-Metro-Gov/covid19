@@ -11,9 +11,7 @@
           }}
         </li>
         <li>
-          {{
-            $t('発熱等の風邪症状がみられたら、毎日、体温を測定しておく。')
-          }}
+          {{ $t('発熱等の風邪症状がみられたら、毎日、体温を測定しておく。') }}
         </li>
       </ul>
     </div>
@@ -56,7 +54,7 @@
             'なお、現時点では新型コロナウイルス感染症以外の病気の方が圧倒的に多い状況です。'
           )
         }}
-        <br/>
+        <br />
         {{
           $t(
             'インフルエンザ等の心配があるときには、通常と同様に、かかりつけ医等にご相談ください。'
@@ -191,7 +189,11 @@
             </td>
             <td>
               {{ $t('青森市') }}
-              <a href="http://www.city.aomori.aomori.jp/">
+              <a
+                href="http://www.city.aomori.aomori.jp/"
+                target="_blank"
+                rel="noopener"
+              >
                 {{ $t('青森市ホームページへ') }}
                 <v-icon
                   role="img"
@@ -214,7 +216,11 @@
             </td>
             <td>
               {{ $t('八戸市') }}
-              <a href="https://www.city.hachinohe.aomori.jp/">
+              <a
+                href="https://www.city.hachinohe.aomori.jp/"
+                target="_blank"
+                rel="noopener"
+              >
                 {{ $t('八戸市ホームページへ') }}
                 <v-icon
                   role="img"
@@ -506,7 +512,7 @@ export default {
   margin: 16px 0;
 }
 
-@mixin flowText($color: #4d4d4d, $font-weight: normal) {
+@mixin flowText($color: $gray-1, $font-weight: normal) {
   color: $color !important;
   font-weight: $font-weight;
 }
@@ -514,7 +520,7 @@ export default {
 @mixin tableCellStyle($font-weight: normal) {
   border: solid 1px #e5e5e5;
   padding: 0.5em 1em;
-  @include flowText(#4d4d4d, $font-weight);
+  @include flowText($gray-1, $font-weight);
 }
 
 @mixin telLink {
@@ -525,7 +531,7 @@ export default {
 
 .Knowledge {
   ul {
-    @include flowText(#008830, bolder);
+    @include flowText($green-1, bolder);
 
     list-style: none;
     margin: 0;
@@ -537,7 +543,7 @@ export default {
       width: 12px;
       height: 12px;
       display: inline-block;
-      background-color: #008830;
+      background-color: $green-1;
       border-radius: 50%;
     }
   }
@@ -545,7 +551,9 @@ export default {
 
 .HealthCenterList {
   ul {
-    @include flowText(#4d4d4d, bolder);
+    @include flowText($gray-1, normal);
+
+    font-size: 0.9em;
   }
 
   &Table {
@@ -574,13 +582,18 @@ export default {
 
 .Annotations {
   p {
-    @include flowText(#4d4d4d, bolder);
+    @include flowText($gray-1, normal);
 
     &:first-of-type {
       margin: 16px 0 0;
     }
+
+    &:not(:last-of-type) {
+      font-size: 0.9em;
+    }
+
     &:last-of-type {
-      color: #008830;
+      color: $green-1 !important;
       font-weight: bolder;
       margin-bottom: 0;
     }
@@ -588,7 +601,13 @@ export default {
 }
 
 .CallCenter {
-  @include flowText(#4d4d4d, bolder);
+  @include flowText($gray-1, bolder);
+
+  font-size: 0.9em;
+
+  p:first-of-type {
+    font-weight: normal;
+  }
 
   p:not(:last-of-type) {
     &:nth-of-type(n + 2) {
@@ -600,12 +619,12 @@ export default {
 .TelLink {
   &TextNormal {
     @include telLink;
-    @include flowText(#4d4d4d, normal);
+    @include flowText($gray-1, normal);
   }
 
   &TextBolder {
     @include telLink;
-    @include flowText(#4d4d4d, bolder);
+    @include flowText($gray-1, bolder);
   }
 }
 </style>
