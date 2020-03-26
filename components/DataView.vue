@@ -26,6 +26,27 @@
         <div class="Footer-Left">
           <slot name="footer" />
           <div>
+            <a
+              v-if="url"
+              class="OpenDataLink"
+              :href="url"
+              target="_blank"
+              rel="noopener"
+            >
+              {{ source }}
+              <v-icon
+                class="ExternalLinkIcon"
+                size="15"
+                :aria-label="this.$t('別タブで開く')"
+                role="img"
+                :aria-hidden="false"
+              >
+                mdi-open-in-new
+              </v-icon>
+            </a>
+          </div>
+          >>>>>>> 5579f794acb8d503d39efddbea4aa824f7566da4
+          <div>
             <a class="Permalink" :href="permalink()">
               <time :datetime="formattedDate">
                 {{ $t('{date} 更新', { date }) }}
@@ -173,6 +194,10 @@ export default Vue.extend({
       type: String,
       default: '',
       required: false
+    },
+    source: {
+      type: String,
+      default: ''
     }
   },
   data() {
