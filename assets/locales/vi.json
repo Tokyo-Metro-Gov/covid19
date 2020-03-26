@@ -133,7 +133,7 @@
   "第二庁舎計": "Tòa nhà Chính phủ 2",
   "議事堂計": "Tòa nhà Quốc hội",
   "※土・日・祝日を除く庁舎開庁日の1週間累計数": "※Tổng số ngày mở cửa tòa nhà chính phủ trong 1 tuần, ngoại trừ cuối tuần và ngày lễ",
-  "陽性者数": "Dương tính",
+  "陽性者数": "Số ca dương tính",
   "(累計)": "(Thống kê)",
   "入院中": "Số ca nhập viện",
   "軽症・<br />中等症": "Triệu chứng vừa và nhẹ",
@@ -313,9 +313,11 @@
   "（チャーター機・クルーズ船等）": "（チャーター機・クルーズ船等）",
   "（注）検査実施人数には、チャーター機帰国者、クルーズ船乗客等は含まれていない": "（注）検査実施人数には、チャーター機帰国者、クルーズ船乗客等は含まれていない",
   "{title}のグラフをシェア": "Chia sẻ biểu đồ {title}",
-  "閉じる": "Đóng lại",
+  "閉じる": "Close",
   "クリップボードにコピー": "Sao chép vào Clipboard",
   "LINEで{title}のグラフをシェア": "Chia sẻ biểu đồ {title} qua LINE",
   "Twitterで{title}のグラフをシェア": "Chia sẻ biểu đồ {title} qua Twitter",
-  "facebookで{title}のグラフをシェア": "Chia sẻ biểu đồ {title} qua Facebook"
+  "facebookで{title}のグラフをシェア": "Chia sẻ biểu đồ {title} qua Facebook",
+  "日付": "Ngày",
+  "不明": "Không rõ"
 }
