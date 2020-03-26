@@ -322,10 +322,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 20,
                 fontColor: '#808080',
                 maxRotation: 0,
-                minRotation: 0,
                 callback: (label: string) => {
                   return label.split('/')[1]
                 }
+              },
+              type: 'time',
+              time: {
+                displayFormats: {
+                  day: 'D'
+                },
+                parser: 'M/D',
+                unit: 'day'
               }
             },
             {
@@ -373,7 +380,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               type: 'time',
               time: {
-                unit: 'month'
+                unit: 'month',
+                parser: 'M/D',
+                displayFormats: {
+                  month: 'MMM'
+                }
               }
             }
           ],

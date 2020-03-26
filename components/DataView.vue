@@ -45,7 +45,6 @@
               </v-icon>
             </a>
           </div>
-          >>>>>>> 5579f794acb8d503d39efddbea4aa824f7566da4
           <div>
             <a class="Permalink" :href="permalink()">
               <time :datetime="formattedDate">

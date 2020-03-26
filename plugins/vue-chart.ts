@@ -2,6 +2,7 @@ import Vue, { PropType } from 'vue'
 import { ChartData, ChartOptions } from 'chart.js'
 import { Doughnut, Bar, Line, mixins } from 'vue-chartjs'
 import { Plugin } from '@nuxt/types'
+import { useDayjsAdapter } from './chartjs-adapter-dayjs'
 
 type ChartVCData = { chartData: ChartData }
 type ChartVCMethod = {
@@ -10,7 +11,12 @@ type ChartVCMethod = {
 type ChartVCComputed = unknown
 type ChartVCProps = { options: Object }
 
-const VueChartPlugin: Plugin = () => {
+const VueChartPlugin: Plugin = ({ app }) => {
+  useDayjsAdapter(app.i18n)
+  createCustomChart()
+}
+
+const createCustomChart = () => {
   const { reactiveProp } = mixins
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(

@@ -1,4 +1,5 @@
 import { Configuration } from '@nuxt/types'
+import { Configuration as WebpackConfiguration } from 'webpack'
 import i18n from './nuxt-i18n.config'
 const webpack = require('webpack')
 const purgecss = require('@fullhuman/postcss-purgecss')
@@ -139,6 +140,10 @@ const config: Configuration = {
           whitelistPatterns: [/(col|row)/]
         })
       ]
+    },
+    extend(config: WebpackConfiguration, _) {
+      // default externals option is undefined
+      config.externals = [{ moment: 'moment' }]
     }
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
