@@ -1,4 +1,4 @@
-name: Create pull request from development to staging
+name: Create pull request from development to master
 on:
   push:
     branches:
@@ -12,5 +12,5 @@ jobs:
       uses: repo-sync/pull-request@v2
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        destination_branch: "staging"
+        destination_branch: "master"
         source_branch: "development"
