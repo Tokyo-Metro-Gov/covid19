@@ -54,7 +54,6 @@
           :detail-page-url="'/largemap'"
           :detail-page-string="$t('東京23区の人口推移（参考値）')"
           :link-string="$t('ヤフー・データソリューション')"
-          :date="''"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -76,7 +75,6 @@
           :detail-page-url="'/largemap'"
           :detail-page-string="$t('東京23区の人口推移（参考値）')"
           :link-string="$t('ヤフー・データソリューション')"
-          :date="''"
         />
       </v-col>
     </v-row>
