@@ -51,7 +51,7 @@ jobs:
         if: always()  # Force to always run this step to ensure "include administrators" is always turned back on
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
-          owner: tokyo-metropolitan-gov
+          owner: MenditationDuck
           repo: covid19
           branch: production
       - name: Create GitHub release
