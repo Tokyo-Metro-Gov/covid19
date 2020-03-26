@@ -48,13 +48,15 @@ export default {
       file: 'ko.json',
       description: 'Korean'
     },
-    {
-      code: 'pt-BR',
-      name: 'Português',
-      iso: 'pt-BR',
-      file: 'pt_BR.json',
-      description: 'Portuguese'
-    },
+    // #1126, #872 (comment)
+    // ポルトガル語は訳が揃っていないため非表示
+    // {
+    //   code: 'pt-BR',
+    //   name: 'Portuguese',
+    //   iso: 'pt-BR',
+    //   file: 'pt_BR.json',
+    //   description: 'Portuguese'
+    // },
     {
       code: 'ja-basic',
       name: 'やさしい にほんご',
