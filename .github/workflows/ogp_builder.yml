@@ -3,7 +3,7 @@ name: OGP Builder
 on:
   push:
     branches:
-      - staging
+      - production
 
 jobs:
   build:
@@ -38,7 +38,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: staging
+        ref: master
     - name: Download ogp images
       uses: actions/download-artifact@v1
       with:
@@ -56,3 +56,13 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: deploy/new_ogp
         force: true
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        path: master
+        commit-message: BOT; UPDATE OGP
+        title: BOT; UPDATE OGP to master
+        base: master
+        branch: deploy/new_ogp
+        labels: auto_merge
