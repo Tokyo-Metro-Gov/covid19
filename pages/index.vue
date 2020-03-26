@@ -35,50 +35,8 @@
     </v-row>
     <v-divider />
     <v-row class="DataBlock">
-      <v-col cols="12" md="6" class="DataCard">
-        <map-card
-          :title="$t('新宿駅周辺の人口推移（参考値）')"
-          :caption="$t('※7:30〜8:30の平均値')"
-          :title-id="'shinjuku-station-title'"
-          :chart-id="'shinjuku-station-chart'"
-          :map-id="'shinjuku-station-map'"
-          :initial-bounds="[
-            [139.695239, 35.685448],
-            [139.706397, 35.694493]
-          ]"
-          :unit="'人'"
-          :url="'https://ds.yahoo.co.jp/datapolicy/'"
-          :source-link-header="
-            $t('※本データは2020年3月31日までの掲載となります')
-          "
-          :detail-page-url="'/largemap'"
-          :detail-page-string="$t('東京23区の人口推移（参考値）')"
-          :link-string="$t('ヤフー・データソリューション')"
-          :date="''"
-        />
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <map-card
-          :title="$t('東京駅周辺の人口推移（参考値）')"
-          :caption="$t('※7:30〜8:30の平均値')"
-          :title-id="'tokyo-station-title'"
-          :chart-id="'tokyo-station-chart'"
-          :map-id="'tokyo-station-map'"
-          :initial-bounds="[
-            [139.761908, 35.676437],
-            [139.773774, 35.686703]
-          ]"
-          :unit="'人'"
-          :url="'https://ds.yahoo.co.jp/datapolicy/'"
-          :source-link-header="
-            $t('※本データは2020年3月31日までの掲載となります')
-          "
-          :detail-page-url="'/largemap'"
-          :detail-page-string="$t('東京23区の人口推移（参考値）')"
-          :link-string="$t('ヤフー・データソリューション')"
-          :date="''"
-        />
-      </v-col>
+      <shinjuku-st-map-card />
+      <tokyo-st-map-card />
     </v-row>
   </div>
 </template>
@@ -91,7 +49,6 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
-import MapCard from '@/components/MapCard.vue'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -105,13 +62,14 @@ import AgencyCard from '@/components/cards/AgencyCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
 import ChiyodaVisitorsCard from '@/components/cards/ChiyodaVisitorsCard.vue'
+import ShinjukuStMapCard from '@/components/cards/ShinjukuStMapCard.vue'
+import TokyoStMapCard from '@/components/cards/TokyoStMapCard.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
     WhatsNew,
     StaticInfo,
-    MapCard,
     ConfirmedCasesDetailsCard,
     TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
@@ -123,7 +81,9 @@ export default Vue.extend({
     MetroCard,
     AgencyCard,
     ShinjukuVisitorsCard,
-    ChiyodaVisitorsCard
+    ChiyodaVisitorsCard,
+    ShinjukuStMapCard,
+    TokyoStMapCard
   },
   data() {
     const data = {
