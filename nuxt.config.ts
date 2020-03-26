@@ -173,7 +173,10 @@ const config: Configuration = {
         '/cards/predicted-number-of-toei-subway-passengers',
         '/cards/agency',
         '/cards/shinjuku-visitors',
-        '/cards/chiyoda-visitors'
+        '/cards/chiyoda-visitors',
+        '/cards/shinjuku-st-heatmap',
+        '/cards/tokyo-st-heatmap',
+        '/cards/tokyo-city-heatmap'
       ]
 
       const routes: string[] = []
