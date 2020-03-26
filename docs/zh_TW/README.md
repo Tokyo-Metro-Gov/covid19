@@ -48,6 +48,12 @@ $ yarn dev
 $ docker-compose up --build
 ```
 
+**使用 Vagrant 的做法**
+```bash
+# serve with hot reload at localhost:3000
+$ vagrant up
+```
+
 ### 被 `Cannot find module ****` 卡住時
 
 **使用 yarn 的做法**
