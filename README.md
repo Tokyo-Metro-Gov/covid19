@@ -1,4 +1,4 @@
-# 東京都 新型コロナウイルス感染症対策サイト
+# 岩手県(非公式) 新型コロナウイルス感染症対策サイト
 
 ![](https://github.com/MeditationDuck/covid19/workflows/production%20deploy/badge.svg)
 
