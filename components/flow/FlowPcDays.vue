@@ -113,7 +113,7 @@
               :class="$style.FlowRowRowThreeCareTargetListItemIcon"
               src="/flow/pregnant_woman-24px.svg"
               aria-hidden="true"
-              img=" "
+              alt=" "
             />
             {{ $t('妊娠中の方') }}
           </li>
