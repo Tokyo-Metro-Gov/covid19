@@ -32,6 +32,7 @@
       :hide-default-footer="true"
       :height="240"
       :fixed-header="true"
+      :disable-sort="true"
       :mobile-breakpoint="0"
       class="cardTable"
       item-key="name"
@@ -61,6 +62,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import dayjs from 'dayjs'
 import 'dayjs/locale/en'
@@ -96,7 +98,7 @@ type Computed = {
   labels: string[]
   standardValue: number
   tableHeaders: {
-    text: string
+    text: TranslateResult
     value: string
   }[]
   tableData: {
@@ -269,7 +271,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     tableHeaders() {
       return [
-        { text: '', value: 'header' },
+        { text: this.$t('日付'), value: 'header' },
         { text: this.title, value: 'visitor' }
       ]
     },

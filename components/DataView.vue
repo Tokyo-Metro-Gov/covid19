@@ -1,5 +1,5 @@
 <template>
-  <v-card class="DataView">
+  <v-card class="DataView" :loading="loading">
     <div class="DataView-Inner">
       <div class="DataView-Header">
         <h3
@@ -24,6 +24,7 @@
       </div>
       <div class="DataView-Footer">
         <div class="Footer-Left">
+          <slot name="footer" />
           <div>
             <a
               v-if="url"
@@ -32,7 +33,7 @@
               target="_blank"
               rel="noopener"
             >
-              {{ $t('オープンデータを入手') }}
+              {{ source }}
               <v-icon
                 class="ExternalLinkIcon"
                 size="15"
@@ -157,6 +158,10 @@
       <div class="overlay-text">
         {{ $t('埋め込みコードをコピーしました') }}
       </div>
+      <v-footer class="DataView-Footer">
+        <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
+        <slot name="footer" />
+      </v-footer>
     </div>
   </v-card>
 </template>
@@ -179,7 +184,17 @@ export default Vue.extend({
       type: String,
       default: ''
     },
+    loading: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
     url: {
+      type: String,
+      default: '',
+      required: false
+    },
+    source: {
       type: String,
       default: ''
     }
@@ -389,7 +404,6 @@ export default Vue.extend({
     color: $gray-3 !important;
     text-align: right;
     background-color: $white !important;
-
     .Permalink {
       color: $gray-3 !important;
     }
