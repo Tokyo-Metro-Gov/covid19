@@ -258,7 +258,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 9,
                 maxTicksLimit: 20,
                 fontColor: '#808080',
-                minRotation: 0
+                maxRotation: 0
               },
               type: 'time',
               time: {
