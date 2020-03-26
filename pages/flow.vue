@@ -16,8 +16,8 @@
           class="Flow-Card-Button"
         >
           <span class="Flow-Card-Button-Description">
-            かかりつけ医に相談することもできます。<br />
-            詳しくはこちらをご参照ください。
+            {{ $t('かかりつけ医に相談することもできます。') }}<br />
+            {{ $t('詳しくはこちらをご参照ください。') }}
           </span>
           {{ $t('詳細を見る（東京都福祉保健局）') }}
           <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
