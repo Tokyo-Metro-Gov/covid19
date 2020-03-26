@@ -149,6 +149,10 @@ export default {
           link: 'https://niigata-kankou.or.jp/news/105'
         },
         {
+          title: this.$t('新型コロナウイルスの影響による公共交通機関への影響'),
+          link: this.localePath('/transit')
+        },
+        {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
         },
