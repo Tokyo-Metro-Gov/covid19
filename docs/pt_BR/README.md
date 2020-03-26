@@ -1,108 +1,108 @@
-# Tokyo COVID-19 Task Force website
+# Site da Força Tarefa de Tóquio para o COVID-19
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
 [![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
 
-### [日本語](./../../README.md) | English | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
+### [日本語](./../../README.md) | English | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md) | Português
 
 
-## How to Contribute
+## Como contribuir
 
-All contributions are welcome!
-Please check [How to contribute](./CONTRIBUTING.md) for details.
+Todas as contribuições são bem-vindas!
+Por favor, confira [Como contribuir](./CONTRIBUTING.md) para maiores informações.
 
-## Code of Conduct
+## Códito de conduta
 
-Please check [Code of conduct for developers](./CODE_OF_CONDUCT.md) for details.
+Por favor, confira o nosso [Código de conduta](./CODE_OF_CONDUCT.md) para maiores informações.
 
-## License
-This software is released under [the MIT License](./../../LICENSE.txt).
+## Licença
+Este software é distribuído com a [licença MIT](./../../LICENSE.txt).
 
-## For Translators
+## Aos Tradutores
 
-Please check [How to translate](./../../TRANSLATION.md) doc.
+Por favor, confira [Como traduzir](./../../TRANSLATION.md).
 
-## For Developers
+## Aos Desenvolvedores
 
-### How to Set Up Environments
+### Como configurar o ambiente
 
-- Required Node.js version: 10.19.0 or higher
+- Requer Node.js versão: 10.19.0 ou mais nova
 
-**Use yarn**
+**Usando yarn**
 ```bash
-# install dependencies
+# instala as dependências
 $ yarn install
 
-# serve with hot reload at localhost:3000
+# serve com hot reload em localhost:3000
 $ yarn dev
 ```
 
-**Use docker**
+**Usando docker**
 ```bash
-# serve with hot reload at localhost:3000
+# serve com hot reload em localhost:3000
 $ docker-compose up --build
 ```
 
-### How to resolve `Cannot find module ****` error
+### Como resolver o erro `Cannot find module ****`
 
-**Use yarn**
+**Usando yarn**
 ```bash
 $ yarn install
 ```
 
-**Use docker**
+**Usando docker**
 ```bash
 $ docker-compose run --rm app yarn install
 ```
 
-### When developing with VSCode + Remote Containers
+### Quando for desenvolver com VSCode + Remote Containers
 
-1.	The VSCode extension "[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)" is introduced.
-2.	If you select the “Open Folder in Container” root of this repository (as seen in the lower left [here（external site）](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)), the environment construction will start.
+1.	A extensão para VSCode "[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)" é necessária.
+2.	Se você selecionar “Open Folder in Container” na raíz deste repositório (como visto no canto inferior esquerdo [aqui (site externo)](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)), a construção do ambiente vai começar.
 
-#### Notes
-- If you want to change the settings, modify `'.devcontainer/devcontainer.json `'. Please refer to [devcontainer.json reference](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference) for more details.
-- The extension "ESLint" is only valid when executing Remote Container. Please add it to the `'extensions `' of `'devcontainer.json `' if necessary.
-- A detailed procedure can be found [here（external site）] (https://code.visualstudio.com/docs/remote/containers#_managing-extensions).
-- When rebuilding the development environment, please execute “Rebuild Container” which can be found at the lower left.
+#### Notas
+- Se você quiser modificar configurações, altere em `'.devcontainer/devcontainer.json `'. Confira mais detalhes em [devcontainer.json reference](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference).
+- A extensão "ESLint" só é válida quando executando o Remote Container. Por favor, adicione-a a `'extensions `' do arquivo `'devcontainer.json `' se necessário.
+- Um procedimento detalhado pode ser encontrado [aqui (site externo)(https://code.visualstudio.com/docs/remote/containers#_managing-extensions).
+- Quando for reconstruír o ambiente de desenvolvimento local, por favor execute "Rebuild Container", que se encontra no canto infeior esquerdo.
 
-### Detect production/others environment
+### Detectar ambiente de produção/outros
 
-On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.  
-Please use the variable to detect which enviroinment is used at the runtime.
+No ambiente de produção, é dado o valor de `'production'` à variável `process.env.GENERATE_ENV`. Em outros casos, o valor dado à variável é  `'development'`.
+Por favor, use esta variável para detectar qual ambiente está sendo usado durante a execução.
 
-### Deployment to Staging & Production Environments
+### Deployment para ambientes Staging e Produção
 
-When `master` branch is updated, the HTML files will be automatically built onto `production` branch,
-and then the production site (https://stopcovid19.metro.tokyo.lg.jp/) will be also updated.
+Quando a branch `master` é atualizada, os arquivos HTML serão automaticamente criados na branch `production`,
+e o site de produção (https://stopcovid19.metro.tokyo.lg.jp/) será então atualizado.
 
-When `staging` branch is updated, the HTML files will be automatically built onto `gh-pages` branch,
-and then the staging site (https://stg-covid19-tokyo.netlify.com/) will be also updated.
+Quando a branch `staging` é atualizada, os arquivos HTML serão automaticamente criados na branch `gh-pages`,
+e o site de produção (https://stg-covid19-tokyo.netlify.com/) será então atualizado.
 
-When `development` branch is updated, the HTML files will be automatically built onto `dev-pages` branch,
-and then the development site (https://dev-covid19-tokyo.netlify.com/) will be also updated.
+Quando a branch `development` é atualizada, os arquivos HTML serão automaticamente criados na branch `dev-pages`,
+e o site de produção (https://dev-covid19-tokyo.netlify.com/) será então atualizado.
 
-### Branch rules
+### Regras para branches
 
-Pull Request is allowed only for `development` and `dev-hotfix`.
-Please use the following naming rules for the branch when sending a Pull Request.
+Pull Requests são permitidos apenas para as branches `development` e `dev-hotfix`.
+Por favor, use as seguintes regras para nomeação de branch quando estiver enviando um Pull Request.
 
-Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}  
-Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
+Implementando uma funcionalidade: feature/#{ISSUE_ID}-#{título_da_branch}  
+Commit de Hotfix: hotfix/#{ISSUE_ID}-{título_da_branch}
 
-#### Basic branch
-| Purpose | Branch | Confirmation URL | Remarks |
+#### Branches principais
+| Propósito | Branch | URL de Confirmação | Detalhes |
 | ---- | -------- | ---- | ---- |
-| Development | development | https://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
-| Hotfix branch | dev-hotfix | None | Fixes that should be applied to production in haste. Use this if requested by the administrator |
-| Staging | staging | https://stg-covid19-tokyo.netlify.com/ | For final confirmation before production. Non-admin pull requests are prohibited |
-Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
+| Desenvolvimento | development | https://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
+| Hotfix branch | dev-hotfix | Nenhum | Consertos para aplicar diretamente em produção. Utilize se requisitado pelo administrator |
+| Staging | staging | https://stg-covid19-tokyo.netlify.com/ | Para confirmação final antes de ir para produção. Pull Requests de não-administratores são proibidos |
+| Produção | master | https://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests de não administrator são proibidos |
 
-#### Branch used by the system
-| Purpose | Branch | Confirmation URL | Remarks |
+#### Branches usadas pelo sistema
+| Propósito | Branch | URL de Confirmação | Detalhes |
 | ---- | -------- | ---- | ---- |
-| Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
-| Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
-| For OGP working directory | deploy / new_ogp | None | For updating OGP |
+| HTML do site de Produção | production | https://stopcovid19.metro.tokyo.lg.jp/ | Onde se encontram os HTML estáticos |
+| HTML do site de Staging | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Onde se encontram os HTML estáticos |
+| Para o diretório de trabalho do OGP | deploy / new_ogp | Nenhum | Para atualizar OGP |

@@ -24,8 +24,8 @@ version 1.0, 2020/3/3
 
 ## Seja franco
 
-* Código aberto: Nós vamos lançar a maior parte dos nossos códigos fonte e conhecimento utilizados para construir este website de graça, para encorajar outras autoridades locais a utilizá-lo.
-* Dados abertos: Nós vamos lançar os dados de graça, de forma reutilizável, disponível para todos.
+* Código aberto: Nós vamos distribuir a maior parte dos nossos códigos fonte e conhecimento utilizados para construir este website de graça, para encorajar outras autoridades locais a utilizá-lo.
+* Dados abertos: Nós vamos distribuir os dados de graça, de forma reutilizável, disponível para todos.
 
 ## Construído com as pessoas
 
