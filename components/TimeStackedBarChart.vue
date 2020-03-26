@@ -322,7 +322,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 20,
                 fontColor: '#808080',
                 maxRotation: 0,
-                minRotation: 0
+                callback: (label: string) => {
+                  return label.split('/')[1]
+                }
               },
               type: 'time',
               time: {
@@ -346,7 +348,35 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 11,
                 fontColor: '#808080',
                 padding: 3,
-                fontStyle: 'bold'
+                fontStyle: 'bold',
+                callback: (label: string) => {
+                  const monthStringArry = [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                  ]
+                  const mm = monthStringArry.indexOf(label.split(' ')[0]) + 1
+                  const year = new Date().getFullYear()
+                  const mdate = new Date(year + '-' + mm + '-1')
+                  let localString
+                  if (this.$root.$i18n.locale === 'ja-basic') {
+                    localString = 'ja'
+                  } else {
+                    localString = this.$root.$i18n.locale
+                  }
+                  return mdate.toLocaleString(localString, {
+                    month: 'short'
+                  })
+                }
               },
               type: 'time',
               time: {
