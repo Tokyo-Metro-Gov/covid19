@@ -28,7 +28,6 @@
       <shinjuku-visitors-card />
       <chiyoda-visitors-card /> -->
     </v-row>
-    <v-divider />
   </div>
 </template>
 
