@@ -174,6 +174,7 @@ export default {
 <style scoped lang="scss">
 .v-slider__tick-label {
   transform: rorate(90deg);
+  font-size: 11px;
 }
 .MapCard-BodyContainer {
   position: relative;
