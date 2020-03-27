@@ -2,36 +2,45 @@
   <div :class="[$style.container, $style.SpAdvisory]">
     <h4
       id="consult"
-      :class="[$style.heading, $style.fzXLarge, $style.SpAdvisoryHeader]"
+      :class="[$style.heading, $style.fzLarge, $style.SpAdvisoryHeader]"
     >
-      <span>{{ $t('帰国者・接触者') }}</span>
+      <span>{{ $t('新型コロナウイルス感染症') }}</span>
       <br />
-      <span>{{ $t('相談センター') }}</span>
+      <span>{{ $t('コールセンター') }}</span>
     </h4>
-    <p :class="[$style.break, $style.fzLarge, $style.HealthCenters]">
-      <span>{{ $t('各保健所 ') }}</span>
-    </p>
 
-    <p :class="[$style.fzRegular, $style.break, $style.mb10, 'mt-4', 'mb-3']">
-      <span>{{ $t('各地域の保健所の電話番号は青森県庁HP') }}</span>
+    <p :class="[$style.fzMedium, $style.break, $style.mb10, 'mt-4', 'mb-3']">
+      <span>{{ $t('9時00分〜21時00分') }}</span>
       <br />
-      <span>{{ $t('または、下記表をご参照ください。') }}</span>
+      <span>{{ $t('（土日祝含む）') }}</span>
     </p>
 
-    <div class="mb-3">
-      <a
-        href="https://www.pref.aomori.lg.jp/index.html"
-        target="_blank"
-        rel="noopener"
-      >
-        {{ $t('青森県庁HPはこちらから') }}
-        <v-icon size="16">
-          mdi-open-in-new
-        </v-icon>
-      </a>
-    </div>
+    <p :class="[$style.phone, $style.fzNumeric]">
+      <span :class="$style.icon">
+        <PhoneIcon alt="Phone" />
+      </span>
+      <a href="tel:0120563653">0120-563-653</a>
+    </p>
+
+    <p :class="[$style.fzMedium, $style.break, $style.mb10, 'mt-4', 'mb-3']">
+      <span>{{ $t('聴覚に障害のある方をはじめ、') }}</span>
+      <br />
+      <span>{{ $t('電話でのご相談が難しい方') }}</span>
+    </p>
+
+    <p :class="[$style.fzLarge, $style.break, $style.mb10, 'mb-3']">
+      FAX 03-3595-2756
+    </p>
   </div>
 </template>
+
+<script lang="ts">
+import PhoneIcon from '@/static/flow/responsive/phone.svg'
+
+export default {
+  components: { PhoneIcon }
+}
+</script>
 
 <style module lang="scss">
 @import '@/components/flow/flow_sp.scss';

@@ -118,7 +118,9 @@
       href="#consult"
       :class="[$style.button, $style.clickable]"
     >
-      <span :class="$style.text">{{ $t('新型コロナ受診相談窓口へ') }}</span>
+      <span :class="[$style.text, $style.fzNormal]">
+        {{ $t('帰国者・接触者相談センターへ') }}
+      </span>
       <ArrowForwardIcon :class="$style.icon" />
     </a>
   </div>
@@ -231,6 +233,12 @@ export default {
         padding: px2vw(15, $vw) px2vw(15, $vw) px2vw(10, $vw);
       }
     }
+  }
+}
+
+.fzNormal {
+  @media screen and (max-width: 320px) {
+    font-size: 18 / 600 * 100vw !important;
   }
 }
 </style>

@@ -12,8 +12,21 @@
         <flow-pc />
       </div>
       <div class="only-sp">
-        <!--        <flow-sp />-->
-        <img src="/flow/flow-image.png" aria-hidden="true" />
+        <flow-sp />
+        <!--        <img src="/flow/flow-image.png" aria-hidden="true" />-->
+      </div>
+      <div class="Flow-Card-Button-Wrapper mt-6">
+        <a
+          href="https://www.pref.aomori.lg.jp/"
+          target="_blank"
+          rel="noopener"
+          class="Flow-Card-Button"
+        >
+          {{ $t('青森県庁ホームページ') }}
+          <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
+            mdi-open-in-new
+          </v-icon>
+        </a>
       </div>
     </div>
   </div>
@@ -25,7 +38,7 @@ import { TranslateResult } from 'vue-i18n'
 import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton.vue'
 import FlowPc from '@/components/flow/FlowPc.vue'
-// import FlowSp from '@/components/flow/FlowSp.vue'
+import FlowSp from '@/components/flow/FlowSp.vue'
 import PageHeader from '@/components/PageHeader.vue'
 
 export default Vue.extend({
@@ -33,8 +46,8 @@ export default Vue.extend({
     CovidIcon,
     PageHeader,
     PrinterButton,
-    FlowPc
-    // FlowSp
+    FlowPc,
+    FlowSp
   },
   head(): any {
     const title: TranslateResult = this.$t(

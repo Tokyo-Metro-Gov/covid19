@@ -142,6 +142,10 @@
   font-size: px2vw(18);
 }
 
+.fzNormal {
+  font-size: px2vw(20);
+}
+
 .fzRegular {
   font-size: px2vw(22);
 }
@@ -261,6 +265,10 @@
   // common
   .fzSmall {
     font-size: px2vw(18, $vw);
+  }
+
+  .fzNormal {
+    font-size: px2vw(20, $vw);
   }
 
   .fzRegular {
