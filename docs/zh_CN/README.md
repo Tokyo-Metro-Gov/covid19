@@ -67,7 +67,7 @@ $ yarn install
 **使用 docker compose 时**
 ```bash
 $ docker-compose run --rm app yarn install
-``
+```
 
 ### VSCode + Remote Containers 的开发环境
 
