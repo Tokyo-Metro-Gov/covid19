@@ -33,8 +33,43 @@
     <div :class="$style.FlowCard">
       <flow-sp-suspect />
     </div>
-    <div :class="[$style.FlowCard, $style.FlowCardGrayBg]">
+    <div
+      :class="[
+        $style.FlowCard,
+        $style.FlowCardGrayBg,
+        $style.ResetMarginBottom
+      ]"
+    >
       <flow-sp-advisory />
+    </div>
+    <div :class="[$style.Annotations]">
+      <p :class="$style.fzSmall">
+        {{
+          $t(
+            '＊妊婦の方については念のため、重症化しやすい方と同様に、早めに帰国者・接触者センターにご相談ください。'
+          )
+        }}
+      </p>
+      <p :class="$style.fzSmall">
+        {{
+          $t(
+            '＊小児については現時点で重症化しやすいとの報告はなく、新型コロナウイルス感染症については目安どおりの対応をお願いします。'
+          )
+        }}
+      </p>
+      <p :class="$style.fzRegular">
+        {{
+          $t(
+            'なお、現時点では新型コロナウイルス感染症以外の病気の方が圧倒的に多い状況です。'
+          )
+        }}
+        <br />
+        {{
+          $t(
+            'インフルエンザ等の心配があるときには、通常と同様に、かかりつけ医等にご相談ください。'
+          )
+        }}
+      </p>
     </div>
   </div>
 </template>
@@ -92,6 +127,10 @@ export default {
   }
 }
 
+.ResetMarginBottom {
+  margin-bottom: 0;
+}
+
 @mixin flowText($color: $gray-1, $font-weight: normal) {
   color: $color !important;
   font-weight: $font-weight;
@@ -128,6 +167,22 @@ export default {
       display: inline-block;
       background-color: $green-1;
       border-radius: 50%;
+    }
+  }
+}
+
+.Annotations {
+  p {
+    @include flowText($gray-1, normal);
+
+    &:first-of-type {
+      margin: 16px 0;
+    }
+
+    &:last-of-type {
+      color: $green-1 !important;
+      font-weight: bolder;
+      margin-bottom: 0;
     }
   }
 }
