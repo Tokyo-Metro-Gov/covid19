@@ -88,6 +88,10 @@ export default Vue.extend({
         {
           rel: 'canonical',
           href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css'
         }
       ],
       meta: [
