@@ -103,6 +103,7 @@ Pull Request を送る際の branch は、以下のネーミングルールで�
 | 緊急適用用 | dev-hotfix | なし | 急ぎ本番に適用するべき修正。管理者から依頼された場合こちらを使ってください |
 | 本番 | master | https://hardcore-galileo-f8a534.netlify.com | 管理者以外の Pull Request は禁止です |
 
+
 #### システムで利用しているブランチ
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
