@@ -65,4 +65,3 @@ jobs:
         title: BOT; UPDATE OGP to master
         base: ${{ steps.extract_branch.outputs.branch }}
         branch: deploy/new_ogp
-        labels: auto_merge
