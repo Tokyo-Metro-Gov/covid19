@@ -251,7 +251,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             return arr
           }, [])
           .map((text, i) => {
-            return { text, value: String(i) }
+            return { text, value: String(i), align: 'end' }
           })
       ]
     },

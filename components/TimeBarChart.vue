@@ -331,16 +331,24 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
-        { text: `${this.title} (${this.$t('日別')})`, value: 'transition' },
-        { text: `${this.title} (${this.$t('累計')})`, value: 'cumulative' }
+        {
+          text: `${this.title} (${this.$t('日別')})`,
+          value: 'transition',
+          align: 'end'
+        },
+        {
+          text: `${this.title} (${this.$t('累計')})`,
+          value: 'cumulative',
+          align: 'end'
+        }
       ]
     },
     tableData() {
       return this.chartData.map((d, _) => {
         return Object.assign(
           { text: d.label },
-          { transition: d.transition.toLocaleString() },
-          { cumulative: d.cumulative.toLocaleString() }
+          { transition: d.transition.toLocaleString(), align: 'end' },
+          { cumulative: d.cumulative.toLocaleString(), align: 'end' }
         )
       })
     }

@@ -164,7 +164,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return [
         { text: this.$t('日付'), value: 'text' },
         ...this.chartData.labels!.map((text, value) => {
-          return { text: text as string, value: String(value) }
+          return { text: text as string, value: String(value), align: 'end' }
         })
       ]
     },
