@@ -187,3 +187,10 @@ export default {
   }
 }
 </style>
+<style lang="scss">
+.MapCard-BodyContainer {
+  .v-slider__tick-label {
+    font-size: 12px;
+  }
+}
+</style>
