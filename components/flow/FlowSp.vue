@@ -259,6 +259,26 @@
         </table>
       </div>
     </div>
+
+    <h3 :class="['mb-3', $style.FlowCardHeading]">
+      {{ $t('厚生労働省電話相談窓口（コールセンター）のご案内') }}
+    </h3>
+    <p :class="$style.fzRegular">
+      {{
+        $t(
+          '厚生労働省でも新型コロナウイルスに関する電話相談窓口を開設しています。'
+        )
+      }}
+    </p>
+    <div
+      :class="[
+        $style.FlowCard,
+        $style.FlowCardGrayBg,
+        $style.ResetMarginBottom
+      ]"
+    >
+      <flow-sp-advisory2 />
+    </div>
   </div>
 </template>
 
@@ -270,6 +290,7 @@ import FlowSpGeneral from './FlowSpGeneral.vue'
 import FlowSpElder from './FlowSpElder.vue'
 import FlowSpSuspect from './FlowSpSuspect.vue'
 import FlowSpAdvisory from './FlowSpAdvisory.vue'
+import FlowSpAdvisory2 from './FlowSpAdvisory2.vue'
 
 export default {
   components: {
@@ -277,7 +298,8 @@ export default {
     FlowSpGeneral,
     FlowSpElder,
     FlowSpSuspect,
-    FlowSpAdvisory
+    FlowSpAdvisory,
+    FlowSpAdvisory2
   },
   mounted() {
     // ハッシュつきのURLにアクセスされたらすぐに遷移する
@@ -383,6 +405,8 @@ export default {
 }
 
 .HealthCenterList {
+  margin-bottom: 24px !important;
+
   ul {
     @include flowText($gray-1, normal);
     @include spListStyle;
