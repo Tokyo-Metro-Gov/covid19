@@ -15,6 +15,19 @@
         <flow-sp />
         <!--        <img src="/flow/flow-image.png" aria-hidden="true" />-->
       </div>
+      <div class="Flow-Card-Button-Wrapper mt-6">
+        <a
+          href="https://www.pref.aomori.lg.jp/"
+          target="_blank"
+          rel="noopener"
+          class="Flow-Card-Button"
+        >
+          {{ $t('青森県庁ホームページ') }}
+          <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
+            mdi-open-in-new
+          </v-icon>
+        </a>
+      </div>
     </div>
   </div>
 </template>
