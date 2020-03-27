@@ -61,8 +61,5 @@ GitHub Actionsでデプロイをしています。設定は `.github/workflows/`
 #### 本番環境
 https://covid19.code4kagoshima.org/
 
-#### ステージング環境
-https://staging-covid19.code4kagoshima.org/
-
 #### 開発環境
 https://development-covid19.code4kagoshima.org/
