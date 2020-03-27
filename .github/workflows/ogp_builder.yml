@@ -57,11 +57,8 @@ jobs:
         git config --local user.name "GitHub Action"
         git add static
         git commit -m "Add changes"
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v2
+    - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: BOT; UPDATE OGP
-        title: BOT; UPDATE OGP to master
-        base: ${{ steps.extract_branch.outputs.branch }}
-        branch: deploy/new_ogp
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        ref: ${{ steps.extract_branch.outputs.branch }}
