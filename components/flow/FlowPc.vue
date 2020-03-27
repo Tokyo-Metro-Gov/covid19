@@ -390,11 +390,33 @@ $fzXXLarge: 42px;
     margin-top: 30px;
   }
 }
+/* autoprefixer grid: autoplace */
 .inquiry {
   display: grid;
   grid-template-columns: calc(70% - #{$gap} * 0.7) calc(30% - #{$gap} * 0.3);
-  grid-template-rows: repeat(3, auto);
+  grid-template-rows: auto auto auto;
   grid-gap: $gap;
+
+  // HACK: IEでGridの順番がうまくいかない対応
+  // https://github.com/tokyo-metropolitan-gov/covid19/issues/1313
+  & > *:nth-child(1) {
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+  }
+  & > *:nth-child(2) {
+    -ms-grid-column: 1;
+    -ms-grid-row: 3;
+  }
+  & > *:nth-child(3) {
+    -ms-grid-column: 1;
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 3;
+  }
+  & > *:nth-child(4) {
+    -ms-grid-column: 3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+  }
 }
 .block {
   background-color: $white;
@@ -670,9 +692,30 @@ $fzXXLarge: 42px;
 }
 .treatment {
   display: grid;
-  grid-template-columns: repeat(2, calc(50% - #{$gap} * 0.5));
-  grid-template-rows: repeat(3, auto);
+  grid-template-columns: calc(50% - #{$gap} * 0.5) calc(50% - #{$gap} * 0.5);
+  grid-template-rows: auto auto auto;
   grid-gap: $gap;
+
+  // HACK: IEでGridの順番がうまくいかない対応
+  // https://github.com/tokyo-metropolitan-gov/covid19/issues/1313
+  & > *:nth-child(1) {
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+  }
+  & > *:nth-child(2) {
+    -ms-grid-column: 1;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 3;
+  }
+  & > *:nth-child(3) {
+    -ms-grid-column: 3;
+    -ms-grid-row: 5;
+  }
+  & > *:nth-child(4) {
+    -ms-grid-column: 3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+  }
 }
 .blockF {
   grid-column: 1 / 2;
