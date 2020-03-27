@@ -39,7 +39,8 @@ import WhatsNew from '@/components/WhatsNew.vue'
 // import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
-
+// import MapCard from '@/components/MapCard.vue'
+import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 // import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 // import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
@@ -56,7 +57,8 @@ export default Vue.extend({
     PageHeader,
     WhatsNew,
     // StaticInfo,
-
+    // MapCard,
+    ConfirmedCasesDetailsCard,
     TestedCasesDetailsCard,
     // ConfirmedCasesNumberCard,
     // ConfirmedCasesAttributesCard,
