@@ -20,12 +20,17 @@
         <slot />
       </div>
       <div v-if="this.$slots.dataTable" class="DataView-Details">
-        <details>
-          <summary class="DataView-DetailsSummary">{{
-            $t('テーブルを表示')
-          }}</summary>
+        <template v-if="canvas">
+          <details>
+            <summary class="DataView-DetailsSummary">{{
+              $t('テーブルを表示')
+            }}</summary>
+            <slot name="dataTable" />
+          </details>
+        </template>
+        <template v-else>
           <slot name="dataTable" />
-        </details>
+        </template>
       </div>
       <div class="DataView-Description">
         <slot name="footer-description" />
@@ -173,6 +178,11 @@ export default Vue.extend({
       default: ''
     },
     loading: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    canvas: {
       type: Boolean,
       required: false,
       default: false

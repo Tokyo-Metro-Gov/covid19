@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <data-view :title="title" :title-id="titleId" :date="date" :canvas="canvas">
     <template v-slot:description>
       <p :class="$style.Text">
         {{
@@ -18,6 +18,7 @@
       </ol>
     </template>
     <bar
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="displayOptions"
@@ -73,7 +74,9 @@ type VisitorData = {
   population: number
   holiday: boolean
 }
-type Data = {}
+type Data = {
+  canvas: boolean
+}
 type Methods = {
   tooltipTitle: (tooltipItems: any, data: any) => string
 }
@@ -139,6 +142,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView, SourceLink },
   props: {
     title: {

@@ -1,11 +1,12 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <data-view :title="title" :title-id="titleId" :date="date" :canvas="canvas">
     <template v-slot:infoPanel>
       <small :class="$style.DataViewDesc">
         <slot name="description" />
       </small>
     </template>
     <bar
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="displayOption"
@@ -40,7 +41,9 @@ interface HTMLElementEvent<T extends HTMLElement> extends Event {
   currentTarget: T
 }
 
-type Data = {}
+type Data = {
+  canvas: boolean
+}
 type Methods = {}
 type Computed = {
   displayData: {
@@ -101,6 +104,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView },
   props: {
     title: {
@@ -136,6 +142,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: true
     }
   },
+  data: () => ({
+    canvas: true
+  }),
   computed: {
     displayData() {
       const datasets = this.chartData.labels!.map((label, i) => {
