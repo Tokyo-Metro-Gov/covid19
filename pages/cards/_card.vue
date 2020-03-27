@@ -42,6 +42,15 @@
     <chiyoda-visitors-card
       v-else-if="this.$route.params.card == 'chiyoda-visitors'"
     />
+    <shinjuku-st-map-card
+      v-else-if="this.$route.params.card == 'shinjuku-st-heatmap'"
+    />
+    <tokyo-st-map-card
+      v-else-if="this.$route.params.card == 'tokyo-st-heatmap'"
+    />
+    <tokyo-city-map-card
+      v-else-if="this.$route.params.card == 'tokyo-city-heatmap'"
+    />
   </div>
 </template>
 
@@ -63,6 +72,9 @@ import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
 import ChiyodaVisitorsCard from '@/components/cards/ChiyodaVisitorsCard.vue'
+import ShinjukuStMapCard from '@/components/cards/ShinjukuStMapCard.vue'
+import TokyoStMapCard from '@/components/cards/TokyoStMapCard.vue'
+import TokyoCityMapCard from '@/components/cards/TokyoCityMapCard.vue'
 
 export default {
   components: {
@@ -77,7 +89,10 @@ export default {
     MetroCard,
     AgencyCard,
     ShinjukuVisitorsCard,
-    ChiyodaVisitorsCard
+    ChiyodaVisitorsCard,
+    ShinjukuStMapCard,
+    TokyoStMapCard,
+    TokyoCityMapCard
   },
   data() {
     let title, updatedAt
