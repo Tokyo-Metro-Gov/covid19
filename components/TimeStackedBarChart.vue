@@ -24,18 +24,20 @@
       :options="options"
       :height="240"
     />
-    <v-data-table
-      :headers="tableHeaders"
-      :items="tableData"
-      :items-per-page="-1"
-      :hide-default-footer="true"
-      :height="240"
-      :fixed-header="true"
-      :disable-sort="true"
-      :mobile-breakpoint="0"
-      class="cardTable"
-      item-key="name"
-    />
+    <template v-slot:dataTable>
+      <v-data-table
+        :headers="tableHeaders"
+        :items="tableData"
+        :items-per-page="-1"
+        :hide-default-footer="true"
+        :height="240"
+        :fixed-header="true"
+        :disable-sort="true"
+        :mobile-breakpoint="0"
+        class="cardTable"
+        item-key="name"
+      />
+    </template>
     <p :class="$style.DataViewDesc">
       <slot name="additionalNotes" />
     </p>
@@ -432,12 +434,12 @@ export default Vue.extend(options)
     list-style: none;
   }
 }
+
 .DataView {
   &Desc {
     margin-top: 10px;
     margin-bottom: 0 !important;
     font-size: 12px;
-    line-height: 15px;
     color: $gray-3;
   }
 }

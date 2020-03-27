@@ -19,6 +19,12 @@
       <div class="DataView-CardText">
         <slot />
       </div>
+      <div v-if="this.$slots.dataTable" class="d">
+        <details class="Details">
+          <summary class="Summary">{{ $t('テーブルを表示') }}</summary>
+          <slot name="dataTable" />
+        </details>
+      </div>
       <div class="DataView-Description">
         <slot name="footer-description" />
       </div>
@@ -320,7 +326,6 @@ export default Vue.extend({
   &-Inner {
     display: flex;
     flex-flow: column;
-    justify-content: space-between;
     padding: 22px;
     height: 100%;
   }
@@ -372,6 +377,7 @@ export default Vue.extend({
     padding: 0 !important;
     display: flex;
     justify-content: space-between;
+    margin-top: auto;
     color: $gray-3 !important;
     text-align: right;
     background-color: $white !important;
@@ -537,5 +543,10 @@ textarea {
   font: 400 11px system-ui;
   width: 100%;
   height: 2.4rem;
+}
+
+.Summary {
+  color: $gray-2;
+  @include font-size(14);
 }
 </style>
