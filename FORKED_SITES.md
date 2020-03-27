@@ -37,7 +37,7 @@
 [](34)広島県|https://covid19-hiroshima.netlify.com/|個人|[tatsuya1970/covid19](https://github.com/tatsuya1970/covid19)|
 [](35)山口県|https://covid19-yamaguchi.netlify.com|有志|[nishidayoshikatsu/covid19-yamaguchi](https://github.com/nishidayoshikatsu/covid19-yamaguchi)|
 [](37)香川県|https://covid19-kagawa.netlify.com/|学生エンジニア(有志)||
-[](37)香川県|https://covid19-kagawa.jp/|学生エンジニア (有志)|[i15317/covid19](https://github.com/i15317/covid19)|
+[](37)香川県|https://covid19-kagawa.jp/|学生エンジニア (有志)|[i15317/covid19](https://github.com/i15317/covid19) |
 [](38)愛媛県|https://ehime-covid19.com/|ボランティア(有志)|[ehime-covid19/covid19](https://github.com/ehime-covid19/covid19)|
 [](39)高知県|https://covid19-kochi.netlify.com|学生エンジニア(有志)||
 []()九州|https://dev-covid19-kyusyu.netlify.com|九州(有志)|[Code-for-Kyushu/covid19](https://github.com/Code-for-Kyushu/covid19)|
