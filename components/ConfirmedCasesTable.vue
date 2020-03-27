@@ -29,7 +29,7 @@
               <div :class="$style.pillar">
                 <div :class="$style.content">
                   <!-- eslint-disable vue/no-v-html-->
-                  <span v-html="$t('軽症・<br />中等症')" />
+                  <span v-html="$t('新規感染')" />
                   <!-- eslint-enable vue/no-v-html-->
                   <span>
                     <strong>{{ 軽症中等症 }}</strong>
@@ -41,7 +41,7 @@
             <li :class="[$style.box, $style.short, $style.severe]">
               <div :class="$style.pillar">
                 <div :class="$style.content">
-                  <span>{{ $t('重症') }}</span>
+                  <span>{{ $t('治療中') }}</span>
                   <span>
                     <strong>{{ 重症 }}</strong>
                     <span :class="$style.unit">{{ $t('人') }}</span>
