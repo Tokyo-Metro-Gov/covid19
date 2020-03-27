@@ -34,6 +34,11 @@ const config: Configuration = {
         hid: 'og:image',
         property: 'og:image',
         content: 'https://covid19-iwate.netlify.com/ogp.png'
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image'
       }
     ],
 
