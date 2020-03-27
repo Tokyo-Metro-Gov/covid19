@@ -40,7 +40,7 @@ export default {
       this.$t('その他（※2）')
     ]
     const inspectionsLabels = Data.inspections_summary.labels
-    const inspectionsDataLabels = [this.$t('都内'), this.$t('その他.graph')]
+    const inspectionsDataLabels = [this.$t('都内発生'), this.$t('その他.graph')]
 
     const data = {
       Data,

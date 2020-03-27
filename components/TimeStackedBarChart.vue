@@ -245,12 +245,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
-        ...this.items
-          .reduce((arr: string[], item) => {
-            arr.push(...['日別', '累計'].map(label => item + label))
+        ...(this.dataLabels as string[])
+          .reduce((arr: string[], text: string) => {
+            arr.push(
+              ...[this.$t('日別'), this.$t('累計')].map(
+                label => `${text} (${label})`
+              )
+            )
             return arr
           }, [])
-          .map((text, i) => {
+          .map((text: string, i: number) => {
             return { text, value: String(i), align: 'end' }
           })
       ]
