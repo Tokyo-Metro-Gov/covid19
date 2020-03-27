@@ -135,7 +135,8 @@ export default {
     const legendData = []
     const dataDate = '20200201'
     const loading = true
-    return { dateTicks, legendData, loading, dataDate }
+    const updateDate = ''
+    return { dateTicks, legendData, loading, dataDate, updateDate }
   },
   created() {
     const self = this
