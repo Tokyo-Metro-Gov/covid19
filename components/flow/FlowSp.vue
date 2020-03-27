@@ -3,7 +3,7 @@
     <h3 :class="['mb-3', $style.FlowCardHeading]">
       {{ $t('相談・受診前に心がけていただきたいこと') }}
     </h3>
-    <div :class="[$style.OuterUpper, $style.Knowledge]">
+    <div :class="$style.Knowledge">
       <ul :class="$style.fzRegular">
         <li>
           {{
@@ -70,6 +70,28 @@
           )
         }}
       </p>
+    </div>
+
+    <h3 :class="['mb-3', $style.FlowCardHeading]">
+      {{ $t('相談後、医療機関にかかる時のお願い') }}
+    </h3>
+    <div :class="$style.Knowledge">
+      <ul :class="$style.fzRegular">
+        <li>
+          {{
+            $t(
+              '帰国者・接触者センターから受診をすすめられた医療機関を受診してください。複数の医療機関を受診することはお控えください。'
+            )
+          }}
+        </li>
+        <li>
+          {{
+            $t(
+              '医療機関を受診する際には、マスクを着用するほか、手洗いや咳エチケット（咳やくしゃみをする際に、マスクやティッシュ・ハンカチ、袖を使って、口や鼻をおさえる）の徹底をお願いします。'
+            )
+          }}
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -159,6 +181,13 @@ export default {
     padding: 0;
     text-indent: -1.15em;
 
+    li {
+      margin-bottom: 1em;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
     > li::before {
       content: '';
       top: -2px;
@@ -172,6 +201,8 @@ export default {
 }
 
 .Annotations {
+  margin-bottom: 24px !important;
+
   p {
     @include flowText($gray-1, normal);
 
