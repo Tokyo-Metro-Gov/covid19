@@ -16,21 +16,15 @@
           }}
         </li>
       </ul>
-      <data-selector
-        v-model="dataKind"
-        :target-id="chartId"
-        :style="{ display: canvas ? 'inline-block' : 'none' }"
-      />
+      <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
     <bar
-      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="options"
       :height="240"
     />
     <v-data-table
-      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
       :headers="tableHeaders"
       :items="tableData"
       :items-per-page="-1"
@@ -69,7 +63,6 @@ interface HTMLElementEvent<T extends HTMLElement> extends Event {
 }
 type Data = {
   dataKind: 'transition' | 'cumulative'
-  canvas: boolean
 }
 type Methods = {
   sum: (array: number[]) => number
@@ -140,9 +133,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
-  created() {
-    this.canvas = process.browser
-  },
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
@@ -186,8 +176,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
-    dataKind: 'transition',
-    canvas: true
+    dataKind: 'transition'
   }),
   computed: {
     displayInfo() {

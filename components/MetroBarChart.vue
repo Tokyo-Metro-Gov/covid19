@@ -6,14 +6,12 @@
       </small>
     </template>
     <bar
-      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="displayOption"
       :height="240"
     />
     <v-data-table
-      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
       :headers="tableHeaders"
       :items="tableData"
       :items-per-page="-1"
@@ -51,9 +49,7 @@ interface HTMLElementEvent<T extends HTMLElement> extends Event {
   currentTarget: T
 }
 
-type Data = {
-  canvas: boolean
-}
+type Data = {}
 type Methods = {}
 type Computed = {
   displayData: {
@@ -114,9 +110,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
-  created() {
-    this.canvas = process.browser
-  },
   components: { DataView },
   props: {
     title: {
@@ -152,9 +145,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: true
     }
   },
-  data: () => ({
-    canvas: true
-  }),
   computed: {
     displayData() {
       const datasets = this.chartData.labels!.map((label, i) => {

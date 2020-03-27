@@ -18,14 +18,12 @@
       </ol>
     </template>
     <bar
-      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="displayOptions"
       :height="240"
     />
     <v-data-table
-      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
       :headers="tableHeaders"
       :items="tableData"
       :items-per-page="-1"
@@ -79,9 +77,7 @@ type VisitorData = {
   population: number
   holiday: boolean
 }
-type Data = {
-  canvas: boolean
-}
+type Data = {}
 type Methods = {
   tooltipTitle: (tooltipItems: any, data: any) => string
 }
@@ -147,9 +143,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
-  created() {
-    this.canvas = process.browser
-  },
   components: { DataView, SourceLink },
   props: {
     title: {

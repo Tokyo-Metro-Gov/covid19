@@ -4,21 +4,15 @@
       <slot name="description" />
     </template>
     <template v-slot:button>
-      <data-selector
-        v-model="dataKind"
-        :target-id="chartId"
-        :style="{ display: canvas ? 'inline-block' : 'none' }"
-      />
+      <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
     <bar
-      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="displayOption"
       :height="240"
     />
     <v-data-table
-      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
       :headers="tableHeaders"
       :items="tableData"
       :items-per-page="-1"
@@ -57,7 +51,6 @@ import { single as color } from '@/utils/colors'
 
 type Data = {
   dataKind: 'transition' | 'cumulative'
-  canvas: boolean
 }
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
@@ -120,9 +113,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
-  created() {
-    this.canvas = process.browser
-  },
   components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
   props: {
     title: {
@@ -155,8 +145,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
-    dataKind: 'transition',
-    canvas: true
+    dataKind: 'transition'
   }),
   computed: {
     displayCumulativeRatio() {
