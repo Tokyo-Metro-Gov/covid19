@@ -29,7 +29,11 @@
         @loadCompleted="loadCompleted"
         @dateTicksUpdated="dateTicksUpdated"
       />
-      <select v-model="dataDate" class="select-css" @input="handleFocusChanged">
+      <select
+        ref="dateSelectorRef"
+        class="select-css"
+        @input="handleFocusChanged"
+      >
         <option v-for="item in dateTicks" :key="item.text" :value="item.value">
           {{ item.text }}
         </option>
@@ -133,10 +137,9 @@ export default {
   data: () => {
     const dateTicks = [{ text: '02/01', value: '20200201' }]
     const legendData = []
-    const dataDate = '20200201'
     const loading = true
     const updateDate = ''
-    return { dateTicks, legendData, loading, dataDate, updateDate }
+    return { dateTicks, legendData, loading, updateDate }
   },
   created() {
     const self = this
@@ -152,8 +155,8 @@ export default {
     loadCompleted() {
       this.loading = false
     },
-    handleFocusChanged(_) {
-      this.$refs.heatmapComponentRef.updatePaintProperty(this.dataDate)
+    handleFocusChanged(e) {
+      this.$refs.heatmapComponentRef.updatePaintProperty(e.target.value)
     },
     dateTicksUpdated(dateTicks) {
       this.dateTicks = dateTicks.map(d => {
@@ -162,7 +165,7 @@ export default {
       this.dateTicks.sort((a, b) =>
         a.value === b.value ? 0 : a.value < b.value ? 1 : -1
       )
-      this.dataDate = this.dateTicks[0].value
+      this.$refs.dateSelectorRef.value = this.dateTicks[0].value
     }
   }
 }
