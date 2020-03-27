@@ -37,6 +37,7 @@
       :hide-default-footer="true"
       :height="240"
       :fixed-header="true"
+      :disable-sort="true"
       :mobile-breakpoint="0"
       class="cardTable"
       item-key="name"
@@ -95,7 +96,7 @@ type Computed = {
     }[]
   }
   tableHeaders: {
-    text: string
+    text: TranslateResult
     value: string
   }[]
   tableData: {
@@ -242,7 +243,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     tableHeaders() {
       return [
-        { text: '', value: 'text' },
+        { text: this.$t('日付'), value: 'text' },
         ...this.items.map((text, value) => {
           return { text, value: String(value) }
         })
@@ -321,10 +322,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 20,
                 fontColor: '#808080',
                 maxRotation: 0,
-                minRotation: 0,
                 callback: (label: string) => {
                   return label.split('/')[1]
                 }
+              },
+              type: 'time',
+              time: {
+                displayFormats: {
+                  day: 'D'
+                },
+                parser: 'M/D',
+                unit: 'day'
               }
             },
             {
@@ -372,7 +380,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               type: 'time',
               time: {
-                unit: 'month'
+                unit: 'month',
+                parser: 'M/D',
+                displayFormats: {
+                  month: 'MMM'
+                }
               }
             }
           ],
