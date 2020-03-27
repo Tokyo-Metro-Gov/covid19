@@ -1,76 +1,37 @@
 <template>
-  <div :class="$style.container">
-    <h4 id="consult" :class="[$style.heading, $style.fzXLarge]">
-      {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
-      <small :class="[$style.break, $style.fzRegular, $style.mt5]">{{
-        $t('帰国者・接触者 電話相談センター')
-      }}</small>
+  <div :class="[$style.container, $style.SpAdvisory]">
+    <h4
+      id="consult"
+      :class="[$style.heading, $style.fzXLarge, $style.SpAdvisoryHeader]"
+    >
+      <span>{{ $t('帰国者・接触者') }}</span>
+      <br />
+      <span>{{ $t('相談センター') }}</span>
     </h4>
-    <p :class="[$style.open, $style.fzMedium]">
-      <span>{{ $t('24時間対応') }}</span>
+    <p :class="[$style.break, $style.fzLarge, $style.HealthCenters]">
+      <span>{{ $t('各保健所 ') }}</span>
     </p>
-    <dl>
-      <div :class="$style.daytime">
-        <dt :class="[$style.title, $style.fzMedium]">
-          {{ $t('平日（日中）') }}
-        </dt>
-        <dd :class="$style.link">
-          <a
-            href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-            target="_blank"
-            rel="noopener"
-          >
-            {{ $t('各保健所の電話番号は福祉保健局HPへ') }}
-            <v-icon size="16">
-              mdi-open-in-new
-            </v-icon>
-          </a>
-        </dd>
-      </div>
-      <div>
-        <dt>
-          <ul :class="[$style.night]">
-            <li>
-              <span :class="[$style.fzMedium, $style.break, $style.mb10]">
-                {{ $t('平日（夜間）') }}
-              </span>
-              {{ $t('午後5時から翌朝午前9時') }}
-            </li>
-            <li>
-              <span :class="$style.fzMedium">
-                {{ $t('土日祝 終日') }}
-              </span>
-            </li>
-          </ul>
-        </dt>
-        <dd>
-          <div :class="[$style.phone, $style.fzNumeric]">
-            <span :class="$style.icon">
-              <PhoneIcon alt="Phone" />
-            </span>
-            <a href="tel:0353204592">03-5320-4592</a>
-          </div>
-          <div
-            v-if="!['ja', 'ja-basic'].includes($i18n.locale)"
-            :class="[$style.phone, $style.fzNumeric]"
-          >
-            <span :class="[$style.fzMedium, $style.break, $style.mb10]">
-              {{ $t('ひまわり') }}
-            </span>
-          </div>
-        </dd>
-      </div>
-    </dl>
+
+    <p :class="[$style.fzRegular, $style.break, $style.mb10, 'mt-4', 'mb-3']">
+      <span>{{ $t('各地域の保健所の電話番号は青森県庁HP') }}</span>
+      <br />
+      <span>{{ $t('または、下記表をご参照ください。') }}</span>
+    </p>
+
+    <div class="mb-3">
+      <a
+        href="https://www.pref.aomori.lg.jp/index.html"
+        target="_blank"
+        rel="noopener"
+      >
+        {{ $t('青森県庁HPはこちらから') }}
+        <v-icon size="16">
+          mdi-open-in-new
+        </v-icon>
+      </a>
+    </div>
   </div>
 </template>
-
-<script lang="ts">
-import PhoneIcon from '@/static/flow/responsive/phone.svg'
-
-export default {
-  components: { PhoneIcon }
-}
-</script>
 
 <style module lang="scss">
 @import '@/components/flow/flow_sp.scss';
@@ -161,6 +122,24 @@ export default {
         margin-top: px2vw(20, $vw);
       }
     }
+  }
+}
+
+.SpAdvisory {
+  text-align: center;
+
+  &Header {
+    margin-top: 12px !important;
+  }
+}
+
+.HealthCenters {
+  margin-top: 2vw;
+}
+
+.fzRegular {
+  @media screen and (max-width: 320px) {
+    font-size: 20 / 600 * 100vw !important;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.FlowCard">
     <h3 :class="['mb-4', $style.FlowCardHeading]">
-      {{ $t('新型コロナウイルス感染症にかかる相談窓口について') }}
+      {{ $t('帰国者・相談者相談センターにご相談いただく目安') }}
     </h3>
     <div :class="$style.FlowCard">
       <flow-sp-past />
@@ -18,12 +18,6 @@
     <div :class="[$style.FlowCard, $style.FlowCardGrayBg]">
       <flow-sp-advisory />
     </div>
-    <div :class="$style.FlowCard">
-      <flow-sp-according />
-    </div>
-    <div :class="$style.FlowCard">
-      <flow-sp-hospitalized />
-    </div>
   </div>
 </template>
 
@@ -35,8 +29,6 @@ import FlowSpGeneral from './FlowSpGeneral.vue'
 import FlowSpElder from './FlowSpElder.vue'
 import FlowSpSuspect from './FlowSpSuspect.vue'
 import FlowSpAdvisory from './FlowSpAdvisory.vue'
-import FlowSpAccording from './FlowSpAccording.vue'
-import FlowSpHospitalized from './FlowSpHospitalized.vue'
 
 export default {
   components: {
@@ -44,9 +36,7 @@ export default {
     FlowSpGeneral,
     FlowSpElder,
     FlowSpSuspect,
-    FlowSpAdvisory,
-    FlowSpAccording,
-    FlowSpHospitalized
+    FlowSpAdvisory
   },
   mounted() {
     // ハッシュつきのURLにアクセスされたらすぐに遷移する
