@@ -440,6 +440,7 @@ export default Vue.extend(options)
     margin-top: 10px;
     margin-bottom: 0 !important;
     font-size: 12px;
+    line-height: 15px;
     color: $gray-3;
   }
 }
