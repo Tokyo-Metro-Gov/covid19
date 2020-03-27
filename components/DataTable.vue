@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <span />
     </template>
@@ -23,6 +23,9 @@
         :s-text="info.sText"
         :unit="info.unit"
       />
+    </template>
+    <template v-slot:footer>
+      <open-data-link :url="url" />
     </template>
   </data-view>
 </template>
@@ -87,9 +90,10 @@
 import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default Vue.extend({
-  components: { DataView, DataViewBasicInfoPanel },
+  components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
   props: {
     title: {
       type: String,

@@ -1,5 +1,7 @@
 import { Configuration } from '@nuxt/types'
+import { Configuration as WebpackConfiguration } from 'webpack'
 import i18n from './nuxt-i18n.config'
+const webpack = require('webpack')
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
 const environment = process.env.NODE_ENV || 'development'
@@ -118,6 +120,11 @@ const config: Configuration = {
     id: 'UA-159417676-1'
   },
   build: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        mapboxgl: 'mapbox-gl'
+      })
+    ],
     postcss: {
       plugins: [
         autoprefixer({ grid: 'autoplace' }),
@@ -133,6 +140,10 @@ const config: Configuration = {
           whitelistPatterns: [/(col|row)/]
         })
       ]
+    },
+    extend(config: WebpackConfiguration, _) {
+      // default externals option is undefined
+      config.externals = [{ moment: 'moment' }]
     }
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
@@ -162,7 +173,10 @@ const config: Configuration = {
         '/cards/predicted-number-of-toei-subway-passengers',
         '/cards/agency',
         '/cards/shinjuku-visitors',
-        '/cards/chiyoda-visitors'
+        '/cards/chiyoda-visitors',
+        '/cards/shinjuku-st-heatmap',
+        '/cards/tokyo-st-heatmap',
+        '/cards/tokyo-city-heatmap'
       ]
 
       const routes: string[] = []

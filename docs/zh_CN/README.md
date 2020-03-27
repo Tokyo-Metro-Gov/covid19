@@ -18,6 +18,14 @@
 ## 授权
 本软件采用[MIT授权条款](./../../LICENSE.txt)。
 
+## 从这个网站衍生出来的东西
+
+请参考[此链接](./../../FORKED_SITES.md)
+
+## 给翻译者的信息
+
+有要帮忙翻译的话，请参考[这个文件](./TRANSLATION.md) 。
+
 请查看 [如何翻译](./../../TRANSLATION.md) 文档。
 
 ## 面向开发者信息
@@ -42,6 +50,24 @@ $ yarn dev
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
 ```
+
+**使用 Vagrant 时**
+```bash
+# serve with hot reload at localhost:3000
+$ vagrant up
+```
+
+### 出现 `Cannot find module ****` 的error時
+
+**使用 yarn 时**
+```
+$ yarn install
+```
+
+**使用 docker compose 时**
+```bash
+$ docker-compose run --rm app yarn install
+``
 
 ### VSCode + Remote Containers 的开发环境
 
@@ -73,7 +99,7 @@ $ docker-compose up --build
 只允许推送 Pull Request 到 `development`  和 `dev-hotfix` 分支。
 在推送 Pull Request 时，请按照以下命名规则为您的分支命名：
 
-新增功能: feature/#{ISSUE_ID}-#{branch_title_name}  
+新增功能: feature/#{ISSUE_ID}-#{branch_title_name}
 Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 #### 基本分支

@@ -69,6 +69,7 @@
               :class="$style.AdvisoryTelephoneIcon"
               src="/flow/phone-24px.svg"
               aria-hidden="true"
+              :alt="$t('電話番号')"
             />
             03-5320-4592
           </a>
@@ -179,7 +180,7 @@
 
   &WhiteBox {
     background-color: $white;
-    width: 160px;
+    max-width: 160px;
     padding: 10px;
 
     &Sentense {
