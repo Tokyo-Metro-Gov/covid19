@@ -3,13 +3,20 @@ name: OGP Builder
 on:
   push:
     branches:
+      - master
       - staging
 
 jobs:
   build:
     runs-on: macos-latest
     steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.extract_branch.outputs.branch }}
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
@@ -38,7 +45,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: staging
+        ref: ${{ steps.extract_branch.outputs.branch }}
     - name: Download ogp images
       uses: actions/download-artifact@v1
       with:
@@ -56,3 +63,13 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: deploy/new_ogp
         force: true
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        path: ${{ steps.extract_branch.outputs.branch }}
+        commit-message: BOT; UPDATE OGP
+        title: BOT; UPDATE OGP to master
+        base: ${{ steps.extract_branch.outputs.branch }}
+        branch: deploy/new_ogp
+        labels: auto_merge
