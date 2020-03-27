@@ -233,18 +233,29 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
-        ...this.items.map((text, value) => {
-          return { text, value: String(value) }
-        })
+        ...this.items
+          .reduce((arr: string[], item) => {
+            arr.push(...['日別', '累計'].map(label => item + label))
+            return arr
+          }, [])
+          .map((text, i) => {
+            return { text, value: String(i) }
+          })
       ]
     },
     tableData() {
-      return this.displayData.datasets[0].data.map((_, i) => {
+      return this.labels.map((label: string, i) => {
         return Object.assign(
-          { text: this.labels[i] },
-          ...this.items.map((_, j) => {
+          { text: label },
+          ...this.tableHeaders.map((_, j) => {
+            const index = j < 2 ? 0 : 1
+            const transition = this.chartData[index]
+            const cumulative = this.cumulative(transition)
             return {
-              [j]: this.displayData.datasets[j].data[i]
+              [j]:
+                j % 2 === 0
+                  ? transition[i].toString()
+                  : cumulative[i].toString()
             }
           })
         )
