@@ -20,17 +20,12 @@
         <slot />
       </div>
       <div v-if="this.$slots.dataTable" class="DataView-Details">
-        <template v-if="canvas">
-          <details>
-            <summary class="DataView-DetailsSummary">{{
-              $t('テーブルを表示')
-            }}</summary>
-            <slot name="dataTable" />
-          </details>
-        </template>
-        <template v-else>
+        <details ref="details" open>
+          <summary class="DataView-DetailsSummary">{{
+            $t('テーブルを表示')
+          }}</summary>
           <slot name="dataTable" />
-        </template>
+        </details>
       </div>
       <div class="DataView-Description">
         <slot name="footer-description" />
@@ -217,6 +212,15 @@ export default Vue.extend({
           this.toggleShareMenu
         )
       }
+    }
+  },
+  mounted() {
+    if (!this.$slots.dataTable) return
+
+    const details = this.$refs.details as HTMLDetailsElement
+
+    if (this.canvas) {
+      details.removeAttribute('open')
     }
   },
   methods: {
