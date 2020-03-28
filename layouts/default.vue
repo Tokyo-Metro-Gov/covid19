@@ -147,7 +147,7 @@ export default Vue.extend({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.$tc('ogp.og:image')
+          content: this.$tc('https://stopcovid19-shizuoka-dev.netlify.com/ogp.png')
         },
         {
           hid: 'apple-mobile-web-app-title',
