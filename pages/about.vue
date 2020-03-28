@@ -177,7 +177,7 @@
         path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
       >
         <a
-          href="https://portal.data.metro.tokyo.lg.jp/"
+          href="https://opendata.pref.shizuoka.jp/"
           target="_blank"
           rel="noopener noreferrer"
           place="catalogWebsite"
