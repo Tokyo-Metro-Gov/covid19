@@ -20,7 +20,7 @@
         <slot />
       </div>
       <div v-if="this.$slots.dataTable" class="DataView-Details">
-        <details ref="details" open>
+        <details ref="details" open @click="toggleDetails">
           <summary v-show="canvas" class="DataView-DetailsSummary">{{
             $t('テーブルを表示')
           }}</summary>
@@ -284,6 +284,17 @@ export default Vue.extend({
         'https://social-plugins.line.me/lineit/share?url=' +
         this.permalink(true)
       window.open(url)
+    },
+    toggleDetails() {
+      const parent = document.querySelector('.row.DataBlock') as HTMLElement
+      const thisCard = this.$el.closest('.DataCard')
+      const index = Array.prototype.indexOf.call(parent.children, thisCard) + 1
+      const [start, end] =
+        index % 2 === 0 ? [index - 1, index] : [index, index + 1]
+      const selector = `.DataCard:nth-child(n+${start}):nth-child(-n+${end})`
+      document.querySelectorAll(selector).forEach(el => {
+        el.classList.toggle('details-open')
+      })
     }
   }
 })
@@ -410,6 +421,11 @@ export default Vue.extend({
     color: $gray-3 !important;
     text-align: right;
     background-color: $white !important;
+
+    .details-open & {
+      margin-top: 0;
+    }
+
     .Permalink {
       color: $gray-3 !important;
     }
