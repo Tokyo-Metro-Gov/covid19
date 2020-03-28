@@ -281,12 +281,21 @@ export default Vue.extend({
       const parent = document.querySelector('.row.DataBlock') as HTMLElement
       const thisCard = this.$el.closest('.DataCard')
       const index = Array.prototype.indexOf.call(parent.children, thisCard) + 1
-      const [start, end] =
-        index % 2 === 0 ? [index - 1, index] : [index, index + 1]
-      const selector = `.DataCard:nth-child(n+${start}):nth-child(-n+${end})`
-      document.querySelectorAll(selector).forEach(el => {
-        el.classList.toggle('details-open')
-      })
+      const sideIndex = index % 2 === 0 ? index - 1 : index + 1
+
+      const self = document.querySelector(
+        `.DataCard:nth-child(${index}`
+      ) as HTMLElement
+      const side = document.querySelector(`.DataCard:nth-child(${sideIndex}
+      `) as HTMLElement
+
+      self.dataset.height = self.dataset.height || String(self.offsetHeight)
+      side.dataset.height = side.dataset.height || String(side.offsetHeight)
+
+      self.style.height =
+        self.style.height === `auto` ? `${self.dataset.height}px` : 'auto'
+      side.style.height =
+        side.style.height === 'auto' ? 'auto' : `${side.dataset.height}px`
     }
   }
 })
@@ -390,8 +399,10 @@ export default Vue.extend({
   }
 
   &-DetailsSummary {
-    color: $gray-2;
     @include font-size(14);
+
+    color: $gray-2;
+    cursor: pointer;
   }
 
   &-CardTextForXS {
@@ -413,10 +424,6 @@ export default Vue.extend({
     color: $gray-3 !important;
     text-align: right;
     background-color: $white !important;
-
-    .details-open & {
-      margin-top: 0;
-    }
 
     .Permalink {
       color: $gray-3 !important;
