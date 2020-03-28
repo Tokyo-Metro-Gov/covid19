@@ -65,7 +65,7 @@ jobs:
           git push origin $BRANCH_NAME
 
       - name: Create pull request
-        if: steps.git-diff.outputs.hasdiff == 'true' && steps.branch.outputs.created == 'true'
+        if: steps.git-diff.outputs.hasdiff == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

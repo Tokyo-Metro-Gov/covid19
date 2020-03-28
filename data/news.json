@@ -1,5 +1,46 @@
+
 {
   "newsItems": [
+    {
+      "date": "2020-03-27T23:00:00+09:00",
+      "link": "https://www.pref.chiba.lg.jp/seihou/bunsyokan/kyuukann.html",
+      "title": "新型コロナウイルス感染拡大防止に伴う臨時休館の延長について/千葉県文書館"
+    },
+    {
+      "date": "2020-03-27T00:00:00+09:00",
+      "link": "https://www.pref.chiba.lg.jp/seisaku/press/2019/kyodo-mes-20200326.html",
+      "title": "新型コロナウイルス感染症に関する知事共同メッセージ(1都4県／令和2年3月26日)"
+    },
+    {
+      "date": "2020-03-26T20:00:00+09:00",
+      "link": "https://www.pref.chiba.lg.jp/seisaku/press/2019/kyodo-mes-20200326.html",
+      "title": "新型コロナウイルス感染症に関する知事共同メッセージ(1都4県／令和2年3月26日)"
+    },
+    {
+      "date": "2020-03-26T00:00:00+09:00",
+      "link": "https://www.pref.chiba.lg.jp/shippei/press/2019/ncov20200326.html",
+      "title": "新型コロナウイルス感染症患者の発生について(令和2年3月26日)"
+    },
+    {
+      "date": "2020-03-25T00:00:00+09:00",
+      "link": "https://www.pref.chiba.lg.jp/shippei/press/2019/ncov20200325.html",
+      "title": "新型コロナウイルス感染症患者の発生について(令和2年3月25日)"
+    },
+    {
+      "date": "2020-03-24T17:00:00+09:00",
+      "link": "https://www.pref.chiba.lg.jp/shippei/press/2019/ncov20200324.html",
+      "title": "新型コロナウイルス感染症患者の発生について(令和2年3月24日)"
+    },
+    {
+      "date": "2020-03-23T00:00:00+09:00",
+      "link": "https://www.pref.chiba.lg.jp/shippei/press/2019/ncov20200323.html",
+      "title": "新型コロナウイルス感染症患者の発生について(令和2年3月23日)"
+    },
+    {
+      "date": "2020-03-22T00:00:00+09:00",
+      "link": "https://www.pref.chiba.lg.jp/shippei/press/2019/ncov20200322.html",
+      "title": "新型コロナウイルス感染症患者の発生について(令和2年3月22日)"
+    },
     {
       "date": "2020-03-21T00:00:00+09:00",
       "link": "https://www.pref.chiba.lg.jp/shippei/press/2019/ncov20200321.html",
@@ -37,13 +78,13 @@
     },
     {
       "date": "2020-03-16T00:00:00+09:00",
-      "link": "https://www.pref.chiba.lg.jp/kenfuku/kansenshou/singata-koronauirusu-kannrennhaienn.html",
-      "title": "電話相談窓口について｜新型コロナウイルス感染症"
+      "link": "https://www.pref.chiba.lg.jp/kenfuku/kansenshou/singata-korona-soudan.html",
+      "title": "帰国者・接触者相談センターについて｜新型コロナウイルス感染症"
     },
     {
       "date": "2020-03-16T00:00:00+09:00",
-      "link": "https://www.pref.chiba.lg.jp/kenfuku/kansenshou/singata-korona-soudan.html",
-      "title": "帰国者・接触者相談センターについて｜新型コロナウイルス感染症"
+      "link": "https://www.pref.chiba.lg.jp/kenfuku/kansenshou/singata-koronauirusu-kannrennhaienn.html",
+      "title": "電話相談窓口について｜新型コロナウイルス感染症"
     },
     {
       "date": "2020-03-15T00:00:00+09:00",
@@ -77,3 +118,4 @@
     }
   ]
 }
+
