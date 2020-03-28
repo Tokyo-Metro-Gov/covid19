@@ -59,6 +59,7 @@
         :chart-data="displayDataHeader"
         :options="displayOptionHeader"
         :plugins="yAxesBgPlugin"
+        :display-legends="displayLegends"
         :height="240"
         :width="800"
       />
@@ -398,27 +399,33 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      if (this.dataKind === 'transition') {
-        return {
-          datasets: [
-            {
-              data: [this.scaledTicksYAxisMax],
-              backgroundColor: 'transparent',
-              borderWidth: 0
-            }
-          ]
+      let n = 0
+      let max = 0
+      for (const i in this.displayData.datasets[0].data) {
+        const current =
+          this.displayData.datasets[0].data[i] +
+          this.displayData.datasets[1].data[i]
+        if (current > max) {
+          max = current
+          n = Number(i)
         }
       }
-      let sum = 0
-      for (const i in this.chartData[0]) {
-        sum += this.chartData[0][i] + this.chartData[1][i]
-      }
+      const borderWidth = [
+        { left: 0, top: 1, right: 0, bottom: 0 },
+        { left: 0, top: 0, right: 0, bottom: 0 }
+      ]
       return {
+        labels: this.labels,
         datasets: [
           {
-            data: [sum],
+            data: [this.displayData.datasets[0].data[n]],
             backgroundColor: 'transparent',
-            borderWidth: 0
+            borderWidth: borderWidth[0]
+          },
+          {
+            data: [this.displayData.datasets[1].data[n]],
+            backgroundColor: 'transparent',
+            borderWidth: borderWidth[1]
           }
         ]
       }
