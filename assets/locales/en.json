@@ -1,7 +1,7 @@
 {
   "新型コロナウイルス感染症が心配なときに": "If you feel concerned about COVID-19",
   "かかりつけ医に相談することもできます。": "You can also consult with your doctor.",
-  "詳しくはこちらをご参照ください。": "For more information, please follow this link.",
+  "詳しくはこちらをご参照ください。": "For more information, please refer this:",
   "詳細を見る（東京都福祉保健局）": "For details: Bureau of Social Welfare and Public Health website",
   "都内の最新感染動向": "Latest updates on COVID-19 in Tokyo",
   "自分や家族の症状に不安や心配があればまずは電話相談をどうぞ": "Consult over the phone if you have any concerns",
@@ -301,7 +301,7 @@
   "（注）チャーター機帰国者、クルーズ船乗客等は含まれていない": "(Note) Excluding the returnees on charter flights or the cruise ship passengers",
   "（注）速報値として公開するものであり、後日確定データとして修正される場合あり": "(Note) The number is published as preliminary figures and may be revised as confirmed data at a later date ",
   "都外": "Outside Tokyo",
-  "新宿区エリアの来訪者推移（参考値）": "Number of visitors to the Shinjuku-ku area (for reference) ",
+  "新宿区エリアの来訪者推移（参考値）": "Number of visitors to the Shinjuku-ku area (for reference)",
   "千代田区エリアの来訪者推移（参考値）": "Number of visitors to the Chiyoda-ku area (for reference)",
   "2月3日～2月7日の来訪者数 (※1) の平均値 (※2) を 基準としたときの相対値": "Relative to the average number (*2) of visitors (*1) from February 3 to February 7",
   "※1) ヤフーに蓄積された位置情報データなどを元に算出した参考値": "*1 Figures derived from location information data compiled by Yahoo",
@@ -321,5 +321,11 @@
   "Twitterで{title}のグラフをシェア": "Share the graph of {title} with Twitter",
   "facebookで{title}のグラフをシェア": "Share the graph of {title} with Facebook",
   "日付": "Date",
-  "不明": "unknown"
+  "不明": "unknown",
+  "東京駅周辺の人口推移（参考値）": "Change in population around Tokyo Station (for reference)",
+  "新宿駅周辺の人口推移（参考値）": "Change in population around Shinjuku Station (for reference)",
+  "※ ヤフーに蓄積された位置情報データなどを元に算出した参考値": "* Figures derived from location information data compiled by Yahoo",
+  "※ 土・日・祝日を除く7:30~8:30の平均値": "Weekly average from 7:30-8:30, excluding Sat., Sun., and holidays",
+  "東京23区の人口推移（参考値）": "Change in population for Tokyo 23 Wards (for reference)",
+  "※7:30〜8:30の平均値": "Weekly average from 7:30-8:30"
 }
