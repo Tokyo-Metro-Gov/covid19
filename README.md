@@ -74,8 +74,6 @@ $ docker-compose run --rm app yarn install
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://covid19-tochigi.netlify.com/ が更新されます。
 
-`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト https://stg-covid19-tochigi.netlify.com/ が更新されます。
-
 `development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-covid19-tochigi.netlify.com/ が更新されます。
 
 ### ブランチルール
