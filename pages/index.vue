@@ -15,8 +15,8 @@
     <whats-new class="mb-4" :items="newsItems" />
     <v-row class="DataBlock">
       <confirmed-cases-details-card />
-      <tested-cases-details-card />
-      <!--<confirmed-cases-attributes-card />
+      <!--<tested-cases-details-card />
+      <confirmed-cases-attributes-card />
       <confirmed-cases-number-card /> -->
 
       <inspection-persons-number-card />
@@ -26,7 +26,13 @@
       <!--<metro-card />
       <agency-card />
       <shinjuku-visitors-card />
-      <chiyoda-visitors-card /> -->
+      <chiyoda-visitors-card />
+    </v-row>
+    <v-divider />
+    <v-row class="DataBlock">
+      <shinjuku-st-map-card />
+      <tokyo-st-map-card />
+       -->
     </v-row>
   </div>
 </template>
@@ -41,7 +47,7 @@ import Data from '@/data/data.json'
 import News from '@/data/news.json'
 // import MapCard from '@/components/MapCard.vue'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
-import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
+// import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 // import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 // import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
@@ -51,6 +57,10 @@ import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDe
 // import MetroCard from '@/components/cards/MetroCard.vue'
 // import AgencyCard from '@/components/cards/AgencyCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+// import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
+// import ChiyodaVisitorsCard from '@/components/cards/ChiyodaVisitorsCard.vue'
+// import ShinjukuStMapCard from '@/components/cards/ShinjukuStMapCard.vue'
+// import TokyoStMapCard from '@/components/cards/TokyoStMapCard.vue'
 
 export default Vue.extend({
   components: {
@@ -59,13 +69,19 @@ export default Vue.extend({
     // StaticInfo,
     // MapCard,
     ConfirmedCasesDetailsCard,
-    TestedCasesDetailsCard,
+    // TestedCasesDetailsCard,
     // ConfirmedCasesNumberCard,
     // ConfirmedCasesAttributesCard,
     TestedNumberCard,
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard
+    // MetroCard,
+    // AgencyCard,
+    // ShinjukuVisitorsCard,
+    // ChiyodaVisitorsCard,
+    // ShinjukuStMapCard,
+    // TokyoStMapCard
   },
   data() {
     const data = {

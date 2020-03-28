@@ -8,7 +8,6 @@
       :date="Data.patients.date"
       :unit="$t('人')"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
-      :source="$t('オープンデータを入手')"
     />
   </v-col>
 </template>
