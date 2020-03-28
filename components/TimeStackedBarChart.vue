@@ -56,7 +56,6 @@
       :fixed-header="true"
       :disable-sort="true"
       :mobile-breakpoint="0"
-      class="cardTable"
       item-key="name"
     />
     <p :class="$style.DataViewDesc">

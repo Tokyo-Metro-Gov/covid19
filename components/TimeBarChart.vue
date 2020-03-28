@@ -10,24 +10,26 @@
         :style="{ display: canvas ? 'inline-block' : 'none' }"
       />
     </template>
-    <bar
-      :style="{ display: canvas ? 'block' : 'none' }"
-      :chart-id="chartId"
-      :chart-data="displayData"
-      :options="displayOption"
-      :plugins="scrollPlugin"
-      :height="240"
-      :width="800"
-    />
-    <bar
-      :style="{ display: canvas ? 'block' : 'none' }"
-      :chart-id="`${chartId}-header`"
-      :chart-data="displayDataHeader"
-      :options="displayOptionHeader"
-      :plugins="yAxesBgPlugin"
-      :height="240"
-      :width="800"
-    />
+    <div class="LegendStickyChart">
+      <bar
+        :style="{ display: canvas ? 'block' : 'none' }"
+        :chart-id="chartId"
+        :chart-data="displayData"
+        :options="displayOption"
+        :plugins="scrollPlugin"
+        :height="240"
+        :width="800"
+      />
+      <bar
+        :style="{ display: canvas ? 'block' : 'none' }"
+        :chart-id="`${chartId}-header`"
+        :chart-data="displayDataHeader"
+        :options="displayOptionHeader"
+        :plugins="yAxesBgPlugin"
+        :height="240"
+        :width="800"
+      />
+    </div>
     <v-data-table
       :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
       :headers="tableHeaders"

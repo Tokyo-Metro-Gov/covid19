@@ -275,6 +275,17 @@ export default Vue.extend({
 
   height: 100%;
 
+  .LegendStickyChart {
+    > div:first-child {
+      overflow-x: scroll;
+    }
+    > div:nth-child(2) {
+      position: absolute;
+      top: 0;
+      pointer-events: none;
+    }
+  }
+
   &-Header {
     display: flex;
     align-items: flex-start;
@@ -345,14 +356,6 @@ export default Vue.extend({
     margin: 16px 0;
     position: relative;
     overflow: hidden;
-    > div:first-child {
-      overflow-x: scroll;
-    }
-    > div.cardTable {
-      position: absolute;
-      top: 0;
-      pointer-events: none;
-    }
   }
 
   &-Description {
