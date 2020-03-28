@@ -25,7 +25,7 @@
           </v-icon>
         </a>
       </div>
-      <div class="only-pc">
+      <div class="only-pc" aria-hidden="true">
         <flow-pc />
       </div>
       <div class="only-sp">
@@ -126,7 +126,14 @@ export default Vue.extend({
 
 @include largerThan($medium) {
   .only-sp {
-    display: none;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
   }
 
   .only-pc {
@@ -135,10 +142,6 @@ export default Vue.extend({
 }
 
 @include lessThan($medium) {
-  .only-sp {
-    display: block;
-  }
-
   .only-pc {
     display: none;
   }
