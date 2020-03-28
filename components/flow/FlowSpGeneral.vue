@@ -10,22 +10,25 @@
       <li :class="$style.symptom">
         <span>
           <i18n path="{cold}のような症状">
-            <span :class="$style.ConditionsItemLarger" place="cold">{{
-              $t('風邪')
-            }}</span>
+            <template v-slot:cold>
+              <span :class="$style.ConditionsItemLarger">{{ $t('風邪') }}</span>
+            </template>
           </i18n>
         </span>
       </li>
       <li :class="$style.symptom">
         <i18n tag="span" path="発熱{temperature}" :class="$style.fzSmall">
-          <i18n
-            tag="span"
-            path="{tempNum}以上"
-            place="temperature"
-            :class="[$style.break, $style.fzRegular]"
-          >
-            <span :class="$style.temp" place="tempNum">{{ $t('37.5℃') }}</span>
-          </i18n>
+          <template v-slot:temperature>
+            <i18n
+              tag="span"
+              path="{tempNum}以上"
+              :class="[$style.break, $style.fzRegular]"
+            >
+              <template v-slot:tempNum>
+                <span :class="$style.temp">{{ $t('37.5℃') }}</span>
+              </template>
+            </i18n>
+          </template>
         </i18n>
       </li>
       <li :class="$style.symptom">
@@ -37,14 +40,17 @@
     </ul>
     <p :class="$style.duration">
       <i18n path="{duration}続いている">
-        <i18n
-          :class="[$style.underline, $style.fzLarge]"
-          tag="span"
-          place="duration"
-          path="{day}日以上"
-        >
-          <strong :class="$style.fzNumeric" place="day">4</strong>
-        </i18n>
+        <template v-slot:duration>
+          <i18n
+            :class="[$style.underline, $style.fzLarge]"
+            tag="span"
+            path="{day}日以上"
+          >
+            <template v-slot:day>
+              <strong :class="$style.fzNumeric">4</strong>
+            </template>
+          </i18n>
+        </template>
       </i18n>
     </p>
     <a

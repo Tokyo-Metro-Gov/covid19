@@ -2,9 +2,11 @@
   <div :class="$style.flowContainer">
     <h3 :class="$style.sectionTitle">
       <i18n path="新型コロナ外来 {advice} と判断された場合" tag="p">
-        <strong place="advice">
-          {{ $t('受診が不要') }}
-        </strong>
+        <template v-slot:advice>
+          <strong>
+            {{ $t('受診が不要') }}
+          </strong>
+        </template>
       </i18n>
     </h3>
     <div :class="$style.actionContainer">
@@ -30,10 +32,12 @@
       </ul>
       <div :class="$style.nextAction">
         <i18n path="{getWorse}{advisory}に相談" :class="$style.content">
-          <span place="getWorse">{{ $t('症状が良くならない場合は') }}</span>
-          <strong place="advisory">{{
-            $t('新型コロナ受診相談窓口（日本語のみ）')
-          }}</strong>
+          <template v-slot:getWorse>
+            <span>{{ $t('症状が良くならない場合は') }}</span>
+          </template>
+          <template v-slot:advisory>
+            <strong>{{ $t('新型コロナ受診相談窓口（日本語のみ）') }}</strong>
+          </template>
         </i18n>
       </div>
     </div>
