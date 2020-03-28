@@ -64,6 +64,7 @@ import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
+import type { DisplayData } from '@/plugins/vue-chart';
 
 import { single as color } from '@/utils/colors'
 
@@ -73,14 +74,6 @@ type Data = {
 }
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
-}
-
-interface DataSets<T = number> extends Chart.ChartData {
-  data: T[]
-}
-interface DisplayData<T = number, U = string> {
-  labels?: U[]
-  datasets: DataSets<T>[]
 }
 
 type Computed = {

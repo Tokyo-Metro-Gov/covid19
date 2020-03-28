@@ -72,3 +72,11 @@ const createCustomChart = () => {
 }
 
 export default VueChartPlugin
+
+export interface DataSets<T = number> extends ChartData {
+  data: T[]
+}
+export interface DisplayData<T = number, U = string> {
+  labels?: U[]
+  datasets: DataSets<T>[]
+}
