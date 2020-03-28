@@ -5,7 +5,7 @@
 [![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
 
-### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | Français
+### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | Français | [Português](./../pt_BR/README.md)
 
 
 ## Comment Contribuer
@@ -86,7 +86,7 @@ et le site development (https://dev-covid19-tokyo.netlify.com/) est aussi mis-à
 
 ### Regles sur les branches
 
-Les Pull Request sont permises seulement sur `development`, `dev-i18n`, et `dev-hotfix`.  
+Les Pull Request sont permises seulement sur `development`, et `dev-hotfix`.
 Veuillez utiliser le schema suivant pour nommer vos Pull Request:
 
 Nouvelle feature: feature/#{ISSUE_ID}-#{nom_de_la_branche}  
@@ -96,16 +96,15 @@ Hotfix: hotfix/#{ISSUE_ID}-{nom_de_la_branche}
 
 | But | Branche | URL | Notes |
 | ---- | -------- | ---- | ---- |
-| Development | development | http://dev-covid19-tokyo.netlify.com/ | Branche de base. Faites votre Pull Request ici. |
+| Development | development | https://dev-covid19-tokyo.netlify.com/ | Branche de base. Faites votre Pull Request ici. |
 | Hotfix branch | dev-hotfix | None | Fixs qui devraient etre appliques a l'environnement de production rapidement. Utilisez cette branche si demande par l'administrateur. |
-| i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | Branche temporaire. |
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | Pour confirmation avant production. Pull request d'utilisateurs non-admin sont defendues. |
-Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | Pull request d'utilisateurs non-admin sont defendues. |
+Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | Pull request d'utilisateurs non-admin sont defendues. |
 
 #### Branches utilisees par le systeme
 
 | But | Branche | URL | Notes |
 | ---- | -------- | ---- | ---- |
-| Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | Place ou les pages HTML statiques sont stockees. |
+| Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | Place ou les pages HTML statiques sont stockees. |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Ou trouver l'HTML statiquement construit. |
 | Dossier de travail OGP | deploy / new_ogp | None | Pour mettre a jour OGP |

@@ -62,15 +62,19 @@ export default {
 .FlowCard {
   display: flex;
   flex-direction: column;
+
   @include card-container();
+
   padding: 20px;
   margin-bottom: 20px;
   word-break: break-word;
   hyphens: auto;
+
   > h3 {
     color: $gray-2;
     font-size: 1.5rem;
   }
+
   &GrayBg {
     background-color: $gray-5;
     box-shadow: none;

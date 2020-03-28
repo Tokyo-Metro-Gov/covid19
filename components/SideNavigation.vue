@@ -8,17 +8,22 @@
       >
         mdi-menu
       </v-icon>
-      <h1 class="SideNavigation-Heading">
-        <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
-          <div class="SideNavigation-HeaderLogo">
-            <img src="/logo.svg" :alt="$t('東京都')" />
-          </div>
-          <div class="SideNavigation-HeaderLogoLinkText">
-            {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
+      <h1 class="SideNavigation-HeaderTitle">
+        <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderLink">
+          <img
+            class="SideNavigation-HeaderLogo"
+            src="/logo.svg"
+            :alt="$t('東京都')"
+          />
+          <div class="SideNavigation-HeaderText">
+            {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
+              $t('menu/対策サイト')
+            }}
           </div>
         </nuxt-link>
       </h1>
     </header>
+
     <div :class="['SideNavigation-Body', { '-opened': isNaviOpen }]">
       <v-icon
         class="SideNavigation-CloseIcon"
@@ -36,6 +41,15 @@
           <LanguageSelector />
         </div>
         <MenuList :items="items" @click="$emit('closeNavi', $event)" />
+        <div
+          v-if="this.$i18n.locales.length > 1"
+          class="SideNavigation-Language"
+        >
+          <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+            {{ $t('多言語対応選択メニュー') }}
+          </label>
+          <LanguageSelector />
+        </div>
       </nav>
 
       <footer class="SideNavigation-Footer">
@@ -43,34 +57,46 @@
           <a
             href="https://line.me/R/ti/p/%40822sysfc"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
           >
-            <img src="/line.png" alt="LINE" />
+            <picture>
+              <source srcset="/line.webp" type="image/webp" />
+              <img src="/line.png" alt="LINE" />
+            </picture>
           </a>
           <a
             href="https://twitter.com/tokyo_bousai"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
           >
-            <img src="/twitter.png" alt="Twitter" />
+            <picture>
+              <source srcset="/twitter.webp" type="image/webp" />
+              <img src="/twitter.png" alt="Twitter" />
+            </picture>
           </a>
           <a
             href="https://www.facebook.com/tochokoho"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
           >
-            <img src="/facebook.png" alt="Facebook" />
+            <picture>
+              <source srcset="/facebook.webp" type="image/webp" />
+              <img src="/facebook.png" alt="Facebook" />
+            </picture>
           </a>
           <a
             href="https://github.com/tokyo-metropolitan-gov/covid19"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
           >
-            <img src="/github.png" alt="GitHub" />
+            <picture>
+              <source srcset="/github.webp" type="image/webp" />
+              <img src="/github.png" alt="GitHub" />
+            </picture>
           </a>
         </div>
         <small class="SideNavigation-Copyright">
@@ -196,31 +222,79 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
-  height: 100%;
-  background: $white;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+  @include lessThan($small) {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+  }
   &:focus {
-    outline: none;
+    outline: 1px dotted $gray-3;
   }
 }
 
 .SideNavigation-Header {
-  padding: 40px 20px 25px;
+  height: 64px;
+  padding-left: 52px;
+  @include largerThan($small) {
+    height: auto;
+    padding: 20px;
+  }
   @include lessThan($small) {
     display: flex;
-    padding: 14px 0 13px 20px;
+  }
+  @include lessThan($tiny) {
+    padding-left: 44px;
   }
 }
 
-.SideNavigation-Heading {
-  font-size: 13px;
-  color: $gray-3;
+.SideNavigation-OpenIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 18px 8px 18px 16px;
+  font-size: 28px;
+  @include lessThan($tiny) {
+    font-size: 24px;
+    padding: 20px 10px;
+  }
+  @include largerThan($small) {
+    display: none;
+  }
 }
 
-.SideNavigation-HeadingLink {
-  display: flex;
+.SideNavigation-CloseIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 18px 8px 18px 16px;
+  font-size: 28px;
+  @include lessThan($tiny) {
+    font-size: 24px;
+    padding: 20px 10px;
+  }
+  @include largerThan($small) {
+    display: none;
+  }
+}
+
+.SideNavigation-HeaderTitle {
   width: 100%;
-  color: $gray-3;
+  font-size: 13px;
+  color: #707070;
+  @include largerThan($small) {
+    margin: 0;
+    margin-top: 10px;
+  }
+}
+
+.SideNavigation-HeaderLink {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  @include lessThan($small) {
+    height: 64px;
+  }
+  @include lessThan($tiny) {
+    justify-content: space-between;
+  }
   &:link,
   &:hover,
   &:focus,
@@ -229,56 +303,36 @@ export default Vue.extend({
     color: inherit;
     text-decoration: none;
   }
+
   &:hover,
   &:focus {
     font-weight: bold;
   }
+
   &:focus {
-    outline: 1px dotted $gray-3;
+    outline: dotted $gray-3 1px;
   }
 
-  @include lessThan($small) {
-    align-items: center;
-  }
   @include largerThan($small) {
-    flex-direction: column;
+    display: block;
+    padding: 15px 0;
   }
 }
 
 .SideNavigation-HeaderLogo {
   @include lessThan($tiny) {
-    width: 90px;
+    width: 100px;
   }
 }
 
-.SideNavigation-HeaderLogoLinkText {
+.SideNavigation-HeaderText {
+  margin: 10px 0 0 0;
   @include lessThan($small) {
-    flex-grow: auto;
-    margin-left: 16px;
+    margin: 0 0 0 10px;
   }
-  @include lessThan($tiny) {
-    margin-left: 10px;
-  }
-  @include largerThan($small) {
-    margin-top: 15px;
-  }
-}
 
-.SideNavigation-OpenIcon {
-  margin-right: 20px;
   @include lessThan($tiny) {
-    margin-right: 10px;
-  }
-  @include largerThan($small) {
-    display: none;
-  }
-}
-
-.SideNavigation-CloseIcon {
-  width: 21px;
-  margin-top: 20px;
-  @include largerThan($small) {
-    display: none;
+    margin: 0;
   }
 }
 
@@ -286,6 +340,7 @@ export default Vue.extend({
   padding: 0 20px 20px;
   @include lessThan($small) {
     display: none;
+    padding: 0 36px 36px;
     &.-opened {
       position: fixed;
       top: 0;
@@ -303,7 +358,9 @@ export default Vue.extend({
 }
 
 .SideNavigation-Menu {
-  padding-top: 20px;
+  @include lessThan($small) {
+    padding-top: 50px;
+  }
 }
 
 .SideNavigation-LanguageLabel {
@@ -314,7 +371,6 @@ export default Vue.extend({
 
 .SideNavigation-Footer {
   padding-top: 20px;
-  background-color: $white;
 }
 
 .SideNavigation-Social {
@@ -325,16 +381,19 @@ export default Vue.extend({
   border: 1px dotted transparent;
   border-radius: 30px;
   color: $gray-3;
+
   &:link,
   &:hover,
-  &:focus,
   &:visited,
   &:active {
     color: inherit;
     text-decoration: none;
   }
+
   &:focus {
-    border-color: $gray-3;
+    color: inherit;
+    text-decoration: none;
+    border: 1px dotted $gray-3;
     outline: none;
   }
 
@@ -349,10 +408,10 @@ export default Vue.extend({
 
 .SideNavigation-Copyright {
   display: block;
-  margin-top: 10px;
+  margin-top: 15px;
   color: $gray-1;
   font-size: 10px;
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: bold;
 }
 

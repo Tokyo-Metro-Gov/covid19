@@ -5,6 +5,7 @@
         :class="$style.FlowPcHospitalizedHeadingIcon"
         src="/flow/hotel-24px.svg"
         aria-hidden="true"
+        alt=" "
       />
       {{ $t('入院となります') }}
     </p>
@@ -21,6 +22,7 @@
   align-items: center;
   padding: 30px 15px 30px 20px;
   color: $gray-2;
+
   @include card-container();
 
   &Heading {
@@ -29,6 +31,7 @@
     align-items: center;
     margin: 0 !important;
     padding: 0 5px 0 0;
+    width: 50%;
 
     &Icon {
       min-width: 30px;
@@ -40,7 +43,9 @@
 
   &subHeading {
     @include font-size(20);
+
     margin: 0 !important;
+    width: 50%;
   }
 }
 </style>

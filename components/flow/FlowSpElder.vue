@@ -107,16 +107,19 @@ export default {
     margin-top: px2vw(-20);
     margin-left: px2vw(-10);
     margin-right: px2vw(-10);
+
     .icon {
       display: block;
       margin-bottom: 0;
       width: px2vw(50);
       height: px2vw(50);
     }
+
     > .item {
       display: flex;
       align-items: center;
       margin: px2vw(20) px2vw(10) 0;
+
       svg {
         margin-right: px2vw(5);
       }
@@ -126,17 +129,21 @@ export default {
 
 @include largerThan($small) {
   $vw: 960;
+
   .heading {
     &.multi {
       margin-top: px2vw(-20, $vw);
       margin-left: px2vw(-10, $vw);
       margin-right: px2vw(-10, $vw);
+
       .icon {
         width: px2vw(50, $vw);
         height: px2vw(50, $vw);
       }
+
       > .item {
         margin: px2vw(20, $vw) px2vw(10, $vw) 0;
+
         svg {
           margin-right: px2vw(5, $vw);
         }

@@ -8,7 +8,7 @@
             <br />({{ $t('累計') }})
           </span>
           <span>
-            <b>{{ 陽性物数 }}</b>
+            <strong>{{ 陽性者数 }}</strong>
             <span :class="$style.unit">{{ $t('人') }}</span>
           </span>
         </div>
@@ -19,7 +19,7 @@
             <div :class="$style.content">
               <span>{{ $t('入院中') }}</span>
               <span>
-                <b>{{ 入院中 }}</b>
+                <strong>{{ 入院中 }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </span>
             </div>
@@ -32,7 +32,7 @@
                   <span v-html="$t('軽症・<br />中等症')" />
                   <!-- eslint-enable vue/no-v-html-->
                   <span>
-                    <b>{{ 軽症中等症 }}</b>
+                    <strong>{{ 軽症中等症 }}</strong>
                     <span :class="$style.unit">{{ $t('人') }}</span>
                   </span>
                 </div>
@@ -43,7 +43,7 @@
                 <div :class="$style.content">
                   <span>{{ $t('重症') }}</span>
                   <span>
-                    <b>{{ 重症 }}</b>
+                    <strong>{{ 重症 }}</strong>
                     <span :class="$style.unit">{{ $t('人') }}</span>
                   </span>
                 </div>
@@ -56,7 +56,7 @@
             <div :class="$style.content">
               <span>{{ $t('死亡') }}</span>
               <span>
-                <b>{{ 死亡 }}</b>
+                <strong>{{ 死亡 }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </span>
             </div>
@@ -67,7 +67,7 @@
             <div :class="$style.content">
               <span>{{ $t('退院') }}</span>
               <span>
-                <b>{{ 退院 }}</b>
+                <strong>{{ 退院 }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
               </span>
             </div>
@@ -88,7 +88,7 @@ export default Vue.extend({
       type: Number,
       required: true
     },
-    陽性物数: {
+    陽性者数: {
       type: Number,
       required: true
     },
@@ -144,6 +144,8 @@ $default-bdw: 3px;
 $default-boxh: 150px;
 $default-boxdiff: 35px;
 
+// .container > .box > (.group > .box > ...) .pillar > .content
+
 .container {
   width: 100%;
   display: flex;
@@ -151,75 +153,18 @@ $default-boxdiff: 35px;
   box-sizing: border-box;
   color: $green-1;
   line-height: 1.35;
+
   * {
     box-sizing: border-box;
   }
   // override default styles
   padding-left: 0 !important;
+
   ul {
     padding-left: 0;
   }
 }
-.box {
-  display: flex;
-  &.parent {
-    border-top: $default-bdw solid $green-1;
-    border-left: $default-bdw solid $green-1;
-    position: relative;
-    padding-top: $default-boxdiff - $default-bdw * 2;
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: -1px;
-      right: 0;
-      height: $default-boxdiff - $default-bdw - 2;
-      border-left: $default-bdw solid $green-1;
-    }
-    > .pillar {
-      margin-top: -($default-boxdiff - $default-bdw * 2);
-      border-top: none;
-      border-right: none;
-      border-left: none;
-    }
-  }
-  &.confirmed {
-    width: 100%;
-    > .pillar {
-      // [6列] 1/6
-      width: calc((100% + #{$default-bdw} * 2) / 6 - #{$default-bdw} * 3);
-    }
-    > .group {
-      // [6列] 5/6
-      width: calc((100% + #{$default-bdw} * 2) / 6 * 5 + #{$default-bdw});
-    }
-  }
-  &.hospitalized {
-    margin-left: $default-bdw;
-    // [5列] 3/5
-    width: calc(100% / 5 * 3 - #{$default-bdw});
-    > .pillar {
-      // [3列] 1/3
-      width: calc((100% + #{$default-bdw} * 2) / 3 - #{$default-bdw} * 3);
-    }
-    > .group {
-      // [3列] 2/3
-      width: calc((100% + #{$default-bdw} * 2) / 3 * 2 + #{$default-bdw});
-    }
-  }
-  &.minor,
-  &.severe {
-    margin-left: $default-bdw;
-    // [2列] 1/2
-    width: calc(100% / 2 - #{$default-bdw});
-  }
-  &.deceased,
-  &.recovered {
-    margin-left: $default-bdw;
-    // [5列] 1/5
-    width: calc(100% / 5 - #{$default-bdw});
-  }
-}
+
 .pillar {
   display: flex;
   flex-direction: column;
@@ -229,6 +174,7 @@ $default-boxdiff: 35px;
   width: 100%;
   border: $default-bdw solid $green-1;
 }
+
 .group {
   display: flex;
   flex: 0 0 auto;
@@ -237,6 +183,79 @@ $default-boxdiff: 35px;
   border-top: $default-bdw solid $green-1;
   border-left: $default-bdw solid $green-1;
 }
+
+.box {
+  display: flex;
+
+  &.parent {
+    border-top: $default-bdw solid $green-1;
+    border-left: $default-bdw solid $green-1;
+    position: relative;
+    padding-top: $default-boxdiff - $default-bdw * 2;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -1px;
+      right: 0;
+      height: $default-boxdiff - $default-bdw - 2;
+      border-left: $default-bdw solid $green-1;
+    }
+
+    > .pillar {
+      margin-top: -($default-boxdiff - $default-bdw * 2);
+      border-top: none;
+      border-right: none;
+      border-left: none;
+    }
+  }
+
+  &.confirmed {
+    width: 100%;
+
+    > .pillar {
+      // [6列] 1/6
+      width: calc((100% + #{$default-bdw} * 2) / 6 - #{$default-bdw} * 3);
+    }
+
+    > .group {
+      // [6列] 5/6
+      width: calc((100% + #{$default-bdw} * 2) / 6 * 5 + #{$default-bdw});
+    }
+  }
+
+  &.hospitalized {
+    margin-left: $default-bdw;
+    // [5列] 3/5
+    width: calc(100% / 5 * 3 - #{$default-bdw});
+
+    > .pillar {
+      // [3列] 1/3
+      width: calc((100% + #{$default-bdw} * 2) / 3 - #{$default-bdw} * 3);
+    }
+
+    > .group {
+      // [3列] 2/3
+      width: calc((100% + #{$default-bdw} * 2) / 3 * 2 + #{$default-bdw});
+    }
+  }
+
+  &.minor,
+  &.severe {
+    margin-left: $default-bdw;
+    // [2列] 1/2
+    width: calc(100% / 2 - #{$default-bdw});
+  }
+
+  &.deceased,
+  &.recovered {
+    margin-left: $default-bdw;
+    // [5列] 1/5
+    width: calc(100% / 5 - #{$default-bdw});
+  }
+}
+
 .content {
   min-height: $default-boxh;
   padding: 10px 2px;
@@ -244,19 +263,25 @@ $default-boxdiff: 35px;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  > span:not(:last-child) {
-    word-break: break-all;
-  }
+
   > span {
     display: block;
+    width: 100%;
+
     @include font-size(16);
+
     &:last-child {
       margin-top: 0.1em;
     }
+
+    &:not(:last-child) {
+      word-break: break-all;
+    }
   }
-  span b {
+  span strong {
     @include font-size(18);
   }
+
   span.unit {
     @include font-size(16);
   }
@@ -271,73 +296,86 @@ $default-boxdiff: 35px;
 }
 
 @mixin override($vw, $bdw, $fz, $boxh, $boxdiff) {
+  .pillar {
+    border-width: px2vw($bdw, $vw);
+  }
+
+  .group {
+    padding-top: px2vw($bdw, $vw);
+    border-top-width: px2vw($bdw, $vw);
+    border-left-width: px2vw($bdw, $vw);
+  }
+
+  .content {
+    > span {
+      @include font-size($fz);
+    }
+    span strong {
+      @include font-size($fz + 2);
+    }
+
+    span.unit {
+      @include font-size($fz);
+    }
+  }
+
   .box {
     &.parent {
       border-top-width: px2vw($bdw, $vw);
       border-left-width: px2vw($bdw, $vw);
       padding-top: px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2;
+
       &::after {
         height: px2vw($boxdiff - $bdw, $vw);
         border-left-width: px2vw($bdw, $vw);
       }
+
       > .pillar {
         margin-top: px2vw((-($boxdiff - $bdw * 2)), $vw);
       }
     }
+
     &.confirmed {
       > .pillar {
         width: calc(
           (100% + #{px2vw($bdw, $vw)} * 2) / 6 - #{px2vw($bdw, $vw)} * 3
         );
       }
+
       > .group {
         width: calc(
           (100% + #{px2vw($bdw, $vw)} * 2) / 6 * 5 + #{px2vw($bdw, $vw)}
         );
       }
     }
+
     &.hospitalized {
       margin-left: px2vw($bdw, $vw);
       width: calc(100% / 5 * 3 - #{px2vw($bdw, $vw)});
+
       > .pillar {
         width: calc(
           (100% + #{px2vw($bdw, $vw)} * 2) / 3 - #{px2vw($bdw, $vw)} * 3
         );
       }
+
       > .group {
         width: calc(
           (100% + #{px2vw($bdw, $vw)} * 2) / 3 * 2 + #{px2vw($bdw, $vw)}
         );
       }
     }
+
     &.minor,
     &.severe {
       margin-left: px2vw($bdw, $vw);
       width: calc(100% / 2 - #{px2vw($bdw, $vw)});
     }
+
     &.deceased,
     &.recovered {
       margin-left: px2vw($bdw, $vw);
       width: calc(100% / 5 - #{px2vw($bdw, $vw)});
-    }
-  }
-  .pillar {
-    border-width: px2vw($bdw, $vw);
-  }
-  .group {
-    padding-top: px2vw($bdw, $vw);
-    border-top-width: px2vw($bdw, $vw);
-    border-left-width: px2vw($bdw, $vw);
-  }
-  .content {
-    > span {
-      @include font-size($fz);
-    }
-    span b {
-      @include font-size($fz + 2);
-    }
-    span.unit {
-      @include font-size($fz);
     }
   }
 }
@@ -361,6 +399,7 @@ $default-boxdiff: 35px;
 @include lessThan(959) {
   @include override(960, 4, 14, 180, 40);
 }
+
 @include lessThan(767) {
   @include override(960, 3, 14, 180, 40);
 }
@@ -369,6 +408,7 @@ $default-boxdiff: 35px;
 @include lessThan(600) {
   @include override(600, 3, 14, 150, 35);
 }
+
 @include lessThan(420) {
   @include override(600, 2, 12, 150, 35);
 }

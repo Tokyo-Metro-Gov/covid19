@@ -116,9 +116,27 @@ Tokyo Covid-19 response site contributors
 | showyou | [@showyou](https://github.com/showyou) | [@showyou](https://twitter.com/showyou) | Issue reporter |
 | [Ryota Umebayashi (@lesgrandsballet)](https://qiita.com/umerin) | [@RyotaUmebayashi](https://github.com/RyotaUmebayashi) | | Kaizen |
 | takoba (Takuya Obara) | [@takoba](https://github.com/takoba) | | Kaizen |
-| Ryo KUTSUZAWA | [@bookun](https://github.com/bookun)) | | Coding |
-| Hiroaki MASAKI | [@maasa22](https://github.com/maasa22)) | | Coding |
+| Ryo KUTSUZAWA | [@bookun](https://github.com/bookun) | | Coding |
+| Hiroaki MASAKI | [@maasa22](https://github.com/maasa22) | | Coding |
 | Dongsik | [@dongsiku](https://github.com/dongsiku) | | Translation (Japanese -> Korean) |
+| Timothy Lin | [@timothylin](https://github.com/timothylin) | | Translation, Coding |
+| yuseiito | [@YuseiIto](https://github.com/YuseiIto) | | Coding |
+| whisky_shusuky | [@whisky-shusuky](https://github.com/whisky-shusuky) | [@Whisky_shusuky](https://twitter.com/Whisky_shusuky) | Coding |
+| Dai | [@dmamira](https://github.com/dmamira) | [@damarai0422](https://twitter.com/damarai0422) | Coding |
+| Tomoki Nakama | [@tomopict](https://github.com/tomopict) | [@tomopict](https://twitter.com/tomopict) | Frontend |
+| oti | [@oti](https://github.com/oti) | [@otiext](https://twitter.com/otiext) | Frontend, A11y, Triage |
+| Yoshiki Honda | [@yoshidev523](https://github.com/yoshidev523) | [@yoyoyop523](https://twitter.com/yoyoyop523) | Frontend |
+| Toshiya Takami | [@icnmyb](https://github.com/icnmyb) | | Coding |
+| mnomura3 | [@mnomura3](https://github.com/mnomura3) | | Frontend |
+| ShunIto | [@shunito](https://github.com/shunito) | | Accessibility / Frontend |
+| Tomoya Tajiri | [@t-tajiri](https://github.com/t-tajiri) | | Coding |
+| [Yuji Konishi](https://yuji-k64613.github.io/hp/) | [@yuji-k64613](https://github.com/yuji-k64613) | | Coding |
+| Hideki Yoshida | [@teikan](https://github.com/teikan) | | Translations, Coding |
+| Katsushiro Koizumi (gibasachan) | [@koizoom1](https://github.com/koizoom1) | [@koi_zoom1](https://twitter.com/koi_zoom1) | Coding |
+| [Yuki Sato](https://yukisato.dev/) | [@yukisato](https://github.com/yukisato) | [@yukisato_dev](https://twitter.com/yukisato_dev) | Accessibility / Coding |
+| [hikyaru-suzuki](https://hikyaru-suzuki.hatenablog.jp/) | [@hikyaru-suzuki](https://github.com/hikyaru-suzuki) | [@hikyaru_suzuki](https://twitter.com/hikyaru_suzuki) | Coding |
+| [huideyeren](https://huideyeren.info/) | [@huideyeren](https://github.com/huideyeren) | [@huideyeren](https://twitter.com/huideyeren) | Coding |
+| Yuhki | [@yuhkih](https://github.com/yuhkih) | | Translation, Coding |
 
 ご協力に感謝です！！！
 

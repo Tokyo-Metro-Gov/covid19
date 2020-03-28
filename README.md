@@ -47,6 +47,12 @@ $ yarn dev
 $ docker-compose up --build
 ```
 
+**Vagrant を使う場合**
+```bash
+# serve with hot reload at localhost:3000
+$ vagrant up
+```
+
 ### `Cannot find module ****` と怒られた時
 
 **yarn を使う場合**
@@ -86,7 +92,7 @@ $ docker-compose run --rm app yarn install
 
 ### ブランチルール
 
-development, dev-i18n, dev-hotfix 以外は Pull Request は禁止です。  
+development, dev-hotfix 以外は Pull Request は禁止です。
 Pull Request を送る際の branch は、以下のネーミングルールでお願いします。
 
 機能追加系： feature/#{ISSUE_ID}-#{branch_title_name}  
@@ -95,16 +101,14 @@ Pull Request を送る際の branch は、以下のネーミングルールで�
 #### 基本的なブランチ
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
-| 開発 | development | http://dev-covid19-tokyo.netlify.com/ | base branch。基本はこちらに Pull Requestを送ってください |
+| 開発 | development | https://dev-covid19-tokyo.netlify.com/ | base branch。基本はこちらに Pull Requestを送ってください |
 | 緊急適用用 | dev-hotfix | なし | 急ぎ本番に適用するべき修正。管理者から依頼された場合こちらを使ってください |
-| i18n 作業用 | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | テンポラリで使っています |
 | ステージング | staging | https://stg-covid19-tokyo.netlify.com/ | 本番前の最終確認用。管理者以外の Pull Request は禁止です |
-| 本番 | master | http://stopcovid19.metro.tokyo.lg.jp/ | 管理者以外の Pull Request は禁止です |
+| 本番 | master | https://stopcovid19.metro.tokyo.lg.jp/ | 管理者以外の Pull Request は禁止です |
 
 #### システムで利用しているブランチ
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
-| 本番サイトHTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | 静的ビルドされたHTMLが置いてある場所 |
+| 本番サイトHTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | 静的ビルドされたHTMLが置いてある場所 |
 | ステージングサイト HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 静的ビルドされたHTMLが置いてある場所 |
 | OGP作業用 | deploy/new_ogp | なし | OGPの更新用 |
-

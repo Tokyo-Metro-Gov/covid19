@@ -30,6 +30,7 @@
   margin-top: 20px;
   border: 1px solid $gray-4;
   background-color: $white;
+
   &-Button {
     border: none !important;
     margin: 2px;
@@ -38,11 +39,13 @@
     font-size: 12px !important;
     color: $gray-1 !important;
     background-color: $white !important;
+
     &::before {
       background-color: inherit;
     }
+
     &:focus {
-      outline: solid $green-1 2px;
+      outline: dotted $gray-3 1px;
     }
   }
 

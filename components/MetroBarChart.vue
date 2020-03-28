@@ -6,10 +6,24 @@
       </small>
     </template>
     <bar
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="displayOption"
       :height="240"
+    />
+    <v-data-table
+      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
+      :headers="tableHeaders"
+      :items="tableData"
+      :items-per-page="-1"
+      :hide-default-footer="true"
+      :height="240"
+      :fixed-header="true"
+      :disable-sort="true"
+      :mobile-breakpoint="0"
+      class="cardTable"
+      item-key="name"
     />
   </data-view>
 </template>
@@ -27,6 +41,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
 import { ChartOptions, ChartData } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
@@ -36,13 +51,27 @@ interface HTMLElementEvent<T extends HTMLElement> extends Event {
   currentTarget: T
 }
 
-type Data = {}
+type Data = {
+  canvas: boolean
+}
 type Methods = {}
 type Computed = {
   displayData: {
-    labels: (string | undefined)[]
-    datasets: object
+    labels: string[]
+    datasets: {
+      label: string
+      data: number[]
+      backgroundColor: string
+      borderWidth: number
+    }[]
   }
+  tableHeaders: {
+    text: TranslateResult
+    value: string
+  }[]
+  tableData: {
+    [key: number]: number
+  }[]
   displayOption: {
     responsive: boolean
     legend: {
@@ -85,6 +114,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView },
   props: {
     title: {
@@ -120,24 +152,47 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: true
     }
   },
+  data: () => ({
+    canvas: true
+  }),
   computed: {
     displayData() {
       const datasets = this.chartData.labels!.map((label, i) => {
         return {
-          label,
-          data: this.chartData.datasets!.map(d => d.data![i]),
+          label: label as string,
+          data: this.chartData.datasets!.map(d => d.data![i]) as number[],
           backgroundColor: colors[i],
           borderWidth: 0
         }
       })
       return {
-        labels: this.chartData.datasets!.map(d => d.label),
+        labels: this.chartData.datasets!.map(d => d.label!),
         datasets
       }
     },
+    tableHeaders() {
+      return [
+        { text: this.$t('日付'), value: 'text' },
+        ...this.chartData.labels!.map((text, value) => {
+          return { text: text as string, value: String(value) }
+        })
+      ]
+    },
+    tableData() {
+      return this.displayData.datasets[0].data.map((_, i) => {
+        return Object.assign(
+          { text: this.chartData.datasets![i].label as string },
+          ...this.chartData.datasets!.map((_, j) => {
+            return {
+              [j]: this.displayData.datasets[0].data[i]
+            }
+          })
+        )
+      })
+    },
     displayOption() {
       const self = this
-      return {
+      const options = {
         responsive: true,
         legend: {
           display: true,
@@ -191,6 +246,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           }
         }
       }
+      if (this.$route.query.ogp === 'true') {
+        Object.assign(options, { animation: { duration: 0 } })
+      }
+      return options
     }
   }
 }

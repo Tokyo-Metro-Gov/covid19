@@ -14,6 +14,7 @@
             :class="$style.actionsListIcon"
             src="/flow/house-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
           {{ $t('自宅で安静に過ごす') }}
         </li>
@@ -22,6 +23,7 @@
             :class="$style.actionsListIcon"
             src="/flow/apartment-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
           {{ $t('一般の医療機関を受診') }}
         </li>
@@ -41,6 +43,7 @@
 <style module lang="scss">
 .flowContainer {
   @include card-container();
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -49,6 +52,7 @@
   height: 100%;
   color: $gray-2;
 }
+
 .sectionTitle {
   display: flex;
   flex-direction: row;
@@ -58,16 +62,19 @@
   text-align: center;
   width: 100%;
   margin-bottom: 1rem;
+
   strong {
     margin: 0 0.2em;
     font-size: 28px;
     font-weight: bold;
   }
 }
+
 .actionContainer {
   display: flex;
   justify-content: space-between;
 }
+
 .actions {
   width: 49%;
   display: flex;
@@ -75,12 +82,14 @@
   justify-content: center;
   padding-left: 0 !important; // FIXME: for ul element
 }
+
 .actionsList {
   list-style-type: none;
   text-align: start;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
+
   &Icon {
     min-width: 30px;
     min-height: 30px;
@@ -88,21 +97,25 @@
     margin-right: 10px;
   }
 }
+
 .icon {
   margin-right: 10px;
 }
+
 .nextAction {
   width: 49%;
   padding: 1rem;
   border: $green-1 1.5px solid;
   border-radius: 4px;
   text-align: center;
+
   .content {
     display: flex;
     flex-direction: column;
     height: 100%;
     justify-content: space-around;
   }
+
   strong {
     font-size: 1.5rem;
   }

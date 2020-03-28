@@ -3,13 +3,20 @@ name: OGP Builder
 on:
   push:
     branches:
+      - master
       - staging
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: macos-latest
     steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.extract_branch.outputs.branch }}
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
@@ -25,8 +32,8 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run test
       - run: yarn run generate:deploy
-      - run: pip install selenium
-      - run: (python -m http.server --directory ./dist 8000 &)  ; python ./ui-test/ogp_screenshot.py
+      - run: pip3 install selenium
+      - run: (python3 -m http.server --directory ./dist 8000 &)  ; python3 ./ui-test/ogp_screenshot.py
       - name: Upload screenshot
         uses: actions/upload-artifact@v1
         with:
@@ -36,18 +43,16 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
       with:
-        ref: staging
+        ref: ${{ steps.extract_branch.outputs.branch }}
     - name: Download ogp images
       uses: actions/download-artifact@v1
       with:
         name: ogp
     - name: Commit files
       run: |
-        mkdir -p static/ogp/
-        rm -rf static/ogp
-        mv ogp static/
+        cp -rp ogp static/
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add static
@@ -56,5 +61,4 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: deploy/new_ogp
-        force: true
+        branch: ${{ steps.extract_branch.outputs.branch }}

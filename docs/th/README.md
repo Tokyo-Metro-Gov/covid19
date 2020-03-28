@@ -5,32 +5,31 @@
 [![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
 
-### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | ภาษาไทย | [Français](./../fr/README.md)
+### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | ภาษาไทย | [Français](./../fr/README.md) | [Português](./../pt_BR/README.md)
 
 
-## การร่วมพัฒนา (How to Contribute)
+## การร่วมพัฒนา
 
-เปิดรับการพัฒนาและอัพเดทต่างๆ!
-โปรดอ่าน [How to contribute](./CONTRIBUTING.md)
+เปิดรับการพัฒนาและการปรับปรุงต่างๆ!
+โปรดอ่าน [คู่มือการพัฒนา](./CONTRIBUTING.md)
 
-## จรรยาบรรณ (Code of Conduct)
+## ข้อปฏิบัติ
 
 โปรดอ่าน [Code of conduct for developers](./CODE_OF_CONDUCT.md)
 
-## ลิขสิทธิ์ (License)
-ซอฟต์แวร์อยู่ภายใต้ลิขสิทธิ์ [the MIT License](./../../LICENSE.txt).
+## สัญญาอนุญาต
 
-[PLEASE TRANSLATE ME]
+ซอฟต์แวร์นี้เผยแพร่ภายใต้สัญญาอนุญาต [MIT License](./../../LICENSE.txt)
 
-Please check [How to translate](./../../TRANSLATION.md) doc.
+## สำหรับนักแปล
 
-[/PLEASE TRANSLATE ME]
+โปรดดูเอกสารแนะนำการเข้าร่วมแปลที่ [How to translate](./../../TRANSLATION.md)
 
-## สำหรับนักพัฒนา (For Developers)
+## สำหรับนักพัฒนา
 
-### การติดตั้งโปรแกรมเพื่อการพัฒนา (How to Set Up Environments)
+### การติดตั้งสภาพแวดล้อมเพื่อการพัฒนา
 
-- ต้องการ Node.js เวอร์ชั่น: 10.19.0 หรือสูงกว่า
+- ต้องการ Node.js รุ่น 10.19.0 หรือสูงกว่า
 
 **ใช้ yarn**
 ```bash
@@ -59,22 +58,18 @@ $ yarn install
 $ docker-compose run --rm app yarn install
 ```
 
-[PLEASE TRANSLATE ME]
-### VSCode + Remote Containersで開発する場合
+### การพัฒนาด้วย VSCode + Remote Container
 
-1. VSCodeの拡張機能「[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」を導入します。
-2. [この画像（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)のように左下部の「Open Folder in Container」でこのリポジトリのルートを選択すれば環境構築が始まります。
+1. ขอแนะนำส่วนขยายของ VSCode ชื่อ ["Remote Development"](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
+2. คลิกที่มุมซ้ายล่างของ VS Code [ตามภาพนี้（เว็บไซต์ภายนอก）](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container) จากนั้นเลือก "Open Folder in Container" แล้วเลือก root ของ repository นี้ สภาพแวดล้อมสำหรับการพัฒนาจะถูกสร้างขึ้น
 
-#### Topic
-- 設定を変更したい場合は、`.devcontainer/devcontainer.json`を修正してください。
-詳細は[devcontainer.jsonのリファレンス](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)を参照してください。
-- Remote Container実行時のみ有効な拡張機能「ESLint」を導入していますが、必要に応じて`devcontainer.json`の`extensions`に追加してください。
-詳細な手順は[こちら（外部サイト）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
-- 開発環境を再構築する場合は、左下部の「Rebuild Container」を実行してください。
+#### หัวข้อ
 
-[/PLEASE TRANSLATE ME]
+- ถ้าต้องการเปลี่ยนการตั้งค่า ให้แก้แฟ้ม `.devcontainer/devcontainer.json` ดู [การอ้างอิง devcontainer.json](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference) สำหรับรายละเอียด
+- เมื่อเรียกใช้งาน Remote Container จะมีการแนะนำส่วนขยาย "ESLint" โปรดพิจารณาเพิ่มลงใน `extensions` ของ `devcontainer.json`ตามความจำเป็น โปรดดู [ที่นี่ (เว็บไซต์ภายนอก)](https://code.visualstudio.com/docs/remote/containers#_managing-extensions) สำหรับคำแนะนำรายละเอียด
+- หากต้องการสร้างสภาพแวดล้อมการพัฒนาขึ้นใหม่ ให้ดำเนินการ "Rebuild Container" โดยคลิกที่มุมซ้ายล่าง
 
-### ขั้นตอนการ Deploy ไปยัง Production (Deployment to Staging & Production Environments)
+### ขั้นตอนการ deploy ไปยัง production
 
 ถ้า 'master' ได้รับการแก้ไขหรือปรับปรุง HTML จะถูกสร้างและส่งไปยัง 'production' โดยอัตโนมัติ
 และ เว็บไซต์ (https://stopcovid19.metro.tokyo.lg.jp/) จะได้รับการอัพเดท
@@ -85,26 +80,25 @@ $ docker-compose run --rm app yarn install
 ถ้า 'development' ได้รับการแก้ไขหรือปรับปรุง HTML จะถูกสร้างและส่งไปยัง 'dev-pages' โดยอัตโนมัติ
 และ เว็บไซต์ (https://dev-covid19-tokyo.netlify.com/) จะได้รับการอัพเดท
 
-### กฎการใช้ Branch (Branch rules)
+### กฎการใช้ branch
 
-Pull Request เปิดรับได้ที่ `development`, `dev-i18n` และ `dev-hotfix` เท่านั้น
-โปรดตั้งชื่อ Branch ดังนี้
+pull request เปิดรับได้ที่ `development` และ `dev-hotfix` เท่านั้น
+โปรดตั้งชื่อ branch ดังนี้
 
-Feature implementation: feature/#{ISSUE_ID}-#{branch_title_name}  
-Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
+การสร้างฟีเจอร์: feature/#{ISSUE_ID}-#{branch_title_name}  
+hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 
-#### Branch หลัก
-| จุดประสงค์ | Branch | URL | หมายเหตุ |
+#### branch หลัก
+| จุดประสงค์ | branch | URL | หมายเหตุ |
 | ---- | -------- | ---- | ---- |
-| Development | development | http://dev-covid19-tokyo.netlify.com/ | Branch หลัก ใช้ในการรับ Pull Request |
+| Development | development | http://dev-covid19-tokyo.netlify.com/ | branch หลัก ใช้ในการรับ pull request |
 | Hotfix branch | dev-hotfix | None | Branch สำหรับ hotfix ของ production - ใช้ในกรณีที่ admin อนุญาตแล้วเท่านั้น |
-| i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | ใช้ชั่วคราว |
-| Staging | staging | https://stg-covid19-tokyo.netlify.com/ | ใช้สำหรับ Stag อัพเดทต่างๆ ก่อนนำไป deploy ลง production - ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
-| Production | master | http://stopcovid19.metro.tokyo.lg.jp/ | ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
+| Staging | staging | https://stg-covid19-tokyo.netlify.com/ | ใช้สำหรับ staging ทดสอบตัวปรับปรุง ก่อน deploy ลง production - ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
+| Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
 
-#### Branch ที่ถูกใช้โดยระบบ
-| จุดประสงค์ | Branch | URL | หมายเหตุ |
+#### branch ที่ถูกใช้โดยระบบ
+| จุดประสงค์ | branch | URL | หมายเหตุ |
 | ---- | -------- | ---- | ---- |
-| Production site HTML | production | http://stopcovid19.metro.tokyo.lg.jp/ | HTML สำหรับ production |
+| Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | HTML สำหรับ production |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | HTML สำหรับ staging |
-| สำหรับ OGP working directory | deploy / new_ogp | None | สำหรับอัพเดท OGP |
+| สำหรับ OGP working directory | deploy / new_ogp | None | สำหรับปรับปรุง OGP |

@@ -1,14 +1,14 @@
 <template>
   <div class="Worker">
-    <h2 class="Worker-Heading">
+    <page-header class="mb-3">
       {{ $t('企業の皆様・はたらく皆様へ') }}
-    </h2>
+    </page-header>
     <StaticCard>
       <h3>
         <a
           href="http://www.sangyo-rodo.metro.tokyo.jp/chushou/kinyu/yuushi/yuushi/new"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('新型コロナウイルス感染症に対応した制度融資') }}</a
         >
       </h3>
@@ -25,7 +25,7 @@
         <a
           href="https://www.tokyo-kosha.or.jp/topics/2003/0001.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('新型コロナウイルスによる経営課題に関する専門家派遣') }}</a
         >
       </h3>
@@ -42,7 +42,7 @@
         <a
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('中小企業従業員融資') }}</a
         >
       </h3>
@@ -59,7 +59,7 @@
         <a
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{
             $t('新型コロナウイルス感染症に係る休業等支援事業（専門家派遣）')
           }}</a
@@ -78,7 +78,7 @@
         <a
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('新型コロナウイルス感染症対策雇用環境整備促進事業') }}</a
         >
       </h3>
@@ -95,7 +95,7 @@
         <a
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('テレワーク導入モデル体験事業') }}</a
         >
       </h3>
@@ -112,7 +112,7 @@
         <a
           href="https://www.shigotozaidan.or.jp/koyo-kankyo/joseikin/kinkyutaisaku.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('事業継続緊急対策（テレワーク）助成金') }}</a
         >
       </h3>
@@ -126,9 +126,12 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a href="https://tokyo-telework.jp/" target="_blank" rel="noopener">{{
-          $t('テレワークオンラインセミナー開催')
-        }}</a>
+        <a
+          href="https://tokyo-telework.jp/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{ $t('テレワークオンラインセミナー開催') }}</a
+        >
       </h3>
       <p>
         {{
@@ -143,7 +146,7 @@
         <a
           href="http://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('中小企業者等特別相談窓口') }}</a
         >
       </h3>
@@ -156,7 +159,7 @@
         <a
           href="http://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('フリーランスを含む個人事業主特別相談窓口') }}</a
         >
       </h3>
@@ -171,14 +174,14 @@
         <a
           href="https://www.hataraku.metro.tokyo.lg.jp/sodan/sodan/index.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('緊急労働相談ダイヤル') }}</a
         >
       </h3>
       <p>
         {{
           $t(
-            '新型コロナウイルスに関する休暇や休業の取り扱い、職場のハラスメントなどについての相談'
+            '新型コロナウイルスに関する休暇や休業の取り扱い、職場のハラスメント、内定取り消しなどについての相談'
           )
         }}
       </p>
@@ -188,7 +191,7 @@
         <a
           href="https://smooth-biz.metro.tokyo.lg.jp/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{
             $t('新しいワークスタイルや企業活動の東京モデル「スムーズビズ」')
           }}</a
@@ -209,19 +212,11 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import StaticCard from '@/components/StaticCard.vue'
-
-type ItemData = {
-  items: Item[]
-}
-
-type Item = {
-  title: string
-  link: string
-  body: string
-}
+import PageHeader from '@/components/PageHeader.vue'
 
 export default Vue.extend({
   components: {
+    PageHeader,
     StaticCard
   },
   head(): MetaInfo {
@@ -231,14 +226,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="scss">
-.Worker {
-  &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
-    margin-bottom: 12px;
-  }
-}
-</style>

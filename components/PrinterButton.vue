@@ -57,11 +57,14 @@ export default {
 <style lang="scss" scoped>
 .PrinterButton {
   @include button-text('md');
+
   &:hover {
     color: $white !important;
   }
+
   &-Text {
     margin: 6px auto 0;
+
     @include lessThan($small) {
       position: absolute !important;
       height: 1px !important;
@@ -74,6 +77,7 @@ export default {
       clip-path: inset(50%) !important;
     }
   }
+
   &-PrinterIcon {
     margin-top: 8px;
     width: 25px;
@@ -81,6 +85,7 @@ export default {
     @include largerThan($small) {
       padding-right: 7px;
     }
+
     svg {
       width: auto;
     }

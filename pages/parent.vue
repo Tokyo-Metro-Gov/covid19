@@ -1,8 +1,8 @@
 <template>
   <div class="Parent">
-    <h2 class="Parent-Heading">
+    <page-header class="mb-3">
       {{ $t('臨時休校中の新型コロナウイルス感染症対応についてのお願い') }}
-    </h2>
+    </page-header>
     <StaticCard>
       <h3>1. {{ $t('感染予防・健康管理') }}</h3>
       <ul>
@@ -19,7 +19,7 @@
           <a
             href="https://tokyodouga.jp/lViN9C_BS-0.html"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             >{{ $t('【参考】感染症予防のための正しい手洗い方法（動画）') }}</a
           >
         </li>
@@ -37,18 +37,19 @@
       <ul>
         <li>{{ $t('各保健所にご相談ください') }}</li>
         <li>
-          {{ $t('「新型コロナウイルス感染症にかかる相談窓口について」') }}<br />
+          {{ $t('各保健所の電話番号について') }}
+          <br />
           <a
             href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
             target="_blank"
-            rel="noopener"
-            >https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html</a
+            rel="noopener noreferrer"
+            >{{ $t('「新型コロナウイルス感染症にかかる相談窓口について」') }}</a
           >
         </li>
       </ul>
     </StaticCard>
     <StaticCard>
-      <h3>3. {{ $t('その他') }}</h3>
+      <h3>3. {{ $t('その他.parent') }}</h3>
       <p>{{ $t('詳細は、各学校からのお知らせ等をご確認ください。') }}</p>
     </StaticCard>
   </div>
@@ -58,18 +59,11 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import StaticCard from '@/components/StaticCard.vue'
-
-type ItemData = {
-  items: Item[]
-}
-
-type Item = {
-  title: string
-  body: string
-}
+import PageHeader from '@/components/PageHeader.vue'
 
 export default Vue.extend({
   components: {
+    PageHeader,
     StaticCard
   },
   head(): MetaInfo {
@@ -79,14 +73,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="scss">
-.Parent {
-  &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
-    margin-bottom: 12px;
-  }
-}
-</style>
