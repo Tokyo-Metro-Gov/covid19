@@ -18,6 +18,14 @@
 ## 授权
 本软件采用[MIT授权条款](./../../LICENSE.txt)。
 
+## 从这个网站衍生出来的东西
+
+请参考[此链接](./../../FORKED_SITES.md)
+
+## 给翻译者的信息
+
+有要帮忙翻译的话，请参考[这个文件](./TRANSLATION.md) 。
+
 请查看 [如何翻译](./../../TRANSLATION.md) 文档。
 
 ## 面向开发者信息
@@ -43,6 +51,24 @@ $ yarn dev
 $ docker-compose up --build
 ```
 
+**使用 Vagrant 时**
+```bash
+# serve with hot reload at localhost:3000
+$ vagrant up
+```
+
+### 出现 `Cannot find module ****` 的error時
+
+**使用 yarn 时**
+```
+$ yarn install
+```
+
+**使用 docker compose 时**
+```bash
+$ docker-compose run --rm app yarn install
+```
+
 ### VSCode + Remote Containers 的开发环境
 
 1. 安装 VSCode 插件 [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)」。
@@ -57,7 +83,7 @@ $ docker-compose up --build
 
 ### 判断生产环境/其他环境
 
-`process.env.GENERATE_ENV` 这个值在生产环境为 `'production'` 除此之外为 `'development'` 。  
+`process.env.GENERATE_ENV` 这个值在生产环境为 `'production'` 除此之外为 `'development'` 。
 如果只想要在测试环境中运行的话，请使用这个值作为参考。
 
 ### 发布到 Staging环境以及正式环境的方法
@@ -70,10 +96,10 @@ $ docker-compose up --build
 
 ### 规则
 
-只允许推送 Pull Request 到 `development` 、 `dev-i18n` 和 `dev-hotfix` 分支。
+只允许推送 Pull Request 到 `development`  和 `dev-hotfix` 分支。
 在推送 Pull Request 时，请按照以下命名规则为您的分支命名：
 
-新增功能: feature/#{ISSUE_ID}-#{branch_title_name}  
+新增功能: feature/#{ISSUE_ID}-#{branch_title_name}
 Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 #### 基本分支
@@ -81,7 +107,6 @@ Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 | ---- | -------- | ---- | ---- |
 | 开发 | development | https://dev-covid19-tokyo.netlify.com/ | 基本上请推送 Pull Request 到这里 |
 | 紧急修复 | dev-hotfix | 无 | 对正式版的紧急修复。在管理员的要求下使用。 |
-| i18n 工作用 | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | 暂时使用 |
 | 正式版预览 | staging | https://stg-covid19-tokyo.netlify.com/ | 对于正式版发布前的最终确认，禁止管理员以外的人推送 Pull Request。 |
 | 正式版 | master | https://stopcovid19.metro.tokyo.lg.jp/ | 禁止管理员以外的人推送 Pull Request |
 #### 系统所使用的分支

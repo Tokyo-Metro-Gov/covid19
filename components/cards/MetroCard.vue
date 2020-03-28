@@ -8,7 +8,6 @@
       :date="metroGraph.date"
       :tooltips-title="metroGraphTooltipTitle"
       :tooltips-label="metroGraphTooltipLabel"
-      :url="''"
       :unit="$t('%')"
     >
       <template v-slot:description>
@@ -19,6 +18,12 @@
         }}
         <br />
         *{{ $t('都営地下鉄4路線の自動改札出場数') }}
+        <br />
+        {{
+          $t(
+            '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+          )
+        }}
       </template>
     </metro-bar-chart>
   </v-col>

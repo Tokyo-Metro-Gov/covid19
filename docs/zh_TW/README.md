@@ -48,6 +48,12 @@ $ yarn dev
 $ docker-compose up --build
 ```
 
+**使用 Vagrant 的做法**
+```bash
+# serve with hot reload at localhost:3000
+$ vagrant up
+```
+
 ### 被 `Cannot find module ****` 卡住時
 
 **使用 yarn 的做法**
@@ -87,7 +93,7 @@ $ docker-compose run --rm app yarn install
 
 ### 分支規則
 
-只允許推送 Pull Request 到 `development` 、 `dev-i18n` 跟 `dev-hotfix` 。  
+只允許推送 Pull Request 到 `development`  跟 `dev-hotfix` 。
 在推送 Pull Request 時，請依照以下命名規則為您的分支命名
 
 新增功能: feature/#{ISSUE_ID}-#{branch_title_name}  
@@ -98,7 +104,6 @@ Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 | ---- | -------- | ---- | ---- |
 | 開發 | development | https://dev-covid19-tokyo.netlify.com/ | 基本上請推送 Pull Request 到這裡 |
 | 緊急修復 | dev-hotfix | 無 | 對於正式版的緊急修復。 在管理員的要求下使用。 |
-| i18n 工作用 | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | 暫時使用 |
 | 正式版預覽 | staging | https://stg-covid19-tokyo.netlify.com/ | 對於正式版釋出前的最終確認，禁止管理員以外的人推送 Pull Request。 |
 | 正式版 | master | https://stopcovid19.metro.tokyo.lg.jp/ | 禁止管理員以外的人推送 Pull Request |
 #### 系統所使用的分支
