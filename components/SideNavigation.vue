@@ -38,7 +38,7 @@
           <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
             {{ $t('多言語対応選択メニュー') }}
           </label>
-          <!--<LanguageSelector />-->
+          <LanguageSelector />
         </div>
       </nav>
 
@@ -122,9 +122,9 @@ export default Vue.extend({
 
         {
           icon: 'mdi-account-multiple',
-          title: this.$t('新型コロナウイルス感染症に関する情報《岩手県》'),
+          title: this.$t('岩手県 - 感染症情報'),
           link:
-            'https://www.pref.iwate.jp/kurashikankyou/iryou/kenkou/jouhou/1028020.html'
+            'https://www.pref.iwate.jp/kurashikankyou/iryou/kenkou/jouhou/index.html'
         },
 
         {
