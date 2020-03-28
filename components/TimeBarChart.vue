@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:description>
       <slot name="description" />
     </template>
@@ -23,9 +23,9 @@
       :items="tableData"
       :items-per-page="-1"
       :hide-default-footer="true"
-      :hide-default-header="true"
       :height="240"
       :fixed-header="true"
+      :disable-sort="true"
       :mobile-breakpoint="0"
       class="cardTable"
       item-key="name"
@@ -37,16 +37,22 @@
         :unit="displayInfo.unit"
       />
     </template>
+    <template v-slot:footer>
+      <open-data-link v-show="url" :url="url" />
+    </template>
   </data-view>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
+
 import { single as color } from '@/utils/colors'
 import { TranslateResult } from 'vue-i18n'
 
@@ -91,7 +97,7 @@ type Computed = {
   }
   scaledTicksYAxisMax: number
   tableHeaders: {
-    text: string
+    text: TranslateResult
     value: string
   }[]
   tableData: {
@@ -118,7 +124,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
   props: {
     title: {
       type: String,
@@ -254,11 +260,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 20,
                 fontColor: '#808080',
                 maxRotation: 0,
-                minRotation: 0,
                 callback: (label: string) => {
                   return label.split('/')[1]
                 }
               }
+              // #2384: If you set "type" to "time", make sure that the bars at both ends are not hidden.
+              // #2384: typeをtimeに設定する時はグラフの両端が見切れないか確認してください
             },
             {
               id: 'month',
@@ -276,6 +283,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontStyle: 'bold',
                 gridLines: {
                   display: true
+<<<<<<< HEAD
                 },
                 callback: (label: string) => {
                   const monthStringArry = [
@@ -295,11 +303,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                   // const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
                   // return month + '月'
                   return label.split(' ')[0]
+=======
+>>>>>>> upstream/development
                 }
               },
               type: 'time',
               time: {
-                unit: 'month'
+                unit: 'month',
+                parser: 'M/D',
+                displayFormats: {
+                  month: 'MMM'
+                }
               }
             }
           ],
@@ -335,7 +349,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     tableHeaders() {
       return [
-        { text: '', value: 'text' },
+        { text: this.$t('日付'), value: 'text' },
         { text: this.title, value: '0' }
       ]
     },

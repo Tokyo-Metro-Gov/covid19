@@ -5,6 +5,7 @@
         :class="$style.Box1Icon"
         src="/flow/flow_arrow.svg"
         aria-hidden="true"
+        alt=" "
       />
       <div :class="$style.RowItems">
         <div :class="$style.RowItemsHeader">
@@ -12,6 +13,7 @@
             :class="$style.RowItemsHeaderIcon"
             src="/flow/sentiment_very_dissatisfied-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
           {{ $t('不安に思う方') }}
         </div>
@@ -22,6 +24,7 @@
             :class="$style.CheckBoxIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
           {{ $t('微熱') }}
         </div>
@@ -30,6 +33,7 @@
             :class="$style.CheckBoxIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
           {{ $t('軽い咳') }}
         </div>
@@ -38,6 +42,7 @@
             :class="$style.CheckBoxIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
           {{ $t('感染の不安') }}
         </div>
@@ -58,6 +63,7 @@
             :class="$style.TelLinkIcon"
             src="/flow/phone-24px.svg"
             aria-hidden="true"
+            :alt="$t('電話番号')"
           />
           0570-550571
         </a>
