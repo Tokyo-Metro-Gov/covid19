@@ -253,11 +253,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')
-    const describedbyId = `${this.titleId}-graph`
+    const labelledbyId = `${this.titleId}-graph`
 
     if (canvas) {
       canvas.setAttribute('role', 'img')
-      canvas.setAttribute('aria-labelledby', describedbyId)
+      canvas.setAttribute('aria-labelledby', labelledbyId)
     }
   }
 }
