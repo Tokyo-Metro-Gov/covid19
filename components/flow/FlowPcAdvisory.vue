@@ -34,7 +34,7 @@
             <a
               href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
             >
               <span>{{ $t('各保健所の電話番号は福祉保健局HPへ') }}</span>
               <v-icon size="18">
