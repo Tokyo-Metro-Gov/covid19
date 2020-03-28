@@ -5,7 +5,7 @@
         <slot name="description" />
       </small>
     </template>
-    <h4 :id="`${titleId}-graph`">
+    <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title: this.title }) }}
     </h4>
     <bar

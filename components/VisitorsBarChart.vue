@@ -17,7 +17,7 @@
         <li>{{ $t('※2) 土・日・祝日を除く7:30~8:30の1週間平均値') }}</li>
       </ol>
     </template>
-    <h4 :id="`${titleId}-graph`">
+    <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title: this.title }) }}
     </h4>
     <bar
