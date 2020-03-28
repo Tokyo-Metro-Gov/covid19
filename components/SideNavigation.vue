@@ -35,21 +35,17 @@
 
       <nav class="SideNavigation-Menu">
         <div class="SideNavigation-Language">
-          <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
-            {{ $t('多言語対応選択メニュー') }}
-          </label>
-          <LanguageSelector />
+          <div
+            v-if="this.$i18n.locales.length > 1"
+            class="SideNavigation-Language"
+          >
+            <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+              {{ $t('多言語対応選択メニュー') }}
+            </label>
+            <LanguageSelector />
+          </div>
         </div>
         <MenuList :items="items" @click="$emit('closeNavi', $event)" />
-        <div
-          v-if="this.$i18n.locales.length > 1"
-          class="SideNavigation-Language"
-        >
-          <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
-            {{ $t('多言語対応選択メニュー') }}
-          </label>
-          <LanguageSelector />
-        </div>
       </nav>
 
       <footer class="SideNavigation-Footer">
