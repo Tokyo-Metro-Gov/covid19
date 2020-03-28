@@ -276,6 +276,9 @@ export default Vue.extend({
   height: 100%;
 
   .LegendStickyChart {
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
     > div:first-child {
       overflow-x: scroll;
     }
@@ -354,8 +357,6 @@ export default Vue.extend({
 
   &-CardText {
     margin: 16px 0;
-    position: relative;
-    overflow: hidden;
   }
 
   &-Description {
