@@ -23,7 +23,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://covid19-iwate.netlify.com/'
+        content: 'https://iwate.stopcovid19.jp/'
       },
       {
         hid: 'og:title',
@@ -33,7 +33,7 @@ const config: Configuration = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://covid19-iwate.netlify.com/ogp.png'
+        content: 'https://iwate.stopcovid19.jp/ogp.png'
       },
       {
         hid: 'twitter:card',
