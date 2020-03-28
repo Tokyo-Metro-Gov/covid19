@@ -30,21 +30,24 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "sh pre-commit.sh && lint-staged"
     }
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.0",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "@types/d3": "^5.7.2",
+    "@types/mapbox-gl": "^1.8.0",
     "chart.js": "^2.9.3",
     "cross-env": "^5.2.0",
     "dayjs": "^1.8.21",
     "express": "^4.16.4",
+    "mapbox-gl": "^1.8.1",
+    "mapbox-gl-vue": "^2.0.4",
     "nuxt": "^2.11.0",
     "nuxt-i18n": "^6.6.0",
     "vue-chartjs": "^3.5.0",
-    "vue-property-decorator": "^8.4.0",
     "vue-scrollto": "^2.17.1",
     "vue-spinner": "^1.0.3"
   },

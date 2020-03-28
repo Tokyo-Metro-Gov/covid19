@@ -1,9 +1,10 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <span />
     </template>
     <v-data-table
+      :ref="'displayedTable'"
       :headers="chartData.headers"
       :items="chartData.datasets"
       :items-per-page="-1"
@@ -22,6 +23,9 @@
         :s-text="info.sText"
         :unit="info.unit"
       />
+    </template>
+    <template v-slot:footer>
+      <open-data-link :url="url" />
     </template>
   </data-view>
 </template>
@@ -87,9 +91,10 @@
 import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default Vue.extend({
-  components: { DataView, DataViewBasicInfoPanel },
+  components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
   props: {
     title: {
       type: String,
@@ -117,9 +122,12 @@ export default Vue.extend({
     }
   },
   mounted() {
-    const elementList = document.querySelectorAll('.sortable span')
-    elementList.forEach(element => {
-      element.setAttribute('tabindex', '0')
+    const vTables = this.$refs.displayedTable as Vue
+    const vTableElement = vTables.$el
+    const tables = vTableElement.querySelectorAll('table')
+
+    tables.forEach((table: HTMLElement) => {
+      table.setAttribute('tabindex', '0')
     })
   }
 })

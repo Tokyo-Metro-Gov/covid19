@@ -8,7 +8,7 @@
             <br />({{ $t('累計') }})
           </span>
           <span>
-            <strong>{{ 陽性物数 }}</strong>
+            <strong>{{ 陽性者数 }}</strong>
             <span :class="$style.unit">{{ $t('人') }}</span>
           </span>
         </div>
@@ -88,7 +88,7 @@ export default Vue.extend({
       type: Number,
       required: true
     },
-    陽性物数: {
+    陽性者数: {
       type: Number,
       required: true
     },
@@ -266,6 +266,7 @@ $default-boxdiff: 35px;
 
   > span {
     display: block;
+    width: 100%;
 
     @include font-size(16);
 
