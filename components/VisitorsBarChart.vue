@@ -358,7 +358,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
     if (canvas) {
       canvas.setAttribute('role', 'img')
-      canvas.setAttribute('aria-describedby', describedbyId)
+      canvas.setAttribute('aria-labelledby', describedbyId)
     }
   }
 }
