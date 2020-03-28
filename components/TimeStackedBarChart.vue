@@ -59,12 +59,14 @@
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
+import { Chart } from 'chart.js'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import { double as colors } from '@/utils/colors'
+import type { DisplayData } from '@/plugins/vue-chart';
 
-interface HTMLElementEvent<T extends HTMLElement> extends Event {
+interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
 }
 type Data = {
@@ -85,16 +87,7 @@ type Computed = {
     sText: string
     unit: string
   }
-  displayData: {
-    labels: string[]
-    datasets: {
-      label: string
-      data: number[]
-      backgroundColor: string
-      borderColor: string
-      borderWidth: object
-    }[]
-  }
+  displayData: DisplayData
   tableHeaders: {
     text: TranslateResult
     value: string
@@ -102,23 +95,7 @@ type Computed = {
   tableData: {
     [key: number]: number
   }[]
-  options: {
-    tooltips: {
-      displayColors: boolean
-      callbacks: {
-        label: (tooltipItem: any) => string
-        title: (tooltipItem: any, data: any) => string
-      }
-    }
-    responsive: boolean
-    maintainAspectRatio: boolean
-    legend: {
-      display: boolean
-      onHover: (e: HTMLElementEvent<HTMLElement>) => void
-      onLeave: (e: HTMLElementEvent<HTMLElement>) => void
-    }
-    scales: object
-  }
+  options: Chart.ChartOptions
 }
 
 type Props = {
@@ -269,32 +246,32 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return this.cumulative(item)
       })
       const cumulativeSumArray = this.eachArraySum(cumulativeData)
-      const options = {
+      const options: Chart.ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label: (tooltipItem: any) => {
+            label: (tooltipItem) => {
               let casesTotal, cases
               if (this.dataKind === 'transition') {
-                casesTotal = sumArray[tooltipItem.index].toLocaleString()
-                cases = data[tooltipItem.datasetIndex][
-                  tooltipItem.index
+                casesTotal = sumArray[tooltipItem.index!].toLocaleString()
+                cases = data[tooltipItem.datasetIndex!][
+                  tooltipItem.index!
                 ].toLocaleString()
               } else {
                 casesTotal = cumulativeSumArray[
-                  tooltipItem.index
+                  tooltipItem.index!
                 ].toLocaleString()
-                cases = cumulativeData[tooltipItem.datasetIndex][
-                  tooltipItem.index
+                cases = cumulativeData[tooltipItem.datasetIndex!][
+                  tooltipItem.index!
                 ].toLocaleString()
               }
 
               return `${
-                this.dataLabels[tooltipItem.datasetIndex]
+                this.dataLabels[tooltipItem.datasetIndex!]
               }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
             },
-            title(tooltipItem: any, data: any) {
-              return data.labels[tooltipItem[0].index]
+            title(tooltipItem, data) {
+              return String(data.labels![tooltipItem[0].index!])
             }
           }
         },
@@ -356,7 +333,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              location: 'bottom',
               stacked: true,
               gridLines: {
                 display: true,
