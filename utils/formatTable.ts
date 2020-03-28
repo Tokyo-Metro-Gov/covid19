@@ -10,7 +10,7 @@ const headers = [
 
 type DataType = {
   リリース日: string
-  居住地: string
+  居住地: string | null
   年代: string | null
   性別: '男性' | '女性' | string
   退院: '◯' | null
