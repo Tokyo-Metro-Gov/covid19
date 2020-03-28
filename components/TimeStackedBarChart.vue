@@ -22,7 +22,11 @@
         :style="{ display: canvas ? 'inline-block' : 'none' }"
       />
     </template>
+    <h4 :id="`${titleId}-graph`">
+      {{ $t(`{title}のグラフ`, { title: this.title }) }}
+    </h4>
     <bar
+      :ref="'barChart'"
       :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
@@ -410,6 +414,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
       }
       return sumArray
+    }
+  },
+  mounted() {
+    const barChart = this.$refs.barChart as Vue
+    const barElement = barChart.$el
+    const canvas = barElement.querySelector('canvas')
+    const describedbyId = `${this.titleId}-graph`
+
+    if (canvas) {
+      canvas.setAttribute('role', 'img')
+      canvas.setAttribute('aria-describedby', describedbyId)
     }
   }
 }
