@@ -1,11 +1,5 @@
 <template>
-  <data-view
-    :title="title"
-    :title-id="titleId"
-    :date="date"
-    :url="url"
-    :source="source"
-  >
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:description>
       <slot name="description" />
     </template>
@@ -117,7 +111,6 @@ type Props = {
   date: string
   unit: string
   url: string
-  source: string
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -158,11 +151,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     url: {
       type: String,
-      default: ''
-    },
-    source: {
-      type: String,
-      required: false,
       default: ''
     }
   },
@@ -270,10 +258,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 9,
                 maxTicksLimit: 20,
                 fontColor: '#808080',
-                minRotation: 0,
-                callback: (label: string) => {
-                  return label.split('/')[1]
-                }
+                maxRotation: 0
               },
               type: 'time',
               time: {
@@ -300,34 +285,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontStyle: 'bold',
                 gridLines: {
                   display: true
-                },
-                callback: (label: string) => {
-                  const monthStringArry = [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec'
-                  ]
-                  const mm = monthStringArry.indexOf(label.split(' ')[0]) + 1
-                  const year = new Date().getFullYear()
-                  const mdate = new Date(year + '-' + mm + '-1')
-                  let localString
-                  if (this.$root.$i18n.locale === 'ja-basic') {
-                    localString = 'ja'
-                  } else {
-                    localString = this.$root.$i18n.locale
-                  }
-                  return mdate.toLocaleString(localString, {
-                    month: 'short'
-                  })
                 }
               },
               type: 'time',

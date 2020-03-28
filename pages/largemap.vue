@@ -4,29 +4,7 @@
       {{ headerItem.title }}
     </page-header>
     <v-row class="DataBlock">
-      <v-col cols="12" md="12" class="DataCard">
-        <map-card
-          :title="''"
-          :caption="$t('※7:30〜8:30の平均値')"
-          :title-id="'tokyo-city-title'"
-          :chart-id="'tokyo-city-chart'"
-          :map-id="'tokyo-city-map'"
-          :initial-bounds="[
-            [139.695239, 35.676437],
-            [139.773774, 35.694493]
-          ]"
-          :map-height="640"
-          :map-options="{ interactive: true }"
-          :unit="'人'"
-          :url="'https://ds.yahoo.co.jp/datapolicy/'"
-          :source-link-header="
-            $t('※本データは2020年3月31日までの掲載となります')
-          "
-          :heatmap-legend="[20000, 40000, 60000]"
-          :link-string="$t('ヤフー・データソリューション')"
-          :date="''"
-        />
-      </v-col>
+      <tokyo-city-map-card />
     </v-row>
   </div>
 </template>
@@ -37,12 +15,12 @@ import { MetaInfo } from 'vue-meta'
 import PageHeader from '@/components/PageHeader.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
-import MapCard from '@/components/MapCard.vue'
+import TokyoCityMapCard from '@/components/cards/TokyoCityMapCard.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
-    MapCard
+    TokyoCityMapCard
   },
   data() {
     const data = {

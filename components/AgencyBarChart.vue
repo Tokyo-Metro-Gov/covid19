@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:infoPanel>
       <small :class="$style.DataViewDesc">
         <slot name="description" />
@@ -83,7 +83,6 @@ type Props = {
   titleId: string
   chartId: string
   unit: string
-  url: string
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -114,11 +113,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: 'agency-bar-chart'
     },
     unit: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    url: {
       type: String,
       required: false,
       default: ''

@@ -8,7 +8,6 @@
       :date="metroGraph.date"
       :tooltips-title="metroGraphTooltipTitle"
       :tooltips-label="metroGraphTooltipLabel"
-      :url="''"
       :unit="$t('%')"
     >
       <template v-slot:description>
