@@ -142,8 +142,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
-  created() {
-    this.canvas = process.browser
+  mounted() {
+    this.canvas = true
   },
   components: { DataView, SourceLink },
   props: {
@@ -195,6 +195,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: ''
     }
   },
+  data: () => ({
+    canvas: false
+  }),
   computed: {
     groupByWeekData() {
       const sundays = this.chartData

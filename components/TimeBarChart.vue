@@ -11,6 +11,7 @@
       />
     </template>
     <bar
+      ref="bar"
       :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
@@ -121,8 +122,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
-  created() {
-    this.canvas = process.browser
+  mounted() {
+    this.canvas = true
+    const chart = this.$refs.bar as Vue
+    const el = chart.$el as HTMLElement
+    el.style.height = `${chart.$props.height}px`
   },
   components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
   props: {
@@ -157,7 +161,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
-    canvas: true
+    canvas: false
   }),
   computed: {
     displayCumulativeRatio() {

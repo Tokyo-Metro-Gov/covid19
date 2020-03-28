@@ -82,8 +82,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
-  created() {
-    this.canvas = process.browser
+  mounted() {
+    this.canvas = true
   },
   components: { DataView },
   props: {
@@ -118,7 +118,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       dataset.label = this.$t(dataset.label) as string
     })
     return {
-      canvas: true,
+      canvas: false,
       chartData: agencyData,
       date: agencyData.date,
       agencies
