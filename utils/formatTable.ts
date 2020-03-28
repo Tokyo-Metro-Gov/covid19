@@ -10,7 +10,7 @@ const headers = [
 
 type DataType = {
   リリース日: string
-  居住地: string | null
+  居住地: string
   年代: string | null
   性別: '男性' | '女性' | string
   退院: '◯' | null
@@ -43,7 +43,7 @@ export default (data: DataType[]) => {
   data.forEach(d => {
     const TableRow: TableDataType = {
       公表日: dayjs(d['リリース日']).format('MM/DD') ?? '不明',
-      居住地: d['居住地'] ?? '不明',
+      居住地: d['居住地'] ?? '調査中',
       年代: d['年代'] ?? '不明',
       性別: d['性別'] ?? '不明',
       退院: d['退院']
