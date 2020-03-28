@@ -79,7 +79,7 @@ interface DataSets<T = number> extends Chart.ChartData {
   data: T[]
 }
 interface DisplayData<T = number, U = string> {
-  labels: U[]
+  labels?: U[]
   datasets: DataSets<T>[]
 }
 
@@ -366,10 +366,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayDataHeader() {
       if (this.dataKind === 'transition') {
         return {
-          labels: ['1/1'],
           datasets: [
             {
-              label: this.dataKind,
               data: [Math.max(...this.chartData.map(d => d.transition))],
               backgroundColor: 'transparent',
               borderWidth: 0
@@ -378,10 +376,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       return {
-        labels: ['1/1'],
         datasets: [
           {
-            label: this.dataKind,
             data: [Math.max(...this.chartData.map(d => d.cumulative))],
             backgroundColor: 'transparent',
             borderWidth: 0
@@ -397,6 +393,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         legend: {
           display: false
         },
+        tooltips: { enabled: false },
         scales: {
           xAxes: [
             {
