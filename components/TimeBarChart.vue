@@ -66,7 +66,7 @@ import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
-import type { DisplayData } from '@/plugins/vue-chart';
+import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 
 import { single as color } from '@/utils/colors'
 
@@ -154,49 +154,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     scrollPlugin: {
       type: Array,
-      default: () => [
-        {
-          beforeInit(chartInstance) {
-            chartInstance.canvas!.parentElement!.scrollLeft! = chartInstance.width!
-          }
-        }
-      ]
+      default: () => scrollPlugin
     },
     yAxesBgPlugin: {
       type: Array,
-      default: () => [
-        {
-          beforeDraw(chartInstance) {
-            const ctx = chartInstance.ctx!
-
-            // プロットエリアマスク用
-            ctx.fillStyle = '#fff'
-            ctx.fillRect(
-              0,
-              0,
-              chartInstance.chartArea.left,
-              chartInstance.chartArea.bottom + 1
-            )
-
-            // 横軸マスク用
-            const gradient = ctx.createLinearGradient(
-              0,
-              0,
-              chartInstance.chartArea.left,
-              0
-            )
-            gradient.addColorStop(0, 'rgba(255,255,255,1)')
-            gradient.addColorStop(1, 'rgba(255,255,255,0)')
-            ctx.fillStyle = gradient
-            ctx.fillRect(
-              0,
-              chartInstance.chartArea.bottom + 1,
-              chartInstance.chartArea.left,
-              chartInstance.height! - chartInstance.chartArea.bottom - 1
-            )
-          }
-        }
-      ]
+      default: () => yAxesBgPlugin
     }
   },
   data: () => ({

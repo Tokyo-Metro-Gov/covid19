@@ -1,5 +1,5 @@
 import Vue, { PropType } from 'vue'
-import { Chart, ChartData, ChartOptions } from 'chart.js'
+import { ChartData, ChartOptions } from 'chart.js'
 import { Doughnut, Bar, Line, mixins } from 'vue-chartjs'
 import { Plugin } from '@nuxt/types'
 import { useDayjsAdapter } from './chartjs-adapter-dayjs'
@@ -107,6 +107,47 @@ const createCustomChart = () => {
 }
 
 export default VueChartPlugin
+
+export const yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[] = [
+  {
+    beforeDraw(chartInstance) {
+      const ctx = chartInstance.ctx!
+
+      // プロットエリアマスク用
+      ctx.fillStyle = '#fff'
+      ctx.fillRect(
+        0,
+        0,
+        chartInstance.chartArea.left,
+        chartInstance.chartArea.bottom + 1
+      )
+
+      // 横軸マスク用
+      const gradient = ctx.createLinearGradient(
+        0,
+        0,
+        chartInstance.chartArea.left,
+        0
+      )
+      gradient.addColorStop(0, 'rgba(255,255,255,1)')
+      gradient.addColorStop(1, 'rgba(255,255,255,0)')
+      ctx.fillStyle = gradient
+      ctx.fillRect(
+        0,
+        chartInstance.chartArea.bottom + 1,
+        chartInstance.chartArea.left,
+        chartInstance.height! - chartInstance.chartArea.bottom - 1
+      )
+    }
+  }
+]
+export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
+  {
+    beforeInit(chartInstance) {
+      chartInstance.canvas!.parentElement!.scrollLeft! = chartInstance.width!
+    }
+  }
+]
 
 export interface DataSets<T = number> extends ChartData {
   data: T[]
