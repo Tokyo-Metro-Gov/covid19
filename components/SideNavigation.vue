@@ -11,11 +11,9 @@
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
         <h1 class="SideNavigation-Heading">
           <div class="SideNavigation-Logo">
-            <!--
-            <img src="/logo.svg" :alt="$t('東京都')" />
-            -->
-            <span>【非公式】栃木県</span>
+            <img src="/tochigi-logo.svg" :alt="$t('栃木県')" />
           </div>
+          {{ $t('栃木県【非公式】') }}<br />
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
