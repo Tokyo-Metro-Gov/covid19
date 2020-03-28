@@ -41,6 +41,7 @@
     "cross-env": "^5.2.0",
     "dayjs": "^1.8.21",
     "express": "^4.16.4",
+    "node-gyp": "^6.1.0",
     "nuxt": "^2.11.0",
     "nuxt-i18n": "^6.6.0",
     "vue-chartjs": "^3.5.0",

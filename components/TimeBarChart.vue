@@ -48,6 +48,7 @@ import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import { single as color } from '@/utils/colors'
+import { TranslateResult } from 'vue-i18n'
 
 type Data = {
   dataKind: 'transition' | 'cumulative'
@@ -291,8 +292,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                     'Nov',
                     'Dec'
                   ]
-                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
-                  return month + '月'
+                  // const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
+                  // return month + '月'
+                  return label.split(' ')[0]
                 }
               },
               type: 'time',
