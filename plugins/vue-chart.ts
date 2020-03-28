@@ -1,5 +1,5 @@
 import Vue, { PropType } from 'vue'
-import { ChartData, ChartOptions } from 'chart.js'
+import { Chart, ChartData, ChartOptions } from 'chart.js'
 import { Doughnut, Bar, Line, mixins } from 'vue-chartjs'
 import { Plugin } from '@nuxt/types'
 import { useDayjsAdapter } from './chartjs-adapter-dayjs'
@@ -9,7 +9,7 @@ type ChartVCMethod = {
   renderChart(chartData: ChartData, options: ChartOptions): void
 }
 type ChartVCComputed = unknown
-type ChartVCProps = { options: Object }
+type ChartVCProps = { options: Object; displayLegends: boolean[] | null }
 
 const VueChartPlugin: Plugin = ({ app }) => {
   useDayjsAdapter(app.i18n)
@@ -19,16 +19,37 @@ const VueChartPlugin: Plugin = ({ app }) => {
 const createCustomChart = () => {
   const { reactiveProp } = mixins
 
+  const watchDisplayLegends = function(this: Vue, v?: boolean[] | null) {
+    if (v == null) {
+      return
+    }
+    if (v.length === 0) {
+      return
+    }
+    const chart: Chart = this.$data._chart
+    v.forEach((display, i) => {
+      chart.getDatasetMeta(i).hidden = !display
+    })
+    chart.update()
+  }
+
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'doughnut-chart',
     {
       extends: Doughnut,
       mixins: [reactiveProp],
       props: {
+        displayLegends: {
+          type: Array,
+          default: () => null
+        },
         options: {
           type: Object as PropType<ChartOptions>,
           default: () => {}
         }
+      },
+      watch: {
+        displayLegends: watchDisplayLegends
       },
       mounted(): void {
         this.renderChart(this.chartData, this.options)
@@ -42,10 +63,17 @@ const createCustomChart = () => {
       extends: Bar,
       mixins: [reactiveProp],
       props: {
+        displayLegends: {
+          type: Array,
+          default: () => []
+        },
         options: {
           type: Object,
           default: () => {}
         }
+      },
+      watch: {
+        displayLegends: watchDisplayLegends
       },
       mounted(): void {
         this.renderChart(this.chartData, this.options)
@@ -59,10 +87,17 @@ const createCustomChart = () => {
       extends: Line,
       mixins: [reactiveProp],
       props: {
+        displayLegends: {
+          type: Array,
+          default: () => []
+        },
         options: {
           type: Object,
           default: () => {}
         }
+      },
+      watch: {
+        displayLegends: watchDisplayLegends
       },
       mounted(): void {
         this.renderChart(this.chartData, this.options)

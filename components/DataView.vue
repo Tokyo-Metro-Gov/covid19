@@ -348,7 +348,7 @@ export default Vue.extend({
     > div:first-child {
       overflow-x: scroll;
     }
-    > div:nth-child(2) {
+    > div.cardTable {
       position: absolute;
       top: 0;
       pointer-events: none;

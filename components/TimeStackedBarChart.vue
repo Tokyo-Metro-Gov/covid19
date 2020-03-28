@@ -22,11 +22,28 @@
         :style="{ display: canvas ? 'inline-block' : 'none' }"
       />
     </template>
+    <ul
+      :class="$style.GraphLegend"
+      :style="{ display: canvas ? 'block' : 'none' }"
+    >
+      <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
+        <button>
+          <div :style="{ backgroundColor: colors[i] }" />
+          <span
+            :style="{
+              textDecoration: displayLegends[i] ? 'none' : 'line-through'
+            }"
+            >{{ item }}</span
+          >
+        </button>
+      </li>
+    </ul>
     <bar
       :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="options"
+      :display-legends="displayLegends"
       :height="240"
     />
     <v-data-table
@@ -72,6 +89,8 @@ interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
 type Data = {
   dataKind: 'transition' | 'cumulative'
   canvas: boolean
+  displayLegends: boolean[]
+  colors: typeof colors
 }
 type Methods = {
   sum: (array: number[]) => number
@@ -79,6 +98,7 @@ type Methods = {
   pickLastNumber: (chartDataArray: number[][]) => number[]
   cumulativeSum: (chartDataArray: number[][]) => number[]
   eachArraySum: (chartDataArray: number[][]) => number[]
+  onClickLegend: (i: number) => void
 }
 
 type Computed = {
@@ -164,6 +184,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
+    displayLegends: [true, true],
+    colors,
     canvas: true
   }),
   computed: {
@@ -278,13 +300,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-          display: true,
-          onHover: (e: HTMLElementEvent<HTMLElement>): void => {
-            e.currentTarget.style.cursor = 'pointer'
-          },
-          onLeave: (e: HTMLElementEvent<HTMLElement>): void => {
-            e.currentTarget.style.cursor = 'default'
-          }
+          display: false,
         },
         scales: {
           xAxes: [
@@ -354,6 +370,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   methods: {
+    onClickLegend(i) {
+      this.displayLegends[i] = !this.displayLegends[i];
+      this.displayLegends = this.displayLegends.slice();
+    },
     cumulative(array: number[]): number[] {
       const cumulativeArray: number[] = []
       let patSum = 0
@@ -403,6 +423,26 @@ export default Vue.extend(options)
     font-size: 12px;
     color: $gray-3;
     list-style: none;
+  }
+  &Legend {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    li {
+      display: inline-block;
+      margin: 0 3px;
+      div {
+        height: 12px;
+        margin: 2px 4px;
+        width: 40px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      button {
+        color: $gray-3;
+        font-size: 12px;
+      }
+    }
   }
 }
 .DataView {
