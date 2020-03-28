@@ -175,10 +175,6 @@ export default Vue.extend({
             'http://www.pref.shizuoka.jp/kinkyu/event.html'
         },
         {
-          title: this.$t('お問い合わせ先一覧'),
-          link: this.localePath('/contacts')
-        },
-        {
           title: this.$t('静岡県公式ホームページ'),
           link: 'http://www.pref.shizuoka.jp/index.html'
         }
