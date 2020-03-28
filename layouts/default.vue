@@ -87,7 +87,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `https://covid19-iwate.netlify.com/${this.$route.path}`
+          href: `https://iwate.stopcovid19.jp/${this.$route.path}`
         }
         // {
         //   rel: 'stylesheet',
@@ -142,7 +142,7 @@ export default Vue.extend({
         /*  {
           hid: 'og:image',
           property: 'og:image',
-          content: this.$tc('https://covid19-iwate.netlify.com/ogp.png')
+          content: this.$tc('https://iwate.stopcovid19.jp/ogp.png')
         },
         */
         {
