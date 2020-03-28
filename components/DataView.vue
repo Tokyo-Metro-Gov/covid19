@@ -21,7 +21,7 @@
       </div>
       <div v-if="this.$slots.dataTable" class="DataView-Details">
         <details ref="details" open>
-          <summary class="DataView-DetailsSummary">{{
+          <summary v-show="canvas" class="DataView-DetailsSummary">{{
             $t('テーブルを表示')
           }}</summary>
           <slot name="dataTable" />
