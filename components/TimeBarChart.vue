@@ -321,7 +321,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      return { datasets: [] }
+      return { labels: ['1/1'], datasets: [] }
     },
     displayOptionHeader() {
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
