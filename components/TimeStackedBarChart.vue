@@ -23,7 +23,7 @@
       />
     </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
-      {{ $t(`{title}のグラフ`, { title: this.title }) }}
+      {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
     <bar
       :ref="'barChart'"
