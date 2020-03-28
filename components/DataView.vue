@@ -20,8 +20,8 @@
         <slot />
       </div>
       <div v-if="this.$slots.dataTable" class="DataView-Details">
-        <details v-if="canvas" @click="toggleDetails">
-          <summary class="DataView-DetailsSummary">{{
+        <details v-if="canvas">
+          <summary class="DataView-DetailsSummary" @click="toggleDetails">{{
             $t('テーブルを表示')
           }}</summary>
           <slot name="dataTable" />
