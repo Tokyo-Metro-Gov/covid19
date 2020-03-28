@@ -6,8 +6,8 @@
     <template v-slot:button>
       <data-selector
         v-model="dataKind"
-        :style="{ display: canvas ? 'inline-block' : 'none' }"
         :target-id="chartId"
+        :style="{ display: canvas ? 'inline-block' : 'none' }"
       />
     </template>
     <bar

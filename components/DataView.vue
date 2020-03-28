@@ -217,9 +217,8 @@ export default Vue.extend({
   mounted() {
     if (!this.$slots.dataTable) return
 
-    const details = this.$refs.details as HTMLDetailsElement
-
     if (this.canvas) {
+      const details = this.$refs.details as HTMLDetailsElement
       details.removeAttribute('open')
     }
   },
