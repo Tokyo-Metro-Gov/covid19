@@ -588,7 +588,7 @@ export default Vue.extend(options)
   &Legend {
     text-align: center;
     list-style: none;
-    padding: 0;
+    padding: 0 !important;
     li {
       display: inline-block;
       margin: 0 3px;
