@@ -1,5 +1,5 @@
 <template>
-  <a class="OpenDataLink" :href="url" target="_blank" rel="noopener">
+  <a class="OpenDataLink" :href="url" target="_blank" rel="noopener noreferrer">
     {{ $t('オープンデータを入手') }}
     <v-icon
       class="ExternalLinkIcon"

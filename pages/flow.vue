@@ -12,7 +12,7 @@
         <a
           href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           class="Flow-Card-Button"
         >
           <span class="Flow-Card-Button-Description">

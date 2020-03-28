@@ -3,7 +3,12 @@
     <div>{{ header }}</div>
     <i18n path="出典: {source}" tag="div" :for="linkString">
       <template v-slot:source>
-        <a class="SourceLink" :href="url" target="_blank" rel="noopener">
+        <a
+          class="SourceLink"
+          :href="url"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {{ linkString }}
           <v-icon class="ExternalLinkIcon" size="15">
             mdi-open-in-new
