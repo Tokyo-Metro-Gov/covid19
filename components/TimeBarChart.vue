@@ -58,6 +58,7 @@
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { Chart } from 'chart.js'
 import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
@@ -73,6 +74,15 @@ type Data = {
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
+
+interface DataSets<T = number> extends Chart.ChartData {
+  data: T[]
+}
+interface DisplayData<T = number, U = string> {
+  labels: U[]
+  datasets: DataSets<T>[]
+}
+
 type Computed = {
   displayCumulativeRatio: string
   displayTransitionRatio: string
@@ -81,39 +91,18 @@ type Computed = {
     sText: string
     unit: string
   }
-  displayData: {
-    labels: string[]
-    datasets: {
-      label: 'transition' | 'cumulative'
-      data: number[]
-      backgroundColor: string
-      borderWidth: number
-    }[]
-  }
-  displayOption: {
-    tooltips: {
-      displayColors: boolean
-      callbacks: {
-        label(tooltipItem: any): string
-        title(tooltipItem: any[], data: any): string | undefined
-      }
-    }
-    responsive: boolean
-    maintainAspectRatio: boolean
-    legend: {
-      display: boolean
-    }
-    scales: object
-  }
-  displayDataHeader: any
-  displayOptionHeader: any
+  displayData: DisplayData
+  displayOption: Chart.ChartOptions
+  displayDataHeader: DisplayData
+  displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
   tableHeaders: {
     text: TranslateResult
     value: string
   }[]
   tableData: {
-    [key: number]: number
+    text: string
+    '0': number
   }[]
 }
 type Props = {
@@ -124,8 +113,8 @@ type Props = {
   date: string
   unit: string
   url: string
-  scrollPlugin: any[]
-  yAxesBgPlugin: any[]
+  scrollPlugin: Chart.PluginServiceRegistrationOptions[]
+  yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -172,8 +161,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => [
         {
-          beforeInit(chartInstance: any) {
-            chartInstance.canvas.parentNode.scrollLeft = chartInstance.width
+          beforeInit(chartInstance) {
+            chartInstance.canvas!.parentElement!.scrollLeft! = chartInstance.width!
           }
         }
       ]
@@ -182,8 +171,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => [
         {
-          beforeDraw(chartInstance: any) {
-            const { ctx } = chartInstance.chart
+          beforeDraw(chartInstance) {
+            const ctx = chartInstance.ctx!
 
             // プロットエリアマスク用
             ctx.fillStyle = '#fff'
@@ -208,7 +197,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               0,
               chartInstance.chartArea.bottom + 1,
               chartInstance.chartArea.left,
-              chartInstance.height - chartInstance.chartArea.bottom - 1
+              chartInstance.height! - chartInstance.chartArea.bottom - 1
             )
           }
         }
@@ -287,18 +276,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOption() {
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
-      const options = {
+      const options: Chart.ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem: any) {
+            label(tooltipItem) {
               const labelText = `${parseInt(
-                tooltipItem.value
+                tooltipItem.value!
               ).toLocaleString()} ${unit}`
               return labelText
             },
-            title(tooltipItem: any, data: any) {
-              return data.labels[tooltipItem[0].index]
+            title(tooltipItem, data) {
+              return data.labels![tooltipItem[0].index!] as string[]
             }
           }
         },
@@ -340,10 +329,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 11,
                 fontColor: '#808080',
                 padding: 3,
-                fontStyle: 'bold',
-                gridLines: {
-                  display: true
-                }
+                fontStyle: 'bold'
               },
               type: 'time',
               time: {
@@ -357,7 +343,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              location: 'bottom',
               stacked: true,
               gridLines: {
                 display: true,
@@ -406,7 +391,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
-      const options = {
+      const options: Chart.ChartOptions = {
         responsive: false,
         maintainAspectRatio: false,
         legend: {
@@ -445,9 +430,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: 'transparent', // #808080
                 padding: 13, // 3 + 10(tickMarkLength)
                 fontStyle: 'bold',
-                gridLines: {
-                  display: true
-                },
                 callback: (label: string) => {
                   const monthStringArry = [
                     'Jan',
@@ -475,7 +457,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              location: 'bottom',
               stacked: true,
               gridLines: {
                 display: true,
@@ -491,7 +472,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             }
           ]
         },
-        animation: false
+        animation: { duration: 0 }
       }
       return options
     },
@@ -509,11 +490,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      return this.displayData.datasets[0].data.map((_, i) => {
-        return Object.assign(
-          { text: this.displayData.labels[i] },
-          { '0': this.displayData.datasets[0].data[i] }
-        )
+      return this.displayData.datasets![0].data!.map((_, i) => {
+        return {
+          text: this.displayData.labels![i] as string,
+          '0': this.displayData.datasets![0].data![i] as number
+        }
       })
     }
   },
