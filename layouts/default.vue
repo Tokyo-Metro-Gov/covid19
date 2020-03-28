@@ -2,7 +2,7 @@
   <v-app class="app">
     <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
-        <img src="/logo.svg" alt="東京都" />
+        <img src="/logo.svg" alt="静岡県" />
         <scale-loader color="#00A040" />
       </div>
     </v-overlay>
@@ -98,20 +98,20 @@ export default Vue.extend({
         {
           hid: 'author',
           name: 'author',
-          content: this.$tc('東京都')
+          content: this.$tc('静岡県')
         },
         {
           hid: 'description',
           name: 'description',
           content: this.$tc(
-            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、静岡県とCode for ふじのくにが開設したものです。'
           )
         },
         {
           hid: 'og:site_name',
           property: 'og:site_name',
           content:
-            this.$t('東京都') +
+            this.$t('静岡県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
