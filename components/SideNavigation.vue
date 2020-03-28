@@ -72,6 +72,7 @@
     "Measures site": "対策サイト",
     "The latest updates": "千葉市内の最新感染動向",
     "If you have any symptoms": "新型コロナウイルス感染症が心配なときに",
+    "All we have to do to prevent infection is simple.": "感染予防のためにできること",
     "for Families with children": "お子様をお持ちの皆様へ",
     "for Citizens": "市民の皆様へ",
     "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
@@ -108,7 +109,12 @@ export default {
         {
           icon: 'covid',
           title: this.$t('If you have any symptoms'),
-          link: '/flow',
+          link: '/flow'
+        },
+        {
+          icon: 'mdi-shield-half-full',
+          title: this.$t('All we have to do to prevent infection is simple.'),
+          link: 'https://www.bowlgraphics.net/covid19',
           divider: true
         },
         {
@@ -134,8 +140,7 @@ export default {
         },
         {
           title: this.$t('Twitter by Chiba PR'),
-          link:
-            'https://twitter.com/Chiba_city_PR'
+          link: 'https://twitter.com/Chiba_city_PR'
         },
         {
           title: this.$t('About us'),
@@ -151,10 +156,6 @@ export default {
           divider: true
         }
       ]
-    },
-
-    isClass() {
-      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
     }
   },
   methods: {
