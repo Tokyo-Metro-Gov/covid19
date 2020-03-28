@@ -69,7 +69,6 @@ export default Vue.extend({
   components: {
     PageHeader,
     WhatsNew,
-    StaticInfo,
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     InspectionPersonsNumberCard,
