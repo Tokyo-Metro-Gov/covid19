@@ -394,7 +394,30 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      return { labels: ['1/1'], datasets: [] }
+      if (this.dataKind === 'transition') {
+        return {
+          datasets: [
+            {
+              data: [this.scaledTicksYAxisMax],
+              backgroundColor: 'transparent',
+              borderWidth: 0
+            }
+          ]
+        }
+      }
+      let sum = 0
+      for (const i in this.chartData[0]) {
+        sum += this.chartData[0][i] + this.chartData[1][i]
+      }
+      return {
+        datasets: [
+          {
+            data: [sum],
+            backgroundColor: 'transparent',
+            borderWidth: 0
+          }
+        ]
+      }
     },
     displayOptionHeader() {
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
