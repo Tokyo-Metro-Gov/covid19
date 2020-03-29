@@ -327,6 +327,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayDataHeader() {
       if (this.dataKind === 'transition') {
         return {
+          labels: ['1/1'],
           datasets: [
             {
               data: [Math.max(...this.chartData.map(d => d.transition))],
@@ -337,6 +338,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       return {
+        labels: ['1/1'],
         datasets: [
           {
             data: [Math.max(...this.chartData.map(d => d.cumulative))],
