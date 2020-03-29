@@ -80,7 +80,7 @@ $ docker-compose run --rm app yarn install
 
 ### ステージング・本番環境への反映
 
-`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト 対応中 が更新されます。
+`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19-shizuoka.netlify.com/ が更新されます。
 
 `development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://stopcovid19-shizuoka-dev.netlify.com/ が更新されます。
 
@@ -96,9 +96,9 @@ Pull Request を送る際の branch は、以下のネーミングルールで�
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
 | 開発 | development | https://stopcovid19-shizuoka-dev.netlify.com/ | base branch。基本はこちらに Pull Requestを送ってください |
-| 本番 | master | 対応中 | 管理者以外の Pull Request は禁止です |
+| 本番 | master | https://stopcovid19-shizuoka.netlify.com/ | 管理者以外の Pull Request は禁止です |
 
 #### システムで利用しているブランチ
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
-| 本番サイトHTML | production | 対応中 | 静的ビルドされたHTMLが置いてある場所 |
+| 本番サイトHTML | production | https://stopcovid19-shizuoka.netlify.com/ | 静的ビルドされたHTMLが置いてある場所 |
