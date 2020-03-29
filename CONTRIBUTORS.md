@@ -137,6 +137,9 @@ Tokyo Covid-19 response site contributors
 | [hikyaru-suzuki](https://hikyaru-suzuki.hatenablog.jp/) | [@hikyaru-suzuki](https://github.com/hikyaru-suzuki) | [@hikyaru_suzuki](https://twitter.com/hikyaru_suzuki) | Coding |
 | [huideyeren](https://huideyeren.info/) | [@huideyeren](https://github.com/huideyeren) | [@huideyeren](https://twitter.com/huideyeren) | Coding |
 | Yuhki | [@yuhkih](https://github.com/yuhkih) | | Translation, Coding |
+| Hidehiro Nagaoka | [@hidehiro98](https://github.com/hidehiro98) | [@hid9hiro](https://twitter.com/hid9hiro) | Coding, Translation |
+| y171 | [@totoro721](https://github.com/totoro721) | | Coding, Translation |
+| [hogesuke](https://hogesuke.hateblo.jp/) | [@hogesuke](https://github.com/hogesuke) | [@hogesuke_1](https://twitter.com/hogesuke_1) | Coding |
 
 ご協力に感謝です！！！
 
