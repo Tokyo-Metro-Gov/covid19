@@ -33,6 +33,7 @@
 <style lang="scss">
 .cardTable {
   &.v-data-table {
+    box-shadow: 0 -20px 12px -12px #0003 inset;
     th {
       padding: 8px 10px;
       height: auto;

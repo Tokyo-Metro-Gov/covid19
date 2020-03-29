@@ -4,7 +4,7 @@
 
 [![东京都 新型冠状病毒对策网](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | 简体中文 | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
+### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | 简体中文 | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md) | [Português](./../pt_BR/README.md)
 
 ## 如何贡献
 如果您能对 Issus 中做出各式各样的修改协助，我们将不胜感激。
@@ -67,7 +67,7 @@ $ yarn install
 **使用 docker compose 时**
 ```bash
 $ docker-compose run --rm app yarn install
-``
+```
 
 ### VSCode + Remote Containers 的开发环境
 

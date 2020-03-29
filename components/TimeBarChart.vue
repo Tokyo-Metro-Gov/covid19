@@ -10,8 +10,11 @@
         :style="{ display: canvas ? 'inline-block' : 'none' }"
       />
     </template>
+    <h4 :id="`${titleId}-graph`" class="visually-hidden">
+      {{ $t(`{title}のグラフ`, { title }) }}
+    </h4>
     <bar
-      ref="bar"
+      :ref="'barChart'"
       :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
@@ -260,16 +263,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 9,
                 maxTicksLimit: 20,
                 fontColor: '#808080',
-                maxRotation: 0
-              },
-              type: 'time',
-              time: {
-                displayFormats: {
-                  day: 'D'
-                },
-                parser: 'M/D',
-                unit: 'day'
+                maxRotation: 0,
+                callback: (label: string) => {
+                  return label.split('/')[1]
+                }
               }
+              // #2384: If you set "type" to "time", make sure that the bars at both ends are not hidden.
+              // #2384: typeをtimeに設定する時はグラフの両端が見切れないか確認してください
             },
             {
               id: 'month',
@@ -365,6 +365,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         default:
           return `${dayBeforeRatioLocaleString}`
       }
+    }
+  },
+  mounted() {
+    const barChart = this.$refs.barChart as Vue
+    const barElement = barChart.$el
+    const canvas = barElement.querySelector('canvas')
+    const labelledbyId = `${this.titleId}-graph`
+
+    if (canvas) {
+      canvas.setAttribute('role', 'img')
+      canvas.setAttribute('aria-labelledby', labelledbyId)
     }
   }
 }
