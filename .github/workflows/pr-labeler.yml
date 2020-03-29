@@ -1,0 +1,13 @@
+name: Pull Request Labeler
+
+on:
+  - pull_request
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Label for Transifex
+      if: github.actor == 'transifex-integration'
+      uses: actions/labeler@v2
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
