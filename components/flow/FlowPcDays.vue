@@ -15,14 +15,17 @@
       <div>
         <p>
           <i18n path="{duration}続いている">
-            <i18n
-              tag="span"
-              place="duration"
-              path="{day}日以上"
-              :class="$style.FlowRowEmphasis"
-            >
-              <span :class="$style.FlowRowEmphasisDay" place="day">4</span>
-            </i18n>
+            <template v-slot:duration>
+              <i18n
+                tag="span"
+                path="{day}日以上"
+                :class="$style.FlowRowEmphasis"
+              >
+                <template v-slot:day>
+                  <span :class="$style.FlowRowEmphasisDay">4</span>
+                </template>
+              </i18n>
+            </template>
           </i18n>
         </p>
       </div>
@@ -35,9 +38,11 @@
             path="{cold}のような症状"
             :class="$style.FlowRowConditionSmall"
           >
-            <span :class="$style.FlowRowConditionLarge" place="cold">
-              {{ $t('風邪') }}
-            </span>
+            <template v-slot:cold>
+              <span :class="$style.FlowRowConditionLarge">
+                {{ $t('風邪') }}
+              </span>
+            </template>
           </i18n>
         </p>
         <img
@@ -54,11 +59,15 @@
             :class="$style.FlowRowConditionSmall"
             path="発熱{temperature}"
           >
-            <i18n tag="span" place="temperature" path="{tempNum}以上">
-              <span :class="$style.FlowRowConditionLarge" place="tempNum">
-                {{ $t('37.5℃') }}
-              </span>
-            </i18n>
+            <template v-slot:temperature>
+              <i18n tag="span" path="{tempNum}以上">
+                <template v-slot:tempNum>
+                  <span :class="$style.FlowRowConditionLarge">
+                    {{ $t('37.5℃') }}
+                  </span>
+                </template>
+              </i18n>
+            </template>
           </i18n>
         </p>
         <img
@@ -122,14 +131,17 @@
       <div>
         <p>
           <i18n path="{duration}続いている">
-            <i18n
-              tag="span"
-              place="duration"
-              path="{day}日程度"
-              :class="$style.FlowRowEmphasis"
-            >
-              <span :class="$style.FlowRowEmphasisDay" place="day">2</span>
-            </i18n>
+            <template v-slot:duration>
+              <i18n
+                tag="span"
+                path="{day}日程度"
+                :class="$style.FlowRowEmphasis"
+              >
+                <template v-slot:day>
+                  <span :class="$style.FlowRowEmphasisDay">2</span>
+                </template>
+              </i18n>
+            </template>
           </i18n>
         </p>
       </div>

@@ -2,18 +2,19 @@
   <div class="SourceLink">
     <div>{{ header }}</div>
     <i18n path="出典: {source}" tag="div" :for="linkString">
-      <a
-        place="source"
-        class="SourceLink"
-        :href="url"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {{ linkString }}
-        <v-icon class="ExternalLinkIcon" size="15">
-          mdi-open-in-new
-        </v-icon>
-      </a>
+      <template v-slot:source>
+        <a
+          class="SourceLink"
+          :href="url"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ linkString }}
+          <v-icon class="ExternalLinkIcon" size="15">
+            mdi-open-in-new
+          </v-icon>
+        </a>
+      </template>
     </i18n>
   </div>
 </template>

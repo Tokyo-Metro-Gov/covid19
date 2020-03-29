@@ -24,9 +24,11 @@
         tag="span"
         path="{advisory}による相談結果"
       >
-        <span :class="$style.TitleLarge" place="advisory">
-          {{ $t('新型コロナ受診相談窓口') }}
-        </span>
+        <template v-slot:advisory>
+          <span :class="$style.TitleLarge">
+            {{ $t('新型コロナ受診相談窓口') }}
+          </span>
+        </template>
       </i18n>
     </h3>
     <div :class="[$style.Outer, $style.OuterLower]">
