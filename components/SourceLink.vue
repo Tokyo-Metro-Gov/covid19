@@ -7,7 +7,7 @@
         class="SourceLink"
         :href="url"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         {{ linkString }}
         <v-icon class="ExternalLinkIcon" size="15">
