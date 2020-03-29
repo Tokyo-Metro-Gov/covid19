@@ -8,24 +8,28 @@
       <PrinterButton :wrapper-class="'Flow-PullRight'" to="/print/flow" />
     </div>
     <div>
-      <div class="only-pc">
-        <flow-pc />
-      </div>
-      <div class="only-sp">
-        <flow-sp />
-      </div>
-      <div class="Flow-Card-Button-Wrapper mt-6">
+      <div class="Flow-Card-Button-Wrapper">
         <a
           href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           class="Flow-Card-Button"
         >
+          <span class="Flow-Card-Button-Description">
+            {{ $t('かかりつけ医に相談することもできます。') }}<br />
+            {{ $t('詳しくはこちらをご参照ください。') }}
+          </span>
           {{ $t('詳細を見る（東京都福祉保健局）') }}
           <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
             mdi-open-in-new
           </v-icon>
         </a>
+      </div>
+      <div class="only-pc">
+        <flow-pc />
+      </div>
+      <div class="only-sp">
+        <flow-sp />
       </div>
     </div>
   </div>
@@ -66,7 +70,7 @@ export default Vue.extend({
   &-Heading {
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 
     > svg {
       width: 30px;
@@ -86,6 +90,8 @@ export default Vue.extend({
     @include button-text('md');
     @include font-size(20);
 
+    width: 100%;
+    max-width: 600px;
     font-weight: bold;
     display: inline-block;
     text-decoration: none;
@@ -93,6 +99,7 @@ export default Vue.extend({
 
     &-Wrapper {
       text-align: center;
+      margin-bottom: 20px;
     }
 
     &:hover {
@@ -102,6 +109,13 @@ export default Vue.extend({
     &-ExternalLinkIcon {
       margin-left: 2px;
       color: $green-1 !important;
+    }
+
+    &-Description {
+      margin-bottom: 12px;
+      display: block;
+      font-weight: normal;
+      text-align: left;
     }
   }
 

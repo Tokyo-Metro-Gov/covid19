@@ -1,4 +1,4 @@
-import argparse
+https://stopcovid19-shizuoka-dev.netlify.comimport argparse
 import time
 import os
 
@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-o', '--out', action='store_true', help='output screenshots.')
 args = parser.parse_args()
 
-HOST = 'https://stopcovid19.metro.tokyo.lg.jp'
+HOST = 'https://stopcovid19-shizuoka-dev.netlify.com'
 OUT_DIR = 'out'
 
 PATHS = (

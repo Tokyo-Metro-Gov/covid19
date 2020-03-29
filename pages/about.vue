@@ -6,13 +6,13 @@
     <StaticCard>
       {{
         $t(
-          '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+          '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、静岡県とCode for ふじのくにが開設したものです。'
         )
       }}<br />
       <br />
       {{
         $t(
-          '東京都による公式情報と客観的な数値をわかりやすく伝えることで、東京都にお住まいの方や、東京都内に拠点を持つ企業の方、東京都を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。'
+          '静岡県による公式情報と客観的な数値をわかりやすく伝えることで、静岡県にお住まいの方や、静岡県内に拠点を持つ企業の方、静岡県を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。'
         )
       }}
     </StaticCard>
@@ -119,7 +119,7 @@
               )
             "
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('Google Analytics利用規約') }}
           </a>
@@ -128,7 +128,7 @@
           <a
             :href="$t('https://policies.google.com/privacy?hl=ja')"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('Googleのプライバシーポリシー') }}
           </a>
@@ -139,7 +139,7 @@
               $t('https://support.google.com/analytics/answer/6004245?hl=ja')
             "
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('Google Analyticsに関する詳細情報') }}
           </a>
@@ -177,9 +177,9 @@
         path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
       >
         <a
-          href="https://portal.data.metro.tokyo.lg.jp/"
+          href="https://opendata.pref.shizuoka.jp/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           place="catalogWebsite"
         >
           {{ $t('東京都オープンデータカタログサイト') }}
@@ -198,7 +198,7 @@
           <a
             href="https://github.com/tokyo-metropolitan-gov/covid19"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             place="githubRepo"
           >
             {{ $t('GitHub リポジトリ') }}
