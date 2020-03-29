@@ -4,7 +4,7 @@
       {{ $t('お問い合わせ先一覧') }}
     </page-header>
     <div class="Contacts-Card">
-      <table class="Contacts-Card-Table" role="presentation">
+      <table class="Contacts-Card-Table" v-bind="tableAttrs">
         <thead>
           <tr>
             <th class="text-center" scope="col">
@@ -138,6 +138,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    tableAttrs(): any {
+      return this.pc ? {} : { role: 'presentation' }
+    },
     headingAttrs(): any {
       return this.pc ? {} : { role: 'heading', 'aria-level': '3' }
     }
