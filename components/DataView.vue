@@ -20,13 +20,15 @@
         <slot />
       </div>
       <div v-if="this.$slots.dataTable" class="DataView-Details">
-        <details v-if="canvas">
+        <details v-if="showDetails">
           <summary class="DataView-DetailsSummary" @click="toggleDetails">{{
             $t('テーブルを表示')
           }}</summary>
           <slot name="dataTable" />
         </details>
-        <slot v-else name="dataTable" />
+        <template v-else>
+          <slot name="dataTable" />
+        </template>
       </div>
       <div class="DataView-Description">
         <slot name="footer-description" />
@@ -177,18 +179,14 @@ export default Vue.extend({
       type: Boolean,
       required: false,
       default: false
-    },
-    canvas: {
-      type: Boolean,
-      required: false,
-      default: false
     }
   },
   data() {
     return {
       openGraphEmbed: false,
       displayShare: false,
-      showOverlay: false
+      showOverlay: false,
+      showDetails: false
     }
   },
   computed: {
@@ -229,6 +227,7 @@ export default Vue.extend({
     }
   },
   mounted() {
+    this.showDetails = true
     window.addEventListener('resize', this.handleCardHeight)
   },
   beforeDestroy() {

@@ -122,11 +122,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
-  mounted() {
-    this.canvas = true
-    const chart = this.$refs.bar as Vue
-    const el = chart.$el as HTMLElement
-    el.style.height = `${chart.$props.height}px`
+  created() {
+    this.canvas = process.browser
   },
   components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
   props: {
@@ -161,7 +158,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
-    canvas: false
+    canvas: true
   }),
   computed: {
     displayCumulativeRatio() {

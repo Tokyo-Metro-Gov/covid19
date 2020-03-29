@@ -104,8 +104,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
-  mounted() {
-    this.canvas = true
+  created() {
+    this.canvas = process.browser
   },
   components: { DataView },
   props: {
@@ -143,7 +143,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
-    canvas: false
+    canvas: true
   }),
   computed: {
     displayData() {
