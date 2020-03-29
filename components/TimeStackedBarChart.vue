@@ -415,7 +415,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         { left: 0, top: 0, right: 0, bottom: 0 }
       ]
       return {
-        labels: this.labels,
+        labels: ['2020/1/1'],
         datasets: [
           {
             data: [this.displayData.datasets[0].data[n]],
