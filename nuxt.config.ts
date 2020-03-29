@@ -117,7 +117,7 @@ const config: Configuration = {
     }
   },
   googleAnalytics: {
-    id: 'UA-159417676-1'
+    id: 'UA-61608910-4'
   },
   build: {
     plugins: [
