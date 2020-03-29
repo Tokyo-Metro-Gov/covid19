@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Label for Transifex
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github.actor) }}
-      run: echo "$GITHUB_CONTEXT"
+      if: github.actor == 'transifex-integration[bot]'
+      uses: actions/labeler@v2
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
