@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :canvas="canvas">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <ul :class="$style.GraphDesc">
         <li>
@@ -23,7 +23,6 @@
       />
     </template>
     <bar
-      ref="bar"
       :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"

@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :canvas="canvas">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:infoPanel>
       <small :class="$style.DataViewDesc">
         <slot name="description" />

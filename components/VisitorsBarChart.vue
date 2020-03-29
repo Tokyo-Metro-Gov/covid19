@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :canvas="canvas">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:description>
       <p :class="$style.Text">
         {{
