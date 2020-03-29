@@ -1,17 +1,17 @@
 # 新型コロナウイルス感染症対策サイト[千葉県版]
 
-  各地で立ち上がっているサイトのまとめ
+ ##各地で立ち上がっているサイトのまとめ
 https://hackmd.io/9TTyyjchR8ufuMd9z08Rcg?view
 
-  千葉県のサイト
+ ##千葉県のサイト
 https://www.pref.chiba.lg.jp/index.html
 
-対策サイトを作って、がんばろー！（うまい方言がない）
+"対策サイトを作って、がんばろー！（うまい方言がない）"
 
 ### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md)
 
 ## 貢献の仕方
-Issues にあるいろいろな修正にご協力いただけると嬉しいです。
+Issues にあるいろいろな修正にご協力いただけると嬉しいですm(_ _)m
 
 詳しくは[貢献の仕方](./.github/CONTRIBUTING.md)を御覧ください。
 
@@ -32,6 +32,9 @@ https://join.slack.com/t/civictechzenchiba/shared_invite/zt-co2ez9no-IrVcqEBgofa
 ### 環境構築の手順
 
 - 必要となるNode.jsのバージョン: 10.19.0以上
+- eslintエラーが続出しますので、docer composeを使われることをおすすめします
+- 開発版は、covid19-chiba　development　で行っております。
+- 関連ツールとして　covid19-chiba-tools があります。ご参照ください。
 
 **yarn を使う場合**
 ``` bash
