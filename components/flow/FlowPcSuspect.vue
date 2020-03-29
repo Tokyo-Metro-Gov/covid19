@@ -161,12 +161,13 @@
 
   &Icon {
     position: absolute;
-    bottom: 40%;
+    top: 50%;
     right: -30px;
     z-index: 1;
     display: block;
     width: 46px;
     height: 46px;
+    margin-top: -23px;
   }
 }
 

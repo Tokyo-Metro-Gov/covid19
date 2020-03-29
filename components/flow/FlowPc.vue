@@ -3,16 +3,46 @@
     <h3>{{ $t('新型コロナウイルス感染症にかかる相談窓口について') }}</h3>
     <div :class="[$style.Outer, $style.OuterUpper]">
       <div :class="[$style.CardBlock, $style.Past]">
-        <flow-pc-past />
+        <div :class="[$style.CardBlockInner]">
+          <flow-pc-past />
+          <img
+            :class="$style.CardBlockIcon"
+            src="/flow/flow_arrow.svg"
+            aria-hidden="true"
+            alt=" "
+          />
+        </div>
       </div>
       <div :class="[$style.CardBlock, $style.Days]">
-        <flow-pc-days />
+        <div :class="[$style.CardBlockInner]">
+          <flow-pc-days />
+          <img
+            :class="$style.CardBlockIcon"
+            src="/flow/flow_arrow.svg"
+            aria-hidden="true"
+            alt=" "
+          />
+        </div>
       </div>
       <div :class="[$style.CardBlock, $style.CardBlockCenter, $style.Suspect]">
-        <flow-pc-suspect />
+        <div :class="[$style.CardBlockInner]">
+          <flow-pc-suspect />
+          <img
+            :class="$style.CardBlockIcon"
+            src="/flow/flow_arrow.svg"
+            aria-hidden="true"
+            alt=" "
+          />
+        </div>
       </div>
       <div :class="$style.Advisory">
         <flow-pc-advisory />
+        <img
+          :class="$style.AdvisoryIcon"
+          src="/flow/flow_arrow.svg"
+          aria-hidden="true"
+          alt=" "
+        />
       </div>
       <div :class="$style.Advisory2">
         <flow-pc-advisory2 />
@@ -33,10 +63,38 @@
       <div
         :class="[$style.CardBlock, $style.CardBlockRequired, $style.Required]"
       >
-        <flow-pc-required />
+        <div :class="[$style.CardBlockInner]">
+          <flow-pc-required />
+          <img
+            :class="$style.CardBlockIcon"
+            src="/flow/flow_arrow.svg"
+            aria-hidden="true"
+            alt=" "
+          />
+          <img
+            :class="$style.CardBlockIcon"
+            src="/flow/flow_arrow.svg"
+            aria-hidden="true"
+            alt=" "
+          />
+        </div>
       </div>
       <div :class="[$style.CardBlock, $style.CardBlockPcr, $style.Pcr]">
-        <flow-pc-pcr />
+        <div :class="[$style.CardBlockInner]">
+          <flow-pc-pcr />
+          <img
+            :class="$style.CardBlockIcon"
+            src="/flow/flow_arrow.svg"
+            aria-hidden="true"
+            alt=" "
+          />
+          <img
+            :class="$style.CardBlockIcon"
+            src="/flow/flow_arrow.svg"
+            aria-hidden="true"
+            alt=" "
+          />
+        </div>
       </div>
       <div :class="$style.NotRequired">
         <flow-pc-not-required />
@@ -193,57 +251,50 @@ export default {
 }
 
 .CardBlock {
-  position: relative;
+  &Inner {
+    position: relative;
+  }
 
-  &::after {
-    content: url('/flow/flow_arrow.svg');
+  &Icon {
     position: absolute;
-    bottom: 40%;
+    top: 50%;
     right: -30px;
     z-index: 1;
-    display: block;
-    width: 46px;
-    height: 46px;
+    margin-top: -23px;
   }
 
-  &Center::after {
-    bottom: 40%;
+  &Required {
+    .CardBlockIcon:nth-of-type(1) {
+      top: auto;
+      bottom: -30px;
+      right: auto;
+      left: 22%;
+      margin-top: 0;
+      transform: rotate(90deg);
+    }
+    .CardBlockIcon:nth-of-type(2) {
+      top: auto;
+      bottom: 12%;
+      right: -30px;
+      margin-top: 0;
+    }
   }
 
-  &Required::after {
-    bottom: -30px;
-    right: auto;
-    left: 22%;
-    transform: rotate(90deg);
-  }
-
-  &Required::before {
-    content: url('/flow/flow_arrow.svg');
-    position: absolute;
-    bottom: 12%;
-    right: -30px;
-    z-index: 1;
-    display: block;
-    width: 46px;
-    height: 46px;
-  }
-
-  &Pcr::after {
-    bottom: auto;
-    top: 15%;
-    transform: rotateZ(-30deg);
-  }
-
-  &Pcr::before {
-    content: url('/flow/flow_arrow.svg');
-    position: absolute;
-    bottom: 15%;
-    right: -30px;
-    z-index: 1;
-    display: block;
-    width: 46px;
-    height: 46px;
-    transform: rotateZ(30deg);
+  &Pcr {
+    .CardBlockIcon:nth-of-type(1) {
+      top: 15%;
+      bottom: auto;
+      right: -30px;
+      margin-top: auto;
+      transform: rotateZ(-30deg);
+    }
+    .CardBlockIcon:nth-of-type(2) {
+      top: auto;
+      bottom: 15%;
+      right: -30px;
+      margin-top: auto;
+      transform: rotateZ(30deg);
+    }
   }
 }
 
@@ -267,15 +318,11 @@ export default {
   grid-row: 1 / 3;
   position: relative;
 
-  &::after {
-    content: url('/flow/flow_arrow.svg');
+  &Icon {
     position: absolute;
     left: calc(50% - 23px);
     transform: rotate(-90deg);
     z-index: 1;
-    display: block;
-    width: 46px;
-    height: 46px;
   }
 }
 
