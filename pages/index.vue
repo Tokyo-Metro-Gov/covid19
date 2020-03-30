@@ -8,7 +8,10 @@
         <span>{{ $t('最終更新') }} </span>
         <time :datetime="updatedAt">{{ Data.lastUpdate }}</time>
       </div>
-      <div v-if="!['ja', 'ja-basic'].includes($i18n.locale)" class="Annotation">
+      <div
+        v-show="!['ja', 'ja-basic'].includes($i18n.locale)"
+        class="Annotation"
+      >
         <span>{{ $t('注釈') }} </span>
       </div>
     </div>
@@ -32,6 +35,11 @@
       <agency-card />
       <shinjuku-visitors-card />
       <chiyoda-visitors-card />
+    </v-row>
+    <v-divider />
+    <v-row class="DataBlock">
+      <shinjuku-st-map-card />
+      <tokyo-st-map-card />
     </v-row>
   </div>
 </template>
@@ -57,6 +65,8 @@ import AgencyCard from '@/components/cards/AgencyCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
 import ChiyodaVisitorsCard from '@/components/cards/ChiyodaVisitorsCard.vue'
+import ShinjukuStMapCard from '@/components/cards/ShinjukuStMapCard.vue'
+import TokyoStMapCard from '@/components/cards/TokyoStMapCard.vue'
 
 export default Vue.extend({
   components: {
@@ -74,7 +84,9 @@ export default Vue.extend({
     MetroCard,
     AgencyCard,
     ShinjukuVisitorsCard,
-    ChiyodaVisitorsCard
+    ChiyodaVisitorsCard,
+    ShinjukuStMapCard,
+    TokyoStMapCard
   },
   data() {
     const data = {

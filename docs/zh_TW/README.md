@@ -4,7 +4,7 @@
 
 [![東京都 新型冠狀病毒疫情中心](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | 繁體中文 | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
+### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | 繁體中文 | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md) | [Português](./../pt_BR/README.md)
 
 
 ## 如何貢獻
@@ -42,10 +42,31 @@ $ yarn install
 $ yarn dev
 ```
 
+
+[PLEASE TRANSLATE ME]
+
+**アクセシビリティチェック（vue-axe）を無効にする方法**
+
+- 開発用ローカルサーバが重い場合、以下のようにアクセシビリティチェックを無効にして起動することができます。
+
+```bash
+# serve with hot reload at localhost:3000
+$ yarn dev-no-axe
+```
+
+[/PLEASE TRANSLATE ME]
+
+
 **使用 docker compose 的做法**
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
+```
+
+**使用 Vagrant 的做法**
+```bash
+# serve with hot reload at localhost:3000
+$ vagrant up
 ```
 
 ### 被 `Cannot find module ****` 卡住時
@@ -87,7 +108,7 @@ $ docker-compose run --rm app yarn install
 
 ### 分支規則
 
-只允許推送 Pull Request 到 `development` 、 `dev-i18n` 跟 `dev-hotfix` 。  
+只允許推送 Pull Request 到 `development`  跟 `dev-hotfix` 。
 在推送 Pull Request 時，請依照以下命名規則為您的分支命名
 
 新增功能: feature/#{ISSUE_ID}-#{branch_title_name}  
@@ -98,7 +119,6 @@ Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 | ---- | -------- | ---- | ---- |
 | 開發 | development | https://dev-covid19-tokyo.netlify.com/ | 基本上請推送 Pull Request 到這裡 |
 | 緊急修復 | dev-hotfix | 無 | 對於正式版的緊急修復。 在管理員的要求下使用。 |
-| i18n 工作用 | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | 暫時使用 |
 | 正式版預覽 | staging | https://stg-covid19-tokyo.netlify.com/ | 對於正式版釋出前的最終確認，禁止管理員以外的人推送 Pull Request。 |
 | 正式版 | master | https://stopcovid19.metro.tokyo.lg.jp/ | 禁止管理員以外的人推送 Pull Request |
 #### 系統所使用的分支

@@ -2,14 +2,13 @@
   <section :class="$style.Flow">
     <div :class="$style.FlowHeading">
       <i18n path="{past}の出来ごとと症状" tag="span">
-        <i18n
-          :class="$style.FlowLText"
-          tag="span"
-          path="発症前{two}週間以内"
-          place="past"
-        >
-          <span :class="$style.FlowNum" place="two">2</span>
-        </i18n>
+        <template v-slot:past>
+          <i18n :class="$style.FlowLText" tag="span" path="発症前{two}週間以内">
+            <template v-slot:two>
+              <span :class="$style.FlowNum">2</span>
+            </template>
+          </i18n>
+        </template>
       </i18n>
     </div>
     <div :class="$style.FlowInner">
@@ -23,9 +22,11 @@
             path="{closeContact}をした方"
             :class="$style.FlowPerson"
           >
-            <em :class="$style.FlowLine" place="closeContact">
-              {{ $t('濃厚接触') }}
-            </em>
+            <template v-slot:closeContact>
+              <em :class="$style.FlowLine">
+                {{ $t('濃厚接触') }}
+              </em>
+            </template>
           </i18n>
         </template>
         <template v-else>
@@ -34,9 +35,11 @@
             path="{closeContact}をした方"
             :class="$style.FlowPerson"
           >
-            <em :class="$style.FlowLine" place="closeContact">
-              {{ $t('濃厚接触') }}
-            </em>
+            <template v-slot:closeContact>
+              <em :class="$style.FlowLine">
+                {{ $t('濃厚接触') }}
+              </em>
+            </template>
           </i18n>
           <span :class="$style.FlowTitle">
             {{ $t('「新型コロナウイルス感染者」と') }}
@@ -53,12 +56,16 @@
             :class="$style.FlowPerson"
             path="{you} か {closeContact}をした方"
           >
-            <em :class="$style.FlowLine" place="you">
-              {{ $t('ご本人') }}
-            </em>
-            <em :class="$style.FlowLine" place="closeContact">
-              {{ $t('濃厚接触') }}
-            </em>
+            <template v-slot:you>
+              <em :class="$style.FlowLine">
+                {{ $t('ご本人') }}
+              </em>
+            </template>
+            <template v-slot:closeContact>
+              <em :class="$style.FlowLine">
+                {{ $t('濃厚接触') }}
+              </em>
+            </template>
           </i18n>
         </template>
         <template v-else>
@@ -67,18 +74,22 @@
             :class="[$style.FlowPerson, $style.FlowPersonS]"
             path="travel history from {area}"
           >
-            <em :class="$style.FlowLine" place="area">
-              {{ $t('COVID-19 prevalent area') }}
-            </em>
+            <template v-slot:area>
+              <em :class="$style.FlowLine">
+                {{ $t('COVID-19 prevalent area') }}
+              </em>
+            </template>
           </i18n>
           <i18n
             tag="span"
             :class="[$style.FlowPerson, $style.FlowPersonS]"
             path="been {inCloseContact} with returnees"
           >
-            <em :class="$style.FlowLine" place="inCloseContact">
-              {{ $t('in close contact') }}
-            </em>
+            <template v-slot:inCloseContact>
+              <em :class="$style.FlowLine">
+                {{ $t('in close contact') }}
+              </em>
+            </template>
           </i18n>
         </template>
       </div>
@@ -89,6 +100,7 @@
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
         </em>
         <span :class="$style.FlowText">{{ $t('または') }}</span>
@@ -98,21 +110,27 @@
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
         </em>
         <span :class="$style.FlowText">{{ $t('かつ') }}</span>
         <em :class="$style.FlowSymptom">
           <i18n tag="span" :class="$style.FlowTextSm" path="発熱{temperature}">
-            <i18n tag="span" path="{tempNum}以上" place="temperature">
-              <span :class="$style.FlowTemperature" place="tempNum">
-                {{ $t('37.5℃') }}
-              </span>
-            </i18n>
+            <template v-slot:temperature>
+              <i18n tag="span" path="{tempNum}以上">
+                <template v-slot:tempNum>
+                  <span :class="$style.FlowTemperature">
+                    {{ $t('37.5℃') }}
+                  </span>
+                </template>
+              </i18n>
+            </template>
           </i18n>
           <img
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
         </em>
       </div>

@@ -5,7 +5,7 @@
 [![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
 
-### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | ภาษาไทย | [Français](./../fr/README.md)
+### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | ภาษาไทย | [Français](./../fr/README.md) | [Português](./../pt_BR/README.md)
 
 
 ## การร่วมพัฒนา
@@ -39,6 +39,21 @@ $ yarn install
 # serve with hot reload at localhost:3000
 $ yarn dev
 ```
+
+
+[PLEASE TRANSLATE ME]
+
+**アクセシビリティチェック（vue-axe）を無効にする方法**
+
+- 開発用ローカルサーバが重い場合、以下のようにアクセシビリティチェックを無効にして起動することができます。
+
+```bash
+# serve with hot reload at localhost:3000
+$ yarn dev-no-axe
+```
+
+[/PLEASE TRANSLATE ME]
+
 
 **ใช้ docker**
 ```bash
@@ -82,7 +97,7 @@ $ docker-compose run --rm app yarn install
 
 ### กฎการใช้ branch
 
-pull request เปิดรับได้ที่ `development`, `dev-i18n` และ `dev-hotfix` เท่านั้น
+pull request เปิดรับได้ที่ `development` และ `dev-hotfix` เท่านั้น
 โปรดตั้งชื่อ branch ดังนี้
 
 การสร้างฟีเจอร์: feature/#{ISSUE_ID}-#{branch_title_name}  
@@ -93,7 +108,6 @@ hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 | ---- | -------- | ---- | ---- |
 | Development | development | http://dev-covid19-tokyo.netlify.com/ | branch หลัก ใช้ในการรับ pull request |
 | Hotfix branch | dev-hotfix | None | Branch สำหรับ hotfix ของ production - ใช้ในกรณีที่ admin อนุญาตแล้วเท่านั้น |
-| i18n working branch | dev-i18n | https://i18n-covid-tokyo.netlify.com/ | ใช้ชั่วคราว |
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | ใช้สำหรับ staging ทดสอบตัวปรับปรุง ก่อน deploy ลง production - ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
 | Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
 

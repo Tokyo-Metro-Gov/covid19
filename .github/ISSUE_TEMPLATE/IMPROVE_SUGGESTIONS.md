@@ -1,7 +1,7 @@
 ---
 name: '改善提案 / Improvement Suggestions'
 about: '「こうするともっとよくなる」といったWebサイトへの提案はこちら'
-labels: improve
+labels: improvement
 ---
 
 ## 改善詳細 / Details of Improvement

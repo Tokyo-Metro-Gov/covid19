@@ -1,11 +1,15 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:infoPanel>
       <small :class="$style.DataViewDesc">
         <slot name="description" />
       </small>
     </template>
+    <h4 :id="`${titleId}-graph`" class="visually-hidden">
+      {{ $t(`{title}のグラフ`, { title }) }}
+    </h4>
     <bar
+      :ref="'barChart'"
       :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
@@ -20,6 +24,7 @@
       :hide-default-footer="true"
       :height="240"
       :fixed-header="true"
+      :disable-sort="true"
       :mobile-breakpoint="0"
       class="cardTable"
       item-key="name"
@@ -70,7 +75,7 @@ type Computed = {
   }
   displayOption: ChartOptions
   tableHeaders: {
-    text: string
+    text: VueI18n.TranslateResult
     value: string
   }[]
   tableData: {
@@ -82,7 +87,6 @@ type Props = {
   titleId: string
   chartId: string
   unit: string
-  url: string
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -113,11 +117,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: 'agency-bar-chart'
     },
     unit: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    url: {
       type: String,
       required: false,
       default: ''
@@ -231,7 +230,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     tableHeaders() {
       return [
-        { text: '', value: 'text' },
+        { text: this.$t('日付'), value: 'text' },
         ...this.displayData.datasets.map((text, value) => {
           return { text: text.label, value: String(value) }
         })
@@ -248,6 +247,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           })
         )
       })
+    }
+  },
+  mounted() {
+    const barChart = this.$refs.barChart as Vue
+    const barElement = barChart.$el
+    const canvas = barElement.querySelector('canvas')
+    const labelledbyId = `${this.titleId}-graph`
+
+    if (canvas) {
+      canvas.setAttribute('role', 'img')
+      canvas.setAttribute('aria-labelledby', labelledbyId)
     }
   }
 }

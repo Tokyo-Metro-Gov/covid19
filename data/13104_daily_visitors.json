@@ -1,5 +1,5 @@
 {
-  "date": "2020/03/21 08:00",
+  "date": "2020/03/23 08:00",
   "data": [
     {
       "date": "20200201",
@@ -250,6 +250,16 @@
       "date": "20200321",
       "population": 306000,
       "holiday": true
+    },
+    {
+      "date": "20200322",
+      "population": 250000,
+      "holiday": true
+    },
+    {
+      "date": "20200323",
+      "population": 603000,
+      "holiday": false
     }
   ]
 }
