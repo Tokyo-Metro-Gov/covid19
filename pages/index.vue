@@ -19,7 +19,7 @@
       <confirmed-cases-attributes-card />
       <confirmed-cases-number-card /> -->
 
-      <inspection-persons-number-card />
+      <!--<inspection-persons-number-card />-->
       <tested-number-card />
       <telephone-advisory-reports-number-card />
       <consultation-desk-reports-number-card />
@@ -51,7 +51,7 @@ import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsC
 // import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 // import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
-import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
+// import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 // import MetroCard from '@/components/cards/MetroCard.vue'
@@ -73,7 +73,7 @@ export default Vue.extend({
     // ConfirmedCasesNumberCard,
     // ConfirmedCasesAttributesCard,
     TestedNumberCard,
-    InspectionPersonsNumberCard,
+    // InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard
     // MetroCard,
