@@ -15,7 +15,7 @@ const config: Configuration = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | 東京都 新型コロナウイルス感染症対策サイト',
+    titleTemplate: '%s | 富山県(非公式) 新型コロナウイルス感染症対策サイト',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -169,14 +169,7 @@ const config: Configuration = {
         '/cards/number-of-tested',
         '/cards/number-of-inspection-persons',
         '/cards/number-of-reports-to-covid19-telephone-advisory-center',
-        '/cards/number-of-reports-to-covid19-consultation-desk',
-        '/cards/predicted-number-of-toei-subway-passengers',
-        '/cards/agency',
-        '/cards/shinjuku-visitors',
-        '/cards/chiyoda-visitors',
-        '/cards/shinjuku-st-heatmap',
-        '/cards/tokyo-st-heatmap',
-        '/cards/tokyo-city-heatmap'
+        '/cards/number-of-reports-to-covid19-consultation-desk'
       ]
 
       const routes: string[] = []

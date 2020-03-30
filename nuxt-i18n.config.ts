@@ -20,34 +20,35 @@ export default {
       file: 'ja.json',
       description: 'Japanese'
     },
-    {
-      code: 'en',
-      name: 'English',
-      iso: 'en-US',
-      file: 'en.json',
-      description: 'English'
-    },
-    {
-      code: 'zh-cn',
-      name: '简体中文',
-      iso: 'zh-CN',
-      file: 'zh_CN.json',
-      description: 'Simplified Chinese'
-    },
-    {
-      code: 'zh-tw',
-      name: '繁體中文',
-      iso: 'zh-TW',
-      file: 'zh_TW.json',
-      description: 'Traditional Chinese'
-    },
-    {
-      code: 'ko',
-      name: '한국어',
-      iso: 'ko-KR',
-      file: 'ko.json',
-      description: 'Korean'
-    },
+    // i18nは一旦絞っておく
+    // {
+    //   code: 'en',
+    //   name: 'English',
+    //   iso: 'en-US',
+    //   file: 'en.json',
+    //   description: 'English'
+    // },
+    // {
+    //   code: 'zh-cn',
+    //   name: '简体中文',
+    //   iso: 'zh-CN',
+    //   file: 'zh_CN.json',
+    //   description: 'Simplified Chinese'
+    // },
+    // {
+    //   code: 'zh-tw',
+    //   name: '繁體中文',
+    //   iso: 'zh-TW',
+    //   file: 'zh_TW.json',
+    //   description: 'Traditional Chinese'
+    // },
+    // {
+    //   code: 'ko',
+    //   name: '한국어',
+    //   iso: 'ko-KR',
+    //   file: 'ko.json',
+    //   description: 'Korean'
+    // },
     // #1126, #872 (comment)
     // ポルトガル語は訳が揃っていないため非表示
     // {
