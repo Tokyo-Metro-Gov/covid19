@@ -6,7 +6,7 @@
           class="DataView-Title"
           :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
         >
-          {{ title }}
+          <t-i18n :text="title" />
         </h3>
         <slot name="infoPanel" />
       </div>
@@ -28,7 +28,7 @@
           <div>
             <a class="Permalink" :href="permalink()">
               <time :datetime="formattedDate">
-                {{ $t('{date} 更新', { date }) }}
+                <t-i18n :text="$t('{date} 更新', { date })" />
               </time>
             </a>
           </div>
@@ -149,8 +149,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import TI18n from '@/components/TI18n.vue'
 
 export default Vue.extend({
+  components: { TI18n },
   props: {
     title: {
       type: String,

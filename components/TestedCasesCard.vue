@@ -3,21 +3,27 @@
     <template v-slot:button>
       <ul :class="$style.notes">
         <li>
-          {{ $t('（注）医療機関が保険適用で行った検査は含まれていない') }}
+          <t-i18n
+            :text="$t('（注）医療機関が保険適用で行った検査は含まれていない')"
+          />
         </li>
         <li>
-          {{
-            $t(
-              '（注）検査実施人数には、チャーター機帰国者、クルーズ船乗客等は含まれていない'
-            )
-          }}
+          <t-i18n
+            :text="
+              $t(
+                '（注）検査実施人数には、チャーター機帰国者、クルーズ船乗客等は含まれていない'
+              )
+            "
+          />
         </li>
         <li>
-          {{
-            $t(
-              '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
-            )
-          }}
+          <t-i18n
+            :text="
+              $t(
+                '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+              )
+            "
+          />
         </li>
       </ul>
     </template>
@@ -42,9 +48,13 @@ ul.notes {
 <script lang="ts">
 import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default Vue.extend({
-  components: { DataView },
+  components: {
+    DataView,
+    TI18n
+  },
   props: {
     title: {
       type: String,

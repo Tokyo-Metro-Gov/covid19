@@ -2,17 +2,17 @@
   <div class="MainPage">
     <div class="Header mb-3">
       <page-header :icon="headerItem.icon">
-        {{ headerItem.title }}
+        <t-i18n :text="headerItem.title" />
       </page-header>
       <div class="UpdatedAt">
-        <span>{{ $t('最終更新') }} </span>
+        <t-i18n :text="$t('最終更新')" />
         <time :datetime="updatedAt">{{ Data.lastUpdate }}</time>
       </div>
       <div
         v-show="!['ja', 'ja-basic'].includes($i18n.locale)"
         class="Annotation"
       >
-        <span>{{ $t('注釈') }} </span>
+        <t-i18n :text="$t('注釈')" />
       </div>
     </div>
     <whats-new class="mb-4" :items="newsItems" />
@@ -47,6 +47,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+import TI18n from '@/components/TI18n.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
@@ -86,7 +87,8 @@ export default Vue.extend({
     ShinjukuVisitorsCard,
     ChiyodaVisitorsCard,
     ShinjukuStMapCard,
-    TokyoStMapCard
+    TokyoStMapCard,
+    TI18n
   },
   data() {
     const data = {

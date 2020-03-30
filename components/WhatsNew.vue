@@ -4,7 +4,7 @@
       <v-icon size="24" class="WhatsNew-heading-icon">
         mdi-information
       </v-icon>
-      {{ $t('最新のお知らせ') }}
+      <t-i18n :text="$t('最新のお知らせ')" />
     </h3>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
@@ -39,8 +39,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
+import TI18n from '@/components/TI18n.vue'
 
 export default Vue.extend({
+  components: { TI18n },
   props: {
     items: {
       type: Array,

@@ -5,28 +5,29 @@
         <div :class="$style.content">
           <!-- eslint-disable vue/no-v-html-->
           <span>
-            {{ $t('検査実施人数') }}
-            <br />({{ $t('累計') }})
+            <t-i18n :text="$t('検査実施人数')" />
+            <br />
+            <t-i18n :text="$t('累計')" />
           </span>
           <!-- eslint-enable vue/no-v-html-->
           <span>
             <strong>{{ 累計人数 }}</strong>
-            <span :class="$style.unit">{{ $t('人') }}</span>
+            <t-i18n :class="$style.unit" :text="$t('人')" />
           </span>
         </div>
       </div>
     </li>
     <li :class="[$style.box, $style.tall, $style.parent, $style.cases]">
       <div :class="$style.title">
-        {{ $t('検査実施件数') }}
-        ({{ $t('累計') }})
+        <t-i18n :text="$t('検査実施件数')" />
+        <t-i18n :text="$t('累計')" />
       </div>
       <div :class="$style.pillar">
         <div :class="$style.content">
-          <span>{{ $t('合計') }}</span>
+          <t-i18n :text="$t('合計')" />
           <span>
             <strong>{{ 合計件数 }}</strong>
-            <span :class="$style.unit">{{ $t('件.tested') }}</span>
+            <t-i18n :class="$style.unit" :text="$t('件.tested')" />
           </span>
         </div>
       </div>
@@ -34,10 +35,10 @@
         <li :class="[$style.box, $style.inside]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <span>{{ $t('都内発生') }}</span>
+              <t-i18n :text="$t('都内発生')" />
               <span>
                 <strong>{{ 都内発生件数 }}</strong>
-                <span :class="$style.unit">{{ $t('件.tested') }}</span>
+                <t-i18n :class="$style.unit" :text="$t('件.tested')" />
               </span>
             </div>
           </div>
@@ -45,13 +46,14 @@
         <li :class="[$style.box, $style.others]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <span>{{ $t('その他.graph') }}</span>
-              <span :class="$style.small">{{
-                $t('（チャーター機・クルーズ船等）')
-              }}</span>
+              <t-i18n :text="$t('その他.graph')" />
+              <t-i18n
+                :class="$style.small"
+                :text="$t('チャーター機・クルーズ船等）')"
+              />
               <span>
                 <strong>{{ その他件数 }}</strong>
-                <span :class="$style.unit">{{ $t('件.tested') }}</span>
+                <t-i18n :class="$style.unit" :text="$t('件.tested')" />
               </span>
             </div>
           </div>
@@ -63,9 +65,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import TI18n from '@/components/TI18n.vue'
 
 /* eslint-disable vue/prop-name-casing */
 export default Vue.extend({
+  components: {
+    TI18n
+  },
   props: {
     累計人数: {
       type: Number,

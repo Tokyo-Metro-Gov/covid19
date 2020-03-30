@@ -1,6 +1,8 @@
 <template>
   <div class="SourceLink">
-    <div>{{ header }}</div>
+    <div>
+      <t-i18n :text="header" />
+    </div>
     <i18n path="出典: {source}" tag="div" :for="linkString">
       <template v-slot:source>
         <a
@@ -9,7 +11,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          {{ linkString }}
+          <t-i18n :text="linkString" />
           <v-icon class="ExternalLinkIcon" size="15">
             mdi-open-in-new
           </v-icon>
@@ -30,8 +32,10 @@
 </style>
 <script lang="ts">
 import Vue from 'vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default Vue.extend({
+  components: { TI18n },
   props: {
     url: {
       type: String,

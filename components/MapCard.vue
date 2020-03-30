@@ -10,9 +10,15 @@
     <template v-slot:description>
       <ol>
         <li>
-          {{ $t('※ ヤフーに蓄積された位置情報データなどを元に算出した参考値') }}
+          <t-i18n
+            :text="
+              $t('※ ヤフーに蓄積された位置情報データなどを元に算出した参考値')
+            "
+          />
         </li>
-        <li>{{ $t('※ 土・日・祝日を除く7:30~8:30の平均値') }}</li>
+        <li>
+          <t-i18n :text="$t('※ 土・日・祝日を除く7:30~8:30の平均値')" />
+        </li>
       </ol>
     </template>
     <div class="MapCard-BodyContainer">
@@ -67,13 +73,15 @@ import DataView from '@/components/DataView.vue'
 import Heatmap from '@/components/Heatmap.vue'
 import SourceLink from '@/components/SourceLink.vue'
 import HeatmapLegend from '@/components/HeatmapLegend.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
     DataView,
     SourceLink,
     Heatmap,
-    HeatmapLegend
+    HeatmapLegend,
+    TI18n
   },
   props: {
     title: {
