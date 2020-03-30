@@ -40,6 +40,25 @@
     <StaticCard>
       <h3>
         <a
+          href="https://www.tokyo-kosha.or.jp/support/josei/jigyo/kinkyu.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{
+            $t('緊急販路開拓助成事業（新型コロナウイルス感染症緊急対策）')
+          }}</a
+        >
+      </h3>
+      <p>
+        {{
+          $t(
+            '感染症の影響を受け、売上が減少した都内中小企業の展示会出展費用の一部を助成します（限度額：150万円 / 助成率：5分の4 / 助成対象期間：交付決定日から1年1カ月 / 受付期間：5月11日～20日〈予定〉）。'
+          )
+        }}
+      </p>
+    </StaticCard>
+    <StaticCard>
+      <h3>
+        <a
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
           target="_blank"
           rel="noopener noreferrer"
