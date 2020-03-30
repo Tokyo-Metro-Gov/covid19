@@ -101,7 +101,7 @@ export default {
     return data
   },
   head() {
-    const url = 'https://stopcovid19.metro.tokyo.lg.jp'
+    const url = 'https://covid19-fukui.bosai-signal.jp'
     const timestamp = new Date().getTime()
     const ogpImage =
       this.$i18n.locale === 'ja'
