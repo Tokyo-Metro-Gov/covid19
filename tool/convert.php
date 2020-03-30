@@ -110,7 +110,7 @@ function readQuerents() : array
 
 function readPatientsV2() : array
 {
-  $data = xlsxToArray(__DIR__.'/downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'A2:J100', 'A1:J1');
+  $data = xlsxToArray(__DIR__.'/downloads/千葉市患者発生発表数-RAW.xlsx', 'RAW', 'A2:J100', 'A1:J1');
   $base_data = $data->filter(function ($row) {
     return $row['リリース日'];
   })->map(function ($row) {
@@ -124,7 +124,7 @@ function readPatientsV2() : array
   });
 
   return [
-    'date' => xlsxToArray(__DIR__.'/downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'M1')[0][0],
+    'date' => xlsxToArray(__DIR__.'/downloads/千葉市患者発生発表数-RAW.xlsx', 'RAW', 'M1')[0][0],
     'data' => [
       '感染者数' => makeDateArray('2020-01-24')->merge($base_data->groupBy('リリース日')->map(function ($rows) {
         return $rows->count();
@@ -161,10 +161,10 @@ function readPatientsV2() : array
 
 function readPatients() : array
 {
-    $data = xlsxToArray(__DIR__.'/downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'A2:J100', 'A1:J1');
+    $data = xlsxToArray(__DIR__.'/downloads/千葉市患者発生発表数-RAW.xlsx', 'RAW', 'A2:J100', 'A1:J1');
 
     return [
-      'date' => xlsxToArray(__DIR__.'/downloads/東京都患者発生発表数-RAW.xlsx', 'RAW', 'M1')[0][0],
+      'date' => xlsxToArray(__DIR__.'/downloads/千葉市患者発生発表数-RAW.xlsx', 'RAW', 'M1')[0][0],
       'data' => $data->filter(function ($row) {
         return $row['リリース日'];
       })->map(function ($row) {
@@ -215,7 +215,7 @@ function readInspections() : array{
     return $row['疑い例検査'] !== null;
   });
   return [
-    'date' => '2020/3/5/ 00:00', //TODO 現在のエクセルに更新日付がないので変更する必要あり
+    'date' => '2020/3/30/ 19:30', //TODO 現在のエクセルに更新日付がないので変更する必要あり
     'data' => $data
   ];
 }
@@ -270,7 +270,7 @@ foreach ($data as $key => &$arr) {
     $timestamp = Carbon::parse()->format('YmdHis');
     if ($lastTime <= $timestamp) {
       $lastTime = $timestamp;
-      $lastUpdate = Carbon::parse($arr['date'])->addDay()->format('Y/m/d 8:00');
+      $lastUpdate = Carbon::parse($arr['date'])->format('Y/m/d H:i');
     }
 }
 $data['lastUpdate'] = $lastUpdate;
