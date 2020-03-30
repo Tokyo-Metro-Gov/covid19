@@ -8,7 +8,7 @@
           }}</span>
         </div>
         <div :class="[$style.AdvisoryContentsColsSentense, 'mt-4']">
-          {{ $t('帰国者・接触者 電話相談センター') }}
+          {{ $t('hamamatsu.帰国者・接触者 電話相談センター') }}
         </div>
         <div>
           <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryWhiteBox]">
@@ -32,7 +32,7 @@
             ]"
           >
             <a
-              href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+              href="https://www.city.hamamatsu.shizuoka.jp/seiei/other/kansensyou.html"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -64,14 +64,14 @@
             'mt-1'
           ]"
         >
-          <a :class="$style.AdvisoryTelephone" href="tel:0353204592">
+          <a :class="$style.AdvisoryTelephone" href="tel:0534536118">
             <img
               :class="$style.AdvisoryTelephoneIcon"
               src="/flow/phone-24px.svg"
               aria-hidden="true"
               :alt="$t('電話番号')"
             />
-            03-5320-4592
+            053-453-6118
           </a>
         </div>
         <div v-if="!['ja', 'ja-basic'].includes($i18n.locale)" class="pt-8">

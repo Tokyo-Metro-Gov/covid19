@@ -3,7 +3,7 @@
     <h4 id="consult" :class="[$style.heading, $style.fzXLarge]">
       {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
       <small :class="[$style.break, $style.fzRegular, $style.mt5]">{{
-        $t('帰国者・接触者 電話相談センター')
+        $t('hamamatsu.帰国者・接触者 電話相談センター')
       }}</small>
     </h4>
     <p :class="[$style.open, $style.fzMedium]">
@@ -16,7 +16,7 @@
         </dt>
         <dd :class="$style.link">
           <a
-            href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+            href="https://www.city.hamamatsu.shizuoka.jp/seiei/other/kansensyou.html"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -48,7 +48,7 @@
             <span :class="$style.icon">
               <PhoneIcon alt="Phone" />
             </span>
-            <a href="tel:0353204592">03-5320-4592</a>
+            <a href="tel:0534536118">053-453-6118</a>
           </div>
           <div
             v-if="!['ja', 'ja-basic'].includes($i18n.locale)"
