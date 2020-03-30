@@ -184,7 +184,7 @@
     padding: 10px;
 
     &Sentense {
-      color: $green-1;
+      color: $blue-1;
       font-size: 18px;
       font-weight: bold;
     }

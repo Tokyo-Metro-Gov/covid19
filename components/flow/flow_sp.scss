@@ -43,7 +43,7 @@
     min-height: px2vw(92);
     margin-top: px2vw(30);
     padding: px2vw(15) px2vw(15) px2vw(10);
-    border: px2vw(4) solid $green-1;
+    border: px2vw(4) solid $blue-1;
     border-radius: px2vw(5);
     text-align: center;
     position: relative;
@@ -175,7 +175,7 @@
 }
 
 .underline {
-  border-bottom: px2vw(4) solid $green-1;
+  border-bottom: px2vw(4) solid $blue-1;
 }
 
 .break {
@@ -210,7 +210,7 @@
       min-height: px2vw(92, $vw);
       margin-top: px2vw(30, $vw);
       padding: px2vw(15, $vw) px2vw(15, $vw) px2vw(10, $vw);
-      border: px2vw(4, $vw) solid $green-1;
+      border: px2vw(4, $vw) solid $blue-1;
       border-radius: px2vw(5, $vw);
 
       &::before {
@@ -284,7 +284,7 @@
   }
 
   .underline {
-    border-bottom: px2vw(4, $vw) solid $green-1;
+    border-bottom: px2vw(4, $vw) solid $blue-1;
   }
 
   .clickable {

@@ -78,7 +78,7 @@ export default Vue.extend()
 
   strong,
   em {
-    border-bottom: 2px solid $green-1;
+    border-bottom: 2px solid $blue-1;
   }
 
   em {

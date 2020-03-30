@@ -86,7 +86,7 @@ export default {
     justify-content: center;
     align-items: center;
     background-color: $white;
-    color: $green-1;
+    color: $blue-1;
     padding: px2vw(20) px2vw(40);
     border-radius: px2vw(6);
   }
