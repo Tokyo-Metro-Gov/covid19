@@ -60,7 +60,7 @@ export default Vue.extend({
         ? {
             href: link,
             target: '_blank',
-            rel: 'noopener',
+            rel: 'noopener noreferrer',
             class: 'MenuList-Link'
           }
         : {
@@ -94,6 +94,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .MenuList {
+  margin-top: 24px;
   padding: 12px 0;
   border-bottom: 1px solid $gray-4;
 

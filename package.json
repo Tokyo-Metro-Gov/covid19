@@ -9,6 +9,7 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt-ts",
+    "dev-no-axe": "cross-env NODE_ENV=dev-no-axe nuxt-ts",
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
     "generate:deploy": "cross-env NODE_ENV=production nuxt-ts generate",

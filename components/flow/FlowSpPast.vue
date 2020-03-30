@@ -2,14 +2,13 @@
   <div :class="$style.container">
     <p :class="$style.heading">
       <i18n path="{past}の出来ごとと症状" tag="span">
-        <i18n
-          :class="$style.fzLarge"
-          tag="span"
-          path="発症前{two}週間以内"
-          place="past"
-        >
-          <span :class="$style.fzNumeric" place="two">2</span>
-        </i18n>
+        <template v-slot:past>
+          <i18n :class="$style.fzLarge" tag="span" path="発症前{two}週間以内">
+            <template v-slot:two>
+              <span :class="$style.fzNumeric">2</span>
+            </template>
+          </i18n>
+        </template>
       </i18n>
     </p>
     <p :class="$style.type">
@@ -22,9 +21,9 @@
           path="{closeContact}をした方"
           :class="[$style.behavior, $style.fzXLarge]"
         >
-          <em :class="$style.underline" place="closeContact">{{
-            $t('濃厚接触')
-          }}</em>
+          <template v-slot:closeContact>
+            <em :class="$style.underline">{{ $t('濃厚接触') }}</em>
+          </template>
         </i18n>
       </template>
       <template v-else>
@@ -33,9 +32,9 @@
           path="{closeContact}をした方"
           :class="[$style.behavior, $style.fzXLarge]"
         >
-          <em :class="$style.underline" place="closeContact">{{
-            $t('濃厚接触')
-          }}</em>
+          <template v-slot:closeContact>
+            <em :class="$style.underline">{{ $t('濃厚接触') }}</em>
+          </template>
         </i18n>
         <span :class="$style.source">{{
           $t('「新型コロナウイルス感染者」と')
@@ -63,10 +62,12 @@
           :class="[$style.behavior, $style.fzXLarge]"
           path="{you} か {closeContact}をした方"
         >
-          <em :class="$style.underline" place="you">{{ $t('ご本人') }}</em>
-          <em :class="$style.underline" place="closeContact">{{
-            $t('濃厚接触')
-          }}</em>
+          <template v-slot:you>
+            <em :class="$style.underline">{{ $t('ご本人') }}</em>
+          </template>
+          <template v-slot:closeContact>
+            <em :class="$style.underline">{{ $t('濃厚接触') }}</em>
+          </template>
         </i18n>
       </template>
       <template v-else>
@@ -75,18 +76,20 @@
           :class="[$style.behavior, $style.fzRegular]"
           path="travel history from {area}"
         >
-          <em :class="$style.underline" place="area">{{
-            $t('COVID-19 prevalent area')
-          }}</em>
+          <template v-slot:area>
+            <em :class="$style.underline">{{
+              $t('COVID-19 prevalent area')
+            }}</em>
+          </template>
         </i18n>
         <i18n
           tag="span"
           :class="[$style.behavior, $style.fzXLarge]"
           path="been {inCloseContact} with returnees"
         >
-          <em :class="$style.underline" place="inCloseContact">{{
-            $t('in close contact')
-          }}</em>
+          <template v-slot:inCloseContact>
+            <em :class="$style.underline">{{ $t('in close contact') }}</em>
+          </template>
         </i18n>
       </template>
     </p>
@@ -99,14 +102,17 @@
       </p>
       <p :class="$style.symptom">
         <i18n tag="span" path="発熱{temperature}" :class="$style.fzSmall">
-          <i18n
-            tag="span"
-            path="{tempNum}以上"
-            place="temperature"
-            :class="[$style.break, $style.fzRegular]"
-          >
-            <span :class="$style.temp" place="tempNum">{{ $t('37.5℃') }}</span>
-          </i18n>
+          <template v-slot:temperature>
+            <i18n
+              tag="span"
+              path="{tempNum}以上"
+              :class="[$style.break, $style.fzRegular]"
+            >
+              <template v-slot:tempNum>
+                <span :class="$style.temp">{{ $t('37.5℃') }}</span>
+              </template>
+            </i18n>
+          </template>
         </i18n>
       </p>
     </div>
