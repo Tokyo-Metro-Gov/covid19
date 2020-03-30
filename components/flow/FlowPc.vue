@@ -24,7 +24,7 @@
           />
         </div>
       </div>
-      <div :class="[$style.CardBlock, $style.CardBlockCenter, $style.Suspect]">
+      <div :class="[$style.CardBlock, $style.CardBlockSuspect, $style.Suspect]">
         <div :class="[$style.CardBlockInner]">
           <flow-pc-suspect />
           <img
@@ -257,10 +257,15 @@ export default {
 
   &Icon {
     position: absolute;
-    top: 50%;
+    bottom: 10%;
     right: -30px;
     z-index: 1;
-    margin-top: -23px;
+  }
+
+  &Suspect {
+    .CardBlockIcon {
+      bottom: 40%;
+    }
   }
 
   &Required {
