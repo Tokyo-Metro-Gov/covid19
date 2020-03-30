@@ -23,7 +23,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp'
+        content: 'https://stopcovid19-hamamatsu.netlify.com/'
       },
       {
         hid: 'twitter:card',
@@ -33,18 +33,18 @@ const config: Configuration = {
       {
         hid: 'twitter:site',
         name: 'twitter:site',
-        content: '@tokyo_bousai'
+        content: '@Hamamatsu_pr'
       },
       {
         hid: 'twitter:creator',
         name: 'twitter:creator',
-        content: '@tokyo_bousai'
+        content: '@Hamamatsu_pr'
       },
-      {
-        hid: 'fb:app_id',
-        property: 'fb:app_id',
-        content: '2879625188795443'
-      },
+      // {
+      //   hid: 'fb:app_id',
+      //   property: 'fb:app_id',
+      //   content: '2879625188795443'
+      // },
       {
         hid: 'note:card',
         property: 'note:card',
