@@ -111,7 +111,7 @@
 
 .CheckBox {
   position: relative;
-  border: 2px solid $green-1;
+  border: 2px solid $blue-1;
   border-radius: 4px;
   margin: 8px 0;
   padding: 10px;

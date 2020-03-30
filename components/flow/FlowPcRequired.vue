@@ -119,7 +119,7 @@ export default {
 
 .CardWhite {
   background-color: $white;
-  border: 2px solid $green-1 !important;
+  border: 2px solid $blue-1 !important;
 
   &Text {
     font-size: 22px;
@@ -128,7 +128,7 @@ export default {
 }
 
 .CardGreen {
-  background-color: $green-1;
+  background-color: $blue-1;
 
   &Text {
     color: $white;

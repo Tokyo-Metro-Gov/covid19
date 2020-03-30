@@ -151,7 +151,7 @@ $default-boxdiff: 35px;
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  color: $green-1;
+  color: $blue-1;
   line-height: 1.35;
 
   * {
@@ -172,7 +172,7 @@ $default-boxdiff: 35px;
   flex: 0 0 auto;
   text-align: center;
   width: 100%;
-  border: $default-bdw solid $green-1;
+  border: $default-bdw solid $blue-1;
 }
 
 .group {
@@ -180,16 +180,16 @@ $default-boxdiff: 35px;
   flex: 0 0 auto;
   padding-left: 0;
   padding-top: $default-bdw;
-  border-top: $default-bdw solid $green-1;
-  border-left: $default-bdw solid $green-1;
+  border-top: $default-bdw solid $blue-1;
+  border-left: $default-bdw solid $blue-1;
 }
 
 .box {
   display: flex;
 
   &.parent {
-    border-top: $default-bdw solid $green-1;
-    border-left: $default-bdw solid $green-1;
+    border-top: $default-bdw solid $blue-1;
+    border-left: $default-bdw solid $blue-1;
     position: relative;
     padding-top: $default-boxdiff - $default-bdw * 2;
 
@@ -200,7 +200,7 @@ $default-boxdiff: 35px;
       top: -1px;
       right: 0;
       height: $default-boxdiff - $default-bdw - 2;
-      border-left: $default-bdw solid $green-1;
+      border-left: $default-bdw solid $blue-1;
     }
 
     > .pillar {

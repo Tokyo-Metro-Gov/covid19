@@ -206,7 +206,7 @@
       margin-bottom: 10px;
       padding: 10px;
       position: relative;
-      border: 2px solid $green-1 !important;
+      border: 2px solid $blue-1 !important;
       border-radius: 2px;
       background-color: $white;
 
@@ -256,7 +256,7 @@
     &Emphasis {
       font-size: 24px;
       font-weight: bold;
-      border-bottom: solid 3px $green-1;
+      border-bottom: solid 3px $blue-1;
 
       &Day {
         font-size: 41px;
