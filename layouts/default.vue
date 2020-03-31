@@ -95,7 +95,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+          href: `https://shimane-covid19.netlify.com/${this.$route.path}`
         },
         {
           rel: 'stylesheet',
@@ -112,14 +112,14 @@ export default Vue.extend({
           hid: 'description',
           name: 'description',
           content: this.$tc(
-            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、島根県出身の学生が開設したものです。'
           )
         },
         {
           hid: 'og:site_name',
           property: 'og:site_name',
           content:
-            this.$t('東京都') +
+            this.$t('島根県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
@@ -128,14 +128,14 @@ export default Vue.extend({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+          content: `https://shimane-covid19.netlify.com${this.$route.path}`
         },
         ogLocale,
         {
           hid: 'og:title',
           property: 'og:title',
           content:
-            this.$t('東京都') +
+            this.$t('島根県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
@@ -145,7 +145,7 @@ export default Vue.extend({
           hid: 'og:description',
           property: 'og:description',
           content: this.$tc(
-            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、島根県出身の学生が開設したものです。'
           )
         },
         {
@@ -157,7 +157,7 @@ export default Vue.extend({
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
           content:
-            this.$t('東京都') +
+            this.$t('島根県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
