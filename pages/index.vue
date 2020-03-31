@@ -24,7 +24,6 @@
     />
     <v-row class="DataBlock">
       <confirmed-cases-details-card />
-      <tested-cases-details-card />
       <confirmed-cases-attributes-card />
       <confirmed-cases-number-card />
       <inspection-persons-number-card />
@@ -42,7 +41,6 @@ import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
-import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
@@ -55,7 +53,6 @@ export default Vue.extend({
     WhatsNew,
     StaticInfo,
     ConfirmedCasesDetailsCard,
-    TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     TestedNumberCard,
@@ -66,7 +63,7 @@ export default Vue.extend({
       Data,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: this.$t('都内の最新感染動向')
+        title: this.$t('島根県内の最新感染動向')
       },
       newsItems: News.newsItems
     }
@@ -79,7 +76,7 @@ export default Vue.extend({
   },
   head(): MetaInfo {
     return {
-      title: this.$t('都内の最新感染動向') as string
+      title: this.$t('島根県内の最新感染動向') as string
     }
   }
 })

@@ -5448,57 +5448,36 @@
             }
         ]
     },
-    "inspection_status_summary": {
-        "date": "2020\/03\/27 11:00",
-        "attr": "検査実施人数（累計）",
-        "value": 2269,
-        "children": [
-            {
-                "attr": "検査実施件数（累計）",
-                "value": 3735,
-                "children": [
-                    {
-                        "attr": "都内発生",
-                        "value": 2960
-                    },
-                    {
-                        "attr": "その他（チャーター便・クルーズ船等）",
-                        "value": 775
-                    }
-                ]
-            }
-        ]
-    },
     "lastUpdate": "2020\/03\/29 20:30",
     "main_summary": {
-        "attr": "検査実施人数",
-        "value": 2269,
+        "attr": "PCR検査実施人数",
+        "value": 136,
         "children": [
             {
                 "attr": "陽性患者数",
-                "value": 430,
+                "value": 0,
                 "children": [
                     {
                         "attr": "入院中",
-                        "value": 382,
+                        "value": 0,
                         "children": [
                             {
                                 "attr": "軽症・中等症",
-                                "value": 367
+                                "value": 0
                             },
                             {
                                 "attr": "重症",
-                                "value": 15
+                                "value": 0
                             }
                         ]
                     },
                     {
                         "attr": "退院",
-                        "value": 40
+                        "value": 0
                     },
                     {
                         "attr": "死亡",
-                        "value": 8
+                        "value": 0
                     }
                 ]
             }
