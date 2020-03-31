@@ -17,27 +17,20 @@
         <tbody>
           <tr>
             <td class="content" role="heading" aria-level="3">
-              {{
-                $t('オープンデータ、オープンソースに関すること')
-              }}
+              {{ $t('オープンデータ、オープンソースに関すること') }}
             </td>
-            <td class="bureau">{{ $t('島根県地域振興部情報政策課　') }}</td>
+            <td class="bureau">{{ $t('島根県地域振興部情報政策課') }}</td>
             <td class="tel"><a href="tel:0852-22-5700">0852-22-5700</a></td>
           </tr>
-    
           <tr>
             <td class="content" role="heading" aria-level="3">
               {{ $t('島根県公式ホームページに関すること') }}
             </td>
             <td class="bureau">{{ $t('島根県庁') }}</td>
-            <a
-                href="tel:0852-22-5111"
-                >0852-22-5111</a
-              >
+            <td class="tel">
+              <a href="tel:0852-22-5111">0852-22-5111</a>
             </td>
           </tr>
-         
-          
         </tbody>
       </table>
     </div>
