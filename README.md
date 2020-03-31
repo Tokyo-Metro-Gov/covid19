@@ -1,15 +1,19 @@
-# 東京都 新型コロナウイルス感染症対策サイト
+# 沖縄県 新型コロナウイルス感染症対策サイト
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
+東京都版をフォークして作成しています。
 
-[![東京都 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![沖縄県 新型コロナウイルス感染症対策サイト](https://friendly-lamport-e7cdf4.netlify.com/logo.jpg)](https://okinawa.stopcovid19.jp)
 
-### 日本語 | [English](./docs/en/README.md) | [Español](./docs/es/README.md) | [한국어](./docs/ko/README.md) | [繁體中文](./docs/zh_TW/README.md) | [简体中文](./docs/zh_CN/README.md) | [Tiếng Việt](./docs/vi/README.md) | [ภาษาไทย](./docs/th/README.md) | [Français](./docs/fr/README.md)
+<!-- ### 日本語 | [English](./docs/en/README.md) | [Español](./docs/es/README.md) | [한국어](./docs/ko/README.md) | [繁體中文](./docs/zh_TW/README.md) | [简体中文](./docs/zh_CN/README.md) | [Tiếng Việt](./docs/vi/README.md) | [ภาษาไทย](./docs/th/README.md) | [Français](./docs/fr/README.md) -->
+
 
 ## 貢献の仕方
-Issues にあるいろいろな修正にご協力いただけると嬉しいです。
+[沖縄版サイト制作の方針](./PROJECT_OKINAWA.md)を御覧ください。
 
-詳しくは[貢献の仕方](./CONTRIBUTING.md)を御覧ください。
+Issues 準備中  
+初回リリース後、順次用意していきます。
+ 
+[貢献の仕方](./CONTRIBUTING.md)を御覧ください。
 
 
 ## 行動原則
@@ -17,10 +21,6 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 
 ## ライセンス
 本ソフトウェアは、[MITライセンス](./LICENSE.txt)の元提供されています。
-
-## このサイトから派生したサイト
-
-[Link先](./FORKED_SITES.md)を御覧ください。
 
 ## 翻訳者向け情報
 
