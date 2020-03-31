@@ -106,8 +106,6 @@
             {{ $t('島根県出身の学生有志') }}
           </a>
           {{ $t('作成されています。') }}
-          <br />
-          2020 Tokyo Metropolitan Government
         </small>
       </footer>
     </div>
