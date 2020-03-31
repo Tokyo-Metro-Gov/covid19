@@ -19,21 +19,6 @@
       </li>
     </ul>
 
-    <div :class="$style.callcenter">
-      <p :class="$style.fzLarge">
-        {{ $t('新型コロナコールセンター') }}
-      </p>
-      <p :class="$style.open">
-        {{ $t('24時間対応') }}
-      </p>
-      <p :class="[$style.phone, $style.fzNumeric]">
-        <span :class="$style.icon">
-          <PhoneIcon alt="Phone" />
-        </span>
-        <a href="tel:0534536118">053-453-6118</a>
-      </p>
-    </div>
-
     <a
       v-scroll-to="{
         el: '#consult',
