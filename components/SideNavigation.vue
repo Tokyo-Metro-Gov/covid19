@@ -178,8 +178,8 @@ export default Vue.extend({
           link: this.localePath('/contacts')
         },
         {
-          title: this.$t('東京都公式ホームページ'),
-          link: 'https://www.metro.tokyo.lg.jp/'
+          title: this.$t('島根県公式ホームページ'),
+          link: 'https://www.pref.shimane.lg.jp/'
         }
       ]
     }
