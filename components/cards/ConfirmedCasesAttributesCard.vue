@@ -48,7 +48,7 @@ export default {
       row['ID'] = this.$t(row['ID'])+"例目"
       row['居住地'] = this.$t(row['居住地'])
       row['性別'] = this.$t(row['性別'])
-      row['退院'] = this.$t(row['退院'])
+      row['濃厚接触者数'] = this.$t(row['濃厚接触者数'])
 
       if (row['年代'] === '10歳未満') {
         row['年代'] = this.$t('10歳未満')
