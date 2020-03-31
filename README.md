@@ -2,8 +2,8 @@
 
 東京都版をフォークして作成しています。
 
-[![沖縄県 新型コロナウイルス感染症対策サイト](https://friendly-lamport-e7cdf4.netlify.com/logo.jpg)](https://okinawa.stopcovid19.jp)
-
+<a href="https://okinawa.stopcovid19.jp" target="_blank" rel="noopener noreferrer"><img src="https://friendly-lamport-e7cdf4.netlify.com/logo.jpg" alt="沖縄県 新型コロナウイルス感染症対策サイト" style="max-width: 100%; width: 500px; margin: 0 auto; display: block;">
+    
 <!-- ### 日本語 | [English](./docs/en/README.md) | [Español](./docs/es/README.md) | [한국어](./docs/ko/README.md) | [繁體中文](./docs/zh_TW/README.md) | [简体中文](./docs/zh_CN/README.md) | [Tiếng Việt](./docs/vi/README.md) | [ภาษาไทย](./docs/th/README.md) | [Français](./docs/fr/README.md) -->
 
 
