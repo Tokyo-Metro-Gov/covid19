@@ -12,7 +12,7 @@
         <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderLink">
           <img
             class="SideNavigation-HeaderLogo"
-            src="/logo.jpg"
+            src="/logo.svg"
             :alt="$t('沖縄県')"
           />
           <div class="SideNavigation-HeaderText">
