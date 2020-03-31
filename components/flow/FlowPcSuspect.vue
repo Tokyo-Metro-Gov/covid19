@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.FlowComponent">
-    <div :class="[$style.SubtleBox, $style.Box1]">
+    <div :class="[$style.SubtleBox]">
       <img
         :class="$style.Box1Icon"
         src="/flow/flow_arrow.svg"
@@ -46,27 +46,6 @@
           />
           {{ $t('感染の不安') }}
         </div>
-      </div>
-    </div>
-
-    <div :class="[$style.SubtleBox, $style.Box2, $style.Center]">
-      <div :class="$style.LargerText">
-        {{ $t('新型コロナコールセンター') }}
-      </div>
-      <div :class="$style.SmallerText">
-        {{ $t('24時間対応') }}
-      </div>
-
-      <div :class="$style.Tel">
-        <a :class="$style.TelLink" href="tel:0534536118">
-          <img
-            :class="$style.TelLinkIcon"
-            src="/flow/phone-24px.svg"
-            aria-hidden="true"
-            :alt="$t('電話番号')"
-          />
-          053-453-6118
-        </a>
       </div>
     </div>
   </div>
@@ -150,6 +129,7 @@
   justify-content: space-evenly;
   align-items: center;
   padding: 0.5em;
+  width: 100%;
 }
 
 .Box1 {
