@@ -6,13 +6,13 @@
     <StaticCard>
       {{
         $t(
-          '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+          '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、島根県出身の学生有志メンバーが開設したものです。'
         )
       }}<br />
       <br />
       {{
         $t(
-          '東京都による公式情報と客観的な数値をわかりやすく伝えることで、東京都にお住まいの方や、東京都内に拠点を持つ企業の方、東京都を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。'
+          '島根県による公式情報と客観的な数値をわかりやすく伝えることで、島根県にお住まいの方や、島根県内に拠点を持つ企業の方、島根県を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。'
         )
       }}
     </StaticCard>
@@ -151,7 +151,7 @@
       <p>
         {{
           $t(
-            '当サイトに掲載されている情報の正確性については万全を期していますが、東京都は利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。'
+            '当サイトに掲載されている情報の正確性については万全を期していますが、利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。'
           )
         }}
       </p>
@@ -178,11 +178,11 @@
       >
         <template v-slot:catalogWebsite>
           <a
-            href="https://portal.data.metro.tokyo.lg.jp/"
+            href="https://www.pref.shimane.lg.jp/life/information/joho/densi_jichitai/opendata01.html"
             target="_blank"
             rel="noopener noreferrer"
           >
-            {{ $t('東京都オープンデータカタログサイト') }}
+            {{ $t('島根県オープンデータカタログサイト') }}
           </a>
         </template>
       </i18n>
@@ -198,7 +198,7 @@
         <i18n path="詳しくは、{githubRepo}をご確認ください。">
           <template v-slot:githubRepo>
             <a
-              href="https://github.com/tokyo-metropolitan-gov/covid19"
+              href="https://github.com/TaigaMikami/shimane-covid19"
               target="_blank"
               rel="noopener noreferrer"
             >
