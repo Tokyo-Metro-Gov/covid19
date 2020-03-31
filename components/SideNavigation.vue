@@ -62,7 +62,7 @@
             </picture>
           </a>
           <a
-            href="https://www.facebook.com/tochokoho"
+            href="https://ja-jp.facebook.com/shimane.pref"
             target="_blank"
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
