@@ -1,5 +1,5 @@
 # 栃木県 新型コロナウイルス感染症対策サイト
-
+<img width="1015" alt="OGB_sample3" src="https://user-images.githubusercontent.com/62798392/78030914-c9beb600-739d-11ea-9d1a-a32d3c04c040.png">
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
 気づいた点があれば issue 発行やコメントもご自由にどうぞ。
