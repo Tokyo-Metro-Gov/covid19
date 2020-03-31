@@ -47,6 +47,52 @@
       </nav>
 
       <footer class="SideNavigation-Footer">
+        <div class="SideNavigation-Social">
+          <a
+            href="https://line.me/R/ti/p/%40Hamamatsu"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
+          >
+            <picture>
+              <source srcset="/line.webp" type="image/webp" />
+              <img src="/line.png" alt="LINE" />
+            </picture>
+          </a>
+          <a
+            href="https://twitter.com/Hamamatsu_pr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
+          >
+            <picture>
+              <source srcset="/twitter.webp" type="image/webp" />
+              <img src="/twitter.png" alt="Twitter" />
+            </picture>
+          </a>
+          <a
+            href="https://www.facebook.com/hamamatsu.iira"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
+          >
+            <picture>
+              <source srcset="/facebook.webp" type="image/webp" />
+              <img src="/facebook.png" alt="Facebook" />
+            </picture>
+          </a>
+          <a
+            href="https://github.com/code-for-hamamatsu/covid19"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
+          >
+            <picture>
+              <source srcset="/github.webp" type="image/webp" />
+              <img src="/github.png" alt="GitHub" />
+            </picture>
+          </a>
+        </div>
         <small class="SideNavigation-Copyright">
           {{ $t('このサイトの内容物は') }}
           <a
