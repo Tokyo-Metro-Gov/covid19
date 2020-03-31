@@ -164,9 +164,9 @@ export default Vue.extend({
         },
         
         {
-          title: this.$t('東京都主催等 中止又は延期するイベント等'),
+          title: this.$t('県内の中止又は延期するイベント等'),
           link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
+            'https://www.kankou-shimane.com/news/13881.html'
         },
         {
           title: this.$t('知事からのメッセージ'),
