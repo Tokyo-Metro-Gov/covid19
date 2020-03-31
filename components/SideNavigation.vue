@@ -110,7 +110,7 @@ export default {
           icon: 'mdi-account-multiple',
           title: this.$t('県民の皆様へ'),
           link:
-            'https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/coronavirus.html'
+            'https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/coronavirus.html#kenmin'
         },
         {
           icon: 'mdi-account-multiple',
@@ -121,7 +121,7 @@ export default {
         {
           title: this.$t('知事からのメッセージ'),
           link:
-            'http://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/documents/76148_20200305175151-1.pdf'
+            'https://www.pref.kagoshima.jp/aa02/move/1ch/chijikaiken020330.html'
         },
         {
           title: this.$t('当サイトについて'),
