@@ -1,6 +1,7 @@
 import dayjs from 'dayjs'
 
 const headers = [
+  { text: '', value: 'ID' },
   { text: '公表日', value: '公表日' },
   { text: '居住地', value: '居住地' },
   { text: '年代', value: '年代' },
@@ -9,6 +10,7 @@ const headers = [
 ]
 
 type DataType = {
+  ID: string
   リリース日: string
   居住地: string | null
   年代: string | null
@@ -18,6 +20,7 @@ type DataType = {
 }
 
 type TableDataType = {
+  ID: DataType['ID']
   公表日: string
   居住地: DataType['居住地']
   年代: DataType['年代']
@@ -42,6 +45,7 @@ export default (data: DataType[]) => {
   }
   data.forEach(d => {
     const TableRow: TableDataType = {
+      ID: d['ID'],
       公表日: dayjs(d['リリース日']).format('MM/DD') ?? '不明',
       居住地: d['居住地'] ?? '不明',
       年代: d['年代'] ?? '不明',
