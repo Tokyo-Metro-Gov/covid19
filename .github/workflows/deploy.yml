@@ -64,3 +64,11 @@ jobs:
         uses: rymndhng/release-on-push-action@master
         with:
           bump_version_scheme: patch
+
+      - name: run delete_fbcache.sh
+        run: |
+          echo "FB_ACCESS_TOKEN=${FACEBOOK_ACCESS_TOKEN}" > .env
+          cd ui-test
+          ./delete_fbcache.sh
+        env:
+          FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
