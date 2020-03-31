@@ -18,7 +18,7 @@
 
           <img
             class="SideNavigation-HeaderLogo-SP"
-            src="/sp_logo.png"
+            src="/sp_logo.svg"
             :alt="$t('沖縄県')"
           />
 
