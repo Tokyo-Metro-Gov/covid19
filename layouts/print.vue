@@ -25,14 +25,14 @@
               tile
               color="transparent"
             >
-              <img src="/site-qr.svg" :alt="$t('2次元コード')" />
+              <img src="/site-qr.png" :alt="$t('2次元コード')" />
             </v-card>
             <v-card class="flex-shrink-0" flat tile color="transparent">
               <p class="PrintMeta-Text">
                 {{ $t('※最新の情報はWebページをご覧ください') }}
               </p>
               <p class="PrintMeta-Link">
-                https://stopcovid19.metro.tokyo.lg.jp/
+                https://www.city.hamamatsu.shizuoka.jp/seiei/other/kansensyou.html
               </p>
             </v-card>
           </v-card>

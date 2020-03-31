@@ -7,14 +7,14 @@
       :chart-option="{}"
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+      :url="'https://opendata.pref.shizuoka.jp/dataset/8113.html'"
       :source="$t('オープンデータを入手')"
     />
   </v-col>
 </template>
 
 <script>
-import Data from '@/data/data.json'
+import Data from '@/data/hamamatsu/data.json'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import DataTable from '@/components/DataTable.vue'
