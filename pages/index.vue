@@ -18,9 +18,9 @@
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
-      :url="localePath('/flow')"
+      :url="localePath('/contacts')"
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
-      :btn-text="$t('相談の手順を見る')"
+      :btn-text="$t('島根の保健所連絡先一覧')"
     />
     <v-row class="DataBlock">
       <confirmed-cases-details-card />
