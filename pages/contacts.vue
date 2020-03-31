@@ -145,7 +145,7 @@ export default Vue.extend({
       return this.pc ? {} : { role: 'heading', 'aria-level': '3' }
     }
   },
-  created() {
+  mounted() {
     if (process.browser) {
       window.addEventListener('resize', this.handleResize)
       this.handleResize()

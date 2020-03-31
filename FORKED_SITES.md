@@ -8,6 +8,7 @@
 [](01)北海道|https://stopcovid19.hokkaido.dev/|JUST道IT（有志団体）|[codeforsapporo/covid19](https://github.com/codeforsapporo/covid19)|
 [](02)青森県|https://covid19.codeforaomori.org|Code for Aomori|[CodeForAomori/covid19](https://github.com/CodeForAomori/covid19)|
 [](02)青森県|https://covid19-aomori.info/|Aomori Hackers（有志団体）|[covid19-aomori/website](https://github.com/covid19-aomori/website)|
+[](02)青森県|https://covid19-daily-tohoku.news/|デーリー東北新聞社|[momujin/covid19](https://github.com/momujin/covid19)|
 [](03)岩手県|https://iwate.stopcovid19.jp/|有志|[MeditationDuck/covid19](https://github.com/MeditationDuck/covid19)|
 [](04)宮城県|https://miyagi.stopcovid19.jp/|Code for Shiogama|[code4shiogama/covid19-miyagi](https://github.com/code4shiogama/covid19-miyagi)|
 [](07)福島県|https://fukushima-covid19.firebaseapp.com|GDG Fukushima|[donuzium/covid19](https://github.com/donuzium/covid19)|
