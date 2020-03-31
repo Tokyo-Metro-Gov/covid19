@@ -162,12 +162,7 @@ export default Vue.extend({
           title: this.$t('県民の皆様へ'),
           link: 'https://www.pref.shimane.lg.jp/medical/yakuji/kansensyo/other/topics/bukan2020.html'
         },
-        {
-          icon: 'mdi-domain',
-          title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: this.localePath('/worker'),
-          divider: true
-        },
+        
         {
           title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
           link:
