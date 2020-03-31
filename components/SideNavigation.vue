@@ -119,11 +119,6 @@ export default {
           divider: true
         },
         {
-          title: this.$t('新型コロナウイルス感染症に関する情報'),
-          link:
-            'http://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/coronavirus.html'
-        },
-        {
           title: this.$t('知事からのメッセージ'),
           link:
             'http://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/documents/76148_20200305175151-1.pdf'
