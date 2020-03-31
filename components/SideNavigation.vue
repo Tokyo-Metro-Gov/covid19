@@ -51,7 +51,7 @@
       <footer class="SideNavigation-Footer">
         <div class="SideNavigation-Social">
           <a
-            href="https://twitter.com/tokyo_bousai"
+            href="https://twitter.com/bousai_matsue"
             target="_blank"
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
