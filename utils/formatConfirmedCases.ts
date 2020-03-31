@@ -12,11 +12,11 @@ type DataType = {
           children: [
             {
               attr: '軽症・中等症'
-              value: number
+              value: string
             },
             {
               attr: '重症'
-              value: number
+              value: string
             }
           ]
         },
@@ -37,8 +37,8 @@ type ConfirmedCasesType = {
   検査実施人数: number
   陽性者数: number
   入院中: number
-  軽症中等症: number
-  重症: number
+  軽症中等症: string
+  重症: string
   死亡: number
   退院: number
 }
