@@ -168,7 +168,11 @@ export default Vue.extend({
           link:
             'https://www.kankou-shimane.com/news/13881.html'
         },
-        
+        {
+          title: this.$t('知事からのメッセージ'),
+          link:
+            'https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/new_coronavirus_portal.data/message1.pdf'
+        },
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
