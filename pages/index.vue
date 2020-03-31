@@ -18,9 +18,10 @@
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
-      :url="localePath('/flow')"
+      href="https://www.pref.okinawa.lg.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html"
+      target="_blank"
+      rel="noopener noreferrer"
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
-      :btn-text="$t('相談の手順を見る')"
     />
     <v-row class="DataBlock">
       <confirmed-cases-details-card />
