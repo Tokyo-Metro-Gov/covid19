@@ -16,6 +16,7 @@
       </div>
       <div class="DataView-Footer">
         <div class="Footer-Left">
+<!--
           <div>
             <a
               v-if="url"
@@ -30,6 +31,7 @@
               </v-icon>
             </a>
           </div>
+-->
           <div>
             <a class="Permalink" :href="permalink()">
               <time :datetime="formattedDate">
