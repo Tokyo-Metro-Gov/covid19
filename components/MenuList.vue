@@ -152,10 +152,10 @@ export default Vue.extend({
     &:hover,
     &:visited,
     &:active {
-      color: $green-1;
+      color: $red-1;
     }
     &:focus {
-      color: $green-1;
+      color: $red-1;
       outline: dotted $gray-3 1px;
     }
   }
@@ -170,7 +170,7 @@ export default Vue.extend({
   color: $gray-2;
 
   .nuxt-link-exact-active & {
-    color: $green-1;
+    color: $red-1;
   }
 }
 
@@ -180,7 +180,7 @@ export default Vue.extend({
   fill: $gray-2;
 
   .nuxt-link-exact-active & {
-    fill: $green-1;
+    fill: $red-1;
   }
 }
 

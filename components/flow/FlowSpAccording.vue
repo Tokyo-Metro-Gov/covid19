@@ -186,7 +186,7 @@ export default {
 
 .according {
   .heading {
-    color: $green-1;
+    color: $red-1;
   }
 
   .diag {
@@ -249,7 +249,7 @@ export default {
     }
 
     &.consult {
-      border: px2vw(3) solid $green-1;
+      border: px2vw(3) solid $red-1;
       flex-basis: 100%;
     }
 
@@ -344,7 +344,7 @@ export default {
       }
 
       &.consult {
-        border: px2vw(3, $vw) solid $green-1;
+        border: px2vw(3, $vw) solid $red-1;
       }
 
       &:nth-child(n + 3) {
