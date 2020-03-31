@@ -31,6 +31,97 @@
               <a href="tel:0852-22-5111">0852-22-5111</a>
             </td>
           </tr>
+          <tr>
+            <td class="content" role="heading" aria-level="3">
+              {{
+                $t(
+                  '新型コロナウイルス感染症が疑われる者の相談及び「帰国者・接触者外来」'
+                )
+              }}
+            </td>
+            <td class="bureau">{{ $t('松江市・島根県共同設置松江保健所') }}</td>
+            <td class="tel">
+              <a href="tel:0852-33-7673">0852-33-7673</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="content" role="heading" aria-level="3">
+              {{
+                $t(
+                  '新型コロナウイルス感染症が疑われる者の相談及び「帰国者・接触者外来」'
+                )
+              }}
+            </td>
+            <td class="bureau">{{ $t('雲南保健所') }}</td>
+            <td class="tel">
+              <a href="tel:0854-47-7778">0854-47-7778</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="content" role="heading" aria-level="3">
+              {{
+                $t(
+                  '新型コロナウイルス感染症が疑われる者の相談及び「帰国者・接触者外来」'
+                )
+              }}
+            </td>
+            <td class="bureau">{{ $t('出雲保健所') }}</td>
+            <td class="tel">
+              <a href="tel:0853-24-7028">0853-24-7028</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="content" role="heading" aria-level="3">
+              {{
+                $t(
+                  '新型コロナウイルス感染症が疑われる者の相談及び「帰国者・接触者外来」'
+                )
+              }}
+            </td>
+            <td class="bureau">{{ $t('県央保健所') }}</td>
+            <td class="tel">
+              <a href="tel:0854-84-9812">0854-84-9812</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="content" role="heading" aria-level="3">
+              {{
+                $t(
+                  '新型コロナウイルス感染症が疑われる者の相談及び「帰国者・接触者外来」'
+                )
+              }}
+            </td>
+            <td class="bureau">{{ $t('浜田保健所') }}</td>
+            <td class="tel">
+              <a href="tel:0855-29-5970">0855-29-5970</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="content" role="heading" aria-level="3">
+              {{
+                $t(
+                  '新型コロナウイルス感染症が疑われる者の相談及び「帰国者・接触者外来」'
+                )
+              }}
+            </td>
+            <td class="bureau">{{ $t('益田保健所') }}</td>
+            <td class="tel">
+              <a href="tel:0856-31-9512">0856-31-9512</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="content" role="heading" aria-level="3">
+              {{
+                $t(
+                  '新型コロナウイルス感染症が疑われる者の相談及び「帰国者・接触者外来」'
+                )
+              }}
+            </td>
+            <td class="bureau">{{ $t('隠岐保健所') }}</td>
+            <td class="tel">
+              <a href="tel:08512-2-9600">08512-2-9600</a>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
