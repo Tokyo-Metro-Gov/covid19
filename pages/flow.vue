@@ -3,34 +3,47 @@
     <div class="Flow-Heading">
       <CovidIcon aria-hidden="true" />
       <page-header class="Flow-Heading-Title">
-        {{ $t('新型コロナウイルス感染症が心配なときに') }}
+        {{ $t('新型コロナウイルス感染症対策動画') }}
       </page-header>
-      <PrinterButton :wrapper-class="'Flow-PullRight'" to="/print/flow" />
     </div>
     <div>
-      <div class="Flow-Card-Button-Wrapper">
-        <a
-          href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="Flow-Card-Button"
-        >
-          <span class="Flow-Card-Button-Description">
-            {{ $t('かかりつけ医に相談することもできます。') }}<br />
-            {{ $t('詳しくはこちらをご参照ください。') }}
-          </span>
-          {{ $t('詳細を見る（東京都福祉保健局）') }}
-          <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
-            mdi-open-in-new
-          </v-icon>
-        </a>
-      </div>
-      <div class="only-pc" aria-hidden="true">
-        <flow-pc />
-      </div>
-      <div class="only-sp">
-        <flow-sp />
-      </div>
+      <StaticCard>
+        <h3>{{ $t('新型コロナウイルス感染症講習会') }}</h3>
+        <p>
+          この動画は、一般法人島根県医師会の新型コロナウイルス感染症対策に役立てていただくことを目的とする標記講習会における動画です。
+        </p>
+        <div class="only-pc" aria-hidden="true">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/SU4WQjg3KbE"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        </div>
+        <div class="only-sp">
+          <iframe
+            width="350"
+            height="100"
+            src="https://www.youtube.com/embed/SU4WQjg3KbE"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        </div>
+        <p>
+          <a
+            href="https://www.shimane.med.or.jp/files/original/202003191626015541ea84588.pdf"
+            >スライドの資料</a
+          >
+        </p>
+        <p>
+          <a href="https://www.shimane.med.or.jp/to_medical/news_medical/631"
+            >一般社団法人 島根県医師会 | 新型コロナウイルス感染症について</a
+          >
+        </p>
+      </StaticCard>
     </div>
   </div>
 </template>
@@ -39,18 +52,12 @@
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import CovidIcon from '@/static/covid.svg'
-import PrinterButton from '@/components/PrinterButton.vue'
-import FlowPc from '@/components/flow/FlowPc.vue'
-import FlowSp from '@/components/flow/FlowSp.vue'
 import PageHeader from '@/components/PageHeader.vue'
 
 export default Vue.extend({
   components: {
     CovidIcon,
-    PageHeader,
-    PrinterButton,
-    FlowPc,
-    FlowSp
+    PageHeader
   },
   head(): any {
     const title: TranslateResult = this.$t(
