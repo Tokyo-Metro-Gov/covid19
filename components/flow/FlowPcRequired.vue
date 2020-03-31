@@ -6,9 +6,11 @@
         tag="p"
         path="新型コロナ外来 {advice} と判断された場合"
       >
-        <span :class="$style.Emphasis" place="advice">
-          {{ $t('受診が必要') }}
-        </span>
+        <template v-slot:advice>
+          <span :class="$style.Emphasis">
+            {{ $t('受診が必要') }}
+          </span>
+        </template>
       </i18n>
     </div>
     <div :class="$style.Row">
@@ -32,14 +34,18 @@
       <div :class="[$style.Card, $style.CardGreen]">
         <p :class="$style.CardGreenText">
           <i18n path="検査の必要{ifRequired}">
-            <span place="ifRequired">{{ $t('あり') }}</span>
+            <template v-slot:ifRequired>
+              <span>{{ $t('あり') }}</span>
+            </template>
           </i18n>
         </p>
       </div>
       <div :class="[$style.Card, $style.CardWhite]">
         <p :class="$style.CardWhiteText">
           <i18n path="検査の必要{ifRequired}">
-            <span place="ifRequired">{{ $t('なし') }}</span>
+            <template v-slot:ifRequired>
+              <span>{{ $t('なし') }}</span>
+            </template>
           </i18n>
         </p>
       </div>

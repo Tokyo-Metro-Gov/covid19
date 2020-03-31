@@ -18,6 +18,12 @@
         }}
         <br />
         *{{ $t('都営地下鉄4路線の自動改札出場数') }}
+        <br />
+        {{
+          $t(
+            '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+          )
+        }}
       </template>
     </metro-bar-chart>
   </v-col>
@@ -35,10 +41,14 @@ export default {
   data() {
     // 都営地下鉄の利用者数の推移
     const metroGraph = MetroData
+    for (const dataset of metroGraph.datasets) {
+      dataset.label = this.getWeekLabel(dataset.label)
+    }
+
     // metroGraph ツールチップ title文字列
     // this.$t を使うため metroGraphOption の外側へ
     const metroGraphTooltipTitle = (tooltipItems, _) => {
-      const label = tooltipItems[0].label
+      const label = this.getWeekLabel(tooltipItems[0].label)
       return this.$t('期間: {duration}', {
         // duration = label = '2月10日~14日' | '2月17日~21日' | '2月25日~28日'
         duration: this.$t(label)
@@ -64,6 +74,24 @@ export default {
       metroGraphTooltipLabel
     }
     return data
+  },
+  methods: {
+    /**
+     * 表の横軸に表示する、「MM/DD~MM/DD」形式のラベルを取得する
+     */
+    getWeekLabel(label) {
+      const slashCount = label.split('/').length - 1
+      if (slashCount === 1) {
+        // MM/DD~DD形式だったので、「~」の後に「MM/」を追加する
+        const month = label.substr(0, label.indexOf('/'))
+        label = label.replace('~', `~${month}/`)
+      }
+
+      // 日は、0埋めしない
+      label = label.replace('/0', '/')
+
+      return label
+    }
   }
 }
 </script>

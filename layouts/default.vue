@@ -81,7 +81,15 @@ export default Vue.extend({
     }
   },
   head(): MetaInfo {
-    const { htmlAttrs } = this.$nuxtI18nSeo()
+    const { htmlAttrs, meta } = this.$nuxtI18nSeo()
+    const ogLocale =
+      meta && meta.length > 0
+        ? meta[0]
+        : {
+            hid: 'og:locale',
+            name: 'og:locale',
+            content: this.$i18n.locale
+          }
     return {
       htmlAttrs,
       link: [
@@ -117,11 +125,7 @@ export default Vue.extend({
           property: 'og:url',
           content: ``
         },
-        {
-          hid: 'og:locale',
-          property: 'og:locale',
-          content: this.$i18n.locale
-        },
+        ogLocale,
         {
           hid: 'og:title',
           property: 'og:title',

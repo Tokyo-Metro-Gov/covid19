@@ -4,7 +4,7 @@
 
 [![Tokyo COVID-19 Task Force website](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./../../README.md) | [English](./../en/README.md) | Español | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
+### [日本語](./../../README.md) | [English](./../en/README.md) | Español | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md) | [Português](./../pt_BR/README.md)
 
 
 ## Cómo Contribuir
@@ -39,6 +39,23 @@ $ yarn install
 # serve with hot reload at localhost:3000
 $ yarn dev
 ```
+
+
+[PLEASE TRANSLATE ME]
+
+**アクセシビリティチェック（vue-axe）を無効にする方法**
+
+- 開発用ローカルサーバが重い場合、以下のようにアクセシビリティチェックを無効にして起動することができます。
+
+```bash
+# serve with hot reload at localhost:3000
+$ yarn dev-no-axe
+```
+-no-axe
+```
+
+[/PLEASE TRANSLATE ME]
+
 
 **Use docker**
 ```bash
