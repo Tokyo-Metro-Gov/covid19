@@ -96,16 +96,29 @@
           </a>
         </div>
         <small class="SideNavigation-Copyright">
-          {{ $t('このサイトは') }}
-          <a
-            :href="$t('https://twitter.com/gutio_jp')"
-            target="_blank"
-            rel="license"
-            class="SideNavigation-LicenseLink"
-          >
-            {{ $t('島根県出身の学生有志') }}
-          </a>
-          {{ $t('作成されています。') }}
+          {{ $t('このサイトは島根出身の学生有志で作成されています。') }}
+          <ul>
+            <li>
+              <a
+                :href="$t('https://github.com/TaigaMikami')"
+                target="_blank"
+                rel="license"
+                class="SideNavigation-LicenseLink"
+              >
+                {{ $t('TaigaMikami') }}
+              </a>
+            </li>
+            <li>
+              <a
+                :href="$t('https://github.com/sugigaku')"
+                target="_blank"
+                rel="license"
+                class="SideNavigation-LicenseLink"
+              >
+                {{ $t('sugigaku') }}
+              </a>
+            </li>
+          </ul>
         </small>
       </footer>
     </div>
