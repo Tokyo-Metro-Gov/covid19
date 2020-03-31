@@ -53,8 +53,10 @@ export default (data: DataType) => {
     検査実施人数: data.value,
     陽性者数: data.children[0].value,
     入院中: data.children[0].children[0].value,
-    軽症中等症: data.children[0].children[0].children[0].value,
-    重症: data.children[0].children[0].children[1].value,
+    // 軽症中等症: data.children[0].children[0].children[0].value,
+    軽症中等症: '-',
+    // 重症: data.children[0].children[0].children[1].value,
+    重症: '-',
     死亡: data.children[0].children[2].value,
     退院: data.children[0].children[1].value
   }

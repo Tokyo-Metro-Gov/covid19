@@ -1,5 +1,5 @@
 <template>
-  <a class="OpenDataLink" :href="url" target="_blank" rel="noopener noreferrer">
+  <!-- <a class="OpenDataLink" :href="url" target="_blank" rel="noopener noreferrer">
     {{ $t('オープンデータを入手') }}
     <v-icon
       class="ExternalLinkIcon"
@@ -10,7 +10,7 @@
     >
       mdi-open-in-new
     </v-icon>
-  </a>
+  </a> -->
 </template>
 
 <style lang="scss">
