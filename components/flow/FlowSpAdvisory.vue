@@ -11,35 +11,25 @@
     </p>
     <dl>
       <div :class="$style.daytime">
-        <dt :class="[$style.title, $style.fzMedium]">
-          {{ $t('平日（日中）') }}
-        </dt>
-        <dd :class="$style.link">
-          <a
-            href="https://www.city.hamamatsu.shizuoka.jp/seiei/other/kansensyou.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ $t('各保健所の電話番号は福祉保健局HPへ') }}
-            <v-icon size="16">
-              mdi-open-in-new
-            </v-icon>
-          </a>
-        </dd>
+        <a
+          href="https://www.city.hamamatsu.shizuoka.jp/seiei/other/kansensyou.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ $t('hamamatsu.お電話の前に「新型コロナウイルス感染症について」のページをご覧いただき、必要な対応をご検討ください。') }}
+          <v-icon size="16">
+            mdi-open-in-new
+          </v-icon>
+        </a>
       </div>
       <div>
         <dt>
           <ul :class="[$style.night]">
             <li>
               <span :class="[$style.fzMedium, $style.break, $style.mb10]">
-                {{ $t('平日（夜間）') }}
+                {{ $t('hamamatsu.平日・土日祝') }}
               </span>
-              {{ $t('午後5時から翌朝午前9時') }}
-            </li>
-            <li>
-              <span :class="$style.fzMedium">
-                {{ $t('土日祝 終日') }}
-              </span>
+              {{ $t('24時間対応') }}
             </li>
           </ul>
         </dt>

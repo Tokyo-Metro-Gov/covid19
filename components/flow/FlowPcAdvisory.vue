@@ -21,9 +21,6 @@
 
       <div :class="$style.AdvisoryContents">
         <div class="py-8">
-          <div :class="$style.AdvisoryContentsTitle2">
-            {{ $t('平日（日中）') }}
-          </div>
           <div
             :class="[
               $style.AdvisoryLink,
@@ -36,7 +33,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>{{ $t('各保健所の電話番号は福祉保健局HPへ') }}</span>
+              <span>{{ $t('hamamatsu.お電話の前に「新型コロナウイルス感染症について」のページをご覧いただき、必要な対応をご検討ください。') }}</span>
               <v-icon size="18">
                 mdi-open-in-new
               </v-icon>
@@ -48,14 +45,9 @@
       <div :class="$style.AdvisoryContents">
         <div class="pt-8">
           <div :class="$style.AdvisoryContentsTitle2">
-            {{ $t('平日（夜間）') }}
+            {{ $t('hamamatsu.平日・土日祝') }}
           </div>
-          <span>{{ $t('午後5時から翌朝午前9時') }}</span>
-        </div>
-        <div class="mt-1">
-          <span :class="$style.AdvisoryContentsSubTitle">
-            {{ $t('土日祝 終日') }}
-          </span>
+          <span>{{ $t('24時間対応') }}</span>
         </div>
         <div
           :class="[
