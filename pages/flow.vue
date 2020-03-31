@@ -10,7 +10,7 @@
     <div>
       <div class="Flow-Card-Button-Wrapper">
         <a
-          href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+          href="https://www.pref.okinawa.lg.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html"
           target="_blank"
           rel="noopener noreferrer"
           class="Flow-Card-Button"
@@ -19,7 +19,7 @@
             {{ $t('かかりつけ医に相談することもできます。') }}<br />
             {{ $t('詳しくはこちらをご参照ください。') }}
           </span>
-          {{ $t('詳細を見る（東京都福祉保健局）') }}
+          {{ $t('詳細を見る（保健所）') }}
           <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
             mdi-open-in-new
           </v-icon>

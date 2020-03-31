@@ -32,11 +32,11 @@
             ]"
           >
             <a
-              href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+              href="https://www.pref.okinawa.lg.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>{{ $t('各保健所の電話番号は福祉保健局HPへ') }}</span>
+              <span>{{ $t('各保健所の電話番号は県HPへ') }}</span>
               <v-icon size="18">
                 mdi-open-in-new
               </v-icon>
