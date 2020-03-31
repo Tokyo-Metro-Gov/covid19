@@ -34,6 +34,7 @@
 [](27)大阪府|https://covid19-osaka.info/|大阪府（**公式**）|[codeforosaka/covid19](https://github.com/codeforosaka/covid19)|
 [](28)兵庫県|https://stop-covid19-hyogo.org/|有志|[stop-covid19-hyogo/covid19](https://github.com/stop-covid19-hyogo/covid19)|
 [](29)奈良県|https://stopcovid19.code4nara.org/|有志|[code4nara/covid19](https://github.com/code4nara/covid19)|
+[](32)島根県|https://covid19-shimane.netlify.com/|個人|[junkboy0315/covid19](https://github.com/junkboy0315/covid19)|
 [](33)岡山県|https://covid19-okayama.netlify.com/|学生エンジニア(有志)||
 [](34)広島県|https://covid19-hiroshima.netlify.com/|個人|[tatsuya1970/covid19](https://github.com/tatsuya1970/covid19)|
 [](35)山口県|https://covid19-yamaguchi.netlify.com|有志|[nishidayoshikatsu/covid19-yamaguchi](https://github.com/nishidayoshikatsu/covid19-yamaguchi)|
