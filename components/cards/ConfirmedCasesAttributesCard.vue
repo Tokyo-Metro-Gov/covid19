@@ -7,7 +7,7 @@
       :chart-option="{}"
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+      :url="'https://opendata.pref.shizuoka.jp/dataset/8113.html'"
       :source="$t('オープンデータを入手')"
     />
   </v-col>
