@@ -96,16 +96,16 @@
           </a>
         </div>
         <small class="SideNavigation-Copyright">
-          {{ $t('このサイトの内容物は') }}
+          {{ $t('このサイトは') }}
           <a
-            :href="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
+            :href="$t('https://twitter.com/gutio_jp')"
             target="_blank"
             rel="license"
             class="SideNavigation-LicenseLink"
           >
-            {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
+            {{ $t('島根県出身の学生有志') }}
           </a>
-          {{ $t('の下に提供されています。') }}
+          {{ $t('作成されています。') }}
           <br />
           2020 Tokyo Metropolitan Government
         </small>
