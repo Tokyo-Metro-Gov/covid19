@@ -11,10 +11,17 @@
       <h1 class="SideNavigation-HeaderTitle">
         <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderLink">
           <img
-            class="SideNavigation-HeaderLogo"
+            class="SideNavigation-HeaderLogo-PC"
             src="/logo.svg"
             :alt="$t('沖縄県')"
           />
+
+          <img
+            class="SideNavigation-HeaderLogo-SP"
+            src="/sp_logo.png"
+            :alt="$t('沖縄県')"
+          />
+
           <div class="SideNavigation-HeaderText">
             {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
               $t('menu/対策サイト')
@@ -311,9 +318,20 @@ export default Vue.extend({
   }
 }
 
-.SideNavigation-HeaderLogo {
+.SideNavigation-HeaderLogo-PC {
   @include lessThan($tiny) {
     width: 100px;
+  }
+  @include lessThan($small) {
+    display: none;
+  }
+}
+.SideNavigation-HeaderLogo-SP {
+  @include lessThan($small) {
+    height: 30px;
+  }
+  @include largerThan($small) {
+    display: none;
   }
 }
 
