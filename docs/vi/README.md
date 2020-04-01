@@ -2,7 +2,7 @@
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
-[![Cổng thông tin chống dịch CoVid-19 của TP Tokyo](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![Cổng thông tin chống dịch CoVid-19 của TP Tokyo](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19-hamamatsu.netlify.com/)
 
 ### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | Tiếng Việt | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
 
@@ -66,11 +66,11 @@ Please use the variable to detect which enviroinment is used at the runtime.
 
 ### Triển khai lên môi trường staging và production
 
-Khi nhánh `master` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `production`. Sau đó https://stopcovid19.metro.tokyo.lg.jp/ sẽ được cập nhật.
+Khi nhánh `master` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `production`. Sau đó https://stopcovid19-hamamatsu.netlify.com/ sẽ được cập nhật.
 
 Khi nhánh `staging` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `gh-pages`. Sau đó https://stg-covid19-tokyo.netlify.com/ sẽ được cập nhật.
 
-Khi nhánh `development` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `dev-pages`. Sau đó https://dev-covid19-tokyo.netlify.com/ sẽ được cập nhật.
+Khi nhánh `development` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `dev-pages`. Sau đó https://dev-stopcovid19-hamamatsu.netlify.com/ sẽ được cập nhật.
 
 
 [PLEASE TRANSLATE ME]
@@ -86,15 +86,15 @@ Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 #### Basic branch
 | Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
-| Development | development | https://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
+| Development | development | https://dev-stopcovid19-hamamatsu.netlify.com/ | base branch. Basically send a Pull Request here |
 | Hotfix branch | dev-hotfix | None | Fixes that should be applied to production in haste. Use this if requested by the administrator |
 | Staging | staging | https://stg-covid19-tokyo.netlify.com/ | For final confirmation before production. Non-admin pull requests are prohibited |
-Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
+Production | master | https://stopcovid19-hamamatsu.netlify.com/ | Pull Requests other than Administrators are prohibited |
 
 #### Branch used by the system
 | Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
-| Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
+| Production site HTML | production | https://stopcovid19-hamamatsu.netlify.com/ | Location where statically built HTML is located |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
 | For OGP working directory | deploy / new_ogp | None | For updating OGP |
 
