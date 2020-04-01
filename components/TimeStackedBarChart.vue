@@ -28,7 +28,12 @@
     >
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
-          <div :style="{ backgroundColor: colors[i].fillColor, borderColor: colors[i].strokeColor }" />
+          <div
+            :style="{
+              backgroundColor: colors[i].fillColor,
+              borderColor: colors[i].strokeColor
+            }"
+          />
           <span
             :style="{
               textDecoration: displayLegends[i] ? 'none' : 'line-through'
