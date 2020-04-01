@@ -49,7 +49,7 @@ import { TranslateResult } from 'vue-i18n'
 import { ChartOptions, ChartData } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
-import { triple as colors } from '@/utils/colors'
+import { getGraphSeriesStyle } from '@/utils/colors'
 
 interface HTMLElementEvent<T extends HTMLElement> extends Event {
   currentTarget: T
@@ -66,6 +66,7 @@ type Computed = {
       label: string
       data: number[]
       backgroundColor: string
+      borderColor: string
       borderWidth: number
     }[]
   }
@@ -161,12 +162,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   }),
   computed: {
     displayData() {
+      const graphSeries = getGraphSeriesStyle(this.chartData.labels!.length)
       const datasets = this.chartData.labels!.map((label, i) => {
         return {
           label: label as string,
           data: this.chartData.datasets!.map(d => d.data![i]) as number[],
-          backgroundColor: colors[i],
-          borderWidth: 0
+          backgroundColor: graphSeries[i].fillColor,
+          borderColor: graphSeries[i].strokeColor,
+          borderWidth: 1
         }
       })
       return {
