@@ -12,7 +12,7 @@
         <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderLink">
           <img
             class="SideNavigation-HeaderLogo"
-            src="/hamamatsu/logo.jpg"
+            src="/hamamatsu/logo.svg"
             :alt="$t('浜松市')"
           />
           <div class="SideNavigation-HeaderText">
