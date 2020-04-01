@@ -45,7 +45,7 @@
               <t-i18n :text="$t('その他.graph')" />
               <t-i18n
                 :class="$style.small"
-                :text="$t('チャーター機・クルーズ船等）')"
+                :text="$t('（チャーター機・クルーズ船等）')"
               />
               <span>
                 <strong>{{ その他件数 }}</strong>

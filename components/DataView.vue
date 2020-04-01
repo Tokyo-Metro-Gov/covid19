@@ -64,7 +64,9 @@
               </v-icon>
             </div>
 
-            <h4>{{ $t('埋め込み用コード') }}</h4>
+            <h4>
+              <t-i18n :text="$t('埋め込み用コード')" />
+            </h4>
 
             <div class="EmbedCode">
               <v-icon
@@ -136,7 +138,7 @@
 
     <div v-if="showOverlay" class="overlay">
       <div class="overlay-text">
-        {{ $t('埋め込みコードをコピーしました') }}
+        <t-i18n :text="$t('埋め込みコードをコピーしました')" />
       </div>
       <v-footer class="DataView-Footer">
         <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
