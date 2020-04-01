@@ -8,12 +8,12 @@
       :date="metroGraph.date"
       :tooltips-title="metroGraphTooltipTitle"
       :tooltips-label="metroGraphTooltipLabel"
-      :unit="$t('%')"
+      unit="%"
     >
       <template v-slot:description>
         {{
           $t('{range}の利用者数*の平均値を基準としたときの相対値', {
-            range: $t(metroGraph.base_period)
+            range: metroGraph.base_period
           })
         }}
         <br />
