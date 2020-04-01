@@ -570,7 +570,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   beforeMount() {
     if (this.$el) {
-      this.chartWidth = ((this.$el!.clientWidth - 30) / 45) * this.labels.length
+      this.chartWidth = ((this.$el!.clientWidth - 30) / 60) * this.labels.length
     }
   },
   mounted() {
