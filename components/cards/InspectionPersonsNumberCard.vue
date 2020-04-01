@@ -7,6 +7,10 @@
       :chart-data="graphData"
       :date="data.date"
       :unit="$t('人')"
+      :url="
+        'https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/new_coronavirus_portal.html'
+      "
+      :source="$t('データ取得場所')"
     >
       <template v-slot:description>
         <ul>
