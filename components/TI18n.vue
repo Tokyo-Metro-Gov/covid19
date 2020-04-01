@@ -1,6 +1,6 @@
 <template>
   <span v-if="locale === 'ja-basic'">
-    <template v-for="(t, i) in rubyText">
+    <template v-for="(t, i) in rubyTexts">
       <ruby v-if="t.kana" :key="i">
         {{ t.ja }}
         <rp>(</rp>
@@ -17,12 +17,16 @@
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
+type RubyText = {
+  ja: string
+  kana?: string
+}
 type Data = {
   locale: string
 }
 type Methods = {}
 type Computed = {
-  rubyText: object[]
+  rubyTexts: RubyText[]
 }
 type Props = {
   text: string
@@ -39,7 +43,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     text: {
       type: String,
       default: '',
-      required: false
+      required: true
     }
   },
   data() {
@@ -48,10 +52,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   computed: {
-    rubyText() {
+    rubyTexts() {
       let match
       let prevIndex = 0
-      const res: object[] = []
+      const res: RubyText[] = []
       const regp = new RegExp(/(\p{sc=Han}+?)（(.+?)）/, 'gu')
       while ((match = regp.exec(this.text)) !== null) {
         if (match.index > 0) {
