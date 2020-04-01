@@ -20,7 +20,6 @@
               )
             "
           />
-          }}
         </li>
       </ul>
       <data-selector

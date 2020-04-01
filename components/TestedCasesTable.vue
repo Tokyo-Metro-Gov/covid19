@@ -3,13 +3,9 @@
     <li :class="[$style.box, $style.tall, $style.tested]">
       <div :class="[$style.pillar]">
         <div :class="$style.content">
-          <!-- eslint-disable vue/no-v-html-->
-          <span>
-            <t-i18n :text="$t('検査実施人数')" />
-            <br />
-            <t-i18n :text="$t('累計')" />
-          </span>
-          <!-- eslint-enable vue/no-v-html-->
+          <t-i18n :text="$t('検査実施人数')" />
+          <br />
+          <t-i18n :text="$t('累計')" />
           <span>
             <strong>{{ 累計人数 }}</strong>
             <t-i18n :class="$style.unit" :text="$t('人')" />

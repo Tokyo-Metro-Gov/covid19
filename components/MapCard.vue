@@ -53,7 +53,7 @@
       />-->
       <div v-show="detailPageUrl !== ''" class="DetailPageLink">
         <nuxt-link :to="detailPageUrl">
-          {{ detailPageString }}
+          <t-i18n :text="detailPageString" />
         </nuxt-link>
       </div>
       <div v-show="loading" class="MapCard-BodyContainer-LoadingScreen" />
