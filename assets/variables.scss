@@ -146,3 +146,22 @@ $z-index-map: (
     }
   }
 }
+
+// ===================
+// Visually Hidden (for screen reader)
+// https://github.com/ampproject/amphtml/blob/2e9a940e78df8de38a6c06a0772aeaa4839a24d1/css/ampshared.css#L164-L204
+
+@mixin visually-hidden() {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 4px !important;
+  height: 4px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  visibility: visible !important;
+}

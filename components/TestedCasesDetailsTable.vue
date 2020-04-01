@@ -164,6 +164,7 @@ $default-boxh: 150px;
 
   > span {
     display: block;
+    width: 100%;
 
     @include font-size(16);
 

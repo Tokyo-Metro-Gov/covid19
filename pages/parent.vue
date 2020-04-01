@@ -19,7 +19,7 @@
           <a
             href="https://tokyodouga.jp/lViN9C_BS-0.html"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             >{{ $t('【参考】感染症予防のための正しい手洗い方法（動画）') }}</a
           >
         </li>
@@ -42,7 +42,7 @@
           <a
             href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             >{{ $t('「新型コロナウイルス感染症にかかる相談窓口について」') }}</a
           >
         </li>

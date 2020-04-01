@@ -6,7 +6,6 @@
       :chart-id="'agency'"
       :chart-data="agencyData"
       :date="agencyData.date"
-      :url="''"
       :unit="$t('人')"
     >
       <template v-slot:description>

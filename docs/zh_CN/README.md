@@ -4,7 +4,7 @@
 
 [![东京都 新型冠状病毒对策网](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
-### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | 简体中文 | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
+### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | 简体中文 | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md) | [Português](./../pt_BR/README.md)
 
 ## 如何贡献
 如果您能对 Issus 中做出各式各样的修改协助，我们将不胜感激。
@@ -17,6 +17,14 @@
 
 ## 授权
 本软件采用[MIT授权条款](./../../LICENSE.txt)。
+
+## 从这个网站衍生出来的东西
+
+请参考[此链接](./../../FORKED_SITES.md)
+
+## 给翻译者的信息
+
+有要帮忙翻译的话，请参考[这个文件](./TRANSLATION.md) 。
 
 请查看 [如何翻译](./../../TRANSLATION.md) 文档。
 
@@ -36,11 +44,44 @@ $ yarn install
 $ yarn dev
 ```
 
+
+[PLEASE TRANSLATE ME]
+
+**アクセシビリティチェック（vue-axe）を無効にする方法**
+
+- 開発用ローカルサーバが重い場合、以下のようにアクセシビリティチェックを無効にして起動することができます。
+
+```bash
+# serve with hot reload at localhost:3000
+$ yarn dev-no-axe
+```
+
+[/PLEASE TRANSLATE ME]
+
+
 **使用 docker compose 时**
 
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
+```
+
+**使用 Vagrant 时**
+```bash
+# serve with hot reload at localhost:3000
+$ vagrant up
+```
+
+### 出现 `Cannot find module ****` 的error時
+
+**使用 yarn 时**
+```
+$ yarn install
+```
+
+**使用 docker compose 时**
+```bash
+$ docker-compose run --rm app yarn install
 ```
 
 ### VSCode + Remote Containers 的开发环境
@@ -73,7 +114,7 @@ $ docker-compose up --build
 只允许推送 Pull Request 到 `development`  和 `dev-hotfix` 分支。
 在推送 Pull Request 时，请按照以下命名规则为您的分支命名：
 
-新增功能: feature/#{ISSUE_ID}-#{branch_title_name}  
+新增功能: feature/#{ISSUE_ID}-#{branch_title_name}
 Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 #### 基本分支
