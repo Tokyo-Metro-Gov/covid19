@@ -117,7 +117,7 @@ const config: Configuration = {
     }
   },
   googleAnalytics: {
-    id: 'UA-159417676-1'
+    id: process.env.GOOGLE_ANALYTICS_ID // .env.production などに設定してください。
   },
   build: {
     plugins: [
@@ -171,12 +171,7 @@ const config: Configuration = {
         '/cards/number-of-reports-to-covid19-telephone-advisory-center',
         '/cards/number-of-reports-to-covid19-consultation-desk',
         '/cards/predicted-number-of-toei-subway-passengers',
-        '/cards/agency',
-        '/cards/shinjuku-visitors',
-        '/cards/chiyoda-visitors',
-        '/cards/shinjuku-st-heatmap',
-        '/cards/tokyo-st-heatmap',
-        '/cards/tokyo-city-heatmap'
+        '/cards/agency'
       ]
 
       const routes: string[] = []

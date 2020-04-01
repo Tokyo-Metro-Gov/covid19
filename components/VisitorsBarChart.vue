@@ -68,7 +68,7 @@ import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
 import { Chart } from 'chart.js'
 import DataView from '@/components/DataView.vue'
-import { single as color } from '@/utils/colors'
+import { getGraphSeriesStyle } from '@/utils/colors'
 import SourceLink from '@/components/SourceLink.vue'
 import type { DisplayData } from '@/plugins/vue-chart';
 
@@ -252,12 +252,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const percentages = this.targetValues.map(
         (val: number) => ((val - this.standardValue) / this.standardValue) * 100
       )
+      const style = getGraphSeriesStyle(1)[0]
       return {
         labels: this.labels,
         datasets: [
           {
             data: percentages,
-            backgroundColor: color
+            backgroundColor: style.fillColor,
+            borderColor: style.strokeColor,
+            borderWidth: 1
           }
         ]
       }

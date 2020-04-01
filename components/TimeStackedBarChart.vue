@@ -28,7 +28,7 @@
     >
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
-          <div :style="{ backgroundColor: colors[i] }" />
+          <div :style="{ backgroundColor: colors[i].fillColor, borderColor: colors[i].strokeColor }" />
           <span
             :style="{
               textDecoration: displayLegends[i] ? 'none' : 'line-through'
@@ -97,8 +97,8 @@ import { Chart } from 'chart.js'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import { double as colors } from '@/utils/colors'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -107,7 +107,7 @@ type Data = {
   dataKind: 'transition' | 'cumulative'
   canvas: boolean
   displayLegends: boolean[]
-  colors: typeof colors
+  colors: SurfaceStyle[]
 }
 type Methods = {
   sum: (array: number[]) => number
@@ -215,7 +215,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   data: () => ({
     dataKind: 'transition',
     displayLegends: [true, true],
-    colors,
+    colors: getGraphSeriesStyle(2),
     canvas: true
   }),
   computed: {
@@ -238,11 +238,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
-      const borderColor = '#ffffff'
-      const borderWidth = [
-        { left: 0, top: 1, right: 0, bottom: 0 },
-        { left: 0, top: 0, right: 0, bottom: 0 }
-      ]
+      const graphSeries = getGraphSeriesStyle(this.chartData.length)
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
@@ -250,9 +246,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             return {
               label: this.items[index],
               data: item,
-              backgroundColor: colors[index],
-              borderColor,
-              borderWidth: borderWidth[index]
+              backgroundColor: graphSeries[index].fillColor,
+              borderColor: graphSeries[index].strokeColor,
+              borderWidth: 1
             }
           })
         }
@@ -263,9 +259,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           return {
             label: this.items[index],
             data: this.cumulative(item),
-            backgroundColor: colors[index],
-            borderColor,
-            borderWidth: borderWidth[index]
+            backgroundColor: graphSeries[index].fillColor,
+            borderColor: graphSeries[index].strokeColor,
+            borderWidth: 1
           }
         })
       }
@@ -605,6 +601,8 @@ export default Vue.extend(options)
         width: 40px;
         display: inline-block;
         vertical-align: middle;
+        border-width: 1px;
+        border-style: solid;
       }
       button {
         color: $gray-3;

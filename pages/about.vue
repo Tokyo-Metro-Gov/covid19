@@ -176,14 +176,15 @@
         tag="p"
         path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
       >
-        <a
-          href="https://portal.data.metro.tokyo.lg.jp/"
-          target="_blank"
-          rel="noopener noreferrer"
-          place="catalogWebsite"
-        >
-          {{ $t('東京都オープンデータカタログサイト') }}
-        </a>
+        <template v-slot:catalogWebsite>
+          <a
+            href="https://portal.data.metro.tokyo.lg.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ $t('東京都オープンデータカタログサイト') }}
+          </a>
+        </template>
       </i18n>
     </StaticCard>
     <StaticCard>
@@ -195,14 +196,15 @@
           )
         }}
         <i18n path="詳しくは、{githubRepo}をご確認ください。">
-          <a
-            href="https://github.com/tokyo-metropolitan-gov/covid19"
-            target="_blank"
-            rel="noopener noreferrer"
-            place="githubRepo"
-          >
-            {{ $t('GitHub リポジトリ') }}
-          </a>
+          <template v-slot:githubRepo>
+            <a
+              href="https://github.com/tokyo-metropolitan-gov/covid19"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ $t('GitHub リポジトリ') }}
+            </a>
+          </template>
         </i18n>
       </p>
     </StaticCard>

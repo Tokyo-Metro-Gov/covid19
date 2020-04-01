@@ -434,7 +434,7 @@ export default Vue.extend({
         border-radius: 8px;
         text-align: left;
         font-size: 1rem;
-        z-index: 1;
+        z-index: 2;
 
         > * {
           padding: 4px 0;
