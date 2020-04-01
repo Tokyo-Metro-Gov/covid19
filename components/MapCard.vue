@@ -21,9 +21,10 @@
         </li>
       </ol>
     </template>
-    <div class="MapCard-BodyContainer">
+    <div ref="mapCardBodyContainerRef" class="MapCard-BodyContainer">
       <heatmap-legend :legend-data="legendData" />
       <heatmap
+        v-if="active"
         ref="heatmapComponentRef"
         class="MapCard-Heatmap"
         :style="{ height: mapHeight + 'px' }"
@@ -44,13 +45,6 @@
           {{ item.text }}
         </option>
       </select>
-      <!--<v-select
-        v-model="dataDate"
-        :items="dateTicks"
-        :item-text="'text'"
-        :item-value="'value'"
-        @input="handleFocusChanged"
-      />-->
       <div v-show="detailPageUrl !== ''" class="DetailPageLink">
         <nuxt-link :to="detailPageUrl">
           <t-i18n :text="detailPageString" />
@@ -142,12 +136,14 @@ export default {
       default: 'map'
     }
   },
-  data: () => {
-    const dateTicks = [{ text: '02/01', value: '20200201' }]
-    const legendData = []
-    const loading = true
-    const updateDate = ''
-    return { dateTicks, legendData, loading, updateDate }
+  data() {
+    return {
+      active: false,
+      dateTicks: [{ text: '02/01', value: '20200201' }],
+      legendData: [],
+      loading: true,
+      updateDate: ''
+    }
   },
   created() {
     const self = this
@@ -155,6 +151,36 @@ export default {
       .then(response => response.json())
       .then(res => (self.updateDate = res.yahootile.lastUpdate))
       .catch(_ => (self.updateDate = ''))
+  },
+  mounted() {
+    // client且つogp表示ではない且つIntersection Observer APIが存在するとき
+    if (
+      process.client &&
+      this.$route.query.ogp !== 'true' &&
+      'IntersectionObserver' in window
+    ) {
+      const mapObserver = new IntersectionObserver(
+        (entries, observer) => {
+          const inView = entries.every(entry => {
+            return entry.boundingClientRect.top <= window.innerHeight
+          })
+
+          if (inView) {
+            this.active = true
+            observer.unobserve(this.$refs.mapCardBodyContainerRef)
+          }
+        },
+        {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        }
+      )
+
+      mapObserver.observe(this.$refs.mapCardBodyContainerRef)
+    } else {
+      this.active = true
+    }
   },
   methods: {
     updateLegend(legendData) {

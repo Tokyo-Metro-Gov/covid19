@@ -33,14 +33,8 @@
       <consultation-desk-reports-number-card />
       <metro-card />
       <agency-card />
-      <shinjuku-visitors-card />
-      <chiyoda-visitors-card />
     </v-row>
     <v-divider />
-    <v-row class="DataBlock">
-      <shinjuku-st-map-card />
-      <tokyo-st-map-card />
-    </v-row>
   </div>
 </template>
 
@@ -64,10 +58,6 @@ import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDe
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
-import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
-import ChiyodaVisitorsCard from '@/components/cards/ChiyodaVisitorsCard.vue'
-import ShinjukuStMapCard from '@/components/cards/ShinjukuStMapCard.vue'
-import TokyoStMapCard from '@/components/cards/TokyoStMapCard.vue'
 
 export default Vue.extend({
   components: {
@@ -84,10 +74,6 @@ export default Vue.extend({
     ConsultationDeskReportsNumberCard,
     MetroCard,
     AgencyCard,
-    ShinjukuVisitorsCard,
-    ChiyodaVisitorsCard,
-    ShinjukuStMapCard,
-    TokyoStMapCard,
     TI18n
   },
   data() {
