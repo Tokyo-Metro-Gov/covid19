@@ -113,7 +113,7 @@ type Data = {
   canvas: boolean
   displayLegends: boolean[]
   colors: SurfaceStyle[]
-  chartWidth: number
+  chartWidth: number | null
 }
 type Methods = {
   sum: (array: number[]) => number
@@ -222,7 +222,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     dataKind: 'transition',
     displayLegends: [true, true],
     colors: getGraphSeriesStyle(2),
-    chartWidth: 800,
+    chartWidth: null,
     canvas: true
   }),
   computed: {
@@ -572,7 +572,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     if (this.$el) {
       this.chartWidth =
         ((this.$el!.clientWidth - 22 * 2 - 38) / 60) * this.labels.length + 38
-      this.chartWidth = Math.min(this.$el!.clientWidth - 22 * 2)
+      this.chartWidth = Math.max(
+        this.$el!.clientWidth - 22 * 2,
+        this.chartWidth
+      )
     }
   },
   mounted() {

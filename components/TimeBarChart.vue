@@ -77,7 +77,7 @@ import { getGraphSeriesStyle } from '@/utils/colors'
 type Data = {
   dataKind: 'transition' | 'cumulative'
   canvas: boolean
-  chartWidth: number
+  chartWidth: number | null
 }
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
@@ -172,7 +172,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
-    chartWidth: 800,
+    chartWidth: null,
     canvas: true
   }),
   computed: {
@@ -487,7 +487,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         ((this.$el!.clientWidth - 22 * 2 - 38) / 60) *
           this.displayData.labels!.length +
         38
-      this.chartWidth = Math.min(this.$el!.clientWidth - 22 * 2)
+      this.chartWidth = Math.max(
+        this.$el!.clientWidth - 22 * 2,
+        this.chartWidth
+      )
     }
   },
   mounted() {
