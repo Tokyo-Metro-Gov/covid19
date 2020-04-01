@@ -2,7 +2,7 @@
 
 ![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
 
-[![東京都 新型冠狀病毒疫情中心](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![東京都 新型冠狀病毒疫情中心](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19-hamamatsu.netlify.com/)
 
 ### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | 繁體中文 | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md)
 
@@ -85,11 +85,11 @@ $ docker-compose run --rm app yarn install
 
 ### Deploy 到 Staging 環境以及正式環境的方法
 
-當 `master` 分支被更新時，HTML 檔案將會在 `production` 分支中被 build 起來，然後正式版網站 https://stopcovid19.metro.tokyo.lg.jp/ 會被更新。
+當 `master` 分支被更新時，HTML 檔案將會在 `production` 分支中被 build 起來，然後正式版網站 https://stopcovid19-hamamatsu.netlify.com/ 會被更新。
 
 當 `staging` 分支被更新時，HTML 檔案將會在 `gh-pages` 分支中被 build 起來，然後 Staging 版網站 https://stg-covid19-tokyo.netlify.com/ 會被更新。
 
-當 `development` 分支被更新時，HTML 檔案將會在 `dev-pages` 分支中被 build 起來，然後開發版網站 https://dev-covid19-tokyo.netlify.com/ 會被更新。
+當 `development` 分支被更新時，HTML 檔案將會在 `dev-pages` 分支中被 build 起來，然後開發版網站 https://dev-stopcovid19-hamamatsu.netlify.com/ 會被更新。
 
 ### 分支規則
 
@@ -102,13 +102,13 @@ Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 #### 基本分支
 | 目的 | 分支 | 預覽用 URL | 備註 |
 | ---- | -------- | ---- | ---- |
-| 開發 | development | https://dev-covid19-tokyo.netlify.com/ | 基本上請推送 Pull Request 到這裡 |
+| 開發 | development | https://dev-stopcovid19-hamamatsu.netlify.com/ | 基本上請推送 Pull Request 到這裡 |
 | 緊急修復 | dev-hotfix | 無 | 對於正式版的緊急修復。 在管理員的要求下使用。 |
 | 正式版預覽 | staging | https://stg-covid19-tokyo.netlify.com/ | 對於正式版釋出前的最終確認，禁止管理員以外的人推送 Pull Request。 |
-| 正式版 | master | https://stopcovid19.metro.tokyo.lg.jp/ | 禁止管理員以外的人推送 Pull Request |
+| 正式版 | master | https://stopcovid19-hamamatsu.netlify.com/ | 禁止管理員以外的人推送 Pull Request |
 #### 系統所使用的分支
 | 目的 | 分支 | 預覽用 URL | 備註 |
 | ---- | -------- | ---- | ---- |
-| 正式網站 HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | 生成靜態網站 HTML 的位置 |
+| 正式網站 HTML | production | https://stopcovid19-hamamatsu.netlify.com/ | 生成靜態網站 HTML 的位置 |
 | 正式版預覽 HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 生成靜態網站 HTML 的位置 |
 | OGP 工作用 | deploy / new_ogp | 無 | OGP 更新用 |

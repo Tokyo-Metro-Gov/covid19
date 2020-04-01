@@ -18,7 +18,7 @@ EOT
 
 for page in $PAGES; do
   for lang in $LANGS; do
-    echo "https://stopcovid19.metro.tokyo.lg.jp/${lang}/cards/${page}"
+    echo "https://stopcovid19-hamamatsu.netlify.com/${lang}/cards/${page}"
   done
-  echo "https://stopcovid19.metro.tokyo.lg.jp/cards/${page}"
+  echo "https://stopcovid19-hamamatsu.netlify.com/cards/${page}"
 done

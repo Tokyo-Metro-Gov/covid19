@@ -2,7 +2,7 @@
   <v-app class="app">
     <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
-        <img src="/hamamatsu/logo.png" alt="浜松市" />
+        <img src="/hamamatsu/logo.svg" alt="浜松市" />
         <scale-loader color="#3088BF" />
       </div>
     </v-overlay>
@@ -87,7 +87,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+          href: `https://stopcovid19-hamamatsu.netlify.com${this.$route.path}`
         },
         {
           rel: 'stylesheet',
@@ -120,7 +120,7 @@ export default Vue.extend({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+          content: `https://stopcovid19-hamamatsu.netlify.com/${this.$route.path}`
         },
         {
           hid: 'og:locale',

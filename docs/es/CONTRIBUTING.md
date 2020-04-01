@@ -35,9 +35,9 @@ Esta página muestra cómo puede contribuir al desarrollo de este sitio.
 * También aceptamos sugerencias! Por favor, siéntase libre de crear nuevos problemas.
 
 ## Información de desarrollo
-* Sitio en desarrollo https://dev-covid19-tokyo.netlify.com/
+* Sitio en desarrollo https://dev-stopcovid19-hamamatsu.netlify.com/
 * Sitio de prueba https://stg-covid19-tokyo.netlify.com/
-* Sitio en producción https://stopcovid19.metro.tokyo.lg.jp/
+* Sitio en producción https://stopcovid19-hamamatsu.netlify.com/
 * [Design](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 * [Hoja de cálculo de traducción](https://docs.google.com/spreadsheets/d/1avT6QGInyQseYjoc_TxL8RPZfutyvrv4BtJkXfk1Nko)
 
