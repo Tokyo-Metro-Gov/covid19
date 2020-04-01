@@ -7,6 +7,8 @@
       :chart-data="graphData"
       :date="data.date"
       :unit="$t('人')"
+      :url="'https://opendata.pref.shizuoka.jp/dataset/8109.html'"
+      :source="$t('オープンデータを入手')"
     >
       <template v-slot:description>
         <ul>
