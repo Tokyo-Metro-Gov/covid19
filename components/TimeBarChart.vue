@@ -484,7 +484,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   beforeMount() {
     if (this.$el) {
       this.chartWidth =
-        ((this.$el!.clientWidth - 30) / 60) * this.displayData.labels!.length
+        ((this.$el!.clientWidth - 22 * 2 - 38) / 60) *
+          this.displayData.labels!.length +
+        38
+      this.chartWidth = Math.min(this.$el!.clientWidth - 22 * 2)
     }
   },
   mounted() {
