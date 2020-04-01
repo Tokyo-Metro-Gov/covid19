@@ -22,7 +22,7 @@
         :options="displayOption"
         :plugins="scrollPlugin"
         :height="240"
-        :width="800"
+        :width="chartWidth"
       />
       <bar
         :style="{ display: canvas ? 'block' : 'none' }"
@@ -31,7 +31,7 @@
         :options="displayOptionHeader"
         :plugins="yAxesBgPlugin"
         :height="240"
-        :width="800"
+        :width="chartWidth"
       />
     </div>
     <v-data-table
@@ -77,6 +77,7 @@ import { getGraphSeriesStyle } from '@/utils/colors'
 type Data = {
   dataKind: 'transition' | 'cumulative'
   canvas: boolean
+  chartWidth: number
 }
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
@@ -171,6 +172,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
+    chartWidth: 800,
     canvas: true
   }),
   computed: {
@@ -478,6 +480,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         default:
           return `${dayBeforeRatioLocaleString}`
       }
+    }
+  },
+  beforeMount() {
+    if (this.$el) {
+      this.chartWidth =
+        ((this.$el!.clientWidth - 30) / 45) * this.displayData.labels.length
     }
   },
   mounted() {

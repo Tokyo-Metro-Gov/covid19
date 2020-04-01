@@ -56,7 +56,7 @@
         :plugins="scrollPlugin"
         :display-legends="displayLegends"
         :height="240"
-        :width="800"
+        :width="chartWidth"
       />
       <bar
         :style="{ display: canvas ? 'block' : 'none' }"
@@ -66,7 +66,7 @@
         :plugins="yAxesBgPlugin"
         :display-legends="displayLegends"
         :height="240"
-        :width="800"
+        :width="chartWidth"
       />
     </div>
     <v-data-table
@@ -113,6 +113,7 @@ type Data = {
   canvas: boolean
   displayLegends: boolean[]
   colors: SurfaceStyle[]
+  chartWidth: number
 }
 type Methods = {
   sum: (array: number[]) => number
@@ -221,6 +222,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     dataKind: 'transition',
     displayLegends: [true, true],
     colors: getGraphSeriesStyle(2),
+    chartWidth: 800,
     canvas: true
   }),
   computed: {
@@ -564,6 +566,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
       }
       return sumArray
+    }
+  },
+  beforeMount() {
+    if (this.$el) {
+      this.chartWidth = ((this.$el!.clientWidth - 30) / 45) * this.labels.length
     }
   },
   mounted() {
