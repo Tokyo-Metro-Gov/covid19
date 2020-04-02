@@ -40,17 +40,17 @@
       </div>
 
       <footer class="SideNavigation-Footer">
-        <!--<div class="SideNavigation-Social">
-          <a
+        <div class="SideNavigation-Social">
+          <!--<a
             href="https://line.me/R/ti/p/%40822sysfc"
             target="_blank"
             rel="noopener"
             class="SideNavigation-SocialLink"
           >
             <img src="/line.png" alt="LINE" />
-          </a>
+          </a>-->
           <a
-            href="https://twitter.com/tokyo_bousai"
+            href="https://twitter.com/fukui_bousai"
             target="_blank"
             rel="noopener"
             class="SideNavigation-SocialLink"
@@ -58,22 +58,22 @@
             <img src="/twitter.png" alt="Twitter" />
           </a>
           <a
-            href="https://www.facebook.com/tochokoho"
+            href="https://www.facebook.com/tcatv"
             target="_blank"
             rel="noopener"
             class="SideNavigation-SocialLink"
           >
             <img src="/facebook.png" alt="Facebook" />
           </a>
-          <a
+          <!--<a
             href="https://github.com/tokyo-metropolitan-gov/covid19"
             target="_blank"
             rel="noopener"
             class="SideNavigation-SocialLink"
           >
             <img src="/github.png" alt="GitHub" />
-          </a>
-        </div>-->
+          </a>-->
+        </div>
         <small class="SideNavigation-Copyright">
             Operations by:<br>
             <a href="https://www.t-catv.co.jp/" target="_blank"><img src="/catvlogo.svg" :alt="$t('福井県')" /></a>
@@ -284,7 +284,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-Language {
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .SideNavigation-LanguageLabel {
@@ -294,12 +294,13 @@ export default Vue.extend({
 }
 
 .SideNavigation-Footer {
-  padding-top: 20px;
   background-color: $white;
 }
 
 .SideNavigation-Social {
   display: flex;
+  border-bottom: 1px solid #D9D9D9;
+  padding-bottom: 10px 
 }
 
 .SideNavigation-SocialLink {
