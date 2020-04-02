@@ -10,8 +10,11 @@
       <StaticCard>
         <h3>{{ $t('新型コロナウイルス感染症講習会') }}</h3>
         <p>
-        {{ $t('この動画は、一般法人島根県医師会の新型コロナウイルス感染症対策に役立てていただくことを目的とする標記講習会における動画です。') }}
-          
+          {{
+            $t(
+              'この動画は、一般法人島根県医師会の新型コロナウイルス感染症対策に役立てていただくことを目的とする標記講習会における動画です。'
+            )
+          }}
         </p>
         <div class="only-pc" aria-hidden="true">
           <iframe
@@ -36,13 +39,15 @@
         <p>
           <a
             href="https://www.shimane.med.or.jp/files/original/202003191626015541ea84588.pdf"
-            >{{ $t('スライドの資料') }}</a>
+            >{{ $t('スライドの資料') }}
+          </a>
         </p>
         <p>
-          <a href="https://www.shimane.med.or.jp/to_medical/news_medical/631"
-            >{{ $t('一般社団法人 島根県医師会 | 新型コロナウイルス感染症について') }}
-            </a
-          >
+          <a href="https://www.shimane.med.or.jp/to_medical/news_medical/631">
+            {{
+              $t('一般社団法人 島根県医師会 | 新型コロナウイルス感染症について')
+            }}
+          </a>
         </p>
       </StaticCard>
     </div>
@@ -54,11 +59,13 @@ import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import CovidIcon from '@/static/covid.svg'
 import PageHeader from '@/components/PageHeader.vue'
+import StaticCard from '@/components/StaticCard.vue'
 
 export default Vue.extend({
   components: {
     CovidIcon,
-    PageHeader
+    PageHeader,
+    StaticCard
   },
   head(): any {
     const title: TranslateResult = this.$t(
