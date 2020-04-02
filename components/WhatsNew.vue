@@ -34,11 +34,9 @@
           </a>
         </li>
       </ul>
-    </div>
-    <div class="WhatsNew-expander" alt="すべて見る" @click="onExpand">
-      <v-icon size="24">
-        mdi-chevron-down
-      </v-icon>
+      <nuxt-link class="WhatsNew-archive" :to="localePath('/news')">
+        {{ $t('過去のお知らせを見る') }}
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -62,9 +60,6 @@ export default Vue.extend({
   methods: {
     isInternalLink(path: string) {
       return !/^https?:\/\//.test(path)
-    },
-    onExpand() {
-      this.expanded = !this.expanded
     }
   }
 })
@@ -74,15 +69,10 @@ export default Vue.extend({
 .WhatsNew {
   @include card-container();
   margin-bottom: 20px;
-  position: relative;
-  max-height: 225px;
-  overflow: hidden;
   &-wrapper {
-    padding: 10px 10px 40px 10px;
+    padding: 10px;
+    position: relative;
   }
-}
-.WhatsNew.expanded {
-  max-height: unset;
 }
 
 .WhatsNew-heading {
@@ -137,19 +127,13 @@ export default Vue.extend({
   }
 }
 
-.WhatsNew-expander {
-  height: 30px;
-  width: 100%;
-  background-color: #ffffff;
+.v-application .WhatsNew-archive {
+  @include button-text('md');
+  padding: 3px 12px;
+  color: $green-1;
+  text-decoration: none;
   position: absolute;
-  bottom: 0;
-  border-top: 0.5px solid #d9d9d9 !important;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-}
-
-.WhatsNew.expanded .WhatsNew-expander i {
-  transform: rotateX(180deg);
+  top: 10px;
+  right: 10px;
 }
 </style>
