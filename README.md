@@ -2,7 +2,7 @@
 
 東京都版をフォークして作成しています。
 
-[![沖縄県 新型コロナウイルス感染症対策サイト](https://friendly-lamport-e7cdf4.netlify.com/logo.svg)](https://okinawa.stopcovid19.jp)
+[![沖縄県 新型コロナウイルス感染症対策サイト](https://okinawa.stopcovid19.jp/logo.svg)](https://okinawa.stopcovid19.jp)
 
 <!-- ### 日本語 | [English](./docs/en/README.md) | [Español](./docs/es/README.md) | [한국어](./docs/ko/README.md) | [繁體中文](./docs/zh_TW/README.md) | [简体中文](./docs/zh_CN/README.md) | [Tiếng Việt](./docs/vi/README.md) | [ภาษาไทย](./docs/th/README.md) | [Français](./docs/fr/README.md) -->
 
@@ -13,7 +13,7 @@
 Issues 準備中  
 初回リリース後、順次用意していきます。
  
-[貢献の仕方](./CONTRIBUTING.md)を御覧ください。
+[貢献の仕方（東京都版）](./CONTRIBUTING.md)を参考に御覧ください。
 
 
 ## 行動原則
@@ -95,11 +95,11 @@ $ docker-compose run --rm app yarn install
 
 ### ステージング・本番環境への反映
 
-`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.metro.tokyo.lg.jp/ が更新されます。
+`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://okinawa.stopcovid19.jp が更新されます。
 
-`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト https://stg-covid19-tokyo.netlify.com/ が更新されます。
+`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト https://okinawa.stopcovid19.jp（準備中） が更新されます。
 
-`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-covid19-tokyo.netlify.com/ が更新されます。
+`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://okinawa.stopcovid19.jp（準備中） が更新されます。
 
 ### ブランチルール
 
