@@ -3,12 +3,44 @@
     <div class="Flow-Heading">
       <CovidIcon aria-hidden="true" />
       <page-header class="Flow-Heading-Title">
-        {{ $t('新型コロナウイルス感染症対策動画') }}
+        {{ $t('新型コロナウイルス感染症対策') }}
       </page-header>
     </div>
     <div>
       <StaticCard>
-        <h3>{{ $t('新型コロナウイルス感染症講習会') }}</h3>
+        <h3>{{ $t('個人でできる感染予防対策') }}</h3>
+        <p>
+          {{ $t('島根県が公表している予防策・正しい手洗いについてです。') }}
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://www.pref.shimane.lg.jp/medical/yakuji/kansensyo/other/topics/bukan2020.data/200225sinngatakoronahuseguniha.pdf"
+              >{{ $t('新型コロナウイルスを防ぐには（リーフレット）') }}</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.pref.shimane.lg.jp/medical/yakuji/kansensyo/other/topics/bukan2020.data/tearai.pdf"
+              >{{ $t('正しい手洗い方法について') }}</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.pref.shimane.lg.jp/medical/yakuji/kansensyo/other/topics/bukan2020.data/syoudoku.pdf"
+              >{{ $t('新型コロナウイルスの消毒について') }}</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.pref.shimane.lg.jp/medical/yakuji/kansensyo/other/topics/bukan2020.data/000614802.pdf"
+              >{{ $t('３つの密を避けましょう！（リーフレット）') }}</a
+            >
+          </li>
+        </ul>
+      </StaticCard>
+      <StaticCard>
+        <h3>{{ $t('新型コロナウイルス感染症講習会動画') }}</h3>
         <p>
           {{
             $t(
