@@ -144,7 +144,17 @@ export const yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[] = [
 export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
     beforeInit(chartInstance) {
-      chartInstance.canvas!.parentElement!.scrollLeft! = chartInstance.width!
+      const fn = () => {
+        if (
+          chartInstance &&
+          chartInstance.canvas &&
+          chartInstance.canvas.parentElement
+        ) {
+          chartInstance.canvas.parentElement.scrollLeft! = chartInstance.width!
+        }
+      }
+      window.addEventListener('resize', fn)
+      fn()
     }
   }
 ]
