@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <v-app class="app">
     <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
@@ -34,10 +34,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+import Data from '@/data/data.json'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
 import NoScript from '@/components/NoScript.vue'
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
+import { convertDateToISO8601Format } from '@/utils/formatDate'
 
 type LocalData = {
   hasNavigation: boolean
@@ -111,9 +113,13 @@ export default Vue.extend({
         {
           hid: 'description',
           name: 'description',
-          content: this.$tc(
-            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
-          )
+          content:
+            this.$t('最終更新日：') +
+            convertDateToISO8601Format(Data.lastUpdate) +
+            ' ' +
+            this.$tc(
+              '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+            )
         },
         {
           hid: 'og:site_name',
@@ -144,9 +150,13 @@ export default Vue.extend({
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.$tc(
-            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
-          )
+          content:
+            this.$t('最終更新日：') +
+            convertDateToISO8601Format(Data.lastUpdate) +
+            ' ' +
+            this.$tc(
+              '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+            )
         },
         {
           hid: 'og:image',
