@@ -11,6 +11,7 @@
 [](02)青森県|https://covid19-daily-tohoku.news/|デーリー東北新聞社|[momujin/covid19](https://github.com/momujin/covid19)|
 [](03)岩手県|https://iwate.stopcovid19.jp/|有志|[MeditationDuck/covid19](https://github.com/MeditationDuck/covid19)|
 [](04)宮城県|https://miyagi.stopcovid19.jp/|Code for Shiogama|[code4shiogama/covid19-miyagi](https://github.com/code4shiogama/covid19-miyagi)|
+[](05)秋田県|https://covid19-akita.netlify.com/|学生 (有志) |[asaba-zauberer/covid19-akita](https://github.com/asaba-zauberer/covid19-akita)|
 [](07)福島県|https://fukushima-covid19.firebaseapp.com|GDG Fukushima|[donuzium/covid19](https://github.com/donuzium/covid19)|
 [](08)茨城県|https://covid19-ibaraki.netlify.com/|個人|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
 [](09)栃木県|https://covid19-tochigi.netlify.com/|有志|[covid19-tochigi/covid19](https://github.com/covid19-tochigi/covid19)|
@@ -26,7 +27,7 @@
 [](18)福井県|https://covid19-fukui.com/|個人（福井高専卒）|[nomunomu0504/covid19](https://github.com/nomunomu0504/covid19)|
 [](18)福井県|https://covid19-fukui.bosai-signal.jp/|丹南ケーブルテレビ株式会社|[westar7/fukui-covid19](https://github.com/westar7/fukui-covid19)|
 [](19)山梨県|https://stopcovid19.yamanashi.dev/|stopcovid19.yamanashi.devチーム|[covid19-yamanashi/covid19](https://github.com/covid19-yamanashi/covid19)|
-[](20)長野県|https://stop-covid19-nagano.netlify.com/|有志|[hisayan/covid19](https://github.com/hisayan/covid19)|
+[](20)長野県|https://stop-covid19-nagano.netlify.app/|有志|[Stop-COVID19-Nagano/covid19](https://github.com/Stop-COVID19-Nagano/covid19)|
 [](21)岐阜県|https://covid19-gifu.netlify.com/|個人|[CODE-for-GIFU/covid19](https://github.com/CODE-for-GIFU/covid19)|
 [](23)愛知県|https://stopcovid19.code4.nagoya/|有志|[code4nagoya/covid19](https://github.com/code4nagoya/covid19)|
 [](24)三重県|https://mie.stopcovid19.jp/|高専生チーム(有志)|[FlexiblePrintedCircuits/covid19-mie](https://github.com/FlexiblePrintedCircuits/covid19-mie)|
@@ -35,6 +36,7 @@
 [](27)大阪府|https://covid19-osaka.info/|大阪府（**公式**）|[codeforosaka/covid19](https://github.com/codeforosaka/covid19)|
 [](28)兵庫県|https://stop-covid19-hyogo.org/|有志|[stop-covid19-hyogo/covid19](https://github.com/stop-covid19-hyogo/covid19)|
 [](29)奈良県|https://stopcovid19.code4nara.org/|有志|[code4nara/covid19](https://github.com/code4nara/covid19)|
+[](32)島根県|https://shimane-covid19.netlify.com/|島根出身学生有志|[TaigaMikami/covid19](https://github.com/TaigaMikami)|
 [](33)岡山県|https://covid19-okayama.netlify.com/|学生エンジニア(有志)||
 [](34)広島県|https://covid19-hiroshima.netlify.com/|個人|[tatsuya1970/covid19](https://github.com/tatsuya1970/covid19)|
 [](35)山口県|https://covid19-yamaguchi.netlify.com|有志|[nishidayoshikatsu/covid19-yamaguchi](https://github.com/nishidayoshikatsu/covid19-yamaguchi)|
