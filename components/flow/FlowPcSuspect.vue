@@ -212,6 +212,9 @@
 .LargerText {
   font-size: larger;
   font-weight: bold;
+  @media print {
+    width: 65%;
+  }
 }
 
 .Center {
