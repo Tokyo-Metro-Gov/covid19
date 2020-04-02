@@ -18,7 +18,7 @@
         <div class="Footer-Left">
           <div>
             <a class="Permalink" :href="fromlink()">
-              {{ $t('出典:新型コロナウイルス感染症について(新潟県) {from}', { from }) }}
+              {{ $t('出典:新型コロナウイルス感染症について(新潟県)') }}
             </a>
           </div>
           <div>
@@ -158,8 +158,9 @@ export default class DataView extends Vue {
 
     return permalink
   }
+
   fromlink() {
-    let fromlink = "https://www.pref.niigata.lg.jp/sec/kenko/bukan-haien.html"
+    const fromlink = 'https://www.pref.niigata.lg.jp/sec/kenko/bukan-haien.html'
 
     return fromlink
   }
