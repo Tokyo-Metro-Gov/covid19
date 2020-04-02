@@ -57,7 +57,7 @@ import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 
-import { single as color } from '@/utils/colors'
+import { getGraphSeriesStyle } from '@/utils/colors'
 
 type Data = {
   dataKind: 'transition' | 'cumulative'
@@ -80,6 +80,7 @@ type Computed = {
       label: 'transition' | 'cumulative'
       data: number[]
       backgroundColor: string
+      borderColor: string
       borderWidth: number
     }[]
   }
@@ -181,9 +182,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       if (this.dataKind === 'transition') {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
-            this.displayTransitionRatio
-          } ${this.unit}）`,
+          sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
+            '実績値'
+          )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+            this.unit
+          }）`,
           unit: this.unit
         }
       }
@@ -200,6 +203,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
+      const style = getGraphSeriesStyle(1)[0]
       if (this.dataKind === 'transition') {
         return {
           labels: this.chartData.map(d => {
@@ -211,8 +215,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               data: this.chartData.map(d => {
                 return d.transition
               }),
-              backgroundColor: color,
-              borderWidth: 0
+              backgroundColor: style.fillColor,
+              borderColor: style.strokeColor,
+              borderWidth: 1
             }
           ]
         }
@@ -225,8 +230,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             data: this.chartData.map(d => {
               return d.cumulative
             }),
-            backgroundColor: color,
-            borderWidth: 0
+            backgroundColor: style.fillColor,
+            borderColor: style.strokeColor,
+            borderWidth: 1
           }
         ]
       }
