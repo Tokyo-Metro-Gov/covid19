@@ -32,7 +32,7 @@
       border-bottom: 1px solid $gray-4;
       white-space: nowrap;
       color: $gray-2;
-      font-size: 12px;
+      font-size: 14px;
     }
     tbody {
       tr {

@@ -204,7 +204,7 @@ export default {
         title: '県内の最新感染動向',
         date: Data.lastUpdate
       },
-      newsItems: News.newsItems,
+      newsItems: News.newsItems.slice(0, 5),
       metroGraphOption: {
         responsive: true,
         legend: {

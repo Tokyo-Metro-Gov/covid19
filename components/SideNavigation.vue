@@ -139,6 +139,7 @@
     "Chiba Prefecture": "千葉県",
     "Chiba City": "千葉市",
     "The latest updates": "県内の最新感染動向",
+    "Information": "お知らせ一覧",
     "for Families with children": "お子様をお持ちの皆様へ",
     "for Citizens": "県民の皆様へ",
     "for Enterprises and Employees": "企業の皆様・はたらく皆様へ",
@@ -180,6 +181,11 @@ export default {
         //     'https://www.pref.chiba.lg.jp/shippei/kansenshou/2019-ncov.html',
         //   divider: true
         // },
+        {
+          icon: 'mdi-information',
+          title: this.$t('Information'),
+          link: '/news'
+        },
         {
           icon: 'parent',
           title: this.$t('for Families with children'),
