@@ -5,7 +5,12 @@
     mandatory
     @change="$emit('input', $event)"
   >
-    <v-btn v-ripple="false" value="transition" class="DataSelector-Button">
+    <v-btn
+      v-show="!hideDay"
+      v-ripple="false"
+      value="transition"
+      class="DataSelector-Button"
+    >
       {{ $t('日別') }}
     </v-btn>
     <v-btn v-ripple="false" value="cumulative" class="DataSelector-Button">
@@ -49,7 +54,8 @@ export default {
       type: String,
       required: false,
       default: ''
-    }
+    },
+    hideDay: Boolean
   }
 }
 </script>
