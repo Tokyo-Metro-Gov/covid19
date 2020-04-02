@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('【帰国者・接触者相談センター】受付 相談件数')"
+      :title="$t('（帰国者・接触者相談センター）受付 相談件数')"
       :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
       :chart-id="'time-bar-chart-contacts'"
       :chart-data="contactsGraph"

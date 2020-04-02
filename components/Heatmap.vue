@@ -91,17 +91,7 @@ export default {
       const ceil = 10000 + Math.floor(m * 0.0001) * 10000
       const unit = 0.25 * ceil
       this.dataDrivenLegend = [unit, 2 * unit, 3 * unit]
-      map.setPaintProperty('heatmap', 'fill-color', [
-        'step',
-        ['get', lastDate],
-        this.colors[0],
-        this.actualLegend[0],
-        this.colors[1],
-        this.actualLegend[1],
-        this.colors[2],
-        this.actualLegend[2],
-        this.colors[3]
-      ])
+      this.updatePaintProperty(lastDate)
       self.$emit('legendUpdated', [
         {
           borderColor: this.borderColors[0],

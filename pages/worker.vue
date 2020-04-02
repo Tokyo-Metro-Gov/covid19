@@ -8,7 +8,7 @@
         <a
           href="http://www.sangyo-rodo.metro.tokyo.jp/chushou/kinyu/yuushi/yuushi/new"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('新型コロナウイルス感染症に対応した制度融資') }}</a
         >
       </h3>
@@ -25,7 +25,7 @@
         <a
           href="https://www.tokyo-kosha.or.jp/topics/2003/0001.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('新型コロナウイルスによる経営課題に関する専門家派遣') }}</a
         >
       </h3>
@@ -40,9 +40,28 @@
     <StaticCard>
       <h3>
         <a
+          href="https://www.tokyo-kosha.or.jp/support/josei/jigyo/kinkyu.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{
+            $t('緊急販路開拓助成事業（新型コロナウイルス感染症緊急対策）')
+          }}</a
+        >
+      </h3>
+      <p>
+        {{
+          $t(
+            '感染症の影響を受け、売上が減少した都内中小企業の展示会出展費用の一部を助成します（限度額：150万円 / 助成率：5分の4 / 助成対象期間：交付決定日から1年1カ月 / 受付期間：5月11日～20日〈予定〉）。'
+          )
+        }}
+      </p>
+    </StaticCard>
+    <StaticCard>
+      <h3>
+        <a
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('中小企業従業員融資') }}</a
         >
       </h3>
@@ -59,7 +78,7 @@
         <a
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{
             $t('新型コロナウイルス感染症に係る休業等支援事業（専門家派遣）')
           }}</a
@@ -78,7 +97,7 @@
         <a
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('新型コロナウイルス感染症対策雇用環境整備促進事業') }}</a
         >
       </h3>
@@ -95,7 +114,7 @@
         <a
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('テレワーク導入モデル体験事業') }}</a
         >
       </h3>
@@ -112,7 +131,7 @@
         <a
           href="https://www.shigotozaidan.or.jp/koyo-kankyo/joseikin/kinkyutaisaku.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('事業継続緊急対策（テレワーク）助成金') }}</a
         >
       </h3>
@@ -126,9 +145,12 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a href="https://tokyo-telework.jp/" target="_blank" rel="noopener">{{
-          $t('テレワークオンラインセミナー開催')
-        }}</a>
+        <a
+          href="https://tokyo-telework.jp/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{ $t('テレワークオンラインセミナー開催') }}</a
+        >
       </h3>
       <p>
         {{
@@ -143,7 +165,7 @@
         <a
           href="http://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('中小企業者等特別相談窓口') }}</a
         >
       </h3>
@@ -156,7 +178,7 @@
         <a
           href="http://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('フリーランスを含む個人事業主特別相談窓口') }}</a
         >
       </h3>
@@ -171,7 +193,7 @@
         <a
           href="https://www.hataraku.metro.tokyo.lg.jp/sodan/sodan/index.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{ $t('緊急労働相談ダイヤル') }}</a
         >
       </h3>
@@ -188,7 +210,7 @@
         <a
           href="https://smooth-biz.metro.tokyo.lg.jp/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >{{
             $t('新しいワークスタイルや企業活動の東京モデル「スムーズビズ」')
           }}</a
