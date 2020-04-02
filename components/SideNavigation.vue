@@ -174,6 +174,11 @@ export default Vue.extend({
           link: this.localePath('/parent')
         },
         {
+          icon: 'mdi-information',
+          title: this.$t('県内各所のお知らせ'),
+          link: this.localePath('/news')
+        },
+        {
           icon: 'mdi-account-multiple',
           title: this.$t('県民の皆様へ'),
           link:
@@ -185,10 +190,12 @@ export default Vue.extend({
           link: this.localePath('/contacts')
         },
         {
+          icon: 'mdi-stop',
           title: this.$t('県内の中止又は延期するイベント等'),
           link: 'https://www.kankou-shimane.com/news/13881.html'
         },
         {
+          icon: 'mdi-announcement',
           title: this.$t('知事からのメッセージ'),
           link:
             'https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/new_coronavirus_portal.data/message1.pdf',

@@ -100,9 +100,7 @@ export default Vue.extend({
     StaticCard
   },
   head(): any {
-    const title: TranslateResult = this.$t(
-      '新型コロナウイルス感染症が心配なときに'
-    )
+    const title: TranslateResult = this.$t('新型コロナウイルス感染症対策')
     return {
       title
     }
