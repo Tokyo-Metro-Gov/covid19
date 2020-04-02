@@ -46,13 +46,18 @@ export default {
     }
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
-      row['居住地'] = this.getTranslatedWording(row['居住地'])
-      row['性別'] = this.getTranslatedWording(row['性別'])
-      row['退院'] = this.getTranslatedWording(row['退院'])
+      row['居住地'] = this.getTranslatedWording(row['居住地'], '調査中')
+      row['性別'] = this.getTranslatedWording(row['性別'], '不明')
+      row['退院'] = this.getTranslatedWording(row['退院'], '')
 
       if (row['年代'] === '10歳未満') {
         row['年代'] = this.$t('10歳未満')
-      } else if (row['年代'] === '不明') {
+      } else if (
+        row['年代'] === '不明' ||
+        row['年代'] === '-' ||
+        row['年代'] === '‐' ||
+        row['年代'] == null
+      ) {
         row['年代'] = this.$t('不明')
       } else {
         const age = row['年代'].substring(0, 2)
@@ -68,13 +73,13 @@ export default {
     return data
   },
   methods: {
-    getTranslatedWording(value) {
+    getTranslatedWording(value, defaultValue) {
       if (value === '-' || value === '‐' || value == null) {
-        // 翻訳しようとしている文字列が以下のいずれかだった場合、翻訳しない
+        // 翻訳しようとしている文字列が以下のいずれかだった場合、デフォルト値を表示する
         // - 全角のハイフン
         // - 半角のハイフン
         // - null
-        return value
+        return defaultValue
       }
 
       return this.$t(value)
