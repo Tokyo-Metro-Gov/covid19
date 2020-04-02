@@ -58,7 +58,7 @@
               :to="localePath('/contacts')"
               class="SideNavigation-HeaderLink"
             >
-              <span>{{ $t('各保健所の電話番号は福祉保健局HPへ') }}</span>
+              <span>{{ $t('各保健所の電話番号はお問い合わせ先一覧へ') }}</span>
               <v-icon size="18">
                 mdi-open-in-new
               </v-icon>
