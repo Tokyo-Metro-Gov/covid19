@@ -1,12 +1,12 @@
 <template>
-  <flow-print />
+  <flow-pc />
 </template>
 
 <script>
-import FlowPrint from '@/components/flow/FlowPrint.vue'
+import FlowPc from '@/components/flow/FlowPc.vue'
 export default {
   components: {
-    FlowPrint
+    FlowPc
   },
   layout: 'print',
   head() {
