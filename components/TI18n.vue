@@ -53,21 +53,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   computed: {
     rubyTexts() {
-      let match
+      let match: RegExpExecArray | null
+      let lastText: string
       let prevIndex = 0
-      const res: RubyText[] = []
+      const texts: RubyText[] = []
       const regp = new RegExp(/(\p{sc=Han}+?)（(.+?)）/, 'gu')
       while ((match = regp.exec(this.text)) !== null) {
         if (match.index > 0) {
-          const ja = match.input.slice(prevIndex, match.index)
-          res.push({ ja })
+          texts.push({ ja: match.input.slice(prevIndex, match.index) })
         }
-        res.push({ ja: match[1], kana: match[2] })
+        texts.push({ ja: match[1], kana: match[2] })
         prevIndex = match.index + match[0].length
       }
-      if (prevIndex < this.text.length)
-        res.push({ ja: this.text.slice(prevIndex) })
-      return res
+      if ((lastText = this.text.slice(prevIndex))) texts.push({ ja: lastText })
+      return texts
     }
   },
   watch: {
