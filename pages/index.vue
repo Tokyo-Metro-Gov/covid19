@@ -18,7 +18,7 @@
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
-      <!-- <tested-number-card /> -->
+      <tested-number-card />
     </v-row>
   </div>
 </template>
