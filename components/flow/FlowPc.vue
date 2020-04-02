@@ -8,16 +8,21 @@
       <div :class="[$style.CardBlock, $style.Days]">
         <flow-pc-days />
       </div>
+      <!--
       <div :class="[$style.CardBlock, $style.CardBlockCenter, $style.Suspect]">
         <flow-pc-suspect />
       </div>
+      -->
       <div :class="$style.Advisory">
         <flow-pc-advisory />
       </div>
+      <!--
       <div :class="$style.Advisory2">
         <flow-pc-advisory2 />
       </div>
+      -->
     </div>
+    <!--
     <h3>
       <i18n
         :class="$style.TitleSmall"
@@ -47,6 +52,7 @@
         <flow-pc-hospitalized />
       </div>
     </div>
+    -->
     <p :class="$style.Note">
       {{
         $t(
@@ -60,25 +66,25 @@
 <script>
 import FlowPcPast from './FlowPcPast.vue'
 import FlowPcDays from './FlowPcDays.vue'
-import FlowPcSuspect from './FlowPcSuspect.vue'
+// import FlowPcSuspect from './FlowPcSuspect.vue'
 import FlowPcAdvisory from './FlowPcAdvisory.vue'
-import FlowPcAdvisory2 from './FlowPcAdvisory2.vue'
-import FlowPcRequired from './FlowPcRequired.vue'
-import FlowPcPcr from './FlowPcPcr.vue'
-import FlowPcNotRequired from './FlowPcNotRequired.vue'
-import FlowPcHospitalized from './FlowPcHospitalized.vue'
+// import FlowPcAdvisory2 from './FlowPcAdvisory2.vue'
+// import FlowPcRequired from './FlowPcRequired.vue'
+// import FlowPcPcr from './FlowPcPcr.vue'
+// import FlowPcNotRequired from './FlowPcNotRequired.vue'
+// import FlowPcHospitalized from './FlowPcHospitalized.vue'
 
 export default {
   components: {
     FlowPcPast,
     FlowPcDays,
-    FlowPcSuspect,
-    FlowPcAdvisory,
-    FlowPcAdvisory2,
-    FlowPcRequired,
-    FlowPcPcr,
-    FlowPcNotRequired,
-    FlowPcHospitalized
+    // FlowPcSuspect,
+    FlowPcAdvisory
+    // FlowPcAdvisory2,
+    // FlowPcRequired,
+    // FlowPcPcr,
+    // FlowPcNotRequired,
+    // FlowPcHospitalized
   }
 }
 </script>
@@ -269,6 +275,7 @@ export default {
   grid-row: 1 / 3;
   position: relative;
 
+  /*
   &::after {
     content: url('/flow/flow_arrow.svg');
     position: absolute;
@@ -279,6 +286,7 @@ export default {
     width: 46px;
     height: 46px;
   }
+  */
 }
 
 .Advisory2 {

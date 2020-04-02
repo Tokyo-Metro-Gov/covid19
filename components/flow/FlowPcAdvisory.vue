@@ -10,20 +10,43 @@
         <div :class="[$style.AdvisoryContentsColsSentense, 'mt-4']">
           {{ $t('帰国者・接触者 電話相談センター') }}
         </div>
+        <!--
         <div>
           <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryWhiteBox]">
             <span :class="$style.AdvisoryWhiteBoxSentense">
-              {{ $t('24時間対応') }}
+              {{ $t('平日：8時30分〜17時15分') }}
             </span>
           </div>
         </div>
+        -->
       </div>
 
       <div :class="$style.AdvisoryContents">
         <div class="py-8">
           <div :class="$style.AdvisoryContentsTitle2">
-            {{ $t('平日（日中）') }}
+            {{ $t('受付時間') }}
           </div>
+          <div>
+            <div
+              :class="[$style.AdvisoryBoxContainer, $style.AdvisoryWhiteBox]"
+            >
+              <span :class="$style.AdvisoryWhiteBoxSentense">
+                {{ $t('平日') }}
+              </span>
+              <br />
+              <span :class="$style.AdvisoryWhiteBoxSentense">
+                {{ $t('8時30分〜17時15分') }}
+              </span>
+              <p>
+                {{ $t('緊急の場合はこの限りではありません。') }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div :class="$style.AdvisoryContents">
+        <div class="pt-8">
           <div
             :class="[
               $style.AdvisoryLink,
@@ -31,51 +54,16 @@
               'mt-4'
             ]"
           >
-            <a
-              href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-              target="_blank"
-              rel="noopener noreferrer"
+            <nuxt-link
+              :to="localePath('/contacts')"
+              class="SideNavigation-HeaderLink"
             >
-              <span>{{ $t('各保健所の電話番号は福祉保健局HPへ') }}</span>
+              <span>{{ $t('各保健所の電話番号はお問い合わせ先一覧へ') }}</span>
               <v-icon size="18">
                 mdi-open-in-new
               </v-icon>
-            </a>
+            </nuxt-link>
           </div>
-        </div>
-      </div>
-
-      <div :class="$style.AdvisoryContents">
-        <div class="pt-8">
-          <div :class="$style.AdvisoryContentsTitle2">
-            {{ $t('平日（夜間）') }}
-          </div>
-          <span>{{ $t('午後5時から翌朝午前9時') }}</span>
-        </div>
-        <div class="mt-1">
-          <span :class="$style.AdvisoryContentsSubTitle">
-            {{ $t('土日祝 終日') }}
-          </span>
-        </div>
-        <div
-          :class="[
-            $style.AdvisoryTelephoneArea,
-            $style.AdvisoryBlockCentering,
-            'mt-1'
-          ]"
-        >
-          <a :class="$style.AdvisoryTelephone" href="tel:0353204592">
-            <img
-              :class="$style.AdvisoryTelephoneIcon"
-              src="/flow/phone-24px.svg"
-              aria-hidden="true"
-              :alt="$t('電話番号')"
-            />
-            03-5320-4592
-          </a>
-        </div>
-        <div v-if="!['ja', 'ja-basic'].includes($i18n.locale)" class="pt-8">
-          <span>{{ $t('ひまわり') }}</span>
         </div>
       </div>
     </div>
