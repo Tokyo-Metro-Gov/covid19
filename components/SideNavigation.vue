@@ -175,25 +175,27 @@ export default Vue.extend({
             'https://www.pref.shimane.lg.jp/medical/yakuji/kansensyo/other/topics/bukan2020.html'
         },
         {
+          icon: 'mdi-phone',
+          title: this.$t('お問い合わせ先一覧'),
+          link: this.localePath('/contacts')
+        },
+        {
           title: this.$t('県内の中止又は延期するイベント等'),
           link: 'https://www.kankou-shimane.com/news/13881.html'
         },
         {
           title: this.$t('知事からのメッセージ'),
           link:
-            'https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/new_coronavirus_portal.data/message1.pdf'
-        },
-        {
-          title: this.$t('当サイトについて'),
-          link: this.localePath('/about')
-        },
-        {
-          title: this.$t('お問い合わせ先一覧'),
-          link: this.localePath('/contacts')
+            'https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/new_coronavirus_portal.data/message1.pdf',
+          divider: true
         },
         {
           title: this.$t('島根県公式ホームページ'),
           link: 'https://www.pref.shimane.lg.jp/'
+        },
+        {
+          title: this.$t('当サイトについて'),
+          link: this.localePath('/about')
         }
       ]
     }
