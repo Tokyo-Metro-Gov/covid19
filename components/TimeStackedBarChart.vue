@@ -4,12 +4,14 @@
       <data-selector v-model="dataKind" />
     </template>
     <bar
+      :ref="'barChart'"
+      :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
       :chart-data="displayData"
       :options="options"
       :height="240"
     />
-    <template #infoPanel>
+    <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
@@ -22,17 +24,94 @@
   </data-view>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import { getGraphSeriesStyle } from '@/utils/color'
 
-export default {
+interface HTMLElementEvent<T extends HTMLElement> extends Event {
+  currentTarget: T
+}
+type Data = {
+  dataKind: 'transition' | 'cumulative'
+  canvas: boolean
+}
+type Methods = {
+  sum: (array: number[]) => number
+  cumulative: (array: number[]) => number[]
+  pickLastNumber: (chartDataArray: number[][]) => number[]
+  cumulativeSum: (chartDataArray: number[][]) => number[]
+  eachArraySum: (chartDataArray: number[][]) => number[]
+}
+type Computed = {
+  displayInfo: {
+    lText: string
+    sText: string
+    unit: string
+  }
+  displayData: {
+    labels: string[]
+    datasets: {
+      label: string
+      data: number[]
+      backgroundColor: string
+      borderColor: string
+      borderWidth: number
+    }[]
+  }
+  tableHeaders: {
+    text: string
+    value: string
+  }[]
+  tableData: {
+    [key: number]: number
+  }[]
+  options: {
+    tooltips: {
+      displayColors: boolean
+      callbacks: {
+        label: (tooltipItem: any) => string
+        title: (tooltipItem: any, data: any) => string
+      }
+    }
+    responsive: boolean
+    maintainAspectRatio: boolean
+    legend: {
+      display: boolean
+      onHover: (e: HTMLElementEvent<HTMLElement>) => void
+      onLeave: (e: HTMLElementEvent<HTMLElement>) => void
+    }
+    scales: object
+  }
+}
+type Props = {
+  title: string
+  titleId: string
+  chartId: string
+  chartData: number[][]
+  date: string
+  items: string[]
+  labels: string[]
+  dataLabels: string[]
+  unit: string
+}
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
+  created() {
+    this.canvas = process.browser
+  },
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
       type: String,
-      required: false,
       default: ''
     },
     titleId: {
@@ -42,7 +121,6 @@ export default {
     },
     chartId: {
       type: String,
-      required: false,
       default: 'time-stacked-bar-chart'
     },
     chartData: {
@@ -57,25 +135,25 @@ export default {
     },
     items: {
       type: Array,
-      required: false,
       default: () => []
     },
     labels: {
       type: Array,
-      required: false,
+      default: () => []
+    },
+    dataLabels: {
+      type: Array,
       default: () => []
     },
     unit: {
       type: String,
-      required: false,
       default: ''
     }
   },
-  data() {
-    return {
-      dataKind: 'transition'
-    }
-  },
+  data: () => ({
+    dataKind: 'transition',
+    canvas: true
+  }),
   computed: {
     displayInfo() {
       if (this.dataKind === 'transition') {
@@ -92,7 +170,7 @@ export default {
       }
     },
     displayData() {
-      const colorArray = ['#00A040', '#00D154']
+      const graphSeries = getGraphSeriesStyle(this.chartData.length)
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
@@ -100,8 +178,9 @@ export default {
             return {
               label: this.items[index],
               data: item,
-              backgroundColor: colorArray[index],
-              borderWidth: 0
+              backgroundColor: graphSeries[index].fillColor,
+              borderColor: graphSeries[index].strokeColor,
+              borderWidth: 1
             }
           })
         }
@@ -112,21 +191,42 @@ export default {
           return {
             label: this.items[index],
             data: this.cumulative(item),
-            backgroundColor: colorArray[index],
-            borderWidth: 0
+            backgroundColor: graphSeries[index].fillColor,
+            borderColor: graphSeries[index].strokeColor,
+            borderWidth: 1
           }
         })
       }
+    },
+    tableHeaders() {
+      return [
+        { text: '日付', value: 'text' },
+        ...this.items.map((text, value) => {
+          return { text, value: String(value) }
+        })
+      ]
+    },
+    tableData() {
+      return this.displayData.datasets[0].data.map((_, i) => {
+        return Object.assign(
+          { text: this.labels[i] },
+          ...this.items.map((_, j) => {
+            return {
+              [j]: this.displayData.datasets[j].data[i]
+            }
+          })
+        )
+      })
     },
     options() {
       const unit = this.unit
       const sumArray = this.eachArraySum(this.chartData)
       const data = this.chartData
-      return {
+      const options = {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label: tooltipItem => {
+            label: (tooltipItem: any) => {
               const selectedSum = `${sumArray[tooltipItem.index]}${unit}`
               const sumByTitle = this.items
                 .map(
@@ -136,7 +236,7 @@ export default {
                 .reduce((acc, labelByTitle) => `${acc} / ${labelByTitle}`)
               return `${selectedSum}（${sumByTitle}）`
             },
-            title(tooltipItem, data) {
+            title(tooltipItem: any, data: any) {
               return data.labels[tooltipItem[0].index].replace(
                 /(\w+)\/(\w+)/,
                 '$1月$2日'
@@ -147,7 +247,13 @@ export default {
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-          display: true
+          display: true,
+          onHover: (e: HTMLElementEvent<HTMLElement>): void => {
+            e.currentTarget.style.cursor = 'pointer'
+          },
+          onLeave: (e: HTMLElementEvent<HTMLElement>): void => {
+            e.currentTarget.style.cursor = 'default'
+          }
         },
         scales: {
           xAxes: [
@@ -162,8 +268,7 @@ export default {
                 maxTicksLimit: 20,
                 fontColor: '#808080',
                 maxRotation: 0,
-                minRotation: 0,
-                callback: label => {
+                callback: (label: string) => {
                   return label.split('/')[1]
                 }
               }
@@ -181,29 +286,15 @@ export default {
                 fontSize: 11,
                 fontColor: '#808080',
                 padding: 3,
-                fontStyle: 'bold',
-                callback: label => {
-                  const monthStringArry = [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec'
-                  ]
-                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
-                  return month + '月'
-                }
+                fontStyle: 'bold'
               },
               type: 'time',
               time: {
-                unit: 'month'
+                unit: 'month',
+                parser: 'M/D',
+                displayFormats: {
+                  month: 'MMM'
+                }
               }
             }
           ],
@@ -224,11 +315,15 @@ export default {
           ]
         }
       }
+      if (this.$route.query.ogp === 'true') {
+        Object.assign(options, { animation: { duration: 0 } })
+      }
+      return options
     }
   },
   methods: {
-    cumulative(array) {
-      const cumulativeArray = []
+    cumulative(array: number[]): number[] {
+      const cumulativeArray: number[] = []
       let patSum = 0
       array.forEach(d => {
         patSum += d
@@ -236,32 +331,44 @@ export default {
       })
       return cumulativeArray
     },
-    sum(array) {
+    sum(array: number[]): number {
       return array.reduce((acc, cur) => {
         return acc + cur
       })
     },
-    pickLastNumber(chartDataArray) {
+    pickLastNumber(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array[array.length - 1]
       })
     },
-    cumulativeSum(chartDataArray) {
+    cumulativeSum(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array.reduce((acc, cur) => {
           return acc + cur
         })
       })
     },
-    eachArraySum(chartDataArray) {
-      const sumArray = []
+    eachArraySum(chartDataArray: number[][]) {
+      const sumArray: number[] = []
       for (let i = 0; i < chartDataArray[0].length; i++) {
         sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
       }
       return sumArray
     }
+  },
+  mounted() {
+    const barChart = this.$refs.barChart as Vue
+    const barElement = barChart.$el
+    const canvas = barElement.querySelector('canvas')
+    const labelledbyId = `${this.titleId}-graph`
+    if (canvas) {
+      canvas.setAttribute('role', 'img')
+      canvas.setAttribute('aria-labelledby', labelledbyId)
+    }
   }
 }
+
+export default Vue.extend(options)
 </script>
 
 <style lang="scss" scoped>
