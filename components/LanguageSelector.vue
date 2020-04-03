@@ -74,7 +74,7 @@ export default Vue.extend({
     margin-left: 4px;
     color: $gray-1;
     font-size: 12px;
-    @media screen and (max-width: 600px) {
+    @include lessThan($small) {
       font-size: 16px;
     }
   }
@@ -108,7 +108,7 @@ export default Vue.extend({
     border: 1px dotted $gray-3;
     outline: none;
   }
-  @media screen and (max-width: 600px) {
+  @include lessThan($small) {
     padding-left: 70px;
     font-size: 16px;
   }
