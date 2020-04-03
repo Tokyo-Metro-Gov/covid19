@@ -169,14 +169,10 @@ export default Vue.extend({
           divider: true
         },
         {
-          icon: 'ParentIcon',
-          title: this.$t('お子様をお持ちの皆様へ'),
-          link: this.localePath('/parent')
-        },
-        {
-          icon: 'mdi-information',
-          title: this.$t('県内各所のお知らせ'),
-          link: this.localePath('/news')
+          icon: 'mdi-account-multiple',
+          title: this.$t('知事からのメッセージ'),
+          link:
+            'https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/new_coronavirus_portal.data/message1.pdf'
         },
         {
           icon: 'mdi-account-multiple',
@@ -185,9 +181,9 @@ export default Vue.extend({
             'https://www.pref.shimane.lg.jp/medical/yakuji/kansensyo/other/topics/bukan2020.html'
         },
         {
-          icon: 'mdi-phone',
-          title: this.$t('お問い合わせ先一覧'),
-          link: this.localePath('/contacts')
+          icon: 'mdi-information',
+          title: this.$t('県内各所のお知らせ'),
+          link: this.localePath('/news')
         },
         {
           icon: 'mdi-stop',
@@ -195,10 +191,14 @@ export default Vue.extend({
           link: 'https://www.kankou-shimane.com/news/13881.html'
         },
         {
-          icon: 'mdi-announcement',
-          title: this.$t('知事からのメッセージ'),
-          link:
-            'https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/new_coronavirus_portal.data/message1.pdf',
+          icon: 'ParentIcon',
+          title: this.$t('お子様をお持ちの皆様へ'),
+          link: this.localePath('/parent')
+        },
+        {
+          icon: 'mdi-phone',
+          title: this.$t('お問い合わせ先一覧'),
+          link: this.localePath('/contacts'),
           divider: true
         },
         {
