@@ -83,7 +83,21 @@ export default {
       const slashCount = label.split('/').length - 1
       if (slashCount === 1) {
         // MM/DD~DD形式だったので、「~」の後に「MM/」を追加する
-        const month = label.substr(0, label.indexOf('/'))
+        let month = label.substr(0, label.indexOf('/'))
+
+        const startDate = Number(
+          label.substr(
+            label.indexOf('/') + 1,
+            label.indexOf('~') - label.indexOf('/') - 1
+          )
+        )
+        const endDate = Number(label.substr(label.indexOf('~') + 1))
+        if (startDate > endDate) {
+          const date = new Date()
+          date.setMonth(Number(month) + 1)
+          month = date.getMonth().toString()
+        }
+
         label = label.replace('~', `~${month}/`)
       }
 
