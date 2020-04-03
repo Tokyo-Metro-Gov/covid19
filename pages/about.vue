@@ -146,9 +146,15 @@
         </li>
       </ul>
       <p>
-        {{ $t('Google Analyticsによる情報送信を回避する場合は、Google がサポートする測定を無効にするブラウザ アドオン（') }}
-        {{ $t('https://tools.google.com/dlpage/gaoptout?hl=ja') }}
-        {{ $t(') をご利用ください。') }}
+        {{
+          $t('Google Analyticsによる情報送信を回避する場合は、Google がサポートする測定を無効にするブラウザ アドオン（')
+        }}
+        {{
+          $t('https://tools.google.com/dlpage/gaoptout?hl=ja')
+        }}
+        {{
+          $t(') をご利用ください。')
+        }}
       </p>
     </StaticCard>
     <StaticCard>
