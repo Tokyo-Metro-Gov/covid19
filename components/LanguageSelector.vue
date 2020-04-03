@@ -41,6 +41,11 @@ export default Vue.extend({
       currentLocaleCode: this.$root.$i18n.locale
     }
   },
+  watch: {
+    '$root.$i18n.locale'(locale: string) {
+      this.currentLocaleCode = locale
+    }
+  },
   methods: {
     handleChangeLanguage() {
       this.$root.$i18n.setLocale(this.currentLocaleCode)
