@@ -210,8 +210,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           callbacks: {
             label: (tooltipItem: any) => {
               const labelTokyo = this.$t('県内')
-              const labelOthers = this.$t('その他')
-              const labelArray = [labelTokyo, labelOthers]
+              const labelArray = [labelTokyo]
               let casesTotal, cases
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index].toLocaleString()
@@ -299,7 +298,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     eachArraySum(chartDataArray: number[][]) {
       const sumArray: number[] = []
       for (let i = 0; i < chartDataArray[0].length; i++) {
-        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
+        sumArray.push(chartDataArray[0][i])
       }
       return sumArray
     }

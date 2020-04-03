@@ -17,6 +17,7 @@ const config: Configuration = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'keywords', name: 'keywords', content: '福井県,コロナ,コロナウイルス,covid19,対策,動向,丹南ケーブルテレビ' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
         hid: 'og:url',
