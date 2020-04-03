@@ -41,12 +41,9 @@ export default Vue.extend({
       currentLocaleCode: this.$root.$i18n.locale
     }
   },
-  created() {
-    if (process.browser) {
-      window.addEventListener(
-        'popstate',
-        () => (this.currentLocaleCode = this.$root.$i18n.locale)
-      )
+  watch: {
+    '$root.$i18n.locale'(locale: string) {
+      this.currentLocaleCode = locale
     }
   },
   methods: {
