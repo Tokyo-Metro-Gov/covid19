@@ -98,7 +98,9 @@
   &:focus {
     color: inherit;
     text-decoration: none;
-    outline: 1px dotted $gray-3;
+    @media screen {
+      outline: 1px dotted $gray-3;
+    }
   }
 
   &Icon {
@@ -212,6 +214,9 @@
 .LargerText {
   font-size: larger;
   font-weight: bold;
+  @media print {
+    width: 65%;
+  }
 }
 
 .Center {

@@ -12,6 +12,7 @@
 [](03)岩手県|https://iwate.stopcovid19.jp/|有志|[MeditationDuck/covid19](https://github.com/MeditationDuck/covid19)|
 [](04)宮城県|https://miyagi.stopcovid19.jp/|Code for Shiogama|[code4shiogama/covid19-miyagi](https://github.com/code4shiogama/covid19-miyagi)|
 [](05)秋田県|https://covid19-akita.netlify.com/|学生 (有志) |[asaba-zauberer/covid19-akita](https://github.com/asaba-zauberer/covid19-akita)|
+[](06)山形県|https://stopcovid19-yamagata.netlify.com/|有志|[yamaserif/covid19](https://github.com/yamaserif/covid19)|
 [](07)福島県|https://fukushima-covid19.firebaseapp.com|GDG Fukushima|[donuzium/covid19](https://github.com/donuzium/covid19)|
 [](08)茨城県|https://covid19-ibaraki.netlify.com/|個人|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
 [](09)栃木県|https://covid19-tochigi.netlify.com/|有志|[covid19-tochigi/covid19](https://github.com/covid19-tochigi/covid19)|
@@ -51,7 +52,7 @@
 [](44)大分県|https://oita.stopcovid19.jp/|有志|[covid19-oita/covid19](https://github.com/covid19-oita/covid19)|
 [](45)宮崎県|https://covid19-miyazaki.netlify.com/|有志|[covid19-miyazaki/covid19](https://github.com/covid19-miyazaki/covid19)|
 [](46)鹿児島県|https://covid19.codeforkagoshima.dev/|有志|[codeforkagoshima/covid19](https://github.com/codeforkagoshima/covid19)
-
+[](47)沖縄県|https://okinawa.stopcovid19.jp/|有志|[Code-for-OKINAWA/covid19](https://github.com/Code-for-OKINAWA/covid19)
 ## 都道府県追加時のルール
 
 1. 東京都: 先頭で固定とする。
