@@ -153,16 +153,12 @@
         }}
         <a
           :href="
-            $t(
-              'https://tools.google.com/dlpage/gaoptout?hl=ja'
-            )
+            $t('https://tools.google.com/dlpage/gaoptout?hl=ja')
           "
           target="_blank"
           rel="noopener"
         >
-          {{
-            $t('測定を無効にするブラウザ アドオン')
-          }}
+          {{$t('測定を無効にするブラウザ アドオン')}}
         </a>
         {{
           $t('
