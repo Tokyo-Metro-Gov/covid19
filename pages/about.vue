@@ -145,21 +145,20 @@
           </a>
         </li>
       </ul>
-      <p>
-        {{
-          $t(
-            'Google Analyticsによる情報送信を回避する場合は、Google がサポートする'
-          )
-        }}
-        <a
-          :href="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
-          target="_blank"
-          rel="noopener"
-        >
-          {{ $t('測定を無効にするブラウザ アドオン') }}
-        </a>
-        {{ $t('をご利用ください。') }}
-      </p>
+      <i18n
+        tag="p"
+        path="$t('Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。')"
+      >
+        <template v-slot:addon>
+          <a
+            :href="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ $t('測定を無効にするブラウザ アドオン') }}
+          </a>
+        </template>
+      </i18n>
     </StaticCard>
     <StaticCard>
       <h2>{{ $t('免責事項') }}</h2>
