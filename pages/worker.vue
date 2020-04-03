@@ -24,6 +24,11 @@ export default {
     return {
       items: [
         {
+          title: '経済産業省の支援策',
+          link: 'https://www.meti.go.jp/covid-19/',
+          body: '新型コロナウイルス感染症関連'
+        },
+        {
           title: '新潟県の「中小企業金融相談窓口」',
           link:
             'https://www.pref.niigata.lg.jp/site/sogyo/madoguchi-kinyuu.html',
@@ -43,11 +48,9 @@ export default {
           body: '新潟市より引用'
         },
         {
-          title:
-            '新潟県信用保証協会「新型コロナウイルスに関する経営相談窓口」の設置について',
-          link:
-            'http://www.niigata-cgc.or.jp/「新型コロナウイルスに関する経営相談窓口」の',
-          body: '新潟県信用保証協会による経営相談窓口'
+          title: '新潟県信用保証協会',
+          link: 'http://www.niigata-cgc.or.jp/cat/topics',
+          body: '新潟県信用保証協会のトピックス一覧'
         },
         {
           title: '新型コロナウイルス感染症に関連する人権への配慮について',
@@ -61,11 +64,6 @@ export default {
             'https://www.pref.niigata.lg.jp/sec/kouhou/shingata-corona-cm.html',
           body:
             '疑わしい情報の注意喚起及び及び相談窓口・コールセンターのご案内(15秒)'
-        },
-        {
-          title: '新型コロナウイルス感染症について',
-          link: 'https://www.pref.niigata.lg.jp/sec/kenko/bukan-haien.html',
-          body: '新潟県　健康対策課'
         },
         {
           title:
