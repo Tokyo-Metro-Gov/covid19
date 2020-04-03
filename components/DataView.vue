@@ -17,6 +17,11 @@
       <div class="DataView-Footer">
         <div class="Footer-Left">
           <div>
+            <a class="Permalink" :href="fromlink()">
+              {{ $t('出典:新型コロナウイルス感染症について(新潟県)') }}
+            </a>
+          </div>
+          <div>
             <a class="Permalink" :href="permalink()">
               <time :datetime="formattedDate">
                 {{ $t('{date} 更新', { date }) }}
@@ -152,6 +157,12 @@ export default class DataView extends Vue {
     }
 
     return permalink
+  }
+
+  fromlink() {
+    const fromlink = 'https://www.pref.niigata.lg.jp/sec/kenko/bukan-haien.html'
+
+    return fromlink
   }
 
   twitter() {
