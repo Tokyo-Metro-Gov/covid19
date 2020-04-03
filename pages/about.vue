@@ -147,13 +147,27 @@
       </ul>
       <p>
         {{
-          $t('Google Analyticsによる情報送信を回避する場合は、Google がサポートする測定を無効にするブラウザ アドオン（')
+          $t(
+            'Google Analyticsによる情報送信を回避する場合は、Google がサポートする'
+          )
         }}
+        <a
+          :href="
+            $t(
+              'https://tools.google.com/dlpage/gaoptout?hl=ja'
+            )
+          "
+          target="_blank"
+          rel="noopener"
+        >
+          {{
+            $t('測定を無効にするブラウザ アドオン')
+          }}
+        </a>
         {{
-          $t('https://tools.google.com/dlpage/gaoptout?hl=ja')
-        }}
-        {{
-          $t(') をご利用ください。')
+          $t('
+            をご利用ください。
+          ')
         }}
       </p>
     </StaticCard>
