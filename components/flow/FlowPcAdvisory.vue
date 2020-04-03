@@ -160,7 +160,10 @@
     &:focus {
       color: inherit;
       text-decoration: none;
-      outline: 1px dotted $gray-3;
+      @media screen {
+        // printだとoutlineが太くなってしまい読みにくいので、消す処理
+        outline: 1px dotted $gray-3;
+      }
     }
 
     &Icon {
