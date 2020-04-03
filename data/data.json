@@ -93,8 +93,8 @@
         "value": 333,
         "children": [
             {
-                "attr": "陽性患者数",
-                "value":9,
+                "attr": "陽性患者数（県外感染者含む）",
+                "value":10,
                 "children": [
                     {
                         "attr": "入院中",
