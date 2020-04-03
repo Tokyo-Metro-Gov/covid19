@@ -3,9 +3,9 @@
     <template v-for="(t, i) in rubyTexts">
       <ruby v-if="t.kana" :key="i">
         {{ t.ja }}
-        <rp>(</rp>
+        <rp>（</rp>
         <rt>{{ t.kana }}</rt>
-        <rp>)</rp>
+        <rp>）</rp>
       </ruby>
       <span v-else :key="i">{{ t.ja }}</span>
     </template>
