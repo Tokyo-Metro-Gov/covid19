@@ -39,7 +39,7 @@ import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
 import NoScript from '@/components/NoScript.vue'
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
-import { convertDateToISO8601Format } from '@/utils/formatDate'
+import { convertDateToSimpleFormat } from '@/utils/formatDate'
 
 type LocalData = {
   hasNavigation: boolean
@@ -114,9 +114,8 @@ export default Vue.extend({
           hid: 'description',
           name: 'description',
           content:
-            this.$t('最終更新日：') +
-            convertDateToISO8601Format(Data.lastUpdate) +
-            ' ' +
+            convertDateToSimpleFormat(Data.lastUpdate) +
+            ' 更新：　' +
             this.$tc(
               '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
             )
@@ -151,9 +150,8 @@ export default Vue.extend({
           hid: 'og:description',
           property: 'og:description',
           content:
-            this.$t('最終更新日：') +
-            convertDateToISO8601Format(Data.lastUpdate) +
-            ' ' +
+            convertDateToSimpleFormat(Data.lastUpdate) +
+            ' 更新：　' +
             this.$tc(
               '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
             )
