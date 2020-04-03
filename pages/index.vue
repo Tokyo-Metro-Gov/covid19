@@ -10,7 +10,7 @@
 
 
     <div class="WhatsNew mb-4" data-v-2a183b29=""><h3 class="WhatsNew-heading"><i aria-hidden="true" class="v-icon notranslate WhatsNew-heading-icon mdi mdi-information theme--light" style="font-size:24px;"></i>
-    県からのお知らせ
+    県からの重要なお知らせ
   </h3>
 
  【4月19日まで不急不要の外出自粛要請】<br>
