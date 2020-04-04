@@ -71,10 +71,10 @@ export default Vue.extend({
   },
   mounted() {
     this.loading = false
-    window.addEventListener('resize', this.hideNavigation)
+    window.addEventListener('resize', this.resizeHandler)
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.hideNavigation)
+    window.removeEventListener('resize', this.resizeHandler)
   },
   methods: {
     openNavigation(): void {
@@ -82,6 +82,11 @@ export default Vue.extend({
     },
     hideNavigation(): void {
       this.isOpenNavigation = false
+    },
+    resizeHandler(): void {
+      if (window.matchMedia('(min-width: 600px)').matches) {
+        this.hideNavigation()
+      }
     }
   },
   head(): MetaInfo {
