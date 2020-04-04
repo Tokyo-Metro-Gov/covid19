@@ -24,15 +24,8 @@ export default {
     AgencyBarChart
   },
   data() {
-    const agencies = [
-      this.$t('第一庁舎計'),
-      this.$t('第二庁舎計'),
-      this.$t('議事堂計')
-    ]
-
     return {
-      agencyData,
-      agencies
+      agencyData
     }
   }
 }
