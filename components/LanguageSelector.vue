@@ -47,8 +47,9 @@ export default Vue.extend({
     }
   },
   methods: {
-    handleChangeLanguage() {
+    handleChangeLanguage(event: Event) {
       this.$root.$i18n.setLocale(this.currentLocaleCode)
+      this.$emit('change', event)
     }
   }
 })

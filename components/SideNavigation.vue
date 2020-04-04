@@ -42,7 +42,7 @@
             <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
               {{ $t('多言語対応選択メニュー') }}
             </label>
-            <LanguageSelector />
+            <LanguageSelector @change="$emit('closeNavi', $event)" />
           </div>
         </div>
         <MenuList :items="items" @click="$emit('closeNavi', $event)" />
