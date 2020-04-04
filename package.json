@@ -13,7 +13,7 @@
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
     "generate:deploy": "cross-env NODE_ENV=production nuxt-ts generate",
-    "generate:dev": "cross-env NODE_ENV=production nuxt-ts generate",
+    "generate:dev": "cross-env NODE_ENV=staging nuxt-ts generate",
     "generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "lint-and-generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "test": "echo 'skip tests (there is no test)'",
