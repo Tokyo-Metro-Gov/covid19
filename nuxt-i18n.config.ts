@@ -40,7 +40,7 @@ export default {
       iso: 'zh-TW',
       file: 'zh_TW.json',
       description: 'Traditional Chinese'
-    },
+    }
     // {
     //   code: 'ko',
     //   name: '한국어',
