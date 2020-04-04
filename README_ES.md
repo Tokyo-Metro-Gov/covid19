@@ -52,7 +52,7 @@ $ yarn dev
 $ docker-compose up --build
 ```
 
-### Implementación en entornos de preparación y producción
+### Implementación en entornos de desarrollo y producción
 
 Cuando se actualiza la rama `development`, los archivos HTML se construirán automáticamente en la rama` dev-pages`,
 y luego el sitio de desarrollo (https://development-civictechzenchiba-covid19.netlify.com/) también se actualizará.

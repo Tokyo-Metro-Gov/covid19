@@ -52,7 +52,7 @@ $ yarn dev
 $ docker-compose up --build
 ```
 
-### Deployment to Staging & Production Environments
+### Deployment to Development & Production Environments
 
 When `development` branch is updated, the HTML files will be automatically built onto `dev-pages` branch,
 and then the development site (https://development-civictechzenchiba-covid19.netlify.com/) will be also updated.
