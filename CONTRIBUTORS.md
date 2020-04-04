@@ -114,7 +114,7 @@ Tokyo Covid-19 response site contributors
 | kuromoka | [@kuromoka](https://github.com/kuromoka) | [@kuromoka16](https://twitter.com/kuromoka16) | Frontend |
 | Michiya Tominaga | [@nuwaa](https://github.com/nuwaa) | [@nuwaa](https://twitter.com/nuwaa) | Translations |
 | showyou | [@showyou](https://github.com/showyou) | [@showyou](https://twitter.com/showyou) | Issue reporter |
-| [Ryota Umebayashi (@lesgrandsballet)](https://qiita.com/umerin) | [@RyotaUmebayashi](https://github.com/RyotaUmebayashi) | | Kaizen |
+| [Ryota Umebayashi](https://qiita.com/umerin) | [@RyotaUmebayashi](https://github.com/RyotaUmebayashi) | [@lesgrandsballet](https://twitter.com/lesgrandsballet) | Kaizen |
 | takoba (Takuya Obara) | [@takoba](https://github.com/takoba) | | Kaizen |
 | Ryo KUTSUZAWA | [@bookun](https://github.com/bookun) | | Coding |
 | Hiroaki MASAKI | [@maasa22](https://github.com/maasa22) | | Coding |
@@ -140,6 +140,14 @@ Tokyo Covid-19 response site contributors
 | Hidehiro Nagaoka | [@hidehiro98](https://github.com/hidehiro98) | [@hid9hiro](https://twitter.com/hid9hiro) | Coding, Translation |
 | y171 | [@totoro721](https://github.com/totoro721) | | Coding, Translation |
 | [hogesuke](https://hogesuke.hateblo.jp/) | [@hogesuke](https://github.com/hogesuke) | [@hogesuke_1](https://twitter.com/hogesuke_1) | Coding |
+| mcdmaster | [@mcdmaster](https://github.com/mcdmaster) | | Governance, Compliance, i18n |
+| Kazuya Atsumi | [@kazat](https://github.com/kazat) | | Coding |
+| hanapei00 | [@hanapei00](https://github.com/hanapei00) | | Coding |
+| Rikiya Ihara | [@magi1125](https://github.com/magi1125) | [@magi1125](https://twitter.com/magi1125) | Accessibility, Triage |
+| [Arthit Suriyawongkula](https://bact.cc) | [@bact](https://github.com/bact) | [@bact](https://twitter.com/bact) | Translation (Thai) |
+| [Soichi Ikebe (AQUA)](https://www.aqua-ix.com/) | [@Aqua-ix](https://github.com/Aqua-ix) | [@Aqua_ix](https://twitter.com/Aqua_ix) | Coding |
+| yuuton414 | [@yuuton414](https://github.com/yuuton414) | | Coding |
+| Hiroki Kobayashi | [@khsacc](https://github.com/khsacc) | [@khsacc](https://twitter.com/khsacc) | Coding |
 
 ご協力に感謝です！！！
 
