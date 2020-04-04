@@ -71,6 +71,7 @@
     "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
+    "vue-axe": "1.0.8",
     "vue-jest": "^4.0.0-0"
   }
 }
