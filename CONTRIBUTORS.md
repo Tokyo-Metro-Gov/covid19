@@ -144,7 +144,7 @@ Tokyo Covid-19 response site contributors
 | Kazuya Atsumi | [@kazat](https://github.com/kazat) | | Coding |
 | hanapei00 | [@hanapei00](https://github.com/hanapei00) | | Coding |
 | Rikiya Ihara | [@magi1125](https://github.com/magi1125) | [@magi1125](https://twitter.com/magi1125) | Accessibility, Triage |
-| [Arthit Suriyawongkula](https://bact.cc) | [@bact](https://github.com/bact) | [@bact](https://twitter.com/bact) | Translation (Thai) |
+| [Arthit Suriyawongkul](https://bact.cc) | [@bact](https://github.com/bact) | [@bact](https://twitter.com/bact) | Translation (Thai) |
 | [Soichi Ikebe (AQUA)](https://www.aqua-ix.com/) | [@Aqua-ix](https://github.com/Aqua-ix) | [@Aqua_ix](https://twitter.com/Aqua_ix) | Coding |
 | yuuton414 | [@yuuton414](https://github.com/yuuton414) | | Coding |
 | Hiroki Kobayashi | [@khsacc](https://github.com/khsacc) | [@khsacc](https://twitter.com/khsacc) | Coding |
