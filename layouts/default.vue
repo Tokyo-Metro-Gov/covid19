@@ -73,6 +73,9 @@ export default Vue.extend({
     this.loading = false
     window.addEventListener('resize', this.hideNavigation)
   },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.hideNavigation)
+  },
   methods: {
     openNavigation(): void {
       this.isOpenNavigation = true
