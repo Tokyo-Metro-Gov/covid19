@@ -13,9 +13,19 @@
       :fixed-header="true"
       :mobile-breakpoint="0"
       class="cardTable"
-    />
+    >
+      <template v-slot:item.居住地="{ item }">
+        <t-i18n :text="item.居住地" />
+      </template>
+      <template v-slot:item.年代="{ item }">
+        <t-i18n :text="item.年代" />
+      </template>
+      <template v-slot:item.性別="{ item }">
+        <t-i18n :text="item.性別" />
+      </template>
+    </v-data-table>
     <div class="note">
-      {{ $t('※退院には、死亡退院を含む') }}
+      <t-i18n :text="$t('※退院には、死亡退院を含む')" />
     </div>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -92,9 +102,10 @@ import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default Vue.extend({
-  components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
+  components: { DataView, DataViewBasicInfoPanel, OpenDataLink, TI18n },
   props: {
     title: {
       type: String,

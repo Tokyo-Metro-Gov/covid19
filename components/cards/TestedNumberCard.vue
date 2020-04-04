@@ -13,9 +13,9 @@
     >
       <!-- 件.tested = 検査数 -->
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
-        {{ $t('※1: 疑い例・接触者調査') }}
+        <t-i18n :text="$t('※1: 疑い例・接触者調査')" />
         <br />
-        {{ $t('※2: チャーター便・クルーズ船') }}
+        <t-i18n :text="$t('※2: チャーター便・クルーズ船')" />
       </template>
     </time-stacked-bar-chart>
   </v-col>
@@ -24,10 +24,12 @@
 <script>
 import Data from '@/data/data.json'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
-    TimeStackedBarChart
+    TimeStackedBarChart,
+    TI18n
   },
   data() {
     // 検査実施日別状況

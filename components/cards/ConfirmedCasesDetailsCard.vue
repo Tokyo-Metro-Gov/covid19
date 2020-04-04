@@ -7,7 +7,11 @@
     >
       <template v-slot:button>
         <p :class="$style.note">
-          {{ $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
+           <t-i18n
+            :text="
+            $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
+          "
+        />
         </p>
       </template>
       <confirmed-cases-details-table
@@ -32,11 +36,13 @@ import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import DataView from '@/components/DataView.vue'
 import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
     DataView,
-    ConfirmedCasesDetailsTable
+    ConfirmedCasesDetailsTable,
+    TI18n
   },
   data() {
     // 検査陽性者の状況

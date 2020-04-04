@@ -2,19 +2,25 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:description>
       <p :class="$style.Text">
-        {{
-          $t(
-            '2月3日～2月7日の来訪者数 (※1) の平均値 (※2) を 基準としたときの相対値'
-          )
-        }}
+        <t-i18n
+          :text="
+            $t(
+              '2月3日～2月7日の来訪者数 (※1) の平均値 (※2) を 基準としたときの相対値'
+            )
+          "
+        />
       </p>
       <ol>
         <li>
-          {{
-            $t('※1) ヤフーに蓄積された位置情報データなどを元に算出した参考値')
-          }}
+          <t-i18n
+            :text="
+              $t('※1) ヤフーに蓄積された位置情報データなどを元に算出した参考値')
+            "
+          />
         </li>
-        <li>{{ $t('※2) 土・日・祝日を除く7:30~8:30の1週間平均値') }}</li>
+        <li>
+          <t-i18n :text="$t('※2) 土・日・祝日を除く7:30~8:30の1週間平均値')" />
+        </li>
       </ol>
     </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
@@ -67,6 +73,7 @@ import weekOfYear from 'dayjs/plugin/weekOfYear'
 import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
 import DataView from '@/components/DataView.vue'
+import TI18n from '@/components/TI18n.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import SourceLink from '@/components/SourceLink.vue'
 
@@ -156,7 +163,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, SourceLink },
+  components: { DataView, SourceLink, TI18n },
   props: {
     title: {
       type: String,

@@ -6,7 +6,7 @@
           class="DataView-Title"
           :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
         >
-          {{ title }}
+          <t-i18n :text="title" />
         </h3>
         <slot name="infoPanel" />
       </div>
@@ -28,7 +28,7 @@
           <div>
             <a class="Permalink" :href="permalink()">
               <time :datetime="formattedDate">
-                {{ $t('{date} 更新', { date }) }}
+                <t-i18n :text="$t('{date} 更新', { date })" />
               </time>
             </a>
           </div>
@@ -64,7 +64,9 @@
               </v-icon>
             </div>
 
-            <h4>{{ $t('埋め込み用コード') }}</h4>
+            <h4>
+              <t-i18n :text="$t('埋め込み用コード')" />
+            </h4>
 
             <div class="EmbedCode">
               <v-icon
@@ -136,7 +138,7 @@
 
     <div v-if="showOverlay" class="overlay">
       <div class="overlay-text">
-        {{ $t('埋め込みコードをコピーしました') }}
+        <t-i18n :text="$t('埋め込みコードをコピーしました')" />
       </div>
       <v-footer class="DataView-Footer">
         <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
@@ -149,8 +151,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import TI18n from '@/components/TI18n.vue'
 
 export default Vue.extend({
+  components: { TI18n },
   props: {
     title: {
       type: String,
