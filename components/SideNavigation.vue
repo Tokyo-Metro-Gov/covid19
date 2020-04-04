@@ -10,7 +10,11 @@
       </v-icon>
       <h1 class="SideNavigation-HeaderTitle">
         <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderLink">
-          <h1>岩手県</h1>
+          <img
+            class="SideNavigation-HeaderLogo"
+            src="/logo.svg"
+            :alt="$t('岩手県')"
+          />
           <div class="SideNavigation-HeaderText">
             {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
               $t('対策サイト非公式')
