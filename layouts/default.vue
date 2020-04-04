@@ -71,6 +71,7 @@ export default Vue.extend({
   },
   mounted() {
     this.loading = false
+    window.addEventListener('resize', this.hideNavigation)
   },
   methods: {
     openNavigation(): void {
