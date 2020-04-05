@@ -204,7 +204,7 @@ export default Vue.extend({
   mounted() {
     // Webページ表示後に、サイドバーのロゴまたは「都内の最新感染動向」リンクをクリックした場合に
     // handleChangeRoute()が発火しないため、初回のみclickイベントを登録しておく。
-    this.eraseLinkUnderLine();
+    this.eraseLinkUnderLine()
   },
   methods: {
     eraseLinkUnderLine() {
