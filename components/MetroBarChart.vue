@@ -29,6 +29,9 @@
       class="cardTable"
       item-key="name"
     />
+    <p :class="$style.DataViewDesc">
+      <slot name="additionalNotes" />
+    </p>
   </data-view>
 </template>
 

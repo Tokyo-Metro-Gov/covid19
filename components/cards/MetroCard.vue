@@ -25,6 +25,12 @@
           )
         }}
       </template>
+      <template v-slot:additionalNotes>
+        <external-link
+          :url="'https://smooth-biz.metro.tokyo.lg.jp/archive/date.pdf'"
+          :label="$t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）')"
+        />
+      </template>
     </metro-bar-chart>
   </v-col>
 </template>
@@ -33,10 +39,12 @@
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
 import MetroBarChart from '@/components/MetroBarChart.vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 export default {
   components: {
-    MetroBarChart
+    MetroBarChart,
+    ExternalLink
   },
   data() {
     // 都営地下鉄の利用者数の推移
