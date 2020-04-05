@@ -1,9 +1,9 @@
 # Sitio web del Grupo de trabajo COVID-19 de Chiba
 
-  Resumen de sitios lanzados en diversas regiones
+Resumen de sitios lanzados en diversas regiones
 https://hackmd.io/9TTyyjchR8ufuMd9z08Rcg?view
 
-  Sitios en la prefectura de Chiba
+Sitios en la prefectura de Chiba
 https://www.pref.chiba.lg.jp/index.html
 
 Haz una Sitio web del Grupo de trabajo, ¡vamos!
@@ -33,6 +33,9 @@ Este software se publica bajo la [licencia MIT](./LICENSE.txt).
 ### Cómo Configurar Entornos
 
 - Versión requerida de Node.js: 10.19.0 o superior
+- Le recomendamos que use Docker-Compose ya que sigue recibiendo errores de eslint.
+- La versión de desarrollo se está covid19-chiba development.
+- Una herramienta relacionada es [covid19-chiba-tools](https://github.com/civictechzenchiba/covid19-chiba-tools). Ver también.
 
 **Use yarn**
 ``` bash
@@ -49,4 +52,20 @@ $ yarn dev
 $ docker-compose up --build
 ```
 
-### Implementación en entornos de preparación y producción
+### Implementación en entornos de desarrollo y producción
+
+Cuando se actualiza la rama `development`, los archivos HTML se construirán automáticamente en la rama` dev-pages`,
+y luego el sitio de desarrollo (https://development-civictechzenchiba-covid19.netlify.com/) también se actualizará.
+
+Cuando se actualiza la rama `master`, los archivos HTML se construirán automáticamente en la rama de `production`,
+y luego el sitio de producción (https://covid19.civictech.chiba.jp/) también se actualizará.
+
+### Regla de rama
+
+Petición de tirar está permitida sólo para el `development`.
+
+#### Rama básica
+| Propósito | Rama | URL de confirmación | Observaciones |
+| ---- | -------- | ---- | ---- |
+| Desarrollo | development | https://development-civictechzenchiba-covid19.netlify.com/ | la rama de la base. Básicamente envía una solicitudes de extracción aquí |
+| Producción | master | https://covid19.civictech.chiba.jp/ | Se prohíben las solicitudes de extracción que no sean de administradores |
