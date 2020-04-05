@@ -1,8 +1,8 @@
 <template>
   <div class="About">
-    <h2 class="About-Heading">
+    <page-header class="mb-3">
       {{ $t('当サイトについて') }}
-    </h2>
+    </page-header>
     <StaticCard>
       {{
         $t(
@@ -17,15 +17,17 @@
       }}
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('ブラウザ環境について') }}</h2>
+      <h3>{{ $t('ブラウザ環境について') }}</h3>
       <p>
         {{ $t('当サイトは以下の環境でご覧いただくことを推奨いたします。') }}
       </p>
       <ul>
         <li>{{ $t('Microsoft Edge 最新版') }}</li>
         <li>{{ $t('Mozilla Firefox 最新版') }}</li>
-        <li>{{ $t('Google Chrome 最新版（Windows 10以上）') }}</li>
-        <li>{{ $t('Apple Safari (macOS) 最新版') }}</li>
+        <li>
+          {{ $t('Google Chrome 最新版（Windows 10以上, Android 8.0以上）') }}
+        </li>
+        <li>{{ $t('Safari 最新版（macOS, iOS）') }}</li>
         <li>{{ $t('Opera Software ASA Opera 最新版') }}</li>
       </ul>
       <p class="StaticCard-Note">
@@ -40,11 +42,11 @@
       </p>
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('当サイトへのリンクについて') }}</h2>
+      <h3>{{ $t('当サイトへのリンクについて') }}</h3>
       <p>{{ $t('当サイトへのリンクは自由です。') }}</p>
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('JavaScriptについて') }}</h2>
+      <h3>{{ $t('JavaScriptについて') }}</h3>
       <p>
         {{ $t('当サイトではJavaScriptを使用しております。') }}<br />
         {{
@@ -60,7 +62,7 @@
       </p>
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('クッキー (Cookie) について') }}</h2>
+      <h3>{{ $t('クッキー (Cookie) について') }}</h3>
       <p>
         {{ $t('当サイトの一部ではクッキーを使用しています。') }}<br />
         {{
@@ -85,7 +87,7 @@
       </p>
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('Google Analyticsの利用について') }}</h2>
+      <h3>{{ $t('Google Analyticsの利用について') }}</h3>
       <p>
         {{
           $t(
@@ -94,12 +96,12 @@
         }}<br />
         {{
           $t(
-            'Google Analyticsは、当サイトが発行するクッキー (Cookie) を利用して、個人を特定する情報を含まずにWebサイトの利用データ（アクセス状況、トラフィック、閲覧環境など）を収集しております。クッキー (Cookie) の利用に関してはGoogleのプライバシーポリシーと規約に基づいております。'
+            'Google Analyticsでは、当サイトが発行するクッキー (Cookie) 等を利用して、Webサイトの利用データ（アクセス状況、トラフィック、閲覧環境、IPアドレスなど）を収集しております。クッキーの利用に関してはGoogleのプライバシーポリシーと規約に基づいております。'
           )
         }}<br />
         {{
           $t(
-            '取得したデータは Webサイト利用状況の分析、サイト運営者へのレポートの作成、その他のサービスの提供に関わる目的に限り、これを使用します。'
+            '取得したデータはWebサイト利用状況を分析しサービスの改善につなげるため、またはサイト運営者へのレポートを作成するため、その他のサービスの提供に関わる目的に限り、これを使用します。（サイト運営者へのレポートでは、クッキーはブラウザ単位で本サイトのユーザー数をカウントするため、IPアドレスはGoogle Analyticsの分析機能を通じてアクセス元の地域分布（国、州・都道府県、都市）を把握するために利用されています。）'
           )
         }}<br />
         {{
@@ -117,7 +119,7 @@
               )
             "
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('Google Analytics利用規約') }}
           </a>
@@ -126,7 +128,7 @@
           <a
             :href="$t('https://policies.google.com/privacy?hl=ja')"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('Googleのプライバシーポリシー') }}
           </a>
@@ -137,15 +139,29 @@
               $t('https://support.google.com/analytics/answer/6004245?hl=ja')
             "
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {{ $t('Google Analyticsに関する詳細情報') }}
           </a>
         </li>
       </ul>
+      <i18n
+        tag="p"
+        path="$t('Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。')"
+      >
+        <template v-slot:addon>
+          <a
+            :href="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ $t('測定を無効にするブラウザ アドオン') }}
+          </a>
+        </template>
+      </i18n>
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('免責事項') }}</h2>
+      <h3>{{ $t('免責事項') }}</h3>
       <p>
         {{
           $t(
@@ -169,23 +185,24 @@
       </p>
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('データについて') }}</h2>
+      <h3>{{ $t('データについて') }}</h3>
       <i18n
         tag="p"
         path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
       >
-        <a
-          href="https://portal.data.metro.tokyo.lg.jp/"
-          target="_blank"
-          rel="noopener"
-          place="catalogWebsite"
-        >
-          {{ $t('東京都オープンデータカタログサイト') }}
-        </a>
+        <template v-slot:catalogWebsite>
+          <a
+            href="https://portal.data.metro.tokyo.lg.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ $t('東京都オープンデータカタログサイト') }}
+          </a>
+        </template>
       </i18n>
     </StaticCard>
     <StaticCard>
-      <h2>{{ $t('ソースコードについて') }}</h2>
+      <h3>{{ $t('ソースコードについて') }}</h3>
       <p>
         {{
           $t(
@@ -193,14 +210,15 @@
           )
         }}
         <i18n path="詳しくは、{githubRepo}をご確認ください。">
-          <a
-            href="https://github.com/tokyo-metropolitan-gov/covid19"
-            target="_blank"
-            rel="noopener"
-            place="githubRepo"
-          >
-            {{ $t('GitHub リポジトリ') }}
-          </a>
+          <template v-slot:githubRepo>
+            <a
+              href="https://github.com/tokyo-metropolitan-gov/covid19"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ $t('GitHub リポジトリ') }}
+            </a>
+          </template>
         </i18n>
       </p>
     </StaticCard>
@@ -210,25 +228,18 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+import PageHeader from '@/components/PageHeader.vue'
 import StaticCard from '@/components/StaticCard.vue'
 
 export default Vue.extend({
   components: {
+    PageHeader,
     StaticCard
   },
-  head: (): MetaInfo => ({
-    title: '当サイトについて'
-  })
+  head(): MetaInfo {
+    return {
+      title: this.$t('当サイトについて') as string
+    }
+  }
 })
 </script>
-
-<style lang="scss">
-.About {
-  &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
-    margin-bottom: 12px;
-  }
-}
-</style>

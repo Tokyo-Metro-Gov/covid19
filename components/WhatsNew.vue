@@ -12,7 +12,7 @@
           class="WhatsNew-list-item-anchor"
           :href="item.url"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <time
             class="WhatsNew-list-item-anchor-time px-2"
@@ -61,6 +61,7 @@ export default Vue.extend({
 <style lang="scss">
 .WhatsNew {
   @include card-container();
+
   padding: 10px;
   margin-bottom: 20px;
 }
@@ -68,7 +69,9 @@ export default Vue.extend({
 .WhatsNew-heading {
   display: flex;
   align-items: center;
+
   @include card-h2();
+
   margin-bottom: 12px;
   color: $gray-2;
   margin-left: 12px;
@@ -79,7 +82,7 @@ export default Vue.extend({
 }
 
 .WhatsNew .WhatsNew-list {
-  padding-left: 0px;
+  padding-left: 0;
   list-style-type: none;
 
   &-item {
@@ -96,15 +99,19 @@ export default Vue.extend({
 
       &-time {
         flex: 0 0 90px;
+
         @include lessThan($medium) {
           flex: 0 0 100%;
         }
+
         color: $gray-1;
       }
 
       &-link {
         flex: 0 1 auto;
+
         @include text-link();
+
         @include lessThan($medium) {
           padding-left: 8px;
         }

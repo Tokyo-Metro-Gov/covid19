@@ -68,6 +68,7 @@ export default {
   &.triple {
     margin-left: px2vw(-11);
     margin-right: px2vw(-11);
+
     > .symptom {
       margin-left: px2vw(11);
       margin-right: px2vw(11);
@@ -79,6 +80,7 @@ export default {
 .callcenter {
   margin-top: px2vw(25);
   text-align: center;
+
   .open {
     margin-top: px2vw(10);
   }
@@ -86,10 +88,12 @@ export default {
 
 @include largerThan($small) {
   $vw: 960;
+
   .rectContainer {
     &.triple {
       margin-left: px2vw(-11, $vw);
       margin-right: px2vw(-11, $vw);
+
       > .symptom {
         margin-left: px2vw(11, $vw);
         margin-right: px2vw(11, $vw);
@@ -99,6 +103,7 @@ export default {
   // suspect
   .callcenter {
     margin-top: px2vw(25, $vw);
+
     .open {
       margin-top: px2vw(10, $vw);
     }

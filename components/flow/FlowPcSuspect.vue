@@ -5,6 +5,7 @@
         :class="$style.Box1Icon"
         src="/flow/flow_arrow.svg"
         aria-hidden="true"
+        alt=" "
       />
       <div :class="$style.RowItems">
         <div :class="$style.RowItemsHeader">
@@ -12,6 +13,7 @@
             :class="$style.RowItemsHeaderIcon"
             src="/flow/sentiment_very_dissatisfied-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
           {{ $t('不安に思う方') }}
         </div>
@@ -22,6 +24,7 @@
             :class="$style.CheckBoxIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
           {{ $t('微熱') }}
         </div>
@@ -30,6 +33,7 @@
             :class="$style.CheckBoxIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
           {{ $t('軽い咳') }}
         </div>
@@ -38,6 +42,7 @@
             :class="$style.CheckBoxIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
           {{ $t('感染の不安') }}
         </div>
@@ -58,6 +63,7 @@
             :class="$style.TelLinkIcon"
             src="/flow/phone-24px.svg"
             aria-hidden="true"
+            :alt="$t('電話番号')"
           />
           0570-550571
         </a>
@@ -79,10 +85,12 @@
     font-size: larger;
   }
 }
+
 .TelLink {
   display: flex;
   align-items: center;
   font-weight: bold;
+
   &:link,
   &:visited,
   &:hover,
@@ -90,7 +98,11 @@
   &:focus {
     color: inherit;
     text-decoration: none;
+    @media screen {
+      outline: 1px dotted $gray-3;
+    }
   }
+
   &Icon {
     display: inline-block;
     margin-right: 5px;
@@ -109,6 +121,7 @@
   text-align: center;
   font-weight: bold;
   font-size: calc(0.875rem + ((1vw - 7.68px) * 0.8929));
+
   @include largerThan($large) {
     font-size: 20px;
   }
@@ -134,6 +147,7 @@
 
 .SubtleBox {
   @include card-container();
+
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -146,6 +160,7 @@
   flex-shrink: 0;
   width: 60%;
   flex-direction: row;
+
   &Icon {
     position: absolute;
     bottom: 40%;
@@ -163,6 +178,7 @@
   width: 38%;
   flex-direction: column;
   justify-content: center;
+
   div {
     margin: 0.5em;
   }
@@ -172,6 +188,7 @@
   flex-grow: 1;
   text-align: center;
   margin: 0 4px;
+
   @include largerThan($large) {
     margin: 0 2em;
   }
@@ -179,6 +196,7 @@
 
 .RowItemsHeader {
   font-size: smaller;
+
   &Icon {
     display: block;
     margin: auto;
@@ -196,6 +214,9 @@
 .LargerText {
   font-size: larger;
   font-weight: bold;
+  @media print {
+    width: 65%;
+  }
 }
 
 .Center {

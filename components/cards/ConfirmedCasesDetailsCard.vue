@@ -1,28 +1,42 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <svg-card
+    <data-view
       :title="$t('検査陽性者の状況')"
       :title-id="'details-of-confirmed-cases'"
-      :date="Data.inspections_summary.date"
+      :date="Data.patients.date"
     >
-      <confirmed-cases-table
+      <template v-slot:button>
+        <p :class="$style.note">
+          {{ $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
+        </p>
+      </template>
+      <confirmed-cases-details-table
         :aria-label="$t('検査陽性者の状況')"
         v-bind="confirmedCases"
       />
-    </svg-card>
+    </data-view>
   </v-col>
 </template>
+
+<style lang="scss" module>
+.note {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 12px;
+  color: $gray-3;
+}
+</style>
 
 <script>
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
-import SvgCard from '@/components/SvgCard.vue'
-import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
+import DataView from '@/components/DataView.vue'
+import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
 
 export default {
   components: {
-    SvgCard,
-    ConfirmedCasesTable
+    DataView,
+    ConfirmedCasesDetailsTable
   },
   data() {
     // 検査陽性者の状況
