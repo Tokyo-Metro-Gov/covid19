@@ -201,6 +201,11 @@ export default Vue.extend({
   watch: {
     $route: 'handleChageRoute'
   },
+  mounted() {
+    // Webページ表示後に、サイドバーのロゴまたは「都内の最新感染動向」リンクをクリックした場合に
+    // handleChangeRoute()が発火しないため、初回のみclickイベントを登録しておく。
+    this.eraseLinkUnderLine();
+  },
   methods: {
     eraseLinkUnderLine() {
       const $Side = this.$refs.Side as HTMLEmbedElement | undefined
@@ -217,11 +222,6 @@ export default Vue.extend({
         this.eraseLinkUnderLine()
       })
     }
-  },
-  mounted() {
-    // Webページ表示後に、サイドバーのロゴまたは「都内の最新感染動向」リンクをクリックした場合に
-    // handleChangeRoute()が発火しないため、初回のみclickイベントを登録しておく。
-    this.eraseLinkUnderLine();
   }
 })
 </script>
