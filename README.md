@@ -97,9 +97,9 @@ $ docker-compose run --rm app yarn install
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://okinawa.stopcovid19.jp が更新されます。
 
-`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト https://okinawa.stopcovid19.jp（準備中） が更新されます。
+`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト　https://thirsty-leakey-61fd82.netlify.com/ が更新されます。
 
-`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://okinawa.stopcovid19.jp（準備中） が更新されます。
+`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://thirsty-leakey-61fd82.netlify.com/ が更新されます。
 
 ### ブランチルール
 
