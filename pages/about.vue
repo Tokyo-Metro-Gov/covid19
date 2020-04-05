@@ -153,11 +153,7 @@
       </ul>
       <i18n
         tag="p"
-        :path="
-          $t(
-            'Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。'
-          )
-        "
+        path="Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。"
       >
         <template v-slot:addon>
           <a
