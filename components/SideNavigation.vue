@@ -119,6 +119,16 @@
               </a>
             </li>
           </ul>
+          <br />
+          <a
+            :href="$t('https://github.com/tokyo-metropolitan-gov/covid19')"
+            target="_blank"
+            rel="license"
+            class="SideNavigation-LicenseLink"
+          >
+            {{ $t('東京都 新型コロナウイルス感染症対策サイト') }}
+          </a>
+          {{ $t('を元に作成されています。') }}
         </small>
       </footer>
     </div>
