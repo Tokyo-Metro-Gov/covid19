@@ -214,7 +214,7 @@ export default Vue.extend({
     handleChageRoute() {
       // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
       return this.$nextTick().then(() => {
-        this.eraseLinkUnderLine();
+        this.eraseLinkUnderLine()
       })
     }
   },
