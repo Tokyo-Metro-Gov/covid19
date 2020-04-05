@@ -9,6 +9,18 @@
           '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、島根県出身の学生有志メンバーが開設したものです。'
         )
       }}<br />
+      <a
+        :href="$t('https://github.com/tokyo-metropolitan-gov/covid19')"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{
+          $t(
+            '東京都 新型コロナウイルス感染症対策サイト / Tokyo COVID-19 TaskForce website'
+          )
+        }}
+      </a>
+      {{ $t('のOSSを元に作成されています。') }}
       <br />
       {{
         $t(
