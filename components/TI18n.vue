@@ -10,7 +10,7 @@ type Data = {
   locale: string
 }
 type Methods = {
-  rubyTexts: (text: string) => RubyText[]
+  createRubyTexts: (text: string) => RubyText[]
 }
 type Computed = {}
 type Props = {}
@@ -28,7 +28,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   methods: {
-    rubyTexts(text) {
+    createRubyTexts(text) {
       let match: RegExpExecArray | null
       let lastText: string
       let prevIndex = 0
@@ -51,7 +51,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   render(createElement): VNode {
-    const slot = this.$slots.default
+    const slot = this.$slots.default![0]
 
     // slotがない場合は空の`span`を返す
     if (!slot) {
@@ -60,15 +60,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
     // やさしい日本語以外のときはそのままslotの中身を返す
     if (this.locale !== 'ja-basic') {
-      const dom = slot![0].text || slot![0].children
-      return createElement('span', slot![0].data, dom)
+      const dom = slot.text || slot.children
+      return createElement('span', slot.data, dom)
     }
 
-    const rubyDom = (texts: RubyText[]): VNode[] => {
+    const createRubyNodes = (texts: RubyText[]): (VNode | string)[] => {
       return texts.map(t => {
-        if (!t.kana) return createElement('span', t.ja)
+        if (!t.kana) return t.ja
         return createElement('ruby', [
-          createElement('span', t.ja),
+          t.ja,
           createElement('rp', '（'),
           createElement('rt', t.kana),
           createElement('rp', '）')
@@ -76,25 +76,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       })
     }
 
-    const domNode = (node: VNode): VNode | VNode[] => {
-      // children
-      if (node.children) {
-        const dom = node.children.map(node => domNode(node))
-        return createElement(node.tag, node.data, dom)
+    const createVNode = (node: VNode): VNode => {
+      if (node.text) {
+        const texts = this.createRubyTexts(node.text!.trim())
+        return createElement('span', createRubyNodes(texts))
       }
-
-      // not children
-      const texts = this.rubyTexts(node.text!.trim())
-      return rubyDom(texts)
+      const vnode = node.children!.map(node => createVNode(node))
+      return createElement(node.tag, node.data, vnode)
     }
 
-    const text = slot[0].text
-    const dom = text
-      ? rubyDom(this.rubyTexts(text))
-      : slot[0].children!.map(node => domNode(node))
-    const options = slot[0].data
-
-    return createElement('span', options, dom)
+    return createVNode(slot)
   }
 }
 
