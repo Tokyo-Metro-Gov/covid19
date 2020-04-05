@@ -1,5 +1,6 @@
 import { Configuration } from '@nuxt/types'
 const purgecss = require('@fullhuman/postcss-purgecss')
+const environment = process.env.NODE_ENV || 'development'
 
 const config: Configuration = {
   mode: 'universal',
@@ -90,6 +91,10 @@ const config: Configuration = {
       ssr: true
     },
     {
+      src: '@/plugins/axe',
+      ssr: true
+    },
+    {
       src: '@/plugins/vuetify.ts',
       ssr: true
     }
@@ -110,7 +115,7 @@ const config: Configuration = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
+    ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
     [
       'nuxt-i18n',
       {

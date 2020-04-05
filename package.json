@@ -8,10 +8,11 @@
     "node": ">=10.19.0"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nuxt-ts",
+    "dev": "cross-env NODE_ENV=development GENERATE_ENV=development nuxt-ts",
+    "dev-axe": "cross-env NODE_ENV=dev-axe GENERATE_ENV=development nuxt-ts",
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
-    "generate:deploy": "nuxt-ts generate",
+    "generate:deploy": "cross-env GENERATE_ENV=production nuxt-ts generate",
     "generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
     "update:news": "ts-node --project tool/tsconfig.json ./tool/news-updater",
     "lint-and-generate": "eslint './**/*.{js,ts,vue}' && nuxt-ts generate",
@@ -71,6 +72,7 @@
     "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
+    "vue-axe": "1.0.8",
     "vue-jest": "^4.0.0-0"
   }
 }
