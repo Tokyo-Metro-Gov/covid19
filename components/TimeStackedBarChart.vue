@@ -3,23 +3,23 @@
     <template v-slot:button>
       <ul :class="$style.GraphDesc">
         <li>
-          <t-i18n
-            :text="$t('（注）医療機関が保険適用で行った検査は含まれていない')"
-          />
+          <t-i18n>
+            {{ $t('（注）医療機関が保険適用で行った検査は含まれていない') }}
+          </t-i18n>
         </li>
         <li>
-          <t-i18n
-            :text="$t('（注）同一の対象者について複数の検体を検査する場合あり')"
-          />
+          <t-i18n>
+            {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
+          </t-i18n>
         </li>
         <li>
-          <t-i18n
-            :text="
+          <t-i18n>
+            {{
               $t(
                 '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
               )
-            "
-          />
+            }}
+          </t-i18n>
         </li>
       </ul>
       <data-selector
@@ -29,7 +29,7 @@
       />
     </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
-      <t-i18n :text="$t(`{title}のグラフ`, { title })" />
+      <t-i18n>{{ $t(`{title}のグラフ`, { title }) }}</t-i18n>
     </h4>
     <bar
       :ref="'barChart'"

@@ -10,14 +10,14 @@
     <template v-slot:description>
       <ol>
         <li>
-          <t-i18n
-            :text="
+          <t-i18n>
+            {{
               $t('※ ヤフーに蓄積された位置情報データなどを元に算出した参考値')
-            "
-          />
+            }}
+          </t-i18n>
         </li>
         <li>
-          <t-i18n :text="$t('※ 土・日・祝日を除く7:30~8:30の平均値')" />
+          <t-i18n>{{ $t('※ 土・日・祝日を除く7:30~8:30の平均値') }}</t-i18n>
         </li>
       </ol>
     </template>
@@ -47,7 +47,7 @@
       </select>
       <div v-show="detailPageUrl !== ''" class="DetailPageLink">
         <nuxt-link :to="detailPageUrl">
-          <t-i18n :text="detailPageString" />
+          <t-i18n>{{ detailPageString }}</t-i18n>
         </nuxt-link>
       </div>
       <div v-show="loading" class="MapCard-BodyContainer-LoadingScreen" />

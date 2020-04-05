@@ -7,11 +7,11 @@
     >
       <template v-slot:button>
         <p :class="$style.note">
-           <t-i18n
-            :text="
-            $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-          "
-        />
+          <t-i18n>
+            {{
+              $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
+            }}
+          </t-i18n>
         </p>
       </template>
       <confirmed-cases-details-table

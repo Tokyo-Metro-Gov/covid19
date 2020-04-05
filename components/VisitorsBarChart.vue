@@ -2,29 +2,31 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:description>
       <p :class="$style.Text">
-        <t-i18n
-          :text="
+        <t-i18n>
+          {{
             $t(
               '2月3日～2月7日の来訪者数 (※1) の平均値 (※2) を 基準としたときの相対値'
             )
-          "
-        />
+          }}
+        </t-i18n>
       </p>
       <ol>
         <li>
-          <t-i18n
-            :text="
+          <t-i18n>
+            {{
               $t('※1) ヤフーに蓄積された位置情報データなどを元に算出した参考値')
-            "
-          />
+            }}
+          </t-i18n>
         </li>
         <li>
-          <t-i18n :text="$t('※2) 土・日・祝日を除く7:30~8:30の1週間平均値')" />
+          <t-i18n>
+            {{ $t('※2) 土・日・祝日を除く7:30~8:30の1週間平均値') }}
+          </t-i18n>
         </li>
       </ol>
     </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
-      {{ $t(`{title}のグラフ`, { title }) }}
+      <t-i18n>{{ $t(`{title}のグラフ`, { title }) }}</t-i18n>
     </h4>
     <bar
       :ref="'barChart'"
