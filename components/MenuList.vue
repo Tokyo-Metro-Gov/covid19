@@ -12,7 +12,7 @@
             {{ item.icon }}
           </component>
         </span>
-        <t-i18n class="MenuList-Title" :text="item.title" />
+        <t-i18n class="MenuList-Title">{{ item.title }}</t-i18n>
         <v-icon
           v-if="isExternal(item.link)"
           role="img"

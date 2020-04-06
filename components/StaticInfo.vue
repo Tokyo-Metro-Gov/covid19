@@ -1,8 +1,8 @@
 <template>
   <component :is="linkTag" v-bind="linkAttrs">
-    <t-i18n :text="text" />
+    <t-i18n>{{ text }}</t-i18n>
     <div v-if="btnText" class="StaticInfo-Button">
-      <t-i18n :text="btnText" />
+      <t-i18n>{{ btnText }}</t-i18n>
     </div>
   </component>
 </template>

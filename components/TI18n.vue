@@ -1,20 +1,5 @@
-<template>
-  <span v-if="locale === 'ja-basic'">
-    <template v-for="(t, i) in rubyTexts">
-      <ruby v-if="t.kana" :key="i">
-        {{ t.ja }}
-        <rp>（</rp>
-        <rt>{{ t.kana }}</rt>
-        <rp>）</rp>
-      </ruby>
-      <span v-else :key="i">{{ t.ja }}</span>
-    </template>
-  </span>
-  <span v-else>{{ text }}</span>
-</template>
-
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { VNode } from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 type RubyText = {
@@ -24,13 +9,11 @@ type RubyText = {
 type Data = {
   locale: string
 }
-type Methods = {}
-type Computed = {
-  rubyTexts: RubyText[]
+type Methods = {
+  createRubyTexts: (text: string) => RubyText[]
 }
-type Props = {
-  text: string
-}
+type Computed = {}
+type Props = {}
 
 const options: ThisTypedComponentOptionsWithRecordProps<
   Vue,
@@ -39,40 +22,79 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Computed,
   Props
 > = {
-  props: {
-    text: {
-      type: String,
-      default: '',
-      required: true
-    }
-  },
   data() {
     return {
       locale: this.$i18n.locale
     }
   },
-  computed: {
-    rubyTexts() {
+  methods: {
+    createRubyTexts(text) {
       let match: RegExpExecArray | null
       let lastText: string
       let prevIndex = 0
       const texts: RubyText[] = []
-      const regp = new RegExp(/(\p{sc=Han}+?)（(.+?)）/, 'gu')
-      while ((match = regp.exec(this.text)) !== null) {
+      const regp = new RegExp(
+        /([\p{sc=Han}|\s|・]+?)（([\p{sc=Hiragana}|\s|・]+?)）/,
+        'gu'
+      )
+
+      // ふりがなを含んだ文字列をパースしてオブジェクトを生成
+      while ((match = regp.exec(text)) !== null) {
         if (match.index > 0) {
           texts.push({ ja: match.input.slice(prevIndex, match.index) })
         }
         texts.push({ ja: match[1], kana: match[2] })
         prevIndex = match.index + match[0].length
       }
-      if ((lastText = this.text.slice(prevIndex))) texts.push({ ja: lastText })
+      if ((lastText = text.slice(prevIndex))) texts.push({ ja: lastText })
       return texts
     }
   },
   watch: {
-    text() {
-      this.locale = this.$i18n.locale
+    '$root.$i18n.locale'(newLocale) {
+      this.locale = newLocale
     }
+  },
+  render(createElement): VNode {
+    const slot = this.$slots.default ? this.$slots.default![0] : ''
+
+    // slotがない場合は空の`span`を返す
+    if (!slot) {
+      return createElement('span', '')
+    }
+
+    // やさしい日本語以外の場合はslotの内容を返す
+    if (this.locale !== 'ja-basic') {
+      if (slot.text) return createElement('span', slot.data, slot.text)
+      return createElement(slot.tag, slot.data, slot.children)
+    }
+
+    const createRubyNodes = (texts: RubyText[]): (VNode | string)[] => {
+      return texts.map(t => {
+        if (!t.kana) return t.ja
+        return createElement('ruby', [
+          t.ja,
+          createElement('rp', '（'),
+          createElement('rt', t.kana),
+          createElement('rp', '）')
+        ])
+      })
+    }
+
+    const createVNode = (
+      node: VNode,
+      parentTag: string = ''
+    ): VNode | (VNode | string)[] => {
+      if (node.text) {
+        const texts = this.createRubyTexts(node.text)
+        const nodes = createRubyNodes(texts)
+        return parentTag ? nodes : createElement('span', nodes)
+      }
+      const vnode = node.children!.map(node => createVNode(node, parentTag))
+      return createElement(node.tag, node.data, vnode)
+    }
+
+    return createVNode(slot, slot.tag) as VNode
   }
 }
 

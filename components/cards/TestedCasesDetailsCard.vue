@@ -8,31 +8,34 @@
       <template v-slot:button>
         <ul :class="$style.notes">
           <li>
-            <t-i18n
-              :text="$t('（注）医療機関が保険適用で行った検査は含まれていない')"
-            />
+            <t-i18n>
+              {{ $t('（注）医療機関が保険適用で行った検査は含まれていない') }}
+            </t-i18n>
           </li>
           <li>
-            <t-i18n
-              :text="
-              $t(
-                '（注）検査実施人数には、チャーター機帰国者、クルーズ船乗客等は含まれていない'
-              )
-            "
-            />
+            <t-i18n>
+              {{
+                $t(
+                  '（注）検査実施人数には、チャーター機帰国者、クルーズ船乗客等は含まれていない'
+                )
+              }}
+            </t-i18n>
           </li>
           <li>
-            <t-i18n
-              :text="
-              $t(
-                '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
-              )
-            "
-            />
+            <t-i18n>
+              {{
+                $t(
+                  '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+                )
+              }}
+            </t-i18n>
           </li>
         </ul>
       </template>
-      <tested-cases-details-table :aria-label="$t('検査実施状況')" v-bind="testedCases" />
+      <tested-cases-details-table
+        :aria-label="$t('検査実施状況')"
+        v-bind="testedCases"
+      />
     </data-view>
   </v-col>
 </template>

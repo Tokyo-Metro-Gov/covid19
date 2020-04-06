@@ -1,101 +1,107 @@
 <template>
   <section :class="$style.Flow">
     <div :class="$style.FlowHeading">
-      <i18n path="{past}の出来ごとと症状" tag="span">
-        <template v-slot:past>
-          <i18n :class="$style.FlowLText" tag="span" path="発症前{two}週間以内">
-            <template v-slot:two>
-              <span :class="$style.FlowNum">2</span>
-            </template>
-          </i18n>
-        </template>
-      </i18n>
+      <t-i18n>
+        <i18n path="{past}の出来ごとと症状" tag="span">
+          <template v-slot:past>
+            <i18n
+              :class="$style.FlowLText"
+              tag="span"
+              path="発症前{two}週間以内"
+            >
+              <template v-slot:two>
+                <span :class="$style.FlowNum">2</span>
+              </template>
+            </i18n>
+          </template>
+        </i18n>
+      </t-i18n>
     </div>
     <div :class="$style.FlowInner">
       <div :class="$style.FlowItem">
         <template v-if="!langsNeedReversedOrder.includes($i18n.locale)">
           <strong :class="$style.FlowTitle">
-            {{ $t('「新型コロナウイルス感染者」と') }}
+            <t-i18n>{{ $t('「新型コロナウイルス感染者」と') }}</t-i18n>
           </strong>
-          <i18n
-            tag="span"
-            path="{closeContact}をした方"
-            :class="$style.FlowPerson"
-          >
-            <template v-slot:closeContact>
-              <em :class="$style.FlowLine">
-                {{ $t('濃厚接触') }}
-              </em>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n
+              tag="span"
+              path="{closeContact}をした方"
+              :class="$style.FlowPerson"
+            >
+              <template v-slot:closeContact>
+                <em :class="$style.FlowLine">{{ $t('濃厚接触') }}</em>
+              </template>
+            </i18n>
+          </t-i18n>
         </template>
         <template v-else>
-          <i18n
-            tag="span"
-            path="{closeContact}をした方"
-            :class="$style.FlowPerson"
-          >
-            <template v-slot:closeContact>
-              <em :class="$style.FlowLine">
-                {{ $t('濃厚接触') }}
-              </em>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n
+              tag="span"
+              path="{closeContact}をした方"
+              :class="$style.FlowPerson"
+            >
+              <template v-slot:closeContact>
+                <em :class="$style.FlowLine">{{ $t('濃厚接触') }}</em>
+              </template>
+            </i18n>
+          </t-i18n>
           <span :class="$style.FlowTitle">
-            {{ $t('「新型コロナウイルス感染者」と') }}
+            <t-i18n>{{ $t('「新型コロナウイルス感染者」と') }}</t-i18n>
           </span>
         </template>
       </div>
       <div :class="$style.FlowItem">
         <template v-if="!langsWithoutFlowTitle.includes($i18n.locale)">
           <strong :class="$style.FlowTitle">
-            {{ $t('流行地域への渡航・居住歴がある方') }}
+            <t-i18n>{{ $t('流行地域への渡航・居住歴がある方') }}</t-i18n>
           </strong>
-          <i18n
-            tag="span"
-            :class="$style.FlowPerson"
-            path="{you} か {closeContact}をした方"
-          >
-            <template v-slot:you>
-              <em :class="$style.FlowLine">
-                {{ $t('ご本人') }}
-              </em>
-            </template>
-            <template v-slot:closeContact>
-              <em :class="$style.FlowLine">
-                {{ $t('濃厚接触') }}
-              </em>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n
+              tag="span"
+              :class="$style.FlowPerson"
+              path="{you} か {closeContact}をした方"
+            >
+              <template v-slot:you>
+                <em :class="$style.FlowLine">{{ $t('ご本人') }}</em>
+              </template>
+              <template v-slot:closeContact>
+                <em :class="$style.FlowLine">{{ $t('濃厚接触') }}</em>
+              </template>
+            </i18n>
+          </t-i18n>
         </template>
         <template v-else>
-          <i18n
-            tag="span"
-            :class="[$style.FlowPerson, $style.FlowPersonS]"
-            path="travel history from {area}"
-          >
-            <template v-slot:area>
-              <em :class="$style.FlowLine">
-                {{ $t('COVID-19 prevalent area') }}
-              </em>
-            </template>
-          </i18n>
-          <i18n
-            tag="span"
-            :class="[$style.FlowPerson, $style.FlowPersonS]"
-            path="been {inCloseContact} with returnees"
-          >
-            <template v-slot:inCloseContact>
-              <em :class="$style.FlowLine">
-                {{ $t('in close contact') }}
-              </em>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n
+              tag="span"
+              :class="[$style.FlowPerson, $style.FlowPersonS]"
+              path="travel history from {area}"
+            >
+              <template v-slot:area>
+                <em :class="$style.FlowLine">
+                  {{ $t('COVID-19 prevalent area') }}
+                </em>
+              </template>
+            </i18n>
+          </t-i18n>
+          <t-i18n>
+            <i18n
+              tag="span"
+              :class="[$style.FlowPerson, $style.FlowPersonS]"
+              path="been {inCloseContact} with returnees"
+            >
+              <template v-slot:inCloseContact>
+                <em :class="$style.FlowLine">{{ $t('in close contact') }}</em>
+              </template>
+            </i18n>
+          </t-i18n>
         </template>
       </div>
       <div :class="$style.FlowCondition">
         <em :class="$style.FlowSymptom">
-          {{ $t('発熱') }}
+          <t-i18n>{{ $t('発熱') }}</t-i18n>
           <img
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
@@ -103,9 +109,9 @@
             alt=" "
           />
         </em>
-        <span :class="$style.FlowText">{{ $t('または') }}</span>
+        <t-i18n :class="$style.FlowText">{{ $t('または') }}</t-i18n>
         <em :class="$style.FlowSymptom">
-          {{ $t('呼吸器症状') }}
+          <t-i18n>{{ $t('呼吸器症状') }}</t-i18n>
           <img
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
@@ -113,19 +119,25 @@
             alt=" "
           />
         </em>
-        <span :class="$style.FlowText">{{ $t('かつ') }}</span>
+        <t-i18n :class="$style.FlowText">{{ $t('かつ') }}</t-i18n>
         <em :class="$style.FlowSymptom">
-          <i18n tag="span" :class="$style.FlowTextSm" path="発熱{temperature}">
-            <template v-slot:temperature>
-              <i18n tag="span" path="{tempNum}以上">
-                <template v-slot:tempNum>
-                  <span :class="$style.FlowTemperature">
-                    {{ $t('37.5℃') }}
-                  </span>
-                </template>
-              </i18n>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n
+              tag="span"
+              :class="$style.FlowTextSm"
+              path="発熱{temperature}"
+            >
+              <template v-slot:temperature>
+                <i18n tag="span" path="{tempNum}以上">
+                  <template v-slot:tempNum>
+                    <span :class="$style.FlowTemperature">
+                      {{ $t('37.5℃') }}
+                    </span>
+                  </template>
+                </i18n>
+              </template>
+            </i18n>
+          </t-i18n>
           <img
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
@@ -139,7 +151,10 @@
 </template>
 
 <script>
+import TI18n from '@/components/TI18n.vue'
+
 export default {
+  components: { TI18n },
   computed: {
     langsNeedReversedOrder() {
       return ['en']
@@ -262,7 +277,7 @@ export default {
     justify-content: center;
     align-items: center;
     width: 25%;
-    padding: 10px;
+    padding: 12px;
     border: 2px solid $green-1;
     border-radius: 3px;
     background-color: $white;

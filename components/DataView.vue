@@ -6,7 +6,7 @@
           class="DataView-Title"
           :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
         >
-          <t-i18n :text="title" />
+          <t-i18n>{{ title }}</t-i18n>
         </h3>
         <slot name="infoPanel" />
       </div>
@@ -28,7 +28,7 @@
           <div>
             <a class="Permalink" :href="permalink()">
               <time :datetime="formattedDate">
-                <t-i18n :text="$t('{date} 更新', { date })" />
+                <t-i18n>{{ $t('{date} 更新', { date }) }}</t-i18n>
               </time>
             </a>
           </div>
@@ -65,7 +65,7 @@
             </div>
 
             <h4>
-              <t-i18n :text="$t('埋め込み用コード')" />
+              <t-i18n>{{ $t('埋め込み用コード') }}</t-i18n>
             </h4>
 
             <div class="EmbedCode">
@@ -138,7 +138,7 @@
 
     <div v-if="showOverlay" class="overlay">
       <div class="overlay-text">
-        <t-i18n :text="$t('埋め込みコードをコピーしました')" />
+        <t-i18n>{{ $t('埋め込みコードをコピーしました') }}</t-i18n>
       </div>
       <v-footer class="DataView-Footer">
         <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>

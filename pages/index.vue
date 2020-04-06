@@ -2,17 +2,17 @@
   <div class="MainPage">
     <div class="Header mb-3">
       <page-header :icon="headerItem.icon">
-        <t-i18n :text="headerItem.title" />
+        <t-i18n>{{ headerItem.title }}</t-i18n>
       </page-header>
       <div class="UpdatedAt">
-        <t-i18n :text="$t('最終更新')" />
+        <t-i18n>{{ $t('最終更新') }}</t-i18n>
         <time :datetime="updatedAt">{{ Data.lastUpdate }}</time>
       </div>
       <div
         v-show="!['ja', 'ja-basic'].includes($i18n.locale)"
         class="Annotation"
       >
-        <t-i18n :text="$t('注釈')" />
+        <t-i18n>{{ $t('注釈') }}</t-i18n>
       </div>
     </div>
     <whats-new class="mb-4" :items="newsItems" />

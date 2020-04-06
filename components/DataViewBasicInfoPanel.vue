@@ -3,12 +3,12 @@
     <span class="DataView-DataInfo-summary">
       {{ lText }}
       <small class="DataView-DataInfo-summary-unit">
-        <t-i18n :text="unit" />
+        <t-i18n>{{ unit }}</t-i18n>
       </small>
     </span>
     <br />
     <small class="DataView-DataInfo-date">
-      <t-i18n :text="sText" />
+      <t-i18n>{{ sText }}</t-i18n>
     </small>
   </div>
 </template>

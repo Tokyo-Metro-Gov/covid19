@@ -15,17 +15,17 @@
       class="cardTable"
     >
       <template v-slot:item.居住地="{ item }">
-        <t-i18n :text="item.居住地" />
+        <t-i18n>{{ item.居住地 }}</t-i18n>
       </template>
       <template v-slot:item.年代="{ item }">
-        <t-i18n :text="item.年代" />
+        <t-i18n>{{ item.年代 }}</t-i18n>
       </template>
       <template v-slot:item.性別="{ item }">
-        <t-i18n :text="item.性別" />
+        <t-i18n>{{ item.性別 }}</t-i18n>
       </template>
     </v-data-table>
     <div class="note">
-      <t-i18n :text="$t('※退院には、死亡退院を含む')" />
+      <t-i18n>{{ $t('※退院には、死亡退院を含む') }}</t-i18n>
     </div>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel

@@ -11,23 +11,23 @@
       :unit="$t('%')"
     >
       <template v-slot:description>
-        <t-i18n
-          :text="
+        <t-i18n>
+          {{
             $t('{range}の利用者数*の平均値を基準としたときの相対値', {
               range: $t(metroGraph.base_period)
             })
-          "
-        />
+          }}
+        </t-i18n>
         <br />
-        *<t-i18n :text="$t('都営地下鉄4路線の自動改札出場数')" />
+        *<t-i18n>{{ $t('都営地下鉄4路線の自動改札出場数') }}</t-i18n>
         <br />
-        <t-i18n
-          :text="
+        <t-i18n>
+          {{
             $t(
               '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
             )
-          "
-        />
+          }}
+        </t-i18n>
       </template>
     </metro-bar-chart>
   </v-col>
