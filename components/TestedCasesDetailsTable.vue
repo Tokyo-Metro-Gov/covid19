@@ -10,7 +10,7 @@
           </span>
           <!-- eslint-enable vue/no-v-html-->
           <span>
-            <strong>{{ 累計人数 }}</strong>
+            <strong>{{ 累計人数.toLocaleString() }}</strong>
             <span :class="$style.unit">{{ $t('人') }}</span>
           </span>
         </div>
@@ -25,7 +25,7 @@
         <div :class="$style.content">
           <span>{{ $t('合計') }}</span>
           <span>
-            <strong>{{ 合計件数 }}</strong>
+            <strong>{{ 合計件数.toLocaleString() }}</strong>
             <span :class="$style.unit">{{ $t('件.tested') }}</span>
           </span>
         </div>
@@ -36,7 +36,7 @@
             <div :class="$style.content">
               <span>{{ $t('都内発生') }}</span>
               <span>
-                <strong>{{ 都内発生件数 }}</strong>
+                <strong>{{ 都内発生件数.toLocaleString() }}</strong>
                 <span :class="$style.unit">{{ $t('件.tested') }}</span>
               </span>
             </div>
@@ -50,7 +50,7 @@
                 $t('（チャーター機・クルーズ船等）')
               }}</span>
               <span>
-                <strong>{{ その他件数 }}</strong>
+                <strong>{{ その他件数.toLocaleString() }}</strong>
                 <span :class="$style.unit">{{ $t('件.tested') }}</span>
               </span>
             </div>

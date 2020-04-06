@@ -46,9 +46,9 @@ export default {
     }
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
-      row['居住地'] = this.$t(row['居住地'])
-      row['性別'] = this.$t(row['性別'])
-      row['退院'] = this.$t(row['退院'])
+      row['居住地'] = this.getTranslatedWording(row['居住地'])
+      row['性別'] = this.getTranslatedWording(row['性別'])
+      row['退院'] = this.getTranslatedWording(row['退院'])
 
       if (row['年代'] === '10歳未満') {
         row['年代'] = this.$t('10歳未満')
@@ -66,6 +66,19 @@ export default {
       sumInfoOfPatients
     }
     return data
+  },
+  methods: {
+    getTranslatedWording(value) {
+      if (value === '-' || value === '‐' || value == null) {
+        // 翻訳しようとしている文字列が以下のいずれかだった場合、翻訳しない
+        // - 全角のハイフン
+        // - 半角のハイフン
+        // - null
+        return value
+      }
+
+      return this.$t(value)
+    }
   }
 }
 </script>

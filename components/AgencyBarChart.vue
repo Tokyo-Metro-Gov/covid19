@@ -128,9 +128,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       this.$t('第二庁舎計'),
       this.$t('議事堂計')
     ]
-    agencyData.datasets.map(dataset => {
-      dataset.label = this.$t(dataset.label) as string
-    })
+
     return {
       canvas: true,
       chartData: agencyData,
