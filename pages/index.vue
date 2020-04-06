@@ -16,6 +16,23 @@
       </div>
     </div>
     <whats-new class="mb-4" :items="newsItems" />
+    <StaticCard>
+      <blockquote class="twitter-tweet">
+        <p lang="ja" dir="ltr">
+          <a href="https://t.co/CMgtyFqJuA">pic.twitter.com/CMgtyFqJuA</a>
+        </p>
+        &mdash; しまねのねっさん (@shimane_nessan)
+        <a
+          href="https://twitter.com/shimane_nessan/status/1247022014163910656?ref_src=twsrc%5Etfw"
+          >April 6, 2020</a
+        >
+      </blockquote>
+      <script
+        async
+        src="https://platform.twitter.com/widgets.js"
+        charset="utf-8"
+      />
+    </StaticCard>
     <static-info
       class="mb-4"
       :url="localePath('/contacts')"
@@ -46,6 +63,7 @@ import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttri
 // import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import StaticCard from '@/components/StaticCard.vue'
 
 export default Vue.extend({
   components: {
@@ -56,7 +74,8 @@ export default Vue.extend({
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     // TestedNumberCard,
-    InspectionPersonsNumberCard
+    InspectionPersonsNumberCard,
+    StaticCard
   },
   data() {
     const data = {
