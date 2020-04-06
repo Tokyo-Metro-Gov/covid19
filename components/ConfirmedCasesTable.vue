@@ -42,7 +42,7 @@
               <div class="gutter">
                 <div class="box short">
                   <!-- eslint-disable vue/no-v-html-->
-                  <span v-html="$t('軽症・<br />中等症')" />
+                  <span v-html="$t('無症状<br />軽症<br />中等症')" />
                   <!-- eslint-enable vue/no-v-html-->
                   <span>
                     <b>{{ 軽症中等症 }}</b>
