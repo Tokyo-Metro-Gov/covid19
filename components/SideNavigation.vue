@@ -204,7 +204,7 @@ export default Vue.extend({
   mounted() {
     // Webページ表示後に、サイドバーのロゴまたは「都内の最新感染動向」リンクをクリックした場合に
     // handleChangeRoute()が発火しないため、初回のみclickイベントを登録しておく。
-    this.eraseLinkUnderLine()
+    this.eraseLinkUnderLineWithRegistHandler()
   },
   methods: {
     eraseLinkUnderLine() {
@@ -212,14 +212,21 @@ export default Vue.extend({
       if ($Side) {
         $Side.focus()
         $Side.blur()
+      }
+    },
+    eraseLinkUnderLineWithRegistHandler() {
+      const $Side = this.$refs.Side as HTMLEmbedElement | undefined
+      if ($Side) {
+        // 現在表示されているリンクの下線を消す。
+        this.eraseLinkUnderLine()
         // 同じリンクをクリックした場合にリンクの下線を消す処理が走るよう、clickイベントを登録しておく。
-        $Side.addEventListener('click', this.eraseLinkUnderLine)
+        $Side.addEventListener('click', this.eraseLinkUnderLine, false)
       }
     },
     handleChageRoute() {
       // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
       return this.$nextTick().then(() => {
-        this.eraseLinkUnderLine()
+        this.eraseLinkUnderLineWithRegistHandler()
       })
     }
   }
