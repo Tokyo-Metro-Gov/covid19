@@ -8,14 +8,34 @@
         $t(
           '当サイトは栃木県の新型コロナウイルス感染症 (COVID-19) に関する情報を提供するために、有志によって開設された非公式なサイトです。'
         )
-      }}<br />
-      <br />
+      }}<br /><br />
+      <i18n
+        path="複製・改変が許されたオープンソースライセンスで公開されている、{parent_site}の{parent_repository}を利用しています。"
+      >
+        <a
+          href="https://stopcovid19.metro.tokyo.lg.jp/"
+          target="_blank"
+          rel="noopener"
+          place="parent_site"
+        >
+          {{ $t('東京都公式新型コロナウイルス対策サイト') }}
+        </a>
+        <a
+          href="https://github.com/tokyo-metropolitan-gov/covid19"
+          target="_blank"
+          rel="noopener"
+          place="parent_repository"
+        >
+          {{ $t('仕組み') }}
+        </a>
+      </i18n>
+      <br /><br />
       {{
         $t(
           '栃木県の公式発表情報を元に、数値をわかりやすく伝えることで、栃木県にお住まいの方や、栃木県内に拠点を持つ企業の方、栃木県を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。'
         )
       }}
-      <br />
+      <br /><br />
       {{
         $t(
           '当サイトは栃木県とは一切関わりが無い有志によって運営されているものなので、本サイトの内容に関して栃木県に問合わせ等することはおやめください。'
