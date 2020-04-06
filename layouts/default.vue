@@ -73,6 +73,10 @@ export default Vue.extend({
   },
   mounted() {
     this.loading = false
+    this.getMatchMedia().addListener(this.hideNavigation)
+  },
+  beforeDestroy() {
+    this.getMatchMedia().removeListener(this.hideNavigation)
   },
   methods: {
     openNavigation(): void {
@@ -80,6 +84,9 @@ export default Vue.extend({
     },
     hideNavigation(): void {
       this.isOpenNavigation = false
+    },
+    getMatchMedia(): MediaQueryList {
+      return window.matchMedia('(min-width: 601px)')
     }
   },
   head(): MetaInfo {
