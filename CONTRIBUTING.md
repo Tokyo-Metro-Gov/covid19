@@ -2,7 +2,7 @@
 
 コントリビューターの皆様、本プロジェクトにご参加いただきありがとうございます！！
 
-Code For Okinawaです。何か質問があれば、Slack 等でお気軽に質問してください！
+Code for Okinawaです。何か質問があれば、Slack 等でお気軽に質問してください！
 
 本サイトの開発に参加してくださる方に対して、参加方法をお伝えします。
 
@@ -37,7 +37,8 @@ ForkなどGitHub自体の操作は、東京都版の手順をわかりやすく�
 https://qiita.com/FPC_COMMUNITY/items/b9cc072813dc2231b2b2
 
 ## 開発に関する情報
-* 開発サイト https://dev-covid19-tokyo.netlify.com/
-* 本番サイト https://stopcovid19.metro.tokyo.lg.jp/
+* 開発サイト https://thirsty-leakey-61fd82.netlify.com/
+* ステージングサイト https://thirsty-leakey-61fd82.netlify.com/
+* 本番サイト https://okinawa.stopcovid19.jp/
 
 本 ドキュメント の更新も大歓迎です！
