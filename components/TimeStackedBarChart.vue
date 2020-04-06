@@ -32,7 +32,7 @@
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
-import DataSelector from '@/components/DataSelector.vue'
+import DataSelector from '@/components/DataSelector2.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 
 interface HTMLElementEvent<T extends HTMLElement> extends Event {
