@@ -34,6 +34,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       let prevIndex = 0
       const texts: RubyText[] = []
       const regp = new RegExp(/(\p{sc=Han}+?)（(.+?)）/, 'gu')
+
+      // ふりがなを含んだ文字列をパースしてオブジェクトを生成
       while ((match = regp.exec(text)) !== null) {
         if (match.index > 0) {
           texts.push({ ja: match.input.slice(prevIndex, match.index) })
@@ -51,17 +53,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   render(createElement): VNode {
-    const slot = this.$slots.default![0]
+    const slot = this.$slots.default ? this.$slots.default![0] : ''
 
     // slotがない場合は空の`span`を返す
     if (!slot) {
       return createElement('span', '')
     }
 
-    // やさしい日本語以外のときはそのままslotの中身を返す
+    // やさしい日本語以外の場合はslotの内容を返す
     if (this.locale !== 'ja-basic') {
-      const dom = slot.text || slot.children
-      return createElement('span', slot.data, dom)
+      if (slot.text) return createElement('span', slot.data, slot.text)
+      return createElement(slot.tag, slot.data, slot.children)
     }
 
     const createRubyNodes = (texts: RubyText[]): (VNode | string)[] => {
@@ -76,16 +78,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       })
     }
 
-    const createVNode = (node: VNode): VNode => {
+    const createVNode = (
+      node: VNode,
+      parentTag: string = ''
+    ): VNode | (VNode | string)[] => {
       if (node.text) {
         const texts = this.createRubyTexts(node.text!.trim())
-        return createElement('span', createRubyNodes(texts))
+        const nodes = createRubyNodes(texts)
+        return parentTag ? nodes : createElement('span', nodes)
       }
-      const vnode = node.children!.map(node => createVNode(node))
+      const vnode = node.children!.map(node => createVNode(node, parentTag))
       return createElement(node.tag, node.data, vnode)
     }
 
-    return createVNode(slot)
+    return createVNode(slot, slot.tag) as VNode
   }
 }
 
