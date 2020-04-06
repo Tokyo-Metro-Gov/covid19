@@ -20,13 +20,13 @@ export default {
       file: 'ja.json',
       description: 'Japanese'
     },
-    // {
-    //   code: 'en',
-    //   name: 'English',
-    //   iso: 'en-US',
-    //   file: 'en.json',
-    //   description: 'English'
-    // },
+    {
+      code: 'en',
+      name: 'English',
+      iso: 'en-US',
+      file: 'en.json',
+      description: 'English'
+    },
     // {
     //   code: 'zh-cn',
     //   name: '简体中文',
