@@ -54,10 +54,11 @@ const config: Configuration = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
-      {
-        rel: 'stylesheet',
-        href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
-      }
+      // For the Issue #2911, omitting unused CSS to avoid unknown security threats
+      // {
+      //   rel: 'stylesheet',
+      //   href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
+      // }
     ]
   },
   /*
