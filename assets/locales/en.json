@@ -1,4 +1,7 @@
 {
+  "東京都 (滞在先: 安足健康福祉センター管内, 定期的に県南健康福祉センター管内の医療機関を受診)": "Tokyo (stay place: Yasushi Health and Welfare Center, he regularly consulted a medical institution at Kennan Health and Welfare Center)",
+  "宇都宮市保健所管内": "Public Health Center in Utsunomiya",
+  "県外 (実家は宇都宮市、県外から宇都宮市に転入)": "Outside the prefecture (His hometown is Utsunomiya,He moved from outside the prefecture to Utsunomiya ",
   "栃木県内の最新感染動向": "The Latest updates on COVID-19 in Tochigi",
   "新型コロナウイルス感染症が心配なときに": "If you suspect having COVID-19",
   "詳細を見る（東京都福祉保健局）": "More information at the website from Bureau of Social Welfare and Public Health",
@@ -246,14 +249,17 @@
   "宇都宮市": "Utsunomiya city",
   "フィリピン (帰省先: 県南健康福祉センター管内)": "Philippines (Homecoming: Health and Welfare Center in south of the prefecture jurisdiction)",
   "新型コロナウイルス感染症に関する電話相談件数": "Number of telephone consultations on covid-19 infections",
-  "栃木県内(宇都宮市を除く)": "Tochigi prefecture(exclude Utsunomiya city)",
+  "栃木県内 (宇都宮市を除く)": "Tochigi prefecture(exclude Utsunomiya city)",
   "栃木県公式ホームページ": "Tochigi official web page",
   "当サイトは栃木県の新型コロナウイルス感染症 (COVID-19) に関する情報を提供するために、有志によって開設された非公式なサイトです。": "This site is an unofficial site opened by volunteers to provide information about covid-19 infection (COVID-19) in Tochigi Prefecture.",
   "栃木県の公式発表情報を元に、数値をわかりやすく伝えることで、栃木県にお住まいの方や、栃木県内に拠点を持つ企業の方、栃木県を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。": "The purpose of this web page is to provide users with easy-to-understand information based on the official announcement information of Tochigi Prefecture so that users can grasp the current situation and take appropriate measures.",
   "当サイトは栃木県とは一切関わりが無い有志によって運営されているものなので、本サイトの内容に関して栃木県に問合わせ等することはおやめください。": "This site is operated by volunteers, so please do not contact Tochigi Prefecture regarding the contents of this site.",
-  "当サイトに掲載されている情報の正確性については万全を期していますが、当サイト運営者及び栃木県は、利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。":"Although every effort has been made to ensure the accuracy of the information posted on this site, the site operator and Tochigi Prefecture are not responsible for any actions that users take using the information on this site.",
-  "栃木県【非公式】":"Tochigi Prefecture【Unofficial】",
-  "2月":"Feb.",
-  "3月":"Mar.",
-  "4月":"Apr"
+  "当サイトに掲載されている情報の正確性については万全を期していますが、当サイト運営者及び栃木県は、利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。": "Although every effort has been made to ensure the accuracy of the information posted on this site, the site operator and Tochigi Prefecture are not responsible for any actions that users take using the information on this site.",
+  "栃木県【非公式】": "Tochigi Prefecture【Unofficial】",
+  "2月": "Feb.",
+  "3月": "Mar.",
+  "4月": "Apr",
+  "複製・改変が許されたオープンソースライセンスで公開されている、{parent_site}の{parent_repository}を利用しています。": "It uses an open source licence that permits copying and redistribution, and is {parent_repository} the {parent_site}.",
+  "東京都公式新型コロナウイルス対策サイト": "Tokyo Official New Coronavirus Countermeasures Site",
+  "仕組み": "based on"
 }
