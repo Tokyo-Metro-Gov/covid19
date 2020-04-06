@@ -2,7 +2,7 @@
   <v-app class="app">
     <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
-        <img src="/tochigi-logo.svg" alt="栃木県" />
+        <img src="/tochigi_logo2.png" alt="栃木県" />
 
         <scale-loader color="#00A040" />
       </div>
