@@ -33,7 +33,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       let lastText: string
       let prevIndex = 0
       const texts: RubyText[] = []
-      const regp = new RegExp(/(\p{sc=Han}+?)（(.+?)）/, 'gu')
+      const regp = new RegExp(
+        /([\p{sc=Han}|\s|・]+?)（([\p{sc=Hiragana}|\s|・]+?)）/,
+        'gu'
+      )
 
       // ふりがなを含んだ文字列をパースしてオブジェクトを生成
       while ((match = regp.exec(text)) !== null) {
@@ -83,7 +86,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       parentTag: string = ''
     ): VNode | (VNode | string)[] => {
       if (node.text) {
-        const texts = this.createRubyTexts(node.text!.trim())
+        const texts = this.createRubyTexts(node.text)
         const nodes = createRubyNodes(texts)
         return parentTag ? nodes : createElement('span', nodes)
       }
