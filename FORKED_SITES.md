@@ -16,6 +16,7 @@
 [](07)福島県|https://fukushima-covid19.firebaseapp.com|GDG Fukushima|[donuzium/covid19](https://github.com/donuzium/covid19)|
 [](08)茨城県|https://covid19-ibaraki.netlify.com/|個人|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
 [](09)栃木県|https://covid19-tochigi.netlify.com/|有志|[covid19-tochigi/covid19](https://github.com/covid19-tochigi/covid19)|
+[](09)栃木県|https://covid-19-tochigi.origamium.net/|個人|[origamium/covid19-tochigi](https://github.com/origamium/covid19-tochigi)|
 [](10)群馬県|https://stopcovid19-gunma.netlify.com/|個人|[SatoshiRC/covid19-gunma](https://github.com/SatoshiRC/covid19-gunma)|
 [](11)埼玉県|https://saitama.stopcovid19.jp/|Code for TODA|[codefortoda/covid19-saitama](https://github.com/codefortoda/covid19-saitama)|
 [](12)千葉県|https://chiba-covid19.mypl.net/|地域情報サイト「まいぷれ」|[keisuke-kimura/covid19](https://github.com/keisuke-kimura/covid19)|
@@ -40,10 +41,10 @@
 [](28)兵庫県|https://stop-covid19-hyogo.org/|有志|[stop-covid19-hyogo/covid19](https://github.com/stop-covid19-hyogo/covid19)|
 [](29)奈良県|https://stopcovid19.code4nara.org/|有志|[code4nara/covid19](https://github.com/code4nara/covid19)|
 [](32)島根県|https://shimane-covid19.netlify.com/|島根出身学生有志|[TaigaMikami/covid19](https://github.com/TaigaMikami)|
-[](33)岡山県|https://covid19-okayama.netlify.com/|学生エンジニア(有志)||
+[](33)岡山県|https://okayama.stopcovid19.jp/|学生エンジニア(有志)|[stopcovid19-okayama/covid19](https://github.com/stopcovid19-okayama/covid19)|
 [](34)広島県|https://covid19-hiroshima.netlify.com/|個人|[tatsuya1970/covid19](https://github.com/tatsuya1970/covid19)|
 [](35)山口県|https://covid19-yamaguchi.netlify.com|有志|[nishidayoshikatsu/covid19-yamaguchi](https://github.com/nishidayoshikatsu/covid19-yamaguchi)|
-[](37)香川県|https://covid19-kagawa.netlify.com/|学生エンジニア(有志)||
+[](37)香川県|https://kagawa.stopcovid19.jp/|学生エンジニア(有志)|[codeforkagawa/covid19](https://github.com/codeforkagawa/covid19)|
 [](37)香川県|https://covid19-kagawa.jp/|学生エンジニア (有志)|[i15317/covid19](https://github.com/i15317/covid19) |
 [](38)愛媛県|https://ehime-covid19.com/|ボランティア(有志)|[ehime-covid19/covid19](https://github.com/ehime-covid19/covid19)|
 [](39)高知県|https://covid19-kochi.netlify.com|学生エンジニア(有志)||
@@ -54,7 +55,7 @@
 [](43)熊本県|https://kumamoto.stopcovid19.jp/|Code for Kumamoto|[codeforkumamoto/covid19](https://github.com/codeforkumamoto/covid19)|
 [](44)大分県|https://oita.stopcovid19.jp/|有志|[covid19-oita/covid19](https://github.com/covid19-oita/covid19)|
 [](45)宮崎県|https://covid19-miyazaki.netlify.com/|有志|[covid19-miyazaki/covid19](https://github.com/covid19-miyazaki/covid19)|
-[](46)鹿児島県|https://covid19.codeforkagoshima.dev/|有志|[codeforkagoshima/covid19](https://github.com/codeforkagoshima/covid19)
+[](46)鹿児島県|https://covid19.code4kagoshima.org/|有志|[codeforkagoshima/covid19](https://github.com/codeforkagoshima/covid19)
 [](47)沖縄県|https://okinawa.stopcovid19.jp/|有志|[Code-for-OKINAWA/covid19](https://github.com/Code-for-OKINAWA/covid19)
 ## 都道府県追加時のルール
 
