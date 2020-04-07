@@ -36,7 +36,7 @@ export const convertDateByCountryPreferTimeFormat = (
   return dayjs(dateString).format('YYYY-MM-DD')
 }
 
- /**
+/**
  * Get date string formatted Simple(YYYY/MM/DD)
  *
  * @param dateString- Parsable string by dayjs
