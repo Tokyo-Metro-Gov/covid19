@@ -16,9 +16,9 @@ convert_data_to_json.pyはtochigi_covid19_data.xlsxファイルの中身をdata.
 
 ## 注意点
 
-・ ”tochigi_covid19_data.xlsx"のファイル名
-・　Excelファイルの各シート名
-・　各シート内のカラム名
+・”tochigi_covid19_data.xlsx"のファイル名
+・Excelファイルの各シート名
+・各シート内のカラム名
 に変化があるとconvert_data_to_json.pyは正常どおりに動かない！
 
 
