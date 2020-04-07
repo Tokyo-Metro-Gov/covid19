@@ -274,7 +274,9 @@ $default-boxdiff: 35px;
     }
 
     &:not(:last-child) {
-      word-break: break-all;
+      overflow-wrap: break-word;
+      word-break: normal;
+      word-wrap: break-word;
     }
   }
   span strong {
