@@ -40,12 +40,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import ExternalLink from '@/components/ExternalLink.vue'
+
 import {
   convertDateByCountryPreferTimeFormat,
   convertDateToISO8601Format
 } from '@/utils/formatDate'
 
 export default Vue.extend({
+  components: { ExternalLink },
   props: {
     items: {
       type: Array,
