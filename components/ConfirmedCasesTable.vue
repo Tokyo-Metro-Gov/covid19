@@ -96,11 +96,11 @@ export default Vue.extend({
       required: true
     },
     軽症中等症: {
-      type: Number,
+      type: String,
       required: true
     },
     重症: {
-      type: Number,
+      type: String,
       required: true
     },
     死亡: {
