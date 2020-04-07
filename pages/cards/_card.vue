@@ -3,6 +3,9 @@
     <confirmed-cases-details-card
       v-if="this.$route.params.card == 'details-of-confirmed-cases'"
     />
+    <tested-cases-details-card
+      v-else-if="this.$route.params.card == 'details-of-tested-cases'"
+    />
     <confirmed-cases-number-card
       v-else-if="this.$route.params.card == 'number-of-confirmed-cases'"
     />
@@ -11,6 +14,9 @@
     />
     <tested-number-card
       v-else-if="this.$route.params.card == 'number-of-tested'"
+    />
+    <inspection-persons-number-card
+      v-else-if="this.$route.params.card == 'number-of-inspection-persons'"
     />
     <telephone-advisory-reports-number-card
       v-else-if="
@@ -38,9 +44,11 @@ import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
 import agencyData from '@/data/agency.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
+import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
@@ -49,9 +57,11 @@ import AgencyCard from '@/components/cards/AgencyCard.vue'
 export default {
   components: {
     ConfirmedCasesDetailsCard,
+    TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     TestedNumberCard,
+    InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
     MetroCard,
@@ -64,6 +74,10 @@ export default {
         title = this.$t('検査陽性者の状況')
         updatedAt = Data.inspections_summary.date
         break
+      case 'details-of-tested-cases':
+        title = this.$t('検査実施状況')
+        updatedAt = Data.inspection_status_summary.date
+        break
       case 'number-of-confirmed-cases':
         title = this.$t('陽性患者数')
         updatedAt = Data.patients.date
@@ -73,8 +87,12 @@ export default {
         updatedAt = Data.patients.date
         break
       case 'number-of-tested':
-        title = this.$t('検査実施数')
+        title = this.$t('検査実施件数')
         updatedAt = Data.inspections_summary.date
+        break
+      case 'number-of-inspection-persons':
+        title = this.$t('検査実施人数')
+        updatedAt = Data.inspection_persons.date
         break
       case 'number-of-reports-to-covid19-telephone-advisory-center':
         title = this.$t('新型コロナコールセンター相談件数')
@@ -108,7 +126,7 @@ export default {
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
     const description = `${this.updatedAt} | ${this.$t(
-      '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、東京都が開設したものです。'
+      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
     )}`
 
     return {

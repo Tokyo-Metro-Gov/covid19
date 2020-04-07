@@ -26,6 +26,7 @@ export default {
 .heading .icon {
   margin-bottom: px2vw(10);
 }
+
 .facility {
   margin-top: px2vw(30);
   text-align: center;
@@ -33,9 +34,11 @@ export default {
 
 @include largerThan($small) {
   $vw: 960;
+
   .heading .icon {
     margin-bottom: px2vw(10, $vw);
   }
+
   .facility {
     margin-top: px2vw(30, $vw);
   }

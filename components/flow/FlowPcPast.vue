@@ -2,14 +2,13 @@
   <section :class="$style.Flow">
     <div :class="$style.FlowHeading">
       <i18n path="{past}の出来ごとと症状" tag="span">
-        <i18n
-          :class="$style.FlowLText"
-          tag="span"
-          path="発症前{two}週間以内"
-          place="past"
-        >
-          <span :class="$style.FlowNum" place="two">2</span>
-        </i18n>
+        <template v-slot:past>
+          <i18n :class="$style.FlowLText" tag="span" path="発症前{two}週間以内">
+            <template v-slot:two>
+              <span :class="$style.FlowNum">2</span>
+            </template>
+          </i18n>
+        </template>
       </i18n>
     </div>
     <div :class="$style.FlowInner">
@@ -23,9 +22,11 @@
             path="{closeContact}をした方"
             :class="$style.FlowPerson"
           >
-            <em :class="$style.FlowLine" place="closeContact">
-              {{ $t('濃厚接触') }}
-            </em>
+            <template v-slot:closeContact>
+              <em :class="$style.FlowLine">
+                {{ $t('濃厚接触') }}
+              </em>
+            </template>
           </i18n>
         </template>
         <template v-else>
@@ -34,9 +35,11 @@
             path="{closeContact}をした方"
             :class="$style.FlowPerson"
           >
-            <em :class="$style.FlowLine" place="closeContact">
-              {{ $t('濃厚接触') }}
-            </em>
+            <template v-slot:closeContact>
+              <em :class="$style.FlowLine">
+                {{ $t('濃厚接触') }}
+              </em>
+            </template>
           </i18n>
           <span :class="$style.FlowTitle">
             {{ $t('「新型コロナウイルス感染者」と') }}
@@ -53,12 +56,16 @@
             :class="$style.FlowPerson"
             path="{you} か {closeContact}をした方"
           >
-            <em :class="$style.FlowLine" place="you">
-              {{ $t('ご本人') }}
-            </em>
-            <em :class="$style.FlowLine" place="closeContact">
-              {{ $t('濃厚接触') }}
-            </em>
+            <template v-slot:you>
+              <em :class="$style.FlowLine">
+                {{ $t('ご本人') }}
+              </em>
+            </template>
+            <template v-slot:closeContact>
+              <em :class="$style.FlowLine">
+                {{ $t('濃厚接触') }}
+              </em>
+            </template>
           </i18n>
         </template>
         <template v-else>
@@ -67,18 +74,22 @@
             :class="[$style.FlowPerson, $style.FlowPersonS]"
             path="travel history from {area}"
           >
-            <em :class="$style.FlowLine" place="area">
-              {{ $t('COVID-19 prevalent area') }}
-            </em>
+            <template v-slot:area>
+              <em :class="$style.FlowLine">
+                {{ $t('COVID-19 prevalent area') }}
+              </em>
+            </template>
           </i18n>
           <i18n
             tag="span"
             :class="[$style.FlowPerson, $style.FlowPersonS]"
             path="been {inCloseContact} with returnees"
           >
-            <em :class="$style.FlowLine" place="inCloseContact">
-              {{ $t('in close contact') }}
-            </em>
+            <template v-slot:inCloseContact>
+              <em :class="$style.FlowLine">
+                {{ $t('in close contact') }}
+              </em>
+            </template>
           </i18n>
         </template>
       </div>
@@ -89,6 +100,7 @@
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
         </em>
         <span :class="$style.FlowText">{{ $t('または') }}</span>
@@ -98,21 +110,27 @@
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
         </em>
         <span :class="$style.FlowText">{{ $t('かつ') }}</span>
         <em :class="$style.FlowSymptom">
           <i18n tag="span" :class="$style.FlowTextSm" path="発熱{temperature}">
-            <i18n tag="span" path="{tempNum}以上" place="temperature">
-              <span :class="$style.FlowTemperature" place="tempNum">
-                {{ $t('37.5℃') }}
-              </span>
-            </i18n>
+            <template v-slot:temperature>
+              <i18n tag="span" path="{tempNum}以上">
+                <template v-slot:tempNum>
+                  <span :class="$style.FlowTemperature">
+                    {{ $t('37.5℃') }}
+                  </span>
+                </template>
+              </i18n>
+            </template>
           </i18n>
           <img
             :class="$style.FlowSymptomIcon"
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
         </em>
       </div>
@@ -136,10 +154,12 @@ export default {
 <style module lang="scss">
 .Flow {
   @include card-container($withDivider: true);
+
   position: relative;
   padding-bottom: 20px;
   color: $gray-2;
   text-align: center;
+
   &Heading {
     position: relative;
     width: calc(100% - 2px);
@@ -150,62 +170,75 @@ export default {
     font-weight: bold;
     font-size: 16px;
   }
+
   &Num {
     display: inline-block;
     padding: 0 5px;
     font-size: calc(1.5rem + ((1vw - 7.68px) * 5.4726));
+
     @include largerThan($large) {
       font-size: 42px;
       padding: 0 10px;
     }
   }
+
   &Inner {
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
     border-top: 1px solid $gray-4;
   }
+
   &Item {
     display: flex;
     flex-flow: column;
     align-items: center;
     width: 50%;
     padding: 10px 5px;
+
     @include largerThan($large) {
       padding: 20px;
     }
   }
+
   &Title {
     margin-bottom: 4px;
     color: $green-1;
     font-size: calc(0.75rem + ((1vw - 7.68px) * 0.4464));
     font-weight: bold;
     display: block;
+
     @include largerThan($large) {
       font-size: 15px;
     }
   }
+
   &Person {
     font-weight: bold;
     font-size: calc(0.875rem + ((1vw - 7.68px) * 1.1905));
     line-height: 1.8;
     text-align: center;
+
     @include largerThan($large) {
       font-size: 23px;
     }
+
     &S {
       @include largerThan($large) {
         font-size: 20px;
       }
     }
   }
+
   &Line {
     border-bottom: 2px solid $green-1;
     font-style: inherit;
+
     @include largerThan($large) {
       border-width: 4px;
     }
   }
+
   &Condition {
     display: flex;
     width: 100%;
@@ -216,10 +249,12 @@ export default {
     text-align: center;
     font-weight: bold;
     font-size: 22px;
+
     @include largerThan($large) {
       padding: 0 20px;
     }
   }
+
   &Symptom {
     position: relative;
     display: flex;
@@ -252,11 +287,13 @@ export default {
       background-color: white;
       content: '';
     }
+
     @include largerThan($large) {
       max-width: 190px;
       font-size: 20px;
     }
   }
+
   &Text {
     display: flex;
     flex-wrap: wrap;
@@ -266,21 +303,26 @@ export default {
     padding: 10px;
     font-size: calc(0.75rem + ((1vw - 7.68px) * 1.4881));
     white-space: nowrap;
+
     @include largerThan($large) {
       max-width: 190px;
       font-size: 21px;
     }
   }
+
   &LText {
     font-size: calc(1.25rem + ((1vw - 7.68px) * 0.744));
+
     @include largerThan($large) {
       font-size: 25px;
     }
   }
+
   &Temperature {
     font-size: calc(1rem + ((1vw - 7.68px) * 2.4876));
     padding-left: 2px;
     padding-right: 2px;
+
     @include largerThan($large) {
       font-size: 20px;
       padding-left: 5px;
@@ -288,6 +330,7 @@ export default {
       margin-top: -5px;
     }
   }
+
   &TextSm {
     font-size: 15px;
   }

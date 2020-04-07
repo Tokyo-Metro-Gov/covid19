@@ -25,12 +25,14 @@
 <style module lang="scss">
 .FlowPcPcr {
   @include card-container();
+
   color: $gray-2;
   display: flex;
   justify-content: space-between;
   padding: 20px 30px;
   text-align: center;
   height: 100%;
+
   .actionArea {
     flex-grow: 1;
     margin-right: 10%;
@@ -44,16 +46,20 @@
 
       &.h1 {
         @include font-size(40);
+
         line-height: 1;
         margin-bottom: 0.25em;
+
         .small {
           @include font-size(14);
+
           vertical-align: top;
         }
       }
 
       &.content {
         @include font-size(22);
+
         line-height: 1.2;
       }
     }
@@ -70,8 +76,10 @@
     }
   }
 }
+
 .ResultLabel {
   @include font-size(20);
+
   border-radius: 4px;
   border: 2px solid $green-1;
   line-height: 1;

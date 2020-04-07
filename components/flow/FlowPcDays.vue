@@ -7,6 +7,7 @@
             :class="$style.FlowRowRowThreeGeneralIcon"
             src="/flow/accessibility-24px.svg"
             aria-hidden="true"
+            alt=" "
           />
           {{ $t('一般の方') }}
         </p>
@@ -14,14 +15,17 @@
       <div>
         <p>
           <i18n path="{duration}続いている">
-            <i18n
-              tag="span"
-              place="duration"
-              path="{day}日以上"
-              :class="$style.FlowRowEmphasis"
-            >
-              <span :class="$style.FlowRowEmphasisDay" place="day">4</span>
-            </i18n>
+            <template v-slot:duration>
+              <i18n
+                tag="span"
+                path="{day}日以上"
+                :class="$style.FlowRowEmphasis"
+              >
+                <template v-slot:day>
+                  <span :class="$style.FlowRowEmphasisDay">4</span>
+                </template>
+              </i18n>
+            </template>
           </i18n>
         </p>
       </div>
@@ -34,15 +38,18 @@
             path="{cold}のような症状"
             :class="$style.FlowRowConditionSmall"
           >
-            <span :class="$style.FlowRowConditionLarge" place="cold">
-              {{ $t('風邪') }}
-            </span>
+            <template v-slot:cold>
+              <span :class="$style.FlowRowConditionLarge">
+                {{ $t('風邪') }}
+              </span>
+            </template>
           </i18n>
         </p>
         <img
           :class="$style.FlowRowConditionIcon"
           src="/flow/check_circle-24px.svg"
           aria-hidden="true"
+          alt=" "
         />
       </div>
       <div :class="$style.FlowRowCondition">
@@ -52,17 +59,22 @@
             :class="$style.FlowRowConditionSmall"
             path="発熱{temperature}"
           >
-            <i18n tag="span" place="temperature" path="{tempNum}以上">
-              <span :class="$style.FlowRowConditionLarge" place="tempNum">
-                {{ $t('37.5℃') }}
-              </span>
-            </i18n>
+            <template v-slot:temperature>
+              <i18n tag="span" path="{tempNum}以上">
+                <template v-slot:tempNum>
+                  <span :class="$style.FlowRowConditionLarge">
+                    {{ $t('37.5℃') }}
+                  </span>
+                </template>
+              </i18n>
+            </template>
           </i18n>
         </p>
         <img
           :class="$style.FlowRowConditionIcon"
           src="/flow/check_circle-24px.svg"
           aria-hidden="true"
+          alt=" "
         />
       </div>
       <div :class="$style.FlowRowCondition">
@@ -71,6 +83,7 @@
           :class="$style.FlowRowConditionIcon"
           src="/flow/check_circle-24px.svg"
           aria-hidden="true"
+          alt=" "
         />
       </div>
       <div :class="$style.FlowRowCondition">
@@ -79,6 +92,7 @@
           :class="$style.FlowRowConditionIcon"
           src="/flow/check_circle-24px.svg"
           aria-hidden="true"
+          alt=" "
         />
       </div>
     </div>
@@ -90,6 +104,7 @@
               :class="$style.FlowRowRowThreeCareTargetListItemIcon"
               src="/flow/directions_walk-24px.svg"
               aria-hidden="true"
+              alt=" "
             />
             {{ $t('ご高齢な方') }}
           </li>
@@ -98,6 +113,7 @@
               :class="$style.FlowRowRowThreeCareTargetListItemIcon"
               src="/flow/accessible-24px.svg"
               aria-hidden="true"
+              alt=" "
             />
             {{ $t('基礎疾患のある方') }}
           </li>
@@ -106,6 +122,7 @@
               :class="$style.FlowRowRowThreeCareTargetListItemIcon"
               src="/flow/pregnant_woman-24px.svg"
               aria-hidden="true"
+              alt=" "
             />
             {{ $t('妊娠中の方') }}
           </li>
@@ -114,14 +131,17 @@
       <div>
         <p>
           <i18n path="{duration}続いている">
-            <i18n
-              tag="span"
-              place="duration"
-              path="{day}日程度"
-              :class="$style.FlowRowEmphasis"
-            >
-              <span :class="$style.FlowRowEmphasisDay" place="day">2</span>
-            </i18n>
+            <template v-slot:duration>
+              <i18n
+                tag="span"
+                path="{day}日程度"
+                :class="$style.FlowRowEmphasis"
+              >
+                <template v-slot:day>
+                  <span :class="$style.FlowRowEmphasisDay">2</span>
+                </template>
+              </i18n>
+            </template>
           </i18n>
         </p>
       </div>
@@ -132,11 +152,13 @@
 <style module lang="scss">
 .Flow {
   @include card-container($withDivider: true);
+
   display: flex;
   flex-direction: row;
   padding: 20px 20px !important;
   position: relative;
   color: $gray-2;
+
   &Row {
     flex-grow: 1;
     flex-shrink: 0;
@@ -144,16 +166,19 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+
     &RowCheck {
       flex-basis: calc(28% - 20px);
       margin: 0 10px;
     }
+
     &RowThree {
       flex-grow: 3;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-top: 20px;
+
       &General {
         &Icon {
           display: block;
@@ -162,24 +187,29 @@
           height: 44px;
         }
       }
+
       &CareTargetList {
         margin: 16px 0;
         text-align: left;
         list-style: none;
-        &Item + &Item {
-          margin-top: 14px;
-        }
+
         &Item {
           display: flex;
           align-items: center;
+
           &Icon {
             display: inline-block;
             width: 30px;
             height: 30px;
           }
         }
+
+        &Item + &Item {
+          margin-top: 14px;
+        }
       }
     }
+
     &Condition {
       flex-grow: 1;
       display: flex;
@@ -191,22 +221,27 @@
       border: 2px solid $green-1 !important;
       border-radius: 2px;
       background-color: $white;
+
       p {
         text-align: center;
         display: inline-block;
         margin: 0 !important; // FIXME: IEだとv-applicationのmarginが優先される
         font-size: calc(0.875rem + ((1vw - 7.68px) * 0.8929));
         font-weight: bold;
+
         @include largerThan($large) {
           font-size: 20px;
         }
       }
+
       &Large {
         font-size: calc(1rem + ((1vw - 7.68px) * 2.4876));
+
         @include largerThan($large) {
           font-size: 25px;
         }
       }
+
       &Small {
         font-size: 15px;
       }
@@ -229,10 +264,12 @@
         content: '';
       }
     }
+
     &Emphasis {
       font-size: 24px;
       font-weight: bold;
       border-bottom: solid 3px $green-1;
+
       &Day {
         font-size: 41px;
       }

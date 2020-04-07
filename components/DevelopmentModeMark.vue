@@ -4,7 +4,7 @@
     <a
       href="https://stopcovid19.metro.tokyo.lg.jp/"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
     >
       公開サイトへ
     </a>
@@ -17,7 +17,7 @@
   bottom: 0;
   left: 0;
   font-size: 12px;
-  z-index: 1000;
+  z-index: 1;
   width: 100%;
   height: 20px;
   text-align: center;
@@ -29,6 +29,7 @@
   // mobile view
   @include lessThan($small) {
     height: 40px;
+
     a {
       display: block;
     }
