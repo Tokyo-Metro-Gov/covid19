@@ -54,7 +54,7 @@
             <li class="item serious">
               <div class="gutter">
                 <div class="box short">
-                  <span>{{ $t('重症') }}</span>
+                  <span v-html="$t('重症<br />重篤')" />
                   <span>
                     <b>{{ 重症 }}</b>
                     <span class="unit">{{ $t('人') }}</span>
