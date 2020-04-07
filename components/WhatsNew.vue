@@ -90,14 +90,13 @@ export default Vue.extend({
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 12px;
 
     .WhatsNew-title {
       display: flex;
       align-items: center;
 
       @include card-h2();
-
-      margin-bottom: 12px;
       color: $gray-2;
 
       &-icon {
