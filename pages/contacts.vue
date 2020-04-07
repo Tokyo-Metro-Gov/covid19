@@ -11,7 +11,7 @@
               {{ $t('お問い合わせ内容') }}
             </th>
             <th class="text-center" scope="col">{{ $t('局名') }}</th>
-            <th class="text-center" scope="col">{{ $t('電話番号') }}</th>
+            <th class="text-center tel" scope="col">{{ $t('電話番号') }}</th>
           </tr>
         </thead>
         <tbody>
@@ -90,12 +90,14 @@
             <td class="bureau">{{ $t('福祉保健局') }}</td>
             <td class="tel">
               <a href="tel:0570-550-571">0570-550-571</a><br />
-              {{ $t('（新型コロナコールセンター）') }}<br />
-              {{
-                $t(
-                  '電話のおかけ間違いが多くなっております。発信の際は今一度電話番号をお確かめの上、お間違えのないようお願いいたします。'
-                )
-              }}
+              {{ $t('（新型コロナコールセンター）') }}
+              <p class="caution">
+                {{
+                  $t(
+                    '電話のおかけ間違いが多くなっております。発信の際は今一度電話番号をお確かめの上、お間違えのないようお願いいたします。'
+                  )
+                }}
+              </p>
             </td>
           </tr>
           <tr>
@@ -201,7 +203,10 @@ export default Vue.extend({
           height: 96px;
         }
 
-        th,
+        th.tel {
+          width: 35%;
+        }
+
         tr:not(:last-child) {
           border-top: none;
           border-left: none;
@@ -247,6 +252,10 @@ export default Vue.extend({
         td {
           display: block;
         }
+      }
+
+      p.caution {
+        font-size: 12px;
       }
     }
   }
