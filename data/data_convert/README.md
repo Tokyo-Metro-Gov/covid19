@@ -6,8 +6,8 @@ convert_data_to_json.pyはtochigi_covid19_data.xlsxファイルの中身をdata.
 
 ## 必要なライブラリー
 
-・pandas
-・xlrd (pandasからExcelを読み込むために必要) 
+- pandas
+- xlrd (pandasからExcelを読み込むために必要) 
   
 ## 使い方
 
