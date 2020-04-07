@@ -8,13 +8,13 @@
 
 
 ## 貢献の仕方
-[沖縄版サイト制作の方針](./PROJECT_OKINAWA.md)を御覧ください。
 
-Issues 準備中  
-初回リリース後、順次用意していきます。
- 
-[貢献の仕方（東京都版）](./CONTRIBUTING.md)を参考に御覧ください。
+Issues にあるいろいろな修正にご協力いただけると嬉しいです。
 
+詳しくは、[貢献の仕方](./CONTRIBUTING.md)を御覧ください。
+
+サイト作成時の方針はこちら。まだ足りていない機能がたくさんあります。
+[沖縄版サイト制作の方針](./PROJECT_OKINAWA.md)を参考に御覧ください。
 
 ## 行動原則
 詳しくは[サイト構築にあたっての行動原則](./CODE_OF_CONDUCT.md)を御覧ください。
@@ -97,13 +97,13 @@ $ docker-compose run --rm app yarn install
 
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://okinawa.stopcovid19.jp が更新されます。
 
-`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト　https://thirsty-leakey-61fd82.netlify.com/ が更新されます。
+<!-- `staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト　https://thirsty-leakey-61fd82.netlify.com/ が更新されます。 -->
 
 `development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://thirsty-leakey-61fd82.netlify.com/ が更新されます。
 
 ### ブランチルール
 
-development, dev-hotfix 以外は Pull Request は禁止です。
+development以外への Pull Request は禁止です。
 Pull Request を送る際の branch は、以下のネーミングルールでお願いします。
 
 機能追加系： feature/#{ISSUE_ID}-#{branch_title_name}  
@@ -114,12 +114,12 @@ Pull Request を送る際の branch は、以下のネーミングルールで�
 | ---- | -------- | ---- | ---- |
 | 開発 | development | https://thirsty-leakey-61fd82.netlify.com/ | base branch。基本はこちらに Pull Requestを送ってください |
 | 緊急適用用 | dev-hotfix | なし | 急ぎ本番に適用するべき修正。管理者から依頼された場合こちらを使ってください |
-| ステージング | staging | https://thirsty-leakey-61fd82.netlify.com/ | 本番前の最終確認用。管理者以外の Pull Request は禁止です |
+| ステージング | staging | なし | 本番前の最終確認用。管理者以外の Pull Request は禁止です |
 | 本番 | master | https://okinawa.stopcovid19.jp/ | 管理者以外の Pull Request は禁止です |
 
 #### システムで利用しているブランチ
 | 目的 | ブランチ | 確認URL | 備考 |
 | ---- | -------- | ---- | ---- |
 | 本番サイトHTML | production | https://okinawa.stopcovid19.jp/ | 静的ビルドされたHTMLが置いてある場所 |
-| ステージングサイト HTML | gh-pages | https://okinawa.stopcovid19.jp/（準備中） | 静的ビルドされたHTMLが置いてある場所 |
+| ステージングサイト HTML | staging | https://thirsty-leakey-61fd82.netlify.com/ | 静的ビルドされたHTMLが置いてある場所 |
 | OGP作業用 | deploy/new_ogp | なし | OGPの更新用 |
