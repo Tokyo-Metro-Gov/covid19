@@ -166,6 +166,7 @@ const config: Configuration = {
         '/cards/details-of-tested-cases',
         '/cards/number-of-confirmed-cases',
         '/cards/attributes-of-confirmed-cases',
+        '/cards/okinawa-main-land-map',
         '/cards/number-of-tested',
         '/cards/number-of-inspection-persons',
         '/cards/number-of-reports-to-covid19-telephone-advisory-center',

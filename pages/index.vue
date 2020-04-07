@@ -28,8 +28,8 @@
       <!-- <tested-cases-details-card /> -->
       <confirmed-cases-attributes-card />
       <confirmed-cases-number-card />
-      <!--<inspection-persons-number-card />
-      <tested-number-card />
+      <okinawa-main-land-map-card />
+      <!--<tested-number-card />
       <telephone-advisory-reports-number-card />
       <consultation-desk-reports-number-card />
       <metro-card />
@@ -53,6 +53,7 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
+import OkinawaMainLandMapCard from '@/components/cards/OkinawaMainLandMapCard.vue'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -75,6 +76,7 @@ export default Vue.extend({
     WhatsNew,
     StaticInfo,
     ConfirmedCasesDetailsCard,
+    OkinawaMainLandMapCard,
     TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
