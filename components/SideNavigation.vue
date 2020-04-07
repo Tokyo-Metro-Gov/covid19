@@ -176,11 +176,11 @@ export default Vue.extend({
         //   link: this.localePath('/worker'),
         //   divider: true
         // },
-        {
-          title: this.$t('新型コロナウイルス感染症について'),
-          link:
-            'https://www.pref.okinawa.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html'
-        },
+        // {
+        //   title: this.$t('新型コロナウイルス感染症について'),
+        //   link:
+        //     'https://www.pref.okinawa.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html'
+        // },
         {
           title: this.$t('知事からのメッセージ'),
           link:
