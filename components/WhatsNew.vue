@@ -8,7 +8,7 @@
         {{ $t('最新のお知らせ') }}
       </h3>
       <span class="WhatsNew-link-to-emergency-page">
-        <v-icon size="16" class="emergency-icon">
+        <v-icon size="20" class="WhatsNew-link-to-emergency-page-icon">
           mdi-bullhorn
         </v-icon>
         <external-link
@@ -99,7 +99,6 @@ export default Vue.extend({
 
       margin-bottom: 12px;
       color: $gray-2;
-      margin-left: 12px;
 
       &-icon {
         margin: 3px;
@@ -112,10 +111,15 @@ export default Vue.extend({
       color: $gray-2;
       border-radius: 4px;
       font-size: 1rem;
+      padding: 4px 8px;
 
       &:hover {
         background-color: $white;
         border-radius: 4px;
+      }
+
+      &-icon {
+        margin: 3px;
       }
 
       .ExternalLink {
