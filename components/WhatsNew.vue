@@ -117,10 +117,6 @@ export default Vue.extend({
         border-radius: 4px;
       }
 
-      &-icon {
-        margin: 3px;
-      }
-
       .ExternalLink {
         color: $gray-2 !important;
         text-decoration: none;
