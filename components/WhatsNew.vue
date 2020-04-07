@@ -74,6 +74,13 @@ export default Vue.extend({
   margin-bottom: 20px;
 
   .WhatsNew-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @include text-link();
+
     .WhatsNew-title {
       display: flex;
       align-items: center;
