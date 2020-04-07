@@ -91,8 +91,6 @@ export default Vue.extend({
     align-items: center;
     flex-wrap: wrap;
 
-    @include text-link();
-
     .WhatsNew-title {
       display: flex;
       align-items: center;
@@ -109,8 +107,6 @@ export default Vue.extend({
     }
 
     .WhatsNew-link-to-emergency-page {
-      @include text-link();
-
       background-color: $emergency;
       border: 2px solid $emergency;
       color: $gray-2;
