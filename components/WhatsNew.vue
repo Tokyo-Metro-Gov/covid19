@@ -7,6 +7,15 @@
         </v-icon>
         {{ $t('最新のお知らせ') }}
       </h3>
+      <span class="WhatsNew-link-to-emergency-page">
+        <v-icon size="16" class="emergency-icon">
+          mdi-bullhorn
+        </v-icon>
+        <external-link
+          url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
+          label="東京都緊急事態措置について"
+        />
+      </span>
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
@@ -96,6 +105,33 @@ export default Vue.extend({
 
       &-icon {
         margin: 3px;
+      }
+    }
+
+    .WhatsNew-link-to-emergency-page {
+      @include text-link();
+
+      background-color: $emergency;
+      border: 2px solid $emergency;
+      color: $gray-2;
+      border-radius: 4px;
+
+      &:hover {
+        background-color: $white;
+        border-radius: 4px;
+      }
+
+      .ExternalLink {
+        color: $gray-2 !important;
+        text-decoration: none;
+      }
+
+      > span {
+        @include button-text('sm');
+      }
+
+      @include lessThan($small) {
+        margin-top: 4px;
       }
     }
   }
