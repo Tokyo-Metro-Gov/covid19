@@ -111,6 +111,7 @@ export default Vue.extend({
       border: 2px solid $emergency;
       color: $gray-2;
       border-radius: 4px;
+      font-size: 1rem;
 
       &:hover {
         background-color: $white;
