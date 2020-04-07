@@ -122,7 +122,7 @@ export default Vue.extend({
         },
         {
           icon: 'mdi-account-multiple',
-          title: this.$t('福井県知事からのメッセージ'),
+          title: this.$t('知事からのメッセージ'),
           link: this.localePath('/message'),
           divider: true
         },
