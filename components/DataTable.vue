@@ -133,15 +133,16 @@ export default Vue.extend({
   },
   methods: {
     // '10歳未満' < '10代' となるようにソートする
-    customSort: (items: Object[], index: string[], isDesc: boolean[]) => {
+    customSort(items: Object[], index: string[], isDesc: boolean[]) {
+      const lt10 = this.$t('10歳未満').toString()
       items.sort((a: any, b: any) => {
         if (
           index[0] === '年代' &&
-          (a[index[0]] === '10歳未満' || b[index[0]] === '10歳未満')
+          (a[index[0]] === lt10 || b[index[0]] === lt10)
         ) {
-          if (a[index[0]] === '10歳未満') {
+          if (a[index[0]] === lt10) {
             // 公表日を常に降順にする
-            if (b[index[0]] === '10歳未満') {
+            if (b[index[0]] === lt10) {
               return a['公表日'] > b['公表日'] ? -1 : 1
             } else {
               return !isDesc[0] ? -1 : 1
