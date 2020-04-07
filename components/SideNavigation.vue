@@ -151,22 +151,19 @@ export default Vue.extend({
           link: this.localePath('/worker'),
           divider: true
         },
+         */
         {
-          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
-          link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
+          title: this.$t('栃木県新型コロナウイルス感染症に関する情報'),
+          link: 'http://www.pref.tochigi.lg.jp/c05/kouhou/korona.html'
         },
         {
-          title: this.$t('東京都主催等 中止又は延期するイベント等'),
-          link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
+          title: this.$t('栃木県主催等 中止又は延期するイベント等'),
+          link: 'http://www.pref.tochigi.lg.jp/c05/kouhou/eventr2.html'
         },
         {
           title: this.$t('知事からのメッセージ'),
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+          link: 'http://www.pref.tochigi.lg.jp/e04/20200402chijimessage.html'
         },
-        */
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
