@@ -1,11 +1,13 @@
 <template>
   <div class="WhatsNew">
-    <h3 class="WhatsNew-heading">
-      <v-icon size="24" class="WhatsNew-heading-icon">
-        mdi-information
-      </v-icon>
-      {{ $t('最新のお知らせ') }}
-    </h3>
+    <div class="WhatsNew-heading">
+      <h3 class="WhatsNew-title">
+        <v-icon size="24" class="WhatsNew-title-icon">
+          mdi-information
+        </v-icon>
+        {{ $t('最新のお知らせ') }}
+      </h3>
+    </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
         <a
@@ -71,18 +73,20 @@ export default Vue.extend({
   padding: 10px;
   margin-bottom: 20px;
 
-  &-heading {
-    display: flex;
-    align-items: center;
+  .WhatsNew-heading {
+    .WhatsNew-title {
+      display: flex;
+      align-items: center;
 
-    @include card-h2();
+      @include card-h2();
 
-    margin-bottom: 12px;
-    color: $gray-2;
-    margin-left: 12px;
+      margin-bottom: 12px;
+      color: $gray-2;
+      margin-left: 12px;
 
-    &-icon {
-      margin: 3px;
+      &-icon {
+        margin: 3px;
+      }
     }
   }
 
