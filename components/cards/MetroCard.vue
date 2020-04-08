@@ -30,9 +30,8 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
-import MetroData from '@/data/metro.json'
 import MetroBarChart from '@/components/MetroBarChart.vue'
+import { Registry } from '~/libraries/Registry'
 
 export default {
   components: {
@@ -40,7 +39,7 @@ export default {
   },
   data() {
     // 都営地下鉄の利用者数の推移
-    const metroGraph = MetroData
+    const metroGraph = Registry.MetroRepository.data
     for (const dataset of metroGraph.datasets) {
       dataset.label = this.getWeekLabel(dataset.label)
     }
@@ -67,6 +66,7 @@ export default {
       })
     }
 
+    const Data = Registry.DataRepository.data
     const data = {
       Data,
       metroGraph,

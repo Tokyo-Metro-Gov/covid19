@@ -49,10 +49,10 @@ ul.notes {
 </style>
 
 <script>
-import Data from '@/data/data.json'
 import formatTestedCases from '@/utils/formatTestedCases'
 import DataView from '@/components/DataView.vue'
 import TestedCasesDetailsTable from '@/components/TestedCasesDetailsTable.vue'
+import { Registry } from '~/libraries/Registry'
 
 export default {
   components: {
@@ -60,6 +60,7 @@ export default {
     TestedCasesDetailsTable
   },
   data() {
+    const Data = Registry.DataRepository.data
     // 検査陽性者の状況
     const testedCases = formatTestedCases(Data.inspection_status_summary)
 

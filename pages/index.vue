@@ -44,8 +44,6 @@ import { MetaInfo } from 'vue-meta'
 import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
-import Data from '@/data/data.json'
-import News from '@/data/news.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -57,6 +55,7 @@ import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDe
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import { Registry } from '~/libraries/Registry'
 
 export default Vue.extend({
   components: {
@@ -76,12 +75,12 @@ export default Vue.extend({
   },
   data() {
     const data = {
-      Data,
+      Data: Registry.DataRepository.data,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: this.$t('都内の最新感染動向')
       },
-      newsItems: News.newsItems
+      newsItems: Registry.NewsRepository.data.newsItems
     }
     return data
   },

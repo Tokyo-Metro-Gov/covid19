@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import ChiyodaData from '@/data/13101_daily_visitors.json'
+import { Registry } from '../../libraries/Registry'
 import VisitorsBarChart from '@/components/VisitorsBarChart.vue'
 
 export default {
@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      chartData: ChiyodaData
+      chartData: Registry.ChiyodaRepository.data
     }
   }
 }

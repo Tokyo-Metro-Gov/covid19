@@ -28,10 +28,10 @@
 </style>
 
 <script>
-import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import DataView from '@/components/DataView.vue'
 import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
+import { Registry } from '~/libraries/Registry'
 
 export default {
   components: {
@@ -39,6 +39,7 @@ export default {
     ConfirmedCasesDetailsTable
   },
   data() {
+    const Data = Registry.DataRepository.data
     // 検査陽性者の状況
     const confirmedCases = formatConfirmedCases(Data.main_summary)
 

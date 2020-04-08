@@ -40,9 +40,6 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
-import MetroData from '@/data/metro.json'
-import agencyData from '@/data/agency.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -53,6 +50,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+import { Registry } from '~/libraries/Registry'
 
 export default {
   components: {
@@ -68,6 +66,7 @@ export default {
     AgencyCard
   },
   data() {
+    const Data = Registry.DataRepository.data
     let title, updatedAt
     switch (this.$route.params.card) {
       case 'details-of-confirmed-cases':
@@ -104,11 +103,11 @@ export default {
         break
       case 'predicted-number-of-toei-subway-passengers':
         title = this.$t('都営地下鉄の利用者数の推移')
-        updatedAt = MetroData.date
+        updatedAt = Registry.MetroRepository.data.date
         break
       case 'agency':
         title = this.$t('都庁来庁者数の推移')
-        updatedAt = agencyData.date
+        updatedAt = Registry.AgencyRepository.data.date
         break
     }
 

@@ -34,12 +34,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import Data from '@/data/data.json'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
 import NoScript from '@/components/NoScript.vue'
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
+import { Registry } from '~/libraries/Registry'
 
 type LocalData = {
   hasNavigation: boolean
@@ -90,6 +90,7 @@ export default Vue.extend({
     }
   },
   head(): MetaInfo {
+    const Data = Registry.DataRepository.data
     const { htmlAttrs, meta } = this.$nuxtI18nSeo()
     const ogLocale =
       meta && meta.length > 0

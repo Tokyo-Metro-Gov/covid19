@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import agencyData from '@/data/agency.json'
 import AgencyBarChart from '@/components/AgencyBarChart.vue'
+import { Registry } from '~/libraries/Registry'
 
 export default {
   components: {
@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      agencyData
+      agencyData: Registry.AgencyRepository.data
     }
   }
 }

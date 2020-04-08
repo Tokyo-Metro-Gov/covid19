@@ -22,14 +22,15 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
+import { Registry } from '~/libraries/Registry'
 
 export default {
   components: {
     TimeStackedBarChart
   },
   data() {
+    const Data = Registry.DataRepository.data
     // 検査実施日別状況
     const inspectionsGraph = [
       Data.inspections_summary.data['都内'],

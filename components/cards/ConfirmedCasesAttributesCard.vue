@@ -14,16 +14,17 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import DataTable from '@/components/DataTable.vue'
+import { Registry } from '~/libraries/Registry'
 
 export default {
   components: {
     DataTable
   },
   data() {
+    const Data = Registry.DataRepository.data
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
     // 感染者数
