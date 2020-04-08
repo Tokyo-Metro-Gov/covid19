@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import dayjs from 'dayjs'
-import { PatientsDatum } from '~/libraries/utils/data_converter/convertData'
+import { PatientsDatum } from '~/libraries/auto_generated/data_converter/convertData'
 
 const headers = [
   { text: '公表日', value: '公表日' },

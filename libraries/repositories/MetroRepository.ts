@@ -1,4 +1,7 @@
-import { Convert, Metro } from '@/libraries/utils/data_converter/convertMetro'
+import {
+  Convert,
+  Metro
+} from '@/libraries/auto_generated/data_converter/convertMetro'
 import {
   BaseRepository,
   IBaseRepository

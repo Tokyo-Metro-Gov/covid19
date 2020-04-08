@@ -6,7 +6,12 @@ import { sync as rimrafSync } from 'rimraf'
 
 const basePath = path.dirname(__dirname)
 const inputPath = path.resolve(basePath, 'data')
-const outputPath = path.resolve(basePath, 'utils', 'data_converter')
+const outputPath = path.resolve(
+  basePath,
+  'libraries',
+  'auto_generated',
+  'data_converter'
+)
 rimrafSync(outputPath)
 ;(async () => {
   await fs.mkdir(outputPath, { recursive: true })

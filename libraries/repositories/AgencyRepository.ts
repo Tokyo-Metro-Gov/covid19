@@ -1,4 +1,7 @@
-import { Agency, Convert } from '@/libraries/utils/data_converter/convertAgency'
+import {
+  Agency,
+  Convert
+} from '@/libraries/auto_generated/data_converter/convertAgency'
 import {
   BaseRepository,
   IBaseRepository

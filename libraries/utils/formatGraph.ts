@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { DischargesSummaryDatum } from '~/libraries/utils/data_converter/convertData'
+import { DischargesSummaryDatum } from '~/libraries/auto_generated/data_converter/convertData'
 
 export type GraphDataType = {
   label: string

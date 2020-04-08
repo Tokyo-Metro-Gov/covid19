@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { InspectionStatusSummary } from '~/libraries/utils/data_converter/convertData'
+import { InspectionStatusSummary } from '~/libraries/auto_generated/data_converter/convertData'
 
 type TestedCasesType = {
   累計人数: number
