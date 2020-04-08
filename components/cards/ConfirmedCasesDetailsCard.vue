@@ -24,6 +24,7 @@
   margin-bottom: 0;
   font-size: 12px;
   color: $gray-3;
+  height: 80px;
 }
 </style>
 
