@@ -4,8 +4,7 @@
       <div :class="$style.pillar">
         <div :class="$style.content">
           <span>
-            {{ $t('陽性者数') }}
-            <small>({{ $t('県外感染者含む累計') }})</small>
+            {{ $t('陽性者数※') }}
           </span>
           <span>
             <strong>{{ 陽性者数 }}</strong>
@@ -97,11 +96,11 @@ export default Vue.extend({
       required: true
     },
     軽症中等症: {
-      type: Number,
+      type: String,
       required: true
     },
     重症: {
-      type: Number,
+      type: String,
       required: true
     },
     死亡: {
@@ -275,7 +274,9 @@ $default-boxdiff: 35px;
     }
 
     &:not(:last-child) {
-      word-break: break-all;
+      overflow-wrap: break-word;
+      word-break: normal;
+      word-wrap: break-word;
     }
   }
   span strong {
