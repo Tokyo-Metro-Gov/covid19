@@ -1,10 +1,10 @@
-import { Convert, Data } from '~/utils/data_converter/convertData'
+import { Convert, Data } from '@/utils/data_converter/convertData'
 import {
   BaseRepository,
   IBaseRepository
-} from '~/libraries/repositories/BaseRepository'
+} from '@/libraries/repositories/BaseRepository'
 // eslint-disable-next-line import/no-named-default
-import { default as rawData } from '~/data/data.json'
+import { default as rawData } from '@/data/data.json'
 
 export interface IDataRepository extends IBaseRepository<Data> {}
 

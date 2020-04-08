@@ -1,27 +1,27 @@
 import {
   AgencyRepository,
   IAgencyRepository
-} from '~/libraries/repositories/AgencyRepository'
+} from '@/libraries/repositories/AgencyRepository'
 import {
   DataRepository,
   IDataRepository
-} from '~/libraries/repositories/DataRepository'
+} from '@/libraries/repositories/DataRepository'
 import {
   IMetroRepository,
   MetroRepository
-} from '~/libraries/repositories/MetroRepository'
+} from '@/libraries/repositories/MetroRepository'
 import {
   INewsRepository,
   NewsRepository
-} from '~/libraries/repositories/NewsRepository'
+} from '@/libraries/repositories/NewsRepository'
 import {
   ChiyodaRepository,
   IChiyodaRepository
-} from '~/libraries/repositories/ChiyodaRepository'
+} from '@/libraries/repositories/ChiyodaRepository'
 import {
   IShinjukuRepository,
   ShinjukuRepository
-} from '~/libraries/repositories/ShinjukuRepository'
+} from '@/libraries/repositories/ShinjukuRepository'
 
 export class Registry {
   public static readonly AgencyRepository: IAgencyRepository = new AgencyRepository()

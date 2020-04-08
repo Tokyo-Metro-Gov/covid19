@@ -17,7 +17,7 @@
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import DataTable from '@/components/DataTable.vue'
-import { Registry } from '~/libraries/Registry'
+import { Registry } from '@/libraries/Registry'
 
 export default {
   components: {

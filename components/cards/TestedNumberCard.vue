@@ -23,7 +23,7 @@
 
 <script>
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
-import { Registry } from '~/libraries/Registry'
+import { Registry } from '@/libraries/Registry'
 
 export default {
   components: {

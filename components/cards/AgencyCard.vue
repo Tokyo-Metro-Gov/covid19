@@ -17,7 +17,7 @@
 
 <script>
 import AgencyBarChart from '@/components/AgencyBarChart.vue'
-import { Registry } from '~/libraries/Registry'
+import { Registry } from '@/libraries/Registry'
 
 export default {
   components: {

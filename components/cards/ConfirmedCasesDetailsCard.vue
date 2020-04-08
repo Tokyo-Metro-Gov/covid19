@@ -31,7 +31,7 @@
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import DataView from '@/components/DataView.vue'
 import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
-import { Registry } from '~/libraries/Registry'
+import { Registry } from '@/libraries/Registry'
 
 export default {
   components: {

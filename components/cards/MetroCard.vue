@@ -31,7 +31,7 @@
 
 <script>
 import MetroBarChart from '@/components/MetroBarChart.vue'
-import { Registry } from '~/libraries/Registry'
+import { Registry } from '@/libraries/Registry'
 
 export default {
   components: {

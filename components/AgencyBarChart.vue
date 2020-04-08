@@ -50,7 +50,7 @@ import { ChartOptions } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
-import { Registry } from '~/libraries/Registry'
+import { Registry } from '@/libraries/Registry'
 const agencyData = Registry.AgencyRepository.data
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {

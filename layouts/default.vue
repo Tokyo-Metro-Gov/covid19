@@ -39,7 +39,7 @@ import SideNavigation from '@/components/SideNavigation.vue'
 import NoScript from '@/components/NoScript.vue'
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
-import { Registry } from '~/libraries/Registry'
+import { Registry } from '@/libraries/Registry'
 
 type LocalData = {
   hasNavigation: boolean
