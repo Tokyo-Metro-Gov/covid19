@@ -120,6 +120,19 @@ export default Vue.extend({
     url: {
       type: String,
       default: ''
+    },
+    customSort: {
+      type: Function,
+      default(items: Object[], index: string[], isDesc: boolean[]) {
+        items.sort((a: any, b: any) => {
+          if (!isDesc[0]) {
+            return a[index[0]] < b[index[0]] ? -1 : 1
+          } else {
+            return b[index[0]] < a[index[0]] ? -1 : 1
+          }
+        })
+        return items
+      }
     }
   },
   mounted() {
@@ -130,34 +143,6 @@ export default Vue.extend({
     tables.forEach((table: HTMLElement) => {
       table.setAttribute('tabindex', '0')
     })
-  },
-  methods: {
-    // '10歳未満' < '10代' となるようにソートする
-    customSort(items: Object[], index: string[], isDesc: boolean[]) {
-      const lt10 = this.$t('10歳未満').toString()
-      items.sort((a: any, b: any) => {
-        if (
-          index[0] === '年代' &&
-          (a[index[0]] === lt10 || b[index[0]] === lt10)
-        ) {
-          if (a[index[0]] === lt10) {
-            // 公表日を常に降順にする
-            if (b[index[0]] === lt10) {
-              return a['公表日'] > b['公表日'] ? -1 : 1
-            } else {
-              return !isDesc[0] ? -1 : 1
-            }
-          } else {
-            return !isDesc[0] ? 1 : -1
-          }
-        } else if (!isDesc[0]) {
-          return a[index[0]] < b[index[0]] ? -1 : 1
-        } else {
-          return b[index[0]] < a[index[0]] ? -1 : 1
-        }
-      })
-      return items
-    }
   }
 })
 </script>
