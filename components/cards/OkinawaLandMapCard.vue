@@ -7,7 +7,7 @@
             class="DataView-Title"
             :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
           >
-            患者発生状況
+            {{ $t('沖縄県内感染者発生状況') }}
           </h3>
           <div class="mapImage">
             <img src="/map/hontou.png" alt="" />
