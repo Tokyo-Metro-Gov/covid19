@@ -37,8 +37,8 @@
         <div v-if="this.$route.query.embed != 'true'" class="Footer-Right">
           <button class="DataView-Share-Opener" @click="toggleShareMenu">
             <svg
-              width="14"
-              height="16"
+              width="20"
+              height="auto"
               viewBox="0 0 14 16"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
