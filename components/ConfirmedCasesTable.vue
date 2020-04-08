@@ -96,11 +96,11 @@ export default Vue.extend({
       required: true
     },
     軽症中等症: {
-      type: Number,
+      type: String,
       required: true
     },
     重症: {
-      type: Number,
+      type: String,
       required: true
     },
     死亡: {
@@ -274,7 +274,9 @@ $default-boxdiff: 35px;
     }
 
     &:not(:last-child) {
-      word-break: break-all;
+      overflow-wrap: break-word;
+      word-break: normal;
+      word-wrap: break-word;
     }
   }
   span strong {
