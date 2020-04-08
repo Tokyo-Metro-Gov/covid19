@@ -1,54 +1,35 @@
 <template>
   <div :class="$style.container">
     <h4 id="consult" :class="[$style.heading, $style.fzXLarge]">
-      {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
+      {{ $t('感染が疑われる方の電話相談窓口') }}
       <small :class="[$style.break, $style.fzRegular, $style.mt5]">{{
-        $t('帰国者・接触者 電話相談センター')
+        $t('広域健康福祉センター及び保健所等')
       }}</small>
     </h4>
-    <p :class="[$style.open, $style.fzMedium]">
+    <!-- <p :class="[$style.open, $style.fzMedium]">
       <span>{{ $t('24時間対応') }}</span>
-    </p>
+    </p> -->
     <dl>
-      <div :class="$style.daytime">
-        <dt :class="[$style.title, $style.fzMedium]">
-          {{ $t('平日（日中）') }}
-        </dt>
-        <dd :class="$style.link">
-          <a
-            href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-            target="_blank"
-            rel="noopener"
-          >
-            {{ $t('各保健所の電話番号は福祉保健局HPへ') }}
-            <v-icon size="16">
-              mdi-open-in-new
-            </v-icon>
-          </a>
-        </dd>
-      </div>
       <div>
         <dt>
           <ul :class="[$style.night]">
             <li>
               <span :class="[$style.fzMedium, $style.break, $style.mb10]">
-                {{ $t('平日（夜間）') }}
+                {{ $t('平日（8:30-20:00）') }}
               </span>
-              {{ $t('午後5時から翌朝午前9時') }}
-            </li>
-            <li>
-              <span :class="$style.fzMedium">
-                {{ $t('土日祝 終日') }}
-              </span>
+              {{ $t('平日夜間、休日については折り返し等の対応') }}
             </li>
           </ul>
         </dt>
         <dd>
-          <div :class="[$style.phone, $style.fzNumeric]">
+          <div :class="$style.phone">
             <span :class="$style.icon">
               <PhoneIcon alt="Phone" />
             </span>
-            <a href="tel:0353204592">03-5320-4592</a>
+            <a
+              href="http://www.pref.tochigi.lg.jp/e04/welfare/hoken-eisei/kansen/hp/shingatakoronavirussoudannmadoguti.html#utagai"
+              >管轄ごとの連絡先はこちら</a
+            >
           </div>
         </dd>
       </div>

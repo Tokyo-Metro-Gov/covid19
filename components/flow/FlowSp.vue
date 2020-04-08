@@ -18,12 +18,13 @@
     <div :class="[$style.FlowCard, $style.FlowCardGrayBg]">
       <flow-sp-advisory />
     </div>
-    <div :class="$style.FlowCard">
+    <!-- 「新型コロナ受診相談窓口による相談結果」のあとの案内は栃木県のページにはないので割愛 -->
+    <!-- <div :class="$style.FlowCard">
       <flow-sp-according />
     </div>
     <div :class="$style.FlowCard">
       <flow-sp-hospitalized />
-    </div>
+    </div> -->
   </div>
 </template>
 
