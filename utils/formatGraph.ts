@@ -1,7 +1,5 @@
-type DataType = {
-  日付: Date
-  小計: number
-}
+/* eslint-disable camelcase */
+import { DischargesSummaryDatum } from '@/utils/data_converter/convertData'
 
 export type GraphDataType = {
   label: string
@@ -14,7 +12,7 @@ export type GraphDataType = {
  *
  * @param data - Raw data
  */
-export default (data: DataType[]) => {
+export default (data: DischargesSummaryDatum[]) => {
   const graphData: GraphDataType[] = []
   const today = new Date()
   let patSum = 0

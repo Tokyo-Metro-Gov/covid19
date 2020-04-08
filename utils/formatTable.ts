@@ -1,4 +1,6 @@
+/* eslint-disable camelcase */
 import dayjs from 'dayjs'
+import { PatientsDatum } from '@/utils/data_converter/convertData'
 
 const headers = [
   { text: '公表日', value: '公表日' },
@@ -8,21 +10,12 @@ const headers = [
   { text: '退院※', value: '退院', align: 'center' }
 ]
 
-type DataType = {
-  リリース日: string
-  居住地: string | null
-  年代: string | null
-  性別: '男性' | '女性' | string
-  退院: '◯' | null
-  [key: string]: any
-}
-
 type TableDataType = {
   公表日: string
-  居住地: DataType['居住地']
-  年代: DataType['年代']
-  性別: DataType['性別'] | '不明'
-  退院: DataType['退院']
+  居住地: PatientsDatum['居住地'] | '調査中'
+  年代: PatientsDatum['年代']
+  性別: PatientsDatum['性別'] | '不明'
+  退院: PatientsDatum['退院']
 }
 
 type TableDateType = {
@@ -35,7 +28,7 @@ type TableDateType = {
  *
  * @param data - Raw data
  */
-export default (data: DataType[]) => {
+export default (data: PatientsDatum[]) => {
   const tableDate: TableDateType = {
     headers,
     datasets: []
