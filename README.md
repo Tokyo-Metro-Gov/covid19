@@ -64,6 +64,13 @@ $ docker-compose up --build
 $ vagrant up
 ```
 
+### `data/` 内にあるJSONデータの構造が変わった時
+次のコマンドで自動生成しているコードを再生成してください。  
+その上で実装を修正してください。
+```bash
+$ yarn generate-data-type
+```
+
 ### `Cannot find module ****` と怒られた時
 
 **yarn を使う場合**
