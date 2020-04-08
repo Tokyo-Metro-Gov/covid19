@@ -125,11 +125,18 @@ export default Vue.extend({
       type: Function,
       default(items: Object[], index: string[], isDesc: boolean[]) {
         items.sort((a: any, b: any) => {
-          if (!isDesc[0]) {
-            return a[index[0]] < b[index[0]] ? -1 : 1
-          } else {
-            return b[index[0]] < a[index[0]] ? -1 : 1
+          let comparison = 0
+          if (a[index[0]] < b[index[0]]) {
+            comparison = -1
+          } else if (b[index[0]] < a[index[0]]) {
+            comparison = 1
           }
+          // a と b が等しい場合は上記のif文を両方とも通過するので 0 のままとなる
+
+          // 降順指定の場合は符号を反転
+          comparison = isDesc[0] ? comparison * -1 : comparison
+
+          return comparison
         })
         return items
       }
