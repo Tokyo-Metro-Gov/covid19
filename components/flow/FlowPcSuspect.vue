@@ -98,6 +98,12 @@
   &:focus {
     color: inherit;
     text-decoration: none;
+  }
+
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
     @media screen {
       outline: 1px dotted $gray-3;
     }
