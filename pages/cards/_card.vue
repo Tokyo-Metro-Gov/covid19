@@ -12,8 +12,8 @@
     <confirmed-cases-attributes-card
       v-else-if="this.$route.params.card == 'attributes-of-confirmed-cases'"
     />
-    <okinawa-main-land-map-card
-      v-else-if="this.$route.params.card == 'okinawa-main-land-map'"
+    <okinawa-land-map-card
+      v-else-if="this.$route.params.card == 'okinawa-land-map'"
     />
     <tested-number-card
       v-else-if="this.$route.params.card == 'number-of-tested'"
@@ -73,7 +73,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
-import OkinawaMainLandMapCard from '@/components/cards/OkinawaMainLandMapCard.vue'
+import OkinawaLandMapCard from '@/components/cards/OkinawaLandMapCard.vue'
 
 // import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
 // import ChiyodaVisitorsCard from '@/components/cards/ChiyodaVisitorsCard.vue'
@@ -93,7 +93,7 @@ export default {
     ConsultationDeskReportsNumberCard,
     MetroCard,
     AgencyCard,
-    OkinawaMainLandMapCard
+    OkinawaLandMapCard
     // ShinjukuVisitorsCard,
     // ChiyodaVisitorsCard,
     // ShinjukuStMapCard,
@@ -135,8 +135,8 @@ export default {
         title = this.$t('新型コロナ受診相談窓口相談件数')
         updatedAt = Data.querents.date
         break
-      case 'okinawa-main-land-map-card':
-        title = this.$t('沖縄県内感染者発生状況（本島）')
+      case 'okinawa-land-map':
+        title = this.$t('沖縄県内感染者発生状況')
         updatedAt = Data.patients.date
         break
       // case 'predicted-number-of-toei-subway-passengers':

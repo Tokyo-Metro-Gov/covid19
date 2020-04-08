@@ -7,16 +7,12 @@
             class="DataView-Title"
             :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
           >
-            沖縄本島患者発生状況
+            患者発生状況
           </h3>
-          <img
-            src="https://files.slack.com/files-pri/TLXN38HV0-F011HUBB2P3/image.png?pub_secret=c617326dcd"
-            alt=""
-          />
-          <img
-            src="https://files.slack.com/files-pri/TLXN38HV0-F011A3UAJLB/ritou_0407.png?pub_secret=aa7af9c4f7"
-            alt=""
-          />
+          <div class="mapImage">
+            <img src="/map/hontou.png" alt="" />
+            <img src="/map/ritou.png" alt="" />
+          </div>
         </div>
       </div>
     </v-card>
@@ -43,3 +39,13 @@ export default {
   // }
 }
 </script>
+<style lang="scss">
+.mapImage {
+  img {
+    width: 48%;
+    @include lessThan(959) {
+      width: 100%;
+    }
+  }
+}
+</style>
