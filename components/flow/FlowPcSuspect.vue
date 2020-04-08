@@ -46,20 +46,18 @@
 
     <div :class="[$style.SubtleBox, $style.Box2, $style.Center]">
       <div :class="$style.LargerText">
-        {{ $t('新型コロナコールセンター') }}
+        {{ $t('新型コロナウイルス感染症に関する一般の相談窓口') }}
       </div>
       <div :class="$style.SmallerText">
-        {{ $t('午前9時から午後9時（土日祝含む）') }}
+        {{ $t('平日（8:30-20:00）') }}
       </div>
 
       <div :class="$style.Tel">
-        <a :class="$style.TelLink" href="tel:0570550571">
-          <img
-            :class="$style.TelLinkIcon"
-            src="/flow/phone-24px.svg"
-            aria-hidden="true"
-          />
-          0570-550571
+        <a
+          :class="$style.TelLink"
+          href="http://www.pref.tochigi.lg.jp/e04/welfare/hoken-eisei/kansen/hp/shingatakoronavirussoudannmadoguti.html#ippan"
+        >
+          管轄ごとの連絡先はこちら
         </a>
       </div>
     </div>
