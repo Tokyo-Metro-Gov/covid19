@@ -134,8 +134,9 @@ export default Vue.extend({
           // a と b が等しい場合は上記のif文を両方とも通過するので 0 のままとなる
 
           // 降順指定の場合は符号を反転
-          comparison = isDesc[0] ? comparison * -1 : comparison
-
+          if (comparison !== 0) {
+            comparison = isDesc[0] ? comparison * -1 : comparison
+          }
           return comparison
         })
         return items
