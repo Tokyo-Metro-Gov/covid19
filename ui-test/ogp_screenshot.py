@@ -7,10 +7,10 @@ if not os.path.exists("ogp"):
     os.mkdir("ogp")
 
 PATHS = {
-    "/?dummy": (959, 500),
-    "/cards/details-of-confirmed-cases": (959, 500),
-    "/cards/number-of-confirmed-cases": (959, 500),
-    "/cards/attributes-of-confirmed-cases": (959, 480),
+    "/?dummy": (375, 560),
+    "/cards/details-of-confirmed-cases": (375, 560),
+    "/cards/number-of-confirmed-cases": (375, 560),
+    "/cards/attributes-of-confirmed-cases": (375, 560),
 }
 
 options = webdriver.ChromeOptions()
