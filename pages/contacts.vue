@@ -206,7 +206,7 @@ export default Vue.extend({
         th.tel {
           width: 35%;
         }
-
+        th,
         tr:not(:last-child) {
           border-top: none;
           border-left: none;
