@@ -160,6 +160,12 @@
     &:focus {
       color: inherit;
       text-decoration: none;
+    }
+
+    &:visited,
+    &:hover,
+    &:active,
+    &:focus {
       @media screen {
         // printだとoutlineが太くなってしまい読みにくいので、消す処理
         outline: 1px dotted $gray-3;
