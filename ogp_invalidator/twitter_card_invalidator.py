@@ -20,6 +20,7 @@ PATHS = (
     'cards/details-of-confirmed-cases',
     'cards/number-of-confirmed-cases',
     'cards/attributes-of-confirmed-cases',
+    'cards/okinawa-land-map',
     'cards/number-of-tested',
     'cards/number-of-reports-to-covid19-telephone-advisory-center',
     'cards/number-of-reports-to-covid19-consultation-desk',
