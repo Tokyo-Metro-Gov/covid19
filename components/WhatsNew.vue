@@ -95,10 +95,8 @@ export default Vue.extend({
     .WhatsNew-title {
       display: flex;
       align-items: center;
-
-      @include card-h2();
       color: $gray-2;
-
+      @include card-h2();
       &-icon {
         margin: 3px;
       }
