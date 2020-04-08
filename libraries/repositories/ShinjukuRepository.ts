@@ -1,7 +1,7 @@
 import {
   The13104DailyVisitors,
   Convert
-} from '@/utils/data_converter/convert13104DailyVisitors'
+} from '@/libraries/utils/data_converter/convert13104DailyVisitors'
 import {
   BaseRepository,
   IBaseRepository

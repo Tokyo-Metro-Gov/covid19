@@ -55,7 +55,7 @@ import { TranslateResult } from 'vue-i18n'
 import { ChartOptions, ChartData } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
-import { getGraphSeriesStyle } from '@/utils/colors'
+import { getGraphSeriesStyle } from '@/libraries/utils/colors'
 import ExternalLink from '@/components/ExternalLink.vue'
 
 interface HTMLElementEvent<T extends HTMLElement> extends Event {

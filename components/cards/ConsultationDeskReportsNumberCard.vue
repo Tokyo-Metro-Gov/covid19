@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import formatGraph from '@/utils/formatGraph'
+import formatGraph from '@/libraries/utils/formatGraph'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import { Registry } from '@/libraries/Registry'
 

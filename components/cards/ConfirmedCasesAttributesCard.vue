@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import formatGraph from '@/utils/formatGraph'
-import formatTable from '@/utils/formatTable'
+import formatGraph from '@/libraries/utils/formatGraph'
+import formatTable from '@/libraries/utils/formatTable'
 import DataTable from '@/components/DataTable.vue'
 import { Registry } from '@/libraries/Registry'
 

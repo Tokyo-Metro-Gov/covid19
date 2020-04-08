@@ -1,4 +1,4 @@
-import { Convert, News } from '@/utils/data_converter/convertNews'
+import { Convert, News } from '@/libraries/utils/data_converter/convertNews'
 import {
   BaseRepository,
   IBaseRepository

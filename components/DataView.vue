@@ -148,7 +148,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import { convertDatetimeToISO8601Format } from '@/libraries/utils/formatDate'
 
 export default Vue.extend({
   props: {

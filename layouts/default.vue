@@ -38,7 +38,7 @@ import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
 import NoScript from '@/components/NoScript.vue'
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
-import { convertDateToSimpleFormat } from '@/utils/formatDate'
+import { convertDateToSimpleFormat } from '@/libraries/utils/formatDate'
 import { Registry } from '@/libraries/Registry'
 
 type LocalData = {

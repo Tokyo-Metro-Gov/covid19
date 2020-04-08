@@ -54,7 +54,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
-import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import { convertDatetimeToISO8601Format } from '@/libraries/utils/formatDate'
 import { Registry } from '@/libraries/Registry'
 
 export default Vue.extend({

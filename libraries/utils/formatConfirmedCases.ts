@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { MainSummary } from '@/utils/data_converter/convertData'
+import { MainSummary } from '~/libraries/utils/data_converter/convertData'
 
 type ConfirmedCasesType = {
   検査実施人数: number

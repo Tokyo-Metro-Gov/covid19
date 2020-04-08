@@ -68,7 +68,7 @@
 </template>
 
 <script lang="ts">
-import { onDoneScroll } from '@/utils/vueScrollTo'
+import { onDoneScroll } from '@/libraries/utils/vueScrollTo'
 import HumanIcon from '@/static/flow/responsive/accessibility.svg'
 import ArrowForwardIcon from '@/static/flow/responsive/arrow_forward.svg'
 export default {

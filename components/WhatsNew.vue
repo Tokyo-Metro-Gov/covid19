@@ -41,7 +41,7 @@ import Vue from 'vue'
 import {
   convertDateByCountryPreferTimeFormat,
   convertDateToISO8601Format
-} from '@/utils/formatDate'
+} from '@/libraries/utils/formatDate'
 
 export default Vue.extend({
   props: {

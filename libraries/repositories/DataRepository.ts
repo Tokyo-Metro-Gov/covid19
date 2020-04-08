@@ -1,4 +1,4 @@
-import { Convert, Data } from '@/utils/data_converter/convertData'
+import { Convert, Data } from '@/libraries/utils/data_converter/convertData'
 import {
   BaseRepository,
   IBaseRepository

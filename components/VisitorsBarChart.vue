@@ -67,7 +67,7 @@ import weekOfYear from 'dayjs/plugin/weekOfYear'
 import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
 import DataView from '@/components/DataView.vue'
-import { getGraphSeriesStyle } from '@/utils/colors'
+import { getGraphSeriesStyle } from '@/libraries/utils/colors'
 import SourceLink from '@/components/SourceLink.vue'
 
 dayjs.extend(updateLocale)

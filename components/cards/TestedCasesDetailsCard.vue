@@ -49,7 +49,7 @@ ul.notes {
 </style>
 
 <script>
-import formatTestedCases from '@/utils/formatTestedCases'
+import formatTestedCases from '@/libraries/utils/formatTestedCases'
 import DataView from '@/components/DataView.vue'
 import TestedCasesDetailsTable from '@/components/TestedCasesDetailsTable.vue'
 import { Registry } from '@/libraries/Registry'

@@ -51,13 +51,13 @@
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { GraphDataType } from '@/utils/formatGraph'
+import { GraphDataType } from '@/libraries/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 
-import { getGraphSeriesStyle } from '@/utils/colors'
+import { getGraphSeriesStyle } from '@/libraries/utils/colors'
 
 type Data = {
   dataKind: 'transition' | 'cumulative'

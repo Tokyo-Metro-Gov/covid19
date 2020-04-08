@@ -66,7 +66,7 @@ import { TranslateResult } from 'vue-i18n'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import { getGraphSeriesStyle } from '@/utils/colors'
+import { getGraphSeriesStyle } from '@/libraries/utils/colors'
 
 interface HTMLElementEvent<T extends HTMLElement> extends Event {
   currentTarget: T
