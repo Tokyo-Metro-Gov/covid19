@@ -256,6 +256,7 @@ export default Vue.extend({
 
       p.caution {
         font-size: 12px;
+        margin: 0;
       }
     }
   }
