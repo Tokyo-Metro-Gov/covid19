@@ -29,6 +29,12 @@
       class="cardTable"
       item-key="name"
     />
+    <template v-slot:footer>
+      <external-link
+        :url="'https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf'"
+        :label="$t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）[PDF]')"
+      />
+    </template>
   </data-view>
 </template>
 
@@ -50,6 +56,7 @@ import { ChartOptions, ChartData } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 interface HTMLElementEvent<T extends HTMLElement> extends Event {
   currentTarget: T
@@ -122,7 +129,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView },
+  components: { DataView, ExternalLink },
   props: {
     title: {
       type: String,
