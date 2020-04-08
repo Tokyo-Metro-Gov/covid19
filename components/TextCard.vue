@@ -4,10 +4,10 @@
       {{ title }}
     </h3>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <p v-if="body" class="TextCard-Body" v-html="body" />
-    <p class="TextCard-Body">
+    <div v-if="body" class="TextCard-Body" v-html="body" />
+    <div v-if="$slots.default" class="TextCard-Body">
       <slot />
-    </p>
+    </div>
   </div>
 </template>
 
