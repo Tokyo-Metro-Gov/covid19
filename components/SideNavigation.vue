@@ -1,74 +1,50 @@
 <template>
-  <div class="SideNavigation">
-    <div class="SideNavigation-HeadingContainer sp-flex">
+  <div ref="Side" class="SideNavigation" tabindex="-1">
+    <header class="SideNavigation-Header">
       <v-icon
-        class="SideNavigation-HeadingIcon pc-none"
+        class="SideNavigation-OpenIcon"
         :aria-label="$t('Navi Open')"
-        @click="openNavi"
+        @click="$emit('openNavi', $event)"
       >
         mdi-menu
       </v-icon>
-      <nuxt-link to="/" class="SideNavigation-HeadingLink">
-        <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('Prefecture')" />
-        </div>
-        <h1 class="SideNavigation-Heading">
-          {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
-        </h1>
-      </nuxt-link>
-    </div>
-    <v-divider class="SideNavigation-HeadingDivider" />
-    <div class="sp-none" :class="{ open: isNaviOpen }">
+      <h1 class="SideNavigation-Heading">
+        <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
+          <div class="SideNavigation-HeaderLogo">
+            <img src="/logo.svg" :alt="$t('Prefecture')" />
+          </div>
+          <div class="SideNavigation-HeaderLogoLinkText">
+            {{ $t('COVID-19') }}<br />{{ $t('Measures site') }}
+          </div>
+        </nuxt-link>
+      </h1>
+    </header>
+    <div :class="['SideNavigation-Body', { '-opened': isNaviOpen }]">
       <v-icon
-        class="SideNavigation-ListContainerIcon pc-none"
+        class="SideNavigation-CloseIcon"
         :aria-label="$t('Navi Close')"
-        @click="closeNavi"
+        @click="$emit('closeNavi', $event)"
       >
         mdi-close
       </v-icon>
-      <v-list :flat="true">
-        <v-container
-          v-for="(item, i) in items"
-          :key="i"
-          class="SideNavigation-ListItemContainer"
-          @click="closeNavi"
-        >
-          <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
-          <v-divider v-show="item.divider" class="SideNavigation-Divider" />
-        </v-container>
-      </v-list>
-      <div class="SideNavigation-Footer">
-        <div class="SideNavigation-SocialLinkContainer">
-          <!-- <a
-            href="https://line.me/R/ti/p/%40822sysfc"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/line.png" alt="LINE" />
-          </a>
-          <a
-            href="https://twitter.com/tokyo_bousai"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/twitter.png" alt="Twitter" />
-          </a>
-          <a
-            href="https://www.facebook.com/tochokoho"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/facebook.png" alt="Facebook" />
-          </a> -->
+      <nav class="SideNavigation-Menu">
+        <MenuList :items="items" @click="$emit('closeNavi', $event)" />
+      </nav>
+      <footer class="SideNavigation-Footer">
+        <div class="SideNavigation-Social">
           <a
             href="https://github.com/civictechzenchiba/covid19-chiba"
             target="_blank"
             rel="noopener"
+            class="SideNavigation-SocialLink"
           >
-            <img src="@/assets/images/github.png" alt="GitHub" />
+            <picture>
+              <source srcset="/github.webp" type="image/webp" />
+              <img src="/github.png" alt="GitHub" />
+            </picture>
           </a>
         </div>
-        <div class="SideNavigation-Copyright">
+        <small class="SideNavigation-Copyright">
           <a
             href="//creativecommons.org/licenses/by/4.0/deed.ja"
             target="_blank"
@@ -82,48 +58,48 @@
               class="license__icon"
             />
           </a>
-          <div class="sponsor">
-            <dl>
-              <dt>Data by:</dt>
-              <dd>
-                <a
-                  href="https://www.pref.chiba.lg.jp/"
-                  target="_blank"
-                  rel="noopener"
-                  class="sponsor__data"
-                >
-                  {{ $t('Chiba Prefecture') }}
-                </a>
-              </dd>
-              <dd>
-                <a
-                  href="https://www.city.chiba.jp/hokenfukushi/kenkou/kikaku/kansensyoujyouhou.html"
-                  target="_blank"
-                  rel="noopener"
-                  class="sponsor__data"
-                >
-                  {{ $t('Chiba City') }}
-                </a>
-              </dd>
-            </dl>
-          </div>
-          <div class="sponsor">
-            Operations by:<br />
-            <a
-              href="https://sites.google.com/view/civictechzenchiba/"
-              target="_blank"
-              rel="noopener"
-              class="sponsor__image"
-            >
-              <span>CivicTechZenChiba</span>
-              <img
-                src="@/assets/images/civictechzenchiba-icon.jpg"
-                alt="CivicTechZenChiba Icon"
-              />
-            </a>
-          </div>
+        </small>
+        <div class="sponsor">
+          <dl>
+            <dt>Data by:</dt>
+            <dd>
+              <a
+                href="https://www.pref.chiba.lg.jp/"
+                target="_blank"
+                rel="noopener"
+                class="sponsor__data"
+              >
+                {{ $t('Chiba Prefecture') }}
+              </a>
+            </dd>
+            <dd>
+              <a
+                href="https://www.city.chiba.jp/hokenfukushi/kenkou/kikaku/kansensyoujyouhou.html"
+                target="_blank"
+                rel="noopener"
+                class="sponsor__data"
+              >
+                {{ $t('Chiba City') }}
+              </a>
+            </dd>
+          </dl>
         </div>
-      </div>
+        <div class="sponsor">
+          Operations by:<br />
+          <a
+            href="https://sites.google.com/view/civictechzenchiba/"
+            target="_blank"
+            rel="noopener"
+            class="sponsor__image"
+          >
+            <span>CivicTechZenChiba</span>
+            <img
+              src="@/assets/images/civictechzenchiba-icon.jpg"
+              alt="CivicTechZenChiba Icon"
+            />
+          </a>
+        </div>
+      </footer>
     </div>
   </div>
 </template>
@@ -154,11 +130,11 @@
 </i18n>
 
 <script>
-import ListItem from '@/components/ListItem'
+import MenuList from '@/components/MenuList'
 
 export default {
   components: {
-    ListItem
+    MenuList
   },
   props: {
     isNaviOpen: {
@@ -174,20 +150,13 @@ export default {
           title: this.$t('The latest updates'),
           link: '/'
         },
-        // {
-        //   icon: 'covid',
-        //   title: this.$t('If you have any symptoms'),
-        //   link:
-        //     'https://www.pref.chiba.lg.jp/shippei/kansenshou/2019-ncov.html',
-        //   divider: true
-        // },
         {
           icon: 'mdi-information',
           title: this.$t('Information'),
           link: '/news'
         },
         {
-          icon: 'parent',
+          icon: 'ParentIcon',
           title: this.$t('for Families with children'),
           link: '/parent'
         },
@@ -233,17 +202,20 @@ export default {
           divider: true
         }
       ]
-    },
-    isClass() {
-      return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
     }
   },
+  watch: {
+    $route: 'handleChageRoute'
+  },
   methods: {
-    openNavi() {
-      this.$emit('openNavi')
-    },
-    closeNavi() {
-      this.$emit('closeNavi')
+    handleChageRoute() {
+      // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
+      return this.$nextTick().then(() => {
+        const $Side = this.$refs.Side
+        if ($Side) {
+          $Side.focus()
+        }
+      })
     }
   }
 }
@@ -255,115 +227,174 @@ export default {
   height: 100%;
   background: $white;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
-  &-HeadingContainer {
-    padding: 1.25em 0 1.25em 1.25em;
-    align-items: center;
-    @include lessThan($small) {
-      padding: 7px 0 7px 20px;
-    }
-  }
-  &-HeadingIcon {
-    margin-right: 16px;
-  }
-  &-HeadingLink {
-    @include lessThan($small) {
-      display: flex;
-      align-items: center;
-    }
-    text-decoration: none;
-  }
-  &-ListContainerIcon {
-    margin: 24px 16px 0;
-  }
-  &-ListItemContainer {
-    padding: 2px 20px;
-  }
-  &-Logo {
-    margin: 20px 16px 0 0;
-    width: 110px;
-    @include lessThan($small) {
-      margin-top: 0;
-    }
-  }
-  &-Heading {
-    margin-top: 8px;
-    font-size: 13px;
-    color: #707070;
-    padding: 0.5em 0;
-    text-decoration: none;
-    @include lessThan($small) {
-      margin-top: 0;
-    }
-  }
-  &-HeadingDivider {
-    margin: 0px 20px 4px;
-    @include lessThan($small) {
-      display: none;
-    }
-  }
-  &-Divider {
-    margin: 12px 0;
-  }
-  &-Footer {
-    padding: 20px;
-    background-color: $white;
-  }
-  &-SocialLinkContainer {
-    display: flex;
-    & img {
-      width: 30px;
-      &:first-of-type {
-        margin-right: 10px;
-      }
-    }
-  }
-  &-Copyright {
-    display: block;
-    margin-top: 10px;
-    color: $gray-1;
+  &:focus {
+    outline: none;
   }
 }
-.open {
+.SideNavigation-Header {
+  padding: 20px 20px 0 20px;
   @include lessThan($small) {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    display: block !important;
-    width: 100%;
-    z-index: z-index-of(opened-side-navigation);
-    background-color: $white;
-    /* stylelint-disable */
-    overflow-y: scroll; // TODO: Issue#81の暫定対応
-    /* stylelint-enable */
-    -webkit-overflow-scrolling: touch;
-  }
-}
-@include largerThan($small) {
-  .pc-none {
-    display: none;
-  }
-}
-@include lessThan($small) {
-  .sp-flex {
+    height: 64px;
     display: flex;
+    padding: 0 20px 0 57px;
   }
-  .sp-none {
+}
+.SideNavigation-Heading {
+  font-size: 13px;
+  color: $gray-3;
+}
+.SideNavigation-HeadingLink {
+  display: flex;
+  width: 100%;
+  color: $gray-3;
+  &:link,
+  &:hover,
+  &:focus,
+  &:visited,
+  &:active {
+    color: inherit;
+    text-decoration: none;
+  }
+  &:hover,
+  &:focus {
+    font-weight: bold;
+  }
+  &:focus {
+    outline: 1px dotted $gray-3;
+  }
+  @include lessThan($small) {
+    align-items: center;
+    height: 64px;
+  }
+  @include largerThan($small) {
+    flex-direction: column;
+  }
+}
+.SideNavigation-HeaderLogo {
+  @include lessThan($tiny) {
+    width: 90px;
+  }
+}
+.SideNavigation-HeaderLogoLinkText {
+  @include lessThan($small) {
+    flex-grow: auto;
+    margin-left: 16px;
+  }
+  @include lessThan($tiny) {
+    margin-left: 10px;
+  }
+  @include largerThan($small) {
+    margin-top: 15px;
+  }
+}
+.SideNavigation-OpenIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 18px 8px 18px 16px;
+  font-size: 28px;
+  @include largerThan($small) {
     display: none;
+  }
+}
+.SideNavigation-CloseIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 18px 8px 18px 16px;
+  font-size: 28px;
+  @include largerThan($small) {
+    display: none;
+  }
+}
+.SideNavigation-Body {
+  padding: 0 20px 20px;
+  background-color: #fff;
+  @include lessThan($small) {
+    display: none;
+    &.-opened {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      display: block !important;
+      width: 100%;
+      z-index: z-index-of(opened-side-navigation);
+      background-color: $white;
+      height: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
+.SideNavigation-Menu {
+  padding-top: 20px;
+  @include lessThan($small) {
+    padding-top: 50px;
+  }
+}
+.SideNavigation-LanguageLabel {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+}
+.SideNavigation-Footer {
+  padding-top: 20px;
+  background-color: $white;
+}
+.SideNavigation-Social {
+  display: flex;
+}
+.SideNavigation-SocialLink {
+  border: 1px dotted transparent;
+  border-radius: 30px;
+  color: $gray-3;
+  &:link,
+  &:hover,
+  &:focus,
+  &:visited,
+  &:active {
+    color: inherit;
+    text-decoration: none;
+  }
+  &:focus {
+    border-color: $gray-3;
+    outline: none;
+  }
+  & + & {
+    margin-left: 10px;
+  }
+  img {
+    width: 30px;
+  }
+}
+.SideNavigation-Copyright {
+  display: block;
+  margin-top: 10px;
+  color: $gray-1;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+.SideNavigation-LicenseLink {
+  &:focus {
+    outline: 1px dotted $gray-3;
   }
 }
 .license {
   text-decoration: none;
   color: $gray-1;
   font-size: 16px;
-
+  display: inline-block;
+  &:focus {
+    outline: 1px dotted $gray-3;
+  }
   &__title {
     display: inline-block;
     width: 0;
     height: 1.5rem;
     overflow: hidden;
   }
-
   &__icon {
     display: inline-block;
     height: 24px;
@@ -372,29 +403,31 @@ export default {
 .sponsor {
   color: $gray-1;
   font-size: 16px;
-
   &:nth-child(n + 2) {
     margin-top: 12px;
   }
-
   &__data {
     font-size: 26px;
     text-decoration: none;
     color: $gray-1;
-
     &:hover {
       opacity: 0.6;
+    }
+    &:focus {
+      outline: 1px dotted $gray-3;
     }
   }
 
   &__image {
-    display: block;
     text-decoration: none;
 
     &:hover {
       opacity: 0.6;
     }
 
+    &:focus {
+      outline: 1px dotted $gray-3;
+    }
     span {
       position: absolute;
       width: 1px;
@@ -402,7 +435,6 @@ export default {
       overflow: hidden;
       clip: rect(1px, 1px, 1px, 1px);
     }
-
     img {
       width: 64px;
       height: 64px;
