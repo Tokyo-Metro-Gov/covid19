@@ -1,5 +1,6 @@
 <script lang="ts">
 import Vue, { VNode } from 'vue'
+import XRegExp from 'xregexp/'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 type RubyText = {
@@ -31,22 +32,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     createRubyTexts(text) {
       let match: RegExpExecArray | null
       let lastText: string
-      let prevIndex = 0
+      let pos = 0
       const texts: RubyText[] = []
-      const regp = new RegExp(
-        /([\p{sc=Han}|\s|・]+?)（([\p{sc=Hiragana}|\s|・]+?)）/,
-        'gu'
-      )
+      const regp = /([\p{sc=Han}|\s|・]+?)（([\p{sc=Hiragana}|\s|・]+?)）/gu
 
       // ふりがなを含んだ文字列をパースしてオブジェクトを生成
-      while ((match = regp.exec(text)) !== null) {
+      while ((match = XRegExp.exec(text, regp, pos))) {
         if (match.index > 0) {
-          texts.push({ ja: match.input.slice(prevIndex, match.index) })
+          texts.push({ ja: match.input.slice(pos, match.index) })
         }
         texts.push({ ja: match[1], kana: match[2] })
-        prevIndex = match.index + match[0].length
+        pos = match.index + match[0].length
       }
-      if ((lastText = text.slice(prevIndex))) texts.push({ ja: lastText })
+      if ((lastText = text.slice(pos))) texts.push({ ja: lastText })
       return texts
     }
   },
