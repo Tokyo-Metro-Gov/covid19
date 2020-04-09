@@ -99,9 +99,9 @@ export default {
             return !isDesc[0] ? 1 : -1
           }
         } else if (!isDesc[0]) {
-          return a[index[0]] < b[index[0]] ? -1 : 1
+          return String(a[index[0]]) < String(b[index[0]]) ? -1 : 1
         } else {
-          return b[index[0]] < a[index[0]] ? -1 : 1
+          return String(b[index[0]]) < String(a[index[0]]) ? -1 : 1
         }
       })
       return items
