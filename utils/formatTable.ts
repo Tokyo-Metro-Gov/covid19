@@ -52,6 +52,6 @@ export default (data: DataType[]) => {
       }
     }
   )
-  tableDate.datasets = sortBy(datasets, [o => -dayjs(o.公表日)])
+  tableDate.datasets = sortBy(datasets, [o => dayjs(o['公表日'])]).reverse()
   return tableDate
 }
