@@ -73,7 +73,7 @@
                 :aria-label="$t('クリップボードにコピー')"
                 @click="copyEmbedCode"
               >
-                far fa-clipboard
+                mdi-clipboard-outline
               </v-icon>
               {{ graphEmbedValue }}
             </div>
