@@ -126,9 +126,9 @@ export default Vue.extend({
       default(items: Object[], index: string[], isDesc: boolean[]) {
         items.sort((a: any, b: any) => {
           let comparison = 0
-          if (a[index[0]] < b[index[0]]) {
+          if (String(a[index[0]]) < String(b[index[0]])) {
             comparison = -1
-          } else if (b[index[0]] < a[index[0]]) {
+          } else if (String(b[index[0]]) < String(a[index[0]])) {
             comparison = 1
           }
           // a と b が等しい場合は上記のif文を両方とも通過するので 0 のままとなる
