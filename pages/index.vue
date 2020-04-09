@@ -17,20 +17,16 @@
     </div>
     <whats-new class="mb-4" :items="newsItems" />
     <StaticCard>
-      <blockquote class="twitter-tweet">
-        <p lang="ja" dir="ltr">
-          <a href="https://t.co/CMgtyFqJuA">pic.twitter.com/CMgtyFqJuA</a>
-        </p>
-        &mdash; しまねのねっさん (@shimane_nessan)
-        <a
-          href="https://twitter.com/shimane_nessan/status/1247022014163910656?ref_src=twsrc%5Etfw"
-          >April 6, 2020</a
-        >
-      </blockquote>
-      <script
-        async
-        src="https://platform.twitter.com/widgets.js"
-        charset="utf-8"
+      <p>
+        {{ $t('4月9日 新型コロナウイルス感染者に関する 島根県の会見') }}
+      </p>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/WRHk6TgLWXY"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
       />
     </StaticCard>
     <static-info
