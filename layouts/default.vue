@@ -49,7 +49,7 @@ export default Vue.extend({
     botScript.setAttribute('charset', 'UTF-8')
     botScript.setAttribute(
       'src',
-      'https://storage.googleapis.com/obotai-hosting-for-customers/covid19/loader.js'
+      'https://storage.googleapis.com/obotai-hosting-for-customers/covid19-chiba/loader.js'
     )
     document.body.append(botScript)
   },
