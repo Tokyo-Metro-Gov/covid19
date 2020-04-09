@@ -15,20 +15,13 @@
       class="cardTable"
     >
       <template v-slot:item.居住地="{ item }">
-        <!-- FIXME SSRとCSRでDOMが一致しないのでSSRを無効にする -->
-        <no-ssr>
-          <t-i18n>{{ item.居住地 }}</t-i18n>
-        </no-ssr>
+        <t-i18n>{{ item.居住地 }}</t-i18n>
       </template>
       <template v-slot:item.年代="{ item }">
-        <no-ssr>
-          <t-i18n>{{ item.年代 }}</t-i18n>
-        </no-ssr>
+        <t-i18n>{{ item.年代 }}</t-i18n>
       </template>
       <template v-slot:item.性別="{ item }">
-        <no-ssr>
-          <t-i18n>{{ item.性別 }}</t-i18n>
-        </no-ssr>
+        <t-i18n>{{ item.性別 }}</t-i18n>
       </template>
     </v-data-table>
     <div class="note">
