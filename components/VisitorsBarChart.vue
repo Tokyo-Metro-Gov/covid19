@@ -66,9 +66,11 @@ import 'dayjs/locale/en'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
+import { Chart } from 'chart.js'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import SourceLink from '@/components/SourceLink.vue'
+import type { DisplayData } from '@/plugins/vue-chart';
 
 dayjs.extend(updateLocale)
 dayjs.extend(weekOfYear)
@@ -87,7 +89,7 @@ type Data = {
   canvas: boolean
 }
 type Methods = {
-  tooltipTitle: (tooltipItems: any, data: any) => string
+  tooltipTitle: Chart.ChartTooltipCallback['title']
 }
 type Computed = {
   groupByWeekData: {
@@ -106,32 +108,8 @@ type Computed = {
     [weekNum: number]: VisitorData[]
   }
   targetValues: number[]
-  displayData: {
-    labels: string[]
-    datasets: {
-      data: number[]
-      backgroundColor: string
-      borderColor: string
-      borderWidth: number
-    }[]
-  }
-  displayOptions: {
-    responsive: boolean
-    legend: {
-      display: boolean
-    }
-    scales: {
-      xAxes: object[]
-      yAxes: object[]
-    }
-    tooltips: {
-      displayColors: boolean
-      callbacks: {
-        title: (tooltipItems: any, data: any) => string
-        label: (tooltipItems: any, data: any) => string
-      }
-    }
-  }
+  displayData: DisplayData
+  displayOptions: Chart.ChartOptions
 }
 type Props = {
   title: string
@@ -296,7 +274,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableData() {
       return this.displayData.datasets[0].data.map((_, i) => {
         return Object.assign(
-          { header: this.displayData.labels[i] },
+          { header: this.displayData.labels![i] },
           { visitor: this.displayData.datasets[0].data[i] }
         )
       })
@@ -312,8 +290,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             title: self.tooltipTitle,
-            label(tooltipItem: any) {
-              const val = tooltipItem.yLabel
+            label(tooltipItem) {
+              const val = tooltipItem.yLabel as number
               return `${val.toFixed(2)}%`
             }
           }
@@ -348,10 +326,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   methods: {
-    tooltipTitle(tooltipItems: any): string {
+    tooltipTitle(tooltipItems) {
       const label = tooltipItems[0].label
       return this.$t('期間: {duration}', {
-        duration: this.$t(label)
+        duration: this.$t(label!)
       }) as string
     }
   },
