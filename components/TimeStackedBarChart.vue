@@ -145,7 +145,7 @@ export default {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const labelTokyo = this.$t('都内')
+              const labelTokyo = this.$t('県内')
               const labelOthers = this.$t('その他')
               const labelArray = [labelTokyo, labelOthers]
               let casesTotal, cases
