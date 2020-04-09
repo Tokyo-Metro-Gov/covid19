@@ -234,7 +234,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           { text: this.displayData.labels![i] as string },
           ...this.displayData.datasets!.map((_, j) => {
             return {
-              [j]: this.displayData.datasets[0].data[i]
+              [j]: this.displayData.datasets[j].data[i]
             }
           })
         )
