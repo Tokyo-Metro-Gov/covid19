@@ -27,6 +27,9 @@
                 v-if="!isInternalLink(item.link)"
                 class="WhatsNew-item-ExternalLinkIcon"
                 size="12"
+                aria-label="別タブで開く"
+                role="img"
+                :aria-hidden="false"
               >
                 mdi-open-in-new
               </v-icon>
