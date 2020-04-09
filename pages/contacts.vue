@@ -4,26 +4,26 @@
       {{ $t('お問い合わせ先一覧') }}
     </page-header>
     <div class="Contacts-Card">
-      <table class="Contacts-Card-Table" role="presentation">
+      <table class="Contacts-Card-Table" v-bind="tableAttrs">
         <thead>
           <tr>
             <th class="text-center" scope="col">
               {{ $t('お問い合わせ内容') }}
             </th>
             <th class="text-center" scope="col">{{ $t('局名') }}</th>
-            <th class="text-center" scope="col">{{ $t('電話番号') }}</th>
+            <th class="text-center tel" scope="col">{{ $t('電話番号') }}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="content" role="heading" aria-level="3">
+            <td class="content" v-bind="headingAttrs">
               {{ $t('サイト全般に関すること') }}
             </td>
             <td class="bureau">{{ $t('政策企画局') }}</td>
             <td class="tel"><a href="tel:03-5388-2171">03-5388-2171</a></td>
           </tr>
           <tr>
-            <td class="content" role="heading" aria-level="3">
+            <td class="content" v-bind="headingAttrs">
               {{ $t('サイトの技術面に関すること') }}<br />{{
                 $t('オープンデータ、オープンソースに関すること')
               }}
@@ -32,15 +32,15 @@
             <td class="tel"><a href="tel:03-5320-7930">03-5320-7930</a></td>
           </tr>
           <tr>
-            <td class="content" role="heading" aria-level="3">
+            <td class="content" v-bind="headingAttrs">
               {{ $t('新型コロナウイルス感染症対策本部会議に関すること')
               }}<br />{{ $t('都庁来庁者データに関すること') }}
             </td>
             <td class="bureau">{{ $t('総務局') }}</td>
             <td class="tel">
               {{ $t('感染症対策本部会議に関すること') }}<br /><a
-                href="tel:03-5320-7891"
-                >03-5320-7891</a
+                href="tel:03-5388-2453"
+                >03-5388-2453</a
               ><br />
               {{ $t('都庁来庁者データに関すること') }}<br /><a
                 href="tel:03-5388-2319"
@@ -49,7 +49,7 @@
             </td>
           </tr>
           <tr>
-            <td class="content" role="heading" aria-level="3">
+            <td class="content" v-bind="headingAttrs">
               {{ $t('都公式ホームページに関すること') }}<br />{{
                 $t('都公式SNSアカウントに関すること')
               }}
@@ -67,7 +67,7 @@
             </td>
           </tr>
           <tr>
-            <td class="content" role="heading" aria-level="3">
+            <td class="content" v-bind="headingAttrs">
               {{ $t('中小企業支援、テレワークに関すること') }}
             </td>
             <td class="bureau">{{ $t('産業労働局') }}</td>
@@ -84,31 +84,38 @@
             </td>
           </tr>
           <tr>
-            <td class="content" role="heading" aria-level="3">
+            <td class="content" v-bind="headingAttrs">
               {{ $t('新型コロナウイルス感染症の予防・検査・医療に関すること') }}
             </td>
             <td class="bureau">{{ $t('福祉保健局') }}</td>
             <td class="tel">
               <a href="tel:0570-550-571">0570-550-571</a><br />
               {{ $t('（新型コロナコールセンター）') }}
+              <p class="caution">
+                {{
+                  $t(
+                    '電話のおかけ間違いが多くなっております。発信の際は今一度電話番号をお確かめの上、お間違えのないようお願いいたします。'
+                  )
+                }}
+              </p>
             </td>
           </tr>
           <tr>
-            <td class="content" role="heading" aria-level="3">
+            <td class="content" v-bind="headingAttrs">
               {{ $t('都立学校に関すること') }}
             </td>
             <td class="bureau">{{ $t('教育庁') }}</td>
             <td class="tel"><a href="tel:03-5320-6705">03-5320-6705</a></td>
           </tr>
           <tr>
-            <td class="content" role="heading" aria-level="3">
+            <td class="content" v-bind="headingAttrs">
               {{ $t('スムーズビズに関すること') }}
             </td>
             <td class="bureau">{{ $t('都市整備局') }}</td>
             <td class="tel"><a href="tel:03-5388-3317">03-5388-3317</a></td>
           </tr>
           <tr>
-            <td class="content" role="heading" aria-level="3">
+            <td class="content" v-bind="headingAttrs">
               {{ $t('都営交通に関すること') }}
             </td>
             <td class="bureau">{{ $t('交通局') }}</td>
@@ -131,6 +138,35 @@ import PageHeader from '@/components/PageHeader.vue'
 export default Vue.extend({
   components: {
     PageHeader
+  },
+  data() {
+    return {
+      pc: true
+    }
+  },
+  computed: {
+    tableAttrs(): any {
+      return this.pc ? {} : { role: 'presentation' }
+    },
+    headingAttrs(): any {
+      return this.pc ? {} : { role: 'heading', 'aria-level': '3' }
+    }
+  },
+  mounted() {
+    if (process.browser) {
+      window.addEventListener('resize', this.handleResize)
+      this.handleResize()
+    }
+  },
+  destroyed() {
+    if (process.browser) {
+      window.removeEventListener('resize', this.handleResize)
+    }
+  },
+  methods: {
+    handleResize() {
+      this.pc = window.innerWidth > 768
+    }
   },
   head(): MetaInfo {
     return {
@@ -167,6 +203,9 @@ export default Vue.extend({
           height: 96px;
         }
 
+        th.tel {
+          width: 35%;
+        }
         th,
         tr:not(:last-child) {
           border-top: none;
@@ -213,6 +252,11 @@ export default Vue.extend({
         td {
           display: block;
         }
+      }
+
+      p.caution {
+        font-size: 12px;
+        margin: 0;
       }
     }
   }

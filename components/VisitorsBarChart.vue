@@ -62,7 +62,7 @@ import weekOfYear from 'dayjs/plugin/weekOfYear'
 import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
 import DataView from '@/components/DataView.vue'
-import { single as color } from '@/utils/colors'
+import { getGraphSeriesStyle } from '@/utils/colors'
 import SourceLink from '@/components/SourceLink.vue'
 
 dayjs.extend(updateLocale)
@@ -106,6 +106,8 @@ type Computed = {
     datasets: {
       data: number[]
       backgroundColor: string
+      borderColor: string
+      borderWidth: number
     }[]
   }
   displayOptions: {
@@ -270,12 +272,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const percentages = this.targetValues.map(
         (val: number) => ((val - this.standardValue) / this.standardValue) * 100
       )
+      const style = getGraphSeriesStyle(1)[0]
       return {
         labels: this.labels,
         datasets: [
           {
             data: percentages,
-            backgroundColor: color
+            backgroundColor: style.fillColor,
+            borderColor: style.strokeColor,
+            borderWidth: 1
           }
         ]
       }

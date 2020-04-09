@@ -67,7 +67,7 @@ import { TranslateResult } from 'vue-i18n'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import { double as colors } from '@/utils/colors'
+import { getGraphSeriesStyle } from '@/utils/colors'
 
 interface HTMLElementEvent<T extends HTMLElement> extends Event {
   currentTarget: T
@@ -97,7 +97,7 @@ type Computed = {
       data: number[]
       backgroundColor: string
       borderColor: string
-      borderWidth: object
+      borderWidth: number
     }[]
   }
   tableHeaders: {
@@ -214,11 +214,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
-      const borderColor = '#ffffff'
-      const borderWidth = [
-        { left: 0, top: 1, right: 0, bottom: 0 },
-        { left: 0, top: 0, right: 0, bottom: 0 }
-      ]
+      const graphSeries = getGraphSeriesStyle(this.chartData.length)
       if (this.dataKind === 'transition') {
         return {
           labels: this.labels,
@@ -226,9 +222,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             return {
               label: this.items[index],
               data: item,
-              backgroundColor: colors[index],
-              borderColor,
-              borderWidth: borderWidth[index]
+              backgroundColor: graphSeries[index].fillColor,
+              borderColor: graphSeries[index].strokeColor,
+              borderWidth: 1
             }
           })
         }
@@ -239,9 +235,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           return {
             label: this.items[index],
             data: this.cumulative(item),
-            backgroundColor: colors[index],
-            borderColor,
-            borderWidth: borderWidth[index]
+            backgroundColor: graphSeries[index].fillColor,
+            borderColor: graphSeries[index].strokeColor,
+            borderWidth: 1
           }
         })
       }

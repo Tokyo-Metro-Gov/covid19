@@ -93,17 +93,23 @@
           $t(
             '当サイトでは、サービス向上やサイトの改善のためにGoogle LLCの提供するアクセス分析のツールであるGoogle Analyticsを利用した計測を行っております。'
           )
-        }}<br />
+        }}
+      </p>
+      <p>
         {{
           $t(
-            'Google Analyticsは、当サイトが発行するクッキー (Cookie) を利用して、個人を特定する情報を含まずにWebサイトの利用データ（アクセス状況、トラフィック、閲覧環境など）を収集しております。クッキー (Cookie) の利用に関してはGoogleのプライバシーポリシーと規約に基づいております。'
+            'Google Analyticsでは、当サイトが発行するクッキー (Cookie) 等を利用して、Webサイトの利用データ（アクセス状況、トラフィック、閲覧環境、IPアドレスなど）を収集しております。クッキーの利用に関してはGoogleのプライバシーポリシーと規約に基づいております。'
           )
-        }}<br />
+        }}
+      </p>
+      <p>
         {{
           $t(
-            '取得したデータは Webサイト利用状況の分析、サイト運営者へのレポートの作成、その他のサービスの提供に関わる目的に限り、これを使用します。'
+            '取得したデータはWebサイト利用状況を分析しサービスの改善につなげるため、またはサイト運営者へのレポートを作成するため、その他のサービスの提供に関わる目的に限り、これを使用します。（サイト運営者へのレポートでは、クッキーはブラウザ単位で本サイトのユーザー数をカウントするため、IPアドレスはGoogle Analyticsの分析機能を通じてアクセス元の地域分布（国、州・都道府県、都市）を把握するために利用されています。）'
           )
-        }}<br />
+        }}
+      </p>
+      <p>
         {{
           $t(
             'Google Analyticsの利用規約及びプライバシーポリシーに関する説明については、Google Analyticsのサイトをご覧ください。'
@@ -145,6 +151,20 @@
           </a>
         </li>
       </ul>
+      <i18n
+        tag="p"
+        path="Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。"
+      >
+        <template v-slot:addon>
+          <a
+            :href="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ $t('測定を無効にするブラウザ アドオン') }}
+          </a>
+        </template>
+      </i18n>
     </StaticCard>
     <StaticCard>
       <h3>{{ $t('免責事項') }}</h3>
@@ -176,14 +196,15 @@
         tag="p"
         path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
       >
-        <a
-          href="https://portal.data.metro.tokyo.lg.jp/"
-          target="_blank"
-          rel="noopener noreferrer"
-          place="catalogWebsite"
-        >
-          {{ $t('東京都オープンデータカタログサイト') }}
-        </a>
+        <template v-slot:catalogWebsite>
+          <a
+            href="https://portal.data.metro.tokyo.lg.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ $t('東京都オープンデータカタログサイト') }}
+          </a>
+        </template>
       </i18n>
     </StaticCard>
     <StaticCard>
@@ -195,14 +216,15 @@
           )
         }}
         <i18n path="詳しくは、{githubRepo}をご確認ください。">
-          <a
-            href="https://github.com/tokyo-metropolitan-gov/covid19"
-            target="_blank"
-            rel="noopener noreferrer"
-            place="githubRepo"
-          >
-            {{ $t('GitHub リポジトリ') }}
-          </a>
+          <template v-slot:githubRepo>
+            <a
+              href="https://github.com/tokyo-metropolitan-gov/covid19"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ $t('GitHub リポジトリ') }}
+            </a>
+          </template>
         </i18n>
       </p>
     </StaticCard>

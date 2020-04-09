@@ -54,10 +54,6 @@ const config: Configuration = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
-      {
-        rel: 'stylesheet',
-        href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
-      }
     ]
   },
   /*
@@ -117,8 +113,17 @@ const config: Configuration = {
     }
   },
   googleAnalytics: {
-    id: 'UA-159417676-1'
+    id: process.env.GOOGLE_ANALYTICS_ID // .env.production などに設定してください。
   },
+  optionalCookies: [
+    {
+      name: 'i18n_redirected',
+      label: 'i18n Redirection Cookie',
+      description:
+        'For automatically switching UI languages in accordance with locale preferences in the web browser configuration.',
+      cookies: ['i18n_redirected']
+    }
+  ],
   build: {
     plugins: [
       new webpack.ProvidePlugin({
@@ -171,12 +176,7 @@ const config: Configuration = {
         '/cards/number-of-reports-to-covid19-telephone-advisory-center',
         '/cards/number-of-reports-to-covid19-consultation-desk',
         '/cards/predicted-number-of-toei-subway-passengers',
-        '/cards/agency',
-        '/cards/shinjuku-visitors',
-        '/cards/chiyoda-visitors',
-        '/cards/shinjuku-st-heatmap',
-        '/cards/tokyo-st-heatmap',
-        '/cards/tokyo-city-heatmap'
+        '/cards/agency'
       ]
 
       const routes: string[] = []

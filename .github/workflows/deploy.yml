@@ -30,7 +30,13 @@ jobs:
       
       - run: yarn install --frozen-lockfile
       - run: yarn run test
-      - run: yarn run generate:deploy --fail-on-page-error
+      - name: generate
+        run: |
+          echo "GOOGLE_ANALYTICS_ID=${GOOGLE_ANALYTICS_ID}" >> .env.production
+          cat .env.production
+          yarn run generate:deploy --fail-on-page-error
+        env:
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
 
       - name: Temporarily disable "include administrators" branch protection
         uses: benjefferies/branch-protection-bot@master
@@ -58,3 +64,11 @@ jobs:
         uses: rymndhng/release-on-push-action@master
         with:
           bump_version_scheme: patch
+
+      - name: run delete_fbcache.sh
+        run: |
+          echo "FB_ACCESS_TOKEN=${FACEBOOK_ACCESS_TOKEN}" > .env
+          cd ui-test
+          ./delete_fbcache.sh
+        env:
+          FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}

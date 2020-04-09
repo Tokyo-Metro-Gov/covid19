@@ -42,6 +42,21 @@ $ yarn install
 $ yarn dev
 ```
 
+
+[PLEASE TRANSLATE ME]
+
+**アクセシビリティチェック（vue-axe）を無効にする方法**
+
+- 開発用ローカルサーバが重い場合、以下のようにアクセシビリティチェックを無効にして起動することができます。
+
+```bash
+# serve with hot reload at localhost:3000
+$ yarn dev-no-axe
+```
+
+[/PLEASE TRANSLATE ME]
+
+
 **使用 docker compose 的做法**
 ```bash
 # serve with hot reload at localhost:3000
@@ -80,7 +95,7 @@ $ docker-compose run --rm app yarn install
 
 ### 生產環境/其他環境的判定
 
-關於 `process.env.GENERATE_ENV` 這個值 ,生產環境為 `'production'` ，除此之外為 `'development'` 。  
+關於 `process.env.GENERATE_ENV` 這個值，生產環境為 `'production'` ，除此之外為 `'development'` 。  
 如果只想要在測試環境中執行的話，請利用這個值作為參考。
 
 ### Deploy 到 Staging 環境以及正式環境的方法
@@ -93,7 +108,7 @@ $ docker-compose run --rm app yarn install
 
 ### 分支規則
 
-只允許推送 Pull Request 到 `development`  跟 `dev-hotfix` 。
+只允許推送 Pull Request 到 `development` 跟 `dev-hotfix` 。
 在推送 Pull Request 時，請依照以下命名規則為您的分支命名
 
 新增功能: feature/#{ISSUE_ID}-#{branch_title_name}  
