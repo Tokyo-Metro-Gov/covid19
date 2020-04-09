@@ -13,7 +13,7 @@
         </v-icon>
         <external-link
           url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
-          label="東京都緊急事態措置について"
+          :label="$t('東京都緊急事態措置について')"
         />
       </span>
     </div>
