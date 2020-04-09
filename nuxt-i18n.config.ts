@@ -40,7 +40,7 @@ export default {
       iso: 'zh-TW',
       file: 'zh_TW.json',
       description: 'Traditional Chinese'
-    }
+    },
     // {
     //   code: 'ko',
     //   name: '한국어',
@@ -57,12 +57,12 @@ export default {
     //   file: 'pt_BR.json',
     //   description: 'Portuguese'
     // },
-    // {
-    //   code: 'ja-basic',
-    //   name: 'やさしい にほんご',
-    //   iso: 'ja-JP',
-    //   file: 'ja-Hira.json',
-    //   description: 'Easy Japanese'
-    // }
+    {
+      code: 'ja-basic',
+      name: 'やさしい にほんご',
+      iso: 'ja-JP',
+      file: 'ja-Hira.json',
+      description: 'Easy Japanese'
+    }
   ]
 }
