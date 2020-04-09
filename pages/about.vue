@@ -9,7 +9,15 @@
         href="https://sites.google.com/view/civictechzenchiba/"
         target="_blank"
         rel="noopener"
-        >CivicTechZenChiba</a
+        >CivicTechZenChiba
+        <v-icon
+          size="12"
+          aria-label="別タブで開く"
+          role="img"
+          :aria-hidden="false"
+        >
+          mdi-open-in-new
+        </v-icon> </a
       >が行っています。
     </TextCard>
     <TextCard>
@@ -17,7 +25,15 @@
         href="https://stopcovid19.metro.tokyo.lg.jp/"
         target="_blank"
         rel="noopener"
-        >東京都公式新型コロナウイルス対策サイト</a
+        >東京都公式新型コロナウイルス対策サイト
+        <v-icon
+          size="12"
+          aria-label="別タブで開く"
+          role="img"
+          :aria-hidden="false"
+        >
+          mdi-open-in-new
+        </v-icon> </a
       >のみを利用しています。
     </TextCard>
     <TextCard title="ブラウザ環境について">
@@ -67,6 +83,14 @@
             rel="noopener"
           >
             Google Analytics利用規約
+            <v-icon
+              size="12"
+              aria-label="別タブで開く"
+              role="img"
+              :aria-hidden="false"
+            >
+              mdi-open-in-new
+            </v-icon>
           </a>
         </li>
         <li>
@@ -76,6 +100,14 @@
             rel="noopener"
           >
             Googleのプライバシーポリシー
+            <v-icon
+              size="12"
+              aria-label="別タブで開く"
+              role="img"
+              :aria-hidden="false"
+            >
+              mdi-open-in-new
+            </v-icon>
           </a>
         </li>
         <li>
@@ -85,6 +117,14 @@
             rel="noopener"
           >
             Google Analyticsに関する詳細情報
+            <v-icon
+              size="12"
+              aria-label="別タブで開く"
+              role="img"
+              :aria-hidden="false"
+            >
+              mdi-open-in-new
+            </v-icon>
           </a>
         </li>
       </ul>
@@ -110,12 +150,28 @@
         href="https://creativecommons.org/licenses/by/4.0/deed.ja"
         target="_blank"
         rel="noopener"
-        >クリエイティブ・コモンズ 表示 4.0 ライセンス</a
+        >クリエイティブ・コモンズ 表示 4.0 ライセンス
+        <v-icon
+          size="12"
+          aria-label="別タブで開く"
+          role="img"
+          :aria-hidden="false"
+        >
+          mdi-open-in-new
+        </v-icon> </a
       >で公開されており、誰でも自由に利用することができます。詳しくは、<a
         href="https://github.com/civictechzenchiba/covid19-chiba"
         target="_blank"
         rel="noopener"
-        >GitHub リポジトリ</a
+        >GitHub リポジトリ
+        <v-icon
+          size="12"
+          aria-label="別タブで開く"
+          role="img"
+          :aria-hidden="false"
+        >
+          mdi-open-in-new
+        </v-icon> </a
       >をご確認ください。
     </TextCard>
 
@@ -158,9 +214,5 @@ export default {
     list-style: none;
     padding: 12px 0;
   }
-}
-
-a {
-  @include text-link();
 }
 </style>

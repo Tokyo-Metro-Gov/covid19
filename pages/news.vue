@@ -20,7 +20,15 @@
         <template v-slot:item.title="{ item }">
           <a v-if="item.link" :href="item.link" target="_blank" rel="noopener">
             {{ item.title }}
-            <v-icon size="12">mdi-open-in-new</v-icon>
+            <v-icon
+              class="ExternalLinkIcon"
+              size="12"
+              aria-label="別タブで開く"
+              role="img"
+              :aria-hidden="false"
+            >
+              mdi-open-in-new
+            </v-icon>
           </a>
           <span v-else>{{ item.title }}</span>
         </template>
