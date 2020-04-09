@@ -5,22 +5,20 @@
       :title="headerItem.title"
       :date="headerItem.date"
     />
-<!--
-    <whats-new class="mb-4" :items="newsItems" />
+    <!-- <whats-new class="mb-4" :items="newsItems" /> -->
     <static-info
       class="mb-4"
       :url="localePath('/flow')"
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
--->
     <v-row class="DataBlock">
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
       <telephone-advisory-reports-number-card />
       <tested-number-card />
-<!--
+      <!--
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
@@ -59,20 +57,20 @@ export default Vue.extend({
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     TestedNumberCard,
-    TelephoneAdvisoryReportsNumberCard,
+    TelephoneAdvisoryReportsNumberCard
     // ConsultationDeskReportsNumberCard,
     // MetroCard,
     // AgencyCard
   },
   data() {
     const data = {
-    // 退院者グラフ
-    // const dischargesGraph = formatGraph(Data.discharges_summary.data)
-    // 死亡者数
-    // #MEMO: 今後使う可能性あるので一時コメントアウト
-    // const fatalitiesTable = formatTable(
-    //   Data.patients.data.filter(patient => patient['備考'] === '死亡')
-    // )
+      // 退院者グラフ
+      // const dischargesGraph = formatGraph(Data.discharges_summary.data)
+      // 死亡者数
+      // #MEMO: 今後使う可能性あるので一時コメントアウト
+      // const fatalitiesTable = formatTable(
+      //   Data.patients.data.filter(patient => patient['備考'] === '死亡')
+      // )
 
       Data,
       // dischargesGraph,
