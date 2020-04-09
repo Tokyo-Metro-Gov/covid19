@@ -14,14 +14,14 @@
       :mobile-breakpoint="0"
       class="cardTable"
     >
-      <template v-slot:item.居住地="{ item }">
-        <t-i18n>{{ item.居住地 }}</t-i18n>
+      <template v-slot:item.居住地="slotProps">
+        <t-i18n>{{ slotProps.item.居住地 }}</t-i18n>
       </template>
-      <template v-slot:item.年代="{ item }">
-        <t-i18n>{{ item.年代 }}</t-i18n>
+      <template v-slot:item.年代="slotProps">
+        <t-i18n>{{ slotProps.item.年代 }}</t-i18n>
       </template>
-      <template v-slot:item.性別="{ item }">
-        <t-i18n>{{ item.性別 }}</t-i18n>
+      <template v-slot:item.性別="slotProps">
+        <t-i18n>{{ slotProps.item.性別 }}</t-i18n>
       </template>
     </v-data-table>
     <div class="note">
