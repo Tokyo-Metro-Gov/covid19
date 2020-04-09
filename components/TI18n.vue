@@ -69,8 +69,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return createElement(slot.tag, slot.data, slot.children)
     }
 
-    const createRubyNodes = (texts: RubyText[]): (VNode | string)[] => {
-      return texts.map(t => {
+    const createRubyNode = (texts: RubyText[]): VNode => {
+      const rubyTexts = texts.map(t => {
         if (!t.kana) return t.ja
         return createElement('ruby', [
           t.ja,
@@ -79,22 +79,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           createElement('rp', '）')
         ])
       })
+      return createElement('span', rubyTexts)
     }
 
-    const createVNode = (
-      node: VNode,
-      parentTag: string = ''
-    ): VNode | (VNode | string)[] => {
+    const createVNode = (node: VNode): VNode => {
       if (node.text) {
         const texts = this.createRubyTexts(node.text)
-        const nodes = createRubyNodes(texts)
-        return parentTag ? nodes : createElement('span', nodes)
+        return createRubyNode(texts)
       }
-      const vnode = node.children!.map(node => createVNode(node, parentTag))
-      return createElement(node.tag, node.data, vnode)
+      const vnodes = node.children!.map(node => createVNode(node))
+      return createElement(node.tag, node.data, vnodes)
     }
 
-    return createVNode(slot, slot.tag) as VNode
+    return createVNode(slot)
   }
 }
 
