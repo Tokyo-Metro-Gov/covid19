@@ -9,8 +9,17 @@
           href="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html"
           target="_blank"
           rel="noopener noreferrer"
-          >{{ $t('学びの支援サイト') }}</a
-        >
+          >{{ $t('学びの支援サイト') }}
+          <v-icon
+            class="ExternalLinkIcon"
+            size="24"
+            :aria-label="this.$t('別タブで開く')"
+            role="img"
+            :aria-hidden="false"
+          >
+            mdi-open-in-new
+          </v-icon>
+        </a>
       </h3>
     </StaticCard>
     <StaticCard>
@@ -30,8 +39,17 @@
             href="https://tokyodouga.jp/lViN9C_BS-0.html"
             target="_blank"
             rel="noopener noreferrer"
-            >{{ $t('【参考】感染症予防のための正しい手洗い方法（動画）') }}</a
-          >
+            >{{ $t('【参考】感染症予防のための正しい手洗い方法（動画）') }}
+            <v-icon
+              class="ExternalLinkIcon"
+              size="16"
+              :aria-label="this.$t('別タブで開く')"
+              role="img"
+              :aria-hidden="false"
+            >
+              mdi-open-in-new
+            </v-icon>
+          </a>
         </li>
         <li>
           {{
@@ -53,8 +71,17 @@
             href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
             target="_blank"
             rel="noopener noreferrer"
-            >{{ $t('「新型コロナウイルス感染症にかかる相談窓口について」') }}</a
-          >
+            >{{ $t('「新型コロナウイルス感染症にかかる相談窓口について」') }}
+            <v-icon
+              class="ExternalLinkIcon"
+              size="16"
+              :aria-label="this.$t('別タブで開く')"
+              role="img"
+              :aria-hidden="false"
+            >
+              mdi-open-in-new
+            </v-icon>
+          </a>
         </li>
       </ul>
     </StaticCard>

@@ -128,6 +128,15 @@
             rel="noopener noreferrer"
           >
             {{ $t('Google Analytics利用規約') }}
+            <v-icon
+              class="ExternalLinkIcon"
+              size="16"
+              :aria-label="$t('別タブで開く')"
+              role="img"
+              :aria-hidden="false"
+            >
+              mdi-open-in-new
+            </v-icon>
           </a>
         </li>
         <li>
@@ -137,6 +146,15 @@
             rel="noopener noreferrer"
           >
             {{ $t('Googleのプライバシーポリシー') }}
+            <v-icon
+              class="ExternalLinkIcon"
+              size="16"
+              :aria-label="$t('別タブで開く')"
+              role="img"
+              :aria-hidden="false"
+            >
+              mdi-open-in-new
+            </v-icon>
           </a>
         </li>
         <li>
@@ -148,6 +166,15 @@
             rel="noopener noreferrer"
           >
             {{ $t('Google Analyticsに関する詳細情報') }}
+            <v-icon
+              class="ExternalLinkIcon"
+              size="16"
+              :aria-label="$t('別タブで開く')"
+              role="img"
+              :aria-hidden="false"
+            >
+              mdi-open-in-new
+            </v-icon>
           </a>
         </li>
       </ul>
@@ -162,6 +189,15 @@
             rel="noopener noreferrer"
           >
             {{ $t('測定を無効にするブラウザ アドオン') }}
+            <v-icon
+              class="ExternalLinkIcon"
+              size="16"
+              :aria-label="$t('別タブで開く')"
+              role="img"
+              :aria-hidden="false"
+            >
+              mdi-open-in-new
+            </v-icon>
           </a>
         </template>
       </i18n>
@@ -203,6 +239,15 @@
             rel="noopener noreferrer"
           >
             {{ $t('東京都オープンデータカタログサイト') }}
+            <v-icon
+              class="ExternalLinkIcon"
+              size="16"
+              :aria-label="$t('別タブで開く')"
+              role="img"
+              :aria-hidden="false"
+            >
+              mdi-open-in-new
+            </v-icon>
           </a>
         </template>
       </i18n>
@@ -223,6 +268,15 @@
               rel="noopener noreferrer"
             >
               {{ $t('GitHub リポジトリ') }}
+              <v-icon
+                class="ExternalLinkIcon"
+                size="16"
+                :aria-label="$t('別タブで開く')"
+                role="img"
+                :aria-hidden="false"
+              >
+                mdi-open-in-new
+              </v-icon>
             </a>
           </template>
         </i18n>
