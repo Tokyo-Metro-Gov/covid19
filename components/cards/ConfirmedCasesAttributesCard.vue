@@ -84,25 +84,23 @@ export default {
     customSort(items, index, isDesc) {
       const lt10 = this.$t('10歳未満').toString()
       items.sort((a, b) => {
+        // 両者が等しい場合は 0 を返す
+        if (a[index[0]] === b[index[0]]) {
+          return 0
+        }
+
+        // 「10歳未満」同士を比較する場合、そうでない場合に場合分け
+        let comparison = 0
         if (
           index[0] === '年代' &&
           (a[index[0]] === lt10 || b[index[0]] === lt10)
         ) {
-          if (a[index[0]] === lt10) {
-            // 公表日を常に降順にする
-            if (b[index[0]] === lt10) {
-              return a['公表日'] > b['公表日'] ? -1 : 1
-            } else {
-              return !isDesc[0] ? -1 : 1
-            }
-          } else {
-            return !isDesc[0] ? 1 : -1
-          }
-        } else if (!isDesc[0]) {
-          return String(a[index[0]]) < String(b[index[0]]) ? -1 : 1
+          comparison = a[index[0]] === lt10 ? -1 : 1
         } else {
-          return String(b[index[0]]) < String(a[index[0]]) ? -1 : 1
+          comparison = String(a[index[0]]) < String(b[index[0]]) ? -1 : 1
         }
+
+        return isDesc[0] ? comparison * -1 : comparison
       })
       return items
     }
