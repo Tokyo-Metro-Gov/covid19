@@ -22,6 +22,7 @@ $huge: 1440;
 $large: 1170;
 $medium: 768;
 $small: 600;
+$tiny: 320;
 
 // ==================
 // z-index
@@ -36,17 +37,16 @@ $z-index-map: (
 // ==================
 // media-query
 @mixin largerThan($width) {
-	@media screen and (min-width: $width + 1 + px) {
-		@content;
-	}
+  @media screen and (min-width: $width + 1 + px) {
+    @content;
+  }
 }
 
 @mixin lessThan($width) {
-	@media screen and (max-width: $width + px) {
-		@content;
-	}
+  @media screen and (max-width: $width + px) {
+    @content;
+  }
 }
-
 
 // ==================
 // font-size
