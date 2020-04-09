@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { Registry } from '../../libraries/Registry'
+import { Registry } from '@/libraries/Registry'
 import VisitorsBarChart from '@/components/VisitorsBarChart.vue'
 
 export default {
