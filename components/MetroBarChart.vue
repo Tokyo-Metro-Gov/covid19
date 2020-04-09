@@ -37,6 +37,7 @@
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import { ChartOptions, ChartData } from 'chart.js'
+import dayjs from 'dayjs'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
@@ -177,16 +178,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      return this.displayData.datasets[0].data.map((_, i) => {
-        return Object.assign(
-          { text: this.chartData.datasets![i].label as string },
-          ...this.chartData.datasets!.map((_, j) => {
-            return {
-              [j]: this.displayData.datasets[0].data[i]
-            }
-          })
-        )
-      })
+      return this.displayData.datasets[0].data
+        .map((_, i) => {
+          return Object.assign(
+            { text: this.chartData.datasets![i].label as string },
+            ...this.chartData.datasets!.map((_, j) => {
+              return {
+                [j]: this.displayData.datasets[0].data[i]
+              }
+            })
+          )
+        })
+        .sort((a, b) => {
+          const aDate = a.text.split('~')[0]
+          const bDate = b.text.split('~')[0]
+          return dayjs(aDate).isBefore(dayjs(bDate)) ? 1 : -1
+        })
     },
     displayOption() {
       const self = this

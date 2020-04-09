@@ -51,6 +51,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
+import dayjs from 'dayjs'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
@@ -355,13 +356,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      return this.chartData.map((d, _) => {
-        return Object.assign(
-          { text: d.label },
-          { transition: d.transition.toLocaleString(), align: 'end' },
-          { cumulative: d.cumulative.toLocaleString(), align: 'end' }
-        )
-      })
+      return this.chartData
+        .map((d, _) => {
+          return Object.assign(
+            { text: d.label },
+            { transition: d.transition.toLocaleString(), align: 'end' },
+            { cumulative: d.cumulative.toLocaleString(), align: 'end' }
+          )
+        })
+        .sort((a, b) => (dayjs(a.text).isBefore(dayjs(b.text)) ? 1 : -1))
     }
   },
   methods: {

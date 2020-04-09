@@ -37,6 +37,7 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import { ChartOptions } from 'chart.js'
+import dayjs from 'dayjs'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
@@ -220,16 +221,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      return this.displayData.datasets[0].data.map((_, i) => {
-        return Object.assign(
-          { text: this.displayData.labels[i] as string },
-          ...this.displayData.datasets!.map((_, j) => {
-            return {
-              [j]: this.displayData.datasets[0].data[i]
-            }
-          })
-        )
-      })
+      return this.displayData.datasets[0].data
+        .map((_, i) => {
+          return Object.assign(
+            { text: this.displayData.labels[i] as string },
+            ...this.displayData.datasets!.map((_, j) => {
+              return {
+                [j]: this.displayData.datasets[0].data[i]
+              }
+            })
+          )
+        })
+        .sort((a, b) => {
+          const aDate = a.text.split('~')[0]
+          const bDate = b.text.split('~')[0]
+          return dayjs(aDate).isBefore(dayjs(bDate)) ? 1 : -1
+        })
     }
   },
   mounted() {

@@ -64,6 +64,7 @@
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
+import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
@@ -260,22 +261,24 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      return this.labels.map((label: string, i) => {
-        return Object.assign(
-          { text: label },
-          ...this.tableHeaders.map((_, j) => {
-            const index = j < 2 ? 0 : 1
-            const transition = this.chartData[index]
-            const cumulative = this.cumulative(transition)
-            return {
-              [j]:
-                j % 2 === 0
-                  ? transition[i].toString()
-                  : cumulative[i].toString()
-            }
-          })
-        )
-      })
+      return this.labels
+        .map((label: string, i) => {
+          return Object.assign(
+            { text: label },
+            ...this.tableHeaders.map((_, j) => {
+              const index = j < 2 ? 0 : 1
+              const transition = this.chartData[index]
+              const cumulative = this.cumulative(transition)
+              return {
+                [j]:
+                  j % 2 === 0
+                    ? transition[i].toString()
+                    : cumulative[i].toString()
+              }
+            })
+          )
+        })
+        .sort((a, b) => (dayjs(a.text).isBefore(dayjs(b.text)) ? 1 : -1))
     },
     options() {
       const unit = this.unit
