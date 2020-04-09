@@ -196,9 +196,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.displayData.datasets[0].data.map((_, i) => {
         return Object.assign(
           { text: this.chartData.datasets![i].label as string },
-          ...this.chartData.datasets!.map((_, j) => {
+          ...this.chartData.labels!.map((_, j) => {
             return {
-              [j]: this.displayData.datasets[0].data[i]
+              [j]: this.displayData.datasets[j].data[i]
             }
           })
         )
