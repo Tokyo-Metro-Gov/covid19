@@ -14,7 +14,7 @@
         />
       </div>
       <div class="mainContainer" :class="{ open: isOpenNavigation }">
-        <v-container class="px-4 py-8">
+        <v-container class="px-4">
           <nuxt />
         </v-container>
       </div>
@@ -124,9 +124,15 @@ export default Vue.extend({
 .mainContainer {
   grid-column: 2/3;
   overflow: hidden;
+  @include largerThan($small) {
+    .container {
+      padding-bottom: 220px;
+    }
+  }
   @include lessThan($small) {
     .container {
       padding-top: 16px !important;
+      padding-bottom: 160px;
     }
   }
 }
