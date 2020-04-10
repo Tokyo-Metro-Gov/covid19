@@ -275,6 +275,27 @@ export default Vue.extend({
 
   height: 100%;
 
+  .LegendStickyChart {
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+    > div:first-child {
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        height: 4px;
+        background-color: rgba(0, 0, 0, 0.01);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.07);
+      }
+    }
+    > div:nth-child(2) {
+      position: absolute;
+      top: 0;
+      pointer-events: none;
+    }
+  }
+
   &-Header {
     display: flex;
     align-items: flex-start;
