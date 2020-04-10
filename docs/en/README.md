@@ -30,7 +30,7 @@ Please check [How to translate](./../../TRANSLATION.md) doc.
 
 - Required Node.js version: 10.19.0 or higher
 
-**Use yarn**
+**Using yarn**
 ```bash
 # install dependencies
 $ yarn install
@@ -39,22 +39,17 @@ $ yarn install
 $ yarn dev
 ```
 
+**How to disable accessibility（vue-axe)**
 
-[PLEASE TRANSLATE ME]
-
-**アクセシビリティチェック（vue-axe）を無効にする方法**
-
-- 開発用ローカルサーバが重い場合、以下のようにアクセシビリティチェックを無効にして起動することができます。
+- Disable accessibility when local server is heavy
 
 ```bash
 # serve with hot reload at localhost:3000
 $ yarn dev-no-axe
 ```
 
-[/PLEASE TRANSLATE ME]
 
-
-**Use docker**
+**Using docker**
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
@@ -62,12 +57,12 @@ $ docker-compose up --build
 
 ### How to resolve `Cannot find module ****` error
 
-**Use yarn**
+**Using yarn**
 ```bash
 $ yarn install
 ```
 
-**Use docker**
+**Using docker**
 ```bash
 $ docker-compose run --rm app yarn install
 ```
