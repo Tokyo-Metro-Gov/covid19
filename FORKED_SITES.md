@@ -51,6 +51,7 @@
 []()九州|https://dev-covid19-kyusyu.netlify.com|九州(有志)|[Code-for-Kyushu/covid19](https://github.com/Code-for-Kyushu/covid19)|
 [](40)福岡県|https://fukuoka.stopcovid19.jp/|Code for Fukuoka, Code for Kurume|[Code-for-Fukuoka/covid19-fukuoka](https://github.com/Code-for-Fukuoka/covid19-fukuoka)|
 [](40)福岡市|https://stopcovid19.codeforfukuoka.org/|Code for Fukuoka|[Code-for-Fukuoka/covid19](https://github.com/Code-for-Fukuoka/covid19)|
+[](41)佐賀県|https://stopcovid19.code4saga.org/|Code for Saga|[codeforsaga/covid19](https://github.com/codeforsaga/covid19)|
 [](42)長崎県|https://stopcovid19-nagasaki.netlify.com/|Code for Nagasaki|[CodeForNagasaki/covid19](https://github.com/CodeForNagasaki/covid19)|
 [](43)熊本県|https://kumamoto.stopcovid19.jp/|Code for Kumamoto|[codeforkumamoto/covid19](https://github.com/codeforkumamoto/covid19)|
 [](44)大分県|https://oita.stopcovid19.jp/|有志|[covid19-oita/covid19](https://github.com/covid19-oita/covid19)|
