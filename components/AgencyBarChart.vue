@@ -223,7 +223,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.displayData.datasets[0].data
         .map((_, i) => {
           return Object.assign(
-            { text: this.displayData.labels![i] as string },
+            { text: this.displayData.labels![i] },
             ...this.displayData.datasets!.map((_, j) => {
               return {
                 [j]: this.displayData.datasets[j].data[i].toLocaleString()

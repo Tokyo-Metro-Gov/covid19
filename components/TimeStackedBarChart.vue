@@ -280,22 +280,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return [
         { text: this.$t('日付'), value: 'text' },
         ...(this.dataLabels as string[])
-          .reduce((arr: string[], text: string) => {
+          .reduce((arr, text) => {
             arr.push(
               ...[this.$t('日別'), this.$t('累計')].map(
                 label => `${text} (${label})`
               )
             )
             return arr
-          }, [])
-          .map((text: string, i: number) => {
+          }, [] as string[])
+          .map((text, i) => {
             return { text, value: String(i), align: 'end' }
           })
       ]
     },
     tableData() {
       return this.labels
-        .map((label: string, i) => {
+        .map((label, i) => {
           return Object.assign(
             { text: label },
             ...this.tableHeaders.map((_, j) => {
