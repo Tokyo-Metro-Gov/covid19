@@ -19,7 +19,7 @@
             <td class="content" v-bind="headingAttrs">
               {{ $t('サイト全般や技術面に関すること') }}<br />{{ $t('オープンデータ、オープンソースに関すること') }}
             </td>
-            <td class="bureau">{{ $t('CODE for OKINAWA') }}</td>
+            <td class="bureau">{{ $t('Code for Okinawa') }}</td>
             <td class="tel"><a href="mailto:codeforokinawa@gmail.com">codeforokinawa@gmail.com</a></td>
           </tr>
           <tr>
