@@ -1,12 +1,21 @@
 <template>
   <div class="WhatsNew" :class="{ expanded }">
     <div class="WhatsNew-wrapper">
-      <h3 class="WhatsNew-heading">
-        <v-icon size="24" class="WhatsNew-heading-icon">
-          mdi-information
-        </v-icon>
-        最新のお知らせ
-      </h3>
+      <div class="WhatsNew-head">
+        <div>
+          <h3 class="WhatsNew-heading">
+            <v-icon size="24" class="WhatsNew-heading-icon">
+              mdi-information
+            </v-icon>
+            最新のお知らせ
+          </h3>
+          <div>
+            <nuxt-link class="WhatsNew-archive" :to="localePath('/news')">
+              {{ $t('過去のお知らせを見る') }}
+            </nuxt-link>
+          </div>
+        </div>
+      </div>
       <ul class="WhatsNew-list">
         <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
           <a
@@ -37,9 +46,6 @@
           </a>
         </li>
       </ul>
-      <nuxt-link class="WhatsNew-archive" :to="localePath('/news')">
-        {{ $t('過去のお知らせを見る') }}
-      </nuxt-link>
     </div>
   </div>
 </template>
@@ -82,12 +88,33 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   @include card-h2();
-  margin-bottom: 12px;
   color: $gray-2;
-  margin-left: 12px;
 
   &-icon {
     margin: 3px;
+  }
+}
+
+.WhatsNew-head {
+  overflow: hidden;
+  margin-bottom: 12px;
+  margin-left: 12px;
+
+  & > * {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(6px / 2 * -1);
+  }
+
+  & > * > * {
+    margin: calc(6px / 2);
+    flex-grow: 1;
+  }
+
+  & > * > :first-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: calc(50% - 6px);
   }
 }
 
@@ -135,8 +162,6 @@ export default Vue.extend({
   padding: 3px 12px;
   color: $green-1;
   text-decoration: none;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  display: inline-block;
 }
 </style>
