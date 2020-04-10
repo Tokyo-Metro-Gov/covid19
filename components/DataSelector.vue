@@ -8,6 +8,7 @@
   >
     <v-btn
       v-ripple="false"
+      input-type="radio"
       :aria-pressed="value === 'transition' ? 'true' : 'false'"
       value="transition"
       class="DataSelector-Button"
@@ -16,6 +17,7 @@
     </v-btn>
     <v-btn
       v-ripple="false"
+      input-type="radio"
       :aria-pressed="value === 'cumulative' ? 'true' : 'false'"
       value="cumulative"
       class="DataSelector-Button"
@@ -44,8 +46,10 @@
       background-color: inherit;
     }
 
-    &:focus {
-      outline: dotted $gray-3 1px;
+    &:hover {
+      outline-style: dotted;
+      outline-color: $gray-3;
+      outline-width: 1px;
     }
   }
 
