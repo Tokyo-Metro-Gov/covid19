@@ -15,8 +15,9 @@
           </tr>
         </thead>
         <tbody>
+          <tr>
             <td class="content" v-bind="headingAttrs">
-              {{ $t('サイトの技術面に関すること') }}<br />{{ $t('オープンデータ、オープンソースに関すること') }}<br />{{ $t('サイト全般に関すること') }}
+              {{ $t('サイト全般や技術面に関すること') }}<br />{{ $t('オープンデータ、オープンソースに関すること') }}
             </td>
             <td class="bureau">{{ $t('CODE for OKINAWA') }}</td>
             <td class="tel"><a href="mailto:codeforokinawa@gmail.com">codeforokinawa@gmail.com</a></td>
