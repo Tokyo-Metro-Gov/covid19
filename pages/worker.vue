@@ -5,21 +5,11 @@
     </page-header>
     <StaticCard>
       <h3>
-        <a
-          href="http://www.sangyo-rodo.metro.tokyo.jp/chushou/kinyu/yuushi/yuushi/new"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link
+          url="http://www.sangyo-rodo.metro.tokyo.jp/chushou/kinyu/yuushi/yuushi/new"
+          icon-size="24"
           >{{ $t('新型コロナウイルス感染症に対応した制度融資') }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
       <p>
         {{
@@ -31,21 +21,11 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a
-          href="https://www.tokyo-kosha.or.jp/topics/2003/0001.html"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link
+          url="https://www.tokyo-kosha.or.jp/topics/2003/0001.html"
+          icon-size="24"
           >{{ $t('新型コロナウイルスによる経営課題に関する専門家派遣') }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
       <p>
         {{
@@ -57,21 +37,11 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a
-          href="https://www.tokyo-kosha.or.jp/support/josei/jigyo/kinkyu.html"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link
+          url="https://www.tokyo-kosha.or.jp/support/josei/jigyo/kinkyu.html"
+          icon-size="24"
           >{{ $t('緊急販路開拓助成事業（新型コロナウイルス感染症緊急対策）') }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
       <p>
         {{
@@ -83,21 +53,11 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a
-          href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link
+          url="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
+          icon-size="24"
           >{{ $t('中小企業従業員融資') }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
       <p>
         {{
@@ -109,23 +69,13 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a
-          href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link
+          url="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
+          icon-size="24"
           >{{
             $t('新型コロナウイルス感染症に係る休業等支援事業（専門家派遣）')
           }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
       <p>
         {{
@@ -137,21 +87,11 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a
-          href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link
+          url="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
+          icon-size="24"
           >{{ $t('新型コロナウイルス感染症対策雇用環境整備促進事業') }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
       <p>
         {{
@@ -163,21 +103,11 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a
-          href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link
+          url="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
+          icon-size="24"
           >{{ $t('テレワーク導入モデル体験事業') }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
       <p>
         {{
@@ -189,21 +119,11 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a
-          href="https://www.shigotozaidan.or.jp/koyo-kankyo/joseikin/kinkyutaisaku.html"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link
+          url="https://www.shigotozaidan.or.jp/koyo-kankyo/joseikin/kinkyutaisaku.html"
+          icon-size="24"
           >{{ $t('事業継続緊急対策（テレワーク）助成金') }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
       <p>
         {{
@@ -215,21 +135,9 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a
-          href="https://tokyo-telework.jp/"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link url="https://tokyo-telework.jp/" icon-size="24"
           >{{ $t('テレワークオンラインセミナー開催') }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
       <p>
         {{
@@ -241,21 +149,11 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a
-          href="http://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link
+          url="http://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
+          icon-size="24"
           >{{ $t('中小企業者等特別相談窓口') }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
       <p>
         {{ $t('資金繰りに関する相談、経営に関する相談') }}
@@ -263,21 +161,11 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a
-          href="http://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link
+          url="http://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
+          icon-size="24"
           >{{ $t('フリーランスを含む個人事業主特別相談窓口') }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
       <p>
         {{
@@ -287,21 +175,11 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a
-          href="https://www.hataraku.metro.tokyo.lg.jp/sodan/sodan/index.html"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link
+          url="https://www.hataraku.metro.tokyo.lg.jp/sodan/sodan/index.html"
+          icon-size="24"
           >{{ $t('緊急労働相談ダイヤル') }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
       <p>
         {{
@@ -313,23 +191,13 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        <a
-          href="https://smooth-biz.metro.tokyo.lg.jp/"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link
+          url="https://smooth-biz.metro.tokyo.lg.jp/"
+          icon-size="24"
           >{{
             $t('新しいワークスタイルや企業活動の東京モデル「スムーズビズ」')
           }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
       <p>
         {{
@@ -347,11 +215,13 @@ import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import StaticCard from '@/components/StaticCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
-    StaticCard
+    StaticCard,
+    ExternalLink
   },
   head(): MetaInfo {
     return {

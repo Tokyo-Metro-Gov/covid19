@@ -118,64 +118,34 @@
       </p>
       <ul>
         <li>
-          <a
-            :href="
+          <external-link
+            :url="
               $t(
                 'https://marketingplatform.google.com/about/analytics/terms/jp/'
               )
             "
-            target="_blank"
-            rel="noopener noreferrer"
+            icon-size="16"
           >
             {{ $t('Google Analytics利用規約') }}
-            <v-icon
-              class="ExternalLinkIcon"
-              size="16"
-              :aria-label="$t('別タブで開く')"
-              role="img"
-              :aria-hidden="false"
-            >
-              mdi-open-in-new
-            </v-icon>
-          </a>
+          </external-link>
         </li>
         <li>
-          <a
-            :href="$t('https://policies.google.com/privacy?hl=ja')"
-            target="_blank"
-            rel="noopener noreferrer"
+          <external-link
+            :url="$t('https://policies.google.com/privacy?hl=ja')"
+            icon-size="16"
           >
             {{ $t('Googleのプライバシーポリシー') }}
-            <v-icon
-              class="ExternalLinkIcon"
-              size="16"
-              :aria-label="$t('別タブで開く')"
-              role="img"
-              :aria-hidden="false"
-            >
-              mdi-open-in-new
-            </v-icon>
-          </a>
+          </external-link>
         </li>
         <li>
-          <a
-            :href="
+          <external-link
+            :url="
               $t('https://support.google.com/analytics/answer/6004245?hl=ja')
             "
-            target="_blank"
-            rel="noopener noreferrer"
+            icon-size="16"
           >
             {{ $t('Google Analyticsに関する詳細情報') }}
-            <v-icon
-              class="ExternalLinkIcon"
-              size="16"
-              :aria-label="$t('別タブで開く')"
-              role="img"
-              :aria-hidden="false"
-            >
-              mdi-open-in-new
-            </v-icon>
-          </a>
+          </external-link>
         </li>
       </ul>
       <i18n
@@ -183,22 +153,12 @@
         path="Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。"
       >
         <template v-slot:addon>
-          <a
-            :href="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
-            target="_blank"
-            rel="noopener noreferrer"
+          <external-link
+            :url="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
+            icon-size="16"
           >
             {{ $t('測定を無効にするブラウザ アドオン') }}
-            <v-icon
-              class="ExternalLinkIcon"
-              size="16"
-              :aria-label="$t('別タブで開く')"
-              role="img"
-              :aria-hidden="false"
-            >
-              mdi-open-in-new
-            </v-icon>
-          </a>
+          </external-link>
         </template>
       </i18n>
     </StaticCard>
@@ -233,22 +193,12 @@
         path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
       >
         <template v-slot:catalogWebsite>
-          <a
-            href="https://portal.data.metro.tokyo.lg.jp/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <external-link
+            url="https://portal.data.metro.tokyo.lg.jp/"
+            icon-size="16"
           >
             {{ $t('東京都オープンデータカタログサイト') }}
-            <v-icon
-              class="ExternalLinkIcon"
-              size="16"
-              :aria-label="$t('別タブで開く')"
-              role="img"
-              :aria-hidden="false"
-            >
-              mdi-open-in-new
-            </v-icon>
-          </a>
+          </external-link>
         </template>
       </i18n>
     </StaticCard>
@@ -262,22 +212,12 @@
         }}
         <i18n path="詳しくは、{githubRepo}をご確認ください。">
           <template v-slot:githubRepo>
-            <a
-              href="https://github.com/tokyo-metropolitan-gov/covid19"
-              target="_blank"
-              rel="noopener noreferrer"
+            <external-link
+              url="https://github.com/tokyo-metropolitan-gov/covid19"
+              icon-size="16"
             >
               {{ $t('GitHub リポジトリ') }}
-              <v-icon
-                class="ExternalLinkIcon"
-                size="16"
-                :aria-label="$t('別タブで開く')"
-                role="img"
-                :aria-hidden="false"
-              >
-                mdi-open-in-new
-              </v-icon>
-            </a>
+            </external-link>
           </template>
         </i18n>
       </p>
@@ -290,11 +230,13 @@ import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import PageHeader from '@/components/PageHeader.vue'
 import StaticCard from '@/components/StaticCard.vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
-    StaticCard
+    StaticCard,
+    ExternalLink
   },
   head(): MetaInfo {
     return {

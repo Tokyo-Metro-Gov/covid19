@@ -5,21 +5,11 @@
     </page-header>
     <StaticCard>
       <h3>
-        <a
-          href="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html"
-          target="_blank"
-          rel="noopener noreferrer"
+        <external-link
+          url="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html"
+          icon-size="24"
           >{{ $t('学びの支援サイト') }}
-          <v-icon
-            class="ExternalLinkIcon"
-            size="24"
-            :aria-label="this.$t('別タブで開く')"
-            role="img"
-            :aria-hidden="false"
-          >
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        </external-link>
       </h3>
     </StaticCard>
     <StaticCard>
@@ -35,21 +25,11 @@
         <li>
           {{ $t('手洗い、咳エチケット等により、感染予防に努めてください。')
           }}<br />
-          <a
-            href="https://tokyodouga.jp/lViN9C_BS-0.html"
-            target="_blank"
-            rel="noopener noreferrer"
+          <external-link
+            url="https://tokyodouga.jp/lViN9C_BS-0.html"
+            icon-size="16"
             >{{ $t('【参考】感染症予防のための正しい手洗い方法（動画）') }}
-            <v-icon
-              class="ExternalLinkIcon"
-              size="16"
-              :aria-label="this.$t('別タブで開く')"
-              role="img"
-              :aria-hidden="false"
-            >
-              mdi-open-in-new
-            </v-icon>
-          </a>
+          </external-link>
         </li>
         <li>
           {{
@@ -67,21 +47,11 @@
         <li>
           {{ $t('各保健所の電話番号について') }}
           <br />
-          <a
-            href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-            target="_blank"
-            rel="noopener noreferrer"
+          <external-link
+            url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+            icon-size="16"
             >{{ $t('「新型コロナウイルス感染症にかかる相談窓口について」') }}
-            <v-icon
-              class="ExternalLinkIcon"
-              size="16"
-              :aria-label="this.$t('別タブで開く')"
-              role="img"
-              :aria-hidden="false"
-            >
-              mdi-open-in-new
-            </v-icon>
-          </a>
+          </external-link>
         </li>
       </ul>
     </StaticCard>
@@ -97,11 +67,13 @@ import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import StaticCard from '@/components/StaticCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
-    StaticCard
+    StaticCard,
+    ExternalLink
   },
   head(): MetaInfo {
     return {

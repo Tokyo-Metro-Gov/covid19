@@ -92,7 +92,6 @@ export default Vue.extend()
 
     .ExternalLinkIcon {
       display: inline-block;
-      margin-left: -0.2rem;
       color: $link;
       text-decoration: none;
       vertical-align: inherit;
