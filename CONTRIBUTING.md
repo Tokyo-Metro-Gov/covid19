@@ -16,7 +16,7 @@ Code for Okinawaです。何か質問があれば、Slack 等でお気軽に質�
 * 優先度：高 / 優先度：中 / 優先度：低　の順に対応頂けると助かります。
 
 ## コミュニケーションへの参加方法
-* Code for Okinawa の Slack アカウントを持っていない場合、[こちらから登録](https://codeforokinawa.slack.com/)してください
+* Code for Okinawa の Slack アカウントを持っていない場合、[こちらから登録](https://join.slack.com/t/codeforokinawa/shared_invite/zt-dfql8e5u-R4KT1w3ahiFSM4jTftxizA)してください
 * `#コロナ対策` チャンネルにご参加ください。
 
 ## 参加にあたって
