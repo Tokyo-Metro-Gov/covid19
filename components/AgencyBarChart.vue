@@ -42,10 +42,10 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
-import { DisplayData, DataSets } from '@/plugins/vue-chart';
+import { DisplayData, DataSets } from '@/plugins/vue-chart'
 
 interface AgencyDataSets extends DataSets {
-  label: string;
+  label: string
 }
 interface AgencyDisplayData extends DisplayData {
   datasets: AgencyDataSets[]
@@ -220,17 +220,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      return this.displayData.datasets[0].data.map((_, i) => {
-        return Object.assign(
-          { text: this.displayData.labels![i] as string },
-          ...this.displayData.datasets!.map((_, j) => {
-            return {
-              [j]: this.displayData.datasets[j].data[i]
-            }
-          })
-        )
-      })
-      .sort((a, b) => {
+      return this.displayData.datasets[0].data
+        .map((_, i) => {
+          return Object.assign(
+            { text: this.displayData.labels![i] as string },
+            ...this.displayData.datasets!.map((_, j) => {
+              return {
+                [j]: this.displayData.datasets[j].data[i].toLocaleString()
+              }
+            })
+          )
+        })
+        .sort((a, b) => {
           const aDate = a.text.split('~')[0]
           const bDate = b.text.split('~')[0]
           return dayjs(aDate).isBefore(dayjs(bDate)) ? 1 : -1
