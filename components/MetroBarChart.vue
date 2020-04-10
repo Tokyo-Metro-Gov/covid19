@@ -37,12 +37,12 @@
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import dayjs from 'dayjs'
-import { ChartOptions, ChartData , Chart } from 'chart.js'
+import { ChartOptions, ChartData, Chart } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import ExternalLink from '@/components/ExternalLink.vue'
-import  { DisplayData } from '@/plugins/vue-chart';
+import { DisplayData } from '@/plugins/vue-chart'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -149,17 +149,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      return this.displayData.datasets[0].data.map((_, i) => {
-        return Object.assign(
-          { text: this.chartData.datasets![i].label as string },
-          ...this.chartData.labels!.map((_, j) => {
-            return {
-              [j]: this.displayData.datasets[j].data[i]
-            }
-          })
-        )
-      })
-      .sort((a, b) => {
+      return this.displayData.datasets[0].data
+        .map((_, i) => {
+          return Object.assign(
+            { text: this.chartData.datasets![i].label as string },
+            ...this.chartData.labels!.map((_, j) => {
+              return {
+                [j]: this.displayData.datasets[j].data[i]
+              }
+            })
+          )
+        })
+        .sort((a, b) => {
           const aDate = a.text.split('~')[0]
           const bDate = b.text.split('~')[0]
           return dayjs(aDate).isBefore(dayjs(bDate)) ? 1 : -1
