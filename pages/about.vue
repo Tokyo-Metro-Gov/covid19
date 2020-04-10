@@ -124,7 +124,7 @@
                 'https://marketingplatform.google.com/about/analytics/terms/jp/'
               )
             "
-            icon-size="16"
+            :icon-size="16"
           >
             {{ $t('Google Analytics利用規約') }}
           </external-link>
@@ -132,7 +132,7 @@
         <li>
           <external-link
             :url="$t('https://policies.google.com/privacy?hl=ja')"
-            icon-size="16"
+            :icon-size="16"
           >
             {{ $t('Googleのプライバシーポリシー') }}
           </external-link>
@@ -142,7 +142,7 @@
             :url="
               $t('https://support.google.com/analytics/answer/6004245?hl=ja')
             "
-            icon-size="16"
+            :icon-size="16"
           >
             {{ $t('Google Analyticsに関する詳細情報') }}
           </external-link>
@@ -155,7 +155,7 @@
         <template v-slot:addon>
           <external-link
             :url="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
-            icon-size="16"
+            :icon-size="16"
           >
             {{ $t('測定を無効にするブラウザ アドオン') }}
           </external-link>
@@ -195,7 +195,7 @@
         <template v-slot:catalogWebsite>
           <external-link
             url="https://portal.data.metro.tokyo.lg.jp/"
-            icon-size="16"
+            :icon-size="16"
           >
             {{ $t('東京都オープンデータカタログサイト') }}
           </external-link>
@@ -214,7 +214,7 @@
           <template v-slot:githubRepo>
             <external-link
               url="https://github.com/tokyo-metropolitan-gov/covid19"
-              icon-size="16"
+              :icon-size="16"
             >
               {{ $t('GitHub リポジトリ') }}
             </external-link>

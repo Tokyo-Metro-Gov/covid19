@@ -7,7 +7,7 @@
       <h3>
         <external-link
           url="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html"
-          icon-size="24"
+          :icon-size="24"
           >{{ $t('学びの支援サイト') }}
         </external-link>
       </h3>
@@ -27,7 +27,7 @@
           }}<br />
           <external-link
             url="https://tokyodouga.jp/lViN9C_BS-0.html"
-            icon-size="16"
+            :icon-size="16"
             >{{ $t('【参考】感染症予防のための正しい手洗い方法（動画）') }}
           </external-link>
         </li>
@@ -49,7 +49,7 @@
           <br />
           <external-link
             url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-            icon-size="16"
+            :icon-size="16"
             >{{ $t('「新型コロナウイルス感染症にかかる相談窓口について」') }}
           </external-link>
         </li>
