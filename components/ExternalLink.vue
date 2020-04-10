@@ -1,6 +1,6 @@
 <template>
   <a class="ExternalLink" :href="url" target="_blank" rel="noopener noreferrer">
-    {{ $t(label) }}
+    {{ label }}
     <v-icon
       class="ExternalLinkIcon"
       size="15"
