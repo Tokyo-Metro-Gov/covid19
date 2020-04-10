@@ -12,6 +12,7 @@
       :height="240"
       :fixed-header="true"
       :mobile-breakpoint="0"
+      :custom-sort="customSort"
       class="cardTable"
     />
     <div class="note">
@@ -119,6 +120,27 @@ export default Vue.extend({
     url: {
       type: String,
       default: ''
+    },
+    customSort: {
+      type: Function,
+      default(items: Object[], index: string[], isDesc: boolean[]) {
+        items.sort((a: any, b: any) => {
+          let comparison = 0
+          if (String(a[index[0]]) < String(b[index[0]])) {
+            comparison = -1
+          } else if (String(b[index[0]]) < String(a[index[0]])) {
+            comparison = 1
+          }
+          // a と b が等しい場合は上記のif文を両方とも通過するので 0 のままとなる
+
+          // 降順指定の場合は符号を反転
+          if (comparison !== 0) {
+            comparison = isDesc[0] ? comparison * -1 : comparison
+          }
+          return comparison
+        })
+        return items
+      }
     }
   },
   mounted() {
