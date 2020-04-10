@@ -30,6 +30,12 @@
         item-key="name"
       />
     </template>
+    <template v-slot:footer>
+      <external-link
+        :url="'https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf'"
+        :label="$t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）[PDF]')"
+      />
+    </template>
   </data-view>
 </template>
 
