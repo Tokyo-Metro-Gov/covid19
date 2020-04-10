@@ -196,6 +196,11 @@ export default Vue.extend({
           link: this.localePath('/news')
         },
         {
+          icon: 'mdi-information',
+          title: this.$t('島根県内のお知らせ'),
+          link: this.localePath('/shimane-news')
+        },
+        {
           icon: 'mdi-stop',
           title: this.$t('県内の中止又は延期するイベント等'),
           link: 'https://www.kankou-shimane.com/news/13881.html'
