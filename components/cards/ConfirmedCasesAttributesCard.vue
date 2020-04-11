@@ -5,6 +5,7 @@
       :title-id="'attributes-of-confirmed-cases'"
       :chart-data="patientsTable"
       :chart-option="{}"
+      :loading="loading"
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
@@ -61,9 +62,19 @@ export default {
 
     const data = {
       Data,
-      patientsTable,
+      patientsTable: {
+        headers: patientsTable.headers,
+        items: []
+      },
+      loading: true,
       sumInfoOfPatients
     }
+
+    setTimeout(() => {
+      data.patientsTable = patientsTable
+      data.loading = false
+    })
+
     return data
   },
   methods: {
