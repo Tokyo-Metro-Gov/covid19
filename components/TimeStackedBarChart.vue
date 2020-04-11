@@ -47,18 +47,22 @@
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
     <div class="LegendStickyChart">
+      <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
+        <div :style="{ width: `${chartWidth}px` }">
+          <bar
+            :ref="'barChart'"
+            :chart-id="chartId"
+            :chart-data="displayData"
+            :options="displayOption"
+            :plugins="scrollPlugin"
+            :display-legends="displayLegends"
+            :height="240"
+            :width="chartWidth"
+          />
+        </div>
+      </div>
       <bar
-        :ref="'barChart'"
-        :style="{ display: canvas ? 'block' : 'none' }"
-        :chart-id="chartId"
-        :chart-data="displayData"
-        :options="displayOption"
-        :plugins="scrollPlugin"
-        :display-legends="displayLegends"
-        :height="240"
-        :width="chartWidth"
-      />
-      <bar
+        class="sticky-legend"
         :style="{ display: canvas ? 'block' : 'none' }"
         :chart-id="`${chartId}-header`"
         :chart-data="displayDataHeader"
@@ -568,7 +572,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return sumArray
     }
   },
-  beforeMount() {
+  mounted() {
     if (this.$el) {
       this.chartWidth =
         ((this.$el!.clientWidth - 22 * 2 - 38) / 60) * this.labels.length + 38
@@ -577,8 +581,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         this.chartWidth
       )
     }
-  },
-  mounted() {
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')
