@@ -14,7 +14,19 @@
       :mobile-breakpoint="0"
       :custom-sort="customSort"
       class="cardTable"
-    />
+    >
+      <template v-slot:body="{ items }">
+        <tbody>
+          <tr v-for="item in items" :key="item.text">
+            <th>{{ item['公表日'] }}</th>
+            <td>{{ item['居住地'] }}</td>
+            <td>{{ item['年代'] }}</td>
+            <td>{{ item['性別'] }}</td>
+            <td>{{ item['退院'] }}</td>
+          </tr>
+        </tbody>
+      </template>
+    </v-data-table>
     <div class="note">
       {{ $t('※退院には、死亡退院を含む') }}
     </div>
@@ -63,6 +75,7 @@
         }
 
         &:nth-child(odd) {
+          th,
           td {
             background: rgba($gray-4, 0.3);
           }

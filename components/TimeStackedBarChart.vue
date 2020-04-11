@@ -79,8 +79,19 @@
       :fixed-header="true"
       :disable-sort="true"
       :mobile-breakpoint="0"
+      class="cardTable"
       item-key="name"
-    />
+    >
+      <template v-slot:body="{ items }">
+        <tbody>
+          <tr v-for="item in items" :key="item.text">
+            <th>{{ item.text }}</th>
+            <td>{{ item['0'] }}</td>
+            <td>{{ item['1'] }}</td>
+          </tr>
+        </tbody>
+      </template>
+    </v-data-table>
     <p :class="$style.DataViewDesc">
       <slot name="additionalNotes" />
     </p>

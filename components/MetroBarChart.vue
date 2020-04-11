@@ -28,7 +28,18 @@
       :mobile-breakpoint="0"
       class="cardTable"
       item-key="name"
-    />
+    >
+      <template v-slot:body="{ items }">
+        <tbody>
+          <tr v-for="item in items" :key="item.text">
+            <th>{{ item.text }}</th>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+          </tr>
+        </tbody>
+      </template>
+    </v-data-table>
     <template v-slot:footer>
       <external-link
         :url="'https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf'"
