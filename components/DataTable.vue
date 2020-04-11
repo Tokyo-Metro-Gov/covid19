@@ -18,11 +18,11 @@
       <template v-slot:body="{ items }">
         <tbody>
           <tr v-for="item in items" :key="item.text">
-            <th>{{ item['公表日'] }}</th>
-            <td>{{ item['居住地'] }}</td>
-            <td>{{ item['年代'] }}</td>
-            <td>{{ item['性別'] }}</td>
-            <td>{{ item['退院'] }}</td>
+            <th class="text-start">{{ item['公表日'] }}</th>
+            <td class="text-start">{{ item['居住地'] }}</td>
+            <td class="text-start">{{ item['年代'] }}</td>
+            <td class="text-start">{{ item['性別'] }}</td>
+            <td class="text-center">{{ item['退院'] }}</td>
           </tr>
         </tbody>
       </template>

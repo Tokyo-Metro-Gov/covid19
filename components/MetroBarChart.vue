@@ -32,10 +32,10 @@
       <template v-slot:body="{ items }">
         <tbody>
           <tr v-for="item in items" :key="item.text">
-            <th>{{ item.text }}</th>
-            <td>{{ item[0] }}</td>
-            <td>{{ item[1] }}</td>
-            <td>{{ item[2] }}</td>
+            <th class="text-start">{{ item.text }}</th>
+            <td class="text-start">{{ item[0] }}</td>
+            <td class="text-start">{{ item[1] }}</td>
+            <td class="text-start">{{ item[2] }}</td>
           </tr>
         </tbody>
       </template>
