@@ -3,7 +3,6 @@ require __DIR__.'/vendor/autoload.php';
 use Carbon\Carbon;
 use Tightenco\Collect\Support\Collection;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xls;
 
 function makeDateArray($begin) : Collection{
   $begin = Carbon::parse($begin);
@@ -29,25 +28,30 @@ function formatDate(string $date) :string
     }
 }
 
-function xlsxToArray(string $path, string $sheet_name, string $range, $header_range = null)
+function xlsxToArray(string $format, string $path, string $sheet_name, string $range, $header_range = null)
 {
-  $reader = new PhpOffice\PhpSpreadsheet\Reader\Csv();
-  $reader->setDelimiter(',');
-  $reader->setEnclosure('"');
-  $reader->setSheetIndex(0);
-
   $spreadsheet = new Spreadsheet();
-  $spreadsheet = $reader->load($path);
+  
+  if ($format == 'Xls') {
+    $reader = new PhpOffice\PhpSpreadsheet\Reader\Xls();
+    $spreadsheet = $reader->load($path);
+    $sheet = $spreadsheet->getSheetByName($sheet_name);
+  }
+  else if ($format == 'Csv') {
+    $reader = new PhpOffice\PhpSpreadsheet\Reader\Csv();
+    $reader->setDelimiter(',');
+    $reader->setEnclosure('"');
+    $reader->setSheetIndex(0);
+    $spreadsheet = $reader->load($path);
+    $sheet = $spreadsheet->getSheet(0);
+  }
 
-  // $excel = new Xls($spreadsheet);
-  $sheet = $spreadsheet->getSheet(0);
-  // $sheet = $spreadsheet->getSheetByName($sheet_name);
   $data =  new Collection($sheet->rangeToArray($range));
   $data = $data->map(function ($row) {
     return new Collection($row);
   });
   if ($header_range !== null) {
-      $headers = xlsxToArray($path, $sheet_name, $header_range)[0];
+      $headers = xlsxToArray($format, $path, $sheet_name, $header_range)[0];
       // TODO check same columns length
       return $data->map(function ($row) use($headers){
           return $row->mapWithKeys(function ($cell, $idx) use($headers){
@@ -65,9 +69,9 @@ function xlsxToArray(string $path, string $sheet_name, string $range, $header_ra
 function readContacts() : array
 {
 
-  $data = xlsxToArray(__DIR__.'/downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'A2:E100', 'A1:E1');
+  $data = xlsxToArray('Xls', __DIR__.'/downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'A2:E100', 'A1:E1');
   return [
-    'date' => xlsxToArray(__DIR__.'/downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'H1')[0][0],
+    'date' => xlsxToArray('Xls', __DIR__.'/downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'H1')[0][0],
     'data' => $data->filter(function ($row) {
         return $row['曜日'] && $row['17-21時'];
       })->map(function ($row) {
@@ -93,10 +97,10 @@ function readContacts() : array
  */
 function readQuerents() : array
 {
-  $data = xlsxToArray(__DIR__.'/downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'A2:D100', 'A1:D1');
+  $data = xlsxToArray('Xls', __DIR__.'/downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'A2:D100', 'A1:D1');
 
   return [
-    'date' => xlsxToArray(__DIR__.'/downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'H1')[0][0],
+    'date' => xlsxToArray('Xls', __DIR__.'/downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'H1')[0][0],
     'data' => $data->filter(function ($row) {
 
       return $row['曜日'] && $row['17-翌9時'];
@@ -119,7 +123,7 @@ function readQuerents() : array
 
 function readPatientsV2() : array
 {
-  $data = xlsxToArray(__DIR__.'/downloads/沖縄県患者発生発表数-RAW.csv', 'RAW', 'E2:P100', 'E1:P1');
+  $data = xlsxToArray('Csv', __DIR__.'/downloads/沖縄県患者発生発表数-RAW.csv', 'RAW', 'E2:P100', 'E1:P1');
   $base_data = $data->filter(function ($row) {
     return $row['公表_年月日'];
   })->map(function ($row) {
@@ -144,7 +148,7 @@ function readPatientsV2() : array
   });
 
   return [
-    'date' => xlsxToArray(__DIR__.'/downloads/沖縄県患者発生発表数-RAW.csv', 'RAW', 'Q2')[0][0],
+    'date' => xlsxToArray('Csv', __DIR__.'/downloads/沖縄県患者発生発表数-RAW.csv', 'RAW', 'Q2')[0][0],
     'data' => [
       '感染者数' => makeDateArray('2020-02-13')->merge($base_data->groupBy('公表_年月日')->map(function ($rows) {
         return $rows->count();
@@ -181,10 +185,10 @@ function readPatientsV2() : array
 
 function readPatients() : array
 {
-    $data = xlsxToArray(__DIR__.'/downloads/沖縄県患者発生発表数-RAW.csv', 'RAW', 'E2:P100', 'E1:P1');
+    $data = xlsxToArray('Csv', __DIR__.'/downloads/沖縄県患者発生発表数-RAW.csv', 'RAW', 'E2:P100', 'E1:P1');
 
     return [
-      'date' => xlsxToArray(__DIR__.'/downloads/検査実施サマリ.csv', '検査実施サマリ', 'B2')[0][0],
+      'date' => xlsxToArray('Csv', __DIR__.'/downloads/検査実施サマリ.csv', '検査実施サマリ', 'B2')[0][0],
       'data' => $data->filter(function ($row) {
         return $row['公表_年月日'];
       })->map(function ($row) {
@@ -242,7 +246,7 @@ function discharges(array $patients) : array {
 }
 
 function readInspections() : array{
-  $data = xlsxToArray(__DIR__.'/downloads/検査実施日別状況.xlsx', '入力シート', 'A2:J100', 'A1:J1');
+  $data = xlsxToArray('Xls', __DIR__.'/downloads/検査実施日別状況.xlsx', '入力シート', 'A2:J100', 'A1:J1');
   $data = $data->filter(function ($row) {
     return $row['疑い例検査'] !== null;
   });
@@ -309,7 +313,7 @@ $data['lastUpdate'] = $lastUpdate;
 
 $data['main_summary'] = [
   'attr' => '検査実施人数',
-  'value' => xlsxToArray(__DIR__.'/downloads/検査実施サマリ.csv', '検査実施サマリ', 'A2')[0][0],
+  'value' => xlsxToArray('Csv', __DIR__.'/downloads/検査実施サマリ.csv', '検査実施サマリ', 'A2')[0][0],
   'children' => [
     [
       'attr' => '陽性患者数（県外感染者含む）',
