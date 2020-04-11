@@ -21,7 +21,7 @@
         <tbody>
           <tr>
             <th class="content" scope="row" v-bind="headingAttrs">
-              <div class="inner">
+              <div>
                 <t-i18n>{{ $t('サイト全般に関すること') }}</t-i18n>
               </div>
             </th>
@@ -32,7 +32,7 @@
           </tr>
           <tr>
             <th class="content" scope="row" v-bind="headingAttrs">
-              <div class="inner">
+              <div>
                 <t-i18n>{{ $t('サイトの技術面に関すること') }}</t-i18n
                 ><br />
                 <t-i18n>{{
@@ -41,7 +41,7 @@
               </div>
             </th>
             <td class="bureau">
-              <div class="inner">
+              <div>
                 <t-i18n>{{ $t('戦略政策情報推進本部') }}</t-i18n>
               </div>
             </td>
@@ -49,7 +49,7 @@
           </tr>
           <tr>
             <th class="content" scope="row" v-bind="headingAttrs">
-              <div class="inner">
+              <div>
                 <t-i18n>{{
                   $t('新型コロナウイルス感染症対策本部会議に関すること')
                 }}</t-i18n
@@ -71,7 +71,7 @@
           </tr>
           <tr>
             <th class="content" scope="row" v-bind="headingAttrs">
-              <div class="inner">
+              <div>
                 <t-i18n>{{ $t('都公式ホームページに関すること') }}</t-i18n>
                 <br />
                 <t-i18n>{{ $t('都公式SNSアカウントに関すること') }}</t-i18n>
@@ -91,7 +91,7 @@
           </tr>
           <tr>
             <th class="content" scope="row" v-bind="headingAttrs">
-              <div class="inner">
+              <div>
                 <t-i18n>{{
                   $t('中小企業支援、テレワークに関すること')
                 }}</t-i18n>
@@ -114,7 +114,7 @@
           </tr>
           <tr>
             <th class="content" scope="row" v-bind="headingAttrs">
-              <div class="inner">
+              <div>
                 <t-i18n>{{
                   $t('新型コロナウイルス感染症の予防・検査・医療に関すること')
                 }}</t-i18n>
@@ -130,7 +130,7 @@
           </tr>
           <tr>
             <th class="content" scope="row" v-bind="headingAttrs">
-              <div class="inner">
+              <div>
                 <t-i18n>{{ $t('都立学校に関すること') }}</t-i18n>
               </div>
             </th>
@@ -141,7 +141,7 @@
           </tr>
           <tr>
             <th class="content" scope="row" v-bind="headingAttrs">
-              <div class="inner">
+              <div>
                 <t-i18n>{{ $t('スムーズビズに関すること') }}</t-i18n>
               </div>
             </th>
@@ -152,7 +152,7 @@
           </tr>
           <tr>
             <th class="content" scope="row" v-bind="headingAttrs">
-              <div class="inner">
+              <div>
                 <t-i18n>{{ $t('都営交通に関すること') }}</t-i18n>
               </div>
             </th>
@@ -299,11 +299,6 @@ export default Vue.extend({
         td {
           display: block;
           padding: 0.2rem 1rem;
-        }
-
-        .inner {
-          min-height: auto;
-          display: block;
         }
       }
     }
