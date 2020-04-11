@@ -52,13 +52,15 @@
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
-import { ChartOptions, ChartData } from 'chart.js'
+import { ChartOptions, ChartData , Chart } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import ExternalLink from '@/components/ExternalLink.vue'
 
-interface HTMLElementEvent<T extends HTMLElement> extends Event {
+import type { DisplayData } from '@/plugins/vue-chart';
+
+interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
 }
 
@@ -67,16 +69,7 @@ type Data = {
 }
 type Methods = {}
 type Computed = {
-  displayData: {
-    labels: string[]
-    datasets: {
-      label: string
-      data: number[]
-      backgroundColor: string
-      borderColor: string
-      borderWidth: number
-    }[]
-  }
+  displayData: DisplayData
   tableHeaders: {
     text: TranslateResult
     value: string
@@ -84,28 +77,7 @@ type Computed = {
   tableData: {
     [key: number]: number
   }[]
-  displayOption: {
-    responsive: boolean
-    legend: {
-      display: boolean
-      onHover: (e: HTMLElementEvent<HTMLInputElement>) => void
-      onLeave: (e: HTMLElementEvent<HTMLInputElement>) => void
-      labels: {
-        boxWidth: number
-      }
-    }
-    scales: {
-      xAxes: object[]
-      yAxes: object[]
-    }
-    tooltips: {
-      displayColors: boolean
-      callbacks: {
-        title: (tooltipItems: any, data: any) => string
-        label: (tooltipItems: any, data: any) => string
-      }
-    }
-  }
+  displayOption: Chart.ChartOptions
 }
 type Props = {
   chartData: ChartData
@@ -115,8 +87,8 @@ type Props = {
   titleId: string
   date: string
   unit: string
-  tooltipsTitle: (tooltipItems: any, data: any) => string
-  tooltipsLabel: (tooltipItems: any, data: any) => string
+  tooltipsTitle: Chart.ChartTooltipCallback['title']
+  tooltipsLabel: Chart.ChartTooltipCallback['label']
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -196,9 +168,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.displayData.datasets[0].data.map((_, i) => {
         return Object.assign(
           { text: this.chartData.datasets![i].label as string },
-          ...this.chartData.datasets!.map((_, j) => {
+          ...this.chartData.labels!.map((_, j) => {
             return {
-              [j]: this.displayData.datasets[0].data[i]
+              [j]: this.displayData.datasets[j].data[i]
             }
           })
         )
@@ -206,7 +178,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOption() {
       const self = this
-      const options = {
+      const options: ChartOptions = {
         responsive: true,
         legend: {
           display: true,
@@ -245,7 +217,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 12,
                 maxTicksLimit: 10,
                 fontColor: '#808080',
-                callback(value: any) {
+                callback(value) {
                   return value.toFixed(2) + self.unit
                 }
               }

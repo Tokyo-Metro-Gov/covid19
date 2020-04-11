@@ -73,7 +73,7 @@
                 :aria-label="$t('クリップボードにコピー')"
                 @click="copyEmbedCode"
               >
-                far fa-clipboard
+                mdi-clipboard-outline
               </v-icon>
               {{ graphEmbedValue }}
             </div>
@@ -274,6 +274,27 @@ export default Vue.extend({
   @include card-container();
 
   height: 100%;
+
+  .LegendStickyChart {
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+    .scrollable {
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        height: 4px;
+        background-color: rgba(0, 0, 0, 0.01);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.07);
+      }
+    }
+    .sticky-legend {
+      position: absolute;
+      top: 0;
+      pointer-events: none;
+    }
+  }
 
   &-Header {
     display: flex;

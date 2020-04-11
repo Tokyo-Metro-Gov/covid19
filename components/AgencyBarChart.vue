@@ -51,6 +51,14 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
+import type { DisplayData, DataSets } from '@/plugins/vue-chart';
+
+interface AgencyDataSets extends DataSets {
+  label: string;
+}
+interface AgencyDisplayData extends DisplayData {
+  datasets: AgencyDataSets[]
+}
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -63,16 +71,7 @@ type Data = {
 }
 type Methods = {}
 type Computed = {
-  displayData: {
-    labels: string[]
-    datasets: {
-      label: string
-      data: number[]
-      backgroundColor: string
-      borderColor: string
-      borderWidth: number
-    }[]
-  }
+  displayData: AgencyDisplayData
   displayOption: ChartOptions
   tableHeaders: {
     text: VueI18n.TranslateResult
@@ -232,10 +231,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableData() {
       return this.displayData.datasets[0].data.map((_, i) => {
         return Object.assign(
-          { text: this.displayData.labels[i] as string },
+          { text: this.displayData.labels![i] as string },
           ...this.displayData.datasets!.map((_, j) => {
             return {
-              [j]: this.displayData.datasets[0].data[i]
+              [j]: this.displayData.datasets[j].data[i]
             }
           })
         )
