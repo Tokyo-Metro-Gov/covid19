@@ -41,6 +41,11 @@ export default Vue.extend({
       currentLocaleCode: this.$root.$i18n.locale
     }
   },
+  watch: {
+    '$root.$i18n.locale'(locale: string) {
+      this.currentLocaleCode = locale
+    }
+  },
   methods: {
     handleChangeLanguage() {
       this.$root.$i18n.setLocale(this.currentLocaleCode)
@@ -74,6 +79,9 @@ export default Vue.extend({
     margin-left: 4px;
     color: $gray-1;
     font-size: 12px;
+    @include lessThan($small) {
+      font-size: 16px;
+    }
   }
 }
 
@@ -104,6 +112,10 @@ export default Vue.extend({
   &:focus {
     border: 1px dotted $gray-3;
     outline: none;
+  }
+  @include lessThan($small) {
+    padding-left: 70px;
+    font-size: 16px;
   }
 }
 </style>

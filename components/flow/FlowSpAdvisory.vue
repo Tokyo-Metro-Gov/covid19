@@ -1,18 +1,18 @@
 <template>
   <div :class="$style.container">
     <h4 id="consult" :class="[$style.heading, $style.fzXLarge]">
-      {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
-      <small :class="[$style.break, $style.fzRegular, $style.mt5]">{{
-        $t('帰国者・接触者 電話相談センター')
-      }}</small>
+      <t-i18n>{{ $t('新型コロナ受診相談窓口（日本語のみ）') }}</t-i18n>
+      <small :class="[$style.break, $style.fzRegular, $style.mt5]"
+        ><t-i18n>{{ $t('帰国者・接触者 電話相談センター') }}</t-i18n></small
+      >
     </h4>
     <p :class="[$style.open, $style.fzMedium]">
-      <span>{{ $t('24時間対応') }}</span>
+      <t-i18n :class="$style.baseline">{{ $t('24時間対応') }}</t-i18n>
     </p>
     <dl>
       <div :class="$style.daytime">
         <dt :class="[$style.title, $style.fzMedium]">
-          {{ $t('平日（日中）') }}
+          <t-i18n>{{ $t('平日（日中）') }}</t-i18n>
         </dt>
         <dd :class="$style.link">
           <a
@@ -20,7 +20,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            {{ $t('各保健所の電話番号は福祉保健局HPへ') }}
+            <t-i18n>{{ $t('各保健所の電話番号は福祉保健局HPへ') }}</t-i18n>
             <v-icon size="16">
               mdi-open-in-new
             </v-icon>
@@ -31,15 +31,14 @@
         <dt>
           <ul :class="[$style.night]">
             <li>
-              <span :class="[$style.fzMedium, $style.break, $style.mb10]">
-                {{ $t('平日（夜間）') }}
-              </span>
-              {{ $t('午後5時から翌朝午前9時') }}
+              <t-i18n :class="[$style.fzMedium, $style.break, $style.mb10]">
+                {{ $t('平日（夜間）') }} </t-i18n
+              ><t-i18n> {{ $t('午後5時から翌朝午前9時') }}</t-i18n>
             </li>
             <li>
-              <span :class="$style.fzMedium">
+              <t-i18n :class="$style.fzMedium">
                 {{ $t('土日祝 終日') }}
-              </span>
+              </t-i18n>
             </li>
           </ul>
         </dt>
@@ -54,9 +53,9 @@
             v-if="!['ja', 'ja-basic'].includes($i18n.locale)"
             :class="[$style.phone, $style.fzNumeric]"
           >
-            <span :class="[$style.fzMedium, $style.break, $style.mb10]">
+            <t-i18n :class="[$style.fzMedium, $style.break, $style.mb10]">
               {{ $t('ひまわり') }}
-            </span>
+            </t-i18n>
           </div>
         </dd>
       </div>
@@ -66,9 +65,10 @@
 
 <script lang="ts">
 import PhoneIcon from '@/static/flow/responsive/phone.svg'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
-  components: { PhoneIcon }
+  components: { PhoneIcon, TI18n }
 }
 </script>
 
@@ -131,6 +131,10 @@ export default {
       margin-top: px2vw(20);
     }
   }
+}
+
+.baseline {
+  align-items: baseline !important;
 }
 
 @include largerThan($small) {
