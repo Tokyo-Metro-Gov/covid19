@@ -119,6 +119,11 @@ export default Vue.extend({
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
           link: 'https://www.pref.fukui.lg.jp/doc/kouho/navi.html',
+        },
+        {
+          icon: 'mdi-account-multiple',
+          title: this.$t('知事からのメッセージ'),
+          link: this.localePath('/message'),
           divider: true
         },
         {
