@@ -25,7 +25,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 > = {
   data() {
     return {
-      locale: this.$i18n.locale
+      locale: ''
     }
   },
   methods: {
@@ -47,6 +47,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       if ((lastText = text.slice(pos))) texts.push({ ja: lastText })
       return texts
     }
+  },
+  mounted() {
+    this.locale = this.$i18n.locale
   },
   watch: {
     '$root.$i18n.locale'(newLocale) {
