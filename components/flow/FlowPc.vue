@@ -1,7 +1,11 @@
 <template>
   <div :class="$style.FlowCard">
     <div :class="$style.FirstSectionWrapper">
-      <h3>{{ $t('新型コロナウイルス感染症にかかる相談窓口について') }}</h3>
+      <h3>
+        <t-i18n>{{
+          $t('新型コロナウイルス感染症にかかる相談窓口について')
+        }}</t-i18n>
+      </h3>
       <div :class="[$style.Outer, $style.OuterUpper]">
         <div :class="[$style.CardBlock, $style.Past]">
           <div :class="[$style.CardBlockInner]">
@@ -54,17 +58,19 @@
     </div>
     <div :class="$style.SecondSectionWrapper">
       <h3>
-        <i18n
-          :class="$style.TitleSmall"
-          tag="span"
-          path="{advisory}による相談結果"
-        >
-          <template v-slot:advisory>
-            <span :class="$style.TitleLarge">
-              {{ $t('新型コロナ受診相談窓口') }}
-            </span>
-          </template>
-        </i18n>
+        <t-i18n>
+          <i18n
+            :class="$style.TitleSmall"
+            tag="span"
+            path="{advisory}による相談結果"
+          >
+            <template v-slot:advisory>
+              <span :class="$style.TitleLarge">
+                {{ $t('新型コロナ受診相談窓口') }}
+              </span>
+            </template>
+          </i18n>
+        </t-i18n>
       </h3>
       <div :class="[$style.Outer, $style.OuterLower]">
         <div
@@ -111,11 +117,11 @@
         </div>
       </div>
       <p :class="$style.Note">
-        {{
+        <t-i18n>{{
           $t(
             '※保険適用となる検査は、当面の間、院内感染防止等の観点から、「帰国者・接触者外来」等の医療機関で実施'
           )
-        }}
+        }}</t-i18n>
       </p>
     </div>
   </div>
@@ -131,6 +137,7 @@ import FlowPcRequired from './FlowPcRequired.vue'
 import FlowPcPcr from './FlowPcPcr.vue'
 import FlowPcNotRequired from './FlowPcNotRequired.vue'
 import FlowPcHospitalized from './FlowPcHospitalized.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
@@ -142,7 +149,8 @@ export default {
     FlowPcRequired,
     FlowPcPcr,
     FlowPcNotRequired,
-    FlowPcHospitalized
+    FlowPcHospitalized,
+    TI18n
   }
 }
 </script>

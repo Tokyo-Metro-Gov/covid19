@@ -1,31 +1,35 @@
 <template>
   <div :class="$style.Container">
     <div :class="$style.Row">
-      <i18n
-        :class="$style.Catch"
-        tag="p"
-        path="新型コロナ外来 {advice} と判断された場合"
-      >
-        <template v-slot:advice>
-          <span :class="$style.Emphasis">
-            {{ $t('受診が必要') }}
-          </span>
-        </template>
-      </i18n>
+      <t-i18n>
+        <i18n
+          :class="$style.Catch"
+          tag="p"
+          path="新型コロナ外来 {advice} と判断された場合"
+        >
+          <template v-slot:advice>
+            <span :class="$style.Emphasis">
+              {{ $t('受診が必要') }}
+            </span>
+          </template>
+        </i18n>
+      </t-i18n>
     </div>
     <div :class="$style.Row">
       <div :class="[$style.Card, $style.CardLarge, $style.CardGray]">
         <template v-if="!langsWithoutOutpatient.includes($i18n.locale)">
           <p :class="$style.Outpatient">
-            {{ $t('新型コロナ外来（帰国者・接触者外来）') }}
+            <t-i18n>{{ $t('新型コロナ外来（帰国者・接触者外来）') }}</t-i18n>
           </p>
           <p :class="$style.Judge">
-            {{ $t('医師による判断') }}
+            <t-i18n>{{ $t('医師による判断') }}</t-i18n>
           </p>
         </template>
         <template v-else>
           <p :class="$style.Judge">
-            {{ $t('Diagnosis by a doctor at a COVID-19 outpatient facility') }}
+            <t-i18n>{{
+              $t('Diagnosis by a doctor at a COVID-19 outpatient facility')
+            }}</t-i18n>
           </p>
         </template>
       </div>
@@ -33,20 +37,24 @@
     <div :class="$style.TwoRow">
       <div :class="[$style.Card, $style.CardGreen]">
         <p :class="$style.CardGreenText">
-          <i18n path="検査の必要{ifRequired}">
-            <template v-slot:ifRequired>
-              <span>{{ $t('あり') }}</span>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n path="検査の必要{ifRequired}">
+              <template v-slot:ifRequired>
+                <span>{{ $t('あり') }}</span>
+              </template>
+            </i18n>
+          </t-i18n>
         </p>
       </div>
       <div :class="[$style.Card, $style.CardWhite]">
         <p :class="$style.CardWhiteText">
-          <i18n path="検査の必要{ifRequired}">
-            <template v-slot:ifRequired>
-              <span>{{ $t('なし') }}</span>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n path="検査の必要{ifRequired}">
+              <template v-slot:ifRequired>
+                <span>{{ $t('なし') }}</span>
+              </template>
+            </i18n>
+          </t-i18n>
         </p>
       </div>
     </div>
@@ -54,7 +62,11 @@
 </template>
 
 <script>
+import TI18n from '@/components/TI18n.vue'
 export default {
+  components: {
+    TI18n
+  },
   computed: {
     langsWithoutOutpatient() {
       return ['en']
