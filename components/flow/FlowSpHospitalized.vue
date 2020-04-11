@@ -4,19 +4,20 @@
       <span :class="[$style.icon, $style.top]">
         <HotelIcon aria-hidden="true" />
       </span>
-      <span :class="$style.fzMedium">{{ $t('入院となります') }}</span>
+      <t-i18n :class="$style.fzMedium">{{ $t('入院となります') }}</t-i18n>
     </p>
     <p :class="[$style.facility, $style.fzXLarge]">
-      {{ $t('感染症指定医療機関等') }}
+      <t-i18n>{{ $t('感染症指定医療機関等') }}</t-i18n>
     </p>
   </div>
 </template>
 
 <script lang="ts">
 import HotelIcon from '@/static/flow/responsive/hotel.svg'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
-  components: { HotelIcon }
+  components: { HotelIcon, TI18n }
 }
 </script>
 

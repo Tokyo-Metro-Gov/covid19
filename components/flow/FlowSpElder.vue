@@ -5,70 +5,78 @@
         <span :class="$style.icon">
           <DirectionsWalkIcon aria-hidden="true" />
         </span>
-        {{ $t('ご高齢な方') }}
+        <t-i18n>
+          {{ $t('ご高齢な方') }}
+        </t-i18n>
       </span>
       <span :class="[$style.item, $style.fzMedium]">
         <span :class="$style.icon">
           <AccessibleIcon aria-hidden="true" />
         </span>
-        {{ $t('基礎疾患のある方') }}
+        <t-i18n> {{ $t('基礎疾患のある方') }}</t-i18n>
       </span>
       <span :class="[$style.item, $style.fzMedium]">
         <span :class="$style.icon">
           <PregnantWomanIcon aria-hidden="true" />
         </span>
-        {{ $t('妊娠中の方') }}
+        <t-i18n> {{ $t('妊娠中の方') }}</t-i18n>
       </span>
     </div>
     <ul :class="[$style.rectContainer, $style.double]">
       <li :class="$style.symptom">
         <span>
-          <i18n path="{cold}のような症状">
-            <template v-slot:cold>
-              <span :class="$style.ConditionsItemLarger">
-                {{ $t('風邪') }}
-              </span>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n path="{cold}のような症状">
+              <template v-slot:cold>
+                <span :class="$style.ConditionsItemLarger">
+                  {{ $t('風邪') }}
+                </span>
+              </template>
+            </i18n>
+          </t-i18n>
         </span>
       </li>
       <li :class="$style.symptom">
-        <i18n tag="span" path="発熱{temperature}" :class="$style.fzSmall">
-          <template v-slot:temperature>
-            <i18n
-              tag="span"
-              path="{tempNum}以上"
-              :class="[$style.break, $style.fzRegular]"
-            >
-              <template v-slot:tempNum>
-                <span :class="$style.temp">{{ $t('37.5℃') }}</span>
-              </template>
-            </i18n>
-          </template>
-        </i18n>
+        <t-i18n>
+          <i18n tag="span" path="発熱{temperature}" :class="$style.fzSmall">
+            <template v-slot:temperature>
+              <i18n
+                tag="span"
+                path="{tempNum}以上"
+                :class="[$style.break, $style.fzRegular]"
+              >
+                <template v-slot:tempNum>
+                  <span :class="$style.temp">{{ $t('37.5℃') }}</span>
+                </template>
+              </i18n>
+            </template>
+          </i18n>
+        </t-i18n>
       </li>
       <li :class="$style.symptom">
-        {{ $t('強いだるさ') }}
+        <t-i18n>{{ $t('強いだるさ') }}</t-i18n>
       </li>
       <li :class="$style.symptom">
-        {{ $t('息苦しさ') }}
+        <t-i18n>{{ $t('息苦しさ') }}</t-i18n>
       </li>
     </ul>
 
     <p :class="$style.duration">
-      <i18n path="{duration}続いている">
-        <template v-slot:duration>
-          <i18n
-            :class="[$style.underline, $style.fzLarge]"
-            tag="span"
-            path="{day}日程度"
-          >
-            <template v-slot:day>
-              <strong :class="$style.fzNumeric">2</strong>
-            </template>
-          </i18n>
-        </template>
-      </i18n>
+      <t-i18n>
+        <i18n path="{duration}続いている">
+          <template v-slot:duration>
+            <i18n
+              :class="[$style.underline, $style.fzLarge]"
+              tag="span"
+              path="{day}日程度"
+            >
+              <template v-slot:day>
+                <strong :class="$style.fzNumeric">2</strong>
+              </template>
+            </i18n>
+          </template>
+        </i18n>
+      </t-i18n>
     </p>
 
     <a
@@ -79,7 +87,7 @@
       href="#consult"
       :class="[$style.button, $style.clickable]"
     >
-      <span :class="$style.text">{{ $t('新型コロナ受診相談窓口へ') }}</span>
+      <t-i18n :class="$style.text">{{ $t('新型コロナ受診相談窓口へ') }}</t-i18n>
       <ArrowForwardIcon :class="$style.icon" />
     </a>
   </div>
@@ -91,13 +99,15 @@ import AccessibleIcon from '@/static/flow/responsive/accessible.svg'
 import ArrowForwardIcon from '@/static/flow/responsive/arrow_forward.svg'
 import DirectionsWalkIcon from '@/static/flow/responsive/directions_walk.svg'
 import PregnantWomanIcon from '@/static/flow/responsive/pregnant_woman.svg'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
     AccessibleIcon,
     ArrowForwardIcon,
     DirectionsWalkIcon,
-    PregnantWomanIcon
+    PregnantWomanIcon,
+    TI18n
   },
   methods: { onDoneScroll }
 }
