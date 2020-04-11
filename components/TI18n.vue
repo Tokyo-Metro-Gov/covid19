@@ -51,6 +51,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   mounted() {
     this.locale = this.$i18n.locale
   },
+  watch: {
+    '$root.$i18n.locale'(newLocale) {
+      this.locale = newLocale
+    }
+  },
   render(createElement): VNode {
     const slot = this.$slots.default ? this.$slots.default![0] : ''
 
