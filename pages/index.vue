@@ -78,7 +78,7 @@ export default Vue.extend({
         icon: 'mdi-chart-timeline-variant',
         title: this.$t('島根県内の最新感染動向')
       },
-      newsItems: News.newsItems
+      newsItems: News.newsItems.slice(0, 3)
     }
     return data
   },

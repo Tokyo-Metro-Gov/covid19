@@ -27,6 +27,7 @@ import { MetaInfo } from 'vue-meta'
 import News from '@/data/news.json'
 import StaticCard from '@/components/StaticCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import { convertDateToISO8601Format } from '~/utils/formatDate'
 
 export default Vue.extend({
   components: {
@@ -38,10 +39,21 @@ export default Vue.extend({
     const data = {
       headerItem: {
         icon: 'mdi-information'
-      },
-      newsItems: News.newsItems
+      }
     }
     return data
+  },
+
+  computed: {
+    newsItems() {
+      return News.newsItems
+    }
+  },
+
+  methods: {
+    formattedDate(dateString: string) {
+      return convertDateToISO8601Format(dateString)
+    }
   },
 
   head(): MetaInfo {
