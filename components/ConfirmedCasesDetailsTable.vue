@@ -9,7 +9,7 @@
             <t-i18n>{{ $t('累計') }}</t-i18n>
           </span>
           <span>
-            <strong>{{ 陽性者数 }}</strong>
+            <strong>{{ 陽性者数.toLocaleString() }}</strong>
             <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
           </span>
         </div>
@@ -20,7 +20,7 @@
             <div :class="$style.content">
               <t-i18n>{{ $t('入院中') }}</t-i18n>
               <span>
-                <strong>{{ 入院中 }}</strong>
+                <strong>{{ 入院中.toLocaleString() }}</strong>
                 <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
               </span>
             </div>
@@ -33,7 +33,7 @@
                   <span v-html="$t('軽症・<br />中等症')" />
                   <!-- eslint-enable vue/no-v-html-->
                   <span>
-                    <strong>{{ 軽症中等症 }}</strong>
+                    <strong>{{ 軽症中等症.toLocaleString() }}</strong>
                     <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
                   </span>
                 </div>
@@ -44,7 +44,7 @@
                 <div :class="$style.content">
                   <t-i18n>{{ $t('重症') }}</t-i18n>
                   <span>
-                    <strong>{{ 重症 }}</strong>
+                    <strong>{{ 重症.toLocaleString() }}</strong>
                     <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
                   </span>
                 </div>
@@ -57,7 +57,7 @@
             <div :class="$style.content">
               <t-i18n>{{ $t('死亡') }}</t-i18n>
               <span>
-                <strong>{{ 死亡 }}</strong>
+                <strong>{{ 死亡.toLocaleString() }}</strong>
                 <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
               </span>
             </div>
@@ -68,7 +68,7 @@
             <div :class="$style.content">
               <t-i18n>{{ $t('退院') }}</t-i18n>
               <span>
-                <strong>{{ 退院 }}</strong>
+                <strong>{{ 退院.toLocaleString() }}</strong>
                 <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
               </span>
             </div>

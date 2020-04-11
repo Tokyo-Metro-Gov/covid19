@@ -4,7 +4,17 @@
       {{ $t('臨時休校中の新型コロナウイルス感染症対応についてのお願い') }}
     </page-header>
     <StaticCard>
-      <h3>1. {{ $t('感染予防・健康管理') }}</h3>
+      <h3>
+        <a
+          href="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{ $t('学びの支援サイト') }}</a
+        >
+      </h3>
+    </StaticCard>
+    <StaticCard>
+      <h3>{{ $t('感染予防・健康管理') }}</h3>
       <ul>
         <li>
           {{
@@ -33,7 +43,7 @@
       </ul>
     </StaticCard>
     <StaticCard>
-      <h3>2. {{ $t('感染症を疑う場合の対応') }}</h3>
+      <h3>{{ $t('感染症を疑う場合の対応') }}</h3>
       <ul>
         <li>{{ $t('各保健所にご相談ください') }}</li>
         <li>
@@ -49,7 +59,7 @@
       </ul>
     </StaticCard>
     <StaticCard>
-      <h3>3. {{ $t('その他.parent') }}</h3>
+      <h3>{{ $t('その他.parent') }}</h3>
       <p>{{ $t('詳細は、各学校からのお知らせ等をご確認ください。') }}</p>
     </StaticCard>
   </div>
