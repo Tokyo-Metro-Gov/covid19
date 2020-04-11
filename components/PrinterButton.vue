@@ -12,9 +12,9 @@
         <PrinterWhiteIcon v-if="hover" aria-hidden="true" />
         <PrinterIcon v-else aria-hidden="true" />
       </div>
-      <span class="PrinterButton-Text">
+      <t-i18n class="PrinterButton-Text">
         {{ $t('print') }}
-      </span>
+      </t-i18n>
     </v-btn>
   </div>
 </template>
@@ -22,11 +22,13 @@
 <script>
 import PrinterIcon from '@/static/printer.svg'
 import PrinterWhiteIcon from '@/static/printer-white.svg'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
     PrinterIcon,
-    PrinterWhiteIcon
+    PrinterWhiteIcon,
+    TI18n
   },
   props: {
     wrapperClass: {
