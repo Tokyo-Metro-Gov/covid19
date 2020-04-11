@@ -244,13 +244,6 @@ export default Vue.extend({
         font-weight: inherit;
       }
 
-      .inner {
-        min-height: 96px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-
       @include largerThan($medium) {
         thead tr {
           height: auto;
