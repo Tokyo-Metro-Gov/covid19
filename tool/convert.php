@@ -164,7 +164,7 @@ function readPatientsV2() : array
         return $rows->count();
       })),
       '軽症' => makeDateArray('2020-02-13')->merge($base_data->filter(function ($row) {
-        return $row['退院'] !== 0 && trim($row['備考']) == '';
+        return $row['退院'] !== 0 && preg_match('/軽症$/', trim($row['備考']));
       })->groupBy('公表_年月日')->map(function ($rows) {
         return $rows->count();
       })),
