@@ -49,7 +49,7 @@
           </i18n>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
-          <GreenArrow />
+          <green-arrow />
         </div>
       </a>
       <a
@@ -67,7 +67,7 @@
           </i18n>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
-          <Arrow />
+          <arrow />
         </div>
       </a>
     </div>
@@ -99,7 +99,7 @@
           <span :class="$style.fzXLarge">{{ $t('陰性') }}</span>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
-          <GreenArrow />
+          <green-arrow />
         </div>
       </a>
       <a
@@ -111,7 +111,7 @@
           <span :class="$style.fzXLarge">{{ $t('陽性') }}</span>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
-          <Arrow />
+          <arrow />
         </div>
       </a>
     </div>
@@ -130,13 +130,13 @@
     <div :class="[$style.rectContainer, $style.double]">
       <div :class="[$style.rect, $style.solution]">
         <div :class="$style.icon" aria-hidden="true">
-          <House />
+          <house />
         </div>
         <p>{{ $t('自宅で安静に過ごす') }}</p>
       </div>
       <div :class="[$style.rect, $style.solution]">
         <div :class="$style.icon" aria-hidden="true">
-          <Apartment />
+          <apartment />
         </div>
         <p>{{ $t('一般の医療機関を受診') }}</p>
       </div>

@@ -42,10 +42,10 @@
             <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
               {{ $t('多言語対応選択メニュー') }}
             </label>
-            <LanguageSelector />
+            <language-selector />
           </div>
         </div>
-        <MenuList :items="items" @click="$emit('closeNavi', $event)" />
+        <menu-list :items="items" @click="$emit('closeNavi', $event)" />
       </nav>
 
       <footer class="SideNavigation-Footer">
