@@ -2,6 +2,8 @@
 require __DIR__.'/vendor/autoload.php';
 use Carbon\Carbon;
 use Tightenco\Collect\Support\Collection;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
 
 function makeDateArray($begin) : Collection{
   $begin = Carbon::parse($begin);
@@ -29,9 +31,17 @@ function formatDate(string $date) :string
 
 function xlsxToArray(string $path, string $sheet_name, string $range, $header_range = null)
 {
-  $reader = new PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+  $reader = new PhpOffice\PhpSpreadsheet\Reader\Csv();
+  $reader->setDelimiter(',');
+  $reader->setEnclosure('"');
+  $reader->setSheetIndex(0);
+
+  $spreadsheet = new Spreadsheet();
   $spreadsheet = $reader->load($path);
-  $sheet = $spreadsheet->getSheetByName($sheet_name);
+
+  // $excel = new Xls($spreadsheet);
+  $sheet = $spreadsheet->getSheet(0);
+  // $sheet = $spreadsheet->getSheetByName($sheet_name);
   $data =  new Collection($sheet->rangeToArray($range));
   $data = $data->map(function ($row) {
     return new Collection($row);
@@ -109,7 +119,7 @@ function readQuerents() : array
 
 function readPatientsV2() : array
 {
-  $data = xlsxToArray(__DIR__.'/downloads/沖縄県患者発生発表数-RAW.xlsx', 'RAW', 'E2:P100', 'E1:P1');
+  $data = xlsxToArray(__DIR__.'/downloads/沖縄県患者発生発表数-RAW.csv', 'RAW', 'E2:P100', 'E1:P1');
   $base_data = $data->filter(function ($row) {
     return $row['公表_年月日'];
   })->map(function ($row) {
@@ -134,7 +144,7 @@ function readPatientsV2() : array
   });
 
   return [
-    'date' => xlsxToArray(__DIR__.'/downloads/沖縄県患者発生発表数-RAW.xlsx', 'RAW', 'Q2')[0][0],
+    'date' => xlsxToArray(__DIR__.'/downloads/沖縄県患者発生発表数-RAW.csv', 'RAW', 'Q2')[0][0],
     'data' => [
       '感染者数' => makeDateArray('2020-02-13')->merge($base_data->groupBy('公表_年月日')->map(function ($rows) {
         return $rows->count();
@@ -171,10 +181,10 @@ function readPatientsV2() : array
 
 function readPatients() : array
 {
-    $data = xlsxToArray(__DIR__.'/downloads/沖縄県患者発生発表数-RAW.xlsx', 'RAW', 'E2:P100', 'E1:P1');
+    $data = xlsxToArray(__DIR__.'/downloads/沖縄県患者発生発表数-RAW.csv', 'RAW', 'E2:P100', 'E1:P1');
 
     return [
-      'date' => xlsxToArray(__DIR__.'/downloads/沖縄県患者発生発表数-RAW.xlsx', 'RAW', 'Q2')[0][0],
+      'date' => xlsxToArray(__DIR__.'/downloads/検査実施サマリ.csv', '検査実施サマリ', 'B2')[0][0],
       'data' => $data->filter(function ($row) {
         return $row['公表_年月日'];
       })->map(function ($row) {
@@ -299,7 +309,7 @@ $data['lastUpdate'] = $lastUpdate;
 
 $data['main_summary'] = [
   'attr' => '検査実施人数',
-  'value' => xlsxToArray(__DIR__.'/downloads/検査実施サマリ.xlsx', '検査実施サマリ', 'A2')[0][0],
+  'value' => xlsxToArray(__DIR__.'/downloads/検査実施サマリ.csv', '検査実施サマリ', 'A2')[0][0],
   'children' => [
     [
       'attr' => '陽性患者数（県外感染者含む）',
