@@ -42,8 +42,7 @@ const config: Configuration = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content:
-          'https://user-images.githubusercontent.com/62798392/79045682-4f1c5300-7c47-11ea-8596-f1ac3948c3e0.png'
+        content: 'https://covid19-tochigi.netlify.com/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -63,8 +62,7 @@ const config: Configuration = {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content:
-          'https://user-images.githubusercontent.com/62798392/79045682-4f1c5300-7c47-11ea-8596-f1ac3948c3e0.png'
+        content: 'https://covid19-tochigi.netlify.com/ogp.png'
       },
       /*
       {
