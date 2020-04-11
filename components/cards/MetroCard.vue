@@ -11,19 +11,23 @@
       unit="%"
     >
       <template v-slot:description>
-        {{
-          $t('{range}の利用者数*の平均値を基準としたときの相対値', {
-            range: metroGraph.base_period
-          })
-        }}
+        <t-i18n>
+          {{
+            $t('{range}の利用者数*の平均値を基準としたときの相対値', {
+              range: metroGraph.base_period
+            })
+          }}
+        </t-i18n>
         <br />
-        *{{ $t('都営地下鉄4路線の自動改札出場数') }}
+        *<t-i18n>{{ $t('都営地下鉄4路線の自動改札出場数') }}</t-i18n>
         <br />
-        {{
-          $t(
-            '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
-          )
-        }}
+        <t-i18n>
+          {{
+            $t(
+              '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+            )
+          }}
+        </t-i18n>
       </template>
     </metro-bar-chart>
   </v-col>
@@ -33,10 +37,12 @@
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
 import MetroBarChart from '@/components/MetroBarChart.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
-    MetroBarChart
+    MetroBarChart,
+    TI18n
   },
   data() {
     // 都営地下鉄の利用者数の推移

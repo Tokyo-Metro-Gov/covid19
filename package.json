@@ -39,7 +39,9 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@types/d3": "^5.7.2",
+    "@types/lodash": "^4.14.149",
     "@types/mapbox-gl": "^1.8.0",
+    "@types/xregexp": "^4.3.0",
     "chart.js": "^2.9.3",
     "cross-env": "^5.2.0",
     "dayjs": "^1.8.21",
@@ -50,7 +52,8 @@
     "nuxt-i18n": "^6.8.1",
     "vue-chartjs": "^3.5.0",
     "vue-scrollto": "^2.17.1",
-    "vue-spinner": "^1.0.3"
+    "vue-spinner": "^1.0.3",
+    "xregexp": "^4.3.0"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",
