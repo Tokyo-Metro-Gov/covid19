@@ -64,6 +64,10 @@
       tr {
         color: $gray-1;
 
+        th {
+          font-weight: normal;
+        }
+
         td {
           padding: 8px 10px;
           height: auto;
