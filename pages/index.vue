@@ -21,8 +21,6 @@
         {{ $t('4月9日 新型コロナウイルス感染者に関する 島根県の会見') }}
       </p>
       <iframe
-        width="560"
-        height="315"
         src="https://www.youtube.com/embed/WRHk6TgLWXY"
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
