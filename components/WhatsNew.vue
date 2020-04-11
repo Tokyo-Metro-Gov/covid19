@@ -5,6 +5,12 @@
         mdi-information
       </v-icon>
       {{ $t('最新のお知らせ') }}
+
+      <span class="past-news">
+        <nuxt-link to="/shimane-news">
+          {{ $t('過去のお知らせ') }}
+        </nuxt-link>
+      </span>
     </h3>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
@@ -123,5 +129,10 @@ export default Vue.extend({
       }
     }
   }
+}
+
+.past-news {
+  margin-left: 20px;
+  font-size: 14px;
 }
 </style>
