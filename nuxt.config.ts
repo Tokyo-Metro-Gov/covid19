@@ -13,17 +13,38 @@ const config: Configuration = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | 【非公式】栃木県 新型コロナウイルス感染症対策サイト',
+    titleTemplate: '%s | 栃木県 新型コロナウイルス感染症対策サイト【非公式】',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: '栃木県 新型コロナウイルス感染症対策サイト【非公式】'
+      },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
         hid: 'og:url',
         property: 'og:url',
         content: 'https://covid19-tochigi.netlify.com/'
-      }
-      /*
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: '栃木県 新型コロナウイルス感染症対策サイト【非公式】'
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          '当サイトは栃木県内の新型コロナウイルス(COVID-19)に関する情報をわかりやすく伝えるために、有志らが開設したものです'
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content:
+          'https://user-images.githubusercontent.com/62798392/79045682-4f1c5300-7c47-11ea-8596-f1ac3948c3e0.png'
+      },
       {
         hid: 'twitter:card',
         name: 'twitter:card',
@@ -32,24 +53,31 @@ const config: Configuration = {
       {
         hid: 'twitter:site',
         name: 'twitter:site',
-        content: '@tokyo_bousai'
+        content: '@covid19tochigi'
       },
       {
         hid: 'twitter:creator',
         name: 'twitter:creator',
-        content: '@tokyo_bousai'
+        content: '@covid19tochigi'
       },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content:
+          'https://user-images.githubusercontent.com/62798392/79045682-4f1c5300-7c47-11ea-8596-f1ac3948c3e0.png'
+      },
+      /*
       {
         hid: 'fb:app_id',
         property: 'fb:app_id',
         content: '2879625188795443'
       },
+      */
       {
         hid: 'note:card',
         property: 'note:card',
         content: 'summary_large_image'
       }
-      */
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
