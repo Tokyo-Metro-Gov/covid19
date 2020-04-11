@@ -198,7 +198,7 @@ export default Vue.extend({
         {
           icon: 'mdi-information',
           title: this.$t('県内各所のお知らせ'),
-          link: this.localePath('/news')
+          link: this.localePath('/place-news')
         },
         {
           icon: 'mdi-stop',
