@@ -7,8 +7,16 @@
     </page-header>
     <StaticCard>
       <h3>
-        1. <t-i18n>{{ $t('感染予防・健康管理') }}</t-i18n>
+        <a
+          href="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><t-i18n>{{ $t('学びの支援サイト') }}</t-i18n></a
+        >
       </h3>
+    </StaticCard>
+    <StaticCard>
+      <h3><t-i18n>{{ $t('感染予防・健康管理') }}</t-i18n></h3>
       <ul>
         <li>
           <t-i18n>{{
@@ -42,7 +50,7 @@
     </StaticCard>
     <StaticCard>
       <h3>
-        2. <t-i18n>{{ $t('感染症を疑う場合の対応') }}</t-i18n>
+        <t-i18n>{{ $t('感染症を疑う場合の対応') }}</t-i18n>
       </h3>
       <ul>
         <li>
@@ -63,9 +71,7 @@
       </ul>
     </StaticCard>
     <StaticCard>
-      <h3>
-        3. <t-i18n>{{ $t('その他.parent') }}</t-i18n>
-      </h3>
+      <h3><t-i18n>{{ $t('その他.parent') }}</t-i18n></h3>
       <p>
         <t-i18n>{{
           $t('詳細は、各学校からのお知らせ等をご確認ください。')
