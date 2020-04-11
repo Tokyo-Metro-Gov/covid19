@@ -3,7 +3,7 @@
     <div class="Flow-Heading">
       <CovidIcon aria-hidden="true" />
       <page-header class="Flow-Heading-Title">
-        {{ $t('新型コロナウイルス感染症が心配なときに') }}
+        <t-i18n>{{ $t('新型コロナウイルス感染症が心配なときに') }}</t-i18n>
       </page-header>
       <PrinterButton :wrapper-class="'Flow-PullRight'" to="/print/flow" />
     </div>
@@ -16,10 +16,11 @@
           class="Flow-Card-Button"
         >
           <span class="Flow-Card-Button-Description">
-            {{ $t('かかりつけ医に相談することもできます。') }}<br />
-            {{ $t('詳しくはこちらをご参照ください。') }}
+            <t-i18n>{{ $t('かかりつけ医に相談することもできます。') }}</t-i18n
+            ><br />
+            <t-i18n>{{ $t('詳しくはこちらをご参照ください。') }}</t-i18n>
           </span>
-          {{ $t('詳細を見る（東京都福祉保健局）') }}
+          <t-i18n>{{ $t('詳細を見る（東京都福祉保健局）') }}</t-i18n>
           <v-icon class="Flow-Card-Button-ExternalLinkIcon" size="20">
             mdi-open-in-new
           </v-icon>
@@ -43,6 +44,7 @@ import PrinterButton from '@/components/PrinterButton.vue'
 import FlowPc from '@/components/flow/FlowPc.vue'
 import FlowSp from '@/components/flow/FlowSp.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default Vue.extend({
   components: {
@@ -50,7 +52,8 @@ export default Vue.extend({
     PageHeader,
     PrinterButton,
     FlowPc,
-    FlowSp
+    FlowSp,
+    TI18n
   },
   head(): any {
     const title: TranslateResult = this.$t(
