@@ -61,11 +61,9 @@
               <t-i18n>{{ $t('総務局') }}</t-i18n>
             </td>
             <td class="tel">
-              <t-i18n>{{ $t('感染症対策本部会議に関すること') }}</t-i18n
-              ><br />
-              <a href="tel:03-5320-7891">03-5320-7891</a><br />
-              <t-i18n>{{ $t('都庁来庁者データに関すること') }}</t-i18n
-              ><br />
+              <t-i18n>{{ $t('感染症対策本部会議に関すること') }}</t-i18n><br />
+              <a href="tel:03-5388-2453">03-5388-2453</a<br />
+              <t-i18n>{{ $t('都庁来庁者データに関すること') }}</t-i18n><br />
               <a href="tel:03-5388-2319">03-5388-2319</a>
             </td>
           </tr>
@@ -126,6 +124,13 @@
             <td class="tel">
               <a href="tel:0570-550-571">0570-550-571</a><br />
               <t-i18n>{{ $t('（新型コロナコールセンター）') }}</t-i18n>
+              <p class="caution">
+                <t-i18n>{{
+                  $t(
+                    '電話のおかけ間違いが多くなっております。発信の際は今一度電話番号をお確かめの上、お間違えのないようお願いいたします。'
+                  )
+                }}</t-i18n>
+              </p>
             </td>
           </tr>
           <tr>
@@ -253,6 +258,9 @@ export default Vue.extend({
           height: auto;
         }
 
+        th.tel {
+          width: 35%;
+        }
         th,
         tr:not(:last-child) {
           border-top: none;
@@ -300,6 +308,11 @@ export default Vue.extend({
           display: block;
           padding: 0.2rem 1rem;
         }
+      }
+
+      p.caution {
+        font-size: 12px;
+        margin: 0;
       }
     }
   }

@@ -6,7 +6,7 @@
           <t-i18n>{{ $t('検査実施人数') }}</t-i18n>
           <t-i18n>{{ $t('累計') }}</t-i18n>
           <span>
-            <strong>{{ 累計人数 }}</strong>
+            <strong>{{ 累計人数.toLocaleString() }}</strong>
             <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
           </span>
         </div>
@@ -21,7 +21,7 @@
         <div :class="$style.content">
           <t-i18n>{{ $t('合計') }}</t-i18n>
           <span>
-            <strong>{{ 合計件数 }}</strong>
+            <strong>{{ 合計件数.toLocaleString() }}</strong>
             <t-i18n :class="$style.unit">{{ $t('件.tested') }}</t-i18n>
           </span>
         </div>
@@ -32,7 +32,7 @@
             <div :class="$style.content">
               <t-i18n>{{ $t('都内発生') }}</t-i18n>
               <span>
-                <strong>{{ 都内発生件数 }}</strong>
+                <strong>{{ 都内発生件数.toLocaleString() }}</strong>
                 <t-i18n :class="$style.unit">{{ $t('件.tested') }}</t-i18n>
               </span>
             </div>
@@ -46,7 +46,7 @@
                 {{ $t('（チャーター機・クルーズ船等）') }}
               </t-i18n>
               <span>
-                <strong>{{ その他件数 }}</strong>
+                <strong>{{ その他件数.toLocaleString() }}</strong>
                 <t-i18n :class="$style.unit">{{ $t('件.tested') }}</t-i18n>
               </span>
             </div>
