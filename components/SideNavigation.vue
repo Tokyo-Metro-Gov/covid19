@@ -94,6 +94,17 @@
               <img src="/github.png" alt="GitHub" />
             </picture>
           </a>
+          <a
+            href="https://www.youtube.com/user/tokyo/videos"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
+          >
+            <picture>
+              <source srcset="/youtube.webp" type="image/webp" />
+              <img src="/youtube.png" alt="YouTube" />
+            </picture>
+          </a>
         </div>
         <small class="SideNavigation-Copyright">
           {{ $t('このサイトの内容物は') }}
