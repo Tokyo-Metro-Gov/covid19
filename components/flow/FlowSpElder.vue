@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.container">
-    <div :class="[$style.heading, $style.multi]">
+    <h4 :class="[$style.heading, $style.multi]">
       <span :class="[$style.item, $style.fzMedium]">
         <span :class="$style.icon">
           <DirectionsWalkIcon aria-hidden="true" />
@@ -19,7 +19,7 @@
         </span>
         {{ $t('妊娠中の方') }}
       </span>
-    </div>
+    </h4>
     <ul :class="[$style.rectContainer, $style.double]">
       <li :class="$style.symptom">
         <span>
