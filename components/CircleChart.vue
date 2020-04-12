@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :title-id="titleId">
+  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <pie-chart
       :style="{ display: canvas ? 'block' : 'none' }"
       :chart-id="chartId"
