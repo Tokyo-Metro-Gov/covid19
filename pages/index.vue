@@ -12,13 +12,13 @@
     <div class="WhatsNew mb-4" data-v-2a183b29=""><h3 class="WhatsNew-heading"><i aria-hidden="true" class="v-icon notranslate WhatsNew-heading-icon mdi mdi-information theme--light" style="font-size:24px;"></i>
     県内の重要なニュース
   </h3>
-
+<div class="TopNews">
 ・4月19日まで不要不急の外出・会合の自粛<br>
 ・感染者の拡大している首都圏・関西圏との不要不急の往来の自粛<br>
 ・福井県内16市町（越前町を除く）が小中学校の授業再開を5月7日以降に延期<br>
 ・一時生活施設を福井県が開設（軽症陽性患者が入所）<br>
 ・福井県医師会　医療提供体制緊急事態宣言
-
+</div>
 </div>
 
     <static-info
@@ -89,6 +89,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+.TopNews {
+  line-height: 1.8em;  
+}
 .MainPage {
   .DataBlock {
     margin: 20px -8px;
