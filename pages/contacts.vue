@@ -17,10 +17,16 @@
         <tbody>
           <tr>
             <td class="content" v-bind="headingAttrs">
-              {{ $t('サイト全般や技術面に関すること') }}<br />{{ $t('オープンデータ、オープンソースに関すること') }}
+              {{ $t('サイト全般や技術面に関すること') }}<br />{{
+                $t('オープンデータ、オープンソースに関すること')
+              }}
             </td>
             <td class="bureau">{{ $t('Code for Okinawa') }}</td>
-            <td class="tel"><a href="mailto:codeforokinawa@gmail.com">codeforokinawa@gmail.com</a></td>
+            <td class="tel">
+              <a href="mailto:codeforokinawa@gmail.com"
+                >codeforokinawa@gmail.com</a
+              >
+            </td>
           </tr>
           <tr>
             <td class="content" v-bind="headingAttrs">
@@ -35,7 +41,9 @@
             <td class="content" v-bind="headingAttrs">
               {{ $t('新型コロナウイルス感染症の予防・検査・医療に関すること') }}
             </td>
-            <td class="bureau">{{ $t('沖縄県 新型コロナウィルス感染症 相談窓口') }}</td>
+            <td class="bureau">
+              {{ $t('沖縄県 新型コロナウィルス感染症 相談窓口') }}
+            </td>
             <td class="tel"><a href="tel:098-866-2129">098-866-2129</a></td>
           </tr>
           <tr>
