@@ -30,6 +30,9 @@
           'number-of-reports-to-covid19-consultation-desk'
       "
     />
+    <patients-age-ratio-card
+      v-else-if="this.$route.params.card == 'patients-age-ratio'"
+    />
   </div>
 </template>
 
@@ -43,6 +46,7 @@ import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import PatientsAgeRatioCard from '@/components/cards/PatientsAgeRatioCard.vue'
 
 export default {
   components: {
@@ -53,7 +57,8 @@ export default {
     TestedNumberCard,
     InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
-    ConsultationDeskReportsNumberCard
+    ConsultationDeskReportsNumberCard,
+    PatientsAgeRatioCard
   },
   data() {
     let title, updatedAt
@@ -99,14 +104,14 @@ export default {
     return data
   },
   head() {
-    const url = 'https://stopcovid19.metro.tokyo.lg.jp'
+    const url = 'https://shimane-covid19.com/'
     const timestamp = new Date().getTime()
     const ogpImage =
       this.$i18n.locale === 'ja'
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
     const description = `${this.updatedAt} | ${this.$t(
-      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、島根県出身の学生有志が開設したものです。'
     )}`
 
     return {
@@ -123,7 +128,7 @@ export default {
           content:
             this.title +
             ' | ' +
-            this.$t('東京都') +
+            this.$t('島根県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             this.$t('対策サイト')

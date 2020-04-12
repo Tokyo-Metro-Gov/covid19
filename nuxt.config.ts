@@ -23,7 +23,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp'
+        content: 'https://shimane-covid19.com/'
       },
       {
         hid: 'twitter:card',
@@ -33,17 +33,17 @@ const config: Configuration = {
       {
         hid: 'twitter:site',
         name: 'twitter:site',
-        content: '@tokyo_bousai'
+        content: '@gutio_jp'
       },
       {
         hid: 'twitter:creator',
         name: 'twitter:creator',
-        content: '@tokyo_bousai'
+        content: '@gutio_jp'
       },
       {
         hid: 'fb:app_id',
         property: 'fb:app_id',
-        content: '2879625188795443'
+        content: ''
       },
       {
         hid: 'note:card',
@@ -168,15 +168,16 @@ const config: Configuration = {
         '/cards/attributes-of-confirmed-cases',
         '/cards/number-of-tested',
         '/cards/number-of-inspection-persons',
-        '/cards/number-of-reports-to-covid19-telephone-advisory-center',
-        '/cards/number-of-reports-to-covid19-consultation-desk',
-        '/cards/predicted-number-of-toei-subway-passengers',
-        '/cards/agency',
-        '/cards/shinjuku-visitors',
-        '/cards/chiyoda-visitors',
-        '/cards/shinjuku-st-heatmap',
-        '/cards/tokyo-st-heatmap',
-        '/cards/tokyo-city-heatmap'
+        '/cards/patients-age-ratio-card'
+        // '/cards/number-of-reports-to-covid19-telephone-advisory-center',
+        // '/cards/number-of-reports-to-covid19-consultation-desk',
+        // '/cards/predicted-number-of-toei-subway-passengers',
+        // '/cards/agency',
+        // '/cards/shinjuku-visitors',
+        // '/cards/chiyoda-visitors',
+        // '/cards/shinjuku-st-heatmap',
+        // '/cards/tokyo-st-heatmap',
+        // '/cards/tokyo-city-heatmap'
       ]
 
       const routes: string[] = []
