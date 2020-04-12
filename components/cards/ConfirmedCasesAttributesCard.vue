@@ -64,14 +64,14 @@ export default {
       Data,
       patientsTable: {
         headers: patientsTable.headers,
-        items: []
+        datasets: []
       },
       loading: true,
       sumInfoOfPatients
     }
 
     setTimeout(() => {
-      data.patientsTable = patientsTable
+      data.patientsTable.datasets = patientsTable.datasets
       data.loading = false
     })
 
