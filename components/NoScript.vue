@@ -60,6 +60,7 @@
   .noscript-body {
     margin-left: 324px;
     width: calc(100% - 324px);
+    max-width: 1100px;
   }
 }
 
@@ -67,7 +68,7 @@
   @include font-size(13);
   @include card-container();
 
-  background-color: $emergency;
+  background-color: #ffe200;
   border-radius: 4px;
   padding: 1em;
   z-index: 3;
