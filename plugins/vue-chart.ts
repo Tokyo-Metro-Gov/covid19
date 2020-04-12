@@ -76,7 +76,9 @@ const createCustomChart = () => {
         displayLegends: watchDisplayLegends
       },
       mounted(): void {
-        this.renderChart(this.chartData, this.options)
+        setTimeout(() => {
+          this.renderChart(this.chartData, this.options)
+        })
       }
     }
   )
@@ -145,13 +147,9 @@ export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
     beforeInit(chartInstance) {
       const fn = () => {
-        if (
-          chartInstance &&
-          chartInstance.canvas &&
-          chartInstance.canvas.parentElement
-        ) {
-          chartInstance.canvas.parentElement.scrollLeft! = chartInstance.width!
-        }
+        try {
+          chartInstance.canvas!.parentElement!.parentElement!.parentElement!.scrollLeft! = chartInstance.width!
+        } catch (e) {}
       }
       window.addEventListener('resize', fn)
       fn()
