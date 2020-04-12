@@ -1,13 +1,14 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <circle-chart
-      :title="$t('陽性者年齢割合')"
+      :title="$t('陽性者年代別割合')"
       :title-id="'patients-age-ratio'"
       :chart-id="'patients-age-ratio'"
       :chart-data="patientsAgeRatioGraph"
       :date="PatientsAgeRatio.date"
       :labels="PatientsAgeRatio.labels"
       :unit="$t('人')"
+      :info="'陽性者合計'"
     />
   </v-col>
 </template>
