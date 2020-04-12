@@ -3,7 +3,7 @@
     <div :class="[$style.heading, $style.multi]">
       <span :class="[$style.item, $style.fzMedium]">
         <span :class="$style.icon">
-          <directions-walkIcon aria-hidden="true" />
+          <directions-walk-icon aria-hidden="true" />
         </span>
         {{ $t('ご高齢な方') }}
       </span>
