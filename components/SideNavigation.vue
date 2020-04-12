@@ -47,7 +47,7 @@
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
-            href="https://twitter.com/c4kgsm"	
+            href="https://twitter.com/c4kgsm"
             target="_blank"
             rel="noopener"
           >
