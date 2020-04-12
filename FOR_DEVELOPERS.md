@@ -156,7 +156,6 @@ Pull Request を送る際のブランチは、以下のネーミングルール�
 | 目的 | ブランチ | 確認URL | Pull requestsを出せる人 | 備考 |
 | ---- | ---- | ---- | ---- | ---- |
 | 開発 | development | https://dev-covid19-tokyo.netlify.com/ | 全開発者 | base branch。基本は、この`development`ブランチに Pull Requestを送ってください。 |
-| 緊急適用 | dev-hotfix | なし | 管理者から依頼された開発者のみ | 急ぎ本番に適用するべき修正。管理者から依頼された場合、`dev-hotfix`ブランチを使ってください。 |
 | ステージング | staging | https://stg-covid19-tokyo.netlify.com/ | 管理者のみ | 本番前の最終確認用。管理者以外の Pull Request は禁止です。 |
 | 本番 | master | https://stopcovid19.metro.tokyo.lg.jp/ | 管理者のみ | 管理者以外の Pull Request は禁止です。 |
 
