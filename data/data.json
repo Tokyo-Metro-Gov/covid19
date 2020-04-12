@@ -1,8 +1,6 @@
-/usr/local/lib/python3.8/site-packages/openpyxl/worksheet/header_footer.py:48: UserWarning: Cannot parse header or footer so it will be ignored
-  warn("""Cannot parse header or footer so it will be ignored""")
 {
   "contacts": {
-    "date": "2020/04/11 15:20",
+    "date": "2020/04/12 00:51",
     "data": [
       {
         "日付": "2020-01-22T00:00:00.000Z",
@@ -832,7 +830,7 @@
     ]
   },
   "querents": {
-    "date": "2020/04/11 15:20",
+    "date": "2020/04/12 00:51",
     "data": [
       {
         "日付": "2020-02-07T00:00:00.000Z",
@@ -1427,7 +1425,7 @@
     ]
   },
   "patients": {
-    "date": "2020/04/11 15:20",
+    "date": "2020/04/12 00:51",
     "data": [
       {
         "リリース日": "2020-01-31T00:00:00.000Z",
@@ -4501,11 +4499,11 @@
     ]
   },
   "patients_summary": {
-    "date": "2020/04/11 15:20",
+    "date": "2020/04/12 00:51",
     "data": []
   },
   "patients_and_no_symptoms_summary": {
-    "date": "2020/04/11 15:20",
+    "date": "2020/04/12 00:51",
     "data": {
       "患者": [
         1,
@@ -4732,15 +4730,15 @@
     ]
   },
   "discharges_summary": {
-    "date": "2020/04/11 15:20",
+    "date": "2020/04/12 00:51",
     "data": []
   },
   "discharges": {
-    "date": "2020/04/11 15:20",
+    "date": "2020/04/12 00:51",
     "data": []
   },
   "inspections": {
-    "date": "2020/04/11 15:20",
+    "date": "2020/04/12 00:51",
     "data": [
       {
         "判明日": "1/31/2020",
@@ -5515,7 +5513,7 @@
     ]
   },
   "inspections_summary": {
-    "date": "2020/04/11 15:20",
+    "date": "2020/04/12 00:51",
     "data": {
       "県内": [
         5,
@@ -5736,10 +5734,10 @@
     ]
   },
   "better_patients_summary": {
-    "date": "2020/04/11 15:20",
+    "date": "2020/04/12 00:51",
     "data": []
   },
-  "lastUpdate": "2020/04/11 15:20",
+  "lastUpdate": "2020/04/12 00:51",
   "main_summary": {
     "attr": "検査実施人数",
     "value": 4476,
