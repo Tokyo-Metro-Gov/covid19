@@ -182,7 +182,7 @@ export default Vue.extend({
           icon: 'mdi-account-multiple',
           title: this.$t('知事からのメッセージ'),
           link:
-            'https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/new_coronavirus_portal.data/message1.pdf'
+            'https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/governor_message.data/comment200410.pdf'
         },
         {
           icon: 'mdi-account-multiple',
@@ -192,8 +192,13 @@ export default Vue.extend({
         },
         {
           icon: 'mdi-information',
+          title: this.$t('島根県内のお知らせ'),
+          link: this.localePath('/shimane-news')
+        },
+        {
+          icon: 'mdi-information',
           title: this.$t('県内各所のお知らせ'),
-          link: this.localePath('/news')
+          link: this.localePath('/place-news')
         },
         {
           icon: 'mdi-stop',

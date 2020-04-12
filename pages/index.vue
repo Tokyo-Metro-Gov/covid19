@@ -18,12 +18,10 @@
     <whats-new class="mb-4" :items="newsItems" />
     <StaticCard>
       <p>
-        {{ $t('4月9日 新型コロナウイルス感染者に関する 島根県の会見') }}
+        {{ $t(movieItem.text) }}
       </p>
       <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/WRHk6TgLWXY"
+        :src="movieItem.url"
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
@@ -53,6 +51,7 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
+import Movie from '@/data/movie.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
@@ -80,7 +79,8 @@ export default Vue.extend({
         icon: 'mdi-chart-timeline-variant',
         title: this.$t('島根県内の最新感染動向')
       },
-      newsItems: News.newsItems
+      newsItems: News.newsItems.slice(0, 3),
+      movieItem: Movie.movieItems[0]
     }
     return data
   },
