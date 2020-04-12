@@ -1,6 +1,6 @@
 <template>
   <div :class="[$style.container, $style.according]">
-    <i18n tag="div" :class="$style.heading" path="{advisory}による相談結果">
+    <i18n tag="h4" :class="$style.heading" path="{advisory}による相談結果">
       <template v-slot:advisory>
         <span :class="[$style.fzLarge, $style.break]">
           {{ $t('新型コロナ受診相談窓口') }}
