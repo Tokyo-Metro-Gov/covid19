@@ -38,6 +38,7 @@
       <confirmed-cases-attributes-card />
       <confirmed-cases-number-card />
       <inspection-persons-number-card />
+      <patients-age-ratio-card />
       <!--      <tested-number-card />-->
     </v-row>
   </div>
@@ -57,6 +58,7 @@ import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCar
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 // import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
+import PatientsAgeRatioCard from '@/components/cards/PatientsAgeRatioCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 import StaticCard from '@/components/StaticCard.vue'
 
@@ -70,6 +72,7 @@ export default Vue.extend({
     ConfirmedCasesAttributesCard,
     // TestedNumberCard,
     InspectionPersonsNumberCard,
+    PatientsAgeRatioCard,
     StaticCard
   },
   data() {
