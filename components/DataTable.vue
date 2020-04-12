@@ -113,7 +113,7 @@ export default Vue.extend({
     },
     loading: {
       type: Boolean,
-      default: true
+      default: false
     },
     date: {
       type: String,
