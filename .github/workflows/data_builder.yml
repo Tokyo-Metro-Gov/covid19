@@ -3,7 +3,7 @@ name: Data Builder
 on:
   push:
     branches:
-      - 'feature/#177-csv-to-data'
+      - development
 jobs:
   build:
     name: Convert csv to data.json
