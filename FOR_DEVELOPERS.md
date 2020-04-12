@@ -143,7 +143,7 @@ $ docker-compose run --rm app yarn install
 
 ## 5. ブランチルール
 
-development, dev-hotfix 以外は、Pull Request は禁止です。  
+development 以外は、Pull Request は禁止です。  
 Pull Request を送る際のブランチは、以下のネーミングルールに従ったブランチにしてください。
 
 | 種類 | ブランチのネーミングルール |
