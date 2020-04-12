@@ -173,10 +173,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayData() {
       // const colorArray = ['#006400', '#ccc']
       const colorArray = [
-        '#ffcfdf',
-        '#fefdca',
-        '#95e1d3',
-        '#f9ed69',
+        '#f5f5f5',
+        '#defcf9',
+        '#e0f9b5',
+        '#ffde7d',
         '#f08a5d',
         '#b83b5e',
         '#6a2c70',
