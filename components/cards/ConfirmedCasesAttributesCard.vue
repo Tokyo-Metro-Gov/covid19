@@ -48,7 +48,9 @@ export default {
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
       row['居住地'] = this.getTranslatedWording(row['居住地'])
-      row['性別'] = this.getTranslatedWording(row['性別'])
+      row['性別'] = this.getTranslatedWording(
+        this.standardizeGenderData(row['性別'])
+      )
       row['退院'] = this.getTranslatedWording(row['退院'])
 
       if (row['年代'].substr(-1, 1) === '代') {
@@ -101,6 +103,28 @@ export default {
         return isDesc[0] ? comparison * -1 : comparison
       })
       return items
+    },
+
+    /**
+     * 性別のデータを定型化する。
+     *
+     * インプットとなるデータは期待する文字列ではない場合がある。
+     * その為、期待する形式の文字列に変更する。
+     * @param gender - 性別
+     */
+    standardizeGenderData(gender) {
+      if (gender === '男') {
+        // 男 -> 男性
+        return '男性'
+      }
+
+      if (gender === '女') {
+        // 女 -> 女性
+        return '女性'
+      }
+
+      // インプットが期待する文字列だった場合は、インプットをそのまま返す
+      return gender
     }
   }
 }
