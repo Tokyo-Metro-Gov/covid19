@@ -162,6 +162,9 @@
         </a>
       </i18n>
     </TextCard>
+    <TextCard :title="$t('お問い合わせ先')">
+      code4kagoshima[at]gmail.com
+    </TextCard>
   </div>
 </template>
 
