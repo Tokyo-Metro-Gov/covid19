@@ -46,13 +46,13 @@
       </nav>
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a		
-             href="https://twitter.com/c4kgsm"		
-             target="_blank"		
-             rel="noopener"		
-           >		
-             <img src="/twitter.png" alt="Twitter" />		
-           </a>
+          <a
+            href="https://twitter.com/c4kgsm"	
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/twitter.png" alt="Twitter" />
+          </a>
           <a
             href="https://github.com/codeforkagoshima/covid19"
             target="_blank"
