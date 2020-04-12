@@ -49,7 +49,7 @@
           </i18n>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
-          <green-arrow />
+          <green-arrow-icon />
         </div>
       </a>
       <a
@@ -99,7 +99,7 @@
           <span :class="$style.fzXLarge">{{ $t('陰性') }}</span>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
-          <green-arrow />
+          <green-arrow-icon />
         </div>
       </a>
       <a
@@ -164,14 +164,14 @@
 import ApartmentIcon from '@/static/flow/responsive/apartment.svg'
 import HouseIcon from '@/static/flow/responsive/house.svg'
 import ArrowDownwardIcon from '@/static/flow/responsive/arrow_downward.svg'
-import GreenArrow from '@/static/flow/responsive/arrow_green.svg'
+import GreenArrowIcon from '@/static/flow/responsive/arrow_green.svg'
 
 export default {
   components: {
     ApartmentIcon,
     HouseIcon,
     ArrowDownwardIcon,
-    GreenArrow
+    GreenArrowIcon
   },
   computed: {
     langsWithoutOutpatient() {
