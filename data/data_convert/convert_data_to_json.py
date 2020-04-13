@@ -84,7 +84,7 @@ if __name__ == '__main__':
 	NUM_patients	= len(list(df['日付']))
 
  	#update patients_summary
-	start_date 		= datetime.strptime("2020-02-20","%Y-%m-%d")
+	start_date 		= datetime.strptime("2020-01-14","%Y-%m-%d")
 	last_date		= datetime.strptime(list(df['日付'])[-1],"%Y-%m-%d") + timedelta(days=1)
 	date_list		= list(map(lambda day:(start_date+timedelta(day)).strftime("%Y-%m-%d"),range((last_date - start_date).days)))
 	od_date			= OrderedDict()
