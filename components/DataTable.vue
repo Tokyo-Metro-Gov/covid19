@@ -13,8 +13,6 @@
       :fixed-header="true"
       :mobile-breakpoint="0"
       :custom-sort="customSort"
-      :loading="loading"
-      :loading-text="$t('読み込み中')"
       class="cardTable"
     />
     <div class="note">
@@ -110,10 +108,6 @@ export default Vue.extend({
     chartData: {
       type: Object,
       default: () => {}
-    },
-    loading: {
-      type: Boolean,
-      default: false
     },
     date: {
       type: String,

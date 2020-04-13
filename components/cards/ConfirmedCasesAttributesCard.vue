@@ -1,17 +1,20 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <data-table
-      :title="$t('陽性患者の属性')"
-      :title-id="'attributes-of-confirmed-cases'"
-      :chart-data="patientsTable"
-      :chart-option="{}"
-      :loading="loading"
-      :date="Data.patients.date"
-      :info="sumInfoOfPatients"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
-      :source="$t('オープンデータを入手')"
-      :custom-sort="customSort"
-    />
+    <client-only :placeholder="$t('読み込み中')">
+      <data-table
+        :title="$t('陽性患者の属性')"
+        :title-id="'attributes-of-confirmed-cases'"
+        :chart-data="patientsTable"
+        :chart-option="{}"
+        :date="Data.patients.date"
+        :info="sumInfoOfPatients"
+        :url="
+          'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+        "
+        :source="$t('オープンデータを入手')"
+        :custom-sort="customSort"
+      />
+    </client-only>
   </v-col>
 </template>
 
@@ -62,18 +65,9 @@ export default {
 
     const data = {
       Data,
-      patientsTable: {
-        headers: patientsTable.headers,
-        datasets: []
-      },
-      loading: true,
+      patientsTable,
       sumInfoOfPatients
     }
-
-    setTimeout(() => {
-      data.patientsTable.datasets = patientsTable.datasets
-      data.loading = false
-    })
 
     return data
   },
