@@ -321,8 +321,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               return {
                 [j]:
                   j % 2 === 0
-                    ? transition[i].toString()
-                    : cumulative[i].toString()
+                    ? transition[i].toLocaleString()
+                    : cumulative[i].toLocaleString()
               }
             })
           )
