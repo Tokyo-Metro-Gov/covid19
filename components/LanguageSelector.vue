@@ -1,8 +1,8 @@
 <template>
   <div class="LauguageSelector">
     <div class="LauguageSelector-Background">
-      <EarthIcon class="EarthIcon" aria-hidden="true" />
-      <SelectMenuIcon class="SelectMenuIcon" aria-hidden="true" />
+      <earth-icon class="EarthIcon" aria-hidden="true" />
+      <select-menu-icon class="SelectMenuIcon" aria-hidden="true" />
     </div>
     <select
       id="LanguageSelector"

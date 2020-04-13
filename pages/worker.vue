@@ -3,7 +3,7 @@
     <page-header class="mb-3">
       {{ $t('企業の皆様・はたらく皆様へ') }}
     </page-header>
-    <StaticCard>
+    <static-card>
       <h3>
         <a
           href="http://www.sangyo-rodo.metro.tokyo.jp/chushou/kinyu/yuushi/yuushi/new"
@@ -19,8 +19,8 @@
           )
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <a
           href="https://www.tokyo-kosha.or.jp/topics/2003/0001.html"
@@ -36,8 +36,8 @@
           )
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <a
           href="https://www.tokyo-kosha.or.jp/support/josei/jigyo/kinkyu.html"
@@ -55,8 +55,8 @@
           )
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <a
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
@@ -72,8 +72,8 @@
           )
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <a
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
@@ -91,8 +91,8 @@
           )
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <a
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
@@ -108,8 +108,8 @@
           )
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <a
           href="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
@@ -125,8 +125,8 @@
           )
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <a
           href="https://www.shigotozaidan.or.jp/koyo-kankyo/joseikin/kinkyutaisaku.html"
@@ -142,8 +142,8 @@
           )
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <a
           href="https://tokyo-telework.jp/"
@@ -159,8 +159,8 @@
           )
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <a
           href="http://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
@@ -172,8 +172,8 @@
       <p>
         {{ $t('資金繰りに関する相談、経営に関する相談') }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <a
           href="http://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
@@ -187,8 +187,8 @@
           $t('資金繰りに関する相談、経営に関する相談（契約におけるトラブル等）')
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <a
           href="https://www.hataraku.metro.tokyo.lg.jp/sodan/sodan/index.html"
@@ -204,8 +204,8 @@
           )
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <a
           href="https://smooth-biz.metro.tokyo.lg.jp/"
@@ -223,7 +223,7 @@
           )
         }}
       </p>
-    </StaticCard>
+    </static-card>
   </div>
 </template>
 
