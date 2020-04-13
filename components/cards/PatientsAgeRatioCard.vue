@@ -8,7 +8,7 @@
       :date="PatientsAgeRatio.date"
       :labels="PatientsAgeRatio.labels"
       :unit="$t('人')"
-      :info="'陽性者合計'"
+      :info="$t('陽性者合計')"
     />
   </v-col>
 </template>
