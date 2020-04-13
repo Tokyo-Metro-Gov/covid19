@@ -95,7 +95,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `https://shimane-covid19.netlify.com/${this.$route.path}`
+          href: `https://shimane-covid19.com/${this.$route.path}`
         },
         {
           rel: 'stylesheet',
@@ -128,7 +128,7 @@ export default Vue.extend({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://shimane-covid19.netlify.com${this.$route.path}`
+          content: `https://shimane-covid19.com${this.$route.path}`
         },
         ogLocale,
         {
