@@ -83,12 +83,6 @@
             background: rgba($gray-4, 0.3);
           }
         }
-
-        &:not(:last-child) {
-          td:not(.v-data-table__mobile-row) {
-            border: none;
-          }
-        }
       }
     }
     &:focus {
