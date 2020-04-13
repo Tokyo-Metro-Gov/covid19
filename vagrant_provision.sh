@@ -26,7 +26,7 @@ yarn install
 cat << EOF > /home/vagrant/covid19.sh
 #!/bin/bash
 cd /home/vagrant/covid19
-HOST=0.0.0.0 /usr/bin/yarn dev
+HOST=0.0.0.0 /usr/bin/yarn dev-no-axe
 EOF
 
 # systemd定義
