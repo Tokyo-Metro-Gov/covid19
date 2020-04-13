@@ -62,7 +62,7 @@ jobs:
 
       - uses: actions/github-script@0.9.0
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{secrets.LHCI_TOKEN}}
           script: |
             const fs = require('fs')
             const table = fs.readFileSync(process.env.LH_SUMMARY_FILE, 'utf8')
