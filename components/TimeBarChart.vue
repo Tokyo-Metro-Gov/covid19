@@ -54,9 +54,9 @@
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
-              <th class="text-start">{{ item.text }}</th>
-              <td class="text-start">{{ item.transition }}</td>
-              <td class="text-start">{{ item.cumulative }}</td>
+              <th>{{ item.text }}</th>
+              <td class="text-end">{{ item.transition }}</td>
+              <td class="text-end">{{ item.cumulative }}</td>
             </tr>
           </tbody>
         </template>
@@ -490,8 +490,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .map((d, _) => {
           return Object.assign(
             { text: d.label },
-            { transition: d.transition.toLocaleString(), align: 'end' },
-            { cumulative: d.cumulative.toLocaleString(), align: 'end' }
+            { transition: d.transition.toLocaleString() },
+            { cumulative: d.cumulative.toLocaleString() }
           )
         })
         .sort((a, b) => (dayjs(a.text).isBefore(dayjs(b.text)) ? 1 : -1))
