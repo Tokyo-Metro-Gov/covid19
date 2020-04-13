@@ -1,7 +1,7 @@
 <template>
   <!-- eslint-disable vue/html-indent -->
   <noscript inline-template>
-    <div class="noscript">
+    <div>
       <style>
         .loader {
           display: none;
@@ -9,11 +9,17 @@
         .v-overlay {
           display: none;
         }
+        @media screen and (max-width: 600px) {
+          .appContainer {
+            margin-bottom: 150px;
+          }
+        }
+        @media screen and (min-width: 601px) {
+          .appContainer {
+            margin-top: 100px;
+          }
+        }
       </style>
-      <div class="noscript-heading">
-        <img src="/logo.svg" :alt="$t('東京都')" />
-        {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
-      </div>
       <div class="noscript-body">
         {{ $t('当サイトではJavaScriptを使用しております。') }}<br />
         {{
@@ -33,26 +39,28 @@
 </template>
 
 <style lang="scss" scoped>
-.noscript {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 310px;
-  max-width: 440px;
-  transform: translateY(-50%) translateX(-50%);
+@include lessThan($small) {
+  .noscript-body {
+    position: fixed;
+    bottom: 0;
+    color: rgba(0, 0, 0, 0.87);
+  }
 }
 
-.noscript-heading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@include largerThan($small) {
+  .noscript-body {
+    position: fixed;
+    top: 0;
+    margin-left: 240px;
+    width: calc(100% - 240px);
+  }
+}
 
-  @include font-size(13);
-
-  color: #898989;
-
-  img {
-    margin-right: 16px;
+@include largerThan($huge) {
+  .noscript-body {
+    margin-left: 324px;
+    width: calc(100% - 324px);
+    max-width: 1100px;
   }
 }
 
@@ -60,10 +68,10 @@
   @include font-size(13);
   @include card-container();
 
+  background-color: #ffe200;
   border-radius: 4px;
-  margin-top: 16px;
   padding: 1em;
-  color: rgba(0, 0, 0, 0.87);
+  z-index: 3;
 }
 </style>
 

@@ -14,17 +14,21 @@
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
     <div class="LegendStickyChart">
+      <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
+        <div :style="{ width: `${chartWidth}px` }">
+          <bar
+            :ref="'barChart'"
+            :chart-id="chartId"
+            :chart-data="displayData"
+            :options="displayOption"
+            :plugins="scrollPlugin"
+            :height="240"
+            :width="chartWidth"
+          />
+        </div>
+      </div>
       <bar
-        :ref="'barChart'"
-        :style="{ display: canvas ? 'block' : 'none' }"
-        :chart-id="chartId"
-        :chart-data="displayData"
-        :options="displayOption"
-        :plugins="scrollPlugin"
-        :height="240"
-        :width="chartWidth"
-      />
-      <bar
+        class="sticky-legend"
         :style="{ display: canvas ? 'block' : 'none' }"
         :chart-id="`${chartId}-header`"
         :chart-data="displayDataHeader"
@@ -46,7 +50,16 @@
         :mobile-breakpoint="0"
         class="cardTable"
         item-key="name"
-      />
+      >
+        <template v-slot:body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.text">
+              <th class="text-start">{{ item.text }}</th>
+              <td class="text-start">{{ item['0'] }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-data-table>
     </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -496,7 +509,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     }
   },
-  beforeMount() {
+  mounted() {
     if (this.$el) {
       this.chartWidth =
         ((this.$el!.clientWidth - 22 * 2 - 38) / 60) *
@@ -507,8 +520,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         this.chartWidth
       )
     }
-  },
-  mounted() {
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')

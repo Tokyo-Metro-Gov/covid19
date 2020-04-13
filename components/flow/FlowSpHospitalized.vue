@@ -2,7 +2,7 @@
   <div id="hospitalized" :class="$style.container">
     <p :class="$style.heading">
       <span :class="[$style.icon, $style.top]">
-        <HotelIcon aria-hidden="true" />
+        <hotel-icon aria-hidden="true" />
       </span>
       <span :class="$style.fzMedium">{{ $t('入院となります') }}</span>
     </p>

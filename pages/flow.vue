@@ -1,11 +1,11 @@
 <template>
   <div class="Flow">
     <div class="Flow-Heading">
-      <CovidIcon aria-hidden="true" />
+      <covid-icon aria-hidden="true" />
       <page-header class="Flow-Heading-Title">
         {{ $t('新型コロナウイルス感染症が心配なときに') }}
       </page-header>
-      <PrinterButton :wrapper-class="'Flow-PullRight'" to="/print/flow" />
+      <printer-button :wrapper-class="'Flow-PullRight'" to="/print/flow" />
     </div>
     <div>
       <div class="Flow-Card-Button-Wrapper">

@@ -334,7 +334,7 @@ export default Vue.extend({
     margin: 16px 0;
     position: relative;
     overflow: hidden;
-    > div:first-child {
+    .scrollable {
       overflow-x: scroll;
       &::-webkit-scrollbar {
         height: 4px;
@@ -344,7 +344,7 @@ export default Vue.extend({
         background-color: rgba(0, 0, 0, 0.07);
       }
     }
-    > div:nth-child(2) {
+    .sticky-legend {
       position: absolute;
       top: 0;
       pointer-events: none;
