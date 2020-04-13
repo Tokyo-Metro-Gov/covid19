@@ -1,6 +1,11 @@
 {
     "newsItems": [
         {
+            "date": "2020\/04\/13",
+            "url": "https://www.pref.okinawa.jp/site/hoken/chiikihoken/kekkaku/2019-ncov.html",
+            "text": "新型コロナウイルス感染症について（一般の方へ）"
+        },
+        {
             "date": "2020\/04\/10",
             "url": "https://www.youtube.com/watch?v=qJVGnPjwTpo&list=PLjCs709XbPupyuNlRpPw2NrMXPmXf5cN7&index=4&t=0s",
             "text": "新型コロナウイルス感染症の拡大を防ぐための玉城知事から県民の皆様へのメッセージ"
@@ -9,11 +14,6 @@
             "date": "2020\/04\/10",
             "url": "https://www.pref.okinawa.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html",
             "text": "沖縄県新型コロナウイルス感染症対策本部会議における玉城知事のコメント"
-        },
-        {
-            "date": "2020\/04\/06",
-            "url": "https://www.pref.okinawa.jp/site/kodomo/korei/shido/shingatakorona-virus.html",
-            "text": "新型コロナウィルス感染拡大防止の継続的な徹底について"
         }
     ]
 }
