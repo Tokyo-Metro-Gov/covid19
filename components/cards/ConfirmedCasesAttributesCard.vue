@@ -68,10 +68,11 @@ export default {
   },
   methods: {
     getTranslatedWording(value) {
-      if (value === '-' || value === '‐' || value == null) {
+      if (value === '-' || value === '‐' || value === '―' || value == null) {
         // 翻訳しようとしている文字列が以下のいずれかだった場合、翻訳しない
         // - 全角のハイフン
         // - 半角のハイフン
+        // - 全角のダッシュ
         // - null
         return value
       }
