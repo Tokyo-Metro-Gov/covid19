@@ -185,7 +185,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
       return {
         labels: this.chartData.map((_d: any, index) => {
-          return this.labels[index]
+          return this.$t(this.labels[index])
         }),
         datasets: [
           {
