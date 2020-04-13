@@ -45,18 +45,14 @@ $ yarn dev
 ```
 
 
-[PLEASE TRANSLATE ME]
+**禁用辅助功能检查（vue-axe）的方法**
 
-**アクセシビリティチェック（vue-axe）を無効にする方法**
-
-- 開発用ローカルサーバが重い場合、以下のようにアクセシビリティチェックを無効にして起動することができます。
+- 当本地开发服务器占用资源较多时，可按如下方式禁用辅助功能检查并启动。
 
 ```bash
 # serve with hot reload at localhost:3000
 $ yarn dev-no-axe
 ```
-
-[/PLEASE TRANSLATE ME]
 
 
 **使用 docker compose 时**
