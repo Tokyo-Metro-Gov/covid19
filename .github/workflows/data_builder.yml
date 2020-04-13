@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - development
+      - 'feature/#177-csv-to-data'
 jobs:
   build:
     name: Convert csv to data.json
@@ -15,6 +16,7 @@ jobs:
         id: extract_branch
       - uses: actions/checkout@v2
         with:
+          persist-credentials: false
           ref: ${{ steps.extract_branch.outputs.branch }}
       - name: Check file existence
         id: check_files
