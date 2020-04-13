@@ -40,19 +40,12 @@ $ yarn dev
 ```
 
 
-[PLEASE TRANSLATE ME]
-
-**アクセシビリティチェック（vue-axe）を無効にする方法**
-
-- 開発用ローカルサーバが重い場合、以下のようにアクセシビリティチェックを無効にして起動することができます。
-
+**How to disable accessibility auditing (vue-axe)**
+- You can disable accessibility auditing, which would make your local server faster.
 ```bash
 # serve with hot reload at localhost:3000
 $ yarn dev-no-axe
 ```
-
-[/PLEASE TRANSLATE ME]
-
 
 **Use docker**
 ```bash
