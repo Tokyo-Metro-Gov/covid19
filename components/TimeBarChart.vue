@@ -55,7 +55,8 @@
           <tbody>
             <tr v-for="item in items" :key="item.text">
               <th class="text-start">{{ item.text }}</th>
-              <td class="text-start">{{ item['0'] }}</td>
+              <td class="text-start">{{ item.transition }}</td>
+              <td class="text-start">{{ item.cumulative }}</td>
             </tr>
           </tbody>
         </template>
