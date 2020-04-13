@@ -78,7 +78,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
-import dayjs from 'dayjs'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { Chart } from 'chart.js'
 import { GraphDataType } from '@/utils/formatGraph'
@@ -494,7 +493,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             { cumulative: d.cumulative.toLocaleString() }
           )
         })
-        .sort((a, b) => (dayjs(a.text).isBefore(dayjs(b.text)) ? 1 : -1))
+        .sort((a, b) => (a.text > b.text ? -1 : 1))
     }
   },
   methods: {

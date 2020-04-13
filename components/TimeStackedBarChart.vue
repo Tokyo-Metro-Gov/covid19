@@ -117,7 +117,6 @@ import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
 import { Chart } from 'chart.js'
-import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
@@ -327,7 +326,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             })
           )
         })
-        .sort((a, b) => (dayjs(a.text).isBefore(dayjs(b.text)) ? 1 : -1))
+        .sort((a, b) => (a.text > b.text ? -1 : 1))
     },
     displayOption() {
       const unit = this.unit

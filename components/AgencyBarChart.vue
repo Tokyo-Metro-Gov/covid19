@@ -48,7 +48,6 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import { ChartOptions } from 'chart.js'
-import dayjs from 'dayjs'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
@@ -245,7 +244,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .sort((a, b) => {
           const aDate = a.text.split('~')[0]
           const bDate = b.text.split('~')[0]
-          return dayjs(aDate).isBefore(dayjs(bDate)) ? 1 : -1
+          return aDate > bDate ? -1 : 1
         })
     }
   },

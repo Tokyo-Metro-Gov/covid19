@@ -53,7 +53,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
-import dayjs from 'dayjs'
 import { ChartOptions, ChartData, Chart } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
@@ -180,7 +179,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .sort((a, b) => {
           const aDate = a.text.split('~')[0]
           const bDate = b.text.split('~')[0]
-          return dayjs(aDate).isBefore(dayjs(bDate)) ? 1 : -1
+          return aDate > bDate ? -1 : 1
         })
     },
     displayOption() {
