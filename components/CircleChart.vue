@@ -30,6 +30,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
@@ -51,7 +52,7 @@ type Computed = {
     unit: string
   }
   displayData: {
-    labels: string[]
+    labels: TranslateResult[]
     datasets: {
       label: string[]
       data: number[]
@@ -196,7 +197,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               return d.transition
             }),
             backgroundColor: this.chartData.map((_, index) => {
-              console.log(colorArray[index])
               return colorArray[index]
             }),
             borderWidth: 0
