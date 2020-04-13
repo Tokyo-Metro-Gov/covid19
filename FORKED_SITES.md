@@ -22,6 +22,7 @@
 [](12)千葉県|https://chiba-covid19.mypl.net/|地域情報サイト「まいぷれ」|[keisuke-kimura/covid19](https://github.com/keisuke-kimura/covid19)|
 [](12)千葉県|https://covid19.civictech.chiba.jp/|Civic Tech Zen Chiba|[civictechzenchiba/covid19-chiba](https://github.com/civictechzenchiba/covid19-chiba)|
 [](12)千葉市|https://stopcovid19.code4chiba.org/|Code for Chiba|[codeforchiba/covid19](https://github.com/codeforchiba/covid19)|
+[](12)八千代市|https://yachiyo-covid19.netlify.com/|有志（学生）|[taichi1222/covid19-yachiyo](https://github.com/taichi1222/covid19-yachiyo)|
 [](14)神奈川県|https://www.pref.kanagawa.jp/osirase/1369/|神奈川県（**公式**）||
 [](15)新潟県|https://niigata.stopcovid19.jp/|Code for Niigata|[CodeForNiigata/covid19](https://github.com/CodeForNiigata/covid19)|
 [](15)新潟県|https://stopcovid19-niigata-unofficial.netlify.com|air-h-128k-il|[air-h-128k-il/covid19](https://github.com/air-h-128k-il/covid19)|
