@@ -21,6 +21,7 @@ jobs:
         uses: jakepartusch/wait-for-netlify-action@v1
         id: waitFor200
         with:
+          # Change site_name if you want to run this workflow against the Netlify configured for your local repository
           site_name: "dev-covid19-tokyo"
           max_timeout: 600 # 10 * 60 seconds
 
@@ -60,10 +61,26 @@ jobs:
               } ] | sort_by(.metrics) | .[] | [.metrics, .score, .url] ) | @csv' \
           | csv2md | tee "${LH_SUMMARY_FILE}"
 
+      # Workaround to suppress the unrecognized named-value error
+      # https://github.community/t5/GitHub-Actions/If-expression-with-context-variable/td-p/34556
+      - name: Initialize workflow variables
+        id: vars
+        env:
+          LHCI_TOKEN: "${{ secrets.LHCI_TOKEN }}"
+        run: |
+          echo ::set-output name=LHCI_TOKEN::${LHCI_TOKEN:-sample}
+
       - uses: actions/github-script@0.9.0
+        env:
+          LHCI_TOKEN: "${{ secrets.LHCI_TOKEN }}"
         with:
-          github-token: ${{secrets.LHCI_TOKEN}}
+          github-token: ${{ steps.vars.outputs.LHCI_TOKEN }}
           script: |
+            const LHCI_TOKEN = process.env.LHCI_TOKEN || ''
+            if (LHCI_TOKEN === '') {
+              console.log('ABORTED: the required variable env.LHCI_TOKEN is empty')
+              return
+            }
             const fs = require('fs')
             const table = fs.readFileSync(process.env.LH_SUMMARY_FILE, 'utf8')
             github.issues.createComment({
