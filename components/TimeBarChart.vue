@@ -50,7 +50,16 @@
       :mobile-breakpoint="0"
       class="cardTable"
       item-key="name"
-    />
+    >
+      <template v-slot:body="{ items }">
+        <tbody>
+          <tr v-for="item in items" :key="item.text">
+            <th class="text-start">{{ item.text }}</th>
+            <td class="text-start">{{ item['0'] }}</td>
+          </tr>
+        </tbody>
+      </template>
+    </v-data-table>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
