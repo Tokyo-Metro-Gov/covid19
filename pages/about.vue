@@ -3,7 +3,7 @@
     <page-header class="mb-3">
       {{ $t('当サイトについて') }}
     </page-header>
-    <StaticCard>
+    <static-card>
       {{
         $t(
           '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
@@ -15,8 +15,8 @@
           '東京都による公式情報と客観的な数値をわかりやすく伝えることで、東京都にお住まいの方や、東京都内に拠点を持つ企業の方、東京都を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。'
         )
       }}
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>{{ $t('ブラウザ環境について') }}</h3>
       <p>
         {{ $t('当サイトは以下の環境でご覧いただくことを推奨いたします。') }}
@@ -40,12 +40,12 @@
           }}
         </span>
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>{{ $t('当サイトへのリンクについて') }}</h3>
       <p>{{ $t('当サイトへのリンクは自由です。') }}</p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>{{ $t('JavaScriptについて') }}</h3>
       <p>
         {{ $t('当サイトではJavaScriptを使用しております。') }}<br />
@@ -60,8 +60,8 @@
           )
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>{{ $t('クッキー (Cookie) について') }}</h3>
       <p>
         {{ $t('当サイトの一部ではクッキーを使用しています。') }}<br />
@@ -85,8 +85,8 @@
           )
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>{{ $t('Google Analyticsの利用について') }}</h3>
       <p>
         {{
@@ -165,8 +165,8 @@
           </a>
         </template>
       </i18n>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>{{ $t('免責事項') }}</h3>
       <p>
         {{
@@ -189,8 +189,8 @@
           )
         }}
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>{{ $t('データについて') }}</h3>
       <i18n
         tag="p"
@@ -206,8 +206,8 @@
           </a>
         </template>
       </i18n>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>{{ $t('ソースコードについて') }}</h3>
       <p>
         {{
@@ -227,7 +227,7 @@
           </template>
         </i18n>
       </p>
-    </StaticCard>
+    </static-card>
   </div>
 </template>
 

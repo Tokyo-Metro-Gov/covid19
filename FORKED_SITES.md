@@ -22,6 +22,8 @@
 [](12)千葉県|https://chiba-covid19.mypl.net/|地域情報サイト「まいぷれ」|[keisuke-kimura/covid19](https://github.com/keisuke-kimura/covid19)|
 [](12)千葉県|https://covid19.civictech.chiba.jp/|Civic Tech Zen Chiba|[civictechzenchiba/covid19-chiba](https://github.com/civictechzenchiba/covid19-chiba)|
 [](12)千葉市|https://stopcovid19.code4chiba.org/|Code for Chiba|[codeforchiba/covid19](https://github.com/codeforchiba/covid19)|
+[](12)市原市|https://covid19-ichihara.netlify.com/|個人|[YanaseT/covid19-ichihara/](https://github.com/YanaseT/covid19-ichihara/)|
+[](12)八千代市|https://yachiyo-covid19.netlify.com/|有志（学生）|[taichi1222/covid19-yachiyo](https://github.com/taichi1222/covid19-yachiyo)|
 [](14)神奈川県|https://www.pref.kanagawa.jp/osirase/1369/|神奈川県（**公式**）||
 [](15)新潟県|https://niigata.stopcovid19.jp/|Code for Niigata|[CodeForNiigata/covid19](https://github.com/CodeForNiigata/covid19)|
 [](15)新潟県|https://stopcovid19-niigata-unofficial.netlify.com|air-h-128k-il|[air-h-128k-il/covid19](https://github.com/air-h-128k-il/covid19)|
@@ -40,6 +42,7 @@
 [](27)大阪府|https://covid19-osaka.info/|大阪府（**公式**）|[codeforosaka/covid19](https://github.com/codeforosaka/covid19)|
 [](28)兵庫県|https://stop-covid19-hyogo.org/|有志|[stop-covid19-hyogo/covid19](https://github.com/stop-covid19-hyogo/covid19)|
 [](29)奈良県|https://stopcovid19.code4nara.org/|有志|[code4nara/covid19](https://github.com/code4nara/covid19)|
+[](31)鳥取県|https://tottori-covid19.netlify.com/|有志|[tottori-covid19/covid19](https://github.com/tottori-covid19/covid19)|
 [](32)島根県|https://shimane-covid19.netlify.com/|島根出身学生有志|[TaigaMikami/covid19](https://github.com/TaigaMikami)|
 [](33)岡山県|https://okayama.stopcovid19.jp/|学生エンジニア(有志)|[stopcovid19-okayama/covid19](https://github.com/stopcovid19-okayama/covid19)|
 [](34)広島県|https://covid19-hiroshima.netlify.com/|個人|[tatsuya1970/covid19](https://github.com/tatsuya1970/covid19)|
@@ -51,6 +54,7 @@
 []()九州|https://dev-covid19-kyusyu.netlify.com|九州(有志)|[Code-for-Kyushu/covid19](https://github.com/Code-for-Kyushu/covid19)|
 [](40)福岡県|https://fukuoka.stopcovid19.jp/|Code for Fukuoka, Code for Kurume|[Code-for-Fukuoka/covid19-fukuoka](https://github.com/Code-for-Fukuoka/covid19-fukuoka)|
 [](40)福岡市|https://stopcovid19.codeforfukuoka.org/|Code for Fukuoka|[Code-for-Fukuoka/covid19](https://github.com/Code-for-Fukuoka/covid19)|
+[](41)佐賀県|https://stopcovid19.code4saga.org/|Code for Saga|[codeforsaga/covid19](https://github.com/codeforsaga/covid19)|
 [](42)長崎県|https://stopcovid19-nagasaki.netlify.com/|Code for Nagasaki|[CodeForNagasaki/covid19](https://github.com/CodeForNagasaki/covid19)|
 [](43)熊本県|https://kumamoto.stopcovid19.jp/|Code for Kumamoto|[codeforkumamoto/covid19](https://github.com/codeforkumamoto/covid19)|
 [](44)大分県|https://oita.stopcovid19.jp/|有志|[covid19-oita/covid19](https://github.com/covid19-oita/covid19)|
