@@ -68,7 +68,6 @@ export default {
       patientsTable,
       sumInfoOfPatients
     }
-
     return data
   },
   methods: {
