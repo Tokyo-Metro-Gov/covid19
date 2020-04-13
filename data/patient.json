@@ -1,0 +1,4742 @@
+[
+    {
+        "date": "2020\/3\/31",
+        "datasets": [
+            {
+                "code": 13101,
+                "label": "千代田",
+                "ruby": "ちよだく",
+                "count": 3
+            },
+            {
+                "code": 13102,
+                "label": "中央",
+                "ruby": "ちゅうおうく",
+                "count": 19
+            },
+            {
+                "code": 13103,
+                "label": "港",
+                "ruby": "みなとく",
+                "count": 39
+            },
+            {
+                "code": 13104,
+                "label": "新宿",
+                "ruby": "しんじゅくく",
+                "count": 22
+            },
+            {
+                "code": 13105,
+                "label": "文京",
+                "ruby": "ぶんきょうく",
+                "count": 4
+            },
+            {
+                "code": 13106,
+                "label": "台東",
+                "ruby": "たいとうく",
+                "count": 15
+            },
+            {
+                "code": 13107,
+                "label": "墨田",
+                "ruby": "すみだく",
+                "count": 5
+            },
+            {
+                "code": 13108,
+                "label": "江東",
+                "ruby": "こうとうく",
+                "count": 10
+            },
+            {
+                "code": 13109,
+                "label": "品川",
+                "ruby": "しながわく",
+                "count": 24
+            },
+            {
+                "code": 13110,
+                "label": "目黒",
+                "ruby": "めぐろく",
+                "count": 21
+            },
+            {
+                "code": 13111,
+                "label": "大田",
+                "ruby": "おおたく",
+                "count": 15
+            },
+            {
+                "code": 13112,
+                "label": "世田谷",
+                "ruby": "せたがやく",
+                "count": 44
+            },
+            {
+                "code": 13113,
+                "label": "渋谷",
+                "ruby": "しぶやく",
+                "count": 18
+            },
+            {
+                "code": 13114,
+                "label": "中野",
+                "ruby": "なかのく",
+                "count": 15
+            },
+            {
+                "code": 13115,
+                "label": "杉並",
+                "ruby": "すぎなみく",
+                "count": 28
+            },
+            {
+                "code": 13116,
+                "label": "豊島",
+                "ruby": "としまく",
+                "count": 9
+            },
+            {
+                "code": 13117,
+                "label": "北",
+                "ruby": "きたく",
+                "count": 4
+            },
+            {
+                "code": 13118,
+                "label": "荒川",
+                "ruby": "あらかわく",
+                "count": 2
+            },
+            {
+                "code": 13119,
+                "label": "板橋",
+                "ruby": "いたばしく",
+                "count": 4
+            },
+            {
+                "code": 13120,
+                "label": "練馬",
+                "ruby": "ねりまく",
+                "count": 20
+            },
+            {
+                "code": 13121,
+                "label": "足立",
+                "ruby": "あだちく",
+                "count": 8
+            },
+            {
+                "code": 13122,
+                "label": "葛飾",
+                "ruby": "かつしかく",
+                "count": 6
+            },
+            {
+                "code": 13123,
+                "label": "江戸川",
+                "ruby": "えどがわく",
+                "count": 8
+            },
+            {
+                "code": 13201,
+                "label": "八王子",
+                "ruby": "はちおうじし",
+                "count": 4
+            },
+            {
+                "code": 13202,
+                "label": "立川",
+                "ruby": "たちかわし",
+                "count": 0
+            },
+            {
+                "code": 13203,
+                "label": "武蔵野",
+                "ruby": "むさしのし",
+                "count": 3
+            },
+            {
+                "code": 13204,
+                "label": "三鷹",
+                "ruby": "みたかし",
+                "count": 7
+            },
+            {
+                "code": 13205,
+                "label": "青梅",
+                "ruby": "おうめし",
+                "count": 1
+            },
+            {
+                "code": 13206,
+                "label": "府中",
+                "ruby": "ふちゅうし",
+                "count": 1
+            },
+            {
+                "code": 13207,
+                "label": "昭島",
+                "ruby": "あきしまし",
+                "count": 0
+            },
+            {
+                "code": 13208,
+                "label": "調布",
+                "ruby": "ちょうふし",
+                "count": 1
+            },
+            {
+                "code": 13209,
+                "label": "町田",
+                "ruby": "まちだし",
+                "count": 6
+            },
+            {
+                "code": 13210,
+                "label": "小金井",
+                "ruby": "こがねいし",
+                "count": 1
+            },
+            {
+                "code": 13211,
+                "label": "小平",
+                "ruby": "こだいらし",
+                "count": 1
+            },
+            {
+                "code": 13212,
+                "label": "日野",
+                "ruby": "ひのし",
+                "count": 3
+            },
+            {
+                "code": 13213,
+                "label": "東村山",
+                "ruby": "ひがしむらやまし",
+                "count": 0
+            },
+            {
+                "code": 13214,
+                "label": "国分寺",
+                "ruby": "こくぶんじし",
+                "count": 0
+            },
+            {
+                "code": 13215,
+                "label": "国立",
+                "ruby": "くにたちし",
+                "count": 0
+            },
+            {
+                "code": 13218,
+                "label": "福生",
+                "ruby": "ふっさし",
+                "count": 0
+            },
+            {
+                "code": 13219,
+                "label": "狛江",
+                "ruby": "こまえし",
+                "count": 0
+            },
+            {
+                "code": 13220,
+                "label": "東大和",
+                "ruby": "ひがしやまとし",
+                "count": 1
+            },
+            {
+                "code": 13221,
+                "label": "清瀬",
+                "ruby": "きよせし",
+                "count": 0
+            },
+            {
+                "code": 13222,
+                "label": "東久留米",
+                "ruby": "ひがしくるめし",
+                "count": 1
+            },
+            {
+                "code": 13223,
+                "label": "武蔵村山",
+                "ruby": "むさしむらやまし",
+                "count": 0
+            },
+            {
+                "code": 13224,
+                "label": "多摩",
+                "ruby": "たまし",
+                "count": 0
+            },
+            {
+                "code": 13225,
+                "label": "稲城",
+                "ruby": "いなぎし",
+                "count": 1
+            },
+            {
+                "code": 13227,
+                "label": "羽村",
+                "ruby": "はむらし",
+                "count": 3
+            },
+            {
+                "code": 13228,
+                "label": "あきる野",
+                "ruby": "あきるのし",
+                "count": 0
+            },
+            {
+                "code": 13229,
+                "label": "西東京",
+                "ruby": "にしとうきょうし",
+                "count": 8
+            },
+            {
+                "code": 13303,
+                "label": "瑞穂",
+                "ruby": "みずほまち",
+                "count": 0
+            },
+            {
+                "code": 13305,
+                "label": "日の出",
+                "ruby": "ひのでまち",
+                "count": 0
+            },
+            {
+                "code": 13307,
+                "label": "檜原",
+                "ruby": "ひのはらむら",
+                "count": 0
+            },
+            {
+                "code": 13308,
+                "label": "奥多摩",
+                "ruby": "おくたままち",
+                "count": 0
+            },
+            {
+                "code": 13361,
+                "label": "大島",
+                "ruby": "おおしままち",
+                "count": 0
+            },
+            {
+                "code": 13362,
+                "label": "利島",
+                "ruby": "としまむら",
+                "count": 0
+            },
+            {
+                "code": 13363,
+                "label": "新島",
+                "ruby": "にいじまむら",
+                "count": 0
+            },
+            {
+                "code": 13364,
+                "label": "神津島",
+                "ruby": "こうづしまむら",
+                "count": 0
+            },
+            {
+                "code": 13381,
+                "label": "三宅",
+                "ruby": "みやけむら",
+                "count": 0
+            },
+            {
+                "code": 13382,
+                "label": "御蔵島",
+                "ruby": "みくらじまむら",
+                "count": 0
+            },
+            {
+                "code": 13401,
+                "label": "八丈",
+                "ruby": "はちじょうまち",
+                "count": 0
+            },
+            {
+                "code": 13402,
+                "label": "青ヶ島",
+                "ruby": "あおがしまむら",
+                "count": 0
+            },
+            {
+                "code": 13421,
+                "label": "小笠原",
+                "ruby": "おがさわらむら",
+                "count": 0
+            },
+            {
+                "code": null,
+                "label": "都外",
+                "ruby": null,
+                "count": 20
+            },
+            {
+                "code": null,
+                "label": "調査中※",
+                "ruby": null,
+                "count": 116
+            },
+            {
+                "code": null,
+                "label": "小計",
+                "ruby": null,
+                "count": 521
+            }
+        ]
+    },
+    {
+        "date": "2020\/4\/1",
+        "datasets": [
+            {
+                "code": 13101,
+                "label": "千代田",
+                "ruby": "ちよだく",
+                "count": 3
+            },
+            {
+                "code": 13102,
+                "label": "中央",
+                "ruby": "ちゅうおうく",
+                "count": 19
+            },
+            {
+                "code": 13103,
+                "label": "港",
+                "ruby": "みなとく",
+                "count": 40
+            },
+            {
+                "code": 13104,
+                "label": "新宿",
+                "ruby": "しんじゅくく",
+                "count": 30
+            },
+            {
+                "code": 13105,
+                "label": "文京",
+                "ruby": "ぶんきょうく",
+                "count": 4
+            },
+            {
+                "code": 13106,
+                "label": "台東",
+                "ruby": "たいとうく",
+                "count": 19
+            },
+            {
+                "code": 13107,
+                "label": "墨田",
+                "ruby": "すみだく",
+                "count": 5
+            },
+            {
+                "code": 13108,
+                "label": "江東",
+                "ruby": "こうとうく",
+                "count": 12
+            },
+            {
+                "code": 13109,
+                "label": "品川",
+                "ruby": "しながわく",
+                "count": 24
+            },
+            {
+                "code": 13110,
+                "label": "目黒",
+                "ruby": "めぐろく",
+                "count": 23
+            },
+            {
+                "code": 13111,
+                "label": "大田",
+                "ruby": "おおたく",
+                "count": 16
+            },
+            {
+                "code": 13112,
+                "label": "世田谷",
+                "ruby": "せたがやく",
+                "count": 54
+            },
+            {
+                "code": 13113,
+                "label": "渋谷",
+                "ruby": "しぶやく",
+                "count": 21
+            },
+            {
+                "code": 13114,
+                "label": "中野",
+                "ruby": "なかのく",
+                "count": 18
+            },
+            {
+                "code": 13115,
+                "label": "杉並",
+                "ruby": "すぎなみく",
+                "count": 30
+            },
+            {
+                "code": 13116,
+                "label": "豊島",
+                "ruby": "としまく",
+                "count": 10
+            },
+            {
+                "code": 13117,
+                "label": "北",
+                "ruby": "きたく",
+                "count": 7
+            },
+            {
+                "code": 13118,
+                "label": "荒川",
+                "ruby": "あらかわく",
+                "count": 2
+            },
+            {
+                "code": 13119,
+                "label": "板橋",
+                "ruby": "いたばしく",
+                "count": 6
+            },
+            {
+                "code": 13120,
+                "label": "練馬",
+                "ruby": "ねりまく",
+                "count": 21
+            },
+            {
+                "code": 13121,
+                "label": "足立",
+                "ruby": "あだちく",
+                "count": 10
+            },
+            {
+                "code": 13122,
+                "label": "葛飾",
+                "ruby": "かつしかく",
+                "count": 14
+            },
+            {
+                "code": 13123,
+                "label": "江戸川",
+                "ruby": "えどがわく",
+                "count": 8
+            },
+            {
+                "code": 13201,
+                "label": "八王子",
+                "ruby": "はちおうじし",
+                "count": 4
+            },
+            {
+                "code": 13202,
+                "label": "立川",
+                "ruby": "たちかわし",
+                "count": 0
+            },
+            {
+                "code": 13203,
+                "label": "武蔵野",
+                "ruby": "むさしのし",
+                "count": 4
+            },
+            {
+                "code": 13204,
+                "label": "三鷹",
+                "ruby": "みたかし",
+                "count": 7
+            },
+            {
+                "code": 13205,
+                "label": "青梅",
+                "ruby": "おうめし",
+                "count": 1
+            },
+            {
+                "code": 13206,
+                "label": "府中",
+                "ruby": "ふちゅうし",
+                "count": 1
+            },
+            {
+                "code": 13207,
+                "label": "昭島",
+                "ruby": "あきしまし",
+                "count": 0
+            },
+            {
+                "code": 13208,
+                "label": "調布",
+                "ruby": "ちょうふし",
+                "count": 1
+            },
+            {
+                "code": 13209,
+                "label": "町田",
+                "ruby": "まちだし",
+                "count": 10
+            },
+            {
+                "code": 13210,
+                "label": "小金井",
+                "ruby": "こがねいし",
+                "count": 2
+            },
+            {
+                "code": 13211,
+                "label": "小平",
+                "ruby": "こだいらし",
+                "count": 2
+            },
+            {
+                "code": 13212,
+                "label": "日野",
+                "ruby": "ひのし",
+                "count": 4
+            },
+            {
+                "code": 13213,
+                "label": "東村山",
+                "ruby": "ひがしむらやまし",
+                "count": 0
+            },
+            {
+                "code": 13214,
+                "label": "国分寺",
+                "ruby": "こくぶんじし",
+                "count": 0
+            },
+            {
+                "code": 13215,
+                "label": "国立",
+                "ruby": "くにたちし",
+                "count": 0
+            },
+            {
+                "code": 13218,
+                "label": "福生",
+                "ruby": "ふっさし",
+                "count": 0
+            },
+            {
+                "code": 13219,
+                "label": "狛江",
+                "ruby": "こまえし",
+                "count": 0
+            },
+            {
+                "code": 13220,
+                "label": "東大和",
+                "ruby": "ひがしやまとし",
+                "count": 1
+            },
+            {
+                "code": 13221,
+                "label": "清瀬",
+                "ruby": "きよせし",
+                "count": 0
+            },
+            {
+                "code": 13222,
+                "label": "東久留米",
+                "ruby": "ひがしくるめし",
+                "count": 1
+            },
+            {
+                "code": 13223,
+                "label": "武蔵村山",
+                "ruby": "むさしむらやまし",
+                "count": 0
+            },
+            {
+                "code": 13224,
+                "label": "多摩",
+                "ruby": "たまし",
+                "count": 0
+            },
+            {
+                "code": 13225,
+                "label": "稲城",
+                "ruby": "いなぎし",
+                "count": 3
+            },
+            {
+                "code": 13227,
+                "label": "羽村",
+                "ruby": "はむらし",
+                "count": 3
+            },
+            {
+                "code": 13228,
+                "label": "あきる野",
+                "ruby": "あきるのし",
+                "count": 0
+            },
+            {
+                "code": 13229,
+                "label": "西東京",
+                "ruby": "にしとうきょうし",
+                "count": 9
+            },
+            {
+                "code": 13303,
+                "label": "瑞穂",
+                "ruby": "みずほまち",
+                "count": 0
+            },
+            {
+                "code": 13305,
+                "label": "日の出",
+                "ruby": "ひのでまち",
+                "count": 0
+            },
+            {
+                "code": 13307,
+                "label": "檜原",
+                "ruby": "ひのはらむら",
+                "count": 0
+            },
+            {
+                "code": 13308,
+                "label": "奥多摩",
+                "ruby": "おくたままち",
+                "count": 0
+            },
+            {
+                "code": 13361,
+                "label": "大島",
+                "ruby": "おおしままち",
+                "count": 0
+            },
+            {
+                "code": 13362,
+                "label": "利島",
+                "ruby": "としまむら",
+                "count": 0
+            },
+            {
+                "code": 13363,
+                "label": "新島",
+                "ruby": "にいじまむら",
+                "count": 0
+            },
+            {
+                "code": 13364,
+                "label": "神津島",
+                "ruby": "こうづしまむら",
+                "count": 0
+            },
+            {
+                "code": 13381,
+                "label": "三宅",
+                "ruby": "みやけむら",
+                "count": 0
+            },
+            {
+                "code": 13382,
+                "label": "御蔵島",
+                "ruby": "みくらじまむら",
+                "count": 0
+            },
+            {
+                "code": 13401,
+                "label": "八丈",
+                "ruby": "はちじょうまち",
+                "count": 0
+            },
+            {
+                "code": 13402,
+                "label": "青ヶ島",
+                "ruby": "あおがしまむら",
+                "count": 0
+            },
+            {
+                "code": 13421,
+                "label": "小笠原",
+                "ruby": "おがさわらむら",
+                "count": 0
+            },
+            {
+                "code": null,
+                "label": "都外",
+                "ruby": null,
+                "count": 20
+            },
+            {
+                "code": null,
+                "label": "調査中※",
+                "ruby": null,
+                "count": 118
+            },
+            {
+                "code": null,
+                "label": "小計",
+                "ruby": null,
+                "count": 587
+            }
+        ]
+    },
+    {
+        "date": "2020\/4\/2",
+        "datasets": [
+            {
+                "code": 13101,
+                "label": "千代田",
+                "ruby": "ちよだく",
+                "count": 4
+            },
+            {
+                "code": 13102,
+                "label": "中央",
+                "ruby": "ちゅうおうく",
+                "count": 19
+            },
+            {
+                "code": 13103,
+                "label": "港",
+                "ruby": "みなとく",
+                "count": 50
+            },
+            {
+                "code": 13104,
+                "label": "新宿",
+                "ruby": "しんじゅくく",
+                "count": 36
+            },
+            {
+                "code": 13105,
+                "label": "文京",
+                "ruby": "ぶんきょうく",
+                "count": 4
+            },
+            {
+                "code": 13106,
+                "label": "台東",
+                "ruby": "たいとうく",
+                "count": 23
+            },
+            {
+                "code": 13107,
+                "label": "墨田",
+                "ruby": "すみだく",
+                "count": 7
+            },
+            {
+                "code": 13108,
+                "label": "江東",
+                "ruby": "こうとうく",
+                "count": 12
+            },
+            {
+                "code": 13109,
+                "label": "品川",
+                "ruby": "しながわく",
+                "count": 29
+            },
+            {
+                "code": 13110,
+                "label": "目黒",
+                "ruby": "めぐろく",
+                "count": 29
+            },
+            {
+                "code": 13111,
+                "label": "大田",
+                "ruby": "おおたく",
+                "count": 18
+            },
+            {
+                "code": 13112,
+                "label": "世田谷",
+                "ruby": "せたがやく",
+                "count": 67
+            },
+            {
+                "code": 13113,
+                "label": "渋谷",
+                "ruby": "しぶやく",
+                "count": 24
+            },
+            {
+                "code": 13114,
+                "label": "中野",
+                "ruby": "なかのく",
+                "count": 19
+            },
+            {
+                "code": 13115,
+                "label": "杉並",
+                "ruby": "すぎなみく",
+                "count": 34
+            },
+            {
+                "code": 13116,
+                "label": "豊島",
+                "ruby": "としまく",
+                "count": 13
+            },
+            {
+                "code": 13117,
+                "label": "北",
+                "ruby": "きたく",
+                "count": 7
+            },
+            {
+                "code": 13118,
+                "label": "荒川",
+                "ruby": "あらかわく",
+                "count": 3
+            },
+            {
+                "code": 13119,
+                "label": "板橋",
+                "ruby": "いたばしく",
+                "count": 9
+            },
+            {
+                "code": 13120,
+                "label": "練馬",
+                "ruby": "ねりまく",
+                "count": 25
+            },
+            {
+                "code": 13121,
+                "label": "足立",
+                "ruby": "あだちく",
+                "count": 11
+            },
+            {
+                "code": 13122,
+                "label": "葛飾",
+                "ruby": "かつしかく",
+                "count": 14
+            },
+            {
+                "code": 13123,
+                "label": "江戸川",
+                "ruby": "えどがわく",
+                "count": 11
+            },
+            {
+                "code": 13201,
+                "label": "八王子",
+                "ruby": "はちおうじし",
+                "count": 4
+            },
+            {
+                "code": 13202,
+                "label": "立川",
+                "ruby": "たちかわし",
+                "count": 0
+            },
+            {
+                "code": 13203,
+                "label": "武蔵野",
+                "ruby": "むさしのし",
+                "count": 4
+            },
+            {
+                "code": 13204,
+                "label": "三鷹",
+                "ruby": "みたかし",
+                "count": 7
+            },
+            {
+                "code": 13205,
+                "label": "青梅",
+                "ruby": "おうめし",
+                "count": 1
+            },
+            {
+                "code": 13206,
+                "label": "府中",
+                "ruby": "ふちゅうし",
+                "count": 1
+            },
+            {
+                "code": 13207,
+                "label": "昭島",
+                "ruby": "あきしまし",
+                "count": 0
+            },
+            {
+                "code": 13208,
+                "label": "調布",
+                "ruby": "ちょうふし",
+                "count": 1
+            },
+            {
+                "code": 13209,
+                "label": "町田",
+                "ruby": "まちだし",
+                "count": 10
+            },
+            {
+                "code": 13210,
+                "label": "小金井",
+                "ruby": "こがねいし",
+                "count": 2
+            },
+            {
+                "code": 13211,
+                "label": "小平",
+                "ruby": "こだいらし",
+                "count": 2
+            },
+            {
+                "code": 13212,
+                "label": "日野",
+                "ruby": "ひのし",
+                "count": 4
+            },
+            {
+                "code": 13213,
+                "label": "東村山",
+                "ruby": "ひがしむらやまし",
+                "count": 0
+            },
+            {
+                "code": 13214,
+                "label": "国分寺",
+                "ruby": "こくぶんじし",
+                "count": 0
+            },
+            {
+                "code": 13215,
+                "label": "国立",
+                "ruby": "くにたちし",
+                "count": 0
+            },
+            {
+                "code": 13218,
+                "label": "福生",
+                "ruby": "ふっさし",
+                "count": 0
+            },
+            {
+                "code": 13219,
+                "label": "狛江",
+                "ruby": "こまえし",
+                "count": 0
+            },
+            {
+                "code": 13220,
+                "label": "東大和",
+                "ruby": "ひがしやまとし",
+                "count": 1
+            },
+            {
+                "code": 13221,
+                "label": "清瀬",
+                "ruby": "きよせし",
+                "count": 0
+            },
+            {
+                "code": 13222,
+                "label": "東久留米",
+                "ruby": "ひがしくるめし",
+                "count": 1
+            },
+            {
+                "code": 13223,
+                "label": "武蔵村山",
+                "ruby": "むさしむらやまし",
+                "count": 0
+            },
+            {
+                "code": 13224,
+                "label": "多摩",
+                "ruby": "たまし",
+                "count": 0
+            },
+            {
+                "code": 13225,
+                "label": "稲城",
+                "ruby": "いなぎし",
+                "count": 3
+            },
+            {
+                "code": 13227,
+                "label": "羽村",
+                "ruby": "はむらし",
+                "count": 3
+            },
+            {
+                "code": 13228,
+                "label": "あきる野",
+                "ruby": "あきるのし",
+                "count": 0
+            },
+            {
+                "code": 13229,
+                "label": "西東京",
+                "ruby": "にしとうきょうし",
+                "count": 9
+            },
+            {
+                "code": 13303,
+                "label": "瑞穂",
+                "ruby": "みずほまち",
+                "count": 0
+            },
+            {
+                "code": 13305,
+                "label": "日の出",
+                "ruby": "ひのでまち",
+                "count": 0
+            },
+            {
+                "code": 13307,
+                "label": "檜原",
+                "ruby": "ひのはらむら",
+                "count": 0
+            },
+            {
+                "code": 13308,
+                "label": "奥多摩",
+                "ruby": "おくたままち",
+                "count": 0
+            },
+            {
+                "code": 13361,
+                "label": "大島",
+                "ruby": "おおしままち",
+                "count": 0
+            },
+            {
+                "code": 13362,
+                "label": "利島",
+                "ruby": "としまむら",
+                "count": 0
+            },
+            {
+                "code": 13363,
+                "label": "新島",
+                "ruby": "にいじまむら",
+                "count": 0
+            },
+            {
+                "code": 13364,
+                "label": "神津島",
+                "ruby": "こうづしまむら",
+                "count": 0
+            },
+            {
+                "code": 13381,
+                "label": "三宅",
+                "ruby": "みやけむら",
+                "count": 0
+            },
+            {
+                "code": 13382,
+                "label": "御蔵島",
+                "ruby": "みくらじまむら",
+                "count": 0
+            },
+            {
+                "code": 13401,
+                "label": "八丈",
+                "ruby": "はちじょうまち",
+                "count": 0
+            },
+            {
+                "code": 13402,
+                "label": "青ヶ島",
+                "ruby": "あおがしまむら",
+                "count": 0
+            },
+            {
+                "code": 13421,
+                "label": "小笠原",
+                "ruby": "おがさわらむら",
+                "count": 0
+            },
+            {
+                "code": null,
+                "label": "都外",
+                "ruby": null,
+                "count": 22
+            },
+            {
+                "code": null,
+                "label": "調査中※",
+                "ruby": null,
+                "count": 141
+            },
+            {
+                "code": null,
+                "label": "小計",
+                "ruby": null,
+                "count": 684
+            }
+        ]
+    },
+    {
+        "date": "2020\/4\/3",
+        "datasets": [
+            {
+                "code": 13101,
+                "label": "千代田",
+                "ruby": "ちよだく",
+                "count": 4
+            },
+            {
+                "code": 13102,
+                "label": "中央",
+                "ruby": "ちゅうおうく",
+                "count": 20
+            },
+            {
+                "code": 13103,
+                "label": "港",
+                "ruby": "みなとく",
+                "count": 58
+            },
+            {
+                "code": 13104,
+                "label": "新宿",
+                "ruby": "しんじゅくく",
+                "count": 38
+            },
+            {
+                "code": 13105,
+                "label": "文京",
+                "ruby": "ぶんきょうく",
+                "count": 6
+            },
+            {
+                "code": 13106,
+                "label": "台東",
+                "ruby": "たいとうく",
+                "count": 25
+            },
+            {
+                "code": 13107,
+                "label": "墨田",
+                "ruby": "すみだく",
+                "count": 10
+            },
+            {
+                "code": 13108,
+                "label": "江東",
+                "ruby": "こうとうく",
+                "count": 13
+            },
+            {
+                "code": 13109,
+                "label": "品川",
+                "ruby": "しながわく",
+                "count": 30
+            },
+            {
+                "code": 13110,
+                "label": "目黒",
+                "ruby": "めぐろく",
+                "count": 34
+            },
+            {
+                "code": 13111,
+                "label": "大田",
+                "ruby": "おおたく",
+                "count": 19
+            },
+            {
+                "code": 13112,
+                "label": "世田谷",
+                "ruby": "せたがやく",
+                "count": 79
+            },
+            {
+                "code": 13113,
+                "label": "渋谷",
+                "ruby": "しぶやく",
+                "count": 26
+            },
+            {
+                "code": 13114,
+                "label": "中野",
+                "ruby": "なかのく",
+                "count": 24
+            },
+            {
+                "code": 13115,
+                "label": "杉並",
+                "ruby": "すぎなみく",
+                "count": 37
+            },
+            {
+                "code": 13116,
+                "label": "豊島",
+                "ruby": "としまく",
+                "count": 14
+            },
+            {
+                "code": 13117,
+                "label": "北",
+                "ruby": "きたく",
+                "count": 7
+            },
+            {
+                "code": 13118,
+                "label": "荒川",
+                "ruby": "あらかわく",
+                "count": 3
+            },
+            {
+                "code": 13119,
+                "label": "板橋",
+                "ruby": "いたばしく",
+                "count": 13
+            },
+            {
+                "code": 13120,
+                "label": "練馬",
+                "ruby": "ねりまく",
+                "count": 34
+            },
+            {
+                "code": 13121,
+                "label": "足立",
+                "ruby": "あだちく",
+                "count": 12
+            },
+            {
+                "code": 13122,
+                "label": "葛飾",
+                "ruby": "かつしかく",
+                "count": 16
+            },
+            {
+                "code": 13123,
+                "label": "江戸川",
+                "ruby": "えどがわく",
+                "count": 11
+            },
+            {
+                "code": 13201,
+                "label": "八王子",
+                "ruby": "はちおうじし",
+                "count": 5
+            },
+            {
+                "code": 13202,
+                "label": "立川",
+                "ruby": "たちかわし",
+                "count": 0
+            },
+            {
+                "code": 13203,
+                "label": "武蔵野",
+                "ruby": "むさしのし",
+                "count": 4
+            },
+            {
+                "code": 13204,
+                "label": "三鷹",
+                "ruby": "みたかし",
+                "count": 7
+            },
+            {
+                "code": 13205,
+                "label": "青梅",
+                "ruby": "おうめし",
+                "count": 1
+            },
+            {
+                "code": 13206,
+                "label": "府中",
+                "ruby": "ふちゅうし",
+                "count": 1
+            },
+            {
+                "code": 13207,
+                "label": "昭島",
+                "ruby": "あきしまし",
+                "count": 1
+            },
+            {
+                "code": 13208,
+                "label": "調布",
+                "ruby": "ちょうふし",
+                "count": 1
+            },
+            {
+                "code": 13209,
+                "label": "町田",
+                "ruby": "まちだし",
+                "count": 10
+            },
+            {
+                "code": 13210,
+                "label": "小金井",
+                "ruby": "こがねいし",
+                "count": 2
+            },
+            {
+                "code": 13211,
+                "label": "小平",
+                "ruby": "こだいらし",
+                "count": 3
+            },
+            {
+                "code": 13212,
+                "label": "日野",
+                "ruby": "ひのし",
+                "count": 4
+            },
+            {
+                "code": 13213,
+                "label": "東村山",
+                "ruby": "ひがしむらやまし",
+                "count": 0
+            },
+            {
+                "code": 13214,
+                "label": "国分寺",
+                "ruby": "こくぶんじし",
+                "count": 0
+            },
+            {
+                "code": 13215,
+                "label": "国立",
+                "ruby": "くにたちし",
+                "count": 0
+            },
+            {
+                "code": 13218,
+                "label": "福生",
+                "ruby": "ふっさし",
+                "count": 0
+            },
+            {
+                "code": 13219,
+                "label": "狛江",
+                "ruby": "こまえし",
+                "count": 3
+            },
+            {
+                "code": 13220,
+                "label": "東大和",
+                "ruby": "ひがしやまとし",
+                "count": 1
+            },
+            {
+                "code": 13221,
+                "label": "清瀬",
+                "ruby": "きよせし",
+                "count": 0
+            },
+            {
+                "code": 13222,
+                "label": "東久留米",
+                "ruby": "ひがしくるめし",
+                "count": 2
+            },
+            {
+                "code": 13223,
+                "label": "武蔵村山",
+                "ruby": "むさしむらやまし",
+                "count": 0
+            },
+            {
+                "code": 13224,
+                "label": "多摩",
+                "ruby": "たまし",
+                "count": 0
+            },
+            {
+                "code": 13225,
+                "label": "稲城",
+                "ruby": "いなぎし",
+                "count": 3
+            },
+            {
+                "code": 13227,
+                "label": "羽村",
+                "ruby": "はむらし",
+                "count": 3
+            },
+            {
+                "code": 13228,
+                "label": "あきる野",
+                "ruby": "あきるのし",
+                "count": 0
+            },
+            {
+                "code": 13229,
+                "label": "西東京",
+                "ruby": "にしとうきょうし",
+                "count": 9
+            },
+            {
+                "code": 13303,
+                "label": "瑞穂",
+                "ruby": "みずほまち",
+                "count": 0
+            },
+            {
+                "code": 13305,
+                "label": "日の出",
+                "ruby": "ひのでまち",
+                "count": 0
+            },
+            {
+                "code": 13307,
+                "label": "檜原",
+                "ruby": "ひのはらむら",
+                "count": 0
+            },
+            {
+                "code": 13308,
+                "label": "奥多摩",
+                "ruby": "おくたままち",
+                "count": 0
+            },
+            {
+                "code": 13361,
+                "label": "大島",
+                "ruby": "おおしままち",
+                "count": 0
+            },
+            {
+                "code": 13362,
+                "label": "利島",
+                "ruby": "としまむら",
+                "count": 0
+            },
+            {
+                "code": 13363,
+                "label": "新島",
+                "ruby": "にいじまむら",
+                "count": 0
+            },
+            {
+                "code": 13364,
+                "label": "神津島",
+                "ruby": "こうづしまむら",
+                "count": 0
+            },
+            {
+                "code": 13381,
+                "label": "三宅",
+                "ruby": "みやけむら",
+                "count": 0
+            },
+            {
+                "code": 13382,
+                "label": "御蔵島",
+                "ruby": "みくらじまむら",
+                "count": 0
+            },
+            {
+                "code": 13401,
+                "label": "八丈",
+                "ruby": "はちじょうまち",
+                "count": 0
+            },
+            {
+                "code": 13402,
+                "label": "青ヶ島",
+                "ruby": "あおがしまむら",
+                "count": 0
+            },
+            {
+                "code": 13421,
+                "label": "小笠原",
+                "ruby": "おがさわらむら",
+                "count": 0
+            },
+            {
+                "code": null,
+                "label": "都外",
+                "ruby": null,
+                "count": 22
+            },
+            {
+                "code": null,
+                "label": "調査中※",
+                "ruby": null,
+                "count": 158
+            },
+            {
+                "code": null,
+                "label": "小計",
+                "ruby": null,
+                "count": 773
+            }
+        ]
+    },
+    {
+        "date": "2020\/4\/4",
+        "datasets": [
+            {
+                "code": 13101,
+                "label": "千代田",
+                "ruby": "ちよだく",
+                "count": 5
+            },
+            {
+                "code": 13102,
+                "label": "中央",
+                "ruby": "ちゅうおうく",
+                "count": 21
+            },
+            {
+                "code": 13103,
+                "label": "港",
+                "ruby": "みなとく",
+                "count": 67
+            },
+            {
+                "code": 13104,
+                "label": "新宿",
+                "ruby": "しんじゅくく",
+                "count": 39
+            },
+            {
+                "code": 13105,
+                "label": "文京",
+                "ruby": "ぶんきょうく",
+                "count": 7
+            },
+            {
+                "code": 13106,
+                "label": "台東",
+                "ruby": "たいとうく",
+                "count": 27
+            },
+            {
+                "code": 13107,
+                "label": "墨田",
+                "ruby": "すみだく",
+                "count": 11
+            },
+            {
+                "code": 13108,
+                "label": "江東",
+                "ruby": "こうとうく",
+                "count": 14
+            },
+            {
+                "code": 13109,
+                "label": "品川",
+                "ruby": "しながわく",
+                "count": 38
+            },
+            {
+                "code": 13110,
+                "label": "目黒",
+                "ruby": "めぐろく",
+                "count": 40
+            },
+            {
+                "code": 13111,
+                "label": "大田",
+                "ruby": "おおたく",
+                "count": 28
+            },
+            {
+                "code": 13112,
+                "label": "世田谷",
+                "ruby": "せたがやく",
+                "count": 93
+            },
+            {
+                "code": 13113,
+                "label": "渋谷",
+                "ruby": "しぶやく",
+                "count": 32
+            },
+            {
+                "code": 13114,
+                "label": "中野",
+                "ruby": "なかのく",
+                "count": 29
+            },
+            {
+                "code": 13115,
+                "label": "杉並",
+                "ruby": "すぎなみく",
+                "count": 44
+            },
+            {
+                "code": 13116,
+                "label": "豊島",
+                "ruby": "としまく",
+                "count": 17
+            },
+            {
+                "code": 13117,
+                "label": "北",
+                "ruby": "きたく",
+                "count": 9
+            },
+            {
+                "code": 13118,
+                "label": "荒川",
+                "ruby": "あらかわく",
+                "count": 5
+            },
+            {
+                "code": 13119,
+                "label": "板橋",
+                "ruby": "いたばしく",
+                "count": 15
+            },
+            {
+                "code": 13120,
+                "label": "練馬",
+                "ruby": "ねりまく",
+                "count": 39
+            },
+            {
+                "code": 13121,
+                "label": "足立",
+                "ruby": "あだちく",
+                "count": 20
+            },
+            {
+                "code": 13122,
+                "label": "葛飾",
+                "ruby": "かつしかく",
+                "count": 18
+            },
+            {
+                "code": 13123,
+                "label": "江戸川",
+                "ruby": "えどがわく",
+                "count": 13
+            },
+            {
+                "code": 13201,
+                "label": "八王子",
+                "ruby": "はちおうじし",
+                "count": 6
+            },
+            {
+                "code": 13202,
+                "label": "立川",
+                "ruby": "たちかわし",
+                "count": 0
+            },
+            {
+                "code": 13203,
+                "label": "武蔵野",
+                "ruby": "むさしのし",
+                "count": 4
+            },
+            {
+                "code": 13204,
+                "label": "三鷹",
+                "ruby": "みたかし",
+                "count": 8
+            },
+            {
+                "code": 13205,
+                "label": "青梅",
+                "ruby": "おうめし",
+                "count": 1
+            },
+            {
+                "code": 13206,
+                "label": "府中",
+                "ruby": "ふちゅうし",
+                "count": 1
+            },
+            {
+                "code": 13207,
+                "label": "昭島",
+                "ruby": "あきしまし",
+                "count": 1
+            },
+            {
+                "code": 13208,
+                "label": "調布",
+                "ruby": "ちょうふし",
+                "count": 3
+            },
+            {
+                "code": 13209,
+                "label": "町田",
+                "ruby": "まちだし",
+                "count": 11
+            },
+            {
+                "code": 13210,
+                "label": "小金井",
+                "ruby": "こがねいし",
+                "count": 2
+            },
+            {
+                "code": 13211,
+                "label": "小平",
+                "ruby": "こだいらし",
+                "count": 3
+            },
+            {
+                "code": 13212,
+                "label": "日野",
+                "ruby": "ひのし",
+                "count": 6
+            },
+            {
+                "code": 13213,
+                "label": "東村山",
+                "ruby": "ひがしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13214,
+                "label": "国分寺",
+                "ruby": "こくぶんじし",
+                "count": 0
+            },
+            {
+                "code": 13215,
+                "label": "国立",
+                "ruby": "くにたちし",
+                "count": 0
+            },
+            {
+                "code": 13218,
+                "label": "福生",
+                "ruby": "ふっさし",
+                "count": 0
+            },
+            {
+                "code": 13219,
+                "label": "狛江",
+                "ruby": "こまえし",
+                "count": 3
+            },
+            {
+                "code": 13220,
+                "label": "東大和",
+                "ruby": "ひがしやまとし",
+                "count": 1
+            },
+            {
+                "code": 13221,
+                "label": "清瀬",
+                "ruby": "きよせし",
+                "count": 1
+            },
+            {
+                "code": 13222,
+                "label": "東久留米",
+                "ruby": "ひがしくるめし",
+                "count": 2
+            },
+            {
+                "code": 13223,
+                "label": "武蔵村山",
+                "ruby": "むさしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13224,
+                "label": "多摩",
+                "ruby": "たまし",
+                "count": 0
+            },
+            {
+                "code": 13225,
+                "label": "稲城",
+                "ruby": "いなぎし",
+                "count": 3
+            },
+            {
+                "code": 13227,
+                "label": "羽村",
+                "ruby": "はむらし",
+                "count": 3
+            },
+            {
+                "code": 13228,
+                "label": "あきる野",
+                "ruby": "あきるのし",
+                "count": 0
+            },
+            {
+                "code": 13229,
+                "label": "西東京",
+                "ruby": "にしとうきょうし",
+                "count": 9
+            },
+            {
+                "code": 13303,
+                "label": "瑞穂",
+                "ruby": "みずほまち",
+                "count": 0
+            },
+            {
+                "code": 13305,
+                "label": "日の出",
+                "ruby": "ひのでまち",
+                "count": 0
+            },
+            {
+                "code": 13307,
+                "label": "檜原",
+                "ruby": "ひのはらむら",
+                "count": 0
+            },
+            {
+                "code": 13308,
+                "label": "奥多摩",
+                "ruby": "おくたままち",
+                "count": 0
+            },
+            {
+                "code": 13361,
+                "label": "大島",
+                "ruby": "おおしままち",
+                "count": 0
+            },
+            {
+                "code": 13362,
+                "label": "利島",
+                "ruby": "としまむら",
+                "count": 0
+            },
+            {
+                "code": 13363,
+                "label": "新島",
+                "ruby": "にいじまむら",
+                "count": 0
+            },
+            {
+                "code": 13364,
+                "label": "神津島",
+                "ruby": "こうづしまむら",
+                "count": 0
+            },
+            {
+                "code": 13381,
+                "label": "三宅",
+                "ruby": "みやけむら",
+                "count": 0
+            },
+            {
+                "code": 13382,
+                "label": "御蔵島",
+                "ruby": "みくらじまむら",
+                "count": 0
+            },
+            {
+                "code": 13401,
+                "label": "八丈",
+                "ruby": "はちじょうまち",
+                "count": 0
+            },
+            {
+                "code": 13402,
+                "label": "青ヶ島",
+                "ruby": "あおがしまむら",
+                "count": 0
+            },
+            {
+                "code": 13421,
+                "label": "小笠原",
+                "ruby": "おがさわらむら",
+                "count": 0
+            },
+            {
+                "code": null,
+                "label": "都外",
+                "ruby": null,
+                "count": 27
+            },
+            {
+                "code": null,
+                "label": "調査中※",
+                "ruby": null,
+                "count": 162
+            },
+            {
+                "code": null,
+                "label": "小計",
+                "ruby": null,
+                "count": 890
+            }
+        ]
+    },
+    {
+        "date": "2020\/4\/5",
+        "datasets": [
+            {
+                "code": 13101,
+                "label": "千代田",
+                "ruby": "ちよだく",
+                "count": 6
+            },
+            {
+                "code": 13102,
+                "label": "中央",
+                "ruby": "ちゅうおうく",
+                "count": 25
+            },
+            {
+                "code": 13103,
+                "label": "港",
+                "ruby": "みなとく",
+                "count": 83
+            },
+            {
+                "code": 13104,
+                "label": "新宿",
+                "ruby": "しんじゅくく",
+                "count": 60
+            },
+            {
+                "code": 13105,
+                "label": "文京",
+                "ruby": "ぶんきょうく",
+                "count": 8
+            },
+            {
+                "code": 13106,
+                "label": "台東",
+                "ruby": "たいとうく",
+                "count": 29
+            },
+            {
+                "code": 13107,
+                "label": "墨田",
+                "ruby": "すみだく",
+                "count": 11
+            },
+            {
+                "code": 13108,
+                "label": "江東",
+                "ruby": "こうとうく",
+                "count": 22
+            },
+            {
+                "code": 13109,
+                "label": "品川",
+                "ruby": "しながわく",
+                "count": 41
+            },
+            {
+                "code": 13110,
+                "label": "目黒",
+                "ruby": "めぐろく",
+                "count": 42
+            },
+            {
+                "code": 13111,
+                "label": "大田",
+                "ruby": "おおたく",
+                "count": 37
+            },
+            {
+                "code": 13112,
+                "label": "世田谷",
+                "ruby": "せたがやく",
+                "count": 104
+            },
+            {
+                "code": 13113,
+                "label": "渋谷",
+                "ruby": "しぶやく",
+                "count": 37
+            },
+            {
+                "code": 13114,
+                "label": "中野",
+                "ruby": "なかのく",
+                "count": 33
+            },
+            {
+                "code": 13115,
+                "label": "杉並",
+                "ruby": "すぎなみく",
+                "count": 56
+            },
+            {
+                "code": 13116,
+                "label": "豊島",
+                "ruby": "としまく",
+                "count": 20
+            },
+            {
+                "code": 13117,
+                "label": "北",
+                "ruby": "きたく",
+                "count": 10
+            },
+            {
+                "code": 13118,
+                "label": "荒川",
+                "ruby": "あらかわく",
+                "count": 6
+            },
+            {
+                "code": 13119,
+                "label": "板橋",
+                "ruby": "いたばしく",
+                "count": 20
+            },
+            {
+                "code": 13120,
+                "label": "練馬",
+                "ruby": "ねりまく",
+                "count": 42
+            },
+            {
+                "code": 13121,
+                "label": "足立",
+                "ruby": "あだちく",
+                "count": 22
+            },
+            {
+                "code": 13122,
+                "label": "葛飾",
+                "ruby": "かつしかく",
+                "count": 19
+            },
+            {
+                "code": 13123,
+                "label": "江戸川",
+                "ruby": "えどがわく",
+                "count": 15
+            },
+            {
+                "code": 13201,
+                "label": "八王子",
+                "ruby": "はちおうじし",
+                "count": 9
+            },
+            {
+                "code": 13202,
+                "label": "立川",
+                "ruby": "たちかわし",
+                "count": 2
+            },
+            {
+                "code": 13203,
+                "label": "武蔵野",
+                "ruby": "むさしのし",
+                "count": 4
+            },
+            {
+                "code": 13204,
+                "label": "三鷹",
+                "ruby": "みたかし",
+                "count": 8
+            },
+            {
+                "code": 13205,
+                "label": "青梅",
+                "ruby": "おうめし",
+                "count": 1
+            },
+            {
+                "code": 13206,
+                "label": "府中",
+                "ruby": "ふちゅうし",
+                "count": 1
+            },
+            {
+                "code": 13207,
+                "label": "昭島",
+                "ruby": "あきしまし",
+                "count": 2
+            },
+            {
+                "code": 13208,
+                "label": "調布",
+                "ruby": "ちょうふし",
+                "count": 4
+            },
+            {
+                "code": 13209,
+                "label": "町田",
+                "ruby": "まちだし",
+                "count": 14
+            },
+            {
+                "code": 13210,
+                "label": "小金井",
+                "ruby": "こがねいし",
+                "count": 3
+            },
+            {
+                "code": 13211,
+                "label": "小平",
+                "ruby": "こだいらし",
+                "count": 3
+            },
+            {
+                "code": 13212,
+                "label": "日野",
+                "ruby": "ひのし",
+                "count": 6
+            },
+            {
+                "code": 13213,
+                "label": "東村山",
+                "ruby": "ひがしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13214,
+                "label": "国分寺",
+                "ruby": "こくぶんじし",
+                "count": 0
+            },
+            {
+                "code": 13215,
+                "label": "国立",
+                "ruby": "くにたちし",
+                "count": 0
+            },
+            {
+                "code": 13218,
+                "label": "福生",
+                "ruby": "ふっさし",
+                "count": 0
+            },
+            {
+                "code": 13219,
+                "label": "狛江",
+                "ruby": "こまえし",
+                "count": 3
+            },
+            {
+                "code": 13220,
+                "label": "東大和",
+                "ruby": "ひがしやまとし",
+                "count": 1
+            },
+            {
+                "code": 13221,
+                "label": "清瀬",
+                "ruby": "きよせし",
+                "count": 1
+            },
+            {
+                "code": 13222,
+                "label": "東久留米",
+                "ruby": "ひがしくるめし",
+                "count": 2
+            },
+            {
+                "code": 13223,
+                "label": "武蔵村山",
+                "ruby": "むさしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13224,
+                "label": "多摩",
+                "ruby": "たまし",
+                "count": 0
+            },
+            {
+                "code": 13225,
+                "label": "稲城",
+                "ruby": "いなぎし",
+                "count": 3
+            },
+            {
+                "code": 13227,
+                "label": "羽村",
+                "ruby": "はむらし",
+                "count": 3
+            },
+            {
+                "code": 13228,
+                "label": "あきる野",
+                "ruby": "あきるのし",
+                "count": 1
+            },
+            {
+                "code": 13229,
+                "label": "西東京",
+                "ruby": "にしとうきょうし",
+                "count": 10
+            },
+            {
+                "code": 13303,
+                "label": "瑞穂",
+                "ruby": "みずほまち",
+                "count": 0
+            },
+            {
+                "code": 13305,
+                "label": "日の出",
+                "ruby": "ひのでまち",
+                "count": 0
+            },
+            {
+                "code": 13307,
+                "label": "檜原",
+                "ruby": "ひのはらむら",
+                "count": 0
+            },
+            {
+                "code": 13308,
+                "label": "奥多摩",
+                "ruby": "おくたままち",
+                "count": 0
+            },
+            {
+                "code": 13361,
+                "label": "大島",
+                "ruby": "おおしままち",
+                "count": 0
+            },
+            {
+                "code": 13362,
+                "label": "利島",
+                "ruby": "としまむら",
+                "count": 0
+            },
+            {
+                "code": 13363,
+                "label": "新島",
+                "ruby": "にいじまむら",
+                "count": 0
+            },
+            {
+                "code": 13364,
+                "label": "神津島",
+                "ruby": "こうづしまむら",
+                "count": 0
+            },
+            {
+                "code": 13381,
+                "label": "三宅",
+                "ruby": "みやけむら",
+                "count": 0
+            },
+            {
+                "code": 13382,
+                "label": "御蔵島",
+                "ruby": "みくらじまむら",
+                "count": 0
+            },
+            {
+                "code": 13401,
+                "label": "八丈",
+                "ruby": "はちじょうまち",
+                "count": 0
+            },
+            {
+                "code": 13402,
+                "label": "青ヶ島",
+                "ruby": "あおがしまむら",
+                "count": 0
+            },
+            {
+                "code": 13421,
+                "label": "小笠原",
+                "ruby": "おがさわらむら",
+                "count": 0
+            },
+            {
+                "code": null,
+                "label": "都外",
+                "ruby": null,
+                "count": 32
+            },
+            {
+                "code": null,
+                "label": "調査中※",
+                "ruby": null,
+                "count": 170
+            },
+            {
+                "code": null,
+                "label": "小計",
+                "ruby": null,
+                "count": 1033
+            }
+        ]
+    },
+    {
+        "date": "2020\/4\/6",
+        "datasets": [
+            {
+                "code": 13101,
+                "label": "千代田",
+                "ruby": "ちよだく",
+                "count": 7
+            },
+            {
+                "code": 13102,
+                "label": "中央",
+                "ruby": "ちゅうおうく",
+                "count": 28
+            },
+            {
+                "code": 13103,
+                "label": "港",
+                "ruby": "みなとく",
+                "count": 87
+            },
+            {
+                "code": 13104,
+                "label": "新宿",
+                "ruby": "しんじゅくく",
+                "count": 72
+            },
+            {
+                "code": 13105,
+                "label": "文京",
+                "ruby": "ぶんきょうく",
+                "count": 8
+            },
+            {
+                "code": 13106,
+                "label": "台東",
+                "ruby": "たいとうく",
+                "count": 31
+            },
+            {
+                "code": 13107,
+                "label": "墨田",
+                "ruby": "すみだく",
+                "count": 11
+            },
+            {
+                "code": 13108,
+                "label": "江東",
+                "ruby": "こうとうく",
+                "count": 22
+            },
+            {
+                "code": 13109,
+                "label": "品川",
+                "ruby": "しながわく",
+                "count": 41
+            },
+            {
+                "code": 13110,
+                "label": "目黒",
+                "ruby": "めぐろく",
+                "count": 44
+            },
+            {
+                "code": 13111,
+                "label": "大田",
+                "ruby": "おおたく",
+                "count": 44
+            },
+            {
+                "code": 13112,
+                "label": "世田谷",
+                "ruby": "せたがやく",
+                "count": 113
+            },
+            {
+                "code": 13113,
+                "label": "渋谷",
+                "ruby": "しぶやく",
+                "count": 39
+            },
+            {
+                "code": 13114,
+                "label": "中野",
+                "ruby": "なかのく",
+                "count": 41
+            },
+            {
+                "code": 13115,
+                "label": "杉並",
+                "ruby": "すぎなみく",
+                "count": 60
+            },
+            {
+                "code": 13116,
+                "label": "豊島",
+                "ruby": "としまく",
+                "count": 20
+            },
+            {
+                "code": 13117,
+                "label": "北",
+                "ruby": "きたく",
+                "count": 10
+            },
+            {
+                "code": 13118,
+                "label": "荒川",
+                "ruby": "あらかわく",
+                "count": 7
+            },
+            {
+                "code": 13119,
+                "label": "板橋",
+                "ruby": "いたばしく",
+                "count": 23
+            },
+            {
+                "code": 13120,
+                "label": "練馬",
+                "ruby": "ねりまく",
+                "count": 46
+            },
+            {
+                "code": 13121,
+                "label": "足立",
+                "ruby": "あだちく",
+                "count": 25
+            },
+            {
+                "code": 13122,
+                "label": "葛飾",
+                "ruby": "かつしかく",
+                "count": 26
+            },
+            {
+                "code": 13123,
+                "label": "江戸川",
+                "ruby": "えどがわく",
+                "count": 16
+            },
+            {
+                "code": 13201,
+                "label": "八王子",
+                "ruby": "はちおうじし",
+                "count": 9
+            },
+            {
+                "code": 13202,
+                "label": "立川",
+                "ruby": "たちかわし",
+                "count": 2
+            },
+            {
+                "code": 13203,
+                "label": "武蔵野",
+                "ruby": "むさしのし",
+                "count": 5
+            },
+            {
+                "code": 13204,
+                "label": "三鷹",
+                "ruby": "みたかし",
+                "count": 8
+            },
+            {
+                "code": 13205,
+                "label": "青梅",
+                "ruby": "おうめし",
+                "count": 1
+            },
+            {
+                "code": 13206,
+                "label": "府中",
+                "ruby": "ふちゅうし",
+                "count": 1
+            },
+            {
+                "code": 13207,
+                "label": "昭島",
+                "ruby": "あきしまし",
+                "count": 2
+            },
+            {
+                "code": 13208,
+                "label": "調布",
+                "ruby": "ちょうふし",
+                "count": 4
+            },
+            {
+                "code": 13209,
+                "label": "町田",
+                "ruby": "まちだし",
+                "count": 16
+            },
+            {
+                "code": 13210,
+                "label": "小金井",
+                "ruby": "こがねいし",
+                "count": 3
+            },
+            {
+                "code": 13211,
+                "label": "小平",
+                "ruby": "こだいらし",
+                "count": 3
+            },
+            {
+                "code": 13212,
+                "label": "日野",
+                "ruby": "ひのし",
+                "count": 8
+            },
+            {
+                "code": 13213,
+                "label": "東村山",
+                "ruby": "ひがしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13214,
+                "label": "国分寺",
+                "ruby": "こくぶんじし",
+                "count": 0
+            },
+            {
+                "code": 13215,
+                "label": "国立",
+                "ruby": "くにたちし",
+                "count": 0
+            },
+            {
+                "code": 13218,
+                "label": "福生",
+                "ruby": "ふっさし",
+                "count": 0
+            },
+            {
+                "code": 13219,
+                "label": "狛江",
+                "ruby": "こまえし",
+                "count": 3
+            },
+            {
+                "code": 13220,
+                "label": "東大和",
+                "ruby": "ひがしやまとし",
+                "count": 2
+            },
+            {
+                "code": 13221,
+                "label": "清瀬",
+                "ruby": "きよせし",
+                "count": 1
+            },
+            {
+                "code": 13222,
+                "label": "東久留米",
+                "ruby": "ひがしくるめし",
+                "count": 2
+            },
+            {
+                "code": 13223,
+                "label": "武蔵村山",
+                "ruby": "むさしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13224,
+                "label": "多摩",
+                "ruby": "たまし",
+                "count": 0
+            },
+            {
+                "code": 13225,
+                "label": "稲城",
+                "ruby": "いなぎし",
+                "count": 3
+            },
+            {
+                "code": 13227,
+                "label": "羽村",
+                "ruby": "はむらし",
+                "count": 3
+            },
+            {
+                "code": 13228,
+                "label": "あきる野",
+                "ruby": "あきるのし",
+                "count": 1
+            },
+            {
+                "code": 13229,
+                "label": "西東京",
+                "ruby": "にしとうきょうし",
+                "count": 9
+            },
+            {
+                "code": 13303,
+                "label": "瑞穂",
+                "ruby": "みずほまち",
+                "count": 0
+            },
+            {
+                "code": 13305,
+                "label": "日の出",
+                "ruby": "ひのでまち",
+                "count": 0
+            },
+            {
+                "code": 13307,
+                "label": "檜原",
+                "ruby": "ひのはらむら",
+                "count": 0
+            },
+            {
+                "code": 13308,
+                "label": "奥多摩",
+                "ruby": "おくたままち",
+                "count": 0
+            },
+            {
+                "code": 13361,
+                "label": "大島",
+                "ruby": "おおしままち",
+                "count": 0
+            },
+            {
+                "code": 13362,
+                "label": "利島",
+                "ruby": "としまむら",
+                "count": 0
+            },
+            {
+                "code": 13363,
+                "label": "新島",
+                "ruby": "にいじまむら",
+                "count": 0
+            },
+            {
+                "code": 13364,
+                "label": "神津島",
+                "ruby": "こうづしまむら",
+                "count": 0
+            },
+            {
+                "code": 13381,
+                "label": "三宅",
+                "ruby": "みやけむら",
+                "count": 0
+            },
+            {
+                "code": 13382,
+                "label": "御蔵島",
+                "ruby": "みくらじまむら",
+                "count": 0
+            },
+            {
+                "code": 13401,
+                "label": "八丈",
+                "ruby": "はちじょうまち",
+                "count": 0
+            },
+            {
+                "code": 13402,
+                "label": "青ヶ島",
+                "ruby": "あおがしまむら",
+                "count": 0
+            },
+            {
+                "code": 13421,
+                "label": "小笠原",
+                "ruby": "おがさわらむら",
+                "count": 0
+            },
+            {
+                "code": null,
+                "label": "都外",
+                "ruby": null,
+                "count": 36
+            },
+            {
+                "code": null,
+                "label": "調査中※",
+                "ruby": null,
+                "count": 170
+            },
+            {
+                "code": null,
+                "label": "小計",
+                "ruby": null,
+                "count": 1115
+            }
+        ]
+    },
+    {
+        "date": "2020\/4\/7",
+        "datasets": [
+            {
+                "code": 13101,
+                "label": "千代田",
+                "ruby": "ちよだく",
+                "count": 9
+            },
+            {
+                "code": 13102,
+                "label": "中央",
+                "ruby": "ちゅうおうく",
+                "count": 29
+            },
+            {
+                "code": 13103,
+                "label": "港",
+                "ruby": "みなとく",
+                "count": 89
+            },
+            {
+                "code": 13104,
+                "label": "新宿",
+                "ruby": "しんじゅくく",
+                "count": 80
+            },
+            {
+                "code": 13105,
+                "label": "文京",
+                "ruby": "ぶんきょうく",
+                "count": 10
+            },
+            {
+                "code": 13106,
+                "label": "台東",
+                "ruby": "たいとうく",
+                "count": 32
+            },
+            {
+                "code": 13107,
+                "label": "墨田",
+                "ruby": "すみだく",
+                "count": 14
+            },
+            {
+                "code": 13108,
+                "label": "江東",
+                "ruby": "こうとうく",
+                "count": 23
+            },
+            {
+                "code": 13109,
+                "label": "品川",
+                "ruby": "しながわく",
+                "count": 49
+            },
+            {
+                "code": 13110,
+                "label": "目黒",
+                "ruby": "めぐろく",
+                "count": 49
+            },
+            {
+                "code": 13111,
+                "label": "大田",
+                "ruby": "おおたく",
+                "count": 45
+            },
+            {
+                "code": 13112,
+                "label": "世田谷",
+                "ruby": "せたがやく",
+                "count": 118
+            },
+            {
+                "code": 13113,
+                "label": "渋谷",
+                "ruby": "しぶやく",
+                "count": 41
+            },
+            {
+                "code": 13114,
+                "label": "中野",
+                "ruby": "なかのく",
+                "count": 43
+            },
+            {
+                "code": 13115,
+                "label": "杉並",
+                "ruby": "すぎなみく",
+                "count": 67
+            },
+            {
+                "code": 13116,
+                "label": "豊島",
+                "ruby": "としまく",
+                "count": 27
+            },
+            {
+                "code": 13117,
+                "label": "北",
+                "ruby": "きたく",
+                "count": 11
+            },
+            {
+                "code": 13118,
+                "label": "荒川",
+                "ruby": "あらかわく",
+                "count": 7
+            },
+            {
+                "code": 13119,
+                "label": "板橋",
+                "ruby": "いたばしく",
+                "count": 24
+            },
+            {
+                "code": 13120,
+                "label": "練馬",
+                "ruby": "ねりまく",
+                "count": 48
+            },
+            {
+                "code": 13121,
+                "label": "足立",
+                "ruby": "あだちく",
+                "count": 27
+            },
+            {
+                "code": 13122,
+                "label": "葛飾",
+                "ruby": "かつしかく",
+                "count": 29
+            },
+            {
+                "code": 13123,
+                "label": "江戸川",
+                "ruby": "えどがわく",
+                "count": 16
+            },
+            {
+                "code": 13201,
+                "label": "八王子",
+                "ruby": "はちおうじし",
+                "count": 10
+            },
+            {
+                "code": 13202,
+                "label": "立川",
+                "ruby": "たちかわし",
+                "count": 3
+            },
+            {
+                "code": 13203,
+                "label": "武蔵野",
+                "ruby": "むさしのし",
+                "count": 5
+            },
+            {
+                "code": 13204,
+                "label": "三鷹",
+                "ruby": "みたかし",
+                "count": 9
+            },
+            {
+                "code": 13205,
+                "label": "青梅",
+                "ruby": "おうめし",
+                "count": 1
+            },
+            {
+                "code": 13206,
+                "label": "府中",
+                "ruby": "ふちゅうし",
+                "count": 1
+            },
+            {
+                "code": 13207,
+                "label": "昭島",
+                "ruby": "あきしまし",
+                "count": 3
+            },
+            {
+                "code": 13208,
+                "label": "調布",
+                "ruby": "ちょうふし",
+                "count": 5
+            },
+            {
+                "code": 13209,
+                "label": "町田",
+                "ruby": "まちだし",
+                "count": 16
+            },
+            {
+                "code": 13210,
+                "label": "小金井",
+                "ruby": "こがねいし",
+                "count": 4
+            },
+            {
+                "code": 13211,
+                "label": "小平",
+                "ruby": "こだいらし",
+                "count": 3
+            },
+            {
+                "code": 13212,
+                "label": "日野",
+                "ruby": "ひのし",
+                "count": 8
+            },
+            {
+                "code": 13213,
+                "label": "東村山",
+                "ruby": "ひがしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13214,
+                "label": "国分寺",
+                "ruby": "こくぶんじし",
+                "count": 0
+            },
+            {
+                "code": 13215,
+                "label": "国立",
+                "ruby": "くにたちし",
+                "count": 0
+            },
+            {
+                "code": 13218,
+                "label": "福生",
+                "ruby": "ふっさし",
+                "count": 0
+            },
+            {
+                "code": 13219,
+                "label": "狛江",
+                "ruby": "こまえし",
+                "count": 3
+            },
+            {
+                "code": 13220,
+                "label": "東大和",
+                "ruby": "ひがしやまとし",
+                "count": 2
+            },
+            {
+                "code": 13221,
+                "label": "清瀬",
+                "ruby": "きよせし",
+                "count": 1
+            },
+            {
+                "code": 13222,
+                "label": "東久留米",
+                "ruby": "ひがしくるめし",
+                "count": 2
+            },
+            {
+                "code": 13223,
+                "label": "武蔵村山",
+                "ruby": "むさしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13224,
+                "label": "多摩",
+                "ruby": "たまし",
+                "count": 0
+            },
+            {
+                "code": 13225,
+                "label": "稲城",
+                "ruby": "いなぎし",
+                "count": 3
+            },
+            {
+                "code": 13227,
+                "label": "羽村",
+                "ruby": "はむらし",
+                "count": 3
+            },
+            {
+                "code": 13228,
+                "label": "あきる野",
+                "ruby": "あきるのし",
+                "count": 1
+            },
+            {
+                "code": 13229,
+                "label": "西東京",
+                "ruby": "にしとうきょうし",
+                "count": 9
+            },
+            {
+                "code": 13303,
+                "label": "瑞穂",
+                "ruby": "みずほまち",
+                "count": 0
+            },
+            {
+                "code": 13305,
+                "label": "日の出",
+                "ruby": "ひのでまち",
+                "count": 0
+            },
+            {
+                "code": 13307,
+                "label": "檜原",
+                "ruby": "ひのはらむら",
+                "count": 0
+            },
+            {
+                "code": 13308,
+                "label": "奥多摩",
+                "ruby": "おくたままち",
+                "count": 0
+            },
+            {
+                "code": 13361,
+                "label": "大島",
+                "ruby": "おおしままち",
+                "count": 0
+            },
+            {
+                "code": 13362,
+                "label": "利島",
+                "ruby": "としまむら",
+                "count": 0
+            },
+            {
+                "code": 13363,
+                "label": "新島",
+                "ruby": "にいじまむら",
+                "count": 0
+            },
+            {
+                "code": 13364,
+                "label": "神津島",
+                "ruby": "こうづしまむら",
+                "count": 0
+            },
+            {
+                "code": 13381,
+                "label": "三宅",
+                "ruby": "みやけむら",
+                "count": 0
+            },
+            {
+                "code": 13382,
+                "label": "御蔵島",
+                "ruby": "みくらじまむら",
+                "count": 0
+            },
+            {
+                "code": 13401,
+                "label": "八丈",
+                "ruby": "はちじょうまち",
+                "count": 0
+            },
+            {
+                "code": 13402,
+                "label": "青ヶ島",
+                "ruby": "あおがしまむら",
+                "count": 0
+            },
+            {
+                "code": 13421,
+                "label": "小笠原",
+                "ruby": "おがさわらむら",
+                "count": 0
+            },
+            {
+                "code": null,
+                "label": "都外",
+                "ruby": null,
+                "count": 39
+            },
+            {
+                "code": null,
+                "label": "調査中※",
+                "ruby": null,
+                "count": 174
+            },
+            {
+                "code": null,
+                "label": "小計",
+                "ruby": null,
+                "count": 1194
+            }
+        ]
+    },
+    {
+        "date": "2020\/4\/8",
+        "datasets": [
+            {
+                "code": 13101,
+                "label": "千代田",
+                "ruby": "ちよだく",
+                "count": 9
+            },
+            {
+                "code": 13102,
+                "label": "中央",
+                "ruby": "ちゅうおうく",
+                "count": 31
+            },
+            {
+                "code": 13103,
+                "label": "港",
+                "ruby": "みなとく",
+                "count": 107
+            },
+            {
+                "code": 13104,
+                "label": "新宿",
+                "ruby": "しんじゅくく",
+                "count": 84
+            },
+            {
+                "code": 13105,
+                "label": "文京",
+                "ruby": "ぶんきょうく",
+                "count": 12
+            },
+            {
+                "code": 13106,
+                "label": "台東",
+                "ruby": "たいとうく",
+                "count": 35
+            },
+            {
+                "code": 13107,
+                "label": "墨田",
+                "ruby": "すみだく",
+                "count": 14
+            },
+            {
+                "code": 13108,
+                "label": "江東",
+                "ruby": "こうとうく",
+                "count": 26
+            },
+            {
+                "code": 13109,
+                "label": "品川",
+                "ruby": "しながわく",
+                "count": 56
+            },
+            {
+                "code": 13110,
+                "label": "目黒",
+                "ruby": "めぐろく",
+                "count": 51
+            },
+            {
+                "code": 13111,
+                "label": "大田",
+                "ruby": "おおたく",
+                "count": 51
+            },
+            {
+                "code": 13112,
+                "label": "世田谷",
+                "ruby": "せたがやく",
+                "count": 124
+            },
+            {
+                "code": 13113,
+                "label": "渋谷",
+                "ruby": "しぶやく",
+                "count": 49
+            },
+            {
+                "code": 13114,
+                "label": "中野",
+                "ruby": "なかのく",
+                "count": 46
+            },
+            {
+                "code": 13115,
+                "label": "杉並",
+                "ruby": "すぎなみく",
+                "count": 76
+            },
+            {
+                "code": 13116,
+                "label": "豊島",
+                "ruby": "としまく",
+                "count": 31
+            },
+            {
+                "code": 13117,
+                "label": "北",
+                "ruby": "きたく",
+                "count": 13
+            },
+            {
+                "code": 13118,
+                "label": "荒川",
+                "ruby": "あらかわく",
+                "count": 7
+            },
+            {
+                "code": 13119,
+                "label": "板橋",
+                "ruby": "いたばしく",
+                "count": 30
+            },
+            {
+                "code": 13120,
+                "label": "練馬",
+                "ruby": "ねりまく",
+                "count": 48
+            },
+            {
+                "code": 13121,
+                "label": "足立",
+                "ruby": "あだちく",
+                "count": 28
+            },
+            {
+                "code": 13122,
+                "label": "葛飾",
+                "ruby": "かつしかく",
+                "count": 29
+            },
+            {
+                "code": 13123,
+                "label": "江戸川",
+                "ruby": "えどがわく",
+                "count": 18
+            },
+            {
+                "code": 13201,
+                "label": "八王子",
+                "ruby": "はちおうじし",
+                "count": 11
+            },
+            {
+                "code": 13202,
+                "label": "立川",
+                "ruby": "たちかわし",
+                "count": 3
+            },
+            {
+                "code": 13203,
+                "label": "武蔵野",
+                "ruby": "むさしのし",
+                "count": 5
+            },
+            {
+                "code": 13204,
+                "label": "三鷹",
+                "ruby": "みたかし",
+                "count": 12
+            },
+            {
+                "code": 13205,
+                "label": "青梅",
+                "ruby": "おうめし",
+                "count": 1
+            },
+            {
+                "code": 13206,
+                "label": "府中",
+                "ruby": "ふちゅうし",
+                "count": 5
+            },
+            {
+                "code": 13207,
+                "label": "昭島",
+                "ruby": "あきしまし",
+                "count": 3
+            },
+            {
+                "code": 13208,
+                "label": "調布",
+                "ruby": "ちょうふし",
+                "count": 6
+            },
+            {
+                "code": 13209,
+                "label": "町田",
+                "ruby": "まちだし",
+                "count": 20
+            },
+            {
+                "code": 13210,
+                "label": "小金井",
+                "ruby": "こがねいし",
+                "count": 5
+            },
+            {
+                "code": 13211,
+                "label": "小平",
+                "ruby": "こだいらし",
+                "count": 5
+            },
+            {
+                "code": 13212,
+                "label": "日野",
+                "ruby": "ひのし",
+                "count": 8
+            },
+            {
+                "code": 13213,
+                "label": "東村山",
+                "ruby": "ひがしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13214,
+                "label": "国分寺",
+                "ruby": "こくぶんじし",
+                "count": 2
+            },
+            {
+                "code": 13215,
+                "label": "国立",
+                "ruby": "くにたちし",
+                "count": 0
+            },
+            {
+                "code": 13218,
+                "label": "福生",
+                "ruby": "ふっさし",
+                "count": 0
+            },
+            {
+                "code": 13219,
+                "label": "狛江",
+                "ruby": "こまえし",
+                "count": 5
+            },
+            {
+                "code": 13220,
+                "label": "東大和",
+                "ruby": "ひがしやまとし",
+                "count": 3
+            },
+            {
+                "code": 13221,
+                "label": "清瀬",
+                "ruby": "きよせし",
+                "count": 1
+            },
+            {
+                "code": 13222,
+                "label": "東久留米",
+                "ruby": "ひがしくるめし",
+                "count": 2
+            },
+            {
+                "code": 13223,
+                "label": "武蔵村山",
+                "ruby": "むさしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13224,
+                "label": "多摩",
+                "ruby": "たまし",
+                "count": 0
+            },
+            {
+                "code": 13225,
+                "label": "稲城",
+                "ruby": "いなぎし",
+                "count": 3
+            },
+            {
+                "code": 13227,
+                "label": "羽村",
+                "ruby": "はむらし",
+                "count": 5
+            },
+            {
+                "code": 13228,
+                "label": "あきる野",
+                "ruby": "あきるのし",
+                "count": 1
+            },
+            {
+                "code": 13229,
+                "label": "西東京",
+                "ruby": "にしとうきょうし",
+                "count": 10
+            },
+            {
+                "code": 13303,
+                "label": "瑞穂",
+                "ruby": "みずほまち",
+                "count": 0
+            },
+            {
+                "code": 13305,
+                "label": "日の出",
+                "ruby": "ひのでまち",
+                "count": 0
+            },
+            {
+                "code": 13307,
+                "label": "檜原",
+                "ruby": "ひのはらむら",
+                "count": 0
+            },
+            {
+                "code": 13308,
+                "label": "奥多摩",
+                "ruby": "おくたままち",
+                "count": 0
+            },
+            {
+                "code": 13361,
+                "label": "大島",
+                "ruby": "おおしままち",
+                "count": 0
+            },
+            {
+                "code": 13362,
+                "label": "利島",
+                "ruby": "としまむら",
+                "count": 0
+            },
+            {
+                "code": 13363,
+                "label": "新島",
+                "ruby": "にいじまむら",
+                "count": 0
+            },
+            {
+                "code": 13364,
+                "label": "神津島",
+                "ruby": "こうづしまむら",
+                "count": 0
+            },
+            {
+                "code": 13381,
+                "label": "三宅",
+                "ruby": "みやけむら",
+                "count": 0
+            },
+            {
+                "code": 13382,
+                "label": "御蔵島",
+                "ruby": "みくらじまむら",
+                "count": 0
+            },
+            {
+                "code": 13401,
+                "label": "八丈",
+                "ruby": "はちじょうまち",
+                "count": 0
+            },
+            {
+                "code": 13402,
+                "label": "青ヶ島",
+                "ruby": "あおがしまむら",
+                "count": 0
+            },
+            {
+                "code": 13421,
+                "label": "小笠原",
+                "ruby": "おがさわらむら",
+                "count": 0
+            },
+            {
+                "code": null,
+                "label": "都外",
+                "ruby": null,
+                "count": 42
+            },
+            {
+                "code": null,
+                "label": "調査中※",
+                "ruby": null,
+                "count": 203
+            },
+            {
+                "code": null,
+                "label": "小計",
+                "ruby": null,
+                "count": 1338
+            }
+        ]
+    },
+    {
+        "date": "2020\/4\/9",
+        "datasets": [
+            {
+                "code": 13101,
+                "label": "千代田",
+                "ruby": "ちよだく",
+                "count": 9
+            },
+            {
+                "code": 13102,
+                "label": "中央",
+                "ruby": "ちゅうおうく",
+                "count": 31
+            },
+            {
+                "code": 13103,
+                "label": "港",
+                "ruby": "みなとく",
+                "count": 126
+            },
+            {
+                "code": 13104,
+                "label": "新宿",
+                "ruby": "しんじゅくく",
+                "count": 99
+            },
+            {
+                "code": 13105,
+                "label": "文京",
+                "ruby": "ぶんきょうく",
+                "count": 16
+            },
+            {
+                "code": 13106,
+                "label": "台東",
+                "ruby": "たいとうく",
+                "count": 40
+            },
+            {
+                "code": 13107,
+                "label": "墨田",
+                "ruby": "すみだく",
+                "count": 21
+            },
+            {
+                "code": 13108,
+                "label": "江東",
+                "ruby": "こうとうく",
+                "count": 39
+            },
+            {
+                "code": 13109,
+                "label": "品川",
+                "ruby": "しながわく",
+                "count": 56
+            },
+            {
+                "code": 13110,
+                "label": "目黒",
+                "ruby": "めぐろく",
+                "count": 54
+            },
+            {
+                "code": 13111,
+                "label": "大田",
+                "ruby": "おおたく",
+                "count": 52
+            },
+            {
+                "code": 13112,
+                "label": "世田谷",
+                "ruby": "せたがやく",
+                "count": 147
+            },
+            {
+                "code": 13113,
+                "label": "渋谷",
+                "ruby": "しぶやく",
+                "count": 53
+            },
+            {
+                "code": 13114,
+                "label": "中野",
+                "ruby": "なかのく",
+                "count": 50
+            },
+            {
+                "code": 13115,
+                "label": "杉並",
+                "ruby": "すぎなみく",
+                "count": 77
+            },
+            {
+                "code": 13116,
+                "label": "豊島",
+                "ruby": "としまく",
+                "count": 39
+            },
+            {
+                "code": 13117,
+                "label": "北",
+                "ruby": "きたく",
+                "count": 16
+            },
+            {
+                "code": 13118,
+                "label": "荒川",
+                "ruby": "あらかわく",
+                "count": 8
+            },
+            {
+                "code": 13119,
+                "label": "板橋",
+                "ruby": "いたばしく",
+                "count": 32
+            },
+            {
+                "code": 13120,
+                "label": "練馬",
+                "ruby": "ねりまく",
+                "count": 52
+            },
+            {
+                "code": 13121,
+                "label": "足立",
+                "ruby": "あだちく",
+                "count": 33
+            },
+            {
+                "code": 13122,
+                "label": "葛飾",
+                "ruby": "かつしかく",
+                "count": 34
+            },
+            {
+                "code": 13123,
+                "label": "江戸川",
+                "ruby": "えどがわく",
+                "count": 21
+            },
+            {
+                "code": 13201,
+                "label": "八王子",
+                "ruby": "はちおうじし",
+                "count": 11
+            },
+            {
+                "code": 13202,
+                "label": "立川",
+                "ruby": "たちかわし",
+                "count": 5
+            },
+            {
+                "code": 13203,
+                "label": "武蔵野",
+                "ruby": "むさしのし",
+                "count": 5
+            },
+            {
+                "code": 13204,
+                "label": "三鷹",
+                "ruby": "みたかし",
+                "count": 12
+            },
+            {
+                "code": 13205,
+                "label": "青梅",
+                "ruby": "おうめし",
+                "count": 1
+            },
+            {
+                "code": 13206,
+                "label": "府中",
+                "ruby": "ふちゅうし",
+                "count": 6
+            },
+            {
+                "code": 13207,
+                "label": "昭島",
+                "ruby": "あきしまし",
+                "count": 3
+            },
+            {
+                "code": 13208,
+                "label": "調布",
+                "ruby": "ちょうふし",
+                "count": 8
+            },
+            {
+                "code": 13209,
+                "label": "町田",
+                "ruby": "まちだし",
+                "count": 20
+            },
+            {
+                "code": 13210,
+                "label": "小金井",
+                "ruby": "こがねいし",
+                "count": 5
+            },
+            {
+                "code": 13211,
+                "label": "小平",
+                "ruby": "こだいらし",
+                "count": 6
+            },
+            {
+                "code": 13212,
+                "label": "日野",
+                "ruby": "ひのし",
+                "count": 9
+            },
+            {
+                "code": 13213,
+                "label": "東村山",
+                "ruby": "ひがしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13214,
+                "label": "国分寺",
+                "ruby": "こくぶんじし",
+                "count": 3
+            },
+            {
+                "code": 13215,
+                "label": "国立",
+                "ruby": "くにたちし",
+                "count": 2
+            },
+            {
+                "code": 13218,
+                "label": "福生",
+                "ruby": "ふっさし",
+                "count": 0
+            },
+            {
+                "code": 13219,
+                "label": "狛江",
+                "ruby": "こまえし",
+                "count": 5
+            },
+            {
+                "code": 13220,
+                "label": "東大和",
+                "ruby": "ひがしやまとし",
+                "count": 3
+            },
+            {
+                "code": 13221,
+                "label": "清瀬",
+                "ruby": "きよせし",
+                "count": 2
+            },
+            {
+                "code": 13222,
+                "label": "東久留米",
+                "ruby": "ひがしくるめし",
+                "count": 2
+            },
+            {
+                "code": 13223,
+                "label": "武蔵村山",
+                "ruby": "むさしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13224,
+                "label": "多摩",
+                "ruby": "たまし",
+                "count": 0
+            },
+            {
+                "code": 13225,
+                "label": "稲城",
+                "ruby": "いなぎし",
+                "count": 3
+            },
+            {
+                "code": 13227,
+                "label": "羽村",
+                "ruby": "はむらし",
+                "count": 5
+            },
+            {
+                "code": 13228,
+                "label": "あきる野",
+                "ruby": "あきるのし",
+                "count": 1
+            },
+            {
+                "code": 13229,
+                "label": "西東京",
+                "ruby": "にしとうきょうし",
+                "count": 10
+            },
+            {
+                "code": 13303,
+                "label": "瑞穂",
+                "ruby": "みずほまち",
+                "count": 0
+            },
+            {
+                "code": 13305,
+                "label": "日の出",
+                "ruby": "ひのでまち",
+                "count": 0
+            },
+            {
+                "code": 13307,
+                "label": "檜原",
+                "ruby": "ひのはらむら",
+                "count": 0
+            },
+            {
+                "code": 13308,
+                "label": "奥多摩",
+                "ruby": "おくたままち",
+                "count": 0
+            },
+            {
+                "code": 13361,
+                "label": "大島",
+                "ruby": "おおしままち",
+                "count": 0
+            },
+            {
+                "code": 13362,
+                "label": "利島",
+                "ruby": "としまむら",
+                "count": 0
+            },
+            {
+                "code": 13363,
+                "label": "新島",
+                "ruby": "にいじまむら",
+                "count": 0
+            },
+            {
+                "code": 13364,
+                "label": "神津島",
+                "ruby": "こうづしまむら",
+                "count": 0
+            },
+            {
+                "code": 13381,
+                "label": "三宅",
+                "ruby": "みやけむら",
+                "count": 0
+            },
+            {
+                "code": 13382,
+                "label": "御蔵島",
+                "ruby": "みくらじまむら",
+                "count": 0
+            },
+            {
+                "code": 13401,
+                "label": "八丈",
+                "ruby": "はちじょうまち",
+                "count": 0
+            },
+            {
+                "code": 13402,
+                "label": "青ヶ島",
+                "ruby": "あおがしまむら",
+                "count": 0
+            },
+            {
+                "code": 13421,
+                "label": "小笠原",
+                "ruby": "おがさわらむら",
+                "count": 0
+            },
+            {
+                "code": null,
+                "label": "都外",
+                "ruby": null,
+                "count": 46
+            },
+            {
+                "code": null,
+                "label": "調査中※",
+                "ruby": null,
+                "count": 236
+            },
+            {
+                "code": null,
+                "label": "小計",
+                "ruby": null,
+                "count": 1516
+            }
+        ]
+    },
+    {
+        "date": "2020\/4\/10",
+        "datasets": [
+            {
+                "code": 13101,
+                "label": "千代田",
+                "ruby": "ちよだく",
+                "count": 10
+            },
+            {
+                "code": 13102,
+                "label": "中央",
+                "ruby": "ちゅうおうく",
+                "count": 33
+            },
+            {
+                "code": 13103,
+                "label": "港",
+                "ruby": "みなとく",
+                "count": 143
+            },
+            {
+                "code": 13104,
+                "label": "新宿",
+                "ruby": "しんじゅくく",
+                "count": 133
+            },
+            {
+                "code": 13105,
+                "label": "文京",
+                "ruby": "ぶんきょうく",
+                "count": 20
+            },
+            {
+                "code": 13106,
+                "label": "台東",
+                "ruby": "たいとうく",
+                "count": 42
+            },
+            {
+                "code": 13107,
+                "label": "墨田",
+                "ruby": "すみだく",
+                "count": 24
+            },
+            {
+                "code": 13108,
+                "label": "江東",
+                "ruby": "こうとうく",
+                "count": 44
+            },
+            {
+                "code": 13109,
+                "label": "品川",
+                "ruby": "しながわく",
+                "count": 70
+            },
+            {
+                "code": 13110,
+                "label": "目黒",
+                "ruby": "めぐろく",
+                "count": 56
+            },
+            {
+                "code": 13111,
+                "label": "大田",
+                "ruby": "おおたく",
+                "count": 58
+            },
+            {
+                "code": 13112,
+                "label": "世田谷",
+                "ruby": "せたがやく",
+                "count": 173
+            },
+            {
+                "code": 13113,
+                "label": "渋谷",
+                "ruby": "しぶやく",
+                "count": 64
+            },
+            {
+                "code": 13114,
+                "label": "中野",
+                "ruby": "なかのく",
+                "count": 53
+            },
+            {
+                "code": 13115,
+                "label": "杉並",
+                "ruby": "すぎなみく",
+                "count": 85
+            },
+            {
+                "code": 13116,
+                "label": "豊島",
+                "ruby": "としまく",
+                "count": 45
+            },
+            {
+                "code": 13117,
+                "label": "北",
+                "ruby": "きたく",
+                "count": 17
+            },
+            {
+                "code": 13118,
+                "label": "荒川",
+                "ruby": "あらかわく",
+                "count": 10
+            },
+            {
+                "code": 13119,
+                "label": "板橋",
+                "ruby": "いたばしく",
+                "count": 37
+            },
+            {
+                "code": 13120,
+                "label": "練馬",
+                "ruby": "ねりまく",
+                "count": 54
+            },
+            {
+                "code": 13121,
+                "label": "足立",
+                "ruby": "あだちく",
+                "count": 35
+            },
+            {
+                "code": 13122,
+                "label": "葛飾",
+                "ruby": "かつしかく",
+                "count": 35
+            },
+            {
+                "code": 13123,
+                "label": "江戸川",
+                "ruby": "えどがわく",
+                "count": 25
+            },
+            {
+                "code": 13201,
+                "label": "八王子",
+                "ruby": "はちおうじし",
+                "count": 13
+            },
+            {
+                "code": 13202,
+                "label": "立川",
+                "ruby": "たちかわし",
+                "count": 5
+            },
+            {
+                "code": 13203,
+                "label": "武蔵野",
+                "ruby": "むさしのし",
+                "count": 6
+            },
+            {
+                "code": 13204,
+                "label": "三鷹",
+                "ruby": "みたかし",
+                "count": 12
+            },
+            {
+                "code": 13205,
+                "label": "青梅",
+                "ruby": "おうめし",
+                "count": 1
+            },
+            {
+                "code": 13206,
+                "label": "府中",
+                "ruby": "ふちゅうし",
+                "count": 6
+            },
+            {
+                "code": 13207,
+                "label": "昭島",
+                "ruby": "あきしまし",
+                "count": 3
+            },
+            {
+                "code": 13208,
+                "label": "調布",
+                "ruby": "ちょうふし",
+                "count": 9
+            },
+            {
+                "code": 13209,
+                "label": "町田",
+                "ruby": "まちだし",
+                "count": 20
+            },
+            {
+                "code": 13210,
+                "label": "小金井",
+                "ruby": "こがねいし",
+                "count": 8
+            },
+            {
+                "code": 13211,
+                "label": "小平",
+                "ruby": "こだいらし",
+                "count": 6
+            },
+            {
+                "code": 13212,
+                "label": "日野",
+                "ruby": "ひのし",
+                "count": 10
+            },
+            {
+                "code": 13213,
+                "label": "東村山",
+                "ruby": "ひがしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13214,
+                "label": "国分寺",
+                "ruby": "こくぶんじし",
+                "count": 3
+            },
+            {
+                "code": 13215,
+                "label": "国立",
+                "ruby": "くにたちし",
+                "count": 2
+            },
+            {
+                "code": 13218,
+                "label": "福生",
+                "ruby": "ふっさし",
+                "count": 0
+            },
+            {
+                "code": 13219,
+                "label": "狛江",
+                "ruby": "こまえし",
+                "count": 6
+            },
+            {
+                "code": 13220,
+                "label": "東大和",
+                "ruby": "ひがしやまとし",
+                "count": 4
+            },
+            {
+                "code": 13221,
+                "label": "清瀬",
+                "ruby": "きよせし",
+                "count": 3
+            },
+            {
+                "code": 13222,
+                "label": "東久留米",
+                "ruby": "ひがしくるめし",
+                "count": 3
+            },
+            {
+                "code": 13223,
+                "label": "武蔵村山",
+                "ruby": "むさしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13224,
+                "label": "多摩",
+                "ruby": "たまし",
+                "count": 0
+            },
+            {
+                "code": 13225,
+                "label": "稲城",
+                "ruby": "いなぎし",
+                "count": 4
+            },
+            {
+                "code": 13227,
+                "label": "羽村",
+                "ruby": "はむらし",
+                "count": 5
+            },
+            {
+                "code": 13228,
+                "label": "あきる野",
+                "ruby": "あきるのし",
+                "count": 1
+            },
+            {
+                "code": 13229,
+                "label": "西東京",
+                "ruby": "にしとうきょうし",
+                "count": 10
+            },
+            {
+                "code": 13303,
+                "label": "瑞穂",
+                "ruby": "みずほまち",
+                "count": 0
+            },
+            {
+                "code": 13305,
+                "label": "日の出",
+                "ruby": "ひのでまち",
+                "count": 0
+            },
+            {
+                "code": 13307,
+                "label": "檜原",
+                "ruby": "ひのはらむら",
+                "count": 0
+            },
+            {
+                "code": 13308,
+                "label": "奥多摩",
+                "ruby": "おくたままち",
+                "count": 0
+            },
+            {
+                "code": 13361,
+                "label": "大島",
+                "ruby": "おおしままち",
+                "count": 0
+            },
+            {
+                "code": 13362,
+                "label": "利島",
+                "ruby": "としまむら",
+                "count": 0
+            },
+            {
+                "code": 13363,
+                "label": "新島",
+                "ruby": "にいじまむら",
+                "count": 0
+            },
+            {
+                "code": 13364,
+                "label": "神津島",
+                "ruby": "こうづしまむら",
+                "count": 0
+            },
+            {
+                "code": 13381,
+                "label": "三宅",
+                "ruby": "みやけむら",
+                "count": 0
+            },
+            {
+                "code": 13382,
+                "label": "御蔵島",
+                "ruby": "みくらじまむら",
+                "count": 0
+            },
+            {
+                "code": 13401,
+                "label": "八丈",
+                "ruby": "はちじょうまち",
+                "count": 0
+            },
+            {
+                "code": 13402,
+                "label": "青ヶ島",
+                "ruby": "あおがしまむら",
+                "count": 0
+            },
+            {
+                "code": 13421,
+                "label": "小笠原",
+                "ruby": "おがさわらむら",
+                "count": 0
+            },
+            {
+                "code": null,
+                "label": "都外",
+                "ruby": null,
+                "count": 48
+            },
+            {
+                "code": null,
+                "label": "調査中※",
+                "ruby": null,
+                "count": 249
+            },
+            {
+                "code": null,
+                "label": "小計",
+                "ruby": null,
+                "count": 1705
+            }
+        ]
+    },
+    {
+        "date": "2020\/4\/11",
+        "datasets": [
+            {
+                "code": 13101,
+                "label": "千代田",
+                "ruby": "ちよだく",
+                "count": 10
+            },
+            {
+                "code": 13102,
+                "label": "中央",
+                "ruby": "ちゅうおうく",
+                "count": 35
+            },
+            {
+                "code": 13103,
+                "label": "港",
+                "ruby": "みなとく",
+                "count": 155
+            },
+            {
+                "code": 13104,
+                "label": "新宿",
+                "ruby": "しんじゅくく",
+                "count": 139
+            },
+            {
+                "code": 13105,
+                "label": "文京",
+                "ruby": "ぶんきょうく",
+                "count": 22
+            },
+            {
+                "code": 13106,
+                "label": "台東",
+                "ruby": "たいとうく",
+                "count": 46
+            },
+            {
+                "code": 13107,
+                "label": "墨田",
+                "ruby": "すみだく",
+                "count": 25
+            },
+            {
+                "code": 13108,
+                "label": "江東",
+                "ruby": "こうとうく",
+                "count": 51
+            },
+            {
+                "code": 13109,
+                "label": "品川",
+                "ruby": "しながわく",
+                "count": 84
+            },
+            {
+                "code": 13110,
+                "label": "目黒",
+                "ruby": "めぐろく",
+                "count": 58
+            },
+            {
+                "code": 13111,
+                "label": "大田",
+                "ruby": "おおたく",
+                "count": 65
+            },
+            {
+                "code": 13112,
+                "label": "世田谷",
+                "ruby": "せたがやく",
+                "count": 191
+            },
+            {
+                "code": 13113,
+                "label": "渋谷",
+                "ruby": "しぶやく",
+                "count": 69
+            },
+            {
+                "code": 13114,
+                "label": "中野",
+                "ruby": "なかのく",
+                "count": 62
+            },
+            {
+                "code": 13115,
+                "label": "杉並",
+                "ruby": "すぎなみく",
+                "count": 92
+            },
+            {
+                "code": 13116,
+                "label": "豊島",
+                "ruby": "としまく",
+                "count": 49
+            },
+            {
+                "code": 13117,
+                "label": "北",
+                "ruby": "きたく",
+                "count": 19
+            },
+            {
+                "code": 13118,
+                "label": "荒川",
+                "ruby": "あらかわく",
+                "count": 11
+            },
+            {
+                "code": 13119,
+                "label": "板橋",
+                "ruby": "いたばしく",
+                "count": 38
+            },
+            {
+                "code": 13120,
+                "label": "練馬",
+                "ruby": "ねりまく",
+                "count": 60
+            },
+            {
+                "code": 13121,
+                "label": "足立",
+                "ruby": "あだちく",
+                "count": 44
+            },
+            {
+                "code": 13122,
+                "label": "葛飾",
+                "ruby": "かつしかく",
+                "count": 44
+            },
+            {
+                "code": 13123,
+                "label": "江戸川",
+                "ruby": "えどがわく",
+                "count": 39
+            },
+            {
+                "code": 13201,
+                "label": "八王子",
+                "ruby": "はちおうじし",
+                "count": 15
+            },
+            {
+                "code": 13202,
+                "label": "立川",
+                "ruby": "たちかわし",
+                "count": 8
+            },
+            {
+                "code": 13203,
+                "label": "武蔵野",
+                "ruby": "むさしのし",
+                "count": 7
+            },
+            {
+                "code": 13204,
+                "label": "三鷹",
+                "ruby": "みたかし",
+                "count": 13
+            },
+            {
+                "code": 13205,
+                "label": "青梅",
+                "ruby": "おうめし",
+                "count": 2
+            },
+            {
+                "code": 13206,
+                "label": "府中",
+                "ruby": "ふちゅうし",
+                "count": 10
+            },
+            {
+                "code": 13207,
+                "label": "昭島",
+                "ruby": "あきしまし",
+                "count": 3
+            },
+            {
+                "code": 13208,
+                "label": "調布",
+                "ruby": "ちょうふし",
+                "count": 12
+            },
+            {
+                "code": 13209,
+                "label": "町田",
+                "ruby": "まちだし",
+                "count": 21
+            },
+            {
+                "code": 13210,
+                "label": "小金井",
+                "ruby": "こがねいし",
+                "count": 8
+            },
+            {
+                "code": 13211,
+                "label": "小平",
+                "ruby": "こだいらし",
+                "count": 6
+            },
+            {
+                "code": 13212,
+                "label": "日野",
+                "ruby": "ひのし",
+                "count": 11
+            },
+            {
+                "code": 13213,
+                "label": "東村山",
+                "ruby": "ひがしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13214,
+                "label": "国分寺",
+                "ruby": "こくぶんじし",
+                "count": 3
+            },
+            {
+                "code": 13215,
+                "label": "国立",
+                "ruby": "くにたちし",
+                "count": 2
+            },
+            {
+                "code": 13218,
+                "label": "福生",
+                "ruby": "ふっさし",
+                "count": 0
+            },
+            {
+                "code": 13219,
+                "label": "狛江",
+                "ruby": "こまえし",
+                "count": 7
+            },
+            {
+                "code": 13220,
+                "label": "東大和",
+                "ruby": "ひがしやまとし",
+                "count": 4
+            },
+            {
+                "code": 13221,
+                "label": "清瀬",
+                "ruby": "きよせし",
+                "count": 3
+            },
+            {
+                "code": 13222,
+                "label": "東久留米",
+                "ruby": "ひがしくるめし",
+                "count": 3
+            },
+            {
+                "code": 13223,
+                "label": "武蔵村山",
+                "ruby": "むさしむらやまし",
+                "count": 1
+            },
+            {
+                "code": 13224,
+                "label": "多摩",
+                "ruby": "たまし",
+                "count": 5
+            },
+            {
+                "code": 13225,
+                "label": "稲城",
+                "ruby": "いなぎし",
+                "count": 4
+            },
+            {
+                "code": 13227,
+                "label": "羽村",
+                "ruby": "はむらし",
+                "count": 5
+            },
+            {
+                "code": 13228,
+                "label": "あきる野",
+                "ruby": "あきるのし",
+                "count": 1
+            },
+            {
+                "code": 13229,
+                "label": "西東京",
+                "ruby": "にしとうきょうし",
+                "count": 11
+            },
+            {
+                "code": 13303,
+                "label": "瑞穂",
+                "ruby": "みずほまち",
+                "count": 0
+            },
+            {
+                "code": 13305,
+                "label": "日の出",
+                "ruby": "ひのでまち",
+                "count": 0
+            },
+            {
+                "code": 13307,
+                "label": "檜原",
+                "ruby": "ひのはらむら",
+                "count": 0
+            },
+            {
+                "code": 13308,
+                "label": "奥多摩",
+                "ruby": "おくたままち",
+                "count": 0
+            },
+            {
+                "code": 13361,
+                "label": "大島",
+                "ruby": "おおしままち",
+                "count": 0
+            },
+            {
+                "code": 13362,
+                "label": "利島",
+                "ruby": "としまむら",
+                "count": 0
+            },
+            {
+                "code": 13363,
+                "label": "新島",
+                "ruby": "にいじまむら",
+                "count": 0
+            },
+            {
+                "code": 13364,
+                "label": "神津島",
+                "ruby": "こうづしまむら",
+                "count": 0
+            },
+            {
+                "code": 13381,
+                "label": "三宅",
+                "ruby": "みやけむら",
+                "count": 0
+            },
+            {
+                "code": 13382,
+                "label": "御蔵島",
+                "ruby": "みくらじまむら",
+                "count": 0
+            },
+            {
+                "code": 13401,
+                "label": "八丈",
+                "ruby": "はちじょうまち",
+                "count": 0
+            },
+            {
+                "code": 13402,
+                "label": "青ヶ島",
+                "ruby": "あおがしまむら",
+                "count": 0
+            },
+            {
+                "code": 13421,
+                "label": "小笠原",
+                "ruby": "おがさわらむら",
+                "count": 0
+            },
+            {
+                "code": null,
+                "label": "都外",
+                "ruby": null,
+                "count": 50
+            },
+            {
+                "code": null,
+                "label": "調査中※",
+                "ruby": null,
+                "count": 278
+            },
+            {
+                "code": null,
+                "label": "小計",
+                "ruby": null,
+                "count": 1902
+            }
+        ]
+    }
+]
