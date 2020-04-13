@@ -10,11 +10,7 @@
       <v-spacer />
       <slot name="infoPanel" />
     </v-toolbar>
-    <v-card-text
-      :class="
-        $vuetify.breakpoint.xs ? 'DataView-CardTextForXS' : 'DataView-CardText'
-      "
-    >
+    <v-card-text>
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
@@ -41,27 +37,57 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
-
-@Component
-export default class DataView extends Vue {
-  @Prop() private title!: string
-  @Prop() private titleId!: string
-  @Prop() private date!: string
-  @Prop() private url!: string
-  @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
-
-  formattedDate: string = convertDatetimeToISO8601Format(this.date)
-}
+export default Vue.extend({
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    titleId: {
+      type: String,
+      default: ''
+    },
+    date: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    formattedDate(): string {
+      return convertDatetimeToISO8601Format(this.date)
+    }
+  }
+})
 </script>
 
 <style lang="scss">
 .DataView {
+  .LegendStickyChart {
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+    .scrollable {
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        height: 4px;
+        background-color: rgba(0, 0, 0, 0.01);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.07);
+      }
+    }
+    .sticky-legend {
+      position: absolute;
+      top: 0;
+      pointer-events: none;
+    }
+  }
   &-DataInfo {
     &-summary {
       color: $gray-2;
-      font-family: Hiragino Sans;
+      font-family: Hiragino Sans, sans-serif;
       font-style: normal;
       font-size: 30px;
       line-height: 30px;
@@ -104,14 +130,6 @@ export default class DataView extends Vue {
     font-size: 1.25rem;
     font-weight: normal;
     line-height: 1.5;
-  }
-  &-CardText {
-    margin-bottom: 46px;
-    margin-top: 35px;
-  }
-  &-CardTextForXS {
-    margin-bottom: 46px;
-    margin-top: 70px;
   }
   &-Footer {
     display: flex;
