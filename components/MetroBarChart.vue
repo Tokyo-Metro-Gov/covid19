@@ -16,30 +16,31 @@
       :options="displayOption"
       :height="240"
     />
-    <v-data-table
-      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
-      :headers="tableHeaders"
-      :items="tableData"
-      :items-per-page="-1"
-      :hide-default-footer="true"
-      :height="240"
-      :fixed-header="true"
-      :disable-sort="true"
-      :mobile-breakpoint="0"
-      class="cardTable"
-      item-key="name"
-    >
-      <template v-slot:body="{ items }">
-        <tbody>
-          <tr v-for="item in items" :key="item.text">
-            <th class="text-start">{{ item.text }}</th>
-            <td class="text-start">{{ item[0] }}</td>
-            <td class="text-start">{{ item[1] }}</td>
-            <td class="text-start">{{ item[2] }}</td>
-          </tr>
-        </tbody>
-      </template>
-    </v-data-table>
+    <template v-slot:dataTable>
+      <v-data-table
+        :headers="tableHeaders"
+        :items="tableData"
+        :items-per-page="-1"
+        :hide-default-footer="true"
+        :height="240"
+        :fixed-header="true"
+        :disable-sort="true"
+        :mobile-breakpoint="0"
+        class="cardTable"
+        item-key="name"
+      >
+        <template v-slot:body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.text">
+              <th>{{ item.text }}</th>
+              <td class="text-end">{{ item[0] }}</td>
+              <td class="text-end">{{ item[1] }}</td>
+              <td class="text-end">{{ item[2] }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-data-table>
+    </template>
     <template v-slot:footer>
       <external-link
         :url="'https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf'"
@@ -49,27 +50,15 @@
   </data-view>
 </template>
 
-<style module lang="scss">
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    font-size: 12px;
-    color: $gray-3;
-  }
-}
-</style>
-
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
-import { ChartOptions, ChartData , Chart } from 'chart.js'
+import { ChartOptions, ChartData, Chart } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import ExternalLink from '@/components/ExternalLink.vue'
-
-import type { DisplayData } from '@/plugins/vue-chart';
+import { DisplayData } from '@/plugins/vue-chart'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -171,21 +160,27 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return [
         { text: this.$t('日付'), value: 'text' },
         ...this.chartData.labels!.map((text, value) => {
-          return { text: text as string, value: String(value) }
+          return { text: text as string, value: String(value), align: 'end' }
         })
       ]
     },
     tableData() {
-      return this.displayData.datasets[0].data.map((_, i) => {
-        return Object.assign(
-          { text: this.chartData.datasets![i].label as string },
-          ...this.chartData.labels!.map((_, j) => {
-            return {
-              [j]: this.displayData.datasets[j].data[i]
-            }
-          })
-        )
-      })
+      return this.displayData.datasets[0].data
+        .map((_, i) => {
+          return Object.assign(
+            { text: this.chartData.datasets![i].label as string },
+            ...this.chartData.labels!.map((_, j) => {
+              return {
+                [j]: this.displayData.datasets[j].data[i]
+              }
+            })
+          )
+        })
+        .sort((a, b) => {
+          const aDate = a.text.split('~')[0]
+          const bDate = b.text.split('~')[0]
+          return aDate > bDate ? -1 : 1
+        })
     },
     displayOption() {
       const self = this
@@ -264,3 +259,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
 export default Vue.extend(options)
 </script>
+
+<style module lang="scss">
+.DataView {
+  &Desc {
+    margin-top: 10px;
+    margin-bottom: 0 !important;
+    font-size: 12px;
+    color: $gray-3;
+  }
+}
+</style>

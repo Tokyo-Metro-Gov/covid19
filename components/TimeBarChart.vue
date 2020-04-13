@@ -38,28 +38,30 @@
         :width="chartWidth"
       />
     </div>
-    <v-data-table
-      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
-      :headers="tableHeaders"
-      :items="tableData"
-      :items-per-page="-1"
-      :hide-default-footer="true"
-      :height="240"
-      :fixed-header="true"
-      :disable-sort="true"
-      :mobile-breakpoint="0"
-      class="cardTable"
-      item-key="name"
-    >
-      <template v-slot:body="{ items }">
-        <tbody>
-          <tr v-for="item in items" :key="item.text">
-            <th class="text-start">{{ item.text }}</th>
-            <td class="text-start">{{ item['0'] }}</td>
-          </tr>
-        </tbody>
-      </template>
-    </v-data-table>
+    <template v-slot:dataTable>
+      <v-data-table
+        :headers="tableHeaders"
+        :items="tableData"
+        :items-per-page="-1"
+        :hide-default-footer="true"
+        :height="240"
+        :fixed-header="true"
+        :disable-sort="true"
+        :mobile-breakpoint="0"
+        class="cardTable"
+        item-key="name"
+      >
+        <template v-slot:body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.text">
+              <th>{{ item.text }}</th>
+              <td class="text-end">{{ item.transition }}</td>
+              <td class="text-end">{{ item.cumulative }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-data-table>
+    </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -115,7 +117,8 @@ type Computed = {
   }[]
   tableData: {
     text: string
-    '0': number
+    transition: string
+    cumulative: string
   }[]
 }
 type Props = {
@@ -469,16 +472,28 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
-        { text: this.title, value: '0' }
+        {
+          text: `${this.title} (${this.$t('日別')})`,
+          value: 'transition',
+          align: 'end'
+        },
+        {
+          text: `${this.title} (${this.$t('累計')})`,
+          value: 'cumulative',
+          align: 'end'
+        }
       ]
     },
     tableData() {
-      return this.displayData.datasets![0].data!.map((_, i) => {
-        return {
-          text: this.displayData.labels![i] as string,
-          '0': this.displayData.datasets![0].data![i] as number
-        }
-      })
+      return this.chartData
+        .map((d, _) => {
+          return Object.assign(
+            { text: d.label },
+            { transition: d.transition.toLocaleString() },
+            { cumulative: d.cumulative.toLocaleString() }
+          )
+        })
+        .sort((a, b) => (a.text > b.text ? -1 : 1))
     }
   },
   methods: {
