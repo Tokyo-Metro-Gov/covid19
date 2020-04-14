@@ -109,6 +109,7 @@ export default Vue.extend()
   /* stylelint-disable no-descending-specificity */
   &-Note {
     display: flex;
+    align-items: baseline;
 
     > span {
       display: block;
