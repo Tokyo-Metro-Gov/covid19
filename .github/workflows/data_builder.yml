@@ -28,7 +28,7 @@ jobs:
       - name: Print the file path
         run: |
           echo "The file was downloaded to ${{ steps.download_csv.outputs.file-path }}"
-          tail ${{ steps.download_csv.outputs.file-path }}/cases.csv
+          tail ${{ steps.download_csv.outputs.file-path }}
       - name: Check file existence
         id: check_files
         uses: andstor/file-existence-action@v1
