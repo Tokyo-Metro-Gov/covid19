@@ -40,11 +40,11 @@
               borderColor: colors[i].strokeColor
             }"
           />
-          <span
+          <t-i18n
             :style="{
               textDecoration: displayLegends[i] ? 'none' : 'line-through'
             }"
-            >{{ item }}</span
+            >{{ item }}</t-i18n
           >
         </button>
       </li>
