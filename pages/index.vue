@@ -10,47 +10,40 @@
 
 <div class="row DataBlock">
 
-
   <div class="DataCard col-md-6 col-12">
-  <div class="WhatsNew">
-
-<h3 class="WhatsNew-heading"><i aria-hidden="true" class="v-icon notranslate WhatsNew-heading-icon mdi mdi-information theme--light" style="font-size:24px;"></i>
-    県内の重要なニュース
-  </h3>
-<div class="TopNews">
-<span class="TopNewsImp">・4月14日、福井県独自の緊急事態宣言を発令</span><br>
-・福井県内16市町（越前町を除く）が小中学校の授業再開を5月7日以降に延期<br>
-・一時生活施設を福井県が開設（軽症陽性患者が入所）<br>
-・福井県医師会　医療提供体制緊急事態宣言
-</div>
-</div>
+    <div class="WhatsNew" style="height:100%">
+      <h3 class="WhatsNew-heading"><i aria-hidden="true" class="v-icon notranslate WhatsNew-heading-icon mdi mdi-information theme--light" style="font-size:24px;"></i>
+          県内の重要なニュース
+        </h3>
+      <div class="TopNews">
+      <span class="TopNewsImp">・4月14日、福井県独自の緊急事態宣言を発令</span><br>
+      ・福井県内16市町（越前町を除く）が小中学校の授業再開を5月7日以降に延期<br>
+      ・一時生活施設を福井県が開設（軽症陽性患者が入所）<br>
+      ・福井県医師会　医療提供体制緊急事態宣言
+      </div>
+    </div>
   </div>
 
-
   <div class="DataCard col-md-6 col-12">
-  <div class="WhatsNew">
-<h3 class="WhatsNew-heading"><i aria-hidden="true" class="v-icon notranslate WhatsNew-heading-icon mdi mdi-information theme--light" style="font-size:24px;"></i>
-    県民行動指針（4/19から5/6までに延長）
-  </h3>
-<div class="TopNews">
-1.不急不要の外出や会合・会食を自粛<br>
-2.感染防止対策の徹底<br>
-3.感染リスクが高まる３密をつくらない、近づかない<br>
-4.職場における感染防止対策を徹底<br>
-5.医療機関を受診する前に電話で相談<br>
-6.県内医療を守るために最大限協力<br>
-7.緊急事態宣言の対象地域など他県との往来を自粛<br>
-8.必要以上の買い物を控えるなど冷静に行動<br>
-9.人権・個人情報保護を徹底
-</div>
+    <div class="WhatsNew" style="height:100%">
+      <h3 class="WhatsNew-heading"><i aria-hidden="true" class="v-icon notranslate WhatsNew-heading-icon mdi mdi-information theme--light" style="font-size:24px;"></i>
+        県民行動指針（4/19から5/6までに延長）
+      </h3>
+      <div class="TopNews">
+      1.不急不要の外出や会合・会食を自粛<br>
+      2.感染防止対策の徹底<br>
+      3.感染リスクが高まる３密をつくらない、近づかない<br>
+      4.職場における感染防止対策を徹底<br>
+      5.医療機関を受診する前に電話で相談<br>
+      6.県内医療を守るために最大限協力<br>
+      7.緊急事態宣言の対象地域など他県との往来を自粛<br>
+      8.必要以上の買い物を控えるなど冷静に行動<br>
+      9.人権・個人情報保護を徹底
+      </div>
+    </div>
   </div>
-</div>
 
 </div>
-
-
-
-
 
     <static-info
       class="mb-4"
