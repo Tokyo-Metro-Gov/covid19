@@ -3,7 +3,7 @@ type DataType = {
   value: number
   children: [
     {
-      attr: '陽性患者数'
+      attr: '陽性患者'
       value: number
       children: [
         {
@@ -35,7 +35,7 @@ type DataType = {
 
 type ConfirmedCasesType = {
   検査実施人数: number
-  陽性物数: number
+  陽性患者: number
   入院中: number
   軽症中等症: number
   重症: number
@@ -46,7 +46,7 @@ type ConfirmedCasesType = {
 export default (data: DataType) => {
   const formattedData: ConfirmedCasesType = {
     検査実施人数: data.value,
-    陽性物数: data.children[0].value,
+    陽性患者: data.children[0].value,
     入院中: data.children[0].children[0].value,
     軽症中等症: data.children[0].children[0].children[0].value,
     重症: data.children[0].children[0].children[1].value,

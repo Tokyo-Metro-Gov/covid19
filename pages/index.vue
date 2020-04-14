@@ -14,16 +14,7 @@
     />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
-        <svg-card
-          title="検査陽性者の状況"
-          :title-id="'details-of-confirmed-cases'"
-          :date="headerItem.date"
-        >
-          <confirmed-cases-table
-            aria-label="検査陽性者の状況"
-            v-bind="confirmedCases"
-          />
-        </svg-card>
+        <confirmed-cases-details-card />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <!--
@@ -121,8 +112,7 @@ import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import News from '@/data/news.json'
-import SvgCard from '@/components/SvgCard.vue'
-import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
+import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 
 export default {
   components: {
@@ -132,8 +122,7 @@ export default {
     WhatsNew,
     StaticInfo,
     DataTable,
-    SvgCard,
-    ConfirmedCasesTable
+    ConfirmedCasesDetailsCard
   },
   data() {
     // 感染者数グラフ
