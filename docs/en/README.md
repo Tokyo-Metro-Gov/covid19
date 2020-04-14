@@ -39,6 +39,7 @@ $ yarn install
 $ yarn dev
 ```
 
+
 **How to disable accessibility auditing (vue-axe)**
 - You can disable accessibility auditing, which would make your local server faster.
 ```bash
@@ -47,7 +48,6 @@ $ yarn dev-no-axe
 ```
 
 **Using docker**
-
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
