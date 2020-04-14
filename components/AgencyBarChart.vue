@@ -76,6 +76,7 @@ import DataView from '@/components/DataView.vue'
 import TI18n from '@/components/TI18n.vue'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 import { DisplayData, DataSets } from '@/plugins/vue-chart'
+import { customTooltip } from '@/utils/ruby'
 
 interface AgencyDataSets extends DataSets {
   label: string
@@ -184,6 +185,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const self = this
       const options: ChartOptions = {
         tooltips: {
+          enabled: false,
+          custom: tooltipModel => {
+            customTooltip(this, tooltipModel)
+          },
           displayColors: false,
           callbacks: {
             title(tooltipItem) {
@@ -197,6 +202,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               const title = self.$t(data.datasets![index].label!)
               const num = parseInt(tooltipItem.value!).toLocaleString()
               const unit = self.$t(self.unit)
+
               return `${title}: ${num} ${unit}`
             }
           }
