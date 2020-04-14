@@ -92,8 +92,9 @@ export default {
           return 0
         }
 
-        // 「10歳未満」同士を比較する場合、そうでない場合に場合分け
         let comparison = 0
+
+        // 「10歳未満」同士を比較する場合、そうでない場合に場合分け
         if (
           index[0] === '年代' &&
           (a[index[0]] === lt10 || b[index[0]] === lt10)
@@ -101,6 +102,26 @@ export default {
           comparison = a[index[0]] === lt10 ? -1 : 1
         } else {
           comparison = String(a[index[0]]) < String(b[index[0]]) ? -1 : 1
+        }
+
+        // 公表日のソートを正しくする
+        if (index[0] === '公表日') {
+          // 2/29と3/1が正しくソートできないため、以下は使えない。
+          // 公表日に年まで含む場合は以下が使用可能になり、逆に今使用しているコードが使用不可能となる。
+          // comparison = new Date(a[index[0]]) < new Date(b[index[0]]) ? -1 : 1
+
+          const aDate = a[index[0]].split('/').map(d => {
+            return parseInt(d)
+          })
+          const bDate = b[index[0]].split('/').map(d => {
+            return parseInt(d)
+          })
+          comparison = aDate[1] > bDate[1] ? 1 : -1
+          if (aDate[0] > bDate[0]) {
+            comparison = 1
+          } else if (aDate[0] < bDate[0]) {
+            comparison = -1
+          }
         }
 
         return isDesc[0] ? comparison * -1 : comparison
