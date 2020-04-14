@@ -445,22 +445,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           n = Number(i)
         }
       }
-      const borderWidth = [
-        { left: 0, top: 1, right: 0, bottom: 0 },
-        { left: 0, top: 0, right: 0, bottom: 0 }
-      ]
       return {
         labels: ['2020/1/1'],
         datasets: [
           {
             data: [this.displayData.datasets[0].data[n]],
             backgroundColor: 'transparent',
-            borderWidth: borderWidth[0]
+            borderWidth: 0
           },
           {
             data: [this.displayData.datasets[1].data[n]],
             backgroundColor: 'transparent',
-            borderWidth: borderWidth[1]
+            borderWidth: 0
           }
         ]
       }
