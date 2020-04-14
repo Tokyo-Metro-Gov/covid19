@@ -80,6 +80,7 @@ import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { Chart } from 'chart.js'
+import dayjs from 'dayjs'
 import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
@@ -487,13 +488,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableData() {
       return this.chartData
         .map((d, _) => {
-          return Object.assign(
-            { text: d.label },
-            { transition: d.transition.toLocaleString() },
-            { cumulative: d.cumulative.toLocaleString() }
-          )
+          return {
+            text: d.label,
+            transition: d.transition.toLocaleString(),
+            cumulative: d.cumulative.toLocaleString()
+          }
         })
-        .sort((a, b) => (a.text > b.text ? -1 : 1))
+        .sort((a, b) => dayjs(a.text).unix() - dayjs(b.text).unix())
+        .reverse()
     }
   },
   methods: {
