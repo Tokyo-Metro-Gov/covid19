@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.container">
-    <p :class="$style.heading">
+    <h4 :class="$style.heading">
       <t-i18n>
         <i18n path="{past}の出来ごとと症状" tag="span">
           <template v-slot:past>
@@ -12,7 +12,7 @@
           </template>
         </i18n>
       </t-i18n>
-    </p>
+    </h4>
     <p :class="$style.type">
       <template v-if="!langsNeedReversedOrder.includes($i18n.locale)">
         <strong :class="$style.source"
@@ -139,7 +139,7 @@
       :class="[$style.button, $style.clickable]"
     >
       <t-i18n :class="$style.text">{{ $t('新型コロナ受診相談窓口へ') }}</t-i18n>
-      <ArrowForwardIcon :class="$style.icon" />
+      <arrow-forward-icon :class="$style.icon" />
     </a>
   </div>
 </template>

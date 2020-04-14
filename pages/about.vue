@@ -3,7 +3,7 @@
     <page-header class="mb-3">
       <t-i18n>{{ $t('当サイトについて') }}</t-i18n>
     </page-header>
-    <StaticCard>
+    <static-card>
       <t-i18n>
         {{
           $t(
@@ -20,8 +20,8 @@
           )
         }}
       </t-i18n>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <t-i18n>{{ $t('ブラウザ環境について') }}</t-i18n>
       </h3>
@@ -59,16 +59,16 @@
           }}
         </t-i18n>
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <t-i18n>{{ $t('当サイトへのリンクについて') }}</t-i18n>
       </h3>
       <p>
         <t-i18n>{{ $t('当サイトへのリンクは自由です。') }}</t-i18n>
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <t-i18n>{{ $t('JavaScriptについて') }}</t-i18n>
       </h3>
@@ -90,8 +90,8 @@
           }}</t-i18n
         >
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <t-i18n>{{ $t('クッキー (Cookie) について') }}</t-i18n>
       </h3>
@@ -125,8 +125,8 @@
           }}</t-i18n
         >
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <t-i18n>{{ $t('Google Analyticsの利用について') }}</t-i18n>
       </h3>
@@ -168,37 +168,34 @@
       </p>
       <ul>
         <li>
-          <a
-            :href="
+          <external-link
+            :url="
               $t(
                 'https://marketingplatform.google.com/about/analytics/terms/jp/'
               )
             "
-            target="_blank"
-            rel="noopener noreferrer"
+            :icon-size="16"
           >
             <t-i18n>{{ $t('Google Analytics利用規約') }}</t-i18n>
-          </a>
+          </external-link>
         </li>
         <li>
-          <a
-            :href="$t('https://policies.google.com/privacy?hl=ja')"
-            target="_blank"
-            rel="noopener noreferrer"
+          <external-link
+            :url="$t('https://policies.google.com/privacy?hl=ja')"
+            :icon-size="16"
           >
             <t-i18n>{{ $t('Googleのプライバシーポリシー') }}</t-i18n>
-          </a>
+          </external-link>
         </li>
         <li>
-          <a
-            :href="
+          <external-link
+            :url="
               $t('https://support.google.com/analytics/answer/6004245?hl=ja')
             "
-            target="_blank"
-            rel="noopener noreferrer"
+            :icon-size="16"
           >
             <t-i18n>{{ $t('Google Analyticsに関する詳細情報') }}</t-i18n>
-          </a>
+          </external-link>
         </li>
       </ul>
       <i18n
@@ -206,17 +203,16 @@
         path="Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。"
       >
         <template v-slot:addon>
-          <a
-            :href="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
-            target="_blank"
-            rel="noopener noreferrer"
+          <external-link
+            :url="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
+            :icon-size="16"
           >
             {{ $t('測定を無効にするブラウザ アドオン') }}
-          </a>
+          </external-link>
         </template>
       </i18n>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <t-i18n>{{ $t('免責事項') }}</t-i18n>
       </h3>
@@ -247,8 +243,8 @@
           }}
         </t-i18n>
       </p>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <t-i18n>{{ $t('データについて') }}</t-i18n>
       </h3>
@@ -258,18 +254,17 @@
           path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
         >
           <template v-slot:catalogWebsite>
-            <a
-              href="https://portal.data.metro.tokyo.lg.jp/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <external-link
+              url="https://portal.data.metro.tokyo.lg.jp/"
+              :icon-size="16"
             >
               {{ $t('東京都オープンデータカタログサイト') }}
-            </a>
+            </external-link>
           </template>
         </i18n>
       </t-i18n>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <t-i18n>{{ $t('ソースコードについて') }}</t-i18n>
       </h3>
@@ -284,18 +279,17 @@
         <t-i18n>
           <i18n path="詳しくは、{githubRepo}をご確認ください。">
             <template v-slot:githubRepo>
-              <a
-                href="https://github.com/tokyo-metropolitan-gov/covid19"
-                target="_blank"
-                rel="noopener noreferrer"
+              <external-link
+                url="https://github.com/tokyo-metropolitan-gov/covid19"
+                :icon-size="16"
               >
                 {{ $t('GitHub リポジトリ') }}
-              </a>
+              </external-link>
             </template>
           </i18n>
         </t-i18n>
       </p>
-    </StaticCard>
+    </static-card>
   </div>
 </template>
 
@@ -305,11 +299,13 @@ import { MetaInfo } from 'vue-meta'
 import TI18n from '@/components/TI18n.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import StaticCard from '@/components/StaticCard.vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
     StaticCard,
+    ExternalLink,
     TI18n
   },
   head(): MetaInfo {

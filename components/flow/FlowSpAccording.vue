@@ -1,7 +1,7 @@
 <template>
   <div :class="[$style.container, $style.according]">
     <t-i18n>
-      <i18n tag="div" :class="$style.heading" path="{advisory}による相談結果">
+      <i18n tag="h4" :class="$style.heading" path="{advisory}による相談結果">
         <template v-slot:advisory>
           <span :class="[$style.fzLarge, $style.break]">
             {{ $t('新型コロナ受診相談窓口') }}
@@ -55,7 +55,7 @@
           </t-i18n>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
-          <GreenArrow />
+          <green-arrow-icon />
         </div>
       </a>
       <a
@@ -75,7 +75,7 @@
           </t-i18n>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
-          <Arrow />
+          <arrow-downward-icon />
         </div>
       </a>
     </div>
@@ -107,7 +107,7 @@
           <t-i18n :class="$style.fzXLarge">{{ $t('陰性') }}</t-i18n>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
-          <GreenArrow />
+          <green-arrow-icon />
         </div>
       </a>
       <a
@@ -119,7 +119,7 @@
           <t-i18n :class="$style.fzXLarge">{{ $t('陽性') }}</t-i18n>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
-          <Arrow />
+          <arrow-downward-icon />
         </div>
       </a>
     </div>
@@ -140,7 +140,7 @@
     <div :class="[$style.rectContainer, $style.double]">
       <div :class="[$style.rect, $style.solution]">
         <div :class="$style.icon" aria-hidden="true">
-          <House />
+          <house-icon />
         </div>
         <p>
           <t-i18n>{{ $t('自宅で安静に過ごす') }}</t-i18n>
@@ -148,7 +148,7 @@
       </div>
       <div :class="[$style.rect, $style.solution]">
         <div :class="$style.icon" aria-hidden="true">
-          <Apartment />
+          <apartment-icon />
         </div>
         <p>
           <t-i18n>{{ $t('一般の医療機関を受診') }}</t-i18n>
@@ -177,18 +177,18 @@
 </template>
 
 <script>
-import Apartment from '@/static/flow/responsive/apartment.svg'
-import House from '@/static/flow/responsive/house.svg'
-import Arrow from '@/static/flow/responsive/arrow_downward.svg'
-import GreenArrow from '@/static/flow/responsive/arrow_green.svg'
+import ApartmentIcon from '@/static/flow/responsive/apartment.svg'
+import HouseIcon from '@/static/flow/responsive/house.svg'
+import ArrowDownwardIcon from '@/static/flow/responsive/arrow_downward.svg'
+import GreenArrowIcon from '@/static/flow/responsive/arrow_green.svg'
 import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
-    Apartment,
-    House,
-    Arrow,
-    GreenArrow,
+    ApartmentIcon,
+    HouseIcon,
+    ArrowDownwardIcon,
+    GreenArrowIcon,
     TI18n
   },
   computed: {

@@ -14,8 +14,9 @@
         <!-- @todo t-i18n化が必要 -->
         <external-link
           url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
-          :label="$t('東京都緊急事態措置について')"
-        />
+        >
+          {{ $t('東京都緊急事態措置について') }}
+        </external-link>
       </span>
     </div>
     <ul class="WhatsNew-list">

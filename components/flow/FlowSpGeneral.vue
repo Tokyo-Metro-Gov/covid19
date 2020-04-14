@@ -1,11 +1,11 @@
 <template>
   <div :class="$style.container">
-    <p :class="$style.heading">
+    <h4 :class="$style.heading">
       <span :class="[$style.icon, $style.top]" aria-hidden="true">
-        <HumanIcon />
+        <human-icon />
       </span>
       <t-i18n :class="$style.fzMedium">{{ $t('一般の方') }}</t-i18n>
-    </p>
+    </h4>
     <ul :class="[$style.rectContainer, $style.double]">
       <li :class="$style.symptom">
         <span>
@@ -70,7 +70,7 @@
       :class="[$style.button, $style.clickable]"
     >
       <t-i18n :class="$style.text">{{ $t('新型コロナ受診相談窓口へ') }}</t-i18n>
-      <ArrowForwardIcon :class="$style.icon" />
+      <arrow-forward-icon :class="$style.icon" />
     </a>
   </div>
 </template>

@@ -13,6 +13,18 @@
     >
       <!-- 件.tested = 検査数 -->
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
+        <t-i18n>{{
+          $t(
+            '（注）医療機関が保険適用で行った検査については、４月８日分までを計上'
+          )
+        }}</t-i18n
+        ><br />
+        <t-i18n>{{
+          $t(
+            '（毎週金曜日に、前週木曜日から当該週水曜日までの日々の件数を反映）'
+          )
+        }}</t-i18n>
+        <br />
         <t-i18n>{{ $t('※1: 疑い例・接触者調査') }}</t-i18n>
         <br />
         <t-i18n>{{ $t('※2: チャーター便・クルーズ船') }}</t-i18n>
@@ -42,7 +54,7 @@ export default {
       this.$t('その他（※2）')
     ]
     const inspectionsLabels = Data.inspections_summary.labels
-    const inspectionsDataLabels = [this.$t('都内'), this.$t('その他.graph')]
+    const inspectionsDataLabels = [this.$t('都内発生'), this.$t('その他.graph')]
 
     const data = {
       Data,

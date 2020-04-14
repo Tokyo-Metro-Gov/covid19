@@ -5,18 +5,19 @@
         $t('臨時休校中の新型コロナウイルス感染症対応についてのお願い')
       }}</t-i18n>
     </page-header>
-    <StaticCard>
+    <static-card>
       <h3>
-        <a
-          href="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          ><t-i18n>{{ $t('学びの支援サイト') }}</t-i18n></a
-        >
+        <external-link
+          url="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html"
+          :icon-size="24"
+          ><t-i18n>{{ $t('学びの支援サイト') }}</t-i18n>
+        </external-link>
       </h3>
-    </StaticCard>
-    <StaticCard>
-      <h3><t-i18n>{{ $t('感染予防・健康管理') }}</t-i18n></h3>
+    </static-card>
+    <static-card>
+      <h3>
+        <t-i18n>{{ $t('感染予防・健康管理') }}</t-i18n>
+      </h3>
       <ul>
         <li>
           <t-i18n>{{
@@ -30,14 +31,13 @@
             $t('手洗い、咳エチケット等により、感染予防に努めてください。')
           }}</t-i18n
           ><br />
-          <a
-            href="https://tokyodouga.jp/lViN9C_BS-0.html"
-            target="_blank"
-            rel="noopener noreferrer"
+          <external-link
+            url="https://tokyodouga.jp/lViN9C_BS-0.html"
+            :icon-size="16"
             ><t-i18n>{{
               $t('【参考】感染症予防のための正しい手洗い方法（動画）')
-            }}</t-i18n></a
-          >
+            }}</t-i18n>
+          </external-link>
         </li>
         <li>
           <t-i18n>{{
@@ -47,8 +47,8 @@
           }}</t-i18n>
         </li>
       </ul>
-    </StaticCard>
-    <StaticCard>
+    </static-card>
+    <static-card>
       <h3>
         <t-i18n>{{ $t('感染症を疑う場合の対応') }}</t-i18n>
       </h3>
@@ -59,25 +59,26 @@
         <li>
           <t-i18n>{{ $t('各保健所の電話番号について') }}</t-i18n>
           <br />
-          <a
-            href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-            target="_blank"
-            rel="noopener noreferrer"
+          <external-link
+            url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+            :icon-size="16"
             ><t-i18n>{{
               $t('「新型コロナウイルス感染症にかかる相談窓口について」')
-            }}</t-i18n></a
-          >
+            }}</t-i18n>
+          </external-link>
         </li>
       </ul>
-    </StaticCard>
-    <StaticCard>
-      <h3><t-i18n>{{ $t('その他.parent') }}</t-i18n></h3>
+    </static-card>
+    <static-card>
+      <h3>
+        <t-i18n>{{ $t('その他.parent') }}</t-i18n>
+      </h3>
       <p>
         <t-i18n>{{
           $t('詳細は、各学校からのお知らせ等をご確認ください。')
         }}</t-i18n>
       </p>
-    </StaticCard>
+    </static-card>
   </div>
 </template>
 
@@ -86,12 +87,14 @@ import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import StaticCard from '@/components/StaticCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 import TI18n from '@/components/TI18n.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
     StaticCard,
+    ExternalLink,
     TI18n
   },
   head(): MetaInfo {

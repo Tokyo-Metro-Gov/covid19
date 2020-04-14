@@ -15,14 +15,26 @@
       :custom-sort="customSort"
       class="cardTable"
     >
-      <template v-slot:item.居住地="slotProps">
-        <t-i18n>{{ slotProps.item.居住地 }}</t-i18n>
-      </template>
-      <template v-slot:item.年代="slotProps">
-        <t-i18n>{{ slotProps.item.年代 }}</t-i18n>
-      </template>
-      <template v-slot:item.性別="slotProps">
-        <t-i18n>{{ slotProps.item.性別 }}</t-i18n>
+      <template v-slot:body="{ items }">
+        <tbody>
+          <tr v-for="item in items" :key="item.text">
+            <th class="text-start">
+              <t-i18n>{{ item['公表日'] }}</t-i18n>
+            </th>
+            <td class="text-start">
+              <t-i18n>{{ item['居住地'] }}</t-i18n>
+            </td>
+            <td class="text-start">
+              <t-i18n>{{ item['年代'] }}</t-i18n>
+            </td>
+            <td class="text-start">
+              <t-i18n>{{ item['性別'] }}</t-i18n>
+            </td>
+            <td class="text-center">
+              <t-i18n>{{ item['退院'] }}</t-i18n>
+            </td>
+          </tr>
+        </tbody>
       </template>
     </v-data-table>
     <div class="note">
@@ -49,7 +61,6 @@
       padding: 8px 10px;
       height: auto;
       border-bottom: 1px solid $gray-4;
-      white-space: nowrap;
       color: $gray-2;
       font-size: 12px;
 
@@ -62,6 +73,10 @@
       tr {
         color: $gray-1;
 
+        th {
+          font-weight: normal;
+        }
+
         td {
           padding: 8px 10px;
           height: auto;
@@ -73,14 +88,9 @@
         }
 
         &:nth-child(odd) {
+          th,
           td {
             background: rgba($gray-4, 0.3);
-          }
-        }
-
-        &:not(:last-child) {
-          td:not(.v-data-table__mobile-row) {
-            border: none;
           }
         }
       }

@@ -3,8 +3,15 @@
     <li :class="[$style.box, $style.tall, $style.tested]">
       <div :class="[$style.pillar]">
         <div :class="$style.content">
-          <t-i18n>{{ $t('検査実施人数') }}</t-i18n>
-          <t-i18n>{{ $t('累計') }}</t-i18n>
+          <span>
+            <t-i18n> {{ $t('検査実施人数') }} </t-i18n><br />
+            <span :class="$style.note">
+              (<t-i18n>{{ $t('健康安全研究センター等による実施分') }}</t-i18n
+              >)
+            </span>
+            <br />
+            (<t-i18n> {{ $t('累計') }} </t-i18n>)
+          </span>
           <span>
             <strong>{{ 累計人数.toLocaleString() }}</strong>
             <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
@@ -179,6 +186,10 @@ $default-boxh: 150px;
 
   span strong {
     @include font-size(18);
+  }
+
+  span.note {
+    @include font-size(11);
   }
 
   span.unit {

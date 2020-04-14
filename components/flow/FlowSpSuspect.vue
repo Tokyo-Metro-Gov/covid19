@@ -1,11 +1,11 @@
 <template>
   <div :class="$style.container">
-    <p :class="$style.heading">
+    <h4 :class="$style.heading">
       <span :class="[$style.icon, $style.top]">
-        <SentimentIcon aria-hidden="true" />
+        <sentiment-icon aria-hidden="true" />
       </span>
       <t-i18n :class="$style.fzMedium">{{ $t('不安に思う方') }}</t-i18n>
-    </p>
+    </h4>
 
     <ul :class="[$style.rectContainer, $style.triple]">
       <li :class="$style.symptom">
@@ -28,7 +28,7 @@
       </p>
       <p :class="[$style.phone, $style.fzNumeric]">
         <span :class="$style.icon">
-          <PhoneIcon alt="Phone" />
+          <phone-icon alt="Phone" />
         </span>
         <a href="tel:0570550571">0570-550571</a>
       </p>
@@ -43,7 +43,7 @@
       :class="[$style.button, $style.clickable]"
     >
       <t-i18n :class="$style.text">{{ $t('専門的な助言が必要な場合') }}</t-i18n>
-      <ArrowForwardIcon :class="$style.icon" />
+      <arrow-forward-icon :class="$style.icon" />
     </a>
   </div>
 </template>

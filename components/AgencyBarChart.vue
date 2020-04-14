@@ -38,19 +38,31 @@
       :display-legends="displayLegends"
       :height="240"
     />
-    <v-data-table
-      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
-      :headers="tableHeaders"
-      :items="tableData"
-      :items-per-page="-1"
-      :hide-default-footer="true"
-      :height="240"
-      :fixed-header="true"
-      :disable-sort="true"
-      :mobile-breakpoint="0"
-      class="cardTable"
-      item-key="name"
-    />
+    <template v-slot:dataTable>
+      <v-data-table
+        :headers="tableHeaders"
+        :items="tableData"
+        :items-per-page="-1"
+        :hide-default-footer="true"
+        :height="240"
+        :fixed-header="true"
+        :disable-sort="true"
+        :mobile-breakpoint="0"
+        class="cardTable"
+        item-key="name"
+      >
+        <template v-slot:body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.text">
+              <th>{{ item.text }}</th>
+              <td class="text-end">{{ item[0] }}</td>
+              <td class="text-end">{{ item[1] }}</td>
+              <td class="text-end">{{ item[2] }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-data-table>
+    </template>
   </data-view>
 </template>
 
@@ -232,21 +244,27 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return [
         { text: this.$t('日付'), value: 'text' },
         ...this.displayData.datasets.map((text, value) => {
-          return { text: text.label, value: String(value) }
+          return { text: text.label, value: String(value), align: 'end' }
         })
       ]
     },
     tableData() {
-      return this.displayData.datasets[0].data.map((_, i) => {
-        return Object.assign(
-          { text: this.displayData.labels![i] as string },
-          ...this.displayData.datasets!.map((_, j) => {
-            return {
-              [j]: this.displayData.datasets[j].data[i]
-            }
-          })
-        )
-      })
+      return this.displayData.datasets[0].data
+        .map((_, i) => {
+          return Object.assign(
+            { text: this.displayData.labels![i] },
+            ...this.displayData.datasets!.map((_, j) => {
+              return {
+                [j]: this.displayData.datasets[j].data[i].toLocaleString()
+              }
+            })
+          )
+        })
+        .sort((a, b) => {
+          const aDate = a.text.split('~')[0]
+          const bDate = b.text.split('~')[0]
+          return aDate > bDate ? -1 : 1
+        })
     }
   },
   methods: {
