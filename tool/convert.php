@@ -140,7 +140,7 @@ function readPatientsV2() : array
       $dischargStatus = "退院"; 
     } 
     else {
-      $dischargStatus = $row['患者_退院済フラグ']; 
+      $dischargStatus = "入院調整中"; 
     }
     $result = [
       "確定日" => $row['公表_年月日'],
@@ -213,7 +213,7 @@ function readPatients() : array
           $dischargStatus = "退院"; 
         } 
         else {
-          $dischargStatus = $row['患者_退院済フラグ']; 
+          $dischargStatus = "入院調整中"; 
         }
         $result = [
           "確定日" => $row['公表_年月日'],
