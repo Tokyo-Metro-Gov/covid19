@@ -3,9 +3,6 @@
     <template v-slot:button>
       <ul :class="$style.GraphDesc">
         <li>
-          {{ $t('（注）医療機関が保険適用で行った検査は含まれていない') }}
-        </li>
-        <li>
           {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
         </li>
         <li>
@@ -47,18 +44,22 @@
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
     <div class="LegendStickyChart">
+      <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
+        <div :style="{ width: `${chartWidth}px` }">
+          <bar
+            :ref="'barChart'"
+            :chart-id="chartId"
+            :chart-data="displayData"
+            :options="displayOption"
+            :plugins="scrollPlugin"
+            :display-legends="displayLegends"
+            :height="240"
+            :width="chartWidth"
+          />
+        </div>
+      </div>
       <bar
-        :ref="'barChart'"
-        :style="{ display: canvas ? 'block' : 'none' }"
-        :chart-id="chartId"
-        :chart-data="displayData"
-        :options="displayOption"
-        :plugins="scrollPlugin"
-        :display-legends="displayLegends"
-        :height="240"
-        :width="chartWidth"
-      />
-      <bar
+        class="sticky-legend"
         :style="{ display: canvas ? 'block' : 'none' }"
         :chart-id="`${chartId}-header`"
         :chart-data="displayDataHeader"
@@ -69,18 +70,32 @@
         :width="chartWidth"
       />
     </div>
-    <v-data-table
-      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
-      :headers="tableHeaders"
-      :items="tableData"
-      :items-per-page="-1"
-      :hide-default-footer="true"
-      :height="240"
-      :fixed-header="true"
-      :disable-sort="true"
-      :mobile-breakpoint="0"
-      item-key="name"
-    />
+    <template v-slot:dataTable>
+      <v-data-table
+        :headers="tableHeaders"
+        :items="tableData"
+        :items-per-page="-1"
+        :hide-default-footer="true"
+        :height="240"
+        :fixed-header="true"
+        :disable-sort="true"
+        :mobile-breakpoint="0"
+        class="cardTable"
+        item-key="name"
+      >
+        <template v-slot:body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.text">
+              <th>{{ item.text }}</th>
+              <td class="text-end">{{ item['0'] }}</td>
+              <td class="text-end">{{ item['1'] }}</td>
+              <td class="text-end">{{ item['2'] }}</td>
+              <td class="text-end">{{ item['3'] }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-data-table>
+    </template>
     <p :class="$style.DataViewDesc">
       <slot name="additionalNotes" />
     </p>
@@ -99,6 +114,7 @@ import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
 import { Chart } from 'chart.js'
+import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
@@ -232,7 +248,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
           sText: `${this.$t('{date}の合計', {
             date: this.labels[this.labels.length - 1]
-          })}`,
+          })}（${this.$t('医療機関が保険適用で行った検査は含まれていない')}）`,
           unit: this.unit
         }
       }
@@ -276,22 +292,40 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
-        ...this.items.map((text, value) => {
-          return { text, value: String(value) }
-        })
+        ...(this.dataLabels as string[])
+          .reduce((arr, text) => {
+            arr.push(
+              ...[this.$t('日別'), this.$t('累計')].map(
+                label => `${text} (${label})`
+              )
+            )
+            return arr
+          }, [] as string[])
+          .map((text, i) => {
+            return { text, value: String(i), align: 'end' }
+          })
       ]
     },
     tableData() {
-      return this.displayData.datasets[0].data.map((_, i) => {
-        return Object.assign(
-          { text: this.labels[i] },
-          ...this.items.map((_, j) => {
-            return {
-              [j]: this.displayData.datasets[j].data[i]
-            }
-          })
-        )
-      })
+      return this.labels
+        .map((label, i) => {
+          return Object.assign(
+            { text: label },
+            ...this.tableHeaders.map((_, j) => {
+              const index = j < 2 ? 0 : 1
+              const transition = this.chartData[index]
+              const cumulative = this.cumulative(transition)
+              return {
+                [j]:
+                  j % 2 === 0
+                    ? transition[i].toLocaleString()
+                    : cumulative[i].toLocaleString()
+              }
+            })
+          )
+        })
+        .sort((a, b) => dayjs(a.text).unix() - dayjs(b.text).unix())
+        .reverse()
     },
     displayOption() {
       const unit = this.unit
@@ -389,6 +423,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 suggestedMin: 0,
+                suggestedMax: this.scaledTicksYAxisMax,
                 maxTicksLimit: 8,
                 fontColor: '#808080'
               }
@@ -413,28 +448,23 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           n = Number(i)
         }
       }
-      const borderWidth = [
-        { left: 0, top: 1, right: 0, bottom: 0 },
-        { left: 0, top: 0, right: 0, bottom: 0 }
-      ]
       return {
         labels: ['2020/1/1'],
         datasets: [
           {
             data: [this.displayData.datasets[0].data[n]],
             backgroundColor: 'transparent',
-            borderWidth: borderWidth[0]
+            borderWidth: 0
           },
           {
             data: [this.displayData.datasets[1].data[n]],
             backgroundColor: 'transparent',
-            borderWidth: borderWidth[1]
+            borderWidth: 0
           }
         ]
       }
     },
     displayOptionHeader() {
-      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const options: Chart.ChartOptions = {
         responsive: false,
         maintainAspectRatio: false,
@@ -512,7 +542,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080', // #808080
-                suggestedMax: scaledTicksYAxisMax
+                suggestedMax: this.scaledTicksYAxisMax
               }
             }
           ]
@@ -568,7 +598,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return sumArray
     }
   },
-  beforeMount() {
+  mounted() {
     if (this.$el) {
       this.chartWidth =
         ((this.$el!.clientWidth - 22 * 2 - 38) / 60) * this.labels.length + 38
@@ -577,8 +607,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         this.chartWidth
       )
     }
-  },
-  mounted() {
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')
@@ -628,6 +656,7 @@ export default Vue.extend(options)
     }
   }
 }
+
 .DataView {
   &Desc {
     margin-top: 10px;

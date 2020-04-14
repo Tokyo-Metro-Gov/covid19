@@ -1,25 +1,25 @@
 <template>
   <div :class="$style.container">
-    <div :class="[$style.heading, $style.multi]">
+    <h4 :class="[$style.heading, $style.multi]">
       <span :class="[$style.item, $style.fzMedium]">
         <span :class="$style.icon">
-          <DirectionsWalkIcon aria-hidden="true" />
+          <directions-walk-icon aria-hidden="true" />
         </span>
         {{ $t('ご高齢な方') }}
       </span>
       <span :class="[$style.item, $style.fzMedium]">
         <span :class="$style.icon">
-          <AccessibleIcon aria-hidden="true" />
+          <accessible-icon aria-hidden="true" />
         </span>
         {{ $t('基礎疾患のある方') }}
       </span>
       <span :class="[$style.item, $style.fzMedium]">
         <span :class="$style.icon">
-          <PregnantWomanIcon aria-hidden="true" />
+          <pregnant-woman-icon aria-hidden="true" />
         </span>
         {{ $t('妊娠中の方') }}
       </span>
-    </div>
+    </h4>
     <ul :class="[$style.rectContainer, $style.double]">
       <li :class="$style.symptom">
         <span>
@@ -80,7 +80,7 @@
       :class="[$style.button, $style.clickable]"
     >
       <span :class="$style.text">{{ $t('新型コロナ受診相談窓口へ') }}</span>
-      <ArrowForwardIcon :class="$style.icon" />
+      <arrow-forward-icon :class="$style.icon" />
     </a>
   </div>
 </template>

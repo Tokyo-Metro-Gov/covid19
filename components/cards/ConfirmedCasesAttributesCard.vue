@@ -1,16 +1,20 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <data-table
-      :title="$t('陽性患者の属性')"
-      :title-id="'attributes-of-confirmed-cases'"
-      :chart-data="patientsTable"
-      :chart-option="{}"
-      :date="Data.patients.date"
-      :info="sumInfoOfPatients"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
-      :source="$t('オープンデータを入手')"
-      :custom-sort="customSort"
-    />
+    <client-only :placeholder="$t('読み込み中')">
+      <data-table
+        :title="$t('陽性患者の属性')"
+        :title-id="'attributes-of-confirmed-cases'"
+        :chart-data="patientsTable"
+        :chart-option="{}"
+        :date="Data.patients.date"
+        :info="sumInfoOfPatients"
+        :url="
+          'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+        "
+        :source="$t('オープンデータを入手')"
+        :custom-sort="customSort"
+      />
+    </client-only>
   </v-col>
 </template>
 
@@ -68,10 +72,11 @@ export default {
   },
   methods: {
     getTranslatedWording(value) {
-      if (value === '-' || value === '‐' || value == null) {
+      if (value === '-' || value === '‐' || value === '―' || value == null) {
         // 翻訳しようとしている文字列が以下のいずれかだった場合、翻訳しない
         // - 全角のハイフン
         // - 半角のハイフン
+        // - 全角のダッシュ
         // - null
         return value
       }

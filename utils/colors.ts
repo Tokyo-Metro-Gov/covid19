@@ -23,7 +23,7 @@ export function getGraphSeriesStyle(seriesLength: number) {
     case 1:
       return [surfaceStyleB]
     case 2:
-      return [surfaceStyleA, surfaceStyleB]
+      return [surfaceStyleA, surfaceStyleC]
     default:
       return [surfaceStyleA, surfaceStyleB, surfaceStyleC]
   }

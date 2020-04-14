@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.container">
-    <p :class="$style.heading">
+    <h4 :class="$style.heading">
       <i18n path="{past}の出来ごとと症状" tag="span">
         <template v-slot:past>
           <i18n :class="$style.fzLarge" tag="span" path="発症前{two}週間以内">
@@ -10,7 +10,7 @@
           </i18n>
         </template>
       </i18n>
-    </p>
+    </h4>
     <p :class="$style.type">
       <template v-if="!langsNeedReversedOrder.includes($i18n.locale)">
         <strong :class="$style.source">{{
@@ -125,7 +125,7 @@
       :class="[$style.button, $style.clickable]"
     >
       <span :class="$style.text">{{ $t('新型コロナ受診相談窓口へ') }}</span>
-      <ArrowForwardIcon :class="$style.icon" />
+      <arrow-forward-icon :class="$style.icon" />
     </a>
   </div>
 </template>
