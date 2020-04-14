@@ -7,7 +7,11 @@
     />
     <whats-new class="mb-4" :items="newsItems" />
 
-<div class="WhatsNew mb-4" data-v-2a183b29=""><h3 class="WhatsNew-heading"><i aria-hidden="true" class="v-icon notranslate WhatsNew-heading-icon mdi mdi-information theme--light" style="font-size:24px;"></i>
+
+<div class="row DataBlock">
+  
+  <div class="DataCard col-md-6 col-12">
+<h3 class="WhatsNew-heading"><i aria-hidden="true" class="v-icon notranslate WhatsNew-heading-icon mdi mdi-information theme--light" style="font-size:24px;"></i>
     県内の重要なニュース
   </h3>
 <div class="TopNews">
@@ -16,9 +20,11 @@
 ・一時生活施設を福井県が開設（軽症陽性患者が入所）<br>
 ・福井県医師会　医療提供体制緊急事態宣言
 </div>
-</div>
 
-<div class="WhatsNew mb-4" data-v-2a183b29=""><h3 class="WhatsNew-heading"><i aria-hidden="true" class="v-icon notranslate WhatsNew-heading-icon mdi mdi-information theme--light" style="font-size:24px;"></i>
+  </div>
+
+  <div class="DataCard col-md-6 col-12">
+<h3 class="WhatsNew-heading"><i aria-hidden="true" class="v-icon notranslate WhatsNew-heading-icon mdi mdi-information theme--light" style="font-size:24px;"></i>
     県民行動指針（4/19から5/6までに延長）
   </h3>
 <div class="TopNews">
@@ -32,7 +38,13 @@
 8.必要以上の買い物を控えるなど冷静に行動<br>
 9.人権・個人情報保護を徹底
 </div>
+  </div>
+
 </div>
+
+
+
+
 
     <static-info
       class="mb-4"
