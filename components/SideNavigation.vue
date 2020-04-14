@@ -223,6 +223,11 @@ export default Vue.extend({
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
+        },
+        {
+          title: this.$t('ご要望・改善提案'),
+          link:
+            'https://docs.google.com/forms/d/e/1FAIpQLSe1Dw-pg4HuwGjwmk82_qokvUNlpFzHnlwCuAmVuBcW85VyNw/viewform'
         }
       ]
     }
