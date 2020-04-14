@@ -11,7 +11,7 @@
     県内の重要なニュース
   </h3>
 <div class="TopNews">
-・4月14日、福井県独自の緊急事態宣言を発令<br>
+<span class="TopNewsImp">・4月14日、福井県独自の緊急事態宣言を発令</span><br>
 ・福井県内16市町（越前町を除く）が小中学校の授業再開を5月7日以降に延期<br>
 ・一時生活施設を福井県が開設（軽症陽性患者が入所）<br>
 ・福井県医師会　医療提供体制緊急事態宣言
@@ -106,6 +106,12 @@ export default Vue.extend({
   font-size: 13px;
   line-height: 1.8em;
   padding: 0 10px;
+}
+.TopNewsImp {
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: underline;
+  color: red;
 }
 .MainPage {
   .DataBlock {
