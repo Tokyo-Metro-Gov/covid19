@@ -8,7 +8,20 @@
       :date="Data.patients.date"
       :unit="$t('人')"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
-    />
+    >
+      <template v-slot:description>
+        <ul>
+          <li>
+            {{ $t('（注）医療機関が保険適用で行った検査も含む') }}
+          </li>
+          <li>
+            {{
+              $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
+            }}
+          </li>
+        </ul>
+      </template>
+    </time-bar-chart>
   </v-col>
 </template>
 
