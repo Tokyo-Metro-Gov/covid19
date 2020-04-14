@@ -50,8 +50,9 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git add tool/downloads
           git add data
-          git commit -m "Update data.json"
+          git commit -m "[BOT] Update cases.csv, data.json"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
