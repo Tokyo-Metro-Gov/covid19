@@ -103,8 +103,8 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .TopNews {
-  font-size: 12px;
-  line-height: 1.5em;
+  font-size: 13px;
+  line-height: 1.8em;
   padding: 0 10px;
 }
 .MainPage {
