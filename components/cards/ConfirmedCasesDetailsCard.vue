@@ -8,6 +8,10 @@
       <template v-slot:button>
         <p :class="$style.note">
           {{ $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
+          <br />
+          {{
+            $t('（注）「入院中」には、入院調整中・宿泊療養に移行した方を含む')
+          }}
         </p>
       </template>
       <confirmed-cases-details-table
