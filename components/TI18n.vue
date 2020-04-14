@@ -1,18 +1,12 @@
 <script lang="ts">
 import Vue, { VNode } from 'vue'
-import XRegExp from 'xregexp/'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { createRubyObject, RubyText } from '@/utils/ruby'
 
-type RubyText = {
-  ja: string
-  kana?: string
-}
 type Data = {
   locale: string
 }
-type Methods = {
-  createRubyTexts: (text: string) => RubyText[]
-}
+type Methods = {}
 type Computed = {}
 type Props = {}
 
@@ -26,26 +20,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   data() {
     return {
       locale: ''
-    }
-  },
-  methods: {
-    createRubyTexts(text) {
-      let match: RegExpExecArray | null
-      let lastText: string
-      let pos = 0
-      const texts: RubyText[] = []
-      const regp = /([\p{sc=Han}|\s|・]+?)（([\p{sc=Hiragana}|\s|・]+?)）/gu
-
-      // ふりがなを含んだ文字列をパースしてオブジェクトを生成
-      while ((match = XRegExp.exec(text, regp, pos))) {
-        if (match.index > 0) {
-          texts.push({ ja: match.input.slice(pos, match.index) })
-        }
-        texts.push({ ja: match[1], kana: match[2] })
-        pos = match.index + match[0].length
-      }
-      if ((lastText = text.slice(pos))) texts.push({ ja: lastText })
-      return texts
     }
   },
   mounted() {
@@ -85,7 +59,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
     const createVNode = (node: VNode): VNode => {
       if (node.text) {
-        const texts = this.createRubyTexts(node.text)
+        const texts = createRubyObject(node.text)
         return createRubyNode(texts)
       }
       if (node.children) {
