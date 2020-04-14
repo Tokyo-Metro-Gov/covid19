@@ -104,7 +104,8 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .TopNews {
   font-size: 12px;
-  line-height: 1.5em;  
+  line-height: 1.5em;
+  padding: 0 10px;
 }
 .MainPage {
   .DataBlock {
