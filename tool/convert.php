@@ -134,20 +134,23 @@ function readPatientsV2() : array
     $row['w'] = $carbon->format('w');
     $row['short_date'] = $carbon->format('m/d');
     if ($row['患者_退院済フラグ'] === 0) {
-      $dischargStatus = "入院";
+      $dischargeStatus = "入院";
     }
     else if ($row['患者_退院済フラグ'] === 1) {
-      $dischargStatus = "退院"; 
+      $dischargeStatus = "退院"; 
     } 
+    else if (empty($row['患者_退院済フラグ'])) {
+      $dischargeStatus = "入院調整中"; 
+    }
     else {
-      $dischargStatus = "入院調整中"; 
+      $dischargeStatus = $row['患者_退院済フラグ'];
     }
     $result = [
       "確定日" => $row['公表_年月日'],
       "居住地" => $row['患者_居住地'],
       "年代" => $row['患者_年代'],
       "性別" => $row['患者_性別'],
-      "退院" => $dischargStatus,
+      "退院" => $dischargeStatus,
       "備考" => $row['備考'],
       "date" => $carbon->format('Y-m-d'),
     ];
@@ -207,20 +210,23 @@ function readPatients() : array
         $row['w'] = $carbon->format('w');
         $row['short_date'] = $carbon->format('m/d');
         if ($row['患者_退院済フラグ'] === 0) {
-          $dischargStatus = "入院";
+          $dischargeStatus = "入院";
         }
         else if ($row['患者_退院済フラグ'] === 1) {
-          $dischargStatus = "退院"; 
+          $dischargeStatus = "退院"; 
         } 
+        else if (empty($row['患者_退院済フラグ'])) {
+          $dischargeStatus = "入院調整中"; 
+        }
         else {
-          $dischargStatus = "入院調整中"; 
+          $dischargeStatus = $row['患者_退院済フラグ'];
         }
         $result = [
           "確定日" => $row['公表_年月日'],
           "居住地" => $row['患者_居住地'],
           "年代" => $row['患者_年代'],
           "性別" => $row['患者_性別'],
-          "退院" => $dischargStatus,
+          "退院" => $dischargeStatus,
           "備考" => $row['備考'],
           "date" => $carbon->format('Y-m-d'),
         ];
