@@ -19,6 +19,17 @@
       <div class="DataView-CardText">
         <slot />
       </div>
+      <div v-if="this.$slots.dataTable" class="DataView-Details">
+        <details v-if="showDetails">
+          <summary class="DataView-DetailsSummary" @click="toggleDetails">{{
+            $t('テーブルを表示')
+          }}</summary>
+          <slot name="dataTable" />
+        </details>
+        <template v-else>
+          <slot name="dataTable" />
+        </template>
+      </div>
       <div class="DataView-Description">
         <slot name="footer-description" />
       </div>
@@ -174,7 +185,8 @@ export default Vue.extend({
     return {
       openGraphEmbed: false,
       displayShare: false,
-      showOverlay: false
+      showOverlay: false,
+      showDetails: false
     }
   },
   computed: {
@@ -187,6 +199,19 @@ export default Vue.extend({
         this.permalink(true, true) +
         '" frameborder="0"></iframe>'
       return graphEmbedValue
+    },
+    cardElements() {
+      const parent = document.querySelector('.row.DataBlock') as HTMLElement
+      const thisCard = this.$el.closest('.DataCard')
+      const index = Array.prototype.indexOf.call(parent.children, thisCard) + 1
+      const sideIndex = index % 2 === 0 ? index - 1 : index + 1
+
+      const self = document.querySelector(
+        `.DataCard:nth-child(${index}`
+      ) as HTMLElement
+      const side = document.querySelector(`.DataCard:nth-child(${sideIndex}
+      `) as HTMLElement
+      return [self, side]
     }
   },
   watch: {
@@ -200,6 +225,13 @@ export default Vue.extend({
         )
       }
     }
+  },
+  mounted() {
+    this.showDetails = true
+    window.addEventListener('resize', this.handleCardHeight)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleCardHeight)
   },
   methods: {
     toggleShareMenu(e: Event) {
@@ -262,6 +294,29 @@ export default Vue.extend({
         'https://social-plugins.line.me/lineit/share?url=' +
         this.permalink(true)
       window.open(url)
+    },
+    handleCardHeight() {
+      const [self, side] = this.cardElements
+      if (self) {
+        self.style.height = ''
+        self.dataset.height = String(self.offsetHeight)
+      }
+      if (side) {
+        side.style.height = ''
+        side.dataset.height = String(side.offsetHeight)
+      }
+    },
+    toggleDetails() {
+      // アコーディオン開閉時にcardの高さを維持する
+      const [self, side] = this.cardElements
+
+      self.dataset.height = self.dataset.height || String(self.offsetHeight)
+      side.dataset.height = side.dataset.height || String(side.offsetHeight)
+
+      self.style.height =
+        self.style.height === `auto` ? `${self.dataset.height}px` : 'auto'
+      side.style.height =
+        side.style.height === 'auto' ? 'auto' : `${side.dataset.height}px`
     }
   }
 })
@@ -341,7 +396,6 @@ export default Vue.extend({
   &-Inner {
     display: flex;
     flex-flow: column;
-    justify-content: space-between;
     padding: 22px;
     height: 100%;
   }
@@ -378,6 +432,21 @@ export default Vue.extend({
     }
   }
 
+  &-Details {
+    margin: 10px 0;
+
+    .v-data-table .text-end {
+      text-align: right;
+    }
+  }
+
+  &-DetailsSummary {
+    @include font-size(14);
+
+    color: $gray-2;
+    cursor: pointer;
+  }
+
   &-CardTextForXS {
     margin-bottom: 46px;
     margin-top: 70px;
@@ -393,9 +462,11 @@ export default Vue.extend({
     padding: 0 !important;
     display: flex;
     justify-content: space-between;
+    margin-top: auto;
     color: $gray-3 !important;
     text-align: right;
     background-color: $white !important;
+
     .Permalink {
       color: $gray-3 !important;
     }

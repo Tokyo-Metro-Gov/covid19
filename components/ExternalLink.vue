@@ -1,9 +1,9 @@
 <template>
   <a class="ExternalLink" :href="url" target="_blank" rel="noopener noreferrer">
-    {{ label }}
+    <slot />
     <v-icon
       class="ExternalLinkIcon"
-      size="15"
+      :size="iconSize"
       :aria-label="this.$t('別タブで開く')"
       role="img"
       :aria-hidden="false"
@@ -30,9 +30,9 @@ export default Vue.extend({
       type: String,
       default: ''
     },
-    label: {
-      type: String,
-      default: ''
+    iconSize: {
+      type: Number,
+      default: 15
     }
   }
 })

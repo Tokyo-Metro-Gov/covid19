@@ -1,11 +1,11 @@
 <template>
   <div :class="$style.container">
-    <p :class="$style.heading">
+    <h4 :class="$style.heading">
       <span :class="[$style.icon, $style.top]">
         <sentiment-icon aria-hidden="true" />
       </span>
       <span :class="$style.fzMedium">{{ $t('不安に思う方') }}</span>
-    </p>
+    </h4>
 
     <ul :class="[$style.rectContainer, $style.triple]">
       <li :class="$style.symptom">

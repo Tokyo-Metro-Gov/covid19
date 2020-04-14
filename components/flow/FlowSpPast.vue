@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.container">
-    <p :class="$style.heading">
+    <h4 :class="$style.heading">
       <i18n path="{past}の出来ごとと症状" tag="span">
         <template v-slot:past>
           <i18n :class="$style.fzLarge" tag="span" path="発症前{two}週間以内">
@@ -10,7 +10,7 @@
           </i18n>
         </template>
       </i18n>
-    </p>
+    </h4>
     <p :class="$style.type">
       <template v-if="!langsNeedReversedOrder.includes($i18n.locale)">
         <strong :class="$style.source">{{
