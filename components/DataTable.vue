@@ -51,7 +51,6 @@
       padding: 8px 10px;
       height: auto;
       border-bottom: 1px solid $gray-4;
-      white-space: nowrap;
       color: $gray-2;
       font-size: 12px;
 
@@ -82,12 +81,6 @@
           th,
           td {
             background: rgba($gray-4, 0.3);
-          }
-        }
-
-        &:not(:last-child) {
-          td:not(.v-data-table__mobile-row) {
-            border: none;
           }
         }
       }

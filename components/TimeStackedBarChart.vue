@@ -70,29 +70,32 @@
         :width="chartWidth"
       />
     </div>
-    <v-data-table
-      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
-      :headers="tableHeaders"
-      :items="tableData"
-      :items-per-page="-1"
-      :hide-default-footer="true"
-      :height="240"
-      :fixed-header="true"
-      :disable-sort="true"
-      :mobile-breakpoint="0"
-      class="cardTable"
-      item-key="name"
-    >
-      <template v-slot:body="{ items }">
-        <tbody>
-          <tr v-for="item in items" :key="item.text">
-            <th class="text-start">{{ item.text }}</th>
-            <td class="text-start">{{ item['0'] }}</td>
-            <td class="text-start">{{ item['1'] }}</td>
-          </tr>
-        </tbody>
-      </template>
-    </v-data-table>
+    <template v-slot:dataTable>
+      <v-data-table
+        :headers="tableHeaders"
+        :items="tableData"
+        :items-per-page="-1"
+        :hide-default-footer="true"
+        :height="240"
+        :fixed-header="true"
+        :disable-sort="true"
+        :mobile-breakpoint="0"
+        class="cardTable"
+        item-key="name"
+      >
+        <template v-slot:body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.text">
+              <th>{{ item.text }}</th>
+              <td class="text-end">{{ item['0'] }}</td>
+              <td class="text-end">{{ item['1'] }}</td>
+              <td class="text-end">{{ item['2'] }}</td>
+              <td class="text-end">{{ item['3'] }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-data-table>
+    </template>
     <p :class="$style.DataViewDesc">
       <slot name="additionalNotes" />
     </p>
@@ -288,22 +291,39 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
-        ...this.items.map((text, value) => {
-          return { text, value: String(value) }
-        })
+        ...(this.dataLabels as string[])
+          .reduce((arr, text) => {
+            arr.push(
+              ...[this.$t('日別'), this.$t('累計')].map(
+                label => `${text} (${label})`
+              )
+            )
+            return arr
+          }, [] as string[])
+          .map((text, i) => {
+            return { text, value: String(i), align: 'end' }
+          })
       ]
     },
     tableData() {
-      return this.displayData.datasets[0].data.map((_, i) => {
-        return Object.assign(
-          { text: this.labels[i] },
-          ...this.items.map((_, j) => {
-            return {
-              [j]: this.displayData.datasets[j].data[i]
-            }
-          })
-        )
-      })
+      return this.labels
+        .map((label, i) => {
+          return Object.assign(
+            { text: label },
+            ...this.tableHeaders.map((_, j) => {
+              const index = j < 2 ? 0 : 1
+              const transition = this.chartData[index]
+              const cumulative = this.cumulative(transition)
+              return {
+                [j]:
+                  j % 2 === 0
+                    ? transition[i].toLocaleString()
+                    : cumulative[i].toLocaleString()
+              }
+            })
+          )
+        })
+        .sort((a, b) => (a.text > b.text ? -1 : 1))
     },
     displayOption() {
       const unit = this.unit
@@ -401,6 +421,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 suggestedMin: 0,
+                suggestedMax: this.scaledTicksYAxisMax,
                 maxTicksLimit: 8,
                 fontColor: '#808080'
               }
@@ -425,28 +446,23 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           n = Number(i)
         }
       }
-      const borderWidth = [
-        { left: 0, top: 1, right: 0, bottom: 0 },
-        { left: 0, top: 0, right: 0, bottom: 0 }
-      ]
       return {
         labels: ['2020/1/1'],
         datasets: [
           {
             data: [this.displayData.datasets[0].data[n]],
             backgroundColor: 'transparent',
-            borderWidth: borderWidth[0]
+            borderWidth: 0
           },
           {
             data: [this.displayData.datasets[1].data[n]],
             backgroundColor: 'transparent',
-            borderWidth: borderWidth[1]
+            borderWidth: 0
           }
         ]
       }
     },
     displayOptionHeader() {
-      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const options: Chart.ChartOptions = {
         responsive: false,
         maintainAspectRatio: false,
@@ -524,7 +540,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080', // #808080
-                suggestedMax: scaledTicksYAxisMax
+                suggestedMax: this.scaledTicksYAxisMax
               }
             }
           ]
@@ -638,6 +654,7 @@ export default Vue.extend(options)
     }
   }
 }
+
 .DataView {
   &Desc {
     margin-top: 10px;
