@@ -2,10 +2,14 @@
   <div class="DataView-DataInfo">
     <span class="DataView-DataInfo-summary">
       {{ lText }}
-      <small class="DataView-DataInfo-summary-unit">{{ unit }}</small>
+      <small class="DataView-DataInfo-summary-unit">
+        <t-i18n>{{ unit }}</t-i18n>
+      </small>
     </span>
     <br />
-    <small class="DataView-DataInfo-date">{{ sText }}</small>
+    <small class="DataView-DataInfo-date">
+      <t-i18n>{{ sText }}</t-i18n>
+    </small>
   </div>
 </template>
 
@@ -42,8 +46,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default Vue.extend({
+  components: {
+    TI18n
+  },
   props: {
     lText: {
       type: String,

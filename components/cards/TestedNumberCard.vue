@@ -13,20 +13,21 @@
     >
       <!-- 件.tested = 検査数 -->
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
-        {{
+        <t-i18n>{{
           $t(
             '（注）医療機関が保険適用で行った検査については、４月８日分までを計上'
           )
-        }}<br />
-        {{
+        }}</t-i18n
+        ><br />
+        <t-i18n>{{
           $t(
             '（毎週金曜日に、前週木曜日から当該週水曜日までの日々の件数を反映）'
           )
-        }}
+        }}</t-i18n>
         <br />
-        {{ $t('※1: 疑い例・接触者調査') }}
+        <t-i18n>{{ $t('※1: 疑い例・接触者調査') }}</t-i18n>
         <br />
-        {{ $t('※2: チャーター便・クルーズ船') }}
+        <t-i18n>{{ $t('※2: チャーター便・クルーズ船') }}</t-i18n>
       </template>
     </time-stacked-bar-chart>
   </v-col>
@@ -35,10 +36,12 @@
 <script>
 import Data from '@/data/data.json'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
-    TimeStackedBarChart
+    TimeStackedBarChart,
+    TI18n
   },
   data() {
     // 検査実施日別状況

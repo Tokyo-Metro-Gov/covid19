@@ -1,13 +1,15 @@
 <template>
   <div :class="$style.flowContainer">
     <h3 :class="$style.sectionTitle">
-      <i18n path="新型コロナ外来 {advice} と判断された場合" tag="p">
-        <template v-slot:advice>
-          <strong>
-            {{ $t('受診が不要') }}
-          </strong>
-        </template>
-      </i18n>
+      <t-i18n>
+        <i18n path="新型コロナ外来 {advice} と判断された場合" tag="p">
+          <template v-slot:advice>
+            <strong>
+              {{ $t('受診が不要') }}
+            </strong>
+          </template>
+        </i18n>
+      </t-i18n>
     </h3>
     <div :class="$style.actionContainer">
       <ul :class="$style.actions">
@@ -18,7 +20,7 @@
             aria-hidden="true"
             alt=" "
           />
-          {{ $t('自宅で安静に過ごす') }}
+          <t-i18n>{{ $t('自宅で安静に過ごす') }}</t-i18n>
         </li>
         <li :class="$style.actionsList">
           <img
@@ -27,22 +29,33 @@
             aria-hidden="true"
             alt=" "
           />
-          {{ $t('一般の医療機関を受診') }}
+          <t-i18n>{{ $t('一般の医療機関を受診') }}</t-i18n>
         </li>
       </ul>
       <div :class="$style.nextAction">
-        <i18n path="{getWorse}{advisory}に相談" :class="$style.content">
-          <template v-slot:getWorse>
-            <span>{{ $t('症状が良くならない場合は') }}</span>
-          </template>
-          <template v-slot:advisory>
-            <strong>{{ $t('新型コロナ受診相談窓口（日本語のみ）') }}</strong>
-          </template>
-        </i18n>
+        <t-i18n>
+          <i18n path="{getWorse}{advisory}に相談" :class="$style.content">
+            <template v-slot:getWorse>
+              <span>{{ $t('症状が良くならない場合は') }}</span>
+            </template>
+            <template v-slot:advisory>
+              <strong>{{ $t('新型コロナ受診相談窓口（日本語のみ）') }}</strong>
+            </template>
+          </i18n>
+        </t-i18n>
       </div>
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import TI18n from '@/components/TI18n.vue'
+export default {
+  components: {
+    TI18n
+  }
+}
+</script>
 
 <style module lang="scss">
 .flowContainer {

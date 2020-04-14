@@ -9,41 +9,45 @@
             aria-hidden="true"
             alt=" "
           />
-          {{ $t('一般の方') }}
+          <t-i18n>{{ $t('一般の方') }}</t-i18n>
         </p>
       </div>
       <div>
         <p>
-          <i18n path="{duration}続いている">
-            <template v-slot:duration>
-              <i18n
-                tag="span"
-                path="{day}日以上"
-                :class="$style.FlowRowEmphasis"
-              >
-                <template v-slot:day>
-                  <span :class="$style.FlowRowEmphasisDay">4</span>
-                </template>
-              </i18n>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n path="{duration}続いている">
+              <template v-slot:duration>
+                <i18n
+                  tag="span"
+                  path="{day}日以上"
+                  :class="$style.FlowRowEmphasis"
+                >
+                  <template v-slot:day>
+                    <span :class="$style.FlowRowEmphasisDay">4</span>
+                  </template>
+                </i18n>
+              </template>
+            </i18n>
+          </t-i18n>
         </p>
       </div>
     </div>
     <div :class="[$style.FlowRow, $style.FlowRowRowCheck]">
       <div :class="$style.FlowRowCondition">
         <p>
-          <i18n
-            tag="span"
-            path="{cold}のような症状"
-            :class="$style.FlowRowConditionSmall"
-          >
-            <template v-slot:cold>
-              <span :class="$style.FlowRowConditionLarge">
-                {{ $t('風邪') }}
-              </span>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n
+              tag="span"
+              path="{cold}のような症状"
+              :class="$style.FlowRowConditionSmall"
+            >
+              <template v-slot:cold>
+                <span :class="$style.FlowRowConditionLarge">
+                  {{ $t('風邪') }}
+                </span>
+              </template>
+            </i18n>
+          </t-i18n>
         </p>
         <img
           :class="$style.FlowRowConditionIcon"
@@ -54,21 +58,23 @@
       </div>
       <div :class="$style.FlowRowCondition">
         <p>
-          <i18n
-            tag="span"
-            :class="$style.FlowRowConditionSmall"
-            path="発熱{temperature}"
-          >
-            <template v-slot:temperature>
-              <i18n tag="span" path="{tempNum}以上">
-                <template v-slot:tempNum>
-                  <span :class="$style.FlowRowConditionLarge">
-                    {{ $t('37.5℃') }}
-                  </span>
-                </template>
-              </i18n>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n
+              tag="span"
+              :class="$style.FlowRowConditionSmall"
+              path="発熱{temperature}"
+            >
+              <template v-slot:temperature>
+                <i18n tag="span" path="{tempNum}以上">
+                  <template v-slot:tempNum>
+                    <span :class="$style.FlowRowConditionLarge">
+                      {{ $t('37.5℃') }}
+                    </span>
+                  </template>
+                </i18n>
+              </template>
+            </i18n>
+          </t-i18n>
         </p>
         <img
           :class="$style.FlowRowConditionIcon"
@@ -78,7 +84,9 @@
         />
       </div>
       <div :class="$style.FlowRowCondition">
-        <p>{{ $t('強いだるさ') }}</p>
+        <p>
+          <t-i18n>{{ $t('強いだるさ') }}</t-i18n>
+        </p>
         <img
           :class="$style.FlowRowConditionIcon"
           src="/flow/check_circle-24px.svg"
@@ -87,7 +95,9 @@
         />
       </div>
       <div :class="$style.FlowRowCondition">
-        <p>{{ $t('息苦しさ') }}</p>
+        <p>
+          <t-i18n>{{ $t('息苦しさ') }}</t-i18n>
+        </p>
         <img
           :class="$style.FlowRowConditionIcon"
           src="/flow/check_circle-24px.svg"
@@ -106,7 +116,7 @@
               aria-hidden="true"
               alt=" "
             />
-            {{ $t('ご高齢な方') }}
+            <t-i18n>{{ $t('ご高齢な方') }}</t-i18n>
           </li>
           <li :class="$style.FlowRowRowThreeCareTargetListItem">
             <img
@@ -115,7 +125,7 @@
               aria-hidden="true"
               alt=" "
             />
-            {{ $t('基礎疾患のある方') }}
+            <t-i18n>{{ $t('基礎疾患のある方') }}</t-i18n>
           </li>
           <li :class="$style.FlowRowRowThreeCareTargetListItem">
             <img
@@ -124,25 +134,27 @@
               aria-hidden="true"
               alt=" "
             />
-            {{ $t('妊娠中の方') }}
+            <t-i18n>{{ $t('妊娠中の方') }}</t-i18n>
           </li>
         </ul>
       </div>
       <div>
         <p>
-          <i18n path="{duration}続いている">
-            <template v-slot:duration>
-              <i18n
-                tag="span"
-                path="{day}日程度"
-                :class="$style.FlowRowEmphasis"
-              >
-                <template v-slot:day>
-                  <span :class="$style.FlowRowEmphasisDay">2</span>
-                </template>
-              </i18n>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n path="{duration}続いている">
+              <template v-slot:duration>
+                <i18n
+                  tag="span"
+                  path="{day}日程度"
+                  :class="$style.FlowRowEmphasis"
+                >
+                  <template v-slot:day>
+                    <span :class="$style.FlowRowEmphasisDay">2</span>
+                  </template>
+                </i18n>
+              </template>
+            </i18n>
+          </t-i18n>
         </p>
       </div>
     </div>
@@ -230,7 +242,7 @@
         font-weight: bold;
 
         @include largerThan($large) {
-          font-size: 20px;
+          font-size: 18px;
         }
       }
 
@@ -277,3 +289,11 @@
   }
 }
 </style>
+<script lang="ts">
+import TI18n from '@/components/TI18n.vue'
+export default {
+  components: {
+    TI18n
+  }
+}
+</script>

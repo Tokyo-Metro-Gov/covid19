@@ -15,7 +15,7 @@
             aria-hidden="true"
             alt=" "
           />
-          {{ $t('不安に思う方') }}
+          <t-i18n>{{ $t('不安に思う方') }}</t-i18n>
         </div>
       </div>
       <div :class="$style.RowItems">
@@ -26,7 +26,7 @@
             aria-hidden="true"
             alt=" "
           />
-          {{ $t('微熱') }}
+          <t-i18n>{{ $t('微熱') }}</t-i18n>
         </div>
         <div :class="$style.CheckBox">
           <img
@@ -35,7 +35,7 @@
             aria-hidden="true"
             alt=" "
           />
-          {{ $t('軽い咳') }}
+          <t-i18n>{{ $t('軽い咳') }}</t-i18n>
         </div>
         <div :class="$style.CheckBox">
           <img
@@ -44,17 +44,17 @@
             aria-hidden="true"
             alt=" "
           />
-          {{ $t('感染の不安') }}
+          <t-i18n>{{ $t('感染の不安') }}</t-i18n>
         </div>
       </div>
     </div>
 
     <div :class="[$style.SubtleBox, $style.Box2, $style.Center]">
       <div :class="$style.LargerText">
-        {{ $t('新型コロナコールセンター') }}
+        <t-i18n>{{ $t('新型コロナコールセンター') }}</t-i18n>
       </div>
       <div :class="$style.SmallerText">
-        {{ $t('午前9時から午後9時（土日祝含む）') }}
+        <t-i18n>{{ $t('午前9時から午後9時（土日祝含む）') }}</t-i18n>
       </div>
 
       <div :class="$style.Tel">
@@ -71,7 +71,14 @@
     </div>
   </div>
 </template>
-
+<script lang="ts">
+import TI18n from '@/components/TI18n.vue'
+export default {
+  components: {
+    TI18n
+  }
+}
+</script>
 <style module lang="scss">
 .FlowComponent {
   color: $gray-2;

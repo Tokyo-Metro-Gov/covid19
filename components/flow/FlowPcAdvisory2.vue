@@ -1,13 +1,20 @@
 <template>
   <div :class="$style.Container">
     <div :class="['pa-4', $style.AdvisoryBoxContainer]">
-      <span :class="$style.AdvisoryBlackBoxSentense">{{
+      <t-i18n :class="$style.AdvisoryBlackBoxSentense">{{
         $t('専門的な助言が必要な場合')
-      }}</span>
+      }}</t-i18n>
     </div>
   </div>
 </template>
-
+<script lang="ts">
+import TI18n from '@/components/TI18n.vue'
+export default {
+  components: {
+    TI18n
+  }
+}
+</script>
 <style module lang="scss">
 .Container {
   align-items: center;

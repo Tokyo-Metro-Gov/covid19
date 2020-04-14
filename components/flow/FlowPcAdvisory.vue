@@ -3,18 +3,18 @@
     <div :class="$style.AdvisoryContainer">
       <div :class="$style.AdvisoryContents">
         <div>
-          <span :class="$style.AdvisoryContentsTitle">{{
+          <t-i18n :class="$style.AdvisoryContentsTitle">{{
             $t('新型コロナ受診相談窓口（日本語のみ）')
-          }}</span>
+          }}</t-i18n>
         </div>
         <div :class="[$style.AdvisoryContentsColsSentense, 'mt-4']">
-          {{ $t('帰国者・接触者 電話相談センター') }}
+          <t-i18n>{{ $t('帰国者・接触者 電話相談センター') }}</t-i18n>
         </div>
         <div>
           <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryWhiteBox]">
-            <span :class="$style.AdvisoryWhiteBoxSentense">
+            <t-i18n :class="$style.AdvisoryWhiteBoxSentense">
               {{ $t('24時間対応') }}
-            </span>
+            </t-i18n>
           </div>
         </div>
       </div>
@@ -22,7 +22,7 @@
       <div :class="$style.AdvisoryContents">
         <div class="py-8">
           <div :class="$style.AdvisoryContentsTitle2">
-            {{ $t('平日（日中）') }}
+            <t-i18n>{{ $t('平日（日中）') }}</t-i18n>
           </div>
           <div
             :class="[
@@ -36,7 +36,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>{{ $t('各保健所の電話番号は福祉保健局HPへ') }}</span>
+              <t-i18n>{{ $t('各保健所の電話番号は福祉保健局HPへ') }}</t-i18n>
               <v-icon size="18">
                 mdi-open-in-new
               </v-icon>
@@ -48,14 +48,14 @@
       <div :class="$style.AdvisoryContents">
         <div class="pt-8">
           <div :class="$style.AdvisoryContentsTitle2">
-            {{ $t('平日（夜間）') }}
+            <t-i18n>{{ $t('平日（夜間）') }}</t-i18n>
           </div>
-          <span>{{ $t('午後5時から翌朝午前9時') }}</span>
+          <t-i18n>{{ $t('午後5時から翌朝午前9時') }}</t-i18n>
         </div>
         <div class="mt-1">
-          <span :class="$style.AdvisoryContentsSubTitle">
+          <t-i18n :class="$style.AdvisoryContentsSubTitle">
             {{ $t('土日祝 終日') }}
-          </span>
+          </t-i18n>
         </div>
         <div
           :class="[
@@ -75,13 +75,20 @@
           </a>
         </div>
         <div v-if="!['ja', 'ja-basic'].includes($i18n.locale)" class="pt-8">
-          <span>{{ $t('ひまわり') }}</span>
+          <t-i18n>{{ $t('ひまわり') }}</t-i18n>
         </div>
       </div>
     </div>
   </div>
 </template>
-
+<script lang="ts">
+import TI18n from '@/components/TI18n.vue'
+export default {
+  components: {
+    TI18n
+  }
+}
+</script>
 <style module lang="scss">
 .Advisory {
   display: flex;
