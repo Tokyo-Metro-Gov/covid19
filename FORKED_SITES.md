@@ -14,7 +14,7 @@
 [](05)秋田県|https://covid19-akita.netlify.com/|学生 (有志) |[asaba-zauberer/covid19-akita](https://github.com/asaba-zauberer/covid19-akita)|
 [](06)山形県|https://stopcovid19-yamagata.netlify.com/|有志|[yamaserif/covid19](https://github.com/yamaserif/covid19)|
 [](07)福島県|https://fukushima-covid19.firebaseapp.com|GDG Fukushima|[donuzium/covid19](https://github.com/donuzium/covid19)|
-[](08)茨城県|https://covid19-ibaraki.netlify.com/|個人|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
+[](08)茨城県|https://ibaraki.stopcovid19.jp/|個人|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
 [](09)栃木県|https://covid19-tochigi.netlify.com/|有志|[covid19-tochigi/covid19](https://github.com/covid19-tochigi/covid19)|
 [](09)栃木県|https://covid-19-tochigi.origamium.net/|個人|[origamium/covid19-tochigi](https://github.com/origamium/covid19-tochigi)|
 [](10)群馬県|https://stopcovid19-gunma.netlify.com/|個人|[SatoshiRC/covid19-gunma](https://github.com/SatoshiRC/covid19-gunma)|
@@ -28,7 +28,7 @@
 [](15)新潟県|https://niigata.stopcovid19.jp/|Code for Niigata|[CodeForNiigata/covid19](https://github.com/CodeForNiigata/covid19)|
 [](15)新潟県|https://stopcovid19-niigata-unofficial.netlify.com|air-h-128k-il|[air-h-128k-il/covid19](https://github.com/air-h-128k-il/covid19)|
 [](17)石川県|https://ishikawa-covid19.netlify.com/|個人|[Retsuki/covid19-ishikawa/](https://github.com/Retsuki/covid19-ishikawa/)|
-[](18)福井県|https://covid19-fukui.com/|個人（福井高専卒）|[nomunomu0504/covid19](https://github.com/nomunomu0504/covid19)|
+[](18)福井県|https://covid19-fukui.com/|地元有志（**福井県公認**）|[nomunomu0504/covid19](https://github.com/nomunomu0504/covid19)|
 [](18)福井県|https://covid19-fukui.bosai-signal.jp/|丹南ケーブルテレビ株式会社|[westar7/fukui-covid19](https://github.com/westar7/fukui-covid19)|
 [](19)山梨県|https://stopcovid19.yamanashi.dev/|stopcovid19.yamanashi.devチーム|[covid19-yamanashi/covid19](https://github.com/covid19-yamanashi/covid19)|
 [](20)長野県|https://stop-covid19-nagano.netlify.app/|有志|[Stop-COVID19-Nagano/covid19](https://github.com/Stop-COVID19-Nagano/covid19)|

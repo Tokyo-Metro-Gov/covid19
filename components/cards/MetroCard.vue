@@ -50,7 +50,7 @@ export default {
     const metroGraphTooltipTitle = (tooltipItems, _) => {
       const label = this.getWeekLabel(tooltipItems[0].label)
       return this.$t('期間: {duration}', {
-        // duration = label = '2月10日~14日' | '2月17日~21日' | '2月25日~28日'
+        // duration = label = '2\/10~14' etc.
         duration: this.$t(label)
       })
     }
@@ -61,7 +61,7 @@ export default {
       const percentage = `${currentData.data[tooltipItem.index]}%`
 
       return this.$t('{duration}の利用者数との相対値: {percentage}', {
-        // duration = metroGraph.base_period = '1月20日~1月24日'
+        // duration = metroGraph.base_period = '1\/20~1\/24'
         duration: this.$t(metroGraph.base_period),
         percentage
       })
