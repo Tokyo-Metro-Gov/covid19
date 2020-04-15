@@ -30,7 +30,14 @@ interface TooltipModel extends ChartTooltipModel {
   title?: string
 }
 
-export const customTooltip = (self: Vue, tooltipModel: TooltipModel) => {
+interface ChartObject extends Vue {
+  chartId: string
+}
+
+export const customTooltip = (
+  self: ChartObject,
+  tooltipModel: TooltipModel
+) => {
   // Tooltip Element
   let tooltipEl = document.getElementById('chartjs-tooltip')
   let titleEl: HTMLElement | null
@@ -43,9 +50,35 @@ export const customTooltip = (self: Vue, tooltipModel: TooltipModel) => {
     document.body.appendChild(tooltipEl)
   }
 
+  // Hide if no tooltip
   if (tooltipModel.opacity === 0) {
     tooltipEl.style.opacity = '0'
     return
+  } else {
+    const chart = self.$refs.barChart as Vue
+    const el = chart.$el
+    const canvas = el.querySelector('canvas')
+    const position = canvas!.getBoundingClientRect()
+
+    tooltipEl.style.position = 'absolute'
+    tooltipEl.style.left =
+      position.left + window.pageXOffset + tooltipModel.caretX + 'px'
+    tooltipEl.style.top =
+      position.top + window.pageYOffset + tooltipModel.caretY + 'px'
+    tooltipEl.style.color = tooltipModel.titleFontColor
+    tooltipEl.style.padding =
+      tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px'
+    tooltipEl.style.pointerEvents = 'none'
+    tooltipEl.style.backgroundColor = tooltipModel.backgroundColor
+    tooltipEl.style.borderRadius = tooltipModel.cornerRadius + 'px'
+    tooltipEl.style.opacity = '1'
+  }
+
+  if (tooltipEl.dataset.chartId === self.chartId) {
+    tooltipEl.style.transition = 'all 0.3s ease'
+  } else {
+    tooltipEl.style.transition = 'opacity 0.3s ease'
+    tooltipEl.dataset.chartId = self.chartId
   }
 
   if ((titleEl = tooltipEl.querySelector('.chartjs-tooltip-title'))) {
@@ -89,24 +122,6 @@ export const customTooltip = (self: Vue, tooltipModel: TooltipModel) => {
       bodyEl!.appendChild(dom)
     })
   }
-
-  const chart = self.$refs.barChart as Vue
-  const el = chart.$el
-  const canvas = el.querySelector('canvas')
-  const position = canvas!.getBoundingClientRect()
-
-  tooltipEl.style.opacity = '1'
-  tooltipEl.style.position = 'absolute'
-  tooltipEl.style.left =
-    position.left + window.pageXOffset + tooltipModel.caretX + 'px'
-  tooltipEl.style.top =
-    position.top + window.pageYOffset + tooltipModel.caretY + 'px'
-  tooltipEl.style.color = tooltipModel.titleFontColor
-  tooltipEl.style.padding =
-    tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px'
-  tooltipEl.style.pointerEvents = 'none'
-  tooltipEl.style.backgroundColor = tooltipModel.backgroundColor
-  tooltipEl.style.borderRadius = tooltipModel.cornerRadius + 'px'
 }
 
 function createDom(text: RubyText) {
