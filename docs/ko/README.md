@@ -44,18 +44,14 @@ $ yarn dev
 ```
 
 
-[PLEASE TRANSLATE ME]
+**접근성 평가(vue-axe)를 비활성화하는 방법**
 
-**アクセシビリティチェック（vue-axe）を無効にする方法**
-
-- 開発用ローカルサーバが重い場合、以下のようにアクセシビリティチェックを無効にして起動することができます。
+- 개발용 로컬 서버가 무거울 때, 다음과 같이 접근성 평가를 비활성화한 후 실행할 수 있습니다.
 
 ```bash
 # serve with hot reload at localhost:3000
 $ yarn dev-no-axe
 ```
-
-[/PLEASE TRANSLATE ME]
 
 
 **docker compose를 사용할 경우**

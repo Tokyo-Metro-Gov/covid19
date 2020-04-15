@@ -30,7 +30,7 @@ Please check [How to translate](./../../TRANSLATION.md) doc.
 
 - Required Node.js version: 10.19.0 or higher
 
-**Use yarn**
+**Using yarn**
 ```bash
 # install dependencies
 $ yarn install
@@ -47,7 +47,7 @@ $ yarn dev
 $ yarn dev-no-axe
 ```
 
-**Use docker**
+**Using docker**
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
@@ -55,12 +55,12 @@ $ docker-compose up --build
 
 ### How to resolve `Cannot find module ****` error
 
-**Use yarn**
+**Using yarn**
 ```bash
 $ yarn install
 ```
 
-**Use docker**
+**Using docker**
 ```bash
 $ docker-compose run --rm app yarn install
 ```
