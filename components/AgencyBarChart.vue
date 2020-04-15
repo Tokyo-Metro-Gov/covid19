@@ -186,9 +186,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const options: ChartOptions = {
         tooltips: {
           enabled: false,
-          custom: tooltipModel => {
-            customTooltip(this, tooltipModel)
-          },
+          custom: tooltipModel => customTooltip(this, tooltipModel),
           displayColors: false,
           callbacks: {
             title(tooltipItem) {

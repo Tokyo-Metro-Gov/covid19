@@ -125,6 +125,7 @@ import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import TI18n from '@/components/TI18n.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
+import { customTooltip } from '@/utils/ruby'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -342,7 +343,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const cumulativeSumArray = this.eachArraySum(cumulativeData)
       const options: Chart.ChartOptions = {
         tooltips: {
-          displayColors: false,
+          enabled: false,
+          custom: tooltipModel => customTooltip(this, tooltipModel),
           callbacks: {
             label: tooltipItem => {
               let casesTotal, cases
