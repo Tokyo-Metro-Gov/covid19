@@ -39,20 +39,33 @@ img {
   visibility: visible !important;
 }
 
-.chartjs-tooltip {
+#chartjs-tooltip {
+  $size: 5px;
+
   position: relative;
 
   &::before {
-    $size: 5px;
-
     content: '';
     position: absolute;
     top: calc(50% - #{$size});
-    left: $size * -1;
     width: $size;
     height: $size;
     border-top: $size solid transparent;
     border-bottom: $size solid transparent;
-    border-right: $size solid #000;
+  }
+
+  &.left,
+  &.center:not(.right) {
+    &::before {
+      right: $size * -1;
+      border-left: $size solid #000;
+    }
+  }
+
+  &.right {
+    &::before {
+      left: $size * -1;
+      border-right: $size solid #000;
+    }
   }
 }

@@ -39,50 +39,23 @@ export const customTooltip = (
   tooltipModel: TooltipModel
 ) => {
   // Tooltip Element
-  let tooltipEl: HTMLElement | null = document.querySelector('.chartjs-tooltip')
+  let tooltipEl: HTMLElement | null = document.querySelector('#chartjs-tooltip')
   let titleEl: HTMLElement | null
   let bodyEl: HTMLElement | null
 
   // Create element on first render
   if (!tooltipEl) {
     tooltipEl = document.createElement('div')
-    tooltipEl.classList.add('chartjs-tooltip')
+    tooltipEl.id = 'chartjs-tooltip'
     document.body.appendChild(tooltipEl)
   }
 
-  // Hide if no tooltip
+  // opacity
   if (tooltipModel.opacity === 0) {
     tooltipEl.style.opacity = '0'
     return
   } else {
-    const chart = self.$refs.barChart as Vue
-    const el = chart.$el
-    const canvas = el.querySelector('canvas')
-    const position = canvas!.getBoundingClientRect()
-
-    tooltipEl.style.position = 'absolute'
-    tooltipEl.style.left =
-      position.left + window.pageXOffset + tooltipModel.caretX + 5 + 'px'
-    tooltipEl.style.top =
-      position.top +
-      window.pageYOffset +
-      tooltipModel.caretY -
-      tooltipModel.height / 2 +
-      'px'
-    tooltipEl.style.color = tooltipModel.titleFontColor
-    tooltipEl.style.padding =
-      tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px'
-    tooltipEl.style.pointerEvents = 'none'
-    tooltipEl.style.backgroundColor = tooltipModel.backgroundColor
-    tooltipEl.style.borderRadius = tooltipModel.cornerRadius + 'px'
     tooltipEl.style.opacity = '1'
-  }
-
-  if (tooltipEl.dataset.chartId === self.chartId) {
-    tooltipEl.style.transition = 'all 0.3s ease'
-  } else {
-    tooltipEl.style.transition = 'opacity 0.3s ease'
-    tooltipEl.dataset.chartId = self.chartId
   }
 
   if ((titleEl = tooltipEl.querySelector('.chartjs-tooltip-title'))) {
@@ -126,6 +99,48 @@ export const customTooltip = (
       bodyEl!.appendChild(dom)
     })
   }
+
+  // base
+  tooltipEl.style.position = 'absolute'
+  tooltipEl.style.color = tooltipModel.titleFontColor
+  tooltipEl.style.padding =
+    tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px'
+  tooltipEl.style.pointerEvents = 'none'
+  tooltipEl.style.backgroundColor = tooltipModel.backgroundColor
+  tooltipEl.style.borderRadius = tooltipModel.cornerRadius + 'px'
+
+  // position
+  const chart = self.$refs.barChart as Vue
+  const el = chart.$el
+  const canvas = el.querySelector('canvas')
+  const position = canvas!.getBoundingClientRect()
+  const borderSize = 5
+  const left = position.left + tooltipModel.caretX
+  const rightSide = left + borderSize + tooltipEl.offsetWidth
+  const isRightSideOver = rightSide > position.right
+
+  tooltipEl.style.left = isRightSideOver
+    ? left - tooltipEl.offsetWidth - borderSize + 'px'
+    : left + borderSize + 'px'
+
+  tooltipEl.style.top =
+    position.top +
+    window.pageYOffset +
+    tooltipModel.caretY -
+    tooltipEl.offsetHeight / 2 +
+    'px'
+
+  // animation
+  if (tooltipEl.dataset.chartId === self.chartId) {
+    tooltipEl.style.transition = 'all 0.3s ease'
+  } else {
+    tooltipEl.style.transition = 'opacity 0.3s ease'
+    tooltipEl.dataset.chartId = self.chartId
+  }
+
+  // css class
+  tooltipEl.className = ''
+  tooltipEl.classList.add(isRightSideOver ? 'left' : 'right')
 }
 
 function createDom(text: RubyText) {
