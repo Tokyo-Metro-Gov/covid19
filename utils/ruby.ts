@@ -39,14 +39,14 @@ export const customTooltip = (
   tooltipModel: TooltipModel
 ) => {
   // Tooltip Element
-  let tooltipEl = document.getElementById('chartjs-tooltip')
+  let tooltipEl: HTMLElement | null = document.querySelector('.chartjs-tooltip')
   let titleEl: HTMLElement | null
   let bodyEl: HTMLElement | null
 
   // Create element on first render
   if (!tooltipEl) {
     tooltipEl = document.createElement('div')
-    tooltipEl.id = 'chartjs-tooltip'
+    tooltipEl.classList.add('chartjs-tooltip')
     document.body.appendChild(tooltipEl)
   }
 
@@ -62,9 +62,13 @@ export const customTooltip = (
 
     tooltipEl.style.position = 'absolute'
     tooltipEl.style.left =
-      position.left + window.pageXOffset + tooltipModel.caretX + 'px'
+      position.left + window.pageXOffset + tooltipModel.caretX + 5 + 'px'
     tooltipEl.style.top =
-      position.top + window.pageYOffset + tooltipModel.caretY + 'px'
+      position.top +
+      window.pageYOffset +
+      tooltipModel.caretY -
+      tooltipModel.height / 2 +
+      'px'
     tooltipEl.style.color = tooltipModel.titleFontColor
     tooltipEl.style.padding =
       tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px'

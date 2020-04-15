@@ -38,3 +38,21 @@ img {
   display: block !important;
   visibility: visible !important;
 }
+
+.chartjs-tooltip {
+  position: relative;
+
+  &::before {
+    $size: 5px;
+
+    content: '';
+    position: absolute;
+    top: calc(50% - #{$size});
+    left: $size * -1;
+    width: $size;
+    height: $size;
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid #000;
+  }
+}
