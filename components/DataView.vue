@@ -398,7 +398,8 @@ export default Vue.extend({
 
       .DataView-Share-Opener {
         cursor: pointer;
-        margin-right: 6px;
+        margin: -14px;
+        padding: 14px;
 
         > svg {
           width: auto !important;
