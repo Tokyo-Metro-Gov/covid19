@@ -39,20 +39,14 @@ $ yarn install
 $ yarn dev
 ```
 
+**Como desabilitar o assistente verificador de acessibilidade (vue-axe)**
 
-[PLEASE TRANSLATE ME]
-
-**アクセシビリティチェック（vue-axe）を無効にする方法**
-
-- 開発用ローカルサーバが重い場合、以下のようにアクセシビリティチェックを無効にして起動することができます。
+- Caso o servidor local de desenvolvimento esteja pesado, você pode desabilitar o assistente verificador de acessibilidade.
 
 ```bash
-# serve with hot reload at localhost:3000
+# serve com hot reload em localhost:3000
 $ yarn dev-no-axe
 ```
-
-[/PLEASE TRANSLATE ME]
-
 
 **Usando docker**
 ```bash
