@@ -83,9 +83,11 @@ export default {
 
       return this.$t(value)
     },
-    // '10歳未満' < '10代' となるようにソートする
     customSort(items, index, isDesc) {
       const lt10 = this.$t('10歳未満').toString()
+      const lt100 = this.$t('100歳以上').toString()
+      const unknown = this.$t('不明').toString()
+      const investigating = this.$t('調査中').toString()
       items.sort((a, b) => {
         // 両者が等しい場合は 0 を返す
         if (a[index[0]] === b[index[0]]) {
@@ -94,12 +96,18 @@ export default {
 
         let comparison = 0
 
-        // 「10歳未満」同士を比較する場合、そうでない場合に場合分け
+        // '10歳未満' < '10代' ... '90代' < '100歳以上' となるようにソートする
+        // 「10歳未満」同士を比較する場合、と「100歳以上」同士を比較する場合、更にそうでない場合に場合分け
         if (
           index[0] === '年代' &&
           (a[index[0]] === lt10 || b[index[0]] === lt10)
         ) {
           comparison = a[index[0]] === lt10 ? -1 : 1
+        } else if (
+          index[0] === '年代' &&
+          (a[index[0]] === lt100 || b[index[0]] === lt100)
+        ) {
+          comparison = a[index[0]] === lt100 ? 1 : -1
         } else {
           comparison = String(a[index[0]]) < String(b[index[0]]) ? -1 : 1
         }
@@ -122,6 +130,20 @@ export default {
           } else if (aDate[0] < bDate[0]) {
             comparison = -1
           }
+        }
+
+        // 「調査中」は年代に限らず、居住地にも存在するので、年代ソートの外に置いている。
+        // 内容としては、「不明」の次に高い(大きい)ものとして扱う。
+        // 日本語の場合、「調査中」は「不明」より低い(小さい)ものとして扱われるが、
+        // 他言語の場合はそうではないため、ここで統一している。
+        if (a[index[0]] === investigating || b[index[0]] === investigating) {
+          comparison = a[index[0]] === investigating ? 1 : -1
+        }
+
+        // 「不明」は年代に限らず、性別にも存在するので、年代ソートの外に置いている。
+        // 内容としては一番高い(大きい)ものとして扱う。
+        if (a[index[0]] === unknown || b[index[0]] === unknown) {
+          comparison = a[index[0]] === unknown ? 1 : -1
         }
 
         return isDesc[0] ? comparison * -1 : comparison
