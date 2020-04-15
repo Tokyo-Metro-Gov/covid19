@@ -42,7 +42,7 @@ export default {
     // 陽性患者の属性 ヘッダー翻訳
     for (const header of patientsTable.headers) {
       header.text =
-        header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
+        header.value === '退院' ? this.$t('入退院状況※') : this.$t(header.value)
     }
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
