@@ -14,7 +14,7 @@
 [](05)秋田県|https://covid19-akita.netlify.com/|学生 (有志) |[asaba-zauberer/covid19-akita](https://github.com/asaba-zauberer/covid19-akita)|
 [](06)山形県|https://stopcovid19-yamagata.netlify.com/|有志|[yamaserif/covid19](https://github.com/yamaserif/covid19)|
 [](07)福島県|https://fukushima-covid19.firebaseapp.com|GDG Fukushima|[donuzium/covid19](https://github.com/donuzium/covid19)|
-[](08)茨城県|https://covid19-ibaraki.netlify.com/|個人|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
+[](08)茨城県|https://ibaraki.stopcovid19.jp/|個人|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)|
 [](09)栃木県|https://covid19-tochigi.netlify.com/|有志|[covid19-tochigi/covid19](https://github.com/covid19-tochigi/covid19)|
 [](09)栃木県|https://covid-19-tochigi.origamium.net/|個人|[origamium/covid19-tochigi](https://github.com/origamium/covid19-tochigi)|
 [](10)群馬県|https://stopcovid19-gunma.netlify.com/|個人|[SatoshiRC/covid19-gunma](https://github.com/SatoshiRC/covid19-gunma)|
