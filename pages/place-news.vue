@@ -1,6 +1,6 @@
 <template>
   <div class="News">
-    <page-header class="mb-3">
+    <page-header class="mb-3" :icon="headerItem.icon">
       {{ $t('県内各所のお知らせ') }}
     </page-header>
     <StaticCard>
@@ -46,6 +46,16 @@ export default Vue.extend({
     PageHeader,
     StaticCard
   },
+
+  data() {
+    const data = {
+      headerItem: {
+        icon: 'mdi-information'
+      }
+    }
+    return data
+  },
+
   head(): MetaInfo {
     return {
       title: this.$t('県内各所のお知らせ') as string
