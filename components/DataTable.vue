@@ -15,9 +15,9 @@
       :custom-sort="customSort"
       class="cardTable"
     >
-      <template v-slot:body="{ items }">
+      <template v-slot:body="slotProps">
         <tbody>
-          <tr v-for="item in items" :key="item.text">
+          <tr v-for="item in slotProps.items" :key="item.text">
             <th class="text-start">
               <t-i18n>{{ item['公表日'] }}</t-i18n>
             </th>
