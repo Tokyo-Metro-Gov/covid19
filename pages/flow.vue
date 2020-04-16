@@ -34,7 +34,7 @@
           </li>
         </ul>
       </nav>
-      <div :class="$style.section">
+      <div id="sydr" :class="$style.section">
         <h4 :class="$style.heading">かかりつけ医がいて、次の症状がある方</h4>
         <ul :class="$style.boxes">
           <li :class="[$style.box, $style.border]">
@@ -60,7 +60,7 @@
           >
         </p>
       </div>
-      <div :class="$style.section">
+      <div id="sy" :class="$style.section">
         <h4 :class="$style.heading">かかりつけ医がいない、次の症状がある方</h4>
         <ul :class="$style.boxes">
           <li :class="[$style.box, $style.border]">
@@ -141,7 +141,7 @@
           </p>
         </div>
       </div>
-      <div :class="$style.section">
+      <div id="anx" :class="$style.section">
         <h4 :class="$style.heading">軽い症状があり、不安のある方</h4>
         <p :class="$style.lead">
           下記、新型コロナコールセンターにご相談ください。
@@ -261,11 +261,12 @@ $fzHeading: 24;
 $fzHeadingL: 26;
 
 $padding: 20;
+$margin: 20;
 
 .title {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: $margin * 1px;
   > svg {
     width: 30px;
     height: 30px;
@@ -294,7 +295,7 @@ $padding: 20;
     @include font-size($fzHeading);
   }
   > .lead {
-    margin-top: 30px;
+    margin-top: $margin * 1.5px;
     color: $green-1;
     font-weight: bold;
     text-align: center;
@@ -310,7 +311,7 @@ $padding: 20;
   }
 }
 .anchor {
-  margin-top: 20px;
+  margin-top: $margin * 1px;
   .items {
     margin: 0 -6px;
     display: flex;
@@ -361,8 +362,8 @@ $padding: 20;
       display: block;
       position: absolute;
       left: 50%;
-      bottom: 20px - 9.5 / 2;
-      transform: translateX(-50%);
+      bottom: 20px;
+      transform: translate(-50%, 50%);
       width: 0;
       height: 0;
       border-width: 9.5px 6.3px 0 6.3px;
@@ -372,7 +373,8 @@ $padding: 20;
     }
     &.active {
       &::after {
-        bottom: -19.5px;
+        bottom: -1px;
+        transform: translate(-50%, 100%);
         border-width: 19.5px 12.99px 0 12.99px;
       }
     }
@@ -393,10 +395,10 @@ $padding: 20;
   }
 }
 .section {
-  margin-top: 30px;
+  margin-top: $margin * 1.5px;
+  padding: $padding * 1px;
   border: 3px solid $gray-3;
   border-radius: 10px;
-  padding: $padding * 1px;
   background-color: $white;
   &.yellow {
     border-width: 4px;
@@ -405,7 +407,7 @@ $padding: 20;
   > * {
     line-height: 1.5;
     &:not(.box):not(.boxes):not(:first-child) {
-      margin-top: 20px;
+      margin-top: $margin * 1px;
     }
   }
   > .heading {
@@ -425,8 +427,8 @@ $padding: 20;
     @include font-size($fzMedium);
   }
   > .separated {
-    margin-top: 20px;
-    padding-top: 30px;
+    margin-top: $margin * 1px;
+    padding-top: $margin * 1.5px;
     border-top: 1px solid $gray-2;
   }
 }
@@ -435,7 +437,7 @@ $padding: 20;
   justify-content: space-between;
 }
 .box {
-  margin-top: 20px;
+  margin-top: $margin * 1px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -479,11 +481,11 @@ $padding: 20;
     max-width: 100%;
   }
   > *:not(:first-child) {
-    margin-top: 15px;
+    margin-top: $margin * 0.75px;
   }
   > .notice {
     width: 100%;
-    padding: 20px;
+    padding: $margin * 1px;
     border-radius: 4px;
     background-color: $white;
     color: #a00000;
@@ -507,7 +509,7 @@ $padding: 20;
       }
     }
     > *:not(:first-child) {
-      margin-top: 10px;
+      margin-top: $margin * 0.5px;
     }
   }
   li {
@@ -581,7 +583,7 @@ $padding: 20;
     @include button-text('md');
     @include font-size(20);
 
-    margin: 30px auto 0;
+    margin: ($margin * 1.5px) auto 0;
     font-weight: bold;
     text-decoration: none;
     color: $green-1 !important;
@@ -636,19 +638,54 @@ $padding: 20;
   @return $px / $vw * 100vw;
 }
 @include lessThan($small) {
+  .title {
+    margin-bottom: px2vw($margin);
+  }
   .container {
     padding: px2vw($padding);
     font-size: px2vw($fzRegular);
-
     > .heading {
       font-size: px2vw($fzHeading);
     }
     > .lead {
+      margin-top: px2vw($margin * 1.5);
       font-size: px2vw($fzHuge);
     }
   }
+  .anchor {
+    margin-top: px2vw($margin);
+    .link {
+      padding: px2vw(20) px2vw(20) px2vw(40);
+      border-width: px2vw(4);
+      border-radius: px2vw(10);
+      > img,
+      > svg {
+        margin-top: px2vw(20);
+      }
+      &::after {
+        bottom: px2vw(20);
+        border-width: px2vw(9.5) px2vw(6.3) 0 px2vw(6.3);
+      }
+      &.active {
+        &::after {
+          border-width: px2vw(19.5) px2vw(12.99) 0 px2vw(12.99);
+        }
+      }
+    }
+  }
   .section {
+    margin-top: px2vw($margin * 1.5);
     padding: px2vw($padding);
+    border-width: px2vw(3);
+    border-radius: px2vw(10);
+    &.yellow {
+      border-width: px2vw(3);
+    }
+    > * {
+      &:not(.box):not(.boxes):not(:first-child) {
+        margin-top: px2vw($margin);
+      }
+    }
     > .heading {
       font-size: px2vw($fzHeadingL);
     }
@@ -658,9 +695,18 @@ $padding: 20;
     > .lead {
       font-size: px2vw($fzMedium);
     }
+    > .separated {
+      margin-top: px2vw($margin);
+      padding-top: px2vw($margin * 1.5);
+    }
   }
   .box {
+    margin-top: px2vw($margin);
     padding: px2vw($padding);
+    border-radius: px2vw(4);
+    &.border {
+      border-width: px2vw(2);
+    }
     > .heading {
       font-size: px2vw($fzLarge);
     }
@@ -673,8 +719,18 @@ $padding: 20;
     > .small {
       font-size: px2vw($fzSmall);
     }
+    > *:not(:first-child) {
+      margin-top: px2vw($margin * 0.75);
+    }
     > .notice {
+      padding: px2vw($margin);
+      border-radius: px2vw(4);
       font-size: px2vw($fzSmall);
+    }
+    > .contact {
+      > *:not(:first-child) {
+        margin-top: px2vw($margin * 0.5);
+      }
     }
   }
   .tel {
@@ -682,6 +738,8 @@ $padding: 20;
   }
   .detail {
     .button {
+      padding: px2vw(24) px2vw(36);
+      margin: px2vw($margin * 1.5) auto 0;
       font-size: px2vw(20);
     }
   }
