@@ -88,8 +88,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         const texts = this.createRubyTexts(node.text)
         return createRubyNode(texts)
       }
-      const vnodes = node.children!.map(node => createVNode(node))
-      return createElement(node.tag, node.data, vnodes)
+      if (node.children) {
+        const vnodes = node.children.map(node => createVNode(node))
+        return createElement(node.tag, node.data, vnodes)
+      }
+      return node
     }
 
     return createVNode(slot)
