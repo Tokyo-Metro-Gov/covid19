@@ -1,7 +1,7 @@
 {
     "lastUpdate": "2020\/04\/16 08:30",
     "patients": {
-        "date": "2020\/04\/09 08:30",
+        "date": "2020\/04\/16 08:30",
         "data": [
             {
                 "リリース日": "2020-03-26T08:00:00.000Z",
@@ -43,29 +43,29 @@
         "children": [
             {
                 "attr": "陽性患者数",
-                "value": 4,
+                "value": 5,
                 "children": [
                     {
                         "attr": "入院中",
-                        "value": 4,
+                        "value": -,
                         "children": [
                             {
                                 "attr": "軽症・中等症",
-                                "value": 4
+                                "value": -
                             },
                             {
                                 "attr": "重症",
-                                "value": 0
+                                "value": -
                             }
                         ]
                     },
                     {
                         "attr": "退院",
-                        "value": 0
+                        "value": -
                     },
                     {
                         "attr": "死亡",
-                        "value": 0
+                        "value": -
                     }
                 ]
             }
