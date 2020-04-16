@@ -275,7 +275,7 @@ def make_map(data_df, loc_df):
     LayerControl().add_to(my_map)
     
     my_map.save("covid19_okinawa_map.html")
-    display(my_map)
+#     display(my_map)
     
     return my_map
 
