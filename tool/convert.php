@@ -69,12 +69,12 @@ function xlsxToArray(string $format, string $path, string $sheet_name, string $r
 function getDischargeStatus($index) : string
 {
   $dischargeStates = [
-    0 => "入院",
-    1 => "退院",
-    2 => "入院調整中"
+    "入院",
+    "退院",
+    "入院調整中"
   ];
-
-  $data = (empty($index)) ? "確認中" : $dischargeStates[$index];
+  $index = strval($index);
+  $data = ("" == $index) ? "確認中" : $dischargeStates[$index];
 
   return $data;
 }
