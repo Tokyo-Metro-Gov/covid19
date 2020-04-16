@@ -48,7 +48,7 @@ jobs:
         ref: ${{ steps.extract_branch.outputs.branch }}
     - name: Commit files
       run: |
-        cp -rp ./tool/covid19_okinawa_map.html static/
+        cp -rp covid19_okinawa_map.html static/
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add static
