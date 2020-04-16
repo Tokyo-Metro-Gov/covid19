@@ -15,33 +15,21 @@
       <nav :class="$style.anchor">
         <ul :class="$style.items">
           <li :class="$style.item">
-            <a href="#sydr" :class="$style.link">
+            <a href="#sydr" :class="[$style.link, $style.active]">
               <span>かかりつけ医がいて症状のある方</span>
-              <img
-                src="/flow/responsive/cond_sydr.svg"
-                alt=""
-                aria-hidden="true"
-              />
+              <fig-cond-sy-dr :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
           <li :class="$style.item">
             <a href="#sy" :class="$style.link">
               <span>かかりつけ医がいない症状のある方</span>
-              <img
-                src="/flow/responsive/cond_sy.svg"
-                alt=""
-                aria-hidden="true"
-              />
+              <fig-cond-sy :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
           <li :class="$style.item">
             <a href="#anx" :class="$style.link">
               <span>軽い症状があり不安のある方</span>
-              <img
-                src="/flow/responsive/cond_anx.svg"
-                alt=""
-                aria-hidden="true"
-              />
+              <fig-cond-anx :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
         </ul>
@@ -54,7 +42,7 @@
               >風邪のような症状や、37.5℃以上の発熱が続いている</span
             >
             <span :class="$style.alignLeft"
-              >ご高齢の方・基礎疾患のある方・妊娠中の方は２日程度続いた場合、それ以外の方は4日以上続いた場合を相談の目安としてください。</span
+              >ご高齢の方・基礎疾患のある方・妊娠中の方は2日程度続いた場合、それ以外の方は4日以上続いた場合を相談の目安としてください。</span
             >
           </li>
           <li :class="[$style.box, $style.border]">
@@ -80,7 +68,7 @@
               >風邪のような症状や、37.5℃以上の発熱が続いている</span
             >
             <span :class="$style.alignLeft"
-              >ご高齢の方・基礎疾患のある方・妊娠中の方は２日程度続いた場合、それ以外の方は4日以上続いた場合を相談の目安としてください。</span
+              >ご高齢の方・基礎疾患のある方・妊娠中の方は2日程度続いた場合、それ以外の方は4日以上続いた場合を相談の目安としてください。</span
             >
           </li>
           <li :class="[$style.box, $style.border]">
@@ -99,16 +87,26 @@
               <dd>
                 <a
                   href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-                  target="_blank"
-                  >各保健所の電話番号は福祉保健局HP</a
+                >
+                  {{ $t('各保健所の電話番号は福祉保健局HP') }}
+                  <v-icon
+                    :class="$style.iconExternal"
+                    :aria-label="this.$t('別タブで開く')"
+                    role="img"
+                    :aria-hidden="false"
+                  >
+                    mdi-open-in-new
+                  </v-icon> </a
                 >に掲載しています
               </dd>
             </div>
             <div>
-              <dt>平日（夜間）：</dt>
-              <dd>
-                午後5時から翌朝午前9時/土日祝 終日
-                <a :class="[$style.tel, $style.inline]" href="tel:03-5320-4592">
+              <dt :class="$style.telWrapperHeading">平日（夜間）：</dt>
+              <dd :class="$style.telWrapper">
+                <span :class="$style.telBeforeText"
+                  >午後5時から翌朝午前9時/土日祝 終日</span
+                >
+                <a :class="$style.tel" href="tel:03-5320-4592">
                   <img
                     src="/flow/responsive/phone_white.svg"
                     alt=""
@@ -228,12 +226,18 @@ import { TranslateResult } from 'vue-i18n'
 import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import FigCondSyDr from '@/static/flow/responsive/cond_sydr.svg'
+import FigCondSy from '@/static/flow/responsive/cond_sy.svg'
+import FigCondAnx from '@/static/flow/responsive/cond_anx.svg'
 
 export default Vue.extend({
   components: {
     CovidIcon,
+    PrinterButton,
     PageHeader,
-    PrinterButton
+    FigCondSyDr,
+    FigCondSy,
+    FigCondAnx
   },
   head(): any {
     const title: TranslateResult = this.$t('感染症が心配な方へ')
@@ -255,6 +259,8 @@ $fzLarge: 20;
 $fzHuge: 22;
 $fzHeading: 24;
 $fzHeadingL: 26;
+
+$padding: 20;
 
 .title {
   display: flex;
@@ -279,7 +285,7 @@ $fzHeadingL: 26;
   box-shadow: $shadow;
   border: 0.5px solid $gray-4 !important;
   border-radius: 4px;
-  padding: 20px;
+  padding: $padding * 1px;
   line-height: 1.35;
   color: $gray-2;
   @include font-size($fzRegular);
@@ -308,7 +314,6 @@ $fzHeadingL: 26;
   .items {
     margin: 0 -6px;
     display: flex;
-    overflow: hidden;
   }
   .item {
     display: flex;
@@ -319,6 +324,8 @@ $fzHeadingL: 26;
   .link {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     flex: 1 0 auto;
     position: relative;
     padding: 20px 20px 40px;
@@ -330,8 +337,10 @@ $fzHeadingL: 26;
     text-decoration: none;
     font-size: inherit;
     color: $gray-2;
+    transition: color 0.2s;
     > * {
       display: block;
+      max-width: 100%;
     }
     > span {
       display: flex;
@@ -339,10 +348,13 @@ $fzHeadingL: 26;
       align-items: center;
       flex: 1 0 auto;
     }
-    > img {
+    > img,
+    > svg {
       flex: 0 0 auto;
       margin-top: 20px;
-      max-height: 100px;
+      max-width: 120px;
+      max-height: 120px;
+      width: 100%;
     }
     &::after {
       content: '';
@@ -350,11 +362,33 @@ $fzHeadingL: 26;
       position: absolute;
       left: 50%;
       bottom: 20px - 9.5 / 2;
+      transform: translateX(-50%);
       width: 0;
       height: 0;
       border-width: 9.5px 6.3px 0 6.3px;
       border-style: solid;
       border-color: $green-1 transparent transparent transparent;
+      transition: border-color 0.2s;
+    }
+    &.active {
+      &::after {
+        bottom: -19.5px;
+        border-width: 19.5px 12.99px 0 12.99px;
+      }
+    }
+    &:hover {
+      background-color: $green-1;
+      color: $white;
+      > svg * {
+        fill: currentColor;
+      }
+    }
+    &:not(.active) {
+      &:hover {
+        &::after {
+          border-top-color: $white;
+        }
+      }
     }
   }
 }
@@ -362,7 +396,7 @@ $fzHeadingL: 26;
   margin-top: 30px;
   border: 3px solid $gray-3;
   border-radius: 10px;
-  padding: 20px;
+  padding: $padding * 1px;
   background-color: $white;
   &.yellow {
     border-width: 4px;
@@ -407,7 +441,7 @@ $fzHeadingL: 26;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  padding: 20px;
+  padding: $padding * 1px;
   text-align: center;
   line-height: 1.65;
   &.border {
@@ -441,6 +475,9 @@ $fzHeadingL: 26;
   > .grow {
     flex: 1 0 auto;
   }
+  > * {
+    max-width: 100%;
+  }
   > *:not(:first-child) {
     margin-top: 15px;
   }
@@ -461,15 +498,16 @@ $fzHeadingL: 26;
       width: 100%;
       justify-content: center;
       align-items: flex-start;
+      > dt {
+        margin-right: 0.5em;
+        white-space: nowrap;
+      }
+      > dd {
+        text-align: left;
+      }
     }
     > *:not(:first-child) {
       margin-top: 10px;
-    }
-    dt {
-      white-space: nowrap;
-    }
-    dd {
-      text-align: left;
     }
   }
   li {
@@ -478,7 +516,18 @@ $fzHeadingL: 26;
   a {
     color: inherit;
     text-decoration: none;
+    &:not(.tel) {
+      > i {
+        vertical-align: baseline;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
+}
+.container .box a {
+  color: inherit; // for IE11
 }
 .boxes > .box {
   width: calc(50% - 10px);
@@ -487,20 +536,42 @@ $fzHeadingL: 26;
   max-width: 37px;
   width: 100%;
 }
+.iconExternal {
+  font-size: 1em !important;
+  &::before {
+    color: $white;
+    margin-right: 0.2em;
+  }
+}
+.telWrapper,
+.telWrapperHeading {
+  line-height: 1px * $fzHuge * 1.35;
+}
+.telBeforeText {
+  vertical-align: top;
+}
+.telAfterText {
+  vertical-align: top;
+}
 .tel {
   font-weight: bold;
   vertical-align: baseline;
-  line-height: 1;
   white-space: nowrap;
+  line-height: 1px * $fzHuge * 1.35;
+  padding: 0 0.25em;
   @include font-size($fzHuge);
 
-  &.inline {
-    margin-left: 0.5em;
-  }
   > img {
     vertical-align: baseline;
     max-width: 0.7em;
     width: 100%;
+  }
+
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    outline: 1px dotted $white;
   }
 }
 
@@ -524,12 +595,95 @@ $fzHeadingL: 26;
   }
 }
 
-@include lessThan($medium) {
+@include lessThan(960) {
+  .anchor {
+    .link {
+      padding: 10px 10px 40px;
+    }
+  }
   .boxes {
     display: block;
   }
   .boxes > .box {
     width: auto;
+  }
+}
+
+// 768
+@include lessThan($medium) {
+  .box {
+    > .contact {
+      > div {
+        display: block;
+        > dt {
+          margin-right: 0;
+          text-align: left;
+        }
+        > dd {
+          margin-left: 1em;
+        }
+      }
+    }
+  }
+  .telWrapper,
+  .telWrapperHeading {
+    line-height: inherit;
+  }
+}
+
+// 600
+@function px2vw($px, $vw: 600) {
+  @return $px / $vw * 100vw;
+}
+@include lessThan($small) {
+  .container {
+    padding: px2vw($padding);
+    font-size: px2vw($fzRegular);
+
+    > .heading {
+      font-size: px2vw($fzHeading);
+    }
+    > .lead {
+      font-size: px2vw($fzHuge);
+    }
+  }
+  .section {
+    padding: px2vw($padding);
+    > .heading {
+      font-size: px2vw($fzHeadingL);
+    }
+    > .headingLv2 {
+      font-size: px2vw($fzHuge);
+    }
+    > .lead {
+      font-size: px2vw($fzMedium);
+    }
+  }
+  .box {
+    padding: px2vw($padding);
+    > .heading {
+      font-size: px2vw($fzLarge);
+    }
+    > .lead {
+      font-size: px2vw($fzMedium);
+    }
+    > .large {
+      font-size: px2vw($fzHuge);
+    }
+    > .small {
+      font-size: px2vw($fzSmall);
+    }
+    > .notice {
+      font-size: px2vw($fzSmall);
+    }
+  }
+  .tel {
+    font-size: px2vw($fzHuge);
+  }
+  .detail {
+    .button {
+      font-size: px2vw(20);
+    }
   }
 }
 </style>
