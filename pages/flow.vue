@@ -11,30 +11,50 @@
       <h3 :class="$style.heading">
         新型コロナウイルス感染症にかかる相談窓口について
       </h3>
-      <p :class="$style.lead">相談方法は、症状や状況別で3つに分かれます</p>
-      <nav :class="$style.anchor">
+      <p ref="trigger" :class="$style.lead">
+        相談方法は、症状や状況別で3つに分かれます
+      </p>
+      <nav
+        ref="anchor"
+        :class="[$style.anchor, { [$style.floating]: triggerPos < 0 }]"
+        :style="[triggerPos < 0 ? { width: navW + `px` } : {}]"
+      >
         <ul :class="$style.items">
           <li :class="$style.item">
-            <a href="#sydr" :class="[$style.link, $style.active]">
+            <a
+              ref="sydr"
+              href="#sydr"
+              :class="$style.link"
+              @click="onClickAnchor"
+            >
               <span>かかりつけ医がいて症状のある方</span>
               <fig-cond-sy-dr :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
           <li :class="$style.item">
-            <a href="#sy" :class="$style.link">
+            <a ref="sy" href="#sy" :class="$style.link" @click="onClickAnchor">
               <span>かかりつけ医がいない症状のある方</span>
               <fig-cond-sy :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
           <li :class="$style.item">
-            <a href="#anx" :class="$style.link">
+            <a
+              ref="anx"
+              href="#anx"
+              :class="$style.link"
+              @click="onClickAnchor"
+            >
               <span>軽い症状があり不安のある方</span>
               <fig-cond-anx :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
         </ul>
       </nav>
-      <div id="sydr" :class="$style.section">
+      <div
+        id="sydr"
+        :class="$style.section"
+        :style="[triggerPos < 0 ? { marginTop: navH + 'px' } : {}]"
+      >
         <h4 :class="$style.heading">かかりつけ医がいて、次の症状がある方</h4>
         <ul :class="$style.boxes">
           <li :class="[$style.box, $style.border]">
@@ -141,7 +161,7 @@
           </p>
         </div>
       </div>
-      <div id="anx" :class="$style.section">
+      <div id="anx" ref="bottom" :class="$style.section">
         <h4 :class="$style.heading">軽い症状があり、不安のある方</h4>
         <p :class="$style.lead">
           下記、新型コロナコールセンターにご相談ください。
@@ -223,12 +243,26 @@
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
+import VueScrollTo from 'vue-scrollto'
 import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import FigCondSyDr from '@/static/flow/responsive/cond_sydr.svg'
 import FigCondSy from '@/static/flow/responsive/cond_sy.svg'
 import FigCondAnx from '@/static/flow/responsive/cond_anx.svg'
+
+type LocalData = {
+  nav: HTMLElement | null
+  trigger: HTMLElement | null
+  bottom: HTMLElement | null
+  navW: number
+  navH: number
+  navOffsetTop: number
+  triggerPos: number
+  bottomPos: number
+  headerOffset: number
+  timerId: number
+}
 
 export default Vue.extend({
   components: {
@@ -238,6 +272,79 @@ export default Vue.extend({
     FigCondSyDr,
     FigCondSy,
     FigCondAnx
+  },
+  data(): LocalData {
+    const nav = null
+    const trigger = null
+    const bottom = null
+    const navW = 0
+    const navH = 0
+    const navOffsetTop = 0
+    const triggerPos = 0
+    const bottomPos = 0
+    const headerOffset = 0
+    const timerId = 0
+
+    return {
+      nav,
+      trigger,
+      bottom,
+      navW,
+      navH,
+      navOffsetTop,
+      triggerPos,
+      bottomPos,
+      headerOffset,
+      timerId
+    }
+  },
+  mounted() {
+    this.nav = this.$refs.anchor as HTMLElement
+    this.trigger = this.$refs.trigger as HTMLElement
+    this.bottom = this.$refs.bottom as HTMLElement
+    const self = this
+    window.addEventListener('scroll', function() {
+      if (self.timerId) {
+        window.clearTimeout(self.timerId)
+      }
+      self.timerId = window.setTimeout(self.onBrowserRender, 100)
+    })
+    window.addEventListener('resize', this.onBrowserRender)
+
+    // 初期化
+    this.onBrowserRender()
+    const hash = this.$route.hash
+    if (hash !== '') {
+      VueScrollTo.scrollTo(hash, 1000, {
+        offset: -(this.navH + this.headerOffset)
+      })
+    }
+  },
+  methods: {
+    onBrowserRender(): void {
+      // 整形
+      const navRect = this.nav!.getBoundingClientRect()
+      const triggerRect = this.trigger!.getBoundingClientRect()
+      const bottomRect = this.bottom!.getBoundingClientRect()
+      this.navOffsetTop = navRect.top
+      this.navW = this.trigger!.clientWidth
+      this.navH = this.nav!.offsetHeight
+      this.bottomPos = bottomRect.bottom
+      if (matchMedia('(max-width: 600px)').matches) {
+        this.headerOffset = 64 // NOTE: nuxt.config.tsのoffsetから余白を抜いたもの
+      } else {
+        this.headerOffset = 0
+      }
+      this.triggerPos = triggerRect.bottom - this.headerOffset
+      // カレント表示
+      // (WIP)
+    },
+    onClickAnchor(event: Event): void {
+      const hash = (event.target as HTMLAnchorElement).hash
+      VueScrollTo.scrollTo(hash, 1000, {
+        offset: -(this.navH + this.headerOffset)
+      })
+    }
   },
   head(): any {
     const title: TranslateResult = this.$t('感染症が心配な方へ')
@@ -311,7 +418,24 @@ $margin: 20;
   }
 }
 .anchor {
-  margin-top: $margin * 1px;
+  padding-top: $margin * 1px;
+  padding-bottom: $margin * 1px;
+  background-color: $white;
+  position: relative;
+
+  /*
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 20px;
+    transform: translateY(100%);
+    background: linear-gradient(180deg, $white, transparent);
+  }
+  */
   .items {
     margin: 0 -6px;
     display: flex;
@@ -339,9 +463,11 @@ $margin: 20;
     font-size: inherit;
     color: $gray-2;
     transition: color 0.2s;
+    z-index: 2;
     > * {
       display: block;
       max-width: 100%;
+      pointer-events: none;
     }
     > span {
       display: flex;
@@ -393,6 +519,10 @@ $margin: 20;
       }
     }
   }
+  &.floating {
+    position: fixed;
+    top: 0;
+  }
 }
 .section {
   margin-top: $margin * 1.5px;
@@ -431,6 +561,9 @@ $margin: 20;
     padding-top: $margin * 1.5px;
     border-top: 1px solid $gray-2;
   }
+}
+.anchor + .section {
+  margin-top: 0;
 }
 .boxes {
   display: flex;
@@ -653,7 +786,7 @@ $margin: 20;
     }
   }
   .anchor {
-    margin-top: px2vw($margin);
+    padding-top: px2vw($margin);
     .link {
       padding: px2vw(20) px2vw(20) px2vw(40);
       border-width: px2vw(4);
@@ -672,9 +805,13 @@ $margin: 20;
         }
       }
     }
+    &.floating {
+      top: 64px; // NOTE: nuxt.config.tsのoffsetから余白を抜いたもの
+    }
   }
   .section {
-    margin-top: px2vw($margin * 1.5);
+    //margin-top: px2vw($margin * 1.5);
+    margin-top: 20px;
     padding: px2vw($padding);
     border-width: px2vw(3);
     border-radius: px2vw(10);
