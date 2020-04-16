@@ -65,7 +65,7 @@ export const customTooltip = (
     titleEl.classList.add('chartjs-tooltip-title')
     titleEl.style.fontFamily = tooltipModel._titleFontFamily
     titleEl.style.fontSize = tooltipModel.titleFontSize + 'px'
-    titleEl.style.fontStyle = tooltipModel._titleFontStyle
+    titleEl.style.fontWeight = tooltipModel._titleFontStyle
     tooltipEl.appendChild(titleEl)
   }
 
@@ -76,7 +76,7 @@ export const customTooltip = (
     bodyEl.classList.add('chartjs-tooltip-body')
     bodyEl.style.fontFamily = tooltipModel._bodyFontFamily
     bodyEl.style.fontSize = tooltipModel.bodyFontSize + 'px'
-    bodyEl.style.fontStyle = tooltipModel._bodyFontStyle
+    bodyEl.style.fontWeight = tooltipModel._bodyFontStyle
     tooltipEl.appendChild(bodyEl)
   }
 
