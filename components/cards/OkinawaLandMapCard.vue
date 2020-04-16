@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <v-card class="DataView" :loading="loading">
+    <v-card class="DataView">
       <div class="DataView-Inner">
         <div class="DataView-Header">
           <h3
