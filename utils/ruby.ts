@@ -43,14 +43,14 @@ export const customTooltip = (
   let titleEl: HTMLElement | null
   let bodyEl: HTMLElement | null
 
-  // Create element on first render
+  // Create tooltip element on first render
   if (!tooltipEl) {
     tooltipEl = document.createElement('div')
     tooltipEl.id = 'chartjs-tooltip'
     document.body.appendChild(tooltipEl)
   }
 
-  // opacity
+  // Hide if no tooltip
   if (tooltipModel.opacity === 0) {
     tooltipEl.style.opacity = '0'
     return
@@ -58,6 +58,7 @@ export const customTooltip = (
     tooltipEl.style.opacity = '1'
   }
 
+  // Create title element on first render
   if ((titleEl = tooltipEl.querySelector('.chartjs-tooltip-title'))) {
     titleEl!.textContent = ''
   } else {
@@ -69,6 +70,7 @@ export const customTooltip = (
     tooltipEl.appendChild(titleEl)
   }
 
+  // Create body element on first render
   if ((bodyEl = tooltipEl.querySelector('.chartjs-tooltip-body'))) {
     bodyEl!.textContent = ''
   } else {
@@ -80,9 +82,8 @@ export const customTooltip = (
     tooltipEl.appendChild(bodyEl)
   }
 
-  // titie
+  // Appned ruby texts to title
   const title = tooltipModel.title && tooltipModel.title[0]
-
   if (title) {
     createRubyObject(title).forEach(text => {
       const dom = createDom(text)
@@ -90,9 +91,8 @@ export const customTooltip = (
     })
   }
 
-  // body
+  // Appned ruby texts to body
   const bodyLines = tooltipModel.body.map(b => b.lines).join()
-
   if (bodyLines) {
     createRubyObject(bodyLines).forEach(text => {
       const dom = createDom(text)
@@ -100,7 +100,7 @@ export const customTooltip = (
     })
   }
 
-  // base
+  // base styles
   tooltipEl.style.position = 'absolute'
   tooltipEl.style.color = tooltipModel.titleFontColor
   tooltipEl.style.padding =
@@ -109,47 +109,50 @@ export const customTooltip = (
   tooltipEl.style.backgroundColor = tooltipModel.backgroundColor
   tooltipEl.style.borderRadius = tooltipModel.cornerRadius + 'px'
 
-  // position
-  const position = (() => {
+  // tooltip position
+  const canvas = (() => {
     const chart = self.$refs.barChart as Vue
     const el = chart.$el
     const canvas = el.querySelector('canvas')
     return canvas!.getBoundingClientRect()
   })()
 
-  const left = position.left + tooltipModel.caretX
-  const top = position.top + window.pageYOffset + tooltipModel.caretY
-  const borderSize = 5
+  const baseLeft = canvas.left + tooltipModel.caretX
+  const baseTop = canvas.top + window.pageYOffset + tooltipModel.caretY
+  const borderSize = 5 // caret border-size defined by css
 
   const align = (() => {
-    const rightSide = left + borderSize + tooltipEl.offsetWidth
-    const isRightSideOver = rightSide > position.right
+    const rightSide = baseLeft + borderSize + tooltipEl.offsetWidth
+    const isRightSideOver = rightSide > canvas.right
     const yAlign = tooltipModel.yAlign === 'center' ? '' : tooltipModel.yAlign
     return yAlign || (isRightSideOver ? 'left' : 'right')
   })()
 
   switch (align) {
     case 'top':
-      tooltipEl.style.top = top + borderSize + 'px'
+      tooltipEl.style.top = baseTop + borderSize + 'px'
       tooltipEl.style.left =
-        left - tooltipEl.offsetWidth / 2 - borderSize + 'px'
+        baseLeft - tooltipEl.offsetWidth / 2 - borderSize / 2 + 'px'
       break
     case 'bottom':
-      tooltipEl.style.top = top - tooltipEl.offsetHeight - borderSize + 'px'
+      tooltipEl.style.top = baseTop - tooltipEl.offsetHeight - borderSize + 'px'
       tooltipEl.style.left =
-        left - tooltipEl.offsetWidth / 2 - borderSize + 'px'
+        baseLeft - tooltipEl.offsetWidth / 2 - borderSize / 2 + 'px'
       break
     case 'right':
-      tooltipEl.style.top = top - tooltipEl.offsetHeight / 2 + 'px'
-      tooltipEl.style.left = left + borderSize + 'px'
+      tooltipEl.style.top =
+        baseTop - tooltipEl.offsetHeight / 2 + borderSize / 2 + 'px'
+      tooltipEl.style.left = baseLeft + borderSize + 'px'
       break
     case 'left':
-      tooltipEl.style.top = top - tooltipEl.offsetHeight / 2 + 'px'
-      tooltipEl.style.left = left - tooltipEl.offsetWidth - borderSize + 'px'
+      tooltipEl.style.top =
+        baseTop - tooltipEl.offsetHeight / 2 + borderSize / 2 + 'px'
+      tooltipEl.style.left =
+        baseLeft - tooltipEl.offsetWidth - borderSize + 'px'
       break
   }
 
-  // animation
+  // fade animation
   if (tooltipEl.dataset.chartId === self.chartId) {
     tooltipEl.style.transition = 'all 0.3s ease'
   } else {
@@ -157,7 +160,7 @@ export const customTooltip = (
     tooltipEl.dataset.chartId = self.chartId
   }
 
-  // css class
+  // css class for caret
   tooltipEl.className = ''
   tooltipEl.classList.add(align)
 }
