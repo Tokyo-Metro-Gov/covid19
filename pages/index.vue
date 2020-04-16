@@ -17,6 +17,7 @@
         </h3>
       <div class="TopNews">
       <span class="TopNewsImp">・4月14日、福井県独自の緊急事態宣言を発令</span><br>
+      ・<span class="TopNewsImp2">感染者・濃厚接触者や、診療に携わった医療機関・医療関係者その他の対策に携わった方々に対して、誤解や偏見に基づく差別を行わないよう、ご理解とご配慮をお願いします。</span><br>
       ・福井県内の全ての市町が小中学校の授業再開を5月7日以降に延期<br>
       ・一時生活施設を福井県が開設（軽症陽性患者が入所）<br>
       ・福井県医師会　医療提供体制緊急事態宣言
@@ -122,6 +123,10 @@ export default Vue.extend({
   font-size: 14px;
   font-weight: bold;
   text-decoration: underline;
+  color: red;
+}
+.TopNewsImp2 {
+  font-size: 14px;
   color: red;
 }
 .MainPage {
