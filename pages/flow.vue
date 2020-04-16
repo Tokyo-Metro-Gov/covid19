@@ -440,7 +440,7 @@ $margin: 20;
   margin-top: $margin * 1px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   border-radius: 4px;
   padding: $padding * 1px;
