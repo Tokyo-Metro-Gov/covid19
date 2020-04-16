@@ -217,7 +217,7 @@ function readPatients() : array
         $result = [
           "確定日" => $row['公表_年月日'],
           "居住地" => !empty($row['患者_居住地']) ? $row['患者_居住地'] : "調査中",
-          "年代" => !empty($row['患者_年代']) ? $row['患者_年代'] : "調査中",
+          "年代" => !empty($row['患者_年代']) ? $row['患者_年代'] : "調査代",
           "性別" => !empty($row['患者_性別']) ? $row['患者_性別'] : "調査中",
           "状態" => $row['患者_状態'],
           "退院" => $dischargeStatus,
