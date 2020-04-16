@@ -87,6 +87,7 @@ import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import { customTooltip } from '@/utils/ruby'
 
 import { getGraphSeriesStyle } from '@/utils/colors'
 
@@ -267,7 +268,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const options: Chart.ChartOptions = {
         tooltips: {
-          displayColors: false,
+          enabled: false,
+          custom: tooltipModel => customTooltip(this, tooltipModel),
           callbacks: {
             label(tooltipItem) {
               const labelText = `${parseInt(
