@@ -3,7 +3,7 @@ name: Scheduled Data Builder
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '14 15,17,18,19,22 * * *'
+    - cron:  '16 6,8,9,10,13 * * *'
 jobs:
   build:
     name: Convert csv to data.json
