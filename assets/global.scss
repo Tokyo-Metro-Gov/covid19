@@ -47,25 +47,47 @@ img {
   &::before {
     content: '';
     position: absolute;
-    top: calc(50% - #{$size});
     width: $size;
     height: $size;
-    border-top: $size solid transparent;
-    border-bottom: $size solid transparent;
   }
 
-  &.left,
-  &.center:not(.right) {
+  &.left {
     &::before {
+      top: calc(50% - #{$size});
       right: $size * -1;
       border-left: $size solid #000;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
     }
   }
 
   &.right {
     &::before {
+      top: calc(50% - #{$size});
       left: $size * -1;
       border-right: $size solid #000;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+    }
+  }
+
+  &.top {
+    &::before {
+      bottom: 100%;
+      left: 50%;
+      border-bottom: $size solid #000;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+    }
+  }
+
+  &.bottom {
+    &::before {
+      top: 100%;
+      left: 50%;
+      border-top: $size solid #000;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
     }
   }
 }

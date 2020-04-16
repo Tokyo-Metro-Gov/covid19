@@ -110,25 +110,44 @@ export const customTooltip = (
   tooltipEl.style.borderRadius = tooltipModel.cornerRadius + 'px'
 
   // position
-  const chart = self.$refs.barChart as Vue
-  const el = chart.$el
-  const canvas = el.querySelector('canvas')
-  const position = canvas!.getBoundingClientRect()
-  const borderSize = 5
+  const position = (() => {
+    const chart = self.$refs.barChart as Vue
+    const el = chart.$el
+    const canvas = el.querySelector('canvas')
+    return canvas!.getBoundingClientRect()
+  })()
+
   const left = position.left + tooltipModel.caretX
-  const rightSide = left + borderSize + tooltipEl.offsetWidth
-  const isRightSideOver = rightSide > position.right
+  const top = position.top + window.pageYOffset + tooltipModel.caretY
+  const borderSize = 5
 
-  tooltipEl.style.left = isRightSideOver
-    ? left - tooltipEl.offsetWidth - borderSize + 'px'
-    : left + borderSize + 'px'
+  const align = (() => {
+    const rightSide = left + borderSize + tooltipEl.offsetWidth
+    const isRightSideOver = rightSide > position.right
+    const yAlign = tooltipModel.yAlign === 'center' ? '' : tooltipModel.yAlign
+    return yAlign || (isRightSideOver ? 'left' : 'right')
+  })()
 
-  tooltipEl.style.top =
-    position.top +
-    window.pageYOffset +
-    tooltipModel.caretY -
-    tooltipEl.offsetHeight / 2 +
-    'px'
+  switch (align) {
+    case 'top':
+      tooltipEl.style.top = top + borderSize + 'px'
+      tooltipEl.style.left =
+        left - tooltipEl.offsetWidth / 2 - borderSize + 'px'
+      break
+    case 'bottom':
+      tooltipEl.style.top = top - tooltipEl.offsetHeight - borderSize + 'px'
+      tooltipEl.style.left =
+        left - tooltipEl.offsetWidth / 2 - borderSize + 'px'
+      break
+    case 'right':
+      tooltipEl.style.top = top - tooltipEl.offsetHeight / 2 + 'px'
+      tooltipEl.style.left = left + borderSize + 'px'
+      break
+    case 'left':
+      tooltipEl.style.top = top - tooltipEl.offsetHeight / 2 + 'px'
+      tooltipEl.style.left = left - tooltipEl.offsetWidth - borderSize + 'px'
+      break
+  }
 
   // animation
   if (tooltipEl.dataset.chartId === self.chartId) {
@@ -140,7 +159,7 @@ export const customTooltip = (
 
   // css class
   tooltipEl.className = ''
-  tooltipEl.classList.add(isRightSideOver ? 'left' : 'right')
+  tooltipEl.classList.add(align)
 }
 
 function createDom(text: RubyText) {
