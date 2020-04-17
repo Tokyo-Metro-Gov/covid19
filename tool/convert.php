@@ -377,7 +377,7 @@ $data['main_summary'] = [
         ],
         [
           'attr' => '退院',
-          'value' => $better_patients_summary['data']['退院者数']->sum()
+          'value' => $better_patients_summary['data']['退院者数']->sum() - $summary_data['data'][0]['死亡']
         ],
         [
           'attr' => '死亡',
