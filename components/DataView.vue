@@ -23,10 +23,19 @@
         <v-expansion-panels v-if="showDetails" flat>
           <v-expansion-panel>
             <v-expansion-panel-header
+              :hide-actions="true"
               :style="{ transition: 'none' }"
               @click="toggleDetails"
             >
-              {{ $t('テーブルを表示') }}
+              <template slot:actions>
+                <div
+                  class="v-expansion-panel-header__icon"
+                  :style="{ marginLeft: 'none', marginRight: '5px' }"
+                >
+                  <v-icon>mdi-chevron-down</v-icon>
+                </div>
+              </template>
+              <span class="expansion-text">{{ $t('テーブルを表示') }}</span>
             </v-expansion-panel-header>
             <v-expansion-panel-content>
               <slot name="dataTable" />
@@ -45,9 +54,9 @@
           <slot name="footer" />
           <div>
             <a class="Permalink" :href="permalink()">
-              <time :datetime="formattedDate">
-                {{ $t('{date} 更新', { date }) }}
-              </time>
+              <time :datetime="formattedDate">{{
+                $t('{date} 更新', { date })
+              }}</time>
             </a>
           </div>
         </div>
@@ -77,9 +86,9 @@
             @click="stopClosingShareMenu"
           >
             <div class="Close-Button">
-              <v-icon :aria-label="$t('閉じる')" @click="closeShareMenu">
-                mdi-close
-              </v-icon>
+              <v-icon :aria-label="$t('閉じる')" @click="closeShareMenu"
+                >mdi-close</v-icon
+              >
             </div>
 
             <h4>{{ $t('埋め込み用コード') }}</h4>
@@ -90,9 +99,8 @@
                 class="EmbedCode-Copy"
                 :aria-label="$t('クリップボードにコピー')"
                 @click="copyEmbedCode"
+                >mdi-clipboard-outline</v-icon
               >
-                mdi-clipboard-outline
-              </v-icon>
               {{ graphEmbedValue }}
             </div>
 
@@ -194,7 +202,8 @@ export default Vue.extend({
       openGraphEmbed: false,
       displayShare: false,
       showOverlay: false,
-      showDetails: false
+      showDetails: false,
+      openDetails: false
     }
   },
   computed: {
@@ -287,6 +296,7 @@ export default Vue.extend({
       window.open(url)
     },
     toggleDetails() {
+      this.openDetails = !this.openDetails
       EventBus.$emit(TOGGLE_EVENT, { dataView: this.$refs.dataView })
     }
   }
@@ -601,5 +611,9 @@ textarea {
   font: 400 11px system-ui;
   width: 100%;
   height: 2.4rem;
+}
+
+.expansion-text {
+  color: $gray-1;
 }
 </style>
