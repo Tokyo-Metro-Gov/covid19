@@ -93,9 +93,9 @@ $ docker-compose run --rm app yarn install
 
 `master` 브랜치가 업데이트되면, 자동적으로  `production` 브랜치의 HTML 파일이 빌드됩니다. 이후, 운영 환경 사이트 https://stopcovid19.metro.tokyo.lg.jp/ 가 갱신됩니다.
 
-`staging` 브랜치가 업데이트되면, 자동적으로  `gh-pages` 브랜치의 HTML 파일이 빌드됩니다. 이후, 스테이징 환경 사이트 https://stg-covid19-tokyo.netlify.com/ 가 갱신됩니다.
+`staging` 브랜치가 업데이트되면, 자동적으로  `gh-pages` 브랜치의 HTML 파일이 빌드됩니다. 이후, 스테이징 환경 사이트 https://stg-covid19-tokyo.netlify.app/ 가 갱신됩니다.
 
-`development` 브랜치가 업데이트되면, 자동적으로  `dev-pages` 브랜치의 HTML 파일이 빌드됩니다. 이후, 개발용 사이트 https://dev-covid19-tokyo.netlify.com/ 가 갱신됩니다.
+`development` 브랜치가 업데이트되면, 자동적으로  `dev-pages` 브랜치의 HTML 파일이 빌드됩니다. 이후, 개발용 사이트 https://dev-covid19-tokyo.netlify.app/ 가 갱신됩니다.
 
 ### 브랜치(Branch) 규칙
 
@@ -108,14 +108,14 @@ $ docker-compose run --rm app yarn install
 #### 기본 브랜치(branch)
 | 목적 | 브랜치 | 확인 URL | 비고 |
 | ---- | -------- | ---- | ---- |
-| 개발 | development | https://dev-covid19-tokyo.netlify.com/ | 기본 브랜치(branch). 기본은 여기로 풀 리퀘스트를 전달하세요.|
+| 개발 | development | https://dev-covid19-tokyo.netlify.app/ | 기본 브랜치(branch). 기본은 여기로 풀 리퀘스트를 전달하세요.|
 | 핫픽스(hotfix) 브랜치 | dev-hotfix | 없음 | 급하게 프로덕션(production)에 적용해야하는 수정사항용 브랜치입니다. 관리자가 요청한 경우에 사용하세요. |
-| 스테이징(Staging) | staging | https://stg-covid19-tokyo.netlify.com/ | 프로덕션(production) 적용 전에 최종 확인용 브랜치입니다. 관리자가 아닌 풀 리퀘스트(Pull Request)는 금지입니다. |
+| 스테이징(Staging) | staging | https://stg-covid19-tokyo.netlify.app/ | 프로덕션(production) 적용 전에 최종 확인용 브랜치입니다. 관리자가 아닌 풀 리퀘스트(Pull Request)는 금지입니다. |
 | 프로덕션(Production) | master | https://stopcovid19.metro.tokyo.lg.jp/ | 관리자 이외의 풀 리퀘스트(Pull Request)는 금지입니다. |
 
 #### 시스템에서 사용하는 브랜치(Branch)
 | 목적 | 브랜치 | 확인 URL | 비고 |
 | ---- | -------- | ---- | ---- |
 | 프로덕션(Production) 사이트 HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | 정적 빌드된 HTML이 있는 위치|
-| 스테이징(Staging) 사이트 HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 정적 빌드된 HTML를 찾을 수 있는 곳 |
+| 스테이징(Staging) 사이트 HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | 정적 빌드된 HTML를 찾을 수 있는 곳 |
 | OGP 작업용 디렉토리 | deploy / new_ogp | 없음 | OGP 업데이트용 |

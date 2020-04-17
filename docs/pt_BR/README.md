@@ -88,10 +88,10 @@ Quando a branch `master` é atualizada, os arquivos HTML serão automaticamente 
 e o site de produção (https://stopcovid19.metro.tokyo.lg.jp/) será então atualizado.
 
 Quando a branch `staging` é atualizada, os arquivos HTML serão automaticamente criados na branch `gh-pages`,
-e o site de produção (https://stg-covid19-tokyo.netlify.com/) será então atualizado.
+e o site de produção (https://stg-covid19-tokyo.netlify.app/) será então atualizado.
 
 Quando a branch `development` é atualizada, os arquivos HTML serão automaticamente criados na branch `dev-pages`,
-e o site de produção (https://dev-covid19-tokyo.netlify.com/) será então atualizado.
+e o site de produção (https://dev-covid19-tokyo.netlify.app/) será então atualizado.
 
 ### Regras para branches
 
@@ -104,14 +104,14 @@ Commit de Hotfix: hotfix/#{ISSUE_ID}-{título_da_branch}
 #### Branches principais
 | Propósito | Branch | URL de Confirmação | Detalhes |
 | ---- | -------- | ---- | ---- |
-| Desenvolvimento | development | https://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
+| Desenvolvimento | development | https://dev-covid19-tokyo.netlify.app/ | base branch. Basically send a Pull Request here |
 | Hotfix branch | dev-hotfix | Nenhum | Consertos para aplicar diretamente em produção. Utilize se requisitado pelo administrator |
-| Staging | staging | https://stg-covid19-tokyo.netlify.com/ | Para confirmação final antes de ir para produção. Pull Requests de não-administratores são proibidos |
+| Staging | staging | https://stg-covid19-tokyo.netlify.app/ | Para confirmação final antes de ir para produção. Pull Requests de não-administratores são proibidos |
 | Produção | master | https://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests de não administrator são proibidos |
 
 #### Branches usadas pelo sistema
 | Propósito | Branch | URL de Confirmação | Detalhes |
 | ---- | -------- | ---- | ---- |
 | HTML do site de Produção | production | https://stopcovid19.metro.tokyo.lg.jp/ | Onde se encontram os HTML estáticos |
-| HTML do site de Staging | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Onde se encontram os HTML estáticos |
+| HTML do site de Staging | gh-pages | https://stg-covid19-tokyo.netlify.app/ | Onde se encontram os HTML estáticos |
 | Para o diretório de trabalho do OGP | deploy / new_ogp | Nenhum | Para atualizar OGP |
