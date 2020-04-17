@@ -177,7 +177,7 @@ $default-boxh: 150px;
     }
 
     &:not(:last-child) {
-      word-break: break-all;
+      overflow-wrap: break-word;
     }
   }
 

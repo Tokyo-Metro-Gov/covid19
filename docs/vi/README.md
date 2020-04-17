@@ -83,9 +83,9 @@ Please use the variable to detect which enviroinment is used at the runtime.
 
 Khi nhánh `master` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `production`. Sau đó https://stopcovid19.metro.tokyo.lg.jp/ sẽ được cập nhật.
 
-Khi nhánh `staging` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `gh-pages`. Sau đó https://stg-covid19-tokyo.netlify.com/ sẽ được cập nhật.
+Khi nhánh `staging` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `gh-pages`. Sau đó https://stg-covid19-tokyo.netlify.app/ sẽ được cập nhật.
 
-Khi nhánh `development` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `dev-pages`. Sau đó https://dev-covid19-tokyo.netlify.com/ sẽ được cập nhật.
+Khi nhánh `development` được cập nhật, file HTML sẽ tự động được build dựa trên nhánh `dev-pages`. Sau đó https://dev-covid19-tokyo.netlify.app/ sẽ được cập nhật.
 
 
 [PLEASE TRANSLATE ME]
@@ -101,16 +101,16 @@ Hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 #### Basic branch
 | Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
-| Development | development | https://dev-covid19-tokyo.netlify.com/ | base branch. Basically send a Pull Request here |
+| Development | development | https://dev-covid19-tokyo.netlify.app/ | base branch. Basically send a Pull Request here |
 | Hotfix branch | dev-hotfix | None | Fixes that should be applied to production in haste. Use this if requested by the administrator |
-| Staging | staging | https://stg-covid19-tokyo.netlify.com/ | For final confirmation before production. Non-admin pull requests are prohibited |
+| Staging | staging | https://stg-covid19-tokyo.netlify.app/ | For final confirmation before production. Non-admin pull requests are prohibited |
 Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | Pull Requests other than Administrators are prohibited |
 
 #### Branch used by the system
 | Purpose | Branch | Confirmation URL | Remarks |
 | ---- | -------- | ---- | ---- |
 | Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
-| Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | Where to find statically built HTML |
+| Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | Where to find statically built HTML |
 | For OGP working directory | deploy / new_ogp | None | For updating OGP |
 
 [/PLEASE TRANSLATE ME]
