@@ -30,6 +30,9 @@
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
     <div>
+      <t-i18n :class="$style.GraphUnit">
+        {{ $t('単位：') }}{{ $t('人') }}
+      </t-i18n>
       <bar
         :ref="'barChart'"
         :style="{ display: canvas ? 'block' : 'none' }"
@@ -39,9 +42,6 @@
         :display-legends="displayLegends"
         :height="240"
       />
-      <small :class="$style.GraphUnit">
-        <t-i18n>{{ $t('単位：') }}{{ $t('人') }}</t-i18n>
-      </small>
     </div>
     <template v-slot:dataTable>
       <v-data-table
