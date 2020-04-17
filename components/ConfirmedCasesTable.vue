@@ -100,7 +100,7 @@ export default Vue.extend({
       required: true
     },
     重症: {
-      type: String,
+      type: Number,
       required: true
     },
     死亡: {
