@@ -26,10 +26,13 @@
 <style lang="scss">
 .DataSelector .v-input--radio-group__input {
   padding: 3px;
-  padding-left: 16px;
   border: 1px solid $gray-4;
   border-radius: 4px;
   align-items: stretch;
+
+  & .v-radio {
+    margin-right: inherit;
+  }
 
   & .v-label {
     display: block;
@@ -38,8 +41,7 @@
     border-radius: 4px;
     border-width: thin;
     box-shadow: none;
-    padding: 5px;
-    padding-bottom: 2px;
+    padding: 5px 18px 23px 18px;
     height: 24px;
     font-size: 12px;
     cursor: pointer;
