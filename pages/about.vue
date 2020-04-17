@@ -220,6 +220,22 @@
         </i18n>
       </p>
     </StaticCard>
+    <StaticCard>
+      <h3>{{ $t('ご要望・改善提案') }}</h3>
+      <p>
+        {{ $t('ご要望・改善提案はこちらのフォームに記載してください。') }}
+      </p>
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSe1Dw-pg4HuwGjwmk82_qokvUNlpFzHnlwCuAmVuBcW85VyNw/viewform"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ $t('ご要望・改善提案フォーム') }}
+      </a>
+      <p>
+        ※ GitHub Issuesに記載されても構いません。
+      </p>
+    </StaticCard>
   </div>
 </template>
 
