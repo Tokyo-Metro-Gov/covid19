@@ -1,0 +1,2346 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3bdc7981f8da4560acb75c000b9e684a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+    <script src="https://unpkg.com/leaflet.featuregroup.subgroup@1.0.2/dist/leaflet.featuregroup.subgroup.js"></script>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_3bdc7981f8da4560acb75c000b9e684a" ></div>
+        
+</body>
+<script>    
+    
+            var map_3bdc7981f8da4560acb75c000b9e684a = L.map(
+                "map_3bdc7981f8da4560acb75c000b9e684a",
+                {
+                    center: [26.43, 127.8],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10.12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_81b2c62d8d6045f3a09ed9b9850958ad = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+        
+    
+            var tile_layer_e8336fd81fb1443f9749de78a7d4e431 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+        
+    
+            var tile_layer_625d1032a77c4587a22039d5106964ec = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by-sa/3.0\"\u003eCC BY SA\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+        
+    
+            var marker_cluster_7ae2a19fb7ef42ea8efa4775b1ae0a33 = L.markerClusterGroup(
+                {}
+            );
+            map_3bdc7981f8da4560acb75c000b9e684a.addLayer(marker_cluster_7ae2a19fb7ef42ea8efa4775b1ae0a33);
+        
+    
+            var feature_group_sub_group_5f57d5de402a4a5ba40825c57583974b = L.featureGroup.subGroup(
+                marker_cluster_7ae2a19fb7ef42ea8efa4775b1ae0a33
+            );
+            feature_group_sub_group_5f57d5de402a4a5ba40825c57583974b.addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+        
+    
+            var marker_8f4f4290e94d4c7fa7d26d31315376ab = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_5f57d5de402a4a5ba40825c57583974b);
+        
+    
+            var icon_18816b4d05db4cff9a4cde99c3d62f67 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_8f4f4290e94d4c7fa7d26d31315376ab.setIcon(icon_18816b4d05db4cff9a4cde99c3d62f67);
+        
+    
+        var popup_e98477629e094edf8eae844134e5efe5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d147ce79816f471f9ec2666cb16a4d17 = $(`<div id="html_d147ce79816f471f9ec2666cb16a4d17" style="width: 100.0%; height: 100.0%;">date:03-23, age:10s, status:discharged</div>`)[0];
+            popup_e98477629e094edf8eae844134e5efe5.setContent(html_d147ce79816f471f9ec2666cb16a4d17);
+        
+
+        marker_8f4f4290e94d4c7fa7d26d31315376ab.bindPopup(popup_e98477629e094edf8eae844134e5efe5)
+        ;
+
+        
+    
+    
+            var feature_group_sub_group_f4533de10d654b89b0e830a323b799d0 = L.featureGroup.subGroup(
+                marker_cluster_7ae2a19fb7ef42ea8efa4775b1ae0a33
+            );
+            feature_group_sub_group_f4533de10d654b89b0e830a323b799d0.addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+        
+    
+            var marker_96de1b8e55a04c4cb9efc032c2f525b5 = L.marker(
+                [26.192634, 127.729369],
+                {}
+            ).addTo(feature_group_sub_group_f4533de10d654b89b0e830a323b799d0);
+        
+    
+            var icon_ccbc972baa6e41dcbf7d76d219460b63 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_96de1b8e55a04c4cb9efc032c2f525b5.setIcon(icon_ccbc972baa6e41dcbf7d76d219460b63);
+        
+    
+        var popup_d8c466e8ce4c4456ae485f64456c114a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_48fc3233c8544d01b0a803b5e9dbc4ef = $(`<div id="html_48fc3233c8544d01b0a803b5e9dbc4ef" style="width: 100.0%; height: 100.0%;">date:03-23, age:20s, status:hospitalized</div>`)[0];
+            popup_d8c466e8ce4c4456ae485f64456c114a.setContent(html_48fc3233c8544d01b0a803b5e9dbc4ef);
+        
+
+        marker_96de1b8e55a04c4cb9efc032c2f525b5.bindPopup(popup_d8c466e8ce4c4456ae485f64456c114a)
+        ;
+
+        
+    
+    
+            var marker_c7e125a4d3ee4af99bdef54bc488935c = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_f4533de10d654b89b0e830a323b799d0);
+        
+    
+            var icon_9bd66f7421634d0298f007b25b0aebd9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c7e125a4d3ee4af99bdef54bc488935c.setIcon(icon_9bd66f7421634d0298f007b25b0aebd9);
+        
+    
+        var popup_61f7b76c78ef49ed9d7b939a32322ac2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_dac15465adfa4777ac42bb4effc20adc = $(`<div id="html_dac15465adfa4777ac42bb4effc20adc" style="width: 100.0%; height: 100.0%;">date:03-28, age:20s, status:hospitalized</div>`)[0];
+            popup_61f7b76c78ef49ed9d7b939a32322ac2.setContent(html_dac15465adfa4777ac42bb4effc20adc);
+        
+
+        marker_c7e125a4d3ee4af99bdef54bc488935c.bindPopup(popup_61f7b76c78ef49ed9d7b939a32322ac2)
+        ;
+
+        
+    
+    
+            var marker_aba558b79e5e4dafb7223f453ca1f49f = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_f4533de10d654b89b0e830a323b799d0);
+        
+    
+            var icon_3e6a4d6d2ec24af9ade9a7747595b531 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_aba558b79e5e4dafb7223f453ca1f49f.setIcon(icon_3e6a4d6d2ec24af9ade9a7747595b531);
+        
+    
+        var popup_fb9ca037fef847c79b2becf827b307ca = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1e97f06510fd4a9f87d69509c9cedfb3 = $(`<div id="html_1e97f06510fd4a9f87d69509c9cedfb3" style="width: 100.0%; height: 100.0%;">date:04-03, age:20s, status:hospitalized</div>`)[0];
+            popup_fb9ca037fef847c79b2becf827b307ca.setContent(html_1e97f06510fd4a9f87d69509c9cedfb3);
+        
+
+        marker_aba558b79e5e4dafb7223f453ca1f49f.bindPopup(popup_fb9ca037fef847c79b2becf827b307ca)
+        ;
+
+        
+    
+    
+            var marker_5041e3b0dbbf4d5792f72630bff59ca0 = L.marker(
+                [26.192634, 127.729369],
+                {}
+            ).addTo(feature_group_sub_group_f4533de10d654b89b0e830a323b799d0);
+        
+    
+            var icon_8a2b1845840b44f890d9a592789eb407 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_5041e3b0dbbf4d5792f72630bff59ca0.setIcon(icon_8a2b1845840b44f890d9a592789eb407);
+        
+    
+        var popup_ba87558beb4243f8b0a41172e83d08eb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1a9d3a928b31428a99597bd385733ea6 = $(`<div id="html_1a9d3a928b31428a99597bd385733ea6" style="width: 100.0%; height: 100.0%;">date:04-04, age:20s, status:hospitalized</div>`)[0];
+            popup_ba87558beb4243f8b0a41172e83d08eb.setContent(html_1a9d3a928b31428a99597bd385733ea6);
+        
+
+        marker_5041e3b0dbbf4d5792f72630bff59ca0.bindPopup(popup_ba87558beb4243f8b0a41172e83d08eb)
+        ;
+
+        
+    
+    
+            var marker_98624c31790f41d2a9ce8a237810cf1b = L.marker(
+                [26.192634, 127.729369],
+                {}
+            ).addTo(feature_group_sub_group_f4533de10d654b89b0e830a323b799d0);
+        
+    
+            var icon_17e36dc25ab74f3ab1d186b01483cf78 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_98624c31790f41d2a9ce8a237810cf1b.setIcon(icon_17e36dc25ab74f3ab1d186b01483cf78);
+        
+    
+        var popup_03dd37f950664060818871e749977775 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_335366aaedb04769be2ed296ffba1f7d = $(`<div id="html_335366aaedb04769be2ed296ffba1f7d" style="width: 100.0%; height: 100.0%;">date:04-06, age:20s, status:discharged</div>`)[0];
+            popup_03dd37f950664060818871e749977775.setContent(html_335366aaedb04769be2ed296ffba1f7d);
+        
+
+        marker_98624c31790f41d2a9ce8a237810cf1b.bindPopup(popup_03dd37f950664060818871e749977775)
+        ;
+
+        
+    
+    
+            var marker_df7dbc4eec7e4ddf901b0e409d513508 = L.marker(
+                [26.192634, 127.729369],
+                {}
+            ).addTo(feature_group_sub_group_f4533de10d654b89b0e830a323b799d0);
+        
+    
+            var icon_8474d23787bd4ac1869f8ee428adee62 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_df7dbc4eec7e4ddf901b0e409d513508.setIcon(icon_8474d23787bd4ac1869f8ee428adee62);
+        
+    
+        var popup_31b11267e1b84fbdb737255b465c9e65 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ebe2b7fb4d1c4c1484680b9dc09cfebe = $(`<div id="html_ebe2b7fb4d1c4c1484680b9dc09cfebe" style="width: 100.0%; height: 100.0%;">date:04-06, age:20s, status:discharged</div>`)[0];
+            popup_31b11267e1b84fbdb737255b465c9e65.setContent(html_ebe2b7fb4d1c4c1484680b9dc09cfebe);
+        
+
+        marker_df7dbc4eec7e4ddf901b0e409d513508.bindPopup(popup_31b11267e1b84fbdb737255b465c9e65)
+        ;
+
+        
+    
+    
+            var marker_fe3149d9d8cf430f9e8a775bfc365ce4 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_f4533de10d654b89b0e830a323b799d0);
+        
+    
+            var icon_043b7cbe295e42228643f2ba3a57920d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_fe3149d9d8cf430f9e8a775bfc365ce4.setIcon(icon_043b7cbe295e42228643f2ba3a57920d);
+        
+    
+        var popup_c4d0762925da44acb4244eb69a6a9ed8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_68ae1041551840b78fa90a203413521d = $(`<div id="html_68ae1041551840b78fa90a203413521d" style="width: 100.0%; height: 100.0%;">date:04-06, age:20s, status:hospitalized</div>`)[0];
+            popup_c4d0762925da44acb4244eb69a6a9ed8.setContent(html_68ae1041551840b78fa90a203413521d);
+        
+
+        marker_fe3149d9d8cf430f9e8a775bfc365ce4.bindPopup(popup_c4d0762925da44acb4244eb69a6a9ed8)
+        ;
+
+        
+    
+    
+            var marker_c0e1a3dfde5a4f1caba728d8257b5487 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_f4533de10d654b89b0e830a323b799d0);
+        
+    
+            var icon_c9c1e70c3dd44ae39afc807da93cf32c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c0e1a3dfde5a4f1caba728d8257b5487.setIcon(icon_c9c1e70c3dd44ae39afc807da93cf32c);
+        
+    
+        var popup_b433e21f70314c9d8bfe8e566a0fc4bd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5ece8e7040574d5a80f515ffbb5eb007 = $(`<div id="html_5ece8e7040574d5a80f515ffbb5eb007" style="width: 100.0%; height: 100.0%;">date:04-07, age:20s, status:hospitalized</div>`)[0];
+            popup_b433e21f70314c9d8bfe8e566a0fc4bd.setContent(html_5ece8e7040574d5a80f515ffbb5eb007);
+        
+
+        marker_c0e1a3dfde5a4f1caba728d8257b5487.bindPopup(popup_b433e21f70314c9d8bfe8e566a0fc4bd)
+        ;
+
+        
+    
+    
+            var marker_b82f425b9ec74800a0cdc47084aa5650 = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_f4533de10d654b89b0e830a323b799d0);
+        
+    
+            var icon_dac771cc4d174e5bb28507138acc459a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_b82f425b9ec74800a0cdc47084aa5650.setIcon(icon_dac771cc4d174e5bb28507138acc459a);
+        
+    
+        var popup_24fec1f7fdc345619fc95683031b2097 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_65c556c2fedd407da69247fcf4b31dc8 = $(`<div id="html_65c556c2fedd407da69247fcf4b31dc8" style="width: 100.0%; height: 100.0%;">date:04-08, age:20s, status:hospitalized</div>`)[0];
+            popup_24fec1f7fdc345619fc95683031b2097.setContent(html_65c556c2fedd407da69247fcf4b31dc8);
+        
+
+        marker_b82f425b9ec74800a0cdc47084aa5650.bindPopup(popup_24fec1f7fdc345619fc95683031b2097)
+        ;
+
+        
+    
+    
+            var marker_13a3a0ca9553471cb5701bd997382662 = L.marker(
+                [26.192634, 127.729369],
+                {}
+            ).addTo(feature_group_sub_group_f4533de10d654b89b0e830a323b799d0);
+        
+    
+            var icon_88bd15ffbf914bbfa0874b17b22b7b2a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_13a3a0ca9553471cb5701bd997382662.setIcon(icon_88bd15ffbf914bbfa0874b17b22b7b2a);
+        
+    
+        var popup_b42208eb26de4b88b72df6de58b0fddc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_77fd4b6d47564c71b52e500bd69b564c = $(`<div id="html_77fd4b6d47564c71b52e500bd69b564c" style="width: 100.0%; height: 100.0%;">date:04-09, age:20s, status:hospitalized</div>`)[0];
+            popup_b42208eb26de4b88b72df6de58b0fddc.setContent(html_77fd4b6d47564c71b52e500bd69b564c);
+        
+
+        marker_13a3a0ca9553471cb5701bd997382662.bindPopup(popup_b42208eb26de4b88b72df6de58b0fddc)
+        ;
+
+        
+    
+    
+            var marker_ce833707a3204f66958a5b2fb0703af8 = L.marker(
+                [26.249754, 127.716591],
+                {}
+            ).addTo(feature_group_sub_group_f4533de10d654b89b0e830a323b799d0);
+        
+    
+            var icon_113b930c9d2e4cd885ac66ec83bdeb8d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_ce833707a3204f66958a5b2fb0703af8.setIcon(icon_113b930c9d2e4cd885ac66ec83bdeb8d);
+        
+    
+        var popup_6ddb4494f8ee43b4bebe428b1d7c02b9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_681250aab8f94dd896deb74d3f6940b9 = $(`<div id="html_681250aab8f94dd896deb74d3f6940b9" style="width: 100.0%; height: 100.0%;">date:04-09, age:20s, status:hospitalized</div>`)[0];
+            popup_6ddb4494f8ee43b4bebe428b1d7c02b9.setContent(html_681250aab8f94dd896deb74d3f6940b9);
+        
+
+        marker_ce833707a3204f66958a5b2fb0703af8.bindPopup(popup_6ddb4494f8ee43b4bebe428b1d7c02b9)
+        ;
+
+        
+    
+    
+            var marker_dce8c811e7794a1cae9b22242a3dc875 = L.marker(
+                [26.106017, 127.686066],
+                {}
+            ).addTo(feature_group_sub_group_f4533de10d654b89b0e830a323b799d0);
+        
+    
+            var icon_60c3bd67e2264044b34bd2a1de644fab = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_dce8c811e7794a1cae9b22242a3dc875.setIcon(icon_60c3bd67e2264044b34bd2a1de644fab);
+        
+    
+        var popup_8ad106f8930a4d4c9dc8f44a97e185f8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8b0b65b944894ed6bcedb6540be1bb00 = $(`<div id="html_8b0b65b944894ed6bcedb6540be1bb00" style="width: 100.0%; height: 100.0%;">date:04-11, age:20s, status:hospitalized</div>`)[0];
+            popup_8ad106f8930a4d4c9dc8f44a97e185f8.setContent(html_8b0b65b944894ed6bcedb6540be1bb00);
+        
+
+        marker_dce8c811e7794a1cae9b22242a3dc875.bindPopup(popup_8ad106f8930a4d4c9dc8f44a97e185f8)
+        ;
+
+        
+    
+    
+            var marker_9e512d680a4d48f483dc1ea041276151 = L.marker(
+                [26.192634, 127.729369],
+                {}
+            ).addTo(feature_group_sub_group_f4533de10d654b89b0e830a323b799d0);
+        
+    
+            var icon_0b986d921cfe4dbdb09eb5da5b947fcd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_9e512d680a4d48f483dc1ea041276151.setIcon(icon_0b986d921cfe4dbdb09eb5da5b947fcd);
+        
+    
+        var popup_a7d991d4d2be4429a83a275cfcd70583 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8917641e8e2c443cae3b0ebd0ad7b3cb = $(`<div id="html_8917641e8e2c443cae3b0ebd0ad7b3cb" style="width: 100.0%; height: 100.0%;">date:04-13, age:20s, status:hospitalized</div>`)[0];
+            popup_a7d991d4d2be4429a83a275cfcd70583.setContent(html_8917641e8e2c443cae3b0ebd0ad7b3cb);
+        
+
+        marker_9e512d680a4d48f483dc1ea041276151.bindPopup(popup_a7d991d4d2be4429a83a275cfcd70583)
+        ;
+
+        
+    
+    
+            var feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629 = L.featureGroup.subGroup(
+                marker_cluster_7ae2a19fb7ef42ea8efa4775b1ae0a33
+            );
+            feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629.addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+        
+    
+            var marker_7c7123cd73184666b9fdbec308b77715 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629);
+        
+    
+            var icon_535723ad52934aa8b1591c5170419ce3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_7c7123cd73184666b9fdbec308b77715.setIcon(icon_535723ad52934aa8b1591c5170419ce3);
+        
+    
+        var popup_f68250aaaab347e394ae74c9f145e90d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a928017f01c4453181d5ab687d231c9e = $(`<div id="html_a928017f01c4453181d5ab687d231c9e" style="width: 100.0%; height: 100.0%;">date:03-26, age:30s, status:hospitalized</div>`)[0];
+            popup_f68250aaaab347e394ae74c9f145e90d.setContent(html_a928017f01c4453181d5ab687d231c9e);
+        
+
+        marker_7c7123cd73184666b9fdbec308b77715.bindPopup(popup_f68250aaaab347e394ae74c9f145e90d)
+        ;
+
+        
+    
+    
+            var marker_3588612935f44b3fba9765c5577963a8 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629);
+        
+    
+            var icon_a362afb89b9e4b77a85cd04e88259794 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3588612935f44b3fba9765c5577963a8.setIcon(icon_a362afb89b9e4b77a85cd04e88259794);
+        
+    
+        var popup_f3425a4910194546b79ad69f42186de2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ac6a441312a74955aaa8d5644ddb5f79 = $(`<div id="html_ac6a441312a74955aaa8d5644ddb5f79" style="width: 100.0%; height: 100.0%;">date:03-28, age:30s, status:hospitalized</div>`)[0];
+            popup_f3425a4910194546b79ad69f42186de2.setContent(html_ac6a441312a74955aaa8d5644ddb5f79);
+        
+
+        marker_3588612935f44b3fba9765c5577963a8.bindPopup(popup_f3425a4910194546b79ad69f42186de2)
+        ;
+
+        
+    
+    
+            var marker_61e0ee3a060d498e9c77e0f1a8334fed = L.marker(
+                [35.6828387, 139.7594549],
+                {}
+            ).addTo(feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629);
+        
+    
+            var icon_7cbe1997600e42eaa9d565f09fc23762 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_61e0ee3a060d498e9c77e0f1a8334fed.setIcon(icon_7cbe1997600e42eaa9d565f09fc23762);
+        
+    
+        var popup_e414d4d9c1604ffd8d9e722e0cb66020 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_df278b239ac74fa8a5667913d1c950fc = $(`<div id="html_df278b239ac74fa8a5667913d1c950fc" style="width: 100.0%; height: 100.0%;">date:04-03, age:30s, status:hospitalized</div>`)[0];
+            popup_e414d4d9c1604ffd8d9e722e0cb66020.setContent(html_df278b239ac74fa8a5667913d1c950fc);
+        
+
+        marker_61e0ee3a060d498e9c77e0f1a8334fed.bindPopup(popup_e414d4d9c1604ffd8d9e722e0cb66020)
+        ;
+
+        
+    
+    
+            var marker_c132711b8b104391bdca70a6681d6b2b = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629);
+        
+    
+            var icon_d4f99b3cf025486594bb4809eab2d307 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c132711b8b104391bdca70a6681d6b2b.setIcon(icon_d4f99b3cf025486594bb4809eab2d307);
+        
+    
+        var popup_b595cebde2604b3cae5cefaf9961046b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1e009b0c1d8a461681c14f1cdd1d0ac2 = $(`<div id="html_1e009b0c1d8a461681c14f1cdd1d0ac2" style="width: 100.0%; height: 100.0%;">date:04-04, age:30s, status:hospitalized</div>`)[0];
+            popup_b595cebde2604b3cae5cefaf9961046b.setContent(html_1e009b0c1d8a461681c14f1cdd1d0ac2);
+        
+
+        marker_c132711b8b104391bdca70a6681d6b2b.bindPopup(popup_b595cebde2604b3cae5cefaf9961046b)
+        ;
+
+        
+    
+    
+            var marker_d7b78408b3574ed5b6522e262a28a0eb = L.marker(
+                [35.6828387, 139.7594549],
+                {}
+            ).addTo(feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629);
+        
+    
+            var icon_56366643980a4ac3b19b35043221f298 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_d7b78408b3574ed5b6522e262a28a0eb.setIcon(icon_56366643980a4ac3b19b35043221f298);
+        
+    
+        var popup_8d31adb84a0642e3952226cc6677d0d5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fe1ca9ebefbd4eb6b0c26c697110fa80 = $(`<div id="html_fe1ca9ebefbd4eb6b0c26c697110fa80" style="width: 100.0%; height: 100.0%;">date:04-07, age:30s, status:hospitalized</div>`)[0];
+            popup_8d31adb84a0642e3952226cc6677d0d5.setContent(html_fe1ca9ebefbd4eb6b0c26c697110fa80);
+        
+
+        marker_d7b78408b3574ed5b6522e262a28a0eb.bindPopup(popup_8d31adb84a0642e3952226cc6677d0d5)
+        ;
+
+        
+    
+    
+            var marker_671a19b7878e43ec99a2d5993052fab8 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629);
+        
+    
+            var icon_010f1adff7424d9d85926523cc4f58a6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_671a19b7878e43ec99a2d5993052fab8.setIcon(icon_010f1adff7424d9d85926523cc4f58a6);
+        
+    
+        var popup_f5159c8de89040028dee9bc08bcae2b8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ffeaff16a8814cb383c7fe400f124bb0 = $(`<div id="html_ffeaff16a8814cb383c7fe400f124bb0" style="width: 100.0%; height: 100.0%;">date:04-08, age:30s, status:hospitalized</div>`)[0];
+            popup_f5159c8de89040028dee9bc08bcae2b8.setContent(html_ffeaff16a8814cb383c7fe400f124bb0);
+        
+
+        marker_671a19b7878e43ec99a2d5993052fab8.bindPopup(popup_f5159c8de89040028dee9bc08bcae2b8)
+        ;
+
+        
+    
+    
+            var marker_5998472e955d453e922316ade699cc49 = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629);
+        
+    
+            var icon_d72780a1dcdd45098d720346baa895f1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_5998472e955d453e922316ade699cc49.setIcon(icon_d72780a1dcdd45098d720346baa895f1);
+        
+    
+        var popup_97fabab0f87d4f3cbda67f575ade88cb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_70f9b1bb61fe4f9eaf02714a1f1d5498 = $(`<div id="html_70f9b1bb61fe4f9eaf02714a1f1d5498" style="width: 100.0%; height: 100.0%;">date:04-08, age:30s, status:hospitalized</div>`)[0];
+            popup_97fabab0f87d4f3cbda67f575ade88cb.setContent(html_70f9b1bb61fe4f9eaf02714a1f1d5498);
+        
+
+        marker_5998472e955d453e922316ade699cc49.bindPopup(popup_97fabab0f87d4f3cbda67f575ade88cb)
+        ;
+
+        
+    
+    
+            var marker_24179b059f794ebc8b56624a276bf283 = L.marker(
+                [35.6828387, 139.7594549],
+                {}
+            ).addTo(feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629);
+        
+    
+            var icon_9366ae7a414c4c11b112ee012e4fbc97 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_24179b059f794ebc8b56624a276bf283.setIcon(icon_9366ae7a414c4c11b112ee012e4fbc97);
+        
+    
+        var popup_4a331a4897394f9191c4f83758f8e834 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c4db6c40455045ecb582accadac71245 = $(`<div id="html_c4db6c40455045ecb582accadac71245" style="width: 100.0%; height: 100.0%;">date:04-11, age:30s, status:being arranged</div>`)[0];
+            popup_4a331a4897394f9191c4f83758f8e834.setContent(html_c4db6c40455045ecb582accadac71245);
+        
+
+        marker_24179b059f794ebc8b56624a276bf283.bindPopup(popup_4a331a4897394f9191c4f83758f8e834)
+        ;
+
+        
+    
+    
+            var marker_12205510343f489aa1f0af26578c35cd = L.marker(
+                [26.5914524, 127.9773062],
+                {}
+            ).addTo(feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629);
+        
+    
+            var icon_750c62e4160a49dba6073acaf09226f4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_12205510343f489aa1f0af26578c35cd.setIcon(icon_750c62e4160a49dba6073acaf09226f4);
+        
+    
+        var popup_560fc34ae2f34245a2d331e9c94583dd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2056b7be6d7d488ab9f621708ab55834 = $(`<div id="html_2056b7be6d7d488ab9f621708ab55834" style="width: 100.0%; height: 100.0%;">date:04-12, age:30s, status:hospitalized</div>`)[0];
+            popup_560fc34ae2f34245a2d331e9c94583dd.setContent(html_2056b7be6d7d488ab9f621708ab55834);
+        
+
+        marker_12205510343f489aa1f0af26578c35cd.bindPopup(popup_560fc34ae2f34245a2d331e9c94583dd)
+        ;
+
+        
+    
+    
+            var marker_202976872c444165af9bcf39a0d1f485 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629);
+        
+    
+            var icon_5b906bbf99214a189ae973fa1a6e8207 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_202976872c444165af9bcf39a0d1f485.setIcon(icon_5b906bbf99214a189ae973fa1a6e8207);
+        
+    
+        var popup_76836275cf524d0482f4e114420407c3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d2500f8d5ab541558293cfcb9094a37e = $(`<div id="html_d2500f8d5ab541558293cfcb9094a37e" style="width: 100.0%; height: 100.0%;">date:04-13, age:30s, status:hospitalized</div>`)[0];
+            popup_76836275cf524d0482f4e114420407c3.setContent(html_d2500f8d5ab541558293cfcb9094a37e);
+        
+
+        marker_202976872c444165af9bcf39a0d1f485.bindPopup(popup_76836275cf524d0482f4e114420407c3)
+        ;
+
+        
+    
+    
+            var marker_e68f0df041024050ac5fe2c323a1c19f = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629);
+        
+    
+            var icon_fefcb0f6cf074856a83f3b66194a6282 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e68f0df041024050ac5fe2c323a1c19f.setIcon(icon_fefcb0f6cf074856a83f3b66194a6282);
+        
+    
+        var popup_5418afae6445420da94ead509b58c67a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_daaa6585ecf24e39adb6e449ca3995d3 = $(`<div id="html_daaa6585ecf24e39adb6e449ca3995d3" style="width: 100.0%; height: 100.0%;">date:04-14, age:30s, status:being arranged</div>`)[0];
+            popup_5418afae6445420da94ead509b58c67a.setContent(html_daaa6585ecf24e39adb6e449ca3995d3);
+        
+
+        marker_e68f0df041024050ac5fe2c323a1c19f.bindPopup(popup_5418afae6445420da94ead509b58c67a)
+        ;
+
+        
+    
+    
+            var feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d = L.featureGroup.subGroup(
+                marker_cluster_7ae2a19fb7ef42ea8efa4775b1ae0a33
+            );
+            feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d.addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+        
+    
+            var marker_736a6e02aae84e6281e8b751ec07d660 = L.marker(
+                [35.6828387, 139.7594549],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_0e9b3ea892a24975b1b7c082fb35fba1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_736a6e02aae84e6281e8b751ec07d660.setIcon(icon_0e9b3ea892a24975b1b7c082fb35fba1);
+        
+    
+        var popup_b0d775c0279d4704859bf6ffb750ad86 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a99115bd0a2f40d1928e0ddea0f899e7 = $(`<div id="html_a99115bd0a2f40d1928e0ddea0f899e7" style="width: 100.0%; height: 100.0%;">date:03-24, age:40s, status:hospitalized</div>`)[0];
+            popup_b0d775c0279d4704859bf6ffb750ad86.setContent(html_a99115bd0a2f40d1928e0ddea0f899e7);
+        
+
+        marker_736a6e02aae84e6281e8b751ec07d660.bindPopup(popup_b0d775c0279d4704859bf6ffb750ad86)
+        ;
+
+        
+    
+    
+            var marker_0f8e3554612741229a8a28e6ea75a655 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_82fd1fbda4fd49e2aa53d0709bd67d0b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_0f8e3554612741229a8a28e6ea75a655.setIcon(icon_82fd1fbda4fd49e2aa53d0709bd67d0b);
+        
+    
+        var popup_db4d0f53e0f24a4285d9a5a42e611fc7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bd54ef2c08f0418a814d2ce3ed3cb4ce = $(`<div id="html_bd54ef2c08f0418a814d2ce3ed3cb4ce" style="width: 100.0%; height: 100.0%;">date:03-30, age:40s, status:hospitalized</div>`)[0];
+            popup_db4d0f53e0f24a4285d9a5a42e611fc7.setContent(html_bd54ef2c08f0418a814d2ce3ed3cb4ce);
+        
+
+        marker_0f8e3554612741229a8a28e6ea75a655.bindPopup(popup_db4d0f53e0f24a4285d9a5a42e611fc7)
+        ;
+
+        
+    
+    
+            var marker_95c98fa6ba80406d8367db59784f9eec = L.marker(
+                [26.2815839, 127.7785754],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_a080373d186341d59973e439bfa93758 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_95c98fa6ba80406d8367db59784f9eec.setIcon(icon_a080373d186341d59973e439bfa93758);
+        
+    
+        var popup_56b406b1e60446a3b98b50c9e21a9af9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_01155de2a6e94dae8c7f133f282b8026 = $(`<div id="html_01155de2a6e94dae8c7f133f282b8026" style="width: 100.0%; height: 100.0%;">date:04-04, age:40s, status:hospitalized</div>`)[0];
+            popup_56b406b1e60446a3b98b50c9e21a9af9.setContent(html_01155de2a6e94dae8c7f133f282b8026);
+        
+
+        marker_95c98fa6ba80406d8367db59784f9eec.bindPopup(popup_56b406b1e60446a3b98b50c9e21a9af9)
+        ;
+
+        
+    
+    
+            var marker_90a3006e1ff1499c9b61e894c52a7ffb = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_02c917cba47e4ae89424d838a2ec55ca = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_90a3006e1ff1499c9b61e894c52a7ffb.setIcon(icon_02c917cba47e4ae89424d838a2ec55ca);
+        
+    
+        var popup_a9acc71fe0d94ef2864062b135d279de = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2017be27fe6e42b08467b2611834bd5f = $(`<div id="html_2017be27fe6e42b08467b2611834bd5f" style="width: 100.0%; height: 100.0%;">date:04-07, age:40s, status:hospitalized</div>`)[0];
+            popup_a9acc71fe0d94ef2864062b135d279de.setContent(html_2017be27fe6e42b08467b2611834bd5f);
+        
+
+        marker_90a3006e1ff1499c9b61e894c52a7ffb.bindPopup(popup_a9acc71fe0d94ef2864062b135d279de)
+        ;
+
+        
+    
+    
+            var marker_6b3a302c9a534740b69fc6ad2e15b05d = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_d7e933bf69af472b9b64924e9eee0c23 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6b3a302c9a534740b69fc6ad2e15b05d.setIcon(icon_d7e933bf69af472b9b64924e9eee0c23);
+        
+    
+        var popup_06e6aa3ddfa34f7a9be910a3479baf8d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_df0bd698fe6d4dc29d87698db2d77c2e = $(`<div id="html_df0bd698fe6d4dc29d87698db2d77c2e" style="width: 100.0%; height: 100.0%;">date:04-07, age:40s, status:hospitalized</div>`)[0];
+            popup_06e6aa3ddfa34f7a9be910a3479baf8d.setContent(html_df0bd698fe6d4dc29d87698db2d77c2e);
+        
+
+        marker_6b3a302c9a534740b69fc6ad2e15b05d.bindPopup(popup_06e6aa3ddfa34f7a9be910a3479baf8d)
+        ;
+
+        
+    
+    
+            var marker_b4d62a203efa48f3b612996dfacbf287 = L.marker(
+                [26.2815839, 127.7785754],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_0d91ef2ab1f3419787ae6c84826fa2eb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_b4d62a203efa48f3b612996dfacbf287.setIcon(icon_0d91ef2ab1f3419787ae6c84826fa2eb);
+        
+    
+        var popup_28e2b9f2bbc8454893f4ae5e594516e7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ea945712b3874203b74496013406a346 = $(`<div id="html_ea945712b3874203b74496013406a346" style="width: 100.0%; height: 100.0%;">date:04-07, age:40s, status:hospitalized</div>`)[0];
+            popup_28e2b9f2bbc8454893f4ae5e594516e7.setContent(html_ea945712b3874203b74496013406a346);
+        
+
+        marker_b4d62a203efa48f3b612996dfacbf287.bindPopup(popup_28e2b9f2bbc8454893f4ae5e594516e7)
+        ;
+
+        
+    
+    
+            var marker_3acab99d755c420aa21a69944178d5c6 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_22b2e5cd5f1345dcadf8eae0c258ccda = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3acab99d755c420aa21a69944178d5c6.setIcon(icon_22b2e5cd5f1345dcadf8eae0c258ccda);
+        
+    
+        var popup_c57b0748a2334c6bae6dec4cd985f2ab = L.popup({"maxWidth": "100%"});
+
+        
+            var html_90657089493d408294f3c2284602dff1 = $(`<div id="html_90657089493d408294f3c2284602dff1" style="width: 100.0%; height: 100.0%;">date:04-07, age:40s, status:hospitalized</div>`)[0];
+            popup_c57b0748a2334c6bae6dec4cd985f2ab.setContent(html_90657089493d408294f3c2284602dff1);
+        
+
+        marker_3acab99d755c420aa21a69944178d5c6.bindPopup(popup_c57b0748a2334c6bae6dec4cd985f2ab)
+        ;
+
+        
+    
+    
+            var marker_7ed932f2bc6a4bd4a20b9c112700f80f = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_851787011e0a4e8892de800e4729a4a1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_7ed932f2bc6a4bd4a20b9c112700f80f.setIcon(icon_851787011e0a4e8892de800e4729a4a1);
+        
+    
+        var popup_3abc39595c76473392334a7f0223c252 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2f7780b29e604514be7b69a382643d17 = $(`<div id="html_2f7780b29e604514be7b69a382643d17" style="width: 100.0%; height: 100.0%;">date:04-10, age:40s, status:hospitalized</div>`)[0];
+            popup_3abc39595c76473392334a7f0223c252.setContent(html_2f7780b29e604514be7b69a382643d17);
+        
+
+        marker_7ed932f2bc6a4bd4a20b9c112700f80f.bindPopup(popup_3abc39595c76473392334a7f0223c252)
+        ;
+
+        
+    
+    
+            var marker_f0f5765463bc4c64843822ea78a31aeb = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_8c266c7a5c594ede9741d1053ea69c4a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_f0f5765463bc4c64843822ea78a31aeb.setIcon(icon_8c266c7a5c594ede9741d1053ea69c4a);
+        
+    
+        var popup_ecfb1b5651f4457b9a33b4d2cd280137 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2cff7770fd8448fe801e39db2e88ca9b = $(`<div id="html_2cff7770fd8448fe801e39db2e88ca9b" style="width: 100.0%; height: 100.0%;">date:04-10, age:40s, status:hospitalized</div>`)[0];
+            popup_ecfb1b5651f4457b9a33b4d2cd280137.setContent(html_2cff7770fd8448fe801e39db2e88ca9b);
+        
+
+        marker_f0f5765463bc4c64843822ea78a31aeb.bindPopup(popup_ecfb1b5651f4457b9a33b4d2cd280137)
+        ;
+
+        
+    
+    
+            var marker_e46240d45c994fe1bf7a32c0664adab9 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_15e863d15952486daf35bf3920ab4015 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e46240d45c994fe1bf7a32c0664adab9.setIcon(icon_15e863d15952486daf35bf3920ab4015);
+        
+    
+        var popup_ffded436a4fa492085b832e9b804ab63 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_720244dd3d2746d09e6309f030be8b70 = $(`<div id="html_720244dd3d2746d09e6309f030be8b70" style="width: 100.0%; height: 100.0%;">date:04-12, age:40s, status:hospitalized</div>`)[0];
+            popup_ffded436a4fa492085b832e9b804ab63.setContent(html_720244dd3d2746d09e6309f030be8b70);
+        
+
+        marker_e46240d45c994fe1bf7a32c0664adab9.bindPopup(popup_ffded436a4fa492085b832e9b804ab63)
+        ;
+
+        
+    
+    
+            var marker_4c46b05f38524e7aacca7e69adfd06cc = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_1d43895c84574660a98a9b3c408275d8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_4c46b05f38524e7aacca7e69adfd06cc.setIcon(icon_1d43895c84574660a98a9b3c408275d8);
+        
+    
+        var popup_033938fe608b4cddbe9e531a4a07c0d8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cb0460aa7e474def862f4686b4001ad8 = $(`<div id="html_cb0460aa7e474def862f4686b4001ad8" style="width: 100.0%; height: 100.0%;">date:04-12, age:40s, status:hospitalized</div>`)[0];
+            popup_033938fe608b4cddbe9e531a4a07c0d8.setContent(html_cb0460aa7e474def862f4686b4001ad8);
+        
+
+        marker_4c46b05f38524e7aacca7e69adfd06cc.bindPopup(popup_033938fe608b4cddbe9e531a4a07c0d8)
+        ;
+
+        
+    
+    
+            var marker_352ec350742e44a6984516704139acbc = L.marker(
+                [26.249754, 127.716591],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_7e40a8dc34004d07b836ab4034868da0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_352ec350742e44a6984516704139acbc.setIcon(icon_7e40a8dc34004d07b836ab4034868da0);
+        
+    
+        var popup_5cb169a614cf47f490ed4817da0cf589 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c428606accc14c4eb62de1917d67ff36 = $(`<div id="html_c428606accc14c4eb62de1917d67ff36" style="width: 100.0%; height: 100.0%;">date:04-13, age:40s, status:hospitalized</div>`)[0];
+            popup_5cb169a614cf47f490ed4817da0cf589.setContent(html_c428606accc14c4eb62de1917d67ff36);
+        
+
+        marker_352ec350742e44a6984516704139acbc.bindPopup(popup_5cb169a614cf47f490ed4817da0cf589)
+        ;
+
+        
+    
+    
+            var marker_1dacec4703b74e23aa4b918145a3d7b9 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_938d34e93d9d4a1fae58c60869aa0c57 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_1dacec4703b74e23aa4b918145a3d7b9.setIcon(icon_938d34e93d9d4a1fae58c60869aa0c57);
+        
+    
+        var popup_e4d253a3a0af40638442625a2811e867 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6a77794a6df84df3a59a841c268780b2 = $(`<div id="html_6a77794a6df84df3a59a841c268780b2" style="width: 100.0%; height: 100.0%;">date:04-13, age:40s, status:hospitalized</div>`)[0];
+            popup_e4d253a3a0af40638442625a2811e867.setContent(html_6a77794a6df84df3a59a841c268780b2);
+        
+
+        marker_1dacec4703b74e23aa4b918145a3d7b9.bindPopup(popup_e4d253a3a0af40638442625a2811e867)
+        ;
+
+        
+    
+    
+            var marker_2b7964a74766431b82b9eb18969fccd3 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_c1d3225d768e4fe98e72e944ff220127 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_2b7964a74766431b82b9eb18969fccd3.setIcon(icon_c1d3225d768e4fe98e72e944ff220127);
+        
+    
+        var popup_a47053a42d7a4c768fa69ae9272f675d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c661bd511d1044f5a656cd25851082c8 = $(`<div id="html_c661bd511d1044f5a656cd25851082c8" style="width: 100.0%; height: 100.0%;">date:04-14, age:40s, status:being arranged</div>`)[0];
+            popup_a47053a42d7a4c768fa69ae9272f675d.setContent(html_c661bd511d1044f5a656cd25851082c8);
+        
+
+        marker_2b7964a74766431b82b9eb18969fccd3.bindPopup(popup_a47053a42d7a4c768fa69ae9272f675d)
+        ;
+
+        
+    
+    
+            var marker_083cd28bdc1d4dddb8cb3d4d1f302663 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_4ae2c7ad6aec45f38f78dc33e49a891f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_083cd28bdc1d4dddb8cb3d4d1f302663.setIcon(icon_4ae2c7ad6aec45f38f78dc33e49a891f);
+        
+    
+        var popup_a86c1e9a63bf4eca8dfce2552d1217e4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b8cfaa229afb4c2a8a374b556949f74a = $(`<div id="html_b8cfaa229afb4c2a8a374b556949f74a" style="width: 100.0%; height: 100.0%;">date:04-15, age:40s, status:being arranged</div>`)[0];
+            popup_a86c1e9a63bf4eca8dfce2552d1217e4.setContent(html_b8cfaa229afb4c2a8a374b556949f74a);
+        
+
+        marker_083cd28bdc1d4dddb8cb3d4d1f302663.bindPopup(popup_a86c1e9a63bf4eca8dfce2552d1217e4)
+        ;
+
+        
+    
+    
+            var marker_22031c1dbbc74d1ab345d0f95372640e = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d);
+        
+    
+            var icon_fa10684aed3940709a12bd0e6b4a0f22 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_22031c1dbbc74d1ab345d0f95372640e.setIcon(icon_fa10684aed3940709a12bd0e6b4a0f22);
+        
+    
+        var popup_2f3ac0382063466f92d45f82fa1017df = L.popup({"maxWidth": "100%"});
+
+        
+            var html_13103e403c60471a90740bd062aadedb = $(`<div id="html_13103e403c60471a90740bd062aadedb" style="width: 100.0%; height: 100.0%;">date:04-15, age:40s, status:being arranged</div>`)[0];
+            popup_2f3ac0382063466f92d45f82fa1017df.setContent(html_13103e403c60471a90740bd062aadedb);
+        
+
+        marker_22031c1dbbc74d1ab345d0f95372640e.bindPopup(popup_2f3ac0382063466f92d45f82fa1017df)
+        ;
+
+        
+    
+    
+            var feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3 = L.featureGroup.subGroup(
+                marker_cluster_7ae2a19fb7ef42ea8efa4775b1ae0a33
+            );
+            feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3.addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+        
+    
+            var marker_6693ac2d22a14991bd9f43261e06e3c2 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_56fb685bfa764a718e8d33f51056ffad = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_6693ac2d22a14991bd9f43261e06e3c2.setIcon(icon_56fb685bfa764a718e8d33f51056ffad);
+        
+    
+        var popup_36f2d0a9a8174622b4fc0ef70bdacb2f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_dcad2ba66e7847b4a136fd9d704359df = $(`<div id="html_dcad2ba66e7847b4a136fd9d704359df" style="width: 100.0%; height: 100.0%;">date:04-04, age:50s, status:hospitalized</div>`)[0];
+            popup_36f2d0a9a8174622b4fc0ef70bdacb2f.setContent(html_dcad2ba66e7847b4a136fd9d704359df);
+        
+
+        marker_6693ac2d22a14991bd9f43261e06e3c2.bindPopup(popup_36f2d0a9a8174622b4fc0ef70bdacb2f)
+        ;
+
+        
+    
+    
+            var marker_5f5c1dcea0df486794d1d2871d2f2a84 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_851220be5821403a8e143743eaabdf93 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_5f5c1dcea0df486794d1d2871d2f2a84.setIcon(icon_851220be5821403a8e143743eaabdf93);
+        
+    
+        var popup_f5ca6578a1974b4fa1cc3cddb067392d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fe27b371befc44b7a5a13b9165854596 = $(`<div id="html_fe27b371befc44b7a5a13b9165854596" style="width: 100.0%; height: 100.0%;">date:04-06, age:50s, status:hospitalized</div>`)[0];
+            popup_f5ca6578a1974b4fa1cc3cddb067392d.setContent(html_fe27b371befc44b7a5a13b9165854596);
+        
+
+        marker_5f5c1dcea0df486794d1d2871d2f2a84.bindPopup(popup_f5ca6578a1974b4fa1cc3cddb067392d)
+        ;
+
+        
+    
+    
+            var marker_66fbd63cb17d473bb6233cad828b84cd = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_1adc3fc971a040a889bac7166cded220 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_66fbd63cb17d473bb6233cad828b84cd.setIcon(icon_1adc3fc971a040a889bac7166cded220);
+        
+    
+        var popup_efdf3a1e523041a7a28c34a862aa3658 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4bdecac8475f47999e55231fea52f08d = $(`<div id="html_4bdecac8475f47999e55231fea52f08d" style="width: 100.0%; height: 100.0%;">date:04-06, age:50s, status:hospitalized</div>`)[0];
+            popup_efdf3a1e523041a7a28c34a862aa3658.setContent(html_4bdecac8475f47999e55231fea52f08d);
+        
+
+        marker_66fbd63cb17d473bb6233cad828b84cd.bindPopup(popup_efdf3a1e523041a7a28c34a862aa3658)
+        ;
+
+        
+    
+    
+            var marker_1a6c31f9333b4a27a719f91ecf1d3510 = L.marker(
+                [26.249754, 127.716591],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_d77e02ea750b4c209c1d30c567e3a593 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_1a6c31f9333b4a27a719f91ecf1d3510.setIcon(icon_d77e02ea750b4c209c1d30c567e3a593);
+        
+    
+        var popup_83d545885058410ebfa791a28e5e9a95 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4ddda0fba5ab4cdfbd07de1369ff3f1e = $(`<div id="html_4ddda0fba5ab4cdfbd07de1369ff3f1e" style="width: 100.0%; height: 100.0%;">date:04-07, age:50s, status:hospitalized</div>`)[0];
+            popup_83d545885058410ebfa791a28e5e9a95.setContent(html_4ddda0fba5ab4cdfbd07de1369ff3f1e);
+        
+
+        marker_1a6c31f9333b4a27a719f91ecf1d3510.bindPopup(popup_83d545885058410ebfa791a28e5e9a95)
+        ;
+
+        
+    
+    
+            var marker_d466335321e4436dba79d5d6da069a06 = L.marker(
+                [24.366098, 124.163499],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_47ccb92a0f924d92970b15ac1317416b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_d466335321e4436dba79d5d6da069a06.setIcon(icon_47ccb92a0f924d92970b15ac1317416b);
+        
+    
+        var popup_fa83e21fb548419c88db4091a99022d2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_625ea7f3a46947c599a38e8623865c7b = $(`<div id="html_625ea7f3a46947c599a38e8623865c7b" style="width: 100.0%; height: 100.0%;">date:04-07, age:50s, status:hospitalized</div>`)[0];
+            popup_fa83e21fb548419c88db4091a99022d2.setContent(html_625ea7f3a46947c599a38e8623865c7b);
+        
+
+        marker_d466335321e4436dba79d5d6da069a06.bindPopup(popup_fa83e21fb548419c88db4091a99022d2)
+        ;
+
+        
+    
+    
+            var marker_e4662db4b80b4c3aaaf77bd6bc07029c = L.marker(
+                [26.192634, 127.729369],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_0d0635667e6a4b6398a3ba8ad0543d93 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e4662db4b80b4c3aaaf77bd6bc07029c.setIcon(icon_0d0635667e6a4b6398a3ba8ad0543d93);
+        
+    
+        var popup_cab983074818409a870dfa01d842cb9f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cefa30401455477f9f9a056b85d21a2e = $(`<div id="html_cefa30401455477f9f9a056b85d21a2e" style="width: 100.0%; height: 100.0%;">date:04-07, age:50s, status:discharged</div>`)[0];
+            popup_cab983074818409a870dfa01d842cb9f.setContent(html_cefa30401455477f9f9a056b85d21a2e);
+        
+
+        marker_e4662db4b80b4c3aaaf77bd6bc07029c.bindPopup(popup_cab983074818409a870dfa01d842cb9f)
+        ;
+
+        
+    
+    
+            var marker_ce3156d21a19401e97d5c7211b6b8a95 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_04cb8494cb2040d8be1fb5d5899efeae = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_ce3156d21a19401e97d5c7211b6b8a95.setIcon(icon_04cb8494cb2040d8be1fb5d5899efeae);
+        
+    
+        var popup_17aea8f83b2c4420b6de955eaf1a512f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b194763c181841fd9ae2b8ada2368fbb = $(`<div id="html_b194763c181841fd9ae2b8ada2368fbb" style="width: 100.0%; height: 100.0%;">date:04-07, age:50s, status:hospitalized</div>`)[0];
+            popup_17aea8f83b2c4420b6de955eaf1a512f.setContent(html_b194763c181841fd9ae2b8ada2368fbb);
+        
+
+        marker_ce3156d21a19401e97d5c7211b6b8a95.bindPopup(popup_17aea8f83b2c4420b6de955eaf1a512f)
+        ;
+
+        
+    
+    
+            var marker_2534d3b843ed4d03a3c4079efac0890d = L.marker(
+                [26.1772381, 127.6863791],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_63ced2e8b7b94fef9bce853f08842724 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_2534d3b843ed4d03a3c4079efac0890d.setIcon(icon_63ced2e8b7b94fef9bce853f08842724);
+        
+    
+        var popup_3d9f8fc5a08e4446bb7b5e53494246ed = L.popup({"maxWidth": "100%"});
+
+        
+            var html_02546c1ccaca44cc96bf59c76bc7d9d1 = $(`<div id="html_02546c1ccaca44cc96bf59c76bc7d9d1" style="width: 100.0%; height: 100.0%;">date:04-08, age:50s, status:hospitalized</div>`)[0];
+            popup_3d9f8fc5a08e4446bb7b5e53494246ed.setContent(html_02546c1ccaca44cc96bf59c76bc7d9d1);
+        
+
+        marker_2534d3b843ed4d03a3c4079efac0890d.bindPopup(popup_3d9f8fc5a08e4446bb7b5e53494246ed)
+        ;
+
+        
+    
+    
+            var marker_52a43171d2844dc5ae54f3f0a32039e0 = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_ef9d9eacf4d84c838ce6f83c12766e8e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_52a43171d2844dc5ae54f3f0a32039e0.setIcon(icon_ef9d9eacf4d84c838ce6f83c12766e8e);
+        
+    
+        var popup_a36d75b50a2c403a8f142dabdef9a191 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4a68af6018a44b36aa48a9364d5d7213 = $(`<div id="html_4a68af6018a44b36aa48a9364d5d7213" style="width: 100.0%; height: 100.0%;">date:04-08, age:50s, status:hospitalized</div>`)[0];
+            popup_a36d75b50a2c403a8f142dabdef9a191.setContent(html_4a68af6018a44b36aa48a9364d5d7213);
+        
+
+        marker_52a43171d2844dc5ae54f3f0a32039e0.bindPopup(popup_a36d75b50a2c403a8f142dabdef9a191)
+        ;
+
+        
+    
+    
+            var marker_896b22a2cabe4905a13953770ffc6bb1 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_da4cfbef6c1748598d3516df16c40e74 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_896b22a2cabe4905a13953770ffc6bb1.setIcon(icon_da4cfbef6c1748598d3516df16c40e74);
+        
+    
+        var popup_fccf30553a194a5c976933c2130aadd1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fb26966f198a4b66afdbefc22eb38438 = $(`<div id="html_fb26966f198a4b66afdbefc22eb38438" style="width: 100.0%; height: 100.0%;">date:04-10, age:50s, status:hospitalized</div>`)[0];
+            popup_fccf30553a194a5c976933c2130aadd1.setContent(html_fb26966f198a4b66afdbefc22eb38438);
+        
+
+        marker_896b22a2cabe4905a13953770ffc6bb1.bindPopup(popup_fccf30553a194a5c976933c2130aadd1)
+        ;
+
+        
+    
+    
+            var marker_3a8f3801b3984cd7be545b3b9c13dc27 = L.marker(
+                [26.1772381, 127.6863791],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_243f05debe804381a649a2c3c9463838 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3a8f3801b3984cd7be545b3b9c13dc27.setIcon(icon_243f05debe804381a649a2c3c9463838);
+        
+    
+        var popup_5226a4a7018147cd9a55196a44667f19 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4d944b9987534493a0555015c1b2d004 = $(`<div id="html_4d944b9987534493a0555015c1b2d004" style="width: 100.0%; height: 100.0%;">date:04-11, age:50s, status:hospitalized</div>`)[0];
+            popup_5226a4a7018147cd9a55196a44667f19.setContent(html_4d944b9987534493a0555015c1b2d004);
+        
+
+        marker_3a8f3801b3984cd7be545b3b9c13dc27.bindPopup(popup_5226a4a7018147cd9a55196a44667f19)
+        ;
+
+        
+    
+    
+            var marker_2f0a9b8178234b1bbc700a8e612fe927 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_745ea427e7f94a69bae2e00fff877778 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_2f0a9b8178234b1bbc700a8e612fe927.setIcon(icon_745ea427e7f94a69bae2e00fff877778);
+        
+    
+        var popup_36f2284a22914050847f63b1ae95fca0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b9cf0cb9dce34c1ab2b1eb14e2bd7fa9 = $(`<div id="html_b9cf0cb9dce34c1ab2b1eb14e2bd7fa9" style="width: 100.0%; height: 100.0%;">date:04-13, age:50s, status:hospitalized</div>`)[0];
+            popup_36f2284a22914050847f63b1ae95fca0.setContent(html_b9cf0cb9dce34c1ab2b1eb14e2bd7fa9);
+        
+
+        marker_2f0a9b8178234b1bbc700a8e612fe927.bindPopup(popup_36f2284a22914050847f63b1ae95fca0)
+        ;
+
+        
+    
+    
+            var marker_8bc62d4c1b2e4934a3be7f3598fc1924 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_7100d6fca70343ea967a3f1170640bc1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_8bc62d4c1b2e4934a3be7f3598fc1924.setIcon(icon_7100d6fca70343ea967a3f1170640bc1);
+        
+    
+        var popup_447e52cba72b497c9755786fec422cdc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_995be5fcf7f64c8c95b17bfbd723cbc9 = $(`<div id="html_995be5fcf7f64c8c95b17bfbd723cbc9" style="width: 100.0%; height: 100.0%;">date:04-15, age:50s, status:hospitalized</div>`)[0];
+            popup_447e52cba72b497c9755786fec422cdc.setContent(html_995be5fcf7f64c8c95b17bfbd723cbc9);
+        
+
+        marker_8bc62d4c1b2e4934a3be7f3598fc1924.bindPopup(popup_447e52cba72b497c9755786fec422cdc)
+        ;
+
+        
+    
+    
+            var marker_5aacf11a6a344feb9b8b15d44bf49f9a = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3);
+        
+    
+            var icon_e27fff8bccb042998297b34b8394bcc7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_5aacf11a6a344feb9b8b15d44bf49f9a.setIcon(icon_e27fff8bccb042998297b34b8394bcc7);
+        
+    
+        var popup_e68fb156748c436ca40ef856d6331930 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e9913a31ea804e1995f60a0873737a00 = $(`<div id="html_e9913a31ea804e1995f60a0873737a00" style="width: 100.0%; height: 100.0%;">date:04-15, age:50s, status:being arranged</div>`)[0];
+            popup_e68fb156748c436ca40ef856d6331930.setContent(html_e9913a31ea804e1995f60a0873737a00);
+        
+
+        marker_5aacf11a6a344feb9b8b15d44bf49f9a.bindPopup(popup_e68fb156748c436ca40ef856d6331930)
+        ;
+
+        
+    
+    
+            var feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab = L.featureGroup.subGroup(
+                marker_cluster_7ae2a19fb7ef42ea8efa4775b1ae0a33
+            );
+            feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab.addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+        
+    
+            var marker_cee5c6432a604d249cdfe7062dabb9b8 = L.marker(
+                [26.192634, 127.729369],
+                {}
+            ).addTo(feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab);
+        
+    
+            var icon_405b7cdb83d94497b919423c47a4386f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_cee5c6432a604d249cdfe7062dabb9b8.setIcon(icon_405b7cdb83d94497b919423c47a4386f);
+        
+    
+        var popup_dd6da772d50d4682b58582d0cbcdc066 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_45d9ea6c37ca4a01ac6ec7e83bd630d0 = $(`<div id="html_45d9ea6c37ca4a01ac6ec7e83bd630d0" style="width: 100.0%; height: 100.0%;">date:02-14, age:60s, status:discharged</div>`)[0];
+            popup_dd6da772d50d4682b58582d0cbcdc066.setContent(html_45d9ea6c37ca4a01ac6ec7e83bd630d0);
+        
+
+        marker_cee5c6432a604d249cdfe7062dabb9b8.bindPopup(popup_dd6da772d50d4682b58582d0cbcdc066)
+        ;
+
+        
+    
+    
+            var marker_fd7a1041939343e6b87a323acb3b8f68 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab);
+        
+    
+            var icon_564c63cef83b4989b0f1bcae218ad54f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_fd7a1041939343e6b87a323acb3b8f68.setIcon(icon_564c63cef83b4989b0f1bcae218ad54f);
+        
+    
+        var popup_bd5fdfb5047142f9a8d1ba7ec0f6abe2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3a45736e0032481da66fd65466090bde = $(`<div id="html_3a45736e0032481da66fd65466090bde" style="width: 100.0%; height: 100.0%;">date:02-19, age:60s, status:discharged</div>`)[0];
+            popup_bd5fdfb5047142f9a8d1ba7ec0f6abe2.setContent(html_3a45736e0032481da66fd65466090bde);
+        
+
+        marker_fd7a1041939343e6b87a323acb3b8f68.bindPopup(popup_bd5fdfb5047142f9a8d1ba7ec0f6abe2)
+        ;
+
+        
+    
+    
+            var marker_eeb046006a714f6d8b312185c67daa3a = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab);
+        
+    
+            var icon_559072a95be14e8dbc7c85c9d5328ce7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_eeb046006a714f6d8b312185c67daa3a.setIcon(icon_559072a95be14e8dbc7c85c9d5328ce7);
+        
+    
+        var popup_ad9c005c51c1443eafbdebaa2a5e887d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ff355933e84d40c19cdec2836facece2 = $(`<div id="html_ff355933e84d40c19cdec2836facece2" style="width: 100.0%; height: 100.0%;">date:04-10, age:60s, status:hospitalized</div>`)[0];
+            popup_ad9c005c51c1443eafbdebaa2a5e887d.setContent(html_ff355933e84d40c19cdec2836facece2);
+        
+
+        marker_eeb046006a714f6d8b312185c67daa3a.bindPopup(popup_ad9c005c51c1443eafbdebaa2a5e887d)
+        ;
+
+        
+    
+    
+            var marker_75eafa25b16740e9b527c000706d046c = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab);
+        
+    
+            var icon_21b581987d884df7bc0616baec355290 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_75eafa25b16740e9b527c000706d046c.setIcon(icon_21b581987d884df7bc0616baec355290);
+        
+    
+        var popup_0c2c3907618d4c1483a6eff8b8224fbd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_932d07089c294b42afb5ee6f90aeecd1 = $(`<div id="html_932d07089c294b42afb5ee6f90aeecd1" style="width: 100.0%; height: 100.0%;">date:04-10, age:60s, status:hospitalized</div>`)[0];
+            popup_0c2c3907618d4c1483a6eff8b8224fbd.setContent(html_932d07089c294b42afb5ee6f90aeecd1);
+        
+
+        marker_75eafa25b16740e9b527c000706d046c.bindPopup(popup_0c2c3907618d4c1483a6eff8b8224fbd)
+        ;
+
+        
+    
+    
+            var marker_cdc7cda251c54d89ad9f0fee7b973dd9 = L.marker(
+                [26.384705, 127.851324],
+                {}
+            ).addTo(feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab);
+        
+    
+            var icon_75229b57658e4b87a816d9a4c94a3386 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_cdc7cda251c54d89ad9f0fee7b973dd9.setIcon(icon_75229b57658e4b87a816d9a4c94a3386);
+        
+    
+        var popup_e8de062e49824a37877dea094bb46706 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_71c71754c0cd40fda45d4a8ac4470786 = $(`<div id="html_71c71754c0cd40fda45d4a8ac4470786" style="width: 100.0%; height: 100.0%;">date:04-11, age:60s, status:hospitalized</div>`)[0];
+            popup_e8de062e49824a37877dea094bb46706.setContent(html_71c71754c0cd40fda45d4a8ac4470786);
+        
+
+        marker_cdc7cda251c54d89ad9f0fee7b973dd9.bindPopup(popup_e8de062e49824a37877dea094bb46706)
+        ;
+
+        
+    
+    
+            var marker_43bf1ba97fc241ad84c06cd8426eff5f = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab);
+        
+    
+            var icon_c049ab5249c348e499284306678d26cc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_43bf1ba97fc241ad84c06cd8426eff5f.setIcon(icon_c049ab5249c348e499284306678d26cc);
+        
+    
+        var popup_2a3bace77d2343d1b0088ecf87c78577 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d4ea9810ac1f4da583c3a64b0e944c43 = $(`<div id="html_d4ea9810ac1f4da583c3a64b0e944c43" style="width: 100.0%; height: 100.0%;">date:04-12, age:60s, status:hospitalized</div>`)[0];
+            popup_2a3bace77d2343d1b0088ecf87c78577.setContent(html_d4ea9810ac1f4da583c3a64b0e944c43);
+        
+
+        marker_43bf1ba97fc241ad84c06cd8426eff5f.bindPopup(popup_2a3bace77d2343d1b0088ecf87c78577)
+        ;
+
+        
+    
+    
+            var marker_1c069d396b094b79a5e01a51165d4c5d = L.marker(
+                [26.192634, 127.729369],
+                {}
+            ).addTo(feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab);
+        
+    
+            var icon_c645a6c340634ca9a47feb979d8612cc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_1c069d396b094b79a5e01a51165d4c5d.setIcon(icon_c645a6c340634ca9a47feb979d8612cc);
+        
+    
+        var popup_3231e1e3049248549967367b73654d12 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9a1a0b390fab4cd1ad781efa358d6afd = $(`<div id="html_9a1a0b390fab4cd1ad781efa358d6afd" style="width: 100.0%; height: 100.0%;">date:04-13, age:60s, status:hospitalized</div>`)[0];
+            popup_3231e1e3049248549967367b73654d12.setContent(html_9a1a0b390fab4cd1ad781efa358d6afd);
+        
+
+        marker_1c069d396b094b79a5e01a51165d4c5d.bindPopup(popup_3231e1e3049248549967367b73654d12)
+        ;
+
+        
+    
+    
+            var marker_9f0d84f1d93141a2a9e315351e83007c = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab);
+        
+    
+            var icon_80c000b201614c5aaf3ed5f0bb543948 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_9f0d84f1d93141a2a9e315351e83007c.setIcon(icon_80c000b201614c5aaf3ed5f0bb543948);
+        
+    
+        var popup_2d82b7cbbcf1430fb300de9b85c84d37 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_03c703ba7d4a4398be784e4c4e77abcb = $(`<div id="html_03c703ba7d4a4398be784e4c4e77abcb" style="width: 100.0%; height: 100.0%;">date:04-14, age:60s, status:being arranged</div>`)[0];
+            popup_2d82b7cbbcf1430fb300de9b85c84d37.setContent(html_03c703ba7d4a4398be784e4c4e77abcb);
+        
+
+        marker_9f0d84f1d93141a2a9e315351e83007c.bindPopup(popup_2d82b7cbbcf1430fb300de9b85c84d37)
+        ;
+
+        
+    
+    
+            var marker_47291730bb5040bb85f143202f3910e9 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab);
+        
+    
+            var icon_18bb47b571464bfe94953a41fbb69728 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_47291730bb5040bb85f143202f3910e9.setIcon(icon_18bb47b571464bfe94953a41fbb69728);
+        
+    
+        var popup_d8e81612f1a349d88621cbc1a8528933 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9f47b5fb356c419f9d01d98b9cd495d3 = $(`<div id="html_9f47b5fb356c419f9d01d98b9cd495d3" style="width: 100.0%; height: 100.0%;">date:04-15, age:60s, status:being arranged</div>`)[0];
+            popup_d8e81612f1a349d88621cbc1a8528933.setContent(html_9f47b5fb356c419f9d01d98b9cd495d3);
+        
+
+        marker_47291730bb5040bb85f143202f3910e9.bindPopup(popup_d8e81612f1a349d88621cbc1a8528933)
+        ;
+
+        
+    
+    
+            var marker_1962e4ab72dc4719b4a621c5b5f11df4 = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab);
+        
+    
+            var icon_93a01e108c444c49b4e129c006554a57 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_1962e4ab72dc4719b4a621c5b5f11df4.setIcon(icon_93a01e108c444c49b4e129c006554a57);
+        
+    
+        var popup_04e9ee783929486092290dbc801e1bd4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_19b4ecf6b3bf4e28af9fd0457c5d16ea = $(`<div id="html_19b4ecf6b3bf4e28af9fd0457c5d16ea" style="width: 100.0%; height: 100.0%;">date:04-15, age:60s, status:being arranged</div>`)[0];
+            popup_04e9ee783929486092290dbc801e1bd4.setContent(html_19b4ecf6b3bf4e28af9fd0457c5d16ea);
+        
+
+        marker_1962e4ab72dc4719b4a621c5b5f11df4.bindPopup(popup_04e9ee783929486092290dbc801e1bd4)
+        ;
+
+        
+    
+    
+            var marker_329e20c8934543f5b51e5c8851e67b6c = L.marker(
+                [26.192634, 127.729369],
+                {}
+            ).addTo(feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab);
+        
+    
+            var icon_9e4e0b035a3d48eba3cffcdcd94cfc05 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_329e20c8934543f5b51e5c8851e67b6c.setIcon(icon_9e4e0b035a3d48eba3cffcdcd94cfc05);
+        
+    
+        var popup_17cc1ba22dfc46d286021ace649c3754 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e983a57f51504031839f4c66472d0c7a = $(`<div id="html_e983a57f51504031839f4c66472d0c7a" style="width: 100.0%; height: 100.0%;">date:04-15, age:60s, status:being arranged</div>`)[0];
+            popup_17cc1ba22dfc46d286021ace649c3754.setContent(html_e983a57f51504031839f4c66472d0c7a);
+        
+
+        marker_329e20c8934543f5b51e5c8851e67b6c.bindPopup(popup_17cc1ba22dfc46d286021ace649c3754)
+        ;
+
+        
+    
+    
+            var feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37 = L.featureGroup.subGroup(
+                marker_cluster_7ae2a19fb7ef42ea8efa4775b1ae0a33
+            );
+            feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37.addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+        
+    
+            var marker_b308e57ba7ba441f89beba423c7d3cee = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_fd00f9b228c446f2b1247dea065ff978 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_b308e57ba7ba441f89beba423c7d3cee.setIcon(icon_fd00f9b228c446f2b1247dea065ff978);
+        
+    
+        var popup_73bffefe79044c299dfa821555908861 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c46d7d413a4d45d28402883f98bd64d0 = $(`<div id="html_c46d7d413a4d45d28402883f98bd64d0" style="width: 100.0%; height: 100.0%;">date:04-04, age:70s, status:hospitalized</div>`)[0];
+            popup_73bffefe79044c299dfa821555908861.setContent(html_c46d7d413a4d45d28402883f98bd64d0);
+        
+
+        marker_b308e57ba7ba441f89beba423c7d3cee.bindPopup(popup_73bffefe79044c299dfa821555908861)
+        ;
+
+        
+    
+    
+            var marker_a46ab4ad39124449a7cc540c56111c35 = L.marker(
+                [26.249754, 127.716591],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_12b541350da44d3ea3065d2bf22284a4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_a46ab4ad39124449a7cc540c56111c35.setIcon(icon_12b541350da44d3ea3065d2bf22284a4);
+        
+    
+        var popup_76bf055f33c24a688f842bff2c156204 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a14c2005d6bc4c5d882d217dd933a641 = $(`<div id="html_a14c2005d6bc4c5d882d217dd933a641" style="width: 100.0%; height: 100.0%;">date:04-06, age:70s, status:hospitalized</div>`)[0];
+            popup_76bf055f33c24a688f842bff2c156204.setContent(html_a14c2005d6bc4c5d882d217dd933a641);
+        
+
+        marker_a46ab4ad39124449a7cc540c56111c35.bindPopup(popup_76bf055f33c24a688f842bff2c156204)
+        ;
+
+        
+    
+    
+            var marker_172ba0d887cd41bab9f3e64655ceeefa = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_e5fbdf25551a4433a984c9c6e7cfa21b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_172ba0d887cd41bab9f3e64655ceeefa.setIcon(icon_e5fbdf25551a4433a984c9c6e7cfa21b);
+        
+    
+        var popup_44bb80b0887b40acb95a15fe8f8baf4f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0958e0324e464a1c9e930956739e5d02 = $(`<div id="html_0958e0324e464a1c9e930956739e5d02" style="width: 100.0%; height: 100.0%;">date:04-07, age:70s, status:hospitalized</div>`)[0];
+            popup_44bb80b0887b40acb95a15fe8f8baf4f.setContent(html_0958e0324e464a1c9e930956739e5d02);
+        
+
+        marker_172ba0d887cd41bab9f3e64655ceeefa.bindPopup(popup_44bb80b0887b40acb95a15fe8f8baf4f)
+        ;
+
+        
+    
+    
+            var marker_ad85fbb4607f42ac83419660883d0c2f = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_02c28b4877954f8e80a282d50e6efae2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_ad85fbb4607f42ac83419660883d0c2f.setIcon(icon_02c28b4877954f8e80a282d50e6efae2);
+        
+    
+        var popup_08345ed9635a4514bb5dbadcb8a04ebd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_73832950e4414268a905c86d86b4fff8 = $(`<div id="html_73832950e4414268a905c86d86b4fff8" style="width: 100.0%; height: 100.0%;">date:04-09, age:70s, status:hospitalized</div>`)[0];
+            popup_08345ed9635a4514bb5dbadcb8a04ebd.setContent(html_73832950e4414268a905c86d86b4fff8);
+        
+
+        marker_ad85fbb4607f42ac83419660883d0c2f.bindPopup(popup_08345ed9635a4514bb5dbadcb8a04ebd)
+        ;
+
+        
+    
+    
+            var marker_3513c41bb5514c3ea7e851e65f94a865 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_48428bfd3bbb4685a519443686214746 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3513c41bb5514c3ea7e851e65f94a865.setIcon(icon_48428bfd3bbb4685a519443686214746);
+        
+    
+        var popup_9d13c4dd86e64de28011e69dcc513e02 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3e5ec581acbc4114a8cb75df8acd8cbd = $(`<div id="html_3e5ec581acbc4114a8cb75df8acd8cbd" style="width: 100.0%; height: 100.0%;">date:04-10, age:70s, status:hospitalized</div>`)[0];
+            popup_9d13c4dd86e64de28011e69dcc513e02.setContent(html_3e5ec581acbc4114a8cb75df8acd8cbd);
+        
+
+        marker_3513c41bb5514c3ea7e851e65f94a865.bindPopup(popup_9d13c4dd86e64de28011e69dcc513e02)
+        ;
+
+        
+    
+    
+            var marker_a93a9e0e30bb4331ad83b5b5e1a66c2d = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_3ee7baf6068a44e48f957d6527d4fc7b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_a93a9e0e30bb4331ad83b5b5e1a66c2d.setIcon(icon_3ee7baf6068a44e48f957d6527d4fc7b);
+        
+    
+        var popup_1a8d888f13014436b66e5af684ce4296 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_dd092196774a48d69e0e37808164e5cd = $(`<div id="html_dd092196774a48d69e0e37808164e5cd" style="width: 100.0%; height: 100.0%;">date:04-10, age:70s, status:hospitalized</div>`)[0];
+            popup_1a8d888f13014436b66e5af684ce4296.setContent(html_dd092196774a48d69e0e37808164e5cd);
+        
+
+        marker_a93a9e0e30bb4331ad83b5b5e1a66c2d.bindPopup(popup_1a8d888f13014436b66e5af684ce4296)
+        ;
+
+        
+    
+    
+            var marker_5bfd960e5ecb4e5d81d4f3fb7a536b0a = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_1dc29e76860043e0968606e0fdf9f489 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_5bfd960e5ecb4e5d81d4f3fb7a536b0a.setIcon(icon_1dc29e76860043e0968606e0fdf9f489);
+        
+    
+        var popup_02bb5297c36140a4b0a6188df7b33bc6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b00fd23bbe624f5d91f70630ceea8822 = $(`<div id="html_b00fd23bbe624f5d91f70630ceea8822" style="width: 100.0%; height: 100.0%;">date:04-11, age:70s, status:hospitalized</div>`)[0];
+            popup_02bb5297c36140a4b0a6188df7b33bc6.setContent(html_b00fd23bbe624f5d91f70630ceea8822);
+        
+
+        marker_5bfd960e5ecb4e5d81d4f3fb7a536b0a.bindPopup(popup_02bb5297c36140a4b0a6188df7b33bc6)
+        ;
+
+        
+    
+    
+            var marker_53e7fdabe78e49aa8af0f6a948aefdbc = L.marker(
+                [24.366098, 124.163499],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_e9707394b8f6443f8abda3450174586d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_53e7fdabe78e49aa8af0f6a948aefdbc.setIcon(icon_e9707394b8f6443f8abda3450174586d);
+        
+    
+        var popup_afb182fbe1074bee932b738a9b5e47d4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7aba629cac8348eba0485388737abbeb = $(`<div id="html_7aba629cac8348eba0485388737abbeb" style="width: 100.0%; height: 100.0%;">date:04-11, age:70s, status:hospitalized</div>`)[0];
+            popup_afb182fbe1074bee932b738a9b5e47d4.setContent(html_7aba629cac8348eba0485388737abbeb);
+        
+
+        marker_53e7fdabe78e49aa8af0f6a948aefdbc.bindPopup(popup_afb182fbe1074bee932b738a9b5e47d4)
+        ;
+
+        
+    
+    
+            var marker_4381995b0aa04162b9671964bd70b367 = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_1ea72905a38d412c99453b38e1b02fa7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_4381995b0aa04162b9671964bd70b367.setIcon(icon_1ea72905a38d412c99453b38e1b02fa7);
+        
+    
+        var popup_70072d79b0de4b8f8ce1c60fb6e8f044 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7ac184a4fbc345cc8af5c0929cd0ff6b = $(`<div id="html_7ac184a4fbc345cc8af5c0929cd0ff6b" style="width: 100.0%; height: 100.0%;">date:04-11, age:70s, status:hospitalized</div>`)[0];
+            popup_70072d79b0de4b8f8ce1c60fb6e8f044.setContent(html_7ac184a4fbc345cc8af5c0929cd0ff6b);
+        
+
+        marker_4381995b0aa04162b9671964bd70b367.bindPopup(popup_70072d79b0de4b8f8ce1c60fb6e8f044)
+        ;
+
+        
+    
+    
+            var marker_6152209393f34f3d9fbcfca48abd9de2 = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_5fcc8554ca2d4b8fbb62799294e701c8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6152209393f34f3d9fbcfca48abd9de2.setIcon(icon_5fcc8554ca2d4b8fbb62799294e701c8);
+        
+    
+        var popup_b3940a25a98f4811bf842e5251893a5b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8f95b00d3d834a70b9363a7870252c43 = $(`<div id="html_8f95b00d3d834a70b9363a7870252c43" style="width: 100.0%; height: 100.0%;">date:04-11, age:70s, status:hospitalized</div>`)[0];
+            popup_b3940a25a98f4811bf842e5251893a5b.setContent(html_8f95b00d3d834a70b9363a7870252c43);
+        
+
+        marker_6152209393f34f3d9fbcfca48abd9de2.bindPopup(popup_b3940a25a98f4811bf842e5251893a5b)
+        ;
+
+        
+    
+    
+            var marker_aba9bd94f56b4466b17203d4f1b8d591 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_f195278e491b484ba2462098a72cc50d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_aba9bd94f56b4466b17203d4f1b8d591.setIcon(icon_f195278e491b484ba2462098a72cc50d);
+        
+    
+        var popup_687e4755c22b4b49a195e3029e48b5e0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a4b6f52d9c4244a082b0ef816ee10545 = $(`<div id="html_a4b6f52d9c4244a082b0ef816ee10545" style="width: 100.0%; height: 100.0%;">date:04-12, age:70s, status:hospitalized</div>`)[0];
+            popup_687e4755c22b4b49a195e3029e48b5e0.setContent(html_a4b6f52d9c4244a082b0ef816ee10545);
+        
+
+        marker_aba9bd94f56b4466b17203d4f1b8d591.bindPopup(popup_687e4755c22b4b49a195e3029e48b5e0)
+        ;
+
+        
+    
+    
+            var marker_be75823854554b4087ec80876f3b7191 = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_eec36faf6c99463f933497e32d84bed2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_be75823854554b4087ec80876f3b7191.setIcon(icon_eec36faf6c99463f933497e32d84bed2);
+        
+    
+        var popup_f2d58ccdf1314292880b14bc245fc29a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_058449a2d7be4d4c95e8f8b4c9c1ed82 = $(`<div id="html_058449a2d7be4d4c95e8f8b4c9c1ed82" style="width: 100.0%; height: 100.0%;">date:04-12, age:70s, status:hospitalized</div>`)[0];
+            popup_f2d58ccdf1314292880b14bc245fc29a.setContent(html_058449a2d7be4d4c95e8f8b4c9c1ed82);
+        
+
+        marker_be75823854554b4087ec80876f3b7191.bindPopup(popup_f2d58ccdf1314292880b14bc245fc29a)
+        ;
+
+        
+    
+    
+            var marker_354667153d35428abbbfb7364cff7bb8 = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_39d45510079748989edaa41b92b1bf50 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_354667153d35428abbbfb7364cff7bb8.setIcon(icon_39d45510079748989edaa41b92b1bf50);
+        
+    
+        var popup_3dba05e0ff3a4a3f951ad9a1355c21fa = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e5ce6fc2f16f4ea798eb28410cb2dbaa = $(`<div id="html_e5ce6fc2f16f4ea798eb28410cb2dbaa" style="width: 100.0%; height: 100.0%;">date:04-12, age:70s, status:hospitalized</div>`)[0];
+            popup_3dba05e0ff3a4a3f951ad9a1355c21fa.setContent(html_e5ce6fc2f16f4ea798eb28410cb2dbaa);
+        
+
+        marker_354667153d35428abbbfb7364cff7bb8.bindPopup(popup_3dba05e0ff3a4a3f951ad9a1355c21fa)
+        ;
+
+        
+    
+    
+            var marker_173f34b6e060465bbaf3af117b8a33dc = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_8f0135a4ae8b4d93b0df8ecd789de43d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_173f34b6e060465bbaf3af117b8a33dc.setIcon(icon_8f0135a4ae8b4d93b0df8ecd789de43d);
+        
+    
+        var popup_64fa22bd6abe4af7bec2784cc610ec7f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6f4ded7c2eb34f0c9feb00daf472ee26 = $(`<div id="html_6f4ded7c2eb34f0c9feb00daf472ee26" style="width: 100.0%; height: 100.0%;">date:04-12, age:70s, status:hospitalized</div>`)[0];
+            popup_64fa22bd6abe4af7bec2784cc610ec7f.setContent(html_6f4ded7c2eb34f0c9feb00daf472ee26);
+        
+
+        marker_173f34b6e060465bbaf3af117b8a33dc.bindPopup(popup_64fa22bd6abe4af7bec2784cc610ec7f)
+        ;
+
+        
+    
+    
+            var marker_018daabd6f3c43228e6bc8af59c955b5 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_156dd31a9ae84c54877f897eb2d7b2ff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_018daabd6f3c43228e6bc8af59c955b5.setIcon(icon_156dd31a9ae84c54877f897eb2d7b2ff);
+        
+    
+        var popup_c8ea1cacb62d42d5a09eaa2809e96327 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f91179540c3c4d049aee66c983df1993 = $(`<div id="html_f91179540c3c4d049aee66c983df1993" style="width: 100.0%; height: 100.0%;">date:04-15, age:70s, status:being arranged</div>`)[0];
+            popup_c8ea1cacb62d42d5a09eaa2809e96327.setContent(html_f91179540c3c4d049aee66c983df1993);
+        
+
+        marker_018daabd6f3c43228e6bc8af59c955b5.bindPopup(popup_c8ea1cacb62d42d5a09eaa2809e96327)
+        ;
+
+        
+    
+    
+            var marker_c9c1a6b3b6df4664a5726948faf34c0b = L.marker(
+                [26.3343738, 127.8056597],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_24abce10ddca4e3e821dfba709733206 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_c9c1a6b3b6df4664a5726948faf34c0b.setIcon(icon_24abce10ddca4e3e821dfba709733206);
+        
+    
+        var popup_3ea44548570f4cdab3ec4f37e8ade376 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_afd7e4473aa94b269ecb3162bc464fe8 = $(`<div id="html_afd7e4473aa94b269ecb3162bc464fe8" style="width: 100.0%; height: 100.0%;">date:04-15, age:70s, status:being arranged</div>`)[0];
+            popup_3ea44548570f4cdab3ec4f37e8ade376.setContent(html_afd7e4473aa94b269ecb3162bc464fe8);
+        
+
+        marker_c9c1a6b3b6df4664a5726948faf34c0b.bindPopup(popup_3ea44548570f4cdab3ec4f37e8ade376)
+        ;
+
+        
+    
+    
+            var marker_65954fcd412d42aaba4e9314447abe8e = L.marker(
+                [26.249754, 127.716591],
+                {}
+            ).addTo(feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37);
+        
+    
+            var icon_6139e55f49d847ff95054d8d33d2882a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "female", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_65954fcd412d42aaba4e9314447abe8e.setIcon(icon_6139e55f49d847ff95054d8d33d2882a);
+        
+    
+        var popup_0b6cddef68cc429aac2c8a82daafc6fe = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9d5c3da70ac24f16a87a5bbfd224b32b = $(`<div id="html_9d5c3da70ac24f16a87a5bbfd224b32b" style="width: 100.0%; height: 100.0%;">date:04-15, age:70s, status:being arranged</div>`)[0];
+            popup_0b6cddef68cc429aac2c8a82daafc6fe.setContent(html_9d5c3da70ac24f16a87a5bbfd224b32b);
+        
+
+        marker_65954fcd412d42aaba4e9314447abe8e.bindPopup(popup_0b6cddef68cc429aac2c8a82daafc6fe)
+        ;
+
+        
+    
+    
+            var feature_group_sub_group_72ec092bbe834f909648424e36e060ea = L.featureGroup.subGroup(
+                marker_cluster_7ae2a19fb7ef42ea8efa4775b1ae0a33
+            );
+            feature_group_sub_group_72ec092bbe834f909648424e36e060ea.addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+        
+    
+            var marker_76594b81ad09462588847ba3e9904a0b = L.marker(
+                [26.1772381, 127.6863791],
+                {}
+            ).addTo(feature_group_sub_group_72ec092bbe834f909648424e36e060ea);
+        
+    
+            var icon_e795ef6880ce4848b925dcea452fa801 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_76594b81ad09462588847ba3e9904a0b.setIcon(icon_e795ef6880ce4848b925dcea452fa801);
+        
+    
+        var popup_4d306b094aba46d0a0c5c0d7acf05519 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_dae9a21bca6c4f13aa34273f66a8152b = $(`<div id="html_dae9a21bca6c4f13aa34273f66a8152b" style="width: 100.0%; height: 100.0%;">date:02-20, age:80s, status:discharged</div>`)[0];
+            popup_4d306b094aba46d0a0c5c0d7acf05519.setContent(html_dae9a21bca6c4f13aa34273f66a8152b);
+        
+
+        marker_76594b81ad09462588847ba3e9904a0b.bindPopup(popup_4d306b094aba46d0a0c5c0d7acf05519)
+        ;
+
+        
+    
+    
+            var marker_0ef756baf8b542bfaff0312abdb27182 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_72ec092bbe834f909648424e36e060ea);
+        
+    
+            var icon_220e34b203f1404081fc6dadc931a533 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_0ef756baf8b542bfaff0312abdb27182.setIcon(icon_220e34b203f1404081fc6dadc931a533);
+        
+    
+        var popup_78acf29363274bd7b4278cb0b0485b1a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_20a90b65f022479a92f66ae5c9ee0dbb = $(`<div id="html_20a90b65f022479a92f66ae5c9ee0dbb" style="width: 100.0%; height: 100.0%;">date:04-12, age:80s, status:hospitalized</div>`)[0];
+            popup_78acf29363274bd7b4278cb0b0485b1a.setContent(html_20a90b65f022479a92f66ae5c9ee0dbb);
+        
+
+        marker_0ef756baf8b542bfaff0312abdb27182.bindPopup(popup_78acf29363274bd7b4278cb0b0485b1a)
+        ;
+
+        
+    
+    
+            var marker_2c4fbb45f52c464c8fe6ba35dd45543c = L.marker(
+                [26.2815839, 127.7785754],
+                {}
+            ).addTo(feature_group_sub_group_72ec092bbe834f909648424e36e060ea);
+        
+    
+            var icon_8c4e474cd8cd4f40870d2ccebd73d505 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_2c4fbb45f52c464c8fe6ba35dd45543c.setIcon(icon_8c4e474cd8cd4f40870d2ccebd73d505);
+        
+    
+        var popup_871ac86b2841419eb9cac9f420af3c3b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c65a2fc5862741bc935c49344e29a220 = $(`<div id="html_c65a2fc5862741bc935c49344e29a220" style="width: 100.0%; height: 100.0%;">date:04-13, age:80s, status:hospitalized</div>`)[0];
+            popup_871ac86b2841419eb9cac9f420af3c3b.setContent(html_c65a2fc5862741bc935c49344e29a220);
+        
+
+        marker_2c4fbb45f52c464c8fe6ba35dd45543c.bindPopup(popup_871ac86b2841419eb9cac9f420af3c3b)
+        ;
+
+        
+    
+    
+            var marker_0248cd693e694325a6f6d38aaddfeeb5 = L.marker(
+                [26.2122345, 127.6791452],
+                {}
+            ).addTo(feature_group_sub_group_72ec092bbe834f909648424e36e060ea);
+        
+    
+            var icon_93d738abe79d4046a612198af3a62ab9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "male", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_0248cd693e694325a6f6d38aaddfeeb5.setIcon(icon_93d738abe79d4046a612198af3a62ab9);
+        
+    
+        var popup_ff83ea5707674aa4aa44a9f1172cd9a2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_dea169e4269c4bd98cbe10125d876ba7 = $(`<div id="html_dea169e4269c4bd98cbe10125d876ba7" style="width: 100.0%; height: 100.0%;">date:04-14, age:80s, status:hospitalized</div>`)[0];
+            popup_ff83ea5707674aa4aa44a9f1172cd9a2.setContent(html_dea169e4269c4bd98cbe10125d876ba7);
+        
+
+        marker_0248cd693e694325a6f6d38aaddfeeb5.bindPopup(popup_ff83ea5707674aa4aa44a9f1172cd9a2)
+        ;
+
+        
+    
+    
+            var feature_group_sub_group_c0c63c1ca26f4f07babb2b75d26a1748 = L.featureGroup.subGroup(
+                marker_cluster_7ae2a19fb7ef42ea8efa4775b1ae0a33
+            );
+            feature_group_sub_group_c0c63c1ca26f4f07babb2b75d26a1748.addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+        
+    
+            var feature_group_sub_group_df35c1c91617413eb8fe50cfe10b7fb5 = L.featureGroup.subGroup(
+                marker_cluster_7ae2a19fb7ef42ea8efa4775b1ae0a33
+            );
+            feature_group_sub_group_df35c1c91617413eb8fe50cfe10b7fb5.addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+        
+    
+            var layer_control_f0e73f1d9f264a0a991a32e6caa10748 = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_e8336fd81fb1443f9749de78a7d4e431,
+                    "stamenterrain" : tile_layer_625d1032a77c4587a22039d5106964ec,
+                },
+                overlays :  {
+                    "10s" : feature_group_sub_group_5f57d5de402a4a5ba40825c57583974b,
+                    "20s" : feature_group_sub_group_f4533de10d654b89b0e830a323b799d0,
+                    "30s" : feature_group_sub_group_a3d691c4818d49c0b9f49dfe6d705629,
+                    "40s" : feature_group_sub_group_67602bd5b7db4c95976e32e15ed7a84d,
+                    "50s" : feature_group_sub_group_b9a05bed752a49e287e35abd1373eda3,
+                    "60s" : feature_group_sub_group_886d8ce30e8446c7af9ef51a7c1f06ab,
+                    "70s" : feature_group_sub_group_b8cd971eb51745bc9751ee7cb2d31e37,
+                    "80s" : feature_group_sub_group_72ec092bbe834f909648424e36e060ea,
+                    "90s" : feature_group_sub_group_c0c63c1ca26f4f07babb2b75d26a1748,
+                    "N/A" : feature_group_sub_group_df35c1c91617413eb8fe50cfe10b7fb5,
+                },
+            };
+            L.control.layers(
+                layer_control_f0e73f1d9f264a0a991a32e6caa10748.base_layers,
+                layer_control_f0e73f1d9f264a0a991a32e6caa10748.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_3bdc7981f8da4560acb75c000b9e684a);
+            tile_layer_625d1032a77c4587a22039d5106964ec.remove();
+        
+</script>

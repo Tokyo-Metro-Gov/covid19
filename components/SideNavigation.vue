@@ -114,7 +114,9 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 Tokyo Metropolitan Government
+          <a href="http://code4okinawa.org" target="_blank">
+            Code for Okinawa
+          </a>
         </small>
       </footer>
     </div>

@@ -7,11 +7,14 @@
             class="DataView-Title"
             :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
           >
-            {{ $t('沖縄県内感染者発生状況') }}
+            {{ $t('感染者発生状況詳細マップ') }}
           </h3>
-          <div class="mapImage">
-            <img :src="$t('沖縄県内感染者発生状況(本島)')" alt="" />
-            <img :src="$t('沖縄県内感染者発生状況(離島)')" alt="" />
+          <div class="map">
+            <iframe
+              src="/covid19_okinawa_map.html"
+              frameborder="0"
+              width="100%"
+            />
           </div>
         </div>
       </div>
@@ -40,12 +43,11 @@ export default {
 }
 </script>
 <style lang="scss">
-.mapImage {
-  img {
-    width: 48%;
-    @include lessThan(959) {
-      width: 100%;
-    }
+.map {
+  width: 100%;
+  iframe {
+    width: 100%;
+    height: 400px;
   }
 }
 </style>
