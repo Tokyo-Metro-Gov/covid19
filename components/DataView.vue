@@ -1,5 +1,5 @@
 <template>
-  <v-card class="DataView" :loading="loading">
+  <v-card ref="dataView" class="DataView" :loading="loading">
     <div class="DataView-Inner">
       <div class="DataView-Header">
         <h3
@@ -160,6 +160,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import { EventBus } from '@/utils/details-event-bus'
 
 export default Vue.extend({
   props: {
@@ -199,19 +200,6 @@ export default Vue.extend({
         this.permalink(true, true) +
         '" frameborder="0"></iframe>'
       return graphEmbedValue
-    },
-    cardElements() {
-      const parent = document.querySelector('.row.DataBlock') as HTMLElement
-      const thisCard = this.$el.closest('.DataCard')
-      const index = Array.prototype.indexOf.call(parent.children, thisCard) + 1
-      const sideIndex = index % 2 === 0 ? index - 1 : index + 1
-
-      const self = document.querySelector(
-        `.DataCard:nth-child(${index}`
-      ) as HTMLElement
-      const side = document.querySelector(`.DataCard:nth-child(${sideIndex}
-      `) as HTMLElement
-      return [self, side]
     }
   },
   watch: {
@@ -228,10 +216,6 @@ export default Vue.extend({
   },
   mounted() {
     this.showDetails = true
-    window.addEventListener('resize', this.handleCardHeight)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleCardHeight)
   },
   methods: {
     toggleShareMenu(e: Event) {
@@ -295,28 +279,10 @@ export default Vue.extend({
         this.permalink(true)
       window.open(url)
     },
-    handleCardHeight() {
-      const [self, side] = this.cardElements
-      if (self) {
-        self.style.height = ''
-        self.dataset.height = String(self.offsetHeight)
-      }
-      if (side) {
-        side.style.height = ''
-        side.dataset.height = String(side.offsetHeight)
-      }
-    },
     toggleDetails() {
-      // アコーディオン開閉時にcardの高さを維持する
-      const [self, side] = this.cardElements
-
-      self.dataset.height = self.dataset.height || String(self.offsetHeight)
-      side.dataset.height = side.dataset.height || String(side.offsetHeight)
-
-      self.style.height =
-        self.style.height === `auto` ? `${self.dataset.height}px` : 'auto'
-      side.style.height =
-        side.style.height === 'auto' ? 'auto' : `${side.dataset.height}px`
+      EventBus.$emit('TOGGLE_DETAILS', {
+        dataView: this.$refs.dataView
+      })
     }
   }
 })
