@@ -9,10 +9,10 @@
     </div>
     <div :class="$style.container">
       <h3 :class="$style.heading">
-        新型コロナウイルス感染症にかかる相談窓口について
+        {{ $t('新型コロナウイルス感染症にかかる相談窓口について') }}
       </h3>
       <p ref="trigger" :class="$style.lead">
-        相談方法は、症状や状況別で3つに分かれます
+        {{ $t('相談方法は、症状や状況別で3つに分かれます') }}
       </p>
       <nav ref="anchor" :class="$style.anchor">
         <ul :class="$style.items">
@@ -23,13 +23,13 @@
               :class="$style.link"
               @click="onClickAnchor"
             >
-              <span>かかりつけ医がいて症状のある方</span>
+              <span>{{ $t('かかりつけ医がいて症状のある方') }}</span>
               <fig-cond-sy-dr :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
           <li :class="$style.item">
             <a ref="sy" href="#sy" :class="$style.link" @click="onClickAnchor">
-              <span>かかりつけ医がいない症状のある方</span>
+              <span>{{ $t('かかりつけ医がいない症状のある方') }}</span>
               <fig-cond-sy :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
@@ -40,58 +40,68 @@
               :class="$style.link"
               @click="onClickAnchor"
             >
-              <span>軽い症状があり不安のある方</span>
+              <span>{{ $t('軽い症状があり不安のある方') }}</span>
               <fig-cond-anx :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
         </ul>
       </nav>
       <div id="sydr" :class="$style.section">
-        <h4 :class="$style.heading">かかりつけ医がいて、次の症状がある方</h4>
+        <h4 :class="$style.heading">
+          {{ $t('かかりつけ医がいて、次の症状がある方') }}
+        </h4>
         <ul :class="$style.boxes">
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.lead"
-              >風邪のような症状や、37.5℃以上の発熱が続いている</span
-            >
-            <span :class="$style.alignLeft"
-              >ご高齢の方・基礎疾患のある方・妊娠中の方は2日程度続いた場合、それ以外の方は4日以上続いた場合を相談の目安としてください。</span
-            >
+            <span :class="$style.lead">{{
+              $t('風邪のような症状や、37.5℃以上の発熱が続いている')
+            }}</span>
+            <span :class="$style.alignLeft">{{
+              $t(
+                'ご高齢の方・基礎疾患のある方・妊娠中の方は2日程度続いた場合、それ以外の方は4日以上続いた場合を相談の目安としてください。'
+              )
+            }}</span>
           </li>
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.lead"
-              >強いだるさ（倦怠感）や息苦しさ（呼吸困難）がある</span
-            >
+            <span :class="$style.lead">{{
+              $t('強いだるさ（倦怠感）や息苦しさ（呼吸困難）がある')
+            }}</span>
           </li>
         </ul>
         <p :class="[$style.box, $style.bgYellow]">
-          <span :class="$style.large"
-            >日ごろ受診されている医療機関に電話でご相談ください。</span
-          >
-          <span :class="$style.small"
-            >（上記の症状がない場合も、軽い症状があるなど不安のある方は、日ごろ受診されている医療機関に電話でご相談ください。）</span
-          >
+          <span :class="$style.large">{{
+            $t('日ごろ受診されている医療機関に電話でご相談ください。')
+          }}</span>
+          <span :class="$style.small">{{
+            $t(
+              '（上記の症状がない場合も、軽い症状があるなど不安のある方は、日ごろ受診されている医療機関に電話でご相談ください。）'
+            )
+          }}</span>
         </p>
       </div>
       <div id="sy" :class="$style.section">
-        <h4 :class="$style.heading">かかりつけ医がいない、次の症状がある方</h4>
+        <h4 :class="$style.heading">
+          {{ $t('かかりつけ医がいない、次の症状がある方') }}
+        </h4>
         <ul :class="$style.boxes">
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.lead"
-              >風邪のような症状や、37.5℃以上の発熱が続いている</span
-            >
-            <span :class="$style.alignLeft"
-              >ご高齢の方・基礎疾患のある方・妊娠中の方は2日程度続いた場合、それ以外の方は4日以上続いた場合を相談の目安としてください。</span
-            >
+            <span :class="$style.lead">{{
+              $t('風邪のような症状や、37.5℃以上の発熱が続いている')
+            }}</span>
+            <span :class="$style.alignLeft">{{
+              $t(
+                'ご高齢の方・基礎疾患のある方・妊娠中の方は2日程度続いた場合、それ以外の方は4日以上続いた場合を相談の目安としてください。'
+              )
+            }}</span>
           </li>
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.lead"
-              >強いだるさ（倦怠感）や息苦しさ（呼吸困難）がある</span
-            >
+            <span :class="$style.lead">{{
+              $t('強いだるさ（倦怠感）や息苦しさ（呼吸困難）がある')
+            }}</span>
           </li>
         </ul>
         <div :class="[$style.box, $style.bgGray]">
           <h5 :class="$style.heading">
-            新型コロナ受診相談窓口は、24時間対応しています
+            {{ $t('新型コロナ受診相談窓口は、24時間対応しています') }}
           </h5>
           <dl :class="$style.contact">
             <div>
@@ -109,15 +119,17 @@
                   >
                     mdi-open-in-new
                   </v-icon> </a
-                >に掲載しています
+                >{{ $t('に掲載しています') }}
               </dd>
             </div>
             <div>
-              <dt :class="$style.telWrapperHeading">平日（夜間）：</dt>
+              <dt :class="$style.telWrapperHeading">
+                {{ $t('平日（夜間）：') }}
+              </dt>
               <dd :class="$style.telWrapper">
-                <span :class="$style.telBeforeText"
-                  >午後5時から翌朝午前9時/土日祝 終日</span
-                >
+                <span :class="$style.telBeforeText">{{
+                  $t('午後5時から翌朝午前9時/土日祝 終日')
+                }}</span>
                 <a :class="$style.tel" href="tel:03-5320-4592">
                   <img
                     src="/flow/responsive/phone_white.svg"
@@ -131,12 +143,16 @@
           </dl>
         </div>
         <p :class="[$style.lead, $style.separated]">
-          上記の症状に当てはまらない方は、新型コロナコールセンターにご相談ください。
+          {{
+            $t(
+              '上記の症状に当てはまらない方は、新型コロナコールセンターにご相談ください。'
+            )
+          }}
         </p>
         <div :class="[$style.box, $style.bgGray]">
-          <h5 :class="$style.heading">新型コロナコールセンター</h5>
+          <h5 :class="$style.heading">{{ $t('新型コロナコールセンター') }}</h5>
           <dl :class="$style.contact">
-            <dt>午前9時から午後9時（土日祝含む）</dt>
+            <dt>{{ $t('午前9時から午後9時（土日祝含む）') }}</dt>
             <dd>
               <a :class="$style.tel" href="tel:0570-550571">
                 <img
@@ -149,19 +165,25 @@
             </dd>
           </dl>
           <p :class="$style.notice">
-            電話のおかけ間違いが多くなっております。発信の際は今一度電話番号をお確かめの上、お間違えのないようお願いいたします。
+            {{
+              $t(
+                '電話のおかけ間違いが多くなっております。発信の際は今一度電話番号をお確かめの上、お間違えのないようお願いいたします。'
+              )
+            }}
           </p>
         </div>
       </div>
       <div id="anx" ref="bottom" :class="$style.section">
-        <h4 :class="$style.heading">軽い症状があり、不安のある方</h4>
+        <h4 :class="$style.heading">
+          {{ $t('軽い症状があり、不安のある方') }}
+        </h4>
         <p :class="$style.lead">
-          下記、新型コロナコールセンターにご相談ください。
+          {{ $t('下記、新型コロナコールセンターにご相談ください。') }}
         </p>
         <div :class="[$style.box, $style.bgGray]">
-          <h5 :class="$style.heading">新型コロナコールセンター</h5>
+          <h5 :class="$style.heading">{{ $t('新型コロナコールセンター') }}</h5>
           <dl :class="$style.contact">
-            <dt>午前9時から午後9時（土日祝含む）</dt>
+            <dt>{{ $t('午前9時から午後9時（土日祝含む）') }}</dt>
             <dd>
               <a :class="$style.tel" href="tel:0570-550571">
                 <img
@@ -174,30 +196,44 @@
             </dd>
           </dl>
           <p :class="$style.notice">
-            電話のおかけ間違いが多くなっております。発信の際は今一度電話番号をお確かめの上、お間違えのないようお願いいたします。
+            {{
+              $t(
+                '電話のおかけ間違いが多くなっております。発信の際は今一度電話番号をお確かめの上、お間違えのないようお願いいたします。'
+              )
+            }}
           </p>
         </div>
       </div>
       <div :class="[$style.section, $style.yellow]">
         <h4 :class="$style.headingLv2">
-          新型コロナ受診相談窓口、またはかかりつけ医によって新型コロナ外来（帰国者・接触者外来）の受診が必要だと判断された方
+          {{
+            $t(
+              '新型コロナ受診相談窓口、またはかかりつけ医によって新型コロナ外来（帰国者・接触者外来）の受診が必要だと判断された方'
+            )
+          }}
         </h4>
         <p :class="[$style.box, $style.bgGray]">
-          <span :class="$style.large"
-            >医師が検査の必要性を判断いたします。</span
-          >
-          <span
-            >マスクをして公共交通機関をできるだけ使わずに受診をしてください。</span
-          >
+          <span :class="$style.large">{{
+            $t('医師が検査の必要性を判断いたします。')
+          }}</span>
+          <span>{{
+            $t(
+              'マスクをして公共交通機関をできるだけ使わずに受診をしてください。'
+            )
+          }}</span>
         </p>
         <h4 :class="[$style.headingLv2]">
-          医師により検査が必要だと判断されPCR検査（東京都健康安全研究センター等）を受けた結果
+          {{
+            $t(
+              '医師により検査が必要だと判断されPCR検査（東京都健康安全研究センター等）を受けた結果'
+            )
+          }}
         </h4>
         <div :class="$style.boxes">
           <div :class="[$style.box, $style.border]">
-            <h5 :class="$style.lead">陽性の場合</h5>
+            <h5 :class="$style.lead">{{ $t('陽性の場合') }}</h5>
             <p>
-              感染症指定医療機関等に入院となります
+              {{ $t('感染症指定医療機関等に入院となります') }}
             </p>
             <p :class="$style.grow">
               <img
@@ -208,10 +244,14 @@
             </p>
           </div>
           <div :class="[$style.box, $style.border]">
-            <h5 :class="$style.lead">陰性の場合</h5>
-            <p>自宅安静となり、医療機関を受診していただきます</p>
+            <h5 :class="$style.lead">{{ $t('陰性の場合') }}</h5>
+            <p>{{ $t('自宅安静となり、医療機関を受診していただきます') }}</p>
             <p :class="[$style.small, $style.grow]">
-              ただし、症状が良くならない場合は再度受診相談窓口またはかかりつけ医に相談してください
+              {{
+                $t(
+                  'ただし、症状が良くならない場合は再度受診相談窓口またはかかりつけ医に相談してください'
+                )
+              }}
             </p>
           </div>
         </div>
