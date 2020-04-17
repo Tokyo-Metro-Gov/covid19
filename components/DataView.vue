@@ -167,7 +167,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
-import { EventBus, TOGGLE_EVENT } from '@/utils/details-event-bus'
+import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 
 export default Vue.extend({
   props: {
