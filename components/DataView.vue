@@ -22,7 +22,10 @@
       <div v-if="this.$slots.dataTable" class="DataView-Details">
         <v-expansion-panels v-if="showDetails" flat>
           <v-expansion-panel>
-            <v-expansion-panel-header @click="toggleDetails">
+            <v-expansion-panel-header
+              :style="{ transition: 'none' }"
+              @click="toggleDetails"
+            >
               {{ $t('テーブルを表示') }}
             </v-expansion-panel-header>
             <v-expansion-panel-content>
