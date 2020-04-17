@@ -167,7 +167,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
-import { EventBus } from '@/utils/details-event-bus'
+import { EventBus, TOGGLE_EVENT } from '@/utils/details-event-bus'
 
 export default Vue.extend({
   props: {
@@ -287,9 +287,7 @@ export default Vue.extend({
       window.open(url)
     },
     toggleDetails() {
-      EventBus.$emit('TOGGLE_DETAILS', {
-        dataView: this.$refs.dataView
-      })
+      EventBus.$emit(TOGGLE_EVENT, { dataView: this.$refs.dataView })
     }
   }
 })

@@ -7,7 +7,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { EventBus } from '@/utils/details-event-bus'
+import { EventBus, TOGGLE_EVENT } from '@/utils/details-event-bus'
+
+const cardClassName = '.DataCard'
 
 type Data = {
   payload: Payload | {}
@@ -72,10 +74,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const sideIndex = index % 2 === 0 ? index - 1 : index + 1
 
       const self = document.querySelector(
-        `.DataCard:nth-child(${index}`
+        `${cardClassName}:nth-child(${index}`
       ) as HTMLElement
       const side = document.querySelector(
-        `.DataCard:nth-child(${sideIndex}`
+        `${cardClassName}:nth-child(${sideIndex}`
       ) as HTMLElement
       return [self, side]
     }
@@ -83,7 +85,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   mounted() {
     window.addEventListener('resize', this.handleCardHeight)
 
-    EventBus.$on('TOGGLE_DETAILS', (payload: Payload) => {
+    EventBus.$on(TOGGLE_EVENT, (payload: Payload) => {
       this.payload = payload
       this.alignHeight()
     })

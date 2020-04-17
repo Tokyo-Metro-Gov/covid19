@@ -20,7 +20,7 @@
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
-    <align-row class="DataBlock">
+    <card-row class="DataBlock">
       <!-- 検査陽性者の状況 -->
       <confirmed-cases-details-card />
       <!-- 陽性患者数 -->
@@ -43,7 +43,7 @@
       <metro-card />
       <!-- 都庁来庁者数の推移 -->
       <agency-card />
-    </align-row>
+    </card-row>
     <v-divider />
   </div>
 </template>
@@ -54,7 +54,7 @@ import { MetaInfo } from 'vue-meta'
 import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
-import AlignRow from '@/components/AlignRow.vue'
+import CardRow from '@/components/cards/CardRow.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
@@ -75,7 +75,7 @@ export default Vue.extend({
     PageHeader,
     WhatsNew,
     StaticInfo,
-    AlignRow,
+    CardRow,
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
