@@ -173,5 +173,7 @@ $z-index-map: (
 // Expansion Panels
 // https://vuetifyjs.com/en/components/expansion-panels/
 $expansion-panel-content-padding: 0;
-$expansion-panel-header-padding: 0;
+$expansion-panel-header-padding: 10px 0;
 $expansion-panel-header-min-height: 26px;
+$expansion-panel-active-header-min-height: 26px;
+$expansion-panel-header-font-size: .875rem;
