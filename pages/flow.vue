@@ -3,7 +3,7 @@
     <div :class="$style.title">
       <covid-icon aria-hidden="true" />
       <page-header :class="$style.text">
-        {{ $t('感染症が心配な方へ') }}
+        {{ $t('新型コロナウイルス感染症が心配なときに') }}
       </page-header>
       <printer-button :wrapper-class="$style.printerButton" to="/print/flow" />
     </div>
@@ -14,11 +14,7 @@
       <p ref="trigger" :class="$style.lead">
         相談方法は、症状や状況別で3つに分かれます
       </p>
-      <nav
-        ref="anchor"
-        :class="[$style.anchor, { [$style.floating]: triggerPos < 0 }]"
-        :style="[triggerPos < 0 ? { width: navW + `px` } : {}]"
-      >
+      <nav ref="anchor" :class="$style.anchor">
         <ul :class="$style.items">
           <li :class="$style.item">
             <a
@@ -50,11 +46,7 @@
           </li>
         </ul>
       </nav>
-      <div
-        id="sydr"
-        :class="$style.section"
-        :style="[triggerPos < 0 ? { marginTop: navH + 'px' } : {}]"
-      >
+      <div id="sydr" :class="$style.section">
         <h4 :class="$style.heading">かかりつけ医がいて、次の症状がある方</h4>
         <ul :class="$style.boxes">
           <li :class="[$style.box, $style.border]">
@@ -252,9 +244,10 @@ import FigCondSy from '@/static/flow/responsive/cond_sy.svg'
 import FigCondAnx from '@/static/flow/responsive/cond_anx.svg'
 
 type LocalData = {
-  nav: HTMLElement | null
-  trigger: HTMLElement | null
-  bottom: HTMLElement | null
+  nav: any
+  buttons: any
+  trigger: any
+  bottom: any
   navW: number
   navH: number
   navOffsetTop: number
@@ -275,6 +268,7 @@ export default Vue.extend({
   },
   data(): LocalData {
     const nav = null
+    const buttons = null
     const trigger = null
     const bottom = null
     const navW = 0
@@ -287,6 +281,7 @@ export default Vue.extend({
 
     return {
       nav,
+      buttons,
       trigger,
       bottom,
       navW,
@@ -300,10 +295,14 @@ export default Vue.extend({
   },
   mounted() {
     this.nav = this.$refs.anchor as HTMLElement
+    this.buttons = Array.prototype.slice.call(
+      document.getElementsByClassName(this.$style.link)
+    )
     this.trigger = this.$refs.trigger as HTMLElement
     this.bottom = this.$refs.bottom as HTMLElement
     const self = this
     window.addEventListener('scroll', function() {
+      // debounce
       if (self.timerId) {
         window.clearTimeout(self.timerId)
       }
@@ -313,8 +312,13 @@ export default Vue.extend({
 
     // 初期化
     this.onBrowserRender()
+
+    // ハッシュ付きアクセス処理
     const hash = this.$route.hash
     if (hash !== '') {
+      if (hash !== '#sydr') {
+        this.startFloating()
+      }
       VueScrollTo.scrollTo(hash, 1000, {
         offset: -(this.navH + this.headerOffset)
       })
@@ -322,13 +326,15 @@ export default Vue.extend({
   },
   methods: {
     onBrowserRender(): void {
+      this.timerId = 0
+
       // 整形
-      const navRect = this.nav!.getBoundingClientRect()
-      const triggerRect = this.trigger!.getBoundingClientRect()
-      const bottomRect = this.bottom!.getBoundingClientRect()
+      const navRect = this.nav.getBoundingClientRect()
+      const triggerRect = this.trigger.getBoundingClientRect()
+      const bottomRect = this.bottom.getBoundingClientRect()
       this.navOffsetTop = navRect.top
-      this.navW = this.trigger!.clientWidth
-      this.navH = this.nav!.offsetHeight
+      this.navW = this.trigger.clientWidth
+      this.navH = this.nav.offsetHeight
       this.bottomPos = bottomRect.bottom
       if (matchMedia('(max-width: 600px)').matches) {
         this.headerOffset = 64 // NOTE: nuxt.config.tsのoffsetから余白を抜いたもの
@@ -336,18 +342,51 @@ export default Vue.extend({
         this.headerOffset = 0
       }
       this.triggerPos = triggerRect.bottom - this.headerOffset
-      // カレント表示
+
+      // 表示切替
+      if (this.triggerPos < 0 && this.bottomPos > this.navH) {
+        this.startFloating()
+      } else {
+        this.stopFloating()
+        this.resetNavCurrent()
+      }
+
+      // 表示内容追従カレント処理
       // (WIP)
     },
     onClickAnchor(event: Event): void {
-      const hash = (event.target as HTMLAnchorElement).hash
+      const target = event.target as HTMLAnchorElement
+      const hash = target.hash
       VueScrollTo.scrollTo(hash, 1000, {
         offset: -(this.navH + this.headerOffset)
+      })
+      if (hash !== '#sydr') {
+        this.startFloating()
+      }
+      this.resetNavCurrent()
+      target.classList.add(this.$style.active)
+    },
+    startFloating(): void {
+      this.nav.classList.add(this.$style.floating) // eslint-disable-line no-unused-expressions
+      this.trigger.style.marginBottom = this.navH + 'px'
+      this.nav.style.width = this.navW + 'px'
+    },
+    stopFloating(): void {
+      this.nav.classList.remove(this.$style.floating) // eslint-disable-line no-unused-expressions
+      this.trigger.style.marginBottom = ''
+      this.nav.style.width = ''
+    },
+    resetNavCurrent(): void {
+      const self = this
+      this.buttons.forEach(function(ele: HTMLElement) {
+        ele.classList.remove(self.$style.active)
       })
     }
   },
   head(): any {
-    const title: TranslateResult = this.$t('感染症が心配な方へ')
+    const title: TranslateResult = this.$t(
+      '新型コロナウイルス感染症が心配なときに'
+    )
     return {
       title
     }
@@ -422,6 +461,7 @@ $margin: 20;
   padding-bottom: $margin * 1px;
   background-color: $white;
   position: relative;
+  transition: all 0.2s;
 
   /*
   &::after {
@@ -502,6 +542,7 @@ $margin: 20;
         bottom: -1px;
         transform: translate(-50%, 100%);
         border-width: 19.5px 12.99px 0 12.99px;
+        transition: none;
       }
     }
     &:hover {
@@ -522,6 +563,7 @@ $margin: 20;
   &.floating {
     position: fixed;
     top: 0;
+    z-index: 1;
   }
 }
 .section {
