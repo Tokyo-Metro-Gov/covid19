@@ -31,7 +31,7 @@
     </h4>
     <div>
       <t-i18n :class="$style.GraphUnit">
-        {{ $t('単位：') }}{{ $t('人') }}
+        {{ $t('単位: ') }}{{ $t('人') }}
       </t-i18n>
       <bar
         :ref="'barChart'"
