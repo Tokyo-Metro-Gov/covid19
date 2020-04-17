@@ -246,6 +246,7 @@ import FigCondAnx from '@/static/flow/responsive/cond_anx.svg'
 type LocalData = {
   nav: any
   buttons: any
+  sections: any
   trigger: any
   bottom: any
   navW: number
@@ -269,6 +270,7 @@ export default Vue.extend({
   data(): LocalData {
     const nav = null
     const buttons = null
+    const sections = null
     const trigger = null
     const bottom = null
     const navW = 0
@@ -282,6 +284,7 @@ export default Vue.extend({
     return {
       nav,
       buttons,
+      sections,
       trigger,
       bottom,
       navW,
@@ -297,6 +300,9 @@ export default Vue.extend({
     this.nav = this.$refs.anchor as HTMLElement
     this.buttons = Array.prototype.slice.call(
       document.getElementsByClassName(this.$style.link)
+    )
+    this.sections = Array.prototype.slice.call(
+      document.querySelectorAll(`.${this.$style.section}[id]`)
     )
     this.trigger = this.$refs.trigger as HTMLElement
     this.bottom = this.$refs.bottom as HTMLElement
@@ -319,6 +325,9 @@ export default Vue.extend({
       if (hash !== '#sydr') {
         this.startFloating()
       }
+      document // eslint-disable-line no-unused-expressions
+        .querySelector(`a.${this.$style.link}[href='${hash}']`)
+        ?.classList.add(this.$style.active)
       VueScrollTo.scrollTo(hash, 1000, {
         offset: -(this.navH + this.headerOffset)
       })
@@ -344,15 +353,32 @@ export default Vue.extend({
       this.triggerPos = triggerRect.bottom - this.headerOffset
 
       // 表示切替
-      if (this.triggerPos < 0 && this.bottomPos > this.navH) {
+      if (
+        this.triggerPos <= 0 &&
+        this.bottomPos >= this.navH + this.headerOffset
+      ) {
         this.startFloating()
+
+        // 表示位置追従カレント処理
+        const self = this
+        this.sections.forEach(function(ele: HTMLElement, idx: number) {
+          const rect = ele.getBoundingClientRect()
+          // const id = ele.getAttribute('id')
+          if (
+            rect.top <= self.navH + self.headerOffset &&
+            rect.bottom >= self.navH + self.headerOffset
+          ) {
+            // document.querySelector(`a.${self.$style.link}[href='#${id}']`)?.classList.add(self.$style.active)
+            self.buttons[idx].classList.add(self.$style.active)
+          } else if (self.buttons[idx].classList.contains(self.$style.active)) {
+            // document.querySelector(`a.${self.$style.link}[href='#${id}']`)?.classList.remove(self.$style.active)
+            self.buttons[idx].classList.remove(self.$style.active)
+          }
+        })
       } else {
         this.stopFloating()
         this.resetNavCurrent()
       }
-
-      // 表示内容追従カレント処理
-      // (WIP)
     },
     onClickAnchor(event: Event): void {
       const target = event.target as HTMLAnchorElement
@@ -367,12 +393,16 @@ export default Vue.extend({
       target.classList.add(this.$style.active)
     },
     startFloating(): void {
-      this.nav.classList.add(this.$style.floating) // eslint-disable-line no-unused-expressions
+      if (!this.nav.classList.contains(this.$style.floating)) {
+        this.nav.classList.add(this.$style.floating) // eslint-disable-line no-unused-expressions
+      }
       this.trigger.style.marginBottom = this.navH + 'px'
       this.nav.style.width = this.navW + 'px'
     },
     stopFloating(): void {
-      this.nav.classList.remove(this.$style.floating) // eslint-disable-line no-unused-expressions
+      if (this.nav.classList.contains(this.$style.floating)) {
+        this.nav.classList.remove(this.$style.floating) // eslint-disable-line no-unused-expressions
+      }
       this.trigger.style.marginBottom = ''
       this.nav.style.width = ''
     },
@@ -461,7 +491,6 @@ $margin: 20;
   padding-bottom: $margin * 1px;
   background-color: $white;
   position: relative;
-  transition: all 0.2s;
 
   /*
   &::after {
