@@ -20,12 +20,16 @@
         <slot />
       </div>
       <div v-if="this.$slots.dataTable" class="DataView-Details">
-        <details v-if="showDetails">
-          <summary class="DataView-DetailsSummary" @click="toggleDetails">{{
-            $t('テーブルを表示')
-          }}</summary>
-          <slot name="dataTable" />
-        </details>
+        <v-expansion-panels v-if="showDetails" flat>
+          <v-expansion-panel>
+            <v-expansion-panel-header @click="toggleDetails">
+              {{ $t('テーブルを表示') }}
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              <slot name="dataTable" />
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
         <template v-else>
           <slot name="dataTable" />
         </template>

@@ -166,3 +166,12 @@ $z-index-map: (
   display: block !important;
   visibility: visible !important;
 }
+
+// ===================
+// Vuetify
+
+// Expansion Panels
+// https://vuetifyjs.com/en/components/expansion-panels/
+$expansion-panel-content-padding: 0;
+$expansion-panel-header-padding: 0;
+$expansion-panel-header-min-height: 26px;
