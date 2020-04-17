@@ -38,8 +38,8 @@
 [#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654) の Issue に、掲載名、リンク先（あれば）、役割をコメントください。
 
 ## 開発に関する情報
-* 開発サイト https://dev-covid19-tokyo.netlify.com/
-* ステージングサイト https://stg-covid19-tokyo.netlify.com/
+* 開発サイト https://dev-covid19-tokyo.netlify.app/
+* ステージングサイト https://stg-covid19-tokyo.netlify.app/
 * 本番サイト https://stopcovid19.metro.tokyo.lg.jp/
 * [デザイン](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 * [翻訳スプレッドシート (Transifex)](https://www.transifex.com/stopcovid19-tokyo/stopcovid19tokyo)
