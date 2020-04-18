@@ -90,10 +90,10 @@ $ docker-compose run --rm app yarn install
 และ เว็บไซต์ (https://stopcovid19.metro.tokyo.lg.jp/) จะได้รับการอัพเดท
 
 ถ้า 'staging' ได้รับการแก้ไขหรือปรับปรุง HTML จะถูกสร้างและส่งไปยัง 'gh-pages' โดยอัตโนมัติ
-และ เว็บไซต์ (https://stg-covid19-tokyo.netlify.com/) จะได้รับการอัพเดท
+และ เว็บไซต์ (https://stg-covid19-tokyo.netlify.app/) จะได้รับการอัพเดท
 
 ถ้า 'development' ได้รับการแก้ไขหรือปรับปรุง HTML จะถูกสร้างและส่งไปยัง 'dev-pages' โดยอัตโนมัติ
-และ เว็บไซต์ (https://dev-covid19-tokyo.netlify.com/) จะได้รับการอัพเดท
+และ เว็บไซต์ (https://dev-covid19-tokyo.netlify.app/) จะได้รับการอัพเดท
 
 ### กฎการใช้ branch
 
@@ -106,14 +106,14 @@ hotfix commit: hotfix/#{ISSUE_ID}-{branch_title_name}
 #### branch หลัก
 | จุดประสงค์ | branch | URL | หมายเหตุ |
 | ---- | -------- | ---- | ---- |
-| Development | development | http://dev-covid19-tokyo.netlify.com/ | branch หลัก ใช้ในการรับ pull request |
+| Development | development | http://dev-covid19-tokyo.netlify.app/ | branch หลัก ใช้ในการรับ pull request |
 | Hotfix branch | dev-hotfix | None | Branch สำหรับ hotfix ของ production - ใช้ในกรณีที่ admin อนุญาตแล้วเท่านั้น |
-| Staging | staging | https://stg-covid19-tokyo.netlify.com/ | ใช้สำหรับ staging ทดสอบตัวปรับปรุง ก่อน deploy ลง production - ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
+| Staging | staging | https://stg-covid19-tokyo.netlify.app/ | ใช้สำหรับ staging ทดสอบตัวปรับปรุง ก่อน deploy ลง production - ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
 | Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
 
 #### branch ที่ถูกใช้โดยระบบ
 | จุดประสงค์ | branch | URL | หมายเหตุ |
 | ---- | -------- | ---- | ---- |
 | Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | HTML สำหรับ production |
-| Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | HTML สำหรับ staging |
+| Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | HTML สำหรับ staging |
 | สำหรับ OGP working directory | deploy / new_ogp | None | สำหรับปรับปรุง OGP |

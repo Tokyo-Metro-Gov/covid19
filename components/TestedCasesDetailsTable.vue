@@ -6,7 +6,7 @@
           <span>
             <t-i18n> {{ $t('検査実施人数') }} </t-i18n><br />
             <span :class="$style.note">
-              (<t-i18n>{{ $t('健康安全研究センター等による実施分') }}</t-i18n
+              (<t-i18n>{{ $t('健康安全研究センターによる実施分') }}</t-i18n
               >)
             </span>
             <br />
@@ -180,7 +180,7 @@ $default-boxh: 150px;
     }
 
     &:not(:last-child) {
-      word-break: break-all;
+      overflow-wrap: break-word;
     }
   }
 
