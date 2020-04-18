@@ -12,10 +12,18 @@
           <div class="map">
             <iframe
               src="/covid19_okinawa_map.html"
+              title="感染者発生状況詳細マップ"
               frameborder="0"
               width="100%"
             />
           </div>
+          <p class="note">
+            {{
+              $t(
+                '※地図上には、感染者の発生した「市区町村」、「保健所管轄区域」をプロットしています。プロット先の地点は、各市町村の本庁舎所在地、保健所の所在地としています。'
+              )
+            }}
+          </p>
         </div>
       </div>
     </v-card>
