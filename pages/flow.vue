@@ -604,19 +604,20 @@ $margin: 20;
       border-color: $green-1 transparent transparent transparent;
       transition: border-color 0.2s;
     }
+    &.active,
+    &:hover {
+      background-color: $green-1;
+      color: $white;
+      > svg * {
+        fill: $white;
+      }
+    }
     &.active {
       &::after {
         bottom: -1px;
         transform: translate(-50%, 100%);
         border-width: 19.5px 12.99px 0 12.99px;
         transition: none;
-      }
-    }
-    &:hover {
-      background-color: $green-1;
-      color: $white;
-      > svg * {
-        fill: $white;
       }
     }
     &:not(.active) {
