@@ -1,0 +1,69 @@
+name: Audit staging URLs
+
+on:
+  pull_request:
+    branches:
+      - staging
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v2
+        with:
+          urls: |
+            https://stopcovid19.metro.tokyo.lg.jp/
+            https://stg-covid19-tokyo.netlify.app/
+          uploadArtifacts: true
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - run: npm install -g csv2md
+
+      # https://stedolan.github.io/jq/manual/
+      # https://shields.io/
+      - name: Summary
+        run: |
+          export LH_SUMMARY_FILE="${GITHUB_WORKSPACE}/.lighthouseci/result.md"
+          echo "::set-env name=LH_SUMMARY_FILE::${LH_SUMMARY_FILE}"
+          cat "${GITHUB_WORKSPACE}/.lighthouseci/"lhr-*.json \
+          | jq -rs 'def formatScore(s):
+              "https://img.shields.io" as $baseUrl |
+              "logo=lighthouse&logoColor=lightgray" as $query |
+              if s == null then "![-1](\($baseUrl)/badge/\("?" | @uri)-error-inactive?\($query))"
+                elif s < 0.5 then "![\(s)](\($baseUrl)/badge/\( s * 100 )-red-critical?\($query))"
+                elif s < 0.9 then "![\(s)](\($baseUrl)/badge/\( s * 100 )-orange-important?\($query))"
+                else "![\(s)](\($baseUrl)/badge/\( s * 100 )-green-success?\($query))"
+              end;
+              ["Metrics", "Score", "URL"], ( [.[] | .requestedUrl as $url | .categories[] | {
+                metrics: .title,
+                score: formatScore(.score),
+                url: $url
+              } ] | sort_by(.metrics) | .[] | [.metrics, .score, .url] ) | @csv' \
+          | csv2md | tee "${LH_SUMMARY_FILE}"
+
+      - uses: actions/github-script@0.9.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs')
+            const table = fs.readFileSync(process.env.LH_SUMMARY_FILE, 'utf8')
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `<h4>Audit&nbsp;<a
+                  href="https://developers.google.com/web/tools/lighthouse/v3/scoring"
+                  target="_blank"><sup>[?]</sup></a></h4>\n\n${table}\n\n`.trim()
+            })
