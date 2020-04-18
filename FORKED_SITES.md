@@ -18,7 +18,7 @@
 [](08)茨城県|https://stopcovid19-ibaraki.jp/|Project Ume(有志)|[BenataY/covid19](https://github.com/BenataY/covid19)|
 [](09)栃木県|https://covid19-tochigi.netlify.com/|有志|[covid19-tochigi/covid19](https://github.com/covid19-tochigi/covid19)|
 [](09)栃木県|https://covid-19-tochigi.origamium.net/|個人|[origamium/covid19-tochigi](https://github.com/origamium/covid19-tochigi)|
-[](10)群馬県|https://stopcovid19-gunma.netlify.app/|個人|[SatoshiRC/covid19-gunma](https://github.com/SatoshiRC/covid19-gunma)|
+[](10)群馬県|https://stopcovid19.pref.gunma.jp/|群馬県（**公式**）|[bpr-gunma/covid19](https://github.com/bpr-gunma/covid19)|
 [](11)埼玉県|https://saitama.stopcovid19.jp/|Code for TODA|[codefortoda/covid19-saitama](https://github.com/codefortoda/covid19-saitama)|
 [](12)千葉県|https://chiba-covid19.mypl.net/|地域情報サイト「まいぷれ」|[keisuke-kimura/covid19](https://github.com/keisuke-kimura/covid19)|
 [](12)千葉県|https://covid19.civictech.chiba.jp/|Civic Tech Zen Chiba|[civictechzenchiba/covid19-chiba](https://github.com/civictechzenchiba/covid19-chiba)|
