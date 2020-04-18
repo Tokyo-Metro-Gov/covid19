@@ -105,26 +105,22 @@
           </h5>
           <dl :class="$style.contact">
             <div>
-              <dt>平日（日中）：</dt>
-              <dd>
-                <a
-                  href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-                >
-                  {{ $t('各保健所の電話番号は福祉保健局HP') }}
-                  <v-icon
-                    :class="$style.iconExternal"
-                    :aria-label="this.$t('別タブで開く')"
-                    role="img"
-                    :aria-hidden="false"
-                  >
-                    mdi-open-in-new
-                  </v-icon> </a
-                >{{ $t('に掲載しています') }}
+              <dt>{{ $t('平日（日中）:') }}</dt>
+              <dd :class="$style.overrideExternalLink">
+                <i18n path="{publicHealthCenter}に掲載しています">
+                  <template v-slot:publicHealthCenter>
+                    <external-link
+                      url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+                    >
+                      {{ $t('各保健所の電話番号は福祉保健局HP') }}
+                    </external-link>
+                  </template>
+                </i18n>
               </dd>
             </div>
             <div>
               <dt :class="$style.telWrapperHeading">
-                {{ $t('平日（夜間）：') }}
+                {{ $t('平日（夜間）:') }}
               </dt>
               <dd :class="$style.telWrapper">
                 <span :class="$style.telBeforeText">{{
@@ -279,6 +275,7 @@ import VueScrollTo from 'vue-scrollto'
 import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 import FigCondSyDr from '@/static/flow/responsive/cond_sydr.svg'
 import FigCondSy from '@/static/flow/responsive/cond_sy.svg'
 import FigCondAnx from '@/static/flow/responsive/cond_anx.svg'
@@ -303,6 +300,7 @@ export default Vue.extend({
     CovidIcon,
     PrinterButton,
     PageHeader,
+    ExternalLink,
     FigCondSyDr,
     FigCondSy,
     FigCondAnx
@@ -782,11 +780,13 @@ $margin: 20;
   max-width: 37px;
   width: 100%;
 }
-.iconExternal {
-  font-size: 1em !important;
-  &::before {
-    color: $white;
-    margin-right: 0.2em;
+.overrideExternalLink {
+  i {
+    font-size: 1em !important;
+    &::before {
+      color: $white;
+      margin-right: 0.2em;
+    }
   }
 }
 .telWrapper,
