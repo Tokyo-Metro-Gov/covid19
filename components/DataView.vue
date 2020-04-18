@@ -615,6 +615,10 @@ textarea {
 .v-expansion-panel-header__icon {
   margin-left: -5px !important;
 
+  & .v-icon--left {
+    margin-right: 5px;
+  }
+
   .v-expansion-panel--active & .v-icon {
     transform: rotate(90deg) !important;
   }
