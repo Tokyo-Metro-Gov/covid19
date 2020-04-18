@@ -3,8 +3,8 @@ import { NuxtVueI18n } from 'nuxt-i18n'
 const options: NuxtVueI18n.Options.AllOptionsInterface = {
   strategy: 'prefix_except_default',
   detectBrowserLanguage: {
-    useCookie: true,
-    cookieKey: 'i18n_redirected'
+    /*    useCookie: true,
+    cookieKey: 'i18n_redirected' */
   },
   defaultLocale: 'ja',
   vueI18n: {
@@ -21,7 +21,7 @@ const options: NuxtVueI18n.Options.AllOptionsInterface = {
       iso: 'ja-JP',
       file: 'ja.json',
       description: 'Japanese'
-    },
+    } /*
     {
       code: 'en',
       name: 'English',
@@ -66,6 +66,7 @@ const options: NuxtVueI18n.Options.AllOptionsInterface = {
       file: 'ja-Hira.json',
       description: 'Easy Japanese'
     }
+    */
   ]
 }
 
