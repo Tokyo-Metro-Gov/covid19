@@ -9,10 +9,12 @@
     </div>
     <div :class="$style.container">
       <h3 :class="$style.heading">
-        {{ $t('新型コロナウイルス感染症にかかる相談窓口について') }}
+        <t-i18n>{{
+          $t('新型コロナウイルス感染症にかかる相談窓口について')
+        }}</t-i18n>
       </h3>
       <p ref="trigger" :class="$style.lead">
-        {{ $t('相談方法は、症状や状況別で3つに分かれます') }}
+        <t-i18n>{{ $t('相談方法は、症状や状況別で3つに分かれます') }}</t-i18n>
       </p>
       <nav ref="anchor" :class="$style.anchor">
         <ul :class="$style.items">
@@ -23,13 +25,13 @@
               :class="$style.link"
               @click="onClickAnchor"
             >
-              <span>{{ $t('かかりつけ医がいて症状のある方') }}</span>
+              <t-i18n>{{ $t('かかりつけ医がいて症状のある方') }}</t-i18n>
               <fig-cond-sy-dr :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
           <li :class="$style.item">
             <a ref="sy" href="#sy" :class="$style.link" @click="onClickAnchor">
-              <span>{{ $t('かかりつけ医がいない症状のある方') }}</span>
+              <t-i18n>{{ $t('かかりつけ医がいない症状のある方') }}</t-i18n>
               <fig-cond-sy :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
@@ -40,7 +42,7 @@
               :class="$style.link"
               @click="onClickAnchor"
             >
-              <span>{{ $t('軽い症状があり不安のある方') }}</span>
+              <t-i18n>{{ $t('軽い症状があり不安のある方') }}</t-i18n>
               <fig-cond-anx :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
@@ -48,60 +50,62 @@
       </nav>
       <div id="sydr" :class="$style.section">
         <h4 :class="$style.heading">
-          {{ $t('かかりつけ医がいて、次の症状がある方') }}
+          <t-i18n>{{ $t('かかりつけ医がいて、次の症状がある方') }}</t-i18n>
         </h4>
         <ul :class="$style.boxes">
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.lead">{{
+            <t-i18n :class="$style.lead">{{
               $t('風邪のような症状や、37.5℃以上の発熱が続いている')
-            }}</span>
-            <span :class="$style.alignLeft">{{
+            }}</t-i18n>
+            <t-i18n :class="$style.alignLeft">{{
               $t(
                 'ご高齢の方・基礎疾患のある方・妊娠中の方は2日程度続いた場合、それ以外の方は4日以上続いた場合を相談の目安としてください。'
               )
-            }}</span>
+            }}</t-i18n>
           </li>
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.lead">{{
+            <t-i18n :class="$style.lead">{{
               $t('強いだるさ（倦怠感）や息苦しさ（呼吸困難）がある')
-            }}</span>
+            }}</t-i18n>
           </li>
         </ul>
         <p :class="[$style.box, $style.bgYellow]">
-          <span :class="$style.large">{{
+          <t-i18n :class="$style.large">{{
             $t('日ごろ受診されている医療機関に電話でご相談ください。')
-          }}</span>
-          <span :class="$style.small">{{
+          }}</t-i18n>
+          <t-i18n :class="$style.small">{{
             $t(
               '（上記の症状がない場合も、軽い症状があるなど不安のある方は、日ごろ受診されている医療機関に電話でご相談ください。）'
             )
-          }}</span>
+          }}</t-i18n>
         </p>
       </div>
       <div id="sy" :class="$style.section">
         <h4 :class="$style.heading">
-          {{ $t('かかりつけ医がいない、次の症状がある方') }}
+          <t-i18n>{{ $t('かかりつけ医がいない、次の症状がある方') }}</t-i18n>
         </h4>
         <ul :class="$style.boxes">
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.lead">{{
+            <t-i18n :class="$style.lead">{{
               $t('風邪のような症状や、37.5℃以上の発熱が続いている')
-            }}</span>
-            <span :class="$style.alignLeft">{{
+            }}</t-i18n>
+            <t-i18n :class="$style.alignLeft">{{
               $t(
                 'ご高齢の方・基礎疾患のある方・妊娠中の方は2日程度続いた場合、それ以外の方は4日以上続いた場合を相談の目安としてください。'
               )
-            }}</span>
+            }}</t-i18n>
           </li>
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.lead">{{
+            <t-i18n :class="$style.lead">{{
               $t('強いだるさ（倦怠感）や息苦しさ（呼吸困難）がある')
-            }}</span>
+            }}</t-i18n>
           </li>
         </ul>
         <div :class="[$style.box, $style.bgGray]">
           <h5 :class="$style.heading">
-            {{ $t('新型コロナ受診相談窓口は、24時間対応しています') }}
+            <t-i18n>{{
+              $t('新型コロナ受診相談窓口は、24時間対応しています')
+            }}</t-i18n>
           </h5>
           <dl :class="$style.contact">
             <div>
@@ -110,7 +114,7 @@
                 <a
                   href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
                 >
-                  {{ $t('各保健所の電話番号は福祉保健局HP') }}
+                  <t-i18n>{{ $t('各保健所の電話番号は福祉保健局HP') }}</t-i18n>
                   <v-icon
                     :class="$style.iconExternal"
                     :aria-label="this.$t('別タブで開く')"
@@ -119,17 +123,17 @@
                   >
                     mdi-open-in-new
                   </v-icon> </a
-                >{{ $t('に掲載しています') }}
+                ><t-i18n>{{ $t('に掲載しています') }}</t-i18n>
               </dd>
             </div>
             <div>
               <dt :class="$style.telWrapperHeading">
-                {{ $t('平日（夜間）：') }}
+                <t-i18n>{{ $t('平日（夜間）：') }}</t-i18n>
               </dt>
               <dd :class="$style.telWrapper">
-                <span :class="$style.telBeforeText">{{
+                <t-i18n :class="$style.telBeforeText">{{
                   $t('午後5時から翌朝午前9時/土日祝 終日')
-                }}</span>
+                }}</t-i18n>
                 <a :class="$style.tel" href="tel:03-5320-4592">
                   <img
                     src="/flow/responsive/phone_white.svg"
@@ -143,16 +147,20 @@
           </dl>
         </div>
         <p :class="[$style.lead, $style.separated]">
-          {{
+          <t-i18n>{{
             $t(
               '上記の症状に当てはまらない方は、新型コロナコールセンターにご相談ください。'
             )
-          }}
+          }}</t-i18n>
         </p>
         <div :class="[$style.box, $style.bgGray]">
-          <h5 :class="$style.heading">{{ $t('新型コロナコールセンター') }}</h5>
+          <h5 :class="$style.heading">
+            <t-i18n>{{ $t('新型コロナコールセンター') }}</t-i18n>
+          </h5>
           <dl :class="$style.contact">
-            <dt>{{ $t('午前9時から午後9時（土日祝含む）') }}</dt>
+            <dt>
+              <t-i18n>{{ $t('午前9時から午後9時（土日祝含む）') }}</t-i18n>
+            </dt>
             <dd>
               <a :class="$style.tel" href="tel:0570-550571">
                 <img
@@ -165,25 +173,31 @@
             </dd>
           </dl>
           <p :class="$style.notice">
-            {{
+            <t-i18n>{{
               $t(
                 '電話のおかけ間違いが多くなっております。発信の際は今一度電話番号をお確かめの上、お間違えのないようお願いいたします。'
               )
-            }}
+            }}</t-i18n>
           </p>
         </div>
       </div>
       <div id="anx" ref="bottom" :class="$style.section">
         <h4 :class="$style.heading">
-          {{ $t('軽い症状があり、不安のある方') }}
+          <t-i18n>{{ $t('軽い症状があり、不安のある方') }}</t-i18n>
         </h4>
         <p :class="$style.lead">
-          {{ $t('下記、新型コロナコールセンターにご相談ください。') }}
+          <t-i18n>{{
+            $t('下記、新型コロナコールセンターにご相談ください。')
+          }}</t-i18n>
         </p>
         <div :class="[$style.box, $style.bgGray]">
-          <h5 :class="$style.heading">{{ $t('新型コロナコールセンター') }}</h5>
+          <h5 :class="$style.heading">
+            <t-i18n>{{ $t('新型コロナコールセンター') }}</t-i18n>
+          </h5>
           <dl :class="$style.contact">
-            <dt>{{ $t('午前9時から午後9時（土日祝含む）') }}</dt>
+            <dt>
+              <t-i18n>{{ $t('午前9時から午後9時（土日祝含む）') }}</t-i18n>
+            </dt>
             <dd>
               <a :class="$style.tel" href="tel:0570-550571">
                 <img
@@ -196,44 +210,46 @@
             </dd>
           </dl>
           <p :class="$style.notice">
-            {{
+            <t-i18n>{{
               $t(
                 '電話のおかけ間違いが多くなっております。発信の際は今一度電話番号をお確かめの上、お間違えのないようお願いいたします。'
               )
-            }}
+            }}</t-i18n>
           </p>
         </div>
       </div>
       <div :class="[$style.section, $style.yellow]">
         <h4 :class="$style.headingLv2">
-          {{
+          <t-i18n>{{
             $t(
               '新型コロナ受診相談窓口、またはかかりつけ医によって新型コロナ外来（帰国者・接触者外来）の受診が必要だと判断された方'
             )
-          }}
+          }}</t-i18n>
         </h4>
         <p :class="[$style.box, $style.bgGray]">
-          <span :class="$style.large">{{
+          <t-i18n :class="$style.large">{{
             $t('医師が検査の必要性を判断いたします。')
-          }}</span>
-          <span>{{
+          }}</t-i18n>
+          <t-i18n>{{
             $t(
               'マスクをして公共交通機関をできるだけ使わずに受診をしてください。'
             )
-          }}</span>
+          }}</t-i18n>
         </p>
         <h4 :class="[$style.headingLv2]">
-          {{
+          <t-i18n>{{
             $t(
               '医師により検査が必要だと判断されPCR検査（東京都健康安全研究センター等）を受けた結果'
             )
-          }}
+          }}</t-i18n>
         </h4>
         <div :class="$style.boxes">
           <div :class="[$style.box, $style.border]">
-            <h5 :class="$style.lead">{{ $t('陽性の場合') }}</h5>
+            <h5 :class="$style.lead">
+              <t-i18n>{{ $t('陽性の場合') }}</t-i18n>
+            </h5>
             <p>
-              {{ $t('感染症指定医療機関等に入院となります') }}
+              <t-i18n>{{ $t('感染症指定医療機関等に入院となります') }}</t-i18n>
             </p>
             <p :class="$style.grow">
               <img
@@ -244,14 +260,20 @@
             </p>
           </div>
           <div :class="[$style.box, $style.border]">
-            <h5 :class="$style.lead">{{ $t('陰性の場合') }}</h5>
-            <p>{{ $t('自宅安静となり、医療機関を受診していただきます') }}</p>
+            <h5 :class="$style.lead">
+              <t-i18n>{{ $t('陰性の場合') }}</t-i18n>
+            </h5>
+            <p>
+              <t-i18n>{{
+                $t('自宅安静となり、医療機関を受診していただきます')
+              }}</t-i18n>
+            </p>
             <p :class="[$style.small, $style.grow]">
-              {{
+              <t-i18n>{{
                 $t(
                   'ただし、症状が良くならない場合は再度受診相談窓口またはかかりつけ医に相談してください'
                 )
-              }}
+              }}</t-i18n>
             </p>
           </div>
         </div>
@@ -263,7 +285,7 @@
         target="_blank"
         :class="$style.button"
         rel="noopener noreferrer"
-        >{{ $t('詳細を見る（東京都福祉保健局）') }}
+        ><t-i18n>{{ $t('詳細を見る（東京都福祉保健局）') }}</t-i18n>
         <v-icon :class="$style.icon" size="20">
           mdi-open-in-new
         </v-icon>
