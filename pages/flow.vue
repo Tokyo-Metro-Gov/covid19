@@ -401,15 +401,12 @@ export default Vue.extend({
         const self = this
         this.sections.forEach(function(ele: HTMLElement, idx: number) {
           const rect = ele.getBoundingClientRect()
-          // const id = ele.getAttribute('id')
           if (
-            rect.top <= self.navH + self.headerOffset &&
-            rect.bottom >= self.navH + self.headerOffset
+            rect.top <= self.navH + self.headerOffset + 10 &&
+            rect.bottom >= self.navH + self.headerOffset - 10
           ) {
-            // document.querySelector(`a.${self.$style.link}[href='#${id}']`)?.classList.add(self.$style.active)
             self.buttons[idx].classList.add(self.$style.active)
           } else if (self.buttons[idx].classList.contains(self.$style.active)) {
-            // document.querySelector(`a.${self.$style.link}[href='#${id}']`)?.classList.remove(self.$style.active)
             self.buttons[idx].classList.remove(self.$style.active)
           }
         })
