@@ -9,7 +9,7 @@ https://www.transifex.com/code-for-okinawa/stopcovid19-by-code-of-okinawa/
 
 Please join our team from `Help Translate "StopCovid19 by CfO"` button. You will need to make/login account before joining our team.
 
-![](./.github/img/2020-03-16-16-05-37.png)
+![](./.github/img/join-button.png)
 
 After joining, please go to the dashboard page.
 
@@ -17,11 +17,11 @@ https://www.transifex.com/code-for-okinawa/stopcovid19-by-code-of-okinawa/dashbo
 
 Press `Translate` button on the language resource that you want to contribute.
 
-![](./.github/img/2020-03-16-16-09-47.png)
+![](./.github/img/translation-list.png)
 
 You will see the translation editor. Search the text you want to translate from the left pane, then enter the translated text in the text area on the right pane.
 
-![](./.github/img/2020-03-16-16-11-14.png)
+![](./.github/img/translation-ui.png)
 
 After editing, please press `Save Translation` button. 
 
