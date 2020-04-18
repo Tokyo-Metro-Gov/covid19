@@ -12,12 +12,16 @@
       <template v-slot:description>
         <ul>
           <li>
-            {{ $t('（注）医療機関が保険適用で行った検査も含む') }}
+            <t-i18n>{{
+              $t('（注）医療機関が保険適用で行った検査も含む')
+            }}</t-i18n>
           </li>
           <li>
-            {{
-              $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-            }}
+            <t-i18n>
+              {{
+                $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
+              }}
+            </t-i18n>
           </li>
         </ul>
       </template>
@@ -29,10 +33,12 @@
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import TimeBarChart from '@/components/TimeBarChart.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
-    TimeBarChart
+    TimeBarChart,
+    TI18n
   },
   data() {
     // 感染者数グラフ

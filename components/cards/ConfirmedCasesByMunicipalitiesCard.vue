@@ -10,12 +10,14 @@
       <template v-slot:description>
         <ul>
           <li>
-            {{ $t('（注）前日までに発生した患者数の累計値') }}
+            <t-i18n>{{ $t('（注）前日までに発生した患者数の累計値') }}</t-i18n>
           </li>
           <li>
-            {{
-              $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-            }}
+            <t-i18n>
+              {{
+                $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
+              }}
+            </t-i18n>
           </li>
         </ul>
       </template>
@@ -27,10 +29,12 @@
 import dayjs from 'dayjs'
 import Data from '@/data/patient.json'
 import ConfirmedCasesByMunicipalitiesTable from '~/components/ConfirmedCasesByMunicipalitiesTable.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
-    ConfirmedCasesByMunicipalitiesTable
+    ConfirmedCasesByMunicipalitiesTable,
+    TI18n
   },
   data() {
     // 区市町村ごとの陽性患者数
