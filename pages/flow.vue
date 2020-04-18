@@ -124,11 +124,7 @@
               </dt>
               <dd>
                 <a :class="$style.tel" href="tel:03-5320-4592">
-                  <img
-                    src="/flow/responsive/phone_white.svg"
-                    alt=""
-                    aria-hidden="true"
-                  />
+                  <icon-phone :class="$style.icon" aria-hidden="true" />
                   03-5320-4592</a
                 >
               </dd>
@@ -148,11 +144,7 @@
             <dt>{{ $t('午前9時から午後9時（土日祝含む）') }}</dt>
             <dd>
               <a :class="$style.tel" href="tel:0570-550571">
-                <img
-                  src="/flow/responsive/phone_white.svg"
-                  alt=""
-                  aria-hidden="true"
-                />
+                <icon-phone :class="$style.icon" aria-hidden="true" />
                 0570-550571</a
               >
             </dd>
@@ -179,11 +171,7 @@
             <dt>{{ $t('午前9時から午後9時（土日祝含む）') }}</dt>
             <dd>
               <a :class="$style.tel" href="tel:0570-550571">
-                <img
-                  src="/flow/responsive/phone_white.svg"
-                  alt=""
-                  aria-hidden="true"
-                />
+                <icon-phone :class="$style.icon" aria-hidden="true" />
                 0570-550571</a
               >
             </dd>
@@ -228,13 +216,9 @@
             <p>
               {{ $t('感染症指定医療機関等に入院となります') }}
             </p>
-            <p :class="$style.grow">
-              <img
-                :class="[$style.iconPositive]"
-                src="/flow/responsive/hotel.svg"
-                alt=""
-              />
-            </p>
+            <div :class="$style.grow" aria-hidden="true">
+              <icon-bed :class="[$style.iconPositive]" />
+            </div>
           </div>
           <div :class="[$style.box, $style.border]">
             <h5 :class="$style.lead">{{ $t('陰性の場合') }}</h5>
@@ -273,9 +257,11 @@ import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import ExternalLink from '@/components/ExternalLink.vue'
-import FigCondSyDr from '@/static/flow/responsive/cond_sydr.svg'
-import FigCondSy from '@/static/flow/responsive/cond_sy.svg'
-import FigCondAnx from '@/static/flow/responsive/cond_anx.svg'
+import FigCondSyDr from '@/static/flow/cond_sydr.svg'
+import FigCondSy from '@/static/flow/cond_sy.svg'
+import FigCondAnx from '@/static/flow/cond_anx.svg'
+import IconPhone from '@/static/flow/phone.svg'
+import IconBed from '@/static/flow/bed.svg'
 
 type LocalData = {
   nav: any
@@ -300,7 +286,9 @@ export default Vue.extend({
     ExternalLink,
     FigCondSyDr,
     FigCondSy,
-    FigCondAnx
+    FigCondAnx,
+    IconPhone,
+    IconBed
   },
   data(): LocalData {
     const nav = null
@@ -576,7 +564,6 @@ $margin: 20;
       align-items: center;
       flex: 1 0 auto;
     }
-    > img,
     > svg {
       flex: 0 0 auto;
       margin-top: 20px;
@@ -602,7 +589,7 @@ $margin: 20;
     &:hover {
       background-color: $green-1;
       color: $white;
-      > svg * {
+      > svg path {
         fill: $white;
       }
     }
@@ -689,6 +676,9 @@ $margin: 20;
   &.bgGray {
     background-color: $gray-2;
     color: $white;
+    .icon path {
+      fill: $white; // 内包するアイコンの色を変更
+    }
   }
   &.bgYellow {
     background-color: $emergency;
@@ -773,6 +763,7 @@ $margin: 20;
 }
 .iconPositive {
   max-width: 37px;
+  max-height: 37px; // for IE11
   width: 100%;
 }
 .overrideExternalLink {
@@ -792,9 +783,10 @@ $margin: 20;
   padding: 0 0.25em;
   @include font-size($fzHuge);
 
-  > img {
+  > svg {
     vertical-align: baseline;
     max-width: 0.7em;
+    max-height: 0.7em; // for IE11
     width: 100%;
   }
 
@@ -805,7 +797,6 @@ $margin: 20;
     outline: 1px dotted $white;
   }
 }
-
 .detail {
   text-align: center;
   .button {
@@ -866,7 +857,6 @@ $margin: 20;
       padding: px2vw(20) px2vw(20) px2vw(40);
       border-width: px2vw(4);
       border-radius: px2vw(10);
-      > img,
       > svg {
         margin-top: px2vw(20);
       }
