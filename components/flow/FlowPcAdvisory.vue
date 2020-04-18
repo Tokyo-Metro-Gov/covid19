@@ -32,7 +32,7 @@
             ]"
           >
             <a
-              href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+              href="https://www.city.kitakyushu.lg.jp/ho-huku/18901196.html"
               target="_blank"
               rel="noopener noreferrer"
             >

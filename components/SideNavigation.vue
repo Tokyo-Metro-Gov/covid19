@@ -12,7 +12,7 @@
         <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderLink">
           <img
             class="SideNavigation-HeaderLogo"
-            src="/logo.svg"
+            src="/logo.png"
             :alt="$t('東京都')"
           />
           <div class="SideNavigation-HeaderText">
@@ -143,7 +143,7 @@ export default Vue.extend({
       return [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: this.$t('都内の最新感染動向'),
+          title: this.$t('市内の最新感染動向'),
           link: this.localePath('/')
         },
         {
@@ -153,40 +153,19 @@ export default Vue.extend({
           divider: true
         },
         {
-          icon: 'ParentIcon',
-          title: this.$t('お子様をお持ちの皆様へ'),
-          link: this.localePath('/parent')
-        },
-        {
           icon: 'mdi-account-multiple',
-          title: this.$t('都民の皆様へ'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
+          title: this.$t('市民の皆様へ'),
+          link: 'https://www.city.kitakyushu.lg.jp/soumu/k15700105.html'
         },
         {
           icon: 'mdi-domain',
           title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: this.localePath('/worker'),
+          link: 'https://www.city.kitakyushu.lg.jp/ho-huku/18901208.html',
           divider: true
         },
         {
-          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
-          link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
-        },
-        {
-          title: this.$t('新型コロナウイルス感染症に関する東京都の支援策'),
-          link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-support.html'
-        },
-        {
-          title: this.$t('東京都主催等 中止又は延期するイベント等'),
-          link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
-        },
-        {
-          title: this.$t('知事からのメッセージ'),
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
+          title: this.$t('北九州市の取り組み'),
+          link: 'https://www.city.kitakyushu.lg.jp/ho-huku/18901211.html'
         },
         {
           title: this.$t('当サイトについて'),
@@ -197,8 +176,8 @@ export default Vue.extend({
           link: this.localePath('/contacts')
         },
         {
-          title: this.$t('東京都公式ホームページ'),
-          link: 'https://www.metro.tokyo.lg.jp/'
+          title: this.$t('北九州市ホームページ'),
+          link: 'https://www.city.kitakyushu.lg.jp/'
         }
       ]
     }
