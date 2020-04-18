@@ -66,6 +66,19 @@ function xlsxToArray(string $format, string $path, string $sheet_name, string $r
   return $data;
 }
 
+function getDischargeStatus($index) : string
+{
+  $dischargeStates = [
+    "入院",
+    "退院",
+    "入院調整中"
+  ];
+  $index = strval($index);
+  $data = ("" == $index) ? "確認中" : $dischargeStates[$index];
+
+  return $data;
+}
+
 function readContacts() : array
 {
 
@@ -133,21 +146,15 @@ function readPatientsV2() : array
     $row['date'] = $carbon->format('Y-m-d');
     $row['w'] = $carbon->format('w');
     $row['short_date'] = $carbon->format('m/d');
-    if ($row['患者_退院済フラグ'] === 0) {
-      $dischargStatus = "入院";
-    }
-    else if ($row['患者_退院済フラグ'] === 1) {
-      $dischargStatus = "退院"; 
-    } 
-    else {
-      $dischargStatus = $row['患者_退院済フラグ']; 
-    }
+    $dischargeStatus = getDischargeStatus($row['患者_退院済フラグ']);
+    
     $result = [
       "確定日" => $row['公表_年月日'],
       "居住地" => $row['患者_居住地'],
       "年代" => $row['患者_年代'],
       "性別" => $row['患者_性別'],
-      "退院" => $dischargStatus,
+      "状態" => $row['患者_状態'],
+      "退院" => $dischargeStatus,
       "備考" => $row['備考'],
       "date" => $carbon->format('Y-m-d'),
     ];
@@ -162,27 +169,27 @@ function readPatientsV2() : array
         return $rows->count();
       })),
       '退院者数' => makeDateArray('2020-02-13')->merge($base_data->filter(function ($row) {
-        return $row['退院'] == '退院';
+        return $row['退院'] == "退院";
       })->groupBy('公表_年月日')->map(function ($rows) {
         return $rows->count();
       })),
       '死亡者数' => makeDateArray('2020-02-13')->merge($base_data->filter(function ($row) {
-        return preg_match('/死亡$/', trim($row['備考']));
+        return preg_match('/死亡$/', trim($row['状態']));
       })->groupBy('公表_年月日')->map(function ($rows) {
         return $rows->count();
       })),
       '軽症' => makeDateArray('2020-02-13')->merge($base_data->filter(function ($row) {
-        return $row['退院'] !== 0 && preg_match('/軽症$/', trim($row['備考']));
+        return preg_match('/軽症$/', trim($row['状態']));
       })->groupBy('公表_年月日')->map(function ($rows) {
         return $rows->count();
       })),
       '中等症' => makeDateArray('2020-02-13')->merge($base_data->filter(function ($row) {
-        return $row['退院'] !== 0 && preg_match('/中等症$/', trim($row['備考']));
+        return preg_match('/中等症$/', trim($row['状態']));
       })->groupBy('公表_年月日')->map(function ($rows) {
         return $rows->count();
       })),
       '重症' => makeDateArray('2020-02-13')->merge($base_data->filter(function ($row) {
-        return $row['退院'] !== 0 && preg_match('/重症$/', trim($row['備考']));
+        return preg_match('/重症$/', trim($row['状態']));
       })->groupBy('公表_年月日')->map(function ($rows) {
         return $rows->count();
       }))
@@ -205,22 +212,15 @@ function readPatients() : array
         $row['公表_年月日'] = $carbon->format('Y-m-d').'T08:00:00.000Z';
         $row['date'] = $carbon->format('Y-m-d');
         $row['w'] = $carbon->format('w');
-        $row['short_date'] = $carbon->format('m/d');
-        if ($row['患者_退院済フラグ'] === 0) {
-          $dischargStatus = "入院";
-        }
-        else if ($row['患者_退院済フラグ'] === 1) {
-          $dischargStatus = "退院"; 
-        } 
-        else {
-          $dischargStatus = $row['患者_退院済フラグ']; 
-        }
+        $dischargeStatus = getDischargeStatus($row['患者_退院済フラグ']);
+
         $result = [
           "確定日" => $row['公表_年月日'],
-          "居住地" => $row['患者_居住地'],
-          "年代" => $row['患者_年代'],
-          "性別" => $row['患者_性別'],
-          "退院" => $dischargStatus,
+          "居住地" => !empty($row['患者_居住地']) ? $row['患者_居住地'] : "調査中",
+          "年代" => !empty($row['患者_年代']) ? $row['患者_年代'] : "調査中",
+          "性別" => !empty($row['患者_性別']) ? $row['患者_性別'] : "調査中",
+          "状態" => $row['患者_状態'],
+          "退院" => $dischargeStatus,
           "備考" => $row['備考'],
           "date" => $carbon->format('Y-m-d'),
         ];
@@ -256,7 +256,7 @@ function discharges(array $patients) : array {
   return [
     'date' => $patients['date'],
     'data' => $patients['data']->filter(function ($row) {
-      return in_array($row['退院'], ['入院勧告解除', '退院']);
+      return $row['退院'] == '退院';
     })->values()
   ];
 }
