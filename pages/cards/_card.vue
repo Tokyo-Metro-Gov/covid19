@@ -15,6 +15,9 @@
     <okinawa-land-map-card
       v-else-if="this.$route.params.card == 'okinawa-land-map'"
     />
+    <okinawa-land-dynamic-map-card
+      v-else-if="this.$route.params.card == 'okinawa-land-dynamic-map'"
+    />
     <tested-number-card
       v-else-if="this.$route.params.card == 'number-of-tested'"
     />
@@ -74,6 +77,7 @@ import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDe
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import OkinawaLandMapCard from '@/components/cards/OkinawaLandMapCard.vue'
+import OkinawaLandDynamicMapCard from '@/components/cards/OkinawaLandDynamicMapCard.vue'
 
 // import ShinjukuVisitorsCard from '@/components/cards/ShinjukuVisitorsCard.vue'
 // import ChiyodaVisitorsCard from '@/components/cards/ChiyodaVisitorsCard.vue'
@@ -93,7 +97,8 @@ export default {
     ConsultationDeskReportsNumberCard,
     MetroCard,
     AgencyCard,
-    OkinawaLandMapCard
+    OkinawaLandMapCard,
+    OkinawaLandDynamicMapCard
     // ShinjukuVisitorsCard,
     // ChiyodaVisitorsCard,
     // ShinjukuStMapCard,
@@ -137,6 +142,10 @@ export default {
         break
       case 'okinawa-land-map':
         title = this.$t('沖縄県内感染者発生状況')
+        updatedAt = Data.patients.date
+        break
+      case 'okinawa-land-dynamic-map':
+        title = this.$t('沖縄県内感染者発生状況マップ')
         updatedAt = Data.patients.date
         break
       // case 'predicted-number-of-toei-subway-passengers':

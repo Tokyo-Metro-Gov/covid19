@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <v-card class="DataView" :loading="loading">
+    <v-card class="DataView">
       <div class="DataView-Inner">
         <div class="DataView-Header">
           <h3
@@ -10,8 +10,8 @@
             {{ $t('沖縄県内感染者発生状況') }}
           </h3>
           <div class="mapImage">
-            <img src="/map/hontou.png" alt="" />
-            <img src="/map/ritou.png" alt="" />
+            <img :src="$t('沖縄県内感染者発生状況(本島)')" alt="" />
+            <img :src="$t('沖縄県内感染者発生状況(離島)')" alt="" />
           </div>
         </div>
       </div>
