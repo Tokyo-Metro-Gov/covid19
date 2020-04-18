@@ -29,7 +29,7 @@
             >
               <template slot:actions>
                 <div class="v-expansion-panel-header__icon">
-                  <v-icon>mdi-chevron-right</v-icon>
+                  <v-icon left>mdi-chevron-right</v-icon>
                 </div>
               </template>
               <span class="expansion-panel-text">{{
@@ -613,8 +613,7 @@ textarea {
 }
 
 .v-expansion-panel-header__icon {
-  margin-left: none;
-  margin-right: 5px;
+  margin-left: -5px !important;
 
   .v-expansion-panel--active & .v-icon {
     transform: rotate(90deg) !important;
