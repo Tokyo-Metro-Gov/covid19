@@ -60,6 +60,7 @@ import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import ExternalLink from '@/components/ExternalLink.vue'
 import { DisplayData } from '@/plugins/vue-chart'
+import { customTooltip } from '@/utils/ruby'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -232,7 +233,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ]
         },
         tooltips: {
-          displayColors: false,
+          enabled: false,
+          custom: tooltipModel => customTooltip(this, tooltipModel),
           callbacks: {
             title: self.tooltipsTitle,
             label: self.tooltipsLabel

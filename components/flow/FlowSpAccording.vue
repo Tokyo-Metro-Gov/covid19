@@ -1,36 +1,40 @@
 <template>
   <div :class="[$style.container, $style.according]">
-    <i18n tag="h4" :class="$style.heading" path="{advisory}による相談結果">
-      <template v-slot:advisory>
-        <span :class="[$style.fzLarge, $style.break]">
-          {{ $t('新型コロナ受診相談窓口') }}
-        </span>
-      </template>
-    </i18n>
-    <i18n
-      tag="p"
-      :class="$style.diag"
-      path="新型コロナ外来 {advice} と判断された場合"
-    >
-      <template v-slot:advice>
-        <span :class="[$style.fzXLLarge, $style.break]">
-          {{ $t('受診が必要') }}
-        </span>
-      </template>
-    </i18n>
+    <t-i18n>
+      <i18n tag="h4" :class="$style.heading" path="{advisory}による相談結果">
+        <template v-slot:advisory>
+          <span :class="[$style.fzLarge, $style.break]">
+            {{ $t('新型コロナ受診相談窓口') }}
+          </span>
+        </template>
+      </i18n>
+    </t-i18n>
+    <t-i18n>
+      <i18n
+        tag="p"
+        :class="$style.diag"
+        path="新型コロナ外来 {advice} と判断された場合"
+      >
+        <template v-slot:advice>
+          <span :class="[$style.fzXLLarge, $style.break]">
+            {{ $t('受診が必要') }}
+          </span>
+        </template>
+      </i18n>
+    </t-i18n>
     <p :class="$style.decision">
       <template v-if="!langsWithoutOutpatient.includes($i18n.locale)">
-        <span :class="$style.fzSmall">
+        <t-i18n :class="$style.fzSmall">
           {{ $t('新型コロナ外来（帰国者・接触者外来）') }}
-        </span>
-        <span :class="[$style.fzLarge, $style.break]">{{
+        </t-i18n>
+        <t-i18n :class="[$style.fzLarge, $style.break]">{{
           $t('医師による判断')
-        }}</span>
+        }}</t-i18n>
       </template>
       <template v-else>
-        <span :class="[$style.fzLarge, $style.break]">
+        <t-i18n :class="[$style.fzLarge, $style.break]">
           {{ $t('Diagnosis by a doctor at a COVID-19 outpatient facility') }}
-        </span>
+        </t-i18n>
       </template>
     </p>
     <div :class="[$style.rectContainer, $style.double]">
@@ -40,13 +44,15 @@
         href="#not_required"
       >
         <p>
-          <i18n path="検査の必要{ifRequired}">
-            <template v-slot:ifRequired>
-              <span :class="[$style.fzXLarge, $style.break]">
-                {{ $t('なし') }}
-              </span>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n path="検査の必要{ifRequired}">
+              <template v-slot:ifRequired>
+                <span :class="[$style.fzXLarge, $style.break]">
+                  {{ $t('なし') }}
+                </span>
+              </template>
+            </i18n>
+          </t-i18n>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
           <green-arrow-icon />
@@ -58,13 +64,15 @@
         href="#pcr"
       >
         <p>
-          <i18n path="検査の必要{ifRequired}">
-            <template v-slot:ifRequired>
-              <span :class="[$style.fzXLarge, $style.break]">
-                {{ $t('あり') }}
-              </span>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n path="検査の必要{ifRequired}">
+              <template v-slot:ifRequired>
+                <span :class="[$style.fzXLarge, $style.break]">
+                  {{ $t('あり') }}
+                </span>
+              </template>
+            </i18n>
+          </t-i18n>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
           <arrow-downward-icon />
@@ -75,18 +83,18 @@
       <span :class="$style.break">
         <!-- 改行によって空白が入らないように-->
         <!-- eslint-disable -->
-        <span :class="$style.fzXLLarge">{{ $t('PCR検査') }}</span>{{ $t('※') }}
+        <t-i18n :class="$style.fzXLLarge">{{ $t('PCR検査') }}</t-i18n>{{ $t('※') }}
         <!-- eslint-enable -->
       </span>
-      <span :class="$style.break">
+      <t-i18n :class="$style.break">
         {{ $t('東京都健康安全研究センター等') }}
-      </span>
+      </t-i18n>
       <small :class="[$style.note, $style.fzSmall, $style.break]">
-        {{
+        <t-i18n>{{
           $t(
             '※保険適用となる検査は、当面の間、院内感染防止等の観点から、「帰国者・接触者外来」等の医療機関で実施'
           )
-        }}
+        }}</t-i18n>
       </small>
     </p>
     <div :class="[$style.rectContainer, $style.double]">
@@ -96,7 +104,7 @@
         href="#not_required"
       >
         <p>
-          <span :class="$style.fzXLarge">{{ $t('陰性') }}</span>
+          <t-i18n :class="$style.fzXLarge">{{ $t('陰性') }}</t-i18n>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
           <green-arrow-icon />
@@ -108,52 +116,60 @@
         href="#hospitalized"
       >
         <p>
-          <span :class="$style.fzXLarge">{{ $t('陽性') }}</span>
+          <t-i18n :class="$style.fzXLarge">{{ $t('陽性') }}</t-i18n>
         </p>
         <div :class="$style.arrow" aria-hidden="true">
           <arrow-downward-icon />
         </div>
       </a>
     </div>
-    <i18n
-      id="not_required"
-      tag="p"
-      :class="[$style.diag, $style.hr]"
-      path="新型コロナ外来 {advice} と判断された場合"
-    >
-      <template v-slot:advice>
-        <span :class="[$style.break, $style.fzXLLarge]">
-          {{ $t('受診が不要') }}
-        </span>
-      </template>
-    </i18n>
+    <t-i18n>
+      <i18n
+        id="not_required"
+        tag="p"
+        :class="[$style.diag, $style.hr]"
+        path="新型コロナ外来 {advice} と判断された場合"
+      >
+        <template v-slot:advice>
+          <span :class="[$style.break, $style.fzXLLarge]">
+            {{ $t('受診が不要') }}
+          </span>
+        </template>
+      </i18n>
+    </t-i18n>
     <div :class="[$style.rectContainer, $style.double]">
       <div :class="[$style.rect, $style.solution]">
         <div :class="$style.icon" aria-hidden="true">
           <house-icon />
         </div>
-        <p>{{ $t('自宅で安静に過ごす') }}</p>
+        <p>
+          <t-i18n>{{ $t('自宅で安静に過ごす') }}</t-i18n>
+        </p>
       </div>
       <div :class="[$style.rect, $style.solution]">
         <div :class="$style.icon" aria-hidden="true">
           <apartment-icon />
         </div>
-        <p>{{ $t('一般の医療機関を受診') }}</p>
+        <p>
+          <t-i18n>{{ $t('一般の医療機関を受診') }}</t-i18n>
+        </p>
       </div>
       <div :class="[$style.rect, $style.consult]">
         <p>
-          <i18n path="{getWorse}{advisory}に相談">
-            <template v-slot:getWorse>
-              <i18n path="症状が良くならない場合は">
-                <span>{{ $t('症状が良くならない場合は') }}</span>
-              </i18n>
-            </template>
-            <template v-slot:advisory>
-              <strong :class="$style.advisory">
-                {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
-              </strong>
-            </template>
-          </i18n>
+          <t-i18n>
+            <i18n path="{getWorse}{advisory}に相談">
+              <template v-slot:getWorse>
+                <i18n path="症状が良くならない場合は">
+                  <span>{{ $t('症状が良くならない場合は') }}</span>
+                </i18n>
+              </template>
+              <template v-slot:advisory>
+                <strong :class="$style.advisory">
+                  {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
+                </strong>
+              </template>
+            </i18n>
+          </t-i18n>
         </p>
       </div>
     </div>
@@ -165,13 +181,15 @@ import ApartmentIcon from '@/static/flow/responsive/apartment.svg'
 import HouseIcon from '@/static/flow/responsive/house.svg'
 import ArrowDownwardIcon from '@/static/flow/responsive/arrow_downward.svg'
 import GreenArrowIcon from '@/static/flow/responsive/arrow_green.svg'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
     ApartmentIcon,
     HouseIcon,
     ArrowDownwardIcon,
-    GreenArrowIcon
+    GreenArrowIcon,
+    TI18n
   },
   computed: {
     langsWithoutOutpatient() {

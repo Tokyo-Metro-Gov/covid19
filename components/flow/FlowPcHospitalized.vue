@@ -7,14 +7,21 @@
         aria-hidden="true"
         alt=" "
       />
-      {{ $t('入院となります') }}
+      <t-i18n>{{ $t('入院となります') }}</t-i18n>
     </p>
     <p :class="$style.FlowPcHospitalizedsubHeading">
-      {{ $t('感染症指定医療機関等') }}
+      <t-i18n>{{ $t('感染症指定医療機関等') }}</t-i18n>
     </p>
   </div>
 </template>
-
+<script lang="ts">
+import TI18n from '@/components/TI18n.vue'
+export default {
+  components: {
+    TI18n
+  }
+}
+</script>
 <style module lang="scss">
 .FlowPcHospitalized {
   display: flex;

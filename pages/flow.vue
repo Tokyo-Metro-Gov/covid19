@@ -3,7 +3,7 @@
     <div :class="$style.title">
       <covid-icon aria-hidden="true" />
       <page-header :class="$style.text">
-        {{ $t('新型コロナウイルス感染症が心配なときに') }}
+        <t-i18n>{{ $t('新型コロナウイルス感染症が心配なときに') }}</t-i18n>
       </page-header>
       <printer-button :wrapper-class="$style.printerButton" to="/print/flow" />
     </div>
@@ -282,6 +282,7 @@ import PageHeader from '@/components/PageHeader.vue'
 import FigCondSyDr from '@/static/flow/responsive/cond_sydr.svg'
 import FigCondSy from '@/static/flow/responsive/cond_sy.svg'
 import FigCondAnx from '@/static/flow/responsive/cond_anx.svg'
+import TI18n from '@/components/TI18n.vue'
 
 type LocalData = {
   nav: any
@@ -305,7 +306,8 @@ export default Vue.extend({
     PageHeader,
     FigCondSyDr,
     FigCondSy,
-    FigCondAnx
+    FigCondAnx,
+    TI18n
   },
   data(): LocalData {
     const nav = null

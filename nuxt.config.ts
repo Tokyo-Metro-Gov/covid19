@@ -142,7 +142,13 @@ const config: Configuration = {
             './node_modules/vuetify/dist/vuetify.js',
             './node_modules/vue-spinner/src/ScaleLoader.vue'
           ],
-          whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
+          whitelist: [
+            'html',
+            'body',
+            'nuxt-progress',
+            'DataCard',
+            'chartjs-tooltip'
+          ],
           whitelistPatterns: [/(col|row)/]
         })
       ]

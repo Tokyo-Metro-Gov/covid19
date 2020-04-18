@@ -3,25 +3,32 @@
     <div :class="$style.actionArea">
       <div>
         <p :class="$style.h1">
-          {{ $t('PCR検査') }}
-          <span :class="$style.small">{{ $t('※') }}</span>
+          <t-i18n>{{ $t('PCR検査') }}</t-i18n>
+          <t-i18n :class="$style.small">{{ $t('※') }}</t-i18n>
         </p>
         <p :class="$style.content">
-          {{ $t('東京都健康安全研究センター等') }}
+          <t-i18n>{{ $t('東京都健康安全研究センター等') }}</t-i18n>
         </p>
       </div>
     </div>
     <div :class="$style.resultArea">
       <div :class="[$style.label, $style.ResultLabel]">
-        {{ $t('陰性') }}
+        <t-i18n>{{ $t('陰性') }}</t-i18n>
       </div>
       <div :class="[$style.label, $style.ResultLabel, $style.positive]">
-        {{ $t('陽性') }}
+        <t-i18n>{{ $t('陽性') }}</t-i18n>
       </div>
     </div>
   </div>
 </template>
-
+<script lang="ts">
+import TI18n from '@/components/TI18n.vue'
+export default {
+  components: {
+    TI18n
+  }
+}
+</script>
 <style module lang="scss">
 .FlowPcPcr {
   @include card-container();
