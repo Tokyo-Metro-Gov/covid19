@@ -9,12 +9,45 @@
       :items="chartData.datasets"
       :items-per-page="-1"
       :hide-default-footer="true"
+      :hide-default-header="true"
       :height="240"
       :fixed-header="true"
       :mobile-breakpoint="0"
       :disable-sort="true"
       class="cardTable"
-    />
+    >
+      <template v-slot:header="{ props: { headers } }">
+        <thead>
+          <tr>
+            <th
+              v-for="(header, i) in headers"
+              :key="i"
+              :class="[header.align ? `text-${header.align}` : '']"
+            >
+              <div>
+                <t-i18n>{{ header.text }}</t-i18n>
+              </div>
+            </th>
+          </tr>
+        </thead>
+      </template>
+      <template v-slot:body="{ items, headers }">
+        <tbody>
+          <tr v-for="(item, i) in items" :key="i">
+            <template v-for="(col, j) in Object.keys(item)">
+              <td
+                :key="j"
+                :class="[headers[j].align ? `text-${headers[j].align}` : '']"
+              >
+                <div>
+                  <t-i18n>{{ item[col] }}</t-i18n>
+                </div>
+              </td>
+            </template>
+          </tr>
+        </tbody>
+      </template>
+    </v-data-table>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="info.lText"
@@ -70,9 +103,10 @@
 import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default Vue.extend({
-  components: { DataView, DataViewBasicInfoPanel },
+  components: { DataView, DataViewBasicInfoPanel, TI18n },
   props: {
     title: {
       type: String,
