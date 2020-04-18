@@ -119,13 +119,10 @@
               </dd>
             </div>
             <div>
-              <dt :class="$style.telWrapperHeading">
-                {{ $t('平日（夜間）:') }}
+              <dt>
+                {{ $t('平日（夜間）: 午後5時から翌朝午前9時/土日祝 終日') }}
               </dt>
-              <dd :class="$style.telWrapper">
-                <span :class="$style.telBeforeText">{{
-                  $t('午後5時から翌朝午前9時/土日祝 終日')
-                }}</span>
+              <dd>
                 <a :class="$style.tel" href="tel:03-5320-4592">
                   <img
                     src="/flow/responsive/phone_white.svg"
@@ -739,17 +736,17 @@ $margin: 20;
       display: flex;
       width: 100%;
       justify-content: center;
-      align-items: flex-start;
+      align-items: flex-end;
+      flex-wrap: wrap;
       > dt {
         margin-right: 0.5em;
-        white-space: nowrap;
       }
       > dd {
         text-align: left;
       }
     }
     > *:not(:first-child) {
-      margin-top: $margin * 0.5px;
+      margin-top: $margin * 1px;
     }
   }
   li {
@@ -786,16 +783,6 @@ $margin: 20;
       margin-right: 0.2em;
     }
   }
-}
-.telWrapper,
-.telWrapperHeading {
-  line-height: 1px * $fzHuge * 1.35;
-}
-.telBeforeText {
-  vertical-align: top;
-}
-.telAfterText {
-  vertical-align: top;
 }
 .tel {
   font-weight: bold;
@@ -839,6 +826,7 @@ $margin: 20;
   }
 }
 
+// 960
 @include lessThan(960) {
   .anchor {
     .link {
@@ -850,28 +838,6 @@ $margin: 20;
   }
   .boxes > .box {
     width: auto;
-  }
-}
-
-// 768
-@include lessThan($medium) {
-  .box {
-    > .contact {
-      > div {
-        display: block;
-        > dt {
-          margin-right: 0;
-          text-align: left;
-        }
-        > dd {
-          margin-left: 1em;
-        }
-      }
-    }
-  }
-  .telWrapper,
-  .telWrapperHeading {
-    line-height: inherit;
   }
 }
 
@@ -975,7 +941,7 @@ $margin: 20;
     }
     > .contact {
       > *:not(:first-child) {
-        margin-top: px2vw($margin * 0.5);
+        margin-top: px2vw($margin);
       }
     }
   }
