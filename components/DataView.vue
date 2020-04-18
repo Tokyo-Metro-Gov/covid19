@@ -1,5 +1,5 @@
 <template>
-  <v-card ref="dataView" class="DataView" :loading="loading">
+  <v-card class="DataView" :loading="loading">
     <div class="DataView-Inner">
       <div class="DataView-Header">
         <h3
@@ -20,27 +20,12 @@
         <slot />
       </div>
       <div v-if="this.$slots.dataTable" class="DataView-Details">
-        <v-expansion-panels v-if="showDetails" flat>
-          <v-expansion-panel>
-            <v-expansion-panel-header
-              :hide-actions="true"
-              :style="{ transition: 'none' }"
-              @click="toggleDetails"
-            >
-              <template slot:actions>
-                <div class="v-expansion-panel-header__icon">
-                  <v-icon left>mdi-chevron-right</v-icon>
-                </div>
-              </template>
-              <span class="expansion-panel-text">{{
-                $t('テーブルを表示')
-              }}</span>
-            </v-expansion-panel-header>
-            <v-expansion-panel-content>
-              <slot name="dataTable" />
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-        </v-expansion-panels>
+        <details v-if="showDetails">
+          <summary class="DataView-DetailsSummary" @click="toggleDetails">{{
+            $t('テーブルを表示')
+          }}</summary>
+          <slot name="dataTable" />
+        </details>
         <template v-else>
           <slot name="dataTable" />
         </template>
@@ -53,9 +38,9 @@
           <slot name="footer" />
           <div>
             <a class="Permalink" :href="permalink()">
-              <time :datetime="formattedDate">{{
-                $t('{date} 更新', { date })
-              }}</time>
+              <time :datetime="formattedDate">
+                {{ $t('{date} 更新', { date }) }}
+              </time>
             </a>
           </div>
         </div>
@@ -85,9 +70,9 @@
             @click="stopClosingShareMenu"
           >
             <div class="Close-Button">
-              <v-icon :aria-label="$t('閉じる')" @click="closeShareMenu"
-                >mdi-close</v-icon
-              >
+              <v-icon :aria-label="$t('閉じる')" @click="closeShareMenu">
+                mdi-close
+              </v-icon>
             </div>
 
             <h4>{{ $t('埋め込み用コード') }}</h4>
@@ -98,8 +83,9 @@
                 class="EmbedCode-Copy"
                 :aria-label="$t('クリップボードにコピー')"
                 @click="copyEmbedCode"
-                >mdi-clipboard-outline</v-icon
               >
+                mdi-clipboard-outline
+              </v-icon>
               {{ graphEmbedValue }}
             </div>
 
@@ -174,7 +160,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
-import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 
 export default Vue.extend({
   props: {
@@ -201,8 +186,7 @@ export default Vue.extend({
       openGraphEmbed: false,
       displayShare: false,
       showOverlay: false,
-      showDetails: false,
-      openDetails: false
+      showDetails: false
     }
   },
   computed: {
@@ -215,6 +199,19 @@ export default Vue.extend({
         this.permalink(true, true) +
         '" frameborder="0"></iframe>'
       return graphEmbedValue
+    },
+    cardElements() {
+      const parent = document.querySelector('.row.DataBlock') as HTMLElement
+      const thisCard = this.$el.closest('.DataCard')
+      const index = Array.prototype.indexOf.call(parent.children, thisCard) + 1
+      const sideIndex = index % 2 === 0 ? index - 1 : index + 1
+
+      const self = document.querySelector(
+        `.DataCard:nth-child(${index}`
+      ) as HTMLElement
+      const side = document.querySelector(`.DataCard:nth-child(${sideIndex}
+      `) as HTMLElement
+      return [self, side]
     }
   },
   watch: {
@@ -231,6 +228,10 @@ export default Vue.extend({
   },
   mounted() {
     this.showDetails = true
+    window.addEventListener('resize', this.handleCardHeight)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleCardHeight)
   },
   methods: {
     toggleShareMenu(e: Event) {
@@ -294,9 +295,28 @@ export default Vue.extend({
         this.permalink(true)
       window.open(url)
     },
+    handleCardHeight() {
+      const [self, side] = this.cardElements
+      if (self) {
+        self.style.height = ''
+        self.dataset.height = String(self.offsetHeight)
+      }
+      if (side) {
+        side.style.height = ''
+        side.dataset.height = String(side.offsetHeight)
+      }
+    },
     toggleDetails() {
-      this.openDetails = !this.openDetails
-      EventBus.$emit(TOGGLE_EVENT, { dataView: this.$refs.dataView })
+      // アコーディオン開閉時にcardの高さを維持する
+      const [self, side] = this.cardElements
+
+      self.dataset.height = self.dataset.height || String(self.offsetHeight)
+      side.dataset.height = side.dataset.height || String(side.offsetHeight)
+
+      self.style.height =
+        self.style.height === `auto` ? `${self.dataset.height}px` : 'auto'
+      side.style.height =
+        side.style.height === 'auto' ? 'auto' : `${side.dataset.height}px`
     }
   }
 })
@@ -610,21 +630,5 @@ textarea {
   font: 400 11px system-ui;
   width: 100%;
   height: 2.4rem;
-}
-
-.v-expansion-panel-header__icon {
-  margin-left: -5px !important;
-
-  & .v-icon--left {
-    margin-right: 5px;
-  }
-
-  .v-expansion-panel--active & .v-icon {
-    transform: rotate(90deg) !important;
-  }
-}
-
-.expansion-panel-text {
-  color: $gray-1;
 }
 </style>

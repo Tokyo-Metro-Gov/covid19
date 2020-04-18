@@ -16,7 +16,7 @@
         </dt>
         <dd :class="$style.link">
           <a
-            href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+            href="https://www.city.kitakyushu.lg.jp/ho-huku/18901203.html"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -48,7 +48,7 @@
             <span :class="$style.icon">
               <phone-icon alt="Phone" />
             </span>
-            <a href="tel:0353204592">03-5320-4592</a>
+            <a href="tel:0353204592">0570-093-567</a>
           </div>
           <div
             v-if="!['ja', 'ja-basic'].includes($i18n.locale)"
