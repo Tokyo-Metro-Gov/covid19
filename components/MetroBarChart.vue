@@ -61,7 +61,9 @@
       <external-link
         url="https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf"
       >
-        {{ $t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）[PDF]') }}
+        <t-i18n>
+          {{ $t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）[PDF]') }}
+        </t-i18n>
       </external-link>
     </template>
   </data-view>
