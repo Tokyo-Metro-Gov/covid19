@@ -28,14 +28,13 @@
               @click="toggleDetails"
             >
               <template slot:actions>
-                <div
-                  class="v-expansion-panel-header__icon"
-                  :style="{ marginLeft: 'none', marginRight: '5px' }"
-                >
-                  <v-icon>mdi-chevron-down</v-icon>
+                <div class="v-expansion-panel-header__icon">
+                  <v-icon>mdi-chevron-right</v-icon>
                 </div>
               </template>
-              <span class="expansion-text">{{ $t('テーブルを表示') }}</span>
+              <span class="expansion-panel-text">{{
+                $t('テーブルを表示')
+              }}</span>
             </v-expansion-panel-header>
             <v-expansion-panel-content>
               <slot name="dataTable" />
@@ -613,7 +612,16 @@ textarea {
   height: 2.4rem;
 }
 
-.expansion-text {
+.v-expansion-panel-header__icon {
+  margin-left: none;
+  margin-right: 5px;
+
+  .v-expansion-panel--active & .v-icon {
+    transform: rotate(90deg) !important;
+  }
+}
+
+.expansion-panel-text {
   color: $gray-1;
 }
 </style>
