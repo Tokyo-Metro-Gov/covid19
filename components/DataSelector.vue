@@ -1,71 +1,57 @@
 <template>
-  <v-radio-group
+  <v-btn-toggle
     :aria-controls="targetId"
     :value="value"
-    :column="false"
-    :row="true"
     class="DataSelector"
-    mandatory="mandatory"
+    mandatory
     @change="$emit('input', $event)"
   >
-    <v-radio
-      :ripple="false"
-      :aria-checked="value === 'transition' ? 'true' : 'false'"
+    <v-btn
+      v-ripple="false"
+      :aria-pressed="value === 'transition' ? 'true' : 'false'"
       value="transition"
-      :label="$t('日別')"
-    />
-    <v-radio
-      :ripple="false"
-      :aria-checked="value === 'cumulative' ? 'true' : 'false'"
+      class="DataSelector-Button"
+    >
+      {{ $t('日別') }}
+    </v-btn>
+    <v-btn
+      v-ripple="false"
+      :aria-pressed="value === 'cumulative' ? 'true' : 'false'"
       value="cumulative"
-      :label="$t('累計')"
-    />
-  </v-radio-group>
+      class="DataSelector-Button"
+    >
+      {{ $t('累計') }}
+    </v-btn>
+  </v-btn-toggle>
 </template>
 
 <style lang="scss">
-.DataSelector .v-input--radio-group__input {
-  padding: 3px;
+.DataSelector {
+  margin-top: 20px;
   border: 1px solid $gray-4;
-  border-radius: 4px;
-  align-items: stretch;
+  background-color: $white;
 
-  & .v-radio {
-    margin-right: inherit;
-  }
+  &-Button {
+    border: none !important;
+    margin: 2px;
+    border-radius: 4px !important;
+    height: 24px !important;
+    font-size: 12px !important;
+    color: $gray-1 !important;
+    background-color: $white !important;
 
-  & .v-label {
-    display: block;
-    line-height: normal;
-    border: 1px solid $white;
-    border-radius: 4px;
-    border-width: thin;
-    box-shadow: none;
-    padding: 5px 18px 23px 18px;
-    height: 24px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: 0.1s;
-    color: $gray-1;
-    background-color: $white;
-    justify-content: center;
+    &::before {
+      background-color: inherit;
+    }
 
-    &:hover {
-      opacity: 0.5;
+    &:focus {
       outline: dotted $gray-3 1px;
-      border-radius: 4px;
-      color: $white;
-      background-color: $green-1;
     }
   }
 
-  & .v-input--selection-controls__input {
-    @include visually-hidden;
-  }
-
-  & .v-item--active .v-label {
-    background-color: $gray-2;
-    color: $white;
+  & .v-btn--active {
+    background-color: $gray-2 !important;
+    color: $white !important;
   }
 }
 </style>
@@ -83,8 +69,8 @@ export default Vue.extend({
     targetId: {
       type: String,
       default: (val: string | null) => {
-        // TODO: type defaults to null when NullableString is in
-        return typeof val === 'string' && val !== '' ? val : null
+        // TODO: type は NullableString 型をとり、default: null とする
+        return val && val !== '' ? val : null
       }
     }
   }
