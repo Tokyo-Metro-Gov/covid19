@@ -42,7 +42,7 @@ export default {
     // 陽性患者の属性 ヘッダー翻訳
     for (const header of patientsTable.headers) {
       header.text =
-        header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
+        header.value === '退院' ? this.$t('入退院状況※') : this.$t(header.value)
     }
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
@@ -54,6 +54,8 @@ export default {
         row['年代'] = this.$t('10歳未満')
       } else if (row['年代'] === '不明') {
         row['年代'] = this.$t('不明')
+      } else if (row['年代'] === '確認中') {
+        row['年代'] = this.$t('確認中')
       } else {
         const age = row['年代'].substring(0, 2)
         row['年代'] = this.$t('{age}代', { age })

@@ -114,7 +114,9 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 Tokyo Metropolitan Government
+          <a href="http://code4okinawa.org" target="_blank">
+            Code for Okinawa
+          </a>
         </small>
       </footer>
     </div>
@@ -170,12 +172,12 @@ export default Vue.extend({
           link:
             'https://www.pref.okinawa.jp/site/shoko/seisaku/kikaku/covid-19.html'
         },
-        // {
-        //   icon: 'mdi-domain',
-        //   title: this.$t('企業の皆様・はたらく皆様へ'),
-        //   link: this.localePath('/worker'),
-        //   divider: true
-        // },
+        {
+          icon: 'mdi-domain',
+          title: this.$t('企業の皆様・はたらく皆様へ'),
+          link: this.localePath('/worker'),
+          divider: true
+        },
         // {
         //   title: this.$t('新型コロナウイルス感染症について'),
         //   link:

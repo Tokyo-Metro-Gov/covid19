@@ -11,7 +11,8 @@ PATHS = {
     "/cards/details-of-confirmed-cases": (375, 560),
     "/cards/number-of-confirmed-cases": (375, 560),
     "/cards/attributes-of-confirmed-cases": (375, 560),
-    "/cards/okinawa-land-map": (375, 1200)
+    "/cards/okinawa-land-map": (375, 1200),
+    "/cards/okinawa-land-dynamic-map": (375, 1200)
 }
 
 options = webdriver.ChromeOptions()

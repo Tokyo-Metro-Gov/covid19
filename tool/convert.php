@@ -82,7 +82,7 @@ function getDischargeStatus($index) : string
 function readContacts() : array
 {
 
-  $data = xlsxToArray('Xls', __DIR__.'/downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'A2:E100', 'A1:E1');
+  $data = xlsxToArray('Xls', __DIR__.'/downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'A2:E200', 'A1:E1');
   return [
     'date' => xlsxToArray('Xls', __DIR__.'/downloads/コールセンター相談件数-RAW.xlsx', 'Sheet1', 'H1')[0][0],
     'data' => $data->filter(function ($row) {
@@ -110,7 +110,7 @@ function readContacts() : array
  */
 function readQuerents() : array
 {
-  $data = xlsxToArray('Xls', __DIR__.'/downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'A2:D100', 'A1:D1');
+  $data = xlsxToArray('Xls', __DIR__.'/downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'A2:D200', 'A1:D1');
 
   return [
     'date' => xlsxToArray('Xls', __DIR__.'/downloads/帰国者・接触者センター相談件数-RAW.xlsx', 'RAW', 'H1')[0][0],
@@ -136,7 +136,7 @@ function readQuerents() : array
 
 function readPatientsV2() : array
 {
-  $data = xlsxToArray('Csv', __DIR__.'/downloads/cases.csv', 'RAW', 'E2:P100', 'E1:P1');
+  $data = xlsxToArray('Csv', __DIR__.'/downloads/cases.csv', 'RAW', 'E2:P200', 'E1:P1');
   $base_data = $data->filter(function ($row) {
     return $row['公表_年月日'];
   })->map(function ($row) {
@@ -200,10 +200,10 @@ function readPatientsV2() : array
 
 function readPatients() : array
 {
-    $data = xlsxToArray('Csv', __DIR__.'/downloads/cases.csv', 'RAW', 'E2:P100', 'E1:P1');
+    $data = xlsxToArray('Csv', __DIR__.'/downloads/cases.csv', 'RAW', 'E2:P200', 'E1:P1');
 
     return [
-      'date' => xlsxToArray('Csv', __DIR__.'/downloads/summary.csv', 'summary', 'B2')[0][0],
+      'date' => xlsxToArray('Csv', __DIR__.'/downloads/summary.csv', 'summary', 'A2')[0][0],
       'data' => $data->filter(function ($row) {
         return $row['公表_年月日'];
       })->map(function ($row) {
@@ -262,7 +262,7 @@ function discharges(array $patients) : array {
 }
 
 function readInspections() : array{
-  $data = xlsxToArray('Xls', __DIR__.'/downloads/検査実施日別状況.xlsx', '入力シート', 'A2:J100', 'A1:J1');
+  $data = xlsxToArray('Xls', __DIR__.'/downloads/検査実施日別状況.xlsx', '入力シート', 'A2:J200', 'A1:J1');
   $data = $data->filter(function ($row) {
     return $row['疑い例検査'] !== null;
   });
@@ -290,6 +290,30 @@ function readInspectionsSummary(array $inspections) : array
   ];
 }
 
+function readSummaryFile() : array {
+  $data = xlsxToArray('Csv', __DIR__.'/downloads/summary.csv', 'RAW', 'A2:F2', 'A1:F1');
+
+  return [
+    'data' => $data->filter(function ($row) {
+      return $row['更新時間'];
+    })->map(function ($row) {
+      $date = formatDate($row['更新時間']);
+      $carbon = Carbon::parse($date);
+      $row['更新時間'] = $carbon->format('Y-m-d').'T08:00:00.000Z';
+      
+      $result = [
+        "更新時間" => $row['更新時間'],
+        "検査実施人数" => $row['検査実施人数'],
+        "軽症" => $row['軽症'],
+        "中等症" => $row['中等症'],
+        "重症" => $row['重症'],
+        "死亡" => $row['死亡'],
+      ];
+
+      return $result;
+    })
+  ];
+}
 
 // $contacts = readContacts();
 // $querents = readQuerents();
@@ -300,6 +324,8 @@ $better_patients_summary = readPatientsV2();
 
 $discharges = discharges($patients);
 $discharges_summary = createSummary($discharges);
+
+$summary_data = readSummaryFile();
 
 // $inspections =readInspections();
 // $inspections_summary =readInspectionsSummary($inspections);
@@ -329,7 +355,7 @@ $data['lastUpdate'] = $lastUpdate;
 
 $data['main_summary'] = [
   'attr' => '検査実施人数',
-  'value' => xlsxToArray('Csv', __DIR__.'/downloads/summary.csv', 'summary', 'A2')[0][0],
+  'value' => $summary_data['data'][0]['検査実施人数'],
   'children' => [
     [
       'attr' => '陽性患者数（県外感染者含む）',
@@ -341,21 +367,21 @@ $data['main_summary'] = [
           'children' => [
             [
               'attr' => '軽症・中等症',
-              'value' => $better_patients_summary['data']['軽症']->sum() + $better_patients_summary['data']['中等症']->sum()
+              'value' => $summary_data['data'][0]['軽症'] + $summary_data['data'][0]['中等症']
             ],
             [
               'attr' => '重症',
-              'value' => $better_patients_summary['data']['重症']->sum()
+              'value' => $summary_data['data'][0]['重症']
             ]
           ]
         ],
         [
           'attr' => '退院',
-          'value' => $better_patients_summary['data']['退院者数']->sum()
+          'value' => $better_patients_summary['data']['退院者数']->sum() - $summary_data['data'][0]['死亡']
         ],
         [
           'attr' => '死亡',
-          'value' => $better_patients_summary['data']['死亡者数']->sum()
+          'value' => $summary_data['data'][0]['死亡']
         ]
 
       ]

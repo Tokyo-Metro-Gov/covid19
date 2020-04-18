@@ -1,0 +1,60 @@
+name: generate map 
+
+on:
+  push:
+    branches:
+      - master
+      - staging
+      - development
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.extract_branch.outputs.branch }}
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - run: yarn install --frozen-lockfile
+      - run: yarn run test
+      - run: yarn run generate:deploy
+      - run: pip3 install geocoder==1.3 geopandas folium pandas numpy matplotlib seaborn
+      - run: python3 ./tool/okinawa_covid19_map.py
+      - name: Upload okinawa_covid19_map
+        uses: actions/upload-artifact@v1
+        with:
+          name: tool
+          path: tool
+  upload:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ steps.extract_branch.outputs.branch }}
+    - name: Commit files
+      run: |
+        cp -rp covid19_okinawa_map.html static/
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add static
+        git commit -m "Add changes"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ steps.extract_branch.outputs.branch }}
