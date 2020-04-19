@@ -49,7 +49,18 @@
       <footer class="SideNavigation-Footer">
         <div class="SideNavigation-Social">
           <a
-            href="https://www.facebook.com/shizuokashippei/"
+            href="https://twitter.com/shizuoka_bousai"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
+          >
+            <picture>
+              <source srcset="/twitter.webp" type="image/webp" />
+              <img src="/twitter.png" alt="Twitter" />
+            </picture>
+          </a>
+          <a
+            href="https://www.facebook.com/shizuoka.bousai/"
             target="_blank"
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
