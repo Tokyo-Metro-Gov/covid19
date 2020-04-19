@@ -49,7 +49,18 @@
       <footer class="SideNavigation-Footer">
         <div class="SideNavigation-Social">
           <a
-            href="https://www.facebook.com/shizuokashippei/"
+            href="https://twitter.com/shizuoka_bousai"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
+          >
+            <picture>
+              <source srcset="/twitter.webp" type="image/webp" />
+              <img src="/twitter.png" alt="Twitter" />
+            </picture>
+          </a>
+          <a
+            href="https://www.facebook.com/shizuoka.bousai/"
             target="_blank"
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
@@ -135,7 +146,7 @@ export default Vue.extend({
         {
           icon: 'mdi-account-multiple',
           title: this.$t('県民の皆様へ'),
-          link: 'https://www.pref.shizuoka.jp/kinkyu/covid-19.html#governor_comment'
+          link: 'https://www.pref.shizuoka.jp/kinkyu/covid-19.html'
         },
         {
           icon: 'mdi-domain',
@@ -145,7 +156,7 @@ export default Vue.extend({
         {
           title: this.$t('静岡県新型コロナウイルス感染症対策本部報'),
           link:
-            'https://www.pref.shizuoka.jp/kinkyu/covid-19.html#hesdquarters_shizuoka'
+            'https://www.pref.shizuoka.jp/kinkyu/covid-19-taisakuhonnbu.html'
         },
         {
           title: this.$t('静岡県主催イベント等の延期・中止状況'),
@@ -154,7 +165,7 @@ export default Vue.extend({
         },
         {
           title: this.$t('静岡県公式ホームページ'),
-          link: 'http://www.pref.shizuoka.jp/index.html'
+          link: 'http://www.pref.shizuoka.jp/'
         }
       ]
     }
