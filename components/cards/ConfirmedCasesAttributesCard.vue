@@ -13,6 +13,7 @@
         "
         :source="$t('オープンデータを入手')"
         :custom-sort="customSort"
+        @datafiltered="handlerDataFiltered"
       />
     </client-only>
   </v-col>
@@ -149,6 +150,9 @@ export default {
         return isDesc[0] ? comparison * -1 : comparison
       })
       return items
+    },
+    handlerDataFiltered(datasets) {
+      this.patientsTable.datasets = datasets
     }
   }
 }
