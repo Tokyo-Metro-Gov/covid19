@@ -3,6 +3,10 @@
     <template v-slot:button>
       <span />
     </template>
+    <data-filter 
+      :chart-data="chartData" 
+      @update="(datasets) => $emit('datafiltered', datasets)" 
+    />
     <v-data-table
       :ref="'displayedTable'"
       :headers="chartData.headers"
@@ -28,14 +32,7 @@
       </template>
     </v-data-table>
     <div class="note">
-      <ul>
-        <li>
-          {{ $t('※退院は、保健所から報告があり、確認ができているものを反映') }}
-        </li>
-        <li>
-          {{ $t('※死亡退院を含む') }}
-        </li>
-      </ul>
+      {{ $t('※退院には、死亡退院を含む') }}
     </div>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -99,26 +96,21 @@
 }
 
 .note {
-  margin: 8px 0 0;
+  padding: 8px;
   font-size: 12px;
   color: $gray-3;
-
-  ul,
-  ol {
-    list-style-type: none;
-    padding: 0;
-  }
 }
 </style>
 
 <script lang="ts">
 import Vue from 'vue'
+import DataFilter from '@/components/DataFilter.vue'
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default Vue.extend({
-  components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
+  components: { DataFilter, DataView, DataViewBasicInfoPanel, OpenDataLink },
   props: {
     title: {
       type: String,
