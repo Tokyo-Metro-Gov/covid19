@@ -11,35 +11,25 @@
       <h3 :class="$style.heading">
         {{ $t('新型コロナウイルス感染症にかかる相談窓口について') }}
       </h3>
-      <p ref="trigger" :class="$style.lead">
+      <p ref="upperTrigger" :class="$style.lead">
         {{ $t('相談方法は、症状や状況別で3つに分かれます') }}
       </p>
-      <nav ref="anchor" :class="$style.anchor">
+      <nav ref="nav" :class="$style.anchor">
         <ul :class="$style.items">
           <li :class="$style.item">
-            <a
-              ref="sydr"
-              href="#sydr"
-              :class="$style.link"
-              @click="onClickAnchor"
-            >
+            <a href="#sydr" :class="$style.link" @click="onClickAnchor">
               <span>{{ $t('かかりつけ医がいて症状のある方') }}</span>
               <fig-cond-sy-dr :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
           <li :class="$style.item">
-            <a ref="sy" href="#sy" :class="$style.link" @click="onClickAnchor">
+            <a href="#sy" :class="$style.link" @click="onClickAnchor">
               <span>{{ $t('かかりつけ医がいない症状のある方') }}</span>
               <fig-cond-sy :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
           <li :class="$style.item">
-            <a
-              ref="anx"
-              href="#anx"
-              :class="$style.link"
-              @click="onClickAnchor"
-            >
+            <a href="#anx" :class="$style.link" @click="onClickAnchor">
               <span>{{ $t('軽い症状があり不安のある方') }}</span>
               <fig-cond-anx :class="$style.fig" aria-hidden="true" />
             </a>
@@ -158,7 +148,7 @@
           </p>
         </div>
       </div>
-      <div id="anx" ref="bottom" :class="$style.section">
+      <div id="anx" ref="lowerTrigger" :class="$style.section">
         <h4 :class="$style.heading">
           {{ $t('軽い症状があり、不安のある方') }}
         </h4>
@@ -264,18 +254,18 @@ import IconPhone from '@/static/flow/phone.svg'
 import IconBed from '@/static/flow/bed.svg'
 
 type LocalData = {
-  nav: any
-  buttons: any
-  sections: any
-  trigger: any
-  bottom: any
-  navW: number
-  navH: number
-  navOffsetTop: number
-  triggerPos: number
-  bottomPos: number
-  headerOffset: number
-  timerId: number
+  nav: HTMLElement | null // アンカーリンクコンテナ（フローティング対象）
+  upperTrigger: HTMLElement | null // フローティング判定上側トリガ（代替余白付与対象）
+  lowerTrigger: HTMLElement | null // フローティング判定下側トリガ
+  buttons: HTMLElement[] | null // アンカーリンクボタン
+  sections: HTMLElement[] | null // アンカーリンクの飛び先
+  navW: number // アンカーリンクコンテナの幅（upperTriggerの幅を使用）
+  navH: number // アンカーリンクコンテナの高さ（navW指定後のnavの高さ）
+  navOffsetTop: number // アンカーリンクコンテナ上端の表示領域上端からのオフセット量
+  upperTriggerOffsetTop: number // upperTrigger要素下端の表示領域上端からのオフセット量
+  lowerTriggerOffsetTop: number // lowerTrigger要素下端の表示領域上端からのオフセット量
+  floatingOffset: number // フローティング時のオフセット量
+  timerId: number // scrollイベントのdebounce用タイマーID
 }
 
 export default Vue.extend({
@@ -292,43 +282,43 @@ export default Vue.extend({
   },
   data(): LocalData {
     const nav = null
+    const upperTrigger = null
+    const lowerTrigger = null
     const buttons = null
     const sections = null
-    const trigger = null
-    const bottom = null
     const navW = 0
     const navH = 0
     const navOffsetTop = 0
-    const triggerPos = 0
-    const bottomPos = 0
-    const headerOffset = 0
+    const upperTriggerOffsetTop = 0
+    const lowerTriggerOffsetTop = 0
+    const floatingOffset = 0
     const timerId = 0
 
     return {
       nav,
+      upperTrigger,
+      lowerTrigger,
       buttons,
       sections,
-      trigger,
-      bottom,
       navW,
       navH,
       navOffsetTop,
-      triggerPos,
-      bottomPos,
-      headerOffset,
+      upperTriggerOffsetTop,
+      lowerTriggerOffsetTop,
+      floatingOffset,
       timerId
     }
   },
   mounted() {
-    this.nav = this.$refs.anchor as HTMLElement
+    this.nav = this.$refs.nav as HTMLElement
     this.buttons = Array.prototype.slice.call(
       document.getElementsByClassName(this.$style.link)
     )
     this.sections = Array.prototype.slice.call(
       document.querySelectorAll(`.${this.$style.section}[id]`)
     )
-    this.trigger = this.$refs.trigger as HTMLElement
-    this.bottom = this.$refs.bottom as HTMLElement
+    this.upperTrigger = this.$refs.upperTrigger as HTMLElement
+    this.lowerTrigger = this.$refs.lowerTrigger as HTMLElement
     const self = this
     window.addEventListener('scroll', function() {
       // debounce
@@ -352,7 +342,7 @@ export default Vue.extend({
         .querySelector(`a.${this.$style.link}[href='${hash}']`)
         ?.classList.add(this.$style.active)
       VueScrollTo.scrollTo(hash, 1000, {
-        offset: -(this.navH + this.headerOffset)
+        offset: -(this.navH + this.floatingOffset + 1) // +1はIE11用サブピクセル対策
       })
     }
   },
@@ -361,38 +351,40 @@ export default Vue.extend({
       this.timerId = 0
 
       // 整形
-      const navRect = this.nav.getBoundingClientRect()
-      const triggerRect = this.trigger.getBoundingClientRect()
-      const bottomRect = this.bottom.getBoundingClientRect()
-      this.navOffsetTop = navRect.top
-      this.navW = this.trigger.clientWidth
-      this.navH = this.nav.offsetHeight
-      this.bottomPos = bottomRect.bottom
+      const navRect = this.nav!.getBoundingClientRect()
+      const upperTriggerRect = this.upperTrigger!.getBoundingClientRect()
+      const bottomTriggerRect = this.lowerTrigger!.getBoundingClientRect()
+      this.navOffsetTop = navRect!.top
+      this.navW = this.upperTrigger!.clientWidth
+      this.navH = this.nav!.offsetHeight
+      this.lowerTriggerOffsetTop = bottomTriggerRect.bottom
       if (matchMedia('(max-width: 600px)').matches) {
-        this.headerOffset = 64 // NOTE: nuxt.config.tsのoffsetから余白を抜いたもの
+        this.floatingOffset = 64 // NOTE: nuxt.config.tsのoffsetから余白を抜いたもの
       } else {
-        this.headerOffset = 0
+        this.floatingOffset = 0
       }
-      this.triggerPos = triggerRect.bottom - this.headerOffset
+      this.upperTriggerOffsetTop = upperTriggerRect.bottom - this.floatingOffset
 
       // 表示切替
       if (
-        this.triggerPos <= 0 &&
-        this.bottomPos >= this.navH + this.headerOffset
+        this.upperTriggerOffsetTop <= 0 + 1 && // +1はIE11用サブピクセル対策
+        this.lowerTriggerOffsetTop >= this.navH + this.floatingOffset
       ) {
         this.startFloating()
 
         // 表示位置追従カレント処理
         const self = this
-        this.sections.forEach(function(ele: HTMLElement, idx: number) {
+        this.sections!.forEach(function(ele: HTMLElement, idx: number) {
           const rect = ele.getBoundingClientRect()
           if (
-            rect.top <= self.navH + self.headerOffset + 10 &&
-            rect.bottom >= self.navH + self.headerOffset - 10
+            rect.top <= self.navH + self.floatingOffset + 10 &&
+            rect.bottom >= self.navH + self.floatingOffset - 10
           ) {
-            self.buttons[idx].classList.add(self.$style.active)
-          } else if (self.buttons[idx].classList.contains(self.$style.active)) {
-            self.buttons[idx].classList.remove(self.$style.active)
+            self.buttons![idx].classList.add(self.$style.active)
+          } else if (
+            self.buttons![idx].classList.contains(self.$style.active)
+          ) {
+            self.buttons![idx].classList.remove(self.$style.active)
           }
         })
       } else {
@@ -404,7 +396,7 @@ export default Vue.extend({
       const target = event.target as HTMLAnchorElement
       const hash = target.hash
       VueScrollTo.scrollTo(hash, 1000, {
-        offset: -(this.navH + this.headerOffset)
+        offset: -(this.navH + this.floatingOffset + 1) // +1はIE11用サブピクセル対策
       })
       if (hash !== '#sydr') {
         this.startFloating()
@@ -413,22 +405,22 @@ export default Vue.extend({
       target.classList.add(this.$style.active)
     },
     startFloating(): void {
-      if (!this.nav.classList.contains(this.$style.floating)) {
-        this.nav.classList.add(this.$style.floating) // eslint-disable-line no-unused-expressions
+      if (!this.nav!.classList.contains(this.$style.floating)) {
+        this.nav!.classList.add(this.$style.floating) // eslint-disable-line no-unused-expressions
       }
-      this.trigger.style.marginBottom = this.navH + 'px'
-      this.nav.style.width = this.navW + 'px'
+      this.upperTrigger!.style.marginBottom = this.navH + 'px'
+      this.nav!.style.width = this.navW + 'px'
     },
     stopFloating(): void {
-      if (this.nav.classList.contains(this.$style.floating)) {
-        this.nav.classList.remove(this.$style.floating) // eslint-disable-line no-unused-expressions
+      if (this.nav!.classList.contains(this.$style.floating)) {
+        this.nav!.classList.remove(this.$style.floating) // eslint-disable-line no-unused-expressions
       }
-      this.trigger.style.marginBottom = ''
-      this.nav.style.width = ''
+      this.upperTrigger!.style.marginBottom = ''
+      this.nav!.style.width = ''
     },
     resetNavCurrent(): void {
       const self = this
-      this.buttons.forEach(function(ele: HTMLElement) {
+      this.buttons!.forEach(function(ele: HTMLElement) {
         ele.classList.remove(self.$style.active)
       })
     }
