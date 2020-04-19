@@ -47,9 +47,10 @@ export default {
         {
           title: `3. ${this.$t('お子様への読みきかせに')}`,
           body: [
-            '<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS9VSQYMsRwQuHVkbp2PEH8OZNKesr4CpIxpg0iwuXmQJjlzWxvVfLGHYw-NL1s5bGBJVDSnZ5bzjcR/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>',
+            this.$t('学校がお休みになることや不要な外出を控えることの理由について、学校やご自宅での読みきかせにご利用ください。'),
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS9VSQYMsRwQuHVkbp2PEH8OZNKesr4CpIxpg0iwuXmQJjlzWxvVfLGHYw-NL1s5bGBJVDSnZ5bzjcR/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>,
             this.$t('Author　Tsutomu Hamada'),
-            '<a href="CC-BY4.0" target="_blank" rel="noopener">https://creativecommons.org/licenses/by/4.0/deed.ja</a>'
+            '<a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noopener">CC-BY4.0</a>'
           ].join('<br />')
         }
       ]
