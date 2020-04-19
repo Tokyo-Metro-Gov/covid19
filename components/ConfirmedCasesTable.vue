@@ -96,7 +96,7 @@ export default Vue.extend({
       required: true
     },
     軽症中等症: {
-      type: String,
+      type: Number,
       required: true
     },
     重症: {
