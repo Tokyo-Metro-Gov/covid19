@@ -45,7 +45,16 @@ export default {
           ].join('<br />')
         },
         {
-          title: `3. ${this.$t('その他')}`,
+          title: `3. ${this.$t('スライド紹介テスト')}`,
+          body: [
+            this.$t('「だろう」じゃなくて「かもしれない」〜新型コロナウイルスのお話〜'),
+            '<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS9VSQYMsRwQuHVkbp2PEH8OZNKesr4CpIxpg0iwuXmQJjlzWxvVfLGHYw-NL1s5bGBJVDSnZ5bzjcR/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>',
+            this.$t('「だろう」じゃなくて「かもしれない」〜新型コロナウイルスのお話〜')
+          ].join('<br />')
+          
+        },  
+        {
+          title: `4. ${this.$t('その他')}`,
           body: this.$t('詳細は、各学校からのお知らせ等をご確認ください。')
         }
       ]
