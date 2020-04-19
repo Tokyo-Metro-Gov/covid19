@@ -13,20 +13,22 @@
     >
       <!-- 件.tested = 検査数 -->
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
-        {{
-          $t(
-            '（注）医療機関が保険適用で行った検査については、４月１５日分までを計上'
-          )
-        }}<br />
-        {{
-          $t(
-            '（毎週金曜日に、前週木曜日から当該週水曜日までの日々の件数を反映）'
-          )
-        }}
-        <br />
-        {{ $t('※1: 疑い例・接触者調査') }}
-        <br />
-        {{ $t('※2: チャーター便・クルーズ船') }}
+        <ul :class="$style.GraphDesc">
+          <li>
+            {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
+          </li>
+          <li>
+            {{
+              $t(
+                '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+              )
+            }}
+          </li>
+        </ul>
+        <ol :class="$style.GraphDesc">
+          <li>{{ $t('※1: 疑い例・接触者調査') }}</li>
+          <li>{{ $t('※2: チャーター便・クルーズ船') }}</li>
+        </ol>
       </template>
     </time-stacked-bar-chart>
   </v-col>
@@ -64,3 +66,15 @@ export default {
   }
 }
 </script>
+
+<style module lang="scss">
+.Graph {
+  &Desc {
+    margin: 0;
+    margin-top: 1rem;
+    padding-left: 0 !important;
+    font-size: 12px;
+    list-style: none;
+  }
+}
+</style>
