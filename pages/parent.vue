@@ -1,7 +1,7 @@
 <template>
   <div class="Parent">
     <h2 class="Parent-Heading">
-      {{ $t('臨時休校中の新型コロナウイルス感染症対応についてのお願い') }}
+      {{ $t('お子様をお持ちの皆様へ') }}
     </h2>
     <div v-for="(item, i) in items" :key="i">
       <TextCard :title="item.title" :body="item.body" />
@@ -45,17 +45,14 @@ export default {
           ].join('<br />')
         },
         {
-          title: `3. ${this.$t('スライド紹介テスト')}`,
+          title: `3. ${this.$t('お子様への読みきかせに')}`,
           body: [
+            this.$t('学校がお休みになることや不要な外出を控えることの理由について、学校やご自宅での読みきかせにご利用ください。'),
             this.$t('「だろう」じゃなくて「かもしれない」〜新型コロナウイルスのお話〜'),
             '<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS9VSQYMsRwQuHVkbp2PEH8OZNKesr4CpIxpg0iwuXmQJjlzWxvVfLGHYw-NL1s5bGBJVDSnZ5bzjcR/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>',
-            this.$t('「だろう」じゃなくて「かもしれない」〜新型コロナウイルスのお話〜')
+            this.$t('author/Tsutomu Hamada'),
+            '<a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noopener">CC-BY4.0</a>'
           ].join('<br />')
-          
-        },  
-        {
-          title: `4. ${this.$t('その他')}`,
-          body: this.$t('詳細は、各学校からのお知らせ等をご確認ください。')
         }
       ]
     }
