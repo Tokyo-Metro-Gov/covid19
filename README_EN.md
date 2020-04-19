@@ -19,7 +19,7 @@ Please check [How to contribute](./.github/CONTRIBUTING_EN.md) for details.
 Basic information is shared on Civic Tech Zen Chiba's Slack.
 Please join us by following the invitation link.
 
-https://join.slack.com/t/civictechzenchiba/shared_invite/zt-co2ez9no-IrVcqEBgofajrM_pp~q8_A
+https://join.slack.com/t/civictechzenchiba/shared_invite/zt-dnurg6f9-tta8UTbhd0fP58dFiBzOMQ
 
 ## Code of Conduct
 
