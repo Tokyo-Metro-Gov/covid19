@@ -26542,15 +26542,16 @@
         "children": [
             {
                 "attr": "陽性患者数",
+                "date": "2020\/4\/19 9:45",
                 "value": 2975,
                 "children": [
                     {
                         "attr": "入院中",
-                        "value": 2855,
+                        "value": 2691,
                         "children": [
                             {
                                 "attr": "軽症・中等症",
-                                "value": 2800
+                                "value": 2636
                             },
                             {
                                 "attr": "重症",
@@ -26560,7 +26561,7 @@
                     },
                     {
                         "attr": "退院",
-                        "value": 52
+                        "value": 216
                     },
                     {
                         "attr": "死亡",
