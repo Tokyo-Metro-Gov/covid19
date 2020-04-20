@@ -123,13 +123,13 @@ export default Vue.extend({
         {
           icon: 'mdi-account-multiple',
           title: this.$t('知事からのメッセージ'),
-          link: this.localePath('/message'),
+          link: 'https://www.pref.fukui.lg.jp/doc/kenkou/covid19_chiji.html',
           divider: true
         },
         {
           icon: 'mdi-account-multiple',
           title: this.$t('県民の皆様へ'),
-          link: 'https://www.pref.fukui.lg.jp/doc/kenkou/kansensyo-yobousessyu/corona.html#kenmin'
+          link: 'https://www.pref.fukui.lg.jp/doc/kenkou/covid19_kenmin.html'
         },
         {
           icon: 'ParentIcon',
@@ -139,12 +139,12 @@ export default Vue.extend({
         {
           icon: 'mdi-domain',
           title: this.$t('企業の皆様へ'),
-          link: 'https://www.pref.fukui.lg.jp/doc/kenkou/kansensyo-yobousessyu/corona.html#kigyou',
+          link: 'https://www.pref.fukui.lg.jp/doc/kenkou/covid19_kigyo.html',
         },
         {
           icon: 'mdi-domain',
           title: this.$t('医療機関の皆様へ'),
-          link: 'https://www.pref.fukui.lg.jp/doc/kenkou/kansensyo-yobousessyu/corona.html#iryou',
+          link: 'https://www.pref.fukui.lg.jp/doc/kenkou/covid19_iryo.html',
           divider: true
         },
         {
