@@ -17,15 +17,22 @@
           v-for="item in chartData.headers"
           :key="item.value"
           :value="item.value"
-          >{{ item.text }}
+          >{{ item.text.replace('※', '') }}
         </option>
       </select>
-      <select v-if="filterKey" ref="value">
-        <option v-for="item in availableFilterValues" :key="item"
-          >{{ item }}
-        </option>
+      <select v-if="filterValues.length" ref="value">
+        <option v-for="item in filterValues" :key="item">{{ item }} </option>
       </select>
-      <button type="button" @click.prevent="handleAddButtonClick">追加</button>
+      <select v-else disabled>
+        <option>すべて選択されています</option>
+      </select>
+      <button
+        type="button"
+        :disabled="!filterValues.length"
+        @click.prevent="handleAddButtonClick"
+      >
+        追加
+      </button>
     </template>
   </div>
 </template>
@@ -109,7 +116,7 @@ type Computed = {
   filterKeys: string[]
   filterLabels: KeyAndValue[]
   filterMap: { [key: string]: any[] }
-  availableFilterValues: string[]
+  filterValues: string[]
   filteredDatasets: Dataset[]
 }
 
@@ -148,23 +155,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   computed: {
-    // フィルタリングされたリストを返却します。
-    // 例）ユーザが「性別：男性」「年代:30代」「年別40代」でフィルタリングしているときは、
-    // 「30代男性」 OR 「40代男性」のリストを返却します。
+    // 選択中のフィルタキーのリストです。
+    // 例）['公表日', '居住地']
     filterKeys() {
       return Object.keys(this.filters)
     },
-    filterLabels() {
-      const reducer = (keyAndVals: KeyAndValue[], filterKey: string) => {
-        const values = this.filters[filterKey] || []
-        const keyAndValues = values.map(value => {
-          return { key: filterKey, value }
-        })
-        return keyAndVals.concat(keyAndValues)
-      }
-      return this.filterKeys.length ? this.filterKeys.reduce(reducer, []) : []
-    },
-    // フィルターのキーとバリューをすべて保有するマップ
+    // フィルターのキーとバリューをすべて保有するマップです。
+    // 例）{
+    // '性別': ['男性', '女性', '不明', '調査中'],
+    // '年代': ['10代', '20代', ...]
+    // }
     filterMap() {
       const reducer = (filters: { [key: string]: any }, dataset: Dataset) => {
         for (const key in dataset) {
@@ -182,9 +182,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
       return this.datasets.reduce(reducer, {})
     },
+    // 選択中のフィルタのラベルリストです。
+    filterLabels() {
+      const reducer = (keyAndVals: KeyAndValue[], filterKey: string) => {
+        const values = this.filters[filterKey] || []
+        const keyAndValues = values.map(value => {
+          return { key: filterKey, value }
+        })
+        return keyAndVals.concat(keyAndValues)
+      }
+      return this.filterKeys.length ? this.filterKeys.reduce(reducer, []) : []
+    },
+
+    // 左から 2 番目のプルダウンメニューで使うデータです。
     // 選択中の属性名をもとに、その候補値のリストを返却します。
     // 例） ユーザが「性別」を選択すると、「男性」「女性」「不明」「調査中」を要素とするリストを返却します。
-    availableFilterValues() {
+    filterValues() {
       const filterValues = this.filterMap[this.filterKey]
       const selectedLabels = this.filterLabels.filter(
         label => label.key === this.filterKey
@@ -194,7 +207,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           !selectedLabels.some(({ value }) => value === filterValue)
       )
     },
-    // 全データを「フィルタ対象」と「フィルタ対象外」に分類します。
+    // フィルタリングされたリストを返却します。
+    // 例）ユーザが「性別：男性」「年代:30代」「年別40代」でフィルタリングしているときは、
+    // 「30代男性」 OR 「40代男性」のリストを返却します。
     filteredDatasets() {
       // フィルター設定がない場合はすべてのデータを返却
       if (this.isFilterEnabled && this.filterKey.length === 0) {
@@ -206,7 +221,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             const values = this.filters[key]
             // 属性毎のフィルタリングは OR でマッチングさせます
             // 例）「年代」が「30代」「40代」指定されている場合は、30代 OR 40代のデータにマッチさせます
-            isMatched = values.some(value => value === dataset[key])
+            isMatched = values.some(value => {
+              // 以下の if 文は「退院」属性が空のときのマッチングです。
+              // この場合は、キーは value には空文字、データには null が入ってます。
+              if (value === '' && dataset[key] === null) return true
+              return value === dataset[key]
+            })
             // マッチしない属性があった場合は、その時点でフィルタリング対象外となります。(AND検索)
             // 例）「年代:30代」「年別40代」がマッチしなかった場合、「性別：男性」かどうかの判別は行いません
             if (!isMatched) break
@@ -245,7 +265,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       // [IMPORTANT]
-      // 空要素の配列はプロパティ毎削除すること
+      // 空要素の配列はプロパティごと削除すること
       if (values.length === 0) {
         delete this.filters[key]
         this.$delete(this.filters, key)
