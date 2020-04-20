@@ -618,7 +618,7 @@ $margin: 20;
       background-color: $green-1;
       color: $white;
       > svg * {
-        fill: currentColor;
+        fill: $white;
       }
     }
     &:not(.active) {
