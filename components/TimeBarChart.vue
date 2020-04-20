@@ -176,7 +176,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
             '実績値'
           )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-             this.unit
+            this.unit
           }）`,
           unit: this.unit
         }
