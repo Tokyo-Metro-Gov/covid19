@@ -5,6 +5,21 @@
     </page-header>
     <StaticCard>
       <ul>
+      <li>
+          <a href="https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/kenmin.data/comment0417.pdf">
+            {{ $t('新型コロナウイルス感染症に関する緊急事態宣言対象地域拡大への対応について(4/17)') }}
+          </a>
+        </li>
+         <li>
+          <a href="https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/kenmin.data/tijimesseji.pdf">
+            {{ $t('県民の皆様へ（緊急事態宣言の対象地域拡大を受けて）(4/16)') }}
+          </a>
+        </li>
+         <li>
+          <a href="https://www3.pref.shimane.jp/houdou/articles/151867">
+            {{ $t('令和2年4月16日新型コロナウイルス感染症政府の緊急事態宣言対象地域の拡大ついて（知事コメント）（外部サイト）(4/16)') }}
+          </a>
+        </li>
         <li>
           <a href="https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/kenmin.data/message0414.pdf">
             {{ $t('松江市内の県立学校を休業とし、私立学校に休業を要請しました(4/14)') }}
