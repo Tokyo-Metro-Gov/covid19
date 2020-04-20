@@ -8,28 +8,28 @@
       <printer-button :wrapper-class="$style.printerButton" to="/print/flow" />
     </div>
     <div :class="$style.container">
-      <h3 :class="$style.heading">
+      <h3 :class="$style.conHeading">
         {{ $t('新型コロナウイルス感染症にかかる相談窓口について') }}
       </h3>
-      <p ref="upperTrigger" :class="$style.lead">
+      <p ref="upperTrigger" :class="$style.anchorLead">
         {{ $t('相談方法は、症状や状況別で3つに分かれます') }}
       </p>
       <nav ref="nav" :class="$style.anchor">
-        <ul :class="$style.items">
-          <li :class="$style.item">
-            <a href="#sydr" :class="$style.link" @click="onClickAnchor">
+        <ul :class="$style.anchorList">
+          <li :class="$style.anchorItem">
+            <a href="#sydr" :class="$style.anchorLink" @click="onClickAnchor">
               <span>{{ $t('かかりつけ医がいて症状のある方') }}</span>
               <fig-cond-sy-dr :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
-          <li :class="$style.item">
-            <a href="#sy" :class="$style.link" @click="onClickAnchor">
+          <li :class="$style.anchorItem">
+            <a href="#sy" :class="$style.anchorLink" @click="onClickAnchor">
               <span>{{ $t('かかりつけ医がいない症状のある方') }}</span>
               <fig-cond-sy :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
-          <li :class="$style.item">
-            <a href="#anx" :class="$style.link" @click="onClickAnchor">
+          <li :class="$style.anchorItem">
+            <a href="#anx" :class="$style.anchorLink" @click="onClickAnchor">
               <span>{{ $t('軽い症状があり不安のある方') }}</span>
               <fig-cond-anx :class="$style.fig" aria-hidden="true" />
             </a>
@@ -37,12 +37,12 @@
         </ul>
       </nav>
       <div id="sydr" :class="$style.section">
-        <h4 :class="$style.heading">
+        <h4 :class="$style.sxnHeading">
           {{ $t('かかりつけ医がいて、次の症状がある方') }}
         </h4>
         <ul :class="$style.boxes">
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.lead">{{
+            <span :class="$style.boxLead">{{
               $t('風邪のような症状や、37.5℃以上の発熱が続いている')
             }}</span>
             <span :class="$style.alignLeft">{{
@@ -52,7 +52,7 @@
             }}</span>
           </li>
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.lead">{{
+            <span :class="$style.boxLead">{{
               $t('強いだるさ（倦怠感）や息苦しさ（呼吸困難）がある')
             }}</span>
           </li>
@@ -69,12 +69,12 @@
         </p>
       </div>
       <div id="sy" :class="$style.section">
-        <h4 :class="$style.heading">
+        <h4 :class="$style.sxnHeading">
           {{ $t('かかりつけ医がいない、次の症状がある方') }}
         </h4>
         <ul :class="$style.boxes">
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.lead">{{
+            <span :class="$style.boxLead">{{
               $t('風邪のような症状や、37.5℃以上の発熱が続いている')
             }}</span>
             <span :class="$style.alignLeft">{{
@@ -84,13 +84,13 @@
             }}</span>
           </li>
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.lead">{{
+            <span :class="$style.boxLead">{{
               $t('強いだるさ（倦怠感）や息苦しさ（呼吸困難）がある')
             }}</span>
           </li>
         </ul>
         <div :class="[$style.box, $style.bgGray]">
-          <h5 :class="$style.heading">
+          <h5 :class="$style.sxnHeading">
             {{ $t('新型コロナ受診相談窓口は、24時間対応しています') }}
           </h5>
           <dl :class="$style.contact">
@@ -121,7 +121,7 @@
             </div>
           </dl>
         </div>
-        <p :class="[$style.lead, $style.separated]">
+        <p :class="[$style.sxnText, $style.hr]">
           {{
             $t(
               '上記の症状に当てはまらない方は、新型コロナコールセンターにご相談ください。'
@@ -129,7 +129,9 @@
           }}
         </p>
         <div :class="[$style.box, $style.bgGray]">
-          <h5 :class="$style.heading">{{ $t('新型コロナコールセンター') }}</h5>
+          <h5 :class="$style.boxHeading">
+            {{ $t('新型コロナコールセンター') }}
+          </h5>
           <dl :class="$style.contact">
             <dt>{{ $t('午前9時から午後9時（土日祝含む）') }}</dt>
             <dd>
@@ -149,14 +151,16 @@
         </div>
       </div>
       <div id="anx" ref="lowerTrigger" :class="$style.section">
-        <h4 :class="$style.heading">
+        <h4 :class="$style.sxnHeading">
           {{ $t('軽い症状があり、不安のある方') }}
         </h4>
-        <p :class="$style.lead">
+        <p :class="$style.sxnText">
           {{ $t('下記、新型コロナコールセンターにご相談ください。') }}
         </p>
         <div :class="[$style.box, $style.bgGray]">
-          <h5 :class="$style.heading">{{ $t('新型コロナコールセンター') }}</h5>
+          <h5 :class="$style.boxHeading">
+            {{ $t('新型コロナコールセンター') }}
+          </h5>
           <dl :class="$style.contact">
             <dt>{{ $t('午前9時から午後9時（土日祝含む）') }}</dt>
             <dd>
@@ -176,7 +180,7 @@
         </div>
       </div>
       <div :class="[$style.section, $style.yellow]">
-        <h4 :class="$style.headingLv2">
+        <h4 :class="$style.sxnHeadingSmall">
           {{
             $t(
               '新型コロナ受診相談窓口、またはかかりつけ医によって新型コロナ外来（帰国者・接触者外来）の受診が必要だと判断された方'
@@ -193,7 +197,7 @@
             )
           }}</span>
         </p>
-        <h4 :class="[$style.headingLv2]">
+        <h4 :class="[$style.sxnHeadingSmall]">
           {{
             $t(
               '医師により検査が必要だと判断されPCR検査（東京都健康安全研究センター等）を受けた結果'
@@ -202,16 +206,16 @@
         </h4>
         <div :class="$style.boxes">
           <div :class="[$style.box, $style.border]">
-            <h5 :class="$style.lead">{{ $t('陽性の場合') }}</h5>
+            <h5 :class="$style.boxLead">{{ $t('陽性の場合') }}</h5>
             <p>
               {{ $t('感染症指定医療機関等に入院となります') }}
             </p>
             <div :class="$style.grow" aria-hidden="true">
-              <icon-bed :class="[$style.iconPositive]" />
+              <icon-bed :class="[$style.iconBed]" />
             </div>
           </div>
           <div :class="[$style.box, $style.border]">
-            <h5 :class="$style.lead">{{ $t('陰性の場合') }}</h5>
+            <h5 :class="$style.boxLead">{{ $t('陰性の場合') }}</h5>
             <p>{{ $t('自宅安静となり、医療機関を受診していただきます') }}</p>
             <p :class="[$style.small, $style.grow]">
               {{
@@ -228,7 +232,7 @@
       <a
         href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
         target="_blank"
-        :class="$style.button"
+        :class="$style.detailButton"
         rel="noopener noreferrer"
         >{{ $t('詳細を見る（東京都福祉保健局）') }}
         <v-icon :class="$style.icon" size="20">
@@ -312,7 +316,7 @@ export default Vue.extend({
   mounted() {
     this.nav = this.$refs.nav as HTMLElement
     this.buttons = Array.prototype.slice.call(
-      document.getElementsByClassName(this.$style.link)
+      document.getElementsByClassName(this.$style.anchorLink)
     )
     this.sections = Array.prototype.slice.call(
       document.querySelectorAll(`.${this.$style.section}[id]`)
@@ -339,7 +343,7 @@ export default Vue.extend({
         this.startFloating()
       }
       document // eslint-disable-line no-unused-expressions
-        .querySelector(`a.${this.$style.link}[href='${hash}']`)
+        .querySelector(`a.${this.$style.anchorLink}[href='${hash}']`)
         ?.classList.add(this.$style.active)
       VueScrollTo.scrollTo(hash, 1000, {
         offset: -(this.navH + this.floatingOffset + 1) // +1はIE11用サブピクセル対策
@@ -421,7 +425,9 @@ export default Vue.extend({
     resetNavCurrent(): void {
       const self = this
       this.buttons!.forEach(function(ele: HTMLElement) {
-        ele.classList.remove(self.$style.active)
+        if (ele.classList.contains(self.$style.active)) {
+          ele.classList.remove(self.$style.active)
+        }
       })
     }
   },
@@ -439,7 +445,6 @@ export default Vue.extend({
 <style lang="scss" module>
 /* stylelint-disable no-descending-specificity */
 
-$fzTiny: 12;
 $fzSmall: 14;
 $fzRegular: 16;
 $fzMedium: 18;
@@ -479,10 +484,10 @@ $margin: 20;
   color: $gray-2;
   @include font-size($fzRegular);
 
-  > .heading {
+  > .conHeading {
     @include font-size($fzHeading);
   }
-  > .lead {
+  > .anchorLead {
     margin-top: $margin * 1.5px;
     color: $green-1;
     font-weight: bold;
@@ -490,12 +495,10 @@ $margin: 20;
     @include font-size($fzHuge);
   }
   ul {
-    // override Vuetify style
-    padding-left: 0;
+    padding-left: 0; // override Vuetify style
   }
   p {
-    // override Vuetify style
-    margin-bottom: 0;
+    margin-bottom: 0; // override Vuetify style
   }
 }
 .anchor {
@@ -503,31 +506,17 @@ $margin: 20;
   padding-bottom: $margin * 1px;
   background-color: $white;
   position: relative;
-
-  /*
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 20px;
-    transform: translateY(100%);
-    background: linear-gradient(180deg, $white, transparent);
-  }
-  */
-  .items {
+  .anchorList {
     margin: 0 -6px;
     display: flex;
   }
-  .item {
+  .anchorItem {
     display: flex;
     width: (100% / 3);
     padding: 0 6px;
     flex: 0 0 auto;
   }
-  .link {
+  .anchorLink {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -623,23 +612,23 @@ $margin: 20;
       margin-top: $margin * 1px;
     }
   }
-  > .heading {
+  > .sxnHeading {
     text-align: center;
     font-weight: bold;
     @include font-size($fzHeadingL);
   }
-  > .headingLv2 {
+  > .sxnHeadingSmall {
     text-align: center;
     font-weight: bold;
     @include font-size($fzHuge);
   }
-  > .lead {
+  > .sxnText {
     margin-top: 20px;
     text-align: center;
     font-weight: bold;
     @include font-size($fzMedium);
   }
-  > .separated {
+  > .hr {
     margin-top: $margin * 1px;
     padding-top: $margin * 1.5px;
     border-top: 1px solid $gray-2;
@@ -675,11 +664,11 @@ $margin: 20;
   &.bgYellow {
     background-color: $emergency;
   }
-  > .heading {
+  > .boxHeading {
     font-weight: bold;
     @include font-size($fzLarge);
   }
-  > .lead {
+  > .boxLead {
     font-weight: bold;
     @include font-size($fzMedium);
   }
@@ -753,7 +742,7 @@ $margin: 20;
 .boxes > .box {
   width: calc(50% - 10px);
 }
-.iconPositive {
+.iconBed {
   max-width: 37px;
   max-height: 37px; // for IE11
   width: 100%;
@@ -791,7 +780,7 @@ $margin: 20;
 }
 .detail {
   text-align: center;
-  .button {
+  .detailButton {
     @include button-text('md');
     @include font-size(20);
 
@@ -812,7 +801,7 @@ $margin: 20;
 // 960
 @include lessThan(960) {
   .anchor {
-    .link {
+    .anchorLink {
       padding: 10px 10px 40px;
     }
   }
@@ -835,17 +824,17 @@ $margin: 20;
   .container {
     padding: px2vw($padding);
     font-size: px2vw($fzRegular);
-    > .heading {
+    > .conHeading {
       font-size: px2vw($fzHeading);
     }
-    > .lead {
+    > .anchorLead {
       margin-top: px2vw($margin * 1.5);
       font-size: px2vw($fzHuge);
     }
   }
   .anchor {
     padding-top: px2vw($margin);
-    .link {
+    .anchorLink {
       padding: px2vw(20) px2vw(20) px2vw(40);
       border-width: px2vw(4);
       border-radius: px2vw(10);
@@ -868,7 +857,7 @@ $margin: 20;
   }
   .section {
     //margin-top: px2vw($margin * 1.5);
-    margin-top: 20px;
+    margin-top: 20px; // フローティングの都合で固定
     padding: px2vw($padding);
     border-width: px2vw(3);
     border-radius: px2vw(10);
@@ -880,16 +869,16 @@ $margin: 20;
         margin-top: px2vw($margin);
       }
     }
-    > .heading {
+    > .sxnHeading {
       font-size: px2vw($fzHeadingL);
     }
-    > .headingLv2 {
+    > .sxnHeadingSmall {
       font-size: px2vw($fzHuge);
     }
-    > .lead {
+    > .sxnText {
       font-size: px2vw($fzMedium);
     }
-    > .separated {
+    > .hr {
       margin-top: px2vw($margin);
       padding-top: px2vw($margin * 1.5);
     }
@@ -901,10 +890,10 @@ $margin: 20;
     &.border {
       border-width: px2vw(2);
     }
-    > .heading {
+    > .boxHeading {
       font-size: px2vw($fzLarge);
     }
-    > .lead {
+    > .boxLead {
       font-size: px2vw($fzMedium);
     }
     > .large {
