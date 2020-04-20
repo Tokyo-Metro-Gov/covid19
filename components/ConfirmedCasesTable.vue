@@ -122,6 +122,10 @@ export default Vue.extend({
     退院: {
       type: Number,
       required: true
+    },
+    不明: {
+      type: Number,
+      required: true
     }
   },
   methods: {

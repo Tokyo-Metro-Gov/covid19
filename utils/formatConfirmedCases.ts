@@ -62,7 +62,7 @@ export default (data: DataType) => {
     重症: data.children[0].children[0].children[1].value,
     死亡: data.children[0].children[2].value,
     退院: data.children[0].children[1].value,
-    不明: data.children[0].children[1].value
+    不明: data.children[0].children[3].value
   }
   return formattedData
 }
