@@ -62,6 +62,17 @@
                 </div>
               </div>
             </li>
+            <li class="item serious">
+              <div class="gutter">
+                <div class="box short">
+                  <span v-html="$t('その他')" />
+                  <span>
+                    <b>{{入院中 - 軽症中等症 - 重症}}</b>
+                    <span class="unit">{{ $t('人') }}</span>
+                  </span>
+                </div>
+              </div>
+            </li>
           </ul>
         </li>
         <li class="item deceased">
@@ -188,7 +199,7 @@ export default Vue.extend({
   width: 100%;
   padding-right: 3px;
   &.oneThird {
-    width: calc(100% / 3);
+    width: calc(100% / );
   }
 }
 .box {
@@ -251,11 +262,11 @@ export default Vue.extend({
 }
 // 軽症・中等症
 .item.mild {
-  width: calc(100% / 2);
+  width: calc(100% / 3);
 }
 // 重症
 .item.serious {
-  width: calc(100% / 2);
+  width: calc(100% / 3);
 }
 // 死亡
 .item.deceased {
