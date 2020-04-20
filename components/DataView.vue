@@ -18,13 +18,12 @@
         <div class="Footer-Left">
           <div>
             <a
-              v-if="url"
               class="OpenDataLink"
-              :href="url"
+              href="https://www.pref.fukui.lg.jp/doc/toukei-jouhou/covid-19.html"
               target="_blank"
               rel="noopener"
             >
-              {{ $t('福井県のオープンデータリンク') }}
+              {{ $t('福井県のオープンデータ') }}
               <v-icon
                 class="ExternalLinkIcon"
                 size="15"
