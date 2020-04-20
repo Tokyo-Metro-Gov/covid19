@@ -304,6 +304,10 @@ $data['main_summary'] = [
         [
           'attr' => '死亡',
           'value' => $better_patients_summary['data']['死亡者数']->sum()
+        ],
+        [
+          'attr' => '不明',
+          'value' => $better_patients_summary['data']['不明数']->sum()
         ]
 
       ]

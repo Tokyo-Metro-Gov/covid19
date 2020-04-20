@@ -73,6 +73,17 @@
             </div>
           </div>
         </li>
+        <li :class="[$style.box, $style.recovered]">
+          <div :class="$style.pillar">
+            <div :class="$style.content">
+              <span>{{ $t('不明') }}</span>
+              <span>
+                <strong>{{ 不明 }}</strong>
+                <span :class="$style.unit">{{ $t('人') }}</span>
+              </span>
+            </div>
+          </div>
+        </li>
       </ul>
     </li>
   </ul>
