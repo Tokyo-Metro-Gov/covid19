@@ -24,7 +24,7 @@
               target="_blank"
               rel="noopener"
             >
-              {{ $t('データのリンク') }}
+              {{ $t('福井県のオープンデータリンク') }}
               <v-icon
                 class="ExternalLinkIcon"
                 size="15"

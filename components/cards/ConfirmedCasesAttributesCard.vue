@@ -7,7 +7,7 @@
       :chart-option="{}"
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
-      :url="'https://www.pref.fukui.lg.jp/doc/kenkou/kansensyo-yobousessyu/corona.html'"
+      :url="'https://www.pref.fukui.lg.jp/doc/toukei-jouhou/covid-19.html'"
     />
   </v-col>
 </template>
