@@ -61,7 +61,7 @@
         </div>
 
         <div v-if="this.$route.query.embed != 'true'" class="Footer-Right">
-          <v-tooltip top>
+          <v-tooltip left nudge-right="20" nudge-bottom="4">
             <template v-slot:activator="{ on }">
               <button
                 class="DataView-Share-Opener"
