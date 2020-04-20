@@ -1,28 +1,28 @@
 <template>
   <div class="DataFilter">
-    <label class="filter"><input type="checkbox" v-model="isFilterEnabled"> フィルター</label>
+    <label class="filter"
+      ><input v-model="isFilterEnabled" type="checkbox" /> フィルター</label
+    >
     <template v-if="isFilterEnabled">
-      <ul class="labels" v-if="filterLabels.length">
-        <li 
-          v-for="(item, index) in filterLabels" 
-          class="label"
-          :key="index">
-            <span class="label__remove" @click="handleRemoveLabelClick(item)">&#10005;</span>
-            <span class="label__text">{{ `${item.key}: ${item.value}`}}</span>
+      <ul v-if="filterLabels.length" class="labels">
+        <li v-for="(item, index) in filterLabels" :key="index" class="label">
+          <span class="label__remove" @click="handleRemoveLabelClick(item)"
+            >&#10005;</span
+          >
+          <span class="label__text">{{ `${item.key}: ${item.value}` }}</span>
         </li>
       </ul>
       <select ref="key" v-model="filterKey">
-        <option 
-          v-for="item in chartData.headers" 
-          :value="item.value" 
-          :key="item.value">{{ item.text }}
+        <option
+          v-for="item in chartData.headers"
+          :key="item.value"
+          :value="item.value"
+          >{{ item.text }}
         </option>
       </select>
-      <select ref="value" v-if="filterKey">
-        <option
-          v-for="item in availableFilterValues"
-          :key="item"
-        >{{ item }}
+      <select v-if="filterKey" ref="value">
+        <option v-for="item in availableFilterValues" :key="item"
+          >{{ item }}
         </option>
       </select>
       <button type="button" @click.prevent="handleAddButtonClick">追加</button>
@@ -65,7 +65,7 @@ button {
   display: inline-flex;
   background-color: #ccc;
   padding: 5px;
-  font-size: 10px; 
+  font-size: 10px;
   align-items: center;
   line-height: 1;
   margin: 0 5px 5px 0;
@@ -88,9 +88,9 @@ type HeaderData = {
 
 type Dataset = { [prop: string]: any }
 
-type KeyAndValue = { 
+type KeyAndValue = {
   key: string
-  value: any 
+  value: any
 }
 
 type Data = {
@@ -98,7 +98,6 @@ type Data = {
   isFilterEnabled: boolean
   filterKey: string
   filters: { [key: string]: any[] }
-  
 }
 
 type Methods = {
@@ -152,13 +151,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     // フィルタリングされたリストを返却します。
     // 例）ユーザが「性別：男性」「年代:30代」「年別40代」でフィルタリングしているときは、
     // 「30代男性」 OR 「40代男性」のリストを返却します。
-    filterKeys() { 
-      return Object.keys(this.filters) 
+    filterKeys() {
+      return Object.keys(this.filters)
     },
     filterLabels() {
       const reducer = (keyAndVals: KeyAndValue[], filterKey: string) => {
         const values = this.filters[filterKey] || []
-        const keyAndValues = values.map((value) => { return { key: filterKey, value } })
+        const keyAndValues = values.map(value => {
+          return { key: filterKey, value }
+        })
         return keyAndVals.concat(keyAndValues)
       }
       return this.filterKeys.length ? this.filterKeys.reduce(reducer, []) : []
@@ -166,15 +167,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     // フィルターのキーとバリューをすべて保有するマップ
     filterMap() {
       const reducer = (filters: { [key: string]: any }, dataset: Dataset) => {
-        for (let key in dataset) {
+        for (const key in dataset) {
           const value = dataset[key]
           if (filters[key] === undefined) {
             this.$set(filters, key, [value])
             filters[key] = [value]
-          } else {
-            if (!filters[key].some((filterValue: any) => filterValue === value)) {
-              filters[key].push(value)
-            }
+          } else if (
+            !filters[key].some((filterValue: any) => filterValue === value)
+          ) {
+            filters[key].push(value)
           }
         }
         return filters
@@ -185,8 +186,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     // 例） ユーザが「性別」を選択すると、「男性」「女性」「不明」「調査中」を要素とするリストを返却します。
     availableFilterValues() {
       const filterValues = this.filterMap[this.filterKey]
-      const selectedLabels = this.filterLabels.filter((label) => label.key === this.filterKey)
-      return filterValues.filter(filterValue => !selectedLabels.some(({ value }) => value === filterValue))
+      const selectedLabels = this.filterLabels.filter(
+        label => label.key === this.filterKey
+      )
+      return filterValues.filter(
+        filterValue =>
+          !selectedLabels.some(({ value }) => value === filterValue)
+      )
     },
     // 全データを「フィルタ対象」と「フィルタ対象外」に分類します。
     filteredDatasets() {
@@ -196,11 +202,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       } else {
         return this.datasets.filter(dataset => {
           let isMatched = true
-          for (let key in this.filters) {
+          for (const key in this.filters) {
             const values = this.filters[key]
             // 属性毎のフィルタリングは OR でマッチングさせます
             // 例）「年代」が「30代」「40代」指定されている場合は、30代 OR 40代のデータにマッチさせます
-            isMatched = values.some((value) => value === dataset[key])
+            isMatched = values.some(value => value === dataset[key])
             // マッチしない属性があった場合は、その時点でフィルタリング対象外となります。(AND検索)
             // 例）「年代:30代」「年別40代」がマッチしなかった場合、「性別：男性」かどうかの判別は行いません
             if (!isMatched) break
@@ -213,8 +219,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   methods: {
     // フィルタリング項目を、属性名を key に、属性値を要素とする配列オブジェクトに追加します。
     // 例） filters['性別'] = ['男性', '女性']
-    handleAddButtonClick(event) {
-      const selectedKey = (this.$refs.key as HTMLSelectElement).value 
+    handleAddButtonClick() {
+      const selectedKey = (this.$refs.key as HTMLSelectElement).value
       const selectedValue = (this.$refs.value as HTMLSelectElement).value
       const isValid = selectedKey !== '' && selectedKey !== ''
       if (isValid) {
@@ -222,10 +228,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         if (values === undefined) {
           this.$set(this.filters, selectedKey, [selectedValue])
           this.filters[selectedKey] = [selectedValue]
-        } else {
-          if (!values.some(value => value === selectedValue)) {
-            values.push(selectedValue)
-          }
+        } else if (!values.some(value => value === selectedValue)) {
+          values.push(selectedValue)
         }
       }
     },
@@ -241,7 +245,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       // [IMPORTANT]
-      //空要素の配列はプロパティ毎削除すること
+      // 空要素の配列はプロパティ毎削除すること
       if (values.length === 0) {
         delete this.filters[key]
         this.$delete(this.filters, key)
@@ -254,7 +258,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       this.$emit('update', this.filteredDatasets)
     }
   },
-  mounted () {
+  mounted() {
     // プロパティで受け取ったデータセットをコピーします。
     this.datasets = this.chartData.datasets.concat()
   }

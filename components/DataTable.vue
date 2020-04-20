@@ -3,9 +3,9 @@
     <template v-slot:button>
       <span />
     </template>
-    <data-filter 
-      :chart-data="chartData" 
-      @update="(datasets) => $emit('datafiltered', datasets)" 
+    <data-filter
+      :chart-data="chartData"
+      @update="datasets => $emit('datafiltered', datasets)"
     />
     <v-data-table
       :ref="'displayedTable'"
