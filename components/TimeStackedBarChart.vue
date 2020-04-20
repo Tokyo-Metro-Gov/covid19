@@ -6,7 +6,7 @@
         <br />
         {{
           $t(
-            '検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります'
+            '県のデータ公表都合により、4/7以降の"栃木県内"と"宇都宮市"の検査実施数の内訳に多少の誤差を含む可能性があります、正解な数値が分かり次第訂正します。'
           )
         }}
       </p>
@@ -201,8 +201,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             label: (tooltipItem: any) => {
-              const labelTokyo = this.$t('都内')
-              const labelOthers = this.$t('その他')
+              const labelTokyo = this.$t('県内')
+              const labelOthers = this.$t('宇都宮市')
               const labelArray = [labelTokyo, labelOthers]
               let casesTotal, cases
               if (this.dataKind === 'transition') {
