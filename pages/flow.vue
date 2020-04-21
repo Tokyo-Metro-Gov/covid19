@@ -273,6 +273,7 @@ type LocalData = {
   upperTriggerOffsetTop: number // upperTrigger要素下端の表示領域上端からのオフセット量
   lowerTriggerOffsetTop: number // lowerTrigger要素下端の表示領域上端からのオフセット量
   floatingOffset: number // フローティング時のオフセット量
+  forceFloating: boolean // ボタン押下時の強制フローティングフラグ
   timerId: number // scrollイベントのdebounce用タイマーID
 }
 
@@ -300,6 +301,7 @@ export default Vue.extend({
     const upperTriggerOffsetTop = 0
     const lowerTriggerOffsetTop = 0
     const floatingOffset = 0
+    const forceFloating = false
     const timerId = 0
 
     return {
@@ -314,10 +316,12 @@ export default Vue.extend({
       upperTriggerOffsetTop,
       lowerTriggerOffsetTop,
       floatingOffset,
+      forceFloating,
       timerId
     }
   },
   mounted() {
+    const self = this
     this.nav = this.$refs.nav as HTMLElement
     this.buttons = Array.prototype.slice.call(
       document.getElementsByClassName(this.$style.anchorLink)
@@ -327,7 +331,6 @@ export default Vue.extend({
     )
     this.upperTrigger = this.$refs.upperTrigger as HTMLElement
     this.lowerTrigger = this.$refs.lowerTrigger as HTMLElement
-    const self = this
     window.addEventListener('scroll', function() {
       // debounce
       if (self.timerId) {
@@ -349,14 +352,19 @@ export default Vue.extend({
       document // eslint-disable-line no-unused-expressions
         .querySelector(`a.${this.$style.anchorLink}[href='${hash}']`)
         ?.classList.add(this.$style.active)
-      VueScrollTo.scrollTo(hash, 1000, {
+      VueScrollTo.scrollTo(hash, 300, {
         offset: -(this.navH + this.floatingOffset + 1) // +1はIE11用サブピクセル対策
       })
     }
   },
   methods: {
     onBrowserRender(): void {
+      const self = this
       this.timerId = 0
+
+      if (this.forceFloating) {
+        return
+      }
 
       // 整形
       const navRect = this.nav!.getBoundingClientRect()
@@ -375,13 +383,12 @@ export default Vue.extend({
 
       // 表示切替
       if (
-        this.upperTriggerOffsetTop <= 0 + 1 && // +1はIE11用サブピクセル対策
+        this.upperTriggerOffsetTop <= 0 + 2 && // +2はサブピクセル対策
         this.lowerTriggerOffsetTop >= this.navH + this.floatingOffset
       ) {
         this.startFloating()
 
         // 表示位置追従カレント処理
-        const self = this
         this.sections!.forEach(function(ele: HTMLElement, idx: number) {
           const rect = ele.getBoundingClientRect()
           if (
@@ -401,16 +408,26 @@ export default Vue.extend({
       }
     },
     onClickAnchor(event: Event): void {
+      const self = this
       const target = event.target as HTMLAnchorElement
       const hash = target.hash
-      VueScrollTo.scrollTo(hash, 1000, {
-        offset: -(this.navH + this.floatingOffset + 1) // +1はIE11用サブピクセル対策
-      })
+      this.forceFloating = true
       if (hash !== '#sydr') {
         this.startFloating()
       }
       this.resetNavCurrent()
       target.classList.add(this.$style.active)
+      VueScrollTo.scrollTo(hash, 1000, {
+        offset: -(this.navH + this.floatingOffset + 1), // +1はIE11用サブピクセル対策
+        onDone() {
+          self.forceFloating = false
+          self.onBrowserRender()
+        },
+        onCancel() {
+          self.forceFloating = false
+          self.onBrowserRender()
+        }
+      })
     },
     startFloating(): void {
       if (!this.nav!.classList.contains(this.$style.floating)) {
