@@ -233,7 +233,7 @@
         {{ $t('ご要望・改善提案フォーム') }}
       </a>
       <p>
-        ※ GitHub Issuesに記載されても構いません。
+        {{ $t('※ GitHub Issuesに記載されても構いません。') }}
       </p>
     </StaticCard>
   </div>
