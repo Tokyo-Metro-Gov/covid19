@@ -16,6 +16,17 @@
       </div>
     </div>
     <whats-new class="mb-4" :items="newsItems" />
+    <StaticCard>
+      <p>
+        {{ $t(videoItem.text) }}
+      </p>
+      <iframe
+        src="videoItem.url"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+    </StaticCard>
     <static-info
       class="mb-4"
       :url="localePath('/contacts')"
@@ -41,7 +52,6 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
-import Movie from '@/data/movie.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
@@ -72,7 +82,7 @@ export default Vue.extend({
         title: this.$t('島根県内の最新感染動向')
       },
       newsItems: News.newsItems.slice(0, 3),
-      movieItem: Movie.movieItems[0]
+      videoItem: News.videoItems[0]
     }
     return data
   },

@@ -19,7 +19,7 @@
       </ul>
     </StaticCard>
     <StaticCard>
-      <div v-for="(item, i) in movieItems" :key="i">
+      <div v-for="(item, i) in videoItems" :key="i">
         <p>
           {{ $t(item.text) }}
         </p>
@@ -38,7 +38,6 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import News from '@/data/news.json'
-import Movie from '@/data/movie.json'
 import StaticCard from '@/components/StaticCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import { convertDateToISO8601Format } from '~/utils/formatDate'
@@ -63,8 +62,8 @@ export default Vue.extend({
       return News.newsItems
     },
 
-    movieItems() {
-      return Movie.movieItems
+    videoItems() {
+      return News.videoItems
     }
   },
 
