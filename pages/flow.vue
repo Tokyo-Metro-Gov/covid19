@@ -133,7 +133,7 @@
             {{ $t('新型コロナコールセンター') }}
           </h5>
           <dl :class="$style.contact">
-            <dt>{{ $t('午前9時から午後9時（土日祝含む）') }}</dt>
+            <dt>{{ $t('午前9時から午後10時（土日祝含む）') }}</dt>
             <dd>
               <a :class="$style.tel" href="tel:0570-550571">
                 <icon-phone :class="$style.icon" aria-hidden="true" />
@@ -162,7 +162,7 @@
             {{ $t('新型コロナコールセンター') }}
           </h5>
           <dl :class="$style.contact">
-            <dt>{{ $t('午前9時から午後9時（土日祝含む）') }}</dt>
+            <dt>{{ $t('午前9時から午後10時（土日祝含む）') }}</dt>
             <dd>
               <a :class="$style.tel" href="tel:0570-550571">
                 <icon-phone :class="$style.icon" aria-hidden="true" />
@@ -208,7 +208,11 @@
           <div :class="[$style.box, $style.border]">
             <h5 :class="$style.boxLead">{{ $t('陽性の場合') }}</h5>
             <p>
-              {{ $t('感染症指定医療機関等に入院となります') }}
+              {{
+                $t(
+                  '感染症指定医療機関等への入院、又は宿泊施設等での療養となります'
+                )
+              }}
             </p>
             <div :class="$style.grow" aria-hidden="true">
               <icon-bed :class="[$style.iconBed]" />
