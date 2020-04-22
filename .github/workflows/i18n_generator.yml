@@ -24,7 +24,7 @@ jobs:
           pip install BeautifulSoup4
       - name: Run script
         run: |
-          cd auto_i18n
+          cd auto-i18n
           python i18n_generator.py
           cd ..
       - name: Create Pull Request
