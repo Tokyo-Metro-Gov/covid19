@@ -60,6 +60,10 @@ export default {
 .PrinterButton {
   @include button-text('md');
 
+  & > .v-btn__content {
+    height: 100%;
+  }
+
   &:hover {
     color: $white !important;
   }
