@@ -74,7 +74,7 @@ function getDischargeStatus($index) : string
     "入院調整中"
   ];
   $index = strval($index);
-  $data = ("" == $index) ? "確認中" : $dischargeStates[$index];
+  $data = ("" == $index) ? '' : $dischargeStates[$index];
 
   return $data;
 }
@@ -146,7 +146,7 @@ function readPatientsV2() : array
     $row['date'] = $carbon->format('Y-m-d');
     $row['w'] = $carbon->format('w');
     $row['short_date'] = $carbon->format('m/d');
-    $dischargeStatus = getDischargeStatus($row['患者_退院済フラグ']);
+    $dischargeStatus = $row['患者_退院済フラグ'];
     
     $result = [
       "確定日" => $row['公表_年月日'],
@@ -212,7 +212,7 @@ function readPatients() : array
         $row['公表_年月日'] = $carbon->format('Y-m-d').'T08:00:00.000Z';
         $row['date'] = $carbon->format('Y-m-d');
         $row['w'] = $carbon->format('w');
-        $dischargeStatus = getDischargeStatus($row['患者_退院済フラグ']);
+        $dischargeStatus = $row['患者_退院済フラグ'];
 
         $result = [
           "確定日" => $row['公表_年月日'],
