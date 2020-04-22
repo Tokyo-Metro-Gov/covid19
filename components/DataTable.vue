@@ -15,14 +15,24 @@
       :custom-sort="customSort"
       class="cardTable"
     >
-      <template v-slot:body="{ items }">
+      <template v-slot:body="slotProps">
         <tbody>
-          <tr v-for="item in items" :key="item.text">
-            <th class="text-start">{{ item['公表日'] }}</th>
-            <td class="text-start">{{ item['居住地'] }}</td>
-            <td class="text-start">{{ item['年代'] }}</td>
-            <td class="text-start">{{ item['性別'] }}</td>
-            <td class="text-center">{{ item['退院'] }}</td>
+          <tr v-for="item in slotProps.items" :key="item.text">
+            <th class="text-start">
+              <t-i18n>{{ item['公表日'] }}</t-i18n>
+            </th>
+            <td class="text-start">
+              <t-i18n>{{ item['居住地'] }}</t-i18n>
+            </td>
+            <td class="text-start">
+              <t-i18n>{{ item['年代'] }}</t-i18n>
+            </td>
+            <td class="text-start">
+              <t-i18n>{{ item['性別'] }}</t-i18n>
+            </td>
+            <td class="text-center">
+              <t-i18n>{{ item['退院'] }}</t-i18n>
+            </td>
           </tr>
         </tbody>
       </template>
@@ -30,10 +40,16 @@
     <div class="note">
       <ul>
         <li>
-          {{ $t('※退院は、保健所から報告があり、確認ができているものを反映') }}
+          <t-i18n>
+            {{
+              $t('※退院は、保健所から報告があり、確認ができているものを反映')
+            }}
+          </t-i18n>
         </li>
         <li>
-          {{ $t('※死亡退院を含む') }}
+          <t-i18n>
+            {{ $t('※死亡退院を含む') }}
+          </t-i18n>
         </li>
       </ul>
     </div>
@@ -116,9 +132,10 @@ import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default Vue.extend({
-  components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
+  components: { DataView, DataViewBasicInfoPanel, OpenDataLink, TI18n },
   props: {
     title: {
       type: String,

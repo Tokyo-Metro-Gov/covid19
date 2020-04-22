@@ -3,25 +3,31 @@
     <template v-slot:button>
       <ul :class="$style.GraphDesc">
         <li>
-          {{
-            $t(
-              '（注）日々の速報値（医療機関が保険適用で行った検査は含まない）は、毎日更新'
-            )
-          }}
+          <t-i18n>
+            {{
+              $t(
+                '（注）日々の速報値（医療機関が保険適用で行った検査は含まない）は、毎日更新'
+              )
+            }}
+          </t-i18n>
         </li>
         <li>
-          {{
-            $t(
-              '（注）医療機関が保険適用で行った検査件数を含む検査実施件数は、毎週金曜日に前週木曜日から当該週水曜日までの日々の保険適用分の件数を反映して更新'
-            )
-          }}
+          <t-i18n>
+            {{
+              $t(
+                '（注）医療機関が保険適用で行った検査件数を含む検査実施件数は、毎週金曜日に前週木曜日から当該週水曜日までの日々の保険適用分の件数を反映して更新'
+              )
+            }}
+          </t-i18n>
         </li>
         <li>
-          {{
-            $t(
-              '（注）医療機関が保険適用で行った検査については、４月１５日分までを計上'
-            )
-          }}
+          <t-i18n>
+            {{
+              $t(
+                '（注）医療機関が保険適用で行った検査については、４月１５日分までを計上'
+              )
+            }}
+          </t-i18n>
         </li>
       </ul>
       <data-selector
@@ -42,17 +48,17 @@
               borderColor: colors[i].strokeColor
             }"
           />
-          <span
+          <t-i18n
             :style="{
               textDecoration: displayLegends[i] ? 'none' : 'line-through'
             }"
-            >{{ item }}</span
+            >{{ item }}</t-i18n
           >
         </button>
       </li>
     </ul>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
-      {{ $t(`{title}のグラフ`, { title }) }}
+      <t-i18n>{{ $t(`{title}のグラフ`, { title }) }}</t-i18n>
     </h4>
     <div class="LegendStickyChart">
       <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
@@ -127,8 +133,10 @@ import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import TI18n from '@/components/TI18n.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
+import { customTooltip } from '@/utils/ruby'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -193,7 +201,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: { DataView, DataSelector, DataViewBasicInfoPanel, TI18n },
   props: {
     title: {
       type: String,
@@ -346,7 +354,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const cumulativeSumArray = this.eachArraySum(cumulativeData)
       const options: Chart.ChartOptions = {
         tooltips: {
-          displayColors: false,
+          enabled: false,
+          custom: tooltipModel => customTooltip(this, tooltipModel),
           callbacks: {
             label: tooltipItem => {
               let casesTotal, cases

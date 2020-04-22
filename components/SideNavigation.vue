@@ -16,9 +16,9 @@
             :alt="$t('東京都')"
           />
           <div class="SideNavigation-HeaderText">
-            {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
-              $t('menu/対策サイト')
-            }}
+            <t-i18n>{{ $t('menu/新型コロナウイルス感染症') }}</t-i18n>
+            <br />
+            <t-i18n>{{ $t('menu/対策サイト') }}</t-i18n>
           </div>
         </nuxt-link>
       </h1>
@@ -40,7 +40,7 @@
             class="SideNavigation-Language"
           >
             <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
-              {{ $t('多言語対応選択メニュー') }}
+              <t-i18n>{{ $t('多言語対応選択メニュー') }}</t-i18n>
             </label>
             <language-selector />
           </div>
@@ -96,16 +96,18 @@
           </a>
         </div>
         <small class="SideNavigation-Copyright">
-          {{ $t('このサイトの内容物は') }}
+          <t-i18n>{{ $t('このサイトの内容物は') }}</t-i18n>
           <a
             :href="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
             target="_blank"
             rel="license"
             class="SideNavigation-LicenseLink"
           >
-            {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
+            <t-i18n>{{
+              $t('クリエイティブ・コモンズ 表示 4.0 ライセンス')
+            }}</t-i18n>
           </a>
-          {{ $t('の下に提供されています。') }}
+          <t-i18n>{{ $t('の下に提供されています。') }}</t-i18n>
           <br />
           2020 Tokyo Metropolitan Government
         </small>
@@ -119,6 +121,7 @@ import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import LanguageSelector from '@/components/LanguageSelector.vue'
 import MenuList from '@/components/MenuList.vue'
+import TI18n from '@/components/TI18n.vue'
 
 type Item = {
   icon?: string
@@ -130,7 +133,8 @@ type Item = {
 export default Vue.extend({
   components: {
     LanguageSelector,
-    MenuList
+    MenuList,
+    TI18n
   },
   props: {
     isNaviOpen: {

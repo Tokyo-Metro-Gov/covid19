@@ -5,12 +5,13 @@
         <v-icon size="24" class="WhatsNew-title-icon">
           mdi-information
         </v-icon>
-        {{ $t('最新のお知らせ') }}
+        <t-i18n>{{ $t('最新のお知らせ') }}</t-i18n>
       </h3>
       <span class="WhatsNew-link-to-emergency-page">
         <v-icon size="20" class="WhatsNew-link-to-emergency-page-icon">
           mdi-bullhorn
         </v-icon>
+        <!-- @todo t-i18n化が必要 -->
         <external-link
           url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
         >
@@ -51,14 +52,14 @@
 <script lang="ts">
 import Vue from 'vue'
 import ExternalLink from '@/components/ExternalLink.vue'
-
+import TI18n from '@/components/TI18n.vue'
 import {
   convertDateByCountryPreferTimeFormat,
   convertDateToISO8601Format
 } from '@/utils/formatDate'
 
 export default Vue.extend({
-  components: { ExternalLink },
+  components: { ExternalLink, TI18n },
   props: {
     items: {
       type: Array,

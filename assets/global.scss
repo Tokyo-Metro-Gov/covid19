@@ -38,3 +38,48 @@ img {
   display: block !important;
   visibility: visible !important;
 }
+
+#chartjs-tooltip {
+  $border-size: 5px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: $border-size;
+    height: $border-size;
+    border-color: #000;
+    border-width: $border-size;
+  }
+
+  &.top::before {
+    bottom: 100%;
+    left: 50%;
+    border-bottom-style: solid;
+    border-left: solid transparent;
+    border-right: solid transparent;
+  }
+
+  &.bottom::before {
+    top: 100%;
+    left: 50%;
+    border-top-style: solid;
+    border-left: solid transparent;
+    border-right: solid transparent;
+  }
+
+  &.right::before {
+    top: calc(50% - #{$border-size});
+    left: $border-size * -1;
+    border-right-style: solid;
+    border-top: solid transparent;
+    border-bottom: solid transparent;
+  }
+
+  &.left::before {
+    top: calc(50% - #{$border-size});
+    right: $border-size * -1;
+    border-left-style: solid;
+    border-top: solid transparent;
+    border-bottom: solid transparent;
+  }
+}

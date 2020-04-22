@@ -15,19 +15,27 @@
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
         <ul :class="$style.GraphDesc">
           <li>
-            {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
+            <t-i18n>
+              {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
+            </t-i18n>
           </li>
           <li>
-            {{
-              $t(
-                '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
-              )
-            }}
+            <t-i18n>
+              {{
+                $t(
+                  '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+                )
+              }}
+            </t-i18n>
           </li>
         </ul>
         <ol :class="$style.GraphDesc">
-          <li>{{ $t('※1: 疑い例・接触者調査') }}</li>
-          <li>{{ $t('※2: チャーター便・クルーズ船') }}</li>
+          <li>
+            <t-i18n>{{ $t('※1: 疑い例・接触者調査') }}</t-i18n>
+          </li>
+          <li>
+            <t-i18n>{{ $t('※2: チャーター便・クルーズ船') }}</t-i18n>
+          </li>
         </ol>
       </template>
     </time-stacked-bar-chart>
@@ -37,10 +45,12 @@
 <script>
 import Data from '@/data/data.json'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
-    TimeStackedBarChart
+    TimeStackedBarChart,
+    TI18n
   },
   data() {
     // 検査実施日別状況

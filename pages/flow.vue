@@ -3,7 +3,7 @@
     <div :class="$style.title">
       <covid-icon aria-hidden="true" />
       <page-header :class="$style.text">
-        {{ $t('新型コロナウイルス感染症が心配なときに') }}
+        <t-i18n>{{ $t('新型コロナウイルス感染症が心配なときに') }}</t-i18n>
       </page-header>
       <printer-button :wrapper-class="$style.printerButton" to="/print/flow" />
     </div>
@@ -260,6 +260,7 @@ import FigCondSy from '@/static/flow/cond_sy.svg'
 import FigCondAnx from '@/static/flow/cond_anx.svg'
 import IconPhone from '@/static/flow/phone.svg'
 import IconBed from '@/static/flow/bed.svg'
+import TI18n from '@/components/TI18n.vue'
 
 type LocalData = {
   nav: HTMLElement | null // アンカーリンクコンテナ（フローティング対象）
@@ -287,7 +288,8 @@ export default Vue.extend({
     FigCondSy,
     FigCondAnx,
     IconPhone,
-    IconBed
+    IconBed,
+    TI18n
   },
   data(): LocalData {
     const nav = null
