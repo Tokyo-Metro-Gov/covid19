@@ -315,6 +315,39 @@ function readSummaryFile() : array {
   ];
 }
 
+function readStasusFile() : array {
+  $data = xlsxToArray('Csv', __DIR__.'/downloads/status.csv', 'RAW', 'A2:L200', 'A1:L1');
+
+  return [
+    'data' => $data->filter(function ($row) {
+      return $row['更新時間'];
+    })->map(function ($row) {
+      $date = formatDate($row['更新時間']);
+      $carbon = Carbon::parse($date);
+      $row['更新時間'] = $carbon->format('Y/m/d H:i');
+      
+      $result = [
+        "更新時間" => $row['更新時間'],
+        "検査人数累計" => $row['検査人数累計'],
+        "検査実施人数" => $row['検査実施人数'],
+        "重症" => $row['重症'],
+        "輸入病例" => $row['輸入病例'],
+        "県関係者陽性者数" => $row['県関係者陽性者数'],
+        "入院中" => $row['入院中'],
+        "入院調整中" => $row['入院調整中'],
+        "宿泊施設療養中" => $row['宿泊施設療養中'],
+        "自宅療養中" => $row['自宅療養中'],
+        "入院勧告解除" => $row['入院勧告解除'],
+        "死亡退院" => $row['死亡退院'],
+      ];
+
+      return $result;
+    })
+  ];
+}
+
+
+
 // $contacts = readContacts();
 // $querents = readQuerents();
 
@@ -326,6 +359,10 @@ $discharges = discharges($patients);
 $discharges_summary = createSummary($discharges);
 
 $summary_data = readSummaryFile();
+$latest_summary = array_slice($summary_data['data']->all(), -1)[0];
+
+$status_data = readStasusFile();
+$latest_status = array_slice($status_data['data']->all(), -1)[0];
 
 // $inspections =readInspections();
 // $inspections_summary =readInspectionsSummary($inspections);
@@ -354,34 +391,35 @@ foreach ($data as $key => &$arr) {
 $data['lastUpdate'] = $lastUpdate;
 
 $data['main_summary'] = [
+  'date' => $latest_status['更新時間'],
   'attr' => '検査実施人数',
-  'value' => $summary_data['data'][0]['検査実施人数'],
+  'value' => $latest_status['検査人数累計'],
   'children' => [
     [
       'attr' => '陽性患者数（県外感染者含む）',
-      'value' => $better_patients_summary['data']['感染者数']->sum(),
+      'value' => $latest_status['輸入病例'] + $latest_status['県関係者陽性者数'],
       'children' => [
         [
           'attr' => '入院中（調整中含む）',
-          'value' => $better_patients_summary['data']['感染者数']->sum() - $better_patients_summary['data']['退院者数']->sum() - $better_patients_summary['data']['死亡者数']->sum(),
+          'value' => $latest_status['輸入病例'] + $latest_status['県関係者陽性者数'] - $latest_status['入院勧告解除'] - $latest_status['死亡退院'],
           'children' => [
             [
               'attr' => '軽症・中等症',
-              'value' => $summary_data['data'][0]['軽症'] + $summary_data['data'][0]['中等症']
+              'value' => $latest_status['輸入病例'] + $latest_status['県関係者陽性者数'] - $latest_status['入院勧告解除'] - $latest_status['死亡退院'] - $latest_summary['重症'],
             ],
             [
               'attr' => '重症',
-              'value' => $summary_data['data'][0]['重症']
+              'value' => $latest_summary['重症']
             ]
           ]
         ],
         [
           'attr' => '退院',
-          'value' => $better_patients_summary['data']['退院者数']->sum() - $summary_data['data'][0]['死亡']
+          'value' => $latest_status['入院勧告解除']
         ],
         [
           'attr' => '死亡',
-          'value' => $summary_data['data'][0]['死亡']
+          'value' => $latest_status['死亡退院']
         ]
 
       ]
