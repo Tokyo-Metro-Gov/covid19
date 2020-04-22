@@ -4,12 +4,13 @@
       <div :class="$style.pillar">
         <div :class="$style.content">
           <span>
-            {{ $t('陽性者数') }}
-            <br />({{ $t('累計') }})
+            <t-i18n>{{ $t('陽性者数') }}</t-i18n>
+            <br />
+            <t-i18n>{{ $t('累計') }}</t-i18n>
           </span>
           <span>
             <strong>{{ 陽性者数.toLocaleString() }}</strong>
-            <span :class="$style.unit">{{ $t('人') }}</span>
+            <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
           </span>
         </div>
       </div>
@@ -17,10 +18,10 @@
         <li :class="[$style.box, $style.parent, $style.hospitalized]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <span>{{ $t('入院中') }}</span>
+              <t-i18n>{{ $t('入院中') }}</t-i18n>
               <span>
                 <strong>{{ 入院中.toLocaleString() }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
+                <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
               </span>
             </div>
           </div>
@@ -33,7 +34,7 @@
                   <!-- eslint-enable vue/no-v-html-->
                   <span>
                     <strong>{{ 軽症中等症.toLocaleString() }}</strong>
-                    <span :class="$style.unit">{{ $t('人') }}</span>
+                    <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
                   </span>
                 </div>
               </div>
@@ -41,10 +42,10 @@
             <li :class="[$style.box, $style.short, $style.severe]">
               <div :class="$style.pillar">
                 <div :class="$style.content">
-                  <span>{{ $t('重症') }}</span>
+                  <t-i18n>{{ $t('重症') }}</t-i18n>
                   <span>
                     <strong>{{ 重症.toLocaleString() }}</strong>
-                    <span :class="$style.unit">{{ $t('人') }}</span>
+                    <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
                   </span>
                 </div>
               </div>
@@ -54,10 +55,10 @@
         <li :class="[$style.box, $style.deceased]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <span>{{ $t('死亡') }}</span>
+              <t-i18n>{{ $t('死亡') }}</t-i18n>
               <span>
                 <strong>{{ 死亡.toLocaleString() }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
+                <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
               </span>
             </div>
           </div>
@@ -65,10 +66,12 @@
         <li :class="[$style.box, $style.recovered]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <span>{{ $t('退院') }}</span>
+              <t-i18n>
+                {{ $t('退院') }}<br />{{ $t('（療養期間経過を含む）') }}
+              </t-i18n>
               <span>
                 <strong>{{ 退院.toLocaleString() }}</strong>
-                <span :class="$style.unit">{{ $t('人') }}</span>
+                <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
               </span>
             </div>
           </div>
@@ -80,9 +83,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import TI18n from '@/components/TI18n.vue'
 
 /* eslint-disable vue/prop-name-casing */
 export default Vue.extend({
+  components: {
+    TI18n
+  },
   props: {
     検査実施人数: {
       type: Number,
@@ -275,7 +282,7 @@ $default-boxdiff: 35px;
     }
 
     &:not(:last-child) {
-      word-break: break-all;
+      overflow-wrap: break-word;
     }
   }
   span strong {

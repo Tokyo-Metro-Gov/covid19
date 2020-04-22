@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import { sortBy } from 'lodash'
 
 const headers = [
   { text: '公表日', value: '公表日' },
@@ -40,18 +41,20 @@ export default (data: DataType[]) => {
     headers,
     datasets: []
   }
-  data.forEach(d => {
-    const TableRow: TableDataType = {
-      公表日: dayjs(d['リリース日']).format('MM/DD') ?? '不明',
-      居住地: d['居住地'] ?? '調査中',
-      年代: d['年代'] ?? '不明',
-      性別: d['性別'] ?? '不明',
-      退院: d['退院']
+  const datasets = data.map(
+    (d): TableDataType => {
+      const releaseDate = dayjs(d['リリース日'])
+      return {
+        公表日: releaseDate.isValid() ? releaseDate.format('M/D') : '不明',
+        居住地: d['居住地'] ?? '調査中',
+        年代: d['年代'] ?? '不明',
+        性別: d['性別'] ?? '不明',
+        退院: d['退院']
+      }
     }
-    tableDate.datasets.push(TableRow)
-  })
-  tableDate.datasets.sort((a, b) =>
-    a.公表日 === b.公表日 ? 0 : a.公表日 < b.公表日 ? 1 : -1
   )
+  tableDate.datasets = sortBy(datasets, [
+    (o: TableDataType) => dayjs(o['公表日']).unix()
+  ]).reverse()
   return tableDate
 }

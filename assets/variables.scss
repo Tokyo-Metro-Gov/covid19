@@ -11,6 +11,7 @@ $gray-4: #d9d9d9;
 $gray-5: #f8f9fa;
 $white: #fff;
 $link: #006ca8;
+$emergency: #FFE200;
 
 // ==================
 // shadow
@@ -165,3 +166,14 @@ $z-index-map: (
   display: block !important;
   visibility: visible !important;
 }
+
+// ===================
+// Vuetify
+
+// Expansion Panels
+// https://vuetifyjs.com/en/components/expansion-panels/
+$expansion-panel-content-padding: 0;
+$expansion-panel-header-padding: 10px 0;
+$expansion-panel-header-min-height: 26px;
+$expansion-panel-active-header-min-height: 26px;
+$expansion-panel-header-font-size: .875rem;

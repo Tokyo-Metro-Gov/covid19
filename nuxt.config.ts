@@ -53,11 +53,7 @@ const config: Configuration = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
-      {
-        rel: 'stylesheet',
-        href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
-      }
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' }
     ]
   },
   /*
@@ -112,6 +108,7 @@ const config: Configuration = {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
     defaultAssets: {
       icons: false
     }
@@ -119,6 +116,15 @@ const config: Configuration = {
   googleAnalytics: {
     id: process.env.GOOGLE_ANALYTICS_ID // .env.production などに設定してください。
   },
+  optionalCookies: [
+    {
+      name: 'i18n_redirected',
+      label: 'i18n Redirection Cookie',
+      description:
+        'For automatically switching UI languages in accordance with locale preferences in the web browser configuration.',
+      cookies: ['i18n_redirected']
+    }
+  ],
   build: {
     plugins: [
       new webpack.ProvidePlugin({
@@ -136,7 +142,13 @@ const config: Configuration = {
             './node_modules/vuetify/dist/vuetify.js',
             './node_modules/vue-spinner/src/ScaleLoader.vue'
           ],
-          whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
+          whitelist: [
+            'html',
+            'body',
+            'nuxt-progress',
+            'DataCard',
+            'chartjs-tooltip'
+          ],
           whitelistPatterns: [/(col|row)/]
         })
       ]
@@ -165,6 +177,7 @@ const config: Configuration = {
         '/cards/details-of-confirmed-cases',
         '/cards/details-of-tested-cases',
         '/cards/number-of-confirmed-cases',
+        '/cards/number-of-confirmed-cases-by-municipalities',
         '/cards/attributes-of-confirmed-cases',
         '/cards/number-of-tested',
         '/cards/number-of-inspection-persons',

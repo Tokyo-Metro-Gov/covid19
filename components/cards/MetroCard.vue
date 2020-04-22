@@ -11,19 +11,23 @@
       unit="%"
     >
       <template v-slot:description>
-        {{
-          $t('{range}の利用者数*の平均値を基準としたときの相対値', {
-            range: metroGraph.base_period
-          })
-        }}
+        <t-i18n>
+          {{
+            $t('{range}の利用者数*の平均値を基準としたときの相対値', {
+              range: metroGraph.base_period
+            })
+          }}
+        </t-i18n>
         <br />
-        *{{ $t('都営地下鉄4路線の自動改札出場数') }}
+        *<t-i18n>{{ $t('都営地下鉄4路線の自動改札出場数') }}</t-i18n>
         <br />
-        {{
-          $t(
-            '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
-          )
-        }}
+        <t-i18n>
+          {{
+            $t(
+              '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+            )
+          }}
+        </t-i18n>
       </template>
     </metro-bar-chart>
   </v-col>
@@ -33,10 +37,12 @@
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
 import MetroBarChart from '@/components/MetroBarChart.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
-    MetroBarChart
+    MetroBarChart,
+    TI18n
   },
   data() {
     // 都営地下鉄の利用者数の推移
@@ -50,7 +56,7 @@ export default {
     const metroGraphTooltipTitle = (tooltipItems, _) => {
       const label = this.getWeekLabel(tooltipItems[0].label)
       return this.$t('期間: {duration}', {
-        // duration = label = '2月10日~14日' | '2月17日~21日' | '2月25日~28日'
+        // duration = label = '2\/10~14' etc.
         duration: this.$t(label)
       })
     }
@@ -61,7 +67,7 @@ export default {
       const percentage = `${currentData.data[tooltipItem.index]}%`
 
       return this.$t('{duration}の利用者数との相対値: {percentage}', {
-        // duration = metroGraph.base_period = '1月20日~1月24日'
+        // duration = metroGraph.base_period = '1\/20~1\/24'
         duration: this.$t(metroGraph.base_period),
         percentage
       })
