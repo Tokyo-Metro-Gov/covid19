@@ -13,21 +13,30 @@
     >
       <!-- 件.tested = 検査数 -->
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
-        <t-i18n>{{
-          $t(
-            '（注）医療機関が保険適用で行った検査については、４月１５日分までを計上'
-          )
-        }}</t-i18n
-        ><br />
-        <t-i18n>{{
-          $t(
-            '（毎週金曜日に、前週木曜日から当該週水曜日までの日々の件数を反映）'
-          )
-        }}</t-i18n>
-        <br />
-        <t-i18n>{{ $t('※1: 疑い例・接触者調査') }}</t-i18n>
-        <br />
-        <t-i18n>{{ $t('※2: チャーター便・クルーズ船') }}</t-i18n>
+        <ul :class="$style.GraphDesc">
+          <li>
+            <t-i18n>
+              {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
+            </t-i18n>
+          </li>
+          <li>
+            <t-i18n>
+              {{
+                $t(
+                  '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+                )
+              }}
+            </t-i18n>
+          </li>
+        </ul>
+        <ol :class="$style.GraphDesc">
+          <li>
+            <t-i18n>{{ $t('※1: 疑い例・接触者調査') }}</t-i18n>
+          </li>
+          <li>
+            <t-i18n>{{ $t('※2: チャーター便・クルーズ船') }}</t-i18n>
+          </li>
+        </ol>
       </template>
     </time-stacked-bar-chart>
   </v-col>
@@ -67,3 +76,16 @@ export default {
   }
 }
 </script>
+
+<style module lang="scss">
+.Graph {
+  &Desc {
+    margin: 0;
+    margin-top: 1rem;
+    padding-left: 0 !important;
+    font-size: 12px;
+    color: $gray-3;
+    list-style: none;
+  }
+}
+</style>

@@ -3,22 +3,36 @@
     <data-view
       :title="$t('検査陽性者の状況')"
       :title-id="'details-of-confirmed-cases'"
-      :date="Data.patients.date"
+      :date="updatedAt"
     >
-      <template v-slot:button>
-        <p :class="$style.note">
-          <t-i18n>
-            {{
-              $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-            }}
-          </t-i18n>
-          <br />
-          <t-i18n>
-            {{
-              $t('（注）「入院中」には、入院調整中・宿泊療養に移行した方を含む')
-            }}
-          </t-i18n>
-        </p>
+      <template v-slot:description>
+        <ul>
+          <li>
+            <t-i18n>
+              {{
+                $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
+              }}
+            </t-i18n>
+          </li>
+          <li>
+            <t-i18n>
+              {{
+                $t(
+                  '（注）「入院中」には、入院調整中・宿泊療養に移行した方を含む'
+                )
+              }}
+            </t-i18n>
+          </li>
+          <li>
+            <t-i18n>
+              {{
+                $t(
+                  '（注）退院者数の把握には一定の期間を要しており、確認次第数値を更新している'
+                )
+              }}
+            </t-i18n>
+          </li>
+        </ul>
       </template>
       <confirmed-cases-details-table
         :aria-label="$t('検査陽性者の状況')"
@@ -28,16 +42,8 @@
   </v-col>
 </template>
 
-<style lang="scss" module>
-.note {
-  margin-top: 10px;
-  margin-bottom: 0;
-  font-size: 12px;
-  color: $gray-3;
-}
-</style>
-
 <script>
+import dayjs from 'dayjs'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import DataView from '@/components/DataView.vue'
@@ -54,9 +60,14 @@ export default {
     // 検査陽性者の状況
     const confirmedCases = formatConfirmedCases(Data.main_summary)
 
+    const updatedAt = dayjs(Data.main_summary.children[0].date).format(
+      'YYYY/MM/DD HH:mm'
+    )
+
     const data = {
       Data,
-      confirmedCases
+      confirmedCases,
+      updatedAt
     }
     return data
   }

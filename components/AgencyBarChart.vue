@@ -29,15 +29,20 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <bar
-      :ref="'barChart'"
-      :style="{ display: canvas ? 'block' : 'none' }"
-      :chart-id="chartId"
-      :chart-data="displayData"
-      :options="displayOption"
-      :display-legends="displayLegends"
-      :height="240"
-    />
+    <div>
+      <t-i18n :class="$style.GraphUnit">
+        {{ $t('単位:') }} {{ $t('人') }}
+      </t-i18n>
+      <bar
+        :ref="'barChart'"
+        :style="{ display: canvas ? 'block' : 'none' }"
+        :chart-id="chartId"
+        :chart-data="displayData"
+        :options="displayOption"
+        :display-legends="displayLegends"
+        :height="240"
+      />
+    </div>
     <template v-slot:dataTable>
       <v-data-table
         :headers="tableHeaders"
@@ -247,7 +252,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080',
                 maxTicksLimit: 10,
                 callback(label) {
-                  return `${label}${self.unit}`
+                  return `${label}`
                 }
               }
             }
@@ -340,6 +345,10 @@ export default Vue.extend(options)
         font-size: 12px;
       }
     }
+  }
+  &Unit {
+    font-size: 12px;
+    color: $gray-3;
   }
 }
 
