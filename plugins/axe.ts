@@ -9,7 +9,15 @@ if (NODE_ENV === 'development' && VUE_AXE === 'true') {
 
   Vue.use(VueAxe, {
     config: {
-      locale: AXE_LOCALE_JA
+      locale: AXE_LOCALE_JA,
+      rules: [
+        {
+          // 色コントラストの検査を無効化する。
+          // Node数の多い環境で検査コストが高いため。
+          id: 'color-contrast',
+          enabled: false
+        }
+      ]
     },
     clearConsoleOnUpdate: false
   })
