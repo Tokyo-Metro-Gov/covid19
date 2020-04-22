@@ -14,12 +14,12 @@
       :mobile-breakpoint="0"
       class="cardTable"
     />
-    <div class="note">
+    <!-- <div class="note">
       {{ $t('※退院には、死亡退院を含む') }}
     </div>
     <div class="note">
       {{ $t('※入院調整中には、確認中も含む') }}
-    </div>
+    </div> -->
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="info.lText"
