@@ -68,7 +68,7 @@ export default {
     margin: 4px auto 0;
     -webkit-margin-before: 4px;
     @media screen and (-webkit-min-device-pixel-ratio: 0) {
-      -webkit-margin-before: 7px;
+      -webkit-margin-before: 5px;
     }
 
     @include lessThan($small) {
@@ -88,7 +88,7 @@ export default {
     margin-top: 4px;
     -webkit-margin-before: 6px;
     @media screen and (-webkit-min-device-pixel-ratio: 0) {
-      -webkit-margin-before: 8px;
+      -webkit-margin-before: 4px;
     }
 
     width: 25px;
