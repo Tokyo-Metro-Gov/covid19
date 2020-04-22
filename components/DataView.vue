@@ -34,6 +34,7 @@
                 mdi-open-in-new
               </v-icon>
             </a>
+            + 会見/資料
           </div>
           <div>
             <a class="Permalink" :href="permalink()">
