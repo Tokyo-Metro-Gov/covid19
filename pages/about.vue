@@ -198,19 +198,21 @@
           </external-link>
         </li>
       </ul>
-      <i18n
-        tag="p"
-        path="Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。"
-      >
-        <template v-slot:addon>
-          <external-link
-            :url="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
-            :icon-size="16"
-          >
-            {{ $t('測定を無効にするブラウザ アドオン') }}
-          </external-link>
-        </template>
-      </i18n>
+      <t-i18n>
+        <i18n
+          tag="p"
+          path="Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。"
+        >
+          <template v-slot:addon>
+            <external-link
+              :url="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
+              :icon-size="16"
+            >
+              <t-i18n>{{ $t('測定を無効にするブラウザ アドオン') }}</t-i18n>
+            </external-link>
+          </template>
+        </i18n>
+      </t-i18n>
     </static-card>
     <static-card>
       <h3>
