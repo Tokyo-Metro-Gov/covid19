@@ -38,7 +38,20 @@
       </template>
     </v-data-table>
     <div class="note">
-      <t-i18n>{{ $t('※退院には、死亡退院を含む') }}</t-i18n>
+      <ul>
+        <li>
+          <t-i18n>
+            {{
+              $t('※退院は、保健所から報告があり、確認ができているものを反映')
+            }}
+          </t-i18n>
+        </li>
+        <li>
+          <t-i18n>
+            {{ $t('※死亡退院を含む') }}
+          </t-i18n>
+        </li>
+      </ul>
     </div>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -102,9 +115,15 @@
 }
 
 .note {
-  padding: 8px;
+  margin: 8px 0 0;
   font-size: 12px;
   color: $gray-3;
+
+  ul,
+  ol {
+    list-style-type: none;
+    padding: 0;
+  }
 }
 </style>
 

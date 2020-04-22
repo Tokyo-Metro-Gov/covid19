@@ -66,7 +66,9 @@
         <li :class="[$style.box, $style.recovered]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <t-i18n>{{ $t('退院') }}</t-i18n>
+              <t-i18n>
+                {{ $t('退院') }}<br />{{ $t('（療養期間経過を含む）') }}
+              </t-i18n>
               <span>
                 <strong>{{ 退院.toLocaleString() }}</strong>
                 <t-i18n :class="$style.unit">{{ $t('人') }}</t-i18n>
