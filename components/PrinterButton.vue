@@ -73,9 +73,6 @@ export default {
   &-Text {
     margin: 4px auto 0;
     -webkit-margin-before: 4px;
-    // @media screen and (-webkit-min-device-pixel-ratio: 0) {
-    //   -webkit-margin-before: 5px;
-    // }
 
     @include lessThan($small) {
       position: absolute !important;
@@ -93,10 +90,6 @@ export default {
   &-PrinterIcon {
     margin-top: 4px;
     -webkit-margin-before: 6px;
-    // @media screen and (-webkit-min-device-pixel-ratio: 0) {
-    //   -webkit-margin-before: 4px;
-    // }
-
     width: 25px;
 
     @include largerThan($small) {
