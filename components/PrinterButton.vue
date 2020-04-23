@@ -56,6 +56,12 @@ export default {
 }
 </script>
 
+<style lang="scss">
+.v-btn__content {
+  height: 100%;
+}
+</style>
+
 <style lang="scss" scoped>
 .PrinterButton {
   @include button-text('md');
@@ -65,7 +71,8 @@ export default {
   }
 
   &-Text {
-    margin: 6px auto 0;
+    margin: 4px auto 0;
+    -webkit-margin-before: 4px;
 
     @include lessThan($small) {
       position: absolute !important;
@@ -81,7 +88,8 @@ export default {
   }
 
   &-PrinterIcon {
-    margin-top: 8px;
+    margin-top: 4px;
+    -webkit-margin-before: 6px;
     width: 25px;
 
     @include largerThan($small) {
