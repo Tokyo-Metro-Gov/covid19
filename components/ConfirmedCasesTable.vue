@@ -42,10 +42,10 @@
               <div class="gutter">
                 <div class="box short">
                   <!-- eslint-disable vue/no-v-html-->
-                  <span v-html="$t('軽症')" />
+                  <span v-html="$t('無症状・軽症・中等症')" />
                   <!-- eslint-enable vue/no-v-html-->
                   <span>
-                    <b>{{ 軽症中等症 }}</b>
+                    <b>{{入院中 - 重症}}</b>
                     <span class="unit">{{ $t('人') }}</span>
                   </span>
                 </div>
@@ -57,17 +57,6 @@
                   <span v-html="$t('重症<br />重篤')" />
                   <span>
                     <b>{{ 重症 }}</b>
-                    <span class="unit">{{ $t('人') }}</span>
-                  </span>
-                </div>
-              </div>
-            </li>
-            <li class="item serious">
-              <div class="gutter">
-                <div class="box short">
-                  <span v-html="$t('その他')" />
-                  <span>
-                    <b>{{入院中 - 軽症中等症 - 重症}}</b>
                     <span class="unit">{{ $t('人') }}</span>
                   </span>
                 </div>
