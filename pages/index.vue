@@ -18,9 +18,6 @@
       <div class="TopNews">
       <span class="TopNewsImp2">感染者・濃厚接触者や、診療に携わった医療機関・医療関係者その他の対策に携わった方々に対して、誤解や偏見に基づく差別を行わないよう、ご理解とご配慮をお願いします（福井県 県民行動指針ver.2より一部抜粋）</span><br>
       <br>
-      <span class="TopNewsImp">・4月16日、政府が「緊急事態宣言」対象地域を全国に拡大（5月6日まで）</span><br>
-      <span class="TopNewsImp">・4月14日、福井県独自の緊急事態宣言を発令</span><br>
-      ・福井県内の全ての市町が小中学校の授業再開を5月7日以降に延期<br>
       <a
       href="https://www.pref.fukui.lg.jp/doc/kenkou/kansensyo-yobousessyu/corona.html"
       target="_blank"
@@ -28,6 +25,10 @@
       >
       ・4月23日、福井県 休業等の要請
       </a>
+      <br>
+      <span class="TopNewsImp">・4月16日、政府が「緊急事態宣言」対象地域を全国に拡大（5月6日まで）</span><br>
+      <span class="TopNewsImp">・4月14日、福井県独自の緊急事態宣言を発令</span><br>
+      ・福井県内の全ての市町が小中学校の授業再開を5月7日以降に延期
       </div>
     </div>
   </div>
