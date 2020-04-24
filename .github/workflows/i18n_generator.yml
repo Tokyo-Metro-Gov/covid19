@@ -7,7 +7,7 @@ on:
 
 jobs:
   i18n-builder:
-    if: github.event.commits[0].message != 'Update locales/ja.json'
+    if: github.event.commits[0].message != 'Update assets/locales/ja.json'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout development branch
@@ -31,7 +31,7 @@ jobs:
         uses: peter-evans/create-pull-request@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: Update locales/ja.json
+          commit-message: Update assets/locales/ja.json
           title: Update transration files
           labels: auto_merge
           branch-suffix: 'short-commit-hash'
