@@ -22,7 +22,6 @@
       <span class="TopNewsImp">・4月14日、福井県独自の緊急事態宣言を発令</span><br>
       ・福井県内の全ての市町が小中学校の授業再開を5月7日以降に延期<br>
       <a
-      class="NewsLink"               
       href="https://www.pref.fukui.lg.jp/doc/sinsan/kyoryokukin.html"
       target="_blank"
       rel="noopener"
@@ -149,8 +148,5 @@ export default Vue.extend({
       }
     }
   }
-}
-.NewsLink a {
-  text-decoration: none;
 }
 </style>
