@@ -257,7 +257,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
           sText: `${this.$t('{date}の合計', {
             date: this.labels[this.labels.length - 1]
-          })}（${this.$t('医療機関が保険適用で行った検査は含まれていない')}）`,
+          })}`,
           unit: this.unit
         }
       }
