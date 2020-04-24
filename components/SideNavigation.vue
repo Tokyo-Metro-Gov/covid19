@@ -136,7 +136,7 @@ export default Vue.extend({
         {
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: 'http://www.pref.shizuoka.jp/kousei/ko-420a/kansen/documents/pos.pdf'
+          link: 'https://www.pref.shizuoka.jp/kinkyu/documents/200420poster.pdf'
         },
         {
           icon: 'ParentIcon',
@@ -146,7 +146,7 @@ export default Vue.extend({
         {
           icon: 'mdi-account-multiple',
           title: this.$t('県民の皆様へ'),
-          link: 'https://www.pref.shizuoka.jp/kinkyu/covid-19.html'
+          link: 'https://www.pref.shizuoka.jp/kinkyu/covid-19-tijikomennto.html'
         },
         {
           icon: 'mdi-domain',
