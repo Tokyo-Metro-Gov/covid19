@@ -38,7 +38,7 @@ ENCODING = "UTF-8"
 OUTPUT_DIR = "auto-i18n"
 CHECK_RESULT = "result.csv"
 
-# 東京都版の翻訳ファイルパス
+# 翻訳ファイルパス
 JA_JSON_PATH = os.path.join(os.pardir, "assets/locales/ja.json")
 
 # ログに用いる時間のタイムゾーン
@@ -72,6 +72,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
             for path in vue_files:
                 with open(path, encoding=ENCODING) as file:
                     # ファイルの内容を文字列として取得
+                    # ここで改行を空白として扱うのは、vue内のi18nタグが正しく認識できない場合があるため
                     content = ' '.join([l.strip() for l in file])
                     # 全タグを正規表現で取得
                     t_tags = [tag[4:(len(tag) - 1)] for tag in tag_pattern_t.findall(content) if
@@ -95,7 +96,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                     soup = BeautifulSoup(content, "html.parser")
                     i18n_tags = [tag.get("path") for tag in soup.find_all("i18n")]
                     # タグを統合し、重複分を取り除く
-                    all_tags += list(set(fixed_tags + i18n_tags))
+                    all_tags = list(set(all_tags + fixed_tags + i18n_tags))
         elif "utils" in cdir:
             # すべてのtsファイルを検索
             ts_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.ts", recursive=True)
@@ -109,8 +110,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                     file_count += 1
                     with open(path, encoding=ENCODING) as file:
                         # ファイルの内容を文字列として取得
-                        # ここで改行を空白として扱うのは、vue内のi18nタグが正しく認識できない場合があるため
-                        content = ' '.join([l.strip() for l in file])
+                        content = ''.join([l.strip() for l in file])
                         # 抽出したヘッダー内のtextとvalueは変数として読み込まれることになるので、
                         # あらかじめ設定しておく
                         text = "text"
@@ -118,9 +118,11 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         # ヘッダーを正規表現で取得し、valueを抽出
                         headers = [eval(str_header + " }")[value] for str_header in header_pattern.findall(content)]
                         # 退院を除外(翻訳としては、"※退院"として扱われているため)
+                        # valueではなく、textに置き換えることで例外処理は必要なくなるが、
+                        # そうしない理由は components/cards/ConfirmedCasesAttributesCard.vue の50行目辺りを参照
                         headers.pop(headers.index("退院"))
                         # タグを統合し、重複分を取り除く
-                        all_tags += list(set(headers))
+                        all_tags = list(set(all_tags + headers))
         else:
             # すべてのJsonファイルを検索
             json_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.json", recursive=True)
@@ -152,16 +154,16 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                                 # エリアを取得
                                 tags.append(city["area"])
                                 # ラベルを取得、「小計」は除外する
-                                tags.append(city["label"]) if city["label"] != "小計" else ""
+                                tags.append(city["label"]) if city["label"] != "小計" else None
                                 # ルビを取得
                                 tags.append(city["ruby"])
 
-                        # 重複分を取り除く
-                        all_tags += list(set(tags))
+                        # タグを統合し、重複分を取り除く
+                        all_tags = list(set(all_tags + tags))
                     # Noneが混じっているので、取り除く
                     all_tags.pop(all_tags.index(None))
                     # 全角のハイフン、半角のハイフン、全角のダッシュが混じっているので、取り除く
-                    # 理由は /components/ConfirmedCasesAttributesCard.vue の75行目辺りを参照。
+                    # 理由は components/cards/ConfirmedCasesAttributesCard.vue の75行目辺りを参照。
                     for x in ["-", "‐", "―"]:
                         try:
                             all_tags.pop(all_tags.index(x))
