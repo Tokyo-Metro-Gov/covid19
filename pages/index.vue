@@ -21,8 +21,13 @@
       <span class="TopNewsImp">・4月16日、政府が「緊急事態宣言」対象地域を全国に拡大（5月6日まで）</span><br>
       <span class="TopNewsImp">・4月14日、福井県独自の緊急事態宣言を発令</span><br>
       ・福井県内の全ての市町が小中学校の授業再開を5月7日以降に延期<br>
-      ・一時生活施設を福井県が開設（軽症陽性患者が入所）<br>
-      ・福井県医師会　医療提供体制緊急事態宣言
+      <a               
+      href="https://www.pref.fukui.lg.jp/doc/sinsan/kyoryokukin.html"
+      target="_blank"
+      rel="noopener"
+      >
+      ・4月23日、福井県 休業要請について発表（中小企業休業等協力金）
+      </a>
       </div>
     </div>
   </div>
