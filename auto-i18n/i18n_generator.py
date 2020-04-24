@@ -115,12 +115,8 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         # あらかじめ設定しておく
                         text = "text"
                         value = "value"
-                        # ヘッダーを正規表現で取得し、valueを抽出
-                        headers = [eval(str_header + " }")[value] for str_header in header_pattern.findall(content)]
-                        # 退院を除外(翻訳としては、"※退院"として扱われているため)
-                        # valueではなく、textに置き換えることで例外処理は必要なくなるが、
-                        # そうしない理由は components/cards/ConfirmedCasesAttributesCard.vue の50行目辺りを参照
-                        headers.pop(headers.index("退院"))
+                        # ヘッダーを正規表現で取得し、textを抽出
+                        headers = [eval(str_header + " }")[text] for str_header in header_pattern.findall(content)]
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + headers))
         else:
