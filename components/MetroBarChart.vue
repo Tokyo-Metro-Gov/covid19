@@ -22,6 +22,7 @@
         :items="tableData"
         :items-per-page="-1"
         :hide-default-footer="true"
+        :hide-default-header="true"
         :height="240"
         :fixed-header="true"
         :disable-sort="true"
@@ -29,6 +30,21 @@
         class="cardTable"
         item-key="name"
       >
+        <template v-slot:header="{ props: { headers } }">
+          <thead>
+            <tr>
+              <th
+                v-for="(header, i) in headers"
+                :key="i"
+                :class="[header.align ? `text-${header.align}` : '']"
+              >
+                <div>
+                  <t-i18n>{{ header.text }}</t-i18n>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </template>
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
@@ -45,7 +61,9 @@
       <external-link
         url="https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf"
       >
-        {{ $t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）[PDF]') }}
+        <t-i18n>
+          {{ $t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）[PDF]') }}
+        </t-i18n>
       </external-link>
     </template>
   </data-view>
@@ -57,6 +75,7 @@ import { TranslateResult } from 'vue-i18n'
 import { ChartOptions, ChartData, Chart } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
+import TI18n from '@/components/TI18n.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import ExternalLink from '@/components/ExternalLink.vue'
 import { DisplayData } from '@/plugins/vue-chart'
@@ -103,7 +122,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, ExternalLink },
+  components: { DataView, ExternalLink, TI18n },
   props: {
     title: {
       type: String,

@@ -49,6 +49,7 @@
         :items="tableData"
         :items-per-page="-1"
         :hide-default-footer="true"
+        :hide-default-header="true"
         :height="240"
         :fixed-header="true"
         :disable-sort="true"
@@ -56,6 +57,21 @@
         class="cardTable"
         item-key="name"
       >
+        <template v-slot:header="{ props: { headers } }">
+          <thead>
+            <tr>
+              <th
+                v-for="(header, i) in headers"
+                :key="i"
+                :class="[header.align ? `text-${header.align}` : '']"
+              >
+                <div>
+                  <t-i18n>{{ header.text }}</t-i18n>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </template>
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">

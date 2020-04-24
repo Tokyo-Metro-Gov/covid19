@@ -32,9 +32,9 @@
                   <v-icon left>mdi-chevron-right</v-icon>
                 </div>
               </template>
-              <span class="expansion-panel-text">{{
+              <t-i18n class="expansion-panel-text">{{
                 $t('テーブルを表示')
-              }}</span>
+              }}</t-i18n>
             </v-expansion-panel-header>
             <v-expansion-panel-content>
               <slot name="dataTable" />

@@ -15,7 +15,7 @@
         <external-link
           url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
         >
-          {{ $t('東京都緊急事態措置について') }}
+          <t-i18n>{{ $t('東京都緊急事態措置について') }}</t-i18n>
         </external-link>
       </span>
     </div>
