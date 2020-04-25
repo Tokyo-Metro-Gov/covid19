@@ -4,9 +4,7 @@
       {{ $t('当サイトについて') }}
     </h2>
     <TextCard>
-      {{
-        $t('当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、')
-      }}
+      {{ $t('当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、') }}
       <a href="https://www.codeforniigata.org/">Code For Niigata</a>
       {{ $t('が開設したものです。') }}<br />
       <br />
@@ -156,9 +154,8 @@
       </i18n>
     </TextCard>
     <TextCard :title="$t('お問い合わせ先')">
-      {{
-        $t('当サイトへのお問い合わせは以下のフォームをご利用ください')
-      }}<br />
+      {{ $t('当サイトへのお問い合わせは以下のフォームをご利用ください') }}
+      <br />
       <a href="https://forms.gle/z91hXRv5AjEQPL1H8l">お問い合わせフォーム</a>
     </TextCard>
   </div>
