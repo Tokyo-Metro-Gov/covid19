@@ -1,12 +1,62 @@
 {
     "transitItems": [
         {
-            "title": "新潟交通",
+            "title": "新潟交通株式会社",
             "items": [
                 {
-                    "date": "2020\/4\/7",
+                    "date": null,
                     "url": "http://www.niigata-kotsu.co.jp/~noriai/coronavirus/",
                     "text": "新型コロナウイルスの感染拡大に伴う当社グループの対応について"
+                }
+            ]
+        },
+        {
+            "title": "新潟交通佐渡株式会社",
+            "items": [
+                {
+                    "date": "2020\/4\/21",
+                    "url": "http://www.sado-bus.com/news/1060/",
+                    "text": "新型コロナウイルス感染症対策に伴う窓口臨時休業について"
+                }
+            ]
+        },
+        {
+            "title": "越後交通",
+            "items": [
+                {
+                    "date": "2020\/4\/21",
+                    "url": "http://www.echigo-kotsu.co.jp/covid19_bus.html",
+                    "text": "新型コロナウイルスの感染拡大および緊急事態宣言の発令に伴う運行情報等"
+                }
+            ]
+        },
+        {
+            "title": "頚城自動車株式会社",
+            "items": [
+                {
+                    "date": "2020\/4\/22",
+                    "url": "http://www.marukei-g.com/files/libs/2654/202004221832272442.pdf",
+                    "text": "通学定期券の払い戻しについて"
+                },
+                {
+                    "date": "2020\/4\/22",
+                    "url": "http://www.marukei-g.com/files/libs/2652/202004221409535343.pdf",
+                    "text": "東京高速乗車券 払い戻し手数料無料化について"
+                },
+                {
+                    "date": "2020\/4\/18",
+                    "url": "https://www.jrniigata.co.jp/top/ibennto05.pdf",
+                    "text": "4/18～5/6 直江津駅前観光案内所 閉鎖のお知らせ"
+                }
+            ]
+        },
+        {
+            "title": "泉観光バス",
+            "items": [
+                {
+                    "date": "2020\/4\/21",
+                    "url": "http://www.izumi-group.jp/news/?id=115",
+                    "text": "にしかん観光周遊バスの運休につきまして"
                 }
             ]
         },
@@ -31,12 +81,52 @@
             ]
         },
         {
+            "title": "北越急行株式会社",
+            "items": [
+                {
+                    "date": "2020\/4\/21",
+                    "url": "https://hokuhoku.co.jp/pdf/info2020420.pdf",
+                    "text": "新型コロナウイルス発生に伴うきっぷの取扱いについて"
+                }
+            ]
+        },
+        {
+            "title": "えちごトキめき鉄道株式会社",
+            "items": [
+                {
+                    "date": "2020\/4\/21",
+                    "url": "https://www.echigo-tokimeki.co.jp/information/detail?id=1028",
+                    "text": "「雪月花」の運休期間延長について"
+                }
+            ]
+        },
+        {
             "title": "新潟空港",
             "items": [
                 {
-                    "date": "2020\/4\/9",
+                    "date": null,
                     "url": "http://www.niigata-airport.gr.jp/news/view.php?id=725",
-                    "text": "国内線減便のお知らせ（4月9日現在）"
+                    "text": "国内線減便のお知らせ"
+                }
+            ]
+        },
+        {
+            "title": "佐渡汽船株式会社",
+            "items": [
+                {
+                    "date": "2020\/4\/24",
+                    "url": "https://www.sadokisen.co.jp/?news=20200424-2",
+                    "text": "新型コロナウイルス感染拡大の影響に伴う減便の追加と期間延長について"
+                }
+            ]
+        },
+        {
+            "title": "粟島汽船株式会社",
+            "items": [
+                {
+                    "date": "2020\/4\/17",
+                    "url": "http://awaline.co.jp/img/corona/20200417_timetable_notice.pdf",
+                    "text": "４月２５日～５月３１日の運航ダイヤ変更について"
                 }
             ]
         }
