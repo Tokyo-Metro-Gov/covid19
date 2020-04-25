@@ -47,6 +47,14 @@
       >
         {{ $t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）[PDF]') }}
       </external-link>
+      <br />
+      <external-link url="https://corona.go.jp/">
+        {{
+          $t(
+            '主要駅の改札通過人数の推移（東京、新宿、渋谷、池袋ほか）[内閣官房HP]（ページ下部）'
+          )
+        }}
+      </external-link>
     </template>
   </data-view>
 </template>
