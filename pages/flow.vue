@@ -28,6 +28,7 @@
         </a>
       </div>
     </div>
+    <yfigure-card />
   </div>
 </template>
 
@@ -38,11 +39,13 @@ import CovidIcon from '@/static/covid.svg'
 // import PrinterButton from '@/components/PrinterButton.vue'
 import FlowPc from '@/components/flow/FlowPc.vue'
 import FlowSp from '@/components/flow/FlowSp.vue'
+import YfigureCard from '@/components/YfigureCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
 export default Vue.extend({
   components: {
     CovidIcon,
     PageHeader,
+    YfigureCard,
     // PrinterButton,
     FlowPc,
     FlowSp
