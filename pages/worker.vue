@@ -5,8 +5,22 @@
     </page-header>
     <static-card>
       <h3>
+        <external-link url="https://www.tokyo-kyugyo.com/" :icon-size="24"
+          >{{ $t('東京都感染拡大防止協力金') }}
+        </external-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '新型コロナウイルス感染拡大防止のため、都の要請や協力依頼に応じて、施設の使用停止や営業時間の短縮に全面的に協力いただける中小事業者の皆様に対し、協力金を支給いたします（支給額50万円〈２事業所以上で休業等に取り組む事業者は100万円〉）'
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
         <external-link
-          url="http://www.sangyo-rodo.metro.tokyo.jp/chushou/kinyu/yuushi/yuushi/new"
+          url="https://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
           :icon-size="24"
           >{{ $t('新型コロナウイルス感染症に対応した制度融資') }}
         </external-link>
@@ -14,7 +28,7 @@
       <p>
         {{
           $t(
-            '感染症により事業活動に影響を受けている中小企業等を対象とした制度融資（「緊急融資」、「緊急借換」、「危機対応融資」）です。いずれも融資限度額は2億8千万円で、信用保証料を都が補助します。'
+            '感染症により事業活動に影響を受けている中小企業等を対象とした制度融資（「緊急融資」、「緊急借換」、「危機対応融資」）です。いずれも融資限度額は2億8千万円で、信用保証料を都が補助します。 '
           )
         }}
       </p>
@@ -22,65 +36,17 @@
     <static-card>
       <h3>
         <external-link
-          url="https://www.tokyo-kosha.or.jp/topics/2003/0001.html"
-          :icon-size="24"
-          >{{ $t('新型コロナウイルスによる経営課題に関する専門家派遣') }}
-        </external-link>
-      </h3>
-      <p>
-        {{
-          $t(
-            '新型コロナウイルス感染症により経営面の影響を受けている中小企業を対象に、中小企業診断士等の専門家を無料で派遣し、経営改善等に向けたアドバイスを実施します（1社あたり4回まで・無料）。'
-          )
-        }}
-      </p>
-    </static-card>
-    <static-card>
-      <h3>
-        <external-link
-          url="https://www.tokyo-kosha.or.jp/support/josei/jigyo/kinkyu.html"
-          :icon-size="24"
-          >{{ $t('緊急販路開拓助成事業（新型コロナウイルス感染症緊急対策）') }}
-        </external-link>
-      </h3>
-      <p>
-        {{
-          $t(
-            '感染症の影響を受け、売上が減少した都内中小企業の展示会出展費用の一部を助成します（限度額：150万円 / 助成率：5分の4 / 助成対象期間：交付決定日から1年1カ月 / 受付期間：5月11日～20日〈予定〉）。'
-          )
-        }}
-      </p>
-    </static-card>
-    <static-card>
-      <h3>
-        <external-link
-          url="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
-          :icon-size="24"
-          >{{ $t('中小企業従業員融資') }}
-        </external-link>
-      </h3>
-      <p>
-        {{
-          $t(
-            '感染症等の影響による休業での収入減等に備え、中小企業の従業員向けに実質無利子の融資を行います（融資限度額100万円）。'
-          )
-        }}
-      </p>
-    </static-card>
-    <static-card>
-      <h3>
-        <external-link
-          url="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
+          url="https://www.tokyo-kosha.or.jp/support/josei/jigyo/conversion.html"
           :icon-size="24"
           >{{
-            $t('新型コロナウイルス感染症に係る休業等支援事業（専門家派遣）')
+            $t('飲食事業者の業態転換支援（新型コロナウイルス感染症緊急対策）')
           }}
         </external-link>
       </h3>
       <p>
         {{
           $t(
-            '感染症の拡大を理由とする従業員の休業等にあたり、国の雇用調整助成金の特例措置等を利用する中小企業等を対象に、社会保険労務士派遣による相談助言を行います（1社5回まで。無料）。'
+            '都内中小飲食事業者が、新たにテイクアウトや宅配、移動販売などを開始する際に、経費の一部を助成します（限度額：100万円 / 助成率：5分の4以内）。'
           )
         }}
       </p>
@@ -88,31 +54,15 @@
     <static-card>
       <h3>
         <external-link
-          url="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
+          url="https://www.tokyo-kosha.or.jp/support/josei/jigyo/coronasetsubi.html"
           :icon-size="24"
-          >{{ $t('新型コロナウイルス感染症対策雇用環境整備促進事業') }}
+          >{{ $t('新型コロナウイルス感染症緊急対策設備投資支援事業') }}
         </external-link>
       </h3>
       <p>
         {{
           $t(
-            '感染症の拡大を理由として、国の雇用調整助成金等を活用し、非常時における勤務体制づくりなど職場環境整備に取り組む都内中小企業に奨励金を支給します（1事業所10万円）。'
-          )
-        }}
-      </p>
-    </static-card>
-    <static-card>
-      <h3>
-        <external-link
-          url="https://www.hataraku.metro.tokyo.jp/kansensyo/index.html"
-          :icon-size="24"
-          >{{ $t('テレワーク導入モデル体験事業') }}
-        </external-link>
-      </h3>
-      <p>
-        {{
-          $t(
-            'テレワーク導入を検討している中堅・中小企業等を対象に、テレワークを体験できる端末やツールを無償貸与することにより、テレワークのメリット・効果を体感できる機会を提供します。'
+            '都内中小企業が感染症対策関連商品の製造等に必要となる機械設備を新たに導入する経費を助成します（助成限度額：１億円 ／ 助成率：５分の４）。'
           )
         }}
       </p>
@@ -128,7 +78,56 @@
       <p>
         {{
           $t(
-            '都内中堅・中小企業に対し、テレワークの導入に必要な機器やソフトウェア等の経費を助成します（限度額250万円、助成率10/10）。ぜひご活用ください。'
+            '都内中堅・中小企業に対し、テレワークの導入に必要な機器やソフトウェア等の経費を助成します（限度額250万円、助成率10/10）。ぜひご活用ください。 '
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <external-link
+          url="https://www.hataraku.metro.tokyo.lg.jp/kansensyo/e-learning/
+"
+          :icon-size="24"
+          >{{ $t('中小企業人材オンラインスキルアップ支援事業') }}
+        </external-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '新型コロナウイルス感染症の拡大の影響により、休業や在宅勤務が続く中、こうした機会を活用し、中小企業が従業員に対して行うeラーニングを利用したスキルアップへの取組を支援します。'
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <external-link
+          url="https://www.hataraku.metro.tokyo.lg.jp/kansensyo/seibi-syorei/"
+          :icon-size="24"
+          >{{ $t('新型コロナウイルス感染症対策雇用環境整備促進事業') }}
+        </external-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '感染症の拡大を理由として、国の雇用調整助成金等を活用し、非常時における勤務体制づくりなど職場環境整備に取り組む都内中小企業に奨励金を支給します（1事業所10万円）。 '
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <external-link
+          url="https://www.hataraku.metro.tokyo.lg.jp/kansensyo/model-taiken/"
+          :icon-size="24"
+          >{{ $t('テレワーク導入モデル体験事業') }}
+        </external-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            'テレワーク導入を検討している中堅・中小企業等を対象に、テレワークを体験できる端末やツールを無償貸与することにより、テレワークのメリット・効果を体感できる機会を提供します。 '
           )
         }}
       </p>
@@ -142,7 +141,7 @@
       <p>
         {{
           $t(
-            '経済団体と連携したテレワーク導入のきっかけづくりのためのオンラインセミナーを開催します。'
+            '経済団体と連携したテレワーク導入のきっかけづくりのためのオンラインセミナーを開催します。 '
           )
         }}
       </p>
@@ -150,26 +149,60 @@
     <static-card>
       <h3>
         <external-link
-          url="http://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
+          url="https://www.hataraku.metro.tokyo.lg.jp/kansensyo/yushi/"
           :icon-size="24"
-          >{{ $t('中小企業者等特別相談窓口') }}
+          >{{ $t('中小企業従業員融資') }}
         </external-link>
       </h3>
       <p>
-        {{ $t('資金繰りに関する相談、経営に関する相談') }}
+        {{
+          $t(
+            '感染症等の影響による休業での収入減等に備え、中小企業の従業員向けに実質無利子の融資を行います（融資限度額100万円）。'
+          )
+        }}
       </p>
     </static-card>
     <static-card>
       <h3>
         <external-link
-          url="http://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
+          url="https://www.hataraku.metro.tokyo.lg.jp/kansensyo/itaku/"
+          :icon-size="24"
+          >{{ $t('オンラインスキルアップ職業訓練') }}
+        </external-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '新型コロナウイルスの影響を受けた求職者又は非正規雇用者、フリーランスの方等を対象として、知識・技能のスキルアップを図るため、ｅラーニングによる委託訓練を新たに実施します(募集開始5月下旬）'
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <external-link
+          url="https://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
+          :icon-size="24"
+          >{{ $t('中小企業者等特別相談窓口') }}
+        </external-link>
+      </h3>
+      <p>
+        {{ $t('資金繰りに関する相談、経営に関する相談 をお受けします。') }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <external-link
+          url="https://www.sangyo-rodo.metro.tokyo.jp/attention/2020/0305_13201.html"
           :icon-size="24"
           >{{ $t('フリーランスを含む個人事業主特別相談窓口') }}
         </external-link>
       </h3>
       <p>
         {{
-          $t('資金繰りに関する相談、経営に関する相談（契約におけるトラブル等）')
+          $t(
+            '資金繰りに関する相談、経営に関する相談（契約におけるトラブル等）をお受けします。 '
+          )
         }}
       </p>
     </static-card>
@@ -184,7 +217,57 @@
       <p>
         {{
           $t(
-            '新型コロナウイルスに関する休暇や休業の取り扱い、職場のハラスメント、内定取り消しなどについての相談'
+            '新型コロナウイルスに関する休暇や休業の取り扱い、職場のハラスメント、内定取り消し等のご相談をお受けします。 '
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <external-link
+          url="https://www.tokyoshigoto.jp/important/detail/notice_3966.html"
+          :icon-size="24"
+          >{{ $t('緊急就職相談ダイヤル・相談窓口') }}
+        </external-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '新型コロナウイルスの影響により、内定取消し、雇い止め、解雇等で離職された方に対する就職相談をお受けします。'
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <external-link
+          url="https://www.tokyo-kosha.or.jp/topics/2003/0001.html"
+          :icon-size="24"
+          >{{ $t('新型コロナウイルスによる経営課題に関する専門家派遣 ') }}
+        </external-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '新型コロナウイルス感染症により経営面の影響を受けている中小企業を対象に、中小企業診断士等の専門家を無料で派遣し、経営改善等に向けたアドバイスを実施します（1社あたり4回まで・無料）。'
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <external-link
+          url="https://www.hataraku.metro.tokyo.lg.jp/kansensyo/senmonka-haken/"
+          :icon-size="24"
+          >{{
+            $t('新型コロナウイルス感染症に係る休業等支援事業（専門家派遣）')
+          }}
+        </external-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '感染症の拡大を理由とする従業員の休業等にあたり、国の雇用調整助成金の特例措置等を利用する中小企業等を対象に、社会保険労務士派遣による相談助言を行います（1社5回まで。無料）。 '
           )
         }}
       </p>
