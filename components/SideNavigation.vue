@@ -42,10 +42,10 @@
             <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
               {{ $t('多言語対応選択メニュー') }}
             </label>
-            <LanguageSelector />
+            <language-selector />
           </div>
         </div>
-        <MenuList :items="items" @click="$emit('closeNavi', $event)" />
+        <menu-list :items="items" @click="$emit('closeNavi', $event)" />
       </nav>
 
       <footer class="SideNavigation-Footer">
@@ -149,7 +149,13 @@ export default Vue.extend({
         {
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: this.localePath('/flow'),
+          link: this.localePath('/flow')
+        },
+        {
+          icon: 'CovidIcon',
+          title: this.$t('新型コロナウイルスの感染が判明した方へ'),
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/corona_0401.html',
           divider: true
         },
         {
@@ -172,6 +178,11 @@ export default Vue.extend({
           title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
           link:
             'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
+        },
+        {
+          title: this.$t('新型コロナウイルス感染症に関する東京都の支援策'),
+          link:
+            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-support.html'
         },
         {
           title: this.$t('東京都主催等 中止又は延期するイベント等'),

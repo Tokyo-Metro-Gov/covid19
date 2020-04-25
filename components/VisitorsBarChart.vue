@@ -28,19 +28,20 @@
       :options="displayOptions"
       :height="240"
     />
-    <v-data-table
-      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
-      :headers="tableHeaders"
-      :items="tableData"
-      :items-per-page="-1"
-      :hide-default-footer="true"
-      :height="240"
-      :fixed-header="true"
-      :disable-sort="true"
-      :mobile-breakpoint="0"
-      class="cardTable"
-      item-key="name"
-    />
+    <template v-slot:dataTable>
+      <v-data-table
+        :headers="tableHeaders"
+        :items="tableData"
+        :items-per-page="-1"
+        :hide-default-footer="true"
+        :height="240"
+        :fixed-header="true"
+        :disable-sort="true"
+        :mobile-breakpoint="0"
+        class="cardTable"
+        item-key="name"
+      />
+    </template>
     <template v-slot:footer>
       <source-link
         :url="url"
@@ -51,12 +52,6 @@
   </data-view>
 </template>
 
-<style module lang="scss">
-.Text {
-  margin: 0 !important;
-}
-</style>
-
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
@@ -66,9 +61,11 @@ import 'dayjs/locale/en'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 import updateLocale from 'dayjs/plugin/updateLocale'
 import minMax from 'dayjs/plugin/minMax'
+import { Chart } from 'chart.js'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import SourceLink from '@/components/SourceLink.vue'
+import type { DisplayData } from '@/plugins/vue-chart';
 
 dayjs.extend(updateLocale)
 dayjs.extend(weekOfYear)
@@ -87,7 +84,7 @@ type Data = {
   canvas: boolean
 }
 type Methods = {
-  tooltipTitle: (tooltipItems: any, data: any) => string
+  tooltipTitle: Chart.ChartTooltipCallback['title']
 }
 type Computed = {
   groupByWeekData: {
@@ -106,32 +103,8 @@ type Computed = {
     [weekNum: number]: VisitorData[]
   }
   targetValues: number[]
-  displayData: {
-    labels: string[]
-    datasets: {
-      data: number[]
-      backgroundColor: string
-      borderColor: string
-      borderWidth: number
-    }[]
-  }
-  displayOptions: {
-    responsive: boolean
-    legend: {
-      display: boolean
-    }
-    scales: {
-      xAxes: object[]
-      yAxes: object[]
-    }
-    tooltips: {
-      displayColors: boolean
-      callbacks: {
-        title: (tooltipItems: any, data: any) => string
-        label: (tooltipItems: any, data: any) => string
-      }
-    }
-  }
+  displayData: DisplayData
+  displayOptions: Chart.ChartOptions
 }
 type Props = {
   title: string
@@ -206,6 +179,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: ''
     }
   },
+  data: () => ({
+    canvas: true
+  }),
   computed: {
     groupByWeekData() {
       const sundays = this.chartData
@@ -296,7 +272,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableData() {
       return this.displayData.datasets[0].data.map((_, i) => {
         return Object.assign(
-          { header: this.displayData.labels[i] },
+          { header: this.displayData.labels![i] },
           { visitor: this.displayData.datasets[0].data[i] }
         )
       })
@@ -312,8 +288,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             title: self.tooltipTitle,
-            label(tooltipItem: any) {
-              const val = tooltipItem.yLabel
+            label(tooltipItem) {
+              const val = tooltipItem.yLabel as number
               return `${val.toFixed(2)}%`
             }
           }
@@ -348,10 +324,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   methods: {
-    tooltipTitle(tooltipItems: any): string {
+    tooltipTitle(tooltipItems) {
       const label = tooltipItems[0].label
       return this.$t('期間: {duration}', {
-        duration: this.$t(label)
+        duration: this.$t(label!)
       }) as string
     }
   },
@@ -370,3 +346,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
 export default Vue.extend(options)
 </script>
+
+<style module lang="scss">
+.Text {
+  margin: 0 !important;
+}
+</style>

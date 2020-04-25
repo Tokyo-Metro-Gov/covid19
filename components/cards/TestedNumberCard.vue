@@ -13,9 +13,22 @@
     >
       <!-- 件.tested = 検査数 -->
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
-        {{ $t('※1: 疑い例・接触者調査') }}
-        <br />
-        {{ $t('※2: チャーター便・クルーズ船') }}
+        <ul :class="$style.GraphDesc">
+          <li>
+            {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
+          </li>
+          <li>
+            {{
+              $t(
+                '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+              )
+            }}
+          </li>
+        </ul>
+        <ol :class="$style.GraphDesc">
+          <li>{{ $t('※1: 疑い例・接触者調査') }}</li>
+          <li>{{ $t('※2: チャーター便・クルーズ船') }}</li>
+        </ol>
       </template>
     </time-stacked-bar-chart>
   </v-col>
@@ -40,7 +53,7 @@ export default {
       this.$t('その他（※2）')
     ]
     const inspectionsLabels = Data.inspections_summary.labels
-    const inspectionsDataLabels = [this.$t('都内'), this.$t('その他.graph')]
+    const inspectionsDataLabels = [this.$t('都内発生'), this.$t('その他.graph')]
 
     const data = {
       Data,
@@ -53,3 +66,16 @@ export default {
   }
 }
 </script>
+
+<style module lang="scss">
+.Graph {
+  &Desc {
+    margin: 0;
+    margin-top: 1rem;
+    padding-left: 0 !important;
+    font-size: 12px;
+    color: $gray-3;
+    list-style: none;
+  }
+}
+</style>

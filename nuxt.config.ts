@@ -53,12 +53,7 @@ const config: Configuration = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
-      // For the Issue #2911, omitting unused CSS to avoid unknown security threats
-      // {
-      //   rel: 'stylesheet',
-      //   href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
-      // }
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' }
     ]
   },
   /*
@@ -113,6 +108,7 @@ const config: Configuration = {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
     defaultAssets: {
       icons: false
     }
@@ -175,6 +171,7 @@ const config: Configuration = {
         '/cards/details-of-confirmed-cases',
         '/cards/details-of-tested-cases',
         '/cards/number-of-confirmed-cases',
+        '/cards/number-of-confirmed-cases-by-municipalities',
         '/cards/attributes-of-confirmed-cases',
         '/cards/number-of-tested',
         '/cards/number-of-inspection-persons',

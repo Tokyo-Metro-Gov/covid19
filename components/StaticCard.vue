@@ -89,21 +89,13 @@ export default Vue.extend()
     @include text-link();
 
     font-size: inherit;
-  }
 
-  a[target='_blank']::after {
-    content: '\F03CC';
-    margin-left: 0.1em;
-    margin-right: 0.2em;
-    display: inline-block;
-    text-decoration: none;
-    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-    font: normal normal normal 24px/1 'Material Design Icons';
-    font-size: inherit;
-    text-rendering: auto;
-    line-height: inherit;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    .ExternalLinkIcon {
+      display: inline-block;
+      color: $link;
+      text-decoration: none;
+      vertical-align: inherit;
+    }
   }
 
   /* stylelint-disable no-descending-specificity */
