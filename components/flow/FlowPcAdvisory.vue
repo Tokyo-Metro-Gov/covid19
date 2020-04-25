@@ -7,23 +7,96 @@
             $t('感染が疑われる方の電話相談窓口')
           }}</span>
         </div>
-        <div :class="[$style.AdvisoryContentsColsSentense, 'mt-4']">
-          {{ $t('広域健康福祉センター及び保健所等') }}
-        </div>
-        <!-- <div>
-          <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryWhiteBox]">
-            <span :class="$style.AdvisoryWhiteBoxSentense">
-              {{ $t('24時間対応') }}
-            </span>
-          </div>
-        </div> -->
       </div>
 
       <div :class="$style.AdvisoryContents">
-        <div class="py-8">
-          <div :class="$style.AdvisoryContentsTitle2">
-            {{ $t('平日（8:30-20:00）') }}
-          </div>
+        <!-- <div :class="[$style.AdvisoryContentsTitle2, 'mt-4']"> -->
+        <div :class="[$style.AdvisoryContentsTitle2]">
+          {{ $t('コールセンター') }}
+        </div>
+
+        <div
+          :class="[
+            $style.AdvisoryWhiteBox,
+            $style.AdvisoryBoxContainer,
+            $style.AdvisoryLink,
+            $style.AdvisoryBlockCentering,
+            'mt-4'
+          ]"
+        >
+            <img
+              :class="$style.AdvisoryTelephoneIcon"
+              src="/flow/phone-24px.svg"
+              aria-hidden="true"
+            />
+            <span :class="$style.AdvisoryWhiteBoxSentense">
+              {{ $t('0570-052-092') }}
+            </span>
+        </div>
+
+        <div :class="[$style.AdvisoryContentsColsSentense, 'mt-4']">
+          {{ $t('24時間（土日、祝日を含む)') }}
+        </div>
+      </div>
+
+      <div :class="$style.AdvisoryContents">
+        <!-- <div :class="[$style.AdvisoryContentsTitle2, 'mt-4']"> -->
+        <div :class="[$style.AdvisoryContentsTitle2]">
+          {{ $t('日本語以外での相談を希望される方') }}
+        </div>
+
+        <div
+          :class="[
+            $style.AdvisoryWhiteBox,
+            $style.AdvisoryBoxContainer,
+            $style.AdvisoryLink,
+            $style.AdvisoryBlockCentering,
+            'mt-4'
+          ]"
+        >
+        <a
+          href="http://tia21.or.jp/hello.html"
+          target="_blank"
+          rel="noopener"
+        >
+            <span :class="$style.AdvisoryWhiteBoxSentense">
+              {{ $t('とちぎ外国人相談サポートセンター') }}
+            </span>
+        </a>
+        </div>
+      </div>
+
+      <div :class="$style.AdvisoryContents">
+        <!-- <div :class="[$style.AdvisoryContentsTitle2, 'mt-4']"> -->
+        <div :class="[$style.AdvisoryContentsTitle2]">
+          {{ $t('聴覚等に障害のある方') }}
+        </div>
+
+        <div
+          :class="[
+            $style.AdvisoryWhiteBox,
+            $style.AdvisoryBoxContainer,
+            $style.AdvisoryLink,
+            $style.AdvisoryBlockCentering,
+            'mt-4'
+          ]"
+        >
+        <a
+          href="http://www.pref.tochigi.lg.jp/e04/welfare/hoken-eisei/kansen/hp/shingatakoronavirussoudannmadoguti.html#tyoukaku"
+          target="_blank"
+          rel="noopener"
+        >
+            <span :class="$style.AdvisoryWhiteBoxSentense">
+              {{ $t('聴覚障害等のある方の相談窓口') }}
+            </span>
+        </a>
+        </div>
+      </div>
+
+
+      <div :class="$style.AdvisoryContents">
+        <!-- <div class="py-8"> -->
+        <div>
           <div
             :class="[
               $style.AdvisoryWhiteBox,
@@ -51,9 +124,10 @@
               </v-icon>
             </a>
           </div>
-          <span>{{ $t('平日夜間、休日については折り返し等の対応') }}</span>
+          <!-- <span>{{ $t('平日夜間、休日については折り返し等の対応') }}</span> -->
         </div>
       </div>
+
     </div>
   </div>
 </template>

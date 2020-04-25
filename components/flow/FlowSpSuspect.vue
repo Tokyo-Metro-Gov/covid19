@@ -24,7 +24,7 @@
         {{ $t('新型コロナウイルス感染症に関する一般の相談窓口') }}
       </p>
       <p :class="$style.open">
-        {{ $t('平日（8:30-20:00）') }}
+        {{ $t('24時間（土日、祝日を含む)') }}
       </p>
       <p :class="$style.phone">
         <span :class="$style.icon">

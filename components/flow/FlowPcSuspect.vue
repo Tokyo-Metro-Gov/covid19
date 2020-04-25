@@ -48,10 +48,29 @@
       <div :class="$style.LargerText">
         {{ $t('新型コロナウイルス感染症に関する一般の相談窓口') }}
       </div>
-      <div :class="$style.SmallerText">
-        {{ $t('平日（8:30-20:00）') }}
+      <div :class="$style.LargerText">
+        {{ $t('コールセンター') }}
       </div>
 
+      <div
+        :class="[
+          $style.AdvisoryWhiteBox,
+          $style.AdvisoryBoxContainer,
+          $style.AdvisoryLink,
+          $style.AdvisoryBlockCentering,
+          'mt-4'
+        ]"
+      >
+          <img
+            :class="$style.AdvisoryTelephoneIcon"
+            src="/flow/phone-24px.svg"
+            aria-hidden="true"
+          />
+          <span :class="$style.AdvisoryWhiteBoxSentense">
+            {{ $t('0570-052-092') }}
+          </span>
+      </div>
+      
       <div :class="$style.Tel">
         <a
           :class="$style.TelLink"
