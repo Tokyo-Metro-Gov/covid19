@@ -22,14 +22,14 @@ jobs:
           ref: ${{ steps.extract_branch.outputs.branch }}
       - name: Download cases.csv
         uses: carlosperate/download-file-action@v1.0.3
-        id: download_csv
+        id: download_cases_csv
         with:
             file-url: 'https://isc-okinawa.org/opendata/470007_okinawa_covid19_patients.csv'
             file-name: 'cases.csv'
             location: 'tool/downloads'
       - name: Download status.csv
         uses: carlosperate/download-file-action@v1.0.3
-        id: download_csv
+        id: download_status_csv
         with:
             file-url: 'https://isc-okinawa.org/opendata/470007_okinawa_covid19_patients.symptom.csv'
             file-name: 'status.csv'
