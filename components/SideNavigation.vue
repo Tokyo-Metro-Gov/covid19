@@ -1,10 +1,10 @@
 <template>
-  <div ref="Side" class="SideNavigation" tabindex="-1">
+  <v-sheet ref="Side" class="SideNavigation">
     <header class="SideNavigation-Header">
       <v-icon
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
-        @click="$emit('openNavi', $event)"
+        @click.stop="drawer = !drawer"
       >
         mdi-menu
       </v-icon>
@@ -24,11 +24,19 @@
       </h1>
     </header>
 
-    <div :class="['SideNavigation-Body', { '-opened': isNaviOpen }]">
+    <v-navigation-drawer
+      v-model="drawer"
+      tabindex="-1"
+      class="SideNavigation-Body"
+      hide-overlay
+      touchless
+      mobile-break-point="600"
+      width="100%"
+    >
       <v-icon
         class="SideNavigation-CloseIcon"
         :aria-label="$t('サイドメニュー項目を閉じる')"
-        @click="$emit('closeNavi', $event)"
+        @click.stop="drawer = !drawer"
       >
         mdi-close
       </v-icon>
@@ -42,10 +50,13 @@
             <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
               {{ $t('多言語対応選択メニュー') }}
             </label>
-            <language-selector />
+            <LanguageSelector />
           </div>
         </div>
-        <menu-list :items="items" @click="$emit('closeNavi', $event)" />
+        <menu-list
+          :items="items"
+          @click="drawer = isMenuChangeNeeded() ? !drawer : drawer"
+        />
       </nav>
 
       <footer class="SideNavigation-Footer">
@@ -110,8 +121,8 @@
           2020 Tokyo Metropolitan Government
         </small>
       </footer>
-    </div>
-  </div>
+    </v-navigation-drawer>
+  </v-sheet>
 </template>
 
 <script lang="ts">
@@ -136,6 +147,10 @@ export default Vue.extend({
     isNaviOpen: {
       type: Boolean,
       required: true
+    },
+    drawer: {
+      type: Boolean,
+      default: null
     }
   },
   computed: {
@@ -149,13 +164,7 @@ export default Vue.extend({
         {
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: this.localePath('/flow')
-        },
-        {
-          icon: 'CovidIcon',
-          title: this.$t('新型コロナウイルスの感染が判明した方へ'),
-          link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/corona_0401.html',
+          link: this.localePath('/flow'),
           divider: true
         },
         {
@@ -178,11 +187,6 @@ export default Vue.extend({
           title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
           link:
             'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
-        },
-        {
-          title: this.$t('新型コロナウイルス感染症に関する東京都の支援策'),
-          link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-support.html'
         },
         {
           title: this.$t('東京都主催等 中止又は延期するイベント等'),
@@ -220,6 +224,12 @@ export default Vue.extend({
         if ($Side) {
           $Side.focus()
         }
+      })
+    },
+    isMenuChangeNeeded() {
+      const elem = document.getElementsByClassName('SideNavigation-Body')
+      Array.prototype.filter.call(elem, function(elem) {
+        return elem.className === 'v-navigation-drawer--is-mobile'
       })
     }
   }
@@ -271,7 +281,7 @@ export default Vue.extend({
   position: absolute;
   top: 0;
   left: 0;
-  padding: 18px 8px 18px 16px;
+  padding: 18px 8px 18px 32px;
   font-size: 28px;
   @include lessThan($tiny) {
     font-size: 24px;
@@ -346,21 +356,18 @@ export default Vue.extend({
 .SideNavigation-Body {
   padding: 0 20px 20px;
   @include lessThan($small) {
-    display: none;
     padding: 0 36px 36px;
-    &.-opened {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      display: block !important;
-      width: 100%;
-      z-index: z-index-of(opened-side-navigation);
-      background-color: $white;
-      height: 100%;
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
-    }
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block !important;
+    width: 100%;
+    z-index: z-index-of(opened-side-navigation);
+    background-color: $white;
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
