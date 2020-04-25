@@ -83,6 +83,9 @@
         </p>
       </StaticCard>
     </div>
+    <div v-for="(item, i) in items" :key="i">
+      <yfigure-card :title="item.title" :image-path="item.imagePath" />
+    </div>
   </div>
 </template>
 
@@ -91,13 +94,42 @@ import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import CovidIcon from '@/static/covid.svg'
 import PageHeader from '@/components/PageHeader.vue'
+import YfigureCard from '@/components/YfigureCard.vue'
 import StaticCard from '@/components/StaticCard.vue'
+
+type Item = {
+  title: string
+  imagePath: string
+}
 
 export default Vue.extend({
   components: {
     CovidIcon,
     PageHeader,
-    StaticCard
+    StaticCard,
+    YfigureCard
+  },
+  computed: {
+    items(): Item[] {
+      return [
+        {
+          title: '布マスクの洗い方',
+          imagePath: '/y_figures/covid19_2.png'
+        },
+        {
+          title: 'ソーシャルディスタンス',
+          imagePath: '/y_figures/covid19_5.png'
+        },
+        {
+          title: 'Stay Home',
+          imagePath: '/y_figures/covid19_6.png'
+        },
+        {
+          title: '人との接触を減らすポイント',
+          imagePath: '/y_figures/covid19_8.png'
+        }
+      ]
+    }
   },
   head(): any {
     const title: TranslateResult = this.$t('新型コロナウイルス感染症対策')
