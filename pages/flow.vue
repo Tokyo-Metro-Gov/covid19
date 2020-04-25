@@ -28,7 +28,9 @@
         </a>
       </div>
     </div>
-    <yfigure-card />
+    <div v-for="(item, i) in items" :key="i">
+      <yfigure-card :title="item.title" :image-path="item.imagePath" />
+    </div>
   </div>
 </template>
 
@@ -41,6 +43,12 @@ import FlowPc from '@/components/flow/FlowPc.vue'
 import FlowSp from '@/components/flow/FlowSp.vue'
 import YfigureCard from '@/components/YfigureCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
+
+type Item = {
+  title: string
+  imagePath: string
+}
+
 export default Vue.extend({
   components: {
     CovidIcon,
@@ -49,6 +57,20 @@ export default Vue.extend({
     // PrinterButton,
     FlowPc,
     FlowSp
+  },
+  computed: {
+    items(): Item[] {
+      return [
+        {
+          title: '緊急事態宣言について',
+          imagePath: '/y_figures/covid19_1.png'
+        },
+        {
+          title: '新型コロナウイルスの感染が疑われる人がいる場合の注意点',
+          imagePath: '/y_figures/covid19_3.png'
+        }
+      ]
+    }
   },
   head(): any {
     const title: TranslateResult = this.$t(
