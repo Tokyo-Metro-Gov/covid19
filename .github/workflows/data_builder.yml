@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - development
-      - 'feature/#177-update-converter'
     paths:
       - 'tool/downloads/summary.csv'
 jobs:
