@@ -78,7 +78,9 @@
         <li class="item recovered">
           <div class="gutter">
             <div class="box">
+              <!-- eslint-disable vue/no-v-html-->
               <span v-html="$t('退院<br />（延べ）')" />
+              <!-- eslint-enable vue/no-v-html-->
               <span>
                 <b>{{ 退院 || '-' }}</b>
                 <span class="unit">{{ $t('人') }}</span>
