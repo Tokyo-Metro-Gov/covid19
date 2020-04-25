@@ -16,9 +16,9 @@
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
-      <telephone-advisory-reports-number-card />
-      <tested-number-card />
+      <tested-number-card /> 
       <!--
+      <telephone-advisory-reports-number-card />
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
@@ -56,8 +56,8 @@ export default Vue.extend({
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
-    TestedNumberCard,
-    TelephoneAdvisoryReportsNumberCard
+    TestedNumberCard
+    // TelephoneAdvisoryReportsNumberCard,
     // ConsultationDeskReportsNumberCard,
     // MetroCard,
     // AgencyCard
