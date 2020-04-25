@@ -168,9 +168,10 @@ export default {
           divider: true
         },
         {
-          title: this.$t('新潟県(非公式)コロナウイルス対策サイトへの問い合わせ・要望フォーム'),
-          link:
-            'https://forms.gle/z91hXRv5AjEQPL1H8l',
+          title: this.$t(
+            '新潟県(非公式)コロナウイルス対策サイトへの問い合わせ・要望フォーム'
+          ),
+          link: 'https://forms.gle/z91hXRv5AjEQPL1H8l',
           divider: true
         }
       ]
