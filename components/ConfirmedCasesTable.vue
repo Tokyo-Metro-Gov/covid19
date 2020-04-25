@@ -78,7 +78,7 @@
         <li class="item recovered">
           <div class="gutter">
             <div class="box">
-              <span>{{ $t('退院') }}</span>
+              <span v-html="$t('退院<br />（延べ）')" />
               <span>
                 <b>{{ 退院 || '-' }}</b>
                 <span class="unit">{{ $t('人') }}</span>
