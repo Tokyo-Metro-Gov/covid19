@@ -7,7 +7,9 @@
       :chart-option="{}"
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
-      :url="'https://shimane-opendata.jp/db/organization/main'"
+      :url="
+        'https://www.pref.shimane.lg.jp/medical/yakuji/kansensyo/other/topics/bukan2020.html'
+      "
       :source="$t('オープンデータを入手')"
     />
   </v-col>

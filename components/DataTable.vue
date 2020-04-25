@@ -1,5 +1,8 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
+    <template v-slot:description>
+      <slot name="description" />
+    </template>
     <template v-slot:button>
       <span />
     </template>
@@ -15,7 +18,21 @@
       class="cardTable"
     />
     <div class="note">
-      {{ $t('※退院には、死亡退院を含む') }}
+      <ul>
+        <li>
+          {{ $t('（注）退院の基準（厚生労働省通知による）') }}
+        </li>
+        <li>
+          {{ $t('1. 患者の症状軽快後、24時間後にPCR検査を実施') }}
+        </li>
+        <li>
+          {{
+            $t(
+              '2. 1の検査で陰性が確認されたら、1の検体採取後24時間以後に再度採取を行い、2回連続で陰性が確認されたら退院可とする'
+            )
+          }}
+        </li>
+      </ul>
     </div>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -84,6 +101,9 @@
   padding: 8px;
   font-size: 12px;
   color: $gray-3;
+  ul {
+    list-style: none;
+  }
 }
 </style>
 
