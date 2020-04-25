@@ -5,9 +5,7 @@
     </h2>
     <TextCard>
       {{
-        $t(
-          '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、'
-          )
+        $t('当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、')
       }}
       <a href="https://www.codeforniigata.org/">Code For Niigata</a>
       {{ $t('が開設したものです。') }}<br />
