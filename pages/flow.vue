@@ -102,7 +102,7 @@
                     <external-link
                       url="https://www.pref.okinawa.jp/site/hoken/chiikihoken/kekkaku/2019-ncov.html"
                     >
-                      {{ $t('各保健所の電話番号は沖縄県HP') }}
+                      {{ $t('各保健所の電話番号は沖縄県公式ホームページ') }}
                     </external-link>
                   </template>
                 </i18n>
@@ -236,7 +236,7 @@
         target="_blank"
         :class="$style.detailButton"
         rel="noopener noreferrer"
-        >{{ $t('詳細を見る（沖縄県HP）') }}
+        >{{ $t('詳細を見る（沖縄県公式ホームページ）') }}
         <v-icon :class="$style.icon" size="20">
           mdi-open-in-new
         </v-icon>
