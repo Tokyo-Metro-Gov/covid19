@@ -5,7 +5,7 @@
       :title="headerItem.title"
       :date="headerItem.date"
     />
-    <whats-new class="mb-4" :items="newsItems" />
+    <whats-new class="mb-4" :items="newsItems" :showitems="4" />
     <static-info
       class="mb-4"
       :url="

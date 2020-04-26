@@ -7,7 +7,7 @@
       {{ $t('最新のお知らせ') }}
     </h3>
     <ul class="WhatsNew-list">
-      <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
+      <li v-for="(item, i) in listItems" :key="i" class="WhatsNew-list-item">
         <a
           class="WhatsNew-list-item-anchor"
           :href="item.url"
@@ -32,6 +32,15 @@
           </span>
         </a>
       </li>
+      <div
+        v-if="listItems.length - showitems >= 0"
+        class="WhatsNew-Button"
+        @click="isMore"
+      >
+        <span>
+          {{ $t('[+] もっと表示する') }}
+        </span>
+      </div>
     </ul>
   </div>
 </template>
@@ -44,6 +53,16 @@ export default {
     items: {
       type: Array,
       required: true
+    },
+    showitems: {
+      type: String,
+      required: true
+    }
+  },
+  computed: {
+    listItems() {
+      const list = this.items
+      return list.slice(0, this.showitems)
     }
   },
   methods: {
@@ -52,6 +71,9 @@ export default {
     },
     formattedDate(dateString) {
       return convertDateToISO8601Format(dateString)
+    },
+    isMore() {
+      this.showitems += 2
     }
   }
 }
@@ -62,6 +84,26 @@ export default {
   @include card-container();
   padding: 10px;
   margin-bottom: 20px;
+}
+
+.WhatsNew-Button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: $white;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  @include text-link();
+
+  flex: 1 0 auto;
+  text-align: right;
+  > span {
+    @include button-text('sm');
+  }
+  @include lessThan($small) {
+    margin-top: 4px;
+  }
 }
 
 .WhatsNew-heading {
