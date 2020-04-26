@@ -160,7 +160,7 @@
     <TextCard :title="$t('お問い合わせ先')">
       {{ $t('当サイトへのお問い合わせは以下のフォームをご利用ください') }}
       <br />
-      <a href="https://forms.gle/z91hXRv5AjEQPL1H8l">お問い合わせフォーム</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhbZBW70Ogoi3uuHkgxbdyeOJg2K5RnMC0Z0TZSc01SiWadQ/viewform">お問い合わせフォーム</a>
     </TextCard>
   </div>
 </template>
