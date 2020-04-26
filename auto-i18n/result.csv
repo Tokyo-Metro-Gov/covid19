@@ -1,0 +1,77 @@
+RUN,2020/04/27 08:23
+TAG_ADD,（毎週金曜日に、前週木曜日から当該週水曜日までの件数を反映）
+TAG_ADD,※ ヤフーに蓄積された位置情報データなどを元に算出した参考値
+TAG_REMOVE,かかりつけ医に相談することもできます。
+TAG_REMOVE,詳しくはこちらをご参照ください。
+TAG_REMOVE,埼玉県
+TAG_REMOVE,{advisory}による相談結果
+TAG_REMOVE,新型コロナ受診相談窓口
+TAG_REMOVE,※保険適用となる検査は、当面の間、院内感染防止等の観点から、「帰国者・接触者外来」等の医療機関で実施
+TAG_REMOVE,新型コロナ受診相談窓口
+TAG_REMOVE,帰国者・接触者 電話相談センター
+TAG_REMOVE,24時間対応
+TAG_REMOVE,平日（日中）
+TAG_REMOVE,各保健所の電話番号は福祉保健局HPへ
+TAG_REMOVE,平日（夜間）
+TAG_REMOVE,午後5時から翌朝午前9時
+TAG_REMOVE,ひまわり
+TAG_REMOVE,土日祝 終日
+TAG_REMOVE,専門的な助言が必要な場合
+TAG_REMOVE,入院となります
+TAG_REMOVE,感染症指定医療機関等
+TAG_REMOVE,一般の方
+TAG_REMOVE,{duration}続いている
+TAG_REMOVE,{day}日以上
+TAG_REMOVE,{day}日程度
+TAG_REMOVE,{cold}のような症状
+TAG_REMOVE,風邪
+TAG_REMOVE,発熱{temperature}
+TAG_REMOVE,{tempNum}以上
+TAG_REMOVE,37.5℃
+TAG_REMOVE,強いだるさ
+TAG_REMOVE,息苦しさ
+TAG_REMOVE,ご高齢な方
+TAG_REMOVE,基礎疾患のある方
+TAG_REMOVE,妊娠中の方
+TAG_REMOVE,新型コロナ外来 {advice} と判断された場合
+TAG_REMOVE,受診が不要
+TAG_REMOVE,{getWorse}{advisory}に相談
+TAG_REMOVE,症状が良くならない場合は
+TAG_REMOVE,自宅で安静に過ごす
+TAG_REMOVE,一般の医療機関を受診
+TAG_REMOVE,{past}の出来ごとと症状
+TAG_REMOVE,発症前{two}週間以内
+TAG_REMOVE,「新型コロナウイルス感染者」と
+TAG_REMOVE,{closeContact}をした方
+TAG_REMOVE,濃厚接触
+TAG_REMOVE,流行地域への渡航・居住歴がある方
+TAG_REMOVE,{you} か {closeContact}をした方
+TAG_REMOVE,travel history from {area}
+TAG_REMOVE,COVID-19 prevalent area
+TAG_REMOVE,been {inCloseContact} with returnees
+TAG_REMOVE,in close contact
+TAG_REMOVE,ご本人
+TAG_REMOVE,発熱
+TAG_REMOVE,または
+TAG_REMOVE,呼吸器症状
+TAG_REMOVE,かつ
+TAG_REMOVE,PCR検査
+TAG_REMOVE,東京都健康安全研究センター等
+TAG_REMOVE,陰性
+TAG_REMOVE,陽性
+TAG_REMOVE,受診が必要
+TAG_REMOVE,新型コロナ外来（帰国者・接触者外来）
+TAG_REMOVE,医師による判断
+TAG_REMOVE,Diagnosis by a doctor at a COVID-19 outpatient facility
+TAG_REMOVE,検査の必要{ifRequired}
+TAG_REMOVE,あり
+TAG_REMOVE,なし
+TAG_REMOVE,不安に思う方
+TAG_REMOVE,微熱
+TAG_REMOVE,軽い咳
+TAG_REMOVE,感染の不安
+TAG_REMOVE,午前9時から午後9時（土日祝含む）
+TAG_REMOVE,新型コロナ受診相談窓口へ
+TAG_REMOVE,医療機関が保険適用で行った検査は含まれていない
+TAG_REMOVE,（毎週金曜日に、前週木曜日から当該週水曜日までの日々の件数を反映）
+TAG_REMOVE,（注）検査実施人数には、チャーター機帰国者、クルーズ船乗客等は含まれていない
