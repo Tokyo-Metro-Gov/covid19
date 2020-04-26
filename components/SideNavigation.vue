@@ -171,7 +171,7 @@ export default {
           title: this.$t(
             '新潟県(非公式)コロナウイルス対策サイトへの問い合わせ・要望フォーム'
           ),
-          link: 'https://forms.gle/z91hXRv5AjEQPL1H8l',
+          link: 'https://docs.google.com/forms/d/e/1FAIpQLSfhbZBW70Ogoi3uuHkgxbdyeOJg2K5RnMC0Z0TZSc01SiWadQ/viewform', // eslint-disable-line prettier/prettier
           divider: true
         }
       ]
