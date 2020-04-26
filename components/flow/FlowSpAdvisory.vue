@@ -3,29 +3,34 @@
     <h4 id="consult" :class="[$style.heading, $style.fzXLarge]">
       {{ $t('感染が疑われる方の電話相談窓口') }}
       <small :class="[$style.break, $style.fzRegular, $style.mt5]">{{
-        $t('広域健康福祉センター及び保健所等')
+        $t('コールセンター')
       }}</small>
     </h4>
     <!-- <p :class="[$style.open, $style.fzMedium]">
       <span>{{ $t('24時間対応') }}</span>
     </p> -->
+
     <dl>
       <div>
         <dt>
           <ul :class="[$style.night]">
             <li>
+              <div :class="$style.phone">
+                <span :class="$style.icon">
+                  <PhoneIcon alt="Phone" />
+                </span>
+                {{ $t('0570-052-092') }}
+              </div>
+            </li>
+            <li>
               <span :class="[$style.fzMedium, $style.break, $style.mb10]">
-                {{ $t('平日（8:30-20:00）') }}
+                {{ $t('24時間（土日、祝日を含む)') }}
               </span>
-              {{ $t('平日夜間、休日については折り返し等の対応') }}
             </li>
           </ul>
         </dt>
         <dd>
-          <div :class="$style.phone">
-            <span :class="$style.icon">
-              <PhoneIcon alt="Phone" />
-            </span>
+          <div :class="[$style.night]">
             <a
               href="http://www.pref.tochigi.lg.jp/e04/welfare/hoken-eisei/kansen/hp/shingatakoronavirussoudannmadoguti.html#utagai"
               >管轄ごとの連絡先はこちら</a
