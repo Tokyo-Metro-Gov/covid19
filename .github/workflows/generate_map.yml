@@ -53,7 +53,7 @@ jobs:
         name: tool
     - name: Commit files
       run: |
-        cp -rp covid19_okinawa_map.html static/
+        cp -rp tool/covid19_okinawa_map.html static/
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add static
