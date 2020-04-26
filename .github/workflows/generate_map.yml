@@ -47,6 +47,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: ${{ steps.extract_branch.outputs.branch }}
+    - name: Download ogp images
+      uses: actions/download-artifact@v1
+      with:
+        name: tool
     - name: Commit files
       run: |
         cp -rp covid19_okinawa_map.html static/
