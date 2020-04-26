@@ -82,7 +82,7 @@ export default {
         })
       } else {
         municipalitiesTable.datasets.push({
-          area: this.$t(d.area),          
+          area: this.$t(d.area),
           label: this.$t(d.label),
           count: d.count
         })
