@@ -6,6 +6,7 @@ on:
       - master
       - staging
       - development
+      - feature/generate_map_auto
 jobs:
   build:
     runs-on: macos-latest
@@ -38,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: tool
-          path: tool
+          path: covid19_okinawa_map.html
   upload:
     needs: build
     runs-on: ubuntu-latest
