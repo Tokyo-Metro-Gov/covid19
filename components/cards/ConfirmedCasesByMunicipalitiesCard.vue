@@ -73,7 +73,7 @@ export default {
       if (d.label === '小計') {
         continue
       }
-      if (this.$i18n.locale = 'ja') {
+      if (this.$i18n.locale == 'ja') {
         municipalitiesTable.datasets.push({
           area: this.$t(d.area),
           ruby: this.$t(d.ruby),
