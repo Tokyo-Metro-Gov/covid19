@@ -2736,10 +2736,10 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.9.1.tgz#7e33d8f7d449b3f673cd72deb9abdc552dbe528e"
   integrity sha512-wMHVg2EOHaMRxbzgFJ9gtjOOCrI80OHLG14rxi28XwOW8ux6IiEbRCGGGqCtdAIg4FQCbW20k9RsT4y3gJlFug==
 
-axe-core@^3.4.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.5.1.tgz#d8d5aaef73f003e8b766ea28bb078343f3622201"
-  integrity sha512-mwpDgPwWB+5kMHyLjlxh4w25ClJfqSxi+c6LQ4ix349TdCUctMwJNPTkhPD1qP9SYIjFgjeVpVZWCvK9oBGwCg==
+axe-core@3.5.3:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.5.3.tgz#5b7c0ee7c5197d546bd3a07c3ef701896f5773e9"
+  integrity sha512-HZpLE7xu05+8AbpqXITGdxp1Xwk8ysAXrg7MiKRY27py3DAyEJpoJQo1727pWF3F+O79V3r+cTWhOzfB49P89w==
 
 babel-code-frame@^6.22.0:
   version "6.26.0"
@@ -12066,12 +12066,12 @@ vue-analytics@^5.22.1:
   resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.22.1.tgz#9d6b32da56daee1b9dfb23a267b50349a03f710f"
   integrity sha512-HPKQMN7gfcUqS5SxoO0VxqLRRSPkG1H1FqglsHccz6BatBatNtm/Vyy8brApktZxNCfnAkrSVDpxg3/FNDeOgQ==
 
-vue-axe@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/vue-axe/-/vue-axe-1.0.8.tgz#51df4affe8f403421470da85e160ff16a6edc1f6"
-  integrity sha512-ktvdhKSRlnW01Pnz9MSpjaQsYgt24Nl5KFCOhkdY9gcRXL3moZ2J9iEEDSPqpyUW0BxVpf3zdnWMw4zOVtQOLQ==
+vue-axe@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/vue-axe/-/vue-axe-1.1.0.tgz#80c5612fa4947d259b4fe14c1ee14785cceeb51c"
+  integrity sha512-cD/xopFtNLSsbVEBvyCtpAC3qaEU05f6sqT2KGh570j+sWi6LZ0dDWbubWp+IfsdOhDlJiImya/5uggUX7FzVw==
   dependencies:
-    axe-core "^3.4.1"
+    axe-core "3.5.3"
 
 vue-chartjs@^3.5.0:
   version "3.5.0"

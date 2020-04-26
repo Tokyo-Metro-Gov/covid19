@@ -63,6 +63,7 @@
 [](45)宮崎県|https://covid19-miyazaki.netlify.app/|有志|[covid19-miyazaki/covid19](https://github.com/covid19-miyazaki/covid19)|
 [](46)鹿児島県|https://covid19.code4kagoshima.org/|有志|[codeforkagoshima/covid19](https://github.com/codeforkagoshima/covid19)
 [](47)沖縄県|https://okinawa.stopcovid19.jp/|有志|[Code-for-OKINAWA/covid19](https://github.com/Code-for-OKINAWA/covid19)
+[]()全国|https://covid19.wlaboratory.com|個人|[mm0202/covid19-jp](https://github.com/mm0202/covid19-jp)|
 ## 都道府県追加時のルール
 
 1. 東京都: 先頭で固定とする。
