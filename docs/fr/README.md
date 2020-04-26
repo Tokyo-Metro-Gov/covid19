@@ -22,6 +22,12 @@ Ce logiciel est sous [license MIT](./../../LICENSE.txt).
 
 ## Pour les développeurs
 
+[PLEASE TRANSLATE ME]
+
+Please check [Pour les développeurs](./FOR_DEVELOPERS.md) doc.
+
+[/PLEASE TRANSLATE ME]
+
 ### Comment préparer l'environement de développement
 
 - Version de Node.js requise: 10.19.0 or plus récent
