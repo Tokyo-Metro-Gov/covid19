@@ -34310,30 +34310,30 @@
         "children": [
             {
                 "attr": "陽性患者数",
-                "date": "2020\/4\/26 19:30",
-                "value": 3908,
+                "date": "2020\/4\/27 18:30",
+                "value": 3947,
                 "children": [
                     {
                         "attr": "入院中",
-                        "value": 2814,
+                        "value": 2668,
                         "children": [
                             {
                                 "attr": "軽症・中等症",
-                                "value": 2748
+                                "value": 2575
                             },
                             {
                                 "attr": "重症",
-                                "value": 66
+                                "value": 93
                             }
                         ]
                     },
                     {
                         "attr": "退院",
-                        "value": 994
+                        "value": 1173
                     },
                     {
                         "attr": "死亡",
-                        "value": 100
+                        "value": 106
                     },
                     {
                         "attr": "自宅・宿泊療養",
