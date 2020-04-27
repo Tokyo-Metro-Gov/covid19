@@ -3,10 +3,7 @@ name: generate map
 on:
   push:
     branches:
-      - master
-      - staging
       - development
-      - feature/generate_map_auto
 jobs:
   build:
     runs-on: macos-latest
