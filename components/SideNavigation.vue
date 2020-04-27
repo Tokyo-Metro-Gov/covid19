@@ -107,7 +107,7 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          ©︎ 2020 Tokyo Metropolitan Government
+          &copy; 2020 Tokyo Metropolitan Government
         </small>
       </footer>
     </div>
