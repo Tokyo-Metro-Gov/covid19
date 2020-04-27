@@ -25,6 +25,6 @@ Please check [How to translate](./../../TRANSLATION.md) doc.
 
 ## Thông tin cho nhà phát triển
 
-Please check [Thông tin cho nhà phát triển](./../../TRANSLATION.md) doc.
+Please check [Thông tin cho nhà phát triển](./FOR_DEVELOPERS.md) doc.
 
 [/PLEASE TRANSLATE ME]
