@@ -196,11 +196,7 @@
           }}</span>
         </p>
         <h4 :class="[$style.sxnHeadingSmall]">
-          {{
-            $t(
-              '医師により検査が必要だと判断されPCR検査（東京都健康安全研究センター等）を受けた結果'
-            )
-          }}
+          {{ $t('医師により検査が必要だと判断されPCR検査を受けた結果') }}
         </h4>
         <div :class="$style.boxes">
           <div :class="[$style.box, $style.border]">
