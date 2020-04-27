@@ -82,14 +82,14 @@ export default Vue.extend({
       type: Number,
       required: true
     },
-    軽症中等症: {
-      type: Number,
-      required: true
-    },
-    重症: {
-      type: Number,
-      required: true
-    },
+    // 軽症中等症: {
+    //   type: Number,
+    //   required: true
+    // },
+    // 重症: {
+    //   type: Number,
+    //   required: true
+    // },
     死亡: {
       type: Number,
       required: true
@@ -221,14 +221,14 @@ export default Vue.extend({
   //   width: calc(100% / 3 * 2);
   // }
 }
-// 軽症・中等症
-.item.mild {
-  width: calc(100% / 2);
-}
-// 重症
-.item.serious {
-  width: calc(100% / 2);
-}
+// // 軽症・中等症
+// .item.mild {
+//   width: calc(100% / 2);
+// }
+// // 重症
+// .item.serious {
+//   width: calc(100% / 2);
+// }
 // 死亡
 .item.deceased {
   width: calc(100% / 3);
