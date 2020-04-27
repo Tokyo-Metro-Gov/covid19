@@ -190,11 +190,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             })
           )
         })
-        .sort((a, b) => {
-          const aDate = a.text.split('~')[0]
-          const bDate = b.text.split('~')[0]
-          return aDate > bDate ? -1 : 1
-        })
+        .reverse()
     },
     displayOption() {
       const self = this
