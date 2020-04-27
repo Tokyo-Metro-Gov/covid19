@@ -42,11 +42,24 @@
       </v-data-table>
     </template>
     <template v-slot:footer>
-      <external-link
-        url="https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf"
-      >
-        {{ $t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）[PDF]') }}
-      </external-link>
+      <ul :class="$style.DataViewDesc">
+        <li>
+          <external-link
+            url="https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf"
+          >
+            {{ $t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）[PDF]') }}
+          </external-link>
+        </li>
+        <li>
+          <external-link url="https://corona.go.jp/">
+            {{
+              $t(
+                '主要駅の改札通過人数の推移（東京、新宿、渋谷、池袋ほか）[内閣官房HP]（ページ下部）'
+              )
+            }}
+          </external-link>
+        </li>
+      </ul>
     </template>
   </data-view>
 </template>
@@ -266,8 +279,10 @@ export default Vue.extend(options)
   &Desc {
     margin-top: 10px;
     margin-bottom: 0 !important;
+    padding-left: 0 !important;
     font-size: 12px;
     color: $gray-3;
+    list-style: none;
   }
 }
 </style>

@@ -172,10 +172,6 @@
       <div class="overlay-text">
         {{ $t('埋め込み用コードをコピーしました') }}
       </div>
-      <v-footer class="DataView-Footer">
-        <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
-        <slot name="footer" />
-      </v-footer>
     </div>
   </v-card>
 </template>
@@ -558,7 +554,6 @@ export default Vue.extend({
 
           .icon-resize {
             border-radius: 50%;
-            font-size: 30px;
 
             &.twitter {
               color: #fff;
