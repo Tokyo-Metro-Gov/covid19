@@ -1,10 +1,10 @@
 <template>
-  <div ref="Side" class="SideNavigation" tabindex="-1">
+  <v-sheet ref="Side" class="SideNavigation">
     <header class="SideNavigation-Header">
       <v-icon
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
-        @click="$emit('openNavi', $event)"
+        @click.stop="isWindowSizeConsole()"
       >
         mdi-menu
       </v-icon>
@@ -24,11 +24,21 @@
       </h1>
     </header>
 
-    <div :class="['SideNavigation-Body', { '-opened': isNaviOpen }]">
+    <v-navigation-drawer
+      v-model="drawer"
+      tabindex="-1"
+      class="SideNavigation-Body"
+      hide-overlay
+      touchless
+      stateless
+      floating
+      tag="div"
+      width="inherit"
+    >
       <v-icon
         class="SideNavigation-CloseIcon"
         :aria-label="$t('サイドメニュー項目を閉じる')"
-        @click="$emit('closeNavi', $event)"
+        @click.stop="isWindowSizeConsole()"
       >
         mdi-close
       </v-icon>
@@ -45,7 +55,11 @@
             <LanguageSelector />
           </div>
         </div>
-        <MenuList :items="items" @click="$emit('closeNavi', $event)" />
+        <menu-list
+          :items="items"
+          @click="isWindowSizeConsole()"
+          @blur="this.$refs.MainPage.focus()"
+        />
       </nav>
 
       <footer class="SideNavigation-Footer">
@@ -110,8 +124,8 @@
           2020 Tokyo Metropolitan Government
         </small>
       </footer>
-    </div>
-  </div>
+    </v-navigation-drawer>
+  </v-sheet>
 </template>
 
 <script lang="ts">
@@ -136,6 +150,25 @@ export default Vue.extend({
     isNaviOpen: {
       type: Boolean,
       required: true
+    },
+    maxMobileWidth: {
+      type: Number,
+      default: 1264
+      // Need to be correspondent to an agreed value across the project
+      // TODO: Import variables.scss so that one source can only be kept up
+    },
+    temporary: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data(): {
+    drawer: boolean | null
+    screenWidth: Number
+  } {
+    return {
+      drawer: null,
+      screenWidth: 0
     }
   },
   computed: {
@@ -201,15 +234,39 @@ export default Vue.extend({
   watch: {
     $route: 'handleChageRoute'
   },
+  mounted() {
+    this.$nextTick().then(() => {
+      window.addEventListener('resize', this.getWindowWidth, false)
+      window.addEventListener('orientationchange', this.getWindowWidth, false)
+      this.isWindowSizeConsole()
+    })
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.getWindowWidth, false)
+    window.removeEventListener('orientationchange', this.getWindowWidth, false)
+  },
   methods: {
     handleChageRoute() {
-      // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
-      return this.$nextTick().then(() => {
+      // nuxt-link で遷移するとフォーカスが残り続けるので
+      // $route を監視して SideNavigation にフォーカスする
+      this.$nextTick().then(() => {
         const $Side = this.$refs.Side as HTMLEmbedElement | undefined
         if ($Side) {
           $Side.focus()
         }
       })
+    },
+    getWindowWidth() {
+      this.screenWidth = document.documentElement.clientWidth
+        ? document.documentElement.clientWidth
+        : screen
+        ? screen.width
+        : window
+        ? window.innerWidth
+        : 0
+    },
+    isWindowSizeConsole() {
+      this.drawer = this.screenWidth < this.maxMobileWidth ? !this.drawer : true
     }
   }
 })
@@ -218,9 +275,11 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
+
   @include lessThan($small) {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
   }
+
   &:focus {
     outline: 1px dotted $gray-3;
   }
@@ -233,9 +292,11 @@ export default Vue.extend({
     height: auto;
     padding: 20px;
   }
+
   @include lessThan($small) {
     display: flex;
   }
+
   @include lessThan($tiny) {
     padding-left: 44px;
   }
@@ -251,6 +312,7 @@ export default Vue.extend({
     font-size: 24px;
     padding: 20px 10px;
   }
+
   @include largerThan($small) {
     display: none;
   }
@@ -260,12 +322,14 @@ export default Vue.extend({
   position: absolute;
   top: 0;
   left: 0;
-  padding: 18px 8px 18px 16px;
+  padding: 18px 8px 18px 32px;
   font-size: 28px;
+
   @include lessThan($tiny) {
     font-size: 24px;
     padding: 20px 10px;
   }
+
   @include largerThan($small) {
     display: none;
   }
@@ -275,6 +339,7 @@ export default Vue.extend({
   width: 100%;
   font-size: 13px;
   color: #707070;
+
   @include largerThan($small) {
     margin: 0;
     margin-top: 10px;
@@ -285,12 +350,15 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   padding-right: 10px;
+
   @include lessThan($small) {
     height: 64px;
   }
+
   @include lessThan($tiny) {
     justify-content: space-between;
   }
+
   &:link,
   &:hover,
   &:focus,
@@ -323,6 +391,7 @@ export default Vue.extend({
 
 .SideNavigation-HeaderText {
   margin: 10px 0 0 0;
+
   @include lessThan($small) {
     margin: 0 0 0 10px;
   }
@@ -334,23 +403,49 @@ export default Vue.extend({
 
 .SideNavigation-Body {
   padding: 0 20px 20px;
+
   @include lessThan($small) {
-    display: none;
     padding: 0 36px 36px;
-    &.-opened {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      display: block !important;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block !important;
+    background-color: $white;
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    & .v-navigation-drawer {
+      z-index: 0;
       width: 100%;
-      z-index: z-index-of(opened-side-navigation);
-      background-color: $white;
-      height: 100%;
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
     }
   }
+
+  @include largerThan($small) {
+    & .v-navigation-drawer {
+      z-index: 6;
+      visibility: visible;
+      width: inherit;
+      height: 100%;
+    }
+  }
+
+  &
+    .v-navigation-drawer--is-mobile:not(.v-navigation-drawer--close)
+    + .v-navigation-drawer__content {
+    visibility: visible;
+  }
+
+  &
+    .v-navigation-drawer--is-mobile::after(.v-navigation-drawer--close)
+    + .v-navigation-drawer__content {
+    visibility: hidden;
+  }
+}
+
+.v-navigation-drawer--bottom.v-navigation-drawer--is-mobile {
+  min-width: inherit;
 }
 
 .SideNavigation-Menu {
