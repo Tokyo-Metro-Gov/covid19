@@ -41,8 +41,8 @@
 十分欢迎您在[#654](https://github.com/tokyo-metropolitan-gov/covid19/issues/654) 这个 Issue 中留下您希望公开的姓名、个人链接（如果有的话）与负责的内容。
 
 ## 关于本项目开发的相关资讯
-* 开发环境 https://dev-covid19-tokyo.netlify.com/
-* 过渡环境 https://stg-covid19-tokyo.netlify.com/
+* 开发环境 https://dev-covid19-tokyo.netlify.app/
+* 过渡环境 https://stg-covid19-tokyo.netlify.app/
 * 正式环境 https://stopcovid19.metro.tokyo.lg.jp/
 * [网页UI设计稿](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 

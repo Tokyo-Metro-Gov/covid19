@@ -8,7 +8,7 @@
     </v-overlay>
     <div v-if="hasNavigation" class="appContainer">
       <div class="naviContainer">
-        <SideNavigation
+        <side-navigation
           :is-navi-open="isOpenNavigation"
           :class="{ open: isOpenNavigation }"
           @openNavi="openNavigation"
@@ -26,7 +26,7 @@
         <nuxt />
       </v-container>
     </div>
-    <NoScript />
+    <no-script />
     <development-mode-mark />
   </v-app>
 </template>
@@ -34,8 +34,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import Data from '@/data/data.json'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
+import Data from '@/data/data.json'
 import SideNavigation from '@/components/SideNavigation.vue'
 import NoScript from '@/components/NoScript.vue'
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
@@ -73,6 +73,10 @@ export default Vue.extend({
   },
   mounted() {
     this.loading = false
+    this.getMatchMedia().addListener(this.hideNavigation)
+  },
+  beforeDestroy() {
+    this.getMatchMedia().removeListener(this.hideNavigation)
   },
   methods: {
     openNavigation(): void {
@@ -80,6 +84,9 @@ export default Vue.extend({
     },
     hideNavigation(): void {
       this.isOpenNavigation = false
+    },
+    getMatchMedia(): MediaQueryList {
+      return window.matchMedia('(min-width: 601px)')
     }
   },
   head(): MetaInfo {
@@ -186,6 +193,10 @@ export default Vue.extend({
   max-width: 1440px;
   margin: 0 auto;
   background-color: inherit !important;
+}
+
+.v-application--wrap {
+  width: 100%;
 }
 
 .embed {

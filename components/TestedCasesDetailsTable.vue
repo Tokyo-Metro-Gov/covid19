@@ -5,8 +5,12 @@
         <div :class="$style.content">
           <!-- eslint-disable vue/no-v-html-->
           <span>
-            {{ $t('検査実施人数') }}
-            <br />({{ $t('累計') }})
+            {{ $t('検査実施人数') }}<br />
+            <span :class="$style.note">
+              ({{ $t('健康安全研究センターによる実施分') }})
+            </span>
+            <br />
+            ({{ $t('累計') }})
           </span>
           <!-- eslint-enable vue/no-v-html-->
           <span>
@@ -173,12 +177,16 @@ $default-boxh: 150px;
     }
 
     &:not(:last-child) {
-      word-break: break-all;
+      overflow-wrap: break-word;
     }
   }
 
   span strong {
     @include font-size(18);
+  }
+
+  span.note {
+    @include font-size(11);
   }
 
   span.unit {

@@ -1,18 +1,16 @@
 <template>
   <div class="MainPage">
     <div class="Header mb-3">
-      <page-header :icon="headerItem.icon">
-        {{ headerItem.title }}
-      </page-header>
+      <page-header :icon="headerItem.icon">{{ headerItem.title }}</page-header>
       <div class="UpdatedAt">
-        <span>{{ $t('最終更新') }} </span>
+        <span>{{ $t('最終更新') }}</span>
         <time :datetime="updatedAt">{{ Data.lastUpdate }}</time>
       </div>
       <div
         v-show="!['ja', 'ja-basic'].includes($i18n.locale)"
         class="Annotation"
       >
-        <span>{{ $t('注釈') }} </span>
+        <span>{{ $t('注釈') }}</span>
       </div>
     </div>
     <whats-new class="mb-4" :items="newsItems" />
@@ -22,18 +20,30 @@
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
-    <v-row class="DataBlock">
+    <card-row class="DataBlock">
+      <!-- 検査陽性者の状況 -->
       <confirmed-cases-details-card />
-      <tested-cases-details-card />
-      <confirmed-cases-attributes-card />
+      <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
+      <!-- 陽性患者の属性 -->
+      <confirmed-cases-attributes-card />
+      <!-- 区市町村別患者数 -->
+      <confirmed-cases-by-municipalities-card />
+      <!-- 検査実施状況 -->
+      <tested-cases-details-card />
+      <!-- 検査実施人数 -->
       <inspection-persons-number-card />
+      <!-- 検査実施件数 -->
       <tested-number-card />
+      <!-- 新型コロナコールセンター相談件数 -->
       <telephone-advisory-reports-number-card />
+      <!-- 新型コロナ受診相談窓口相談件数 -->
       <consultation-desk-reports-number-card />
+      <!-- 都営地下鉄の利用者数の推移 -->
       <metro-card />
+      <!-- 都庁来庁者数の推移 -->
       <agency-card />
-    </v-row>
+    </card-row>
     <v-divider />
   </div>
 </template>
@@ -44,14 +54,16 @@ import { MetaInfo } from 'vue-meta'
 import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
+import CardRow from '@/components/cards/CardRow.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
-import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
-import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
+import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
+import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
@@ -63,12 +75,14 @@ export default Vue.extend({
     PageHeader,
     WhatsNew,
     StaticInfo,
+    CardRow,
     ConfirmedCasesDetailsCard,
-    TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
-    TestedNumberCard,
+    ConfirmedCasesByMunicipalitiesCard,
+    TestedCasesDetailsCard,
     InspectionPersonsNumberCard,
+    TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
     MetroCard,

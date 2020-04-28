@@ -35,8 +35,8 @@ Trang này cho bạn biết cách có thể đóng góp cho sự phát triển c
 * Chúng tôi cũng chấp nhận đề xuất! Xin vui lòng tạo ra issues.
 
 ## Thông tin phát triển
-* Trang web phát triển https://dev-covid19-tokyo.netlify.com/
-* Trang web dàn dựng https://stg-covid19-tokyo.netlify.com/
+* Trang web phát triển https://dev-covid19-tokyo.netlify.app/
+* Trang web dàn dựng https://stg-covid19-tokyo.netlify.app/
 * Trang web sản xuất https://stopcovid19.metro.tokyo.lg.jp/
 * [Thiết kế](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121 % 3A156)
 
