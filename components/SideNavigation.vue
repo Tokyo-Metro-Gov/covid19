@@ -121,7 +121,7 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 Tokyo Metropolitan Government
+          &copy; 2020 Tokyo Metropolitan Government
         </small>
       </footer>
     </v-navigation-drawer>
@@ -182,7 +182,19 @@ export default Vue.extend({
         {
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: this.localePath('/flow'),
+          link: this.localePath('/flow')
+        },
+        {
+          icon: 'CovidIcon',
+          title: this.$t('新型コロナウイルスの感染が判明した方へ'),
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/corona_0401.html'
+        },
+        {
+          icon: 'MaskTrashIcon',
+          title: this.$t('ご家庭でのマスク等の捨て方'),
+          link:
+            'https://www.kankyo.metro.tokyo.lg.jp/resource/500200a20200221162304660.files/200327_chirashi.pdf',
           divider: true
         },
         {
@@ -210,6 +222,11 @@ export default Vue.extend({
           title: this.$t('東京都主催等 中止又は延期するイベント等'),
           link:
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
+        },
+        {
+          title: this.$t('東京都における滞在人口の増減'),
+          link:
+            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html'
         },
         {
           title: this.$t('知事からのメッセージ'),
