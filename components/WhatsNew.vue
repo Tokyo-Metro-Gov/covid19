@@ -33,7 +33,7 @@
         </a>
       </li>
       <div
-        v-if="listItems.length - showitems >= 0"
+        v-if="items.length - showitems > 0"
         class="WhatsNew-Button"
         @click="isMore"
       >
