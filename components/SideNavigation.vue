@@ -275,9 +275,11 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
+
   @include lessThan($small) {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
   }
+
   &:focus {
     outline: 1px dotted $gray-3;
   }
@@ -290,9 +292,11 @@ export default Vue.extend({
     height: auto;
     padding: 20px;
   }
+
   @include lessThan($small) {
     display: flex;
   }
+
   @include lessThan($tiny) {
     padding-left: 44px;
   }
@@ -308,6 +312,7 @@ export default Vue.extend({
     font-size: 24px;
     padding: 20px 10px;
   }
+
   @include largerThan($small) {
     display: none;
   }
@@ -319,10 +324,12 @@ export default Vue.extend({
   left: 0;
   padding: 18px 8px 18px 32px;
   font-size: 28px;
+
   @include lessThan($tiny) {
     font-size: 24px;
     padding: 20px 10px;
   }
+
   @include largerThan($small) {
     display: none;
   }
@@ -332,6 +339,7 @@ export default Vue.extend({
   width: 100%;
   font-size: 13px;
   color: #707070;
+
   @include largerThan($small) {
     margin: 0;
     margin-top: 10px;
@@ -342,12 +350,15 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   padding-right: 10px;
+
   @include lessThan($small) {
     height: 64px;
   }
+
   @include lessThan($tiny) {
     justify-content: space-between;
   }
+
   &:link,
   &:hover,
   &:focus,
@@ -380,6 +391,7 @@ export default Vue.extend({
 
 .SideNavigation-HeaderText {
   margin: 10px 0 0 0;
+
   @include lessThan($small) {
     margin: 0 0 0 10px;
   }
@@ -391,6 +403,7 @@ export default Vue.extend({
 
 .SideNavigation-Body {
   padding: 0 20px 20px;
+
   @include lessThan($small) {
     padding: 0 36px 36px;
     position: fixed;
@@ -423,6 +436,7 @@ export default Vue.extend({
     + .v-navigation-drawer__content {
     visibility: visible;
   }
+
   &
     .v-navigation-drawer--is-mobile::after(.v-navigation-drawer--close)
     + .v-navigation-drawer__content {
