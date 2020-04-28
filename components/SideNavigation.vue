@@ -146,6 +146,7 @@ export default Vue.extend({
     LanguageSelector,
     MenuList
   },
+
   props: {
     isNaviOpen: {
       type: Boolean,
@@ -162,6 +163,7 @@ export default Vue.extend({
       default: false
     }
   },
+
   data(): {
     drawer: boolean | null
     screenWidth: Number
@@ -171,6 +173,7 @@ export default Vue.extend({
       screenWidth: 0
     }
   },
+
   computed: {
     items(): Item[] {
       return [
@@ -248,9 +251,11 @@ export default Vue.extend({
       ]
     }
   },
+
   watch: {
     $route: 'handleChageRoute'
   },
+
   mounted() {
     this.$nextTick().then(() => {
       window.addEventListener('resize', this.getWindowWidth, false)
@@ -258,10 +263,12 @@ export default Vue.extend({
       this.isWindowSizeConsole()
     })
   },
+
   beforeDestroy() {
     window.removeEventListener('resize', this.getWindowWidth, false)
     window.removeEventListener('orientationchange', this.getWindowWidth, false)
   },
+
   methods: {
     handleChageRoute() {
       // nuxt-link で遷移するとフォーカスが残り続けるので
