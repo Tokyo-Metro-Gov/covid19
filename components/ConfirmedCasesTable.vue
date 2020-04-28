@@ -126,12 +126,13 @@ export default Vue.extend({
       inspected: number,
       positive: number,
       hospitalized: number,
-      mild: number,
-      critically: number,
+      // mild: number,
+      // critically: number,
       deceased: number,
       discharged: number
     ) {
-      const ariaLabel = `検査陽性者の状況: 検査実施人数は${inspected}人、うち累積の陽性者数は${positive}人です。入院中は${hospitalized}人で、うち軽症・中等症は${mild}人、また重症は${critically}人です。さらに死亡は${deceased}人、退院は${discharged}人です。`
+      // const ariaLabel = `検査陽性者の状況: 検査実施人数は${inspected}人、うち累積の陽性者数は${positive}人です。入院中は${hospitalized}人で、うち軽症・中等症は${mild}人、また重症は${critically}人です。さらに死亡は${deceased}人、退院は${discharged}人です。`
+      const ariaLabel = `検査陽性者の状況: 検査実施人数は${inspected}人、うち累積の陽性者数は${positive}人です。入院中は${hospitalized}人です。さらに死亡は${deceased}人、退院は${discharged}人です。`
       return ariaLabel
     }
   }
@@ -259,9 +260,9 @@ export default Vue.extend({
   right: -3px;
   border-left: none;
 }
-.item.serious > .gutter > .box::before {
-  width: 100%;
-}
+// .item.serious > .gutter > .box::before {
+//   width: 100%;
+// }
 .item.recovered > .gutter > .box::before {
   width: 250%;
 }
@@ -292,7 +293,7 @@ export default Vue.extend({
   }
   .item.positive > .gutter > .box::before,
   .item.in-hospital > .gutter > .box::before,
-  .item.serious > .gutter > .box::before,
+  // .item.serious > .gutter > .box::before,
   .item.recovered > .gutter > .box::before {
     border-width: px2vw($bdw, $vw);
     height: px2vw($boxdiff - $bdw, $vw);
@@ -303,7 +304,7 @@ export default Vue.extend({
     right: calc(-100% - #{px2vw($bdw * 2, $vw)} + 0.3px);
     width: calc(100% + #{px2vw($bdw * 2, $vw)});
   }
-  .item.serious > .gutter > .box::before,
+  // .item.serious > .gutter > .box::before,
   .item.recovered > .gutter > .box::before {
     top: px2vw(-$boxdiff - $bdw, $vw);
     right: px2vw(-$bdw, $vw);
