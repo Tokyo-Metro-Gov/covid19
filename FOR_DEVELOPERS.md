@@ -95,16 +95,6 @@ $ docker-compose run --rm app yarn install
 $ vagrant up
 ```
 
-#### 2-3-2. トラブルシュート
-
-##### 2-3-2-1. `Cannot find module ****` と怒られた時
-
-プログラムを止め、以下のコマンドを実行します。
-```bash
-# serve with hot reload at localhost:3000
-$ docker-compose run --rm app yarn install
-```
-
 ### 2-4. Visual Studio Code + Remote Containersで開発する場合
 
 #### 2-4-1. 依存関係を構築し、プログラムを実行する
