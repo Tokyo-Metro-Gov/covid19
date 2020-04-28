@@ -4,7 +4,7 @@
       <v-icon
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
-        @click.stop="drawer = !drawer"
+        @click.stop="isWindowSizeConsole()"
       >
         mdi-menu
       </v-icon>
@@ -30,13 +30,15 @@
       class="SideNavigation-Body"
       hide-overlay
       touchless
-      mobile-break-point="600"
-      width="100%"
+      stateless
+      floating
+      tag="div"
+      width="inherit"
     >
       <v-icon
         class="SideNavigation-CloseIcon"
         :aria-label="$t('サイドメニュー項目を閉じる')"
-        @click.stop="drawer = !drawer"
+        @click.stop="isWindowSizeConsole()"
       >
         mdi-close
       </v-icon>
@@ -55,7 +57,8 @@
         </div>
         <menu-list
           :items="items"
-          @click="drawer = isMenuChangeNeeded() ? !drawer : drawer"
+          @click="isWindowSizeConsole()"
+          @blur="this.$refs.MainPage.focus()"
         />
       </nav>
 
@@ -148,9 +151,24 @@ export default Vue.extend({
       type: Boolean,
       required: true
     },
-    drawer: {
+    maxMobileWidth: {
+      type: Number,
+      default: 1264
+      // Need to be correspondent to an agreed value across the project
+      // TODO: Import variables.scss so that one source can only be kept up
+    },
+    temporary: {
       type: Boolean,
-      default: null
+      default: false
+    }
+  },
+  data(): {
+    drawer: boolean | null
+    screenWidth: Number
+  } {
+    return {
+      drawer: null,
+      screenWidth: 0
     }
   },
   computed: {
@@ -216,21 +234,39 @@ export default Vue.extend({
   watch: {
     $route: 'handleChageRoute'
   },
+  mounted() {
+    this.$nextTick().then(() => {
+      window.addEventListener('resize', this.getWindowWidth, false)
+      window.addEventListener('orientationchange', this.getWindowWidth, false)
+      this.isWindowSizeConsole()
+    })
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.getWindowWidth, false)
+    window.removeEventListener('orientationchange', this.getWindowWidth, false)
+  },
   methods: {
     handleChageRoute() {
-      // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
-      return this.$nextTick().then(() => {
+      // nuxt-link で遷移するとフォーカスが残り続けるので
+      // $route を監視して SideNavigation にフォーカスする
+      this.$nextTick().then(() => {
         const $Side = this.$refs.Side as HTMLEmbedElement | undefined
         if ($Side) {
           $Side.focus()
         }
       })
     },
-    isMenuChangeNeeded() {
-      const elem = document.getElementsByClassName('SideNavigation-Body')
-      Array.prototype.filter.call(elem, function(elem) {
-        return elem.className === 'v-navigation-drawer--is-mobile'
-      })
+    getWindowWidth() {
+      this.screenWidth = document.documentElement.clientWidth
+        ? document.documentElement.clientWidth
+        : screen
+        ? screen.width
+        : window
+        ? window.innerWidth
+        : 0
+    },
+    isWindowSizeConsole() {
+      this.drawer = this.screenWidth < this.maxMobileWidth ? !this.drawer : true
     }
   }
 })
@@ -362,13 +398,40 @@ export default Vue.extend({
     bottom: 0;
     left: 0;
     display: block !important;
-    width: 100%;
-    z-index: z-index-of(opened-side-navigation);
     background-color: $white;
     height: 100%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+
+    & .v-navigation-drawer {
+      z-index: 0;
+      width: 100%;
+    }
   }
+
+  @include largerThan($small) {
+    & .v-navigation-drawer {
+      z-index: 6;
+      visibility: visible;
+      width: inherit;
+      height: 100%;
+    }
+  }
+
+  &
+    .v-navigation-drawer--is-mobile:not(.v-navigation-drawer--close)
+    + .v-navigation-drawer__content {
+    visibility: visible;
+  }
+  &
+    .v-navigation-drawer--is-mobile::after(.v-navigation-drawer--close)
+    + .v-navigation-drawer__content {
+    visibility: hidden;
+  }
+}
+
+.v-navigation-drawer--bottom.v-navigation-drawer--is-mobile {
+  min-width: inherit;
 }
 
 .SideNavigation-Menu {
