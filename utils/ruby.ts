@@ -1,4 +1,4 @@
-import XRegExp from 'xregexp/'
+import XRegExp from 'xregexp'
 import Vue from 'vue'
 import { ChartTooltipModel } from 'chart.js'
 

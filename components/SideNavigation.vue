@@ -155,7 +155,7 @@ export default Vue.extend({
       type: Number,
       default: 1264
       // Need to be correspondent to an agreed value across the project
-      // TODO: Import variables.scss so that one source can only be kept up
+      // TODO: Import 'variables.scss' so that one source can only be kept up
     },
     temporary: {
       type: Boolean,
