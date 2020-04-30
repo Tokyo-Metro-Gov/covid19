@@ -3,10 +3,12 @@ name: update lastupdate
 on:
   push:
     branches:
-      - master
+      - development
+    paths:
+      - data/*
 
 jobs:
-  deploy:
+  update:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -22,5 +24,5 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
+          branch: development
           force: true
