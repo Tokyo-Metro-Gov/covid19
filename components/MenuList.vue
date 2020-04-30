@@ -31,6 +31,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import CovidIcon from '@/static/covid.svg'
+import MaskTrashIcon from '@/static/masktrash.svg'
 import ParentIcon from '@/static/parent.svg'
 
 type MenuItem = {
@@ -43,6 +44,7 @@ type MenuItem = {
 export default Vue.extend({
   components: {
     CovidIcon,
+    MaskTrashIcon,
     ParentIcon
   },
   props: {
@@ -128,7 +130,6 @@ export default Vue.extend({
   color: $gray-1;
 
   &:link,
-  &:hover,
   &:focus,
   &:visited,
   &:active {
@@ -137,7 +138,7 @@ export default Vue.extend({
   }
 
   &:hover {
-    font-weight: bold;
+    text-shadow: 0 0 1px $gray-1;
   }
 
   &:focus {
