@@ -62,11 +62,11 @@ if __name__ == '__main__':
 	#get data.json format
 	json_data 	= github_data_json()
 
-	#update 電話相談件数(contacts)
-	sheet_name 	= "電話相談件数(contacts)"
-	df 			= goo_sheet_to_pandas(sheet_name)
-	json_data["contacts"]["date"] = list(df["更新日"])[-1]
-	json_data["contacts"]["data"] = list(map(lambda x,y:[x,int(y)],list(df["日付"]),list(df["件数"])))
+	# #update 電話相談件数(contacts)
+	# sheet_name 	= "電話相談件数(contacts)"
+	# df 			= goo_sheet_to_pandas(sheet_name)
+	# json_data["contacts"]["date"] = list(df["更新日"])[-1]
+	# json_data["contacts"]["data"] = list(map(lambda x,y:[x,int(y)],list(df["日付"]),list(df["件数"])))
 
 	#update 陽性患者属性(patients)
 	sheet_name 	= "陽性患者属性(patients)"
@@ -114,10 +114,10 @@ if __name__ == '__main__':
 	json_data["main_summary"]["children"][0]["value"] = int(NUM_patients)
 	#update "入院中"
 	json_data["main_summary"]["children"][0]["children"][0]["value"] = int(NUM_in_hospital)
-	#update "軽症・中等症"
-	json_data["main_summary"]["children"][0]["children"][0]["children"][0]["value"] = int(NUM_in_hospital - NUM_serious)
-	#update "重傷"
-	json_data["main_summary"]["children"][0]["children"][0]["children"][1]["value"] = int(NUM_serious)
+	# #update "軽症・中等症"
+	# json_data["main_summary"]["children"][0]["children"][0]["children"][0]["value"] = int(NUM_in_hospital - NUM_serious)
+	# #update "重傷"
+	# json_data["main_summary"]["children"][0]["children"][0]["children"][1]["value"] = int(NUM_serious)
 	#update "退院"
 	json_data["main_summary"]["children"][0]["children"][1]["value"] = int(NUM_patients - NUM_in_hospital)
 	#update "死亡"
