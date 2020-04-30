@@ -51,21 +51,25 @@ export default {
           Data.inspections_summary.labels.length - 1
         ]
     ) // 最新の検査実施日
-    const lastThursday = lastDate.subtract(1, 'week').day(4) // 先週の木曜日
+    const lastThursday = lastDate.subtract(1, 'week').day(4) // 最新検査実施日から1週間前の木曜日
+    const fromLastThursdayDates =
+      dayjs.duration(lastDate.diff(lastThursday)).asDays() + 1 // 起点の木曜日からの日数
+    const l = Data.inspections_summary.data['都内'].length
     const beforeLastThursday = []
     const afterLastThursday = []
-    const fromLastThursdayDates =
-      dayjs.duration(lastDate.diff(lastThursday)).asDays() + 1 // 先週の木曜日からの日数
-    const l = Data.inspections_summary.data['都内'].length
-    let i
-    for (i = 0; i < l; i++) {
-      // 先週の木曜日前後で振り分け
+    for (let i = 0; i < l; i++) {
+      // 起点の木曜日前後で振り分け
+      const sum =
+        Data.inspections_summary.data['都内'][i] +
+        (Data.inspections_summary.data['その他'][i]
+          ? Data.inspections_summary.data['その他'][i]
+          : 0)
       if (l - i > fromLastThursdayDates) {
-        beforeLastThursday.push(Data.inspections_summary.data['都内'][i])
+        beforeLastThursday.push(sum)
         afterLastThursday.push(0)
       } else {
         beforeLastThursday.push(0)
-        afterLastThursday.push(Data.inspections_summary.data['都内'][i])
+        afterLastThursday.push(sum)
       }
     }
     const inspectionsGraph = [beforeLastThursday, afterLastThursday]
