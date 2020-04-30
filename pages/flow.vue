@@ -228,7 +228,7 @@
           </div>
           <div :class="[$style.box, $style.border]">
             <h5 :class="$style.boxLead">{{ $t('陰性の場合') }}</h5>
-            <p>{{ $t('自宅安静となり、医療機関を受診していただきます') }}</p>
+            <p>{{ $t('自宅で安静に過ごし、必要に応じて医療機関を受診してください') }}</p>
             <p :class="[$style.small, $style.grow]">
               {{
                 $t(
