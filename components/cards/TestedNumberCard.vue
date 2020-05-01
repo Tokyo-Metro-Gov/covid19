@@ -44,21 +44,26 @@ export default {
   data() {
     // 検査実施日別状況
     const today = new Date()
-    const lastDate = dayjs(
+    const lastThursday = dayjs()
+      .startOf('day')
+      .day(4) // 直前の木曜日
+    const lastAvailableDate = dayjs(
       today.getFullYear() +
         '/' +
         Data.inspections_summary.labels[
           Data.inspections_summary.labels.length - 1
         ]
     ) // 最新の検査実施日
-    const lastThursday = lastDate.subtract(1, 'week').day(4) // 最新検査実施日から1週間前の木曜日
-    const fromLastThursdayDates =
-      dayjs.duration(lastDate.diff(lastThursday)).asDays() + 1 // 起点の木曜日からの日数
+    let fromLastThursdayDates = 0
+    if (lastThursday.isBefore(lastAvailableDate)) {
+      fromLastThursdayDates =
+        dayjs.duration(lastAvailableDate.diff(lastThursday)).asDays() + 1 // 直前の木曜日からの日数
+    }
     const l = Data.inspections_summary.data['都内'].length
     const beforeLastThursday = []
     const afterLastThursday = []
     for (let i = 0; i < l; i++) {
-      // 起点の木曜日前後で振り分け
+      // 直前の木曜日前後で振り分け
       const sum =
         Data.inspections_summary.data['都内'][i] +
         (Data.inspections_summary.data['その他'][i]
