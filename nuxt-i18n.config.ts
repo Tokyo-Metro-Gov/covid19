@@ -9,6 +9,46 @@ const options: NuxtVueI18n.Options.AllOptionsInterface = {
   defaultLocale: 'ja',
   vueI18n: {
     fallbackLocale: 'ja',
+    dateTimeFormats: {
+      ja: {
+        datetime: {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+          hour12: false
+        },
+        date: {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        },
+        dateWithoutYear: {
+          month: 'short',
+          day: 'numeric'
+        }
+      },
+      en: {
+        datetime: {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+          hour12: false
+        },
+        date: {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        },
+        dateWithoutYear: {
+          month: 'short',
+          day: 'numeric'
+        }
+      }
+    },
     formatFallbackMessages: true
   },
   // vueI18nLoader: true,
