@@ -111,12 +111,7 @@ export default Vue.extend({
           href: 'https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css'
         }
       ],
-      titleTemplate:
-        '%s | ' +
-        this.$t('東京都') +
-        ' ' +
-        this.$t('新型コロナウイルス感染症') +
-        this.$t('対策サイト'),
+      titleTemplate: `%s | ${this.$t('東京都')} ${this.$t('新型コロナウイルス感染症'}${this.$t('対策サイト')}`
       meta: [
         {
           hid: 'author',
