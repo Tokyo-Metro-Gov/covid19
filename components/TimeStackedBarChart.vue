@@ -81,32 +81,6 @@
         :width="chartWidth"
       />
     </div>
-    <template v-slot:dataTable>
-      <v-data-table
-        :headers="tableHeaders"
-        :items="tableData"
-        :items-per-page="-1"
-        :hide-default-footer="true"
-        :height="240"
-        :fixed-header="true"
-        :disable-sort="true"
-        :mobile-breakpoint="0"
-        class="cardTable"
-        item-key="name"
-      >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th>{{ item.text }}</th>
-              <td class="text-end">{{ item['0'] }}</td>
-              <td class="text-end">{{ item['1'] }}</td>
-              <td class="text-end">{{ item['2'] }}</td>
-              <td class="text-end">{{ item['3'] }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
-    </template>
     <slot name="additionalNotes" />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -364,9 +338,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 ].toLocaleString()
               }
 
-              label = `${
-                this.dataLabels[tooltipItem.datasetIndex!]
-              } : ${cases} ${unit}`
+              label = `${cases} ${unit}`
               if (this.dataKind === 'cumulative') {
                 label += ` (${this.$t('合計')}: ${casesTotal} ${unit})`
               }
