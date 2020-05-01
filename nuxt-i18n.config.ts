@@ -11,7 +11,7 @@ const options: NuxtVueI18n.Options.AllOptionsInterface = {
     fallbackLocale: 'ja',
     dateTimeFormats: {
       ja: {
-        datetime: {
+        dateTime: {
           year: 'numeric',
           month: 'short',
           day: 'numeric',
@@ -30,7 +30,7 @@ const options: NuxtVueI18n.Options.AllOptionsInterface = {
         }
       },
       en: {
-        datetime: {
+        dateTime: {
           year: 'numeric',
           month: 'short',
           day: 'numeric',
