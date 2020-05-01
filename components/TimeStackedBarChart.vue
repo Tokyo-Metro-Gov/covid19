@@ -349,7 +349,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              let casesTotal, cases
+              let casesTotal, cases, label
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index!].toLocaleString()
                 cases = data[tooltipItem.datasetIndex!][
@@ -364,9 +364,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 ].toLocaleString()
               }
 
-              return `${
+              label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
-              }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
+              } : ${cases} ${unit}`
+              if (this.dataKind === 'cumulative') {
+                label += ` (${this.$t('合計')}: ${casesTotal} ${unit})`
+              }
+              return label
             },
             title(tooltipItem, data) {
               return String(data.labels![tooltipItem[0].index!])
