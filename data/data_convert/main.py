@@ -59,6 +59,9 @@ link_kanja = urljoin(url, tag_kanja.get("href"))
 
 df_kanja = pd.read_excel(link_kanja, index_col="番号", header=1, skipfooter=2)
 
+#drop if not value or nan
+df_kanja = df_kanja[df_kanja['退院日'].apply(lambda s: True if (type(s) == int or type(s) == float) else False)] 
+
 df_kanja["陽性判明日"] = df_kanja["陽性判明日"].apply(
     lambda date: pd.to_datetime(date, unit="D", origin=pd.Timestamp("1899/12/30"))
 )
