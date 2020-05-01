@@ -7,7 +7,7 @@ on:
 
 jobs:
   i18n-builder:
-    if: github.event.commits[0].message != 'Update assets/locales/ja.json'
+    if: false == contains(github.event.commits[0].message, 'Update assets/locales/ja.json')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout development branch
