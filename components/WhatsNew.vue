@@ -5,7 +5,7 @@
         <v-icon size="24" class="WhatsNew-title-icon">
           mdi-information
         </v-icon>
-        {{ $t('最新のお知らせ') }}
+        <t-i18n>{{ $t('最新のお知らせ') }}</t-i18n>
       </h3>
       <span class="WhatsNew-link-to-emergency-page">
         <external-link
@@ -14,7 +14,7 @@
           <v-icon size="20" class="WhatsNew-link-to-emergency-page-icon">
             mdi-bullhorn
           </v-icon>
-          {{ $t('東京都緊急事態措置について') }}
+          <t-i18n>{{ $t('東京都緊急事態措置について') }}</t-i18n>
         </external-link>
       </span>
     </div>
@@ -51,14 +51,14 @@
 <script lang="ts">
 import Vue from 'vue'
 import ExternalLink from '@/components/ExternalLink.vue'
-
+import TI18n from '@/components/TI18n.vue'
 import {
   convertDateByCountryPreferTimeFormat,
   convertDateToISO8601Format
 } from '@/utils/formatDate'
 
 export default Vue.extend({
-  components: { ExternalLink },
+  components: { ExternalLink, TI18n },
   props: {
     items: {
       type: Array,

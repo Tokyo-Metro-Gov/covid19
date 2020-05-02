@@ -12,7 +12,7 @@
             {{ item.icon }}
           </component>
         </span>
-        <span class="MenuList-Title">{{ item.title }}</span>
+        <t-i18n class="MenuList-Title">{{ item.title }}</t-i18n>
         <v-icon
           v-if="isExternal(item.link)"
           role="img"
@@ -33,6 +33,7 @@ import Vue, { PropType } from 'vue'
 import CovidIcon from '@/static/covid.svg'
 import MaskTrashIcon from '@/static/masktrash.svg'
 import ParentIcon from '@/static/parent.svg'
+import TI18n from '@/components/TI18n.vue'
 
 type MenuItem = {
   icon?: string
@@ -45,7 +46,8 @@ export default Vue.extend({
   components: {
     CovidIcon,
     MaskTrashIcon,
-    ParentIcon
+    ParentIcon,
+    TI18n
   },
   props: {
     items: {

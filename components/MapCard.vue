@@ -10,9 +10,15 @@
     <template v-slot:description>
       <ol>
         <li>
-          {{ $t('※ ヤフーに蓄積された位置情報データなどを元に算出した参考値') }}
+          <t-i18n>
+            {{
+              $t('※ ヤフーに蓄積された位置情報データなどを元に算出した参考値')
+            }}
+          </t-i18n>
         </li>
-        <li>{{ $t('※ 土・日・祝日を除く7:30~8:30の平均値') }}</li>
+        <li>
+          <t-i18n>{{ $t('※ 土・日・祝日を除く7:30~8:30の平均値') }}</t-i18n>
+        </li>
       </ol>
     </template>
     <div ref="mapCardBodyContainerRef" class="MapCard-BodyContainer">
@@ -41,7 +47,7 @@
       </select>
       <div v-show="detailPageUrl !== ''" class="DetailPageLink">
         <nuxt-link :to="detailPageUrl">
-          {{ detailPageString }}
+          <t-i18n>{{ detailPageString }}</t-i18n>
         </nuxt-link>
       </div>
       <div v-show="loading" class="MapCard-BodyContainer-LoadingScreen" />
@@ -61,13 +67,15 @@ import DataView from '@/components/DataView.vue'
 import Heatmap from '@/components/Heatmap.vue'
 import SourceLink from '@/components/SourceLink.vue'
 import HeatmapLegend from '@/components/HeatmapLegend.vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default {
   components: {
     DataView,
     SourceLink,
     Heatmap,
-    HeatmapLegend
+    HeatmapLegend,
+    TI18n
   },
   props: {
     title: {
