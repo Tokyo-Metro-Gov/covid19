@@ -137,6 +137,11 @@ export default {
           divider: true
         },
         {
+          icon: 'niigata',
+          title: this.$t('県内 各市町村のコロナウイルス感染症情報'),
+          link: this.localePath('/cities'),
+        },
+        {
           title: this.$t(
             '新型コロナウイルス感染症対策情報（産業労働分野）まとめ'
           ),
@@ -153,10 +158,6 @@ export default {
           link: this.localePath('/transit')
         },
         {
-          title: this.$t('当サイトについて'),
-          link: this.localePath('/about')
-        },
-        {
           title: this.$t('新潟県公式ホームページ'),
           link: 'https://www.pref.niigata.lg.jp/',
           divider: true
@@ -166,6 +167,10 @@ export default {
           link:
             'https://www.pref.niigata.lg.jp/sec/kikitaisaku/shingata-corona.html',
           divider: true
+        },
+        {
+          title: this.$t('当サイトについて'),
+          link: this.localePath('/about')
         },
         {
           title: this.$t(

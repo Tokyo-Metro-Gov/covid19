@@ -22,6 +22,10 @@
         v-else-if="checkIconType(icon) === 'covid'"
         :class="['ListItem-Icon', isActive(link)]"
       />
+      <NiigataIcon
+        v-else-if="checkIconType(icon) === 'niigata'"
+        :class="['ListItem-Icon', isActive(link)]"
+      />
       <ParentIcon
         v-else-if="checkIconType(icon) === 'parent'"
         :class="['ListItem-Icon', isActive(link)]"
@@ -50,9 +54,10 @@
 import { Vue, Prop, Component } from 'vue-property-decorator'
 import CovidIcon from '@/static/covid.svg'
 import ParentIcon from '@/static/parent.svg'
+import NiigataIcon from '@/static/niigata.svg'
 
 @Component({
-  components: { CovidIcon, ParentIcon }
+  components: { CovidIcon, ParentIcon, NiigataIcon }
 })
 export default class ListItem extends Vue {
   @Prop({
@@ -85,7 +90,7 @@ export default class ListItem extends Vue {
 
   checkIconType(
     icon?: string
-  ): 'none' | 'material' | 'covid' | 'parent' | 'others' {
+  ): 'none' | 'material' | 'covid' | 'parent' | 'niigata' | 'others' {
     if (!icon) return 'none'
     if (icon.startsWith('mdi')) {
       return 'material'
@@ -93,6 +98,8 @@ export default class ListItem extends Vue {
       return 'covid'
     } else if (icon === 'parent') {
       return 'parent'
+    } else if (icon === 'niigata') {
+      return 'niigata'
     } else {
       return 'others'
     }
