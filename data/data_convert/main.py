@@ -36,12 +36,15 @@ tag_kensa = soup.find("a", text=re.compile("^新型コロナウイルス感染�
 
 link_kensa = urljoin(url, tag_kensa.get("href"))
 
-df_kensa = pd.read_excel(link_kensa, header=[2, 3])
+# df_kensa = pd.read_excel(link_kensa, header=[2, 3])
+df_kensa = pd.read_excel(link_kensa,header=[1,2],skipfooter=1)
 df_kensa.columns = df_kensa.columns.to_flat_index()
 df_kensa.rename(columns={("検査日", "Unnamed: 0_level_1"): "検査日"}, inplace=True)
 
-df_kensa.set_index("検査日", inplace=True)
+df_kensa[ ("検査件数", "栃木県")] = df_kensa[("検査件数", "栃木県")].fillna(0) + df_kensa[("検査件数", "県委託分")].fillna(0)
+df_kensa[ ("検査件数", "宇都宮市")] = df_kensa[("検査件数", "宇都宮市")].fillna(0) + df_kensa[("検査件数", "市委託分")].fillna(0)
 
+df_kensa.set_index("検査日", inplace=True)
 df_kensa["日付"] = df_kensa.index.strftime("%Y-%m-%d")
 
 df_insp_sum = df_kensa.loc[:, ["日付", ("検査件数", "栃木県"), ("検査件数", "宇都宮市")]]

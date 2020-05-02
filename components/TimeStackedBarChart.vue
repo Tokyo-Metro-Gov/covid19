@@ -2,13 +2,8 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
-        {{ $t('（注）同一の対象者について複数の検体を調査する場合あり') }}
-        <br />
-        {{
-          $t(
-            '県のデータ公表都合により、4/7以降の"栃木県内"と"宇都宮市"の検査実施数の内訳に多少の誤差を含む可能性があります、正解な数値が分かり次第訂正します。'
-          )
-        }}
+        {{ $t('同一の対象者について複数の検体を調査する場合あり') }}<br/>
+        {{ $t('実施数は委託医療機関の件数も含む')}}<br/>
       </p>
       <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
