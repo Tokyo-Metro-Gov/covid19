@@ -8,13 +8,12 @@
         <t-i18n>{{ $t('最新のお知らせ') }}</t-i18n>
       </h3>
       <span class="WhatsNew-link-to-emergency-page">
-        <v-icon size="20" class="WhatsNew-link-to-emergency-page-icon">
-          mdi-bullhorn
-        </v-icon>
-        <!-- @todo t-i18n化が必要 -->
         <external-link
           url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
         >
+          <v-icon size="20" class="WhatsNew-link-to-emergency-page-icon">
+            mdi-bullhorn
+          </v-icon>
           <t-i18n>{{ $t('東京都緊急事態措置について') }}</t-i18n>
         </external-link>
       </span>
@@ -111,7 +110,7 @@ export default Vue.extend({
       border-radius: 4px;
       font-size: 1rem;
       padding: 4px 8px;
-
+      display: inline-flex;
       &:hover {
         background-color: $white;
         border-radius: 4px;
@@ -120,6 +119,8 @@ export default Vue.extend({
       .ExternalLink {
         color: $gray-2 !important;
         text-decoration: none;
+        margin: -10px;
+        padding: 10px;
       }
 
       > span {

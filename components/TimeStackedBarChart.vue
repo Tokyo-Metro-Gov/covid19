@@ -24,7 +24,7 @@
           <t-i18n>
             {{
               $t(
-                '（注）医療機関が保険適用で行った検査については、４月１５日分までを計上'
+                '（注）医療機関が保険適用で行った検査については、４月２９日分までを計上'
               )
             }}
           </t-i18n>
@@ -87,6 +87,8 @@
         :width="chartWidth"
       />
     </div>
+    <!-- Removed in https://github.com/tokyo-metropolitan-gov/covid19/pull/3851
+         @todo Revert this removal later to make this available again
     <template v-slot:dataTable>
       <v-data-table
         :headers="tableHeaders"
@@ -129,6 +131,7 @@
         </template>
       </v-data-table>
     </template>
+    -->
     <slot name="additionalNotes" />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -281,7 +284,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
           sText: `${this.$t('{date}の合計', {
             date: this.labels[this.labels.length - 1]
-          })}（${this.$t('医療機関が保険適用で行った検査は含まれていない')}）`,
+          })}`,
           unit: this.unit
         }
       }
@@ -374,7 +377,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           custom: tooltipModel => customTooltip(this, tooltipModel),
           callbacks: {
             label: tooltipItem => {
-              let casesTotal, cases
+              let casesTotal, cases, label
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index!].toLocaleString()
                 cases = data[tooltipItem.datasetIndex!][
@@ -389,9 +392,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 ].toLocaleString()
               }
 
-              return `${
-                this.dataLabels[tooltipItem.datasetIndex!]
-              }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
+              label = `${cases} ${unit}`
+              if (this.dataKind === 'cumulative') {
+                label += ` (${this.$t('合計')}: ${casesTotal} ${unit})`
+              }
+              return label
             },
             title(tooltipItem, data) {
               return String(data.labels![tooltipItem[0].index!])

@@ -142,7 +142,13 @@
         </p>
         <div :class="[$style.box, $style.bgGray]">
           <h5 :class="$style.boxHeading">
-            <t-i18n>{{ $t('新型コロナコールセンター') }}</t-i18n>
+            <t-i18n>
+              {{
+                $t(
+                  '新型コロナコールセンター（対応言語：日本語・英語・中国語・韓国語）'
+                )
+              }}
+            </t-i18n>
           </h5>
           <dl :class="$style.contact">
             <dt>
@@ -175,7 +181,13 @@
         </p>
         <div :class="[$style.box, $style.bgGray]">
           <h5 :class="$style.boxHeading">
-            <t-i18n>{{ $t('新型コロナコールセンター') }}</t-i18n>
+            <t-i18n>
+              {{
+                $t(
+                  '新型コロナコールセンター（対応言語：日本語・英語・中国語・韓国語）'
+                )
+              }}
+            </t-i18n>
           </h5>
           <dl :class="$style.contact">
             <dt>
@@ -243,9 +255,13 @@
               <t-i18n>{{ $t('陰性の場合') }}</t-i18n>
             </h5>
             <p>
-              <t-i18n>{{
-                $t('自宅安静となり、医療機関を受診していただきます')
-              }}</t-i18n>
+              <t-i18n>
+                {{
+                  $t(
+                    '自宅で安静に過ごし、必要に応じて医療機関を受診してください'
+                  )
+                }}
+              </t-i18n>
             </p>
             <p :class="[$style.small, $style.grow]">
               <t-i18n>{{
