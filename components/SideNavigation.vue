@@ -139,7 +139,7 @@ export default {
         {
           icon: 'niigata',
           title: this.$t('県内 各市町村のコロナウイルス感染症情報'),
-          link: this.localePath('/cities'),
+          link: this.localePath('/cities')
         },
         {
           title: this.$t(
