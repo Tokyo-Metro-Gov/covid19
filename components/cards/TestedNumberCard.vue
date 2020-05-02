@@ -13,17 +13,29 @@
     >
       <!-- 件.tested = 検査数 -->
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
-        {{ $t('※1: 疑い例・接触者調査') }}
-        <br />
-        {{ $t('※2: チャーター便・クルーズ船') }}
+        <ul :class="$style.GraphDesc">
+          <li>
+            {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
+          </li>
+          <li>
+            {{
+              $t(
+                '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+              )
+            }}
+          </li>
+        </ul>
       </template>
     </time-stacked-bar-chart>
   </v-col>
 </template>
 
 <script>
+import dayjs from 'dayjs'
+import duration from 'dayjs/plugin/duration'
 import Data from '@/data/data.json'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
+dayjs.extend(duration)
 
 export default {
   components: {
@@ -31,16 +43,51 @@ export default {
   },
   data() {
     // 検査実施日別状況
-    const inspectionsGraph = [
-      Data.inspections_summary.data['都内'],
-      Data.inspections_summary.data['その他']
-    ]
+    const today = new Date()
+    const lastThursday = dayjs()
+      .startOf('day')
+      .day(4) // 直前の木曜日
+    const lastAvailableDate = dayjs(
+      today.getFullYear() +
+        '/' +
+        Data.inspections_summary.labels[
+          Data.inspections_summary.labels.length - 1
+        ]
+    ) // 最新の検査実施日
+    let fromLastThursdayDates = 0
+    if (lastThursday.isBefore(lastAvailableDate)) {
+      fromLastThursdayDates =
+        dayjs.duration(lastAvailableDate.diff(lastThursday)).asDays() + 1 // 直前の木曜日からの日数
+    }
+    const l = Data.inspections_summary.data['都内'].length
+    const beforeLastThursday = []
+    const afterLastThursday = []
+    for (let i = 0; i < l; i++) {
+      // 直前の木曜日前後で振り分け
+      const sum =
+        Data.inspections_summary.data['都内'][i] +
+        (Data.inspections_summary.data['その他'][i]
+          ? Data.inspections_summary.data['その他'][i]
+          : 0)
+      if (l - i - 1 > fromLastThursdayDates) {
+        beforeLastThursday.push(sum)
+        afterLastThursday.push(0)
+      } else {
+        beforeLastThursday.push(0)
+        afterLastThursday.push(sum)
+      }
+    }
+    const inspectionsGraph = [beforeLastThursday, afterLastThursday]
     const inspectionsItems = [
-      this.$t('都内発生（※1）'),
-      this.$t('その他（※2）')
+      this.$t(
+        '健康安全研究センター及び医療機関が保険適用で行った検査件数の合計'
+      ),
+      this.$t(
+        '健康安全研究センターの検査件数のみの速報値（保険適用分を含まない未確定値）'
+      )
     ]
     const inspectionsLabels = Data.inspections_summary.labels
-    const inspectionsDataLabels = [this.$t('都内'), this.$t('その他.graph')]
+    const inspectionsDataLabels = [this.$t('確定値'), this.$t('未確定値')]
 
     const data = {
       Data,
@@ -53,3 +100,16 @@ export default {
   }
 }
 </script>
+
+<style module lang="scss">
+.Graph {
+  &Desc {
+    margin: 0;
+    margin-top: 1rem;
+    padding-left: 0 !important;
+    font-size: 12px;
+    color: $gray-3;
+    list-style: none;
+  }
+}
+</style>

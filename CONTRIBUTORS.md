@@ -148,6 +148,16 @@ Tokyo Covid-19 response site contributors
 | [Soichi Ikebe (AQUA)](https://www.aqua-ix.com/) | [@Aqua-ix](https://github.com/Aqua-ix) | [@Aqua_ix](https://twitter.com/Aqua_ix) | Coding |
 | yuuton414 | [@yuuton414](https://github.com/yuuton414) | | Coding |
 | Hiroki Kobayashi | [@khsacc](https://github.com/khsacc) | [@khsacc](https://twitter.com/khsacc) | Coding |
+| Rafał Chłodnicki | [@rchl](https://github.com/rchl) | | nuxt-i18n |
+| Yuki Yano | [@yanoyuki](https://github.com/yanoyuki) | [@yanolii](https://twitter.com/yanolii) | Coding |
+| seuharuka | [@seuharuka](https://github.com/seuharuka) | | Coding |
+| yoshikos | [@yoshikos](https://github.com/yoshikos) | | Translation |
+| Sungpyo Cho | [@sungpyocho](https://github.com/sungpyocho) | | Translation |
+| [Taira Sano](https://www.linkedin.com/in/taira-sano-38799560/) | [@devrolerole](https://github.com/devrolerole) | | Coding |
+| [Kazuhiro Kobayashi](https://kzhrk.dev) | [@kzhrk](https://github.com/kzhrk) | | Frontend |
+| [Anharu](https://anharu2394.github.io) | [@anharu2394](https://github.com/anharu2394) | [@_anharu](https://twitter.com/_anharu) | Frontend |
+| Yuto Ashida | [@y-chan](https://github.com/y-chan) | [@Xperia_Build_Y](https://twitter.com/Xperia_Build_Y) | Coding |
+| [Hayashizaki Masayuki](https://miscre.com) | [@sakaitaka](https://github.com/sakaitaka) | | Frontend |
 
 ご協力に感謝です！！！
 

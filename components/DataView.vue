@@ -1,5 +1,5 @@
 <template>
-  <v-card class="DataView" :loading="loading">
+  <v-card ref="dataView" class="DataView" :loading="loading">
     <div class="DataView-Inner">
       <div class="DataView-Header">
         <h3
@@ -19,6 +19,32 @@
       <div class="DataView-CardText">
         <slot />
       </div>
+      <div v-if="this.$slots.dataTable" class="DataView-Details">
+        <v-expansion-panels v-if="showDetails" flat>
+          <v-expansion-panel>
+            <v-expansion-panel-header
+              :hide-actions="true"
+              :style="{ transition: 'none' }"
+              @click="toggleDetails"
+            >
+              <template slot:actions>
+                <div class="v-expansion-panel-header__icon">
+                  <v-icon left>mdi-chevron-right</v-icon>
+                </div>
+              </template>
+              <span class="expansion-panel-text">{{
+                $t('テーブルを表示')
+              }}</span>
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              <slot name="dataTable" />
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+        <template v-else>
+          <slot name="dataTable" />
+        </template>
+      </div>
       <div class="DataView-Description">
         <slot name="footer-description" />
       </div>
@@ -27,41 +53,50 @@
           <slot name="footer" />
           <div>
             <a class="Permalink" :href="permalink()">
-              <time :datetime="formattedDate">
-                {{ $t('{date} 更新', { date }) }}
-              </time>
+              <time :datetime="formattedDate">{{
+                $t('{date} 更新', { date })
+              }}</time>
             </a>
           </div>
         </div>
 
         <div v-if="this.$route.query.embed != 'true'" class="Footer-Right">
-          <button class="DataView-Share-Opener" @click="toggleShareMenu">
-            <svg
-              width="14"
-              height="16"
-              viewBox="0 0 14 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              :aria-label="$t('{title}のグラフをシェア', { title })"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M7.59999 3.5H9.5L7 0.5L4.5 3.5H6.39999V11H7.59999V3.5ZM8.5 5.75H11.5C11.9142 5.75 12.25 6.08579 12.25 6.5V13.5C12.25 13.9142 11.9142 14.25 11.5 14.25H2.5C2.08579 14.25 1.75 13.9142 1.75 13.5V6.5C1.75 6.08579 2.08579 5.75 2.5 5.75H5.5V4.5H2.5C1.39543 4.5 0.5 5.39543 0.5 6.5V13.5C0.5 14.6046 1.39543 15.5 2.5 15.5H11.5C12.6046 15.5 13.5 14.6046 13.5 13.5V6.5C13.5 5.39543 12.6046 4.5 11.5 4.5H8.5V5.75Z"
-                fill="#808080"
-              />
-            </svg>
-          </button>
+          <v-tooltip left nudge-right="20" nudge-bottom="4">
+            <template v-slot:activator="{ on }">
+              <button
+                class="DataView-Share-Opener"
+                @click="toggleShareMenu"
+                v-on="on"
+              >
+                <svg
+                  width="14"
+                  height="16"
+                  viewBox="0 0 14 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  :aria-label="$t('{title}のグラフをシェア', { title })"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M7.59999 3.5H9.5L7 0.5L4.5 3.5H6.39999V11H7.59999V3.5ZM8.5 5.75H11.5C11.9142 5.75 12.25 6.08579 12.25 6.5V13.5C12.25 13.9142 11.9142 14.25 11.5 14.25H2.5C2.08579 14.25 1.75 13.9142 1.75 13.5V6.5C1.75 6.08579 2.08579 5.75 2.5 5.75H5.5V4.5H2.5C1.39543 4.5 0.5 5.39543 0.5 6.5V13.5C0.5 14.6046 1.39543 15.5 2.5 15.5H11.5C12.6046 15.5 13.5 14.6046 13.5 13.5V6.5C13.5 5.39543 12.6046 4.5 11.5 4.5H8.5V5.75Z"
+                    fill="#808080"
+                  />
+                </svg>
+              </button>
+            </template>
+            <span>{{ $t('情報をシェアする') }}</span>
+          </v-tooltip>
           <div
             v-if="displayShare"
             class="DataView-Share-Buttons py-2"
             @click="stopClosingShareMenu"
           >
             <div class="Close-Button">
-              <v-icon :aria-label="$t('閉じる')" @click="closeShareMenu">
-                mdi-close
-              </v-icon>
+              <v-icon :aria-label="$t('閉じる')" @click="closeShareMenu"
+                >mdi-close</v-icon
+              >
             </div>
 
             <h4>{{ $t('埋め込み用コード') }}</h4>
@@ -72,9 +107,8 @@
                 class="EmbedCode-Copy"
                 :aria-label="$t('クリップボードにコピー')"
                 @click="copyEmbedCode"
+                >mdi-clipboard-outline</v-icon
               >
-                far fa-clipboard
-              </v-icon>
               {{ graphEmbedValue }}
             </div>
 
@@ -136,12 +170,8 @@
 
     <div v-if="showOverlay" class="overlay">
       <div class="overlay-text">
-        {{ $t('埋め込みコードをコピーしました') }}
+        {{ $t('埋め込み用コードをコピーしました') }}
       </div>
-      <v-footer class="DataView-Footer">
-        <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
-        <slot name="footer" />
-      </v-footer>
     </div>
   </v-card>
 </template>
@@ -149,6 +179,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 
 export default Vue.extend({
   props: {
@@ -174,7 +205,9 @@ export default Vue.extend({
     return {
       openGraphEmbed: false,
       displayShare: false,
-      showOverlay: false
+      showOverlay: false,
+      showDetails: false,
+      openDetails: false
     }
   },
   computed: {
@@ -200,6 +233,9 @@ export default Vue.extend({
         )
       }
     }
+  },
+  mounted() {
+    this.showDetails = true
   },
   methods: {
     toggleShareMenu(e: Event) {
@@ -262,6 +298,10 @@ export default Vue.extend({
         'https://social-plugins.line.me/lineit/share?url=' +
         this.permalink(true)
       window.open(url)
+    },
+    toggleDetails() {
+      this.openDetails = !this.openDetails
+      EventBus.$emit(TOGGLE_EVENT, { dataView: this.$refs.dataView })
     }
   }
 })
@@ -274,6 +314,27 @@ export default Vue.extend({
   @include card-container();
 
   height: 100%;
+
+  .LegendStickyChart {
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+    .scrollable {
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        height: 4px;
+        background-color: rgba(0, 0, 0, 0.01);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.07);
+      }
+    }
+    .sticky-legend {
+      position: absolute;
+      top: 0;
+      pointer-events: none;
+    }
+  }
 
   &-Header {
     display: flex;
@@ -320,7 +381,6 @@ export default Vue.extend({
   &-Inner {
     display: flex;
     flex-flow: column;
-    justify-content: space-between;
     padding: 22px;
     height: 100%;
   }
@@ -357,6 +417,21 @@ export default Vue.extend({
     }
   }
 
+  &-Details {
+    margin: 10px 0;
+
+    .v-data-table .text-end {
+      text-align: right;
+    }
+  }
+
+  &-DetailsSummary {
+    @include font-size(14);
+
+    color: $gray-2;
+    cursor: pointer;
+  }
+
   &-CardTextForXS {
     margin-bottom: 46px;
     margin-top: 70px;
@@ -372,9 +447,11 @@ export default Vue.extend({
     padding: 0 !important;
     display: flex;
     justify-content: space-between;
+    margin-top: auto;
     color: $gray-3 !important;
     text-align: right;
     background-color: $white !important;
+
     .Permalink {
       color: $gray-3 !important;
     }
@@ -398,7 +475,8 @@ export default Vue.extend({
 
       .DataView-Share-Opener {
         cursor: pointer;
-        margin-right: 6px;
+        margin: -14px;
+        padding: 14px;
 
         > svg {
           width: auto !important;
@@ -476,7 +554,6 @@ export default Vue.extend({
 
           .icon-resize {
             border-radius: 50%;
-            font-size: 30px;
 
             &.twitter {
               color: #fff;
@@ -537,5 +614,21 @@ textarea {
   font: 400 11px system-ui;
   width: 100%;
   height: 2.4rem;
+}
+
+.v-expansion-panel-header__icon {
+  margin-left: -5px !important;
+
+  & .v-icon--left {
+    margin-right: 5px;
+  }
+
+  .v-expansion-panel--active & .v-icon {
+    transform: rotate(90deg) !important;
+  }
+}
+
+.expansion-panel-text {
+  color: $gray-1;
 }
 </style>

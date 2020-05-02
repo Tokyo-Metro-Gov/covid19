@@ -16,32 +16,33 @@
       :options="displayOption"
       :height="240"
     />
-    <v-data-table
-      :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
-      :headers="tableHeaders"
-      :items="tableData"
-      :items-per-page="-1"
-      :hide-default-footer="true"
-      :height="240"
-      :fixed-header="true"
-      :disable-sort="true"
-      :mobile-breakpoint="0"
-      class="cardTable"
-      item-key="name"
-    />
+    <template v-slot:dataTable>
+      <v-data-table
+        :headers="tableHeaders"
+        :items="tableData"
+        :items-per-page="-1"
+        :hide-default-footer="true"
+        :height="240"
+        :fixed-header="true"
+        :disable-sort="true"
+        :mobile-breakpoint="0"
+        class="cardTable"
+        item-key="name"
+      >
+        <template v-slot:body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.text">
+              <th>{{ item.text }}</th>
+              <td class="text-end">{{ item[0] }}</td>
+              <td class="text-end">{{ item[1] }}</td>
+              <td class="text-end">{{ item[2] }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-data-table>
+    </template>
   </data-view>
 </template>
-
-<style module lang="scss">
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    font-size: 12px;
-    color: $gray-3;
-  }
-}
-</style>
 
 <script lang="ts">
 import Vue from 'vue'
@@ -51,6 +52,14 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
+import { DisplayData, DataSets } from '@/plugins/vue-chart'
+
+interface AgencyDataSets extends DataSets {
+  label: string
+}
+interface AgencyDisplayData extends DisplayData {
+  datasets: AgencyDataSets[]
+}
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -63,16 +72,7 @@ type Data = {
 }
 type Methods = {}
 type Computed = {
-  displayData: {
-    labels: string[]
-    datasets: {
-      label: string
-      data: number[]
-      backgroundColor: string
-      borderColor: string
-      borderWidth: number
-    }[]
-  }
+  displayData: AgencyDisplayData
   displayOption: ChartOptions
   tableHeaders: {
     text: VueI18n.TranslateResult
@@ -225,21 +225,23 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return [
         { text: this.$t('日付'), value: 'text' },
         ...this.displayData.datasets.map((text, value) => {
-          return { text: text.label, value: String(value) }
+          return { text: text.label, value: String(value), align: 'end' }
         })
       ]
     },
     tableData() {
-      return this.displayData.datasets[0].data.map((_, i) => {
-        return Object.assign(
-          { text: this.displayData.labels[i] as string },
-          ...this.displayData.datasets!.map((_, j) => {
-            return {
-              [j]: this.displayData.datasets[0].data[i]
-            }
-          })
-        )
-      })
+      return this.displayData.datasets[0].data
+        .map((_, i) => {
+          return Object.assign(
+            { text: this.displayData.labels![i] },
+            ...this.displayData.datasets!.map((_, j) => {
+              return {
+                [j]: this.displayData.datasets[j].data[i].toLocaleString()
+              }
+            })
+          )
+        })
+        .reverse()
     }
   },
   mounted() {
@@ -257,3 +259,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
 export default Vue.extend(options)
 </script>
+
+<style module lang="scss">
+.DataView {
+  &Desc {
+    margin-top: 10px;
+    margin-bottom: 0 !important;
+    font-size: 12px;
+    color: $gray-3;
+  }
+}
+</style>

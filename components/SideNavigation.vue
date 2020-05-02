@@ -42,10 +42,10 @@
             <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
               {{ $t('多言語対応選択メニュー') }}
             </label>
-            <LanguageSelector />
+            <language-selector />
           </div>
         </div>
-        <MenuList :items="items" @click="$emit('closeNavi', $event)" />
+        <menu-list :items="items" @click="$emit('closeNavi', $event)" />
       </nav>
 
       <footer class="SideNavigation-Footer">
@@ -94,6 +94,17 @@
               <img src="/github.png" alt="GitHub" />
             </picture>
           </a>
+          <a
+            href="https://www.youtube.com/user/tokyo/videos"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="SideNavigation-SocialLink"
+          >
+            <picture>
+              <source srcset="/youtube.webp" type="image/webp" />
+              <img src="/youtube.png" alt="YouTube" />
+            </picture>
+          </a>
         </div>
         <small class="SideNavigation-Copyright">
           {{ $t('このサイトの内容物は') }}
@@ -107,7 +118,7 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 Tokyo Metropolitan Government
+          &copy; 2020 Tokyo Metropolitan Government
         </small>
       </footer>
     </div>
@@ -149,7 +160,19 @@ export default Vue.extend({
         {
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: this.localePath('/flow'),
+          link: this.localePath('/flow')
+        },
+        {
+          icon: 'CovidIcon',
+          title: this.$t('新型コロナウイルスの感染が判明した方へ'),
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/corona_0401.html'
+        },
+        {
+          icon: 'MaskTrashIcon',
+          title: this.$t('ご家庭でのマスク等の捨て方'),
+          link:
+            'https://www.kankyo.metro.tokyo.lg.jp/resource/500200a20200221162304660.files/200327_chirashi.pdf',
           divider: true
         },
         {
@@ -174,9 +197,19 @@ export default Vue.extend({
             'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         },
         {
+          title: this.$t('新型コロナウイルス感染症に関する東京都の支援策'),
+          link:
+            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-support.html'
+        },
+        {
           title: this.$t('東京都主催等 中止又は延期するイベント等'),
           link:
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
+        },
+        {
+          title: this.$t('東京都における滞在人口の増減'),
+          link:
+            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html'
         },
         {
           title: this.$t('知事からのメッセージ'),

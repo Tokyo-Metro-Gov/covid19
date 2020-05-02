@@ -1,11 +1,23 @@
 <template>
   <div class="WhatsNew">
-    <h3 class="WhatsNew-heading">
-      <v-icon size="24" class="WhatsNew-heading-icon">
-        mdi-information
-      </v-icon>
-      {{ $t('最新のお知らせ') }}
-    </h3>
+    <div class="WhatsNew-heading">
+      <h3 class="WhatsNew-title">
+        <v-icon size="24" class="WhatsNew-title-icon">
+          mdi-information
+        </v-icon>
+        {{ $t('最新のお知らせ') }}
+      </h3>
+      <span class="WhatsNew-link-to-emergency-page">
+        <external-link
+          url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
+        >
+          <v-icon size="20" class="WhatsNew-link-to-emergency-page-icon">
+            mdi-bullhorn
+          </v-icon>
+          {{ $t('東京都緊急事態措置について') }}
+        </external-link>
+      </span>
+    </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
         <a
@@ -18,7 +30,7 @@
             class="WhatsNew-list-item-anchor-time px-2"
             :datetime="formattedDate(item.date)"
           >
-            {{ item.date }}
+            {{ formattedDateForDisplay(item.date) }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
             {{ item.text }}
@@ -38,9 +50,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { convertDateToISO8601Format } from '@/utils/formatDate'
+import ExternalLink from '@/components/ExternalLink.vue'
+
+import {
+  convertDateByCountryPreferTimeFormat,
+  convertDateToISO8601Format
+} from '@/utils/formatDate'
 
 export default Vue.extend({
+  components: { ExternalLink },
   props: {
     items: {
       type: Array,
@@ -53,6 +71,9 @@ export default Vue.extend({
     },
     formattedDate(dateString: string) {
       return convertDateToISO8601Format(dateString)
+    },
+    formattedDateForDisplay(dateString: string) {
+      return convertDateByCountryPreferTimeFormat(dateString, this.$i18n.locale)
     }
   }
 })
@@ -64,62 +85,93 @@ export default Vue.extend({
 
   padding: 10px;
   margin-bottom: 20px;
-}
 
-.WhatsNew-heading {
-  display: flex;
-  align-items: center;
+  .WhatsNew-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
 
-  @include card-h2();
+    .WhatsNew-title {
+      display: flex;
+      align-items: center;
+      color: $gray-2;
+      @include card-h2();
+      &-icon {
+        margin: 3px;
+      }
+    }
 
-  margin-bottom: 12px;
-  color: $gray-2;
-  margin-left: 12px;
+    .WhatsNew-link-to-emergency-page {
+      background-color: $emergency;
+      border: 2px solid $emergency;
+      color: $gray-2;
+      border-radius: 4px;
+      font-size: 1rem;
+      padding: 4px 8px;
+      display: inline-flex;
+      &:hover {
+        background-color: $white;
+        border-radius: 4px;
+      }
 
-  &-icon {
-    margin: 3px;
+      .ExternalLink {
+        color: $gray-2 !important;
+        text-decoration: none;
+        margin: -10px;
+        padding: 10px;
+      }
+
+      > span {
+        @include button-text('sm');
+      }
+
+      @include lessThan($small) {
+        margin-top: 4px;
+      }
+    }
   }
-}
 
-.WhatsNew .WhatsNew-list {
-  padding-left: 0;
-  list-style-type: none;
+  .WhatsNew-list {
+    padding-left: 0;
+    list-style-type: none;
 
-  &-item {
-    &-anchor {
-      display: inline-block;
-      text-decoration: none;
-      margin: 5px;
-      font-size: 14px;
-
-      @include lessThan($medium) {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      &-time {
-        flex: 0 0 90px;
+    &-item {
+      &-anchor {
+        text-decoration: none;
+        margin: 5px;
+        font-size: 14px;
 
         @include lessThan($medium) {
-          flex: 0 0 100%;
+          display: flex;
+          flex-wrap: wrap;
         }
 
-        color: $gray-1;
-      }
+        &-time {
+          flex: 0 0 90px;
 
-      &-link {
-        flex: 0 1 auto;
+          @include lessThan($medium) {
+            flex: 0 0 100%;
+          }
 
-        @include text-link();
-
-        @include lessThan($medium) {
-          padding-left: 8px;
+          color: $gray-1;
         }
-      }
 
-      &-ExternalLinkIcon {
-        margin-left: 2px;
-        color: $gray-3 !important;
+        &-link {
+          flex: 0 1 auto;
+
+          @include text-link();
+
+          @include lessThan($medium) {
+            padding-left: 8px;
+          }
+        }
+
+        &-ExternalLinkIcon {
+          margin-left: 2px;
+          color: $gray-3 !important;
+        }
       }
     }
   }

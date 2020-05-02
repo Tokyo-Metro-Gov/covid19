@@ -30,6 +30,8 @@
 
 ## 面向开发者信息
 
+请查看 [面向开发者信息](./FOR_DEVELOPERS.md) 文档。
+
 ### 开发环境搭建
 
 - Node.js 版本最低需求: 10.19.0以上
@@ -45,18 +47,14 @@ $ yarn dev
 ```
 
 
-[PLEASE TRANSLATE ME]
+**禁用辅助功能检查（vue-axe）的方法**
 
-**アクセシビリティチェック（vue-axe）を無効にする方法**
-
-- 開発用ローカルサーバが重い場合、以下のようにアクセシビリティチェックを無効にして起動することができます。
+- 当本地开发服务器占用资源较多时，可按如下方式禁用辅助功能检查并启动。
 
 ```bash
 # serve with hot reload at localhost:3000
 $ yarn dev-no-axe
 ```
-
-[/PLEASE TRANSLATE ME]
 
 
 **使用 docker compose 时**
@@ -105,9 +103,9 @@ $ docker-compose run --rm app yarn install
 
 `master` 分支更新时，自动将 `production` 分支中的HTML类(build)后发布到正式版 https://stopcovid19.metro.tokyo.lg.jp/
 
-`staging` 分支更新时，自动将 `gh-pages` 分支中的HTML类(build)后发布到Staging版 https://stg-covid19-tokyo.netlify.com/
+`staging` 分支更新时，自动将 `gh-pages` 分支中的HTML类(build)后发布到Staging版 https://stg-covid19-tokyo.netlify.app/
 
-`development` 分支更新时，自动将 `dev-pages` 分支中的HTML类(build)后发布到开发版 https://dev-covid19-tokyo.netlify.com/
+`development` 分支更新时，自动将 `dev-pages` 分支中的HTML类(build)后发布到开发版 https://dev-covid19-tokyo.netlify.app/
 
 ### 规则
 
@@ -120,13 +118,13 @@ Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 #### 基本分支
 | 目的 | 分支 | 预览用 URL | 备注 |
 | ---- | -------- | ---- | ---- |
-| 开发 | development | https://dev-covid19-tokyo.netlify.com/ | 基本上请推送 Pull Request 到这里 |
+| 开发 | development | https://dev-covid19-tokyo.netlify.app/ | 基本上请推送 Pull Request 到这里 |
 | 紧急修复 | dev-hotfix | 无 | 对正式版的紧急修复。在管理员的要求下使用。 |
-| 正式版预览 | staging | https://stg-covid19-tokyo.netlify.com/ | 对于正式版发布前的最终确认，禁止管理员以外的人推送 Pull Request。 |
+| 正式版预览 | staging | https://stg-covid19-tokyo.netlify.app/ | 对于正式版发布前的最终确认，禁止管理员以外的人推送 Pull Request。 |
 | 正式版 | master | https://stopcovid19.metro.tokyo.lg.jp/ | 禁止管理员以外的人推送 Pull Request |
 #### 系统所使用的分支
 | 目的 | 分支 | 预览用 URL | 备注 |
 | ---- | -------- | ---- | ---- |
 | 正式网站 HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | 生成静态网站 HTML 的位置 |
-| 正式版预览 HTML | gh-pages | https://stg-covid19-tokyo.netlify.com/ | 生成静态网站 HTML 的位置 |
+| 正式版预览 HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | 生成静态网站 HTML 的位置 |
 | OGP 工作用 | deploy / new_ogp | 无 | OGP 更新用 |

@@ -5,8 +5,12 @@
         <div :class="$style.content">
           <!-- eslint-disable vue/no-v-html-->
           <span>
-            {{ $t('検査実施人数') }}
-            <br />({{ $t('累計') }})
+            {{ $t('検査実施人数') }}<br />
+            <span :class="$style.note">
+              ({{ $t('健康安全研究センターによる実施分') }})
+            </span>
+            <br />
+            ({{ $t('累計') }})
           </span>
           <!-- eslint-enable vue/no-v-html-->
           <span>
@@ -83,29 +87,6 @@ export default Vue.extend({
       type: Number,
       required: true
     }
-  },
-  methods: {
-    /** 桁数に応じて位置の調整をする */
-    getAdjustX(input: number) {
-      const length = input.toString(10).length
-      switch (length) {
-        case 1: {
-          return 3
-        }
-        case 2: {
-          return 0
-        }
-        case 3: {
-          return -3
-        }
-        case 4: {
-          return -8
-        }
-        default: {
-          return 0
-        }
-      }
-    }
   }
 })
 </script>
@@ -173,12 +154,16 @@ $default-boxh: 150px;
     }
 
     &:not(:last-child) {
-      word-break: break-all;
+      overflow-wrap: break-word;
     }
   }
 
   span strong {
     @include font-size(18);
+  }
+
+  span.note {
+    @include font-size(11);
   }
 
   span.unit {

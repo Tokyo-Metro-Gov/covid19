@@ -65,7 +65,9 @@
         <li :class="[$style.box, $style.recovered]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <span>{{ $t('退院') }}</span>
+              <span
+                >{{ $t('退院') }}<br />{{ $t('（療養期間経過を含む）') }}</span
+              >
               <span>
                 <strong>{{ 退院.toLocaleString() }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
@@ -111,29 +113,6 @@ export default Vue.extend({
     退院: {
       type: Number,
       required: true
-    }
-  },
-  methods: {
-    /** 桁数に応じて位置の調整をする */
-    getAdjustX(input: number) {
-      const length = input.toString(10).length
-      switch (length) {
-        case 1: {
-          return 3
-        }
-        case 2: {
-          return 0
-        }
-        case 3: {
-          return -3
-        }
-        case 4: {
-          return -8
-        }
-        default: {
-          return 0
-        }
-      }
     }
   }
 })
@@ -275,7 +254,7 @@ $default-boxdiff: 35px;
     }
 
     &:not(:last-child) {
-      word-break: break-all;
+      overflow-wrap: break-word;
     }
   }
   span strong {
