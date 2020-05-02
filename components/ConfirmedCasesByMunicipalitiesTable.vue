@@ -13,7 +13,7 @@
       :fixed-header="true"
       :mobile-breakpoint="0"
       :disable-sort="true"
-      class="cardTable"
+      class="cardTableMunicipalities"
     />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -26,7 +26,7 @@
 </template>
 
 <style lang="scss">
-.cardTable {
+.cardTableMunicipalities {
   &.v-data-table {
     box-shadow: 0 -20px 12px -12px #0003 inset;
     th {

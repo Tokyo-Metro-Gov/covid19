@@ -7,12 +7,14 @@
       :ref="'displayedTable'"
       :headers="chartData.headers"
       :items="chartData.datasets"
-      :items-per-page="-1"
-      :hide-default-footer="true"
       :height="240"
-      :fixed-header="true"
+      fixed-header
       :mobile-breakpoint="0"
       :custom-sort="customSort"
+      :footer-props="{
+        'items-per-page-options': [15, 30, 50, 100, 200, 300, -1],
+        'items-per-page-text': $t('1ページ当たり')
+      }"
       class="cardTable"
     >
       <template v-slot:body="{ items }">
@@ -25,6 +27,15 @@
             <td class="text-center">{{ item['退院'] }}</td>
           </tr>
         </tbody>
+      </template>
+      <template slot="footer.page-text" slot-scope="props">
+        {{
+          $t('{itemsLength} 項目中 {pageStart} - {pageStop} ', {
+            itemsLength: props.itemsLength,
+            pageStart: props.pageStart,
+            pageStop: props.pageStop
+          })
+        }}
       </template>
     </v-data-table>
     <div class="note">
@@ -53,7 +64,6 @@
 <style lang="scss">
 .cardTable {
   &.v-data-table {
-    box-shadow: 0 -20px 12px -12px #0003 inset;
     th {
       padding: 8px 10px;
       height: auto;
@@ -69,11 +79,9 @@
     tbody {
       tr {
         color: $gray-1;
-
         th {
           font-weight: normal;
         }
-
         td {
           padding: 8px 10px;
           height: auto;
@@ -92,9 +100,19 @@
         }
       }
     }
+    .v-select {
+      margin-left: 10px;
+    }
     &:focus {
       outline: dotted $gray-3 1px;
     }
+  }
+  .v-data-table__wrapper {
+    box-shadow: 0 -20px 12px -12px #0003 inset;
+  }
+  &.v-data-footer__pagination {
+    margin-left: 0;
+    margin-right: 5px;
   }
 }
 
