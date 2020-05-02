@@ -36,7 +36,7 @@ export default {
     ]
 
     const inspectionsItems = [
-      this.$t('栃木県内 (宇都宮市を除く)'),
+      this.$t('栃木県(宇都宮市を除く)'),
       this.$t('宇都宮市')
     ]
 
