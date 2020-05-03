@@ -158,6 +158,14 @@ export default {
           link: this.localePath('/transit')
         },
         {
+          title: this.$t('県内のテイクアウト情報'),
+          link: this.localePath('/takeout')
+        },
+        {
+          title: this.$t('当サイトについて'),
+          link: this.localePath('/about')
+        },
+        {
           title: this.$t('新潟県公式ホームページ'),
           link: 'https://www.pref.niigata.lg.jp/',
           divider: true
