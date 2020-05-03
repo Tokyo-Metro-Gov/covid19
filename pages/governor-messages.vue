@@ -5,7 +5,22 @@
     </page-header>
     <StaticCard>
       <ul>
-      <li>
+         <li>
+          <a href="https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/kenmin.data/message0501.pdf">
+            {{ $t('新型コロナウイルス感染症への対応について(5/1)') }}
+          </a>
+        </li>
+         <li>
+          <a href="https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/kenmin.data/0429chijikomento.pdf">
+            {{ $t('全国知事会の第７回新型コロナウイルス緊急対策本部に知事が出席し、意見を述べました(4/29)') }}
+          </a>
+        </li>
+         <li>
+          <a href="https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/kenmin.data/comment0425.pdf">
+            {{ $t('松江市以外の区域での初めての新型コロナウイルス感染症患者の発生について(4/25)') }}
+          </a>
+        </li>
+         <li>
           <a href="https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/kenmin.data/comment0417.pdf">
             {{ $t('新型コロナウイルス感染症に関する緊急事態宣言対象地域拡大への対応について(4/17)') }}
           </a>
