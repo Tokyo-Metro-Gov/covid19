@@ -8,6 +8,12 @@
     <whats-new class="mb-4" :items="newsItems" :showitems="4" />
     <static-info
       class="mb-4"
+      :url="localePath('/cities')"
+      :text="$t('県内 各市町村のコロナウイルス感染症情報')"
+      :btn-text="$t('リンクを見る')"
+    />
+    <static-info
+      class="mb-4"
       :url="
         'https://www.city.niigata.lg.jp/iryo/kenko/yobou_kansen/kansen/coronavirus-shisetsu.html'
       "
