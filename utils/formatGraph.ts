@@ -4,6 +4,7 @@ type DataType = {
 }
 
 type GraphDataType = {
+  bgColor: string
   label: string
   transition: number
   cumulative: number
@@ -24,8 +25,15 @@ export default (data: DataType[]) => {
       const date = new Date(d['日付'])
       const subTotal = d['小計']
       if (!isNaN(subTotal)) {
+        const col =
+          date.getDay() === 0
+            ? `#FF0000`
+            : date.getDay() === 6
+            ? `#3CB371`
+            : `#3b64b0`
         patSum += subTotal
         graphData.push({
+          bgColor: col,
           label: `${date.getMonth() + 1}/${date.getDate()}`,
           transition: subTotal,
           cumulative: patSum
