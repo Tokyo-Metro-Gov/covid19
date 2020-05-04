@@ -5,6 +5,21 @@
     </page-header>
     <StaticCard>
       <ul>
+        <li v-for="(item, i) in messageItems" :key="i" class="">
+          <a :href="item.url">
+            <time
+              class="WhatsNew-list-item-anchor-time px-2"
+              :datetime="formattedDate(item.date)"
+            >
+              {{ item.date }}
+            </time>
+            {{ item.text }}
+          </a>
+        </li>
+      </ul>
+    </StaticCard>
+    <StaticCard>
+      <ul>
          <li>
           <a href="https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/kenmin.data/message0501.pdf">
             {{ $t('新型コロナウイルス感染症への対応について(5/1)') }}
@@ -83,8 +98,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+import Message from '@/data/pref_message.json'
 import StaticCard from '@/components/StaticCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import { convertDateToISO8601Format } from '~/utils/formatDate'
 
 export default Vue.extend({
   components: {
@@ -99,6 +116,18 @@ export default Vue.extend({
       }
     }
     return data
+  },
+
+  computed: {
+    messageItems(){
+      return Message.messageItems
+    }
+  },
+
+  methods: {
+    formattedDate(dateString: string) {
+      return convertDateToISO8601Format(dateString)
+    }
   },
 
   head(): MetaInfo {
