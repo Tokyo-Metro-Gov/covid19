@@ -199,6 +199,10 @@ export default Vue.extend({
         {
           title: this.$t('沖縄県公式ホームページ'),
           link: 'https://www.pref.okinawa.jp/index.html'
+        },
+        {
+          title: this.$t('沖縄県医師会ホームページ'),
+          link: 'http://okinawa.med.or.jp/html/covid-19.html'
         }
       ]
     }
