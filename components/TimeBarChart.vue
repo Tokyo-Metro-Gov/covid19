@@ -236,7 +236,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           }),
           datasets: [
             {
-              label: this.dataKind,
+              label: `${this.$t('日別実績値')}`,
               data: this.chartData.map(d => {
                 return d.transition
               }),
@@ -245,7 +245,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               borderWidth: 1
             },
             {
-              label: this.dataKind,
+              label: `${this.$t('7日移動平均線')}`,
               data: this.chartData.map(d => {
                 return d.movingaverage
               }),
@@ -261,7 +261,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         labels: this.chartData.map(d => d.label),
         datasets: [
           {
-            label: this.dataKind,
+            label: `${this.$t('累計値')}`,
             data: this.chartData.map(d => {
               return d.cumulative
             }),
@@ -293,7 +293,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         responsive: false,
         maintainAspectRatio: false,
         legend: {
-          display: false
+          display: true
         },
         scales: {
           xAxes: [
