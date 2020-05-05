@@ -7,7 +7,7 @@
       <h3>{{ $t(item.place_name) }}</h3>
       <ul>
         <li>
-          <a href="item.url">
+          <a :href="item.url">
             {{ $t(item.title) }}
           </a>
         </li>
