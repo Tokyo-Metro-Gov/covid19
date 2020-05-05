@@ -44,9 +44,16 @@ export default {
   data() {
     // 検査実施日別状況
     const today = new Date()
-    const lastThursday = dayjs()
-      .startOf('day')
-      .day(4) // 直前の木曜日
+    // 直前の木曜日
+    const lastThursday =
+      dayjs().day() <= 4
+        ? dayjs()
+            .startOf('day')
+            .subtract(1, 'week')
+            .day(4)
+        : dayjs()
+            .startOf('day')
+            .day(4)
     const lastAvailableDate = dayjs(
       today.getFullYear() +
         '/' +
