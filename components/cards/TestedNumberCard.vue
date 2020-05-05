@@ -44,9 +44,16 @@ export default {
   data() {
     // 検査実施日別状況
     const today = new Date()
-    const lastThursday = dayjs()
-      .startOf('day')
-      .day(4) // 直前の木曜日
+    // 直前の木曜日
+    const lastThursday =
+      dayjs().day() <= 4
+        ? dayjs()
+            .startOf('day')
+            .subtract(1, 'week')
+            .day(4)
+        : dayjs()
+            .startOf('day')
+            .day(4)
     const lastAvailableDate = dayjs(
       today.getFullYear() +
         '/' +
@@ -69,7 +76,7 @@ export default {
         (Data.inspections_summary.data['その他'][i]
           ? Data.inspections_summary.data['その他'][i]
           : 0)
-      if (l - i - 1 > fromLastThursdayDates) {
+      if (l - i > fromLastThursdayDates) {
         beforeLastThursday.push(sum)
         afterLastThursday.push(0)
       } else {
