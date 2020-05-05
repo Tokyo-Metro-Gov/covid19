@@ -20,20 +20,13 @@
       <br>
       【5/5】福井県から5月20日までの県民の外出自粛、休業要請、学校再開などについて発表がありました <a href="https://www.pref.fukui.lg.jp/doc/kenkou/covid19_honb_d/fil/200505.pdf" target="_blank">詳しくはこちら</a>
       <br>
-      
+
       <span class="TopNewsImp3">【5/4】政府が「緊急事態宣言」延長（5月31日まで）</span><br>
       【4/28】福井県が学校再開について指針を発表 <a href="https://www.pref.fukui.lg.jp/doc/kenkou/covid19_chiji_d/fil/200428.pdf" target="_blank">詳しくはこちら</a><br>
       ・県立学校：当面の間、<span class="TopNewsImp3">休校を継続</span>（休校措置の内容を変更する場合は１週間前に周知）<br>
       ・小中学校：市町の教育委員会に、県立学校と同様の対応を要請<br>
       
-      【4/23】福井県 休業等の要請 <a
-      href="https://www.pref.fukui.lg.jp/doc/kenkou/kansensyo-yobousessyu/corona.html"
-      target="_blank"
-      rel="noopener"
-      >詳しくはこちら</a>
-      
-      <br>
-      【4/14】福井県独自の緊急事態宣言を発令<br>
+
       </div>
     </div>
   </div>
@@ -141,6 +134,11 @@ export default Vue.extend({
 .TopNewsImp2 {
   font-size: 14px;
   color: red;
+}
+.TopNewsImp3 {
+  font-size: 14px;
+  color: red;
+  text-decoration: underline;
 }
 .MainPage {
   .DataBlock {
