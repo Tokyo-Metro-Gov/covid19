@@ -34,7 +34,8 @@
   <div class="DataCard col-md-6 col-12">
     <div class="WhatsNew" style="height:100%">
       <h3 class="WhatsNew-heading"><i aria-hidden="true" class="v-icon notranslate WhatsNew-heading-icon mdi mdi-information theme--light" style="font-size:24px;"></i>
-        県民行動指針ver.3（5月20日(水)まで）<a href="https://www.pref.fukui.lg.jp/doc/kenkou/covid19_honb_d/fil/200505.pdf" target="_blank">詳しくはこちら</a>
+        県民行動指針ver.3（5月20日(水)まで）
+        <a class="TopNews" href="https://www.pref.fukui.lg.jp/doc/kenkou/covid19_honb_d/fil/200505.pdf" target="_blank">詳しくはこちら</a>
       </h3>
       <div class="TopNews">
       1.不要不急の外出や会合・会食を自粛<br>
