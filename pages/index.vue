@@ -34,18 +34,18 @@
   <div class="DataCard col-md-6 col-12">
     <div class="WhatsNew" style="height:100%">
       <h3 class="WhatsNew-heading"><i aria-hidden="true" class="v-icon notranslate WhatsNew-heading-icon mdi mdi-information theme--light" style="font-size:24px;"></i>
-        県民行動指針（4/19から5/6までに延長）
+        県民行動指針ver.3（5月20日(水)まで）<a href="https://www.pref.fukui.lg.jp/doc/kenkou/covid19_honb_d/fil/200505.pdf" target="_blank">詳しくはこちら</a>
       </h3>
       <div class="TopNews">
-      1.不急不要の外出や会合・会食を自粛<br>
+      1.不要不急の外出や会合・会食を自粛<br>
       2.感染防止対策の徹底<br>
-      3.感染リスクが高まる３密をつくらない、近づかない<br>
+      3.感染リスクが高まる密閉・密集・密接の場を「つくらない」「近づかない」<br>
       4.職場における感染防止対策を徹底<br>
       5.医療機関を受診する前に電話で相談<br>
       6.県内医療を守るために最大限協力<br>
       7.緊急事態宣言の対象地域など他県との往来を自粛<br>
-      8.必要以上の買い物を控えるなど冷静に行動<br>
-      9.人権・個人情報保護を徹底
+      8.必要以上の買い物を控えるなど冷静に行動する<br>
+      9.人権・個人情報の保護を徹底する
       </div>
     </div>
   </div>
