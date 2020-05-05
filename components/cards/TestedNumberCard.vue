@@ -76,7 +76,7 @@ export default {
         (Data.inspections_summary.data['その他'][i]
           ? Data.inspections_summary.data['その他'][i]
           : 0)
-      if (l - i - 1 > fromLastThursdayDates) {
+      if (l - i > fromLastThursdayDates) {
         beforeLastThursday.push(sum)
         afterLastThursday.push(0)
       } else {
