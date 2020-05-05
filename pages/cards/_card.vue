@@ -37,7 +37,10 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
+import MainSummary from '@/data/main_summary.json'
+import InspectionPersons from '@/data/inspection_persons.json'
+import Patients from '@/data/patients.json'
+import PatinetsSummary from '@/data/patients_summary.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -65,35 +68,19 @@ export default {
     switch (this.$route.params.card) {
       case 'details-of-confirmed-cases':
         title = this.$t('検査陽性者の状況')
-        updatedAt = Data.inspections_summary.date
-        break
-      case 'details-of-tested-cases':
-        title = this.$t('検査実施状況')
-        updatedAt = Data.inspection_status_summary.date
+        updatedAt = MainSummary.lastUpdate
         break
       case 'number-of-confirmed-cases':
         title = this.$t('陽性患者数')
-        updatedAt = Data.patients.date
+        updatedAt = PatinetsSummary.patients_summary.date
         break
       case 'attributes-of-confirmed-cases':
         title = this.$t('陽性患者の属性')
-        updatedAt = Data.patients.date
-        break
-      case 'number-of-tested':
-        title = this.$t('検査実施件数')
-        updatedAt = Data.inspections_summary.date
+        updatedAt = Patients.patients.date
         break
       case 'number-of-inspection-persons':
         title = this.$t('検査実施人数')
-        updatedAt = Data.inspection_persons.date
-        break
-      case 'number-of-reports-to-covid19-telephone-advisory-center':
-        title = this.$t('新型コロナコールセンター相談件数')
-        updatedAt = Data.contacts.date
-        break
-      case 'number-of-reports-to-covid19-consultation-desk':
-        title = this.$t('新型コロナ受診相談窓口相談件数')
-        updatedAt = Data.querents.date
+        updatedAt = InspectionPersons.inspection_persons.date
         break
     }
 

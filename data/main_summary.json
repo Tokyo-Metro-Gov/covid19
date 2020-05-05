@@ -1,0 +1,41 @@
+{
+  "lastUpdate": "2020\/05/05 10:00",
+  "main_summary": {
+    "attr": "PCR検査実施人数",
+    "value": 681,
+    "children": [
+      {
+        "attr": "陽性患者数",
+        "value": 24,
+        "children": [
+          {
+            "attr": "入院中",
+            "value": 0,
+            "children": [
+              {
+                "attr": "軽症・中等症",
+                "value": 4
+              },
+              {
+                "attr": "重症",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "attr": "退院",
+            "value": 7
+          },
+          {
+            "attr": "死亡",
+            "value": 0
+          },
+          {
+            "attr": "不明",
+            "value": 13
+          }
+        ]
+      }
+    ]
+  }
+}
