@@ -7,6 +7,7 @@ export type GraphDataType = {
   label: string
   transition: number
   cumulative: number
+  movingaverage: number
 }
 
 /**
@@ -18,6 +19,7 @@ export default (data: DataType[]) => {
   const graphData: GraphDataType[] = []
   const today = new Date()
   let patSum = 0
+  const weeklySubTotal = Array(7)
   data
     .filter(d => new Date(d['日付']) < today)
     .forEach(d => {
@@ -25,10 +27,14 @@ export default (data: DataType[]) => {
       const subTotal = d['小計']
       if (!isNaN(subTotal)) {
         patSum += subTotal
+        weeklySubTotal.push(subTotal)
+        weeklySubTotal.shift()
         graphData.push({
           label: `${date.getMonth() + 1}/${date.getDate()}`,
           transition: subTotal,
-          cumulative: patSum
+          cumulative: patSum,
+          movingaverage:
+            weeklySubTotal.reduce((a, b) => a + b, 0) / weeklySubTotal.length
         })
       }
     })

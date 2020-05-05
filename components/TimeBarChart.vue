@@ -243,6 +243,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               backgroundColor: style.fillColor,
               borderColor: style.strokeColor,
               borderWidth: 1
+            },
+            {
+              label: this.dataKind,
+              data: this.chartData.map(d => {
+                return d.movingaverage
+              }),
+              type: 'line',
+              borderColor: '#4d4d4d',
+              pointRadius: 0,
+              fill: false
             }
           ]
         }
