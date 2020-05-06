@@ -46,7 +46,7 @@ import dayjs from 'dayjs'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import DataView from '@/components/DataView.vue'
-import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
+import ConfirmedCasesDetailsTable from '@/components/index/cards/charts/ConfirmedCasesDetailsTable.vue'
 
 export default {
   components: {
