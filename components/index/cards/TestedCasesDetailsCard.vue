@@ -49,7 +49,7 @@ ul.notes {
 import Data from '@/data/data.json'
 import formatTestedCases from '@/utils/formatTestedCases'
 import DataView from '@/components/DataView.vue'
-import TestedCasesDetailsTable from '@/components/TestedCasesDetailsTable.vue'
+import TestedCasesDetailsTable from '@/components/index/cards/charts/TestedCasesDetailsTable.vue'
 
 export default {
   components: {
