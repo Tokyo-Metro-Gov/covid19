@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
+import InspectionPersons from '@/data/inspection_persons.json'
 import formatGraph from '@/utils/formatGraph'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 
@@ -37,18 +37,20 @@ export default {
     TimeBarChart
   },
   data() {
-    const formatData = Data.inspection_persons.labels.map((date, i) => {
-      return {
-        日付: date,
-        小計: Data.inspection_persons.datasets[0].data[i]
+    const formatData = InspectionPersons.inspection_persons.labels.map(
+      (date, i) => {
+        return {
+          日付: date,
+          小計: InspectionPersons.inspection_persons.datasets[0].data[i]
+        }
       }
-    })
+    )
 
     // 検査実施人数グラフ
     const graphData = formatGraph(formatData)
 
     return {
-      data: Data.inspection_persons,
+      data: InspectionPersons.inspection_persons,
       graphData
     }
   }
