@@ -1,0 +1,48 @@
+name: Auto Create Pull Request For Data
+
+on: push
+
+jobs:
+  fetch_data:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: build docker image
+        run: |
+          docker-compose build fetch_shimane_data
+
+      - name: Crawler start
+        id: genjson
+        run: |
+          docker-compose run fetch_shimane_data
+
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "##[set-output name=changed;]false"
+          else
+            echo "##[set-output name=changed;]true"
+          fi
+
+      - name: Create pull request
+        id: cpr
+        if: steps.genjson.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.SECRET_TOKEN }}
+          commit-message: BOT; UPDATE DATA
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          title: '[BOT] UPDATE DATE'
+          body: |
+            New report
+            - Contains *today's* data
+            - Auto-generated
+          reviewers: TaigaMikami
+          base: shimane
+          branch: bot/update-data
+
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pr_number }}"
