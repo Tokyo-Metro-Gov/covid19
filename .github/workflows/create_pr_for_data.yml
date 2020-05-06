@@ -1,13 +1,18 @@
 name: Auto Create Pull Request For Data
 on:
   schedule:
-    - cron:  '0 9-12 * * *'
+    - cron: '*/5 * * * *'
+#    - cron:  '0 9-12 * * *'
 jobs:
   fetch_data:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Create report file[test]
+        run: date +%s > data/report.txt
+
       - name: build docker image
         run: |
           docker-compose build fetch_shimane_data
