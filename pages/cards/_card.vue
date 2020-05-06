@@ -56,7 +56,7 @@ import ConfirmedCasesAttributesCard from '@/components/index/cards/ConfirmedCase
 import ConfirmedCasesByMunicipalitiesCard from '@/components/index/cards/ConfirmedCasesByMunicipalitiesCard.vue'
 import TestedCasesDetailsCard from '@/components/index/cards/TestedCasesDetailsCard.vue'
 import InspectionPersonsNumberCard from '@/components/index/cards/InspectionPersonsNumberCard.vue'
-import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+import TestedNumberCard from '@/components/index/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
