@@ -293,7 +293,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         responsive: false,
         maintainAspectRatio: false,
         legend: {
-          display: true
+          display: true,
+          position: 'right',
+          labels: {
+            boxWidth: 15
+          }
         },
         scales: {
           xAxes: [
