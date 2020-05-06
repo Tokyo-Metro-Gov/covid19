@@ -53,8 +53,8 @@ import { MetaInfo } from 'vue-meta'
 
 import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
-import StaticInfo from '@/components/StaticInfo.vue'
 
+import StaticInfo from '@/components/index/StaticInfo.vue'
 import CardRow from '@/components/index/CardRow.vue'
 
 import ConfirmedCasesDetailsCard from '@/components/index/cards/ConfirmedCasesDetailsCard.vue'
