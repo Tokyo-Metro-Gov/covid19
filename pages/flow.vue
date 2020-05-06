@@ -90,7 +90,7 @@
           </li>
         </ul>
         <div :class="[$style.box, $style.bgGray]">
-          <h5 :class="$style.sxnHeading">
+          <h5 :class="$style.boxHeading">
             {{ $t('新型コロナ受診相談窓口は、24時間対応しています') }}
           </h5>
           <dl :class="$style.contact">
@@ -251,7 +251,7 @@
         :class="$style.detailButton"
         rel="noopener noreferrer"
         >{{ $t('詳細を見る（東京都福祉保健局）') }}
-        <v-icon :class="$style.icon" size="20">
+        <v-icon :class="$style.icon" size="2rem">
           mdi-open-in-new
         </v-icon>
       </a>
