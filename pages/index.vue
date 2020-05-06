@@ -50,12 +50,11 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+
 import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import CardRow from '@/components/cards/CardRow.vue'
-import Data from '@/data/data.json'
-import News from '@/data/news.json'
 
 import ConfirmedCasesDetailsCard from '@/components/index/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/index/cards/ConfirmedCasesNumberCard.vue'
@@ -68,6 +67,10 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/index/cards/Telepho
 import ConsultationDeskReportsNumberCard from '@/components/index/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/index/cards/MetroCard.vue'
 import AgencyCard from '@/components/index/cards/AgencyCard.vue'
+
+import Data from '@/data/data.json'
+import News from '@/data/news.json'
+
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
