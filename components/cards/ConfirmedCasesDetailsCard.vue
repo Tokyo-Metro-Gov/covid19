@@ -15,6 +15,7 @@
 
 <script>
 import MainSummary from '@/data/main_summary.json'
+import InspectionPersons from '@/data/inspection_persons.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import ConfirmedCasesCard from '@/components/ConfirmedCasesCard.vue'
 import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
@@ -27,7 +28,11 @@ export default {
   data() {
     // 検査陽性者の状況
     const confirmedCases = formatConfirmedCases(MainSummary.main_summary)
-
+    const inspectionArray =
+      InspectionPersons.inspection_persons.datasets[0].data
+    confirmedCases['検査実施人数'] = inspectionArray.reduce(function(a, x) {
+      return a + ((x || 0) - 0)
+    }, 0)
     const data = {
       MainSummary,
       confirmedCases
