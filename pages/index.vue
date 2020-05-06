@@ -65,7 +65,7 @@ import TestedCasesDetailsCard from '@/components/index/cards/TestedCasesDetailsC
 import InspectionPersonsNumberCard from '@/components/index/cards/InspectionPersonsNumberCard.vue'
 import TestedNumberCard from '@/components/index/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/index/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import ConsultationDeskReportsNumberCard from '@/components/index/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
