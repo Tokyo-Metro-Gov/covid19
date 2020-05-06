@@ -159,7 +159,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                     # Noneが混じっているので、取り除く
                     all_tags.pop(all_tags.index(None))
                     # 全角のハイフン、半角のハイフン、全角のダッシュが混じっているので、取り除く
-                    # 理由は components/cards/ConfirmedCasesAttributesCard.vue の75行目辺りを参照。
+                    # 理由は components/index/cards/ConfirmedCasesAttributesCard.vue の75行目辺りを参照。
                     for x in ["-", "‐", "―"]:
                         try:
                             all_tags.pop(all_tags.index(x))
