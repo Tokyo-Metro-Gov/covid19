@@ -197,9 +197,8 @@ export default Vue.extend({
             'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         },
         {
-          title: this.$t('新型コロナウイルス感染症に関する東京都の支援策'),
-          link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-support.html'
+          title: this.$t('東京都 新型コロナウイルス感染症 支援情報ナビ'),
+          link: 'https://covid19.supportnavi.metro.tokyo.lg.jp/'
         },
         {
           title: this.$t('東京都主催等 中止又は延期するイベント等'),
