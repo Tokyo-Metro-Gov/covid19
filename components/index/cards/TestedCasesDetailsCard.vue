@@ -48,7 +48,7 @@ ul.notes {
 <script>
 import Data from '@/data/data.json'
 import formatTestedCases from '@/utils/formatTestedCases'
-import DataView from '@/components/DataView.vue'
+import DataView from '@/components/index/cards/charts/DataView.vue'
 import TestedCasesDetailsTable from '@/components/index/cards/charts/TestedCasesDetailsTable.vue'
 
 export default {
