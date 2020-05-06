@@ -11,5 +11,13 @@ services:
     volumes:
         - .:/app
         - node_modules:/app/node_modules
+
+  fetch_shimane_data:
+    build: ./crawler
+    volumes:
+      - ./crawler:/app/crawler
+      - ./data:/app/crawler/data
+      - /app/crawler/vendor
+
 volumes:
   node_modules: {}
