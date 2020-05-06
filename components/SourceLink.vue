@@ -10,7 +10,7 @@
           rel="noopener noreferrer"
         >
           {{ linkString }}
-          <v-icon class="ExternalLinkIcon" size="15">
+          <v-icon class="ExternalLinkIcon" size="1.5rem">
             mdi-open-in-new
           </v-icon>
         </a>

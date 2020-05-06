@@ -47,8 +47,8 @@ ul.notes {
   margin-top: 10px;
   margin-bottom: 0;
   padding-left: 0 !important;
-  font-size: 12px;
   color: $gray-3;
+  @include font-size(12);
 
   > li {
     list-style-type: none;
