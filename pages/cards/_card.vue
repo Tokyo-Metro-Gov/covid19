@@ -60,7 +60,7 @@ import TestedNumberCard from '@/components/index/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/index/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/index/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/index/cards/MetroCard.vue'
-import AgencyCard from '@/components/cards/AgencyCard.vue'
+import AgencyCard from '@/components/index/cards/AgencyCard.vue'
 
 export default {
   components: {
