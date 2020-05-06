@@ -12,23 +12,8 @@
     <confirmed-cases-attributes-card
       v-else-if="this.$route.params.card == 'attributes-of-confirmed-cases'"
     />
-    <tested-number-card
-      v-else-if="this.$route.params.card == 'number-of-tested'"
-    />
     <inspection-persons-number-card
       v-else-if="this.$route.params.card == 'number-of-inspection-persons'"
-    />
-    <telephone-advisory-reports-number-card
-      v-else-if="
-        this.$route.params.card ==
-          'number-of-reports-to-covid19-telephone-advisory-center'
-      "
-    />
-    <consultation-desk-reports-number-card
-      v-else-if="
-        this.$route.params.card ==
-          'number-of-reports-to-covid19-consultation-desk'
-      "
     />
     <patients-age-ratio-card
       v-else-if="this.$route.params.card == 'patients-age-ratio'"
@@ -45,11 +30,11 @@ import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsC
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
-import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
-import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import PatientsAgeRatioCard from '@/components/cards/PatientsAgeRatioCard.vue'
+// import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+// import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
+// import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 
 export default {
   components: {
@@ -57,11 +42,11 @@ export default {
     TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
-    TestedNumberCard,
     InspectionPersonsNumberCard,
-    TelephoneAdvisoryReportsNumberCard,
-    ConsultationDeskReportsNumberCard,
     PatientsAgeRatioCard
+    // TestedNumberCard,
+    // TelephoneAdvisoryReportsNumberCard,
+    // ConsultationDeskReportsNumberCard,
   },
   data() {
     let title, updatedAt

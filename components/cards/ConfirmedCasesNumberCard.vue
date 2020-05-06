@@ -5,7 +5,7 @@
       :title-id="'number-of-confirmed-cases'"
       :chart-id="'time-bar-chart-patients'"
       :chart-data="patientsGraph"
-      :date="Data.patients.date"
+      :date="PatientsSummary.patients_summary.date"
       :unit="$t('人')"
       :url="'https://shimane-opendata.jp/db/organization/main'"
     />
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
+import PatientsSummary from '@/data/patients_summary.json'
 import formatGraph from '@/utils/formatGraph'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 
@@ -23,10 +23,10 @@ export default {
   },
   data() {
     // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.patients_summary.data)
+    const patientsGraph = formatGraph(PatientsSummary.patients_summary.data)
 
     const data = {
-      Data,
+      PatientsSummary,
       patientsGraph
     }
     return data
