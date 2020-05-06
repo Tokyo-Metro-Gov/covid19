@@ -114,7 +114,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewBasicInfoPanel from '@/components/index/cards/charts/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default Vue.extend({
