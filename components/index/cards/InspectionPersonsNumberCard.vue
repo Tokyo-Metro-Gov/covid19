@@ -33,7 +33,7 @@
 <script>
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
-import TimeBarChart from '@/components/TimeBarChart.vue'
+import TimeBarChart from '@/components/index/cards/charts/TimeBarChart.vue'
 
 export default {
   components: {
