@@ -17,7 +17,7 @@
 
 <script>
 import agencyData from '@/data/agency.json'
-import AgencyBarChart from '@/components/AgencyBarChart.vue'
+import AgencyBarChart from '@/components/index/cards/charts/AgencyBarChart.vue'
 
 export default {
   components: {
