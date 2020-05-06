@@ -17,11 +17,11 @@
     <tested-cases-details-card
       v-else-if="this.$route.params.card == 'details-of-tested-cases'"
     />
-    <tested-number-card
-      v-else-if="this.$route.params.card == 'number-of-tested'"
-    />
     <inspection-persons-number-card
       v-else-if="this.$route.params.card == 'number-of-inspection-persons'"
+    />
+    <tested-number-card
+      v-else-if="this.$route.params.card == 'number-of-tested'"
     />
     <telephone-advisory-reports-number-card
       v-else-if="
@@ -55,8 +55,8 @@ import ConfirmedCasesNumberCard from '@/components/index/cards/ConfirmedCasesNum
 import ConfirmedCasesAttributesCard from '@/components/index/cards/ConfirmedCasesAttributesCard.vue'
 import ConfirmedCasesByMunicipalitiesCard from '@/components/index/cards/ConfirmedCasesByMunicipalitiesCard.vue'
 import TestedCasesDetailsCard from '@/components/index/cards/TestedCasesDetailsCard.vue'
-import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
+import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
