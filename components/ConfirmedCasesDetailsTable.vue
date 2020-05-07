@@ -6,7 +6,8 @@
           <span>
             <t-i18n>{{ $t('陽性者数') }}</t-i18n>
             <br />
-            <t-i18n>{{ $t('累計') }}</t-i18n>
+            (<t-i18n>{{ $t('累計') }}</t-i18n
+            >)
           </span>
           <span>
             <strong>{{ 陽性者数.toLocaleString() }}</strong>
