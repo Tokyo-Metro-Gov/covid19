@@ -22,7 +22,8 @@
     <li :class="[$style.box, $style.tall, $style.parent, $style.cases]">
       <div :class="$style.title">
         <t-i18n>{{ $t('検査実施件数') }}</t-i18n>
-        <t-i18n>{{ $t('累計') }}</t-i18n>
+        (<t-i18n>{{ $t('累計') }}</t-i18n
+        >)
       </div>
       <div :class="$style.pillar">
         <div :class="$style.content">
