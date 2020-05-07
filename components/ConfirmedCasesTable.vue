@@ -4,8 +4,8 @@
       <div :class="$style.pillar_tested">
         <div :class="$style.content">
           <span>
-            {{ $t('検査実施') }}
-            <br />{{ $t('人数') }} <br />({{ $t('累計') }})
+            {{ $t('検査実施人数') }}
+             <br />({{ $t('累計') }})
           </span>
           <span>
             <strong>{{ 検査実施人数 }}</strong>
@@ -284,8 +284,8 @@ $default-boxdiff: 35px;
   &.tested {
     display: flex;
     flex: 0 0 auto;
-    // [5列] 1/5
-    width: calc((100% - #{$default-bdw} * 3) / 5);
+    // [6列] 1/6
+    width: calc((100% - #{$default-bdw} * 3) / 6);
     color: $gray-1;
   }
 
@@ -294,13 +294,13 @@ $default-boxdiff: 35px;
     width: 100%;
 
     > .pillar {
-      // [4列] 1/4
-      width: calc((100% + #{$default-bdw} * 2) / 4 - #{$default-bdw} * 3);
+      // [5列] 1/5
+      width: calc((100% + #{$default-bdw} * 3) / 5 - #{$default-bdw} * 3);
     }
 
     > .group {
-      // [4列] 3/4
-      width: calc((100% + #{$default-bdw} * 2) / 4 * 3 + #{$default-bdw});
+      // [5列] 4/5
+      width: calc((100% + #{$default-bdw} * 2) / 5 * 4 + #{$default-bdw});
     }
   }
 
@@ -435,13 +435,13 @@ $default-boxdiff: 35px;
       margin-left: px2vw($bdw, $vw);
       > .pillar {
         width: calc(
-          (100% + #{px2vw($bdw, $vw)} * 2) / 4 - #{px2vw($bdw, $vw)} * 3
+          (100% + #{px2vw($bdw, $vw)} * 3) / 5 - #{px2vw($bdw, $vw)} * 3
         );
       }
 
       > .group {
         width: calc(
-          (100% + #{px2vw($bdw, $vw)} * 2) / 4 * 3 + #{px2vw($bdw, $vw)} 
+          (100% + #{px2vw($bdw, $vw)} * 2) / 5 * 4 + #{px2vw($bdw, $vw)} 
         );
       }
     }
