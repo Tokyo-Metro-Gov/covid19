@@ -60,7 +60,10 @@ export default {
       this.$t('医療機関等が行った検査件数')
     ]
     const inspectionsLabels = Data.inspections_summary.labels
-    const inspectionsDataLabels = [this.$t('確定値'), this.$t('未確定値')]
+    const inspectionsDataLabels = [
+      this.$t('健康安全研究センターが行った検査件数'),
+      this.$t('医療機関等が行った検査件数')
+    ]
 
     const data = {
       Data,
