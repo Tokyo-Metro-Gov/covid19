@@ -71,6 +71,13 @@ export default Vue.extend({
   },
   mounted() {
     this.loading = false
+    const botScript = document.createElement('script')
+    botScript.setAttribute('charset', 'UTF-8')
+    botScript.setAttribute(
+      'src',
+      'https://storage.googleapis.com/obotai-hosting-for-customers/covid19-okinawa/loader.js'
+    )
+    document.body.appendChild(botScript)
   },
   methods: {
     openNavigation(): void {
