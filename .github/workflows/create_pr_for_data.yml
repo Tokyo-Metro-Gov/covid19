@@ -1,7 +1,7 @@
 name: Auto Create Pull Request For Data
 on:
   schedule:
-    - cron:  '0 9-12 * * *'
+    - cron:  '*/30 * * * *'
 jobs:
   fetch_data:
     runs-on: ubuntu-18.04
