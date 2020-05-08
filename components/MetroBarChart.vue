@@ -276,9 +276,9 @@ export default Vue.extend(options)
     margin-top: 10px;
     margin-bottom: 0 !important;
     padding-left: 0 !important;
-    font-size: 12px;
     color: $gray-3;
     list-style: none;
+    @include font-size(12);
   }
 }
 </style>

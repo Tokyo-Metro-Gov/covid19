@@ -36,9 +36,9 @@
     margin: 2px;
     border-radius: 4px !important;
     height: 24px !important;
-    font-size: 12px !important;
     color: $gray-1 !important;
     background-color: $white !important;
+    @include font-size(12, true);
 
     &::before {
       background-color: inherit;

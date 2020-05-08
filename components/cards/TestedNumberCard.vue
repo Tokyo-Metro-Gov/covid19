@@ -114,9 +114,9 @@ export default {
     margin: 0;
     margin-top: 1rem;
     padding-left: 0 !important;
-    font-size: 12px;
     color: $gray-3;
     list-style: none;
+    @include font-size(12);
   }
 }
 </style>

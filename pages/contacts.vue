@@ -186,12 +186,12 @@ export default Vue.extend({
       border-collapse: collapse;
 
       th {
-        font-size: 14px !important;
+        @include font-size(14, true);
       }
 
       td {
         padding: 0 16px;
-        font-size: 14px;
+        @include font-size(14);
       }
 
       @include largerThan($medium) {
@@ -255,8 +255,8 @@ export default Vue.extend({
       }
 
       p.caution {
-        font-size: 12px;
         margin: 0;
+        @include font-size(12);
       }
     }
   }
