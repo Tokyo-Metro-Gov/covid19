@@ -15,14 +15,18 @@
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
         <ul :class="$style.GraphDesc">
           <li>
-            {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
+            <t-i18n>
+              {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
+            </t-i18n>
           </li>
           <li>
-            {{
-              $t(
-                '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
-              )
-            }}
+            <t-i18n>
+              {{
+                $t(
+                  '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+                )
+              }}
+            </t-i18n>
           </li>
         </ul>
       </template>
@@ -35,18 +39,27 @@ import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import Data from '@/data/data.json'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
+import TI18n from '@/components/TI18n.vue'
 dayjs.extend(duration)
 
 export default {
   components: {
-    TimeStackedBarChart
+    TimeStackedBarChart,
+    TI18n
   },
   data() {
     // 検査実施日別状況
     const today = new Date()
-    const lastThursday = dayjs()
-      .startOf('day')
-      .day(4) // 直前の木曜日
+    // 直前の木曜日
+    const lastThursday =
+      dayjs().day() <= 4
+        ? dayjs()
+            .startOf('day')
+            .subtract(1, 'week')
+            .day(4)
+        : dayjs()
+            .startOf('day')
+            .day(4)
     const lastAvailableDate = dayjs(
       today.getFullYear() +
         '/' +
@@ -69,7 +82,7 @@ export default {
         (Data.inspections_summary.data['その他'][i]
           ? Data.inspections_summary.data['その他'][i]
           : 0)
-      if (l - i - 1 > fromLastThursdayDates) {
+      if (l - i > fromLastThursdayDates) {
         beforeLastThursday.push(sum)
         afterLastThursday.push(0)
       } else {

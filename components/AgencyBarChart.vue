@@ -5,23 +5,51 @@
         <slot name="description" />
       </small>
     </template>
+    <ul
+      :class="$style.GraphLegend"
+      :style="{ display: canvas ? 'block' : 'none' }"
+    >
+      <li v-for="(item, i) in agencies" :key="i" @click="onClickLegend(i)">
+        <button>
+          <div
+            :style="{
+              backgroundColor: colors[i].fillColor,
+              borderColor: colors[i].strokeColor
+            }"
+          />
+          <t-i18n
+            :style="{
+              textDecoration: displayLegends[i] ? 'none' : 'line-through'
+            }"
+            >{{ item }}</t-i18n
+          >
+        </button>
+      </li>
+    </ul>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <bar
-      :ref="'barChart'"
-      :style="{ display: canvas ? 'block' : 'none' }"
-      :chart-id="chartId"
-      :chart-data="displayData"
-      :options="displayOption"
-      :height="240"
-    />
+    <div>
+      <t-i18n :class="$style.GraphUnit">
+        {{ $t('単位:') }} {{ $t('人') }}
+      </t-i18n>
+      <bar
+        :ref="'barChart'"
+        :style="{ display: canvas ? 'block' : 'none' }"
+        :chart-id="chartId"
+        :chart-data="displayData"
+        :options="displayOption"
+        :display-legends="displayLegends"
+        :height="240"
+      />
+    </div>
     <template v-slot:dataTable>
       <v-data-table
         :headers="tableHeaders"
         :items="tableData"
         :items-per-page="-1"
         :hide-default-footer="true"
+        :hide-default-header="true"
         :height="240"
         :fixed-header="true"
         :disable-sort="true"
@@ -29,6 +57,21 @@
         class="cardTable"
         item-key="name"
       >
+        <template v-slot:header="{ props: { headers } }">
+          <thead>
+            <tr>
+              <th
+                v-for="(header, i) in headers"
+                :key="i"
+                :class="[header.align ? `text-${header.align}` : '']"
+              >
+                <div>
+                  <t-i18n>{{ header.text }}</t-i18n>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </template>
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
@@ -51,8 +94,10 @@ import { ChartOptions } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import agencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
-import { getGraphSeriesStyle } from '@/utils/colors'
+import TI18n from '@/components/TI18n.vue'
+import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 import { DisplayData, DataSets } from '@/plugins/vue-chart'
+import { customTooltip } from '@/utils/ruby'
 
 interface AgencyDataSets extends DataSets {
   label: string
@@ -69,8 +114,12 @@ type Data = {
   chartData: typeof agencyData
   date: string
   agencies: VueI18n.TranslateResult[]
+  displayLegends: boolean[]
+  colors: SurfaceStyle[]
 }
-type Methods = {}
+type Methods = {
+  onClickLegend: (i: number) => void
+}
 type Computed = {
   displayData: AgencyDisplayData
   displayOption: ChartOptions
@@ -99,7 +148,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView },
+  components: { DataView, TI18n },
   props: {
     title: {
       type: String,
@@ -133,20 +182,21 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas: true,
       chartData: agencyData,
       date: agencyData.date,
-      agencies
+      agencies,
+      displayLegends: [true, true, true],
+      colors: getGraphSeriesStyle(agencyData.datasets.length)
     }
   },
   computed: {
     displayData() {
-      const graphSeries = getGraphSeriesStyle(this.chartData.datasets.length)
       return {
-        labels: this.chartData.labels as string[],
+        labels: this.chartData.labels,
         datasets: this.chartData.datasets.map((item, index) => {
           return {
             label: this.agencies[index] as string,
             data: item.data,
-            backgroundColor: graphSeries[index].fillColor,
-            borderColor: graphSeries[index].strokeColor,
+            backgroundColor: this.colors[index].fillColor,
+            borderColor: this.colors[index].strokeColor,
             borderWidth: 1
           }
         })
@@ -156,6 +206,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const self = this
       const options: ChartOptions = {
         tooltips: {
+          enabled: false,
+          custom: tooltipModel => customTooltip(this, tooltipModel),
           displayColors: false,
           callbacks: {
             title(tooltipItem) {
@@ -174,16 +226,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           }
         },
         legend: {
-          display: true,
-          onHover: (e: HTMLElementEvent<HTMLInputElement>) => {
-            e.currentTarget!.style!.cursor = 'pointer'
-          },
-          onLeave: (e: HTMLElementEvent<HTMLInputElement>) => {
-            e.currentTarget!.style!.cursor = 'default'
-          },
-          labels: {
-            boxWidth: 20
-          }
+          display: false
         },
         scales: {
           xAxes: [
@@ -209,7 +252,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080',
                 maxTicksLimit: 10,
                 callback(label) {
-                  return `${label}${self.unit}`
+                  return `${label}`
                 }
               }
             }
@@ -244,6 +287,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     }
   },
+  methods: {
+    onClickLegend(i) {
+      this.displayLegends[i] = !this.displayLegends[i]
+      this.displayLegends = this.displayLegends.slice()
+    }
+  },
   mounted() {
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
@@ -261,6 +310,44 @@ export default Vue.extend(options)
 </script>
 
 <style module lang="scss">
+.Graph {
+  &Desc {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 0 !important;
+    padding-left: 0 !important;
+    font-size: 12px;
+    color: $gray-3;
+    list-style: none;
+  }
+  &Legend {
+    text-align: center;
+    list-style: none;
+    padding: 0 !important;
+    li {
+      display: inline-block;
+      margin: 0 3px;
+      div {
+        height: 12px;
+        margin: 2px 4px;
+        width: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        border-width: 1px;
+        border-style: solid;
+      }
+      button {
+        color: $gray-3;
+        font-size: 12px;
+      }
+    }
+  }
+  &Unit {
+    font-size: 12px;
+    color: $gray-3;
+  }
+}
+
 .DataView {
   &Desc {
     margin-top: 10px;

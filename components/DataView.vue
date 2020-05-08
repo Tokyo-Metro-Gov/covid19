@@ -6,7 +6,7 @@
           class="DataView-Title"
           :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
         >
-          {{ title }}
+          <t-i18n>{{ title }}</t-i18n>
         </h3>
         <slot name="infoPanel" />
       </div>
@@ -32,9 +32,9 @@
                   <v-icon left>mdi-chevron-right</v-icon>
                 </div>
               </template>
-              <span class="expansion-panel-text">{{
+              <t-i18n class="expansion-panel-text">{{
                 $t('テーブルを表示')
-              }}</span>
+              }}</t-i18n>
             </v-expansion-panel-header>
             <v-expansion-panel-content>
               <slot name="dataTable" />
@@ -53,9 +53,9 @@
           <slot name="footer" />
           <div>
             <a class="Permalink" :href="permalink()">
-              <time :datetime="formattedDate">{{
-                $t('{date} 更新', { date })
-              }}</time>
+              <time :datetime="formattedDate">
+                <t-i18n>{{ $t('{date} 更新', { date }) }}</t-i18n>
+              </time>
             </a>
           </div>
         </div>
@@ -99,7 +99,9 @@
               >
             </div>
 
-            <h4>{{ $t('埋め込み用コード') }}</h4>
+            <h4>
+              <t-i18n>{{ $t('埋め込み用コード') }}</t-i18n>
+            </h4>
 
             <div class="EmbedCode">
               <v-icon
@@ -170,7 +172,7 @@
 
     <div v-if="showOverlay" class="overlay">
       <div class="overlay-text">
-        {{ $t('埋め込み用コードをコピーしました') }}
+        <t-i18n>{{ $t('埋め込み用コードをコピーしました') }}</t-i18n>
       </div>
     </div>
   </v-card>
@@ -180,8 +182,10 @@
 import Vue from 'vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
+import TI18n from '@/components/TI18n.vue'
 
 export default Vue.extend({
+  components: { TI18n },
   props: {
     title: {
       type: String,

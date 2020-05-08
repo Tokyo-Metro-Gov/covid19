@@ -44,6 +44,7 @@
         :items="tableData"
         :items-per-page="-1"
         :hide-default-footer="true"
+        :hide-default-header="true"
         :height="240"
         :fixed-header="true"
         :disable-sort="true"
@@ -51,6 +52,21 @@
         class="cardTable"
         item-key="name"
       >
+        <template v-slot:header="{ props: { headers } }">
+          <thead>
+            <tr>
+              <th
+                v-for="(header, i) in headers"
+                :key="i"
+                :class="[header.align ? `text-${header.align}` : '']"
+              >
+                <div>
+                  <t-i18n>{{ header.text }}</t-i18n>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </template>
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
@@ -86,7 +102,9 @@ import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
+import TI18n from '@/components/TI18n.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import { customTooltip } from '@/utils/ruby'
 
 import { getGraphSeriesStyle } from '@/utils/colors'
 
@@ -148,7 +166,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         ? 'cumulative'
         : 'transition'
   },
-  components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
+  components: {
+    DataView,
+    DataSelector,
+    DataViewBasicInfoPanel,
+    OpenDataLink,
+    TI18n
+  },
   props: {
     title: {
       type: String,
@@ -267,7 +291,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const options: Chart.ChartOptions = {
         tooltips: {
-          displayColors: false,
+          enabled: false,
+          custom: tooltipModel => customTooltip(this, tooltipModel),
           callbacks: {
             label(tooltipItem) {
               const labelText = `${parseInt(

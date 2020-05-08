@@ -1,18 +1,18 @@
 <template>
   <component :is="linkTag" v-bind="linkAttrs">
-    <span>{{ text }}</span>
+    <t-i18n>{{ text }}</t-i18n>
     <div v-if="btnText" class="StaticInfo-Button">
-      <span>
-        {{ btnText }}
-      </span>
+      <t-i18n>{{ btnText }}</t-i18n>
     </div>
   </component>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import TI18n from '@/components/TI18n.vue'
 
 export default Vue.extend({
+  components: { TI18n },
   props: {
     url: {
       type: String,

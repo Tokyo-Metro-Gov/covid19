@@ -3,25 +3,31 @@
     <template v-slot:button>
       <ul :class="$style.GraphDesc">
         <li>
-          {{
-            $t(
-              '（注）日々の速報値（医療機関が保険適用で行った検査は含まない）は、毎日更新'
-            )
-          }}
+          <t-i18n>
+            {{
+              $t(
+                '（注）日々の速報値（医療機関が保険適用で行った検査は含まない）は、毎日更新'
+              )
+            }}
+          </t-i18n>
         </li>
         <li>
-          {{
-            $t(
-              '（注）医療機関が保険適用で行った検査件数を含む検査実施件数は、毎週金曜日に前週木曜日から当該週水曜日までの日々の保険適用分の件数を反映して更新'
-            )
-          }}
+          <t-i18n>
+            {{
+              $t(
+                '（注）医療機関が保険適用で行った検査件数を含む検査実施件数は、毎週金曜日に前週木曜日から当該週水曜日までの日々の保険適用分の件数を反映して更新'
+              )
+            }}
+          </t-i18n>
         </li>
         <li>
-          {{
-            $t(
-              '（注）医療機関が保険適用で行った検査については、４月２９日分までを計上'
-            )
-          }}
+          <t-i18n>
+            {{
+              $t(
+                '（注）医療機関が保険適用で行った検査については、４月２９日分までを計上'
+              )
+            }}
+          </t-i18n>
         </li>
       </ul>
       <data-selector
@@ -42,17 +48,17 @@
               borderColor: colors[i].strokeColor
             }"
           />
-          <span
+          <t-i18n
             :style="{
               textDecoration: displayLegends[i] ? 'none' : 'line-through'
             }"
-            >{{ item }}</span
+            >{{ item }}</t-i18n
           >
         </button>
       </li>
     </ul>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
-      {{ $t(`{title}のグラフ`, { title }) }}
+      <t-i18n>{{ $t(`{title}のグラフ`, { title }) }}</t-i18n>
     </h4>
     <div class="LegendStickyChart">
       <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
@@ -81,6 +87,51 @@
         :width="chartWidth"
       />
     </div>
+    <!-- Removed in https://github.com/tokyo-metropolitan-gov/covid19/pull/3851
+         @todo Revert this removal later to make this available again
+    <template v-slot:dataTable>
+      <v-data-table
+        :headers="tableHeaders"
+        :items="tableData"
+        :items-per-page="-1"
+        :hide-default-footer="true"
+        :hide-default-header="true"
+        :height="240"
+        :fixed-header="true"
+        :disable-sort="true"
+        :mobile-breakpoint="0"
+        class="cardTable"
+        item-key="name"
+      >
+        <template v-slot:header="{ props: { headers } }">
+          <thead>
+            <tr>
+              <th
+                v-for="(header, i) in headers"
+                :key="i"
+                :class="[header.align ? `text-${header.align}` : '']"
+              >
+                <div>
+                  <t-i18n>{{ header.text }}</t-i18n>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </template>
+        <template v-slot:body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.text">
+              <th>{{ item.text }}</th>
+              <td class="text-end">{{ item['0'] }}</td>
+              <td class="text-end">{{ item['1'] }}</td>
+              <td class="text-end">{{ item['2'] }}</td>
+              <td class="text-end">{{ item['3'] }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-data-table>
+    </template>
+    -->
     <slot name="additionalNotes" />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -101,8 +152,10 @@ import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import TI18n from '@/components/TI18n.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
+import { customTooltip } from '@/utils/ruby'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -167,7 +220,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: { DataView, DataSelector, DataViewBasicInfoPanel, TI18n },
   props: {
     title: {
       type: String,
@@ -320,7 +373,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const cumulativeSumArray = this.eachArraySum(cumulativeData)
       const options: Chart.ChartOptions = {
         tooltips: {
-          displayColors: false,
+          enabled: false,
+          custom: tooltipModel => customTooltip(this, tooltipModel),
           callbacks: {
             label: tooltipItem => {
               let casesTotal, cases, label
