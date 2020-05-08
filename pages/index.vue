@@ -44,7 +44,6 @@
       <!-- 都庁来庁者数の推移 -->
       <agency-card />
     </card-row>
-    <v-divider />
   </div>
 </template>
 
