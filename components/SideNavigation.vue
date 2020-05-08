@@ -190,14 +190,14 @@ export default Vue.extend({
             'https://www.pref.shimane.lg.jp/medical/yakuji/kansensyo/other/topics/bukan2020.html'
         },
         {
-          icon: 'mdi-information',
-          title: this.$t('島根県内のお知らせ'),
-          link: this.localePath('/shimane-news')
+          icon: 'mdi-account-multiple',
+          title: this.$t('県内企業・事業者の皆様へ'),
+          link:'https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/kigyou_jigyousha.html'
         },
         {
           icon: 'mdi-information',
-          title: this.$t('県内各所のお知らせ'),
-          link: this.localePath('/place-news')
+          title: this.$t('島根県内のお知らせ'),
+          link: this.localePath('/shimane-news')
         },
         {
           icon: 'mdi-stop',
