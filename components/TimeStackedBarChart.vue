@@ -1,29 +1,6 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
-      <ul :class="$style.GraphDesc">
-        <li>
-          {{
-            $t(
-              '（注）日々の速報値（医療機関が保険適用で行った検査は含まない）は、毎日更新'
-            )
-          }}
-        </li>
-        <li>
-          {{
-            $t(
-              '（注）医療機関が保険適用で行った検査件数を含む検査実施件数は、毎週金曜日に前週木曜日から当該週水曜日までの日々の保険適用分の件数を反映して更新'
-            )
-          }}
-        </li>
-        <li>
-          {{
-            $t(
-              '（注）医療機関が保険適用で行った検査については、５月６日分までを計上'
-            )
-          }}
-        </li>
-      </ul>
       <data-selector
         v-model="dataKind"
         :target-id="chartId"
@@ -81,6 +58,32 @@
         :width="chartWidth"
       />
     </div>
+    <template v-slot:dataTable>
+      <v-data-table
+        :headers="tableHeaders"
+        :items="tableData"
+        :items-per-page="-1"
+        :hide-default-footer="true"
+        :height="240"
+        :fixed-header="true"
+        :disable-sort="true"
+        :mobile-breakpoint="0"
+        class="cardTable"
+        item-key="name"
+      >
+        <template v-slot:body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.text">
+              <th>{{ item.text }}</th>
+              <td class="text-end">{{ item['0'] }}</td>
+              <td class="text-end">{{ item['1'] }}</td>
+              <td class="text-end">{{ item['2'] }}</td>
+              <td class="text-end">{{ item['3'] }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-data-table>
+    </template>
     <slot name="additionalNotes" />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -152,6 +155,7 @@ type Props = {
   items: string[]
   labels: string[]
   dataLabels: string[] | TranslateResult[]
+  tableLabels: string[] | TranslateResult[]
   unit: string
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
@@ -201,6 +205,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: () => []
     },
     dataLabels: {
+      type: Array,
+      default: () => []
+    },
+    tableLabels: {
       type: Array,
       default: () => []
     },
@@ -275,7 +283,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
-        ...(this.dataLabels as string[])
+        ...(this.tableLabels as string[])
           .reduce((arr, text) => {
             arr.push(
               ...[this.$t('日別'), this.$t('累計')].map(
@@ -338,7 +346,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 ].toLocaleString()
               }
 
-              label = `${cases} ${unit}`
+              label = `${
+                this.dataLabels[tooltipItem.datasetIndex!]
+              } : ${cases} ${unit}`
               if (this.dataKind === 'cumulative') {
                 label += ` (${this.$t('合計')}: ${casesTotal} ${unit})`
               }
