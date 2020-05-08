@@ -51,7 +51,9 @@ if __FILE__ == $0
       JSON.dump(json_data, f)
     end
     main_summary_json_data['lastUpdate'] = (DateTime.now + Rational(9, 24)).strftime("%Y\/%m/%d %H:%M")
-   
+    open(main_summary_json_file, 'w') do |f|
+      JSON.dump(main_summary_json_data, f)
+    end
   end
 
   # patients_summary.jsonの更新
