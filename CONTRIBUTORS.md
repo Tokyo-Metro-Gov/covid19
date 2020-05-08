@@ -158,6 +158,10 @@ Tokyo Covid-19 response site contributors
 | [Anharu](https://anharu2394.github.io) | [@anharu2394](https://github.com/anharu2394) | [@_anharu](https://twitter.com/_anharu) | Frontend |
 | Yuto Ashida | [@y-chan](https://github.com/y-chan) | [@Xperia_Build_Y](https://twitter.com/Xperia_Build_Y) | Coding |
 | [Hayashizaki Masayuki](https://miscre.com) | [@sakaitaka](https://github.com/sakaitaka) | | Frontend |
+| Koki Yasuda | [@cohky16](https://github.com/cohky16) | | Issue reporter |
+| Taiyu Yoshizawa | [@Nekoya3](https://github.com/Nekoya3) | [@Nekoya3_](https://twitter.com/Nekoya3_) | Coding |
+| Hikaru Hasegawa | [@telumo](https://github.com/telumo) | | Coding |
+| Tatsumi0000 | [@Tatsumi0000](https://github.com/Tatsumi0000) | [@Tatsumi0002](https://twitter.com/Tatsumi0002) | Frontend |
 
 ご協力に感謝です！！！
 

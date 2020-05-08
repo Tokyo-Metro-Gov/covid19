@@ -10,7 +10,7 @@
           <li>
             {{
               $t(
-                '（注）医療機関が保険適用で行った検査については、４月２９日分までを計上'
+                '（注）医療機関が保険適用で行った検査については、５月６日分までを計上'
               )
             }}
             <br />
@@ -47,8 +47,8 @@ ul.notes {
   margin-top: 10px;
   margin-bottom: 0;
   padding-left: 0 !important;
-  font-size: 12px;
   color: $gray-3;
+  @include font-size(12);
 
   > li {
     list-style-type: none;
