@@ -6,6 +6,7 @@ require 'json'
 URL = 'https://www.pref.shimane.lg.jp/bousai_info/bousai/kikikanri/shingata_taisaku/new_coronavirus_portal.html'
 CHARSET = nil
 inspection_json_file = "./data/inspection_persons.json"
+main_summary_json_file = "./data/main_summary.json"
 patients_summary_json_file = "./data/patients_summary.json"
 
 def doc
@@ -30,7 +31,12 @@ if __FILE__ == $0
   update_date_time = DateTime.parse(html_date)
 
   # inspection_persons.jsonの更新
+  # main_summary.jsonの日付の更新
   json_data = open(inspection_json_file) do |f|
+    JSON.load(f)
+  end
+　
+  main_summary_json_data = open(main_summary_json_file) do |f|
     JSON.load(f)
   end
 
@@ -44,6 +50,8 @@ if __FILE__ == $0
     open(inspection_json_file, 'w') do |f|
       JSON.dump(json_data, f)
     end
+    main_summary_json_data['lastUpdate'] = (DateTime.now + Rational(9, 24)).strftime("%Y\/%m/%d %H:%M")
+   
   end
 
   # patients_summary.jsonの更新
