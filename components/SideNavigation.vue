@@ -194,11 +194,11 @@ export default Vue.extend({
           title: this.$t('島根県内のお知らせ'),
           link: this.localePath('/shimane-news')
         },
-        {
-          icon: 'mdi-information',
-          title: this.$t('県内各所のお知らせ'),
-          link: this.localePath('/place-news')
-        },
+        // {
+        //   icon: 'mdi-information',
+        //   title: this.$t('県内各所のお知らせ'),
+        //   link: this.localePath('/place-news')
+        // },
         {
           icon: 'mdi-stop',
           title: this.$t('県内の中止又は延期するイベント等'),
