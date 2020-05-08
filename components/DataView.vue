@@ -359,22 +359,22 @@ export default Vue.extend({
       color: $gray-2;
       font-family: Hiragino Sans, sans-serif;
       font-style: normal;
-      font-size: 30px;
       line-height: 30px;
       white-space: nowrap;
+      @include font-size(30);
 
       &-unit {
-        font-size: 0.6em;
         width: 100%;
+        @include font-size(10);
       }
     }
 
     &-date {
-      font-size: 12px;
       line-height: 12px;
       color: $gray-3;
       width: 100%;
       display: inline-block;
+      @include font-size(12);
     }
   }
 
@@ -388,10 +388,10 @@ export default Vue.extend({
   &-Title {
     width: 100%;
     margin-bottom: 10px;
-    font-size: 1.25rem;
     line-height: 1.5;
     font-weight: normal;
     color: $gray-2;
+    @include font-size(20);
 
     @include largerThan($large) {
       margin-bottom: 0;
@@ -407,8 +407,8 @@ export default Vue.extend({
 
   &-Description {
     margin: 10px 0 0;
-    font-size: 12px;
     color: $gray-3;
+    @include font-size(12);
 
     ul,
     ol {
@@ -497,8 +497,8 @@ export default Vue.extend({
         background: $white !important;
         border-radius: 8px;
         text-align: left;
-        font-size: 1rem;
         z-index: 2;
+        @include font-size(16);
 
         > * {
           padding: 4px 0;
@@ -527,7 +527,7 @@ export default Vue.extend({
           color: rgb(3, 3, 3);
           border: solid 1px #eee;
           border-radius: 8px;
-          font-size: 12px;
+          @include font-size(12);
 
           .EmbedCode-Copy {
             position: absolute;
@@ -606,6 +606,7 @@ export default Vue.extend({
       background: $gray-2;
       border-radius: 8px;
       color: $white !important;
+      @include font-size(16);
     }
   }
 }
@@ -630,5 +631,6 @@ textarea {
 
 .expansion-panel-text {
   color: $gray-1;
+  @include font-size(14);
 }
 </style>

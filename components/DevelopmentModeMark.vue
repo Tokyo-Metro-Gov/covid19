@@ -16,7 +16,6 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  font-size: 12px;
   z-index: 1;
   width: 100%;
   height: 20px;
@@ -25,6 +24,7 @@
   color: #4d4d4d;
   line-height: 20px;
   opacity: 0.9;
+  @include font-size(12);
 
   // mobile view
   @include lessThan($small) {

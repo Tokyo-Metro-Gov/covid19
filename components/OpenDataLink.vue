@@ -3,7 +3,7 @@
     {{ $t('オープンデータを入手') }}
     <v-icon
       class="ExternalLinkIcon"
-      size="15"
+      size="1.5rem"
       :aria-label="this.$t('別タブで開く')"
       role="img"
       :aria-hidden="false"
