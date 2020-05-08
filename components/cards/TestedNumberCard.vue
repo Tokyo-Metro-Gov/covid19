@@ -10,6 +10,7 @@
       :labels="inspectionsLabels"
       :unit="$t('件.tested')"
       :data-labels="inspectionsDataLabels"
+      :table-labels="inspectionsTableLabels"
     >
       <!-- 件.tested = 検査数 -->
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
@@ -64,13 +65,18 @@ export default {
       this.$t('健康安全研究センターが行った検査件数'),
       this.$t('医療機関等が行った検査件数')
     ]
+    const inspectionsTableLabels = [
+      this.$t('健康安全研究センター実施分'),
+      this.$t('医療機関等実施分')
+    ]
 
     const data = {
       Data,
       inspectionsGraph,
       inspectionsItems,
       inspectionsLabels,
-      inspectionsDataLabels
+      inspectionsDataLabels,
+      inspectionsTableLabels
     }
     return data
   }

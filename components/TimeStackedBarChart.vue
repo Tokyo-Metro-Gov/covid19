@@ -155,6 +155,7 @@ type Props = {
   items: string[]
   labels: string[]
   dataLabels: string[] | TranslateResult[]
+  tableLabels: string[] | TranslateResult[]
   unit: string
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
@@ -204,6 +205,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: () => []
     },
     dataLabels: {
+      type: Array,
+      default: () => []
+    },
+    tableLabels: {
       type: Array,
       default: () => []
     },
@@ -278,7 +283,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
-        ...(this.dataLabels as string[])
+        ...(this.tableLabels as string[])
           .reduce((arr, text) => {
             arr.push(
               ...[this.$t('日別'), this.$t('累計')].map(
