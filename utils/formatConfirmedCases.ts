@@ -53,10 +53,15 @@ type ConfirmedCasesType = {
   退院: number
 }
 
+interface ChildData {
+  attr: string
+  value: number
+}
+
 type ChildDataType = {
   attr: string
   value: number
-  children?: any
+  children?: ChildData[]
 }
 
 function getSelectedItem(data: DataType, key: string) {
