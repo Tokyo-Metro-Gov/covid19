@@ -19,7 +19,7 @@
           aria-hidden="false"
           :aria-label="$t('別タブで開く')"
           class="MenuList-ExternalIcon"
-          size="12"
+          size="1.2rem"
         >
           mdi-open-in-new
         </v-icon>
@@ -78,7 +78,7 @@ export default Vue.extend({
       return icon
         ? icon.startsWith('mdi')
           ? {
-              size: 20,
+              size: '2rem',
               class: 'MenuList-MdIcon'
             }
           : {
@@ -107,12 +107,12 @@ export default Vue.extend({
 
 .MenuList-Item {
   list-style: none;
-  font-size: 0.85rem;
   line-height: 1.2;
   white-space: normal;
+  @include font-size(14);
   @include lessThan($small) {
-    font-size: 0.9rem;
     font-weight: bold;
+    @include font-size(14.5);
   }
 
   &.-border {
@@ -190,7 +190,7 @@ export default Vue.extend({
   margin-left: 5px;
   color: $gray-3;
   @include lessThan($small) {
-    font-size: 14px !important;
+    @include font-size(14, true);
   }
 }
 </style>

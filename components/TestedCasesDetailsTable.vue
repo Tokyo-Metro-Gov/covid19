@@ -213,6 +213,7 @@ $default-boxh: 150px;
       width: 100%;
       padding: 10px 10px 10px calc(10px + #{$default-bdw});
       border-right: $default-bdw solid $green-1;
+      @include font-size(16);
     }
 
     > .pillar {
