@@ -1,6 +1,15 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
+      <p v-if="titleId == 'number-of-tested'" class="Graph-Desc">
+        {{ $t('（注）同一の対象者について複数の検体を調査する場合あり') }}
+        <br />
+        {{
+          $t(
+            '検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります'
+          )
+        }}
+      </p>
       <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
     <bar
@@ -173,10 +182,7 @@ export default {
             generateLabels() {
               const legendArray = []
               for (let i = 0; i < legends.length; i++) {
-                legendArray.push({
-                  text: legends[i].text,
-                  fillStyle: legends[i].fillStyle
-                })
+                legendArray.push(legends[i])
               }
               return legendArray
             }
@@ -285,3 +291,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.Graph-Desc {
+  width: 100%;
+  margin: 0;
+  font-size: 12px;
+  color: $gray-3;
+}
+</style>

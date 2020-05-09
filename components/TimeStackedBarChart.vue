@@ -1,15 +1,6 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
-      <p class="Graph-Desc">
-        {{ $t('（注）同一の対象者について複数の検体を調査する場合あり') }}
-        <br />
-        {{
-          $t(
-            '検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります'
-          )
-        }}
-      </p>
       <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
     <bar
@@ -292,12 +283,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.Graph-Desc {
-  width: 100%;
-  margin: 0;
-  font-size: 12px;
-  color: $gray-3;
-}
-</style>
