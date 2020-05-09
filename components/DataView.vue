@@ -17,7 +17,12 @@
       <div class="DataView-Footer">
         <div class="Footer-Left">
           <div>
-            <a class="Permalink" :href="fromlink()">
+            <a
+              class="Permalink"
+              :href="fromlink()"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {{ $t('出典:新型コロナウイルス感染症について(新潟県)') }}
             </a>
           </div>
