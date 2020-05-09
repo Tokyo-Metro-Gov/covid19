@@ -4,6 +4,9 @@
       <covid-icon aria-hidden="true" />
       <page-header :class="$style.text">
         {{ $t('新型コロナウイルス感染症が心配なときに') }}
+        <span :class="$style.attention">
+          {{ $t('現在改修中') }}
+        </span>
       </page-header>
       <printer-button :wrapper-class="$style.printerButton" to="/print/flow" />
     </div>
@@ -502,6 +505,17 @@ $margin: 20;
   }
   .text {
     margin-left: 8px;
+  }
+  .attention {
+    background-color: $emergency;
+    border: 2px solid $emergency;
+    color: $gray-2;
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: inline-flex;
+    margin-left: 8px;
+    white-space: nowrap;
+    @include font-size(16);
   }
   .printerButton {
     margin: 0 0 0 auto;
