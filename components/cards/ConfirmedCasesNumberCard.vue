@@ -8,6 +8,7 @@
       :date="Data.patients.date"
       :unit="$t('人')"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+      :legends="dayColorLegends"
     />
   </v-col>
 </template>
@@ -24,10 +25,17 @@ export default {
   data() {
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
+    // 曜日ごとのバーの色
+    const dayColorLegends = [
+      { text: this.$t('月～金'), fillStyle: '#3B64B0' },
+      { text: this.$t('土'), fillStyle: '#3CB371' },
+      { text: this.$t('日'), fillStyle: '#FF0000' }
+    ]
 
     const data = {
       Data,
-      patientsGraph
+      patientsGraph,
+      dayColorLegends
     }
     return data
   }

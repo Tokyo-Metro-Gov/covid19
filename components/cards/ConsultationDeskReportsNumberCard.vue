@@ -8,6 +8,7 @@
       :date="Data.querents.date"
       :unit="$t('件.reports')"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000070'"
+      :legends="dayColorLegends"
     />
     <!-- 件.reports = 窓口相談件数 -->
   </v-col>
@@ -25,10 +26,17 @@ export default {
   data() {
     // 帰国者・接触者 電話相談センター 相談件数
     const querentsGraph = formatGraph(Data.querents.data)
+    // 曜日ごとのバーの色
+    const dayColorLegends = [
+      { text: this.$t('月～金'), fillStyle: '#3B64B0' },
+      { text: this.$t('土'), fillStyle: '#3CB371' },
+      { text: this.$t('日'), fillStyle: '#FF0000' }
+    ]
 
     const data = {
       Data,
-      querentsGraph
+      querentsGraph,
+      dayColorLegends
     }
     return data
   }

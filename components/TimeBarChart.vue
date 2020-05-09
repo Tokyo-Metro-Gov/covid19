@@ -63,6 +63,11 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    legends: {
+      type: Array,
+      required: false,
+      default: () => []
     }
   },
   data() {
@@ -144,6 +149,7 @@ export default {
     displayOption() {
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+      const legends = this.legends
       return {
         tooltips: {
           displayColors: false,
@@ -162,7 +168,19 @@ export default {
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-          display: false
+          display: legends.length > 0,
+          labels: {
+            generateLabels() {
+              const legendArray = []
+              for (let i = 0; i < legends.length; i++) {
+                legendArray.push({
+                  text: legends[i].text,
+                  fillStyle: legends[i].fillStyle
+                })
+              }
+              return legendArray
+            }
+          }
         },
         scales: {
           xAxes: [
