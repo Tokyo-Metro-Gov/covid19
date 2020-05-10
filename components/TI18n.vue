@@ -31,17 +31,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   render(createElement): VNode {
-    const slot = this.$slots.default ? this.$slots.default![0] : ''
+    let elem: VNode
 
-    // slotがない場合は空の`span`を返す
-    if (!slot) {
-      return createElement('span', '')
+    if (this.$slots.default) {
+      elem = createElement('span', this.$slots.default)
+    } else {
+      // slotがない場合は空の`span`を返す
+      elem = createElement('span', '')
     }
 
     // やさしい日本語以外の場合はslotの内容を返す
     if (this.locale !== 'ja-basic') {
-      if (slot.text) return createElement('span', slot.data, slot.text)
-      return createElement(slot.tag, slot.data, slot.children)
+      return elem
     }
 
     const createRubyNode = (texts: RubyText[]): VNode => {
@@ -69,7 +70,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return node
     }
 
-    return createVNode(slot)
+    return createVNode(elem)
   }
 }
 
