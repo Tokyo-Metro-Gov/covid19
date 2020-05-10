@@ -237,7 +237,23 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return {
         labels: this.labels,
         datasets: this.chartData.map((item, index) => {
+          if (this.items[index] === '陽性率') {
+            return {
+              type: 'line',
+              yAxisID: 'y-axis-2', // 追加
+              label: this.items[index],
+              data: item,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+              borderColor: '#CC7004',
+              borderWidth: 3,
+              fill: false,
+              order: 5
+            }
+          }
           return {
+            type: 'bar',
+            yAxisID: 'y-axis-1', // 追加
             label: this.items[index],
             data: item,
             backgroundColor: graphSeries[index].fillColor,
@@ -348,16 +364,37 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
+              id: 'y-axis-1',
+              type: 'linear',
+              position: 'left',
               stacked: true,
               gridLines: {
                 display: true,
-                color: '#E5E5E5'
+                drawOnChartArea: false,
+                color: '#E5E5E5' // #E5E5E5
               },
               ticks: {
                 suggestedMin: 0,
-                suggestedMax: this.scaledTicksYAxisMax,
                 maxTicksLimit: 8,
-                fontColor: '#808080'
+                fontColor: '#808080', // #808080
+                suggestedMax: this.scaledTicksYAxisMax
+              }
+            },
+            {
+              id: 'y-axis-2',
+              type: 'linear',
+              position: 'right',
+              stacked: true,
+              gridLines: {
+                display: true,
+                drawOnChartArea: false,
+                color: '#E5E5E5' // #E5E5E5
+              },
+              ticks: {
+                suggestedMin: 0,
+                maxTicksLimit: 8,
+                fontColor: '#808080', // #808080
+                suggestedMax: 100
               }
             }
           ]
@@ -464,6 +501,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
+              id: 'y-axis-1',
+              type: 'linear',
+              position: 'left',
               stacked: true,
               gridLines: {
                 display: true,
@@ -475,6 +515,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 8,
                 fontColor: '#808080', // #808080
                 suggestedMax: this.scaledTicksYAxisMax
+              }
+            },
+            {
+              id: 'y-axis-2',
+              type: 'linear',
+              position: 'right',
+              stacked: true,
+              gridLines: {
+                display: true,
+                drawOnChartArea: false,
+                color: '#E5E5E5' // #E5E5E5
+              },
+              ticks: {
+                suggestedMin: 0,
+                fontColor: '#808080', // #808080
+                suggestedMax: 100
               }
             }
           ]
