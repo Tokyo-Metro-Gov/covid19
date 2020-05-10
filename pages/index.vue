@@ -43,6 +43,10 @@
       <metro-card />
       <!-- 都庁来庁者数の推移 -->
       <agency-card />
+      <!-- 陽性率グラフ（１） -->
+      <positive-rate-first-card />
+      <!-- 陽性率グラフ（２） -->
+      <positive-rate-second-card />
     </card-row>
   </div>
 </template>
@@ -65,12 +69,16 @@ import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNum
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import PositiveRateFirstCard from '@/components/cards/PositiveRateFirstCard.vue'
+import PositiveRateSecondCard from '@/components/cards/PositiveRateSecondCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
+    PositiveRateSecondCard,
+    PositiveRateFirstCard,
     PageHeader,
     WhatsNew,
     StaticInfo,
