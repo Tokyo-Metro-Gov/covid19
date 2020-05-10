@@ -45,7 +45,7 @@ if __FILE__ == $0
     json_data['inspection_persons']['labels'].push(update_date_time)
     json_data['inspection_persons']['datasets'][0]['data'].push(insperson.to_i)
     open(inspection_json_file, 'w') do |f|
-      JSON.dump(json_data, f)
+      f.write(JSON.pretty_generate(json_data))
     end
   end
 
@@ -62,7 +62,7 @@ if __FILE__ == $0
     hash = {"日付": update_date_time, "小計": positive_insperson.to_i}
     json_data['patients_summary']['data'].push(hash)
     open(patients_summary_json_file, 'w') do |f|
-      JSON.dump(json_data, f)
+      f.write(JSON.pretty_generate(json_data))
     end
   end
 
@@ -74,7 +74,7 @@ if __FILE__ == $0
 
     main_summary_json_data['lastUpdate'] = (DateTime.now + Rational(9, 24)).strftime("%Y\/%m/%d %H:%M")
     open(main_summary_json_file, 'w') do |f|
-      JSON.dump(main_summary_json_data, f)
+      f.write(JSON.pretty_generate(main_summary_json_data))
     end
   end
 end
