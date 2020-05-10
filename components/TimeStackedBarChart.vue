@@ -74,7 +74,7 @@
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
-              <th>{{ item.text }}</th>
+              <th scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item['0'] }}</td>
               <td class="text-end">{{ item['1'] }}</td>
               <td class="text-end">{{ item['2'] }}</td>
