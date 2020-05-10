@@ -66,8 +66,8 @@ df_kanja["陽性判明日"] = df_kanja["陽性判明日"].apply(
     lambda date: pd.to_datetime(date, unit="D", origin=pd.Timestamp("1899/12/30"))
 )
 # df_kanja["退院日"] = pd.to_numeric(df_kanja["退院日"], errors='coerce')
-df_kanja = df_kanja[df_kanja['退院日'].apply(lambda s: True if (type(s) == int or type(s) == float) else False)]
-df_kanja["退院日"] = df_kanja["退院日"].apply(
+df_kanja = df_kanja[df_kanja['退院･退所日'].apply(lambda s: True if (type(s) == int or type(s) == float) else False)]
+df_kanja["退院日"] = df_kanja["退院･退所日"].apply(
     lambda date: pd.to_datetime(date, unit="D", origin=pd.Timestamp("1899/12/30"))
 )
 
