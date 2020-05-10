@@ -10,6 +10,7 @@
       :labels="inspectionsLabels"
       :unit="$t('件.tested')"
       :data-labels="inspectionsDataLabels"
+      :table-labels="inspectionsTableLabels"
     >
       <!-- 件.tested = 検査数 -->
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
@@ -43,58 +44,39 @@ export default {
   },
   data() {
     // 検査実施日別状況
-    const today = new Date()
-    const lastThursday = dayjs()
-      .startOf('day')
-      .day(4) // 直前の木曜日
-    const lastAvailableDate = dayjs(
-      today.getFullYear() +
-        '/' +
-        Data.inspections_summary.labels[
-          Data.inspections_summary.labels.length - 1
-        ]
-    ) // 最新の検査実施日
-    let fromLastThursdayDates = 0
-    if (lastThursday.isBefore(lastAvailableDate)) {
-      fromLastThursdayDates =
-        dayjs.duration(lastAvailableDate.diff(lastThursday)).asDays() + 1 // 直前の木曜日からの日数
-    }
     const l = Data.inspections_summary.data['都内'].length
-    const beforeLastThursday = []
-    const afterLastThursday = []
+    const domestic = []
+    const insurance = []
     for (let i = 0; i < l; i++) {
-      // 直前の木曜日前後で振り分け
-      const sum =
+      domestic.push(
         Data.inspections_summary.data['都内'][i] +
-        (Data.inspections_summary.data['その他'][i]
-          ? Data.inspections_summary.data['その他'][i]
-          : 0)
-      if (l - i - 1 > fromLastThursdayDates) {
-        beforeLastThursday.push(sum)
-        afterLastThursday.push(0)
-      } else {
-        beforeLastThursday.push(0)
-        afterLastThursday.push(sum)
-      }
-    }
-    const inspectionsGraph = [beforeLastThursday, afterLastThursday]
-    const inspectionsItems = [
-      this.$t(
-        '健康安全研究センター及び医療機関が保険適用で行った検査件数の合計'
-      ),
-      this.$t(
-        '健康安全研究センターの検査件数のみの速報値（保険適用分を含まない未確定値）'
+          Data.inspections_summary.data['その他'][i]
       )
+      insurance.push(Data.inspections_summary.data['保険適用分'][i])
+    }
+
+    const inspectionsGraph = [domestic, insurance]
+    const inspectionsItems = [
+      this.$t('健康安全研究センターが行った検査件数'),
+      this.$t('医療機関等が行った検査件数')
     ]
     const inspectionsLabels = Data.inspections_summary.labels
-    const inspectionsDataLabels = [this.$t('確定値'), this.$t('未確定値')]
+    const inspectionsDataLabels = [
+      this.$t('健康安全研究センターが行った検査件数'),
+      this.$t('医療機関等が行った検査件数')
+    ]
+    const inspectionsTableLabels = [
+      this.$t('健康安全研究センター実施分'),
+      this.$t('医療機関等実施分')
+    ]
 
     const data = {
       Data,
       inspectionsGraph,
       inspectionsItems,
       inspectionsLabels,
-      inspectionsDataLabels
+      inspectionsDataLabels,
+      inspectionsTableLabels
     }
     return data
   }
@@ -107,9 +89,9 @@ export default {
     margin: 0;
     margin-top: 1rem;
     padding-left: 0 !important;
-    font-size: 12px;
     color: $gray-3;
     list-style: none;
+    @include font-size(12);
   }
 }
 </style>
