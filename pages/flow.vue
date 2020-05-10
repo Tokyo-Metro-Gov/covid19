@@ -47,7 +47,7 @@
               :class="$style.boxLead"
             >
               <template v-slot:minorSymptom>
-                <span style="text-decoration: underline">
+                <span :class="$style.underline">
                   {{ $t('比較的軽い風邪の症状') }}
                 </span>
               </template>
@@ -64,7 +64,7 @@
               :class="$style.boxLead"
             >
               <template v-slot:majorSymptom>
-                <span style="text-decoration: underline">
+                <span :class="$style.underline">
                   {{ $t('強い症状') }}
                 </span>
               </template>
@@ -98,7 +98,7 @@
               :class="$style.boxLead"
             >
               <template v-slot:minorSymptom>
-                <span style="text-decoration: underline">
+                <span :class="$style.underline">
                   {{ $t('比較的軽い風邪の症状') }}
                 </span>
               </template>
@@ -115,7 +115,7 @@
               :class="$style.boxLead"
             >
               <template v-slot:majorSymptom>
-                <span style="text-decoration: underline">
+                <span :class="$style.underline">
                   {{ $t('強い症状') }}
                 </span>
               </template>
@@ -545,17 +545,6 @@ $margin: 20;
   .text {
     margin-left: 8px;
   }
-  .attention {
-    background-color: $emergency;
-    border: 2px solid $emergency;
-    color: $gray-2;
-    border-radius: 4px;
-    padding: 4px 8px;
-    display: inline-flex;
-    margin-left: 8px;
-    white-space: nowrap;
-    @include font-size(16);
-  }
   .printerButton {
     margin: 0 0 0 auto;
   }
@@ -820,6 +809,9 @@ $margin: 20;
         text-decoration: underline;
       }
     }
+  }
+  > .underline {
+    text-decoration: underline;
   }
 }
 .container .box a {
