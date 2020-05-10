@@ -810,7 +810,7 @@ $margin: 20;
       }
     }
   }
-  > .underline {
+  .underline {
     text-decoration: underline;
   }
 }
