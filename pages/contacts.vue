@@ -251,6 +251,10 @@ export default Vue.extend({
         padding: 0;
       }
 
+      .tel li {
+        margin: 8px 0;
+      }
+
       @include largerThan($medium) {
         th.tel {
           width: 35%;
