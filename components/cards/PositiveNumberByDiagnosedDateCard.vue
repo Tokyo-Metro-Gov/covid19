@@ -2,8 +2,8 @@
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
       :title="$t('判明日別陽性患者数')"
-      :title-id="'number-of-positive-persons'"
-      :chart-id="'number-of-positive-persons'"
+      :title-id="'positive-number-by-diagnosed-date'"
+      :chart-id="'positive-number-by-diagnosed-date'"
       :chart-data="graphData"
       :date="data.date"
       :unit="$t('人')"
