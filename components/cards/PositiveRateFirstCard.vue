@@ -50,10 +50,12 @@ export default {
     const positiveRates = []
     const positiveRateLabels = []
     for (let i = 0; i < l; i++) {
-      positiveCount.push(PositiveRate.data[i].positive_count)
-      positiveRates.push(PositiveRate.data[i].positive_rate)
-      negativeCount.push(PositiveRate.data[i].negative_count)
-      positiveRateLabels.push(PositiveRate.data[i].diagnosed_date)
+      if (dayjs(PositiveRate.data[i].diagnosed_date) <= dayjs('2020-05-06')) {
+        positiveCount.push(PositiveRate.data[i].positive_count)
+        positiveRates.push(PositiveRate.data[i].positive_rate)
+        negativeCount.push(PositiveRate.data[i].negative_count)
+        positiveRateLabels.push(PositiveRate.data[i].diagnosed_date)
+      }
     }
 
     const positiveRateGraph = [positiveCount, negativeCount, positiveRates]

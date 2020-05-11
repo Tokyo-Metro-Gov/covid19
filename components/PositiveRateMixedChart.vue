@@ -7,6 +7,14 @@
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
           <div
+            v-if="i >= 2"
+            :style="{
+              backgroundColor: '#CC7004',
+              borderColor: '#CC7004'
+            }"
+          />
+          <div
+            v-else
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor
@@ -81,7 +89,7 @@
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
-        :unit="displayInfo.unit"
+        unit="%"
       />
     </template>
   </data-view>
@@ -128,6 +136,7 @@ type Computed = {
   displayDataHeader: DisplayData
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
+  scaledTicksYAxisMaxRight: number
   tableHeaders: {
     text: TranslateResult
     value: string
@@ -217,30 +226,30 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
-    displayLegends: [true, true],
-    colors: getGraphSeriesStyle(3),
+    displayLegends: [true, true, true],
+    colors: getGraphSeriesStyle(2),
     chartWidth: null,
     canvas: true
   }),
   computed: {
     displayInfo() {
       return {
-        lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
-        sText: `${this.$t('{date}の合計', {
-          date: this.labels[this.labels.length - 1]
+        lText: this.pickLastNumber(this.chartData)[2].toLocaleString(),
+        sText: `${this.$t('{date}の陽性率', {
+          date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
         })}`,
         unit: this.unit
       }
     },
     displayData() {
-      const graphSeries = getGraphSeriesStyle(this.chartData.length)
+      const graphSeries = getGraphSeriesStyle(2)
       return {
         labels: this.labels,
         datasets: this.chartData.map((item, index) => {
           if (this.items[index] === '陽性率') {
             return {
               type: 'line',
-              yAxisID: 'y-axis-2', // 追加
+              yAxisID: 'y-axis-2',
               label: this.items[index],
               data: item,
               pointBackgroundColor: 'rgba(0,0,0,0)',
@@ -248,17 +257,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               borderColor: '#CC7004',
               borderWidth: 3,
               fill: false,
-              order: 5
+              order: 2,
+              lineTension: 0
             }
           }
           return {
             type: 'bar',
-            yAxisID: 'y-axis-1', // 追加
+            yAxisID: 'y-axis-1',
             label: this.items[index],
             data: item,
             backgroundColor: graphSeries[index].fillColor,
             borderColor: graphSeries[index].strokeColor,
-            borderWidth: 1
+            borderWidth: 1,
+            order: 1
           }
         })
       }
@@ -301,14 +312,21 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               const cases = data[tooltipItem.datasetIndex!][
                 tooltipItem.index!
               ].toLocaleString()
-
-              const label = `${
+              let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${unit}`
+              if (this.dataLabels[tooltipItem.datasetIndex!] === '陽性率') {
+                label = `${
+                  this.dataLabels[tooltipItem.datasetIndex!]
+                } : ${cases} %`
+              }
               return label
             },
             title(tooltipItem, data) {
-              return String(data.labels![tooltipItem[0].index!])
+              const date = dayjs(
+                data.labels![tooltipItem[0].index!].toString()
+              ).format('M/D')
+              return String(date)
             }
           }
         },
@@ -370,7 +388,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               stacked: true,
               gridLines: {
                 display: true,
-                drawOnChartArea: false,
+                drawOnChartArea: true,
                 color: '#E5E5E5' // #E5E5E5
               },
               ticks: {
@@ -384,7 +402,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               id: 'y-axis-2',
               type: 'linear',
               position: 'right',
-              stacked: true,
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
@@ -394,7 +411,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080', // #808080
-                suggestedMax: 100
+                suggestedMax: this.scaledTicksYAxisMaxRight
               }
             }
           ]
@@ -427,6 +444,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           },
           {
             data: [this.displayData.datasets[1].data[n]],
+            backgroundColor: 'transparent',
+            borderWidth: 0
+          },
+          {
+            data: [this.displayData.datasets[2].data[n]],
             backgroundColor: 'transparent',
             borderWidth: 0
           }
@@ -529,8 +551,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 suggestedMin: 0,
+                maxTicksLimit: 8,
                 fontColor: '#808080', // #808080
-                suggestedMax: 100
+                suggestedMax: this.scaledTicksYAxisMaxRight
               }
             }
           ]
@@ -543,6 +566,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       let max = 0
       for (const i in this.chartData[0]) {
         max = Math.max(max, this.chartData[0][i] + this.chartData[1][i])
+      }
+      return max
+    },
+    scaledTicksYAxisMaxRight() {
+      let max = 0
+      for (const i in this.chartData[2]) {
+        max = Math.max(max, this.chartData[2][i])
       }
       return max
     }
