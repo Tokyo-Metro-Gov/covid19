@@ -50,10 +50,10 @@
       <bar
         class="sticky-legend"
         :style="{ display: canvas ? 'block' : 'none' }"
-        :chart-id="`${chartId}-header`"
+        :chart-id="`${chartId}-header-right`"
         :chart-data="displayDataHeader"
         :options="displayOptionHeader"
-        :plugins="yAxesBgPlugin"
+        :plugins="yAxesBgRightPlugin"
         :display-legends="displayLegends"
         :height="240"
         :width="chartWidth"
@@ -104,7 +104,12 @@ import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import {
+  DisplayData,
+  yAxesBgPlugin,
+  yAxesBgRightPlugin,
+  scrollPlugin
+} from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
@@ -159,6 +164,7 @@ type Props = {
   unit: string
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
+  yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -223,6 +229,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin
+    },
+    yAxesBgRightPlugin: {
+      type: Array,
+      default: () => yAxesBgRightPlugin
     }
   },
   data: () => ({
@@ -373,7 +383,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               type: 'time',
               time: {
                 unit: 'month',
-                parser: 'M/D',
                 displayFormats: {
                   month: 'MMM'
                 }
@@ -434,22 +443,29 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           n = Number(i)
         }
       }
+      const test = ['2020/1/1']
+      this.labels.map((label, _) => {
+        test.push(label)
+      })
       return {
-        labels: ['2020/1/1'],
+        labels: test,
         datasets: [
           {
             data: [this.displayData.datasets[0].data[n]],
             backgroundColor: 'transparent',
+            yAxisID: 'y-axis-1',
             borderWidth: 0
           },
           {
             data: [this.displayData.datasets[1].data[n]],
             backgroundColor: 'transparent',
+            yAxisID: 'y-axis-1',
             borderWidth: 0
           },
           {
             data: [this.displayData.datasets[2].data[n]],
             backgroundColor: 'transparent',
+            yAxisID: 'y-axis-2',
             borderWidth: 0
           }
         ]
