@@ -31,6 +31,8 @@
       <confirmed-cases-by-municipalities-card />
       <!-- 検査実施状況 -->
       <tested-cases-details-card />
+    </card-row>
+    <card-row class="DataBlock">
       <!-- 検査実施人数 -->
       <inspection-persons-number-card />
       <!-- 検査実施件数 -->
