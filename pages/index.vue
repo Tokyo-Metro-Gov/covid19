@@ -25,6 +25,8 @@
       <confirmed-cases-details-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
+      <!-- 陽性患者数（検査結果判明日別） -->
+      <positive-number-by-diagnosed-date-card />
       <!-- 陽性患者の属性 -->
       <confirmed-cases-attributes-card />
       <!-- 区市町村別患者数 -->
@@ -43,8 +45,6 @@
       <metro-card />
       <!-- 都庁来庁者数の推移 -->
       <agency-card />
-      <!-- 判明日別陽性患者数 -->
-      <positive-number-by-diagnosed-date-card />
     </card-row>
   </div>
 </template>
