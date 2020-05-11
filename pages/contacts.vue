@@ -243,7 +243,7 @@ export default Vue.extend({
 
       .importantContact {
         font-weight: bold;
-        @include font-size(18, true);
+        @include font-size(16, true);
       }
 
       .tel ul {
