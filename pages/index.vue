@@ -43,6 +43,8 @@
       <metro-card />
       <!-- 都庁来庁者数の推移 -->
       <agency-card />
+      <!-- 判明日別陽性患者数 -->
+      <positive-number-by-diagnosed-date-card />
     </card-row>
   </div>
 </template>
@@ -67,6 +69,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
@@ -85,7 +88,8 @@ export default Vue.extend({
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
     MetroCard,
-    AgencyCard
+    AgencyCard,
+    PositiveNumberByDiagnosedDateCard
   },
   data() {
     const data = {
