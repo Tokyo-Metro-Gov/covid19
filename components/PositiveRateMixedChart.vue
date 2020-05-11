@@ -261,19 +261,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         labels: this.labels,
         datasets: [
           {
-            type: 'line',
-            yAxisID: 'y-axis-2',
-            label: this.items[2],
-            data: this.chartData[2],
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: '#CC7004',
-            borderWidth: 3,
-            fill: false,
-            order: 2,
-            lineTension: 0
-          },
-          {
             type: 'bar',
             yAxisID: 'y-axis-1',
             label: this.items[0],
@@ -292,6 +279,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             borderColor: graphSeries[1].strokeColor,
             borderWidth: 1,
             order: 1
+          },
+          {
+            type: 'line',
+            yAxisID: 'y-axis-2',
+            label: this.items[2],
+            data: this.chartData[2],
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            borderColor: '#CC7004',
+            borderWidth: 3,
+            fill: false,
+            order: 2,
+            lineTension: 0
           }
         ]
       }
