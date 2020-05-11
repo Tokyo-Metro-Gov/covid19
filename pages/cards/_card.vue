@@ -129,7 +129,7 @@ export default {
         updatedAt = agencyData.date
         break
       case 'positive-number-by-diagnosed-date':
-        title = this.$t('判明日別陽性患者数')
+        title = this.$t('陽性患者数（検査結果判明日別）')
         updatedAt = PositiveByDiagnosedData.date
         break
     }

@@ -1,13 +1,30 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('判明日別陽性患者数')"
+      :title="$t('陽性患者数（検査結果判明日別）')"
       :title-id="'positive-number-by-diagnosed-date'"
       :chart-id="'positive-number-by-diagnosed-date'"
       :chart-data="graphData"
       :date="data.date"
       :unit="$t('人')"
-    />
+      :by-date="true"
+    >
+      <template v-slot:description>
+        <ul>
+          <li>
+            {{ $t('（注）検査結果の判明日を基準とする') }}
+          </li>
+          <li>
+            {{ $t('（注）医療機関等が行った検査も含む') }}
+          </li>
+          <li>
+            {{
+              $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
+            }}
+          </li>
+        </ul>
+      </template>
+    </time-bar-chart>
   </v-col>
 </template>
 
