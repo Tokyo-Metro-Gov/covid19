@@ -41,6 +41,12 @@
       "
     />
     <agency-card v-else-if="this.$route.params.card == 'agency'" />
+    <positive-rate-first-card
+      v-else-if="this.$route.params.card == 'positive-rate-first'"
+    />
+    <positive-rate-second-card
+      v-else-if="this.$route.params.card == 'positive-rate-second'"
+    />
   </div>
 </template>
 
@@ -60,9 +66,13 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+import PositiveRateFirstCard from '@/components/cards/PositiveRateFirstCard.vue'
+import PositiveRateSecondCard from '@/components/cards/PositiveRateSecondCard.vue'
 
 export default {
   components: {
+    PositiveRateSecondCard,
+    PositiveRateFirstCard,
     ConfirmedCasesDetailsCard,
     TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
@@ -119,6 +129,14 @@ export default {
         updatedAt = MetroData.date
         break
       case 'agency':
+        title = this.$t('都庁来庁者数の推移')
+        updatedAt = agencyData.date
+        break
+      case 'positive-rate-first':
+        title = this.$t('都庁来庁者数の推移')
+        updatedAt = agencyData.date
+        break
+      case 'positive-rate-second':
         title = this.$t('都庁来庁者数の推移')
         updatedAt = agencyData.date
         break
