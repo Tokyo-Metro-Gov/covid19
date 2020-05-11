@@ -268,7 +268,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             backgroundColor: graphSeries[0].fillColor,
             borderColor: graphSeries[0].strokeColor,
             borderWidth: 1,
-            order: 0
+            order: 1
           },
           {
             type: 'bar',
@@ -278,7 +278,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             backgroundColor: graphSeries[1].fillColor,
             borderColor: graphSeries[1].strokeColor,
             borderWidth: 1,
-            order: 1
+            order: 2
           },
           {
             type: 'line',
@@ -290,7 +290,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             borderColor: '#CC7004',
             borderWidth: 3,
             fill: false,
-            order: 2,
+            order: 0,
             lineTension: 0
           }
         ]
@@ -430,7 +430,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMaxRight
+                suggestedMax: this.scaledTicksYAxisMaxRight,
+                callback(value) {
+                  return value + '%'
+                }
               }
             }
           ]
@@ -561,7 +564,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMaxRight
+                suggestedMax: this.scaledTicksYAxisMaxRight,
+                callback(value) {
+                  return value + '%'
+                }
               }
             }
           ]
