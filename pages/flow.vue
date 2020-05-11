@@ -17,19 +17,31 @@
       <nav ref="nav" :class="$style.anchor">
         <ul :class="$style.anchorList">
           <li :class="$style.anchorItem">
-            <a href="#sydr" :class="$style.anchorLink" @click="onClickAnchor">
+            <a
+              href="#sydr"
+              :class="$style.anchorLink"
+              @click.prevent="onClickAnchor"
+            >
               <span>{{ $t('かかりつけ医がいて症状のある方') }}</span>
               <fig-cond-sy-dr :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
           <li :class="$style.anchorItem">
-            <a href="#sy" :class="$style.anchorLink" @click="onClickAnchor">
+            <a
+              href="#sy"
+              :class="$style.anchorLink"
+              @click.prevent="onClickAnchor"
+            >
               <span>{{ $t('かかりつけ医がいない症状のある方') }}</span>
               <fig-cond-sy :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
           <li :class="$style.anchorItem">
-            <a href="#anx" :class="$style.anchorLink" @click="onClickAnchor">
+            <a
+              href="#anx"
+              :class="$style.anchorLink"
+              @click.prevent="onClickAnchor"
+            >
               <span>{{ $t('不安に思う方') }}</span>
               <fig-cond-anx :class="$style.fig" aria-hidden="true" />
             </a>
