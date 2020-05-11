@@ -54,7 +54,7 @@
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
-              <th>{{ item.text }}</th>
+              <th scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item.transition }}</td>
               <td class="text-end">{{ item.cumulative }}</td>
             </tr>
