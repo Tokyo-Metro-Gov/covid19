@@ -4,9 +4,6 @@
       <covid-icon aria-hidden="true" />
       <page-header :class="$style.text">
         {{ $t('新型コロナウイルス感染症が心配なときに') }}
-        <span :class="$style.attention">
-          {{ $t('現在改修中') }}
-        </span>
       </page-header>
       <printer-button :wrapper-class="$style.printerButton" to="/print/flow" />
     </div>
@@ -45,7 +42,7 @@
               :class="$style.anchorLink"
               @click.prevent="onClickAnchor"
             >
-              <span>{{ $t('軽い症状があり不安のある方') }}</span>
+              <span>{{ $t('不安に思う方') }}</span>
               <fig-cond-anx :class="$style.fig" aria-hidden="true" />
             </a>
           </li>
@@ -57,18 +54,37 @@
         </h4>
         <ul :class="$style.boxes">
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.boxLead">{{
-              $t('風邪のような症状や、37.5℃以上の発熱が続いている')
-            }}</span>
+            <i18n
+              path="発熱や咳などの{minorSymptom}がある"
+              :class="$style.boxLead"
+            >
+              <template v-slot:minorSymptom>
+                <span :class="$style.underline">
+                  {{ $t('比較的軽い風邪の症状') }}
+                </span>
+              </template>
+            </i18n>
             <span :class="$style.alignLeft">{{
               $t(
-                'ご高齢の方・基礎疾患のある方・妊娠中の方は2日程度続いた場合、それ以外の方は4日以上続いた場合を相談の目安としてください。'
+                '妊娠中の方、重症化しやすい方（高齢者、糖尿病、心不全、呼吸器疾患（COPD等）等の基礎疾患がある方や透析を受けている方、免疫抑制剤や抗がん剤等を用いている方）はすぐに、それ以外の方は症状が４日以上続いた場合は必ず、相談してください。'
               )
             }}</span>
           </li>
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.boxLead">{{
-              $t('強いだるさ（倦怠感）や息苦しさ（呼吸困難）がある')
+            <i18n
+              path="息苦しさ（呼吸困難）、強いだるさ（倦怠感）、高熱等の{majorSymptom}がある"
+              :class="$style.boxLead"
+            >
+              <template v-slot:majorSymptom>
+                <span :class="$style.underline">
+                  {{ $t('強い症状') }}
+                </span>
+              </template>
+            </i18n>
+            <span :class="$style.alignLeft">{{
+              $t(
+                '症状には個人差がありますので、強い症状と思う場合にはすぐに相談してください。解熱剤などを飲み続けなければならない方も同様です。'
+              )
             }}</span>
           </li>
         </ul>
@@ -78,7 +94,7 @@
           }}</span>
           <span :class="$style.small">{{
             $t(
-              '（上記の症状がない場合も、軽い症状があるなど不安のある方は、日ごろ受診されている医療機関に電話でご相談ください。）'
+              '（上記の症状がない場合も、不安に思う方は、日ごろ受診されている医療機関に電話でご相談ください。）'
             )
           }}</span>
         </p>
@@ -89,18 +105,37 @@
         </h4>
         <ul :class="$style.boxes">
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.boxLead">{{
-              $t('風邪のような症状や、37.5℃以上の発熱が続いている')
-            }}</span>
+            <i18n
+              path="発熱や咳などの{minorSymptom}がある"
+              :class="$style.boxLead"
+            >
+              <template v-slot:minorSymptom>
+                <span :class="$style.underline">
+                  {{ $t('比較的軽い風邪の症状') }}
+                </span>
+              </template>
+            </i18n>
             <span :class="$style.alignLeft">{{
               $t(
-                'ご高齢の方・基礎疾患のある方・妊娠中の方は2日程度続いた場合、それ以外の方は4日以上続いた場合を相談の目安としてください。'
+                '妊娠中の方、重症化しやすい方（高齢者、糖尿病、心不全、呼吸器疾患（COPD等）等の基礎疾患がある方や透析を受けている方、免疫抑制剤や抗がん剤等を用いている方）はすぐに、それ以外の方は症状が４日以上続いた場合は必ず、相談してください。'
               )
             }}</span>
           </li>
           <li :class="[$style.box, $style.border]">
-            <span :class="$style.boxLead">{{
-              $t('強いだるさ（倦怠感）や息苦しさ（呼吸困難）がある')
+            <i18n
+              path="息苦しさ（呼吸困難）、強いだるさ（倦怠感）、高熱等の{majorSymptom}がある"
+              :class="$style.boxLead"
+            >
+              <template v-slot:majorSymptom>
+                <span :class="$style.underline">
+                  {{ $t('強い症状') }}
+                </span>
+              </template>
+            </i18n>
+            <span :class="$style.alignLeft">{{
+              $t(
+                '症状には個人差がありますので、強い症状と思う場合にはすぐに相談してください。解熱剤などを飲み続けなければならない方も同様です。'
+              )
             }}</span>
           </li>
         </ul>
@@ -171,10 +206,14 @@
       </div>
       <div id="anx" ref="lowerTrigger" :class="$style.section">
         <h4 :class="$style.sxnHeading">
-          {{ $t('軽い症状があり、不安のある方') }}
+          {{ $t('不安に思う方') }}
         </h4>
         <p :class="$style.sxnText">
-          {{ $t('下記、新型コロナコールセンターにご相談ください。') }}
+          {{
+            $t(
+              '感染したかもしれないと不安に思う方、感染予防法を知りたい方などは、下記、新型コロナコールセンターにご相談ください。'
+            )
+          }}
         </p>
         <div :class="[$style.box, $style.bgGray]">
           <h5 :class="$style.boxHeading">
@@ -206,7 +245,7 @@
         <h4 :class="$style.sxnHeadingSmall">
           {{
             $t(
-              '新型コロナ受診相談窓口、またはかかりつけ医によって新型コロナ外来（帰国者・接触者外来）の受診が必要だと判断された方'
+              '新型コロナ受診相談窓口、またはかかりつけ医によって新型コロナ外来（帰国者・接触者外来）またはPCR検査センターの受診が必要だと判断された方'
             )
           }}
         </h4>
@@ -518,17 +557,6 @@ $margin: 20;
   .text {
     margin-left: 8px;
   }
-  .attention {
-    background-color: $emergency;
-    border: 2px solid $emergency;
-    color: $gray-2;
-    border-radius: 4px;
-    padding: 4px 8px;
-    display: inline-flex;
-    margin-left: 8px;
-    white-space: nowrap;
-    @include font-size(16);
-  }
   .printerButton {
     margin: 0 0 0 auto;
   }
@@ -793,6 +821,9 @@ $margin: 20;
         text-decoration: underline;
       }
     }
+  }
+  .underline {
+    text-decoration: underline;
   }
 }
 .container .box a {
