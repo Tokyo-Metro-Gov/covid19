@@ -29,6 +29,10 @@
       <confirmed-cases-attributes-card />
       <!-- 区市町村別患者数 -->
       <confirmed-cases-by-municipalities-card />
+      <!-- 陽性率グラフ（１） -->
+      <positive-rate-first-card />
+      <!-- 陽性率グラフ（２） -->
+      <positive-rate-second-card />
       <!-- 検査実施状況 -->
       <tested-cases-details-card />
       <!-- 検査実施人数 -->
@@ -43,10 +47,6 @@
       <metro-card />
       <!-- 都庁来庁者数の推移 -->
       <agency-card />
-      <!-- 陽性率グラフ（１） -->
-      <positive-rate-first-card />
-      <!-- 陽性率グラフ（２） -->
-      <positive-rate-second-card />
     </card-row>
   </div>
 </template>

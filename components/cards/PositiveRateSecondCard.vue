@@ -1,7 +1,9 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <positive-rate2-mixed-chart
-      :title="$t('陽性率グラフ（２）')"
+      :title="
+        $t('検査実施人数（陰性確認を除く）と陽性率の推移（５月７日以降）')
+      "
       :title-id="'positive-rate-second'"
       :chart-id="'positive-rate-chart-second'"
       :chart-data="positiveRateGraph"
@@ -12,11 +14,27 @@
       :data-labels="positiveRateDataLabels"
       :table-labels="positiveRateTableLabels"
     >
-      <!-- 件.tested = 検査数 -->
-      <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
+      <template v-slot:description>
         <ul :class="$style.GraphDesc">
           <li>
-            {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
+            {{ $t('（注）検査結果の判明日を基準とする') }}
+          </li>
+          <li>
+            {{
+              $t(
+                '（注）陽性率：陽性判明数の移動平均／（陽性判明数＋陰性判明数）の移動平均'
+              )
+            }}
+          </li>
+          <li>
+            {{ $t('（注）移動平均：当該日を含む過去７日間の平均') }}
+          </li>
+          <li>
+            {{
+              $t(
+                '（注）東京都健康安全研究センター、PCRセンター（地域外来・検査センター）及び医療機関での保険適用検査の実績により算出'
+              )
+            }}
           </li>
           <li>
             {{

@@ -1,5 +1,8 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
+    <template v-slot:description>
+      <slot name="description" />
+    </template>
     <ul
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
@@ -285,8 +288,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             yAxisID: 'y-axis-2',
             label: this.items[2],
             data: this.chartData[2],
-            pointBackgroundColor: '#cc7004',
-            pointBorderColor: '#CC7004',
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
             borderColor: '#CC7004',
             borderWidth: 3,
             fill: false,
