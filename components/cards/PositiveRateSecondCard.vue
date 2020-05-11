@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <positive-rate-mixed-chart
+    <positive-rate2-mixed-chart
       :title="$t('陽性率グラフ（２）')"
       :title-id="'positive-rate-second'"
       :chart-id="'positive-rate-chart-second'"
@@ -27,7 +27,7 @@
           </li>
         </ul>
       </template>
-    </positive-rate-mixed-chart>
+    </positive-rate2-mixed-chart>
   </v-col>
 </template>
 
@@ -35,12 +35,12 @@
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import PositiveRate from '@/data/positive_rate.json'
-import PositiveRateMixedChart from '@/components/PositiveRateMixedChart'
+import PositiveRate2MixedChart from '@/components/PositiveRate2MixedChart'
 dayjs.extend(duration)
 
 export default {
   components: {
-    PositiveRateMixedChart
+    PositiveRate2MixedChart
   },
   data() {
     // 検査実施日別状況

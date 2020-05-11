@@ -285,8 +285,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             yAxisID: 'y-axis-2',
             label: this.items[2],
             data: this.chartData[2],
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
+            pointBackgroundColor: '#cc7004',
+            pointBorderColor: '#CC7004',
             borderColor: '#CC7004',
             borderWidth: 3,
             fill: false,
@@ -371,34 +371,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080',
                 maxRotation: 0,
                 callback: (label: string) => {
-                  return dayjs(label).format('D')
+                  return dayjs(label).format('M/D')
                 }
               }
               // #2384: If you set "type" to "time", make sure that the bars at both ends are not hidden.
               // #2384: typeをtimeに設定する時はグラフの両端が見切れないか確認してください
-            },
-            {
-              id: 'month',
-              stacked: true,
-              gridLines: {
-                drawOnChartArea: false,
-                drawTicks: true,
-                drawBorder: false,
-                tickMarkLength: 10
-              },
-              ticks: {
-                fontSize: 11,
-                fontColor: '#808080',
-                padding: 3,
-                fontStyle: 'bold'
-              },
-              type: 'time',
-              time: {
-                unit: 'month',
-                displayFormats: {
-                  month: 'MMM'
-                }
-              }
             }
           ],
           yAxes: [
@@ -500,33 +477,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: 'transparent',
+                fontColor: '#808080',
                 maxRotation: 0,
-                minRotation: 0,
-                callback: (label: string) => {
-                  return dayjs(label).format('D')
+                callback: () => {
+                  return ''
                 }
               }
-            },
-            {
-              id: 'month',
-              stacked: true,
-              gridLines: {
-                drawOnChartArea: false,
-                drawTicks: false, // true -> false
-                drawBorder: false,
-                tickMarkLength: 10
-              },
-              ticks: {
-                fontSize: 11,
-                fontColor: 'transparent', // #808080
-                padding: 13, // 3 + 10(tickMarkLength)
-                fontStyle: 'bold'
-              },
-              type: 'time',
-              time: {
-                unit: 'month'
-              }
+              // #2384: If you set "type" to "time", make sure that the bars at both ends are not hidden.
+              // #2384: typeをtimeに設定する時はグラフの両端が見切れないか確認してください
             }
           ],
           yAxes: [
