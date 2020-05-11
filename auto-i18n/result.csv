@@ -182,3 +182,9 @@ TAG_REMOVE,（注）医療機関が保険適用で行った検査は含まれて
 TAG_REMOVE,（注）医療機関が保険適用で行った検査も含む
 RUN,2020/05/09 21:28
 TAG_ADD,現在改修中
+RUN,2020/05/11 11:04
+TAG_ADD,現在改修中
+TAG_ADD,その他.parent
+TAG_REMOVE,{'parent': 'その他', 'graph': 'その他'}
+TAG_REMOVE,都内発生
+TAG_REMOVE,（チャーター機・クルーズ船等）
