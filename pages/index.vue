@@ -31,6 +31,10 @@
       <confirmed-cases-attributes-card />
       <!-- 区市町村別患者数 -->
       <confirmed-cases-by-municipalities-card />
+      <!-- 陽性率グラフ（１） -->
+      <positive-rate-first-card />
+      <!-- 陽性率グラフ（２） -->
+      <positive-rate-second-card />
       <!-- 検査実施状況 -->
       <tested-cases-details-card />
       <!-- 検査実施人数 -->
@@ -67,6 +71,8 @@ import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNum
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import PositiveRateFirstCard from '@/components/cards/PositiveRateFirstCard.vue'
+import PositiveRateSecondCard from '@/components/cards/PositiveRateSecondCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
@@ -74,6 +80,8 @@ import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
+    PositiveRateSecondCard,
+    PositiveRateFirstCard,
     PageHeader,
     WhatsNew,
     StaticInfo,
