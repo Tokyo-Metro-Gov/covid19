@@ -167,16 +167,16 @@ export default Vue.extend({
           link: this.localePath('/parent')
         },
         {
-          icon: 'mdi-account-multiple',
-          title: this.$t('新型コロナウイルス感染症等に対する緊急対策'),
-          link:
-            'https://www.pref.okinawa.jp/site/shoko/seisaku/kikaku/covid-19.html'
-        },
-        {
           icon: 'mdi-domain',
           title: this.$t('企業の皆様・はたらく皆様へ'),
           link: this.localePath('/worker'),
           divider: true
+        },
+        {
+          // icon: 'mdi-account-multiple',
+          title: this.$t('新型コロナウイルス感染症等に対する緊急対策'),
+          link:
+            'https://www.pref.okinawa.jp/site/shoko/seisaku/kikaku/covid-19.html'
         },
         // {
         //   title: this.$t('新型コロナウイルス感染症について'),
