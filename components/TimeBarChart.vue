@@ -395,7 +395,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOptionHeader() {
-      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const options: Chart.ChartOptions = {
         responsive: false,
         maintainAspectRatio: false,
@@ -472,8 +471,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
-                suggestedMax: scaledTicksYAxisMax
+                fontColor: '#808080' // #808080
               }
             }
           ]
