@@ -23,16 +23,20 @@
     <card-row class="DataBlock">
       <!-- 検査陽性者の状況 -->
       <confirmed-cases-details-card />
+      <!-- 検査実施状況 -->
+      <tested-cases-details-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
+      <!-- 陽性患者数（検査結果判明日別） -->
+      <positive-number-by-diagnosed-date-card />
       <!-- 陽性患者の属性 -->
       <confirmed-cases-attributes-card />
       <!-- 区市町村別患者数 -->
       <confirmed-cases-by-municipalities-card />
-      <!-- 検査実施状況 -->
-      <tested-cases-details-card />
-    </card-row>
-    <card-row class="DataBlock">
+      <!-- 陽性率グラフ（１） -->
+      <positive-rate-first-card />
+      <!-- 陽性率グラフ（２） -->
+      <positive-rate-second-card />
       <!-- 検査実施人数 -->
       <inspection-persons-number-card />
       <!-- 検査実施件数 -->
@@ -67,12 +71,17 @@ import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNum
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import PositiveRateFirstCard from '@/components/cards/PositiveRateFirstCard.vue'
+import PositiveRateSecondCard from '@/components/cards/PositiveRateSecondCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
+    PositiveRateSecondCard,
+    PositiveRateFirstCard,
     PageHeader,
     WhatsNew,
     StaticInfo,
@@ -87,7 +96,8 @@ export default Vue.extend({
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
     MetroCard,
-    AgencyCard
+    AgencyCard,
+    PositiveNumberByDiagnosedDateCard
   },
   data() {
     const data = {
