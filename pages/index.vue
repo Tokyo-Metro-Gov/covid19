@@ -23,6 +23,8 @@
     <card-row class="DataBlock">
       <!-- 検査陽性者の状況 -->
       <confirmed-cases-details-card />
+      <!-- 検査実施状況 -->
+      <tested-cases-details-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
       <!-- 陽性患者数（検査結果判明日別） -->
@@ -35,8 +37,6 @@
       <positive-rate-first-card />
       <!-- 陽性率グラフ（２） -->
       <positive-rate-second-card />
-      <!-- 検査実施状況 -->
-      <tested-cases-details-card />
       <!-- 検査実施人数 -->
       <inspection-persons-number-card />
       <!-- 検査実施件数 -->
