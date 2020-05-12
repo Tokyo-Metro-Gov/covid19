@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('陽性患者数')"
+      :title="$t('新規患者に関する報告件数の推移')"
       :title-id="'number-of-confirmed-cases'"
       :chart-id="'time-bar-chart-patients'"
       :chart-data="patientsGraph"
@@ -11,6 +11,9 @@
     >
       <template v-slot:description>
         <ul>
+          <li>
+            {{ $t('（注）保健所から発生届が提出された日を基準とする') }}
+          </li>
           <li>
             {{ $t('（注）医療機関等が行った検査も含む') }}
           </li>
