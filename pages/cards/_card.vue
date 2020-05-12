@@ -41,6 +41,9 @@
       "
     />
     <agency-card v-else-if="this.$route.params.card == 'agency'" />
+    <positive-number-by-diagnosed-date-card
+      v-else-if="this.$route.params.card == 'positive-number-by-diagnosed-date'"
+    />
   </div>
 </template>
 
@@ -49,6 +52,7 @@ import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
 import agencyData from '@/data/agency.json'
 import patientData from '@/data/patient.json'
+import PositiveByDiagnosedData from '@/data/positive_by_diagnosed.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -60,6 +64,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 
 export default {
   components: {
@@ -73,7 +78,8 @@ export default {
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
     MetroCard,
-    AgencyCard
+    AgencyCard,
+    PositiveNumberByDiagnosedDateCard
   },
   data() {
     let title, updatedAt
@@ -121,6 +127,10 @@ export default {
       case 'agency':
         title = this.$t('都庁来庁者数の推移')
         updatedAt = agencyData.date
+        break
+      case 'positive-number-by-diagnosed-date':
+        title = this.$t('陽性患者数（検査結果判明日別）')
+        updatedAt = PositiveByDiagnosedData.date
         break
     }
 

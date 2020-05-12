@@ -25,6 +25,8 @@
       <confirmed-cases-details-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
+      <!-- 陽性患者数（検査結果判明日別） -->
+      <positive-number-by-diagnosed-date-card />
       <!-- 陽性患者の属性 -->
       <confirmed-cases-attributes-card />
       <!-- 区市町村別患者数 -->
@@ -69,6 +71,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
@@ -87,7 +90,8 @@ export default Vue.extend({
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
     MetroCard,
-    AgencyCard
+    AgencyCard,
+    PositiveNumberByDiagnosedDateCard
   },
   data() {
     const data = {
