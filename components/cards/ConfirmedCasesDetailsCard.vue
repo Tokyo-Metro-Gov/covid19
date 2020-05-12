@@ -35,6 +35,17 @@
         :aria-label="$t('検査陽性者の状況')"
         v-bind="confirmedCases"
       />
+      <template v-slot:footer-description>
+        <ul>
+          <li>
+            {{
+              $t('（注）陽性者数のうち、{underInvestigation}人は調査中である', {
+                underInvestigation: confirmedCases.調査中
+              })
+            }}
+          </li>
+        </ul>
+      </template>
     </data-view>
   </v-col>
 </template>
