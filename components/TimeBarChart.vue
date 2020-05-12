@@ -38,6 +38,9 @@
         :width="chartWidth"
       />
     </div>
+    <template v-slot:additionalDescription>
+      <slot name="additionalDescription" />
+    </template>
     <template v-slot:dataTable>
       <v-data-table
         :headers="tableHeaders"
