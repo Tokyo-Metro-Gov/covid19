@@ -16,6 +16,13 @@
       <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
         <ul :class="$style.GraphDesc">
           <li>
+            {{
+              $t(
+                '（注）検査結果の判明日を基準とする。ただし、一部検体採取日に基づくものを含む'
+              )
+            }}
+          </li>
+          <li>
             {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
           </li>
           <li>
