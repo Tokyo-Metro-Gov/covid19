@@ -1,5 +1,5 @@
 {
-    "date": "2020\/5\/12 21:00",
+    "date": "2020\/5\/13 20:00",
     "data": [
         {
             "diagnosed_date": "2020-02-15",
@@ -460,13 +460,13 @@
         {
             "diagnosed_date": "2020-05-01",
             "positive_count": 18,
-            "negative_count": 291,
+            "negative_count": 290,
             "positive_rate": 10
         },
         {
             "diagnosed_date": "2020-05-02",
             "positive_count": 17,
-            "negative_count": 235,
+            "negative_count": 234,
             "positive_rate": 8.8
         },
         {
@@ -495,33 +495,39 @@
         },
         {
             "diagnosed_date": "2020-05-07",
-            "positive_count": 88,
-            "negative_count": 1017,
+            "positive_count": 87,
+            "negative_count": 1018,
             "positive_rate": 6.8
         },
         {
             "diagnosed_date": "2020-05-08",
-            "positive_count": 60,
-            "negative_count": 1130,
-            "positive_rate": 6.3
+            "positive_count": 57,
+            "negative_count": 1135,
+            "positive_rate": 6.2
         },
         {
             "diagnosed_date": "2020-05-09",
             "positive_count": 42,
-            "negative_count": 754,
-            "positive_rate": 6.1
+            "negative_count": 816,
+            "positive_rate": 5.9
         },
         {
             "diagnosed_date": "2020-05-10",
             "positive_count": 21,
-            "negative_count": 541,
-            "positive_rate": 5.6
+            "negative_count": 554,
+            "positive_rate": 5.4
         },
         {
             "diagnosed_date": "2020-05-11",
-            "positive_count": 29,
-            "negative_count": 617,
-            "positive_rate": 5.6
+            "positive_count": 44,
+            "negative_count": 1009,
+            "positive_rate": 5.3
+        },
+        {
+            "diagnosed_date": "2020-05-12",
+            "positive_count": 33,
+            "negative_count": 825,
+            "positive_rate": 5
         }
     ]
 }
