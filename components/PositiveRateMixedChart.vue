@@ -653,7 +653,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
     const chartelem = this.$refs.EveChart as Element
     const { width } = getComputedStyle(chartelem)
-    this.width = Number(width.replace('px', ''))
+    this.width = Number(width.replace('px', '')) + 0.5
   }
 }
 

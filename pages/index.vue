@@ -33,10 +33,9 @@
       <confirmed-cases-attributes-card />
       <!-- 区市町村別患者数 -->
       <confirmed-cases-by-municipalities-card />
-      <!-- 陽性率グラフ（１） -->
-      <positive-rate-first-card />
-      <!-- 陽性率グラフ（２） -->
-      <positive-rate-second-card />
+      <!-- 陽性率グラフ-->
+      <positive-rate-card />
+      <v-col class="DesktopSpacer" />
       <!-- 検査実施人数 -->
       <inspection-persons-number-card />
       <!-- 検査実施件数 -->
@@ -71,8 +70,7 @@ import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNum
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
-import PositiveRateFirstCard from '@/components/cards/PositiveRateFirstCard.vue'
-import PositiveRateSecondCard from '@/components/cards/PositiveRateSecondCard.vue'
+import PositiveRateCard from '~/components/cards/PositiveRateCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
@@ -80,8 +78,7 @@ import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
-    PositiveRateSecondCard,
-    PositiveRateFirstCard,
+    PositiveRateCard,
     PageHeader,
     WhatsNew,
     StaticInfo,
@@ -161,6 +158,13 @@ export default Vue.extend({
 
       @include lessThan($small) {
         padding: 4px 8px;
+      }
+    }
+
+    .DesktopSpacer {
+      padding: 0;
+      @media screen and (min-width: 960px) {
+        padding: 10px;
       }
     }
   }

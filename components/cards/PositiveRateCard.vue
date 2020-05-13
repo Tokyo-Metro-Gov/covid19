@@ -1,11 +1,9 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <positive-rate-mixed-chart
-      :title="
-        $t('検査実施人数（陰性確認を除く）と陽性率の推移（５月６日以前）')
-      "
-      :title-id="'positive-rate-first'"
-      :chart-id="'positive-rate-chart-first'"
+      :title="$t('検査実施人数（陰性確認を除く）と陽性率の推移')"
+      :title-id="'positive-rate'"
+      :chart-id="'positive-rate-chart'"
       :chart-data="positiveRateGraph"
       :date="PositiveRate.date"
       :items="positiveRateItems"
@@ -32,14 +30,14 @@
           <li>
             {{
               $t(
-                '（注）陽性者が1月24日、1月25日、1月30日、2月13日にそれぞれ１名、2月14日に２名発生しているが、有意な数値がとれる2月15日から作成'
+                '（注）陽性者が1月24日、1月25日、1月30日及び2月13日にそれぞれ1名、2月14日に2名発生しているが、有意な数値がとれる2月15日から作成'
               )
             }}
           </li>
           <li>
             {{
               $t(
-                '（注）東京都健康安全研究センター及びPCRセンター（地域外来・検査センター）での検査実績により算出（PCRセンターは4月10日から開始）'
+                '（注）4月9日までは東京都健康安全研究センター、4月10日から5月6日までは東京都健康安全研究センター及びPCRセンター（地域外来・検査センター）、5月7日以降は東京都健康安全研究センター、PCRセンター（地域外来・検査センター）及び医療機関での保険適用検査の実績により算出'
               )
             }}
           </li>
@@ -75,12 +73,10 @@ export default {
     const positiveRates = []
     const positiveRateLabels = []
     for (let i = 0; i < l; i++) {
-      if (dayjs(PositiveRate.data[i].diagnosed_date) <= dayjs('2020-05-06')) {
-        positiveCount.push(PositiveRate.data[i].positive_count)
-        positiveRates.push(PositiveRate.data[i].positive_rate)
-        negativeCount.push(PositiveRate.data[i].negative_count)
-        positiveRateLabels.push(PositiveRate.data[i].diagnosed_date)
-      }
+      positiveCount.push(PositiveRate.data[i].positive_count)
+      positiveRates.push(PositiveRate.data[i].positive_rate)
+      negativeCount.push(PositiveRate.data[i].negative_count)
+      positiveRateLabels.push(PositiveRate.data[i].diagnosed_date)
     }
 
     const positiveRateGraph = [positiveCount, negativeCount, positiveRates]
