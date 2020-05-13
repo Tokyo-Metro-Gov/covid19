@@ -93,6 +93,7 @@ export default {
     const positiveRateTableLabels = [
       this.$t('陽性者数'),
       this.$t('陰性者数'),
+      this.$t('陽性者数+陰性者数'),
       this.$t('陽性率')
     ]
 
