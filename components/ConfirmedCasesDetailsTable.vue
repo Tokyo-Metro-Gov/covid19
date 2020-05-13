@@ -193,6 +193,7 @@ $default-boxdiff: 35px;
 
 .box {
   display: flex;
+  overflow: auto;
 
   &.parent {
     border-top: $default-bdw solid $green-1;
