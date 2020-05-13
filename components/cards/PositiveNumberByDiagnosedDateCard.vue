@@ -9,21 +9,6 @@
       :unit="$t('人')"
       :by-date="true"
     >
-      <template v-slot:description>
-        <ul>
-          <li>
-            {{ $t('（注）検査結果の判明日を基準とする') }}
-          </li>
-          <li>
-            {{ $t('（注）医療機関等が行った検査も含む') }}
-          </li>
-          <li>
-            {{
-              $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-            }}
-          </li>
-        </ul>
-      </template>
       <template v-slot:additionalDescription>
         <p>
           {{
