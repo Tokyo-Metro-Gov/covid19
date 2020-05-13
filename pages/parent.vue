@@ -72,7 +72,7 @@
       </ul>
     </static-card>
     <static-card>
-      <h3>{{ $t('その他.parent') }}</h3>
+      <h3>{{ $t('その他') }}</h3>
       <p>{{ $t('詳細は、各学校からのお知らせ等をご確認ください。') }}</p>
     </static-card>
   </div>
