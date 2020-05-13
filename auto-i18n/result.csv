@@ -241,3 +241,13 @@ TAG_REMOVE,戦略政策情報推進本部
 TAG_REMOVE,感染症対策本部会議に関すること
 TAG_REMOVE,福祉保健局
 TAG_REMOVE,（新型コロナコールセンター）
+RUN,2020/05/13 09:36
+TAG_ADD,（注）「退院等」には、療養期間経過を含む。
+TAG_ADD,入院
+TAG_ADD,退院等
+TAG_ADD,自宅療養
+TAG_ADD,宿泊療養
+TAG_REMOVE,入院中
+TAG_REMOVE,退院
+TAG_REMOVE,（注）「入院中」には、入院調整中・宿泊療養に移行した方を含む
+TAG_REMOVE,（療養期間経過を含む）
