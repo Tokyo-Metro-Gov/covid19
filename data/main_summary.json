@@ -13,17 +13,17 @@
             "children": [
               {
                 "attr": "軽症・中等症",
-                "value": 4
+                "value": 9
               },
               {
                 "attr": "重症",
-                "value": 0
+                "value": 1
               }
             ]
           },
           {
             "attr": "退院",
-            "value": 10
+            "value": 14
           },
           {
             "attr": "死亡",
@@ -31,7 +31,7 @@
           },
           {
             "attr": "不明",
-            "value": 10
+            "value": 0
           }
         ]
       }
