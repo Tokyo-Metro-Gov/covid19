@@ -1,5 +1,8 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
+    <template v-slot:description>
+      <slot name="description" />
+    </template>
     <template v-slot:button>
       <data-selector
         v-model="dataKind"
