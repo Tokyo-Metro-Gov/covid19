@@ -1,5 +1,5 @@
 {
-    "date": "2020\/5\/13 20:00",
+    "date": "2020\/5\/14 19:15",
     "data": [
         {
             "diagnosed_date": "2020-02-15",
@@ -495,39 +495,45 @@
         },
         {
             "diagnosed_date": "2020-05-07",
-            "positive_count": 87,
-            "negative_count": 1018,
-            "positive_rate": 6.8
+            "positive_count": 79,
+            "negative_count": 1014,
+            "positive_rate": 6.5
         },
         {
             "diagnosed_date": "2020-05-08",
-            "positive_count": 57,
-            "negative_count": 1135,
-            "positive_rate": 6.2
+            "positive_count": 51,
+            "negative_count": 1136,
+            "positive_rate": 5.8
         },
         {
             "diagnosed_date": "2020-05-09",
-            "positive_count": 42,
-            "negative_count": 816,
-            "positive_rate": 5.9
-        },
-        {
-            "diagnosed_date": "2020-05-10",
-            "positive_count": 21,
-            "negative_count": 554,
+            "positive_count": 36,
+            "negative_count": 817,
             "positive_rate": 5.4
         },
         {
+            "diagnosed_date": "2020-05-10",
+            "positive_count": 18,
+            "negative_count": 553,
+            "positive_rate": 4.9
+        },
+        {
             "diagnosed_date": "2020-05-11",
-            "positive_count": 44,
-            "negative_count": 1009,
-            "positive_rate": 5.3
+            "positive_count": 49,
+            "negative_count": 1110,
+            "positive_rate": 4.9
         },
         {
             "diagnosed_date": "2020-05-12",
-            "positive_count": 33,
-            "negative_count": 825,
-            "positive_rate": 5
+            "positive_count": 36,
+            "negative_count": 1133,
+            "positive_rate": 4.5
+        },
+        {
+            "diagnosed_date": "2020-05-13",
+            "positive_count": 30,
+            "negative_count": 857,
+            "positive_rate": 4.3
         }
     ]
 }
