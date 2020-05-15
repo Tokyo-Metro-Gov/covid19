@@ -127,6 +127,9 @@
     padding: 0;
   }
 }
+.v-menu__content {
+  min-width: 59px;
+}
 </style>
 
 <script lang="ts">
