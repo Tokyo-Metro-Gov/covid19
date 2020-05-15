@@ -84,6 +84,7 @@
               <td class="text-end">{{ item['0'] }}</td>
               <td class="text-end">{{ item['1'] }}</td>
               <td class="text-end">{{ item['2'] }}</td>
+              <td class="text-end">{{ item['3'] }}</td>
             </tr>
           </tbody>
         </template>
@@ -308,13 +309,26 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      const test = this.labels
+      return this.labels
         .map((label, i) => {
           return Object.assign(
-            { text: label },
+            { text: dayjs(label).format('M/D') },
             ...this.tableHeaders.map((_, j) => {
-              if (j < 3) {
+              if (j <= 1) {
                 const data = this.chartData[j]
+                return {
+                  [j]: data[i].toLocaleString()
+                }
+              }
+              if (j === 2) {
+                const positive = this.chartData[0]
+                const negative = this.chartData[1]
+                return {
+                  [j]: (positive[i] + negative[i]).toLocaleString()
+                }
+              }
+              if (j === 3) {
+                const data = this.chartData[2]
                 return {
                   [j]: data[i].toLocaleString()
                 }
@@ -324,7 +338,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         })
         .sort((a, b) => dayjs(a.text).unix() - dayjs(b.text).unix())
         .reverse()
-      return test
     },
     displayOption() {
       const unit = this.unit
