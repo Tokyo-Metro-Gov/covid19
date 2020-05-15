@@ -17,7 +17,7 @@
         <li :class="[$style.box, $style.parent, $style.hospitalized]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <span>{{ $t('入院中') }}</span>
+              <span>{{ $t('入院') }}</span>
               <span>
                 <strong>{{ 入院中.toLocaleString() }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
@@ -54,6 +54,28 @@
         <li :class="[$style.box, $style.deceased]">
           <div :class="$style.pillar">
             <div :class="$style.content">
+              <span>{{ $t('宿泊療養') }}</span>
+              <span>
+                <strong>{{ 宿泊療養.toLocaleString() }}</strong>
+                <span :class="$style.unit">{{ $t('人') }}</span>
+              </span>
+            </div>
+          </div>
+        </li>
+        <li :class="[$style.box, $style.deceased]">
+          <div :class="$style.pillar">
+            <div :class="$style.content">
+              <span>{{ $t('自宅療養') }}</span>
+              <span>
+                <strong>{{ 自宅療養.toLocaleString() }}</strong>
+                <span :class="$style.unit">{{ $t('人') }}</span>
+              </span>
+            </div>
+          </div>
+        </li>
+        <li :class="[$style.box, $style.deceased]">
+          <div :class="$style.pillar">
+            <div :class="$style.content">
               <span>{{ $t('死亡') }}</span>
               <span>
                 <strong>{{ 死亡.toLocaleString() }}</strong>
@@ -65,9 +87,7 @@
         <li :class="[$style.box, $style.recovered]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <span
-                >{{ $t('退院') }}<br />{{ $t('（療養期間経過を含む）') }}</span
-              >
+              <span>{{ $t('退院等') }}</span>
               <span>
                 <strong>{{ 退院.toLocaleString() }}</strong>
                 <span :class="$style.unit">{{ $t('人') }}</span>
@@ -103,6 +123,14 @@ export default Vue.extend({
       required: true
     },
     重症: {
+      type: Number,
+      required: true
+    },
+    宿泊療養: {
+      type: Number,
+      required: true
+    },
+    自宅療養: {
       type: Number,
       required: true
     },
@@ -165,6 +193,7 @@ $default-boxdiff: 35px;
 
 .box {
   display: flex;
+  overflow: auto;
 
   &.parent {
     border-top: $default-bdw solid $green-1;
@@ -247,7 +276,7 @@ $default-boxdiff: 35px;
     display: block;
     width: 100%;
 
-    @include font-size(16);
+    @include font-size(14);
 
     &:last-child {
       margin-top: 0.1em;
@@ -258,11 +287,11 @@ $default-boxdiff: 35px;
     }
   }
   span strong {
-    @include font-size(18);
+    @include font-size(16);
   }
 
   span.unit {
-    @include font-size(16);
+    @include font-size(14);
   }
 }
 

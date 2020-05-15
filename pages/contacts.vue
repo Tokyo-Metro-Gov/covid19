@@ -16,20 +16,52 @@
         </thead>
         <tbody>
           <tr>
-            <td class="content" v-bind="headingAttrs">
-              {{ $t('サイト全般に関すること') }}
+            <td class="content importantContact" v-bind="headingAttrs">
+              {{ $t('新型コロナウイルス感染症の予防・検査・医療に関すること') }}
             </td>
-            <td class="bureau">{{ $t('政策企画局') }}</td>
-            <td class="tel"><a href="tel:03-5388-2171">03-5388-2171</a></td>
+            <td class="bureau importantContact">
+              {{ $t('新型コロナコールセンター') }}
+            </td>
+            <td class="tel">
+              <a href="tel:0570-550-571" class="importantContact"
+                >0570-550-571</a
+              ><br />
+              <p class="caution">
+                {{ $t(`午前9時00分から午後10時00分（土日祝含む）`) }}
+              </p>
+              <p class="caution">
+                {{
+                  $t(
+                    `電話のおかけ間違いが多くなっております。発信の際は今一度電話番号をお確かめの上、お間違えのないようお願いいたします。`
+                  )
+                }}
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td class="content importantContact" v-bind="headingAttrs">
+              {{
+                $t('特措法に定める要請・指示、感染拡大防止協力金等に関すること')
+              }}
+            </td>
+            <td class="bureau importantContact">
+              {{ $t('東京都緊急事態措置等・感染拡大防止協力金相談センター') }}
+            </td>
+            <td class="tel">
+              <a href="tel:03-5388-0567" class="importantContact"
+                >03-5388-0567</a
+              ><br />
+              <p class="caution">
+                {{ $t('午前9時00分から午後7時00分（土日祝含む）') }}
+              </p>
+            </td>
           </tr>
           <tr>
             <td class="content" v-bind="headingAttrs">
-              {{ $t('サイトの技術面に関すること') }}<br />{{
-                $t('オープンデータ、オープンソースに関すること')
-              }}
+              {{ $t('本サイトの管理・運営に関すること') }}
             </td>
-            <td class="bureau">{{ $t('戦略政策情報推進本部') }}</td>
-            <td class="tel"><a href="tel:03-5320-7930">03-5320-7930</a></td>
+            <td class="bureau">{{ $t('政策企画局') }}</td>
+            <td class="tel"><a href="tel:03-5388-2171">03-5388-2171</a></td>
           </tr>
           <tr>
             <td class="content" v-bind="headingAttrs">
@@ -38,14 +70,22 @@
             </td>
             <td class="bureau">{{ $t('総務局') }}</td>
             <td class="tel">
-              {{ $t('感染症対策本部会議に関すること') }}<br /><a
-                href="tel:03-5388-2453"
-                >03-5388-2453</a
-              ><br />
-              {{ $t('都庁来庁者データに関すること') }}<br /><a
-                href="tel:03-5388-2319"
-                >03-5388-2319</a
-              >
+              <ul>
+                <li>
+                  {{ $t('新型コロナウイルス感染症対策本部会議に関すること') }}
+                  <br />
+                  <a href="tel:03-5388-2453">
+                    03-5388-2453
+                  </a>
+                </li>
+                <li>
+                  {{ $t('都庁来庁者データに関すること') }}
+                  <br />
+                  <a href="tel:03-5388-2319">
+                    03-5388-2319
+                  </a>
+                </li>
+              </ul>
             </td>
           </tr>
           <tr>
@@ -56,14 +96,20 @@
             </td>
             <td class="bureau">{{ $t('生活文化局') }}</td>
             <td class="tel">
-              {{ $t('都公式ホームページに関すること') }}<br /><a
-                href="tel:03-5388-3061"
-                >03-5388-3061</a
-              ><br />
-              {{ $t('都公式SNSアカウントに関すること') }}<br /><a
-                href="tel:03-5388-3094"
-                >03-5388-3094</a
-              >
+              <ul>
+                <li>
+                  {{ $t('都公式ホームページに関すること') }}<br /><a
+                    href="tel:03-5388-3061"
+                    >03-5388-3061</a
+                  >
+                </li>
+                <li>
+                  {{ $t('都公式SNSアカウントに関すること') }}<br /><a
+                    href="tel:03-5388-3094"
+                    >03-5388-3094</a
+                  >
+                </li>
+              </ul>
             </td>
           </tr>
           <tr>
@@ -72,32 +118,25 @@
             </td>
             <td class="bureau">{{ $t('産業労働局') }}</td>
             <td class="tel">
-              {{ $t('資金繰りに関すること') }}<br /><a href="tel:03-5320-4877"
-                >03-5320-4877</a
-              ><br />
-              {{ $t('経営に関すること') }}<br /><a href="tel:03-3251-7881"
-                >03-3251-7881</a
-              ><br />
-              {{ $t('労働関係に関すること') }}<br /><a href="tel:0570-00-6110"
-                >0570-00-6110</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td class="content" v-bind="headingAttrs">
-              {{ $t('新型コロナウイルス感染症の予防・検査・医療に関すること') }}
-            </td>
-            <td class="bureau">{{ $t('福祉保健局') }}</td>
-            <td class="tel">
-              <a href="tel:0570-550-571">0570-550-571</a><br />
-              {{ $t('（新型コロナコールセンター）') }}
-              <p class="caution">
-                {{
-                  $t(
-                    '電話のおかけ間違いが多くなっております。発信の際は今一度電話番号をお確かめの上、お間違えのないようお願いいたします。'
-                  )
-                }}
-              </p>
+              <ul>
+                <li>
+                  {{ $t('資金繰りに関すること') }}<br /><a
+                    href="tel:03-5320-4877"
+                    >03-5320-4877</a
+                  >
+                </li>
+                <li>
+                  {{ $t('経営に関すること') }}<br /><a href="tel:03-3251-7881"
+                    >03-3251-7881</a
+                  >
+                </li>
+                <li>
+                  {{ $t('労働関係に関すること') }}<br /><a
+                    href="tel:0570-00-6110"
+                    >0570-00-6110</a
+                  >
+                </li>
+              </ul>
             </td>
           </tr>
           <tr>
@@ -123,6 +162,13 @@
               <a href="tel:03-3816-5700">03-3816-5700</a><br />
               {{ $t('（都営交通お客様センター）') }}
             </td>
+          </tr>
+          <tr>
+            <td class="content" v-bind="headingAttrs">
+              {{ $t('ご家庭でのマスク等の捨て方に関すること') }}
+            </td>
+            <td class="bureau">{{ $t('環境局') }}</td>
+            <td class="tel"><a href="tel:03-5388-3581">03-5388-3581</a></td>
           </tr>
         </tbody>
       </table>
@@ -186,23 +232,30 @@ export default Vue.extend({
       border-collapse: collapse;
 
       th {
-        font-size: 14px !important;
+        padding: 1em 0;
+        @include font-size(14, true);
       }
 
       td {
-        padding: 0 16px;
-        font-size: 14px;
+        padding: 1em 16px;
+        @include font-size(14);
+      }
+
+      .importantContact {
+        font-weight: bold;
+        @include font-size(16, true);
+      }
+
+      .tel ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .tel li {
+        margin: 8px 0;
       }
 
       @include largerThan($medium) {
-        thead tr {
-          height: 48px;
-        }
-
-        tbody tr {
-          height: 96px;
-        }
-
         th.tel {
           width: 35%;
         }
@@ -255,8 +308,8 @@ export default Vue.extend({
       }
 
       p.caution {
-        font-size: 12px;
         margin: 0;
+        @include font-size(12);
       }
     }
   }

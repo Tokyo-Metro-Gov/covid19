@@ -38,9 +38,11 @@
         <li :class="[$style.box, $style.inside]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <span>{{ $t('都内発生') }}</span>
+              <span>{{ $t('健康安全研究センター実施分') }}</span>
               <span>
-                <strong>{{ 都内発生件数.toLocaleString() }}</strong>
+                <strong>{{
+                  健康安全研究センター実施分.toLocaleString()
+                }}</strong>
                 <span :class="$style.unit">{{ $t('件.tested') }}</span>
               </span>
             </div>
@@ -49,12 +51,9 @@
         <li :class="[$style.box, $style.others]">
           <div :class="$style.pillar">
             <div :class="$style.content">
-              <span>{{ $t('その他.graph') }}</span>
-              <span :class="$style.small">{{
-                $t('（チャーター機・クルーズ船等）')
-              }}</span>
+              <span>{{ $t('医療機関等実施分') }}</span>
               <span>
-                <strong>{{ その他件数.toLocaleString() }}</strong>
+                <strong>{{ 医療機関等実施分.toLocaleString() }}</strong>
                 <span :class="$style.unit">{{ $t('件.tested') }}</span>
               </span>
             </div>
@@ -79,11 +78,11 @@ export default Vue.extend({
       type: Number,
       required: true
     },
-    都内発生件数: {
+    健康安全研究センター実施分: {
       type: Number,
       required: true
     },
-    その他件数: {
+    医療機関等実施分: {
       type: Number,
       required: true
     }
@@ -213,6 +212,7 @@ $default-boxh: 150px;
       width: 100%;
       padding: 10px 10px 10px calc(10px + #{$default-bdw});
       border-right: $default-bdw solid $green-1;
+      @include font-size(16);
     }
 
     > .pillar {

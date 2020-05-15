@@ -32,7 +32,7 @@
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
-              <th>{{ item.text }}</th>
+              <th scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item[0] }}</td>
               <td class="text-end">{{ item[1] }}</td>
               <td class="text-end">{{ item[2] }}</td>
@@ -276,9 +276,9 @@ export default Vue.extend(options)
     margin-top: 10px;
     margin-bottom: 0 !important;
     padding-left: 0 !important;
-    font-size: 12px;
     color: $gray-3;
     list-style: none;
+    @include font-size(12);
   }
 }
 </style>

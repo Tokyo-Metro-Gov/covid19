@@ -1,0 +1,539 @@
+{
+    "date": "2020\/5\/14 19:15",
+    "data": [
+        {
+            "diagnosed_date": "2020-02-15",
+            "positive_count": 8,
+            "negative_count": 122,
+            "positive_rate": 7.7
+        },
+        {
+            "diagnosed_date": "2020-02-16",
+            "positive_count": 5,
+            "negative_count": 69,
+            "positive_rate": 7.5
+        },
+        {
+            "diagnosed_date": "2020-02-17",
+            "positive_count": 3,
+            "negative_count": 4,
+            "positive_rate": 8.7
+        },
+        {
+            "diagnosed_date": "2020-02-18",
+            "positive_count": 0,
+            "negative_count": 24,
+            "positive_rate": 7.8
+        },
+        {
+            "diagnosed_date": "2020-02-19",
+            "positive_count": 3,
+            "negative_count": 77,
+            "positive_rate": 6.8
+        },
+        {
+            "diagnosed_date": "2020-02-20",
+            "positive_count": 2,
+            "negative_count": 58,
+            "positive_rate": 6.1
+        },
+        {
+            "diagnosed_date": "2020-02-21",
+            "positive_count": 2,
+            "negative_count": 33,
+            "positive_rate": 5.6
+        },
+        {
+            "diagnosed_date": "2020-02-22",
+            "positive_count": 1,
+            "negative_count": 33,
+            "positive_rate": 5.1
+        },
+        {
+            "diagnosed_date": "2020-02-23",
+            "positive_count": 1,
+            "negative_count": 6,
+            "positive_rate": 4.9
+        },
+        {
+            "diagnosed_date": "2020-02-24",
+            "positive_count": 1,
+            "negative_count": 13,
+            "positive_rate": 3.9
+        },
+        {
+            "diagnosed_date": "2020-02-25",
+            "positive_count": 0,
+            "negative_count": 44,
+            "positive_rate": 3.6
+        },
+        {
+            "diagnosed_date": "2020-02-26",
+            "positive_count": 3,
+            "negative_count": 48,
+            "positive_rate": 4.1
+        },
+        {
+            "diagnosed_date": "2020-02-27",
+            "positive_count": 1,
+            "negative_count": 67,
+            "positive_rate": 3.6
+        },
+        {
+            "diagnosed_date": "2020-02-28",
+            "positive_count": 0,
+            "negative_count": 64,
+            "positive_rate": 2.5
+        },
+        {
+            "diagnosed_date": "2020-02-29",
+            "positive_count": 1,
+            "negative_count": 55,
+            "positive_rate": 2.3
+        },
+        {
+            "diagnosed_date": "2020-03-01",
+            "positive_count": 2,
+            "negative_count": 12,
+            "positive_rate": 2.6
+        },
+        {
+            "diagnosed_date": "2020-03-02",
+            "positive_count": 0,
+            "negative_count": 32,
+            "positive_rate": 2.1
+        },
+        {
+            "diagnosed_date": "2020-03-03",
+            "positive_count": 1,
+            "negative_count": 73,
+            "positive_rate": 2.2
+        },
+        {
+            "diagnosed_date": "2020-03-04",
+            "positive_count": 4,
+            "negative_count": 78,
+            "positive_rate": 2.3
+        },
+        {
+            "diagnosed_date": "2020-03-05",
+            "positive_count": 8,
+            "negative_count": 71,
+            "positive_rate": 4
+        },
+        {
+            "diagnosed_date": "2020-03-06",
+            "positive_count": 6,
+            "negative_count": 65,
+            "positive_rate": 5.4
+        },
+        {
+            "diagnosed_date": "2020-03-07",
+            "positive_count": 6,
+            "negative_count": 88,
+            "positive_rate": 6.1
+        },
+        {
+            "diagnosed_date": "2020-03-08",
+            "positive_count": 0,
+            "negative_count": 0,
+            "positive_rate": 5.8
+        },
+        {
+            "diagnosed_date": "2020-03-09",
+            "positive_count": 0,
+            "negative_count": 23,
+            "positive_rate": 5.9
+        },
+        {
+            "diagnosed_date": "2020-03-10",
+            "positive_count": 3,
+            "negative_count": 62,
+            "positive_rate": 6.5
+        },
+        {
+            "diagnosed_date": "2020-03-11",
+            "positive_count": 5,
+            "negative_count": 114,
+            "positive_rate": 6.2
+        },
+        {
+            "diagnosed_date": "2020-03-12",
+            "positive_count": 2,
+            "negative_count": 82,
+            "positive_rate": 4.8
+        },
+        {
+            "diagnosed_date": "2020-03-13",
+            "positive_count": 2,
+            "negative_count": 56,
+            "positive_rate": 4.1
+        },
+        {
+            "diagnosed_date": "2020-03-14",
+            "positive_count": 7,
+            "negative_count": 64,
+            "positive_rate": 4.5
+        },
+        {
+            "diagnosed_date": "2020-03-15",
+            "positive_count": 0,
+            "negative_count": 0,
+            "positive_rate": 4.5
+        },
+        {
+            "diagnosed_date": "2020-03-16",
+            "positive_count": 0,
+            "negative_count": 19,
+            "positive_rate": 4.6
+        },
+        {
+            "diagnosed_date": "2020-03-17",
+            "positive_count": 11,
+            "negative_count": 60,
+            "positive_rate": 6.4
+        },
+        {
+            "diagnosed_date": "2020-03-18",
+            "positive_count": 4,
+            "negative_count": 101,
+            "positive_rate": 6.4
+        },
+        {
+            "diagnosed_date": "2020-03-19",
+            "positive_count": 5,
+            "negative_count": 44,
+            "positive_rate": 7.8
+        },
+        {
+            "diagnosed_date": "2020-03-20",
+            "positive_count": 6,
+            "negative_count": 9,
+            "positive_rate": 10
+        },
+        {
+            "diagnosed_date": "2020-03-21",
+            "positive_count": 0,
+            "negative_count": 44,
+            "positive_rate": 8.6
+        },
+        {
+            "diagnosed_date": "2020-03-22",
+            "positive_count": 0,
+            "negative_count": 1,
+            "positive_rate": 8.6
+        },
+        {
+            "diagnosed_date": "2020-03-23",
+            "positive_count": 12,
+            "negative_count": 44,
+            "positive_rate": 11.1
+        },
+        {
+            "diagnosed_date": "2020-03-24",
+            "positive_count": 14,
+            "negative_count": 60,
+            "positive_rate": 11.9
+        },
+        {
+            "diagnosed_date": "2020-03-25",
+            "positive_count": 27,
+            "negative_count": 68,
+            "positive_rate": 19.2
+        },
+        {
+            "diagnosed_date": "2020-03-26",
+            "positive_count": 27,
+            "negative_count": 60,
+            "positive_rate": 23.1
+        },
+        {
+            "diagnosed_date": "2020-03-27",
+            "positive_count": 32,
+            "negative_count": 111,
+            "positive_rate": 22.4
+        },
+        {
+            "diagnosed_date": "2020-03-28",
+            "positive_count": 49,
+            "negative_count": 195,
+            "positive_rate": 23
+        },
+        {
+            "diagnosed_date": "2020-03-29",
+            "positive_count": 46,
+            "negative_count": 285,
+            "positive_rate": 20.1
+        },
+        {
+            "diagnosed_date": "2020-03-30",
+            "positive_count": 0,
+            "negative_count": 41,
+            "positive_rate": 19.2
+        },
+        {
+            "diagnosed_date": "2020-03-31",
+            "positive_count": 46,
+            "negative_count": 99,
+            "positive_rate": 20.9
+        },
+        {
+            "diagnosed_date": "2020-04-01",
+            "positive_count": 54,
+            "negative_count": 110,
+            "positive_rate": 22
+        },
+        {
+            "diagnosed_date": "2020-04-02",
+            "positive_count": 69,
+            "negative_count": 400,
+            "positive_rate": 19.3
+        },
+        {
+            "diagnosed_date": "2020-04-03",
+            "positive_count": 78,
+            "negative_count": 473,
+            "positive_rate": 17.6
+        },
+        {
+            "diagnosed_date": "2020-04-04",
+            "positive_count": 4,
+            "negative_count": 61,
+            "positive_rate": 16.8
+        },
+        {
+            "diagnosed_date": "2020-04-05",
+            "positive_count": 61,
+            "negative_count": 1,
+            "positive_rate": 20.8
+        },
+        {
+            "diagnosed_date": "2020-04-06",
+            "positive_count": 79,
+            "negative_count": 277,
+            "positive_rate": 21.6
+        },
+        {
+            "diagnosed_date": "2020-04-07",
+            "positive_count": 60,
+            "negative_count": 211,
+            "positive_rate": 20.9
+        },
+        {
+            "diagnosed_date": "2020-04-08",
+            "positive_count": 125,
+            "negative_count": 241,
+            "positive_rate": 22.2
+        },
+        {
+            "diagnosed_date": "2020-04-09",
+            "positive_count": 90,
+            "negative_count": 254,
+            "positive_rate": 24.7
+        },
+        {
+            "diagnosed_date": "2020-04-10",
+            "positive_count": 143,
+            "negative_count": 219,
+            "positive_rate": 30.8
+        },
+        {
+            "diagnosed_date": "2020-04-11",
+            "positive_count": 159,
+            "negative_count": 344,
+            "positive_rate": 31.7
+        },
+        {
+            "diagnosed_date": "2020-04-12",
+            "positive_count": 6,
+            "negative_count": 51,
+            "positive_rate": 29.3
+        },
+        {
+            "diagnosed_date": "2020-04-13",
+            "positive_count": 74,
+            "negative_count": 176,
+            "positive_rate": 30.5
+        },
+        {
+            "diagnosed_date": "2020-04-14",
+            "positive_count": 26,
+            "negative_count": 65,
+            "positive_rate": 31.6
+        },
+        {
+            "diagnosed_date": "2020-04-15",
+            "positive_count": 33,
+            "negative_count": 127,
+            "positive_rate": 30.1
+        },
+        {
+            "diagnosed_date": "2020-04-16",
+            "positive_count": 136,
+            "negative_count": 374,
+            "positive_rate": 29.8
+        },
+        {
+            "diagnosed_date": "2020-04-17",
+            "positive_count": 84,
+            "negative_count": 245,
+            "positive_rate": 27.3
+        },
+        {
+            "diagnosed_date": "2020-04-18",
+            "positive_count": 75,
+            "negative_count": 284,
+            "positive_rate": 24.7
+        },
+        {
+            "diagnosed_date": "2020-04-19",
+            "positive_count": 60,
+            "negative_count": 244,
+            "positive_rate": 24.4
+        },
+        {
+            "diagnosed_date": "2020-04-20",
+            "positive_count": 59,
+            "negative_count": 237,
+            "positive_rate": 23.1
+        },
+        {
+            "diagnosed_date": "2020-04-21",
+            "positive_count": 25,
+            "negative_count": 142,
+            "positive_rate": 22.2
+        },
+        {
+            "diagnosed_date": "2020-04-22",
+            "positive_count": 40,
+            "negative_count": 221,
+            "positive_rate": 21.5
+        },
+        {
+            "diagnosed_date": "2020-04-23",
+            "positive_count": 75,
+            "negative_count": 417,
+            "positive_rate": 18.9
+        },
+        {
+            "diagnosed_date": "2020-04-24",
+            "positive_count": 40,
+            "negative_count": 280,
+            "positive_rate": 17
+        },
+        {
+            "diagnosed_date": "2020-04-25",
+            "positive_count": 47,
+            "negative_count": 270,
+            "positive_rate": 16
+        },
+        {
+            "diagnosed_date": "2020-04-26",
+            "positive_count": 35,
+            "negative_count": 279,
+            "positive_rate": 14.8
+        },
+        {
+            "diagnosed_date": "2020-04-27",
+            "positive_count": 28,
+            "negative_count": 270,
+            "positive_rate": 13.4
+        },
+        {
+            "diagnosed_date": "2020-04-28",
+            "positive_count": 4,
+            "negative_count": 123,
+            "positive_rate": 12.6
+        },
+        {
+            "diagnosed_date": "2020-04-29",
+            "positive_count": 32,
+            "negative_count": 204,
+            "positive_rate": 12.4
+        },
+        {
+            "diagnosed_date": "2020-04-30",
+            "positive_count": 46,
+            "negative_count": 454,
+            "positive_rate": 11
+        },
+        {
+            "diagnosed_date": "2020-05-01",
+            "positive_count": 18,
+            "negative_count": 290,
+            "positive_rate": 10
+        },
+        {
+            "diagnosed_date": "2020-05-02",
+            "positive_count": 17,
+            "negative_count": 234,
+            "positive_rate": 8.8
+        },
+        {
+            "diagnosed_date": "2020-05-03",
+            "positive_count": 32,
+            "negative_count": 428,
+            "positive_rate": 8.1
+        },
+        {
+            "diagnosed_date": "2020-05-04",
+            "positive_count": 7,
+            "negative_count": 240,
+            "positive_rate": 7.3
+        },
+        {
+            "diagnosed_date": "2020-05-05",
+            "positive_count": 8,
+            "negative_count": 101,
+            "positive_rate": 7.6
+        },
+        {
+            "diagnosed_date": "2020-05-06",
+            "positive_count": 4,
+            "negative_count": 61,
+            "positive_rate": 6.8
+        },
+        {
+            "diagnosed_date": "2020-05-07",
+            "positive_count": 79,
+            "negative_count": 1014,
+            "positive_rate": 6.5
+        },
+        {
+            "diagnosed_date": "2020-05-08",
+            "positive_count": 51,
+            "negative_count": 1136,
+            "positive_rate": 5.8
+        },
+        {
+            "diagnosed_date": "2020-05-09",
+            "positive_count": 36,
+            "negative_count": 817,
+            "positive_rate": 5.4
+        },
+        {
+            "diagnosed_date": "2020-05-10",
+            "positive_count": 18,
+            "negative_count": 553,
+            "positive_rate": 4.9
+        },
+        {
+            "diagnosed_date": "2020-05-11",
+            "positive_count": 49,
+            "negative_count": 1110,
+            "positive_rate": 4.9
+        },
+        {
+            "diagnosed_date": "2020-05-12",
+            "positive_count": 36,
+            "negative_count": 1133,
+            "positive_rate": 4.5
+        },
+        {
+            "diagnosed_date": "2020-05-13",
+            "positive_count": 30,
+            "negative_count": 857,
+            "positive_rate": 4.3
+        }
+    ]
+}

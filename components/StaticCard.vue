@@ -13,6 +13,7 @@ export default Vue.extend()
 <style lang="scss">
 .StaticCard {
   @include card-container();
+  @include font-size(16);
 
   padding: 20px;
   margin-bottom: 20px;

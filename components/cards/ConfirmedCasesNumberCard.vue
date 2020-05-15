@@ -1,18 +1,22 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('陽性患者数')"
+      :title="$t('新規患者に関する報告件数の推移')"
       :title-id="'number-of-confirmed-cases'"
       :chart-id="'time-bar-chart-patients'"
       :chart-data="patientsGraph"
       :date="Data.patients.date"
       :unit="$t('人')"
+      :by-date="true"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
     >
       <template v-slot:description>
         <ul>
           <li>
-            {{ $t('（注）医療機関が保険適用で行った検査も含む') }}
+            {{ $t('（注）保健所から発生届が提出された日を基準とする') }}
+          </li>
+          <li>
+            {{ $t('（注）医療機関等が行った検査も含む') }}
           </li>
           <li>
             {{

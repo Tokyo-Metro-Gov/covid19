@@ -27,7 +27,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      
+
       - run: yarn install --frozen-lockfile
       - run: yarn run test
       - name: generate
@@ -51,7 +51,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: production
-          
+
       - name: Enable "include administrators" branch protection
         uses: benjefferies/branch-protection-bot@master
         if: always()  # Force to always run this step to ensure "include administrators" is always turned back on

@@ -25,6 +25,7 @@
 [](12)千葉市|https://stopcovid19.code4chiba.org/|Code for Chiba|[codeforchiba/covid19](https://github.com/codeforchiba/covid19)|
 [](12)市原市|https://covid19-ichihara.netlify.app/|個人|[YanaseT/covid19-ichihara/](https://github.com/YanaseT/covid19-ichihara/)|
 [](12)八千代市|https://yachiyo-covid19.netlify.app/|有志（学生）|[taichi1222/covid19-yachiyo](https://github.com/taichi1222/covid19-yachiyo)|
+[](12)市川市|https://stopcovid19-ichikawa.netlify.app/|個人（学生）|[Meiryo7743/covid19-ichikawa](https://github.com/Meiryo7743/covid19-ichikawa)|
 [](14)神奈川県|https://www.pref.kanagawa.jp/osirase/1369/|神奈川県（**公式**）||
 [](14)横浜市|https://covid19.yokohama/|個人|[covid19yokohama/covid19](https://github.com/covid19yokohama/covid19)|
 [](15)新潟県|https://niigata.stopcovid19.jp/|Code for Niigata|[CodeForNiigata/covid19](https://github.com/CodeForNiigata/covid19)|
@@ -55,9 +56,9 @@
 [](37)香川県|https://covid19-kagawa.jp/|学生エンジニア (有志)|[i15317/covid19](https://github.com/i15317/covid19) |
 [](38)愛媛県|https://ehime-covid19.com/|ボランティア(有志)|[ehime-covid19/covid19](https://github.com/ehime-covid19/covid19)|
 [](39)高知県|https://covid19-kochi.netlify.app|学生エンジニア(有志)||
-[]()九州|https://dev-covid19-kyusyu.netlify.app|九州(有志)|[Code-for-Kyushu/covid19](https://github.com/Code-for-Kyushu/covid19)|
 [](40)福岡県|https://fukuoka.stopcovid19.jp/|Code for Fukuoka, Code for Kurume|[Code-for-Fukuoka/covid19-fukuoka](https://github.com/Code-for-Fukuoka/covid19-fukuoka)|
 [](40)福岡市|https://stopcovid19.codeforfukuoka.org/|Code for Fukuoka|[Code-for-Fukuoka/covid19](https://github.com/Code-for-Fukuoka/covid19)|
+[](40)北九州市|https://stopcovid19-kitakyushu.jp/|Code for Kitakyushu|[covid19-kitakyushu/covid19](https://github.com/covid19-kitakyushu/covid19)|
 [](41)佐賀県|https://stopcovid19.code4saga.org/|Code for Saga|[codeforsaga/covid19](https://github.com/codeforsaga/covid19)|
 [](42)長崎県|https://stopcovid19-nagasaki.netlify.app/|Code for Nagasaki|[CodeForNagasaki/covid19](https://github.com/CodeForNagasaki/covid19)|
 [](43)熊本県|https://kumamoto.stopcovid19.jp/|Code for Kumamoto|[codeforkumamoto/covid19](https://github.com/codeforkumamoto/covid19)|
