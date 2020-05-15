@@ -1,5 +1,5 @@
 {
-    "date": "2020\/5\/14 19:15",
+    "date": "2020\/5\/15 19:15",
     "data": [
         {
             "diagnosed_date": "2020-02-15",
@@ -520,7 +520,7 @@
         {
             "diagnosed_date": "2020-05-11",
             "positive_count": 49,
-            "negative_count": 1110,
+            "negative_count": 1116,
             "positive_rate": 4.9
         },
         {
@@ -534,6 +534,12 @@
             "positive_count": 30,
             "negative_count": 857,
             "positive_rate": 4.3
+        },
+        {
+            "diagnosed_date": "2020-05-14",
+            "positive_count": 30,
+            "negative_count": 919,
+            "positive_rate": 3.7
         }
     ]
 }
