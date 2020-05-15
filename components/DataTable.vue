@@ -110,12 +110,17 @@
   .v-data-table__wrapper {
     box-shadow: 0 -20px 12px -12px #0003 inset;
   }
-  &.v-data-footer__pagination {
-    margin-left: 0;
-    margin-right: 5px;
+  .v-data-footer {
+    @include font-size(12);
+    &__pagination {
+      margin-left: 0;
+      margin-right: 5px;
+    }
+  }
+  .v-data-footer__select .v-select__selections .v-select__selection--comma {
+    font-size: 1.2rem;
   }
 }
-
 .note {
   margin: 8px 0 0;
   color: $gray-3;
@@ -129,6 +134,9 @@
 }
 .v-menu__content {
   min-width: 59px;
+}
+.v-list-item__title {
+  font-size: 1.5rem;
 }
 </style>
 
