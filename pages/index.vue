@@ -4,7 +4,7 @@
       <page-header :icon="headerItem.icon">{{ headerItem.title }}</page-header>
       <div class="UpdatedAt">
         <span>{{ $t('最終更新') }}</span>
-        <time :datetime="updatedAt">{{ Data.lastUpdate }}</time>
+        <time :datetime="updatedAt">{{ formattedDateForDisplay }}</time>
       </div>
       <div
         v-show="!['ja', 'ja-basic'].includes($i18n.locale)"
@@ -110,6 +110,9 @@ export default Vue.extend({
   computed: {
     updatedAt() {
       return convertDatetimeToISO8601Format(this.$data.Data.lastUpdate)
+    },
+    formattedDateForDisplay() {
+      return this.$d(new Date(Data.lastUpdate), 'dateTime')
     }
   },
   head(): MetaInfo {

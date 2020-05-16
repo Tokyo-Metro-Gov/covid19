@@ -251,11 +251,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   }),
   computed: {
     displayInfo() {
+      const date = this.$d(
+        new Date(this.labels[this.labels.length - 1]),
+        'dateWithoutYear'
+      )
       return {
         lText: this.pickLastNumber(this.chartData)[2].toLocaleString(),
-        sText: `${this.$t('{date}の陽性率', {
-          date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
-        })}`,
+        sText: `${this.$t('{date}の陽性率', { date })}`,
         unit: this.unit
       }
     },

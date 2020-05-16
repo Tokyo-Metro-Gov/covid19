@@ -241,20 +241,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   }),
   computed: {
     displayInfo() {
+      const date = this.$d(
+        new Date(this.labels[this.labels.length - 1]),
+        'dateWithoutYear'
+      )
       if (this.dataKind === 'transition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
-          sText: `${this.$t('{date}の合計', {
-            date: this.labels[this.labels.length - 1]
-          })}`,
+          sText: `${this.$t('{date}の合計', { date })}`,
           unit: this.unit
         }
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.$t('{date}の全体累計', {
-          date: this.labels[this.labels.length - 1]
-        })}`,
+        sText: `${this.$t('{date}の全体累計', { date })}`,
         unit: this.unit
       }
     },

@@ -33,14 +33,17 @@ export default {
     const patientsGraph = formatGraph(Data.patients_summary.data)
     // 感染者数
     const patientsTable = formatTable(Data.patients.data)
+    // 日付
+    const date = this.$d(
+      new Date(patientsGraph[patientsGraph.length - 1].label),
+      'dateWithoutYear'
+    )
 
     const sumInfoOfPatients = {
       lText: patientsGraph[
         patientsGraph.length - 1
       ].cumulative.toLocaleString(),
-      sText: this.$t('{date}の累計', {
-        date: patientsGraph[patientsGraph.length - 1].label
-      }),
+      sText: this.$t('{date}の累計', { date }),
       unit: this.$t('人')
     }
 

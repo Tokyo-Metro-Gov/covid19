@@ -57,7 +57,9 @@
           <div>
             <a class="Permalink" :href="permalink()">
               <time :datetime="formattedDate">{{
-                $t('{date} 更新', { date })
+                $t('{formattedDateForDisplay} 更新', {
+                  formattedDateForDisplay
+                })
               }}</time>
             </a>
           </div>
@@ -216,6 +218,9 @@ export default Vue.extend({
   computed: {
     formattedDate(): string {
       return convertDatetimeToISO8601Format(this.date)
+    },
+    formattedDateForDisplay() {
+      return this.$d(new Date(this.date), 'dateTime')
     },
     graphEmbedValue(): string {
       const graphEmbedValue =
