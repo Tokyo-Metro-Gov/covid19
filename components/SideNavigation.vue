@@ -47,13 +47,13 @@
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
-            href="https://twitter.com/niigatacity_kib"
+            href="https://twitter.com/niigata_corona"
             target="_blank"
             rel="noopener"
           >
             <figure>
               <img src="/twitter.png" alt="Twitter" />
-              <figcaption>新潟市<br />危機管理防災局</figcaption>
+              <figcaption>新潟市<br />新型コロナ情報</figcaption>
             </figure>
           </a>
           <a
