@@ -101,10 +101,14 @@ export default {
         label = label.replace('~', `~${month}/`)
       }
 
-      // 日は、0埋めしない
-      label = label.replace('/0', '/')
-
-      return label
+      const dates = label.split('~')
+      if (dates.length === 2) {
+        const from = this.$d(new Date(dates[0]), 'dateWithoutYear')
+        const to = this.$d(new Date(dates[1]), 'dateWithoutYear')
+        return `${from}~${to}`
+      } else {
+        return ''
+      }
     }
   }
 }

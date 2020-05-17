@@ -428,8 +428,13 @@ export default Vue.extend({
   &-Details {
     margin: 10px 0;
 
-    .v-data-table .text-end {
-      text-align: right;
+    .v-data-table {
+      .text-end {
+        text-align: right;
+      }
+      .text-nowrap {
+        white-space: nowrap;
+      }
     }
   }
 

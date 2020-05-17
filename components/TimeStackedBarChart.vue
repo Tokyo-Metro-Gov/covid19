@@ -77,7 +77,7 @@
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
+              <th class="text-nowrap" scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item['0'] }}</td>
               <td class="text-end">{{ item['1'] }}</td>
               <td class="text-end">{{ item['2'] }}</td>
@@ -308,7 +308,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.labels
         .map((label, i) => {
           return Object.assign(
-            { text: label },
+            { text: this.$d(new Date(label), 'dateWithoutYear') },
             ...this.tableHeaders.map((_, j) => {
               const index = j < 2 ? 0 : 1
               const transition = this.chartData[index]

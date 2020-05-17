@@ -57,7 +57,7 @@
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
+              <th class="text-nowrap" scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item.transition }}</td>
               <td class="text-end">{{ item.cumulative }}</td>
             </tr>
@@ -212,10 +212,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
-      const date = this.$d(
-        new Date(this.chartData.slice(-1)[0].label),
-        'dateWithoutYear'
-      )
+      const date = this.chartData.slice(-1)[0].label
       if (this.dataKind === 'transition' && this.byDate) {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,

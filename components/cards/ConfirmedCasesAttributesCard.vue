@@ -34,10 +34,7 @@ export default {
     // 感染者数
     const patientsTable = formatTable(Data.patients.data)
     // 日付
-    const date = this.$d(
-      new Date(patientsGraph[patientsGraph.length - 1].label),
-      'dateWithoutYear'
-    )
+    const date = patientsGraph[patientsGraph.length - 1].label
 
     const sumInfoOfPatients = {
       lText: patientsGraph[

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import agencyData from '@/data/agency.json'
+import AgencyData from '@/data/agency.json'
 import AgencyBarChart from '@/components/AgencyBarChart.vue'
 
 export default {
@@ -24,6 +24,20 @@ export default {
     AgencyBarChart
   },
   data() {
+    const labels = AgencyData.labels.map(l => {
+      const dates = l.split('~')
+      if (dates.length === 2) {
+        const from = this.$d(new Date(dates[0]), 'dateWithoutYear')
+        const to = this.$d(new Date(dates[1]), 'dateWithoutYear')
+        return `${from}~${to}`
+      } else {
+        return ''
+      }
+    })
+    const agencyData = {
+      ...AgencyData,
+      labels
+    }
     return {
       agencyData
     }

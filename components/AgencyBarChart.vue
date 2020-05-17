@@ -32,7 +32,7 @@
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
+              <th class="text-nowrap" scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item[0] }}</td>
               <td class="text-end">{{ item[1] }}</td>
               <td class="text-end">{{ item[2] }}</td>
@@ -49,7 +49,7 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import { ChartOptions } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import agencyData from '@/data/agency.json'
+import AgencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import { DisplayData, DataSets } from '@/plugins/vue-chart'
@@ -66,8 +66,6 @@ interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
 }
 type Data = {
   canvas: boolean
-  chartData: typeof agencyData
-  date: string
   agencies: VueI18n.TranslateResult[]
 }
 type Methods = {}
@@ -86,6 +84,8 @@ type Props = {
   title: string
   titleId: string
   chartId: string
+  chartData: typeof AgencyData
+  date: string
   unit: string
 }
 
@@ -116,6 +116,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: false,
       default: 'agency-bar-chart'
     },
+    chartData: Object,
+    date: {
+      type: String,
+      default: ''
+    },
     unit: {
       type: String,
       required: false,
@@ -131,8 +136,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
     return {
       canvas: true,
-      chartData: agencyData,
-      date: agencyData.date,
       agencies
     }
   },
