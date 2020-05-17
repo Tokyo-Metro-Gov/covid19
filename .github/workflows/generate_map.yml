@@ -3,8 +3,6 @@ name: generate map
 on:
   push:
     branches:
-      - master
-      - staging
       - development
 jobs:
   build:
@@ -38,17 +36,25 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: tool
-          path: tool
+          path: covid19_okinawa_map.html
   upload:
     needs: build
     runs-on: ubuntu-latest
     steps:
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
     - uses: actions/checkout@v2
       with:
         ref: ${{ steps.extract_branch.outputs.branch }}
+    - name: Download covid19_okinawa_map html
+      uses: actions/download-artifact@v1
+      with:
+        name: tool
     - name: Commit files
       run: |
-        cp -rp covid19_okinawa_map.html static/
+        cp -rp tool/covid19_okinawa_map.html static/
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add static

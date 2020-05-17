@@ -155,28 +155,28 @@ export default Vue.extend({
           title: this.$t('県内の最新感染動向'),
           link: this.localePath('/')
         },
-        // {
-        //   icon: 'CovidIcon',
-        //   title: this.$t('新型コロナウイルス感染症が心配なときに'),
-        //   link: this.localePath('/flow'),
-        //   divider: true
-        // },
+        {
+          icon: 'CovidIcon',
+          title: this.$t('新型コロナウイルス感染症が心配なときに'),
+          link: this.localePath('/flow'),
+          divider: true
+        },
         {
           icon: 'ParentIcon',
           title: this.$t('お子様をお持ちの皆様へ'),
           link: this.localePath('/parent')
         },
         {
-          icon: 'mdi-account-multiple',
-          title: this.$t('新型コロナウイルス感染症等に対する緊急対策'),
-          link:
-            'https://www.pref.okinawa.jp/site/shoko/seisaku/kikaku/covid-19.html'
-        },
-        {
           icon: 'mdi-domain',
           title: this.$t('企業の皆様・はたらく皆様へ'),
           link: this.localePath('/worker'),
           divider: true
+        },
+        {
+          // icon: 'mdi-account-multiple',
+          title: this.$t('新型コロナウイルス感染症等に対する緊急対策'),
+          link:
+            'https://www.pref.okinawa.jp/site/shoko/seisaku/kikaku/covid-19.html'
         },
         // {
         //   title: this.$t('新型コロナウイルス感染症について'),
@@ -199,6 +199,10 @@ export default Vue.extend({
         {
           title: this.$t('沖縄県公式ホームページ'),
           link: 'https://www.pref.okinawa.jp/index.html'
+        },
+        {
+          title: this.$t('沖縄県医師会ホームページ'),
+          link: 'http://okinawa.med.or.jp/html/covid-19.html'
         }
       ]
     }

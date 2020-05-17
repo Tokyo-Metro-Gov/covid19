@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - development
-      - 'feature/#177-update-converter'
     paths:
       - 'tool/downloads/summary.csv'
 jobs:
@@ -20,12 +19,19 @@ jobs:
         with:
           persist-credentials: false
           ref: ${{ steps.extract_branch.outputs.branch }}
-      - name: Download a file
+      - name: Download cases.csv
         uses: carlosperate/download-file-action@v1.0.3
-        id: download_csv
+        id: download_cases_csv
         with:
             file-url: 'https://isc-okinawa.org/opendata/470007_okinawa_covid19_patients.csv'
             file-name: 'cases.csv'
+            location: 'tool/downloads'
+      - name: Download status.csv
+        uses: carlosperate/download-file-action@v1.0.3
+        id: download_status_csv
+        with:
+            file-url: 'https://isc-okinawa.org/opendata/470007_okinawa_covid19_patients.symptom.csv'
+            file-name: 'status.csv'
             location: 'tool/downloads'
       - name: Print the file path
         run: |
@@ -35,7 +41,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v1
         with:
-          files: "tool/downloads/summary.csv, tool/downloads/cases.csv"
+          files: "tool/downloads/summary.csv, tool/downloads/cases.csv, tool/downloads/status.csv"
       - name: Run composer install
         run: |
           cd tool
@@ -54,7 +60,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add tool/downloads
           git add data
-          git commit -m "[BOT] Update cases.csv, data.json"
+          git commit -m "[BOT] Update cases.csv, status.csv, data.json"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
