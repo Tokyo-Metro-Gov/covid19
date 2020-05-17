@@ -109,6 +109,7 @@ import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
+import { getComplementedDate } from '@/utils/formatData'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -308,7 +309,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.labels
         .map((label, i) => {
           return Object.assign(
-            { text: this.$d(new Date(label), 'dateWithoutYear') },
+            {
+              text: this.$d(
+                new Date(getComplementedDate(label)),
+                'dateWithoutYear'
+              )
+            },
             ...this.tableHeaders.map((_, j) => {
               const index = j < 2 ? 0 : 1
               const transition = this.chartData[index]

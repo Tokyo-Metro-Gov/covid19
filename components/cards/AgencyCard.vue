@@ -18,6 +18,7 @@
 <script>
 import AgencyData from '@/data/agency.json'
 import AgencyBarChart from '@/components/AgencyBarChart.vue'
+import { getComplementedDate } from '@/utils/formatData'
 
 export default {
   components: {
@@ -27,8 +28,14 @@ export default {
     const labels = AgencyData.labels.map(l => {
       const dates = l.split('~')
       if (dates.length === 2) {
-        const from = this.$d(new Date(dates[0]), 'dateWithoutYear')
-        const to = this.$d(new Date(dates[1]), 'dateWithoutYear')
+        const from = this.$d(
+          new Date(getComplementedDate(dates[0])),
+          'dateWithoutYear'
+        )
+        const to = this.$d(
+          new Date(getComplementedDate(dates[1])),
+          'dateWithoutYear'
+        )
         return `${from}~${to}`
       } else {
         return ''
