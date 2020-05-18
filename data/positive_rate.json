@@ -1,5 +1,5 @@
 {
-    "date": "2020\/5\/16 19:00",
+    "date": "2020\/5\/18 20:15",
     "data": [
         {
             "diagnosed_date": "2020-02-15",
@@ -465,87 +465,99 @@
         },
         {
             "diagnosed_date": "2020-05-02",
-            "positive_count": 17,
-            "negative_count": 234,
-            "positive_rate": 8.8
+            "positive_count": 19,
+            "negative_count": 280,
+            "positive_rate": 8.7
         },
         {
             "diagnosed_date": "2020-05-03",
             "positive_count": 32,
-            "negative_count": 428,
-            "positive_rate": 8.1
+            "negative_count": 446,
+            "positive_rate": 8
         },
         {
             "diagnosed_date": "2020-05-04",
             "positive_count": 7,
-            "negative_count": 240,
-            "positive_rate": 7.3
+            "negative_count": 260,
+            "positive_rate": 7.1
         },
         {
             "diagnosed_date": "2020-05-05",
-            "positive_count": 8,
-            "negative_count": 101,
-            "positive_rate": 7.6
+            "positive_count": 9,
+            "negative_count": 135,
+            "positive_rate": 7.3
         },
         {
             "diagnosed_date": "2020-05-06",
-            "positive_count": 4,
-            "negative_count": 61,
-            "positive_rate": 6.8
+            "positive_count": 7,
+            "negative_count": 98,
+            "positive_rate": 6.6
         },
         {
             "diagnosed_date": "2020-05-07",
             "positive_count": 79,
-            "negative_count": 1014,
-            "positive_rate": 6.5
+            "negative_count": 1041,
+            "positive_rate": 6.3
         },
         {
             "diagnosed_date": "2020-05-08",
             "positive_count": 51,
-            "negative_count": 1136,
-            "positive_rate": 5.8
+            "negative_count": 1197,
+            "positive_rate": 5.6
         },
         {
             "diagnosed_date": "2020-05-09",
-            "positive_count": 36,
-            "negative_count": 817,
-            "positive_rate": 5.4
+            "positive_count": 39,
+            "negative_count": 896,
+            "positive_rate": 5.2
         },
         {
             "diagnosed_date": "2020-05-10",
             "positive_count": 18,
-            "negative_count": 553,
-            "positive_rate": 4.9
+            "negative_count": 591,
+            "positive_rate": 4.7
         },
         {
             "diagnosed_date": "2020-05-11",
             "positive_count": 49,
-            "negative_count": 1116,
-            "positive_rate": 4.9
+            "negative_count": 1124,
+            "positive_rate": 4.7
         },
         {
             "diagnosed_date": "2020-05-12",
             "positive_count": 36,
-            "negative_count": 1133,
-            "positive_rate": 4.5
+            "negative_count": 1225,
+            "positive_rate": 4.3
         },
         {
             "diagnosed_date": "2020-05-13",
             "positive_count": 30,
-            "negative_count": 857,
-            "positive_rate": 4.3
+            "negative_count": 921,
+            "positive_rate": 4.1
         },
         {
             "diagnosed_date": "2020-05-14",
-            "positive_count": 30,
-            "negative_count": 1005,
-            "positive_rate": 3.6
+            "positive_count": 40,
+            "negative_count": 1266,
+            "positive_rate": 3.5
         },
         {
             "diagnosed_date": "2020-05-15",
-            "positive_count": 3,
-            "negative_count": 371,
-            "positive_rate": 3.3
+            "positive_count": 17,
+            "negative_count": 1153,
+            "positive_rate": 3.1
+        },
+        {
+            "diagnosed_date": "2020-05-16",
+            "positive_count": 7,
+            "negative_count": 666,
+            "positive_rate": 2.8
+        },
+        {
+            "diagnosed_date": "2020-05-17",
+            "positive_count": 4,
+            "negative_count": 324,
+            "positive_rate": 2.7
         }
     ]
 }
