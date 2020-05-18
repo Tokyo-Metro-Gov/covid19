@@ -282,3 +282,5 @@ TAG_ADD,1ページ当たり
 TAG_ADD,{itemsLength} 項目中 {pageStart} - {pageStop} 
 RUN,2020/05/15 20:19
 TAG_ADD,○
+RUN,2020/05/18 00:02
+TAG_REMOVE,読み込み中
