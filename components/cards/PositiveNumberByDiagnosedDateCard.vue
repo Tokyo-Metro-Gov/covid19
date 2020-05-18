@@ -29,7 +29,43 @@ import TimeBarChart from '@/components/TimeBarChart.vue'
 
 export default {
   components: {
-    TimeBarChart
+    TimeBarChart: {
+      extends: TimeBarChart,
+      computed: {
+        displayInfo() {
+          if (this.dataKind === 'transition' && this.byDate) {
+            return {
+              lText: `${this.chartData
+                .slice(-1)[0]
+                .transition.toLocaleString()}`,
+              sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
+                '日別値'
+              )}（${this.$t(
+                '現在判明している人数であり、後日修正される場合がある'
+              )}）`,
+              unit: this.unit
+            }
+          } else if (this.dataKind === 'transition') {
+            return {
+              lText: `${this.chartData
+                .slice(-1)[0]
+                .transition.toLocaleString()}`,
+              sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
+                '実績値'
+              )}`,
+              unit: this.unit
+            }
+          }
+          return {
+            lText: this.chartData[
+              this.chartData.length - 1
+            ].cumulative.toLocaleString(),
+            sText: `${this.chartData.slice(-1)[0].label} ${this.$t('累計値')}`,
+            unit: this.unit
+          }
+        }
+      }
+    }
   },
   data() {
     const formatData = Data.data.map(data => {
