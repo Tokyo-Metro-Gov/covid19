@@ -1,0 +1,61 @@
+<template>
+  <v-col cols="12" md="6" class="DataCard">
+    <confirmed-cases-increase-ratio-by-week-chart
+      :title="$t('（３）週単位の陽性者増加比')"
+      :title-id="'increase-ratio-of-confirmed-cases-by-daily'"
+      :chart-id="'time-line-chart-patients-increase-ratio'"
+      :chart-data="graphData"
+      :date="dailyPositiveDetail.date"
+      :unit="''"
+      :by-date="true"
+    >
+      <template v-slot:additionalDescription>
+        <p>
+          {{
+            $t(
+              '（注）直近１週間の新規陽性者数とその前の１週間の新規陽性者数の比率。１を上回ると増加し、１を下回ると減少する'
+            )
+          }}
+        </p>
+        <p>
+          {{
+            $t(
+              '（注） １週間前の新規陽性者数と比較した際の増加比について、有意な数値がとれる2月22日から作成'
+            )
+          }}
+        </p>
+      </template>
+    </confirmed-cases-increase-ratio-by-week-chart>
+  </v-col>
+</template>
+
+<script lang="ts">
+import dailyPositiveDetail from '@/data/daily_positive_detail.json'
+import formatGraph from '@/utils/formatGraph'
+import ConfirmedCasesIncreaseRatioByWeekChart from '@/components/ConfirmedCasesIncreaseRatioByWeekChart.vue'
+
+export default {
+  components: {
+    ConfirmedCasesIncreaseRatioByWeekChart
+  },
+  data() {
+    const formatData: { 日付: Date; 小計: number }[] = []
+    dailyPositiveDetail.data.forEach(d => {
+      if (d.weekly_gain_ratio) {
+        formatData.push({
+          日付: new Date(d.diagnosed_date),
+          小計: d.weekly_gain_ratio
+        })
+      }
+    })
+
+    // 週単位の陽性者増加比グラフ
+    const graphData = formatGraph(formatData)
+
+    return {
+      dailyPositiveDetail,
+      graphData
+    }
+  }
+}
+</script>

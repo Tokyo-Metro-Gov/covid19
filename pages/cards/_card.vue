@@ -47,16 +47,23 @@
     <positive-rate-card
       v-else-if="this.$route.params.card == 'positive-rate'"
     />
+    <confirmed-cases-increase-ratio-by-week-card
+      v-else-if="
+        this.$route.params.card == 'increase-ratio-of-confirmed-cases-by-daily'
+      "
+    />
   </div>
 </template>
 
 <script>
+import ConfirmedCasesIncreaseRatioByWeekCard from '../../components/cards/ConfirmedCasesIncreaseRatioByWeekCard'
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
 import agencyData from '@/data/agency.json'
 import patientData from '@/data/patient.json'
 import PositiveByDiagnosedData from '@/data/positive_by_diagnosed.json'
 import PositiveRate from '@/data/positive_rate.json'
+import DailyPositiveDetail from '@/data/daily_positive_detail.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -85,7 +92,8 @@ export default {
     ConsultationDeskReportsNumberCard,
     MetroCard,
     AgencyCard,
-    PositiveNumberByDiagnosedDateCard
+    PositiveNumberByDiagnosedDateCard,
+    ConfirmedCasesIncreaseRatioByWeekCard
   },
   data() {
     let title, updatedAt
@@ -141,6 +149,10 @@ export default {
       case 'positive-rate':
         title = this.$t('検査実施人数（陰性確認を除く）と陽性率の推移')
         updatedAt = PositiveRate.date
+        break
+      case 'increase-ratio-of-confirmed-cases-by-daily':
+        title = this.$t('（３）週単位の陽性者増加比')
+        updatedAt = DailyPositiveDetail.date
         break
     }
 
