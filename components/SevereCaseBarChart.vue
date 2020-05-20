@@ -3,13 +3,6 @@
     <template v-slot:description>
       <slot name="description" />
     </template>
-    <template v-slot:button>
-      <data-selector
-        v-model="dataKind"
-        :target-id="chartId"
-        :style="{ display: canvas ? 'inline-block' : 'none' }"
-      />
-    </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
@@ -59,7 +52,6 @@
             <tr v-for="item in items" :key="item.text">
               <th scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item.transition }}</td>
-              <td class="text-end">{{ item.cumulative }}</td>
             </tr>
           </tbody>
         </template>
@@ -373,10 +365,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayDataHeader() {
       if (this.dataKind === 'transition') {
         return {
-          labels: ['2020/1/1'],
+          labels: ['2020/1/1', '2020/1/2'],
           datasets: [
             {
-              data: [Math.max(...this.chartData.map(d => d.transition))],
+              data: [
+                Math.max(...this.chartData.map(d => d.transition)),
+                Math.min(...this.chartData.map(d => d.transition))
+              ],
               backgroundColor: 'transparent',
               borderWidth: 0
             }
@@ -384,10 +379,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       return {
-        labels: ['2020/1/1'],
+        labels: ['2020/1/1', '2020/1/2'],
         datasets: [
           {
-            data: [Math.max(...this.chartData.map(d => d.cumulative))],
+            data: [
+              Math.max(...this.chartData.map(d => d.cumulative)),
+              Math.min(...this.chartData.map(d => d.cumulative))
+            ],
             backgroundColor: 'transparent',
             borderWidth: 0
           }
@@ -492,11 +490,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         {
           text: `${this.title} (${this.$t('日別')})`,
           value: 'transition',
-          align: 'end'
-        },
-        {
-          text: `${this.title} (${this.$t('累計')})`,
-          value: 'cumulative',
           align: 'end'
         }
       ]
