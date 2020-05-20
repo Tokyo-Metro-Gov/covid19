@@ -336,7 +336,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${unit}`
-              if (this.dataLabels[tooltipItem.datasetIndex!] === '接触歴等不明率（７日間移動平均）') {
+              if (
+                this.dataLabels[tooltipItem.datasetIndex!] ===
+                '接触歴等不明率（７日間移動平均）'
+              ) {
                 label = `${
                   this.dataLabels[tooltipItem.datasetIndex!]
                 } : ${cases} %`
