@@ -3,6 +3,13 @@
     <template v-slot:description>
       <slot name="description" />
     </template>
+    <template v-slot:button>
+      <data-selector
+        v-model="dataKind"
+        :target-id="chartId"
+        :style="{ display: canvas ? 'inline-block' : 'none' }"
+      />
+    </template>
     <ul
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
@@ -118,15 +125,14 @@ import {
   yAxesBgRightPlugin,
   scrollPlugin
 } from '@/plugins/vue-chart'
-import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
 }
 type Data = {
+  dataKind: string
   canvas: boolean
   displayLegends: boolean[]
-  colors: SurfaceStyle[]
   chartWidth: number | null
   width: number
 }
@@ -250,8 +256,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
+    dataKind: 'transition',
     displayLegends: [true, true, true],
-    colors: getGraphSeriesStyle(2),
     chartWidth: null,
     canvas: true,
     width: 300
