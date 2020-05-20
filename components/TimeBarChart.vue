@@ -373,10 +373,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayDataHeader() {
       if (this.dataKind === 'transition') {
         return {
-          labels: ['2020/1/1'],
+          labels: ['2020/1/1', '2020/1/2'],
           datasets: [
             {
-              data: [Math.max(...this.chartData.map(d => d.transition))],
+              data: [
+                Math.max(...this.chartData.map(d => d.transition)),
+                Math.min(...this.chartData.map(d => d.transition))
+              ],
               backgroundColor: 'transparent',
               borderWidth: 0
             }
@@ -384,10 +387,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       return {
-        labels: ['2020/1/1'],
+        labels: ['2020/1/1', '2020/1/2'],
         datasets: [
           {
-            data: [Math.max(...this.chartData.map(d => d.cumulative))],
+            data: [
+              Math.max(...this.chartData.map(d => d.cumulative)),
+              Math.min(...this.chartData.map(d => d.cumulative))
+            ],
             backgroundColor: 'transparent',
             borderWidth: 0
           }

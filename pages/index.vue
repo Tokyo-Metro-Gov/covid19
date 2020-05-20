@@ -25,6 +25,8 @@
       <confirmed-cases-details-card />
       <!-- 検査実施状況 -->
       <tested-cases-details-card />
+      <!-- 重症患者数 -->
+      <severe-case-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
       <!-- 陽性患者数（検査結果判明日別） -->
@@ -73,11 +75,13 @@ import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDe
 import PositiveRateCard from '~/components/cards/PositiveRateCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
+    SevereCaseCard,
     PositiveRateCard,
     PageHeader,
     WhatsNew,
