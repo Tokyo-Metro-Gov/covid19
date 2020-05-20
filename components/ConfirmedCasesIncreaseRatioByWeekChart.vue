@@ -83,7 +83,7 @@ import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 
-import { SurfaceStyle } from '@/utils/colors'
+import { getGraphSeriesColor } from '@/utils/colors'
 
 type Data = {
   dataKind: 'transition'
@@ -234,10 +234,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
-      const style: SurfaceStyle = {
-        strokeColor: '#1b4d30',
-        fillColor: '#cbe1c8'
-      }
+      const style = getGraphSeriesColor('D')
       if (this.dataKind === 'transition') {
         return {
           labels: this.chartData.map(d => {
