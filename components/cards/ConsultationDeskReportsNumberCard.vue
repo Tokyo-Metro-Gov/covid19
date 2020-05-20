@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <consulation-desk-reports-number-chart
+    <simple-mixed-chart
       :title="$t('（７）受診相談窓口における相談件数')"
       :title-id="'number-of-reports-to-covid19-consultation-desk'"
       :chart-id="'time-bar-chart-querents'"
@@ -31,20 +31,20 @@
           </li>
         </ul>
       </template>
-    </consulation-desk-reports-number-chart>
+    </simple-mixed-chart>
   </v-col>
 </template>
 
 <script>
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
-import ConsulationDeskReportsNumberChart from '~/components/ConsulationDeskReportsNumberChart'
+import SimpleMixedChart from '@/components/SimpleMixedChart'
 import Data from '@/data/data.json'
 dayjs.extend(duration)
 
 export default {
   components: {
-    ConsulationDeskReportsNumberChart
+    SimpleMixedChart
   },
   data() {
     // 検査実施日別状況

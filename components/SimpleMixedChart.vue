@@ -143,7 +143,6 @@ type Computed = {
   displayDataHeader: DisplayData
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
-  scaledTicksYAxisMaxRight: number
   tableHeaders: {
     text: TranslateResult
     value: string
@@ -386,7 +385,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              id: 'y-axis-1',
               position: 'left',
               stacked: true,
               gridLines: {
@@ -411,14 +409,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayDataHeader() {
       let n = 0
+      let m = 0
       let max = 0
       for (const i in this.displayData.datasets[0].data) {
-        const current =
-          this.displayData.datasets[0].data[i] +
-          this.displayData.datasets[1].data[i]
+        const current = this.displayData.datasets[0].data[i]
         if (current > max) {
           max = current
           n = Number(i)
+        }
+      }
+      for (const i in this.displayData.datasets[1].data) {
+        const current = this.displayData.datasets[1].data[i]
+        if (current > max) {
+          max = current
+          m = Number(i)
         }
       }
       const test = ['2020/1/1']
@@ -431,7 +435,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             data: [this.displayData.datasets[0].data[n]],
             backgroundColor: 'transparent',
-            yAxisID: 'y-axis-1',
+            borderWidth: 0
+          },
+          {
+            data: [this.displayData.datasets[1].data[m]],
+            backgroundColor: 'transparent',
             borderWidth: 0
           }
         ]
@@ -487,7 +495,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              id: 'y-axis-1',
               type: 'linear',
               position: 'left',
               stacked: true,
@@ -512,12 +519,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     scaledTicksYAxisMax() {
       let max = 0
       for (const i in this.chartData[0]) {
-        max = Math.max(max, this.chartData[0][i] + this.chartData[1][i])
+        max = Math.max(max, this.chartData[0][i])
       }
-      return max
-    },
-    scaledTicksYAxisMaxRight() {
-      let max = 0
       for (const i in this.chartData[1]) {
         max = Math.max(max, this.chartData[1][i])
       }
