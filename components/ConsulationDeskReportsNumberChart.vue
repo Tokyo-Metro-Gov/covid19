@@ -100,7 +100,7 @@
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
-        unit="%"
+        :unit="unit"
       />
     </template>
     <template v-slot:footer>
@@ -265,7 +265,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   computed: {
     displayInfo() {
       return {
-        lText: '', // this.pickLastNumber(this.chartData)[1].toLocaleString(),
+        lText: this.pickLastNumber(this.chartData)[1].toLocaleString(),
         sText: `${this.$t('{date} 実績値', {
           date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
         })}`,
