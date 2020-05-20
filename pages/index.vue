@@ -25,6 +25,8 @@
       <confirmed-cases-details-card />
       <!-- 検査実施状況 -->
       <tested-cases-details-card />
+      <!-- 新型コロナ受診相談窓口相談件数 -->
+      <consultation-desk-reports-number-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
       <!-- 陽性患者数（検査結果判明日別） -->
@@ -42,8 +44,6 @@
       <tested-number-card />
       <!-- 新型コロナコールセンター相談件数 -->
       <telephone-advisory-reports-number-card />
-      <!-- 新型コロナ受診相談窓口相談件数 -->
-      <consultation-desk-reports-number-card />
       <!-- 都営地下鉄の利用者数の推移 -->
       <metro-card />
       <!-- 都庁来庁者数の推移 -->

@@ -75,8 +75,6 @@ export default {
       this.$t('７日間移動平均')
     ]
 
-    console.log()
-
     const ConsulationReportsDate = Data.querents.date
     const data = {
       ConsulationReportsDate,

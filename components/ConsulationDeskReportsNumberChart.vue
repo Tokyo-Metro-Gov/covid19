@@ -257,7 +257,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
-    displayLegends: [true, true, true],
+    displayLegends: [true, true],
     chartWidth: null,
     canvas: true,
     width: 300
