@@ -29,6 +29,9 @@ jobs:
       - run: yarn run generate:dev --fail-on-page-error
       - run: "echo \"User-agent: *\nDisallow: /\" > ./dist/robots.txt"
 
+      # generate docs
+      - run: yarn run docs:build
+
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

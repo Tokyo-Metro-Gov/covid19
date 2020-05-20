@@ -27,6 +27,9 @@ jobs:
       - run: yarn run test
       - run: yarn run generate:deploy --fail-on-page-error
 
+      # generate docs
+      - run: yarn run docs:build
+
       - name: archive dist
         uses: actions/upload-artifact@v1
         with:
