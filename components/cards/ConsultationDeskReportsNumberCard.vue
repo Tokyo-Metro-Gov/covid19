@@ -2,13 +2,14 @@
   <v-col cols="12" md="6" class="DataCard">
     <consulation-desk-reports-number-chart
       :title="$t('（７）受診相談窓口における相談件数')"
-      :title-id="'positive-rate'"
-      :chart-id="'positive-rate-chart'"
+      :title-id="'number-of-reports-to-covid19-consultation-desk'"
+      :chart-id="'time-bar-chart-querents'"
       :chart-data="ConsuletionReportsGraph"
       :date="ConsulationReportsDate"
       :items="ConsuletionReportsItems"
       :labels="ConsuletionReportsLabels"
       :unit="$t('件.reports')"
+      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000070'"
       :data-labels="ConsuletionReportsDataLabels"
       :table-labels="ConsuletionReportsTableLabels"
     >
