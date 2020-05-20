@@ -16,7 +16,7 @@
 详细请参照[建站行动原则](./CODE_OF_CONDUCT.md)。
 
 ## 授权
-本软件采用[MIT授权条款](./../../LICENSE.txt)。
+本软件采用[MIT授权条款](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/LICENSE.txt)。
 
 ## 从这个网站衍生出来的东西
 

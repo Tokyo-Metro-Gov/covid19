@@ -18,7 +18,7 @@
 
 
 ## 라이선스
-이 소프트웨어는 [MIT 라이선스](./../../LICENSE.txt)를 따르고 있습니다.
+이 소프트웨어는 [MIT 라이선스](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/LICENSE.txt)를 따르고 있습니다.
 
 ## 이 사이트에서 파생된 사이트
 

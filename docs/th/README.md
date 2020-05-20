@@ -19,7 +19,7 @@
 
 ## สัญญาอนุญาต
 
-ซอฟต์แวร์นี้เผยแพร่ภายใต้สัญญาอนุญาต [MIT License](./../../LICENSE.txt)
+ซอฟต์แวร์นี้เผยแพร่ภายใต้สัญญาอนุญาต [MIT License](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/LICENSE.txt)
 
 ## สำหรับนักแปล
 

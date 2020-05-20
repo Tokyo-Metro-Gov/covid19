@@ -18,7 +18,7 @@ Veuillez checker [Comment contribuer](./CONTRIBUTING.md) pour plus d'information
 Veuillew checker [Code de conduite des développeurs](./CODE_OF_CONDUCT.md) pour plus d'informations.
 
 ## License
-Ce logiciel est sous [license MIT](./../../LICENSE.txt).
+Ce logiciel est sous [license MIT](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/LICENSE.txt).
 
 ## Pour les développeurs
 

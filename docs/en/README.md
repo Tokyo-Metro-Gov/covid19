@@ -18,7 +18,7 @@ Please check [How to contribute](./CONTRIBUTING.md) for details.
 Please check [Code of conduct for developers](./CODE_OF_CONDUCT.md) for details.
 
 ## License
-This software is released under [the MIT License](./../../LICENSE.txt).
+This software is released under [the MIT License](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/LICENSE.txt).
 
 ## For Translators
 

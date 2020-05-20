@@ -17,7 +17,7 @@
 詳情請洽[建立網站的行動原則](./CODE_OF_CONDUCT.md)。
 
 ## 授權
-本軟體採 [MIT 授權條款](./../../LICENSE.txt)釋出。
+本軟體採 [MIT 授權條款](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/LICENSE.txt)釋出。
 
 ## 從這個網站衍生出來的東西
 

@@ -15,7 +15,7 @@ Xin vui lòng đọc [tại đây](./CONTRIBUTING.md) để biết thêm chi ti�
 Chi tiết vui lòng xem [tại đây](./CODE_OF_CONDUCT.md)
 
 ## Giấy phép
-Phần mềm này được phân phối dưới giấy phép [MIT](./../../LICENSE.txt)
+Phần mềm này được phân phối dưới giấy phép [MIT](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/LICENSE.txt)
 
 [PLEASE TRANSLATE ME]
 

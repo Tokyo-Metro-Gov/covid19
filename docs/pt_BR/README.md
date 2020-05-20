@@ -18,7 +18,7 @@ Por favor, confira [Como contribuir](./CONTRIBUTING.md) para maiores informaçõ
 Por favor, confira o nosso [Código de conduta](./CODE_OF_CONDUCT.md) para maiores informações.
 
 ## Licença
-Este software é distribuído com a [licença MIT](./../../LICENSE.txt).
+Este software é distribuído com a [licença MIT](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/LICENSE.txt).
 
 ## Aos Tradutores
 
