@@ -5,10 +5,10 @@
       :title-id="'positive-rate'"
       :chart-id="'positive-rate-chart'"
       :chart-data="ConsuletionReportsGraph"
-      :date="ConsuletionReportsDate"
+      :date="ConsulationReportsDate"
       :items="ConsuletionReportsItems"
       :labels="ConsuletionReportsLabels"
-      :unit="$t('件')"
+      :unit="$t('件.reports')"
       :data-labels="ConsuletionReportsDataLabels"
       :table-labels="ConsuletionReportsTableLabels"
     >
@@ -53,7 +53,7 @@ export default {
     const ConsuletionReportsLabels = []
     for (let i = 0; i < l; i++) {
       ConsulationReportsCount.push(Data.querents.data[i]['小計'])
-      sevendayMoveAverages.push(Data.querents.data[i]['7日間平均'])
+      sevendayMoveAverages.push(Data.querents.data[i]['７日間平均'])
       ConsuletionReportsLabels.push(Data.querents.data[i]['日付'])
     }
 
@@ -73,6 +73,8 @@ export default {
       this.$t('相談件数'),
       this.$t('７日間移動平均')
     ]
+
+    console.log()
 
     const ConsulationReportsDate = Data.querents.date
     const data = {

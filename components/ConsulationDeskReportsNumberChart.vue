@@ -297,13 +297,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     tableData() {
       return this.labels
-        .map(label => {
+        .map((label, i) => {
           return Object.assign(
             { text: dayjs(label).format('M/D') },
             ...this.tableHeaders.map((_, j) => {
-              // const data = this.chartData[j]
-              return {
-                [j]: '' // data[i].toLocaleString()
+              if (j < 2) {
+                const data = this.chartData[j]
+                if (data[i] === null) {
+                  return {
+                    [j]: ''
+                  }
+                }
+                return {
+                  [j]: data[i].toLocaleString()
+                }
               }
             })
           )
@@ -412,10 +419,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMaxRight,
-                callback(value) {
-                  return value + '%'
-                }
+                suggestedMax: this.scaledTicksYAxisMaxRight
               }
             }
           ]
@@ -540,10 +544,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMaxRight,
-                callback(value) {
-                  return value + '%'
-                }
+                suggestedMax: this.scaledTicksYAxisMaxRight
               }
             }
           ]
