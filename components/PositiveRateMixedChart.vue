@@ -342,6 +342,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
+      const self = this
       const unit = this.unit
       const data = this.chartData
       const options: Chart.ChartOptions = {
@@ -363,10 +364,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               return label
             },
             title(tooltipItem, data) {
-              const date = dayjs(
-                data.labels![tooltipItem[0].index!].toString()
-              ).format('M/D')
-              return String(date)
+              const label = data.labels![tooltipItem[0].index!].toString()
+              return self.$d(new Date(label), 'dateWithoutYear')
             }
           }
         },

@@ -33,7 +33,7 @@
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
 import MetroBarChart from '@/components/MetroBarChart.vue'
-import { getComplementedDate } from '@/utils/formatData'
+import { getComplementedDate } from '@/utils/formatDate'
 
 export default {
   components: {
@@ -53,11 +53,8 @@ export default {
     // metroGraph ツールチップ title文字列
     // this.$t を使うため metroGraphOption の外側へ
     const metroGraphTooltipTitle = (tooltipItems, _) => {
-      const label = this.getWeekLabel(tooltipItems[0].label)
-      return this.$t('期間: {duration}', {
-        // duration = label = '2\/10~14' etc.
-        duration: this.$t(label)
-      })
+      const duration = this.getWeekLabel(tooltipItems[0].label)
+      return this.$t('期間: {duration}', { duration })
     }
     // metroGraph ツールチップ label文字列
     // this.$t を使うため metroGraphOption の外側へ
@@ -107,7 +104,7 @@ export default {
       }
 
       const dates = label.split('~')
-      if (dates.length === 2) {
+      if (slashCount === 1 && dates.length === 2) {
         const from = this.$d(
           new Date(getComplementedDate(dates[0])),
           'dateWithoutYear'
@@ -118,7 +115,7 @@ export default {
         )
         return `${from}~${to}`
       } else {
-        return ''
+        return `${dates[0]}~${dates[1]}`
       }
     }
   }

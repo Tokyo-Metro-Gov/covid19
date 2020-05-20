@@ -109,7 +109,7 @@ import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
-import { getComplementedDate } from '@/utils/formatData'
+import { getComplementedDate } from '@/utils/formatDate'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -332,6 +332,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
+      const self = this
       const unit = this.unit
       const sumArray = this.eachArraySum(this.chartData)
       const data = this.chartData
@@ -368,7 +369,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               return label
             },
             title(tooltipItem, data) {
-              return String(data.labels![tooltipItem[0].index!])
+              const label = data.labels![tooltipItem[0].index!] as string
+              return self.$d(
+                new Date(getComplementedDate(label)),
+                'dateWithoutYear'
+              )
             }
           }
         },

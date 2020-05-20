@@ -92,6 +92,7 @@ import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 
 import { getGraphSeriesStyle } from '@/utils/colors'
+import { getComplementedDate } from '@/utils/formatDate'
 
 type Data = {
   dataKind: 'transition' | 'cumulative'
@@ -276,6 +277,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOption() {
+      const self = this
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const options: Chart.ChartOptions = {
@@ -289,7 +291,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               return labelText
             },
             title(tooltipItem, data) {
-              return data.labels![tooltipItem[0].index!] as string[]
+              const label = data.labels![tooltipItem[0].index!] as string
+              return self.$d(
+                new Date(getComplementedDate(label)),
+                'dateWithoutYear'
+              )
             }
           }
         },
@@ -500,7 +506,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.chartData
         .map((d, _) => {
           return {
-            text: d.label,
+            text: this.$d(
+              new Date(getComplementedDate(d.label)),
+              'dateWithoutYear'
+            ),
             transition: d.transition.toLocaleString(),
             cumulative: d.cumulative.toLocaleString()
           }

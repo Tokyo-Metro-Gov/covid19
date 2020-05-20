@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 type DataType = {
   日付: Date
   小計: number
@@ -23,15 +21,12 @@ export default (data: DataType[]) => {
   data
     .filter(d => new Date(d['日付']) < today)
     .forEach(d => {
-      const date = Vue.prototype.$nuxt.$options.i18n.d(
-        new Date(d['日付']),
-        'dateWithoutYear'
-      )
+      const date = new Date(d['日付'])
       const subTotal = d['小計']
       if (!isNaN(subTotal)) {
         patSum += subTotal
         graphData.push({
-          label: date,
+          label: `${date.getMonth() + 1}/${date.getDate()}`,
           transition: subTotal,
           cumulative: patSum
         })
