@@ -12,7 +12,7 @@
       :data-labels="positiveRateDataLabels"
       :table-labels="positiveRateTableLabels"
     >
-      <template v-slot:description>
+      <template v-slot:additionalDescription>
         <ul :class="$style.GraphDesc">
           <li>
             {{
