@@ -25,6 +25,8 @@
       <confirmed-cases-details-card />
       <!-- 検査実施状況 -->
       <tested-cases-details-card />
+      <!-- 接触歴等不明率 -->
+      <untracked-rate-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
       <!-- 陽性患者数（検査結果判明日別） -->
@@ -74,10 +76,12 @@ import PositiveRateCard from '~/components/cards/PositiveRateCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
+import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
+    UntrackedRateCard,
     PositiveRateCard,
     PageHeader,
     WhatsNew,
