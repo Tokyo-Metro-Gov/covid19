@@ -1,13 +1,16 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <time-bar-chart
-      :title="$t('新規患者に関する報告件数の推移')"
+    <simple-mixed-chart
+      :title="$t('（１）新規陽性者数')"
       :title-id="'number-of-confirmed-cases'"
       :chart-id="'time-bar-chart-patients'"
-      :chart-data="patientsGraph"
-      :date="Data.patients.date"
+      :chart-data="PatientsGraph"
+      :date="PatientsDate"
+      :items="PatientsItems"
+      :labels="PatientsLabels"
+      :data-labels="PatientsDataLabels"
+      :table-labels="PatientsTableLabels"
       :unit="$t('人')"
-      :by-date="true"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
     >
       <template v-slot:description>
@@ -23,28 +26,55 @@
               $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
             }}
           </li>
+          <li>
+            {{
+              $t(
+                '（注）集団感染発生や曜日による件数のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去７日間の移動平均値を陽性者数として算出'
+              )
+            }}
+          </li>
         </ul>
       </template>
-    </time-bar-chart>
+    </simple-mixed-chart>
   </v-col>
 </template>
 
 <script>
-import Data from '@/data/data.json'
-import formatGraph from '@/utils/formatGraph'
-import TimeBarChart from '@/components/TimeBarChart.vue'
+import dayjs from 'dayjs'
+import duration from 'dayjs/plugin/duration'
+import SimpleMixedChart from '@/components/SimpleMixedChart.vue'
+import Data from '@/data/daily_positive_detail.json'
+dayjs.extend(duration)
 
 export default {
   components: {
-    TimeBarChart
+    SimpleMixedChart
   },
   data() {
-    // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.patients_summary.data)
+    // 検査実施日別状況
+    const l = Data.data.length
+    const PatientsCount = []
+    const sevendayMoveAverages = []
+    const PatientsLabels = []
+    for (let i = 0; i < l; i++) {
+      PatientsCount.push(Data.data[i].count)
+      sevendayMoveAverages.push(Data.data[i].weekly_average_count)
+      PatientsLabels.push(Data.data[i].diagnosed_date)
+    }
 
+    const PatientsGraph = [PatientsCount, sevendayMoveAverages]
+    const PatientsItems = [this.$t('陽性者数'), this.$t('７日間移動平均')]
+    const PatientsDataLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
+    const PatientsTableLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
+
+    const PatientsDate = Data.date
     const data = {
-      Data,
-      patientsGraph
+      PatientsDate,
+      PatientsGraph,
+      PatientsItems,
+      PatientsLabels,
+      PatientsDataLabels,
+      PatientsTableLabels
     }
     return data
   }
