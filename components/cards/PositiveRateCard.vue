@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <positive-rate-mixed-chart
-      :title="$t('検査実施人数（陰性確認を除く）と陽性率の推移')"
+      :title="$t('（６）ＰＣＲ検査の陽性率')"
       :title-id="'positive-rate'"
       :chart-id="'positive-rate-chart'"
       :chart-data="positiveRateGraph"
