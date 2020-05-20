@@ -47,6 +47,9 @@
     <positive-rate-card
       v-else-if="this.$route.params.card == 'positive-rate'"
     />
+    <monitoring-status-overview-card
+      v-else-if="this.$route.params.card == 'monitoring-status-overview'"
+    />
   </div>
 </template>
 
@@ -57,6 +60,7 @@ import agencyData from '@/data/agency.json'
 import patientData from '@/data/patient.json'
 import PositiveByDiagnosedData from '@/data/positive_by_diagnosed.json'
 import PositiveRate from '@/data/positive_rate.json'
+import monitoringStatusData from '@/data/monitoring_status.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -70,6 +74,7 @@ import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
+import MonitoringStatusOverviewCard from '@/components/cards/MonitoringStatusOverviewCard.vue'
 
 export default {
   components: {
@@ -85,7 +90,8 @@ export default {
     ConsultationDeskReportsNumberCard,
     MetroCard,
     AgencyCard,
-    PositiveNumberByDiagnosedDateCard
+    PositiveNumberByDiagnosedDateCard,
+    MonitoringStatusOverviewCard
   },
   data() {
     let title, updatedAt
@@ -141,6 +147,10 @@ export default {
       case 'positive-rate':
         title = this.$t('検査実施人数（陰性確認を除く）と陽性率の推移')
         updatedAt = PositiveRate.date
+        break
+      case 'monitoring-status-overview':
+        title = this.$t('モニタリング指標')
+        updatedAt = monitoringStatusData.date
         break
     }
 
