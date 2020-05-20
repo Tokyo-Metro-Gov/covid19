@@ -3,13 +3,6 @@
     <template v-slot:description>
       <slot name="description" />
     </template>
-    <template v-slot:button>
-      <data-selector
-        v-model="dataKind"
-        :target-id="chartId"
-        :style="{ display: canvas ? 'inline-block' : 'none' }"
-      />
-    </template>
     <ul
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
@@ -64,7 +57,7 @@
           :chart-id="`${chartId}-header-right`"
           :chart-data="displayDataHeader"
           :options="displayOptionHeader"
-          :plugins="yAxesBgRightPlugin"
+          :plugins="yAxesBgPlugin"
           :display-legends="displayLegends"
           :height="240"
           :width="width"
@@ -119,18 +112,12 @@ import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import {
-  DisplayData,
-  yAxesBgPlugin,
-  yAxesBgRightPlugin,
-  scrollPlugin
-} from '@/plugins/vue-chart'
+import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
 }
 type Data = {
-  dataKind: string
   canvas: boolean
   displayLegends: boolean[]
   chartWidth: number | null
@@ -180,7 +167,6 @@ type Props = {
   url: string
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
-  yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -249,14 +235,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin
-    },
-    yAxesBgRightPlugin: {
-      type: Array,
-      default: () => yAxesBgRightPlugin
     }
   },
   data: () => ({
-    dataKind: 'transition',
     displayLegends: [true, true],
     chartWidth: null,
     canvas: true,
@@ -278,7 +259,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         datasets: [
           {
             type: 'bar',
-            yAxisID: 'y-axis-1',
             label: this.items[0],
             data: this.chartData[0],
             backgroundColor: '#00a040',
@@ -288,7 +268,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           },
           {
             type: 'line',
-            yAxisID: 'y-axis-2',
             label: this.items[1],
             data: this.chartData[1],
             pointBackgroundColor: 'rgba(0,0,0,0)',
@@ -421,21 +400,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080', // #808080
                 suggestedMax: this.scaledTicksYAxisMax
               }
-            },
-            {
-              id: 'y-axis-2',
-              position: 'right',
-              gridLines: {
-                display: true,
-                drawOnChartArea: false,
-                color: '#E5E5E5' // #E5E5E5
-              },
-              ticks: {
-                suggestedMin: 0,
-                maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMaxRight
-              }
             }
           ]
         }
@@ -468,12 +432,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             data: [this.displayData.datasets[0].data[n]],
             backgroundColor: 'transparent',
             yAxisID: 'y-axis-1',
-            borderWidth: 0
-          },
-          {
-            data: [this.displayData.datasets[1].data[n]],
-            backgroundColor: 'transparent',
-            yAxisID: 'y-axis-2',
             borderWidth: 0
           }
         ]
@@ -543,23 +501,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 8,
                 fontColor: '#808080', // #808080
                 suggestedMax: this.scaledTicksYAxisMax
-              }
-            },
-            {
-              id: 'y-axis-2',
-              type: 'linear',
-              position: 'right',
-              stacked: true,
-              gridLines: {
-                display: true,
-                drawOnChartArea: false,
-                color: '#E5E5E5' // #E5E5E5
-              },
-              ticks: {
-                suggestedMin: 0,
-                maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMaxRight
               }
             }
           ]
