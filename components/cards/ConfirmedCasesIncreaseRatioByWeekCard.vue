@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <confirmed-cases-increase-ratio-by-week-chart
-      :title="$t('（３）週単位の陽性者増加比')"
+      :title="$t('モニタリング指標(3)週単位の陽性者増加比')"
       :title-id="'increase-ratio-of-confirmed-cases-by-daily'"
       :chart-id="'time-line-chart-patients-increase-ratio'"
       :chart-data="graphData"
@@ -14,14 +14,14 @@
           <li>
             {{
               $t(
-                '（注）直近１週間の新規陽性者数とその前の１週間の新規陽性者数の比率。１を上回ると増加し、１を下回ると減少する'
+                '（注）直近１週間の保健所からの新規陽性者の報告数とその前の１週間の報告数の比率。１を上回ると増加し、１を下回ると減少する'
               )
             }}
           </li>
           <li>
             {{
               $t(
-                '（注） １週間前の新規陽性者数と比較した際の増加比について、有意な数値がとれる2月22日から作成'
+                '（注）１週間前の新規陽性者の報告数と比較した際の増加比について、有意な数値がとれる2月22日から作成'
               )
             }}
           </li>

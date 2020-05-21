@@ -151,7 +151,7 @@ export default {
         updatedAt = PositiveRate.date
         break
       case 'increase-ratio-of-confirmed-cases-by-daily':
-        title = this.$t('（３）週単位の陽性者増加比')
+        title = this.$t('モニタリング指標(3)週単位の陽性者増加比')
         updatedAt = DailyPositiveDetail.date
         break
     }
