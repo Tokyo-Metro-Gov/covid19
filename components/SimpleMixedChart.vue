@@ -245,7 +245,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   computed: {
     displayInfo() {
       return {
-        lText: this.pickLastNumber(this.chartData)[1].toLocaleString(),
+        lText: this.pickLastNumber(this.chartData)[0].toLocaleString(),
         sText: `${this.$t('{date} 実績値', {
           date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
         })}`,
