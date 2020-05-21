@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <untracked-rate-mixed-chart
-      :title="$t('（２）新規陽性者における接触歴等不明率')"
+      :title="$t('モニタリング指標(2)新規陽性者における接触歴等不明率')"
       :title-id="'untracked-rate'"
       :chart-id="'untracked-rate-chart'"
       :chart-data="graphData"
@@ -17,21 +17,21 @@
           <li>
             {{
               $t(
-                '（注）PCR検査により陽性であることを医師が確認した日別（確定日別）の新規陽性者数について、接触歴等の不明者、判明者に区分したものである。'
+                '（注）保健所から発生届が提出された日別（報告日別）の新規陽性者について、接触歴等の不明者、判明者に区分したものである'
               )
             }}
           </li>
           <li>
             {{
               $t(
-                '（注）集団感染発生や曜日による件数のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去７日間の移動平均値を不明率として算出'
+                '（注）集団感染発生や曜日による件数のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去７日間の移動平均値を不明率として算出（たとえば、5月7日の移動平均値は、5月1日から5月7日までの実績値を平均したもの）'
               )
             }}
           </li>
           <li>
             {{
               $t(
-                '（注）陽性者が1月24日、25日、30日、2月13日にそれぞれ１名、2月14日に２名発生しているが、有意な数値がとれる2月15日から作成'
+                '（注）濃厚接触者など、患者の発生状況の内訳の公表を開始した3月27日から作成'
               )
             }}
           </li>
@@ -56,7 +56,7 @@ export default {
     const dateList = []
 
     Data.data
-      .filter(d => new Date(d.diagnosed_date) >= new Date('2020-02-15'))
+      .filter(d => new Date(d.diagnosed_date) >= new Date('2020-03-27'))
       .forEach(d => {
         reportedCount.push(d.reported_count)
         missingCount.push(d.missing_count)
