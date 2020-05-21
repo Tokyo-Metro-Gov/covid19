@@ -57,6 +57,7 @@ import agencyData from '@/data/agency.json'
 import patientData from '@/data/patient.json'
 import PositiveByDiagnosedData from '@/data/positive_by_diagnosed.json'
 import PositiveRate from '@/data/positive_rate.json'
+import DailyPositiveDetail from '@/data/daily_positive_detail.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -99,8 +100,8 @@ export default {
         updatedAt = Data.inspection_status_summary.date
         break
       case 'number-of-confirmed-cases':
-        title = this.$t('陽性患者数')
-        updatedAt = Data.patients.date
+        title = this.$t('（１）新規陽性者数')
+        updatedAt = DailyPositiveDetail.date
         break
       case 'number-of-confirmed-cases-by-municipalities':
         title = this.$t('陽性患者数（区市町村別）')
