@@ -26,6 +26,8 @@
       <!-- 検査実施状況 -->
       <tested-cases-details-card />
       <!-- 新型コロナ受診相談窓口相談件数 -->
+      <monitoring-consultation-desk-reports-number-card />
+      <!-- 新型コロナ受診相談窓口相談件数 -->
       <consultation-desk-reports-number-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
@@ -75,9 +77,11 @@ import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 
 export default Vue.extend({
   components: {
+    MonitoringConsultationDeskReportsNumberCard,
     PositiveRateCard,
     PageHeader,
     WhatsNew,

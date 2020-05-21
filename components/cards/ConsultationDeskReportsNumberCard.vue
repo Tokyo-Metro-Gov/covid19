@@ -1,103 +1,36 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <simple-mixed-chart
-      :title="$t('（７）受診相談窓口における相談件数')"
+    <time-bar-chart
+      :title="$t('新型コロナ受診相談窓口相談件数')"
       :title-id="'number-of-reports-to-covid19-consultation-desk'"
       :chart-id="'time-bar-chart-querents'"
-      :chart-data="ConsuletionReportsGraph"
-      :date="ConsulationReportsDate"
-      :items="ConsuletionReportsItems"
-      :labels="ConsuletionReportsLabels"
+      :chart-data="querentsGraph"
+      :date="Data.querents.date"
       :unit="$t('件.reports')"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000070'"
-      :data-labels="ConsuletionReportsDataLabels"
-      :table-labels="ConsuletionReportsTableLabels"
-    >
-      <template v-slot:additionalNotes>
-        <ul :class="$style.GraphDesc">
-          <li>
-            {{
-              $t(
-                '（注）曜日などによる件数のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去７日間の移動平均値を相談件数として算出'
-              )
-            }}
-          </li>
-          <li>
-            {{
-              $t(
-                '（注）新型コロナ受診相談窓口 （帰国者・接触者電話相談センター）を開設した2月7日から作成'
-              )
-            }}
-          </li>
-        </ul>
-      </template>
-    </simple-mixed-chart>
+    />
+    <!-- 件.reports = 窓口相談件数 -->
   </v-col>
 </template>
 
 <script>
-import dayjs from 'dayjs'
-import duration from 'dayjs/plugin/duration'
-import SimpleMixedChart from '@/components/SimpleMixedChart'
 import Data from '@/data/data.json'
-dayjs.extend(duration)
+import formatGraph from '@/utils/formatGraph'
+import TimeBarChart from '@/components/TimeBarChart.vue'
 
 export default {
   components: {
-    SimpleMixedChart
+    TimeBarChart
   },
   data() {
-    // 検査実施日別状況
-    const l = Data.querents.data.length
-    const ConsulationReportsCount = []
-    const sevendayMoveAverages = []
-    const ConsuletionReportsLabels = []
-    for (let i = 0; i < l; i++) {
-      ConsulationReportsCount.push(Data.querents.data[i]['小計'])
-      sevendayMoveAverages.push(Data.querents.data[i]['７日間平均'])
-      ConsuletionReportsLabels.push(Data.querents.data[i]['日付'])
-    }
+    // 帰国者・接触者 電話相談センター 相談件数
+    const querentsGraph = formatGraph(Data.querents.data)
 
-    const ConsuletionReportsGraph = [
-      ConsulationReportsCount,
-      sevendayMoveAverages
-    ]
-    const ConsuletionReportsItems = [
-      this.$t('相談件数'),
-      this.$t('７日間移動平均')
-    ]
-    const ConsuletionReportsDataLabels = [
-      this.$t('相談件数'),
-      this.$t('７日間移動平均')
-    ]
-    const ConsuletionReportsTableLabels = [
-      this.$t('相談件数'),
-      this.$t('７日間移動平均')
-    ]
-
-    const ConsulationReportsDate = Data.querents.date
     const data = {
-      ConsulationReportsDate,
-      ConsuletionReportsGraph,
-      ConsuletionReportsItems,
-      ConsuletionReportsLabels,
-      ConsuletionReportsDataLabels,
-      ConsuletionReportsTableLabels
+      Data,
+      querentsGraph
     }
     return data
   }
 }
 </script>
-
-<style module lang="scss">
-.Graph {
-  &Desc {
-    margin: 0;
-    margin-top: 1rem;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
-}
-</style>

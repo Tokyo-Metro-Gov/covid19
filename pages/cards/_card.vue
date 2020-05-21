@@ -47,6 +47,12 @@
     <positive-rate-card
       v-else-if="this.$route.params.card == 'positive-rate'"
     />
+    <monitoring-consultation-desk-reports-number-card
+      v-else-if="
+        this.$route.params.card ===
+          'monitoring-number-of-reports-to-covid19-consultation-desk'
+      "
+    />
   </div>
 </template>
 
@@ -66,6 +72,7 @@ import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
@@ -73,6 +80,7 @@ import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 
 export default {
   components: {
+    MonitoringConsultationDeskReportsNumberCard,
     PositiveRateCard,
     ConfirmedCasesDetailsCard,
     TestedCasesDetailsCard,
@@ -123,7 +131,7 @@ export default {
         updatedAt = Data.contacts.date
         break
       case 'number-of-reports-to-covid19-consultation-desk':
-        title = this.$t('（７）受診相談窓口における相談件数')
+        title = this.$t('新型コロナ受診相談窓口相談件数')
         updatedAt = Data.querents.date
         break
       case 'predicted-number-of-toei-subway-passengers':
@@ -141,6 +149,10 @@ export default {
       case 'positive-rate':
         title = this.$t('検査実施人数（陰性確認を除く）と陽性率の推移')
         updatedAt = PositiveRate.date
+        break
+      case 'monitoring-number-of-reports-to-covid19-consultation-desk':
+        title = this.$t('（７）受診相談窓口における相談件数')
+        updatedAt = Data.querents.date
         break
     }
 
