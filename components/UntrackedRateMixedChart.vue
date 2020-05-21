@@ -338,7 +338,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               } : ${cases} ${unit}`
               if (
                 this.dataLabels[tooltipItem.datasetIndex!] ===
-                '接触歴等不明率（７日間移動平均）'
+                '接触歴等不明率（7日間移動平均）'
               ) {
                 label = `${
                   this.dataLabels[tooltipItem.datasetIndex!]
