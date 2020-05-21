@@ -13,7 +13,7 @@
       :data-labels="ConsuletionReportsDataLabels"
       :table-labels="ConsuletionReportsTableLabels"
     >
-      <template v-slot:description>
+      <template v-slot:additionalNotes>
         <ul :class="$style.GraphDesc">
           <li>
             {{
