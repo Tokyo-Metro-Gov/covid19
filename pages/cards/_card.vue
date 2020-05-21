@@ -47,6 +47,11 @@
     <positive-rate-card
       v-else-if="this.$route.params.card == 'positive-rate'"
     />
+    <monitoring-confirmed-cases-number-card
+      v-else-if="
+        this.$route.params.card === 'monitoring-number-of-confirmed-cases'
+      "
+    />
   </div>
 </template>
 
@@ -67,6 +72,7 @@ import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
@@ -74,6 +80,7 @@ import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 
 export default {
   components: {
+    MonitoringConfirmedCasesNumberCard,
     PositiveRateCard,
     ConfirmedCasesDetailsCard,
     TestedCasesDetailsCard,
@@ -100,8 +107,8 @@ export default {
         updatedAt = Data.inspection_status_summary.date
         break
       case 'number-of-confirmed-cases':
-        title = this.$t('（１）新規陽性者数')
-        updatedAt = DailyPositiveDetail.date
+        title = this.$t('陽性患者数')
+        updatedAt = Data.patients.date
         break
       case 'number-of-confirmed-cases-by-municipalities':
         title = this.$t('陽性患者数（区市町村別）')
@@ -142,6 +149,10 @@ export default {
       case 'positive-rate':
         title = this.$t('検査実施人数（陰性確認を除く）と陽性率の推移')
         updatedAt = PositiveRate.date
+        break
+      case 'monitoring-number-of-confirmed-cases':
+        title = this.$t('モニタリング指標(1)新規陽性者数')
+        updatedAt = DailyPositiveDetail.date
         break
     }
 

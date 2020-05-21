@@ -2,8 +2,8 @@
   <v-col cols="12" md="6" class="DataCard">
     <simple-mixed-chart
       :title="$t('モニタリング指標(1)新規陽性者数')"
-      :title-id="'number-of-confirmed-cases'"
-      :chart-id="'time-bar-chart-patients'"
+      :title-id="'monitoring-number-of-confirmed-cases'"
+      :chart-id="'simple-mixed-chart-patients'"
       :chart-data="PatientsGraph"
       :date="PatientsDate"
       :items="PatientsItems"
