@@ -251,7 +251,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayInfo() {
       return {
         lText: this.pickLastNumber(this.chartData)[2].toLocaleString(),
-        sText: `${this.$t('{date}の接触歴等不明率', {
+        sText: `${this.$t('{date}の数値', {
           date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
         })}`,
         unit: this.unit
