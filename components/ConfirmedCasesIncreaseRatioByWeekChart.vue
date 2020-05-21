@@ -52,7 +52,6 @@
             <tr v-for="item in items" :key="item.text">
               <th scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item.transition }}</td>
-              <td class="text-end">{{ item.cumulative }}</td>
             </tr>
           </tbody>
         </template>
@@ -95,7 +94,6 @@ type Methods = {
 }
 
 type Computed = {
-  displayCumulativeRatio: string
   displayTransitionRatio: string
   displayInfo: {
     lText: string
@@ -127,7 +125,6 @@ type Props = {
   url: string
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
-  byDate: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -177,10 +174,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin
-    },
-    byDate: {
-      type: Boolean,
-      default: false
     }
   },
   data: () => ({
@@ -189,45 +182,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     canvas: true
   }),
   computed: {
-    displayCumulativeRatio() {
-      const lastDay = this.chartData.slice(-1)[0].cumulative
-      const lastDayBefore = this.chartData.slice(-2)[0].cumulative
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
     displayTransitionRatio() {
       const lastDay = this.chartData.slice(-1)[0].transition
       const lastDayBefore = this.chartData.slice(-2)[0].transition
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
-      if (this.dataKind === 'transition' && this.byDate) {
-        return {
-          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-            '日別値'
-          )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-            this.unit
-          }）`,
-          unit: this.unit
-        }
-      } else if (this.dataKind === 'transition') {
-        return {
-          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-            '実績値'
-          )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-            this.unit
-          }）`,
-          unit: this.unit
-        }
-      }
       return {
-        lText: this.chartData[
-          this.chartData.length - 1
-        ].cumulative.toLocaleString(),
+        lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
         sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-          '累計値'
-        )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
+          'の数値'
+        )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
           this.unit
         }）`,
         unit: this.unit
@@ -235,35 +200,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayData() {
       const style = getGraphSeriesColor('D')
-      if (this.dataKind === 'transition') {
-        return {
-          labels: this.chartData.map(d => {
-            return d.label
-          }),
-          datasets: [
-            {
-              label: this.dataKind,
-              data: this.chartData.map(d => {
-                return d.transition
-              }),
-              backgroundColor: style.fillColor,
-              borderColor: style.strokeColor,
-              borderWidth: 1,
-              pointBackgroundColor: 'rgba(0,0,0,0)',
-              pointBorderColor: 'rgba(0,0,0,0)',
-              lineTension: 0
-            }
-          ]
-        }
-      }
       return {
         labels: this.chartData.map(d => d.label),
         datasets: [
           {
             label: this.dataKind,
-            data: this.chartData.map(d => {
-              return d.cumulative
-            }),
+            data: this.chartData.map(d => d.transition),
             backgroundColor: style.fillColor,
             borderColor: style.strokeColor,
             borderWidth: 1,
@@ -418,26 +360,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 9,
-                maxTicksLimit: 20,
-                fontColor: 'transparent',
-                maxRotation: 0,
-                minRotation: 0,
-                callback: (label: string) => {
-                  return label.split('/')[1]
-                }
-              }
-            },
-            {
-              id: 'month',
-              stacked: true,
-              gridLines: {
-                drawOnChartArea: false,
-                drawTicks: false, // true -> false
-                drawBorder: false,
-                tickMarkLength: 10
-              },
-              ticks: {
-                fontSize: 9,
                 maxTicksLimit: 15,
                 fontColor: 'transparent', // #808080
                 maxRotation: 0
@@ -497,22 +419,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     scaledTicksYAxisMax() {
-      const dataKind =
-        this.dataKind === 'transition' ? 'transition' : 'cumulative'
-      const values = this.chartData.map(d => d[dataKind])
+      const values = this.chartData.map(d => d.transition)
       return Math.max(...values)
     },
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
         {
-          text: `${this.title} (${this.$t('日別')})`,
+          text: this.title,
           value: 'transition',
-          align: 'end'
-        },
-        {
-          text: `${this.title} (${this.$t('累計')})`,
-          value: 'cumulative',
           align: 'end'
         }
       ]
@@ -522,8 +437,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .map((d, _) => {
           return {
             text: d.label,
-            transition: d.transition.toLocaleString(),
-            cumulative: d.cumulative.toLocaleString()
+            transition: d.transition.toLocaleString()
           }
         })
         .sort((a, b) => dayjs(a.text).unix() - dayjs(b.text).unix())

@@ -7,7 +7,6 @@
       :chart-data="graphData"
       :date="dailyPositiveDetail.date"
       :unit="''"
-      :by-date="true"
     >
       <template v-slot:additionalDescription>
         <ul>
