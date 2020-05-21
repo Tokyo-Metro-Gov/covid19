@@ -112,7 +112,6 @@ type Computed = {
   tableData: {
     text: string
     transition: string
-    cumulative: string
   }[]
 }
 type Props = {
