@@ -50,13 +50,10 @@ export default {
       row['居住地'] = this.getTranslatedWording(row['居住地'])
       row['性別'] = this.getTranslatedWording(row['性別'])
       row['退院'] = this.getTranslatedWording(row['退院'])
-
-      if (row['年代'].substr(-1, 1) === '代') {
-        const age = row['年代'].substring(0, 2)
-        row['年代'] = this.$t('{age}代', { age })
-      } else {
-        row['年代'] = this.$t(row['年代'])
-      }
+      row['年代'] =
+        row['年代'].substr(-1, 1) === '代'
+          ? this.$t(row['年代'].substring(0, 2) + '代')
+          : this.$t(row['年代'])
     }
 
     const data = {
@@ -66,6 +63,7 @@ export default {
     }
     return data
   },
+
   methods: {
     getTranslatedWording(value) {
       if (value === '-' || value === '‐' || value === '―' || value == null) {
@@ -79,6 +77,7 @@ export default {
 
       return this.$t(value)
     },
+
     customSort(items, index, isDesc) {
       const lt10 = this.$t('10歳未満')
       const lt100 = this.$t('100歳以上')
