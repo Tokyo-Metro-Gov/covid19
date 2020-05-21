@@ -79,10 +79,10 @@ export default {
     },
 
     customSort(items, index, isDesc) {
-      const lt10 = this.$t('10歳未満')
-      const lt100 = this.$t('100歳以上')
-      const unknown = this.$t('不明')
-      const investigating = this.$t('調査中')
+      const lt10 = this.$t('10歳未満').toString()
+      const lt100 = this.$t('100歳以上').toString()
+      const unknown = this.$t('不明').toString()
+      const investigating = this.$t('調査中').toString()
       items.sort((a, b) => {
         // '10歳未満' < '10代' ... '90代' < '100歳以上' となるようにソートする
         // 「10歳未満」同士を比較する場合、と「100歳以上」同士を比較する場合、更にそうでない場合に場合分け
