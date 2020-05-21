@@ -179,7 +179,8 @@ const config: Configuration = {
         '/cards/predicted-number-of-toei-subway-passengers',
         '/cards/agency',
         '/cards/positive-rate',
-        '/cards/positive-number-by-diagnosed-date'
+        '/cards/positive-number-by-diagnosed-date',
+        '/cards/positive-status-severe-case'
       ]
 
       const routes: string[] = []

@@ -47,6 +47,9 @@
     <positive-rate-card
       v-else-if="this.$route.params.card == 'positive-rate'"
     />
+    <severe-case-card
+      v-else-if="this.$route.params.card === 'positive-status-severe-case'"
+    />
   </div>
 </template>
 
@@ -57,6 +60,7 @@ import agencyData from '@/data/agency.json'
 import patientData from '@/data/patient.json'
 import PositiveByDiagnosedData from '@/data/positive_by_diagnosed.json'
 import PositiveRate from '@/data/positive_rate.json'
+import PositiveStatus from '@/data/positive_status.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -70,9 +74,11 @@ import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
+import SevereCaseCard from '@/components/cards/SevereCaseCard'
 
 export default {
   components: {
+    SevereCaseCard,
     PositiveRateCard,
     ConfirmedCasesDetailsCard,
     TestedCasesDetailsCard,
@@ -141,6 +147,10 @@ export default {
       case 'positive-rate':
         title = this.$t('検査実施人数（陰性確認を除く）と陽性率の推移')
         updatedAt = PositiveRate.date
+        break
+      case 'positive-status-severe-case':
+        title = this.$t('（４）重症患者数')
+        updatedAt = PositiveStatus.date
         break
     }
 
