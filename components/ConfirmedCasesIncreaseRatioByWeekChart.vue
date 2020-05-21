@@ -122,6 +122,7 @@ type Props = {
   date: string
   unit: string
   url: string
+  tableLabels: string[] | TranslateResult[]
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
@@ -165,6 +166,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     url: {
       type: String,
       default: ''
+    },
+    tableLabels: {
+      type: Array,
+      default: () => []
     },
     scrollPlugin: {
       type: Array,
@@ -425,7 +430,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return [
         { text: this.$t('日付'), value: 'text' },
         {
-          text: this.title,
+          text: this.tableLabels[0],
           value: 'transition',
           align: 'end'
         }

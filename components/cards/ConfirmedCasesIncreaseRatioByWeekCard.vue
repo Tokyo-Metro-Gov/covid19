@@ -7,6 +7,7 @@
       :chart-data="graphData"
       :date="dailyPositiveDetail.date"
       :unit="''"
+      :table-labels="tableLabels"
     >
       <template v-slot:additionalDescription>
         <ul>
@@ -30,7 +31,7 @@
   </v-col>
 </template>
 
-<script lang="ts">
+<script>
 import dailyPositiveDetail from '@/data/daily_positive_detail.json'
 import formatGraph from '@/utils/formatGraph'
 import ConfirmedCasesIncreaseRatioByWeekChart from '@/components/ConfirmedCasesIncreaseRatioByWeekChart.vue'
@@ -40,7 +41,7 @@ export default {
     ConfirmedCasesIncreaseRatioByWeekChart
   },
   data() {
-    const formatData: { 日付: Date; 小計: number }[] = []
+    const formatData = []
     dailyPositiveDetail.data.forEach(d => {
       if (d.weekly_gain_ratio) {
         formatData.push({
@@ -52,10 +53,12 @@ export default {
 
     // 週単位の陽性者増加比グラフ
     const graphData = formatGraph(formatData)
+    const tableLabels = [this.$t('週単位の陽性者増加比')]
 
     return {
       dailyPositiveDetail,
-      graphData
+      graphData,
+      tableLabels
     }
   }
 }
