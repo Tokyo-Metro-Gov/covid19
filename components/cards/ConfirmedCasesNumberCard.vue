@@ -13,8 +13,8 @@
       :unit="$t('人')"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
     >
-      <template v-slot:description>
-        <ul>
+      <template v-slot:additionalNotes>
+        <ul :class="$style.GraphDesc">
           <li>
             {{ $t('（注）保健所から発生届が提出された日を基準とする') }}
           </li>
@@ -80,3 +80,16 @@ export default {
   }
 }
 </script>
+
+<style module lang="scss">
+.Graph {
+  &Desc {
+    margin: 0;
+    margin-top: 1rem;
+    padding-left: 0 !important;
+    color: $gray-3;
+    list-style: none;
+    @include font-size(12);
+  }
+}
+</style>
