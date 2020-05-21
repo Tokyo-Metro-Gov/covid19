@@ -3,44 +3,32 @@
     <thead>
       <tr>
         <th scope="col" rowspan="2">
-          <div>
-            {{ $t('項目') }}
-          </div>
+          {{ $t('項目') }}
         </th>
         <th scope="col" rowspan="2">
-          <div>
-            {{ $t('数値') }}
-          </div>
+          {{ $t('数値') }}
         </th>
         <th :class="$style.headerDivided" scope="colgroup" colspan="2">
-          <div>
-            {{ $t('目安となる数値') }}
-          </div>
+          {{ $t('目安となる数値') }}
         </th>
       </tr>
       <tr>
         <th :class="$style.headerDivided" scope="col">
-          <div>
-            {{ $t('緩和') }}
-          </div>
+          {{ $t('緩和') }}
         </th>
         <th :class="$style.headerDivided" scope="col">
-          <div>
-            {{ $t('再要請') }}
-          </div>
+          {{ $t('再要請') }}
         </th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="item in status" :key="item.itemName">
         <th scope="row">
-          <div>{{ $t(replaceFullWidthByHalfWidth(item.itemName)) }}</div>
+          {{ $t(replaceFullWidthByHalfWidth(item.itemName)) }}
         </th>
         <td :class="$style.value">
-          <div>
-            {{ item.itemValue.value }}
-            <span :class="$style.unit">{{ $t(item.itemValue.unit) }}</span>
-          </div>
+          {{ item.itemValue.value }}
+          <span :class="$style.unit">{{ $t(item.itemValue.unit) }}</span>
         </td>
         <template
           v-if="
@@ -49,21 +37,15 @@
           "
         >
           <td :class="$style.threshold">
-            <div>
-              {{ $t(item.itemValue.goThreshold) }}
-            </div>
+            {{ $t(item.itemValue.goThreshold) }}
           </td>
           <td :class="$style.threshold">
-            <div>
-              {{ $t(item.itemValue.stopThreshold) }}
-            </div>
+            {{ $t(item.itemValue.stopThreshold) }}
           </td>
         </template>
         <template v-else>
           <td colspan="2">
-            <div>
-              &ndash;
-            </div>
+            &ndash;
           </td>
         </template>
       </tr>
@@ -105,55 +87,29 @@ $default-pad: 0.5rem;
 
   th,
   td {
-    padding: 1px 0;
-  }
-
-  th > div,
-  td > div {
     padding: $default-pad;
     border: $default-bdw solid $green-1;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
-  .headerDivided > div {
+  td {
+    text-align: center;
+  }
+
+  thead {
+    white-space: nowrap;
+  }
+
+  .headerDivided {
     padding: {
       top: calc(#{$default-pad} * 0.6);
       bottom: calc(#{$default-pad} * 0.6);
     }
   }
 
-  th[scope='row'] > div {
+  th[scope='row'] {
     justify-content: flex-start;
     text-align: left;
-  }
-
-  tr > :not(:first-child) > div {
-    border-left-width: 0;
-  }
-
-  .headerDivided {
-    &[scope='colgroup'] {
-      padding-bottom: 0;
-    }
-
-    &[scope='col'] {
-      padding-top: 0;
-      > div {
-        border-top-width: 0;
-      }
-
-      &:first-child > div {
-        border-left-width: 0;
-      }
-    }
-  }
-
-  .value,
-  .threshold {
-    white-space: nowrap;
   }
 }
 
@@ -170,13 +126,13 @@ $default-pad: 0.5rem;
     border-width: $bdw;
     @include font-size($fz);
 
-    th > div,
-    td > div {
+    th,
+    td {
       padding: $pad;
       border-width: $bdw;
     }
 
-    .headerDivided > div {
+    .headerDivided {
       padding: {
         top: calc($pad * 0.6);
         bottom: calc($pad * 0.6);
