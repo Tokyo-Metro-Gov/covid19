@@ -25,6 +25,7 @@ export default {
     DataTable
   },
   data() {
+    this.$i18n.silentTranslationWarn = true
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
     // 感染者数
