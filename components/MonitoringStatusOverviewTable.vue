@@ -127,7 +127,7 @@ $default-pad: 0.5rem;
 
   th[scope='row'] > div {
     justify-content: flex-start;
-    text-align: start;
+    text-align: left;
   }
 
   tr > :not(:first-child) > div {
