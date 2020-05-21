@@ -9,6 +9,7 @@
       :unit="$t('人')"
       :dashed-rectangle-range="'5/11'"
       :added-value="200"
+      :table-labels="tableLabels"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
     >
       <template v-slot:additionalDescription>
@@ -33,7 +34,7 @@
   </v-col>
 </template>
 
-<script lang="ts">
+<script>
 import positiveStatus from '@/data/positive_status.json'
 import formatGraph from '@/utils/formatGraph'
 import DashedRectangleTimeBarChart from '@/components/DashedRectangleTimeBarChart.vue'
@@ -43,7 +44,7 @@ export default {
     DashedRectangleTimeBarChart
   },
   data() {
-    const formatData: { 日付: Date; 小計: number }[] = []
+    const formatData = []
     positiveStatus.data.forEach(d => {
       if (new Date(d.date) >= new Date('2020-03-06')) {
         formatData.push({
@@ -54,10 +55,12 @@ export default {
     })
     // 入院患者数グラフ
     const patientsGraph = formatGraph(formatData)
+    const tableLabels = [this.$t('入院患者数')]
 
     const data = {
       positiveStatus,
-      patientsGraph
+      patientsGraph,
+      tableLabels
     }
     return data
   }

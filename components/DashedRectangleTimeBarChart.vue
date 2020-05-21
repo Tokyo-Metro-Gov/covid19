@@ -139,6 +139,7 @@ type Props = {
   url: string
   dashedRectangleRange: string
   addedValue: number
+  tableLabels: string[] | TranslateResult[]
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
@@ -190,6 +191,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     addedValue: {
       type: Number,
       default: 0
+    },
+    tableLabels: {
+      type: Array,
+      default: () => []
     },
     scrollPlugin: {
       type: Array,
@@ -443,7 +448,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return [
         { text: this.$t('日付'), value: 'text' },
         {
-          text: `${this.title} (${this.$t('日別')})`,
+          text: `${this.tableLabels[0]} (${this.$t('日別')})`,
           value: 'transition',
           align: 'end'
         }
