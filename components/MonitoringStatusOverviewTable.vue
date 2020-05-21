@@ -2,23 +2,45 @@
   <table :class="$style.table">
     <thead>
       <tr>
-        <th scope="col" rowspan="2">{{ $t('項目') }}</th>
-        <th scope="col" rowspan="2">{{ $t('数値') }}</th>
+        <th scope="col" rowspan="2">
+          <div>
+            {{ $t('項目') }}
+          </div>
+        </th>
+        <th scope="col" rowspan="2">
+          <div>
+            {{ $t('数値') }}
+          </div>
+        </th>
         <th :class="$style.headerDivided" scope="colgroup" colspan="2">
-          {{ $t('目安となる数値') }}
+          <div>
+            {{ $t('目安となる数値') }}
+          </div>
         </th>
       </tr>
       <tr>
-        <th :class="$style.headerDivided" scope="col">{{ $t('緩和') }}</th>
-        <th :class="$style.headerDivided" scope="col">{{ $t('再要請') }}</th>
+        <th :class="$style.headerDivided" scope="col">
+          <div>
+            {{ $t('緩和') }}
+          </div>
+        </th>
+        <th :class="$style.headerDivided" scope="col">
+          <div>
+            {{ $t('再要請') }}
+          </div>
+        </th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="item in status" :key="item.itemName">
-        <th scope="row">{{ $t(item.itemName) }}</th>
+        <th scope="row">
+          <div>{{ $t(item.itemName) }}</div>
+        </th>
         <td :class="$style.value">
-          {{ item.itemValue.value }}
-          <span :class="$style.unit">{{ $t(item.itemValue.unit) }}</span>
+          <div>
+            {{ item.itemValue.value }}
+            <span :class="$style.unit">{{ $t(item.itemValue.unit) }}</span>
+          </div>
         </td>
         <template
           v-if="
@@ -27,14 +49,22 @@
           "
         >
           <td :class="$style.threshold">
-            {{ $t(item.itemValue.goThreshold) }}
+            <div>
+              {{ $t(item.itemValue.goThreshold) }}
+            </div>
           </td>
           <td :class="$style.threshold">
-            {{ $t(item.itemValue.stopThreshold) }}
+            <div>
+              {{ $t(item.itemValue.stopThreshold) }}
+            </div>
           </td>
         </template>
         <template v-else>
-          <td colspan="2">&ndash;</td>
+          <td colspan="2">
+            <div>
+              &ndash;
+            </div>
+          </td>
         </template>
       </tr>
     </tbody>
@@ -56,30 +86,61 @@ export default Vue.extend({
 
 <style lang="scss" module>
 $default-bdw: 2px;
+$default-pad: 0.5rem;
 
 .table {
+  height: 0;
   width: 100%;
   color: $green-1;
   border-collapse: collapse;
-  border: $default-bdw solid $green-1;
   @include font-size(16);
 
   th,
   td {
-    padding: 0.5rem;
+    padding: 1px 0;
+  }
+
+  th > div,
+  td > div {
+    padding: $default-pad;
     border: $default-bdw solid $green-1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  td {
-    text-align: center;
+  .headerDivided > div {
+    padding: {
+      top: calc(#{$default-pad} * 0.6);
+      bottom: calc(#{$default-pad} * 0.6);
+    }
   }
 
-  th[scope='row'] {
-    text-align: left;
+  th[scope='row'] > div {
+    justify-content: flex-start;
+    text-align: start;
+  }
+
+  tr > :not(:first-child) > div {
+    border-left-width: 0;
   }
 
   .headerDivided {
-    padding: calc($pad * 0.6);
+    &[scope='colgroup'] {
+      padding-bottom: 0;
+    }
+
+    &[scope='col'] {
+      padding-top: 0;
+      > div {
+        border-top-width: 0;
+      }
+
+      &:first-child > div {
+        border-left-width: 0;
+      }
+    }
   }
 
   .value,
@@ -101,14 +162,17 @@ $default-bdw: 2px;
     border-width: $bdw;
     @include font-size($fz);
 
-    th,
-    td {
+    th > div,
+    td > div {
       padding: $pad;
       border-width: $bdw;
     }
 
-    .headerDivided {
-      padding: calc($pad * 0.6);
+    .headerDivided > div {
+      padding: {
+        top: calc($pad * 0.6);
+        bottom: calc($pad * 0.6);
+      }
     }
   }
 }
