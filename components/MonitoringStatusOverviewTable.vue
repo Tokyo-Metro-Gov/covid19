@@ -34,7 +34,7 @@
     <tbody>
       <tr v-for="item in status" :key="item.itemName">
         <th scope="row">
-          <div>{{ $t(item.itemName) }}</div>
+          <div>{{ $t(replaceFullWidthByHalfWidth(item.itemName)) }}</div>
         </th>
         <td :class="$style.value">
           <div>
@@ -79,6 +79,14 @@ export default Vue.extend({
     status: {
       type: Array,
       required: true
+    }
+  },
+  methods: {
+    replaceFullWidthByHalfWidth(str: string) {
+      return str.replace(
+        /[０-９]/g,
+        s => String.fromCharCode(s.charCodeAt(0) - 0xfee0) // eslint-disable-line unicorn/number-literal-case
+      )
     }
   }
 })
