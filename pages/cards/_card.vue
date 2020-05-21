@@ -149,7 +149,7 @@ export default {
         updatedAt = PositiveRate.date
         break
       case 'positive-status-severe-case':
-        title = this.$t('（４）重症患者数')
+        title = this.$t('モニタリング指標(4)重症患者数')
         updatedAt = PositiveStatus.date
         break
     }
