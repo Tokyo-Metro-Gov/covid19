@@ -25,7 +25,6 @@ export default {
     DataTable
   },
   data() {
-    this.$i18n.silentTranslationWarn = true
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
     // 感染者数
@@ -53,7 +52,7 @@ export default {
       row['退院'] = this.getTranslatedWording(row['退院'])
       row['年代'] =
         row['年代'].substr(-1, 1) === '代'
-          ? this.$t(row['年代'].substring(0, 2) + '代')
+          ? this.$t('{age}代', { age: row['年代'].substring(0, 2) })
           : this.$t(row['年代'])
     }
 
