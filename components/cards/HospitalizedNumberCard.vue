@@ -10,7 +10,6 @@
       :dashed-rectangle-range="'5/11'"
       :added-value="200"
       :table-labels="tableLabels"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
     >
       <template v-slot:additionalDescription>
         <ul>
