@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <severe-case-bar-chart
-      :title="$t('（４）重症患者数')"
+      :title="$t('モニタリング指標(4)重症患者数')"
       title-id="positive-status-severe-case"
       chart-id="time-bar-chart-positive-status-severe-case"
       :chart-data="graphData"
@@ -18,7 +18,11 @@
             }}
           </li>
           <li>
-            {{ $t('上記の考え方で重症患者数の計上を開始した4月27日から作成') }}
+            {{
+              $t(
+                '（注）上記の考え方で重症患者数の計上を開始した4月27日から作成'
+              )
+            }}
           </li>
         </ul>
       </template>
