@@ -47,6 +47,9 @@
     <positive-rate-card
       v-else-if="this.$route.params.card == 'positive-rate'"
     />
+    <untracked-rate-card
+      v-else-if="this.$route.params.card == 'untracked-rate'"
+    />
   </div>
 </template>
 
@@ -57,6 +60,7 @@ import agencyData from '@/data/agency.json'
 import patientData from '@/data/patient.json'
 import PositiveByDiagnosedData from '@/data/positive_by_diagnosed.json'
 import PositiveRate from '@/data/positive_rate.json'
+import UntrackedRate from '@/data/daily_positive_detail.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -70,10 +74,12 @@ import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
+import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
 
 export default {
   components: {
     PositiveRateCard,
+    UntrackedRateCard,
     ConfirmedCasesDetailsCard,
     TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
@@ -141,6 +147,10 @@ export default {
       case 'positive-rate':
         title = this.$t('検査実施人数（陰性確認を除く）と陽性率の推移')
         updatedAt = PositiveRate.date
+        break
+      case 'untracked-rate':
+        title = this.$t('モニタリング指標(2)新規陽性者における接触歴等不明率')
+        updatedAt = UntrackedRate.date
         break
     }
 

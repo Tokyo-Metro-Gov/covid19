@@ -179,6 +179,7 @@ const config: Configuration = {
         '/cards/predicted-number-of-toei-subway-passengers',
         '/cards/agency',
         '/cards/positive-rate',
+        '/cards/untracked-rate',
         '/cards/positive-number-by-diagnosed-date'
       ]
 
