@@ -78,7 +78,7 @@
         </li>
         <li :class="[$style.box]">
           <div :class="$style.content">
-            <span>{{ $t('退院等') }}</span>
+            <span>{{ $t('退院等（療養期間経過を含む）') }}</span>
             <span>
               <strong>{{ 退院.toLocaleString() }}</strong>
               <span :class="$style.unit">{{ $t('人') }}</span>
