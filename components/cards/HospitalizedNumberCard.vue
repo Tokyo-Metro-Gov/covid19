@@ -7,7 +7,6 @@
       :chart-data="patientsGraph"
       :date="positiveStatus.date"
       :unit="$t('人')"
-      :by-date="true"
       :dashed-rectangle-range="'5/11'"
       :added-value="200"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
