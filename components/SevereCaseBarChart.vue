@@ -204,21 +204,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
-      if (this.dataKind === 'transition' && this.byDate) {
+      if (this.dataKind === 'transition') {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
           sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-            '日別値'
-          )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-            this.unit
-          }）`,
-          unit: this.unit
-        }
-      } else if (this.dataKind === 'transition') {
-        return {
-          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-            '実績値'
+            'の数値'
           )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
             this.unit
           }）`,
@@ -230,7 +220,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           this.chartData.length - 1
         ].cumulative.toLocaleString(),
         sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-          '累計値'
+          'の数値'
         )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
           this.unit
         }）`,
@@ -488,7 +478,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return [
         { text: this.$t('日付'), value: 'text' },
         {
-          text: `${this.title} (${this.$t('日別')})`,
+          text: `${this.$t('重症患者数')} (${this.$t('日別')})`,
           value: 'transition',
           align: 'end'
         }
