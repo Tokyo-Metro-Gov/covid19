@@ -182,7 +182,8 @@ const config: Configuration = {
         '/cards/positive-number-by-diagnosed-date',
         '/cards/monitoring-number-of-confirmed-cases',
         '/cards/untracked-rate',
-        '/cards/increase-ratio-of-confirmed-cases-by-daily'
+        '/cards/increase-ratio-of-confirmed-cases-by-daily',
+        '/cards/positive-status-severe-case'
       ]
 
       const routes: string[] = []
