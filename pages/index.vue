@@ -33,6 +33,8 @@
       <confirmed-cases-increase-ratio-by-week-card />
       <!-- 重症患者数 -->
       <severe-case-card />
+      <!-- 入院患者数 -->
+      <hospitalized-number-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
       <!-- 陽性患者数（検査結果判明日別） -->
@@ -86,6 +88,7 @@ import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
 import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
+import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
@@ -110,7 +113,8 @@ export default Vue.extend({
     MetroCard,
     AgencyCard,
     PositiveNumberByDiagnosedDateCard,
-    ConfirmedCasesIncreaseRatioByWeekCard
+    ConfirmedCasesIncreaseRatioByWeekCard,
+    HospitalizedNumberCard
   },
   data() {
     const data = {

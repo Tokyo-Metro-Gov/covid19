@@ -63,6 +63,9 @@
     <severe-case-card
       v-else-if="this.$route.params.card === 'positive-status-severe-case'"
     />
+    <hospitalized-number-card
+      v-else-if="this.$route.params.card == 'number-of-hospitalized'"
+    />
   </div>
 </template>
 
@@ -77,6 +80,7 @@ import PositiveRate from '@/data/positive_rate.json'
 import DailyPositiveDetail from '@/data/daily_positive_detail.json'
 import UntrackedRate from '@/data/daily_positive_detail.json'
 import PositiveStatus from '@/data/positive_status.json'
+import positiveStatus from '@/data/positive_status.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -93,6 +97,7 @@ import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumber
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
 import SevereCaseCard from '@/components/cards/SevereCaseCard'
+import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
 
 export default {
   components: {
@@ -112,7 +117,8 @@ export default {
     MetroCard,
     AgencyCard,
     PositiveNumberByDiagnosedDateCard,
-    ConfirmedCasesIncreaseRatioByWeekCard
+    ConfirmedCasesIncreaseRatioByWeekCard,
+    HospitalizedNumberCard
   },
   data() {
     let title, updatedAt
@@ -184,6 +190,10 @@ export default {
       case 'positive-status-severe-case':
         title = this.$t('モニタリング指標(4)重症患者数')
         updatedAt = PositiveStatus.date
+        break
+      case 'number-of-hospitalized':
+        title = this.$t('モニタリング指標(5)入院患者数')
+        updatedAt = positiveStatus.date
         break
     }
 
