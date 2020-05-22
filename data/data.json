@@ -45193,11 +45193,11 @@
                 "children": [
                     {
                         "attr": "入院中",
-                        "value": 679,
+                        "value": 655,
                         "children": [
                             {
                                 "attr": "軽症・中等症",
-                                "value": 637
+                                "value": 613
                             },
                             {
                                 "attr": "重症",
@@ -45223,7 +45223,7 @@
                     },
                     {
                         "attr": "調査中",
-                        "value": 0
+                        "value": 24
                     }
                 ]
             }
