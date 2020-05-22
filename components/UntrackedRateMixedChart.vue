@@ -262,8 +262,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         sText: `${this.$t('{date}の数値', {
           date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
         })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-            this.unit
-          }）`,
+          this.unit
+        }）`,
         unit: this.unit
       }
     },
