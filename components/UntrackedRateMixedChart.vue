@@ -313,6 +313,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             { text: dayjs(label).format('M/D') },
             ...this.chartData.map((_, j) => {
               const data = this.chartData[j]
+              if (data[i] === null) {
+                return {
+                  [j]: ''
+                }
+              }
               return {
                 [j]: data[i].toLocaleString()
               }
