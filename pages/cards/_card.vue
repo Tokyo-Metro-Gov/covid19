@@ -47,6 +47,34 @@
     <positive-rate-card
       v-else-if="this.$route.params.card == 'positive-rate'"
     />
+    <monitoring-confirmed-cases-number-card
+      v-else-if="
+        this.$route.params.card === 'monitoring-number-of-confirmed-cases'
+      "
+    />
+    <untracked-rate-card
+      v-else-if="this.$route.params.card == 'untracked-rate'"
+    />
+    <confirmed-cases-increase-ratio-by-week-card
+      v-else-if="
+        this.$route.params.card == 'increase-ratio-of-confirmed-cases-by-daily'
+      "
+    />
+    <severe-case-card
+      v-else-if="this.$route.params.card === 'positive-status-severe-case'"
+    />
+    <hospitalized-number-card
+      v-else-if="this.$route.params.card == 'number-of-hospitalized'"
+    />
+    <monitoring-consultation-desk-reports-number-card
+      v-else-if="
+        this.$route.params.card ===
+          'monitoring-number-of-reports-to-covid19-consultation-desk'
+      "
+    />
+    <monitoring-status-overview-card
+      v-else-if="this.$route.params.card == 'monitoring-status-overview'"
+    />
   </div>
 </template>
 
@@ -57,6 +85,11 @@ import agencyData from '@/data/agency.json'
 import patientData from '@/data/patient.json'
 import PositiveByDiagnosedData from '@/data/positive_by_diagnosed.json'
 import PositiveRate from '@/data/positive_rate.json'
+import DailyPositiveDetail from '@/data/daily_positive_detail.json'
+import UntrackedRate from '@/data/daily_positive_detail.json'
+import PositiveStatus from '@/data/positive_status.json'
+import positiveStatus from '@/data/positive_status.json'
+import monitoringStatusData from '@/data/monitoring_status.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -66,14 +99,25 @@ import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
+import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
+import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
+import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
+import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
+import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
+import MonitoringStatusOverviewCard from '@/components/cards/MonitoringStatusOverviewCard.vue'
 
 export default {
   components: {
+    MonitoringConfirmedCasesNumberCard,
+    SevereCaseCard,
+    MonitoringConsultationDeskReportsNumberCard,
     PositiveRateCard,
+    UntrackedRateCard,
     ConfirmedCasesDetailsCard,
     TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
@@ -85,7 +129,10 @@ export default {
     ConsultationDeskReportsNumberCard,
     MetroCard,
     AgencyCard,
-    PositiveNumberByDiagnosedDateCard
+    PositiveNumberByDiagnosedDateCard,
+    ConfirmedCasesIncreaseRatioByWeekCard,
+    HospitalizedNumberCard,
+    MonitoringStatusOverviewCard
   },
   data() {
     let title, updatedAt
@@ -141,6 +188,34 @@ export default {
       case 'positive-rate':
         title = this.$t('検査実施人数（陰性確認を除く）と陽性率の推移')
         updatedAt = PositiveRate.date
+        break
+      case 'monitoring-number-of-confirmed-cases':
+        title = this.$t('モニタリング指標(1)新規陽性者数')
+        updatedAt = DailyPositiveDetail.date
+        break
+      case 'untracked-rate':
+        title = this.$t('モニタリング指標(2)新規陽性者における接触歴等不明率')
+        updatedAt = UntrackedRate.date
+        break
+      case 'increase-ratio-of-confirmed-cases-by-daily':
+        title = this.$t('モニタリング指標(3)週単位の陽性者増加比')
+        updatedAt = DailyPositiveDetail.date
+        break
+      case 'positive-status-severe-case':
+        title = this.$t('モニタリング指標(4)重症患者数')
+        updatedAt = PositiveStatus.date
+        break
+      case 'number-of-hospitalized':
+        title = this.$t('モニタリング指標(5)入院患者数')
+        updatedAt = positiveStatus.date
+        break
+      case 'monitoring-number-of-reports-to-covid19-consultation-desk':
+        title = this.$t('（７）受診相談窓口における相談件数')
+        updatedAt = Data.querents.date
+        break
+      case 'monitoring-status-overview':
+        title = this.$t('モニタリング指標')
+        updatedAt = monitoringStatusData.date
         break
     }
 

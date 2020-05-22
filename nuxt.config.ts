@@ -179,7 +179,14 @@ const config: Configuration = {
         '/cards/predicted-number-of-toei-subway-passengers',
         '/cards/agency',
         '/cards/positive-rate',
-        '/cards/positive-number-by-diagnosed-date'
+        '/cards/positive-number-by-diagnosed-date',
+        '/cards/monitoring-number-of-confirmed-cases',
+        '/cards/untracked-rate',
+        '/cards/increase-ratio-of-confirmed-cases-by-daily',
+        '/cards/positive-status-severe-case',
+        '/cards/number-of-hospitalized',
+        '/cards/monitoring-number-of-reports-to-covid19-consultation-desk',
+        '/cards/monitoring-status-overview'
       ]
 
       const routes: string[] = []
