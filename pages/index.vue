@@ -23,41 +23,42 @@
     <card-row class="DataBlock">
       <!-- 検査陽性者の状況 -->
       <confirmed-cases-details-card />
-      <!-- 検査実施状況 -->
-      <tested-cases-details-card />
-      <!-- モニタリング(1)新規陽性者数 -->
-      <monitoring-confirmed-cases-number-card />
-      <!-- 接触歴等不明率 -->
-      <untracked-rate-card />
-      <!-- 週単位の陽性者増加比 -->
-      <confirmed-cases-increase-ratio-by-week-card />
-      <!-- 重症患者数 -->
-      <severe-case-card />
-      <!-- 入院患者数 -->
-      <hospitalized-number-card />
-      <!-- 新型コロナ受診相談窓口相談件数 -->
-      <monitoring-consultation-desk-reports-number-card />
-      <!-- 新型コロナ受診相談窓口相談件数 -->
-      <consultation-desk-reports-number-card />
+      <!-- 新規患者に関する報告件数の推移 -->
+      <confirmed-cases-number-card />
       <!-- モニタリング指標 -->
       <monitoring-status-overview-card />
-      <!-- 陽性患者数 -->
-      <confirmed-cases-number-card />
-      <!-- 陽性患者数（検査結果判明日別） -->
-      <positive-number-by-diagnosed-date-card />
+      <!-- モニタリング(1)新規陽性者数 -->
+      <monitoring-confirmed-cases-number-card />
+      <!-- モニタリング指標(2)新規陽性者における接触歴等不明率 -->
+      <untracked-rate-card />
+      <!-- モニタリング指標(3)週単位の陽性者増加比 -->
+      <confirmed-cases-increase-ratio-by-week-card />
+      <!-- モニタリング指標(4)重症患者数 -->
+      <severe-case-card />
+      <!-- モニタリング指標(5)入院患者数 -->
+      <hospitalized-number-card />
+      <!-- モニタリング指標(6)PCR検査の陽性率-->
+      <positive-rate-card />
+      <!-- モニタリング指標(7)受診相談窓口における相談件数 -->
+      <monitoring-consultation-desk-reports-number-card />
       <!-- 陽性患者の属性 -->
       <confirmed-cases-attributes-card />
       <!-- 区市町村別患者数 -->
       <confirmed-cases-by-municipalities-card />
-      <!-- 陽性率グラフ-->
-      <positive-rate-card />
+      <!-- 検査実施状況 -->
+      <tested-cases-details-card />
       <v-col class="DesktopSpacer" />
       <!-- 検査実施人数 -->
       <inspection-persons-number-card />
       <!-- 検査実施件数 -->
       <tested-number-card />
+      <!-- PCR検査陽性者の発生動向（確定日別による陽性者数の推移） -->
+      <positive-number-by-diagnosed-date-card />
+      <v-col class="DesktopSpacer" />
       <!-- 新型コロナコールセンター相談件数 -->
       <telephone-advisory-reports-number-card />
+      <!-- 新型コロナ受診相談窓口相談件数 -->
+      <consultation-desk-reports-number-card />
       <!-- 都営地下鉄の利用者数の推移 -->
       <metro-card />
       <!-- 都庁来庁者数の推移 -->
