@@ -47,6 +47,11 @@
     <positive-rate-card
       v-else-if="this.$route.params.card == 'positive-rate'"
     />
+    <monitoring-confirmed-cases-number-card
+      v-else-if="
+        this.$route.params.card === 'monitoring-number-of-confirmed-cases'
+      "
+    />
   </div>
 </template>
 
@@ -57,6 +62,7 @@ import agencyData from '@/data/agency.json'
 import patientData from '@/data/patient.json'
 import PositiveByDiagnosedData from '@/data/positive_by_diagnosed.json'
 import PositiveRate from '@/data/positive_rate.json'
+import DailyPositiveDetail from '@/data/daily_positive_detail.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -66,6 +72,7 @@ import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
@@ -73,6 +80,7 @@ import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 
 export default {
   components: {
+    MonitoringConfirmedCasesNumberCard,
     PositiveRateCard,
     ConfirmedCasesDetailsCard,
     TestedCasesDetailsCard,
@@ -141,6 +149,10 @@ export default {
       case 'positive-rate':
         title = this.$t('検査実施人数（陰性確認を除く）と陽性率の推移')
         updatedAt = PositiveRate.date
+        break
+      case 'monitoring-number-of-confirmed-cases':
+        title = this.$t('モニタリング指標(1)新規陽性者数')
+        updatedAt = DailyPositiveDetail.date
         break
     }
 

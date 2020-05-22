@@ -25,6 +25,8 @@
       <confirmed-cases-details-card />
       <!-- 検査実施状況 -->
       <tested-cases-details-card />
+      <!-- モニタリング(1)新規陽性者数 -->
+      <monitoring-confirmed-cases-number-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
       <!-- 陽性患者数（検査結果判明日別） -->
@@ -70,6 +72,7 @@ import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNum
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
 import PositiveRateCard from '~/components/cards/PositiveRateCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
@@ -78,6 +81,7 @@ import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
+    MonitoringConfirmedCasesNumberCard,
     PositiveRateCard,
     PageHeader,
     WhatsNew,
