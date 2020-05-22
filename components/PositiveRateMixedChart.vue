@@ -135,12 +135,15 @@ type Methods = {
   sum: (array: number[]) => number
   cumulative: (array: number[]) => number[]
   pickLastNumber: (chartDataArray: number[][]) => number[]
+  pickLastSecondNumber: (chartDataArray: number[][]) => number[]
   cumulativeSum: (chartDataArray: number[][]) => number[]
   eachArraySum: (chartDataArray: number[][]) => number[]
   onClickLegend: (i: number) => void
+  formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
 
 type Computed = {
+  displayTransitionRatio: string
   displayInfo: {
     lText: string
     sText: string
@@ -253,12 +256,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     width: 300
   }),
   computed: {
+    displayTransitionRatio() {
+      const lastDay = this.pickLastNumber(this.chartData)[2]
+      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[2]
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+    },
     displayInfo() {
       return {
         lText: this.pickLastNumber(this.chartData)[2].toLocaleString(),
         sText: `${this.$t('{date}の数値', {
           date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
-        })}`,
+        })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+            this.unit
+          }）`,
         unit: this.unit
       }
     },
@@ -634,6 +644,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return array[array.length - 1]
       })
     },
+    pickLastSecondNumber(chartDataArray: number[][]) {
+      return chartDataArray.map(array => {
+        return array[array.length - 2]
+      })
+    },
     cumulativeSum(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array.reduce((acc, cur) => {
@@ -647,6 +662,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
       }
       return sumArray
+    },
+    formatDayBeforeRatio(dayBeforeRatio: number): string {
+      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
+      switch (Math.sign(dayBeforeRatio)) {
+        case 1:
+          return `+${dayBeforeRatioLocaleString}`
+        case -1:
+          return `${dayBeforeRatioLocaleString}`
+        default:
+          return `${dayBeforeRatioLocaleString}`
+      }
     }
   },
   mounted() {
