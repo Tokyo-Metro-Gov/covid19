@@ -2,6 +2,33 @@
     "date": "2020\/5\/20 19:00",
     "data": [
         {
+            "diagnosed_date": "2020-01-20",
+            "count": 0,
+            "missing_count": null,
+            "reported_count": null,
+            "weekly_gain_ratio": null,
+            "untracked_percent": null,
+            "weekly_average_count": null
+        },
+        {
+            "diagnosed_date": "2020-01-21",
+            "count": 0,
+            "missing_count": null,
+            "reported_count": null,
+            "weekly_gain_ratio": null,
+            "untracked_percent": null,
+            "weekly_average_count": null
+        },
+        {
+            "diagnosed_date": "2020-01-22",
+            "count": 0,
+            "missing_count": null,
+            "reported_count": null,
+            "weekly_gain_ratio": null,
+            "untracked_percent": null,
+            "weekly_average_count": null
+        },
+        {
             "diagnosed_date": "2020-01-23",
             "count": 0,
             "missing_count": null,
@@ -35,7 +62,7 @@
             "reported_count": null,
             "weekly_gain_ratio": null,
             "untracked_percent": null,
-            "weekly_average_count": null
+            "weekly_average_count": 0.3
         },
         {
             "diagnosed_date": "2020-01-27",
@@ -44,7 +71,7 @@
             "reported_count": null,
             "weekly_gain_ratio": null,
             "untracked_percent": null,
-            "weekly_average_count": null
+            "weekly_average_count": 0.3
         },
         {
             "diagnosed_date": "2020-01-28",
@@ -53,7 +80,7 @@
             "reported_count": null,
             "weekly_gain_ratio": null,
             "untracked_percent": null,
-            "weekly_average_count": null
+            "weekly_average_count": 0.3
         },
         {
             "diagnosed_date": "2020-01-29",
