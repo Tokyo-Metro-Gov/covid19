@@ -184,7 +184,8 @@ const config: Configuration = {
         '/cards/untracked-rate',
         '/cards/increase-ratio-of-confirmed-cases-by-daily',
         '/cards/positive-status-severe-case',
-        '/cards/number-of-hospitalized'
+        '/cards/number-of-hospitalized',
+        '/cards/monitoring-number-of-reports-to-covid19-consultation-desk'
       ]
 
       const routes: string[] = []
