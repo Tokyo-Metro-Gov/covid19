@@ -6,6 +6,18 @@
     <static-card>
       <h3>
         <external-link
+          url="https://tokyodouga.jp/playlist/ohayoschool.html"
+          :icon-size="24"
+          >{{ $t('TOKYOおはようスクール') }}
+        </external-link>
+      </h3>
+      <p>
+        {{ $t('学校休校中の子供たちの生活や学習を応援するテレビ番組です。') }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <external-link
           url="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html"
           :icon-size="24"
           >{{ $t('学びの支援サイト') }}

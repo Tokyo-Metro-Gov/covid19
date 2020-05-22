@@ -87,7 +87,6 @@
               <td class="text-end">{{ item['0'] }}</td>
               <td class="text-end">{{ item['1'] }}</td>
               <td class="text-end">{{ item['2'] }}</td>
-              <td class="text-end">{{ item['3'] }}</td>
             </tr>
           </tbody>
         </template>
@@ -132,11 +131,7 @@ type Data = {
   width: number
 }
 type Methods = {
-  sum: (array: number[]) => number
-  cumulative: (array: number[]) => number[]
   pickLastNumber: (chartDataArray: number[][]) => number[]
-  cumulativeSum: (chartDataArray: number[][]) => number[]
-  eachArraySum: (chartDataArray: number[][]) => number[]
   onClickLegend: (i: number) => void
 }
 
@@ -200,7 +195,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     chartId: {
       type: String,
-      default: 'PositiveRateMixedChart'
+      default: 'UntrackedRateMixedChart'
     },
     chartData: {
       type: Array,
@@ -316,25 +311,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .map((label, i) => {
           return Object.assign(
             { text: dayjs(label).format('M/D') },
-            ...this.tableHeaders.map((_, j) => {
-              if (j <= 1) {
-                const data = this.chartData[j]
+            ...this.chartData.map((_, j) => {
+              const data = this.chartData[j]
+              if (data[i] === null) {
                 return {
-                  [j]: data[i].toLocaleString()
+                  [j]: ''
                 }
               }
-              if (j === 2) {
-                const positive = this.chartData[0]
-                const negative = this.chartData[1]
-                return {
-                  [j]: (positive[i] + negative[i]).toLocaleString()
-                }
-              }
-              if (j === 3) {
-                const data = this.chartData[2]
-                return {
-                  [j]: data[i].toLocaleString()
-                }
+              return {
+                [j]: data[i].toLocaleString()
               }
             })
           )
@@ -356,7 +341,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${unit}`
-              if (this.dataLabels[tooltipItem.datasetIndex!] === '陽性率') {
+              if (
+                this.dataLabels[tooltipItem.datasetIndex!] ===
+                '接触歴等不明率（7日間移動平均）'
+              ) {
                 label = `${
                   this.dataLabels[tooltipItem.datasetIndex!]
                 } : ${cases} %`
@@ -423,7 +411,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           yAxes: [
             {
               id: 'y-axis-1',
-              position: 'left',
+              position: 'right',
               stacked: true,
               gridLines: {
                 display: true,
@@ -439,7 +427,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             {
               id: 'y-axis-2',
-              position: 'right',
+              position: 'left',
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
@@ -555,7 +543,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             {
               id: 'y-axis-1',
               type: 'linear',
-              position: 'left',
+              position: 'right',
               stacked: true,
               gridLines: {
                 display: true,
@@ -572,7 +560,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             {
               id: 'y-axis-2',
               type: 'linear',
-              position: 'right',
+              position: 'left',
               stacked: true,
               gridLines: {
                 display: true,
@@ -615,38 +603,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       this.displayLegends[i] = !this.displayLegends[i]
       this.displayLegends = this.displayLegends.slice()
     },
-    cumulative(array: number[]): number[] {
-      const cumulativeArray: number[] = []
-      let patSum = 0
-      array.forEach(d => {
-        patSum += d
-        cumulativeArray.push(patSum)
-      })
-      return cumulativeArray
-    },
-    sum(array: number[]): number {
-      return array.reduce((acc, cur) => {
-        return acc + cur
-      })
-    },
     pickLastNumber(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array[array.length - 1]
       })
-    },
-    cumulativeSum(chartDataArray: number[][]) {
-      return chartDataArray.map(array => {
-        return array.reduce((acc, cur) => {
-          return acc + cur
-        })
-      })
-    },
-    eachArraySum(chartDataArray: number[][]) {
-      const sumArray: number[] = []
-      for (let i = 0; i < chartDataArray[0].length; i++) {
-        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
-      }
-      return sumArray
     }
   },
   mounted() {

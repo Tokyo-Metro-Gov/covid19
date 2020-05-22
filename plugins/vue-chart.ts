@@ -102,7 +102,9 @@ const createCustomChart = () => {
         displayLegends: watchDisplayLegends
       },
       mounted(): void {
-        this.renderChart(this.chartData, this.options)
+        setTimeout(() => {
+          this.renderChart(this.chartData, this.options)
+        })
       }
     }
   )
@@ -214,6 +216,11 @@ export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
 export interface DataSets<T = number> extends ChartData {
   data: T[]
 }
+
+export interface DataSetsPoint<T = { x: string; y: number }> extends ChartData {
+  data: T[]
+}
+
 export interface DisplayData<T = number, U = string> {
   labels?: U[]
   datasets: DataSets<T>[]

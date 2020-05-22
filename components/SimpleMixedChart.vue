@@ -10,17 +10,17 @@
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
           <div
-            v-if="i >= 2"
+            v-if="i === 0"
             :style="{
-              backgroundColor: '#CC7004',
-              borderColor: '#CC7004'
+              backgroundColor: '#00a040',
+              borderColor: '#5a8055'
             }"
           />
           <div
-            v-else
+            v-if="i === 1"
             :style="{
-              backgroundColor: colors[i].fillColor,
-              borderColor: colors[i].strokeColor
+              backgroundColor: '#1b4d30',
+              borderColor: '#5a8055'
             }"
           />
           <span
@@ -57,16 +57,13 @@
           :chart-id="`${chartId}-header-right`"
           :chart-data="displayDataHeader"
           :options="displayOptionHeader"
-          :plugins="yAxesBgRightPlugin"
+          :plugins="yAxesBgPlugin"
           :display-legends="displayLegends"
           :height="240"
           :width="width"
         />
       </div>
     </div>
-    <template v-slot:additionalDescription>
-      <slot name="additionalDescription" />
-    </template>
     <template v-slot:dataTable>
       <v-data-table
         :headers="tableHeaders"
@@ -86,8 +83,6 @@
               <th scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item['0'] }}</td>
               <td class="text-end">{{ item['1'] }}</td>
-              <td class="text-end">{{ item['2'] }}</td>
-              <td class="text-end">{{ item['3'] }}</td>
             </tr>
           </tbody>
         </template>
@@ -98,8 +93,11 @@
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
-        unit="%"
+        :unit="unit"
       />
+    </template>
+    <template v-slot:footer>
+      <open-data-link v-show="url" :url="url" />
     </template>
   </data-view>
 </template>
@@ -112,14 +110,9 @@ import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import {
-  DisplayData,
-  yAxesBgPlugin,
-  yAxesBgRightPlugin,
-  scrollPlugin
-} from '@/plugins/vue-chart'
-import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
+import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -127,7 +120,6 @@ interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
 type Data = {
   canvas: boolean
   displayLegends: boolean[]
-  colors: SurfaceStyle[]
   chartWidth: number | null
   width: number
 }
@@ -151,7 +143,6 @@ type Computed = {
   displayDataHeader: DisplayData
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
-  scaledTicksYAxisMaxRight: number
   tableHeaders: {
     text: TranslateResult
     value: string
@@ -172,9 +163,9 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
   unit: string
+  url: string
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
-  yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -187,7 +178,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
   props: {
     title: {
       type: String,
@@ -216,6 +207,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => []
     },
+    url: {
+      type: String,
+      default: ''
+    },
     labels: {
       type: Array,
       default: () => []
@@ -239,15 +234,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin
-    },
-    yAxesBgRightPlugin: {
-      type: Array,
-      default: () => yAxesBgRightPlugin
     }
   },
   data: () => ({
-    displayLegends: [true, true, true],
-    colors: getGraphSeriesStyle(2),
+    displayLegends: [true, true],
     chartWidth: null,
     canvas: true,
     width: 300
@@ -255,46 +245,33 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   computed: {
     displayInfo() {
       return {
-        lText: this.pickLastNumber(this.chartData)[2].toLocaleString(),
-        sText: `${this.$t('{date}の数値', {
+        lText: this.pickLastNumber(this.chartData)[1].toLocaleString(),
+        sText: `${this.$t('{date} の数値', {
           date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
         })}`,
         unit: this.unit
       }
     },
     displayData() {
-      const graphSeries = getGraphSeriesStyle(2)
       return {
         labels: this.labels,
         datasets: [
           {
             type: 'bar',
-            yAxisID: 'y-axis-1',
             label: this.items[0],
             data: this.chartData[0],
-            backgroundColor: graphSeries[0].fillColor,
-            borderColor: graphSeries[0].strokeColor,
+            backgroundColor: '#00a040',
+            borderColor: '#5a8055',
             borderWidth: 1,
             order: 1
           },
           {
-            type: 'bar',
-            yAxisID: 'y-axis-1',
+            type: 'line',
             label: this.items[1],
             data: this.chartData[1],
-            backgroundColor: graphSeries[1].fillColor,
-            borderColor: graphSeries[1].strokeColor,
-            borderWidth: 1,
-            order: 2
-          },
-          {
-            type: 'line',
-            yAxisID: 'y-axis-2',
-            label: this.items[2],
-            data: this.chartData[2],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: '#CC7004',
+            borderColor: '#1b4d30',
             borderWidth: 3,
             fill: false,
             order: 0,
@@ -317,21 +294,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           return Object.assign(
             { text: dayjs(label).format('M/D') },
             ...this.tableHeaders.map((_, j) => {
-              if (j <= 1) {
+              if (j < 2) {
                 const data = this.chartData[j]
-                return {
-                  [j]: data[i].toLocaleString()
+                if (data[i] === null) {
+                  return {
+                    [j]: ''
+                  }
                 }
-              }
-              if (j === 2) {
-                const positive = this.chartData[0]
-                const negative = this.chartData[1]
-                return {
-                  [j]: (positive[i] + negative[i]).toLocaleString()
-                }
-              }
-              if (j === 3) {
-                const data = this.chartData[2]
                 return {
                   [j]: data[i].toLocaleString()
                 }
@@ -353,15 +322,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               const cases = data[tooltipItem.datasetIndex!][
                 tooltipItem.index!
               ].toLocaleString()
-              let label = `${
+              return `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${unit}`
-              if (this.dataLabels[tooltipItem.datasetIndex!] === '陽性率') {
-                label = `${
-                  this.dataLabels[tooltipItem.datasetIndex!]
-                } : ${cases} %`
-              }
-              return label
             },
             title(tooltipItem, data) {
               const date = dayjs(
@@ -422,7 +385,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              id: 'y-axis-1',
               position: 'left',
               stacked: true,
               gridLines: {
@@ -436,24 +398,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080', // #808080
                 suggestedMax: this.scaledTicksYAxisMax
               }
-            },
-            {
-              id: 'y-axis-2',
-              position: 'right',
-              gridLines: {
-                display: true,
-                drawOnChartArea: false,
-                color: '#E5E5E5' // #E5E5E5
-              },
-              ticks: {
-                suggestedMin: 0,
-                maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMaxRight,
-                callback(value) {
-                  return value + '%'
-                }
-              }
             }
           ]
         }
@@ -465,14 +409,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayDataHeader() {
       let n = 0
+      let m = 0
       let max = 0
       for (const i in this.displayData.datasets[0].data) {
-        const current =
-          this.displayData.datasets[0].data[i] +
-          this.displayData.datasets[1].data[i]
+        const current = this.displayData.datasets[0].data[i]
         if (current > max) {
           max = current
           n = Number(i)
+        }
+      }
+      for (const i in this.displayData.datasets[1].data) {
+        const current = this.displayData.datasets[1].data[i]
+        if (current > max) {
+          max = current
+          m = Number(i)
         }
       }
       const test = ['2020/1/1']
@@ -485,19 +435,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             data: [this.displayData.datasets[0].data[n]],
             backgroundColor: 'transparent',
-            yAxisID: 'y-axis-1',
             borderWidth: 0
           },
           {
-            data: [this.displayData.datasets[1].data[n]],
+            data: [this.displayData.datasets[1].data[m]],
             backgroundColor: 'transparent',
-            yAxisID: 'y-axis-1',
-            borderWidth: 0
-          },
-          {
-            data: [this.displayData.datasets[2].data[n]],
-            backgroundColor: 'transparent',
-            yAxisID: 'y-axis-2',
             borderWidth: 0
           }
         ]
@@ -553,7 +495,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              id: 'y-axis-1',
               type: 'linear',
               position: 'left',
               stacked: true,
@@ -568,26 +509,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080', // #808080
                 suggestedMax: this.scaledTicksYAxisMax
               }
-            },
-            {
-              id: 'y-axis-2',
-              type: 'linear',
-              position: 'right',
-              stacked: true,
-              gridLines: {
-                display: true,
-                drawOnChartArea: false,
-                color: '#E5E5E5' // #E5E5E5
-              },
-              ticks: {
-                suggestedMin: 0,
-                maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMaxRight,
-                callback(value) {
-                  return value + '%'
-                }
-              }
             }
           ]
         },
@@ -598,14 +519,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     scaledTicksYAxisMax() {
       let max = 0
       for (const i in this.chartData[0]) {
-        max = Math.max(max, this.chartData[0][i] + this.chartData[1][i])
+        max = Math.max(max, this.chartData[0][i])
       }
-      return max
-    },
-    scaledTicksYAxisMaxRight() {
-      let max = 0
-      for (const i in this.chartData[2]) {
-        max = Math.max(max, this.chartData[2][i])
+      for (const i in this.chartData[1]) {
+        max = Math.max(max, this.chartData[1][i])
       }
       return max
     }
