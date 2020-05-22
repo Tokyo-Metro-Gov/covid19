@@ -66,6 +66,12 @@
     <hospitalized-number-card
       v-else-if="this.$route.params.card == 'number-of-hospitalized'"
     />
+    <monitoring-consultation-desk-reports-number-card
+      v-else-if="
+        this.$route.params.card ===
+          'monitoring-number-of-reports-to-covid19-consultation-desk'
+      "
+    />
   </div>
 </template>
 
@@ -91,6 +97,7 @@ import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNum
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
+import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
@@ -103,6 +110,7 @@ export default {
   components: {
     MonitoringConfirmedCasesNumberCard,
     SevereCaseCard,
+    MonitoringConsultationDeskReportsNumberCard,
     PositiveRateCard,
     UntrackedRateCard,
     ConfirmedCasesDetailsCard,
@@ -194,6 +202,10 @@ export default {
       case 'number-of-hospitalized':
         title = this.$t('モニタリング指標(5)入院患者数')
         updatedAt = positiveStatus.date
+        break
+      case 'monitoring-number-of-reports-to-covid19-consultation-desk':
+        title = this.$t('（７）受診相談窓口における相談件数')
+        updatedAt = Data.querents.date
         break
     }
 

@@ -35,6 +35,10 @@
       <severe-case-card />
       <!-- 入院患者数 -->
       <hospitalized-number-card />
+      <!-- 新型コロナ受診相談窓口相談件数 -->
+      <monitoring-consultation-desk-reports-number-card />
+      <!-- 新型コロナ受診相談窓口相談件数 -->
+      <consultation-desk-reports-number-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
       <!-- 陽性患者数（検査結果判明日別） -->
@@ -52,8 +56,6 @@
       <tested-number-card />
       <!-- 新型コロナコールセンター相談件数 -->
       <telephone-advisory-reports-number-card />
-      <!-- 新型コロナ受診相談窓口相談件数 -->
-      <consultation-desk-reports-number-card />
       <!-- 都営地下鉄の利用者数の推移 -->
       <metro-card />
       <!-- 都庁来庁者数の推移 -->
@@ -90,12 +92,14 @@ import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
 import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 
 export default Vue.extend({
   components: {
     MonitoringConfirmedCasesNumberCard,
     UntrackedRateCard,
     SevereCaseCard,
+    MonitoringConsultationDeskReportsNumberCard,
     PositiveRateCard,
     PageHeader,
     WhatsNew,
