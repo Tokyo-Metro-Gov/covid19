@@ -180,7 +180,8 @@ const config: Configuration = {
         '/cards/agency',
         '/cards/positive-rate',
         '/cards/positive-number-by-diagnosed-date',
-        '/cards/monitoring-number-of-confirmed-cases'
+        '/cards/monitoring-number-of-confirmed-cases',
+        '/cards/untracked-rate'
       ]
 
       const routes: string[] = []
