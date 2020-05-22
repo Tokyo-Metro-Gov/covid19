@@ -55,10 +55,16 @@
     <untracked-rate-card
       v-else-if="this.$route.params.card == 'untracked-rate'"
     />
+    <confirmed-cases-increase-ratio-by-week-card
+      v-else-if="
+        this.$route.params.card == 'increase-ratio-of-confirmed-cases-by-daily'
+      "
+    />
   </div>
 </template>
 
 <script>
+import ConfirmedCasesIncreaseRatioByWeekCard from '../../components/cards/ConfirmedCasesIncreaseRatioByWeekCard'
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
 import agencyData from '@/data/agency.json'
@@ -99,7 +105,8 @@ export default {
     ConsultationDeskReportsNumberCard,
     MetroCard,
     AgencyCard,
-    PositiveNumberByDiagnosedDateCard
+    PositiveNumberByDiagnosedDateCard,
+    ConfirmedCasesIncreaseRatioByWeekCard
   },
   data() {
     let title, updatedAt
@@ -163,6 +170,10 @@ export default {
       case 'untracked-rate':
         title = this.$t('モニタリング指標(2)新規陽性者における接触歴等不明率')
         updatedAt = UntrackedRate.date
+        break
+      case 'increase-ratio-of-confirmed-cases-by-daily':
+        title = this.$t('モニタリング指標(3)週単位の陽性者増加比')
+        updatedAt = DailyPositiveDetail.date
         break
     }
 
