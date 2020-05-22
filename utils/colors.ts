@@ -36,14 +36,13 @@ export function getGraphSeriesStyle(seriesLength: number) {
 
 export function getGraphSeriesColor(series: string) {
   switch (series) {
-    case 'A':
-    default:
-      return surfaceStyleA
     case 'B':
       return surfaceStyleB
     case 'C':
       return surfaceStyleC
     case 'D':
       return surfaceStyleD
+    default:
+      return surfaceStyleA
   }
 }
