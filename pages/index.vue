@@ -39,6 +39,8 @@
       <monitoring-consultation-desk-reports-number-card />
       <!-- 新型コロナ受診相談窓口相談件数 -->
       <consultation-desk-reports-number-card />
+      <!-- モニタリング指標 -->
+      <monitoring-status-overview-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
       <!-- 陽性患者数（検査結果判明日別） -->
@@ -91,6 +93,7 @@ import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumber
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
 import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
+import MonitoringStatusOverviewCard from '@/components/cards/MonitoringStatusOverviewCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 
@@ -118,7 +121,8 @@ export default Vue.extend({
     AgencyCard,
     PositiveNumberByDiagnosedDateCard,
     ConfirmedCasesIncreaseRatioByWeekCard,
-    HospitalizedNumberCard
+    HospitalizedNumberCard,
+    MonitoringStatusOverviewCard
   },
   data() {
     const data = {
