@@ -22,6 +22,7 @@ PATHS = {
     "/cards/positive-rate": (959, 730),
     "/cards/monitoring-number-of-confirmed-cases": (959, 500),
     "/cards/untracked-rate": (959, 500),
+    "/cards/increase-ratio-of-confirmed-cases-by-daily": (959, 500)
 }
 
 options = webdriver.ChromeOptions()

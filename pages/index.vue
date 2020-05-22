@@ -29,6 +29,8 @@
       <monitoring-confirmed-cases-number-card />
       <!-- 接触歴等不明率 -->
       <untracked-rate-card />
+      <!-- 週単位の陽性者増加比 -->
+      <confirmed-cases-increase-ratio-by-week-card />
       <!-- 陽性患者数 -->
       <confirmed-cases-number-card />
       <!-- 陽性患者数（検査結果判明日別） -->
@@ -80,6 +82,7 @@ import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
+import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
@@ -102,7 +105,8 @@ export default Vue.extend({
     ConsultationDeskReportsNumberCard,
     MetroCard,
     AgencyCard,
-    PositiveNumberByDiagnosedDateCard
+    PositiveNumberByDiagnosedDateCard,
+    ConfirmedCasesIncreaseRatioByWeekCard
   },
   data() {
     const data = {
