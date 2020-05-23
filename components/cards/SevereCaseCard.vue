@@ -40,18 +40,15 @@ export default {
   },
   data() {
     const graphData = []
-    let patSum = 0
     Data.data
       .filter(d => new Date(d.date) > new Date('2020-04-26'))
       .forEach(d => {
         const date = new Date(d.date)
         const subTotal = d.severe_case
         if (!isNaN(subTotal)) {
-          patSum += subTotal
           graphData.push({
             label: `${date.getMonth() + 1}/${date.getDate()}`,
-            transition: subTotal,
-            cumulative: patSum
+            transition: subTotal
           })
         }
       })
