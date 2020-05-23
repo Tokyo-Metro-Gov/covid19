@@ -28,6 +28,11 @@ const surfaceStyleE: SurfaceStyle = {
   fillColor: '#cc7004'
 }
 
+const surfaceStyleF: SurfaceStyle = {
+  strokeColor: '#1b4d30',
+  fillColor: '#1b4d30'
+}
+
 export function getGraphSeriesStyle(seriesLength: number) {
   switch (seriesLength) {
     case 1:
@@ -52,5 +57,7 @@ export function getGraphSeriesColor(series: string) {
       return surfaceStyleD
     case 'E':
       return surfaceStyleE
+    case 'F':
+      return surfaceStyleF
   }
 }

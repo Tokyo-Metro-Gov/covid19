@@ -10,14 +10,6 @@
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
           <div
-            v-if="i >= 2"
-            :style="{
-              backgroundColor: '#CC7004',
-              borderColor: '#CC7004'
-            }"
-          />
-          <div
-            v-else
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor
@@ -118,11 +110,12 @@ import {
   yAxesBgRightPlugin,
   scrollPlugin
 } from '@/plugins/vue-chart'
-import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
+import {
+  getGraphSeriesStyle,
+  getGraphSeriesColor,
+  SurfaceStyle
+} from '@/utils/colors'
 
-interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
-  currentTarget: T
-}
 type Data = {
   canvas: boolean
   displayLegends: boolean[]
@@ -132,6 +125,7 @@ type Data = {
 }
 type Methods = {
   pickLastNumber: (chartDataArray: number[][]) => number[]
+  makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
 }
 
@@ -167,6 +161,7 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
   unit: string
+  additionalLines: number[]
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
@@ -231,6 +226,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => scrollPlugin
     },
+    additionalLines: {
+      type: Array,
+      default: () => []
+    },
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin
@@ -241,8 +240,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
-    displayLegends: [true, true, true],
-    colors: getGraphSeriesStyle(2),
+    displayLegends: [true, true, true, true],
+    colors: [
+      ...getGraphSeriesStyle(2),
+      getGraphSeriesColor('E'),
+      getGraphSeriesColor('F')
+    ],
     chartWidth: null,
     canvas: true,
     width: 300
@@ -258,7 +261,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
-      const graphSeries = getGraphSeriesStyle(2)
+      const graphSeries = [
+        ...getGraphSeriesStyle(2),
+        getGraphSeriesColor('E'),
+        getGraphSeriesColor('F')
+      ]
       return {
         labels: this.labels,
         datasets: [
@@ -270,7 +277,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             backgroundColor: graphSeries[0].fillColor,
             borderColor: graphSeries[0].strokeColor,
             borderWidth: 1,
-            order: 1
+            order: 2
           },
           {
             type: 'bar',
@@ -280,7 +287,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             backgroundColor: graphSeries[1].fillColor,
             borderColor: graphSeries[1].strokeColor,
             borderWidth: 1,
-            order: 2
+            order: 3
           },
           {
             type: 'line',
@@ -289,8 +296,21 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             data: this.chartData[2],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: '#CC7004',
+            borderColor: graphSeries[2].strokeColor,
             borderWidth: 3,
+            fill: false,
+            order: 1,
+            lineTension: 0
+          },
+          {
+            type: 'line',
+            yAxisID: 'y-axis-2',
+            label: this.items[3],
+            data: this.makeLineData(this.additionalLines[0]),
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            borderColor: graphSeries[3].strokeColor,
+            borderWidth: 2,
             fill: false,
             order: 0,
             lineTension: 0
@@ -329,22 +349,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOption() {
       const unit = this.unit
-      const data = this.chartData
       const options: Chart.ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const cases = data[tooltipItem.datasetIndex!][
-                tooltipItem.index!
-              ].toLocaleString()
+              const cases = tooltipItem.value!.toLocaleString()
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${unit}`
-              if (
-                this.dataLabels[tooltipItem.datasetIndex!] ===
-                '接触歴等不明率（7日間移動平均）'
-              ) {
+              if (tooltipItem.datasetIndex! >= 2) {
                 label = `${
                   this.dataLabels[tooltipItem.datasetIndex!]
                 } : ${cases} %`
@@ -352,10 +366,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               return label
             },
             title(tooltipItem, data) {
-              const date = dayjs(
-                data.labels![tooltipItem[0].index!].toString()
-              ).format('M/D')
-              return String(date)
+              if (tooltipItem[0].datasetIndex! < 3) {
+                const date = dayjs(
+                  data.labels![tooltipItem[0].index!].toString()
+                ).format('M/D')
+                return String(date)
+              }
+              return ''
             }
           }
         },
@@ -487,6 +504,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             backgroundColor: 'transparent',
             yAxisID: 'y-axis-2',
             borderWidth: 0
+          },
+          {
+            data: [this.additionalLines[0]],
+            backgroundColor: 'transparent',
+            yAxisID: 'y-axis-2',
+            borderWidth: 0
           }
         ]
       }
@@ -561,7 +584,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               id: 'y-axis-2',
               type: 'linear',
               position: 'left',
-              stacked: true,
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
@@ -602,6 +624,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     onClickLegend(i) {
       this.displayLegends[i] = !this.displayLegends[i]
       this.displayLegends = this.displayLegends.slice()
+    },
+    makeLineData(value: number): number[] {
+      return this.chartData[0].map(_ => value)
     },
     pickLastNumber(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
