@@ -84,10 +84,7 @@
               <span :class="$style.unit">{{ $t('人') }}</span>
             </span>
           </div>
-        </li>
-      </ul>
-    </li>
-　　<li :class="[$style.box, $style.deceased]">
+　<li :class="[$style.box, $style.landscape]">
         <div :class="$style.pillar">
           <div :class="$style.content">
             <span>{{ $t('病床数(医療病床(うち重症重篤)/宿泊医療施設)') }}</span>
@@ -104,6 +101,9 @@
           　</div>
        　</div>
      </li>
+        </li>
+      </ul>
+    </li>
   </ul>
 </template>
 
@@ -149,10 +149,13 @@ export default Vue.extend({
       type: Number,
       required: true
     },
+    退院: {
+      type: Number,
+      required: true
     病床数: {
       type: Number,
       required: true
-    医療病床: {
+    医療病床: {      
       type: Number,
       required: true
     医療病床重症重篤: {
@@ -177,7 +180,7 @@ $default-boxdiff: 35px;
   box-sizing: border-box;
   color: $green-1;
   line-height: 1.35;
-
+  flex-direction: column;
   * {
     box-sizing: border-box;
   }
@@ -264,6 +267,10 @@ $default-boxdiff: 35px;
       border-bottom: none;
     }
   }
+  &.landscape {
+      width:100%
+  }
+
 }
 
 @function px2vw($px, $vw: 0) {
