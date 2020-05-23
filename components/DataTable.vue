@@ -10,7 +10,7 @@
       :height="240"
       fixed-header
       :mobile-breakpoint="0"
-      :custom-sort="customSort"
+      :sort-by="$t('公表日')"
       :footer-props="{
         'items-per-page-options': [15, 30, 50, 100, 200, 300, -1],
         'items-per-page-text': $t('1ページ当たり')
@@ -26,7 +26,7 @@
             <td class="text-start">
               {{ getTranslatedWording(item['居住地']) }}
             </td>
-            <td class="text-start">{{ ageNumbertoString(item['年代']) }}</td>
+            <td class="text-start">{{ ageNumberToString(item['年代']) }}</td>
             <td class="text-start">{{ getTranslatedWording(item['性別']) }}</td>
             <td class="text-center">
               {{ getTranslatedWording(item['退院']) }}
@@ -154,6 +154,7 @@ import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
+import { ageArray } from '@/utils/formatTable'
 
 export default Vue.extend({
   components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
@@ -193,20 +194,7 @@ export default Vue.extend({
     })
   },
   methods: {
-    ageNumbertoString(ageNumber: number): string {
-      const ageArray = [
-        '10歳未満',
-        '10代',
-        '20代',
-        '30代',
-        '40代',
-        '50代',
-        '60代',
-        '70代',
-        '80代',
-        '90代',
-        '100歳以上'
-      ]
+    ageNumberToString(ageNumber: number): string {
       if (ageNumber === -1) {
         return this.$t('不明').toString()
       }

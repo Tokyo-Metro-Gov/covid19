@@ -51,13 +51,10 @@ export default (data: DataType[]) => {
     }
     tableDate.datasets.push(TableRow)
   })
-  tableDate.datasets
-    .sort((a, b) => dayjs(a.公表日).unix() - dayjs(b.公表日).unix())
-    .reverse()
   return tableDate
 }
 
-const ageArray = [
+export const ageArray = [
   '10歳未満',
   '10代',
   '20代',
@@ -68,7 +65,8 @@ const ageArray = [
   '70代',
   '80代',
   '90代',
-  '100歳以上'
+  '100歳以上',
+  '調査中'
 ]
 
 function ageToNumber(ageString: string | null): number {
