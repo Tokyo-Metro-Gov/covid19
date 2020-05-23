@@ -82,7 +82,7 @@
             <span>
               <strong>{{ 退院.toLocaleString() }}</strong>
               <span :class="$style.unit">{{ $t('人') }}</span>
-            </span>
+width:            </span>
           </div>
 　<li :class="[$style.box, $style.landscape]">
         <div :class="$style.pillar">
@@ -155,12 +155,15 @@ export default Vue.extend({
     病床数: {
       type: Number,
       required: true
+    },
     医療病床: {      
       type: Number,
       required: true
+    },
     医療病床重症重篤: {
       type: Number,
       required: true
+    },
     宿泊医療施設: {
       type: Number,
       required: true
