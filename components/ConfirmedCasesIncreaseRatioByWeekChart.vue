@@ -13,7 +13,7 @@
             v-if="i == 1"
             :style="{
               background: `repeating-linear-gradient(90deg, ${colors[1].fillColor}, ${colors[1].fillColor} 2px, #fff 2px, #fff 4px`,
-              borderColor: colors[1].strokeColor
+              border: 0
             }"
           />
           <div
