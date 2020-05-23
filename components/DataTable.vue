@@ -20,11 +20,17 @@
       <template v-slot:body="{ items }">
         <tbody>
           <tr v-for="item in items" :key="item.text">
-            <th class="text-start" scope="row">{{ item['公表日'] }}</th>
-            <td class="text-start">{{ item['居住地'] }}</td>
-            <td class="text-start">{{ item['年代'] }}</td>
-            <td class="text-start">{{ item['性別'] }}</td>
-            <td class="text-center">{{ item['退院'] }}</td>
+            <th class="text-start" scope="row">
+              {{ getTranslatedWording(item['公表日']) }}
+            </th>
+            <td class="text-start">
+              {{ getTranslatedWording(item['居住地']) }}
+            </td>
+            <td class="text-start">{{ ageNumbertoString(item['年代']) }}</td>
+            <td class="text-start">{{ getTranslatedWording(item['性別']) }}</td>
+            <td class="text-center">
+              {{ getTranslatedWording(item['退院']) }}
+            </td>
           </tr>
         </tbody>
       </template>
@@ -175,27 +181,6 @@ export default Vue.extend({
     url: {
       type: String,
       default: ''
-    },
-    customSort: {
-      type: Function,
-      default(items: Object[], index: string[], isDesc: boolean[]) {
-        items.sort((a: any, b: any) => {
-          let comparison = 0
-          if (String(a[index[0]]) < String(b[index[0]])) {
-            comparison = -1
-          } else if (String(b[index[0]]) < String(a[index[0]])) {
-            comparison = 1
-          }
-          // a と b が等しい場合は上記のif文を両方とも通過するので 0 のままとなる
-
-          // 降順指定の場合は符号を反転
-          if (comparison !== 0) {
-            comparison = isDesc[0] ? comparison * -1 : comparison
-          }
-          return comparison
-        })
-        return items
-      }
     }
   },
   mounted() {
@@ -206,6 +191,39 @@ export default Vue.extend({
     tables.forEach((table: HTMLElement) => {
       table.setAttribute('tabindex', '0')
     })
+  },
+  methods: {
+    ageNumbertoString(ageNumber: number): string {
+      const ageArray = [
+        '10歳未満',
+        '10代',
+        '20代',
+        '30代',
+        '40代',
+        '50代',
+        '60代',
+        '70代',
+        '80代',
+        '90代',
+        '100歳以上'
+      ]
+      if (ageNumber === -1) {
+        return this.$t('不明').toString()
+      }
+      return this.$t(ageArray[ageNumber]).toString()
+    },
+    getTranslatedWording(value: string): string {
+      if (value === '-' || value === '‐' || value === '―' || value == null) {
+        // 翻訳しようとしている文字列が以下のいずれかだった場合、翻訳しない
+        // - 全角のハイフン
+        // - 半角のハイフン
+        // - 全角のダッシュ
+        // - null
+        return value
+      }
+
+      return this.$t(value).toString()
+    }
   }
 })
 </script>

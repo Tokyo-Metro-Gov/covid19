@@ -20,7 +20,7 @@ type DataType = {
 type TableDataType = {
   公表日: string
   居住地: DataType['居住地']
-  年代: DataType['年代']
+  年代: number
   性別: DataType['性別'] | '不明'
   退院: DataType['退院']
 }
@@ -43,9 +43,9 @@ export default (data: DataType[]) => {
   data.forEach(d => {
     const releaseDate = dayjs(d['リリース日'])
     const TableRow: TableDataType = {
-      公表日: releaseDate.isValid() ? releaseDate.format('M/D') : '不明',
+      公表日: releaseDate.isValid() ? releaseDate.format('MM/DD') : '不明',
       居住地: d['居住地'] ?? '調査中',
-      年代: d['年代'] ?? '不明',
+      年代: ageToNumber(d['年代']),
       性別: d['性別'] ?? '不明',
       退院: d['退院']
     }
@@ -55,4 +55,25 @@ export default (data: DataType[]) => {
     .sort((a, b) => dayjs(a.公表日).unix() - dayjs(b.公表日).unix())
     .reverse()
   return tableDate
+}
+
+const ageArray = [
+  '10歳未満',
+  '10代',
+  '20代',
+  '30代',
+  '40代',
+  '50代',
+  '60代',
+  '70代',
+  '80代',
+  '90代',
+  '100歳以上'
+]
+
+function ageToNumber(ageString: string | null): number {
+  if (ageString === null) {
+    return -1
+  }
+  return ageArray.indexOf(ageString)
 }
