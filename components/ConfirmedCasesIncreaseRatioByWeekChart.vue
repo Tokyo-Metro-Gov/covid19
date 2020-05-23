@@ -10,9 +10,16 @@
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
           <div
-            v-if="i >= 1"
+            v-if="i == 1"
             :style="{
-              backgroundColor: colors[1].fillColor,
+              background: `repeating-linear-gradient(90deg, ${colors[1].fillColor}, ${colors[1].fillColor} 2px, #fff 2px, #fff 4px`,
+              borderColor: colors[1].strokeColor
+            }"
+          />
+          <div
+            v-else-if="i == 2"
+            :style="{
+              background: colors[1].fillColor,
               borderColor: colors[1].strokeColor
             }"
           />
