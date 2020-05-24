@@ -45,12 +45,11 @@ export default {
         header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
     }
 
-    const data = {
+    return {
       Data,
       patientsTable,
       sumInfoOfPatients
     }
-    return data
   }
 }
 </script>
