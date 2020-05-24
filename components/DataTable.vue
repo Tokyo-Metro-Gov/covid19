@@ -11,7 +11,7 @@
       fixed-header
       :mobile-breakpoint="0"
       sort-by="公表日"
-      sort-desc="true"
+      :sort-desc="true"
       :footer-props="{
         'items-per-page-options': [15, 30, 50, 100, 200, 300, -1],
         'items-per-page-text': $t('1ページ当たり')
