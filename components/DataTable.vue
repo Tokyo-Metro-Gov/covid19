@@ -205,7 +205,7 @@ export default Vue.extend({
           return this.$t(ageArray[ageNumber]).toString()
         default:
           return this.$t('{age}代', {
-            age: ageArray[ageNumber].slice(2)
+            age: ageArray[ageNumber].slice(0, 2)
           }).toString()
       }
     },
