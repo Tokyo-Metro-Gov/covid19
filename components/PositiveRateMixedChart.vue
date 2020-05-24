@@ -365,7 +365,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ].toLocaleString()
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
-              } : ${cases} 人`
+              } : ${cases} ${this.$t('人')}`
               if (this.dataLabels[tooltipItem.datasetIndex!] === '陽性率') {
                 label = `${
                   this.dataLabels[tooltipItem.datasetIndex!]

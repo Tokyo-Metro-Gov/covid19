@@ -350,7 +350,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ].toLocaleString()
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
-              } : ${cases} 人`
+              } : ${cases} ${this.$t('人')}`
               if (
                 this.dataLabels[tooltipItem.datasetIndex!] ===
                 '接触歴等不明率（7日間移動平均）'
