@@ -28,7 +28,10 @@
         </th>
         <td :class="$style.value">
           {{ item.itemValue.value }}
-          <span :class="$style.unit">{{ $t(item.itemValue.unit) }}</span>
+          <span v-if="item.itemValue.unit != '%'" :class="$style.unit">{{
+            $t(item.itemValue.unit)
+          }}</span>
+          <span v-else :class="$style.unit">{{ item.itemValue.unit }}</span>
         </td>
         <template
           v-if="
@@ -36,11 +39,23 @@
               item.itemValue.stopThreshold !== null
           "
         >
-          <td :class="$style.threshold">
+          <td
+            v-if="isNaN(item.itemValue.goThreshold)"
+            :class="$style.threshold"
+          >
             {{ $t(item.itemValue.goThreshold) }}
           </td>
-          <td :class="$style.threshold">
+          <td v-else :class="$style.threshold">
+            {{ item.itemValue.goThreshold }}
+          </td>
+          <td
+            v-if="isNaN(item.itemValue.stopThreshold)"
+            :class="$style.threshold"
+          >
             {{ $t(item.itemValue.stopThreshold) }}
+          </td>
+          <td v-else :class="$style.threshold">
+            {{ item.itemValue.stopThreshold }}
           </td>
         </template>
         <template v-else>
