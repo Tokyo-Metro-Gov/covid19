@@ -98,7 +98,7 @@
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
-        unit="%"
+        :unit="displayInfo.unit"
       />
     </template>
   </data-view>
@@ -365,11 +365,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ].toLocaleString()
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
-              } : ${cases} ${unit}`
+              } : ${cases} 人`
               if (this.dataLabels[tooltipItem.datasetIndex!] === '陽性率') {
                 label = `${
                   this.dataLabels[tooltipItem.datasetIndex!]
-                } : ${cases} %`
+                } : ${cases} ${unit}`
               }
               return label
             },
