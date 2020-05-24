@@ -196,10 +196,18 @@ export default Vue.extend({
   },
   methods: {
     ageNumberToString(ageNumber: number): string {
-      if (ageNumber === -1) {
-        return this.$t('不明').toString()
+      switch (ageNumber) {
+        case -1:
+          return this.$t('不明').toString()
+        case 0:
+        case 10:
+        case 11:
+          return this.$t(ageArray[ageNumber]).toString()
+        default:
+          return this.$t('{age}代', {
+            age: ageArray[ageNumber].slice(2)
+          }).toString()
       }
-      return this.$t(ageArray[ageNumber]).toString()
     },
     getTranslatedWording(value: string): string {
       if (value === '-' || value === '‐' || value === '―' || value == null) {
