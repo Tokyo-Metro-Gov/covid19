@@ -55,11 +55,10 @@ export default {
           })
         }
       })
-    const data = {
+    return {
       Data,
       graphData
     }
-    return data
   }
 }
 </script>

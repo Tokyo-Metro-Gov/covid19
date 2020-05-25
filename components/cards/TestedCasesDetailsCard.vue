@@ -60,11 +60,10 @@ export default {
     // 検査陽性者の状況
     const testedCases = formatTestedCases(Data.inspection_status_summary)
 
-    const data = {
+    return {
       Data,
       testedCases
     }
-    return data
   }
 }
 </script>

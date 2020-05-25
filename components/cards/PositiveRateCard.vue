@@ -101,7 +101,7 @@ export default {
       this.$t('陽性率')
     ]
 
-    const data = {
+    return {
       PositiveRate,
       positiveRateGraph,
       positiveRateItems,
@@ -109,7 +109,6 @@ export default {
       positiveRateDataLabels,
       positiveRateTableLabels
     }
-    return data
   }
 }
 </script>
