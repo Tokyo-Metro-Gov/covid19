@@ -10,15 +10,19 @@
         </h3>
         <slot name="infoPanel" />
       </div>
+
       <div class="DataView-Description">
         <slot name="description" />
       </div>
+
       <div>
         <slot name="button" />
       </div>
+
       <div class="DataView-CardText">
         <slot />
       </div>
+
       <div class="DataView-Description">
         <slot name="additionalDescription" />
       </div>
@@ -27,9 +31,8 @@
         <slot name="dataTable" />
       </data-view-table>
 
-      <div class="DataView-Description">
-        <slot name="footer-description" />
-      </div>
+      <div class="DataView-Description" />
+
       <div class="DataView-Footer">
         <div class="Footer-Left">
           <slot name="footer" />
@@ -158,6 +161,10 @@ export default Vue.extend({
         width: 50%;
       }
     }
+  }
+
+  &-CardText {
+    margin: 16px 0;
   }
 
   &-Description {
