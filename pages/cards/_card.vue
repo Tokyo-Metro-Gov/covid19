@@ -219,11 +219,10 @@ export default {
         break
     }
 
-    const data = {
+    return {
       title,
       updatedAt
     }
-    return data
   },
   head() {
     const url = 'https://stopcovid19.metro.tokyo.lg.jp'
