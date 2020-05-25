@@ -184,10 +184,6 @@ export default Vue.extend({
     }
   }
 
-  &-CardText {
-    margin: 16px 0;
-  }
-
   &-Description {
     margin: 10px 0 0;
     color: $gray-3;
@@ -202,22 +198,6 @@ export default Vue.extend({
 
   &-Details {
     margin: 10px 0;
-  }
-
-  &-DetailsSummary {
-    @include font-size(14);
-
-    color: $gray-2;
-    cursor: pointer;
-  }
-
-  &-CardTextForXS {
-    margin-bottom: 46px;
-    margin-top: 70px;
-  }
-
-  &-Embed {
-    background-color: $gray-5;
   }
 
   &-Footer {
