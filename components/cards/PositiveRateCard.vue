@@ -5,6 +5,7 @@
       :title-id="'positive-rate'"
       :chart-id="'positive-rate-chart'"
       :chart-data="positiveRateGraph"
+      :get-formatter="GetFormatter"
       :date="PositiveRate.date"
       :items="positiveRateItems"
       :labels="positiveRateLabels"
@@ -101,13 +102,20 @@ export default {
       this.$t('陽性率')
     ]
 
+    // モニタリング指標(6)PCR検査の陽性率の陽性率は小数点第1位まで表示する。
+    const GetFormatter = j => {
+      if (j === 2) return d => d.toFixed(1)
+      return d => d.toLocaleString()
+    }
+
     const data = {
       PositiveRate,
       positiveRateGraph,
       positiveRateItems,
       positiveRateLabels,
       positiveRateDataLabels,
-      positiveRateTableLabels
+      positiveRateTableLabels,
+      GetFormatter
     }
     return data
   }
