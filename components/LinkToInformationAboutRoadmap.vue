@@ -39,6 +39,7 @@ export default Vue.extend()
 .externalLink {
   @include button-text('sm', 16);
 
+  color: $green-1 !important;
   text-decoration: none;
 }
 </style>
