@@ -261,7 +261,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
             borderColor: '#1b4d30',
-            borderWidth: 3,
+            borderWidth: 2,
             borderDash: [4, 4],
             fill: false,
             order: 0,
