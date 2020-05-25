@@ -19,7 +19,7 @@
           <div
             v-else-if="i == 2"
             :style="{
-              background: `repeating-linear-gradient(90deg, ${colors[1].fillColor}, ${colors[1].fillColor} 2px, #fff 2px, #fff 4px`,
+              background: `repeating-linear-gradient(90deg, ${colors[1].fillColor}, ${colors[1].fillColor} 2px, #fff 2px, #fff 4px)`,
               border: 0
             }"
           />
