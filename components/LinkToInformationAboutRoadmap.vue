@@ -30,9 +30,6 @@ export default Vue.extend()
 .linkButton {
   display: inline-flex;
   flex: 0 1 auto;
-  a {
-    @include button-text('sm', 16);
-  }
 
   @include lessThan($small) {
     margin-top: 4px;
@@ -40,6 +37,8 @@ export default Vue.extend()
 }
 
 .externalLink {
+  @include button-text('sm', 16);
+
   text-decoration: none;
 }
 </style>
