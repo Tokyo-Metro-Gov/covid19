@@ -1,5 +1,5 @@
 <template>
-  <component :is="cardComponent" ref="card" />
+  <component :is="cardComponent" />
 </template>
 
 <script>
@@ -118,11 +118,6 @@ export default {
       updatedAt
     }
   },
-  mounted() {
-    const cardContent = this.$refs.card.$children[0]
-    this.title = this.title || cardContent.title
-    this.updatedAt = this.updatedAt || cardContent.date
-  },
   head() {
     const url = 'https://stopcovid19.metro.tokyo.lg.jp'
     const timestamp = new Date().getTime()
@@ -130,9 +125,14 @@ export default {
       this.$i18n.locale === 'ja'
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
-    const description = `${this.updatedAt} | ${this.$t(
+    const description = `${this.$t(
       '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
     )}`
+    const ogTitle =
+      this.$t('東京都') +
+      ' ' +
+      this.$t('新型コロナウイルス感染症') +
+      this.$t('対策サイト')
 
     return {
       title: this.title,
@@ -145,23 +145,22 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content:
-            this.title +
-            ' | ' +
-            this.$t('東京都') +
-            ' ' +
-            this.$t('新型コロナウイルス感染症') +
-            this.$t('対策サイト')
+          template: title => `${this.title || title} | ${ogTitle}`,
+          content: ''
         },
         {
           hid: 'description',
           name: 'description',
-          content: description
+          template: updatedAt =>
+            `${this.updatedAt || updatedAt} | ${description}`,
+          content: ''
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: description
+          template: updatedAt =>
+            `${this.updatedAt || updatedAt} | ${description}`,
+          content: ''
         },
         {
           hid: 'og:image',

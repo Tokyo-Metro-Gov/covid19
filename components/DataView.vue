@@ -76,6 +76,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 import DataViewShare from '@/components/DataViewShare.vue'
@@ -123,6 +124,27 @@ export default Vue.extend({
     toggleDetails() {
       this.openDetails = !this.openDetails
       EventBus.$emit(TOGGLE_EVENT, { dataView: this.$refs.dataView })
+    }
+  },
+  head(): MetaInfo {
+    // カードの個別ページの場合は、タイトルと更新時刻を`page/cards/_card`に渡す
+    if (!this.$route.params.card) return {}
+
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.title
+        },
+        { hid: 'description', name: 'description', content: this.date },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.date
+        }
+      ]
     }
   }
 })
