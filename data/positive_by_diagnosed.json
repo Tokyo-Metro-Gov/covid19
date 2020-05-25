@@ -471,7 +471,7 @@
         },
         {
             "diagnosed_date": "2020-05-19",
-            "count": 1
+            "count": 2
         },
         {
             "diagnosed_date": "2020-05-20",
@@ -479,15 +479,19 @@
         },
         {
             "diagnosed_date": "2020-05-21",
-            "count": 2
+            "count": 3
         },
         {
             "diagnosed_date": "2020-05-22",
-            "count": 2
+            "count": 5
         },
         {
             "diagnosed_date": "2020-05-23",
-            "count": 14
+            "count": 5
+        },
+        {
+            "diagnosed_date": "2020-05-24",
+            "count": 4
         }
     ]
 }
