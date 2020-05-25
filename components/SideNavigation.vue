@@ -154,7 +154,7 @@ export default Vue.extend({
       return [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: this.$t('都内の最新感染動向'),
+          title: this.$t('市川市の最新感染動向'),
           link: this.localePath('/')
         },
         {
@@ -182,7 +182,7 @@ export default Vue.extend({
         },
         {
           icon: 'mdi-account-multiple',
-          title: this.$t('都民の皆様へ'),
+          title: this.$t('市川市民の皆様へ'),
           link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html'
         },
         {
@@ -192,7 +192,7 @@ export default Vue.extend({
           divider: true
         },
         {
-          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
+          title: this.$t('市川市新型コロナウイルス感染症対策本部報'),
           link:
             'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         },
