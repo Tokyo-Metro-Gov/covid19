@@ -8,7 +8,7 @@
       :date="updated"
       :items="items"
       :labels="dateList"
-      :unit="$t('人')"
+      unit="%"
       :data-labels="dataLabels"
       :table-labels="tableLabels"
     >
