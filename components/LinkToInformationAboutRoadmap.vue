@@ -1,29 +1,21 @@
 <template>
   <span :class="$style.linkButton">
-    <a
-      :class="$style.externalLink"
-      href="https://www.bousai.metro.tokyo.lg.jp/1007942/index.html"
-      target="_blank"
-      rel="noopener noreferrer"
+    <external-link
+      :class="$style.TextLink"
+      url="https://www.bousai.metro.tokyo.lg.jp/1007942/index.html"
     >
       {{ $t('ロードマップについて') }}
-      <v-icon
-        :class="$style.externalLinkIcon"
-        size="1.5rem"
-        :aria-label="this.$t('別タブで開く')"
-        role="img"
-        :aria-hidden="false"
-      >
-        mdi-open-in-new
-      </v-icon>
-    </a>
+    </external-link>
   </span>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 
-export default Vue.extend()
+export default Vue.extend({
+  components: { ExternalLink }
+})
 </script>
 
 <style lang="scss" module>
@@ -36,10 +28,12 @@ export default Vue.extend()
   }
 }
 
-.externalLink {
+.TextLink {
   @include button-text('sm', 16);
 
   color: $green-1 !important;
-  text-decoration: none;
+  &:hover {
+    color: $white !important;
+  }
 }
 </style>
