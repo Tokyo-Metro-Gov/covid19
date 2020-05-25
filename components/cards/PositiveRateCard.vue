@@ -8,7 +8,7 @@
       :date="PositiveRate.date"
       :items="positiveRateItems"
       :labels="positiveRateLabels"
-      :unit="$t('人')"
+      unit="%"
       :data-labels="positiveRateDataLabels"
       :table-labels="positiveRateTableLabels"
     >
