@@ -235,7 +235,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   data: () => ({
     dataKind: 'transition',
     displayLegends: [true, true, true],
-    colors: [getGraphSeriesColor('D'), getGraphSeriesColor('E')],
+    colors: [getGraphSeriesColor('D'), getGraphSeriesColor('F')],
     chartWidth: null,
     canvas: true
   }),
@@ -257,7 +257,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
-      const style = [getGraphSeriesColor('D'), getGraphSeriesColor('E')]
+      const style = [getGraphSeriesColor('D'), getGraphSeriesColor('F')]
       return {
         labels: this.chartData.map(d => d.label),
         datasets: [

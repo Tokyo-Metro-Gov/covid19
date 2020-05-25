@@ -19,15 +19,15 @@
           <div
             v-else-if="i === 2"
             :style="{
-              background: `repeating-linear-gradient(90deg, ${colors[1].fillColor}, ${colors[1].fillColor} 2px, #fff 2px, #fff 4px)`,
+              background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
               border: 0
             }"
           />
           <div
             v-else
             :style="{
-              backgroundColor: colors[1].fillColor,
-              borderColor: colors[1].strokeColor
+              backgroundColor: colors[2].fillColor,
+              borderColor: colors[2].strokeColor
             }"
           />
           <span
@@ -251,13 +251,23 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: () => yAxesBgPlugin
     }
   },
-  data: () => ({
-    displayLegends: [true, true, true, true],
-    chartWidth: null,
-    colors: [getGraphSeriesColor('B'), getGraphSeriesColor('A')],
-    canvas: true,
-    width: 300
-  }),
+  data() {
+    const colors: SurfaceStyle[] =
+      this.additionalLines.length !== 0
+        ? [
+            getGraphSeriesColor('C'),
+            getGraphSeriesColor('E'),
+            getGraphSeriesColor('A')
+          ]
+        : [getGraphSeriesColor('B'), getGraphSeriesColor('A')]
+    return {
+      displayLegends: [true, true, true, true],
+      chartWidth: null,
+      colors,
+      canvas: true,
+      width: 300
+    }
+  },
   computed: {
     displayTransitionRatio() {
       const lastDay = this.pickLastNumber(this.chartData)[1]
@@ -276,10 +286,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
-      const style: SurfaceStyle[] = [
-        getGraphSeriesColor('B'),
-        getGraphSeriesColor('A')
-      ]
+      const style: SurfaceStyle[] =
+        this.additionalLines.length !== 0
+          ? [
+              getGraphSeriesColor('C'),
+              getGraphSeriesColor('E'),
+              getGraphSeriesColor('A')
+            ]
+          : [
+              getGraphSeriesColor('B'),
+              getGraphSeriesColor('A'),
+              getGraphSeriesColor('A') // ダミー、これを抜くとTypeErrorが出てしまう
+            ]
       const datasets = [
         {
           type: 'bar',
@@ -314,7 +332,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               data: this.makeLineData(this.additionalLines[0]),
               pointBackgroundColor: 'rgba(0,0,0,0)',
               pointBorderColor: 'rgba(0,0,0,0)',
-              borderColor: style[1].fillColor,
+              borderColor: style[2].fillColor,
               borderWidth: 2,
               borderDash: [4, 4],
               fill: false,
@@ -327,7 +345,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               data: this.makeLineData(this.additionalLines[1]),
               pointBackgroundColor: 'rgba(0,0,0,0)',
               pointBorderColor: 'rgba(0,0,0,0)',
-              borderColor: style[1].fillColor,
+              borderColor: style[2].fillColor,
               borderWidth: 2,
               fill: false,
               order: 0,

@@ -10,6 +10,14 @@
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
           <div
+            v-if="i === 3"
+            :style="{
+              background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
+              border: 0
+            }"
+          />
+          <div
+            v-else
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor
@@ -321,6 +329,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             pointBorderColor: 'rgba(0,0,0,0)',
             borderColor: graphSeries[3].strokeColor,
             borderWidth: 2,
+            borderDash: [4, 4],
             fill: false,
             order: 0,
             lineTension: 0
