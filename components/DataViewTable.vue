@@ -5,6 +5,7 @@
         <v-expansion-panel-header
           :hide-actions="true"
           :style="{ transition: 'none' }"
+          @click="toggleDetails"
         >
           <template slot:actions>
             <div class="v-expansion-panel-header__icon">
