@@ -191,14 +191,6 @@ export default Vue.extend({
       color: $gray-3 !important;
     }
 
-    .OpenDataLink {
-      text-decoration: none;
-
-      .ExternalLinkIcon {
-        vertical-align: text-bottom;
-      }
-    }
-
     .Footer-Left {
       text-align: left;
     }
