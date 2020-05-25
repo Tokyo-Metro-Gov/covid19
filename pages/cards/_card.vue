@@ -86,9 +86,7 @@ import patientData from '@/data/patient.json'
 import PositiveByDiagnosedData from '@/data/positive_by_diagnosed.json'
 import PositiveRate from '@/data/positive_rate.json'
 import DailyPositiveDetail from '@/data/daily_positive_detail.json'
-import UntrackedRate from '@/data/daily_positive_detail.json'
 import PositiveStatus from '@/data/positive_status.json'
-import positiveStatus from '@/data/positive_status.json'
 import monitoringStatusData from '@/data/monitoring_status.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
@@ -195,7 +193,7 @@ export default {
         break
       case 'untracked-rate':
         title = this.$t('モニタリング指標(2)新規陽性者における接触歴等不明率')
-        updatedAt = UntrackedRate.date
+        updatedAt = DailyPositiveDetail.date
         break
       case 'increase-ratio-of-confirmed-cases-by-daily':
         title = this.$t('モニタリング指標(3)週単位の陽性者増加比')
@@ -207,7 +205,7 @@ export default {
         break
       case 'number-of-hospitalized':
         title = this.$t('モニタリング指標(5)入院患者数')
-        updatedAt = positiveStatus.date
+        updatedAt = PositiveStatus.date
         break
       case 'monitoring-number-of-reports-to-covid19-consultation-desk':
         title = this.$t('（７）受診相談窓口における相談件数')
