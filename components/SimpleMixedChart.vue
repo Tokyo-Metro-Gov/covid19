@@ -167,6 +167,7 @@ type Props = {
   titleId: string
   chartId: string
   chartData: number[][]
+  getFormatter: Function
   date: string
   items: string[]
   labels: string[]
@@ -208,6 +209,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       required: false,
       default: () => []
+    },
+    getFormatter: {
+      type: Function,
+      required: false,
+      default: (_: number) => (d: number) => d.toLocaleString()
     },
     date: {
       type: String,
@@ -381,7 +387,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                   }
                 }
                 return {
-                  [j]: data[i].toLocaleString()
+                  [j]: this.getFormatter(j)(data[i])
                 }
               }
             })
@@ -397,7 +403,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const cases = tooltipItem.value!.toLocaleString()
+              const cases = this.getFormatter(tooltipItem.datasetIndex!)(
+                data[tooltipItem.datasetIndex!][tooltipItem.index!]
+              )
               return `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${unit}`
@@ -634,8 +642,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       })
     },
     pickLastNumber(chartDataArray: number[][]) {
-      return chartDataArray.map(array => {
-        return array[array.length - 1]
+      return chartDataArray.map((array, i) => {
+        return this.getFormatter(i)(array[array.length - 1])
       })
     },
     pickLastSecondNumber(chartDataArray: number[][]) {

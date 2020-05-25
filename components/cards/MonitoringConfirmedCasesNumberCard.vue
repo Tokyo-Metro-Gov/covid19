@@ -5,6 +5,7 @@
       :title-id="'monitoring-number-of-confirmed-cases'"
       :chart-id="'simple-mixed-chart-patients'"
       :chart-data="PatientsGraph"
+      :get-formatter="GetFormatter"
       :date="PatientsDate"
       :items="PatientsItems"
       :labels="PatientsLabels"
@@ -78,6 +79,12 @@ export default {
     ]
     const PatientsTableLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
 
+    const GetFormatter = j => {
+      // モニタリング指標(1)新規陽性者数の７日間移動平均は小数点以下第1位まで表示する。
+      if (j === 1) return d => d.toFixed(1)
+      return d => d.toLocaleString()
+    }
+
     const PatientsDate = Data.date
 
     const additionalLines = [20, 50]
@@ -89,7 +96,8 @@ export default {
       PatientsLabels,
       PatientsDataLabels,
       PatientsTableLabels,
-      additionalLines
+      additionalLines,
+      GetFormatter
     }
     return data
   }
