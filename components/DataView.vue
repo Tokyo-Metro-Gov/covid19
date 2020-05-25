@@ -19,7 +19,7 @@
         <slot name="button" />
       </div>
 
-      <div class="DataView-CardText">
+      <div class="DataView-Content">
         <slot />
       </div>
 
@@ -34,7 +34,7 @@
       <div class="DataView-Description" />
 
       <div class="DataView-Footer">
-        <div class="Footer-Left">
+        <div>
           <slot name="footer" />
           <div>
             <a class="Permalink" :href="permalink">
@@ -133,9 +133,7 @@ export default Vue.extend({
     }
 
     @include largerThan($large) {
-      width: 100%;
       flex-flow: row;
-      flex-wrap: wrap;
       padding: 0;
     }
   }
@@ -157,18 +155,19 @@ export default Vue.extend({
 
     @include largerThan($large) {
       margin-bottom: 0;
+
       &.with-infoPanel {
         width: 50%;
       }
     }
   }
 
-  &-CardText {
+  &-Content {
     margin: 16px 0;
   }
 
   &-Description {
-    margin: 10px 0 0;
+    margin-top: 10px;
     color: $gray-3;
     @include font-size(12);
 
@@ -186,20 +185,14 @@ export default Vue.extend({
   &-Footer {
     @include font-size(12);
 
-    padding: 0 !important;
     display: flex;
     justify-content: space-between;
+    padding: 0;
     margin-top: auto;
-    color: $gray-3 !important;
-    text-align: right;
-    background-color: $white !important;
+    color: $gray-3;
 
     .Permalink {
       color: $gray-3 !important;
-    }
-
-    .Footer-Left {
-      text-align: left;
     }
 
     .Footer-Right {
