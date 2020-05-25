@@ -137,30 +137,6 @@ export default Vue.extend({
     }
   }
 
-  &-DataInfo {
-    &-summary {
-      color: $gray-2;
-      font-family: Hiragino Sans, sans-serif;
-      font-style: normal;
-      line-height: 30px;
-      white-space: nowrap;
-      @include font-size(30);
-
-      &-unit {
-        width: 100%;
-        @include font-size(10);
-      }
-    }
-
-    &-date {
-      line-height: 12px;
-      color: $gray-3;
-      width: 100%;
-      display: inline-block;
-      @include font-size(12);
-    }
-  }
-
   &-Inner {
     display: flex;
     flex-flow: column;
