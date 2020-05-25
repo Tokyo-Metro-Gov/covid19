@@ -128,14 +128,14 @@ export default {
     const description = `${this.$t(
       '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
     )}`
-    const ogTitle =
+    const defaultTitle =
       this.$t('東京都') +
       ' ' +
       this.$t('新型コロナウイルス感染症') +
       this.$t('対策サイト')
 
     return {
-      title: this.title,
+      titleTemplate: title => `${this.title || title} | ${defaultTitle}`,
       meta: [
         {
           hid: 'og:url',
@@ -145,7 +145,7 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          template: title => `${this.title || title} | ${ogTitle}`,
+          template: title => `${this.title || title} | ${defaultTitle}`,
           content: ''
         },
         {
