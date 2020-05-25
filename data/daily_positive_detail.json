@@ -1,5 +1,5 @@
 {
-    "date": "2020\/5\/24 18:45",
+    "date": "2020\/5\/25 19:45",
     "data": [
         {
             "diagnosed_date": "2020-01-20",
@@ -1021,37 +1021,37 @@
         {
             "diagnosed_date": "2020-05-12",
             "count": 28,
-            "missing_count": 13,
-            "reported_count": 15,
+            "missing_count": 7,
+            "reported_count": 21,
             "weekly_gain_ratio": 0.3,
-            "untracked_percent": 45.5,
+            "untracked_percent": 42.5,
             "weekly_average_count": 28.6
         },
         {
             "diagnosed_date": "2020-05-13",
             "count": 10,
-            "missing_count": 4,
-            "reported_count": 6,
+            "missing_count": 3,
+            "reported_count": 7,
             "weekly_gain_ratio": 0.26,
-            "untracked_percent": 48.6,
+            "untracked_percent": 44.5,
             "weekly_average_count": 24.7
         },
         {
             "diagnosed_date": "2020-05-14",
             "count": 30,
-            "missing_count": 12,
-            "reported_count": 18,
+            "missing_count": 9,
+            "reported_count": 21,
             "weekly_gain_ratio": 0.29,
-            "untracked_percent": 45,
+            "untracked_percent": 39.4,
             "weekly_average_count": 25.7
         },
         {
             "diagnosed_date": "2020-05-15",
             "count": 9,
-            "missing_count": 6,
-            "reported_count": 3,
+            "missing_count": 5,
+            "reported_count": 4,
             "weekly_gain_ratio": 0.3,
-            "untracked_percent": 47.3,
+            "untracked_percent": 40,
             "weekly_average_count": 21.4
         },
         {
@@ -1060,16 +1060,16 @@
             "missing_count": 6,
             "reported_count": 8,
             "weekly_gain_ratio": 0.34,
-            "untracked_percent": 44.5,
+            "untracked_percent": 35.9,
             "weekly_average_count": 18.3
         },
         {
             "diagnosed_date": "2020-05-17",
             "count": 5,
-            "missing_count": 0,
-            "reported_count": 5,
+            "missing_count": 1,
+            "reported_count": 4,
             "weekly_gain_ratio": 0.37,
-            "untracked_percent": 40.5,
+            "untracked_percent": 31.5,
             "weekly_average_count": 15.9
         },
         {
@@ -1078,7 +1078,7 @@
             "missing_count": 4,
             "reported_count": 6,
             "weekly_gain_ratio": 0.46,
-            "untracked_percent": 42.5,
+            "untracked_percent": 33,
             "weekly_average_count": 15.1
         },
         {
@@ -1087,7 +1087,7 @@
             "missing_count": 3,
             "reported_count": 2,
             "weekly_gain_ratio": 0.42,
-            "untracked_percent": 42.2,
+            "untracked_percent": 37.3,
             "weekly_average_count": 11.9
         },
         {
@@ -1096,16 +1096,16 @@
             "missing_count": 0,
             "reported_count": 5,
             "weekly_gain_ratio": 0.45,
-            "untracked_percent": 39.7,
+            "untracked_percent": 35.9,
             "weekly_average_count": 11.1
         },
         {
             "diagnosed_date": "2020-05-21",
             "count": 11,
-            "missing_count": 9,
-            "reported_count": 2,
+            "missing_count": 8,
+            "reported_count": 3,
             "weekly_gain_ratio": 0.33,
-            "untracked_percent": 47.5,
+            "untracked_percent": 45.8,
             "weekly_average_count": 8.4
         },
         {
@@ -1132,8 +1132,17 @@
             "missing_count": 9,
             "reported_count": 5,
             "weekly_gain_ratio": 0.45,
-            "untracked_percent": 56,
+            "untracked_percent": 54,
             "weekly_average_count": 7.1
+        },
+        {
+            "diagnosed_date": "2020-05-25",
+            "count": 8,
+            "missing_count": 0,
+            "reported_count": 8,
+            "weekly_gain_ratio": 0.45,
+            "untracked_percent": 47.9,
+            "weekly_average_count": 6.86
         }
     ]
 }
