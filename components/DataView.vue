@@ -27,11 +27,11 @@
         <slot name="additionalDescription" />
       </div>
 
-      <data-view-table v-if="this.$slots.dataTable" class="DataView-Details">
+      <data-view-table v-if="this.$slots.dataTable" class="DataView-Table">
         <slot name="dataTable" />
       </data-view-table>
 
-      <div class="DataView-Description" />
+      <div class="DataView-Space" />
 
       <div class="DataView-Footer">
         <div>
@@ -166,6 +166,10 @@ export default Vue.extend({
     margin: 16px 0;
   }
 
+  &-Space {
+    margin-top: 10px;
+  }
+
   &-Description {
     margin-top: 10px;
     color: $gray-3;
@@ -178,7 +182,7 @@ export default Vue.extend({
     }
   }
 
-  &-Details {
+  &-Table {
     margin: 10px 0;
   }
 
@@ -187,7 +191,6 @@ export default Vue.extend({
 
     display: flex;
     justify-content: space-between;
-    padding: 0;
     margin-top: auto;
     color: $gray-3;
 

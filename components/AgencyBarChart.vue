@@ -1,9 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:infoPanel>
-      <small :class="$style.DataViewDesc">
-        <slot name="description" />
-      </small>
+    <template v-slot:description>
+      <slot name="description" />
     </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
