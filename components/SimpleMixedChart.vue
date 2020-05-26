@@ -404,7 +404,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           callbacks: {
             label: tooltipItem => {
               const cases = this.getFormatter(tooltipItem.datasetIndex!)(
-                data[tooltipItem.datasetIndex!][tooltipItem.index!]
+                parseFloat(tooltipItem.value!)
               )
               return `${
                 this.dataLabels[tooltipItem.datasetIndex!]

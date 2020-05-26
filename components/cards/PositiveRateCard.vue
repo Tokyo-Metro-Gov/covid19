@@ -66,6 +66,9 @@ import PositiveRate from '@/data/positive_rate.json'
 import PositiveRateMixedChart from '@/components/PositiveRateMixedChart'
 dayjs.extend(duration)
 
+const positiveRateFormatter = d => d.toFixed(1)
+const defaultFormatter = d => d.toLocaleString()
+
 export default {
   components: {
     PositiveRateMixedChart
@@ -104,8 +107,8 @@ export default {
 
     // モニタリング指標(6)PCR検査の陽性率の陽性率は小数点第1位まで表示する。
     const GetFormatter = columnIndex => {
-      if (columnIndex === 2) return d => d.toFixed(1)
-      return d => d.toLocaleString()
+      if (columnIndex === 2) return positiveRateFormatter
+      return defaultFormatter
     }
 
     const data = {

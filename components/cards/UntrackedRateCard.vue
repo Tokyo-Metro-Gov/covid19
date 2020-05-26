@@ -47,6 +47,10 @@
 import Data from '@/data/daily_positive_detail.json'
 import UntrackedRateMixedChart from '@/components/UntrackedRateMixedChart'
 
+// モニタリング指標(2)新規陽性者における接触歴等不明率の７日間移動平均は小数点第1位まで表示する。
+const untrackedRateFormatter = d => d.toFixed(1)
+const defaultFormatter = d => d.toLocaleString()
+
 export default {
   components: {
     UntrackedRateMixedChart
@@ -89,9 +93,8 @@ export default {
     const additionalLines = [50]
 
     const getFormatter = columnIndex => {
-      // モニタリング指標(2)新規陽性者における接触歴等不明率の７日間移動平均は小数点第1位まで表示する。
-      if (columnIndex === 2) return d => d.toFixed(1)
-      return d => d.toLocaleString()
+      if (columnIndex === 2) return untrackedRateFormatter
+      return defaultFormatter
     }
 
     return {
@@ -101,7 +104,7 @@ export default {
       items,
       dataLabels,
       tableLabels,
-      additionalLines
+      additionalLines,
       getFormatter
     }
   }

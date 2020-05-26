@@ -314,9 +314,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              return `${this.formatter(parseFloat(tooltipItem.value!))} ${unit}`
-            label: tooltipItem => {
-              const cases = `${tooltipItem.value!.toLocaleString()} ${unit}`
+              const cases = `${this.formatter(
+                parseFloat(tooltipItem.value!)
+              )} ${unit}`
               return `${
                 this.items[tooltipItem.datasetIndex!]
               } : ${cases} ${unit}`

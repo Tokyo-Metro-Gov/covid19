@@ -48,6 +48,10 @@ import SimpleMixedChart from '@/components/SimpleMixedChart.vue'
 import Data from '@/data/daily_positive_detail.json'
 dayjs.extend(duration)
 
+// モニタリング指標(1)新規陽性者数の７日間移動平均は小数点以下第1位まで表示する。
+const monitoringConfirmCasesFormatter = d => d.toFixed(1)
+const defaultFormatter = d => d.toLocaleString()
+
 export default {
   components: {
     SimpleMixedChart
@@ -80,9 +84,8 @@ export default {
     const PatientsTableLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
 
     const GetFormatter = columnIndex => {
-      // モニタリング指標(1)新規陽性者数の７日間移動平均は小数点以下第1位まで表示する。
-      if (columnIndex === 1) return d => d.toFixed(1)
-      return d => d.toLocaleString()
+      if (columnIndex === 1) return monitoringConfirmCasesFormatter
+      return defaultFormatter
     }
 
     const PatientsDate = Data.date
