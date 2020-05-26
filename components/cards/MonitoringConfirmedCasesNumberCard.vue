@@ -10,6 +10,7 @@
       :labels="PatientsLabels"
       :data-labels="PatientsDataLabels"
       :table-labels="PatientsTableLabels"
+      :additional-lines="additionalLines"
       :unit="$t('人')"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
     >
@@ -63,18 +64,30 @@ export default {
     }
 
     const PatientsGraph = [PatientsCount, sevendayMoveAverages]
-    const PatientsItems = [this.$t('陽性者数'), this.$t('７日間移動平均')]
-    const PatientsDataLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
+    const PatientsItems = [
+      this.$t('陽性者数'),
+      this.$t('７日間移動平均'),
+      this.$t('緩和の目安'),
+      this.$t('再要請の目安')
+    ]
+    const PatientsDataLabels = [
+      this.$t('陽性者数'),
+      this.$t('７日間移動平均'),
+      this.$t('緩和の目安'),
+      this.$t('再要請の目安')
+    ]
     const PatientsTableLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
 
     const PatientsDate = Data.date
+    const additionalLines = [20, 50]
     return {
       PatientsDate,
       PatientsGraph,
       PatientsItems,
       PatientsLabels,
       PatientsDataLabels,
-      PatientsTableLabels
+      PatientsTableLabels,
+      additionalLines
     }
   }
 }
