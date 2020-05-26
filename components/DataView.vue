@@ -23,7 +23,7 @@
         <slot />
       </div>
 
-      <div class="DataView-Description">
+      <div class="DataView-Description DataView-Description--Additional">
         <slot name="additionalDescription" />
       </div>
 
@@ -175,6 +175,10 @@ export default Vue.extend({
     margin-top: 10px;
     color: $gray-3;
     @include font-size(12);
+
+    &--Additional {
+      margin-top: 1rem;
+    }
   }
 
   &-Table {
