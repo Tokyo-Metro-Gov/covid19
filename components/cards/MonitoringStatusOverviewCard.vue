@@ -6,7 +6,7 @@
       :date="monitoringStatusData.date"
     >
       <template v-slot:additionalDescription>
-        <ul :class="$style.notes">
+        <ul>
           <li>
             {{
               $t(
@@ -40,20 +40,6 @@
     </data-view>
   </v-col>
 </template>
-
-<style lang="scss" module>
-ul.notes {
-  margin-top: 10px;
-  margin-bottom: 0;
-  padding-left: 0 !important;
-  color: $gray-3;
-  @include font-size(12);
-
-  > li {
-    list-style-type: none;
-  }
-}
-</style>
 
 <script>
 import monitoringStatusData from '@/data/monitoring_status.json'
