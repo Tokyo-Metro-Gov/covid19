@@ -7,16 +7,8 @@
         </v-icon>
         {{ $t('最新のお知らせ') }}
       </h3>
-      <span class="WhatsNew-link-to-emergency-page">
-        <external-link
-          url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
-        >
-          <v-icon size="2rem" class="WhatsNew-link-to-emergency-page-icon">
-            mdi-bullhorn
-          </v-icon>
-          {{ $t('東京都緊急事態措置について') }}
-        </external-link>
-      </span>
+      <link-to-information-about-emergency-measure v-if="isEmergency" />
+      <link-to-information-about-roadmap v-else />
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
@@ -50,7 +42,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+import LinkToInformationAboutEmergencyMeasure from '@/components/LinkToInformationAboutEmergencyMeasure.vue'
+import LinkToInformationAboutRoadmap from '@/components/LinkToInformationAboutRoadmap.vue'
 
 import {
   convertDateByCountryPreferTimeFormat,
@@ -58,11 +51,19 @@ import {
 } from '@/utils/formatDate'
 
 export default Vue.extend({
-  components: { ExternalLink },
+  components: {
+    LinkToInformationAboutEmergencyMeasure,
+    LinkToInformationAboutRoadmap
+  },
   props: {
     items: {
       type: Array,
       required: true
+    },
+    isEmergency: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   methods: {
@@ -100,35 +101,6 @@ export default Vue.extend({
       @include card-h2();
       &-icon {
         margin: 3px;
-      }
-    }
-
-    .WhatsNew-link-to-emergency-page {
-      background-color: $emergency;
-      border: 2px solid $emergency;
-      color: $gray-2;
-      border-radius: 4px;
-      padding: 4px 8px;
-      display: inline-flex;
-      @include font-size(16);
-      &:hover {
-        background-color: $white;
-        border-radius: 4px;
-      }
-
-      .ExternalLink {
-        color: $gray-2 !important;
-        text-decoration: none;
-        margin: -10px;
-        padding: 10px;
-      }
-
-      > span {
-        @include button-text('sm');
-      }
-
-      @include lessThan($small) {
-        margin-top: 4px;
       }
     }
   }

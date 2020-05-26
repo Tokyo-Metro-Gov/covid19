@@ -1,28 +1,28 @@
 {
-    "date": "2020\/5\/23 18:45",
+    "date": "2020\/5\/25 19:45",
     "data": {
         "（１）新規陽性者数": {
-            "value": 5.9,
+            "value": 6.9,
             "go_threshold": "<20人\/日",
             "stop_threshold": "50人\/日"
         },
         "（２）新規陽性者数における接触歴等不明率": {
-            "value": 46.3,
+            "value": 47.9,
             "go_threshold": "<50%",
             "stop_threshold": "50%"
         },
         "（３）週単位の陽性者増加比": {
-            "value": 0.32,
+            "value": 0.45,
             "go_threshold": "<1",
             "stop_threshold": 2
         },
         "（４）重症患者数": {
-            "value": 43,
+            "value": 39,
             "go_threshold": null,
             "stop_threshold": null
         },
         "（５）入院患者数": {
-            "value": 529,
+            "value": 474,
             "go_threshold": null,
             "stop_threshold": null
         },
@@ -32,7 +32,7 @@
             "stop_threshold": null
         },
         "（７）受診相談窓口における相談件数": {
-            "value": 992,
+            "value": "1,019",
             "go_threshold": null,
             "stop_threshold": null
         }
