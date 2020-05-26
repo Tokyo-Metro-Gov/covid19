@@ -97,30 +97,8 @@ export default Vue.extend({
 
 <style lang="scss">
 .DataView {
-  @include card-container();
-
   height: 100%;
-
-  .LegendStickyChart {
-    margin: 16px 0;
-    position: relative;
-    overflow: hidden;
-    .scrollable {
-      overflow-x: scroll;
-      &::-webkit-scrollbar {
-        height: 4px;
-        background-color: rgba(0, 0, 0, 0.01);
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.07);
-      }
-    }
-    .sticky-legend {
-      position: absolute;
-      top: 0;
-      pointer-events: none;
-    }
-  }
+  @include card-container();
 
   &-Header {
     display: flex;
@@ -187,12 +165,11 @@ export default Vue.extend({
   }
 
   &-Footer {
-    @include font-size(12);
-
     display: flex;
     justify-content: space-between;
     margin-top: auto;
     color: $gray-3;
+    @include font-size(12);
 
     .Permalink {
       color: $gray-3 !important;
@@ -201,6 +178,31 @@ export default Vue.extend({
     .Footer-Right {
       display: flex;
       align-items: flex-end;
+    }
+  }
+
+  .LegendStickyChart {
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+
+    .scrollable {
+      overflow-x: scroll;
+
+      &::-webkit-scrollbar {
+        height: 4px;
+        background-color: rgba(0, 0, 0, 0.01);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.07);
+      }
+    }
+
+    .sticky-legend {
+      position: absolute;
+      top: 0;
+      pointer-events: none;
     }
   }
 }
