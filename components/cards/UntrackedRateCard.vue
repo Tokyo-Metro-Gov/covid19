@@ -11,6 +11,7 @@
       unit="%"
       :data-labels="dataLabels"
       :table-labels="tableLabels"
+      :additional-lines="additionalLines"
     >
       <template v-slot:additionalDescription>
         <ul :class="$style.GraphDesc">
@@ -70,18 +71,21 @@ export default {
     const items = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
-      this.$t('接触歴等不明率（7日間移動平均）')
+      this.$t('接触歴等不明率（7日間移動平均）'),
+      this.$t('緩和・再要請の目安')
     ]
     const dataLabels = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
-      this.$t('接触歴等不明率（7日間移動平均）')
+      this.$t('接触歴等不明率（7日間移動平均）'),
+      this.$t('緩和・再要請の目安')
     ]
     const tableLabels = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
       this.$t('接触歴等不明率（7日間移動平均）')
     ]
+    const additionalLines = [50]
 
     return {
       updated,
@@ -89,7 +93,8 @@ export default {
       dateList,
       items,
       dataLabels,
-      tableLabels
+      tableLabels,
+      additionalLines
     }
   }
 }

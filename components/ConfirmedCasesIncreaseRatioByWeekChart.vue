@@ -3,6 +3,42 @@
     <template v-slot:description>
       <slot name="description" />
     </template>
+    <ul
+      :class="$style.GraphLegend"
+      :style="{ display: canvas ? 'block' : 'none' }"
+    >
+      <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
+        <button>
+          <div
+            v-if="i === 1"
+            :style="{
+              background: `repeating-linear-gradient(90deg, ${colors[1].fillColor}, ${colors[1].fillColor} 2px, #fff 2px, #fff 4px)`,
+              border: 0
+            }"
+          />
+          <div
+            v-else-if="i === 2"
+            :style="{
+              background: colors[1].fillColor,
+              borderColor: colors[1].strokeColor
+            }"
+          />
+          <div
+            v-else
+            :style="{
+              backgroundColor: colors[i].fillColor,
+              borderColor: colors[i].strokeColor
+            }"
+          />
+          <span
+            :style="{
+              textDecoration: displayLegends[i] ? 'none' : 'line-through'
+            }"
+            >{{ item }}</span
+          >
+        </button>
+      </li>
+    </ul>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
@@ -15,6 +51,7 @@
             :chart-data="displayData"
             :options="displayOption"
             :plugins="scrollPlugin"
+            :display-legends="displayLegends"
             :height="240"
             :width="chartWidth"
           />
@@ -27,6 +64,7 @@
         :chart-data="displayDataHeader"
         :options="displayOptionHeader"
         :plugins="yAxesBgPlugin"
+        :display-legends="displayLegends"
         :height="240"
         :width="chartWidth"
       />
@@ -82,15 +120,19 @@ import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 
-import { getGraphSeriesColor } from '@/utils/colors'
+import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 
 type Data = {
   dataKind: 'transition'
   canvas: boolean
+  displayLegends: boolean[]
+  colors: SurfaceStyle[]
   chartWidth: number | null
 }
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
+  makeLineData: (value: number) => number[]
+  onClickLegend: (i: number) => void
 }
 
 type Computed = {
@@ -120,9 +162,11 @@ type Props = {
   chartId: string
   chartData: GraphDataType[]
   date: string
+  items: string[]
   unit: string
   url: string
   tableLabels: string[] | TranslateResult[]
+  additionalLines: number[]
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
@@ -159,6 +203,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       required: true
     },
+    items: {
+      type: Array,
+      default: () => []
+    },
     unit: {
       type: String,
       default: ''
@@ -168,6 +216,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: ''
     },
     tableLabels: {
+      type: Array,
+      default: () => []
+    },
+    additionalLines: {
       type: Array,
       default: () => []
     },
@@ -182,6 +234,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
+    displayLegends: [true, true, true],
+    colors: [getGraphSeriesColor('D'), getGraphSeriesColor('F')],
     chartWidth: null,
     canvas: true
   }),
@@ -203,19 +257,45 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
-      const style = getGraphSeriesColor('D')
+      const style = [getGraphSeriesColor('D'), getGraphSeriesColor('F')]
       return {
         labels: this.chartData.map(d => d.label),
         datasets: [
           {
-            label: this.dataKind,
+            label: this.items[0],
             data: this.chartData.map(d => d.transition),
-            backgroundColor: style.fillColor,
-            borderColor: style.strokeColor,
+            backgroundColor: style[0].fillColor,
+            borderColor: style[0].strokeColor,
             borderWidth: 1,
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            lineTension: 0
+            lineTension: 0,
+            order: 1
+          },
+          {
+            label: this.items[1],
+            data: this.makeLineData(this.additionalLines[0]),
+            backgroundColor: style[1].fillColor,
+            borderColor: style[1].strokeColor,
+            borderWidth: 2,
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            lineTension: 0,
+            borderDash: [4, 4],
+            fill: false,
+            order: 0
+          },
+          {
+            label: this.items[2],
+            data: this.makeLineData(this.additionalLines[1]),
+            backgroundColor: style[1].fillColor,
+            borderColor: style[1].strokeColor,
+            borderWidth: 2,
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            lineTension: 0,
+            fill: false,
+            order: 0
           }
         ]
       }
@@ -227,11 +307,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem) {
-              return `${tooltipItem.value!.toLocaleString()} ${unit}`
+            label: tooltipItem => {
+              const cases = `${tooltipItem.value!.toLocaleString()} ${unit}`
+              return `${
+                this.items[tooltipItem.datasetIndex!]
+              } : ${cases} ${unit}`
             },
             title(tooltipItem, data) {
-              return data.labels![tooltipItem[0].index!] as string[]
+              if (tooltipItem[0].datasetIndex! < 1) {
+                return data.labels![tooltipItem[0].index!] as string[]
+              }
+              return ''
             }
           }
         },
@@ -290,7 +376,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
               gridLines: {
                 display: true,
                 color: '#E5E5E5'
@@ -311,32 +396,27 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      if (this.dataKind === 'transition') {
-        return {
-          labels: ['2020/1/1', '2020/1/2'],
-          datasets: [
-            {
-              data: [
-                Math.max(...this.chartData.map(d => d.transition)),
-                Math.min(...this.chartData.map(d => d.transition))
-              ],
-              backgroundColor: 'transparent',
-              pointBackgroundColor: 'rgba(0,0,0,0)',
-              pointBorderColor: 'rgba(0,0,0,0)',
-              borderColor: 'rgba(0,0,0,0)',
-              borderWidth: 0
-            }
-          ]
-        }
-      }
       return {
-        labels: ['2020/1/1', '2020/1/2'],
+        labels: ['2020/1/1'],
         datasets: [
           {
-            data: [
-              Math.max(...this.chartData.map(d => d.cumulative)),
-              Math.min(...this.chartData.map(d => d.cumulative))
-            ],
+            data: [Math.max(...this.chartData.map(d => d.transition))],
+            backgroundColor: 'transparent',
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            borderColor: 'rgba(0,0,0,0)',
+            borderWidth: 0
+          },
+          {
+            data: [this.additionalLines[0]],
+            backgroundColor: 'transparent',
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            borderColor: 'rgba(0,0,0,0)',
+            borderWidth: 0
+          },
+          {
+            data: [this.additionalLines[1]],
             backgroundColor: 'transparent',
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
@@ -404,7 +484,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
@@ -459,6 +538,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         default:
           return `${dayBeforeRatioLocaleString}`
       }
+    },
+    makeLineData(value: number): number[] {
+      return this.chartData.map(_ => value)
+    },
+    onClickLegend(i) {
+      this.displayLegends[i] = !this.displayLegends[i]
+      this.displayLegends = this.displayLegends.slice()
     }
   },
   mounted() {
@@ -486,3 +572,30 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
 export default Vue.extend(options)
 </script>
+
+<style module lang="scss">
+.Graph {
+  &Legend {
+    text-align: center;
+    list-style: none;
+    padding: 0 !important;
+    li {
+      display: inline-block;
+      margin: 0 3px;
+      div {
+        height: 12px;
+        margin: 2px 4px;
+        width: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        border-width: 1px;
+        border-style: solid;
+      }
+      button {
+        color: $gray-3;
+        @include font-size(12);
+      }
+    }
+  }
+}
+</style>
