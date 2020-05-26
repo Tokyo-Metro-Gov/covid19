@@ -117,12 +117,6 @@ export default Vue.extend({
   height: 100%;
   @include card-container();
 
-  ul,
-  ol {
-    list-style-type: none;
-    padding: 0;
-  }
-
   &-Header {
     display: flex;
     align-items: flex-start;
@@ -177,12 +171,12 @@ export default Vue.extend({
     @include font-size(12);
 
     &--Additional {
-      margin-top: 1rem;
+      margin-bottom: 10px;
     }
   }
 
   &-Table {
-    margin: 10px 0;
+    margin-bottom: 10px;
   }
 
   &-Footer {
@@ -199,6 +193,15 @@ export default Vue.extend({
     .Footer-Right {
       display: flex;
       align-items: flex-end;
+    }
+  }
+
+  &-Description,
+  &-Footer {
+    ul,
+    ol {
+      list-style-type: none;
+      padding: 0;
     }
   }
 
