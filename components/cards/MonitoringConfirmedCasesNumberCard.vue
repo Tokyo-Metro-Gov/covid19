@@ -79,9 +79,9 @@ export default {
     ]
     const PatientsTableLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
 
-    const GetFormatter = j => {
+    const GetFormatter = columnIndex => {
       // モニタリング指標(1)新規陽性者数の７日間移動平均は小数点以下第1位まで表示する。
-      if (j === 1) return d => d.toFixed(1)
+      if (columnIndex === 1) return d => d.toFixed(1)
       return d => d.toLocaleString()
     }
 

@@ -88,9 +88,9 @@ export default {
     ]
     const additionalLines = [50]
 
-    const getFormatter = j => {
+    const getFormatter = columnIndex => {
       // モニタリング指標(2)新規陽性者における接触歴等不明率の７日間移動平均は小数点第1位まで表示する。
-      if (j === 2) return d => d.toFixed(1)
+      if (columnIndex === 2) return d => d.toFixed(1)
       return d => d.toLocaleString()
     }
 
