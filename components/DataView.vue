@@ -1,5 +1,5 @@
 <template>
-  <v-card class="DataView" :loading="loading">
+  <v-card class="DataView">
     <div class="DataView-Inner">
       <div class="DataView-Header">
         <h3
@@ -76,11 +76,6 @@ export default Vue.extend({
     date: {
       type: String,
       default: ''
-    },
-    loading: {
-      type: Boolean,
-      required: false,
-      default: false
     }
   },
   computed: {
