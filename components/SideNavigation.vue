@@ -128,7 +128,7 @@ export default {
         {
           title: this.$t('知事からのメッセージ'),
           link:
-            'http://www.pref.kagoshima.jp/kenko-fukushi/covid19/covid19.html'
+            'http://www.pref.kagoshima.jp/chiji/covid19/message.html'
         },
         {
           title: this.$t('当サイトについて'),
