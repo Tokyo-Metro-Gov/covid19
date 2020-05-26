@@ -295,7 +295,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             borderColor: transparentWhite,
             borderWidth: 0,
             minBarLength: this.chartData.map(d => {
-              if (d.transition <= 0) {
+              if (d.cumulative <= 0) {
                 return zeroMouseOverHeight
               }
               return 0
