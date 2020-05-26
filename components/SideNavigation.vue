@@ -197,21 +197,21 @@ export default Vue.extend({
             'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html'
         },
         {
-          title: this.$t('東京都 新型コロナウイルス感染症 支援情報ナビ'),
+          title: this.$t('市川市 新型コロナウイルス感染症 支援情報ナビ'),
           link: 'https://covid19.supportnavi.metro.tokyo.lg.jp/'
         },
         {
-          title: this.$t('東京都主催等 中止又は延期するイベント等'),
+          title: this.$t('市川市主催等 中止又は延期するイベント等'),
           link:
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
         },
         {
-          title: this.$t('東京都における滞在人口の増減'),
+          title: this.$t('市川市における滞在人口の増減'),
           link:
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html'
         },
         {
-          title: this.$t('知事からのメッセージ'),
+          title: this.$t('市長からのメッセージ'),
           link:
             'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html'
         },
@@ -224,7 +224,7 @@ export default Vue.extend({
           link: this.localePath('/contacts')
         },
         {
-          title: this.$t('東京都公式ホームページ'),
+          title: this.$t('市川市公式ホームページ'),
           link: 'https://www.metro.tokyo.lg.jp/'
         }
       ]
