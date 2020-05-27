@@ -1,8 +1,5 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:description>
-      <slot name="description" />
-    </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
@@ -46,16 +43,7 @@
         :mobile-breakpoint="0"
         class="cardTable"
         item-key="name"
-      >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
-              <td class="text-end">{{ item.transition }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
+      />
     </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -63,9 +51,6 @@
         :s-text="displayInfo.sText"
         :unit="displayInfo.unit"
       />
-    </template>
-    <template v-slot:footer>
-      <open-data-link v-show="url" :url="url" />
     </template>
   </data-view>
 </template>
@@ -86,7 +71,6 @@ import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle } from '@/utils/colors'
 
 type Data = {
-  dataKind: 'transition' | 'cumulative'
   canvas: boolean
   chartWidth: number | null
 }
@@ -95,8 +79,6 @@ type Methods = {
 }
 
 type Computed = {
-  displayCumulativeRatio: string
-  displayTransitionRatio: string
   displayInfo: {
     lText: string
     sText: string
@@ -114,7 +96,6 @@ type Computed = {
   tableData: {
     text: string
     transition: string
-    cumulative: string
   }[]
 }
 type Props = {
@@ -124,7 +105,6 @@ type Props = {
   chartData: GraphDataType[]
   date: string
   unit: string
-  url: string
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
   byDate: boolean
@@ -139,10 +119,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 > = {
   created() {
     this.canvas = process.browser
-    this.dataKind =
-      this.$route.query.embed && this.$route.query.dataKind === 'cumulative'
-        ? 'cumulative'
-        : 'transition'
   },
   components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
   props: {
@@ -170,10 +146,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       default: ''
     },
-    url: {
-      type: String,
-      default: ''
-    },
     scrollPlugin: {
       type: Array,
       default: () => scrollPlugin
@@ -188,73 +160,31 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
-    dataKind: 'transition',
     chartWidth: null,
     canvas: true
   }),
   computed: {
-    displayCumulativeRatio() {
-      const lastDay = this.chartData.slice(-1)[0].cumulative
-      const lastDayBefore = this.chartData.slice(-2)[0].cumulative
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
-    displayTransitionRatio() {
-      const lastDay = this.chartData.slice(-1)[0].transition
-      const lastDayBefore = this.chartData.slice(-2)[0].transition
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
     displayInfo() {
-      if (this.dataKind === 'transition') {
-        return {
-          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-            'の数値'
-          )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-            this.unit
-          }）`,
-          unit: this.unit
-        }
-      }
+      const lastDay = this.chartData.slice(-1)[0]
+      const lastDayBefore = this.chartData.slice(-2)[0]
+      const dayBeforeRatio = this.formatDayBeforeRatio(
+        lastDay.transition - lastDayBefore.transition
+      )
       return {
-        lText: this.chartData[
-          this.chartData.length - 1
-        ].cumulative.toLocaleString(),
-        sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-          'の数値'
-        )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
-          this.unit
-        }）`,
+        lText: `${lastDay.transition.toLocaleString()}`,
+        sText: `${lastDay.label} ${this.$t('の数値')}（${this.$t(
+          '前日比'
+        )}: ${dayBeforeRatio} ${this.unit}）`,
         unit: this.unit
       }
     },
     displayData() {
       const style = getGraphSeriesStyle(1)[0]
-      if (this.dataKind === 'transition') {
-        return {
-          labels: this.chartData.map(d => {
-            return d.label
-          }),
-          datasets: [
-            {
-              label: this.dataKind,
-              data: this.chartData.map(d => {
-                return d.transition
-              }),
-              backgroundColor: style.fillColor,
-              borderColor: style.strokeColor,
-              borderWidth: 1
-            }
-          ]
-        }
-      }
       return {
         labels: this.chartData.map(d => d.label),
         datasets: [
           {
-            label: this.dataKind,
-            data: this.chartData.map(d => {
-              return d.cumulative
-            }),
+            data: this.chartData.map(d => d.transition),
             backgroundColor: style.fillColor,
             borderColor: style.strokeColor,
             borderWidth: 1
@@ -353,28 +283,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      if (this.dataKind === 'transition') {
-        return {
-          labels: ['2020/1/1', '2020/1/2'],
-          datasets: [
-            {
-              data: [
-                Math.max(...this.chartData.map(d => d.transition)),
-                Math.min(...this.chartData.map(d => d.transition))
-              ],
-              backgroundColor: 'transparent',
-              borderWidth: 0
-            }
-          ]
-        }
-      }
       return {
         labels: ['2020/1/1', '2020/1/2'],
         datasets: [
           {
             data: [
-              Math.max(...this.chartData.map(d => d.cumulative)),
-              Math.min(...this.chartData.map(d => d.cumulative))
+              Math.max(...this.chartData.map(d => d.transition)),
+              Math.min(...this.chartData.map(d => d.transition))
             ],
             backgroundColor: 'transparent',
             borderWidth: 0
@@ -469,9 +384,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     scaledTicksYAxisMax() {
-      const dataKind =
-        this.dataKind === 'transition' ? 'transition' : 'cumulative'
-      const values = this.chartData.map(d => d[dataKind])
+      const values = this.chartData.map(d => d.transition)
       return Math.max(...values)
     },
     tableHeaders() {
@@ -489,8 +402,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .map((d, _) => {
           return {
             text: d.label,
-            transition: d.transition.toLocaleString(),
-            cumulative: d.cumulative.toLocaleString()
+            transition: d.transition.toLocaleString()
           }
         })
         .sort((a, b) => dayjs(a.text).unix() - dayjs(b.text).unix())

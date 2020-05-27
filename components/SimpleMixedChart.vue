@@ -10,17 +10,24 @@
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
           <div
-            v-if="i === 0"
+            v-if="i < 2"
             :style="{
-              backgroundColor: '#00a040',
-              borderColor: '#5a8055'
+              backgroundColor: colors[i].fillColor,
+              borderColor: colors[i].strokeColor
             }"
           />
           <div
-            v-if="i === 1"
+            v-else-if="i === 2"
             :style="{
-              backgroundColor: '#1b4d30',
-              borderColor: '#5a8055'
+              background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
+              border: 0
+            }"
+          />
+          <div
+            v-else
+            :style="{
+              backgroundColor: colors[2].fillColor,
+              borderColor: colors[2].strokeColor
             }"
           />
           <span
@@ -113,26 +120,25 @@ import DataSelector from '@/components/DataSelector.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 
-interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
-  currentTarget: T
-}
 type Data = {
   canvas: boolean
   displayLegends: boolean[]
+  colors: SurfaceStyle[]
   chartWidth: number | null
   width: number
 }
 type Methods = {
-  sum: (array: number[]) => number
-  cumulative: (array: number[]) => number[]
   pickLastNumber: (chartDataArray: number[][]) => number[]
-  cumulativeSum: (chartDataArray: number[][]) => number[]
-  eachArraySum: (chartDataArray: number[][]) => number[]
+  pickLastSecondNumber: (chartDataArray: number[][]) => number[]
+  makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
+  formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
 
 type Computed = {
+  displayTransitionRatio: string
   displayInfo: {
     lText: string
     sText: string
@@ -164,6 +170,7 @@ type Props = {
   tableLabels: string[] | TranslateResult[]
   unit: string
   url: string
+  additionalLines: number[]
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
@@ -191,7 +198,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     chartId: {
       type: String,
-      default: 'PositiveRateMixedChart'
+      default: 'SimpleMixedChart'
     },
     chartData: {
       type: Array,
@@ -227,6 +234,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       default: ''
     },
+    additionalLines: {
+      type: Array,
+      default: () => []
+    },
     scrollPlugin: {
       type: Array,
       default: () => scrollPlugin
@@ -236,48 +247,112 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: () => yAxesBgPlugin
     }
   },
-  data: () => ({
-    displayLegends: [true, true],
-    chartWidth: null,
-    canvas: true,
-    width: 300
-  }),
+  data() {
+    const colors: SurfaceStyle[] =
+      this.additionalLines.length !== 0
+        ? [
+            getGraphSeriesColor('C'),
+            getGraphSeriesColor('E'),
+            getGraphSeriesColor('A')
+          ]
+        : [getGraphSeriesColor('B'), getGraphSeriesColor('A')]
+    return {
+      displayLegends: [true, true, true, true],
+      chartWidth: null,
+      colors,
+      canvas: true,
+      width: 300
+    }
+  },
   computed: {
+    displayTransitionRatio() {
+      const lastDay = this.pickLastNumber(this.chartData)[1]
+      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[1]
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+    },
     displayInfo() {
       return {
         lText: this.pickLastNumber(this.chartData)[1].toLocaleString(),
         sText: `${this.$t('{date} の数値', {
           date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
-        })}`,
+        })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+          this.unit
+        }）`,
         unit: this.unit
       }
     },
     displayData() {
+      const style: SurfaceStyle[] =
+        this.additionalLines.length !== 0
+          ? [
+              getGraphSeriesColor('C'),
+              getGraphSeriesColor('E'),
+              getGraphSeriesColor('A')
+            ]
+          : [
+              getGraphSeriesColor('B'),
+              getGraphSeriesColor('A'),
+              getGraphSeriesColor('A') // ダミー、これを抜くとTypeErrorが出てしまう
+            ]
+      const datasets = [
+        {
+          type: 'bar',
+          label: this.items[0],
+          data: this.chartData[0],
+          backgroundColor: style[0].fillColor,
+          borderColor: style[0].strokeColor,
+          borderWidth: 1,
+          order: 3
+        },
+        {
+          type: 'line',
+          label: this.items[1],
+          data: this.chartData[1],
+          pointBackgroundColor: 'rgba(0,0,0,0)',
+          pointBorderColor: 'rgba(0,0,0,0)',
+          borderColor: style[1].fillColor,
+          borderWidth: 3,
+          fill: false,
+          order: 2,
+          lineTension: 0
+        }
+      ]
+      if (this.additionalLines) {
+        return {
+          labels: this.labels,
+          datasets: [
+            ...datasets,
+            {
+              type: 'line',
+              label: this.items[2],
+              data: this.makeLineData(this.additionalLines[0]),
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+              borderColor: style[2].fillColor,
+              borderWidth: 2,
+              borderDash: [4, 4],
+              fill: false,
+              order: 1,
+              lineTension: 0
+            },
+            {
+              type: 'line',
+              label: this.items[3],
+              data: this.makeLineData(this.additionalLines[1]),
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+              borderColor: style[2].fillColor,
+              borderWidth: 2,
+              fill: false,
+              order: 0,
+              lineTension: 0
+            }
+          ]
+        }
+      }
       return {
         labels: this.labels,
-        datasets: [
-          {
-            type: 'bar',
-            label: this.items[0],
-            data: this.chartData[0],
-            backgroundColor: '#00a040',
-            borderColor: '#5a8055',
-            borderWidth: 1,
-            order: 1
-          },
-          {
-            type: 'line',
-            label: this.items[1],
-            data: this.chartData[1],
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: '#1b4d30',
-            borderWidth: 3,
-            fill: false,
-            order: 0,
-            lineTension: 0
-          }
-        ]
+        datasets
       }
     },
     tableHeaders() {
@@ -313,24 +388,24 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOption() {
       const unit = this.unit
-      const data = this.chartData
       const options: Chart.ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const cases = data[tooltipItem.datasetIndex!][
-                tooltipItem.index!
-              ].toLocaleString()
+              const cases = tooltipItem.value!.toLocaleString()
               return `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${unit}`
             },
             title(tooltipItem, data) {
-              const date = dayjs(
-                data.labels![tooltipItem[0].index!].toString()
-              ).format('M/D')
-              return String(date)
+              if (tooltipItem[0].datasetIndex! < 2) {
+                const date = dayjs(
+                  data.labels![tooltipItem[0].index!].toString()
+                ).format('M/D')
+                return String(date)
+              }
+              return ''
             }
           }
         },
@@ -386,7 +461,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           yAxes: [
             {
               position: 'left',
-              stacked: true,
               gridLines: {
                 display: true,
                 drawOnChartArea: true,
@@ -439,6 +513,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           },
           {
             data: [this.displayData.datasets[1].data[m]],
+            backgroundColor: 'transparent',
+            borderWidth: 0
+          },
+          {
+            data: [this.additionalLines[0]],
+            backgroundColor: 'transparent',
+            borderWidth: 0
+          },
+          {
+            data: [this.additionalLines[1]],
             backgroundColor: 'transparent',
             borderWidth: 0
           }
@@ -497,7 +581,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             {
               type: 'linear',
               position: 'left',
-              stacked: true,
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
@@ -532,38 +615,29 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       this.displayLegends[i] = !this.displayLegends[i]
       this.displayLegends = this.displayLegends.slice()
     },
-    cumulative(array: number[]): number[] {
-      const cumulativeArray: number[] = []
-      let patSum = 0
-      array.forEach(d => {
-        patSum += d
-        cumulativeArray.push(patSum)
-      })
-      return cumulativeArray
-    },
-    sum(array: number[]): number {
-      return array.reduce((acc, cur) => {
-        return acc + cur
-      })
-    },
     pickLastNumber(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array[array.length - 1]
       })
     },
-    cumulativeSum(chartDataArray: number[][]) {
+    pickLastSecondNumber(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
-        return array.reduce((acc, cur) => {
-          return acc + cur
-        })
+        return array[array.length - 2]
       })
     },
-    eachArraySum(chartDataArray: number[][]) {
-      const sumArray: number[] = []
-      for (let i = 0; i < chartDataArray[0].length; i++) {
-        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
+    makeLineData(value: number): number[] {
+      return this.chartData[0].map(_ => value)
+    },
+    formatDayBeforeRatio(dayBeforeRatio: number): string {
+      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
+      switch (Math.sign(dayBeforeRatio)) {
+        case 1:
+          return `+${dayBeforeRatioLocaleString}`
+        case -1:
+          return `${dayBeforeRatioLocaleString}`
+        default:
+          return `${dayBeforeRatioLocaleString}`
       }
-      return sumArray
     }
   },
   mounted() {

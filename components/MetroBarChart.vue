@@ -234,7 +234,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
-                  return value.toFixed(2) + self.unit
+                  return (
+                    (typeof value === 'number' ? value : Number(value)).toFixed(
+                      2
+                    ) + self.unit
+                  )
                 }
               }
             }

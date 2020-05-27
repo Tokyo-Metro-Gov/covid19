@@ -98,7 +98,7 @@
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
-        unit="%"
+        :unit="displayInfo.unit"
       />
     </template>
   </data-view>
@@ -132,15 +132,14 @@ type Data = {
   width: number
 }
 type Methods = {
-  sum: (array: number[]) => number
-  cumulative: (array: number[]) => number[]
   pickLastNumber: (chartDataArray: number[][]) => number[]
-  cumulativeSum: (chartDataArray: number[][]) => number[]
-  eachArraySum: (chartDataArray: number[][]) => number[]
+  pickLastSecondNumber: (chartDataArray: number[][]) => number[]
   onClickLegend: (i: number) => void
+  formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
 
 type Computed = {
+  displayTransitionRatio: string
   displayInfo: {
     lText: string
     sText: string
@@ -253,12 +252,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     width: 300
   }),
   computed: {
+    displayTransitionRatio() {
+      const lastDay = this.pickLastNumber(this.chartData)[2]
+      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[2]
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+    },
     displayInfo() {
       return {
         lText: this.pickLastNumber(this.chartData)[2].toLocaleString(),
         sText: `${this.$t('{date}の数値', {
           date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
-        })}`,
+        })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+          this.unit
+        }）`,
         unit: this.unit
       }
     },
@@ -355,11 +361,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ].toLocaleString()
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
-              } : ${cases} ${unit}`
+              } : ${cases} ${this.$t('人')}`
               if (this.dataLabels[tooltipItem.datasetIndex!] === '陽性率') {
                 label = `${
                   this.dataLabels[tooltipItem.datasetIndex!]
-                } : ${cases} %`
+                } : ${cases} ${unit}`
               }
               return label
             },
@@ -615,38 +621,26 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       this.displayLegends[i] = !this.displayLegends[i]
       this.displayLegends = this.displayLegends.slice()
     },
-    cumulative(array: number[]): number[] {
-      const cumulativeArray: number[] = []
-      let patSum = 0
-      array.forEach(d => {
-        patSum += d
-        cumulativeArray.push(patSum)
-      })
-      return cumulativeArray
-    },
-    sum(array: number[]): number {
-      return array.reduce((acc, cur) => {
-        return acc + cur
-      })
-    },
     pickLastNumber(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array[array.length - 1]
       })
     },
-    cumulativeSum(chartDataArray: number[][]) {
+    pickLastSecondNumber(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
-        return array.reduce((acc, cur) => {
-          return acc + cur
-        })
+        return array[array.length - 2]
       })
     },
-    eachArraySum(chartDataArray: number[][]) {
-      const sumArray: number[] = []
-      for (let i = 0; i < chartDataArray[0].length; i++) {
-        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
+    formatDayBeforeRatio(dayBeforeRatio: number): string {
+      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
+      switch (Math.sign(dayBeforeRatio)) {
+        case 1:
+          return `+${dayBeforeRatioLocaleString}`
+        case -1:
+          return `${dayBeforeRatioLocaleString}`
+        default:
+          return `${dayBeforeRatioLocaleString}`
       }
-      return sumArray
     }
   },
   mounted() {
