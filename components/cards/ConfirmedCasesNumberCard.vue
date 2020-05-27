@@ -42,11 +42,10 @@ export default {
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
 
-    const data = {
+    return {
       Data,
       patientsGraph
     }
-    return data
   }
 }
 </script>

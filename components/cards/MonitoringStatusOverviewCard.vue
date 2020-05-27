@@ -70,11 +70,10 @@ export default {
     // モニタリング指標
     const monitoringStatus = formatMonitoringStatus(monitoringStatusData.data)
 
-    const data = {
+    return {
       monitoringStatusData,
       monitoringStatus
     }
-    return data
   }
 }
 </script>

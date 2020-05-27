@@ -77,7 +77,7 @@ export default {
       this.$t('医療機関等実施分')
     ]
 
-    const data = {
+    return {
       Data,
       inspectionsGraph,
       inspectionsItems,
@@ -85,7 +85,6 @@ export default {
       inspectionsDataLabels,
       inspectionsTableLabels
     }
-    return data
   }
 }
 </script>
