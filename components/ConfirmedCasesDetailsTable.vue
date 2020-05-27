@@ -87,27 +87,25 @@
             </span>
           </div>
         </li>
-      </ul>
-    </div>
-    </li>
-      <li :class="[$style.box, $style.landscape]">
-        <div :class="$style.pillar">
-          <div :class="$style.content">
-            <span>{{ $t('病床数(医療病床(うち重症重篤)/宿泊医療施設)') }}</span>
-            <br /> 
-            <span>
-   　         <strong>{{ 病床数.toLocaleString() }}</strong>
-              <span :class="$style.unit">{{ $t('床(') }}</span>
-              <strong>{{ 医療病床.toLocaleString() }}</strong>
-              <span :class="$style.unit">{{ $t('床(') }}</span>
-              <strong>{{ 医療病床重症重篤.toLocaleString() }}</strong>
-              <span :class="$style.unit">{{ $t(')床/') }}</span>
-              <strong>{{ 宿泊医療施設.toLocaleString() }}</strong>
-              <span :class="$style.unit">{{ $t('室)') }}</span>
-            </span> 
-          </div>
-        </div>
       </li>
+    </div>
+    <li :class="[$style.box, $style.landscape]">
+       <div :class="$style.pillar">
+       <div :class="$style.content">
+          <span>{{ $t('病床数(医療病床(うち重症重篤)/宿泊医療施設)') }}</span>
+          <br /> 
+          <span>
+            <strong>{{ 病床数.toLocaleString() }}</strong>
+            <span :class="$style.unit">{{ $t('床(') }}</span>
+            <strong>{{ 医療病床.toLocaleString() }}</strong>
+            <span :class="$style.unit">{{ $t('床(') }}</span>
+            <strong>{{ 医療病床重症重篤.toLocaleString() }}</strong>
+            <span :class="$style.unit">{{ $t(')床/') }}</span>
+            <strong>{{ 宿泊医療施設.toLocaleString() }}</strong>
+            <span :class="$style.unit">{{ $t('室)') }}</span>
+          </span> 
+        </div>
+      </div>
     </li>
   </ul>
 </template>
