@@ -56,12 +56,11 @@ export default {
     const patientsGraph = formatGraph(formatData)
     const tableLabels = [this.$t('入院患者数')]
 
-    const data = {
+    return {
       positiveStatus,
       patientsGraph,
       tableLabels
     }
-    return data
   }
 }
 </script>
