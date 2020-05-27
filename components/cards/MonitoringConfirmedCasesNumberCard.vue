@@ -79,10 +79,8 @@ export default {
     const PatientsTableLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
 
     const PatientsDate = Data.date
-
     const additionalLines = [20, 50]
-
-    const data = {
+    return {
       PatientsDate,
       PatientsGraph,
       PatientsItems,
@@ -91,7 +89,6 @@ export default {
       PatientsTableLabels,
       additionalLines
     }
-    return data
   }
 }
 </script>

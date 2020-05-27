@@ -55,6 +55,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { MetaInfo } from 'vue-meta'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 import DataViewTable from '@/components/DataViewTable.vue'
 import DataViewShare from '@/components/DataViewShare.vue'
@@ -87,6 +88,27 @@ export default Vue.extend({
     permalink(): string {
       const permalink = '/cards/' + this.titleId
       return this.localePath(permalink)
+    }
+  },
+  head(): MetaInfo {
+    // カードの個別ページの場合は、タイトルと更新時刻を`page/cards/_card`に渡す
+    if (!this.$route.params.card) return {}
+
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.title
+        },
+        { hid: 'description', name: 'description', content: this.date },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.date
+        }
+      ]
     }
   }
 })

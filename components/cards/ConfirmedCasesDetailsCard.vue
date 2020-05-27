@@ -56,12 +56,11 @@ export default {
       'YYYY/MM/DD HH:mm'
     )
 
-    const data = {
+    return {
       Data,
       confirmedCases,
       updatedAt
     }
-    return data
   }
 }
 </script>

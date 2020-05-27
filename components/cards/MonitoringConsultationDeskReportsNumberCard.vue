@@ -76,7 +76,7 @@ export default {
     ]
 
     const ConsulationReportsDate = Data.querents.date
-    const data = {
+    return {
       ConsulationReportsDate,
       ConsuletionReportsGraph,
       ConsuletionReportsItems,
@@ -84,7 +84,6 @@ export default {
       ConsuletionReportsDataLabels,
       ConsuletionReportsTableLabels
     }
-    return data
   }
 }
 </script>

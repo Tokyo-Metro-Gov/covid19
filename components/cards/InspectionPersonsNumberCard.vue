@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('検査実施人数')"
+      :title="$t('検査実施人数（健康安全研究センターによる実施分）')"
       :title-id="'number-of-inspection-persons'"
       :chart-id="'number-of-inspection-persons'"
       :chart-data="graphData"
@@ -10,6 +10,9 @@
     >
       <template v-slot:description>
         <ul>
+          <li>
+            {{ $t('（注）検査結果の判明日を基準とする') }}
+          </li>
           <li>
             {{
               $t(
