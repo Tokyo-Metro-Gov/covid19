@@ -6,7 +6,6 @@
       :chart-id="'untracked-rate-chart'"
       :chart-data="graphData"
       :date="updated"
-      :items="items"
       :labels="dateList"
       unit="%"
       :data-labels="dataLabels"
@@ -68,12 +67,6 @@ export default {
     const updated = Data.date
     const graphData = [reportedCount, missingCount, untrackedRate]
 
-    const items = [
-      this.$t('接触歴等判明者数'),
-      this.$t('接触歴等不明者数'),
-      this.$t('接触歴等不明率（7日間移動平均）'),
-      this.$t('緩和・再要請の目安')
-    ]
     const dataLabels = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
@@ -91,7 +84,6 @@ export default {
       updated,
       graphData,
       dateList,
-      items,
       dataLabels,
       tableLabels,
       additionalLines
