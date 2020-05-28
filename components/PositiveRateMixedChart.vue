@@ -83,19 +83,7 @@
         :mobile-breakpoint="0"
         class="cardTable"
         item-key="name"
-      >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
-              <td class="text-end">{{ item['0'] }}</td>
-              <td class="text-end">{{ item['1'] }}</td>
-              <td class="text-end">{{ item['2'] }}</td>
-              <td class="text-end">{{ item['3'] }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
+      />
     </template>
     <slot name="additionalNotes" />
     <template v-slot:infoPanel>
@@ -317,29 +305,30 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
+      let cumulative = 0
       return this.labels
         .map((label, i) => {
+          let [dailySum, data] = [0, 0]
           return Object.assign(
             { text: dayjs(label).format('M/D') },
             ...this.tableHeaders.map((_, j) => {
-              if (j <= 1) {
-                const data = this.chartData[j]
-                return {
-                  [j]: data[i].toLocaleString()
-                }
+              switch (j) {
+                case 0: // 陽性者数
+                case 1: // 陰性者数
+                  dailySum += data = this.chartData[j][i]
+                  break
+                case 2: // 検査実施人数 (日別)
+                  cumulative += data = dailySum
+                  break
+                case 3: // 検査実施人数 (累計)
+                  data = cumulative
+                  break
+                case 4: // 陽性率
+                  data = this.chartData[2][i]
+                  break
               }
-              if (j === 2) {
-                const positive = this.chartData[0]
-                const negative = this.chartData[1]
-                return {
-                  [j]: (positive[i] + negative[i]).toLocaleString()
-                }
-              }
-              if (j === 3) {
-                const data = this.chartData[2]
-                return {
-                  [j]: data[i].toLocaleString()
-                }
+              return {
+                [j]: data.toLocaleString()
               }
             })
           )
