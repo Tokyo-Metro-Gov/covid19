@@ -127,22 +127,23 @@ export const yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[] = [
           chartInstance.chartArea.bottom + 1
         )
 
-      // 横軸マスク用
+        // 横軸マスク用
         const gradient = ctx.createLinearGradient(
           0,
           0,
           chartInstance.chartArea.left,
         0
-      )
-      gradient.addColorStop(0, 'rgba(255,255,255,1)')
-      gradient.addColorStop(1, 'rgba(255,255,255,0)')
-      ctx.fillStyle = gradient
-      ctx.fillRect(
-        0,
-        chartInstance.chartArea.bottom + 1,
-        chartInstance.chartArea.left,
-        chartInstance.height! - chartInstance.chartArea.bottom - 1
-      )
+        )
+        gradient.addColorStop(0, 'rgba(255,255,255,1)')
+        gradient.addColorStop(1, 'rgba(255,255,255,0)')
+        ctx.fillStyle = gradient
+        ctx.fillRect(
+          0,
+          chartInstance.chartArea.bottom + 1,
+          chartInstance.chartArea.left,
+          chartInstance.height! - chartInstance.chartArea.bottom - 1
+        )
+      }
     }
   }
 ]
