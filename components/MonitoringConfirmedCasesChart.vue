@@ -147,6 +147,7 @@ type Props = {
   titleId: string
   chartId: string
   chartData: number[][]
+  getFormatter: Function
   date: string
   labels: string[]
   dataLabels: string[] | TranslateResult[]
@@ -190,6 +191,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       required: false,
       default: () => []
+    },
+    getFormatter: {
+      type: Function,
+      required: false,
+      default: (_: number) => (d: number) => d?.toLocaleString()
     },
     date: {
       type: String,
@@ -247,7 +253,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayInfo() {
       return {
-        lText: this.chartData[1][this.chartData[1].length - 1].toLocaleString(),
+        lText: this.getFormatter(1)(
+          this.chartData[1][this.chartData[1].length - 1]
+        ),
         sText: `${this.$t('{date} の数値', {
           date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
         })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
@@ -324,7 +332,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             { text: dayjs(label).format('M/D') },
             ...(this.tableLabels as string[]).map((_, j) => {
               return {
-                [j]: this.chartData[j][i]?.toLocaleString()
+                [j]: this.getFormatter(j)(this.chartData[j][i])
               }
             })
           )
@@ -339,7 +347,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const cases = tooltipItem.value!.toLocaleString()
+              const cases = this.getFormatter(tooltipItem.datasetIndex!)(
+                parseFloat(tooltipItem.value!)
+              )
               return `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${unit}`
