@@ -36,10 +36,10 @@
               item.itemValue.stopThreshold !== null
           "
         >
-          <td :class="$style.threshold">
+          <td>
             {{ $t(item.itemValue.goThreshold) }}
           </td>
-          <td :class="$style.threshold">
+          <td>
             {{ $t(item.itemValue.stopThreshold) }}
           </td>
         </template>
@@ -49,7 +49,7 @@
               item.itemValue.stopThreshold === null
           "
         >
-          <td :class="$style.threshold" colspan="2">
+          <td colspan="2">
             {{ $t(item.itemValue.goThreshold) }}
           </td>
         </template>
