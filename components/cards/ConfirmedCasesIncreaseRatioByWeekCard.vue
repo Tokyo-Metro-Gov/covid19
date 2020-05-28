@@ -5,6 +5,7 @@
       :title-id="'increase-ratio-of-confirmed-cases-by-daily'"
       :chart-id="'time-line-chart-patients-increase-ratio'"
       :chart-data="graphData"
+      :formatter="formatter"
       :date="dailyPositiveDetail.date"
       :items="items"
       :unit="''"
@@ -38,6 +39,9 @@ import dailyPositiveDetail from '@/data/daily_positive_detail.json'
 import formatGraph from '@/utils/formatGraph'
 import ConfirmedCasesIncreaseRatioByWeekChart from '@/components/ConfirmedCasesIncreaseRatioByWeekChart.vue'
 
+// モニタリング指標(3)週単位の陽性者増加比は小数点第2位まで表示する。
+const formatter = d => d?.toFixed(2)
+
 export default {
   components: {
     ConfirmedCasesIncreaseRatioByWeekChart
@@ -70,7 +74,8 @@ export default {
       graphData,
       tableLabels,
       items,
-      additionalLines
+      additionalLines,
+      formatter
     }
   }
 }
