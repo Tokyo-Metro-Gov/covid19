@@ -93,7 +93,7 @@ function getSelectedItem(data: DataType, key: string) {
  * @param data - Raw data
  */
 export default (data: DataType) => {
-  const formattedData: ConfirmedCasesType = {
+  return {
     検査実施人数: getSelectedItem(data, '検査実施人数'),
     陽性者数: getSelectedItem(data, '陽性患者数'),
     入院中: getSelectedItem(data, '入院中'),
@@ -104,6 +104,5 @@ export default (data: DataType) => {
     調査中: getSelectedItem(data, '調査中'),
     死亡: getSelectedItem(data, '死亡'),
     退院: getSelectedItem(data, '退院')
-  }
-  return formattedData
+  } as ConfirmedCasesType
 }
