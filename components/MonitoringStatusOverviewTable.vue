@@ -43,6 +43,16 @@
             {{ $t(item.itemValue.stopThreshold) }}
           </td>
         </template>
+        <template
+          v-else-if="
+            item.itemValue.goThreshold !== null &&
+              item.itemValue.stopThreshold === null
+          "
+        >
+          <td :class="$style.threshold" colspan="2">
+            {{ $t(item.itemValue.goThreshold) }}
+          </td>
+        </template>
         <template v-else>
           <td colspan="2">
             &ndash;
