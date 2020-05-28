@@ -114,23 +114,24 @@ export default VueChartPlugin
 
 export const yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
-    beforeDraw(chartInstance) {
-      const ctx = chartInstance.ctx!
+    beforeDraw(chartInstance: any | null) {
+      if (chartInstance !== null) {
+        const ctx = chartInstance.ctx!
 
-      // プロットエリアマスク用
-      ctx.fillStyle = '#fff'
-      ctx.fillRect(
-        0,
-        0,
-        chartInstance.chartArea.left,
-        chartInstance.chartArea.bottom + 1
-      )
+        // プロットエリアマスク用
+        ctx.fillStyle = '#fff'
+        ctx.fillRect(
+          0,
+          0,
+          chartInstance.chartArea.left,
+          chartInstance.chartArea.bottom + 1
+        )
 
       // 横軸マスク用
-      const gradient = ctx.createLinearGradient(
-        0,
-        0,
-        chartInstance.chartArea.left,
+        const gradient = ctx.createLinearGradient(
+          0,
+          0,
+          chartInstance.chartArea.left,
         0
       )
       gradient.addColorStop(0, 'rgba(255,255,255,1)')
