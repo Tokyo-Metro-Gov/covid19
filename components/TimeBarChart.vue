@@ -38,6 +38,9 @@
         :width="chartWidth"
       />
     </div>
+    <template v-slot:additionalDescription>
+      <slot name="additionalDescription" />
+    </template>
     <template v-slot:dataTable>
       <v-data-table
         :headers="tableHeaders"
@@ -54,7 +57,7 @@
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
-              <th>{{ item.text }}</th>
+              <th scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item.transition }}</td>
               <td class="text-end">{{ item.cumulative }}</td>
             </tr>
@@ -132,6 +135,7 @@ type Props = {
   url: string
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
+  byDate: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -185,6 +189,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin
+    },
+    byDate: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => ({
@@ -204,7 +212,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
-      if (this.dataKind === 'transition') {
+      if (this.dataKind === 'transition' && this.byDate) {
+        return {
+          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
+          sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
+            '日別値'
+          )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+            this.unit
+          }）`,
+          unit: this.unit
+        }
+      } else if (this.dataKind === 'transition') {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
           sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
@@ -377,7 +395,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOptionHeader() {
-      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const options: Chart.ChartOptions = {
         responsive: false,
         maintainAspectRatio: false,
@@ -454,8 +471,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
-                suggestedMax: scaledTicksYAxisMax
+                fontColor: '#808080' // #808080
               }
             }
           ]

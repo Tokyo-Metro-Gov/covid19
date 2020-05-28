@@ -1,9 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:infoPanel>
-      <small :class="$style.DataViewDesc">
-        <slot name="description" />
-      </small>
+    <template v-slot:description>
+      <slot name="description" />
     </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
@@ -32,7 +30,7 @@
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
-              <th>{{ item.text }}</th>
+              <th scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item[0] }}</td>
               <td class="text-end">{{ item[1] }}</td>
               <td class="text-end">{{ item[2] }}</td>
@@ -42,11 +40,24 @@
       </v-data-table>
     </template>
     <template v-slot:footer>
-      <external-link
-        url="https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf"
-      >
-        {{ $t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）[PDF]') }}
-      </external-link>
+      <ul :class="$style.DataViewDesc">
+        <li>
+          <external-link
+            url="https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf"
+          >
+            {{ $t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）[PDF]') }}
+          </external-link>
+        </li>
+        <li>
+          <external-link url="https://corona.go.jp/">
+            {{
+              $t(
+                '主要駅の改札通過人数の推移（東京、新宿、渋谷、池袋ほか）[内閣官房HP]（ページ下部）'
+              )
+            }}
+          </external-link>
+        </li>
+      </ul>
     </template>
   </data-view>
 </template>
@@ -177,11 +188,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             })
           )
         })
-        .sort((a, b) => {
-          const aDate = a.text.split('~')[0]
-          const bDate = b.text.split('~')[0]
-          return aDate > bDate ? -1 : 1
-        })
+        .reverse()
     },
     displayOption() {
       const self = this
@@ -225,7 +232,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
-                  return value.toFixed(2) + self.unit
+                  return (
+                    (typeof value === 'number' ? value : Number(value)).toFixed(
+                      2
+                    ) + self.unit
+                  )
                 }
               }
             }
@@ -266,8 +277,10 @@ export default Vue.extend(options)
   &Desc {
     margin-top: 10px;
     margin-bottom: 0 !important;
-    font-size: 12px;
+    padding-left: 0 !important;
     color: $gray-3;
+    list-style: none;
+    @include font-size(12);
   }
 }
 </style>

@@ -18,10 +18,15 @@ PATHS = {
     "/cards/agency": (959, 730),
     "/cards/details-of-tested-cases": (959, 500),
     "/cards/number-of-inspection-persons": (959, 600),
-    "/cards/shinjuku-visitors": (959, 820),
-    "/cards/chiyoda-visitors": (959, 820),
-    "/cards/shinjuku-st-heatmap": (959, 600),
-    "/cards/tokyo-st-heatmap": (959, 600)
+    "/cards/positive-number-by-diagnosed-date":(959, 730),
+    "/cards/positive-rate": (959, 730),
+    "/cards/monitoring-number-of-confirmed-cases": (959, 500),
+    "/cards/untracked-rate": (959, 500),
+    "/cards/increase-ratio-of-confirmed-cases-by-daily": (959, 500),
+    "/cards/positive-status-severe-case": (959, 500),
+    "/cards/number-of-hospitalized": (959, 500),
+    "/cards/monitoring-number-of-reports-to-covid19-consultation-desk": (959, 500),
+    "/cards/monitoring-status-overview": (959, 570),
 }
 
 options = webdriver.ChromeOptions()

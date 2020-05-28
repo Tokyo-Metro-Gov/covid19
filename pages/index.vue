@@ -13,7 +13,7 @@
         <span>{{ $t('注釈') }}</span>
       </div>
     </div>
-    <whats-new class="mb-4" :items="newsItems" />
+    <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
     <static-info
       class="mb-4"
       :url="localePath('/flow')"
@@ -23,18 +23,36 @@
     <card-row class="DataBlock">
       <!-- 検査陽性者の状況 -->
       <confirmed-cases-details-card />
-      <!-- 陽性患者数 -->
+      <!-- 新規患者に関する報告件数の推移 -->
       <confirmed-cases-number-card />
+      <!-- モニタリング指標 -->
+      <monitoring-status-overview-card />
+      <!-- モニタリング(1)新規陽性者数 -->
+      <monitoring-confirmed-cases-number-card />
+      <!-- モニタリング指標(2)新規陽性者における接触歴等不明率 -->
+      <untracked-rate-card />
+      <!-- モニタリング指標(3)週単位の陽性者増加比 -->
+      <confirmed-cases-increase-ratio-by-week-card />
+      <!-- モニタリング指標(4)重症患者数 -->
+      <severe-case-card />
+      <!-- モニタリング指標(5)入院患者数 -->
+      <hospitalized-number-card />
+      <!-- モニタリング指標(6)PCR検査の陽性率-->
+      <positive-rate-card />
+      <!-- モニタリング指標(7)受診相談窓口における相談件数 -->
+      <monitoring-consultation-desk-reports-number-card />
       <!-- 陽性患者の属性 -->
       <confirmed-cases-attributes-card />
       <!-- 区市町村別患者数 -->
       <confirmed-cases-by-municipalities-card />
       <!-- 検査実施状況 -->
       <tested-cases-details-card />
-      <!-- 検査実施人数 -->
-      <inspection-persons-number-card />
       <!-- 検査実施件数 -->
       <tested-number-card />
+      <!-- 検査実施人数（健康安全研究センターによる実施分） -->
+      <inspection-persons-number-card />
+      <!-- PCR検査陽性者の発生動向（確定日別による陽性者数の推移） -->
+      <positive-number-by-diagnosed-date-card />
       <!-- 新型コロナコールセンター相談件数 -->
       <telephone-advisory-reports-number-card />
       <!-- 新型コロナ受診相談窓口相談件数 -->
@@ -44,7 +62,6 @@
       <!-- 都庁来庁者数の推移 -->
       <agency-card />
     </card-row>
-    <v-divider />
   </div>
 </template>
 
@@ -66,12 +83,26 @@ import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNum
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
+import PositiveRateCard from '~/components/cards/PositiveRateCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
+import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
+import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
+import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
+import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
+import MonitoringStatusOverviewCard from '@/components/cards/MonitoringStatusOverviewCard.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 
 export default Vue.extend({
   components: {
+    MonitoringConfirmedCasesNumberCard,
+    UntrackedRateCard,
+    SevereCaseCard,
+    MonitoringConsultationDeskReportsNumberCard,
+    PositiveRateCard,
     PageHeader,
     WhatsNew,
     StaticInfo,
@@ -86,7 +117,11 @@ export default Vue.extend({
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
     MetroCard,
-    AgencyCard
+    AgencyCard,
+    PositiveNumberByDiagnosedDateCard,
+    ConfirmedCasesIncreaseRatioByWeekCard,
+    HospitalizedNumberCard,
+    MonitoringStatusOverviewCard
   },
   data() {
     const data = {

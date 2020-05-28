@@ -111,6 +111,9 @@ export default Vue.extend({
           href: 'https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css'
         }
       ],
+      // Disable prettier for readability purposes
+      // eslint-disable-next-line prettier/prettier
+      titleTemplate: `%s | ${this.$t('東京都')} ${this.$t('新型コロナウイルス感染症')}${this.$t('対策サイト')}`,
       meta: [
         {
           hid: 'author',
@@ -121,8 +124,10 @@ export default Vue.extend({
           hid: 'description',
           name: 'description',
           content:
-            convertDateToSimpleFormat(Data.lastUpdate) +
-            ' 更新：　' +
+            this.$t('{date} 更新', {
+              date: convertDateToSimpleFormat(Data.lastUpdate)
+            }) +
+            ': ' +
             this.$tc(
               '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
             )
@@ -157,8 +162,10 @@ export default Vue.extend({
           hid: 'og:description',
           property: 'og:description',
           content:
-            convertDateToSimpleFormat(Data.lastUpdate) +
-            ' 更新：　' +
+            this.$t('{date} 更新', {
+              date: convertDateToSimpleFormat(Data.lastUpdate)
+            }) +
+            ': ' +
             this.$tc(
               '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
             )

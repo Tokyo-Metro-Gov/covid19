@@ -19,22 +19,25 @@
 
     &-summary {
       display: inline-block;
+      color: $gray-2;
+      white-space: nowrap;
       font-family: Hiragino Sans, sans-serif;
       font-style: normal;
-      font-size: 30px;
       line-height: 30px;
+      @include font-size(30);
 
       &-unit {
-        font-size: 0.6em;
+        width: 100%;
+        @include font-size(18);
       }
     }
 
     &-date {
-      white-space: wrap;
       display: inline-block;
-      font-size: 12px;
-      line-height: 12px;
+      width: 100%;
       color: $gray-3;
+      line-height: initial;
+      @include font-size(12);
     }
   }
 }

@@ -14,7 +14,9 @@
           </li>
           <li>
             {{
-              $t('（注）「入院中」には、入院調整中・宿泊療養に移行した方を含む')
+              $t(
+                '（注）「重症」は、集中治療室（ICU）等での管理又は人工呼吸器管理が必要な患者数を計上'
+              )
             }}
           </li>
           <li>
@@ -54,12 +56,11 @@ export default {
       'YYYY/MM/DD HH:mm'
     )
 
-    const data = {
+    return {
       Data,
       confirmedCases,
       updatedAt
     }
-    return data
   }
 }
 </script>

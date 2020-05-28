@@ -1,9 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:infoPanel>
-      <small :class="$style.DataViewDesc">
-        <slot name="description" />
-      </small>
+    <template v-slot:description>
+      <slot name="description" />
     </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
@@ -32,7 +30,7 @@
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
-              <th>{{ item.text }}</th>
+              <th scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item[0] }}</td>
               <td class="text-end">{{ item[1] }}</td>
               <td class="text-end">{{ item[2] }}</td>
@@ -241,11 +239,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             })
           )
         })
-        .sort((a, b) => {
-          const aDate = a.text.split('~')[0]
-          const bDate = b.text.split('~')[0]
-          return aDate > bDate ? -1 : 1
-        })
+        .reverse()
     }
   },
   mounted() {
@@ -269,8 +263,8 @@ export default Vue.extend(options)
   &Desc {
     margin-top: 10px;
     margin-bottom: 0 !important;
-    font-size: 12px;
     color: $gray-3;
+    @include font-size(12);
   }
 }
 </style>

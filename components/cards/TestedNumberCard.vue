@@ -10,10 +10,18 @@
       :labels="inspectionsLabels"
       :unit="$t('件.tested')"
       :data-labels="inspectionsDataLabels"
+      :table-labels="inspectionsTableLabels"
     >
       <!-- 件.tested = 検査数 -->
-      <template v-if="$i18n.locale !== 'ja-basic'" v-slot:additionalNotes>
+      <template v-slot:description>
         <ul :class="$style.GraphDesc">
+          <li>
+            {{
+              $t(
+                '（注）検体採取日を基準とする。ただし、一部検査結果判明日に基づくものを含む'
+              )
+            }}
+          </li>
           <li>
             {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
           </li>
@@ -25,18 +33,17 @@
             }}
           </li>
         </ul>
-        <ol :class="$style.GraphDesc">
-          <li>{{ $t('※1: 疑い例・接触者調査') }}</li>
-          <li>{{ $t('※2: チャーター便・クルーズ船') }}</li>
-        </ol>
       </template>
     </time-stacked-bar-chart>
   </v-col>
 </template>
 
 <script>
+import dayjs from 'dayjs'
+import duration from 'dayjs/plugin/duration'
 import Data from '@/data/data.json'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
+dayjs.extend(duration)
 
 export default {
   components: {
@@ -44,25 +51,40 @@ export default {
   },
   data() {
     // 検査実施日別状況
-    const inspectionsGraph = [
-      Data.inspections_summary.data['都内'],
-      Data.inspections_summary.data['その他']
-    ]
+    const l = Data.inspections_summary.data['都内'].length
+    const domestic = []
+    const insurance = []
+    for (let i = 0; i < l; i++) {
+      domestic.push(
+        Data.inspections_summary.data['都内'][i] +
+          Data.inspections_summary.data['その他'][i]
+      )
+      insurance.push(Data.inspections_summary.data['保険適用分'][i])
+    }
+
+    const inspectionsGraph = [domestic, insurance]
     const inspectionsItems = [
-      this.$t('都内発生（※1）'),
-      this.$t('その他（※2）')
+      this.$t('健康安全研究センターが行った検査件数'),
+      this.$t('医療機関等が行った検査件数')
     ]
     const inspectionsLabels = Data.inspections_summary.labels
-    const inspectionsDataLabels = [this.$t('都内発生'), this.$t('その他.graph')]
+    const inspectionsDataLabels = [
+      this.$t('健康安全研究センターが行った検査件数'),
+      this.$t('医療機関等が行った検査件数')
+    ]
+    const inspectionsTableLabels = [
+      this.$t('健康安全研究センター実施分'),
+      this.$t('医療機関等実施分')
+    ]
 
-    const data = {
+    return {
       Data,
       inspectionsGraph,
       inspectionsItems,
       inspectionsLabels,
-      inspectionsDataLabels
+      inspectionsDataLabels,
+      inspectionsTableLabels
     }
-    return data
   }
 }
 </script>
@@ -73,9 +95,9 @@ export default {
     margin: 0;
     margin-top: 1rem;
     padding-left: 0 !important;
-    font-size: 12px;
     color: $gray-3;
     list-style: none;
+    @include font-size(12);
   }
 }
 </style>

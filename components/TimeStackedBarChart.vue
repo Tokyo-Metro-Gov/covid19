@@ -1,29 +1,9 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
+    <template v-slot:description>
+      <slot name="description" />
+    </template>
     <template v-slot:button>
-      <ul :class="$style.GraphDesc">
-        <li>
-          {{
-            $t(
-              '（注）日々の速報値（医療機関が保険適用で行った検査は含まない）は、毎日更新'
-            )
-          }}
-        </li>
-        <li>
-          {{
-            $t(
-              '（注）医療機関が保険適用で行った検査件数を含む検査実施件数は、毎週金曜日に前週木曜日から当該週水曜日までの日々の保険適用分の件数を反映して更新'
-            )
-          }}
-        </li>
-        <li>
-          {{
-            $t(
-              '（注）医療機関が保険適用で行った検査については、４月２２日分までを計上'
-            )
-          }}
-        </li>
-      </ul>
       <data-selector
         v-model="dataKind"
         :target-id="chartId"
@@ -97,7 +77,7 @@
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
-              <th>{{ item.text }}</th>
+              <th scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item['0'] }}</td>
               <td class="text-end">{{ item['1'] }}</td>
               <td class="text-end">{{ item['2'] }}</td>
@@ -178,6 +158,7 @@ type Props = {
   items: string[]
   labels: string[]
   dataLabels: string[] | TranslateResult[]
+  tableLabels: string[] | TranslateResult[]
   unit: string
   scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
@@ -192,6 +173,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 > = {
   created() {
     this.canvas = process.browser
+    this.dataKind =
+      this.$route.query.embed && this.$route.query.dataKind === 'cumulative'
+        ? 'cumulative'
+        : 'transition'
   },
   components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
@@ -227,6 +212,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: () => []
     },
     dataLabels: {
+      type: Array,
+      default: () => []
+    },
+    tableLabels: {
       type: Array,
       default: () => []
     },
@@ -301,7 +290,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
-        ...(this.dataLabels as string[])
+        ...(this.tableLabels as string[])
           .reduce((arr, text) => {
             arr.push(
               ...[this.$t('日別'), this.$t('累計')].map(
@@ -349,7 +338,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              let casesTotal, cases
+              let casesTotal, cases, label
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index!].toLocaleString()
                 cases = data[tooltipItem.datasetIndex!][
@@ -364,9 +353,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 ].toLocaleString()
               }
 
-              return `${
+              label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
-              }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
+              } : ${cases} ${unit}`
+              if (this.dataKind === 'cumulative') {
+                label += ` (${this.$t('合計')}: ${casesTotal} ${unit})`
+              }
+              return label
             },
             title(tooltipItem, data) {
               return String(data.labels![tooltipItem[0].index!])
@@ -638,9 +631,9 @@ export default Vue.extend(options)
     margin: 0;
     margin-bottom: 0 !important;
     padding-left: 0 !important;
-    font-size: 12px;
     color: $gray-3;
     list-style: none;
+    @include font-size(12);
   }
   &Legend {
     text-align: center;
@@ -660,7 +653,7 @@ export default Vue.extend(options)
       }
       button {
         color: $gray-3;
-        font-size: 12px;
+        @include font-size(12);
       }
     }
   }
@@ -670,9 +663,9 @@ export default Vue.extend(options)
   &Desc {
     margin-top: 10px;
     margin-bottom: 0 !important;
-    font-size: 12px;
     line-height: 15px;
     color: $gray-3;
+    @include font-size(12);
   }
 }
 </style>

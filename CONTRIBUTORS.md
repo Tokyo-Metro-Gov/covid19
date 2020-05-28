@@ -148,6 +148,29 @@ Tokyo Covid-19 response site contributors
 | [Soichi Ikebe (AQUA)](https://www.aqua-ix.com/) | [@Aqua-ix](https://github.com/Aqua-ix) | [@Aqua_ix](https://twitter.com/Aqua_ix) | Coding |
 | yuuton414 | [@yuuton414](https://github.com/yuuton414) | | Coding |
 | Hiroki Kobayashi | [@khsacc](https://github.com/khsacc) | [@khsacc](https://twitter.com/khsacc) | Coding |
+| Rafał Chłodnicki | [@rchl](https://github.com/rchl) | | nuxt-i18n |
+| Yuki Yano | [@yanoyuki](https://github.com/yanoyuki) | [@yanolii](https://twitter.com/yanolii) | Coding |
+| seuharuka | [@seuharuka](https://github.com/seuharuka) | | Coding |
+| yoshikos | [@yoshikos](https://github.com/yoshikos) | | Translation |
+| Sungpyo Cho | [@sungpyocho](https://github.com/sungpyocho) | | Translation |
+| [Taira Sano](https://www.linkedin.com/in/taira-sano-38799560/) | [@devrolerole](https://github.com/devrolerole) | | Coding |
+| [Kazuhiro Kobayashi](https://kzhrk.dev) | [@kzhrk](https://github.com/kzhrk) | | Frontend |
+| [Anharu](https://anharu2394.github.io) | [@anharu2394](https://github.com/anharu2394) | [@_anharu](https://twitter.com/_anharu) | Frontend |
+| Yuto Ashida | [@y-chan](https://github.com/y-chan) | [@Xperia_Build_Y](https://twitter.com/Xperia_Build_Y) | Coding |
+| [Hayashizaki Masayuki](https://miscre.com) | [@sakaitaka](https://github.com/sakaitaka) | | Frontend |
+| Koki Yasuda | [@cohky16](https://github.com/cohky16) | | Issue reporter |
+| Taiyu Yoshizawa | [@Nekoya3](https://github.com/Nekoya3) | [@Nekoya3_](https://twitter.com/Nekoya3_) | Coding |
+| Hikaru Hasegawa | [@telumo](https://github.com/telumo) | | Coding |
+| Tatsumi0000 | [@Tatsumi0000](https://github.com/Tatsumi0000) | [@Tatsumi0002](https://twitter.com/Tatsumi0002) | Frontend |
+| [urangurang](https://urangurang.github.io) | [@UrangUrang](https://github.com/UrangUrang) | | Coding, Translation |
+| asuchi0819 | [@asuchi0819](https://github.com/asuchi0819) | | Coding |
+| Kou-Squ | [@Kou-Squ](https://github.com/Kou-Squ) | | Translation |
+| kenem | [@kenem](https://github.com/kenem) | | Translation (Ja -> En) |
+| Marie | [@Marie](https://github.com/Marie) | | Translation (Ja -> De) |
+| Sisi | [@hello-iamsisi](https://github.com/hello-iamsisi) | | Translation Reviewer |
+| [yuu26](https://yuu26.com) | [@yuu26jp](https://github.com/yuu26jp) | [@m_on_yu](https://twitter.com/m_on_yu) | Coding |
+| Takayuki Inadome | [@InadomeLabo](https://github.com/InadomeLabo) | | Coding |
+| [MYUNG](https://1998.media) | [@1998code](https://github.com/1998code) | [@1998design](https://twitter.com/1998design) | Translation |
 
 ご協力に感謝です！！！
 
