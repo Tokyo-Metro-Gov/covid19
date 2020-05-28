@@ -83,7 +83,20 @@
         :mobile-breakpoint="0"
         class="cardTable"
         item-key="name"
-      />
+      >
+        <template v-slot:body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.text">
+              <th scope="row">{{ item.text }}</th>
+              <td class="text-end">{{ item['0'] }}</td>
+              <td class="text-end">{{ item['1'] }}</td>
+              <td class="text-end">{{ item['2'] }}</td>
+              <td class="text-end">{{ item['3'] }}</td>
+              <td class="text-end">{{ item['4'] }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-data-table>
     </template>
     <slot name="additionalNotes" />
     <template v-slot:infoPanel>
