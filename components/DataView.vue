@@ -1,5 +1,5 @@
 <template>
-  <v-card class="DataView" :loading="loading">
+  <v-card class="DataView">
     <div class="DataView-Inner">
       <div class="DataView-Header">
         <h3
@@ -10,28 +10,31 @@
         </h3>
         <slot name="infoPanel" />
       </div>
+
       <div class="DataView-Description">
         <slot name="description" />
       </div>
+
       <div>
         <slot name="button" />
       </div>
-      <div class="DataView-CardText">
+
+      <div class="DataView-Content">
         <slot />
       </div>
-      <div class="DataView-Description">
+
+      <div class="DataView-Description DataView-Description--Additional">
         <slot name="additionalDescription" />
       </div>
 
-      <data-view-table v-if="this.$slots.dataTable" class="DataView-Details">
+      <data-view-table v-if="this.$slots.dataTable" class="DataView-Table">
         <slot name="dataTable" />
       </data-view-table>
 
-      <div class="DataView-Description">
-        <slot name="footer-description" />
-      </div>
+      <div class="DataView-Space" />
+
       <div class="DataView-Footer">
-        <div class="Footer-Left">
+        <div>
           <slot name="footer" />
           <div>
             <a class="Permalink" :href="permalink">
@@ -74,11 +77,6 @@ export default Vue.extend({
     date: {
       type: String,
       default: ''
-    },
-    loading: {
-      type: Boolean,
-      required: false,
-      default: false
     }
   },
   computed: {
@@ -116,30 +114,8 @@ export default Vue.extend({
 
 <style lang="scss">
 .DataView {
-  @include card-container();
-
   height: 100%;
-
-  .LegendStickyChart {
-    margin: 16px 0;
-    position: relative;
-    overflow: hidden;
-    .scrollable {
-      overflow-x: scroll;
-      &::-webkit-scrollbar {
-        height: 4px;
-        background-color: rgba(0, 0, 0, 0.01);
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.07);
-      }
-    }
-    .sticky-legend {
-      position: absolute;
-      top: 0;
-      pointer-events: none;
-    }
-  }
+  @include card-container();
 
   &-Header {
     display: flex;
@@ -152,34 +128,8 @@ export default Vue.extend({
     }
 
     @include largerThan($large) {
-      width: 100%;
       flex-flow: row;
-      flex-wrap: wrap;
       padding: 0;
-    }
-  }
-
-  &-DataInfo {
-    &-summary {
-      color: $gray-2;
-      font-family: Hiragino Sans, sans-serif;
-      font-style: normal;
-      line-height: 30px;
-      white-space: nowrap;
-      @include font-size(30);
-
-      &-unit {
-        width: 100%;
-        @include font-size(10);
-      }
-    }
-
-    &-date {
-      line-height: 12px;
-      color: $gray-3;
-      width: 100%;
-      display: inline-block;
-      @include font-size(12);
     }
   }
 
@@ -200,21 +150,54 @@ export default Vue.extend({
 
     @include largerThan($large) {
       margin-bottom: 0;
+
       &.with-infoPanel {
         width: 50%;
       }
     }
   }
 
-  &-CardText {
+  &-Content {
     margin: 16px 0;
   }
 
+  &-Space {
+    margin-top: 10px;
+  }
+
   &-Description {
-    margin: 10px 0 0;
+    margin-top: 10px;
     color: $gray-3;
     @include font-size(12);
 
+    &--Additional {
+      margin-bottom: 10px;
+    }
+  }
+
+  &-Table {
+    margin-bottom: 10px;
+  }
+
+  &-Footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    color: $gray-3;
+    @include font-size(12);
+
+    .Permalink {
+      color: $gray-3 !important;
+    }
+
+    .Footer-Right {
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+
+  &-Description,
+  &-Footer {
     ul,
     ol {
       list-style-type: none;
@@ -222,56 +205,28 @@ export default Vue.extend({
     }
   }
 
-  &-Details {
-    margin: 10px 0;
-  }
+  .LegendStickyChart {
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
 
-  &-DetailsSummary {
-    @include font-size(14);
+    .scrollable {
+      overflow-x: scroll;
 
-    color: $gray-2;
-    cursor: pointer;
-  }
+      &::-webkit-scrollbar {
+        height: 4px;
+        background-color: rgba(0, 0, 0, 0.01);
+      }
 
-  &-CardTextForXS {
-    margin-bottom: 46px;
-    margin-top: 70px;
-  }
-
-  &-Embed {
-    background-color: $gray-5;
-  }
-
-  &-Footer {
-    @include font-size(12);
-
-    padding: 0 !important;
-    display: flex;
-    justify-content: space-between;
-    margin-top: auto;
-    color: $gray-3 !important;
-    text-align: right;
-    background-color: $white !important;
-
-    .Permalink {
-      color: $gray-3 !important;
-    }
-
-    .OpenDataLink {
-      text-decoration: none;
-
-      .ExternalLinkIcon {
-        vertical-align: text-bottom;
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.07);
       }
     }
 
-    .Footer-Left {
-      text-align: left;
-    }
-
-    .Footer-Right {
-      display: flex;
-      align-items: flex-end;
+    .sticky-legend {
+      position: absolute;
+      top: 0;
+      pointer-events: none;
     }
   }
 }

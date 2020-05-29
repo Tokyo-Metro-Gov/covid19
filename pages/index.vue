@@ -47,14 +47,12 @@
       <confirmed-cases-by-municipalities-card />
       <!-- 検査実施状況 -->
       <tested-cases-details-card />
-      <v-col class="DesktopSpacer" />
-      <!-- 検査実施人数 -->
-      <inspection-persons-number-card />
       <!-- 検査実施件数 -->
       <tested-number-card />
+      <!-- 検査実施人数（健康安全研究センターによる実施分） -->
+      <inspection-persons-number-card />
       <!-- PCR検査陽性者の発生動向（確定日別による陽性者数の推移） -->
       <positive-number-by-diagnosed-date-card />
-      <v-col class="DesktopSpacer" />
       <!-- 新型コロナコールセンター相談件数 -->
       <telephone-advisory-reports-number-card />
       <!-- 新型コロナ受診相談窓口相談件数 -->
@@ -187,13 +185,6 @@ export default Vue.extend({
 
       @include lessThan($small) {
         padding: 4px 8px;
-      }
-    }
-
-    .DesktopSpacer {
-      padding: 0;
-      @media screen and (min-width: 960px) {
-        padding: 10px;
       }
     }
   }
