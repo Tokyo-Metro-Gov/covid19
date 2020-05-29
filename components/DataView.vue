@@ -23,7 +23,7 @@
         <slot />
       </div>
 
-      <div class="DataView-Description">
+      <div class="DataView-Description DataView-Description--Additional">
         <slot name="additionalDescription" />
       </div>
 
@@ -170,15 +170,13 @@ export default Vue.extend({
     color: $gray-3;
     @include font-size(12);
 
-    ul,
-    ol {
-      list-style-type: none;
-      padding: 0;
+    &--Additional {
+      margin-bottom: 10px;
     }
   }
 
   &-Table {
-    margin: 10px 0;
+    margin-bottom: 10px;
   }
 
   &-Footer {
@@ -195,6 +193,15 @@ export default Vue.extend({
     .Footer-Right {
       display: flex;
       align-items: flex-end;
+    }
+  }
+
+  &-Description,
+  &-Footer {
+    ul,
+    ol {
+      list-style-type: none;
+      padding: 0;
     }
   }
 
