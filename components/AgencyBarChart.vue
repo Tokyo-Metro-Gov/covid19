@@ -257,14 +257,3 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
 export default Vue.extend(options)
 </script>
-
-<style module lang="scss">
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    color: $gray-3;
-    @include font-size(12);
-  }
-}
-</style>

@@ -13,14 +13,16 @@
             v-if="i === 1"
             :style="{
               background: `repeating-linear-gradient(90deg, ${colors[1].fillColor}, ${colors[1].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0
+              border: 0,
+              height: '2px'
             }"
           />
           <div
             v-else-if="i === 2"
             :style="{
               background: colors[1].fillColor,
-              borderColor: colors[1].strokeColor
+              border: 0,
+              height: '2px'
             }"
           />
           <div
