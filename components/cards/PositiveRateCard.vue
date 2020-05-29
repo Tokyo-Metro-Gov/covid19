@@ -12,7 +12,7 @@
       :table-labels="positiveRateTableLabels"
     >
       <template v-slot:additionalDescription>
-        <ul :class="$style.GraphDesc">
+        <ul>
           <li>
             {{
               $t(
@@ -105,16 +105,3 @@ export default {
   }
 }
 </script>
-
-<style module lang="scss">
-.Graph {
-  &Desc {
-    margin: 0;
-    margin-top: 1rem;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
-}
-</style>

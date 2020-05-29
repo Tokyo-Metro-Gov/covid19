@@ -40,7 +40,7 @@
       </v-data-table>
     </template>
     <template v-slot:footer>
-      <ul :class="$style.DataViewDesc">
+      <ul>
         <li>
           <external-link
             url="https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf"
@@ -271,16 +271,3 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
 export default Vue.extend(options)
 </script>
-
-<style module lang="scss">
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
-}
-</style>
