@@ -7,13 +7,18 @@
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
     >
-      <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
+      <li
+        v-for="(dataLabel, i) in dataLabels"
+        :key="i"
+        @click="onClickLegend(i)"
+      >
         <button>
           <div
             v-if="i === 3"
             :style="{
               background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0
+              border: 0,
+              height: '2px'
             }"
           />
           <div
@@ -27,7 +32,7 @@
             :style="{
               textDecoration: displayLegends[i] ? 'none' : 'line-through'
             }"
-            >{{ item }}</span
+            >{{ dataLabel }}</span
           >
         </button>
       </li>
@@ -92,7 +97,6 @@
         </template>
       </v-data-table>
     </template>
-    <slot name="additionalNotes" />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -167,7 +171,6 @@ type Props = {
   chartId: string
   chartData: number[][]
   date: string
-  items: string[]
   labels: string[]
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
@@ -212,10 +215,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       required: true,
       default: ''
-    },
-    items: {
-      type: Array,
-      default: () => []
     },
     labels: {
       type: Array,
@@ -290,7 +289,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'bar',
             yAxisID: 'y-axis-1',
-            label: this.items[0],
+            label: this.dataLabels[0],
             data: this.chartData[0],
             backgroundColor: graphSeries[0].fillColor,
             borderColor: graphSeries[0].strokeColor,
@@ -300,7 +299,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'bar',
             yAxisID: 'y-axis-1',
-            label: this.items[1],
+            label: this.dataLabels[1],
             data: this.chartData[1],
             backgroundColor: graphSeries[1].fillColor,
             borderColor: graphSeries[1].strokeColor,
@@ -310,7 +309,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'line',
             yAxisID: 'y-axis-2',
-            label: this.items[2],
+            label: this.dataLabels[2],
             data: this.chartData[2],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
@@ -323,7 +322,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'line',
             yAxisID: 'y-axis-2',
-            label: this.items[3],
+            label: this.dataLabels[3],
             data: this.makeLineData(this.additionalLines[0]),
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
@@ -698,15 +697,6 @@ export default Vue.extend(options)
 
 <style module lang="scss">
 .Graph {
-  &Desc {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 0 !important;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
   &Legend {
     text-align: center;
     list-style: none;
@@ -728,16 +718,6 @@ export default Vue.extend(options)
         @include font-size(12);
       }
     }
-  }
-}
-
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    line-height: 15px;
-    color: $gray-3;
-    @include font-size(12);
   }
 }
 </style>

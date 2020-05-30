@@ -6,11 +6,28 @@
       :date="monitoringStatusData.date"
     >
       <template v-slot:additionalDescription>
-        <ul :class="$style.notes">
+        <ul>
           <li>
             {{
               $t(
                 '※（1）、（2）、（6）、（7）は、7日間移動平均で算出（たとえば、5月7日の移動平均値は、5月1日から5月7日までの実績値を平均したもの）。また、（1）の数字が10人以下となった場合は、（2）及び（3）は参考値とする'
+              )
+            }}
+          </li>
+          <li>
+            {{
+              $t(
+                '※（4）（5）の目安となる数値は、患者数に応じた病床の確保数を参考として記載している。'
+              )
+            }}<br />
+            {{
+              $t(
+                '（4）重症患者数 レベル1：100床 → レベル2：300床 → レベル3：700床'
+              )
+            }}<br />
+            {{
+              $t(
+                '（5）入院患者数 レベル1：1,000床 → レベル2：3,000床 → レベル3：4,000床'
               )
             }}
           </li>
@@ -40,20 +57,6 @@
     </data-view>
   </v-col>
 </template>
-
-<style lang="scss" module>
-ul.notes {
-  margin-top: 10px;
-  margin-bottom: 0;
-  padding-left: 0 !important;
-  color: $gray-3;
-  @include font-size(12);
-
-  > li {
-    list-style-type: none;
-  }
-}
-</style>
 
 <script>
 import monitoringStatusData from '@/data/monitoring_status.json'
