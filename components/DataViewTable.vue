@@ -35,6 +35,9 @@ export type TableHeader = {
   align?: string
 }
 export type TableItem = {
+  text: string
+  transition?: string
+  cumulative?: string
   [key: number]: number
 }
 type Data = {}
