@@ -62,30 +62,7 @@
       />
     </div>
     <template v-slot:dataTable>
-      <v-data-table
-        :headers="tableHeaders"
-        :items="tableData"
-        :items-per-page="-1"
-        :hide-default-footer="true"
-        :height="240"
-        :fixed-header="true"
-        :disable-sort="true"
-        :mobile-breakpoint="0"
-        class="cardTable"
-        item-key="name"
-      >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
-              <td class="text-end">{{ item['0'] }}</td>
-              <td class="text-end">{{ item['1'] }}</td>
-              <td class="text-end">{{ item['2'] }}</td>
-              <td class="text-end">{{ item['3'] }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
+      <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
@@ -108,6 +85,10 @@ import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
+import DataViewTable, {
+  TableHeader,
+  TableItem
+} from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
@@ -142,13 +123,8 @@ type Computed = {
   displayDataHeader: DisplayData
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
-  tableHeaders: {
-    text: TranslateResult
-    value: string
-  }[]
-  tableData: {
-    [key: number]: number
-  }[]
+  tableHeaders: TableHeader[]
+  tableData: TableItem[]
 }
 
 type Props = {
@@ -180,7 +156,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         ? 'cumulative'
         : 'transition'
   },
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: {
+    DataView,
+    DataSelector,
+    DataViewTable,
+    DataViewBasicInfoPanel
+  },
   props: {
     title: {
       type: String,
