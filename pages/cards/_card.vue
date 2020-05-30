@@ -99,7 +99,7 @@ export default {
     switch (this.$route.params.card) {
       case 'details-of-confirmed-cases':
         title = this.$t('検査陽性者の状況')
-        updatedAt = Data.inspections_summary.date
+        updatedAt = Data.inspection_persons.date
         break
       case 'details-of-tested-cases':
         title = this.$t('検査実施状況')
@@ -154,14 +154,14 @@ export default {
     return data
   },
   head() {
-    const url = 'https://stopcovid19-shizuoka-dev.netlify.com/'
+    const url = 'https://stopcovid19.code4numazu.org/'
     const timestamp = new Date().getTime()
     const ogpImage =
       this.$i18n.locale === 'ja'
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
     const description = `${this.updatedAt} | ${this.$t(
-      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、静岡県とCode for ふじのくにが開設したものです。'
     )}`
 
     return {
@@ -178,7 +178,7 @@ export default {
           content:
             this.title +
             ' | ' +
-            this.$t('東京都') +
+            this.$t('静岡県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             this.$t('対策サイト')
