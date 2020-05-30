@@ -66,6 +66,7 @@ export default Vue.extend({
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
+    TestedNumberCard,
     InspectionPersonsNumberCard,
     ConsultationDeskReportsNumberCard
   },
