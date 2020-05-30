@@ -14,10 +14,11 @@
       >
         <button>
           <div
-            v-if="i >= 2"
+            v-if="i === 2"
             :style="{
               backgroundColor: '#CC7004',
-              borderColor: '#CC7004'
+              border: 0,
+              height: '3px'
             }"
           />
           <div
