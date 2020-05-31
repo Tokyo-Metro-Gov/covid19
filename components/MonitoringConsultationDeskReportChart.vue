@@ -7,6 +7,15 @@
       <li v-for="(item, i) in dataLabels" :key="i" @click="onClickLegend(i)">
         <button>
           <div
+            v-if="i === 1"
+            :style="{
+              backgroundColor: colors[i].fillColor,
+              border: 0,
+              height: '3px'
+            }"
+          />
+          <div
+            v-else
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor
