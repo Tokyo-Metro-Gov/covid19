@@ -87,7 +87,7 @@
         <template v-slot:body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
+              <th class="text-nowrap" scope="row">{{ item.text }}</th>
               <td class="text-end">{{ item['0'] }}</td>
               <td class="text-end">{{ item['1'] }}</td>
               <td class="text-end">{{ item['2'] }}</td>
@@ -256,10 +256,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
+      const date = this.$d(
+        new Date(this.labels[this.labels.length - 1]),
+        'dateWithoutYear'
+      )
       return {
         lText: this.pickLastNumber(this.chartData)[2].toLocaleString(),
         sText: `${this.$t('{date}の数値', {
-          date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
+          date
         })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
           this.unit
         }）`,
@@ -319,7 +323,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.labels
         .map((label, i) => {
           return Object.assign(
-            { text: dayjs(label).format('M/D') },
+            { text: this.$d(new Date(label), 'dateWithoutYear') },
             ...this.tableHeaders.map((_, j) => {
               if (j <= 1) {
                 const data = this.chartData[j]
@@ -347,6 +351,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
+      const self = this
       const unit = this.unit
       const data = this.chartData
       const options: Chart.ChartOptions = {
@@ -368,10 +373,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               return label
             },
             title(tooltipItem, data) {
-              const date = dayjs(
-                data.labels![tooltipItem[0].index!].toString()
-              ).format('M/D')
-              return String(date)
+              const label = data.labels![tooltipItem[0].index!].toString()
+              return self.$d(new Date(label), 'dateWithoutYear')
             }
           }
         },

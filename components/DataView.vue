@@ -39,7 +39,7 @@
           <div>
             <a class="Permalink" :href="permalink">
               <time :datetime="formattedDate">
-                {{ $t('{date} 更新', { date }) }}
+                {{ $t('{date} 更新', { date: formattedDateForDisplay }) }}
               </time>
             </a>
           </div>
@@ -82,6 +82,9 @@ export default Vue.extend({
   computed: {
     formattedDate(): string {
       return convertDatetimeToISO8601Format(this.date)
+    },
+    formattedDateForDisplay(): string {
+      return this.$d(new Date(this.date), 'dateTime')
     },
     permalink(): string {
       const permalink = '/cards/' + this.titleId
@@ -172,6 +175,25 @@ export default Vue.extend({
 
     &--Additional {
       margin-bottom: 10px;
+    }
+
+    ul,
+    ol {
+      list-style-type: none;
+      padding: 0;
+    }
+  }
+
+  &-Details {
+    margin: 10px 0;
+
+    .v-data-table {
+      .text-end {
+        text-align: right;
+      }
+      .text-nowrap {
+        white-space: nowrap;
+      }
     }
   }
 
