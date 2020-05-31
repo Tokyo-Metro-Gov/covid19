@@ -26,17 +26,13 @@
           <v-icon>
             mdi-chart-timeline-variant
           </v-icon>
-          {{
-            $t('モニタリング指標')
-          }}
+          {{ $t('モニタリング指標') }}
         </v-tab>
         <v-tab>
           <v-icon>
             mdi-chart-timeline-variant
           </v-icon>
-          {{
-            $t('その他 参考指標')
-          }}
+          {{ $t('その他 参考指標') }}
         </v-tab>
         <v-tab-item>
           <card-row class="DataBlock">
