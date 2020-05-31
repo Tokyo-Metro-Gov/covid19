@@ -14,11 +14,11 @@
     >
       <!-- 件.tested = 検査数 -->
       <template v-slot:description>
-        <ul :class="$style.GraphDesc">
+        <ul>
           <li>
             {{
               $t(
-                '（注）検査結果の判明日を基準とする。ただし、一部検体採取日に基づくものを含む'
+                '（注）検体採取日を基準とする。ただし、一部検査結果判明日に基づくものを含む'
               )
             }}
           </li>
@@ -77,7 +77,7 @@ export default {
       this.$t('医療機関等実施分')
     ]
 
-    const data = {
+    return {
       Data,
       inspectionsGraph,
       inspectionsItems,
@@ -85,20 +85,6 @@ export default {
       inspectionsDataLabels,
       inspectionsTableLabels
     }
-    return data
   }
 }
 </script>
-
-<style module lang="scss">
-.Graph {
-  &Desc {
-    margin: 0;
-    margin-top: 1rem;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
-}
-</style>

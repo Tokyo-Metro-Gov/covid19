@@ -1,19 +1,18 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <positive-rate-mixed-chart
-      :title="$t('検査実施人数（陰性確認を除く）と陽性率の推移')"
+      :title="$t('モニタリング指標(6)PCR検査の陽性率')"
       :title-id="'positive-rate'"
       :chart-id="'positive-rate-chart'"
       :chart-data="positiveRateGraph"
       :date="PositiveRate.date"
-      :items="positiveRateItems"
       :labels="positiveRateLabels"
-      :unit="$t('人')"
+      unit="%"
       :data-labels="positiveRateDataLabels"
       :table-labels="positiveRateTableLabels"
     >
-      <template v-slot:description>
-        <ul :class="$style.GraphDesc">
+      <template v-slot:additionalDescription>
+        <ul>
           <li>
             {{
               $t(
@@ -34,7 +33,7 @@
           <li>
             {{
               $t(
-                '（注）5月7日以降は（１）東京都健康安全研究センター、（２）PCRセンター（地域外来・検査センター）、（３）医療機関での保険適用検査実績により算出。4月10日～5月6日は（３）が含まれず（１）（２）のみ、4月9日以前は（２）（３）が含まれず（１）のみのデータ'
+                '（注）5月7日以降は(1)東京都健康安全研究センター、(2)PCRセンター（地域外来・検査センター）、(3)医療機関での保険適用検査実績により算出。4月10日～5月6日は(3)が含まれず(1)(2)のみ、4月9日以前は(2)(3)が含まれず(1)のみのデータ'
               )
             }}
           </li>
@@ -84,11 +83,6 @@ export default {
     }
 
     const positiveRateGraph = [positiveCount, negativeCount, positiveRates]
-    const positiveRateItems = [
-      this.$t('陽性者数'),
-      this.$t('陰性者数'),
-      this.$t('陽性率')
-    ]
     const positiveRateDataLabels = [
       this.$t('陽性者数'),
       this.$t('陰性者数'),
@@ -101,28 +95,13 @@ export default {
       this.$t('陽性率')
     ]
 
-    const data = {
+    return {
       PositiveRate,
       positiveRateGraph,
-      positiveRateItems,
       positiveRateLabels,
       positiveRateDataLabels,
       positiveRateTableLabels
     }
-    return data
   }
 }
 </script>
-
-<style module lang="scss">
-.Graph {
-  &Desc {
-    margin: 0;
-    margin-top: 1rem;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
-}
-</style>

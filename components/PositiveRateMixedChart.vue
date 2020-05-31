@@ -7,7 +7,11 @@
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
     >
-      <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
+      <li
+        v-for="(dataLabel, i) in dataLabels"
+        :key="i"
+        @click="onClickLegend(i)"
+      >
         <button>
           <div
             v-if="i >= 2"
@@ -27,7 +31,7 @@
             :style="{
               textDecoration: displayLegends[i] ? 'none' : 'line-through'
             }"
-            >{{ item }}</span
+            >{{ dataLabel }}</span
           >
         </button>
       </li>
@@ -64,6 +68,9 @@
         />
       </div>
     </div>
+    <template v-slot:additionalDescription>
+      <slot name="additionalDescription" />
+    </template>
     <template v-slot:dataTable>
       <v-data-table
         :headers="tableHeaders"
@@ -90,12 +97,11 @@
         </template>
       </v-data-table>
     </template>
-    <slot name="additionalNotes" />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
-        unit="%"
+        :unit="displayInfo.unit"
       />
     </template>
   </data-view>
@@ -129,15 +135,14 @@ type Data = {
   width: number
 }
 type Methods = {
-  sum: (array: number[]) => number
-  cumulative: (array: number[]) => number[]
   pickLastNumber: (chartDataArray: number[][]) => number[]
-  cumulativeSum: (chartDataArray: number[][]) => number[]
-  eachArraySum: (chartDataArray: number[][]) => number[]
+  pickLastSecondNumber: (chartDataArray: number[][]) => number[]
   onClickLegend: (i: number) => void
+  formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
 
 type Computed = {
+  displayTransitionRatio: string
   displayInfo: {
     lText: string
     sText: string
@@ -164,7 +169,6 @@ type Props = {
   chartId: string
   chartData: number[][]
   date: string
-  items: string[]
   labels: string[]
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
@@ -209,10 +213,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: true,
       default: ''
     },
-    items: {
-      type: Array,
-      default: () => []
-    },
     labels: {
       type: Array,
       default: () => []
@@ -250,6 +250,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     width: 300
   }),
   computed: {
+    displayTransitionRatio() {
+      const lastDay = this.pickLastNumber(this.chartData)[2]
+      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[2]
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+    },
     displayInfo() {
       const date = this.$d(
         new Date(this.labels[this.labels.length - 1]),
@@ -257,7 +262,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       )
       return {
         lText: this.pickLastNumber(this.chartData)[2].toLocaleString(),
-        sText: `${this.$t('{date}の陽性率', { date })}`,
+        sText: `${this.$t('{date}の数値', {
+          date
+        })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+          this.unit
+        }）`,
         unit: this.unit
       }
     },
@@ -269,7 +278,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'bar',
             yAxisID: 'y-axis-1',
-            label: this.items[0],
+            label: this.dataLabels[0],
             data: this.chartData[0],
             backgroundColor: graphSeries[0].fillColor,
             borderColor: graphSeries[0].strokeColor,
@@ -279,7 +288,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'bar',
             yAxisID: 'y-axis-1',
-            label: this.items[1],
+            label: this.dataLabels[1],
             data: this.chartData[1],
             backgroundColor: graphSeries[1].fillColor,
             borderColor: graphSeries[1].strokeColor,
@@ -289,7 +298,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'line',
             yAxisID: 'y-axis-2',
-            label: this.items[2],
+            label: this.dataLabels[2],
             data: this.chartData[2],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
@@ -355,11 +364,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ].toLocaleString()
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
-              } : ${cases} ${unit}`
+              } : ${cases} ${this.$t('人')}`
               if (this.dataLabels[tooltipItem.datasetIndex!] === '陽性率') {
                 label = `${
                   this.dataLabels[tooltipItem.datasetIndex!]
-                } : ${cases} %`
+                } : ${cases} ${unit}`
               }
               return label
             },
@@ -613,38 +622,26 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       this.displayLegends[i] = !this.displayLegends[i]
       this.displayLegends = this.displayLegends.slice()
     },
-    cumulative(array: number[]): number[] {
-      const cumulativeArray: number[] = []
-      let patSum = 0
-      array.forEach(d => {
-        patSum += d
-        cumulativeArray.push(patSum)
-      })
-      return cumulativeArray
-    },
-    sum(array: number[]): number {
-      return array.reduce((acc, cur) => {
-        return acc + cur
-      })
-    },
     pickLastNumber(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
         return array[array.length - 1]
       })
     },
-    cumulativeSum(chartDataArray: number[][]) {
+    pickLastSecondNumber(chartDataArray: number[][]) {
       return chartDataArray.map(array => {
-        return array.reduce((acc, cur) => {
-          return acc + cur
-        })
+        return array[array.length - 2]
       })
     },
-    eachArraySum(chartDataArray: number[][]) {
-      const sumArray: number[] = []
-      for (let i = 0; i < chartDataArray[0].length; i++) {
-        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
+    formatDayBeforeRatio(dayBeforeRatio: number): string {
+      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
+      switch (Math.sign(dayBeforeRatio)) {
+        case 1:
+          return `+${dayBeforeRatioLocaleString}`
+        case -1:
+          return `${dayBeforeRatioLocaleString}`
+        default:
+          return `${dayBeforeRatioLocaleString}`
       }
-      return sumArray
     }
   },
   mounted() {
@@ -676,15 +673,6 @@ export default Vue.extend(options)
 
 <style module lang="scss">
 .Graph {
-  &Desc {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 0 !important;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
   &Legend {
     text-align: center;
     list-style: none;
@@ -706,16 +694,6 @@ export default Vue.extend(options)
         @include font-size(12);
       }
     }
-  }
-}
-
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    line-height: 15px;
-    color: $gray-3;
-    @include font-size(12);
   }
 }
 </style>

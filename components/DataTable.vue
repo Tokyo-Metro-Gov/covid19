@@ -38,7 +38,7 @@
         }}
       </template>
     </v-data-table>
-    <div class="note">
+    <template v-slot:additionalDescription>
       <ul>
         <li>
           {{ $t('※退院は、保健所から報告があり、確認ができているものを反映') }}
@@ -47,7 +47,7 @@
           {{ $t('※死亡退院を含む') }}
         </li>
       </ul>
-    </div>
+    </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="info.lText"
@@ -119,17 +119,6 @@
   }
   .v-data-footer__select .v-select__selections .v-select__selection--comma {
     font-size: 1.2rem;
-  }
-}
-.note {
-  margin: 8px 0 0;
-  color: $gray-3;
-  @include font-size(12);
-
-  ul,
-  ol {
-    list-style-type: none;
-    padding: 0;
   }
 }
 .v-menu__content {

@@ -81,13 +81,12 @@ export default {
       })
     }
 
-    const data = {
+    return {
       Data,
       date,
       municipalitiesTable,
       info
     }
-    return data
   }
 }
 </script>

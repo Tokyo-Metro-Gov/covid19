@@ -201,9 +201,9 @@ export default Vue.extend({
           link: 'https://covid19.supportnavi.metro.tokyo.lg.jp/'
         },
         {
-          title: this.$t('東京都主催等 中止又は延期するイベント等'),
+          title: this.$t('休止中の都民利用施設の再開等'),
           link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html'
+            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/facility02.html'
         },
         {
           title: this.$t('東京都における滞在人口の増減'),

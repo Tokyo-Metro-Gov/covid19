@@ -1,9 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:infoPanel>
-      <small :class="$style.DataViewDesc">
-        <slot name="description" />
-      </small>
+    <template v-slot:description>
+      <slot name="description" />
     </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
@@ -42,7 +40,7 @@
       </v-data-table>
     </template>
     <template v-slot:footer>
-      <ul :class="$style.DataViewDesc">
+      <ul>
         <li>
           <external-link
             url="https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf"
@@ -234,7 +232,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
-                  return value.toFixed(2) + self.unit
+                  return (
+                    (typeof value === 'number' ? value : Number(value)).toFixed(
+                      2
+                    ) + self.unit
+                  )
                 }
               }
             }
@@ -269,16 +271,3 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
 export default Vue.extend(options)
 </script>
-
-<style module lang="scss">
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
-}
-</style>

@@ -20,9 +20,6 @@
             }}
           </li>
           <li>
-            {{ $t('（注）「退院等」には、療養期間経過を含む。') }}
-          </li>
-          <li>
             {{
               $t(
                 '（注）退院者数の把握には一定の期間を要しており、確認次第数値を更新している'
@@ -59,12 +56,11 @@ export default {
       'YYYY/MM/DD HH:mm'
     )
 
-    const data = {
+    return {
       Data,
       confirmedCases,
       updatedAt
     }
-    return data
   }
 }
 </script>

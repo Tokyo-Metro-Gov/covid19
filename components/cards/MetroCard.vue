@@ -69,13 +69,12 @@ export default {
       })
     }
 
-    const data = {
+    return {
       Data,
       metroGraph,
       metroGraphTooltipTitle,
       metroGraphTooltipLabel
     }
-    return data
   },
   methods: {
     /**

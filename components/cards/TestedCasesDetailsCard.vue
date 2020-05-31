@@ -5,8 +5,8 @@
       :title-id="'details-of-tested-cases'"
       :date="Data.inspection_status_summary.date"
     >
-      <template v-slot:button>
-        <ul :class="$style.notes">
+      <template v-slot:description>
+        <ul>
           <li>
             {{
               $t(
@@ -31,20 +31,6 @@
   </v-col>
 </template>
 
-<style lang="scss" module>
-ul.notes {
-  margin-top: 10px;
-  margin-bottom: 0;
-  padding-left: 0 !important;
-  color: $gray-3;
-  @include font-size(12);
-
-  > li {
-    list-style-type: none;
-  }
-}
-</style>
-
 <script>
 import Data from '@/data/data.json'
 import formatTestedCases from '@/utils/formatTestedCases'
@@ -60,11 +46,10 @@ export default {
     // 検査陽性者の状況
     const testedCases = formatTestedCases(Data.inspection_status_summary)
 
-    const data = {
+    return {
       Data,
       testedCases
     }
-    return data
   }
 }
 </script>
