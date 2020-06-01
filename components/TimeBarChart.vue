@@ -1,5 +1,8 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
+    <template v-slot:attentionNote>
+      <slot name="attentionNote" />
+    </template>
     <template v-slot:description>
       <slot name="description" />
     </template>
