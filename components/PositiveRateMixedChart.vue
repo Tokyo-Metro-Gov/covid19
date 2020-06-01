@@ -318,7 +318,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      let cumulative = 0
+      // 2月14日以前の分39件を累計値に足す
+      let cumulative = 39
       return this.labels
         .map((label, i) => {
           let [dailySum, data] = [0, 0]
