@@ -14,15 +14,7 @@
       >
         <button>
           <div
-            v-if="i === 2"
-            :style="{
-              backgroundColor: colors[i].fillColor,
-              border: 0,
-              height: '3px'
-            }"
-          />
-          <div
-            v-else-if="i === 3"
+            v-if="i === 3"
             :style="{
               background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
               border: 0,
@@ -81,7 +73,29 @@
       <slot name="additionalDescription" />
     </template>
     <template v-slot:dataTable>
-      <data-view-table :headers="tableHeaders" :items="tableData" />
+      <v-data-table
+        :headers="tableHeaders"
+        :items="tableData"
+        :items-per-page="-1"
+        :hide-default-footer="true"
+        :height="240"
+        :fixed-header="true"
+        :disable-sort="true"
+        :mobile-breakpoint="0"
+        class="cardTable"
+        item-key="name"
+      >
+        <template v-slot:body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.text">
+              <th scope="row">{{ item.text }}</th>
+              <td class="text-end">{{ item['0'] }}</td>
+              <td class="text-end">{{ item['1'] }}</td>
+              <td class="text-end">{{ item['2'] }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-data-table>
     </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -100,10 +114,7 @@ import { TranslateResult } from 'vue-i18n'
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
-import DataViewTable, {
-  TableHeader,
-  TableItem
-} from '@/components/DataViewTable.vue'
+import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import {
   DisplayData,
@@ -145,8 +156,13 @@ type Computed = {
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
   scaledTicksYAxisMaxRight: number
-  tableHeaders: TableHeader[]
-  tableData: TableItem[]
+  tableHeaders: {
+    text: TranslateResult
+    value: string
+  }[]
+  tableData: {
+    [key: number]: number
+  }[]
 }
 
 type Props = {
@@ -175,11 +191,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: {
-    DataView,
-    DataViewTable,
-    DataViewBasicInfoPanel
-  },
+  components: { DataView, DataSelector, DataViewBasicInfoPanel },
   props: {
     title: {
       type: String,
