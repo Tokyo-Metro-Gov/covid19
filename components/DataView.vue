@@ -11,10 +11,7 @@
         <slot name="infoPanel" />
       </div>
 
-      <div
-        v-if="this.$slots.attentionNote"
-        class="DataView-AttentionNote"
-      >
+      <div v-if="this.$slots.attentionNote" class="DataView-AttentionNote">
         <slot name="attentionNote" />
       </div>
 
