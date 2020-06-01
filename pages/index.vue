@@ -29,8 +29,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import SiteTopUpper from "@/components/SiteTopUpper.vue";
-import CardsTabs from "@/components/CardsTabs.vue";
+import SiteTopUpper from '@/components/SiteTopUpper.vue'
+import CardsTabs from '@/components/CardsTabs.vue'
 import CardRow from '@/components/cards/CardRow.vue'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'

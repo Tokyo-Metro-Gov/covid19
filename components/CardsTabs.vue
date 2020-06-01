@@ -1,8 +1,5 @@
 <template>
-  <v-tabs
-    hide-slider
-    show-arrows
-  >
+  <v-tabs hide-slider show-arrows>
     <v-tab
       v-for="(tab, index) in tabs"
       :key="index"

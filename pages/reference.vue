@@ -31,8 +31,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import SiteTopUpper from '@/components/SiteTopUpper.vue';
-import CardsTabs from '@/components/CardsTabs.vue';
+import SiteTopUpper from '@/components/SiteTopUpper.vue'
+import CardsTabs from '@/components/CardsTabs.vue'
 import CardRow from '@/components/cards/CardRow.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
