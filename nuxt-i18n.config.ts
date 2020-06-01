@@ -1,5 +1,25 @@
 import { NuxtVueI18n } from 'nuxt-i18n'
 
+const dateTimeFormatsCommon = {
+  dateTime: {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false
+  },
+  date: {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  },
+  dateWithoutYear: {
+    month: 'long',
+    day: 'numeric'
+  }
+}
+
 const options: NuxtVueI18n.Options.AllOptionsInterface = {
   strategy: 'prefix_except_default',
   detectBrowserLanguage: {
