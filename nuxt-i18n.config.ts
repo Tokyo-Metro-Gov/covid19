@@ -15,7 +15,7 @@ const dateTimeFormatsCommon = {
     day: 'numeric'
   },
   dateWithoutYear: {
-    month: 'short',
+    month: 'long',
     day: 'numeric'
   }
 }
