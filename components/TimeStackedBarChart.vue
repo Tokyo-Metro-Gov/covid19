@@ -236,7 +236,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.$t('{date}の合計', {
+        sText: `${this.$t('{date}の全体累計', {
           date: this.labels[this.labels.length - 1]
         })}`,
         unit: this.unit
