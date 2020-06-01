@@ -27,12 +27,9 @@
         <slot name="additionalDescription" />
       </div>
 
-      <data-view-expantion-panel
-        v-if="this.$slots.dataTable"
-        class="DataView-ExpantionPanel"
-      >
+      <data-view-table v-if="this.$slots.dataTable" class="DataView-Table">
         <slot name="dataTable" />
-      </data-view-expantion-panel>
+      </data-view-table>
 
       <div class="DataView-Space" />
 
@@ -42,7 +39,7 @@
           <div>
             <a class="Permalink" :href="permalink">
               <time :datetime="formattedDate">
-                {{ $t('{date} 更新', { date: formattedDateForDisplay }) }}
+                {{ $t('{date} 更新', { date }) }}
               </time>
             </a>
           </div>
@@ -63,11 +60,11 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
-import DataViewExpantionPanel from '@/components/DataViewExpantionPanel.vue'
+import DataViewTable from '@/components/DataViewTable.vue'
 import DataViewShare from '@/components/DataViewShare.vue'
 
 export default Vue.extend({
-  components: { DataViewExpantionPanel, DataViewShare },
+  components: { DataViewTable, DataViewShare },
   props: {
     title: {
       type: String,
@@ -85,9 +82,6 @@ export default Vue.extend({
   computed: {
     formattedDate(): string {
       return convertDatetimeToISO8601Format(this.date)
-    },
-    formattedDateForDisplay(): string {
-      return this.$d(new Date(this.date), 'dateTime')
     },
     permalink(): string {
       const permalink = '/cards/' + this.titleId
@@ -179,28 +173,9 @@ export default Vue.extend({
     &--Additional {
       margin-bottom: 10px;
     }
-
-    ul,
-    ol {
-      list-style-type: none;
-      padding: 0;
-    }
   }
 
-  &-Details {
-    margin: 10px 0;
-
-    .v-data-table {
-      .text-end {
-        text-align: right;
-      }
-      .text-nowrap {
-        white-space: nowrap;
-      }
-    }
-  }
-
-  &-ExpantionPanel {
+  &-Table {
     margin-bottom: 10px;
   }
 
