@@ -14,10 +14,11 @@
       >
         <button>
           <div
-            v-if="i >= 2"
+            v-if="i === 2"
             :style="{
               backgroundColor: '#CC7004',
-              borderColor: '#CC7004'
+              border: 0,
+              height: '3px'
             }"
           />
           <div
@@ -72,33 +73,8 @@
       <slot name="additionalDescription" />
     </template>
     <template v-slot:dataTable>
-      <v-data-table
-        :headers="tableHeaders"
-        :items="tableData"
-        :items-per-page="-1"
-        :hide-default-footer="true"
-        :height="240"
-        :fixed-header="true"
-        :disable-sort="true"
-        :mobile-breakpoint="0"
-        class="cardTable"
-        item-key="name"
-      >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
-              <td class="text-end">{{ item['0'] }}</td>
-              <td class="text-end">{{ item['1'] }}</td>
-              <td class="text-end">{{ item['2'] }}</td>
-              <td class="text-end">{{ item['3'] }}</td>
-              <td class="text-end">{{ item['4'] }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
+      <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
-    <slot name="additionalNotes" />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -116,7 +92,10 @@ import { TranslateResult } from 'vue-i18n'
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
-import DataSelector from '@/components/DataSelector.vue'
+import DataViewTable, {
+  TableHeader,
+  TableItem
+} from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import {
   DisplayData,
@@ -156,13 +135,8 @@ type Computed = {
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
   scaledTicksYAxisMaxRight: number
-  tableHeaders: {
-    text: TranslateResult
-    value: string
-  }[]
-  tableData: {
-    [key: number]: number
-  }[]
+  tableHeaders: TableHeader[]
+  tableData: TableItem[]
 }
 
 type Props = {
@@ -190,7 +164,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: {
+    DataView,
+    DataViewTable,
+    DataViewBasicInfoPanel
+  },
   props: {
     title: {
       type: String,
@@ -258,10 +236,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
+      const date = this.$d(
+        new Date(this.labels[this.labels.length - 1]),
+        'dateWithoutYear'
+      )
       return {
         lText: this.pickLastNumber(this.chartData)[2].toLocaleString(),
         sText: `${this.$t('{date}の数値', {
-          date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
+          date
         })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
           this.unit
         }）`,
@@ -324,7 +306,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .map((label, i) => {
           let [dailySum, data] = [0, 0]
           return Object.assign(
-            { text: dayjs(label).format('M/D') },
+            { text: this.$d(new Date(label), 'dateWithoutYear') },
             ...this.tableHeaders.map((_, j) => {
               switch (j) {
                 case 0: // 陽性者数
@@ -351,6 +333,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
+      const self = this
       const unit = this.unit
       const data = this.chartData
       const options: Chart.ChartOptions = {
@@ -372,10 +355,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               return label
             },
             title(tooltipItem, data) {
-              const date = dayjs(
-                data.labels![tooltipItem[0].index!].toString()
-              ).format('M/D')
-              return String(date)
+              const label = data.labels![tooltipItem[0].index!].toString()
+              return self.$d(new Date(label), 'dateWithoutYear')
             }
           }
         },
@@ -674,15 +655,6 @@ export default Vue.extend(options)
 
 <style module lang="scss">
 .Graph {
-  &Desc {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 0 !important;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
   &Legend {
     text-align: center;
     list-style: none;
@@ -704,16 +676,6 @@ export default Vue.extend(options)
         @include font-size(12);
       }
     }
-  }
-}
-
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    line-height: 15px;
-    color: $gray-3;
-    @include font-size(12);
   }
 }
 </style>

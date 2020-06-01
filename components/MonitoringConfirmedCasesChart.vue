@@ -7,10 +7,27 @@
       <li v-for="(item, i) in dataLabels" :key="i" @click="onClickLegend(i)">
         <button>
           <div
-            v-if="i === 2"
+            v-if="i === 1"
+            :style="{
+              background: colors[i].fillColor,
+              border: 0,
+              height: '3px'
+            }"
+          />
+          <div
+            v-else-if="i === 2"
             :style="{
               background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0
+              border: 0,
+              height: '2px'
+            }"
+          />
+          <div
+            v-else-if="i === 3"
+            :style="{
+              background: colors[i].fillColor,
+              border: 0,
+              height: '2px'
             }"
           />
           <div
@@ -61,22 +78,11 @@
         />
       </div>
     </div>
-    <template v-slot:dataTable>
-      <v-data-table
-        :headers="tableHeaders"
-        :items="tableData"
-        :items-per-page="-1"
-        :hide-default-footer="true"
-        :height="240"
-        :fixed-header="true"
-        :disable-sort="true"
-        :mobile-breakpoint="0"
-        class="cardTable"
-        item-key="name"
-      />
-    </template>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
+    </template>
+    <template v-slot:dataTable>
+      <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -98,6 +104,10 @@ import { TranslateResult } from 'vue-i18n'
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
+import DataViewTable, {
+  TableHeader,
+  TableItem
+} from '@/components/DataViewTable.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
@@ -128,13 +138,8 @@ type Computed = {
   displayDataHeader: DisplayData
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
-  tableHeaders: {
-    text: TranslateResult
-    value: string
-  }[]
-  tableData: {
-    [key: number]: number
-  }[]
+  tableHeaders: TableHeader[]
+  tableData: TableItem[]
 }
 
 type Props = {
@@ -161,7 +166,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
+  components: {
+    DataView,
+    DataViewTable,
+    DataViewBasicInfoPanel,
+    OpenDataLink
+  },
   props: {
     title: {
       type: String,
