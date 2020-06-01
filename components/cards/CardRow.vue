@@ -11,8 +11,11 @@ import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 
 const cardClassName = '.DataCard'
 
+type Payload = {
+  dataView?: Vue
+}
 type Data = {
-  payload: Payload | {}
+  payload: Payload
 }
 type Methods = {
   handleCardHeight: () => void
@@ -22,9 +25,6 @@ type Computed = {
   cardElements: (HTMLElement | null)[]
 }
 type Props = {}
-type Payload = {
-  dataView: Vue
-}
 
 const options: ThisTypedComponentOptionsWithRecordProps<
   Vue,
@@ -40,6 +40,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   methods: {
     handleCardHeight() {
+      if (!this.payload.dataView) return
+
       const [self, side] = this.cardElements
       if (self) {
         self.style.height = ''
