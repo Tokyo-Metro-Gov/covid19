@@ -35,7 +35,7 @@ export default {
 }
 .v-tab {
   top: 1px;
-  margin-right: 8px;
+  margin: 0 8px;
   border-style: solid;
   box-shadow: inset 0 -1px 0 $gray-5;
   border-radius: 4px 4px 0 0;
