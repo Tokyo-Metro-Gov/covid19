@@ -7,8 +7,11 @@
         </v-icon>
         {{ $t('最新のお知らせ') }}
       </h3>
-      <link-to-information-about-emergency-measure v-if="isEmergency" />
-      <link-to-information-about-roadmap v-else />
+      <div class="WhatsNew-linkGroup">
+        <active-tokyo-alert v-if="isActiveAlert" />
+        <link-to-information-about-emergency-measure v-if="isEmergency" />
+        <link-to-information-about-roadmap />
+      </div>
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
@@ -44,6 +47,7 @@
 import Vue from 'vue'
 import LinkToInformationAboutEmergencyMeasure from '@/components/LinkToInformationAboutEmergencyMeasure.vue'
 import LinkToInformationAboutRoadmap from '@/components/LinkToInformationAboutRoadmap.vue'
+import ActiveTokyoAlert from '@/components/ActiveTokyoAlert.vue'
 
 import {
   convertDateByCountryPreferTimeFormat,
@@ -53,7 +57,8 @@ import {
 export default Vue.extend({
   components: {
     LinkToInformationAboutEmergencyMeasure,
-    LinkToInformationAboutRoadmap
+    LinkToInformationAboutRoadmap,
+    ActiveTokyoAlert
   },
   props: {
     items: {
@@ -61,6 +66,11 @@ export default Vue.extend({
       required: true
     },
     isEmergency: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    isActiveAlert: {
       type: Boolean,
       required: false,
       default: false
@@ -101,6 +111,17 @@ export default Vue.extend({
       @include card-h2();
       &-icon {
         margin: 3px;
+      }
+    }
+
+    .WhatsNew-linkGroup {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+
+      @include lessThan($medium) {
+        justify-content: flex-start;
       }
     }
   }
