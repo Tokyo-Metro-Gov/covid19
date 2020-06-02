@@ -1,9 +1,6 @@
 <template>
   <span :class="$style.linkButton">
-    <external-link
-      :class="$style.textLink"
-      url=""
-    >
+    <external-link :class="$style.textLink" url="">
       <antenna-icon aria-hidden="true" :class="$style.svgIcon" />
       <span :class="$style.text">
         {{ $t('東京アラート発動中') }}
