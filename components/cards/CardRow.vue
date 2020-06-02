@@ -11,11 +11,8 @@ import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 
 const cardClassName = '.DataCard'
 
-type Payload = {
-  dataView?: Vue
-}
 type Data = {
-  payload: Payload
+  payload: Payload | {}
 }
 type Methods = {
   handleCardHeight: () => void
@@ -25,6 +22,9 @@ type Computed = {
   cardElements: (HTMLElement | null)[]
 }
 type Props = {}
+type Payload = {
+  dataView: Vue
+}
 
 const options: ThisTypedComponentOptionsWithRecordProps<
   Vue,
@@ -40,8 +40,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   methods: {
     handleCardHeight() {
-      if (!this.payload.dataView) return
-
       const [self, side] = this.cardElements
       if (self) {
         self.style.height = ''
@@ -68,12 +66,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   computed: {
     cardElements() {
-      if (!this.payload.dataView) return [null, null]
+      const parent = this.$el.children
+      const payload = this.payload as Payload
+      const child = payload.dataView.$el.parentElement
 
-      const cards = this.$el.children
-      const self = this.payload.dataView.$el.parentElement
-      const index = Array.prototype.indexOf.call(cards, self) + 1
+      const index = Array.prototype.indexOf.call(parent, child) + 1
       const sideIndex = index % 2 === 0 ? index - 1 : index + 1
+
+      const self = document.querySelector(
+        `${cardClassName}:nth-child(${index}`
+      ) as HTMLElement
       const side = document.querySelector(
         `${cardClassName}:nth-child(${sideIndex}`
       ) as HTMLElement
