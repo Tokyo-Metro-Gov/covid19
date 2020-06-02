@@ -11,6 +11,10 @@
         <slot name="infoPanel" />
       </div>
 
+      <div v-if="this.$slots.attentionNote" class="DataView-AttentionNote">
+        <slot name="attentionNote" />
+      </div>
+
       <div class="DataView-Description">
         <slot name="description" />
       </div>
@@ -175,6 +179,19 @@ export default Vue.extend({
     }
   }
 
+  &-Details {
+    margin: 10px 0;
+
+    .v-data-table {
+      .text-end {
+        text-align: right;
+      }
+      .text-nowrap {
+        white-space: nowrap;
+      }
+    }
+  }
+
   &-Table {
     margin-bottom: 10px;
   }
@@ -202,6 +219,19 @@ export default Vue.extend({
     ol {
       list-style-type: none;
       padding: 0;
+    }
+  }
+
+  &-AttentionNote {
+    margin: 10px 0;
+    padding: 12px;
+    background-color: $emergency;
+    border-radius: 4px;
+    color: $gray-2;
+    @include font-size(12);
+
+    p {
+      margin: 0;
     }
   }
 
