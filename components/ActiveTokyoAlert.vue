@@ -1,6 +1,9 @@
 <template>
   <span :class="$style.linkButton">
-    <external-link :class="$style.textLink" url="">
+    <external-link
+      :class="$style.textLink"
+      url="https://www.bousai.metro.tokyo.lg.jp/1007942/1008167.html"
+    >
       <antenna-icon aria-hidden="true" :class="$style.svgIcon" />
       <span :class="$style.text">
         {{ $t('東京アラート発動中') }}
