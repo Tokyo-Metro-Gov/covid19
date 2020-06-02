@@ -48,8 +48,8 @@ export default Vue.extend({
     @include button-text('sm');
   }
 
-  @include lessThan($small) {
-    margin-top: 4px;
+  @include lessThan($medium) {
+    margin-top: 8px;
   }
 }
 </style>
