@@ -1,69 +1,88 @@
 <template>
-  <div>
-    <v-expansion-panels v-if="showDetails" flat>
-      <v-expansion-panel>
-        <v-expansion-panel-header
-          :hide-actions="true"
-          :style="{ transition: 'none' }"
-          @click="toggleDetails"
-        >
-          <template slot:actions>
-            <div class="v-expansion-panel-header__icon">
-              <v-icon left>mdi-chevron-right</v-icon>
-            </div>
-          </template>
-          <span class="expansion-panel-text">{{ $t('テーブルを表示') }}</span>
-        </v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <slot />
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-    </v-expansion-panels>
-    <template v-else>
-      <slot />
+  <v-data-table
+    :headers="headers"
+    :items="items"
+    :items-per-page="-1"
+    :hide-default-footer="true"
+    :height="240"
+    :fixed-header="true"
+    :disable-sort="true"
+    :mobile-breakpoint="0"
+    class="cardTable"
+    item-key="name"
+  >
+    <template v-slot:body="{ items }">
+      <tbody>
+        <tr v-for="(item, i) in items" :key="i">
+          <th scope="row">{{ item[headerKey] }}</th>
+          <td v-for="(dataKey, j) in dataKeys" :key="j" class="text-end">
+            {{ item[dataKey] }}
+          </td>
+        </tr>
+      </tbody>
     </template>
-  </div>
+  </v-data-table>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { TranslateResult } from 'vue-i18n'
 
-export default Vue.extend({
-  data() {
-    return {
-      showDetails: false
+export type TableHeader = {
+  text: TranslateResult
+  value: string
+  align?: string
+}
+export type TableItem = {
+  text: string
+  transition?: string
+  cumulative?: string
+  [key: number]: number
+}
+type Data = {}
+type Methods = {}
+type Computed = {
+  dataKeys: string[]
+}
+type Props = {
+  headers: TableHeader[]
+  items: TableItem[]
+  headerKey: string
+}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
+  props: {
+    headers: {
+      type: Array,
+      default: () => []
+    },
+    items: {
+      type: Array,
+      default: () => []
+    },
+    headerKey: {
+      type: String,
+      default: 'text'
     }
   },
-  mounted() {
-    this.showDetails = true
-  },
-  methods: {
-    toggleDetails() {
-      EventBus.$emit(TOGGLE_EVENT, { dataView: this.$parent })
+  computed: {
+    dataKeys() {
+      return this.headers.map(h => h.value).filter(h => h !== this.headerKey)
     }
   }
-})
+}
+
+export default Vue.extend(options)
 </script>
 
 <style lang="scss">
-.v-expansion-panel-header__icon {
-  margin-left: -5px !important;
-
-  & .v-icon--left {
-    margin-right: 5px;
-  }
-
-  .v-expansion-panel--active & .v-icon {
-    transform: rotate(90deg) !important;
-  }
-}
-
-.expansion-panel-text {
-  color: $gray-1;
-  @include font-size(14);
-}
-
 .v-data-table .text-end {
   text-align: right;
 }
