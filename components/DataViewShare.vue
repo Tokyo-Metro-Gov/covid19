@@ -224,7 +224,7 @@ export default Vue.extend({
   padding: 14px;
 
   > svg {
-    width: auto !important;
+    width: 14px !important;
   }
 
   &:focus {
