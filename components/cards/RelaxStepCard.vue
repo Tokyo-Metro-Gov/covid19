@@ -120,7 +120,7 @@ export default Vue.extend({
 
     .RelaxStep-description {
       @include largerThan($medium) {
-        width: 60%;
+        width: 50%;
       }
     }
 
@@ -128,22 +128,77 @@ export default Vue.extend({
       position: relative;
       list-style: none;
       font-weight: bold;
-      padding: 3px;
       box-sizing: border-box;
+      white-space: nowrap;
+      width: 100%;
 
       > li {
         display: inline-block;
         width: calc(100% / 4);
       }
 
+      > li:first-child {
+        > p {
+          border-radius: 5px 0 0 5px;
+        }
+        > p::before {
+          margin-top: -9999px;
+          margin-left: -9999px;
+        }
+      }
+
       &-on {
+        margin-left: 16px;
+        border-top: $green-1 solid 5px;
+        border-bottom: $green-1 solid 5px;
+        border-left: $green-1 solid 25px;
+        border-right: $green-1 solid 10px;
         color: $white;
         background-color: $green-1;
       }
 
       &-off {
+        margin-left: 16px;
+        border-top: $gray-4 solid 5px;
+        border-bottom: $gray-4 solid 5px;
+        border-left: $gray-4 solid 25px;
+        border-right: $gray-4 solid 10px;
         color: $gray-2;
         background-color: $gray-4;
+      }
+
+      &-on::after {
+        position: absolute;
+        content: '';
+        margin-top: -5px;
+        margin-left: 10px;
+        border-top: 15.5px solid transparent;
+        border-bottom: 15.5px solid transparent;
+        border-left: 15.5px solid $green-1;
+        border-right: 15.5px solid transparent;
+      }
+
+      &-off::after {
+        position: absolute;
+        content: '';
+        margin-top: -5px;
+        margin-left: 10px;
+        border-top: 15.5px solid transparent;
+        border-bottom: 15.5px solid transparent;
+        border-left: 15.5px solid $gray-4;
+        border-right: 15.5px solid transparent;
+      }
+
+      &-on::before,
+      &-off::before {
+        position: absolute;
+        content: '';
+        margin-top: -5px;
+        margin-left: -25px;
+        border-top: 15.5px solid transparent;
+        border-bottom: 15.5px solid transparent;
+        border-left: 15.5px solid $white;
+        border-right: 15.5px solid transparent;
       }
     }
 
