@@ -8,7 +8,7 @@
       nuxt
       exact-active-class="ActiveTab"
     >
-      <v-icon>
+      <v-icon class="TabIcon">
         mdi-chart-timeline-variant
       </v-icon>
       {{ tab.label }}
@@ -88,6 +88,10 @@ export default {
 @include lessThan($small) {
   .v-tab {
     font-size: px2vw(20, 600) !important;
+    padding: 0 4px !important;
+  }
+  .TabIcon {
+    font-size: px2vw(24, 600) !important;
   }
 }
 </style>
