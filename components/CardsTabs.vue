@@ -3,10 +3,10 @@
     <v-tab
       v-for="(tab, index) in tabs"
       :key="index"
+      v-ripple="false"
       :to="localePath(tab.path)"
       nuxt
       exact-active-class="ActiveTab"
-      v-ripple="false"
     >
       <v-icon>
         mdi-chart-timeline-variant
