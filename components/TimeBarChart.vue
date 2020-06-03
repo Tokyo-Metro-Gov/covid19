@@ -1,5 +1,8 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
+    <template v-slot:attentionNote>
+      <slot name="attentionNote" />
+    </template>
     <template v-slot:description>
       <slot name="description" />
     </template>
@@ -42,7 +45,28 @@
       <slot name="additionalDescription" />
     </template>
     <template v-slot:dataTable>
-      <data-view-table :headers="tableHeaders" :items="tableData" />
+      <v-data-table
+        :headers="tableHeaders"
+        :items="tableData"
+        :items-per-page="-1"
+        :hide-default-footer="true"
+        :height="240"
+        :fixed-header="true"
+        :disable-sort="true"
+        :mobile-breakpoint="0"
+        class="cardTable"
+        item-key="name"
+      >
+        <template v-slot:body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.text">
+              <th scope="row">{{ item.text }}</th>
+              <td class="text-end">{{ item.transition }}</td>
+              <td class="text-end">{{ item.cumulative }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-data-table>
     </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -59,6 +83,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
@@ -66,15 +91,10 @@ import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import DataViewTable, {
-  TableHeader,
-  TableItem
-} from '@/components/DataViewTable.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 
 import { getGraphSeriesStyle } from '@/utils/colors'
-import { getComplementedDate } from '@/utils/formatDate'
 
 type Data = {
   dataKind: 'transition' | 'cumulative'
@@ -98,8 +118,15 @@ type Computed = {
   displayDataHeader: DisplayData
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
-  tableHeaders: TableHeader[]
-  tableData: TableItem[]
+  tableHeaders: {
+    text: TranslateResult
+    value: string
+  }[]
+  tableData: {
+    text: string
+    transition: string
+    cumulative: string
+  }[]
 }
 type Props = {
   title: string
@@ -128,13 +155,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         ? 'cumulative'
         : 'transition'
   },
-  components: {
-    DataView,
-    DataSelector,
-    DataViewBasicInfoPanel,
-    DataViewTable,
-    OpenDataLink
-  },
+  components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
   props: {
     title: {
       type: String,
@@ -194,21 +215,24 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
-      const date = this.chartData.slice(-1)[0].label
       if (this.dataKind === 'transition' && this.byDate) {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${date} ${this.$t('日別値')}（${this.$t('前日比')}: ${
-            this.displayTransitionRatio
-          } ${this.unit}）`,
+          sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
+            '日別値'
+          )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+            this.unit
+          }）`,
           unit: this.unit
         }
       } else if (this.dataKind === 'transition') {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${date} ${this.$t('実績値')}（${this.$t('前日比')}: ${
-            this.displayTransitionRatio
-          } ${this.unit}）`,
+          sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
+            '実績値'
+          )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+            this.unit
+          }）`,
           unit: this.unit
         }
       }
@@ -216,9 +240,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         lText: this.chartData[
           this.chartData.length - 1
         ].cumulative.toLocaleString(),
-        sText: `${date} ${this.$t('累計値')}（${this.$t('前日比')}: ${
-          this.displayCumulativeRatio
-        } ${this.unit}）`,
+        sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
+          '累計値'
+        )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
+          this.unit
+        }）`,
         unit: this.unit
       }
     },
@@ -291,7 +317,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOption() {
-      const self = this
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const options: Chart.ChartOptions = {
@@ -305,11 +330,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               return labelText
             },
             title(tooltipItem, data) {
-              const label = data.labels![tooltipItem[0].index!] as string
-              return self.$d(
-                new Date(getComplementedDate(label)),
-                'dateWithoutYear'
-              )
+              return data.labels![tooltipItem[0].index!] as string[]
             }
           }
         },
@@ -520,10 +541,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.chartData
         .map((d, _) => {
           return {
-            text: this.$d(
-              new Date(getComplementedDate(d.label)),
-              'dateWithoutYear'
-            ),
+            text: d.label,
             transition: d.transition.toLocaleString(),
             cumulative: d.cumulative.toLocaleString()
           }
