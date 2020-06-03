@@ -6,6 +6,7 @@
       :to="tab.path"
       nuxt
       exact-active-class="ActiveTab"
+      v-ripple="false"
     >
       <v-icon>
         mdi-chart-timeline-variant
@@ -41,11 +42,18 @@ export default {
   font-weight: bold !important;
   @include font-size(16, true);
 
+  &:focus {
+    outline: dotted $gray-3 1px;
+  }
+
   &.ActiveTab {
     color: $gray-2 !important;
     background: $gray-5;
     border-color: $gray-2 $gray-2 $gray-5 $gray-2;
     border-width: 1px 1px 2px 1px;
+    &::before {
+      background-color: transparent;
+    }
   }
 
   &:not(.ActiveTab) {
