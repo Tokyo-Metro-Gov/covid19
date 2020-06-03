@@ -15,6 +15,7 @@
     </div>
     <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
     <tokyo-alert-card v-if="TokyoAlert.alert" />
+    <relax-step-card />
     <static-info
       class="mb-4"
       :url="localePath('/flow')"
@@ -31,6 +32,7 @@ import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import TokyoAlertCard from '@/components/TokyoAlertCard.vue'
+import RelaxStepCard from '@/components/cards/RelaxStepCard.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
 import TokyoAlert from '@/data/tokyo_alert.json'
@@ -41,7 +43,8 @@ export default Vue.extend({
     PageHeader,
     WhatsNew,
     StaticInfo,
-    TokyoAlertCard
+    TokyoAlertCard,
+    RelaxStepCard
   },
   data() {
     return {

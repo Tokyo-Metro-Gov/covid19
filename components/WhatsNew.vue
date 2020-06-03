@@ -9,7 +9,6 @@
       </h3>
       <div class="WhatsNew-linkGroup">
         <link-to-information-about-emergency-measure v-if="isEmergency" />
-        <link-to-information-about-roadmap />
       </div>
     </div>
     <ul class="WhatsNew-list">
@@ -45,7 +44,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import LinkToInformationAboutEmergencyMeasure from '@/components/LinkToInformationAboutEmergencyMeasure.vue'
-import LinkToInformationAboutRoadmap from '@/components/LinkToInformationAboutRoadmap.vue'
 
 import {
   convertDateByCountryPreferTimeFormat,
@@ -54,8 +52,7 @@ import {
 
 export default Vue.extend({
   components: {
-    LinkToInformationAboutEmergencyMeasure,
-    LinkToInformationAboutRoadmap
+    LinkToInformationAboutEmergencyMeasure
   },
   props: {
     items: {
