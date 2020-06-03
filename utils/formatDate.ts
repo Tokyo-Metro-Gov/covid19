@@ -63,7 +63,7 @@ export const getComplementedDate = (dateString: string): string => {
   let targetYear = today.getFullYear()
 
   if (currentMonth <= month && currentDate <= date) {
-    targetYear = -1
+    targetYear -= 1
   }
 
   return `${targetYear}/${month}/${date}`
