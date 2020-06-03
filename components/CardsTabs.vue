@@ -71,9 +71,15 @@ export default {
   }
   .v-tab {
     font-size: px2vw(16) !important;
+    font-weight: normal !important;
     flex: 1 1 auto;
     width: 100%;
     padding: 0 8px !important;
+  }
+}
+@include lessThan($small) {
+  .v-tab {
+    font-size: px2vw(20, 600) !important;
   }
 }
 </style>
