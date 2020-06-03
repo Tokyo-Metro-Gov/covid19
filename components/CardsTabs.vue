@@ -5,7 +5,7 @@
       :key="index"
       :to="tab.path"
       nuxt
-      active-class="ActiveTab"
+      exact-active-class="ActiveTab"
     >
       <v-icon>
         mdi-chart-timeline-variant
@@ -44,8 +44,8 @@ export default {
   &.ActiveTab {
     color: $gray-2 !important;
     background: $gray-5;
-    border-color: $gray-2;
-    border-width: 1px 1px 0 1px;
+    border-color: $gray-2 $gray-2 $gray-5 $gray-2;
+    border-width: 1px 1px 2px 1px;
   }
 
   &:not(.ActiveTab) {
@@ -60,6 +60,20 @@ export default {
     .v-icon {
       color: inherit !important;
     }
+  }
+}
+@function px2vw($px, $vw: 768) {
+  @return $px / $vw * 100vw;
+}
+@include lessThan($medium) {
+  .v-slide-group__content {
+    width: 100%;
+  }
+  .v-tab {
+    font-size: px2vw(16) !important;
+    flex: 1 1 auto;
+    width: 100%;
+    padding: 0 8px !important;
   }
 }
 </style>
