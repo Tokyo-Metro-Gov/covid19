@@ -65,7 +65,7 @@ export default {
       color: $white !important;
       background: $green-1;
     }
-    .v-icon {
+    .TabIcon {
       color: inherit !important;
     }
   }
