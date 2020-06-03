@@ -44,7 +44,7 @@ export default Vue.extend({
     TokyoAlertCard
   },
   data() {
-    const data = {
+    return {
       Data,
       TokyoAlert,
       headerItem: {
@@ -53,7 +53,6 @@ export default Vue.extend({
       },
       newsItems: News.newsItems
     }
-    return data
   },
   computed: {
     updatedAt() {
