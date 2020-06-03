@@ -31,9 +31,12 @@
         <slot name="additionalDescription" />
       </div>
 
-      <data-view-table v-if="this.$slots.dataTable" class="DataView-Table">
+      <data-view-expantion-panel
+        v-if="this.$slots.dataTable"
+        class="DataView-ExpantionPanel"
+      >
         <slot name="dataTable" />
-      </data-view-table>
+      </data-view-expantion-panel>
 
       <div class="DataView-Space" />
 
@@ -43,7 +46,7 @@
           <div>
             <a class="Permalink" :href="permalink">
               <time :datetime="formattedDate">
-                {{ $t('{date} 更新', { date }) }}
+                {{ $t('{date} 更新', { date: formattedDateForDisplay }) }}
               </time>
             </a>
           </div>
@@ -64,11 +67,11 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
-import DataViewTable from '@/components/DataViewTable.vue'
+import DataViewExpantionPanel from '@/components/DataViewExpantionPanel.vue'
 import DataViewShare from '@/components/DataViewShare.vue'
 
 export default Vue.extend({
-  components: { DataViewTable, DataViewShare },
+  components: { DataViewExpantionPanel, DataViewShare },
   props: {
     title: {
       type: String,
@@ -86,6 +89,9 @@ export default Vue.extend({
   computed: {
     formattedDate(): string {
       return convertDatetimeToISO8601Format(this.date)
+    },
+    formattedDateForDisplay(): string {
+      return this.$d(new Date(this.date), 'dateTime')
     },
     permalink(): string {
       const permalink = '/cards/' + this.titleId
@@ -177,6 +183,12 @@ export default Vue.extend({
     &--Additional {
       margin-bottom: 10px;
     }
+
+    ul,
+    ol {
+      list-style-type: none;
+      padding: 0;
+    }
   }
 
   &-Details {
@@ -192,7 +204,7 @@ export default Vue.extend({
     }
   }
 
-  &-Table {
+  &-ExpantionPanel {
     margin-bottom: 10px;
   }
 

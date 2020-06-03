@@ -77,7 +77,7 @@ export default {
 
     const info = {
       sText: this.$t('{date}の累計', {
-        date: dayjs(Data.datasets.date).format('M/DD')
+        date: this.$d(new Date(Data.datasets.date), 'dateWithoutYear')
       })
     }
 
