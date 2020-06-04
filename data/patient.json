@@ -1,7 +1,7 @@
 {
-    "date": "2020\/6\/3 18:30",
+    "date": "2020\/6\/4 18:45",
     "datasets": {
-        "date": "2020\/6\/2",
+        "date": "2020\/6\/3",
         "data": [
             {
                 "code": 131016,
@@ -22,7 +22,7 @@
                 "area": "特別区",
                 "label": "港区",
                 "ruby": "みなとく",
-                "count": 324
+                "count": 325
             },
             {
                 "code": 131041,
@@ -64,14 +64,14 @@
                 "area": "特別区",
                 "label": "品川区",
                 "ruby": "しながわく",
-                "count": 189
+                "count": 190
             },
             {
                 "code": 131105,
                 "area": "特別区",
                 "label": "目黒区",
                 "ruby": "めぐろく",
-                "count": 167
+                "count": 168
             },
             {
                 "code": 131113,
@@ -85,21 +85,21 @@
                 "area": "特別区",
                 "label": "世田谷区",
                 "ruby": "せたがやく",
-                "count": 467
+                "count": 469
             },
             {
                 "code": 131130,
                 "area": "特別区",
                 "label": "渋谷区",
                 "ruby": "しぶやく",
-                "count": 182
+                "count": 183
             },
             {
                 "code": 131148,
                 "area": "特別区",
                 "label": "中野区",
                 "ruby": "なかのく",
-                "count": 231
+                "count": 234
             },
             {
                 "code": 131156,
@@ -162,7 +162,7 @@
                 "area": "特別区",
                 "label": "江戸川区",
                 "ruby": "えどがわく",
-                "count": 145
+                "count": 147
             },
             {
                 "code": 132012,
@@ -442,7 +442,7 @@
                 "area": null,
                 "label": "都外",
                 "ruby": null,
-                "count": 214
+                "count": 215
             },
             {
                 "code": null,
@@ -456,7 +456,7 @@
                 "area": null,
                 "label": "小計",
                 "ruby": null,
-                "count": 5283
+                "count": 5295
             }
         ]
     }
