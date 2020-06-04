@@ -78,7 +78,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@function px2vw($px, $vw: 1170) {
+@function px2vw($px, $vw: 900) {
   @return $px / $vw * 100vw;
 }
 
@@ -134,27 +134,21 @@ export default Vue.extend({
       color: $gray-2;
       background-color: $gray-4;
     }
-    &-on::after {
+    &::after {
       position: absolute;
       content: '';
       top: 0;
       right: 1px;
       transform: translateX(100%);
-      border-top: px2vw(15.5) solid transparent;
-      border-bottom: px2vw(15.5) solid transparent;
-      border-left: px2vw(15.5) solid $green-1;
-      border-right: none;
+      border-width: px2vw(15.5) 0 px2vw(15.5) px2vw(15.5);
+      border-style: solid;
+      border-color: transparent;
+    }
+    &-on::after {
+      border-left-color: $green-1;
     }
     &-off::after {
-      position: absolute;
-      content: '';
-      top: 0;
-      right: 1px;
-      transform: translateX(100%);
-      border-top: px2vw(15.5) solid transparent;
-      border-bottom: px2vw(15.5) solid transparent;
-      border-left: px2vw(15.5) solid $gray-4;
-      border-right: none;
+      border-left-color: $gray-4;
     }
     &-on::before,
     &-off::before {
@@ -163,10 +157,10 @@ export default Vue.extend({
       top: 0;
       left: px2vw(15.5);
       transform: translateX(-100%);
-      border-top: px2vw(15.5) solid transparent;
-      border-bottom: px2vw(15.5) solid transparent;
-      border-left: px2vw(15.5) solid $white;
-      border-right: none;
+      border-width: px2vw(15.5) 0 px2vw(15.5) px2vw(15.5);
+      border-style: solid;
+      border-color: transparent;
+      border-left-color: $white;
     }
   }
 
@@ -175,22 +169,47 @@ export default Vue.extend({
       font-size: 1rem;
       margin-left: 1.4rem;
       padding: 0.5rem 0.5rem 0.5rem 2rem;
+      &::after,
+      &::before {
+        border-width: 1.3rem 0 1.3rem 1.3rem;
+        border-style: solid;
+        border-color: transparent;
+      }
       &-on::after {
-        border-top: 1.3rem solid transparent;
-        border-bottom: 1.3rem solid transparent;
-        border-left: 1.3rem solid $green-1;
+        border-left-color: $green-1;
       }
       &-off::after {
-        border-top: 1.3rem solid transparent;
-        border-bottom: 1.3rem solid transparent;
-        border-left: 1.3rem solid $gray-4;
+        border-left-color: $gray-4;
       }
       &-on::before,
       &-off::before {
         left: 1.3rem;
-        border-top: 1.3rem solid transparent;
-        border-bottom: 1.3rem solid transparent;
-        border-left: 1.3rem solid $white;
+        border-left-color: $white;
+      }
+    }
+  }
+
+  @include largerThan(900) {
+    .RelaxationStep-steps {
+      font-size: 1.4rem;
+      margin-left: 1.6rem;
+      padding: 0.5rem 0.5rem 0.5rem 2rem;
+      &::after,
+      &::before {
+        border-width: 1.55rem 0 1.55rem 1.55rem;
+        border-style: solid;
+        border-color: transparent;
+      }
+      &-on::after {
+        border-left-color: $green-1;
+      }
+      &-off::after {
+        border-left-color: $gray-4;
+      }
+      &-on::before,
+      &-off::before {
+        left: 1.55rem;
+        border-left-color: $white;
       }
     }
   }
@@ -203,14 +222,14 @@ export default Vue.extend({
 
     .RelaxationStep-block {
       padding: 12px;
-      flex: 0 0 100%;
+      flex: 1 1 100%;
 
       @include largerThan($large) {
         &-description {
           flex-basis: 40%;
         }
         &-steps {
-          flex-basis: 60%;
+          flex-basis: auto;
         }
       }
     }
@@ -225,13 +244,17 @@ export default Vue.extend({
       white-space: nowrap;
       width: 100%;
 
-      @include largerThan($large) {
+      @include largerThan(420) {
         flex-wrap: nowrap;
       }
 
       .RelaxationStep-steps-item {
         margin-bottom: 12px;
-        flex: 0 0 20%;
+        flex: 0 1 20%;
+
+        @include largerThan($large) {
+          flex: 1 1 auto;
+        }
       }
       .RelaxationStep-steps-item:first-child {
         .RelaxationStep-steps {
