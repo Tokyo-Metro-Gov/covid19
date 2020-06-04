@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="MainPage">
     <div class="Header mb-3">
       <page-header :icon="headerItem.icon">{{ headerItem.title }}</page-header>
       <div class="UpdatedAt">
