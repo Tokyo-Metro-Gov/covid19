@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="TokyoAlert-description">
-      <p v-if="$i18n.locale === 'ja'">
+      <p v-if="['ja', 'ja-basic'].includes($i18n.locale)">
         {{ $t(tokyoAlert.description['@ja']) }}
       </p>
       <p v-else>{{ $t(tokyoAlert.description['@en']) }}</p>
