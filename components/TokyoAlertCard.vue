@@ -26,12 +26,6 @@ export default Vue.extend({
   components: {
     ActiveTokyoAlert
   },
-  props: {
-    items: {
-      type: Array,
-      required: true
-    }
-  },
   data() {
     return {
       tokyoAlert
