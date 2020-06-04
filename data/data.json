@@ -1899,11 +1899,11 @@
                 "children": [
                     {
                         "attr": "入院中（調整中含む）",
-                        "value": -1,
+                        "value": 2,
                         "children": [
                             {
                                 "attr": "軽症・中等症",
-                                "value": -2
+                                "value": 1
                             },
                             {
                                 "attr": "重症",
@@ -1913,7 +1913,7 @@
                     },
                     {
                         "attr": "退院",
-                        "value": 137
+                        "value": 134
                     },
                     {
                         "attr": "死亡",
