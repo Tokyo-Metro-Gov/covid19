@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="MainPage">
     <div class="Header mb-3">
       <page-header :icon="headerItem.icon">{{ headerItem.title }}</page-header>
       <div class="UpdatedAt">
@@ -13,12 +13,9 @@
         <span>{{ $t('注釈') }}</span>
       </div>
     </div>
-    <whats-new
-      class="mb-4"
-      :items="newsItems"
-      :is-emergency="false"
-      :is-active-alert="true"
-    />
+    <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
+    <tokyo-alert-card v-if="TokyoAlert.alert" />
+    <relaxation-step-card />
     <static-info
       class="mb-4"
       :url="localePath('/flow')"
@@ -34,26 +31,31 @@ import { MetaInfo } from 'vue-meta'
 import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
+import TokyoAlertCard from '@/components/TokyoAlertCard.vue'
+import RelaxationStepCard from '@/components/RelaxationStepCard.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
+import TokyoAlert from '@/data/tokyo_alert.json'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
     PageHeader,
     WhatsNew,
-    StaticInfo
+    StaticInfo,
+    TokyoAlertCard,
+    RelaxationStepCard
   },
   data() {
-    const data = {
+    return {
       Data,
+      TokyoAlert,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: this.$t('都内の最新感染動向')
       },
       newsItems: News.newsItems
     }
-    return data
   },
   computed: {
     updatedAt() {
