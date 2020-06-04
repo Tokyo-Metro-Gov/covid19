@@ -222,14 +222,14 @@ export default Vue.extend({
 
     .RelaxationStep-block {
       padding: 12px;
-      flex: 0 0 100%;
+      flex: 1 1 100%;
 
       @include largerThan($large) {
         &-description {
           flex-basis: 40%;
         }
         &-steps {
-          flex-basis: 60%;
+          flex-basis: auto;
         }
       }
     }
