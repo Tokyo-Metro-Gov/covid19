@@ -45,10 +45,7 @@
 import Vue from 'vue'
 import LinkToInformationAboutEmergencyMeasure from '@/components/LinkToInformationAboutEmergencyMeasure.vue'
 
-import {
-  convertDateByCountryPreferTimeFormat,
-  convertDateToISO8601Format
-} from '@/utils/formatDate'
+import { convertDateToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
@@ -73,7 +70,7 @@ export default Vue.extend({
       return convertDateToISO8601Format(dateString)
     },
     formattedDateForDisplay(dateString: string) {
-      return convertDateByCountryPreferTimeFormat(dateString, this.$i18n.locale)
+      return this.$d(new Date(dateString), 'date')
     }
   }
 })

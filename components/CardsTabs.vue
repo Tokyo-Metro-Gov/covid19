@@ -1,13 +1,14 @@
 <template>
-  <v-tabs hide-slider show-arrows>
+  <v-tabs hide-slider>
     <v-tab
       v-for="(tab, index) in tabs"
       :key="index"
-      :to="tab.path"
+      v-ripple="false"
+      :to="localePath(tab.path)"
       nuxt
-      active-class="ActiveTab"
+      exact-active-class="ActiveTab"
     >
-      <v-icon>
+      <v-icon class="TabIcon">
         mdi-chart-timeline-variant
       </v-icon>
       {{ tab.label }}
@@ -21,7 +22,7 @@ export default {
     return {
       tabs: [
         { label: this.$t('モニタリング指標'), path: '/' },
-        { label: this.$t('その他 参考指標'), path: '/reference' }
+        { label: this.$t('その他 参考指標'), path: '/?tab=reference' }
       ]
     }
   }
@@ -41,11 +42,18 @@ export default {
   font-weight: bold !important;
   @include font-size(16, true);
 
+  &:focus {
+    outline: dotted $gray-3 1px;
+  }
+
   &.ActiveTab {
     color: $gray-2 !important;
     background: $gray-5;
-    border-color: $gray-2;
-    border-width: 1px 1px 0 1px;
+    border-color: $gray-2 $gray-2 $gray-5 $gray-2;
+    border-width: 1px 1px 2px 1px;
+    &::before {
+      background-color: transparent;
+    }
   }
 
   &:not(.ActiveTab) {
@@ -57,9 +65,33 @@ export default {
       color: $white !important;
       background: $green-1;
     }
-    .v-icon {
+    .TabIcon {
       color: inherit !important;
     }
+  }
+}
+@function px2vw($px, $vw: 768) {
+  @return $px / $vw * 100vw;
+}
+@include lessThan($medium) {
+  .v-slide-group__content {
+    width: 100%;
+  }
+  .v-tab {
+    font-size: px2vw(16) !important;
+    font-weight: normal !important;
+    flex: 1 1 auto;
+    width: 100%;
+    padding: 0 8px !important;
+  }
+}
+@include lessThan($small) {
+  .v-tab {
+    font-size: px2vw(20, 600) !important;
+    padding: 0 4px !important;
+  }
+  .TabIcon {
+    font-size: px2vw(24, 600) !important;
   }
 }
 </style>
