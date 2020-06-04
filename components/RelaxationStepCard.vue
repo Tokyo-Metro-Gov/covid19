@@ -32,14 +32,6 @@
             </span>
           </li>
         </ul>
-        <p class="RelaxationStep-changed-text">
-          {{
-            $t('{date} ステップ {num}に移行', {
-              date: formattedDayForDisplay,
-              num: RelaxationStep.step
-            })
-          }}
-        </p>
       </div>
     </div>
   </div>
