@@ -1,15 +1,15 @@
 <template>
-  <div class="RelaxStep">
-    <div class="RelaxStep-heading">
-      <h3 class="RelaxStep-title">
+  <div class="RelaxationStep">
+    <div class="RelaxationStep-heading">
+      <h3 class="RelaxationStep-title">
         {{ $t('施設別休止要請の緩和ステップ') }}
       </h3>
-      <div class="RelaxStep-link">
+      <div class="RelaxationStep-link">
         <link-to-information-about-roadmap />
       </div>
     </div>
-    <div class="RelaxStep-content">
-      <div class="RelaxStep-description">
+    <div class="RelaxationStep-content">
+      <div class="RelaxationStep-description">
         <p>
           {{
             $t(
@@ -19,21 +19,21 @@
         </p>
       </div>
       <div>
-        <ul class="RelaxStep-steps">
-          <li v-for="i in steps" :key="i" class="RelaxStep-steps">
-            <p v-if="i === RelaxStep.step" class="RelaxStep-steps-on">
+        <ul class="RelaxationStep-steps">
+          <li v-for="i in steps" :key="i" class="RelaxationStep-steps">
+            <p v-if="i === RelaxationStep.step" class="RelaxationStep-steps-on">
               {{ $t('ステップ {num}', { num: i }) }}
             </p>
-            <p v-else class="RelaxStep-steps-off">
+            <p v-else class="RelaxationStep-steps-off">
               {{ $t('ステップ {num}', { num: i }) }}
             </p>
           </li>
         </ul>
-        <p class="RelaxStep-changed-text">
+        <p class="RelaxationStep-changed-text">
           {{
             $t('{date} ステップ {num}に移行', {
               date: formattedDayForDisplay,
-              num: RelaxStep.step
+              num: RelaxationStep.step
             })
           }}
         </p>
@@ -45,7 +45,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import LinkToInformationAboutRoadmap from '@/components/LinkToInformationAboutRoadmap.vue'
-import RelaxStep from '@/data/tokyo_alert.json'
+import RelaxationStep from '@/data/tokyo_alert.json'
 
 export default Vue.extend({
   components: {
@@ -59,33 +59,36 @@ export default Vue.extend({
   },
   data() {
     return {
-      RelaxStep,
+      RelaxationStep,
       steps: [0, 1, 2, 3]
     }
   },
   computed: {
     formattedDayForDisplay() {
-      return this.$d(new Date(RelaxStep.changed), 'dateTimeRelaxationSteps')
+      return this.$d(
+        new Date(RelaxationStep.changed),
+        'dateTimeRelaxationSteps'
+      )
     }
   }
 })
 </script>
 
 <style lang="scss">
-.RelaxStep {
+.RelaxationStep {
   @include card-container();
 
   padding: 10px;
   margin-bottom: 20px;
 
-  .RelaxStep-heading {
+  .RelaxationStep-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     margin-bottom: 12px;
 
-    .RelaxStep-title {
+    .RelaxationStep-title {
       display: flex;
       align-items: center;
       color: $gray-2;
@@ -95,7 +98,7 @@ export default Vue.extend({
       }
     }
 
-    .RelaxStep-link {
+    .RelaxationStep-link {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -107,24 +110,24 @@ export default Vue.extend({
     }
   }
 
-  .RelaxStep-content {
+  .RelaxationStep-content {
     @include largerThan($medium) {
       display: flex;
     }
 
-    .RelaxStep-description,
-    .RelaxStep-steps {
+    .RelaxationStep-description,
+    .RelaxationStep-steps {
       display: block;
       @include font-size(14);
     }
 
-    .RelaxStep-description {
+    .RelaxationStep-description {
       @include largerThan($medium) {
         width: 50%;
       }
     }
 
-    .RelaxStep-steps {
+    .RelaxationStep-steps {
       position: relative;
       list-style: none;
       font-weight: bold;
@@ -196,7 +199,7 @@ export default Vue.extend({
       }
     }
 
-    .RelaxStep-changed-text {
+    .RelaxationStep-changed-text {
       text-align: center;
       font-weight: bold;
       color: $green-1;
