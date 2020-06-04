@@ -1,5 +1,5 @@
 {
-    "date": "2020\/6\/3 18:30",
+    "date": "2020\/6\/4 18:45",
     "data": [
         {
             "diagnosed_date": "2020-01-20",
@@ -1210,10 +1210,10 @@
         {
             "diagnosed_date": "2020-06-02",
             "count": 34,
-            "missing_count": 12,
-            "reported_count": 22,
+            "missing_count": 11,
+            "reported_count": 23,
             "weekly_gain_ratio": 2.15,
-            "untracked_percent": 47.4,
+            "untracked_percent": 46.5,
             "weekly_average_count": 16.3
         },
         {
@@ -1222,8 +1222,17 @@
             "missing_count": 6,
             "reported_count": 6,
             "weekly_gain_ratio": 1.95,
-            "untracked_percent": 45.2,
+            "untracked_percent": 44.3,
             "weekly_average_count": 16.4
+        },
+        {
+            "diagnosed_date": "2020-06-04",
+            "count": 28,
+            "missing_count": 14,
+            "reported_count": 14,
+            "weekly_gain_ratio": 2.03,
+            "untracked_percent": 46.9,
+            "weekly_average_count": 18.3
         }
     ]
 }
