@@ -46,12 +46,6 @@ export default Vue.extend({
   components: {
     LinkToInformationAboutRoadmap
   },
-  props: {
-    items: {
-      type: Array,
-      required: true
-    }
-  },
   data() {
     return {
       RelaxationStep,
