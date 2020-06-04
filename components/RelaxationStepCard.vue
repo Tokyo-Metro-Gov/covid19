@@ -54,7 +54,26 @@ export default Vue.extend({
   },
   computed: {
     formattedDayForDisplay() {
-      return this.$d(new Date(RelaxationStep.changed), 'dateWithDayOfWeek')
+      const dateChanged = new Date(RelaxationStep.changed)
+      const hour24h = dateChanged.getHours()
+      const isPM = hour24h >= 12
+      let hour12h = isPM ? hour24h - 12 : hour24h
+
+      // 日本語では 24時間表記で
+      //  *  0 - 11時は 12時間表記でも 午前 0 - 11時
+      //  * 12 - 23時は 12時間表記では 午後 0 - 11時
+      // しかし深夜0時・正午は 他の言語では12時
+      if (!['ja', 'ja-basic'].includes(this.$i18n.locale)) {
+        // 0時を12時に置き換える
+        hour12h = hour12h === 0 ? 12 : hour12h
+      }
+
+      const date = this.$d(dateChanged, 'dateWithDayOfWeek')
+      const time = this.$t(isPM ? '午後 {hour12h}時' : '午前 {hour12h}時', {
+        hour12h
+      })
+
+      return this.$t('{date} {time}', { date, time })
     }
   }
 })
