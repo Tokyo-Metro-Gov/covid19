@@ -8,9 +8,7 @@
         {{ $t('最新のお知らせ') }}
       </h3>
       <div class="WhatsNew-linkGroup">
-        <active-tokyo-alert v-if="isActiveAlert" />
         <link-to-information-about-emergency-measure v-if="isEmergency" />
-        <link-to-information-about-roadmap />
       </div>
     </div>
     <ul class="WhatsNew-list">
@@ -46,16 +44,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import LinkToInformationAboutEmergencyMeasure from '@/components/LinkToInformationAboutEmergencyMeasure.vue'
-import LinkToInformationAboutRoadmap from '@/components/LinkToInformationAboutRoadmap.vue'
-import ActiveTokyoAlert from '@/components/ActiveTokyoAlert.vue'
 
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
-    LinkToInformationAboutEmergencyMeasure,
-    LinkToInformationAboutRoadmap,
-    ActiveTokyoAlert
+    LinkToInformationAboutEmergencyMeasure
   },
   props: {
     items: {
@@ -63,11 +57,6 @@ export default Vue.extend({
       required: true
     },
     isEmergency: {
-      type: Boolean,
-      required: false,
-      default: false
-    },
-    isActiveAlert: {
       type: Boolean,
       required: false,
       default: false
