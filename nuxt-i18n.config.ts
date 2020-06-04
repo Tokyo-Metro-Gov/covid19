@@ -17,6 +17,13 @@ const dateTimeFormatsCommon = {
   dateWithoutYear: {
     month: 'long',
     day: 'numeric'
+  },
+  dateTimeRelaxationSteps: {
+    hour12: true,
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric'
   }
 }
 
