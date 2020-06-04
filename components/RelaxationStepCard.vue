@@ -54,10 +54,7 @@ export default Vue.extend({
   },
   computed: {
     formattedDayForDisplay() {
-      return this.$d(
-        new Date(RelaxationStep.changed),
-        'dateTimeRelaxationSteps'
-      )
+      return this.$d(new Date(RelaxationStep.changed), 'dateWithDayOfWeek')
     }
   }
 })
