@@ -149,20 +149,14 @@ export default Vue.extend({
 
       &-on {
         margin-left: 16px;
-        border-top: $green-1 solid 5px;
-        border-bottom: $green-1 solid 5px;
-        border-left: $green-1 solid 25px;
-        border-right: $green-1 solid 10px;
+        padding: 5px 10px 5px 25px;
         color: $white;
         background-color: $green-1;
       }
 
       &-off {
         margin-left: 16px;
-        border-top: $gray-4 solid 5px;
-        border-bottom: $gray-4 solid 5px;
-        border-left: $gray-4 solid 25px;
-        border-right: $gray-4 solid 10px;
+        padding: 5px 10px 5px 25px;
         color: $gray-2;
         background-color: $gray-4;
       }
