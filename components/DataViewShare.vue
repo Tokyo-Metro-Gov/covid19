@@ -223,10 +223,6 @@ export default Vue.extend({
   margin: -14px;
   padding: 14px;
 
-  > svg {
-    width: auto !important;
-  }
-
   &:focus {
     outline: dotted $gray-3 1px;
   }
