@@ -57,6 +57,7 @@ export default Vue.extend({
     .TokyoAlert-title {
       display: flex;
       align-items: center;
+      padding: 12px;
       color: $gray-2;
       @include card-h2();
       &-icon {
@@ -77,6 +78,8 @@ export default Vue.extend({
   }
 
   .TokyoAlert-description {
+    padding: 12px;
+
     @include font-size(14);
   }
 }
