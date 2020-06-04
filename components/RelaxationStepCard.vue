@@ -172,25 +172,25 @@ export default Vue.extend({
 
   @include lessThan($small) {
     .RelaxationStep-steps {
-      font-size: 1.4rem;
-      margin-left: 1.6rem;
-      padding: 0.5rem 1rem 0.5rem 2.5rem;
+      font-size: 1rem;
+      margin-left: 1.4rem;
+      padding: 0.5rem 0.5rem 0.5rem 2rem;
       &-on::after {
-        border-top: 1.55rem solid transparent;
-        border-bottom: 1.55rem solid transparent;
-        border-left: 1.55rem solid $green-1;
+        border-top: 1.3rem solid transparent;
+        border-bottom: 1.3rem solid transparent;
+        border-left: 1.3rem solid $green-1;
       }
       &-off::after {
-        border-top: 1.55rem solid transparent;
-        border-bottom: 1.55rem solid transparent;
-        border-left: 1.55rem solid $gray-4;
+        border-top: 1.3rem solid transparent;
+        border-bottom: 1.3rem solid transparent;
+        border-left: 1.3rem solid $gray-4;
       }
       &-on::before,
       &-off::before {
-        left: 1.55rem;
-        border-top: 1.55rem solid transparent;
-        border-bottom: 1.55rem solid transparent;
-        border-left: 1.55rem solid $white;
+        left: 1.3rem;
+        border-top: 1.3rem solid transparent;
+        border-bottom: 1.3rem solid transparent;
+        border-left: 1.3rem solid $white;
       }
     }
   }
