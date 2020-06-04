@@ -65,7 +65,7 @@ export default Vue.extend({
   },
   computed: {
     formattedDayForDisplay() {
-      return this.$d(new Date(RelaxStep.changed), 'dateWithoutYear')
+      return this.$d(new Date(RelaxStep.changed), 'dateTimeRelaxationSteps')
     }
   }
 })
