@@ -347,7 +347,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${unit}`
               if (this.dataKind === 'cumulative') {
-                label += ` (${this.$t('合計')}: ${casesTotal} ${unit})`
+                label = `${label} (${this.$t('合計')}: ${casesTotal} ${unit})`
               }
               return label
             },
@@ -517,7 +517,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                     'Dec'
                   ]
                   const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
-                  return month + '月'
+                  return `${month}月`
                 }
               },
               type: 'time',
