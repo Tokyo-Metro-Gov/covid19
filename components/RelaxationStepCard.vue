@@ -77,9 +77,9 @@ export default Vue.extend({
       }
 
       const date = this.$d(dateChanged, 'dateWithDayOfWeek')
-      const time = this.$t(isPM ? '午後 {hour12h}時' : '午前 {hour12h}時', {
-        hour12h
-      })
+      const time = isPM
+        ? this.$t('午後 {hour12h}時', { hour12h })
+        : this.$t('午前 {hour12h}時', { hour12h })
 
       return this.$t('{date} {time}', { date, time })
     }
