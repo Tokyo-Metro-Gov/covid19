@@ -76,7 +76,7 @@ export default Vue.extend({
   methods: {
     replaceFullWidthByHalfWidth(str: string) {
       return str.replace(
-        /[０-９]/g,
+        /[０-９|（|）]/g,
         s => String.fromCharCode(s.charCodeAt(0) - 0xfee0) // eslint-disable-line unicorn/number-literal-case
       )
     }
