@@ -47,8 +47,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import LinkToInformationAboutRoadmap from '~/components/LinkToInformationAboutRoadmap.vue'
-import RelaxationStep from '~/data/tokyo_alert.json'
+import LinkToInformationAboutRoadmap from '@/components/LinkToInformationAboutRoadmap.vue'
+import RelaxationStep from '@/data/tokyo_alert.json'
 
 export default Vue.extend({
   components: {
@@ -88,7 +88,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@function px2vw($px, $vw: 900) {
+$mediumLarge: 900;
+$tinySmall: 420;
+
+@function px2vw($px, $vw: $mediumLarge) {
   @return $px / $vw * 100vw;
 }
 
@@ -121,6 +124,7 @@ export default Vue.extend({
       flex-wrap: wrap;
       align-items: center;
       justify-content: flex-end;
+      padding-left: 12px;
 
       @include lessThan($medium) {
         justify-content: flex-start;
@@ -148,7 +152,7 @@ export default Vue.extend({
       position: absolute;
       content: '';
       top: 0;
-      right: 1px;
+      right: 0.1rem;
       transform: translateX(100%);
       border-width: px2vw(15.5) 0 px2vw(15.5) px2vw(15.5);
       border-style: solid;
@@ -165,7 +169,7 @@ export default Vue.extend({
       position: absolute;
       content: '';
       top: 0;
-      left: px2vw(15.5);
+      left: px2vw(15);
       transform: translateX(-100%);
       border-width: px2vw(15.5) 0 px2vw(15.5) px2vw(15.5);
       border-style: solid;
@@ -182,24 +186,31 @@ export default Vue.extend({
       &::after,
       &::before {
         border-width: 1.3rem 0 1.3rem 1.3rem;
-        border-style: solid;
-        border-color: transparent;
-      }
-      &-on::after {
-        border-left-color: $green-1;
-      }
-      &-off::after {
-        border-left-color: $gray-4;
       }
       &-on::before,
       &-off::before {
-        left: 1.3rem;
-        border-left-color: $white;
+        left: 1.2rem;
       }
     }
   }
 
-  @include largerThan(900) {
+  @include lessThan($tinySmall) {
+    .RelaxationStep-steps {
+      font-size: 0.8rem;
+      margin-left: 1rem;
+      padding: 0.25rem 0.25rem 0.25rem 1rem;
+      &::after,
+      &::before {
+        border-width: 1rem 0 1rem 0.8rem;
+      }
+      &-on::before,
+      &-off::before {
+        left: 0.8rem;
+      }
+    }
+  }
+
+  @include largerThan($mediumLarge) {
     .RelaxationStep-steps {
       font-size: 1.4rem;
       margin-left: 1.6rem;
@@ -207,19 +218,10 @@ export default Vue.extend({
       &::after,
       &::before {
         border-width: 1.55rem 0 1.55rem 1.55rem;
-        border-style: solid;
-        border-color: transparent;
-      }
-      &-on::after {
-        border-left-color: $green-1;
-      }
-      &-off::after {
-        border-left-color: $gray-4;
       }
       &-on::before,
       &-off::before {
-        left: 1.55rem;
-        border-left-color: $white;
+        left: 1.45rem;
       }
     }
   }
@@ -254,7 +256,7 @@ export default Vue.extend({
       white-space: nowrap;
       width: 100%;
 
-      @include largerThan(420) {
+      @include largerThan($tinySmall) {
         flex-wrap: nowrap;
       }
 
