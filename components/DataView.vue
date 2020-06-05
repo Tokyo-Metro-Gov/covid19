@@ -94,7 +94,7 @@ export default Vue.extend({
       return this.$d(new Date(this.date), 'dateTime')
     },
     permalink(): string {
-      const permalink = '/cards/' + this.titleId
+      const permalink = `/cards/${this.titleId}`
       return this.localePath(permalink)
     }
   },

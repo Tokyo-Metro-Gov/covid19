@@ -462,7 +462,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080', // #808080
                 suggestedMax: this.scaledTicksYAxisMaxRight,
                 callback(value) {
-                  return value + '%'
+                  return `${value}%`
                 }
               }
             }
@@ -601,7 +601,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080', // #808080
                 suggestedMax: this.scaledTicksYAxisMaxRight,
                 callback(value) {
-                  return value + '%'
+                  return `${value}%`
                 }
               }
             }

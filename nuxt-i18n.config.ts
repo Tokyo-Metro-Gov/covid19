@@ -18,12 +18,10 @@ const dateTimeFormatsCommon = {
     month: 'long',
     day: 'numeric'
   },
-  dateTimeRelaxationSteps: {
-    hour12: true,
+  dateWithDayOfWeek: {
     weekday: 'short',
     month: 'short',
-    day: 'numeric',
-    hour: 'numeric'
+    day: 'numeric'
   }
 }
 

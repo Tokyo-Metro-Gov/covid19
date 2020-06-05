@@ -62,7 +62,7 @@ export const getComplementedDate = (dateString: string): string => {
   const currentDate = today.getDate()
   let targetYear = today.getFullYear()
 
-  if (currentMonth <= month && currentDate <= date) {
+  if (currentMonth < month || (currentMonth === month && currentDate < date)) {
     targetYear -= 1
   }
 
