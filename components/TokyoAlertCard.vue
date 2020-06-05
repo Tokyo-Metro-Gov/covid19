@@ -64,6 +64,7 @@ export default Vue.extend({
       flex-wrap: wrap;
       align-items: center;
       justify-content: flex-end;
+      padding-left: 12px;
 
       @include lessThan($medium) {
         justify-content: flex-start;
