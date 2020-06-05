@@ -198,7 +198,7 @@ $tinySmall: 420;
     .RelaxationStep-steps {
       font-size: 0.8rem;
       margin-left: 1rem;
-      padding: 0.25rem 0.25rem 0.25rem 1rem;
+      padding: 0.26rem 0.26rem 0.26rem 1rem;
       &::after,
       &::before {
         border-width: 1rem 0 1rem 0.8rem;
@@ -244,11 +244,17 @@ $tinySmall: 420;
           flex-basis: auto;
         }
       }
+
+      @include lessThan($tinySmall) {
+        &-steps {
+          margin: 0 -8px;
+        }
+      }
     }
 
     .RelaxationStep-steps-list {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: center;
       list-style: none;
       padding: 0;
@@ -256,8 +262,8 @@ $tinySmall: 420;
       white-space: nowrap;
       width: 100%;
 
-      @include largerThan($tinySmall) {
-        flex-wrap: nowrap;
+      @include lessThan($tiny) {
+        margin-left: -6px;
       }
 
       .RelaxationStep-steps-item {
