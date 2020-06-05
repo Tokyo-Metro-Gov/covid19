@@ -133,8 +133,8 @@
   "東京都": "Tokyo Metropolitan Government",
   "新型コロナウイルス感染症": " COVID-19",
   "menu/新型コロナウイルス感染症": "COVID-19",
-  "対策サイト": "The Information website of COVID-19",
-  "menu/対策サイト": "The Information website of COVID-19",
+  "対策サイト": "COVID-19",
+  "menu/対策サイト": "The Information website",
   "最終更新": "Last update",
   "注釈": " This is a provisional translation. Please be aware that there may be mistranslations.",
   "print": " Print",
@@ -473,10 +473,12 @@
   "本グラフは、5月8日より「検査実施件数」のグラフで健康安全研究センターが行った検査件数と医療機関等が行った件数の内訳を掲載していること、5月13日より「検査実施人数（陰性確認を除く）と陽性率の推移」（現在の「モニタリング指標(6)PCR検査の陽性率」）のグラフで検査実施人数を掲載していることから、データが重複するため、6月15日をもって削除いたします。": "This graph will delete on 15th June.",
   "その他 参考指標": "Other Indexs",
   "東京アラート発動中": "A “Tokyo Alert” has been issued.",
-  "休業要請緩和のステップについては、令和2年5月22日時点の状況を「ステップ0」とし、施設の特性やクラスター発生歴等から判断して、「ステップ3」までの4段階を設定し、段階的に施設の休業要請を緩和します。": "We explain that there are 4 steps to alleviate leave requests for facilities. First, “Step 0”, which refers to the situation as of May 22, 2020. After that, it will be gradually proceed to \"Step 3\" based on the characteristics of the facilities and the history of cluster occurrence.",
+  "休業要請緩和のステップについては、令和2年5月22日時点の状況を「ステップ0」とし、施設の特性やクラスター発生歴等から判断して、「ステップ3」までの4段階を設定し、段階的に施設の休業要請を緩和します。": "We explain that there are 4 steps to alleviate leave requests for facilities. First, “Step 0”, which refers to the situation as of 22th May, 2020. After that, it will be gradually proceed to \"Step 3\" based on the characteristics of the facilities and the history of cluster occurrence.",
   "東京アラート": "“Tokyo Alert”",
   "施設別休止要請の緩和ステップ": "Steps to alleviate leave requests for facilities in Tokyo",
   "ステップ {num}": "Step {num}",
   "{date} {time}": "{date}, {time}",
-  "{date} ステップ {num}に移行": "proceed to \"Step 3\""
+  "{date} ステップ {num}に移行": "{date} Proceed to \"Step {num}\" ",
+  "午後 {hour12h}時": "{hour12h} pm",
+  "午前 {hour12h}時": "{hour12h} am"
 }
