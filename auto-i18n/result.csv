@@ -414,3 +414,6 @@ TAG_ADD,{date} ステップ {num}に移行
 RUN,2020/06/05 00:50
 TAG_REMOVE,午前 {hour12h}時
 TAG_REMOVE,午後 {hour12h}時
+RUN,2020/06/05 15:50
+TAG_ADD,午後 {hour12h}時
+TAG_ADD,午前 {hour12h}時

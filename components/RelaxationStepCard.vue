@@ -47,8 +47,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import LinkToInformationAboutRoadmap from '~/components/LinkToInformationAboutRoadmap.vue'
-import RelaxationStep from '~/data/tokyo_alert.json'
+import LinkToInformationAboutRoadmap from '@/components/LinkToInformationAboutRoadmap.vue'
+import RelaxationStep from '@/data/tokyo_alert.json'
 
 export default Vue.extend({
   components: {
@@ -77,9 +77,9 @@ export default Vue.extend({
       }
 
       const date = this.$d(dateChanged, 'dateWithDayOfWeek')
-      const time = this.$t(isPM ? '午後 {hour12h}時' : '午前 {hour12h}時', {
-        hour12h
-      })
+      const time = isPM
+        ? this.$t('午後 {hour12h}時', { hour12h })
+        : this.$t('午前 {hour12h}時', { hour12h })
 
       return this.$t('{date} {time}', { date, time })
     }
@@ -88,7 +88,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@function px2vw($px, $vw: 900) {
+$mediumLarge: 900;
+$tinySmall: 420;
+
+@function px2vw($px, $vw: $mediumLarge) {
   @return $px / $vw * 100vw;
 }
 
@@ -121,6 +124,7 @@ export default Vue.extend({
       flex-wrap: wrap;
       align-items: center;
       justify-content: flex-end;
+      padding-left: 12px;
 
       @include lessThan($medium) {
         justify-content: flex-start;
@@ -144,15 +148,18 @@ export default Vue.extend({
       color: $gray-2;
       background-color: $gray-4;
     }
-    &::after {
+    &::after,
+    &::before {
       position: absolute;
       content: '';
-      top: 0;
-      right: 1px;
-      transform: translateX(100%);
-      border-width: px2vw(15.5) 0 px2vw(15.5) px2vw(15.5);
       border-style: solid;
       border-color: transparent;
+      border-width: px2vw(15.5) 0 px2vw(15.5) px2vw(15.5);
+      top: 50%;
+    }
+    &::after {
+      right: 0.1rem;
+      transform: translate(100%, -50%);
     }
     &-on::after {
       border-left-color: $green-1;
@@ -160,16 +167,9 @@ export default Vue.extend({
     &-off::after {
       border-left-color: $gray-4;
     }
-    &-on::before,
-    &-off::before {
-      position: absolute;
-      content: '';
-      top: 0;
-      left: px2vw(15.5);
-      transform: translateX(-100%);
-      border-width: px2vw(15.5) 0 px2vw(15.5) px2vw(15.5);
-      border-style: solid;
-      border-color: transparent;
+    &::before {
+      left: px2vw(15);
+      transform: translate(-100%, -50%);
       border-left-color: $white;
     }
   }
@@ -182,24 +182,31 @@ export default Vue.extend({
       &::after,
       &::before {
         border-width: 1.3rem 0 1.3rem 1.3rem;
-        border-style: solid;
-        border-color: transparent;
-      }
-      &-on::after {
-        border-left-color: $green-1;
-      }
-      &-off::after {
-        border-left-color: $gray-4;
       }
       &-on::before,
       &-off::before {
-        left: 1.3rem;
-        border-left-color: $white;
+        left: 1.2rem;
       }
     }
   }
 
-  @include largerThan(900) {
+  @include lessThan($tinySmall) {
+    .RelaxationStep-steps {
+      font-size: 0.8rem;
+      margin-left: 1rem;
+      padding: 0.32rem 0.32rem 0.32rem 1rem;
+      &::after,
+      &::before {
+        border-width: 1rem 0 1rem 0.8rem;
+      }
+      &-on::before,
+      &-off::before {
+        left: 0.8rem;
+      }
+    }
+  }
+
+  @include largerThan($mediumLarge) {
     .RelaxationStep-steps {
       font-size: 1.4rem;
       margin-left: 1.6rem;
@@ -207,19 +214,10 @@ export default Vue.extend({
       &::after,
       &::before {
         border-width: 1.55rem 0 1.55rem 1.55rem;
-        border-style: solid;
-        border-color: transparent;
-      }
-      &-on::after {
-        border-left-color: $green-1;
-      }
-      &-off::after {
-        border-left-color: $gray-4;
       }
       &-on::before,
       &-off::before {
-        left: 1.55rem;
-        border-left-color: $white;
+        left: 1.45rem;
       }
     }
   }
@@ -242,11 +240,17 @@ export default Vue.extend({
           flex-basis: auto;
         }
       }
+
+      @include lessThan($tinySmall) {
+        &-steps {
+          margin: 0 -8px;
+        }
+      }
     }
 
     .RelaxationStep-steps-list {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: center;
       list-style: none;
       padding: 0;
@@ -254,8 +258,8 @@ export default Vue.extend({
       white-space: nowrap;
       width: 100%;
 
-      @include largerThan(420) {
-        flex-wrap: nowrap;
+      @include lessThan($tiny) {
+        margin-left: -6px;
       }
 
       .RelaxationStep-steps-item {
@@ -265,14 +269,17 @@ export default Vue.extend({
         @include largerThan($large) {
           flex: 1 1 auto;
         }
+
+        @include lessThan($tinySmall) {
+          flex: 0 1 25%;
+        }
       }
       .RelaxationStep-steps-item:first-child {
         .RelaxationStep-steps {
           border-radius: 5px 0 0 5px;
           margin-left: 0;
           &::before {
-            margin-top: -9999px;
-            margin-left: -9999px;
+            display: none;
           }
         }
       }
