@@ -267,6 +267,10 @@ $tinySmall: 420;
         @include largerThan($large) {
           flex: 1 1 auto;
         }
+
+        @include lessThan($tinySmall) {
+          flex: 0 1 25%;
+        }
       }
       .RelaxationStep-steps-item:first-child {
         .RelaxationStep-steps {
