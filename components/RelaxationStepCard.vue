@@ -148,15 +148,18 @@ $tinySmall: 420;
       color: $gray-2;
       background-color: $gray-4;
     }
-    &::after {
+    &::after,
+    &::before {
       position: absolute;
       content: '';
-      top: 0;
-      right: 0.1rem;
-      transform: translateX(100%);
-      border-width: px2vw(15.5) 0 px2vw(15.5) px2vw(15.5);
       border-style: solid;
       border-color: transparent;
+      border-width: px2vw(15.5) 0 px2vw(15.5) px2vw(15.5);
+      top: 50%;
+    }
+    &::after {
+      right: 0.1rem;
+      transform: translate(100%, -50%);
     }
     &-on::after {
       border-left-color: $green-1;
@@ -164,16 +167,9 @@ $tinySmall: 420;
     &-off::after {
       border-left-color: $gray-4;
     }
-    &-on::before,
-    &-off::before {
-      position: absolute;
-      content: '';
-      top: 0;
+    &::before {
       left: px2vw(15);
-      transform: translateX(-100%);
-      border-width: px2vw(15.5) 0 px2vw(15.5) px2vw(15.5);
-      border-style: solid;
-      border-color: transparent;
+      transform: translate(-100%, -50%);
       border-left-color: $white;
     }
   }
@@ -198,7 +194,7 @@ $tinySmall: 420;
     .RelaxationStep-steps {
       font-size: 0.8rem;
       margin-left: 1rem;
-      padding: 0.26rem 0.26rem 0.26rem 1rem;
+      padding: 0.32rem 0.32rem 0.32rem 1rem;
       &::after,
       &::before {
         border-width: 1rem 0 1rem 0.8rem;
@@ -283,8 +279,7 @@ $tinySmall: 420;
           border-radius: 5px 0 0 5px;
           margin-left: 0;
           &::before {
-            margin-top: -9999px;
-            margin-left: -9999px;
+            display: none;
           }
         }
       }
