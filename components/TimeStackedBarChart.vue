@@ -83,7 +83,7 @@ export default {
   },
   data() {
     return {
-      dataKind: 'cumulative'
+      dataKind: 'transition'
     }
   },
   computed: {
