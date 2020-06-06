@@ -12,7 +12,7 @@
         }}
       </p>
       -->
-      <data-selector v-model="dataKind" hide-day="true" />
+      <data-selector v-model="dataKind" />
     </template>
     <bar
       :chart-id="chartId"
@@ -83,7 +83,7 @@ export default {
   },
   data() {
     return {
-      dataKind: 'cumulative'
+      dataKind: 'transition'
     }
   },
   computed: {
