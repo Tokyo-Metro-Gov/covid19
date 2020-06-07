@@ -54,7 +54,9 @@ const createCustomChart = () => {
       displayLegends: watchDisplayLegends
     },
     mounted() {
-      this.renderChart(this.chartData, this.options)
+      setTimeout(() => {
+        this.renderChart(this.chartData, this.options)
+      })
     }
   })
 
