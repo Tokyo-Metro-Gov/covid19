@@ -73,7 +73,7 @@ const createCustomChart = () => {
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'doughnut',
+    'doughnut-chart',
     {
       mixins: [reactiveProp, Doughnut, generalChart]
     }
