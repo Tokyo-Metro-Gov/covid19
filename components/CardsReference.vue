@@ -5,7 +5,7 @@
       <confirmed-cases-attributes-card />
       <!-- 区市町村別患者数 -->
       <confirmed-cases-by-municipalities-card />
-      <!-- PCR検査陽性者の発生動向（確定日別による陽性者数の推移） -->
+      <!-- 確定日別による陽性者数の推移 -->
       <positive-number-by-diagnosed-date-card />
       <!-- 検査実施件数 -->
       <tested-number-card />
