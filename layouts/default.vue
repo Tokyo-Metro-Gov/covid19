@@ -120,7 +120,7 @@ export default Vue.extend({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://stopcovid19-shizuoka-dev.netlify.com${this.$route.path}`
+          content: `https://stopcovid19.code4numazu.org${this.$route.path}`
         },
         {
           hid: 'og:locale',
@@ -147,7 +147,7 @@ export default Vue.extend({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.$tc('https://stopcovid19-shizuoka-dev.netlify.com/ogp.png')
+          content: this.$tc('https://stopcovid19.code4numazu.org/ogp.png')
         },
         {
           hid: 'apple-mobile-web-app-title',
@@ -162,7 +162,7 @@ export default Vue.extend({
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.$tc('https://stopcovid19-shizuoka-dev.netlify.com/ogp.png')
+          content: this.$tc('https://stopcovid19.code4numazu.org/ogp.png')
         }
       ]
     }

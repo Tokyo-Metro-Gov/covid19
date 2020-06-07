@@ -49,18 +49,7 @@
       <footer class="SideNavigation-Footer">
         <div class="SideNavigation-Social">
           <a
-            href="https://line.me/R/ti/p/%40822sysfc"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="SideNavigation-SocialLink"
-          >
-            <picture>
-              <source srcset="/line.webp" type="image/webp" />
-              <img src="/line.png" alt="LINE" />
-            </picture>
-          </a>
-          <a
-            href="https://twitter.com/tokyo_bousai"
+            href="https://twitter.com/shizuoka_bousai"
             target="_blank"
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
@@ -71,7 +60,7 @@
             </picture>
           </a>
           <a
-            href="https://www.facebook.com/tochokoho"
+            href="https://www.facebook.com/shizuoka.bousai/"
             target="_blank"
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
@@ -82,7 +71,7 @@
             </picture>
           </a>
           <a
-            href="https://github.com/tokyo-metropolitan-gov/covid19"
+            href="https://github.com/hiroyuki-ichikawa/covid19"
             target="_blank"
             rel="noopener noreferrer"
             class="SideNavigation-SocialLink"
@@ -147,7 +136,7 @@ export default Vue.extend({
         {
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: 'http://www.pref.shizuoka.jp/kousei/ko-420a/kansen/documents/pos.pdf'
+          link: 'https://www.pref.shizuoka.jp/kinkyu/documents/200420poster.pdf'
         },
         {
           icon: 'ParentIcon',
@@ -157,7 +146,7 @@ export default Vue.extend({
         {
           icon: 'mdi-account-multiple',
           title: this.$t('県民の皆様へ'),
-          link: 'https://www.pref.shizuoka.jp/kinkyu/covid-19.html#governor_comment'
+          link: 'https://www.pref.shizuoka.jp/kinkyu/covid-19-tijikomennto.html'
         },
         {
           icon: 'mdi-domain',
@@ -167,7 +156,7 @@ export default Vue.extend({
         {
           title: this.$t('静岡県新型コロナウイルス感染症対策本部報'),
           link:
-            'https://www.pref.shizuoka.jp/kinkyu/covid-19.html#hesdquarters_shizuoka'
+            'https://www.pref.shizuoka.jp/kinkyu/covid-19-taisakuhonnbu.html'
         },
         {
           title: this.$t('静岡県主催イベント等の延期・中止状況'),
@@ -176,7 +165,7 @@ export default Vue.extend({
         },
         {
           title: this.$t('静岡県公式ホームページ'),
-          link: 'http://www.pref.shizuoka.jp/index.html'
+          link: 'http://www.pref.shizuoka.jp/'
         }
       ]
     }
