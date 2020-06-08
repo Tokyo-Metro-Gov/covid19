@@ -36,11 +36,21 @@
               item.itemValue.stopThreshold !== null
           "
         >
-          <td :class="$style.threshold">
+          <td>
             {{ $t(item.itemValue.goThreshold) }}
           </td>
-          <td :class="$style.threshold">
+          <td>
             {{ $t(item.itemValue.stopThreshold) }}
+          </td>
+        </template>
+        <template
+          v-else-if="
+            item.itemValue.goThreshold !== null &&
+              item.itemValue.stopThreshold === null
+          "
+        >
+          <td colspan="2">
+            {{ $t(item.itemValue.goThreshold) }}
           </td>
         </template>
         <template v-else>
@@ -66,7 +76,7 @@ export default Vue.extend({
   methods: {
     replaceFullWidthByHalfWidth(str: string) {
       return str.replace(
-        /[０-９]/g,
+        /[０-９（）]/g,
         s => String.fromCharCode(s.charCodeAt(0) - 0xfee0) // eslint-disable-line unicorn/number-literal-case
       )
     }

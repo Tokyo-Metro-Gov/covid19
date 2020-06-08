@@ -1,33 +1,40 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:description>
-      <slot name="description" />
-    </template>
     <ul
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
     >
-      <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
+      <li v-for="(item, i) in dataLabels" :key="i" @click="onClickLegend(i)">
         <button>
           <div
-            v-if="i < 2"
+            v-if="i === 1"
             :style="{
-              backgroundColor: colors[i].fillColor,
-              borderColor: colors[i].strokeColor
+              background: colors[i].fillColor,
+              border: 0,
+              height: '3px'
             }"
           />
           <div
             v-else-if="i === 2"
             :style="{
               background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0
+              border: 0,
+              height: '2px'
+            }"
+          />
+          <div
+            v-else-if="i === 3"
+            :style="{
+              background: colors[i].fillColor,
+              border: 0,
+              height: '2px'
             }"
           />
           <div
             v-else
             :style="{
-              backgroundColor: colors[2].fillColor,
-              borderColor: colors[2].strokeColor
+              backgroundColor: colors[i].fillColor,
+              borderColor: colors[i].strokeColor
             }"
           />
           <span
@@ -71,31 +78,12 @@
         />
       </div>
     </div>
-    <template v-slot:dataTable>
-      <v-data-table
-        :headers="tableHeaders"
-        :items="tableData"
-        :items-per-page="-1"
-        :hide-default-footer="true"
-        :height="240"
-        :fixed-header="true"
-        :disable-sort="true"
-        :mobile-breakpoint="0"
-        class="cardTable"
-        item-key="name"
-      >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
-              <td class="text-end">{{ item['0'] }}</td>
-              <td class="text-end">{{ item['1'] }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
+    <template v-slot:additionalDescription>
+      <slot name="additionalDescription" />
     </template>
-    <slot name="additionalNotes" />
+    <template v-slot:dataTable>
+      <data-view-table :headers="tableHeaders" :items="tableData" />
+    </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -116,7 +104,10 @@ import { TranslateResult } from 'vue-i18n'
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
-import DataSelector from '@/components/DataSelector.vue'
+import DataViewTable, {
+  TableHeader,
+  TableItem
+} from '@/components/DataViewTable.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
@@ -130,8 +121,6 @@ type Data = {
   width: number
 }
 type Methods = {
-  pickLastNumber: (chartDataArray: number[][]) => number[]
-  pickLastSecondNumber: (chartDataArray: number[][]) => number[]
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
@@ -149,13 +138,8 @@ type Computed = {
   displayDataHeader: DisplayData
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
-  tableHeaders: {
-    text: TranslateResult
-    value: string
-  }[]
-  tableData: {
-    [key: number]: number
-  }[]
+  tableHeaders: TableHeader[]
+  tableData: TableItem[]
 }
 
 type Props = {
@@ -164,15 +148,12 @@ type Props = {
   chartId: string
   chartData: number[][]
   date: string
-  items: string[]
   labels: string[]
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
   unit: string
   url: string
   additionalLines: number[]
-  scrollPlugin: Chart.PluginServiceRegistrationOptions[]
-  yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -185,7 +166,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
+  components: {
+    DataView,
+    DataViewTable,
+    DataViewBasicInfoPanel,
+    OpenDataLink
+  },
   props: {
     title: {
       type: String,
@@ -194,11 +180,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     titleId: {
       type: String,
       required: false,
-      default: ''
+      default: 'monitoring-number-of-confirmed-cases'
     },
     chartId: {
       type: String,
-      default: 'SimpleMixedChart'
+      default: 'monitoring-confirmed-cases-chart'
     },
     chartData: {
       type: Array,
@@ -209,10 +195,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       required: true,
       default: ''
-    },
-    items: {
-      type: Array,
-      default: () => []
     },
     url: {
       type: String,
@@ -237,42 +219,35 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     additionalLines: {
       type: Array,
       default: () => []
-    },
-    scrollPlugin: {
-      type: Array,
-      default: () => scrollPlugin
-    },
-    yAxesBgPlugin: {
-      type: Array,
-      default: () => yAxesBgPlugin
     }
   },
   data() {
-    const colors: SurfaceStyle[] =
-      this.additionalLines.length !== 0
-        ? [
-            getGraphSeriesColor('C'),
-            getGraphSeriesColor('E'),
-            getGraphSeriesColor('A')
-          ]
-        : [getGraphSeriesColor('B'), getGraphSeriesColor('A')]
+    const colors: SurfaceStyle[] = [
+      getGraphSeriesColor('C'),
+      getGraphSeriesColor('E'),
+      getGraphSeriesColor('A'),
+      getGraphSeriesColor('A')
+    ]
     return {
       displayLegends: [true, true, true, true],
       chartWidth: null,
       colors,
       canvas: true,
-      width: 300
+      width: 300,
+      scrollPlugin,
+      yAxesBgPlugin
     }
   },
   computed: {
     displayTransitionRatio() {
-      const lastDay = this.pickLastNumber(this.chartData)[1]
-      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[1]
+      const data = this.chartData[1]
+      const lastDay = data[data.length - 1]
+      const lastDayBefore = data[data.length - 2]
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
       return {
-        lText: this.pickLastNumber(this.chartData)[1].toLocaleString(),
+        lText: this.chartData[1][this.chartData[1].length - 1].toLocaleString(),
         sText: `${this.$t('{date} の数値', {
           date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
         })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
@@ -282,84 +257,63 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
-      const style: SurfaceStyle[] =
-        this.additionalLines.length !== 0
-          ? [
-              getGraphSeriesColor('C'),
-              getGraphSeriesColor('E'),
-              getGraphSeriesColor('A')
-            ]
-          : [
-              getGraphSeriesColor('B'),
-              getGraphSeriesColor('A'),
-              getGraphSeriesColor('A') // ダミー、これを抜くとTypeErrorが出てしまう
-            ]
-      const datasets = [
-        {
-          type: 'bar',
-          label: this.items[0],
-          data: this.chartData[0],
-          backgroundColor: style[0].fillColor,
-          borderColor: style[0].strokeColor,
-          borderWidth: 1,
-          order: 3
-        },
-        {
-          type: 'line',
-          label: this.items[1],
-          data: this.chartData[1],
-          pointBackgroundColor: 'rgba(0,0,0,0)',
-          pointBorderColor: 'rgba(0,0,0,0)',
-          borderColor: style[1].fillColor,
-          borderWidth: 3,
-          fill: false,
-          order: 2,
-          lineTension: 0
-        }
-      ]
-      if (this.additionalLines) {
-        return {
-          labels: this.labels,
-          datasets: [
-            ...datasets,
-            {
-              type: 'line',
-              label: this.items[2],
-              data: this.makeLineData(this.additionalLines[0]),
-              pointBackgroundColor: 'rgba(0,0,0,0)',
-              pointBorderColor: 'rgba(0,0,0,0)',
-              borderColor: style[2].fillColor,
-              borderWidth: 2,
-              borderDash: [4, 4],
-              fill: false,
-              order: 1,
-              lineTension: 0
-            },
-            {
-              type: 'line',
-              label: this.items[3],
-              data: this.makeLineData(this.additionalLines[1]),
-              pointBackgroundColor: 'rgba(0,0,0,0)',
-              pointBorderColor: 'rgba(0,0,0,0)',
-              borderColor: style[2].fillColor,
-              borderWidth: 2,
-              fill: false,
-              order: 0,
-              lineTension: 0
-            }
-          ]
-        }
-      }
       return {
         labels: this.labels,
-        datasets
+        datasets: [
+          {
+            type: 'bar',
+            label: this.dataLabels[0],
+            data: this.chartData[0],
+            backgroundColor: this.colors[0].fillColor,
+            borderColor: this.colors[0].strokeColor,
+            borderWidth: 1,
+            order: 3
+          },
+          {
+            type: 'line',
+            label: this.dataLabels[1],
+            data: this.chartData[1],
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            borderColor: this.colors[1].fillColor,
+            borderWidth: 3,
+            fill: false,
+            order: 2,
+            lineTension: 0
+          },
+          {
+            type: 'line',
+            label: this.dataLabels[2],
+            data: this.makeLineData(this.additionalLines[0]),
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            borderColor: this.colors[2].fillColor,
+            borderWidth: 2,
+            borderDash: [4, 4],
+            fill: false,
+            order: 1,
+            lineTension: 0
+          },
+          {
+            type: 'line',
+            label: this.dataLabels[3],
+            data: this.makeLineData(this.additionalLines[1]),
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            borderColor: this.colors[2].fillColor,
+            borderWidth: 2,
+            fill: false,
+            order: 0,
+            lineTension: 0
+          }
+        ]
       }
     },
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
         ...(this.tableLabels as string[]).map((text, i) => {
-          return { text, value: String(i), align: 'end' }
+          return { text, value: `${i}`, align: 'end' }
         })
       ]
     },
@@ -368,17 +322,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .map((label, i) => {
           return Object.assign(
             { text: dayjs(label).format('M/D') },
-            ...this.tableHeaders.map((_, j) => {
-              if (j < 2) {
-                const data = this.chartData[j]
-                if (data[i] === null) {
-                  return {
-                    [j]: ''
-                  }
-                }
-                return {
-                  [j]: data[i].toLocaleString()
-                }
+            ...(this.tableLabels as string[]).map((_, j) => {
+              return {
+                [j]: this.chartData[j][i]?.toLocaleString()
               }
             })
           )
@@ -400,10 +346,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               if (tooltipItem[0].datasetIndex! < 2) {
-                const date = dayjs(
-                  data.labels![tooltipItem[0].index!].toString()
-                ).format('M/D')
-                return String(date)
+                const date = data.labels![tooltipItem[0].index!].toString()
+                return dayjs(date).format('M/D')
               }
               return ''
             }
@@ -482,51 +426,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      let n = 0
-      let m = 0
-      let max = 0
-      for (const i in this.displayData.datasets[0].data) {
-        const current = this.displayData.datasets[0].data[i]
-        if (current > max) {
-          max = current
-          n = Number(i)
-        }
-      }
-      for (const i in this.displayData.datasets[1].data) {
-        const current = this.displayData.datasets[1].data[i]
-        if (current > max) {
-          max = current
-          m = Number(i)
-        }
-      }
-      const test = ['2020/1/1']
-      this.labels.map((label, _) => {
-        test.push(label)
-      })
       return {
-        labels: test,
-        datasets: [
-          {
-            data: [this.displayData.datasets[0].data[n]],
-            backgroundColor: 'transparent',
-            borderWidth: 0
-          },
-          {
-            data: [this.displayData.datasets[1].data[m]],
-            backgroundColor: 'transparent',
-            borderWidth: 0
-          },
-          {
-            data: [this.additionalLines[0]],
-            backgroundColor: 'transparent',
-            borderWidth: 0
-          },
-          {
-            data: [this.additionalLines[1]],
-            backgroundColor: 'transparent',
-            borderWidth: 0
-          }
-        ]
+        labels: ['2020/1/1'],
+        datasets: (this.dataLabels as string[]).map(_ => ({
+          data: [],
+          backgroundColor: 'transparent',
+          borderWidth: 0
+        }))
       }
     },
     displayOptionHeader() {
@@ -551,9 +457,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: 'transparent',
                 maxRotation: 0,
                 minRotation: 0,
-                callback: (label: string) => {
-                  return dayjs(label).format('D')
-                }
+                callback: (label: string) => dayjs(label).format('D')
               }
             },
             {
@@ -600,30 +504,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     scaledTicksYAxisMax() {
-      let max = 0
-      for (const i in this.chartData[0]) {
-        max = Math.max(max, this.chartData[0][i])
-      }
-      for (const i in this.chartData[1]) {
-        max = Math.max(max, this.chartData[1][i])
-      }
-      return max
+      return this.chartData.reduce((max, data) => Math.max(max, ...data), 0)
     }
   },
   methods: {
     onClickLegend(i) {
       this.displayLegends[i] = !this.displayLegends[i]
       this.displayLegends = this.displayLegends.slice()
-    },
-    pickLastNumber(chartDataArray: number[][]) {
-      return chartDataArray.map(array => {
-        return array[array.length - 1]
-      })
-    },
-    pickLastSecondNumber(chartDataArray: number[][]) {
-      return chartDataArray.map(array => {
-        return array[array.length - 2]
-      })
     },
     makeLineData(value: number): number[] {
       return this.chartData[0].map(_ => value)
@@ -669,15 +556,6 @@ export default Vue.extend(options)
 
 <style module lang="scss">
 .Graph {
-  &Desc {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 0 !important;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
   &Legend {
     text-align: center;
     list-style: none;
@@ -699,16 +577,6 @@ export default Vue.extend(options)
         @include font-size(12);
       }
     }
-  }
-}
-
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    line-height: 15px;
-    color: $gray-3;
-    @include font-size(12);
   }
 }
 </style>

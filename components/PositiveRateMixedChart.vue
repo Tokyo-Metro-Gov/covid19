@@ -7,13 +7,18 @@
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
     >
-      <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
+      <li
+        v-for="(dataLabel, i) in dataLabels"
+        :key="i"
+        @click="onClickLegend(i)"
+      >
         <button>
           <div
-            v-if="i >= 2"
+            v-if="i === 2"
             :style="{
               backgroundColor: '#CC7004',
-              borderColor: '#CC7004'
+              border: 0,
+              height: '3px'
             }"
           />
           <div
@@ -27,7 +32,7 @@
             :style="{
               textDecoration: displayLegends[i] ? 'none' : 'line-through'
             }"
-            >{{ item }}</span
+            >{{ dataLabel }}</span
           >
         </button>
       </li>
@@ -68,32 +73,8 @@
       <slot name="additionalDescription" />
     </template>
     <template v-slot:dataTable>
-      <v-data-table
-        :headers="tableHeaders"
-        :items="tableData"
-        :items-per-page="-1"
-        :hide-default-footer="true"
-        :height="240"
-        :fixed-header="true"
-        :disable-sort="true"
-        :mobile-breakpoint="0"
-        class="cardTable"
-        item-key="name"
-      >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
-              <td class="text-end">{{ item['0'] }}</td>
-              <td class="text-end">{{ item['1'] }}</td>
-              <td class="text-end">{{ item['2'] }}</td>
-              <td class="text-end">{{ item['3'] }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
+      <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
-    <slot name="additionalNotes" />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -111,7 +92,10 @@ import { TranslateResult } from 'vue-i18n'
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
-import DataSelector from '@/components/DataSelector.vue'
+import DataViewTable, {
+  TableHeader,
+  TableItem
+} from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import {
   DisplayData,
@@ -151,13 +135,8 @@ type Computed = {
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
   scaledTicksYAxisMaxRight: number
-  tableHeaders: {
-    text: TranslateResult
-    value: string
-  }[]
-  tableData: {
-    [key: number]: number
-  }[]
+  tableHeaders: TableHeader[]
+  tableData: TableItem[]
 }
 
 type Props = {
@@ -166,7 +145,6 @@ type Props = {
   chartId: string
   chartData: number[][]
   date: string
-  items: string[]
   labels: string[]
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
@@ -186,7 +164,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: {
+    DataView,
+    DataViewTable,
+    DataViewBasicInfoPanel
+  },
   props: {
     title: {
       type: String,
@@ -210,10 +192,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       required: true,
       default: ''
-    },
-    items: {
-      type: Array,
-      default: () => []
     },
     labels: {
       type: Array,
@@ -258,10 +236,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
+      const date = this.$d(
+        new Date(this.labels[this.labels.length - 1]),
+        'dateWithoutYear'
+      )
       return {
         lText: this.pickLastNumber(this.chartData)[2].toLocaleString(),
         sText: `${this.$t('{date}の数値', {
-          date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
+          date
         })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
           this.unit
         }）`,
@@ -276,7 +258,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'bar',
             yAxisID: 'y-axis-1',
-            label: this.items[0],
+            label: this.dataLabels[0],
             data: this.chartData[0],
             backgroundColor: graphSeries[0].fillColor,
             borderColor: graphSeries[0].strokeColor,
@@ -286,7 +268,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'bar',
             yAxisID: 'y-axis-1',
-            label: this.items[1],
+            label: this.dataLabels[1],
             data: this.chartData[1],
             backgroundColor: graphSeries[1].fillColor,
             borderColor: graphSeries[1].strokeColor,
@@ -296,7 +278,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'line',
             yAxisID: 'y-axis-2',
-            label: this.items[2],
+            label: this.dataLabels[2],
             data: this.chartData[2],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
@@ -318,29 +300,31 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
+      // 2月14日以前の分39件を累計値に足す
+      let cumulative = 39
       return this.labels
         .map((label, i) => {
+          let [dailySum, data] = [0, 0]
           return Object.assign(
-            { text: dayjs(label).format('M/D') },
+            { text: this.$d(new Date(label), 'dateWithoutYear') },
             ...this.tableHeaders.map((_, j) => {
-              if (j <= 1) {
-                const data = this.chartData[j]
-                return {
-                  [j]: data[i].toLocaleString()
-                }
+              switch (j) {
+                case 0: // 陽性者数
+                case 1: // 陰性者数
+                  dailySum += data = this.chartData[j][i]
+                  break
+                case 2: // 検査実施人数 (日別)
+                  cumulative += data = dailySum
+                  break
+                case 3: // 検査実施人数 (累計)
+                  data = cumulative
+                  break
+                case 4: // 陽性率
+                  data = this.chartData[2][i]
+                  break
               }
-              if (j === 2) {
-                const positive = this.chartData[0]
-                const negative = this.chartData[1]
-                return {
-                  [j]: (positive[i] + negative[i]).toLocaleString()
-                }
-              }
-              if (j === 3) {
-                const data = this.chartData[2]
-                return {
-                  [j]: data[i].toLocaleString()
-                }
+              return {
+                [j]: data.toLocaleString()
               }
             })
           )
@@ -349,6 +333,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
+      const self = this
       const unit = this.unit
       const data = this.chartData
       const options: Chart.ChartOptions = {
@@ -370,10 +355,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               return label
             },
             title(tooltipItem, data) {
-              const date = dayjs(
-                data.labels![tooltipItem[0].index!].toString()
-              ).format('M/D')
-              return String(date)
+              const label = data.labels![tooltipItem[0].index!].toString()
+              return self.$d(new Date(label), 'dateWithoutYear')
             }
           }
         },
@@ -457,7 +440,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080', // #808080
                 suggestedMax: this.scaledTicksYAxisMaxRight,
                 callback(value) {
-                  return value + '%'
+                  return `${value}%`
                 }
               }
             }
@@ -591,7 +574,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080', // #808080
                 suggestedMax: this.scaledTicksYAxisMaxRight,
                 callback(value) {
-                  return value + '%'
+                  return `${value}%`
                 }
               }
             }
@@ -672,15 +655,6 @@ export default Vue.extend(options)
 
 <style module lang="scss">
 .Graph {
-  &Desc {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 0 !important;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
   &Legend {
     text-align: center;
     list-style: none;
@@ -702,16 +676,6 @@ export default Vue.extend(options)
         @include font-size(12);
       }
     }
-  }
-}
-
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    line-height: 15px;
-    color: $gray-3;
-    @include font-size(12);
   }
 }
 </style>

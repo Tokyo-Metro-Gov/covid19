@@ -13,14 +13,16 @@
             v-if="i === 1"
             :style="{
               background: `repeating-linear-gradient(90deg, ${colors[1].fillColor}, ${colors[1].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0
+              border: 0,
+              height: '2px'
             }"
           />
           <div
             v-else-if="i === 2"
             :style="{
               background: colors[1].fillColor,
-              borderColor: colors[1].strokeColor
+              border: 0,
+              height: '2px'
             }"
           />
           <div
@@ -73,27 +75,7 @@
       <slot name="additionalDescription" />
     </template>
     <template v-slot:dataTable>
-      <v-data-table
-        :headers="tableHeaders"
-        :items="tableData"
-        :items-per-page="-1"
-        :hide-default-footer="true"
-        :height="240"
-        :fixed-header="true"
-        :disable-sort="true"
-        :mobile-breakpoint="0"
-        class="cardTable"
-        item-key="name"
-      >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
-              <td class="text-end">{{ item.transition }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
+      <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -116,6 +98,10 @@ import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
+import DataViewTable, {
+  TableHeader,
+  TableItem
+} from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
@@ -147,14 +133,8 @@ type Computed = {
   displayDataHeader: DisplayData
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
-  tableHeaders: {
-    text: TranslateResult
-    value: string
-  }[]
-  tableData: {
-    text: string
-    transition: string
-  }[]
+  tableHeaders: TableHeader[]
+  tableData: TableItem[]
 }
 type Props = {
   title: string
@@ -181,7 +161,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
+  components: {
+    DataView,
+    DataViewTable,
+    DataViewBasicInfoPanel,
+    OpenDataLink
+  },
   props: {
     title: {
       type: String,

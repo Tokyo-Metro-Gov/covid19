@@ -7,13 +7,26 @@
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
     >
-      <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
+      <li
+        v-for="(dataLabel, i) in dataLabels"
+        :key="i"
+        @click="onClickLegend(i)"
+      >
         <button>
           <div
-            v-if="i === 3"
+            v-if="i === 2"
+            :style="{
+              backgroundColor: colors[i].fillColor,
+              border: 0,
+              height: '3px'
+            }"
+          />
+          <div
+            v-else-if="i === 3"
             :style="{
               background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0
+              border: 0,
+              height: '2px'
             }"
           />
           <div
@@ -27,7 +40,7 @@
             :style="{
               textDecoration: displayLegends[i] ? 'none' : 'line-through'
             }"
-            >{{ item }}</span
+            >{{ dataLabel }}</span
           >
         </button>
       </li>
@@ -68,31 +81,8 @@
       <slot name="additionalDescription" />
     </template>
     <template v-slot:dataTable>
-      <v-data-table
-        :headers="tableHeaders"
-        :items="tableData"
-        :items-per-page="-1"
-        :hide-default-footer="true"
-        :height="240"
-        :fixed-header="true"
-        :disable-sort="true"
-        :mobile-breakpoint="0"
-        class="cardTable"
-        item-key="name"
-      >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
-              <td class="text-end">{{ item['0'] }}</td>
-              <td class="text-end">{{ item['1'] }}</td>
-              <td class="text-end">{{ item['2'] }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
+      <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
-    <slot name="additionalNotes" />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -110,7 +100,10 @@ import { TranslateResult } from 'vue-i18n'
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
-import DataSelector from '@/components/DataSelector.vue'
+import DataViewTable, {
+  TableHeader,
+  TableItem
+} from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import {
   DisplayData,
@@ -152,13 +145,8 @@ type Computed = {
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
   scaledTicksYAxisMaxRight: number
-  tableHeaders: {
-    text: TranslateResult
-    value: string
-  }[]
-  tableData: {
-    [key: number]: number
-  }[]
+  tableHeaders: TableHeader[]
+  tableData: TableItem[]
 }
 
 type Props = {
@@ -167,7 +155,6 @@ type Props = {
   chartId: string
   chartData: number[][]
   date: string
-  items: string[]
   labels: string[]
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
@@ -188,7 +175,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: {
+    DataView,
+    DataViewTable,
+    DataViewBasicInfoPanel
+  },
   props: {
     title: {
       type: String,
@@ -212,10 +203,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       required: true,
       default: ''
-    },
-    items: {
-      type: Array,
-      default: () => []
     },
     labels: {
       type: Array,
@@ -290,7 +277,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'bar',
             yAxisID: 'y-axis-1',
-            label: this.items[0],
+            label: this.dataLabels[0],
             data: this.chartData[0],
             backgroundColor: graphSeries[0].fillColor,
             borderColor: graphSeries[0].strokeColor,
@@ -300,7 +287,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'bar',
             yAxisID: 'y-axis-1',
-            label: this.items[1],
+            label: this.dataLabels[1],
             data: this.chartData[1],
             backgroundColor: graphSeries[1].fillColor,
             borderColor: graphSeries[1].strokeColor,
@@ -310,7 +297,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'line',
             yAxisID: 'y-axis-2',
-            label: this.items[2],
+            label: this.dataLabels[2],
             data: this.chartData[2],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
@@ -323,7 +310,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             type: 'line',
             yAxisID: 'y-axis-2',
-            label: this.items[3],
+            label: this.dataLabels[3],
             data: this.makeLineData(this.additionalLines[0]),
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
@@ -475,7 +462,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080', // #808080
                 suggestedMax: this.scaledTicksYAxisMaxRight,
                 callback(value) {
-                  return value + '%'
+                  return `${value}%`
                 }
               }
             }
@@ -614,7 +601,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080', // #808080
                 suggestedMax: this.scaledTicksYAxisMaxRight,
                 callback(value) {
-                  return value + '%'
+                  return `${value}%`
                 }
               }
             }
@@ -698,15 +685,6 @@ export default Vue.extend(options)
 
 <style module lang="scss">
 .Graph {
-  &Desc {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 0 !important;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
   &Legend {
     text-align: center;
     list-style: none;
@@ -728,16 +706,6 @@ export default Vue.extend(options)
         @include font-size(12);
       }
     }
-  }
-}
-
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    line-height: 15px;
-    color: $gray-3;
-    @include font-size(12);
   }
 }
 </style>
