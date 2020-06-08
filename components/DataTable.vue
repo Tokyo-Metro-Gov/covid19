@@ -39,7 +39,7 @@
       </template>
     </v-data-table>
     <template v-slot:additionalDescription>
-      <ul>
+      <ul class="ListStyleNone">
         <li>
           {{ $t('※退院は、保健所から報告があり、確認ができているものを反映') }}
         </li>

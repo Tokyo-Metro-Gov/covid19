@@ -12,7 +12,7 @@
       url="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000070"
     >
       <template v-slot:additionalDescription>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(
