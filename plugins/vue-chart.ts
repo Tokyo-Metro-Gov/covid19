@@ -165,13 +165,12 @@ export const yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[] = [
       ctx.fillRect(
         0,
         chartInstance.chartArea.bottom + 1,
-      chartInstance.chartArea.left,
+      　chartInstance.chartArea.left,
         chartInstance.height! - chartInstance.chartArea.bottom - 1
       )
     }
   }
 ]
-
 export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
     beforeInit(chartInstance) {
