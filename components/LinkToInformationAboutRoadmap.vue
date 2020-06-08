@@ -23,8 +23,8 @@ export default Vue.extend({
   display: inline-flex;
   flex: 0 1 auto;
 
-  @include lessThan($small) {
-    margin-top: 4px;
+  @include lessThan($medium) {
+    margin-top: 8px;
   }
 }
 

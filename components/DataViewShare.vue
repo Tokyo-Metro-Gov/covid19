@@ -130,10 +130,10 @@ export default Vue.extend({
   },
   computed: {
     graphEmbedValue(): string {
-      const graphEmbedValue =
-        '<iframe width="560" height="315" src="' +
-        this.permalink(true, true) +
-        '" frameborder="0"></iframe>'
+      const graphEmbedValue = `<iframe width="560" height="315" src="${this.permalink(
+        true,
+        true
+      )}" frameborder="0"></iframe>`
       return graphEmbedValue
     }
   },
@@ -175,40 +175,35 @@ export default Vue.extend({
       e.stopPropagation()
     },
     permalink(host: boolean = false, embed: boolean = false) {
-      let permalink = '/cards/' + this.titleId
+      let permalink = `/cards/${this.titleId}`
       if (embed) {
-        permalink = permalink + '?embed=true'
+        permalink = `${permalink}?embed=true`
       }
       permalink = this.localePath(permalink)
 
       if (host) {
-        permalink = location.protocol + '//' + location.host + permalink
+        permalink = `${location.protocol}//${location.host}${permalink}`
       }
       return permalink
     },
     twitter() {
-      const url =
-        'https://twitter.com/intent/tweet?text=' +
-        this.title +
-        ' / ' +
-        this.$t('東京都') +
-        this.$t('新型コロナウイルス感染症') +
-        this.$t('対策サイト') +
-        '&url=' +
-        this.permalink(true) +
-        '&' +
-        'hashtags=StopCovid19JP'
+      const url = `https://twitter.com/intent/tweet?text=${
+        this.title
+      } / ${this.$t('東京都')}${this.$t('新型コロナウイルス感染症')}${this.$t(
+        '対策サイト'
+      )}&url=${this.permalink(true)}&hashtags=StopCovid19JP`
       window.open(url)
     },
     facebook() {
-      const url =
-        'https://www.facebook.com/sharer.php?u=' + this.permalink(true)
+      const url = `https://www.facebook.com/sharer.php?u=${this.permalink(
+        true
+      )}`
       window.open(url)
     },
     line() {
-      const url =
-        'https://social-plugins.line.me/lineit/share?url=' +
-        this.permalink(true)
+      const url = `https://social-plugins.line.me/lineit/share?url=${this.permalink(
+        true
+      )}`
       window.open(url)
     }
   }
@@ -222,10 +217,6 @@ export default Vue.extend({
   cursor: pointer;
   margin: -14px;
   padding: 14px;
-
-  > svg {
-    width: auto !important;
-  }
 
   &:focus {
     outline: dotted $gray-3 1px;

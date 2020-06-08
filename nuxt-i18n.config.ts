@@ -17,6 +17,11 @@ const dateTimeFormatsCommon = {
   dateWithoutYear: {
     month: 'long',
     day: 'numeric'
+  },
+  dateWithDayOfWeek: {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric'
   }
 }
 
@@ -30,44 +35,12 @@ const options: NuxtVueI18n.Options.AllOptionsInterface = {
   vueI18n: {
     fallbackLocale: 'ja',
     dateTimeFormats: {
-      ja: {
-        dateTime: {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          hour: 'numeric',
-          minute: 'numeric',
-          hour12: false
-        },
-        date: {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric'
-        },
-        dateWithoutYear: {
-          month: 'short',
-          day: 'numeric'
-        }
-      },
-      en: {
-        dateTime: {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          hour: 'numeric',
-          minute: 'numeric',
-          hour12: false
-        },
-        date: {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric'
-        },
-        dateWithoutYear: {
-          month: 'short',
-          day: 'numeric'
-        }
-      }
+      ja: dateTimeFormatsCommon,
+      en: dateTimeFormatsCommon,
+      'zh-cn': dateTimeFormatsCommon,
+      'zh-tw': dateTimeFormatsCommon,
+      ko: dateTimeFormatsCommon,
+      'ja-basic': dateTimeFormatsCommon
     },
     formatFallbackMessages: true
   },

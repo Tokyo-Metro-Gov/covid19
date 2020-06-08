@@ -11,6 +11,10 @@
         <slot name="infoPanel" />
       </div>
 
+      <div v-if="this.$slots.attentionNote" class="DataView-AttentionNote">
+        <slot name="attentionNote" />
+      </div>
+
       <div class="DataView-Description">
         <slot name="description" />
       </div>
@@ -27,9 +31,12 @@
         <slot name="additionalDescription" />
       </div>
 
-      <data-view-table v-if="this.$slots.dataTable" class="DataView-Table">
+      <data-view-expantion-panel
+        v-if="this.$slots.dataTable"
+        class="DataView-ExpantionPanel"
+      >
         <slot name="dataTable" />
-      </data-view-table>
+      </data-view-expantion-panel>
 
       <div class="DataView-Space" />
 
@@ -39,7 +46,7 @@
           <div>
             <a class="Permalink" :href="permalink">
               <time :datetime="formattedDate">
-                {{ $t('{date} 更新', { date }) }}
+                {{ $t('{date} 更新', { date: formattedDateForDisplay }) }}
               </time>
             </a>
           </div>
@@ -60,11 +67,11 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
-import DataViewTable from '@/components/DataViewTable.vue'
+import DataViewExpantionPanel from '@/components/DataViewExpantionPanel.vue'
 import DataViewShare from '@/components/DataViewShare.vue'
 
 export default Vue.extend({
-  components: { DataViewTable, DataViewShare },
+  components: { DataViewExpantionPanel, DataViewShare },
   props: {
     title: {
       type: String,
@@ -83,8 +90,11 @@ export default Vue.extend({
     formattedDate(): string {
       return convertDatetimeToISO8601Format(this.date)
     },
+    formattedDateForDisplay(): string {
+      return this.$d(new Date(this.date), 'dateTime')
+    },
     permalink(): string {
-      const permalink = '/cards/' + this.titleId
+      const permalink = `/cards/${this.titleId}`
       return this.localePath(permalink)
     }
   },
@@ -170,12 +180,52 @@ export default Vue.extend({
     color: $gray-3;
     @include font-size(12);
 
+    ul,
+    ol {
+      list-style-type: none;
+      padding: 0;
+    }
+
     &--Additional {
       margin-bottom: 10px;
+
+      ul,
+      ol {
+        list-style: disc inside;
+        padding-left: 1em;
+
+        li {
+          margin-left: 1.5em;
+          text-indent: -1.5em;
+        }
+      }
+
+      .ListStyleNone {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+          margin-left: 0;
+          text-indent: 0;
+        }
+      }
     }
   }
 
-  &-Table {
+  &-Details {
+    margin: 10px 0;
+
+    .v-data-table {
+      .text-end {
+        text-align: right;
+      }
+      .text-nowrap {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &-ExpantionPanel {
     margin-bottom: 10px;
   }
 
@@ -185,6 +235,12 @@ export default Vue.extend({
     margin-top: auto;
     color: $gray-3;
     @include font-size(12);
+
+    ul,
+    ol {
+      list-style-type: none;
+      padding: 0;
+    }
 
     .Permalink {
       color: $gray-3 !important;
@@ -196,12 +252,16 @@ export default Vue.extend({
     }
   }
 
-  &-Description,
-  &-Footer {
-    ul,
-    ol {
-      list-style-type: none;
-      padding: 0;
+  &-AttentionNote {
+    margin: 10px 0;
+    padding: 12px;
+    background-color: $emergency;
+    border-radius: 4px;
+    color: $gray-2;
+    @include font-size(12);
+
+    p {
+      margin: 0;
     }
   }
 

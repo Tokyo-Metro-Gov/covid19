@@ -12,7 +12,7 @@
       :additional-lines="additionalLines"
     >
       <template v-slot:additionalDescription>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(
