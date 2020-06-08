@@ -10,7 +10,7 @@
       :by-date="true"
     >
       <template v-slot:additionalDescription>
-        <span>（注）</span>
+        <span>{{ $t('（注）') }}</span>
         <ul>
           <li>
             {{
