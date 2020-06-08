@@ -14,7 +14,7 @@
     >
       <!-- 件.tested = 検査数 -->
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(

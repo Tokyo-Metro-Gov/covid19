@@ -18,7 +18,7 @@
         </p>
       </template>
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{ $t('（注）検査結果の判明日を基準とする') }}
           </li>

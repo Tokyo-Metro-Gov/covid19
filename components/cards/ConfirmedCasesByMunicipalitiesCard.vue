@@ -8,7 +8,7 @@
       :info="info"
     >
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{ $t('（注）前日までに発生した患者数の累計値') }}
           </li>
