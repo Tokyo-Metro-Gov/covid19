@@ -182,33 +182,27 @@ export default Vue.extend({
 
     ul,
     ol {
-      list-style-type: none;
-      padding: 0;
+      list-style: disc inside;
+      padding-left: 1em;
+
+      li {
+        margin-left: 1.5em;
+        text-indent: -1.5em;
+      }
+    }
+
+    .ListStyleNone {
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        margin-left: 0;
+        text-indent: 0;
+      }
     }
 
     &--Additional {
       margin-bottom: 10px;
-
-      ul,
-      ol {
-        list-style: disc inside;
-        padding-left: 1em;
-
-        li {
-          margin-left: 1.5em;
-          text-indent: -1.5em;
-        }
-      }
-
-      .ListStyleNone {
-        list-style: none;
-        padding-left: 0;
-
-        li {
-          margin-left: 0;
-          text-indent: 0;
-        }
-      }
     }
   }
 
