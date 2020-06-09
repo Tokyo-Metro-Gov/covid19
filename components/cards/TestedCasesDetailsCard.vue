@@ -15,7 +15,7 @@
         </p>
       </template>
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(
