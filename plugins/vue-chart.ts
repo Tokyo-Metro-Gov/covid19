@@ -33,79 +33,51 @@ const createCustomChart = () => {
     chart.update()
   }
 
-  Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'doughnut-chart',
-    {
-      extends: Doughnut,
-      mixins: [reactiveProp],
-      props: {
-        displayLegends: {
-          type: Array,
-          default: () => null
-        },
-        options: {
-          type: Object as PropType<ChartOptions>,
-          default: () => {}
-        }
+  const generalChart = Vue.component<
+    ChartVCData,
+    ChartVCMethod,
+    ChartVCComputed,
+    ChartVCProps
+  >('general-chart', {
+    mixins: [reactiveProp],
+    props: {
+      displayLegends: {
+        type: Array,
+        default: () => null
       },
-      watch: {
-        displayLegends: watchDisplayLegends
-      },
-      mounted(): void {
-        this.renderChart(this.chartData, this.options)
+      options: {
+        type: Object as PropType<ChartOptions>,
+        default: () => {}
       }
+    },
+    watch: {
+      displayLegends: watchDisplayLegends
+    },
+    mounted() {
+      setTimeout(() => {
+        this.renderChart(this.chartData, this.options)
+      })
+    }
+  })
+
+  Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
+    'line-chart',
+    {
+      mixins: [reactiveProp, Line, generalChart]
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'bar',
     {
-      extends: Bar,
-      mixins: [reactiveProp],
-      props: {
-        displayLegends: {
-          type: Array,
-          default: () => []
-        },
-        options: {
-          type: Object,
-          default: () => {}
-        }
-      },
-      watch: {
-        displayLegends: watchDisplayLegends
-      },
-      mounted(): void {
-        setTimeout(() => {
-          this.renderChart(this.chartData, this.options)
-        })
-      }
+      mixins: [reactiveProp, Bar, generalChart]
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'line-chart',
+    'doughnut-chart',
     {
-      extends: Line,
-      mixins: [reactiveProp],
-      props: {
-        displayLegends: {
-          type: Array,
-          default: () => []
-        },
-        options: {
-          type: Object,
-          default: () => {}
-        }
-      },
-      watch: {
-        displayLegends: watchDisplayLegends
-      },
-      mounted(): void {
-        setTimeout(() => {
-          this.renderChart(this.chartData, this.options)
-        })
-      }
+      mixins: [reactiveProp, Doughnut, generalChart]
     }
   )
 }
@@ -148,71 +120,67 @@ export const yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[] = [
 
 export const yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
-    beforeDraw(chartInstance: any | null) {
-      if (chartInstance !== null) {
-        const ctx = chartInstance.ctx!
+    beforeDraw(chartInstance) {
+      const ctx = chartInstance.ctx!
 
-        // プロットエリアマスク用
-        ctx.fillStyle = '#fff'
-        ctx.fillRect(
-          chartInstance.chartArea.right,
-          0,
-          chartInstance.width!,
-          chartInstance.chartArea.bottom + 1
-        )
-        ctx.fillRect(
-          0,
-          0,
-          chartInstance.chartArea.left,
-          chartInstance.chartArea.bottom + 1
-        )
-        // 横軸マスク用
-        const gradientr = ctx.createLinearGradient(
-          chartInstance.chartArea.right,
-          0,
-          chartInstance.width!,
-          0
-        )
-        const gradient = ctx.createLinearGradient(
-          0,
-          0,
-          chartInstance.chartArea.left,
-          0
-        )
-        gradient.addColorStop(0, 'rgba(255,255,255,1)')
-        gradient.addColorStop(1, 'rgba(255,255,255,0)')
-        gradientr.addColorStop(1, 'rgba(255,255,255,0)')
-        gradientr.addColorStop(0, 'rgba(255,255,255,1)')
-        ctx.fillStyle = gradientr
-        ctx.fillRect(
-          chartInstance.chartArea.right,
-          chartInstance.chartArea.bottom + 1,
-          chartInstance.width!,
-          chartInstance.height! - chartInstance.chartArea.bottom - 1
-        )
-        ctx.fillStyle = gradient
-        ctx.fillRect(
-          0,
-          chartInstance.chartArea.bottom + 1,
-          chartInstance.chartArea.left,
-          chartInstance.height! - chartInstance.chartArea.bottom - 1
-        )
-      }
+      // プロットエリアマスク用
+      ctx.fillStyle = '#fff'
+      ctx.fillRect(
+        chartInstance.chartArea.right,
+        0,
+        chartInstance.width!,
+        chartInstance.chartArea.bottom + 1
+      )
+      ctx.fillRect(
+        0,
+        0,
+        chartInstance.chartArea.left,
+        chartInstance.chartArea.bottom + 1
+      )
+      // 横軸マスク用
+      const gradientr = ctx.createLinearGradient(
+        chartInstance.chartArea.right,
+        0,
+        chartInstance.width!,
+        0
+      )
+      const gradient = ctx.createLinearGradient(
+        0,
+        0,
+        chartInstance.chartArea.left,
+        0
+      )
+      gradient.addColorStop(0, 'rgba(255,255,255,1)')
+      gradient.addColorStop(1, 'rgba(255,255,255,0)')
+      gradientr.addColorStop(1, 'rgba(255,255,255,0)')
+      gradientr.addColorStop(0, 'rgba(255,255,255,1)')
+      ctx.fillStyle = gradientr
+      ctx.fillRect(
+        chartInstance.chartArea.right,
+        chartInstance.chartArea.bottom + 1,
+        chartInstance.width!,
+        chartInstance.height! - chartInstance.chartArea.bottom - 1
+      )
+      ctx.fillStyle = gradient
+      ctx.fillRect(
+        0,
+        chartInstance.chartArea.bottom + 1,
+        chartInstance.chartArea.left,
+        chartInstance.height! - chartInstance.chartArea.bottom - 1
+      )
     }
   }
 ]
 export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
-    beforeInit(chartInstance: any | null) {
-      if (chartInstance !== null) {
-        const fn = () => {
-          try {
-            chartInstance.canvas!.parentElement!.parentElement!.parentElement!.scrollLeft! = chartInstance.width!
-          } catch (e) {}
-        }
-        window.addEventListener('resize', fn)
-        fn()
+    beforeInit(chartInstance) {
+      const fn = () => {
+        try {
+          chartInstance.canvas!.parentElement!.parentElement!.parentElement!.scrollLeft! = chartInstance.width!
+        } catch (e) {}
       }
+      window.addEventListener('resize', fn)
+      fn()
     }
   }
 ]

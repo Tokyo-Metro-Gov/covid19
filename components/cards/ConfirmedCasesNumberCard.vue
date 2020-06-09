@@ -11,7 +11,7 @@
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
     >
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{ $t('（注）保健所から発生届が提出された日を基準とする') }}
           </li>
