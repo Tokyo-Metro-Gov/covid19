@@ -8,7 +8,7 @@
       :info="info"
     >
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{ $t('（注）前日までに発生した患者数の累計値') }}
           </li>
@@ -77,7 +77,7 @@ export default {
 
     const info = {
       sText: this.$t('{date}の累計', {
-        date: dayjs(Data.datasets.date).format('M/DD')
+        date: this.$d(new Date(Data.datasets.date), 'dateWithoutYear')
       })
     }
 

@@ -38,7 +38,7 @@
 [](20)長野県|https://covid19-nagano.info/|個人|[kanai3id/covid19](https://github.com/kanai3id/covid19)|
 [](21)岐阜県|https://covid19-gifu.netlify.app/|個人|[CODE-for-GIFU/covid19](https://github.com/CODE-for-GIFU/covid19)|
 [](22)静岡市|https://stopcovid19.city.shizuoka.lg.jp/|静岡市（**公式**）|[kazuomatz/covid19](https://github.com/kazuomatz/covid19)|
-[](22)浜松市|https://stopcovid19-hamamatsu.netlify.app/|浜松市（**公式**）|[code-for-hamamatsu/covid19](https://github.com/code-for-hamamatsu/covid19)|
+[](22)浜松市|https://stopcovid19.code4hamamatsu.org/|浜松市（**公式**）|[code-for-hamamatsu/covid19](https://github.com/code-for-hamamatsu/covid19)|
 [](23)愛知県|https://stopcovid19.code4.nagoya/|有志|[code4nagoya/covid19](https://github.com/code4nagoya/covid19)|
 [](24)三重県|https://mie.stopcovid19.jp/|高専生チーム（有志）|[FlexiblePrintedCircuits/covid19-mie](https://github.com/FlexiblePrintedCircuits/covid19-mie)|
 [](25)滋賀県|https://stopcovid19.pref.shiga.jp/|滋賀県（**公式**）|[Shiga-pref-org/covid19](https://github.com/Shiga-pref-org/covid19)|

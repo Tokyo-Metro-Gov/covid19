@@ -5,8 +5,17 @@
       :title-id="'details-of-tested-cases'"
       :date="Data.inspection_status_summary.date"
     >
-      <template v-slot:button>
-        <ul :class="$style.notes">
+      <template v-slot:attentionNote>
+        <p>
+          {{
+            $t(
+              '本グラフは、5月8日より「検査実施件数」のグラフで健康安全研究センターが行った検査件数と医療機関等が行った件数の内訳を掲載していること、5月13日より「検査実施人数（陰性確認を除く）と陽性率の推移」（現在の「モニタリング指標(6)PCR検査の陽性率」）のグラフで検査実施人数を掲載していることから、データが重複するため、6月15日をもって削除いたします。'
+            )
+          }}
+        </p>
+      </template>
+      <template v-slot:description>
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(
@@ -30,20 +39,6 @@
     </data-view>
   </v-col>
 </template>
-
-<style lang="scss" module>
-ul.notes {
-  margin-top: 10px;
-  margin-bottom: 0;
-  padding-left: 0 !important;
-  color: $gray-3;
-  @include font-size(12);
-
-  > li {
-    list-style-type: none;
-  }
-}
-</style>
 
 <script>
 import Data from '@/data/data.json'

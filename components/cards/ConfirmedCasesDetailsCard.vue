@@ -6,7 +6,7 @@
       :date="updatedAt"
     >
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{
               $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')

@@ -38,8 +38,8 @@
         }}
       </template>
     </v-data-table>
-    <div class="note">
-      <ul>
+    <template v-slot:additionalDescription>
+      <ul class="ListStyleNone">
         <li>
           {{ $t('※退院は、保健所から報告があり、確認ができているものを反映') }}
         </li>
@@ -47,7 +47,7 @@
           {{ $t('※死亡退院を含む') }}
         </li>
       </ul>
-    </div>
+    </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="info.lText"
@@ -121,17 +121,6 @@
     font-size: 1.2rem;
   }
 }
-.note {
-  margin: 8px 0 0;
-  color: $gray-3;
-  @include font-size(12);
-
-  ul,
-  ol {
-    list-style-type: none;
-    padding: 0;
-  }
-}
 .v-menu__content {
   width: 60px;
   .v-list-item {
@@ -202,8 +191,9 @@ export default Vue.extend({
     const vTables = this.$refs.displayedTable as Vue
     const vTableElement = vTables.$el
     const tables = vTableElement.querySelectorAll('table')
-
-    tables.forEach((table: HTMLElement) => {
+    // NodeListをIE11でforEachするためのワークアラウンド
+    const nodes = Array.prototype.slice.call(tables, 0)
+    nodes.forEach((table: HTMLElement) => {
       table.setAttribute('tabindex', '0')
     })
   }
