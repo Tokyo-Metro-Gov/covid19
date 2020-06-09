@@ -33,79 +33,51 @@ const createCustomChart = () => {
     chart.update()
   }
 
-  Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'doughnut-chart',
-    {
-      extends: Doughnut,
-      mixins: [reactiveProp],
-      props: {
-        displayLegends: {
-          type: Array,
-          default: () => null
-        },
-        options: {
-          type: Object as PropType<ChartOptions>,
-          default: () => {}
-        }
+  const generalChart = Vue.component<
+    ChartVCData,
+    ChartVCMethod,
+    ChartVCComputed,
+    ChartVCProps
+  >('general-chart', {
+    mixins: [reactiveProp],
+    props: {
+      displayLegends: {
+        type: Array,
+        default: () => null
       },
-      watch: {
-        displayLegends: watchDisplayLegends
-      },
-      mounted(): void {
-        this.renderChart(this.chartData, this.options)
+      options: {
+        type: Object as PropType<ChartOptions>,
+        default: () => {}
       }
+    },
+    watch: {
+      displayLegends: watchDisplayLegends
+    },
+    mounted() {
+      setTimeout(() => {
+        this.renderChart(this.chartData, this.options)
+      })
+    }
+  })
+
+  Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
+    'line-chart',
+    {
+      mixins: [reactiveProp, Line, generalChart]
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'bar',
     {
-      extends: Bar,
-      mixins: [reactiveProp],
-      props: {
-        displayLegends: {
-          type: Array,
-          default: () => []
-        },
-        options: {
-          type: Object,
-          default: () => {}
-        }
-      },
-      watch: {
-        displayLegends: watchDisplayLegends
-      },
-      mounted(): void {
-        setTimeout(() => {
-          this.renderChart(this.chartData, this.options)
-        })
-      }
+      mixins: [reactiveProp, Bar, generalChart]
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'line-chart',
+    'doughnut-chart',
     {
-      extends: Line,
-      mixins: [reactiveProp],
-      props: {
-        displayLegends: {
-          type: Array,
-          default: () => []
-        },
-        options: {
-          type: Object,
-          default: () => {}
-        }
-      },
-      watch: {
-        displayLegends: watchDisplayLegends
-      },
-      mounted(): void {
-        setTimeout(() => {
-          this.renderChart(this.chartData, this.options)
-        })
-      }
+      mixins: [reactiveProp, Doughnut, generalChart]
     }
   )
 }
