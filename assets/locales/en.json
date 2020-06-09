@@ -35,7 +35,7 @@
   "テーブルを表示": "Show the table",
   "{date}の累計": " Cumulative {date}",
   "期間: {duration}": " Period: {duration}",
-  "{duration}の利用者数との相対値: {percentage}": " Relative value based on the number of users {duration}: {percentage}",
+  "{duration}の利用者数との相対値: {percentage}": "Relative value based on the number of users {duration}: {percentage}",
   "人": " persons",
   "件": {
     "tested": "cases",
@@ -487,7 +487,7 @@
   "集団感染発生や曜日による件数のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値を陽性率として算出（例えば、5月7日の陽性率は、5月1日から5月7日までの実績平均を用いて算出）": "The positive rate here is 7 days moving average that levels the day-to-day variation caused mass infection and others, with consideration on the purpose of overall trend analysis. (e.g. the positive rate of 7th May is calculated by the average during 1st to 7th May.) ",
   "(6)は日曜日、祝日は更新しない。(7)は土曜日、日曜日、祝日は更新しない": "(6) is not updated on Sundays and national holidays. (7) is not updated on Saturdays, Sundays, and national holidays",
   "陽性率：陽性判明数の移動平均／（陽性判明数＋陰性判明数）の移動平均": "Rate of Test Positives : Moving average of test positive patients /Moving average of Tested people (as test positive + negative cases)",
-  "(1)(2)(6)(7)は７日間移動平均で算出。また、(1)が10人以下となった場合は、(2)及び(3)は参考値とする": "※ (1), (2), (6), (7) are calculated as a 7-day moving average. if the number of (1) is less than 10 people, (2) and (3) shall be reference values.",
+  "(1)(2)(6)(7)は７日間移動平均で算出。また、(1)が10人以下となった場合は、(2)及び(3)は参考値とする": "(1), (2), (6), (7) are calculated as a 7-day moving average. if the number of (1) is less than 10 people, (2) and (3) shall be reference values.",
   "確定日別による陽性者数の推移": "Changes of test positives by confirmed date",
   "速報値として公表するものであり、後日確定データとして修正される場合がある": "This is announced as a preliminary value and might be modified as confirmed data later.",
   "陰性確認のために行った検査の実施人数は含まない": "Not included; The number of people for Test positive check",
@@ -497,5 +497,7 @@
   "陽性者が1月24日、25日、30日、2月13日にそれぞれ1名、2月14日に2名発生しているが、有意な数値がとれる2月15日から作成": "The graph starts from 15th Feb by considering the statistical significance (Although there were a newly infected patient each on 24th, 25th, 30th Jan. and 13th Feb, and two newly infected patients on 14th Feb.)",
   "速報値として公表するものであり、後日修正する場合がある": "Preliminary value; might be modified later",
   "5月7日以降は(1)東京都健康安全研究センター、(2)PCRセンター（地域外来・検査センター）、(3)医療機関での保険適用検査実績により算出。4月10日～5月6日は(3)が含まれず(1)(2)のみ、4月9日以前は(2)(3)が含まれず(1)のみのデータ": "After 7th May,Calculated based on (1) The Tokyo Metropolitan Institute of Public Health, (2) PCR Center (regional outpatient/inspection center), and (3) medical insurance inspection results. From 10th April to 6th May , (3) is not included and only (1) and (2) are included. Before 9th April, (2) and (3) are not included and only (1) data is included.",
-  "検査結果の判明日を基準とする": "Based on the date when the test result is confirmed"
+  "検査結果の判明日を基準とする": "Based on the date when the test result is confirmed",
+  "都民利用施設・都主催イベントに関する情報": "Information of facilities and events for Tokyo metropolis",
+  "（注）": "(Note) "
 }
