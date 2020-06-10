@@ -28,7 +28,7 @@ const createCustomChart = () => {
     }
     const chart: Chart = this.$data._chart
     v.forEach((display, i) => {
-      chart.getDatasetMeta(i).hidden = !display
+      chart.getDatasetMeta(i).hidden = display
     })
     chart.update()
   }
@@ -87,7 +87,7 @@ export default VueChartPlugin
 export const yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
     beforeDraw(chartInstance) {
-      const ctx = chartInstance.ctx!
+      const ctx = chartInstance.ctx as CanvasRenderingContext2D
 
       // プロットエリアマスク用
       ctx.fillStyle = '#fff'
@@ -112,7 +112,7 @@ export const yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[] = [
         0,
         chartInstance.chartArea.bottom + 1,
         chartInstance.chartArea.left,
-        chartInstance.height! - chartInstance.chartArea.bottom - 1
+        (chartInstance.height as number) - chartInstance.chartArea.bottom - 1
       )
     }
   }
@@ -121,14 +121,14 @@ export const yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[] = [
 export const yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
     beforeDraw(chartInstance) {
-      const ctx = chartInstance.ctx!
+      const ctx = chartInstance.ctx as CanvasRenderingContext2D
 
       // プロットエリアマスク用
       ctx.fillStyle = '#fff'
       ctx.fillRect(
         chartInstance.chartArea.right,
         0,
-        chartInstance.width!,
+        chartInstance.width as number,
         chartInstance.chartArea.bottom + 1
       )
       ctx.fillRect(
@@ -141,7 +141,7 @@ export const yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[] = [
       const gradientr = ctx.createLinearGradient(
         chartInstance.chartArea.right,
         0,
-        chartInstance.width!,
+        chartInstance.width as number,
         0
       )
       const gradient = ctx.createLinearGradient(
@@ -158,15 +158,15 @@ export const yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[] = [
       ctx.fillRect(
         chartInstance.chartArea.right,
         chartInstance.chartArea.bottom + 1,
-        chartInstance.width!,
-        chartInstance.height! - chartInstance.chartArea.bottom - 1
+        chartInstance.width as number,
+        (chartInstance.height as number) - chartInstance.chartArea.bottom - 1
       )
       ctx.fillStyle = gradient
       ctx.fillRect(
         0,
         chartInstance.chartArea.bottom + 1,
         chartInstance.chartArea.left,
-        chartInstance.height! - chartInstance.chartArea.bottom - 1
+        (chartInstance.height as number) - chartInstance.chartArea.bottom - 1
       )
     }
   }
@@ -176,7 +176,7 @@ export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
     beforeInit(chartInstance) {
       const fn = () => {
         try {
-          chartInstance.canvas!.parentElement!.parentElement!.parentElement!.scrollLeft! = chartInstance.width!
+          window.$nuxt.$data._chart.scrollLeft = chartInstance.width
         } catch (e) {}
       }
       window.addEventListener('resize', fn)
