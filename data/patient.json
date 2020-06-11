@@ -1,7 +1,7 @@
 {
-    "date": "2020\/6\/10 18:30",
+    "date": "2020\/6\/11 19:00",
     "datasets": {
-        "date": "2020\/6\/9",
+        "date": "2020\/6\/10",
         "data": [
             {
                 "code": 131016,
@@ -22,14 +22,14 @@
                 "area": "特別区",
                 "label": "港区",
                 "ruby": "みなとく",
-                "count": 333
+                "count": 336
             },
             {
                 "code": 131041,
                 "area": "特別区",
                 "label": "新宿区",
                 "ruby": "しんじゅくく",
-                "count": 459
+                "count": 463
             },
             {
                 "code": 131059,
@@ -85,7 +85,7 @@
                 "area": "特別区",
                 "label": "世田谷区",
                 "ruby": "せたがやく",
-                "count": 487
+                "count": 491
             },
             {
                 "code": 131130,
@@ -99,14 +99,14 @@
                 "area": "特別区",
                 "label": "中野区",
                 "ruby": "なかのく",
-                "count": 245
+                "count": 248
             },
             {
                 "code": 131156,
                 "area": "特別区",
                 "label": "杉並区",
                 "ruby": "すぎなみく",
-                "count": 261
+                "count": 262
             },
             {
                 "code": 131164,
@@ -134,7 +134,7 @@
                 "area": "特別区",
                 "label": "板橋区",
                 "ruby": "いたばしく",
-                "count": 145
+                "count": 147
             },
             {
                 "code": 131202,
@@ -442,7 +442,7 @@
                 "area": null,
                 "label": "都外",
                 "ruby": null,
-                "count": 217
+                "count": 218
             },
             {
                 "code": null,
@@ -456,7 +456,7 @@
                 "area": null,
                 "label": "小計",
                 "ruby": null,
-                "count": 5408
+                "count": 5426
             }
         ]
     }
