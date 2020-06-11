@@ -1,6 +1,10 @@
 <template>
-  <table :class="$style.table">
-    <thead>
+  <table
+    :class="$style.table"
+    aria-labelledby="tableHeader"
+    aria-describedby="tableBody"
+  >
+    <thead id="tableHeader">
       <tr>
         <th scope="col" rowspan="2">
           {{ $t('項目') }}
@@ -21,7 +25,7 @@
         </th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="tableBody">
       <tr v-for="item in status" :key="item.itemName">
         <th scope="row">
           {{ $t(replaceFullWidthByHalfWidth(item.itemName)) }}
