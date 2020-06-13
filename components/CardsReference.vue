@@ -17,8 +17,6 @@
       <metro-card />
       <!-- 都庁来庁者数の推移 -->
       <agency-card />
-      <!-- 検査実施人数（健康安全研究センターによる実施分） -->
-      <inspection-persons-number-card />
       <!-- 新型コロナ受診相談窓口相談件数 -->
       <consultation-desk-reports-number-card />
     </card-row>
@@ -30,7 +28,6 @@ import Vue from 'vue'
 import CardRow from '@/components/cards/CardRow.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
-import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
@@ -43,7 +40,6 @@ export default Vue.extend({
     CardRow,
     ConfirmedCasesAttributesCard,
     ConfirmedCasesByMunicipalitiesCard,
-    InspectionPersonsNumberCard,
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
