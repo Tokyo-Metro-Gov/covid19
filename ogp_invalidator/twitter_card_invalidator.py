@@ -25,7 +25,6 @@ PATHS = (
     'cards/number-of-reports-to-covid19-consultation-desk',
     'cards/predicted-number-of-toei-subway-passengers',
     'cards/agency',
-    'cards/details-of-tested-cases',
     'cards/number-of-inspection-persons',
 )
 

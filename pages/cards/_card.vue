@@ -4,7 +4,6 @@
 
 <script>
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
-import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
@@ -32,7 +31,6 @@ export default {
     PositiveRateCard,
     UntrackedRateCard,
     ConfirmedCasesDetailsCard,
-    TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     ConfirmedCasesByMunicipalitiesCard,
@@ -52,9 +50,6 @@ export default {
     switch (this.$route.params.card) {
       case 'details-of-confirmed-cases':
         cardComponent = 'confirmed-cases-details-card'
-        break
-      case 'details-of-tested-cases':
-        cardComponent = 'tested-cases-details-card'
         break
       case 'number-of-confirmed-cases':
         cardComponent = 'confirmed-cases-number-card'
