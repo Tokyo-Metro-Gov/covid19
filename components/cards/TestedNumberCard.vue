@@ -1,41 +1,51 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <time-bar-chart
+    <time-stacked-bar-chart
       :title="$t('検査実施件数')"
       :title-id="'number-of-tested'"
-      :chart-id="'time-bar-chart-inspections'"
+      :chart-id="'time-stacked-bar-chart-inspections'"
       :chart-data="inspectionsGraph"
-      :date="data.date"
+      :date="Data.inspections_summary.date"
+      :items="inspectionsItems"
+      :labels="inspectionsLabels"
       :unit="$t('件.tested')"
-      :url="'https://opendata.pref.shizuoka.jp/'"
+      :data-labels="inspectionsDataLabels"
+      :initial-cumulative="inspectionsInitialCumulative"
     />
   </v-col>
 </template>
 
 <script>
 import Data from '@/data/data.json'
-import formatGraph from '@/utils/formatGraph'
-import TimeBarChart from '@/components/TimeBarChart.vue'
+import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 
 export default {
   components: {
-    TimeBarChart
+    TimeStackedBarChart
   },
   data() {
-    const formatData = Data.inspections_summary.labels.map((date, i) => {
-      return {
-        日付: date,
-        小計: Data.inspections_summary.datasets[0].data[i]
-      }
-    })
+    // 検査実施日別状況
+    const inspectionsGraph = [
+      Data.inspections_summary.data['地方衛生研究所'],
+      Data.inspections_summary.data['医療機関等']
+    ]
+    const inspectionsItems = [
+      this.$t('地方衛生研究所が行った検査件数'),
+      this.$t('医療機関等が行った検査件数')
+    ]
+    const inspectionsLabels = Data.inspections_summary.labels
+    const inspectionsDataLabels = [this.$t('地方衛生研究所'), this.$t('医療機関等.graph')]
+    const inspectionsInitialCumulative = Data.inspections_summary.initial_cumulative.count
 
-    // 検査実施件数グラフ
-    const inspectionsGraph = formatGraph(formatData)
-
-    return {
-      data: Data.inspections_summary,
-      inspectionsGraph
+    const data = {
+      Data,
+      inspectionsGraph,
+      inspectionsItems,
+      inspectionsLabels,
+      inspectionsDataLabels,
+      inspectionsInitialCumulative
     }
+    return data
   }
 }
 </script>
