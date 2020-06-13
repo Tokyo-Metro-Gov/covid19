@@ -9,7 +9,6 @@ import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttri
 import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
 import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
@@ -35,7 +34,6 @@ export default {
     ConfirmedCasesByMunicipalitiesCard,
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
-    ConsultationDeskReportsNumberCard,
     MetroCard,
     AgencyCard,
     PositiveNumberByDiagnosedDateCard,
@@ -63,9 +61,6 @@ export default {
         break
       case 'number-of-reports-to-covid19-telephone-advisory-center':
         cardComponent = 'telephone-advisory-reports-number-card'
-        break
-      case 'number-of-reports-to-covid19-consultation-desk':
-        cardComponent = 'consultation-desk-reports-number-card'
         break
       case 'predicted-number-of-toei-subway-passengers':
         cardComponent = 'metro-card'
