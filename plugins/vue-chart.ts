@@ -182,8 +182,7 @@ export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
           chartInstance.canvas!.parentElement!.parentElement!.parentElement!.scrollLeft! = chartInstance.width!
         } catch (e) {}
       }
-      window.addEventListener('resize', fn)
-      fn()
+      onChartResizeEnd(fn)
     }
   }
 ]
