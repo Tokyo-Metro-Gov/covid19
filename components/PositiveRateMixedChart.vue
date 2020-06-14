@@ -65,7 +65,6 @@
           :plugins="yAxesBgRightPlugin"
           :display-legends="displayLegends"
           :height="240"
-          :width="width"
         />
       </div>
     </div>
@@ -113,13 +112,13 @@ type Data = {
   displayLegends: boolean[]
   colors: SurfaceStyle[]
   chartWidth: number | null
-  width: number
 }
 type Methods = {
   pickLastNumber: (chartDataArray: number[][]) => number[]
   pickLastSecondNumber: (chartDataArray: number[][]) => number[]
   onClickLegend: (i: number) => void
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
+  handleResize: () => void
 }
 
 type Computed = {
@@ -226,8 +225,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayLegends: [true, true, true],
     colors: getGraphSeriesStyle(2),
     chartWidth: null,
-    canvas: true,
-    width: 300
+    canvas: true
   }),
   computed: {
     displayTransitionRatio() {
@@ -494,7 +492,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const options: Chart.ChartOptions = {
-        responsive: false,
+        responsive: true,
         maintainAspectRatio: false,
         legend: {
           display: false
@@ -624,17 +622,28 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         default:
           return `${dayBeforeRatioLocaleString}`
       }
+    },
+    handleResize() {
+      if (this.$el) {
+        const eveChart = this.$refs.EveChart as HTMLElement
+        const containerWidth = eveChart.clientWidth
+        const dates = 60
+        const yaxisWidth = 38
+        const chartWidth = containerWidth - yaxisWidth
+        const barWidth = chartWidth / dates
+        const calcWidth = barWidth * this.labels.length + yaxisWidth
+        this.chartWidth = Math.max(calcWidth, containerWidth)
+      }
     }
   },
   mounted() {
-    if (this.$el) {
-      this.chartWidth =
-        ((this.$el!.clientWidth - 22 * 2 - 38) / 60) * this.labels.length + 38
-      this.chartWidth = Math.max(
-        this.$el!.clientWidth - 22 * 2,
-        this.chartWidth
-      )
-    }
+    this.handleResize()
+    let doit: any
+    window.addEventListener('resize', () => {
+      clearTimeout(doit)
+      doit = setTimeout(this.handleResize, 500)
+    })
+
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')
@@ -644,9 +653,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
-    const chartelem = this.$refs.EveChart as Element
-    const { width } = getComputedStyle(chartelem)
-    this.width = Number(width.replace('px', '')) + 0.5
   }
 }
 
