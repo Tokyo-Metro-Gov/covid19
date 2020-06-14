@@ -41,6 +41,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   methods: {
     adjustChartWidth() {
       const container = this.$refs.chartContainer as HTMLElement
+      if (!container) return
       const containerWidth = container.clientWidth
       const labelCount = this.labels.length
       this.chartWidth = this.calcChartWidth(containerWidth, labelCount)
