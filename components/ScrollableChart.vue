@@ -17,7 +17,7 @@ type Methods = {
 }
 type Computed = {}
 type Props = {
-  labels: string[]
+  labelCount: number
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -28,8 +28,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Props
 > = {
   props: {
-    labels: {
-      type: Array,
+    labelCount: {
+      type: Number,
       required: true
     }
   },
@@ -43,8 +43,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const container = this.$refs.chartContainer as HTMLElement
       if (!container) return
       const containerWidth = container.clientWidth
-      const labelCount = this.labels.length
-      this.chartWidth = this.calcChartWidth(containerWidth, labelCount)
+      this.chartWidth = this.calcChartWidth(containerWidth, this.labelCount)
     },
     calcChartWidth(containerWidth, labelCount) {
       const dates = 60
