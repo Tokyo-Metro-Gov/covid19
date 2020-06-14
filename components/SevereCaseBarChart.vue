@@ -56,7 +56,13 @@ import DataViewTable, {
 } from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
-import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import {
+  DisplayData,
+  yAxesBgPlugin,
+  scrollPlugin,
+  calcChartWidth,
+  onChartResizeEnd
+} from '@/plugins/vue-chart'
 
 import { getGraphSeriesStyle } from '@/utils/colors'
 
@@ -66,7 +72,7 @@ type Data = {
 }
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
-  handleResize: () => void
+  adjustChartWidth: () => void
 }
 
 type Computed = {
@@ -289,7 +295,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const options: Chart.ChartOptions = {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: false,
         legend: {
           display: false
@@ -411,27 +417,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           return `${dayBeforeRatioLocaleString}`
       }
     },
-    handleResize() {
-      if (this.$el) {
-        const conatiner = this.$refs.chartContainer as HTMLElement
-        const containerWidth = conatiner.clientWidth
-        const dates = 60
-        const yaxisWidth = 38
-        const chartWidth = containerWidth - yaxisWidth
-        const barWidth = chartWidth / dates
-        const labels = this.chartData.map(d => d.label)
-        const calcWidth = barWidth * labels.length + yaxisWidth
-        this.chartWidth = Math.max(calcWidth, containerWidth)
-      }
+    adjustChartWidth() {
+      const conatiner = this.$refs.chartContainer as HTMLElement
+      const containerWidth = conatiner.clientWidth
+      const labelSize = this.chartData.map(d => d.label).length
+      this.chartWidth = calcChartWidth(containerWidth, labelSize)
     }
   },
   mounted() {
-    this.handleResize()
-    let doit: any
-    window.addEventListener('resize', () => {
-      clearTimeout(doit)
-      doit = setTimeout(this.handleResize, 500)
-    })
+    onChartResizeEnd(this.adjustChartWidth)
 
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el

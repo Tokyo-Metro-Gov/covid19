@@ -434,7 +434,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const options: Chart.ChartOptions = {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: false,
         legend: {
           display: false

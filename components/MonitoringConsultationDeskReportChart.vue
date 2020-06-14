@@ -33,7 +33,7 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <div :ref="'EveChart'" class="LegendStickyChart">
+    <div class="LegendStickyChart">
       <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
         <div :style="{ width: `${chartWidth}px` }">
           <bar
@@ -378,7 +378,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const options: Chart.ChartOptions = {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: false,
         legend: {
           display: false

@@ -282,11 +282,6 @@ export default Vue.extend({
       top: 0;
       pointer-events: none;
       width: 100%;
-
-      > canvas {
-        width: 100%;
-        height: 240px;
-      }
     }
   }
 }

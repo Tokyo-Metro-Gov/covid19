@@ -53,10 +53,7 @@ const createCustomChart = () => {
     watch: {
       displayLegends: watchDisplayLegends,
       width() {
-        setTimeout(() => {
-          const chart: Chart = this.$data._chart
-          if (chart) chart.resize()
-        })
+        setTimeout(() => this.$data._chart.resize())
       }
     },
     mounted() {
@@ -202,4 +199,25 @@ export interface DataSetsPoint<T = { x: string; y: number }> extends ChartData {
 export interface DisplayData<T = number, U = string> {
   labels?: U[]
   datasets: DataSets<T>[]
+}
+
+export function calcChartWidth(
+  containerWidth: number,
+  labelSize: number
+): number {
+  const dates = 60
+  const yaxisWidth = 38
+  const chartWidth = containerWidth - yaxisWidth
+  const barWidth = chartWidth / dates
+  const calcWidth = barWidth * labelSize + yaxisWidth
+  return Math.max(calcWidth, containerWidth)
+}
+
+export function onChartResizeEnd(handleResize: Function): void {
+  let timerId: number
+  handleResize()
+  window.addEventListener('resize', () => {
+    clearTimeout(timerId)
+    timerId = setTimeout(handleResize, 500)
+  })
 }
