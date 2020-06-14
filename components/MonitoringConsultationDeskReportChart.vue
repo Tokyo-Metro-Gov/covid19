@@ -58,7 +58,6 @@
           :plugins="yAxesBgPlugin"
           :display-legends="displayLegends"
           :height="240"
-          :width="width"
         />
       </div>
     </div>
@@ -102,7 +101,6 @@ type Data = {
   displayLegends: boolean[]
   colors: SurfaceStyle[]
   chartWidth: number | null
-  width: number
 }
 type Methods = {
   makeLineData: (value: number) => number[]
@@ -205,7 +203,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       chartWidth: null,
       colors,
       canvas: true,
-      width: 300,
       scrollPlugin,
       yAxesBgPlugin
     }
@@ -381,7 +378,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const options: Chart.ChartOptions = {
-        responsive: false,
+        responsive: true,
         maintainAspectRatio: false,
         legend: {
           display: false
@@ -491,9 +488,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
-    const chartelem = this.$refs.EveChart as Element
-    const { width } = getComputedStyle(chartelem)
-    this.width = Number(width.replace('px', '')) + 0.5
   }
 }
 
