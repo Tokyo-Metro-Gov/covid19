@@ -51,7 +51,13 @@ const createCustomChart = () => {
       }
     },
     watch: {
-      displayLegends: watchDisplayLegends
+      displayLegends: watchDisplayLegends,
+      width() {
+        setTimeout(() => {
+          const chart: Chart = this.$data._chart
+          if (chart) chart.resize()
+        })
+      }
     },
     mounted() {
       setTimeout(() => {
