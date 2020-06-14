@@ -48,7 +48,7 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <div ref="chartContainer" class="LegendStickyChart">
+    <scrollable-chart v-slot="{ chartWidth }" :labels="displayData.labels">
       <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
         <div :style="{ width: `${chartWidth}px` }">
           <bar
@@ -75,7 +75,7 @@
           :height="240"
         />
       </div>
-    </div>
+    </scrollable-chart>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
     </template>
@@ -104,13 +104,12 @@ import DataViewTable, {
   TableItem
 } from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
 import {
   DisplayData,
   yAxesBgPlugin,
   yAxesBgRightPlugin,
-  scrollPlugin,
-  calcChartWidth,
-  onChartResizeEnd
+  scrollPlugin
 } from '@/plugins/vue-chart'
 import {
   getGraphSeriesStyle,
@@ -122,7 +121,6 @@ type Data = {
   canvas: boolean
   displayLegends: boolean[]
   colors: SurfaceStyle[]
-  chartWidth: number | null
 }
 type Methods = {
   pickLastNumber: (chartDataArray: number[][]) => number[]
@@ -130,7 +128,6 @@ type Methods = {
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
-  adjustChartWidth: () => void
 }
 
 type Computed = {
@@ -179,7 +176,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: {
     DataView,
     DataViewTable,
-    DataViewBasicInfoPanel
+    DataViewBasicInfoPanel,
+    ScrollableChart
   },
   props: {
     title: {
@@ -245,7 +243,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       getGraphSeriesColor('E'),
       getGraphSeriesColor('F')
     ],
-    chartWidth: null,
     canvas: true
   }),
   computed: {
@@ -654,17 +651,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         default:
           return `${dayBeforeRatioLocaleString}`
       }
-    },
-    adjustChartWidth() {
-      const container = this.$refs.chartContainer as HTMLElement
-      const containerWidth = container.clientWidth
-      const labelSize = this.labels.length
-      this.chartWidth = calcChartWidth(containerWidth, labelSize)
     }
   },
   mounted() {
-    onChartResizeEnd(this.adjustChartWidth)
-
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')

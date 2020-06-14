@@ -52,8 +52,12 @@ const createCustomChart = () => {
     },
     watch: {
       displayLegends: watchDisplayLegends,
-      width() {
-        setTimeout(() => this.$data._chart.resize())
+      width(newWidth) {
+        setTimeout(() => {
+          this.$data._chart.resize()
+          const canvas = this.$refs.canvas as HTMLCanvasElement
+          canvas.parentElement!.parentElement!.parentElement!.scrollLeft! = newWidth
+        })
       }
     },
     mounted() {
@@ -174,6 +178,7 @@ export const yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[] = [
     }
   }
 ]
+
 export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
     beforeInit(chartInstance) {
@@ -182,7 +187,8 @@ export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
           chartInstance.canvas!.parentElement!.parentElement!.parentElement!.scrollLeft! = chartInstance.width!
         } catch (e) {}
       }
-      onChartResizeEnd(fn)
+      window.addEventListener('resize', fn)
+      fn()
     }
   }
 ]
@@ -198,25 +204,4 @@ export interface DataSetsPoint<T = { x: string; y: number }> extends ChartData {
 export interface DisplayData<T = number, U = string> {
   labels?: U[]
   datasets: DataSets<T>[]
-}
-
-export function calcChartWidth(
-  containerWidth: number,
-  labelSize: number
-): number {
-  const dates = 60
-  const yaxisWidth = 38
-  const chartWidth = containerWidth - yaxisWidth
-  const barWidth = chartWidth / dates
-  const calcWidth = barWidth * labelSize + yaxisWidth
-  return Math.max(calcWidth, containerWidth)
-}
-
-export function onChartResizeEnd(handleResize: Function): void {
-  let timerId: number
-  handleResize()
-  window.addEventListener('resize', () => {
-    clearTimeout(timerId)
-    timerId = setTimeout(handleResize, 500)
-  })
 }

@@ -3,7 +3,7 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <div ref="chartContainer" class="LegendStickyChart">
+    <scrollable-chart v-slot="{ chartWidth }" :labels="displayData.labels">
       <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
         <div :style="{ width: `${chartWidth}px` }">
           <bar
@@ -26,7 +26,7 @@
         :plugins="yAxesBgPlugin"
         :height="240"
       />
-    </div>
+    </scrollable-chart>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
     </template>
@@ -55,24 +55,17 @@ import DataViewTable, {
   TableItem
 } from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
-import {
-  DisplayData,
-  yAxesBgPlugin,
-  scrollPlugin,
-  calcChartWidth,
-  onChartResizeEnd
-} from '@/plugins/vue-chart'
+import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 
 import { getGraphSeriesStyle } from '@/utils/colors'
 
 type Data = {
   canvas: boolean
-  chartWidth: number | null
 }
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
-  adjustChartWidth: () => void
 }
 
 type Computed = {
@@ -115,6 +108,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     DataView,
     DataViewTable,
     DataViewBasicInfoPanel,
+    ScrollableChart,
     OpenDataLink
   },
   props: {
@@ -156,7 +150,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
-    chartWidth: null,
     canvas: true
   }),
   computed: {
@@ -416,17 +409,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         default:
           return `${dayBeforeRatioLocaleString}`
       }
-    },
-    adjustChartWidth() {
-      const conatiner = this.$refs.chartContainer as HTMLElement
-      const containerWidth = conatiner.clientWidth
-      const labelSize = this.chartData.map(d => d.label).length
-      this.chartWidth = calcChartWidth(containerWidth, labelSize)
     }
   },
   mounted() {
-    onChartResizeEnd(this.adjustChartWidth)
-
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')

@@ -6,7 +6,7 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <div class="LegendStickyChart">
+    <scrollable-chart v-slot="{ chartWidth }" :labels="displayData.labels">
       <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
         <div :style="{ width: `${chartWidth}px` }">
           <bar
@@ -28,9 +28,8 @@
         :options="displayOptionHeader"
         :plugins="yAxesBgPlugin"
         :height="240"
-        :width="chartWidth"
       />
-    </div>
+    </scrollable-chart>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
     </template>
@@ -63,6 +62,7 @@ import DataViewTable, {
   TableItem
 } from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import {
   DisplayData,
@@ -77,7 +77,6 @@ import { getGraphSeriesStyle } from '@/utils/colors'
 type Data = {
   dataKind: 'transition'
   canvas: boolean
-  chartWidth: number | null
 }
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
@@ -135,6 +134,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     DataView,
     DataViewTable,
     DataViewBasicInfoPanel,
+    ScrollableChart,
     OpenDataLink
   },
   props: {
@@ -189,7 +189,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
-    chartWidth: null,
     canvas: true
   }),
   computed: {
@@ -462,16 +461,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   mounted() {
-    if (this.$el) {
-      this.chartWidth =
-        ((this.$el!.clientWidth - 22 * 2 - 38) / 60) *
-          this.displayData.labels!.length +
-        38
-      this.chartWidth = Math.max(
-        this.$el!.clientWidth - 22 * 2,
-        this.chartWidth
-      )
-    }
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')
