@@ -3,7 +3,7 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <div class="LegendStickyChart">
+    <div ref="chartContainer" class="LegendStickyChart">
       <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
         <div :style="{ width: `${chartWidth}px` }">
           <bar
@@ -25,7 +25,6 @@
         :options="displayOptionHeader"
         :plugins="yAxesBgPlugin"
         :height="240"
-        :width="chartWidth"
       />
     </div>
     <template v-slot:additionalDescription>
@@ -67,6 +66,7 @@ type Data = {
 }
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
+  handleResize: () => void
 }
 
 type Computed = {
@@ -289,7 +289,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const options: Chart.ChartOptions = {
-        responsive: false,
+        responsive: true,
         maintainAspectRatio: false,
         legend: {
           display: false
@@ -410,19 +410,29 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         default:
           return `${dayBeforeRatioLocaleString}`
       }
+    },
+    handleResize() {
+      if (this.$el) {
+        const conatiner = this.$refs.chartContainer as HTMLElement
+        const containerWidth = conatiner.clientWidth
+        const dates = 60
+        const yaxisWidth = 38
+        const chartWidth = containerWidth - yaxisWidth
+        const barWidth = chartWidth / dates
+        const labels = this.chartData.map(d => d.label)
+        const calcWidth = barWidth * labels.length + yaxisWidth
+        this.chartWidth = Math.max(calcWidth, containerWidth)
+      }
     }
   },
   mounted() {
-    if (this.$el) {
-      this.chartWidth =
-        ((this.$el!.clientWidth - 22 * 2 - 38) / 60) *
-          this.displayData.labels!.length +
-        38
-      this.chartWidth = Math.max(
-        this.$el!.clientWidth - 22 * 2,
-        this.chartWidth
-      )
-    }
+    this.handleResize()
+    let doit: any
+    window.addEventListener('resize', () => {
+      clearTimeout(doit)
+      doit = setTimeout(this.handleResize, 500)
+    })
+
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')
