@@ -28,7 +28,7 @@ const createCustomChart = () => {
     }
     const chart: Chart = this.$data._chart
     v.forEach((display, i) => {
-      chart.getDatasetMeta(i).hidden = !(display)
+      chart.getDatasetMeta(i).hidden = !( display )
     })
     chart.update()
   }
