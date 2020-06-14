@@ -1,5 +1,5 @@
 {
-    "date": "2020\/6\/13 18:15",
+    "date": "2020\/6\/14 18:30",
     "data": [
         {
             "diagnosed_date": "2020-01-20",
@@ -1291,10 +1291,10 @@
         {
             "diagnosed_date": "2020-06-11",
             "count": 22,
-            "missing_count": 10,
-            "reported_count": 12,
+            "missing_count": 9,
+            "reported_count": 13,
             "weekly_gain_ratio": 0.98,
-            "untracked_percent": 48,
+            "untracked_percent": 47.2,
             "weekly_average_count": 17.9
         },
         {
@@ -1303,7 +1303,7 @@
             "missing_count": 7,
             "reported_count": 18,
             "weekly_gain_ratio": 1.03,
-            "untracked_percent": 42.3,
+            "untracked_percent": 41.5,
             "weekly_average_count": 18.6
         },
         {
@@ -1312,8 +1312,17 @@
             "missing_count": 13,
             "reported_count": 11,
             "weekly_gain_ratio": 0.93,
-            "untracked_percent": 46.1,
+            "untracked_percent": 45.3,
             "weekly_average_count": 18.3
+        },
+        {
+            "diagnosed_date": "2020-06-14",
+            "count": 47,
+            "missing_count": 10,
+            "reported_count": 37,
+            "weekly_gain_ratio": 1.1,
+            "untracked_percent": 37.3,
+            "weekly_average_count": 23
         }
     ]
 }
