@@ -176,9 +176,8 @@ export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
     beforeInit(chartInstance) {
       const fn = () => {
         try {
-          ((((chartInstance.canvas as HTMLCanvasElement).parentElement as HTMLElement)
-            .parentElement as HTMLElement)
-            .parentElement as HTMLElement)
+          ((((chartInstance.canvas as HTMLCanvasElement)
+            .parentElement as HTMLElement).parentElement as HTMLElement).parentElement as HTMLElement)
             .scrollLeft = chartInstance.width as number
         } catch (e) {}
       }
