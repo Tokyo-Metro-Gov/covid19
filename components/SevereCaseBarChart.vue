@@ -3,7 +3,7 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <scrollable-chart :label-count="displayData.labels.length" :canvas="canvas">
+    <scrollable-chart v-show="canvas" :label-count="displayData.labels.length">
       <template v-slot:chart="{ chartWidth }">
         <bar
           :ref="'barChart'"
@@ -17,7 +17,6 @@
       <template v-slot:sticky-chart>
         <bar
           class="sticky-legend"
-          :style="{ display: canvas ? 'block' : 'none' }"
           :chart-id="`${chartId}-header`"
           :chart-data="displayDataHeader"
           :options="displayOptionHeader"

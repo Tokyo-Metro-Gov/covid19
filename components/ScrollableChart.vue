@@ -1,10 +1,6 @@
 <template>
   <div ref="chartContainer" class="LegendStickyChart">
-    <div
-      ref="scrollable"
-      class="scrollable"
-      :style="{ display: canvas ? 'block' : 'none' }"
-    >
+    <div ref="scrollable" class="scrollable">
       <div :style="{ width: `${chartWidth}px` }">
         <slot name="chart" :chart-width="chartWidth" />
       </div>
@@ -30,7 +26,6 @@ type Methods = {
 type Computed = {}
 type Props = {
   labelCount: number
-  canvas: boolean
   dataKind: string
 }
 
@@ -45,10 +40,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     labelCount: {
       type: Number,
       required: true
-    },
-    canvas: {
-      type: Boolean,
-      default: true
     },
     dataKind: {
       type: String,
