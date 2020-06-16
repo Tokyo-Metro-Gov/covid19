@@ -4,7 +4,7 @@
       <div :class="$style.pillar">
         <div :class="$style.content">
           <span>
-            {{ $t('陽性者数※') }}
+            {{ $t('陽性者数') }}
           </span>
           <span>
             <strong>{{ 陽性者数 }}</strong>
