@@ -4,14 +4,11 @@
 
 <script>
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
-import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
-import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
 import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 import MetroCard from '@/components/cards/MetroCard.vue'
@@ -32,14 +29,11 @@ export default {
     PositiveRateCard,
     UntrackedRateCard,
     ConfirmedCasesDetailsCard,
-    TestedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     ConfirmedCasesByMunicipalitiesCard,
     TestedNumberCard,
-    InspectionPersonsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
-    ConsultationDeskReportsNumberCard,
     MetroCard,
     AgencyCard,
     PositiveNumberByDiagnosedDateCard,
@@ -53,9 +47,6 @@ export default {
       case 'details-of-confirmed-cases':
         cardComponent = 'confirmed-cases-details-card'
         break
-      case 'details-of-tested-cases':
-        cardComponent = 'tested-cases-details-card'
-        break
       case 'number-of-confirmed-cases':
         cardComponent = 'confirmed-cases-number-card'
         break
@@ -68,14 +59,8 @@ export default {
       case 'number-of-tested':
         cardComponent = 'tested-number-card'
         break
-      case 'number-of-inspection-persons':
-        cardComponent = 'inspection-persons-number-card'
-        break
       case 'number-of-reports-to-covid19-telephone-advisory-center':
         cardComponent = 'telephone-advisory-reports-number-card'
-        break
-      case 'number-of-reports-to-covid19-consultation-desk':
-        cardComponent = 'consultation-desk-reports-number-card'
         break
       case 'predicted-number-of-toei-subway-passengers':
         cardComponent = 'metro-card'

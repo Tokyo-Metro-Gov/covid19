@@ -460,12 +460,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           n = Number(i)
         }
       }
-      const test = ['2020/1/1']
-      this.labels.map((label, _) => {
-        test.push(label)
-      })
       return {
-        labels: test,
+        labels: ['2020/1/1'],
         datasets: [
           {
             data: [this.displayData.datasets[0].data[n]],

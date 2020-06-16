@@ -12,6 +12,7 @@
         id="contactsCardTable"
         class="Contacts-Card-Table"
         v-bind="tableAttrs"
+        aria-describedby="pageHeader"
       >
         <thead>
           <tr>
