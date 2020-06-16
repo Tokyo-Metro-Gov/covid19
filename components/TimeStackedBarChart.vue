@@ -45,7 +45,6 @@
           :chart-id="chartId"
           :chart-data="displayData"
           :options="displayOption"
-          :plugins="scrollPlugin"
           :display-legends="displayLegends"
           :height="240"
           :width="chartWidth"
@@ -94,7 +93,7 @@ import DataViewTable, {
 } from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
-import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 import { getComplementedDate } from '@/utils/formatDate'
 
@@ -142,7 +141,6 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
   unit: string
-  scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
@@ -210,10 +208,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     unit: {
       type: String,
       default: ''
-    },
-    scrollPlugin: {
-      type: Array,
-      default: () => scrollPlugin
     },
     yAxesBgPlugin: {
       type: Array,

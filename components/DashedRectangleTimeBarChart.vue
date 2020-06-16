@@ -13,7 +13,6 @@
           :chart-id="chartId"
           :chart-data="displayData"
           :options="displayOption"
-          :plugins="scrollPlugin"
           :height="240"
           :width="chartWidth"
         />
@@ -68,8 +67,7 @@ import {
   DisplayData,
   DataSets,
   DataSetsPoint,
-  yAxesBgPlugin,
-  scrollPlugin
+  yAxesBgPlugin
 } from '@/plugins/vue-chart'
 
 import { getGraphSeriesStyle } from '@/utils/colors'
@@ -116,7 +114,6 @@ type Props = {
   dashedRectangleRange: string
   addedValue: number
   tableLabels: string[] | TranslateResult[]
-  scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
@@ -177,10 +174,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableLabels: {
       type: Array,
       default: () => []
-    },
-    scrollPlugin: {
-      type: Array,
-      default: () => scrollPlugin
     },
     yAxesBgPlugin: {
       type: Array,

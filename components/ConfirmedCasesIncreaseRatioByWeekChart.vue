@@ -51,7 +51,6 @@
           :chart-id="chartId"
           :chart-data="displayData"
           :options="displayOption"
-          :plugins="scrollPlugin"
           :display-legends="displayLegends"
           :height="240"
           :width="chartWidth"
@@ -104,7 +103,7 @@ import DataViewTable, {
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
-import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 
@@ -146,7 +145,6 @@ type Props = {
   url: string
   tableLabels: string[] | TranslateResult[]
   additionalLines: number[]
-  scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
@@ -207,10 +205,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     additionalLines: {
       type: Array,
       default: () => []
-    },
-    scrollPlugin: {
-      type: Array,
-      default: () => scrollPlugin
     },
     yAxesBgPlugin: {
       type: Array,

@@ -47,7 +47,6 @@
           :chart-id="chartId"
           :chart-data="displayData"
           :options="displayOption"
-          :plugins="scrollPlugin"
           :display-legends="displayLegends"
           :height="240"
           :width="chartWidth"
@@ -98,8 +97,7 @@ import ScrollableChart from '@/components/ScrollableChart.vue'
 import {
   DisplayData,
   yAxesBgPlugin,
-  yAxesBgRightPlugin,
-  scrollPlugin
+  yAxesBgRightPlugin
 } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 
@@ -145,7 +143,6 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
   unit: string
-  scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
 }
@@ -205,10 +202,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     unit: {
       type: String,
       default: ''
-    },
-    scrollPlugin: {
-      type: Array,
-      default: () => scrollPlugin
     },
     yAxesBgPlugin: {
       type: Array,

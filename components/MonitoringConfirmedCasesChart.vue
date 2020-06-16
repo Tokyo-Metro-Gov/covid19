@@ -56,7 +56,6 @@
           :chart-id="chartId"
           :chart-data="displayData"
           :options="displayOption"
-          :plugins="scrollPlugin"
           :display-legends="displayLegends"
           :height="240"
           :width="chartWidth"
@@ -108,7 +107,7 @@ import DataViewTable, {
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
-import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 
 type Data = {
@@ -229,7 +228,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       displayLegends: [true, true, true, true],
       colors,
       canvas: true,
-      scrollPlugin,
       yAxesBgPlugin
     }
   },

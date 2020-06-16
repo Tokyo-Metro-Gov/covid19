@@ -175,14 +175,6 @@ export const yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[] = [
   }
 ]
 
-export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
-  {
-    beforeLayout(chartInstance) {
-      chartInstance.resize()
-    }
-  }
-]
-
 export interface DataSets<T = number> extends ChartData {
   data: T[]
 }
