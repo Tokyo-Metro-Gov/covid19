@@ -31,6 +31,7 @@ type Computed = {}
 type Props = {
   labelCount: number
   canvas: boolean
+  dataKind: string
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -48,12 +49,21 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     canvas: {
       type: Boolean,
       default: true
+    },
+    dataKind: {
+      type: String,
+      default: ''
     }
   },
   data() {
     return {
       chartWidth: 300,
       timerId: 0
+    }
+  },
+  watch: {
+    dataKind() {
+      this.scrollRightSide()
     }
   },
   methods: {
