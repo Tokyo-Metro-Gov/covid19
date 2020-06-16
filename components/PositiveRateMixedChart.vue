@@ -40,22 +40,20 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <scrollable-chart v-slot="{ chartWidth }" :label-count="labels.length">
-      <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
-        <div :style="{ width: `${chartWidth}px` }">
-          <bar
-            :ref="'barChart'"
-            :chart-id="chartId"
-            :chart-data="displayData"
-            :options="displayOption"
-            :plugins="scrollPlugin"
-            :display-legends="displayLegends"
-            :height="240"
-            :width="chartWidth"
-          />
-        </div>
-      </div>
-      <div>
+    <scrollable-chart :label-count="labels.length" :canvas="canvas">
+      <template v-slot:chart="{ chartWidth }">
+        <bar
+          :ref="'barChart'"
+          :chart-id="chartId"
+          :chart-data="displayData"
+          :options="displayOption"
+          :plugins="scrollPlugin"
+          :display-legends="displayLegends"
+          :height="240"
+          :width="chartWidth"
+        />
+      </template>
+      <template v-slot:sticky-chart>
         <bar
           class="sticky-legend"
           :style="{ display: canvas ? 'block' : 'none' }"
@@ -66,7 +64,7 @@
           :display-legends="displayLegends"
           :height="240"
         />
-      </div>
+      </template>
     </scrollable-chart>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
