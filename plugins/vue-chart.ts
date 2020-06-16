@@ -52,12 +52,8 @@ const createCustomChart = () => {
     },
     watch: {
       displayLegends: watchDisplayLegends,
-      width(newWidth) {
-        setTimeout(() => {
-          this.$data._chart.resize()
-          const canvas = this.$refs.canvas as HTMLCanvasElement
-          canvas.parentElement!.parentElement!.parentElement!.scrollLeft! = newWidth
-        })
+      width() {
+        setTimeout(() => this.$data._chart.resize())
       }
     },
     mounted() {
@@ -181,11 +177,6 @@ export const yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[] = [
 
 export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
-    beforeInit(chartInstance) {
-      try {
-        chartInstance.canvas!.parentElement!.parentElement!.parentElement!.scrollLeft! = chartInstance.width!
-      } catch (e) {}
-    },
     beforeLayout(chartInstance) {
       chartInstance.resize()
     }

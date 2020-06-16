@@ -1,6 +1,15 @@
 <template>
   <div ref="chartContainer" class="LegendStickyChart">
-    <slot :chart-width="chartWidth" />
+    <div
+      ref="scrollable"
+      class="scrollable"
+      :style="{ display: canvas ? 'block' : 'none' }"
+    >
+      <div :style="{ width: `${chartWidth}px` }">
+        <slot name="chart" :chart-width="chartWidth" />
+      </div>
+    </div>
+    <slot name="sticky-chart" />
   </div>
 </template>
 
@@ -15,11 +24,13 @@ type Data = {
 type Methods = {
   adjustChartWidth: () => void
   calcChartWidth: (containerWidth: number, labelCount: number) => number
+  scrollRightSide: () => void
   handleResize: () => void
 }
 type Computed = {}
 type Props = {
   labelCount: number
+  canvas: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -33,6 +44,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     labelCount: {
       type: Number,
       required: true
+    },
+    canvas: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -47,6 +62,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       if (!container) return
       const containerWidth = container.clientWidth
       this.chartWidth = this.calcChartWidth(containerWidth, this.labelCount)
+      this.scrollRightSide()
     },
     calcChartWidth(containerWidth, labelCount) {
       const dates = 60
@@ -55,6 +71,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const barWidth = chartWidth / dates
       const calcWidth = barWidth * labelCount + yaxisWidth
       return Math.max(calcWidth, containerWidth)
+    },
+    scrollRightSide() {
+      const scrollable = this.$refs.scrollable as HTMLElement
+      if (!scrollable) return
+      setTimeout(() => {
+        scrollable.scrollLeft = this.chartWidth
+      })
     },
     handleResize() {
       clearTimeout(this.timerId)
