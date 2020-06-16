@@ -21,8 +21,10 @@
     </static-card>
     <static-card>
       <h3>
-        <external-link url="https://www.tokyo-kyugyo.com/" :icon-size="24"
-          >{{ $t('東京都感染拡大防止協力金') }}
+        <external-link
+          url="https://kyugyo.metro.tokyo.lg.jp/dai2kai/index.html"
+          :icon-size="24"
+          >{{ $t('東京都感染拡大防止協力金（第2回）') }}
         </external-link>
       </h3>
       <p>
