@@ -189,6 +189,9 @@ export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
       }
       window.addEventListener('resize', fn)
       fn()
+    },
+    beforeLayout(chartInstance) {
+      chartInstance.resize()
     }
   }
 ]

@@ -271,7 +271,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             }
           }
         },
-        responsive: false,
         maintainAspectRatio: false,
         legend: {
           display: false
@@ -357,7 +356,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const options: Chart.ChartOptions = {
-        responsive: false,
         maintainAspectRatio: false,
         legend: {
           display: false
