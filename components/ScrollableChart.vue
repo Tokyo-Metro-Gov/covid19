@@ -10,10 +10,12 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 type Data = {
   chartWidth: number
+  timerId: number
 }
 type Methods = {
   adjustChartWidth: () => void
   calcChartWidth: (containerWidth: number, labelCount: number) => number
+  handleResize: () => void
 }
 type Computed = {}
 type Props = {
@@ -35,7 +37,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data() {
     return {
-      chartWidth: 300
+      chartWidth: 300,
+      timerId: 0
     }
   },
   methods: {
@@ -52,15 +55,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const barWidth = chartWidth / dates
       const calcWidth = barWidth * labelCount + yaxisWidth
       return Math.max(calcWidth, containerWidth)
+    },
+    handleResize() {
+      clearTimeout(this.timerId)
+      this.timerId = window.setTimeout(this.adjustChartWidth, 500)
     }
   },
   mounted() {
-    let timerId: number
     this.adjustChartWidth()
-    window.addEventListener('resize', () => {
-      clearTimeout(timerId)
-      timerId = window.setTimeout(this.adjustChartWidth, 500)
-    })
+    window.addEventListener('resize', this.handleResize)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize)
   }
 }
 
