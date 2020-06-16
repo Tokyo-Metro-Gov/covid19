@@ -9,7 +9,6 @@
         :aria-label="$t('検査陽性者の状況')"
         v-bind="confirmedCases"
       />
-      <div class="note">{{ $t('※県外感染者含む累計') }}</div>
     </confirmed-cases-card>
   </v-col>
 </template>
