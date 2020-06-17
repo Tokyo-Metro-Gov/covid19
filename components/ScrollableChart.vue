@@ -10,8 +10,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { DisplayData } from '@/plugins/vue-chart'
 
 type Data = {
   chartWidth: number
@@ -23,10 +24,11 @@ type Methods = {
   scrollRightSide: () => void
   handleResize: () => void
 }
-type Computed = {}
-type Props = {
+type Computed = {
   labelCount: number
-  dataKind: string
+}
+type Props = {
+  displayData: DisplayData
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -37,13 +39,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Props
 > = {
   props: {
-    labelCount: {
-      type: Number,
+    displayData: {
+      type: Object as PropType<DisplayData>,
       required: true
-    },
-    dataKind: {
-      type: String,
-      default: ''
     }
   },
   data() {
@@ -53,8 +51,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   watch: {
-    dataKind() {
+    displayData() {
       this.scrollRightSide()
+    }
+  },
+  computed: {
+    labelCount() {
+      return this.displayData.labels?.length || 0
     }
   },
   methods: {

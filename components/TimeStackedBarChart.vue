@@ -34,11 +34,7 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <scrollable-chart
-      v-show="canvas"
-      :label-count="labels.length"
-      :data-kind="dataKind"
-    >
+    <scrollable-chart v-show="canvas" :display-data="displayData">
       <template v-slot:chart="{ chartWidth }">
         <bar
           :ref="'barChart'"
