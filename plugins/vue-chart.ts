@@ -51,7 +51,14 @@ const createCustomChart = () => {
       }
     },
     watch: {
-      displayLegends: watchDisplayLegends
+      displayLegends: watchDisplayLegends,
+      width(newWidth) {
+        setTimeout(() => {
+          this.$data._chart.resize()
+          const canvas = this.$refs.canvas as HTMLCanvasElement
+          canvas.parentElement!.parentElement!.parentElement!.scrollLeft! = newWidth
+        })
+      }
     },
     mounted() {
       setTimeout(() => {
@@ -171,16 +178,16 @@ export const yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[] = [
     }
   }
 ]
+
 export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
     beforeInit(chartInstance) {
-      const fn = () => {
-        try {
-          chartInstance.canvas!.parentElement!.parentElement!.parentElement!.scrollLeft! = chartInstance.width!
-        } catch (e) {}
-      }
-      window.addEventListener('resize', fn)
-      fn()
+      try {
+        chartInstance.canvas!.parentElement!.parentElement!.parentElement!.scrollLeft! = chartInstance.width!
+      } catch (e) {}
+    },
+    beforeLayout(chartInstance) {
+      chartInstance.resize()
     }
   }
 ]

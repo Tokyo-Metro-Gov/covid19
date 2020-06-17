@@ -2,10 +2,8 @@
   <div>
     <site-top-upper />
     <cards-tabs />
-    <client-only>
-      <cards-monitoring v-if="this.$route.query.tab !== 'reference'" />
-      <cards-reference v-else />
-    </client-only>
+    <cards-monitoring v-if="this.$route.query.tab !== 'reference'" />
+    <cards-reference v-else />
   </div>
 </template>
 

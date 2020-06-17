@@ -33,7 +33,7 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <div :ref="'EveChart'" class="LegendStickyChart">
+    <scrollable-chart v-slot="{ chartWidth }" :label-count="labels.length">
       <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
         <div :style="{ width: `${chartWidth}px` }">
           <bar
@@ -58,10 +58,9 @@
           :plugins="yAxesBgPlugin"
           :display-legends="displayLegends"
           :height="240"
-          :width="width"
         />
       </div>
-    </div>
+    </scrollable-chart>
     <template v-slot:dataTable>
       <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
@@ -93,6 +92,7 @@ import DataViewTable, {
   TableItem
 } from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
@@ -101,8 +101,6 @@ type Data = {
   canvas: boolean
   displayLegends: boolean[]
   colors: SurfaceStyle[]
-  chartWidth: number | null
-  width: number
 }
 type Methods = {
   makeLineData: (value: number) => number[]
@@ -152,6 +150,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     DataView,
     DataViewTable,
     DataViewBasicInfoPanel,
+    ScrollableChart,
     OpenDataLink
   },
   props: {
@@ -202,10 +201,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     ]
     return {
       displayLegends: [true, true],
-      chartWidth: null,
       colors,
       canvas: true,
-      width: 300,
       scrollPlugin,
       yAxesBgPlugin
     }
@@ -297,7 +294,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             }
           }
         },
-        responsive: false,
         maintainAspectRatio: false,
         legend: {
           display: false
@@ -381,7 +377,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const options: Chart.ChartOptions = {
-        responsive: false,
         maintainAspectRatio: false,
         legend: {
           display: false
@@ -474,14 +469,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   mounted() {
-    if (this.$el) {
-      this.chartWidth =
-        ((this.$el!.clientWidth - 22 * 2 - 38) / 60) * this.labels.length + 38
-      this.chartWidth = Math.max(
-        this.$el!.clientWidth - 22 * 2,
-        this.chartWidth
-      )
-    }
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')
@@ -491,9 +478,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
-    const chartelem = this.$refs.EveChart as Element
-    const { width } = getComputedStyle(chartelem)
-    this.width = Number(width.replace('px', '')) + 0.5
   }
 }
 

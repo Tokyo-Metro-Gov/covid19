@@ -169,7 +169,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOption() {
       const self = this
       const options: ChartOptions = {
-        responsive: true,
         legend: {
           display: true,
           onHover: (e: HTMLElementEvent<HTMLInputElement>) => {
