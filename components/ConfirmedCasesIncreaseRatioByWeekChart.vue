@@ -44,34 +44,29 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <scrollable-chart
-      v-slot="{ chartWidth }"
-      :label-count="displayData.labels.length"
-    >
-      <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
-        <div :style="{ width: `${chartWidth}px` }">
-          <line-chart
-            :ref="'lineChart'"
-            :chart-id="chartId"
-            :chart-data="displayData"
-            :options="displayOption"
-            :plugins="scrollPlugin"
-            :display-legends="displayLegends"
-            :height="240"
-            :width="chartWidth"
-          />
-        </div>
-      </div>
-      <line-chart
-        class="sticky-legend"
-        :style="{ display: canvas ? 'block' : 'none' }"
-        :chart-id="`${chartId}-header`"
-        :chart-data="displayDataHeader"
-        :options="displayOptionHeader"
-        :plugins="yAxesBgPlugin"
-        :display-legends="displayLegends"
-        :height="240"
-      />
+    <scrollable-chart v-show="canvas" :display-data="displayData">
+      <template v-slot:chart="{ chartWidth }">
+        <line-chart
+          :ref="'lineChart'"
+          :chart-id="chartId"
+          :chart-data="displayData"
+          :options="displayOption"
+          :display-legends="displayLegends"
+          :height="240"
+          :width="chartWidth"
+        />
+      </template>
+      <template v-slot:sticky-chart>
+        <line-chart
+          class="sticky-legend"
+          :chart-id="`${chartId}-header`"
+          :chart-data="displayDataHeader"
+          :options="displayOptionHeader"
+          :plugins="yAxesBgPlugin"
+          :display-legends="displayLegends"
+          :height="240"
+        />
+      </template>
     </scrollable-chart>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
@@ -107,7 +102,7 @@ import DataViewTable, {
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
-import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 
@@ -149,7 +144,6 @@ type Props = {
   url: string
   tableLabels: string[] | TranslateResult[]
   additionalLines: number[]
-  scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
@@ -210,10 +204,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     additionalLines: {
       type: Array,
       default: () => []
-    },
-    scrollPlugin: {
-      type: Array,
-      default: () => scrollPlugin
     },
     yAxesBgPlugin: {
       type: Array,
