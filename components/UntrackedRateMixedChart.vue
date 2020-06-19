@@ -48,25 +48,21 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <scrollable-chart v-slot="{ chartWidth }" :label-count="labels.length">
-      <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
-        <div :style="{ width: `${chartWidth}px` }">
-          <bar
-            :ref="'barChart'"
-            :chart-id="chartId"
-            :chart-data="displayData"
-            :options="displayOption"
-            :plugins="scrollPlugin"
-            :display-legends="displayLegends"
-            :height="240"
-            :width="chartWidth"
-          />
-        </div>
-      </div>
-      <div>
+    <scrollable-chart v-show="canvas" :display-data="displayData">
+      <template v-slot:chart="{ chartWidth }">
+        <bar
+          :ref="'barChart'"
+          :chart-id="chartId"
+          :chart-data="displayData"
+          :options="displayOption"
+          :display-legends="displayLegends"
+          :height="240"
+          :width="chartWidth"
+        />
+      </template>
+      <template v-slot:sticky-chart>
         <bar
           class="sticky-legend"
-          :style="{ display: canvas ? 'block' : 'none' }"
           :chart-id="`${chartId}-header-right`"
           :chart-data="displayDataHeader"
           :options="displayOptionHeader"
@@ -74,7 +70,7 @@
           :display-legends="displayLegends"
           :height="240"
         />
-      </div>
+      </template>
     </scrollable-chart>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
@@ -108,8 +104,7 @@ import ScrollableChart from '@/components/ScrollableChart.vue'
 import {
   DisplayData,
   yAxesBgPlugin,
-  yAxesBgRightPlugin,
-  scrollPlugin
+  yAxesBgRightPlugin
 } from '@/plugins/vue-chart'
 import {
   getGraphSeriesStyle,
@@ -158,7 +153,6 @@ type Props = {
   tableLabels: string[] | TranslateResult[]
   unit: string
   additionalLines: number[]
-  scrollPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
 }
@@ -218,10 +212,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     unit: {
       type: String,
       default: ''
-    },
-    scrollPlugin: {
-      type: Array,
-      default: () => scrollPlugin
     },
     additionalLines: {
       type: Array,
