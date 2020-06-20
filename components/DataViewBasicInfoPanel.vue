@@ -12,9 +12,10 @@
 <style lang="scss">
 .DataView {
   &-DataInfo {
+    margin-bottom: 10px;
+
     @include largerThan($large) {
       text-align: right;
-      width: 50%;
     }
 
     &-summary {

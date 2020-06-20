@@ -8,7 +8,9 @@
         >
           {{ title }}
         </h3>
-        <slot name="infoPanel" />
+        <div class="DataView-InfoPanel">
+          <slot name="infoPanel" />
+        </div>
       </div>
 
       <div v-if="this.$slots.attentionNote" class="DataView-AttentionNote">
@@ -138,6 +140,7 @@ export default Vue.extend({
     }
 
     @include largerThan($large) {
+      justify-content: space-between;
       flex-flow: row;
       padding: 0;
     }
@@ -162,9 +165,15 @@ export default Vue.extend({
       margin-bottom: 0;
 
       &.with-infoPanel {
-        width: 50%;
+        flex: 0 1 auto;
+        margin-right: 24px;
       }
     }
+  }
+
+  &-InfoPanel {
+    flex: 1 0 auto;
+    max-width: 50%;
   }
 
   &-Content {
