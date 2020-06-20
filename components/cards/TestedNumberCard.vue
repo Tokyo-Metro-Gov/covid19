@@ -36,7 +36,7 @@ export default {
     const inspectionsLabels = Data.inspections_summary.labels
     const inspectionsDataLabels = [
       this.$t('地方衛生研究所'),
-      this.$t('医療機関等.graph')
+      this.$t('医療機関等')
     ]
     const inspectionsInitialCumulative =
       Data.inspections_summary.initial_cumulative.count
