@@ -136,12 +136,13 @@ export default Vue.extend({
         {
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: 'https://www.pref.shizuoka.jp/kinkyu/documents/200420poster.pdf'
+          link:
+            'https://www.pref.shizuoka.jp/kinkyu/covid-19-mosimosoudannsaki.html'
         },
         {
           icon: 'ParentIcon',
           title: this.$t('お子様をお持ちの皆様へ'),
-          link: 'http://www.pref.shizuoka.jp//kinkyu/covid-19-fam.html'
+          link: 'https://www.pref.shizuoka.jp/kinkyu/covid-19-fam.html'
         },
         {
           icon: 'mdi-account-multiple',
@@ -151,7 +152,7 @@ export default Vue.extend({
         {
           icon: 'mdi-domain',
           title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: 'http://www.pref.shizuoka.jp/kinkyu/covid19-com.html'
+          link: 'https://www.pref.shizuoka.jp/kinkyu/covid19-com.html'
         },
         {
           title: this.$t('静岡県新型コロナウイルス感染症対策本部報'),
@@ -160,12 +161,11 @@ export default Vue.extend({
         },
         {
           title: this.$t('静岡県主催イベント等の延期・中止状況'),
-          link:
-            'http://www.pref.shizuoka.jp/kinkyu/event.html'
+          link: 'https://www.pref.shizuoka.jp/kinkyu/event.html'
         },
         {
           title: this.$t('静岡県公式ホームページ'),
-          link: 'http://www.pref.shizuoka.jp/'
+          link: 'https://www.pref.shizuoka.jp/'
         }
       ]
     }

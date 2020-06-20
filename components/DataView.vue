@@ -136,7 +136,7 @@
 
     <div v-if="showOverlay" class="overlay">
       <div class="overlay-text">
-        {{ $t('埋め込みコードをコピーしました') }}
+        {{ $t('埋め込み用コードをコピーしました') }}
       </div>
       <v-footer class="DataView-Footer">
         <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
@@ -243,7 +243,7 @@ export default Vue.extend({
         'https://twitter.com/intent/tweet?text=' +
         this.title +
         ' / ' +
-        this.$t('東京都') +
+        this.$t('静岡県') +
         this.$t('新型コロナウイルス感染症') +
         this.$t('対策サイト') +
         '&url=' +
