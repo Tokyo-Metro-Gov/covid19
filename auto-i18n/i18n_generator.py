@@ -155,10 +155,9 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                                 tags.append(city["ruby"])
                         elif file_name == JSON_FILES[2]:  # monitoring_status.jsonの場合
                             for monitoring_name in json_content["data"].keys():
-                                # モニタリング指標名を取得(数字のみ半角に変換)
+                                # モニタリング指標名を取得(数字と括弧を半角に変換)
                                 translated_name = monitoring_name.translate(
-                                    str.maketrans({chr(0xFF01 + i): chr(0x21 + i) for i in range(94)
-                                                   if chr(0xFF01 + i) not in ["（", "）"]})
+                                    str.maketrans({chr(0xFF01 + i): chr(0x21 + i) for i in range(94)})
                                 )
                                 tags.append(translated_name)
                                 # モニタリング指標内容を取得
