@@ -1,18 +1,18 @@
 {
-    "date": "2020\/6\/20 18:30",
+    "date": "2020\/6\/21 18:00",
     "data": {
         "（１）新規陽性者数": {
-            "value": 36.1,
+            "value": 34.4,
             "go_threshold": "<20人\/日",
             "stop_threshold": "50人\/日"
         },
         "（２）新規陽性者数における接触歴等不明率": {
-            "value": 41.1,
+            "value": 45.2,
             "go_threshold": "<50%",
             "stop_threshold": "50%"
         },
         "（３）週単位の陽性者増加比": {
-            "value": 1.98,
+            "value": 1.5,
             "go_threshold": "<1",
             "stop_threshold": 2
         },
@@ -22,7 +22,7 @@
             "stop_threshold": null
         },
         "（５）入院患者数": {
-            "value": 204,
+            "value": 219,
             "go_threshold": "【参考】1,000床(レベル1)",
             "stop_threshold": null
         },
