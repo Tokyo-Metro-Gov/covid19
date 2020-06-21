@@ -8,7 +8,7 @@
       :info="info"
     >
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{ $t('（注）前日までに発生した患者数の累計値') }}
           </li>
@@ -52,7 +52,13 @@ export default {
     Data.datasets.data
       .sort((a, b) => {
         // 全体をふりがなでソート
-        return a.ruby === b.ruby ? 0 : a.ruby > b.ruby ? 1 : -1
+        if (a.ruby === b.ruby) {
+          return 0
+        } else if (a.ruby > b.ruby) {
+          return 1
+        } else {
+          return -1
+        }
       })
       .sort((a, b) => {
         // '特別区' -> '多摩地域' -> '島しょ地域' -> その他 の順にソート
@@ -77,17 +83,16 @@ export default {
 
     const info = {
       sText: this.$t('{date}の累計', {
-        date: dayjs(Data.datasets.date).format('M/DD')
+        date: this.$d(new Date(Data.datasets.date), 'dateWithoutYear')
       })
     }
 
-    const data = {
+    return {
       Data,
       date,
       municipalitiesTable,
       info
     }
-    return data
   }
 }
 </script>

@@ -1,20 +1,18 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <simple-mixed-chart
+    <monitoring-consultation-desk-report-chart
       :title="$t('モニタリング指標(7)受診相談窓口における相談件数')"
-      :title-id="'monitoring-number-of-reports-to-covid19-consultation-desk'"
-      :chart-id="'simple-mixed-chart-querents'"
-      :chart-data="ConsuletionReportsGraph"
-      :date="ConsulationReportsDate"
-      :items="ConsuletionReportsItems"
-      :labels="ConsuletionReportsLabels"
+      title-id="monitoring-number-of-reports-to-covid19-consultation-desk"
+      chart-id="monitoring-consultation-desk-report-chart"
+      :chart-data="chartData"
+      :date="date"
+      :labels="labels"
+      :data-labels="dataLabels"
       :unit="$t('件.reports')"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000070'"
-      :data-labels="ConsuletionReportsDataLabels"
-      :table-labels="ConsuletionReportsTableLabels"
+      url="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000070"
     >
-      <template v-slot:additionalNotes>
-        <ul :class="$style.GraphDesc">
+      <template v-slot:additionalDescription>
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(
@@ -31,73 +29,42 @@
           </li>
         </ul>
       </template>
-    </simple-mixed-chart>
+    </monitoring-consultation-desk-report-chart>
   </v-col>
 </template>
 
 <script>
-import dayjs from 'dayjs'
-import duration from 'dayjs/plugin/duration'
-import SimpleMixedChart from '@/components/SimpleMixedChart'
+import MonitoringConsultationDeskReportChart from '@/components/MonitoringConsultationDeskReportChart.vue'
 import Data from '@/data/data.json'
-dayjs.extend(duration)
 
 export default {
   components: {
-    SimpleMixedChart
+    MonitoringConsultationDeskReportChart
   },
   data() {
-    // 検査実施日別状況
-    const l = Data.querents.data.length
-    const ConsulationReportsCount = []
-    const sevendayMoveAverages = []
-    const ConsuletionReportsLabels = []
-    for (let i = 0; i < l; i++) {
-      ConsulationReportsCount.push(Data.querents.data[i]['小計'])
-      sevendayMoveAverages.push(Data.querents.data[i]['７日間平均'])
-      ConsuletionReportsLabels.push(Data.querents.data[i]['日付'])
-    }
+    const [
+      consulationReportsCount,
+      sevendayMoveAverages,
+      labels
+    ] = Data.querents.data.reduce(
+      (res, data) => {
+        res[0].push(data['小計'])
+        res[1].push(data['７日間平均'])
+        res[2].push(data['日付'])
+        return res
+      },
+      [[], [], []]
+    )
+    const chartData = [consulationReportsCount, sevendayMoveAverages]
+    const dataLabels = [this.$t('相談件数'), this.$t('７日間移動平均')]
+    const date = Data.querents.date
 
-    const ConsuletionReportsGraph = [
-      ConsulationReportsCount,
-      sevendayMoveAverages
-    ]
-    const ConsuletionReportsItems = [
-      this.$t('相談件数'),
-      this.$t('７日間移動平均')
-    ]
-    const ConsuletionReportsDataLabels = [
-      this.$t('相談件数'),
-      this.$t('７日間移動平均')
-    ]
-    const ConsuletionReportsTableLabels = [
-      this.$t('相談件数'),
-      this.$t('７日間移動平均')
-    ]
-
-    const ConsulationReportsDate = Data.querents.date
-    const data = {
-      ConsulationReportsDate,
-      ConsuletionReportsGraph,
-      ConsuletionReportsItems,
-      ConsuletionReportsLabels,
-      ConsuletionReportsDataLabels,
-      ConsuletionReportsTableLabels
+    return {
+      chartData,
+      date,
+      labels,
+      dataLabels
     }
-    return data
   }
 }
 </script>
-
-<style module lang="scss">
-.Graph {
-  &Desc {
-    margin: 0;
-    margin-top: 1rem;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
-}
-</style>

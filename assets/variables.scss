@@ -12,6 +12,7 @@ $gray-5: #f8f9fa;
 $white: #fff;
 $link: #006ca8;
 $emergency: #FFE200;
+$alert: #AD2121;
 
 // ==================
 // shadow
@@ -98,7 +99,7 @@ $z-index-map: (
   }
 }
 
-@mixin button-text($size: 'md') {
+@mixin button-text($size: 'md', $font-size: 14) {
   @if ($size == 'sm') {
     padding: 4px 8px;
   }
@@ -107,7 +108,7 @@ $z-index-map: (
     padding: 24px 36px;
   }
 
-  @include font-size(14);
+  @include font-size($font-size);
 
   display: inline-block;
   border-radius: 4px;

@@ -1,6 +1,10 @@
 <template>
-  <table :class="$style.table">
-    <thead>
+  <table
+    :class="$style.table"
+    aria-labelledby="tableHeader"
+    aria-describedby="tableBody"
+  >
+    <thead id="tableHeader">
       <tr>
         <th scope="col" rowspan="2">
           {{ $t('項目') }}
@@ -21,7 +25,7 @@
         </th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="tableBody">
       <tr v-for="item in status" :key="item.itemName">
         <th scope="row">
           {{ $t(replaceFullWidthByHalfWidth(item.itemName)) }}
@@ -39,23 +43,27 @@
               item.itemValue.stopThreshold !== null
           "
         >
-          <td
-            v-if="isNaN(item.itemValue.goThreshold)"
-            :class="$style.threshold"
-          >
+          <td v-if="isNaN(item.itemValue.goThreshold)">
             {{ $t(item.itemValue.goThreshold) }}
           </td>
-          <td v-else :class="$style.threshold">
+          <td v-else>
             {{ item.itemValue.goThreshold }}
           </td>
-          <td
-            v-if="isNaN(item.itemValue.stopThreshold)"
-            :class="$style.threshold"
-          >
+          <td v-if="isNaN(item.itemValue.stopThreshold)">
             {{ $t(item.itemValue.stopThreshold) }}
           </td>
           <td v-else :class="$style.threshold">
             {{ item.itemValue.stopThreshold }}
+          </td>
+        </template>
+        <template
+          v-else-if="
+            item.itemValue.goThreshold !== null &&
+              item.itemValue.stopThreshold === null
+          "
+        >
+          <td colspan="2">
+            {{ $t(item.itemValue.goThreshold) }}
           </td>
         </template>
         <template v-else>
@@ -81,7 +89,7 @@ export default Vue.extend({
   methods: {
     replaceFullWidthByHalfWidth(str: string) {
       return str.replace(
-        /[０-９]/g,
+        /[０-９（）]/g,
         s => String.fromCharCode(s.charCodeAt(0) - 0xfee0) // eslint-disable-line unicorn/number-literal-case
       )
     }

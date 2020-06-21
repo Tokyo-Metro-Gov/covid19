@@ -6,14 +6,14 @@
       :chart-id="'untracked-rate-chart'"
       :chart-data="graphData"
       :date="updated"
-      :items="items"
       :labels="dateList"
-      :unit="$t('人')"
+      unit="%"
       :data-labels="dataLabels"
       :table-labels="tableLabels"
+      :additional-lines="additionalLines"
     >
       <template v-slot:additionalDescription>
-        <ul :class="$style.GraphDesc">
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(
@@ -67,43 +67,27 @@ export default {
     const updated = Data.date
     const graphData = [reportedCount, missingCount, untrackedRate]
 
-    const items = [
-      this.$t('接触歴等判明者数'),
-      this.$t('接触歴等不明者数'),
-      this.$t('接触歴等不明率（7日間移動平均）')
-    ]
     const dataLabels = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
-      this.$t('接触歴等不明率（7日間移動平均）')
+      this.$t('接触歴等不明率（7日間移動平均）'),
+      this.$t('緩和・再要請の目安')
     ]
     const tableLabels = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
       this.$t('接触歴等不明率（7日間移動平均）')
     ]
+    const additionalLines = [50]
 
     return {
       updated,
       graphData,
       dateList,
-      items,
       dataLabels,
-      tableLabels
+      tableLabels,
+      additionalLines
     }
   }
 }
 </script>
-
-<style module lang="scss">
-.Graph {
-  &Desc {
-    margin: 0;
-    margin-top: 1rem;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
-}
-</style>

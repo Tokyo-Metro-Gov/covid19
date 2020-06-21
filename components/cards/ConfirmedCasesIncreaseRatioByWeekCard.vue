@@ -6,11 +6,13 @@
       :chart-id="'time-line-chart-patients-increase-ratio'"
       :chart-data="graphData"
       :date="dailyPositiveDetail.date"
+      :items="items"
       :unit="''"
       :table-labels="tableLabels"
+      :additional-lines="additionalLines"
     >
       <template v-slot:additionalDescription>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(
@@ -55,10 +57,20 @@ export default {
     const graphData = formatGraph(formatData)
     const tableLabels = [this.$t('週単位の陽性者増加比')]
 
+    const items = [
+      this.$t('週単位の陽性者増加比'),
+      this.$t('緩和の目安'),
+      this.$t('再要請の目安')
+    ]
+
+    const additionalLines = [1, 2]
+
     return {
       dailyPositiveDetail,
       graphData,
-      tableLabels
+      tableLabels,
+      items,
+      additionalLines
     }
   }
 }

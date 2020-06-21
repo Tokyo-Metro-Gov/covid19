@@ -32,6 +32,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update assets/locales/ja.json
-          title: Update transration files
+          title: Update translation files
           labels: auto_merge
           branch-suffix: 'short-commit-hash'

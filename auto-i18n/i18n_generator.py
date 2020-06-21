@@ -257,14 +257,14 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
             ja_json_keys.pop(ja_json_keys.index(key))
 
     # 以前はあったが今はない翻訳を削除する
-    for key in ja_json_keys:
-        ja_tag = ja_json.get(key)
-        ja_json.pop(key)
-        print("Remove TAG: " + str(ja_tag) + " from " + JA_JSON_PATH)
-        if not warn_count:
-            result.write(",".join(["RUN", datetime.today().strftime("%Y/%m/%d %H:%M")]) + '\n')
-        result.write(",".join(["TAG_REMOVE", str(ja_tag)]) + '\n')
-        warn_count += 1
+#     for key in ja_json_keys:
+#         ja_tag = ja_json.get(key)
+#         ja_json.pop(key)
+#         print("Remove TAG: " + str(ja_tag) + " from " + JA_JSON_PATH)
+#         if not warn_count:
+#             result.write(",".join(["RUN", datetime.today().strftime("%Y/%m/%d %H:%M")]) + '\n')
+#         result.write(",".join(["TAG_REMOVE", str(ja_tag)]) + '\n')
+#         warn_count += 1
 
     made_json = ja_json
 

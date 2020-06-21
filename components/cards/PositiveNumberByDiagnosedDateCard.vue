@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
-      :title="$t('PCR検査陽性者の発生動向（確定日別による陽性者数の推移）')"
+      :title="$t('確定日別による陽性者数の推移')"
       :title-id="'positive-number-by-diagnosed-date'"
       :chart-id="'positive-number-by-diagnosed-date'"
       :chart-data="graphData"
@@ -10,13 +10,16 @@
       :by-date="true"
     >
       <template v-slot:additionalDescription>
-        <p>
-          {{
-            $t(
-              '（注）患者発生の動向をより正確に分析するため、各保健所から報告があった患者の発生情報を、PCR検査により陽性であることを医師が確認した日別（確定日別）に整理したものである。'
-            )
-          }}
-        </p>
+        <span>{{ $t('（注）') }}</span>
+        <ul>
+          <li>
+            {{
+              $t(
+                '患者発生の動向をより正確に分析するため、各保健所から報告があった患者の発生情報を、PCR検査により陽性であることを医師が確認した日別（確定日別）に整理したものである'
+              )
+            }}
+          </li>
+        </ul>
       </template>
     </time-bar-chart>
   </v-col>

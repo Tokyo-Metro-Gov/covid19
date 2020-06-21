@@ -14,7 +14,7 @@
     >
       <!-- 件.tested = 検査数 -->
       <template v-slot:description>
-        <ul :class="$style.GraphDesc">
+        <ul class="ListStyleNone">
           <li>
             {{
               $t(
@@ -77,7 +77,7 @@ export default {
       this.$t('医療機関等実施分')
     ]
 
-    const data = {
+    return {
       Data,
       inspectionsGraph,
       inspectionsItems,
@@ -85,20 +85,6 @@ export default {
       inspectionsDataLabels,
       inspectionsTableLabels
     }
-    return data
   }
 }
 </script>
-
-<style module lang="scss">
-.Graph {
-  &Desc {
-    margin: 0;
-    margin-top: 1rem;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
-}
-</style>

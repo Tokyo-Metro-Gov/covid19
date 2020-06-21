@@ -1,10 +1,19 @@
 <template>
-  <div class="Contacts">
-    <page-header class="mb-3">
+  <div
+    class="Contacts"
+    aria-labelledby="pageHeader"
+    aria-describedby="contactsCardTable"
+  >
+    <page-header id="pageHeader" class="mb-3">
       {{ $t('お問い合わせ先一覧') }}
     </page-header>
     <div class="Contacts-Card">
-      <table class="Contacts-Card-Table" v-bind="tableAttrs">
+      <table
+        id="contactsCardTable"
+        class="Contacts-Card-Table"
+        v-bind="tableAttrs"
+        aria-describedby="pageHeader"
+      >
         <thead>
           <tr>
             <th class="text-center" scope="col">

@@ -1,20 +1,20 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <simple-mixed-chart
+    <monitoring-confirmed-cases-chart
       :title="$t('モニタリング指標(1)新規陽性者数')"
-      :title-id="'monitoring-number-of-confirmed-cases'"
-      :chart-id="'simple-mixed-chart-patients'"
-      :chart-data="PatientsGraph"
-      :date="PatientsDate"
-      :items="PatientsItems"
-      :labels="PatientsLabels"
-      :data-labels="PatientsDataLabels"
-      :table-labels="PatientsTableLabels"
+      title-id="monitoring-number-of-confirmed-cases"
+      chart-id="monitoring-confirmed-cases-chart"
+      :chart-data="chartData"
+      :date="date"
+      :labels="labels"
+      :data-labels="dataLabels"
+      :table-labels="tableLabels"
+      :additional-lines="additionalLines"
       :unit="$t('人')"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+      url="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068"
     >
-      <template v-slot:additionalNotes>
-        <ul :class="$style.GraphDesc">
+      <template v-slot:additionalDescription>
+        <ul class="ListStyleNone">
           <li>
             {{ $t('（注）保健所から発生届が提出された日を基準とする') }}
           </li>
@@ -35,61 +35,47 @@
           </li>
         </ul>
       </template>
-    </simple-mixed-chart>
+    </monitoring-confirmed-cases-chart>
   </v-col>
 </template>
 
 <script>
-import dayjs from 'dayjs'
-import duration from 'dayjs/plugin/duration'
-import SimpleMixedChart from '@/components/SimpleMixedChart.vue'
+import MonitoringConfirmedCasesChart from '@/components/MonitoringConfirmedCasesChart.vue'
 import Data from '@/data/daily_positive_detail.json'
-dayjs.extend(duration)
 
 export default {
   components: {
-    SimpleMixedChart
+    MonitoringConfirmedCasesChart
   },
   data() {
-    // 検査実施日別状況
-    const l = Data.data.length
-    const PatientsCount = []
-    const sevendayMoveAverages = []
-    const PatientsLabels = []
-    for (let i = 0; i < l; i++) {
-      PatientsCount.push(Data.data[i].count)
-      sevendayMoveAverages.push(Data.data[i].weekly_average_count)
-      PatientsLabels.push(Data.data[i].diagnosed_date)
-    }
+    const [patientsCount, sevenDayMoveAverages, labels] = Data.data.reduce(
+      (res, data) => {
+        res[0].push(data.count)
+        res[1].push(data.weekly_average_count)
+        res[2].push(data.diagnosed_date)
+        return res
+      },
+      [[], [], []]
+    )
+    const chartData = [patientsCount, sevenDayMoveAverages]
+    const dataLabels = [
+      this.$t('陽性者数'),
+      this.$t('７日間移動平均'),
+      this.$t('緩和の目安'),
+      this.$t('再要請の目安')
+    ]
+    const tableLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
+    const date = Data.date
+    const additionalLines = [20, 50]
 
-    const PatientsGraph = [PatientsCount, sevendayMoveAverages]
-    const PatientsItems = [this.$t('陽性者数'), this.$t('７日間移動平均')]
-    const PatientsDataLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
-    const PatientsTableLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
-
-    const PatientsDate = Data.date
-    const data = {
-      PatientsDate,
-      PatientsGraph,
-      PatientsItems,
-      PatientsLabels,
-      PatientsDataLabels,
-      PatientsTableLabels
+    return {
+      chartData,
+      date,
+      labels,
+      dataLabels,
+      tableLabels,
+      additionalLines
     }
-    return data
   }
 }
 </script>
-
-<style module lang="scss">
-.Graph {
-  &Desc {
-    margin: 0;
-    margin-top: 1rem;
-    padding-left: 0 !important;
-    color: $gray-3;
-    list-style: none;
-    @include font-size(12);
-  }
-}
-</style>

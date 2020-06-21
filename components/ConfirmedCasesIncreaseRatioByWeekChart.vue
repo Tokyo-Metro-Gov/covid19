@@ -3,59 +3,76 @@
     <template v-slot:description>
       <slot name="description" />
     </template>
+    <ul
+      :class="$style.GraphLegend"
+      :style="{ display: canvas ? 'block' : 'none' }"
+    >
+      <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
+        <button>
+          <div
+            v-if="i === 1"
+            :style="{
+              background: `repeating-linear-gradient(90deg, ${colors[1].fillColor}, ${colors[1].fillColor} 2px, #fff 2px, #fff 4px)`,
+              border: 0,
+              height: '2px'
+            }"
+          />
+          <div
+            v-else-if="i === 2"
+            :style="{
+              background: colors[1].fillColor,
+              border: 0,
+              height: '2px'
+            }"
+          />
+          <div
+            v-else
+            :style="{
+              backgroundColor: colors[i].fillColor,
+              borderColor: colors[i].strokeColor
+            }"
+          />
+          <span
+            :style="{
+              textDecoration: displayLegends[i] ? 'none' : 'line-through'
+            }"
+            >{{ item }}</span
+          >
+        </button>
+      </li>
+    </ul>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <div class="LegendStickyChart">
-      <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
-        <div :style="{ width: `${chartWidth}px` }">
-          <line-chart
-            :ref="'lineChart'"
-            :chart-id="chartId"
-            :chart-data="displayData"
-            :options="displayOption"
-            :plugins="scrollPlugin"
-            :height="240"
-            :width="chartWidth"
-          />
-        </div>
-      </div>
-      <line-chart
-        class="sticky-legend"
-        :style="{ display: canvas ? 'block' : 'none' }"
-        :chart-id="`${chartId}-header`"
-        :chart-data="displayDataHeader"
-        :options="displayOptionHeader"
-        :plugins="yAxesBgPlugin"
-        :height="240"
-        :width="chartWidth"
-      />
-    </div>
+    <scrollable-chart v-show="canvas" :display-data="displayData">
+      <template v-slot:chart="{ chartWidth }">
+        <line-chart
+          :ref="'lineChart'"
+          :chart-id="chartId"
+          :chart-data="displayData"
+          :options="displayOption"
+          :display-legends="displayLegends"
+          :height="240"
+          :width="chartWidth"
+        />
+      </template>
+      <template v-slot:sticky-chart>
+        <line-chart
+          class="sticky-legend"
+          :chart-id="`${chartId}-header`"
+          :chart-data="displayDataHeader"
+          :options="displayOptionHeader"
+          :plugins="yAxesBgPlugin"
+          :display-legends="displayLegends"
+          :height="240"
+        />
+      </template>
+    </scrollable-chart>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
     </template>
     <template v-slot:dataTable>
-      <v-data-table
-        :headers="tableHeaders"
-        :items="tableData"
-        :items-per-page="-1"
-        :hide-default-footer="true"
-        :height="240"
-        :fixed-header="true"
-        :disable-sort="true"
-        :mobile-breakpoint="0"
-        class="cardTable"
-        item-key="name"
-      >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
-              <td class="text-end">{{ item.transition }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
+      <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -78,19 +95,27 @@ import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import { GraphDataType } from '@/utils/formatGraph'
 import DataView from '@/components/DataView.vue'
+import DataViewTable, {
+  TableHeader,
+  TableItem
+} from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
-import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 
-import { getGraphSeriesColor } from '@/utils/colors'
+import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 
 type Data = {
   dataKind: 'transition'
   canvas: boolean
-  chartWidth: number | null
+  displayLegends: boolean[]
+  colors: SurfaceStyle[]
 }
 type Methods = {
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
+  makeLineData: (value: number) => number[]
+  onClickLegend: (i: number) => void
 }
 
 type Computed = {
@@ -105,14 +130,8 @@ type Computed = {
   displayDataHeader: DisplayData
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
-  tableHeaders: {
-    text: TranslateResult
-    value: string
-  }[]
-  tableData: {
-    text: string
-    transition: string
-  }[]
+  tableHeaders: TableHeader[]
+  tableData: TableItem[]
 }
 type Props = {
   title: string
@@ -120,10 +139,11 @@ type Props = {
   chartId: string
   chartData: GraphDataType[]
   date: string
+  items: string[]
   unit: string
   url: string
   tableLabels: string[] | TranslateResult[]
-  scrollPlugin: Chart.PluginServiceRegistrationOptions[]
+  additionalLines: number[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
@@ -137,7 +157,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
+  components: {
+    DataView,
+    DataViewTable,
+    DataViewBasicInfoPanel,
+    ScrollableChart,
+    OpenDataLink
+  },
   props: {
     title: {
       type: String,
@@ -159,6 +185,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       required: true
     },
+    items: {
+      type: Array,
+      default: () => []
+    },
     unit: {
       type: String,
       default: ''
@@ -171,9 +201,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => []
     },
-    scrollPlugin: {
+    additionalLines: {
       type: Array,
-      default: () => scrollPlugin
+      default: () => []
     },
     yAxesBgPlugin: {
       type: Array,
@@ -182,7 +212,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
-    chartWidth: null,
+    displayLegends: [true, true, true],
+    colors: [getGraphSeriesColor('D'), getGraphSeriesColor('F')],
     canvas: true
   }),
   computed: {
@@ -203,19 +234,45 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
-      const style = getGraphSeriesColor('D')
+      const style = [getGraphSeriesColor('D'), getGraphSeriesColor('F')]
       return {
         labels: this.chartData.map(d => d.label),
         datasets: [
           {
-            label: this.dataKind,
+            label: this.items[0],
             data: this.chartData.map(d => d.transition),
-            backgroundColor: style.fillColor,
-            borderColor: style.strokeColor,
+            backgroundColor: style[0].fillColor,
+            borderColor: style[0].strokeColor,
             borderWidth: 1,
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            lineTension: 0
+            lineTension: 0,
+            order: 1
+          },
+          {
+            label: this.items[1],
+            data: this.makeLineData(this.additionalLines[0]),
+            backgroundColor: style[1].fillColor,
+            borderColor: style[1].strokeColor,
+            borderWidth: 2,
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            lineTension: 0,
+            borderDash: [4, 4],
+            fill: false,
+            order: 0
+          },
+          {
+            label: this.items[2],
+            data: this.makeLineData(this.additionalLines[1]),
+            backgroundColor: style[1].fillColor,
+            borderColor: style[1].strokeColor,
+            borderWidth: 2,
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            lineTension: 0,
+            fill: false,
+            order: 0
           }
         ]
       }
@@ -227,15 +284,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem) {
-              return `${tooltipItem.value!.toLocaleString()} ${unit}`
+            label: tooltipItem => {
+              const cases = `${tooltipItem.value!.toLocaleString()} ${unit}`
+              return `${
+                this.items[tooltipItem.datasetIndex!]
+              } : ${cases} ${unit}`
             },
             title(tooltipItem, data) {
-              return data.labels![tooltipItem[0].index!] as string[]
+              if (tooltipItem[0].datasetIndex! < 1) {
+                return data.labels![tooltipItem[0].index!] as string[]
+              }
+              return ''
             }
           }
         },
-        responsive: false,
         maintainAspectRatio: false,
         legend: {
           display: false
@@ -290,7 +352,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
               gridLines: {
                 display: true,
                 color: '#E5E5E5'
@@ -311,32 +372,27 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      if (this.dataKind === 'transition') {
-        return {
-          labels: ['2020/1/1', '2020/1/2'],
-          datasets: [
-            {
-              data: [
-                Math.max(...this.chartData.map(d => d.transition)),
-                Math.min(...this.chartData.map(d => d.transition))
-              ],
-              backgroundColor: 'transparent',
-              pointBackgroundColor: 'rgba(0,0,0,0)',
-              pointBorderColor: 'rgba(0,0,0,0)',
-              borderColor: 'rgba(0,0,0,0)',
-              borderWidth: 0
-            }
-          ]
-        }
-      }
       return {
-        labels: ['2020/1/1', '2020/1/2'],
+        labels: ['2020/1/1'],
         datasets: [
           {
-            data: [
-              Math.max(...this.chartData.map(d => d.cumulative)),
-              Math.min(...this.chartData.map(d => d.cumulative))
-            ],
+            data: [Math.max(...this.chartData.map(d => d.transition))],
+            backgroundColor: 'transparent',
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            borderColor: 'rgba(0,0,0,0)',
+            borderWidth: 0
+          },
+          {
+            data: [this.additionalLines[0]],
+            backgroundColor: 'transparent',
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            borderColor: 'rgba(0,0,0,0)',
+            borderWidth: 0
+          },
+          {
+            data: [this.additionalLines[1]],
             backgroundColor: 'transparent',
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
@@ -348,7 +404,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const options: Chart.ChartOptions = {
-        responsive: false,
         maintainAspectRatio: false,
         legend: {
           display: false
@@ -404,7 +459,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
@@ -459,19 +513,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         default:
           return `${dayBeforeRatioLocaleString}`
       }
+    },
+    makeLineData(value: number): number[] {
+      return this.chartData.map(_ => value)
+    },
+    onClickLegend(i) {
+      this.displayLegends[i] = !this.displayLegends[i]
+      this.displayLegends = this.displayLegends.slice()
     }
   },
   mounted() {
-    if (this.$el) {
-      this.chartWidth =
-        ((this.$el!.clientWidth - 22 * 2 - 38) / 60) *
-          this.displayData.labels!.length +
-        38
-      this.chartWidth = Math.max(
-        this.$el!.clientWidth - 22 * 2,
-        this.chartWidth
-      )
-    }
     const lineChart = this.$refs.lineChart as Vue
     const lineElement = lineChart.$el
     const canvas = lineElement.querySelector('canvas')
@@ -486,3 +537,30 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
 export default Vue.extend(options)
 </script>
+
+<style module lang="scss">
+.Graph {
+  &Legend {
+    text-align: center;
+    list-style: none;
+    padding: 0 !important;
+    li {
+      display: inline-block;
+      margin: 0 3px;
+      div {
+        height: 12px;
+        margin: 2px 4px;
+        width: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        border-width: 1px;
+        border-style: solid;
+      }
+      button {
+        color: $gray-3;
+        @include font-size(12);
+      }
+    }
+  }
+}
+</style>

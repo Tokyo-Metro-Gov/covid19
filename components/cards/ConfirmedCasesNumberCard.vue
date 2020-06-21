@@ -5,13 +5,13 @@
       :title-id="'number-of-confirmed-cases'"
       :chart-id="'time-bar-chart-patients'"
       :chart-data="patientsGraph"
-      :date="Data.patients.date"
+      :date="Data.patients_summary.date"
       :unit="$t('人')"
       :by-date="true"
       :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
     >
       <template v-slot:description>
-        <ul>
+        <ul class="ListStyleNone">
           <li>
             {{ $t('（注）保健所から発生届が提出された日を基準とする') }}
           </li>
@@ -42,11 +42,10 @@ export default {
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
 
-    const data = {
+    return {
       Data,
       patientsGraph
     }
-    return data
   }
 }
 </script>

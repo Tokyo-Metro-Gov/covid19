@@ -6,28 +6,46 @@
       :date="monitoringStatusData.date"
     >
       <template v-slot:additionalDescription>
-        <ul :class="$style.notes">
+        <span>{{ $t('（注）') }}</span>
+        <ul>
           <li>
             {{
               $t(
-                '※（1）、（2）、（6）、（7）は、7日間移動平均で算出（たとえば、5月7日の移動平均値は、5月1日から5月7日までの実績値を平均したもの）'
+                '(1)(2)(6)(7)は７日間移動平均で算出。また、(1)が10人以下となった場合は、(2)及び(3)は参考値とする'
+              )
+            }}
+          </li>
+          <li>
+            {{ $t('(1)(2)(3)は保健所からの報告日別陽性者数を基に算出') }}
+          </li>
+          <li>
+            {{
+              $t(
+                '(4)(5)の目安となる数値は、患者数に応じた病床の確保数を参考として記載している'
               )
             }}
           </li>
           <li>
             {{
               $t(
-                '※（1）、（2）、（3）は、保健所からの報告日別陽性者数を基に算出'
+                '(4)重症患者数 レベル1：100床 → レベル2：300床 → レベル3：700床'
               )
             }}
           </li>
           <li>
-            {{ $t('※速報値として公開するものであり、後日修正される場合あり') }}
+            {{
+              $t(
+                '(5)入院患者数 レベル1：1,000床 → レベル2：3,000床 → レベル3：4,000床'
+              )
+            }}
+          </li>
+          <li>
+            {{ $t('速報値として公表するものであり、後日修正する場合がある') }}
           </li>
           <li>
             {{
               $t(
-                '※（6）は、日曜日、祝祭日は更新しない。（7）は、土曜日、日曜日、祝祭日は更新しない'
+                '(6)は日曜日、祝日は更新しない。(7)は土曜日、日曜日、祝日は更新しない'
               )
             }}
           </li>
@@ -40,20 +58,6 @@
     </data-view>
   </v-col>
 </template>
-
-<style lang="scss" module>
-ul.notes {
-  margin-top: 10px;
-  margin-bottom: 0;
-  padding-left: 0 !important;
-  color: $gray-3;
-  @include font-size(12);
-
-  > li {
-    list-style-type: none;
-  }
-}
-</style>
 
 <script>
 import monitoringStatusData from '@/data/monitoring_status.json'
@@ -70,11 +74,10 @@ export default {
     // モニタリング指標
     const monitoringStatus = formatMonitoringStatus(monitoringStatusData.data)
 
-    const data = {
+    return {
       monitoringStatusData,
       monitoringStatus
     }
-    return data
   }
 }
 </script>

@@ -33,6 +33,7 @@
 import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
 import MetroBarChart from '@/components/MetroBarChart.vue'
+import { getComplementedDate } from '@/utils/formatDate'
 
 export default {
   components: {
@@ -40,19 +41,20 @@ export default {
   },
   data() {
     // 都営地下鉄の利用者数の推移
-    const metroGraph = MetroData
-    for (const dataset of metroGraph.datasets) {
-      dataset.label = this.getWeekLabel(dataset.label)
+    const datasets = MetroData.datasets.map(d => ({
+      ...d,
+      label: this.getWeekLabel(d.label)
+    }))
+    const metroGraph = {
+      ...MetroData,
+      datasets
     }
 
     // metroGraph ツールチップ title文字列
     // this.$t を使うため metroGraphOption の外側へ
     const metroGraphTooltipTitle = (tooltipItems, _) => {
-      const label = this.getWeekLabel(tooltipItems[0].label)
-      return this.$t('期間: {duration}', {
-        // duration = label = '2\/10~14' etc.
-        duration: this.$t(label)
-      })
+      const duration = this.getWeekLabel(tooltipItems[0].label)
+      return this.$t('期間: {duration}', { duration })
     }
     // metroGraph ツールチップ label文字列
     // this.$t を使うため metroGraphOption の外側へ
@@ -67,13 +69,12 @@ export default {
       })
     }
 
-    const data = {
+    return {
       Data,
       metroGraph,
       metroGraphTooltipTitle,
       metroGraphTooltipLabel
     }
-    return data
   },
   methods: {
     /**
@@ -101,10 +102,20 @@ export default {
         label = label.replace('~', `~${month}/`)
       }
 
-      // 日は、0埋めしない
-      label = label.replace('/0', '/')
-
-      return label
+      const dates = label.split('~')
+      if (slashCount === 1 && dates.length === 2) {
+        const from = this.$d(
+          new Date(getComplementedDate(dates[0])),
+          'dateWithoutYear'
+        )
+        const to = this.$d(
+          new Date(getComplementedDate(dates[1])),
+          'dateWithoutYear'
+        )
+        return `${from}~${to}`
+      } else {
+        return `${dates[0]}~${dates[1]}`
+      }
     }
   }
 }
