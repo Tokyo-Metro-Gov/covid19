@@ -200,7 +200,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
           sText: `${this.$t('{date}の合計', {
-            date: this.labels[this.labels.length - 1].slice(1)
+            date: this.labels[this.labels.length - 1].replace(/^0/, '')
           })}`,
           unit: this.unit
         }
@@ -210,7 +210,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           this.sum(this.cumulativeSum(this.chartData)) + this.initialCumulative
         ).toLocaleString(),
         sText: `${this.$t('{date}までの累計（内{offset}件は4/26までの累計）', {
-          date: this.labels[this.labels.length - 1].slice(1),
+          date: this.labels[this.labels.length - 1].replace(/^0/, ''),
           offset: this.initialCumulative.toLocaleString()
         })}`,
         unit: this.unit
@@ -302,7 +302,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
             },
             title(tooltipItem: any, data: any) {
-              return data.labels[tooltipItem[0].index]
+              return data.labels[tooltipItem[0].index].replace(/^0/, '')
             }
           }
         },
