@@ -3,7 +3,7 @@
     <template v-slot:button>
       <ul :class="$style.GraphDesc">
         <li>
-          {{ $t('（注）医療機関が保険適用で行った検査は含まれていない') }}
+          {{ $t('（注）検査結果の判明日を基準とする') }}
         </li>
         <li>
           {{ $t('（注）同一の対象者について複数の検体を検査する場合あり') }}
@@ -131,6 +131,7 @@ type Props = {
   labels: string[]
   dataLabels: string[] | TranslateResult[]
   unit: string
+  initialCumulative: number
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -183,6 +184,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     unit: {
       type: String,
       default: ''
+    },
+    initialCumulative: {
+      type: Number,
+      default: 0
     }
   },
   data: () => ({
@@ -195,15 +200,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
           sText: `${this.$t('{date}の合計', {
-            date: this.labels[this.labels.length - 1]
+            date: this.labels[this.labels.length - 1].replace(/^0/, '')
           })}`,
           unit: this.unit
         }
       }
       return {
-        lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.$t('{date}の全体累計', {
-          date: this.labels[this.labels.length - 1]
+        lText: (
+          this.sum(this.cumulativeSum(this.chartData)) + this.initialCumulative
+        ).toLocaleString(),
+        sText: `${this.$t('{date}までの累計（内{offset}件は4/26までの累計）', {
+          date: this.labels[this.labels.length - 1].replace(/^0/, ''),
+          offset: this.initialCumulative.toLocaleString()
         })}`,
         unit: this.unit
       }
@@ -294,7 +302,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               }: ${cases} ${unit} (${this.$t('合計')}: ${casesTotal} ${unit})`
             },
             title(tooltipItem: any, data: any) {
-              return data.labels[tooltipItem[0].index]
+              return data.labels[tooltipItem[0].index].replace(/^0/, '')
             }
           }
         },

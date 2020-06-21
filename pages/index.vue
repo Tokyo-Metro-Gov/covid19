@@ -19,9 +19,9 @@
       <confirmed-cases-attributes-card />
       <confirmed-cases-number-card />
       <inspection-persons-number-card />
-      <tested-number-card />
       <telephone-advisory-reports-number-card />
       <consultation-desk-reports-number-card />
+      <tested-number-card />
       <metro-card />
       <agency-card />
       <shinjuku-visitors-card />
@@ -66,8 +66,8 @@ export default Vue.extend({
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
-    InspectionPersonsNumberCard,
-    ConsultationDeskReportsNumberCard
+    ConsultationDeskReportsNumberCard,
+    TestedNumberCard
   },
   data() {
     const data = {
