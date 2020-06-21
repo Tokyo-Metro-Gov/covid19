@@ -32,7 +32,7 @@
         </th>
         <td :class="$style.value">
           {{ item.itemValue.value }}
-          <span v-if="item.itemValue.unit != '%'" :class="$style.unit">{{
+          <span v-if="item.itemValue.unit !== '%'" :class="$style.unit">{{
             $t(item.itemValue.unit)
           }}</span>
           <span v-else :class="$style.unit">{{ item.itemValue.unit }}</span>
