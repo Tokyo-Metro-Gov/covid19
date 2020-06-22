@@ -239,7 +239,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayInfo() {
       return {
-        lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
+        lText: `${this.formatter(this.chartData.slice(-1)[0].transition)}`,
         sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
           'の数値'
         )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${

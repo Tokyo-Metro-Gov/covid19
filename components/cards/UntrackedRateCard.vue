@@ -5,6 +5,7 @@
       :title-id="'untracked-rate'"
       :chart-id="'untracked-rate-chart'"
       :chart-data="graphData"
+      :get-formatter="getFormatter"
       :date="updated"
       :labels="dateList"
       unit="%"

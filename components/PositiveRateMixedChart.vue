@@ -104,7 +104,10 @@ import {
   scrollPlugin
 } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
-import { getNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
+import {
+  getNumberToFixedFunction,
+  getNumberToLocaleStringFunction
+} from '~/utils/monitoringStatusValueFormatters'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -248,7 +251,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         'dateWithoutYear'
       )
       return {
-        lText: this.pickLastNumber(this.chartData)[2].toLocaleString(),
+        lText: this.getFormatter(2)(
+          parseFloat(this.pickLastNumber(this.chartData)[2].toLocaleString())
+        ),
         sText: `${this.$t('{date}の数値', {
           date
         })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
@@ -315,7 +320,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           return Object.assign(
             { text: this.$d(new Date(label), 'dateWithoutYear') },
             ...this.tableHeaders.map((_, j) => {
-              let formatter
+              let formatter = getNumberToLocaleStringFunction()
               switch (j) {
                 case 0: // 陽性者数
                 case 1: // 陰性者数
@@ -324,15 +329,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                   break
                 case 2: // 検査実施人数 (日別)
                   cumulative += datum = dailySum
-                  formatter = this.getFormatter(-1)
+                  formatter = getNumberToLocaleStringFunction()
                   break
                 case 3: // 検査実施人数 (累計)
                   datum = cumulative
-                  formatter = this.getFormatter(2)
+                  formatter = getNumberToLocaleStringFunction()
                   break
                 case 4: // 陽性率
                   datum = this.chartData[2][i]
-                  formatter = this.getFormatter(3)
+                  formatter = this.getFormatter(2)
                   break
               }
               return {
@@ -626,7 +631,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       })
     },
     formatDayBeforeRatio(dayBeforeRatio: number): string {
-      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
+      const dayBeforeRatioLocaleString = this.getFormatter(2)(dayBeforeRatio)
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
           return `+${dayBeforeRatioLocaleString}`
