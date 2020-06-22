@@ -107,6 +107,7 @@ import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
+import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type Data = {
   dataKind: 'transition'
@@ -188,7 +189,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     formatter: {
       type: Function,
       required: false,
-      default: (d: number) => d.toLocaleString
+      default: getNumberToLocaleStringFunction()
     },
     date: {
       type: String,

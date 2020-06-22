@@ -38,9 +38,7 @@
 import dailyPositiveDetail from '@/data/daily_positive_detail.json'
 import formatGraph from '@/utils/formatGraph'
 import ConfirmedCasesIncreaseRatioByWeekChart from '@/components/ConfirmedCasesIncreaseRatioByWeekChart.vue'
-
-// モニタリング指標(3)週単位の陽性者増加比は小数点第2位まで表示する。
-const formatter = d => d?.toFixed(2)
+import { getNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
 
 export default {
   components: {
@@ -68,6 +66,9 @@ export default {
     ]
 
     const additionalLines = [1, 2]
+
+    // モニタリング指標(3)週単位の陽性者増加比は小数点第2位まで表示する。
+    const formatter = getNumberToFixedFunction(2)
 
     return {
       dailyPositiveDetail,

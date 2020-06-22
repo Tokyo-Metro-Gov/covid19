@@ -104,6 +104,7 @@ import {
   scrollPlugin
 } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
+import { getNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -192,7 +193,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     getFormatter: {
       type: Function,
       required: false,
-      default: (_: number) => (d: number) => d?.toLocaleString()
+      default: (_: number) => getNumberToFixedFunction()
     },
     date: {
       type: String,

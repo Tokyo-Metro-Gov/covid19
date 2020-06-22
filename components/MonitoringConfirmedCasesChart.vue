@@ -112,6 +112,7 @@ import OpenDataLink from '@/components/OpenDataLink.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
+import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type Data = {
   canvas: boolean
@@ -195,7 +196,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     getFormatter: {
       type: Function,
       required: false,
-      default: (_: number) => (d: number) => d?.toLocaleString()
+      default: (_: number) => getNumberToLocaleStringFunction()
     },
     date: {
       type: String,

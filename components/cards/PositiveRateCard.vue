@@ -78,11 +78,11 @@ import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import PositiveRate from '@/data/positive_rate.json'
 import PositiveRateMixedChart from '@/components/PositiveRateMixedChart'
+import {
+  getNumberToFixedFunction,
+  getNumberToLocaleStringFunction
+} from '@/utils/monitoringStatusValueFormatters'
 dayjs.extend(duration)
-
-// モニタリング指標(6)PCR検査の陽性率は小数点第1位まで表示する。
-const positiveRateFormatter = d => d?.toFixed(1)
-const defaultFormatter = d => d?.toLocaleString()
 
 export default {
   components: {
@@ -117,8 +117,9 @@ export default {
     ]
 
     const getFormatter = columnIndex => {
-      if (columnIndex === 2) return positiveRateFormatter
-      return defaultFormatter
+      // モニタリング指標(6)PCR検査の陽性率は小数点第1位まで表示する。
+      if (columnIndex === 2) return getNumberToFixedFunction(1)
+      return getNumberToLocaleStringFunction()
     }
 
     return {
