@@ -111,6 +111,7 @@ import {
   getGraphSeriesColor,
   SurfaceStyle
 } from '@/utils/colors'
+import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type Data = {
   canvas: boolean
@@ -147,6 +148,7 @@ type Props = {
   titleId: string
   chartId: string
   chartData: number[][]
+  getFormatter: Function
   date: string
   labels: string[]
   dataLabels: string[] | TranslateResult[]
@@ -191,6 +193,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       required: false,
       default: () => []
+    },
+    getFormatter: {
+      type: Function,
+      required: false,
+      default: (_: number) => getNumberToLocaleStringFunction()
     },
     date: {
       type: String,
@@ -243,7 +250,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayInfo() {
       return {
-        lText: this.pickLastNumber(this.chartData)[2].toLocaleString(),
+        lText: this.getFormatter(2)(
+          parseFloat(this.pickLastNumber(this.chartData)[2].toLocaleString())
+        ),
         sText: `${this.$t('{date}の数値', {
           date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
         })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
@@ -332,7 +341,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 }
               }
               return {
-                [j]: data[i].toLocaleString()
+                [j]: this.getFormatter(j)(data[i])
               }
             })
           )
@@ -342,12 +351,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOption() {
       const unit = this.unit
+      const getFormatter = this.getFormatter
       const options: Chart.ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const cases = tooltipItem.value!.toLocaleString()
+              const formatter = getFormatter(tooltipItem.datasetIndex!)
+              const cases = formatter(parseFloat(tooltipItem.value!))
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${this.$t('人')}`
@@ -626,7 +637,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       })
     },
     formatDayBeforeRatio(dayBeforeRatio: number): string {
-      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
+      const dayBeforeRatioLocaleString = this.getFormatter(2)(dayBeforeRatio)
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
           return `+${dayBeforeRatioLocaleString}`

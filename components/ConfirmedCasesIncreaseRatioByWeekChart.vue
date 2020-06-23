@@ -105,6 +105,7 @@ import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
+import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type Data = {
   dataKind: 'transition'
@@ -138,6 +139,7 @@ type Props = {
   titleId: string
   chartId: string
   chartData: GraphDataType[]
+  formatter: Function
   date: string
   items: string[]
   unit: string
@@ -180,6 +182,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     chartData: {
       type: Array,
       default: () => []
+    },
+    formatter: {
+      type: Function,
+      required: false,
+      default: getNumberToLocaleStringFunction()
     },
     date: {
       type: String,
@@ -224,7 +231,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayInfo() {
       return {
-        lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
+        lText: `${this.formatter(this.chartData.slice(-1)[0].transition)}`,
         sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
           'の数値'
         )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
@@ -285,7 +292,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const cases = `${tooltipItem.value!.toLocaleString()} ${unit}`
+              const cases = `${this.formatter(
+                parseFloat(tooltipItem.value!)
+              )} ${unit}`
               return `${
                 this.items[tooltipItem.datasetIndex!]
               } : ${cases} ${unit}`
@@ -492,10 +501,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     tableData() {
       return this.chartData
-        .map((d, _) => {
+        .map(d => {
           return {
             text: d.label,
-            transition: d.transition.toLocaleString()
+            transition: this.formatter(d.transition)
           }
         })
         .sort((a, b) => dayjs(a.text).unix() - dayjs(b.text).unix())
