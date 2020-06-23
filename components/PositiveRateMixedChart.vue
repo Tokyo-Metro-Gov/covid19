@@ -99,6 +99,10 @@ import {
   yAxesBgRightPlugin
 } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
+import {
+  getNumberToFixedFunction,
+  getNumberToLocaleStringFunction
+} from '~/utils/monitoringStatusValueFormatters'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -137,6 +141,7 @@ type Props = {
   titleId: string
   chartId: string
   chartData: number[][]
+  getFormatter: Function
   date: string
   labels: string[]
   dataLabels: string[] | TranslateResult[]
@@ -180,6 +185,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       required: false,
       default: () => []
+    },
+    getFormatter: {
+      type: Function,
+      required: false,
+      default: (_: number) => getNumberToFixedFunction()
     },
     date: {
       type: String,
@@ -228,7 +238,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         'dateWithoutYear'
       )
       return {
-        lText: this.pickLastNumber(this.chartData)[2].toLocaleString(),
+        lText: this.getFormatter(2)(
+          parseFloat(this.pickLastNumber(this.chartData)[2].toLocaleString())
+        ),
         sText: `${this.$t('{date}の数値', {
           date
         })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
@@ -291,27 +303,32 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       let cumulative = 39
       return this.labels
         .map((label, i) => {
-          let [dailySum, data] = [0, 0]
+          let [dailySum, datum] = [0, 0]
           return Object.assign(
             { text: this.$d(new Date(label), 'dateWithoutYear') },
             ...this.tableHeaders.map((_, j) => {
+              let formatter = getNumberToLocaleStringFunction()
               switch (j) {
                 case 0: // 陽性者数
                 case 1: // 陰性者数
-                  dailySum += data = this.chartData[j][i]
+                  dailySum += datum = this.chartData[j][i]
+                  formatter = this.getFormatter(j)
                   break
                 case 2: // 検査実施人数 (日別)
-                  cumulative += data = dailySum
+                  cumulative += datum = dailySum
+                  formatter = getNumberToLocaleStringFunction()
                   break
                 case 3: // 検査実施人数 (累計)
-                  data = cumulative
+                  datum = cumulative
+                  formatter = getNumberToLocaleStringFunction()
                   break
                 case 4: // 陽性率
-                  data = this.chartData[2][i]
+                  datum = this.chartData[2][i]
+                  formatter = this.getFormatter(2)
                   break
               }
               return {
-                [j]: data.toLocaleString()
+                [j]: formatter(datum)
               }
             })
           )
@@ -322,15 +339,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOption() {
       const self = this
       const unit = this.unit
-      const data = this.chartData
       const options: Chart.ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
             label: tooltipItem => {
-              const cases = data[tooltipItem.datasetIndex!][
-                tooltipItem.index!
-              ].toLocaleString()
+              const cases = this.getFormatter(tooltipItem.datasetIndex!)(
+                parseFloat(tooltipItem.value!)
+              )
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${this.$t('人')}`
@@ -586,17 +602,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       this.displayLegends = this.displayLegends.slice()
     },
     pickLastNumber(chartDataArray: number[][]) {
-      return chartDataArray.map(array => {
-        return array[array.length - 1]
+      return chartDataArray.map((array, i) => {
+        return this.getFormatter(i)(array[array.length - 1])
       })
     },
     pickLastSecondNumber(chartDataArray: number[][]) {
-      return chartDataArray.map(array => {
-        return array[array.length - 2]
+      return chartDataArray.map((array, i) => {
+        return this.getFormatter(i)(array[array.length - 2])
       })
     },
     formatDayBeforeRatio(dayBeforeRatio: number): string {
-      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
+      const dayBeforeRatioLocaleString = this.getFormatter(2)(dayBeforeRatio)
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
           return `+${dayBeforeRatioLocaleString}`

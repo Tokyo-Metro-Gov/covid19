@@ -5,6 +5,7 @@
       :title-id="'positive-rate'"
       :chart-id="'positive-rate-chart'"
       :chart-data="positiveRateGraph"
+      :get-formatter="getFormatter"
       :date="PositiveRate.date"
       :labels="positiveRateLabels"
       unit="%"
@@ -77,6 +78,10 @@ import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import PositiveRate from '@/data/positive_rate.json'
 import PositiveRateMixedChart from '@/components/PositiveRateMixedChart'
+import {
+  getNumberToFixedFunction,
+  getNumberToLocaleStringFunction
+} from '@/utils/monitoringStatusValueFormatters'
 dayjs.extend(duration)
 
 export default {
@@ -111,12 +116,19 @@ export default {
       this.$t('陽性率')
     ]
 
+    const getFormatter = columnIndex => {
+      // モニタリング指標(6)PCR検査の陽性率は小数点第1位まで表示する。
+      if (columnIndex === 2) return getNumberToFixedFunction(1)
+      return getNumberToLocaleStringFunction()
+    }
+
     return {
       PositiveRate,
       positiveRateGraph,
       positiveRateLabels,
       positiveRateDataLabels,
-      positiveRateTableLabels
+      positiveRateTableLabels,
+      getFormatter
     }
   }
 }
