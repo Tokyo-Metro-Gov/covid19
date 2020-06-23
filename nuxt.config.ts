@@ -125,11 +125,6 @@ const config: Configuration = {
     }
   ],
   build: {
-    plugins: [
-      new webpack.ProvidePlugin({
-        mapboxgl: 'mapbox-gl'
-      })
-    ],
     postcss: {
       plugins: [
         autoprefixer({ grid: 'autoplace' }),
