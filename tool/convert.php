@@ -262,13 +262,49 @@ function discharges(array $patients) : array {
 }
 
 function readInspections() : array{
-  $data = xlsxToArray('Xls', __DIR__.'/downloads/検査実施日別状況.xlsx', '入力シート', 'A2:J200', 'A1:J1');
-  $data = $data->filter(function ($row) {
-    return $row['疑い例検査'] !== null;
+  $data = xlsxToArray('Csv', __DIR__.'/downloads/status.csv', 'RAW', 'A2:L200', 'A1:L1');
+
+  $number = $data->filter(function ($row) {
+    return $row['県関係者陽性者数'] !== null;
+  })->map(function ($row) {
+    $result = empty($row['検査実施人数']) ? 0 : $row['検査実施人数'];
+
+    return $result;
   });
+
+  $time = $data->filter(function ($row) {
+    return $row['県関係者陽性者数'] !== null;
+  })->map(function ($row) {
+    $date = formatDate($row['更新時間']);
+    $carbon = Carbon::parse($date);
+    $row['更新時間'] = $carbon->format('Y/m/d H:i');
+
+    $result = $row['更新時間'];
+
+    return $result;
+  });
+
+  $label = $data->filter(function ($row) {
+    return $row['県関係者陽性者数'] !== null;
+  })->map(function ($row) {
+    $date = formatDate($row['更新時間']);
+    $carbon = Carbon::parse($date);
+    $row['更新時間'] = $carbon->format('m/d');
+
+    $result = $row['更新時間'];
+
+    return $result;
+  });
+
+
+
+  $date = $time->last();
+  
+  var_dump($date);
   return [
-    'date' => '2020/3/5/ 00:00', //TODO 現在のエクセルに更新日付がないので変更する必要あり
-    'data' => $data
+    'date' => $date,
+    'data' => $number,
+    'label' => $label,
   ];
 }
 
@@ -276,22 +312,21 @@ function readInspectionsSummary(array $inspections) : array
 {
   return [
     'date' => $inspections['date'],
-    'data' => [
-      '都内' => $inspections['data']->map(function ($row) {
-        return str_replace(' ', '', $row['（小計①）']);
-      }),
-      'その他' => $inspections['data']->map(function ($row) {
-        return str_replace(' ', '', $row['（小計②）']);
-      }),
-    ],
+    'data' => $inspections['data']->map(function ($row) {
+      // var_dump($row);
+      $testedNumber = empty($row['検査実施人数']) ? 0 : $row['検査実施人数'];
+      return str_replace(' ', '', $testedNumber);
+    }),
     'labels' =>$inspections['data']->map(function ($row) {
-        return Carbon::parse($row['判明日'])->format('n/j');
+        return Carbon::parse($row['更新時間'])->format('n/j');
     })
   ];
 }
 
 function readSummaryFile() : array {
   $data = xlsxToArray('Csv', __DIR__.'/downloads/summary.csv', 'RAW', 'A2:F2', 'A1:F1');
+
+  
 
   return [
     'data' => $data->filter(function ($row) {
@@ -316,11 +351,23 @@ function readSummaryFile() : array {
 }
 
 function readStasusFile() : array {
-  $data = xlsxToArray('Csv', __DIR__.'/downloads/status.csv', 'RAW', 'A2:L200', 'A1:L1');
+  $data = xlsxToArray('Csv', __DIR__.'/downloads/status.csv', 'RAW', 'A2:M200', 'A1:M1');
+  $time = $data->filter(function ($row) {
+    return $row['更新時間'] !== null;
+  })->map(function ($row) {
+    $date = formatDate($row['更新時間']);
+    $carbon = Carbon::parse($date);
+    $row['更新時間'] = $carbon->format('Y/m/d H:i');
+
+    $result = $row['更新時間'];
+
+    return $result;
+  });
 
   return [
+    'date' => $time->last(),
     'data' => $data->filter(function ($row) {
-      return $row['更新時間'];
+      return $row['更新時間'] !== null;
     })->map(function ($row) {
       $date = formatDate($row['更新時間']);
       $carbon = Carbon::parse($date);
@@ -339,6 +386,7 @@ function readStasusFile() : array {
         "自宅療養中" => $row['自宅療養中'],
         "入院勧告解除" => $row['入院勧告解除'],
         "死亡退院" => $row['死亡退院'],
+        "解除後再入院" => $row['解除後再入院'],
       ];
 
       return $result;
@@ -365,7 +413,7 @@ $status_data = readStasusFile();
 $latest_status = array_slice($status_data['data']->all(), -1)[0];
 
 // $inspections =readInspections();
-// $inspections_summary =readInspectionsSummary($inspections);
+$inspections_summary =readInspectionsSummary($status_data);
 
 $data = compact([
   // 'contacts',
@@ -375,12 +423,15 @@ $data = compact([
   // 'discharges_summary',
   // 'discharges',
   // 'inspections',
-  // 'inspections_summary',
+  'inspections_summary',
   // 'better_patients_summary'
 ]);
 $lastUpdate = '';
 $lastTime = 0;
 foreach ($data as $key => &$arr) {
+    if(is_null($arr['date'])) {
+      var_dump($arr['date']);
+    }
     $arr['date'] = formatDate($arr['date']);
     $timestamp = Carbon::parse()->format('YmdHis');
     if ($lastTime <= $timestamp) {
@@ -397,25 +448,25 @@ $data['main_summary'] = [
   'children' => [
     [
       'attr' => '陽性患者数（県外感染者含む）',
-      'value' => $latest_status['輸入病例'] + $latest_status['県関係者陽性者数'],
+      'value' => $latest_status['県関係者陽性者数'],
       'children' => [
         [
           'attr' => '入院中（調整中含む）',
-          'value' => $latest_status['輸入病例'] + $latest_status['県関係者陽性者数'] - $latest_status['入院勧告解除'] - $latest_status['死亡退院'],
+          'value' => $latest_status['県関係者陽性者数'] - ($latest_status['入院勧告解除'] - $latest_status['解除後再入院']) - $latest_status['死亡退院'],
           'children' => [
             [
-              'attr' => '軽症・中等症',
-              'value' => $latest_status['輸入病例'] + $latest_status['県関係者陽性者数'] - $latest_status['入院勧告解除'] - $latest_status['死亡退院'] - $latest_summary['重症'],
+              'attr' => 'その他',
+              'value' => $latest_status['県関係者陽性者数'] - ($latest_status['入院勧告解除'] - $latest_status['解除後再入院']) - $latest_status['死亡退院'] - $latest_status['重症'],
             ],
             [
               'attr' => '重症',
-              'value' => $latest_summary['重症']
+              'value' => $latest_status['重症']
             ]
           ]
         ],
         [
           'attr' => '退院',
-          'value' => $latest_status['入院勧告解除']
+          'value' => $latest_status['入院勧告解除'] - $latest_status['解除後再入院']
         ],
         [
           'attr' => '死亡',
