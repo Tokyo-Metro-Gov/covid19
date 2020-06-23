@@ -5,6 +5,7 @@
       :title-id="'untracked-rate'"
       :chart-id="'untracked-rate-chart'"
       :chart-data="graphData"
+      :get-formatter="getFormatter"
       :date="updated"
       :labels="dateList"
       unit="%"
@@ -44,6 +45,10 @@
 <script>
 import Data from '@/data/daily_positive_detail.json'
 import UntrackedRateMixedChart from '@/components/UntrackedRateMixedChart'
+import {
+  getNumberToFixedFunction,
+  getNumberToLocaleStringFunction
+} from '@/utils/monitoringStatusValueFormatters'
 
 export default {
   components: {
@@ -80,13 +85,20 @@ export default {
     ]
     const additionalLines = [50]
 
+    const getFormatter = columnIndex => {
+      // モニタリング指標(2)新規陽性者における接触歴等不明率の７日間移動平均は小数点第1位まで表示する。
+      if (columnIndex === 2) return getNumberToFixedFunction(1)
+      return getNumberToLocaleStringFunction()
+    }
+
     return {
       updated,
       graphData,
       dateList,
       dataLabels,
       tableLabels,
-      additionalLines
+      additionalLines,
+      getFormatter
     }
   }
 }

@@ -5,6 +5,7 @@
       title-id="monitoring-number-of-confirmed-cases"
       chart-id="monitoring-confirmed-cases-chart"
       :chart-data="chartData"
+      :get-formatter="getFormatter"
       :date="date"
       :labels="labels"
       :data-labels="dataLabels"
@@ -42,6 +43,10 @@
 <script>
 import MonitoringConfirmedCasesChart from '@/components/MonitoringConfirmedCasesChart.vue'
 import Data from '@/data/daily_positive_detail.json'
+import {
+  getNumberToFixedFunction,
+  getNumberToLocaleStringFunction
+} from '@/utils/monitoringStatusValueFormatters'
 
 export default {
   components: {
@@ -68,13 +73,20 @@ export default {
     const date = Data.date
     const additionalLines = [20, 50]
 
+    const getFormatter = columnIndex => {
+      // モニタリング指標(1)新規陽性者数の７日間移動平均は小数点第1位まで表示する。
+      if (columnIndex === 1) return getNumberToFixedFunction(1)
+      return getNumberToLocaleStringFunction()
+    }
+
     return {
       chartData,
       date,
       labels,
       dataLabels,
       tableLabels,
-      additionalLines
+      additionalLines,
+      getFormatter
     }
   }
 }
