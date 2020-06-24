@@ -1,7 +1,7 @@
 {
-    "date": "2020\/6\/23 18:00",
+    "date": "2020\/6\/24 18:45",
     "datasets": {
-        "date": "2020\/6\/22",
+        "date": "2020\/6\/23",
         "data": [
             {
                 "code": 131016,
@@ -22,21 +22,21 @@
                 "area": "特別区",
                 "label": "港区",
                 "ruby": "みなとく",
-                "count": 347
+                "count": 349
             },
             {
                 "code": 131041,
                 "area": "特別区",
                 "label": "新宿区",
                 "ruby": "しんじゅくく",
-                "count": 604
+                "count": 607
             },
             {
                 "code": 131059,
                 "area": "特別区",
                 "label": "文京区",
                 "ruby": "ぶんきょうく",
-                "count": 99
+                "count": 100
             },
             {
                 "code": 131067,
@@ -71,14 +71,14 @@
                 "area": "特別区",
                 "label": "目黒区",
                 "ruby": "めぐろく",
-                "count": 176
+                "count": 178
             },
             {
                 "code": 131113,
                 "area": "特別区",
                 "label": "大田区",
                 "ruby": "おおたく",
-                "count": 255
+                "count": 257
             },
             {
                 "code": 131121,
@@ -92,28 +92,28 @@
                 "area": "特別区",
                 "label": "渋谷区",
                 "ruby": "しぶやく",
-                "count": 197
+                "count": 198
             },
             {
                 "code": 131148,
                 "area": "特別区",
                 "label": "中野区",
                 "ruby": "なかのく",
-                "count": 271
+                "count": 272
             },
             {
                 "code": 131156,
                 "area": "特別区",
                 "label": "杉並区",
                 "ruby": "すぎなみく",
-                "count": 271
+                "count": 272
             },
             {
                 "code": 131164,
                 "area": "特別区",
                 "label": "豊島区",
                 "ruby": "としまく",
-                "count": 173
+                "count": 178
             },
             {
                 "code": 131172,
@@ -127,35 +127,35 @@
                 "area": "特別区",
                 "label": "荒川区",
                 "ruby": "あらかわく",
-                "count": 84
+                "count": 85
             },
             {
                 "code": 131199,
                 "area": "特別区",
                 "label": "板橋区",
                 "ruby": "いたばしく",
-                "count": 163
+                "count": 165
             },
             {
                 "code": 131202,
                 "area": "特別区",
                 "label": "練馬区",
                 "ruby": "ねりまく",
-                "count": 290
+                "count": 294
             },
             {
                 "code": 131211,
                 "area": "特別区",
                 "label": "足立区",
                 "ruby": "あだちく",
-                "count": 163
+                "count": 165
             },
             {
                 "code": 131229,
                 "area": "特別区",
                 "label": "葛飾区",
                 "ruby": "かつしかく",
-                "count": 139
+                "count": 140
             },
             {
                 "code": 131237,
@@ -169,7 +169,7 @@
                 "area": "多摩地域",
                 "label": "八王子市",
                 "ruby": "はちおうじし",
-                "count": 48
+                "count": 49
             },
             {
                 "code": 132021,
@@ -344,7 +344,7 @@
                 "area": "多摩地域",
                 "label": "西東京市",
                 "ruby": "にしとうきょうし",
-                "count": 51
+                "count": 52
             },
             {
                 "code": 133035,
@@ -442,7 +442,7 @@
                 "area": null,
                 "label": "都外",
                 "ruby": null,
-                "count": 237
+                "count": 238
             },
             {
                 "code": null,
@@ -456,7 +456,7 @@
                 "area": null,
                 "label": "小計",
                 "ruby": null,
-                "count": 5809
+                "count": 5840
             }
         ]
     }
