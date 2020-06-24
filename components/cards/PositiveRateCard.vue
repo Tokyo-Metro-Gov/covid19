@@ -118,7 +118,9 @@ export default {
 
     const getFormatter = columnIndex => {
       // モニタリング指標(6)PCR検査の陽性率は小数点第1位まで表示する。
-      if (columnIndex === 2) return getNumberToFixedFunction(1)
+      if (columnIndex === 2) {
+        return getNumberToFixedFunction(1)
+      }
       return getNumberToLocaleStringFunction()
     }
 
