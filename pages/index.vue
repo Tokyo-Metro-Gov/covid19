@@ -2,8 +2,8 @@
   <div>
     <site-top-upper />
     <cards-tabs />
-    <cards-monitoring v-show="this.$route.query.tab !== tabName" />
-    <cards-reference v-show="this.$route.query.tab === tabName" />
+    <cards-monitoring v-show="this.$route.query.tab !== 'reference'" />
+    <cards-reference v-show="this.$route.query.tab === 'reference'" />
   </div>
 </template>
 
@@ -12,9 +12,7 @@ import Vue from 'vue'
 import SiteTopUpper from '@/components/SiteTopUpper.vue'
 import CardsTabs from '@/components/CardsTabs.vue'
 import CardsMonitoring from '@/components/CardsMonitoring.vue'
-import CardsReference from '@/components/CardsReference.vue'
-
-const tabName = 'reference' 
+import CardsReference from '@/components/CardsReference.vue' 
 
 export default Vue.extend({
   components: {
