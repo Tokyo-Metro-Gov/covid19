@@ -12,7 +12,7 @@ import Vue from 'vue'
 import SiteTopUpper from '@/components/SiteTopUpper.vue'
 import CardsTabs from '@/components/CardsTabs.vue'
 import CardsMonitoring from '@/components/CardsMonitoring.vue'
-import CardsReference from '@/components/CardsReference.vue' 
+import CardsReference from '@/components/CardsReference.vue'
 
 export default Vue.extend({
   components: {
