@@ -110,13 +110,59 @@ export default options
     overflow-x: scroll;
 
     &::-webkit-scrollbar {
-      height: 4px;
-      background-color: rgba(0, 0, 0, 0.01);
+      height: 10px;
+      background-color: rgba(0, 0, 0, 0.05);
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.07);
+      background-color: rgba(0, 0, 0, 0.2);
     }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &::-webkit-scrollbar-button:single-button {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-style: solid;
+      display: block;
+      height: 10px;
+      width: 10px;
+    }
+
+    /* :hover */
+    &::-webkit-scrollbar-button:single-button:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* Up */
+    &::-webkit-scrollbar-button:single-button:vertical:decrement {
+      border-width: 0 5px 5px 5px;
+      border-color: transparent transparent rgba(0, 0, 0, 0.7) transparent;
+    }
+
+    /* Down */
+    &::-webkit-scrollbar-button:single-button:vertical:increment {
+      border-width: 5px 5px 0 5px;
+      border-color: rgba(0, 0, 0, 0.7) transparent transparent transparent;
+    }
+
+    /* Left */
+    &::-webkit-scrollbar-button:single-button:horizontal:decrement {
+      border-width: 5px 5px 5px 0;
+      border-color: transparent rgba(0, 0, 0, 0.7) transparent transparent;
+    }
+
+    /* Right */
+    &::-webkit-scrollbar-button:single-button:horizontal:increment {
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent rgba(0, 0, 0, 0.7);
+    }
+
   }
 
   .sticky-legend {
