@@ -7,9 +7,13 @@
  *
  * @param digit - 桁揃えする桁数
  */
-export function getNumberToFixedFunction(digit: number = 0) {
-  if (digit < 0) return (d: number): string | undefined => d?.toFixed(0)
-  if (digit > 20) return (d: number): string | undefined => d?.toFixed(20)
+export function getNumberToFixedFunction(digit = 0) {
+  if (digit < 0) {
+    return (d: number): string | undefined => d?.toFixed(0)
+  }
+  if (digit > 20) {
+    return (d: number): string | undefined => d?.toFixed(20)
+  }
   return (d: number): string | undefined => d?.toFixed(digit)
 }
 
