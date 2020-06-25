@@ -893,9 +893,10 @@ $margin: 20;
   .anchor {
     padding-top: 2px;
     .anchorLink {
-      padding: 2px 2px 2px;
       > svg {
         margin-top: 1px;
+        max-width: 80px;
+        max-height: 80px;
       }
       &::after {
         bottom: 5px;
