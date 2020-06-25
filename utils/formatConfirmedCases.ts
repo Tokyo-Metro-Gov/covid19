@@ -72,12 +72,16 @@ type ChildDataType = {
 function getSelectedItem(data: DataType, key: string) {
   let result: number | undefined
   const recursiveSearch = (data: ChildDataType) => {
-    if (result) return
+    if (result) {
+      return
+    }
     if (data.attr === key) {
       result = data.value
     } else if (data.children) {
       data.children.forEach((child: ChildDataType) => {
-        if (result) return
+        if (result) {
+          return
+        }
         recursiveSearch(child)
       })
     }
