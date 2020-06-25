@@ -1,5 +1,5 @@
 {
-    "date": "2020\/6\/24 18:45",
+    "date": "2020\/6\/25 18:00",
     "data": [
         {
             "diagnosed_date": "2020-01-20",
@@ -1228,10 +1228,10 @@
         {
             "diagnosed_date": "2020-06-04",
             "count": 28,
-            "missing_count": 12,
-            "reported_count": 16,
+            "missing_count": 14,
+            "reported_count": 14,
             "weekly_gain_ratio": 2.02,
-            "untracked_percent": 44.1,
+            "untracked_percent": 45.7,
             "weekly_average_count": 18.1
         },
         {
@@ -1240,7 +1240,7 @@
             "missing_count": 12,
             "reported_count": 8,
             "weekly_gain_ratio": 1.56,
-            "untracked_percent": 44.4,
+            "untracked_percent": 46,
             "weekly_average_count": 18
         },
         {
@@ -1249,7 +1249,7 @@
             "missing_count": 9,
             "reported_count": 17,
             "weekly_gain_ratio": 1.48,
-            "untracked_percent": 42.8,
+            "untracked_percent": 44.2,
             "weekly_average_count": 19.7
         },
         {
@@ -1258,7 +1258,7 @@
             "missing_count": 8,
             "reported_count": 6,
             "weekly_gain_ratio": 1.75,
-            "untracked_percent": 43.5,
+            "untracked_percent": 44.9,
             "weekly_average_count": 21
         },
         {
@@ -1267,7 +1267,7 @@
             "missing_count": 6,
             "reported_count": 7,
             "weekly_gain_ratio": 1.65,
-            "untracked_percent": 42.9,
+            "untracked_percent": 44.2,
             "weekly_average_count": 21
         },
         {
@@ -1276,7 +1276,7 @@
             "missing_count": 7,
             "reported_count": 5,
             "weekly_gain_ratio": 1.11,
-            "untracked_percent": 47.2,
+            "untracked_percent": 48.8,
             "weekly_average_count": 17.9
         },
         {
@@ -1285,7 +1285,7 @@
             "missing_count": 8,
             "reported_count": 10,
             "weekly_gain_ratio": 1.15,
-            "untracked_percent": 47.3,
+            "untracked_percent": 48.9,
             "weekly_average_count": 18.7
         },
         {
@@ -1413,6 +1413,15 @@
             "weekly_gain_ratio": 1.27,
             "untracked_percent": 45.7,
             "weekly_average_count": 37.9
+        },
+        {
+            "diagnosed_date": "2020-06-25",
+            "count": 48,
+            "missing_count": 19,
+            "reported_count": 29,
+            "weekly_gain_ratio": 1.19,
+            "untracked_percent": 43.4,
+            "weekly_average_count": 38.9
         }
     ]
 }
