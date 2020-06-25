@@ -350,7 +350,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${this.$t('人')}`
-              if (this.dataLabels[tooltipItem.datasetIndex!] === '陽性率') {
+              if (tooltipItem.datasetIndex! >= 2) {
                 label = `${
                   this.dataLabels[tooltipItem.datasetIndex!]
                 } : ${cases} ${unit}`

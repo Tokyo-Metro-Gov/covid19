@@ -74,8 +74,10 @@ export default {
     const additionalLines = [20, 50]
 
     const getFormatter = columnIndex => {
-      // モニタリング指標(1)新規陽性者数の７日間移動平均は小数点第1位まで表示する。
-      if (columnIndex === 1) return getNumberToFixedFunction(1)
+      // モニタリング指標(1)新規陽性者数の7日間移動平均は小数点第1位まで表示する。
+      if (columnIndex === 1) {
+        return getNumberToFixedFunction(1)
+      }
       return getNumberToLocaleStringFunction()
     }
 
