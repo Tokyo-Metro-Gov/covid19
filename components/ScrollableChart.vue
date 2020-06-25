@@ -162,7 +162,6 @@ export default options
       border-width: 5px 0 5px 5px;
       border-color: transparent transparent transparent rgba(0, 0, 0, 0.7);
     }
-
   }
 
   .sticky-legend {
