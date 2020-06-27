@@ -1,5 +1,5 @@
 {
-    "date": "2020\/6\/26 18:15",
+    "date": "2020\/6\/27 18:30",
     "data": [
         {
             "diagnosed_date": "2020-02-15",
@@ -645,152 +645,158 @@
         },
         {
             "diagnosed_date": "2020-06-01",
-            "positive_count": 27,
-            "negative_count": 1372,
+            "positive_count": 28,
+            "negative_count": 1406,
             "positive_rate": 1.9
         },
         {
             "diagnosed_date": "2020-06-02",
             "positive_count": 23,
-            "negative_count": 1408,
+            "negative_count": 1427,
             "positive_rate": 1.8
         },
         {
             "diagnosed_date": "2020-06-03",
             "positive_count": 28,
-            "negative_count": 1542,
+            "negative_count": 1580,
             "positive_rate": 1.9
         },
         {
             "diagnosed_date": "2020-06-04",
             "positive_count": 26,
-            "negative_count": 1612,
+            "negative_count": 1639,
             "positive_rate": 1.8
         },
         {
             "diagnosed_date": "2020-06-05",
             "positive_count": 15,
-            "negative_count": 1834,
+            "negative_count": 1886,
             "positive_rate": 1.6
         },
         {
             "diagnosed_date": "2020-06-06",
             "positive_count": 30,
-            "negative_count": 1090,
+            "negative_count": 1099,
             "positive_rate": 1.7
         },
         {
             "diagnosed_date": "2020-06-07",
             "positive_count": 3,
-            "negative_count": 400,
+            "negative_count": 402,
             "positive_rate": 1.6
         },
         {
             "diagnosed_date": "2020-06-08",
             "positive_count": 22,
-            "negative_count": 1705,
+            "negative_count": 1732,
             "positive_rate": 1.5
         },
         {
             "diagnosed_date": "2020-06-09",
             "positive_count": 23,
-            "negative_count": 1760,
-            "positive_rate": 1.5
+            "negative_count": 1787,
+            "positive_rate": 1.4
         },
         {
             "diagnosed_date": "2020-06-10",
             "positive_count": 41,
-            "negative_count": 1823,
+            "negative_count": 1856,
             "positive_rate": 1.5
         },
         {
             "diagnosed_date": "2020-06-11",
             "positive_count": 31,
-            "negative_count": 1757,
-            "positive_rate": 1.6
+            "negative_count": 1804,
+            "positive_rate": 1.5
         },
         {
             "diagnosed_date": "2020-06-12",
             "positive_count": 39,
-            "negative_count": 1996,
-            "positive_rate": 1.8
+            "negative_count": 2038,
+            "positive_rate": 1.7
         },
         {
             "diagnosed_date": "2020-06-13",
             "positive_count": 27,
-            "negative_count": 1037,
+            "negative_count": 1070,
             "positive_rate": 1.7
         },
         {
             "diagnosed_date": "2020-06-14",
             "positive_count": 13,
-            "negative_count": 460,
+            "negative_count": 461,
             "positive_rate": 1.8
         },
         {
             "diagnosed_date": "2020-06-15",
             "positive_count": 22,
-            "negative_count": 1847,
+            "negative_count": 1883,
             "positive_rate": 1.8
         },
         {
             "diagnosed_date": "2020-06-16",
             "positive_count": 40,
-            "negative_count": 1734,
-            "positive_rate": 2
+            "negative_count": 1772,
+            "positive_rate": 1.9
         },
         {
             "diagnosed_date": "2020-06-17",
             "positive_count": 29,
-            "negative_count": 1787,
-            "positive_rate": 1.9
+            "negative_count": 1817,
+            "positive_rate": 1.8
         },
         {
             "diagnosed_date": "2020-06-18",
             "positive_count": 37,
-            "negative_count": 1752,
+            "negative_count": 1807,
             "positive_rate": 1.9
         },
         {
             "diagnosed_date": "2020-06-19",
             "positive_count": 35,
-            "negative_count": 1896,
+            "negative_count": 1947,
             "positive_rate": 1.9
         },
         {
             "diagnosed_date": "2020-06-20",
             "positive_count": 24,
-            "negative_count": 1014,
-            "positive_rate": 1.9
+            "negative_count": 1041,
+            "positive_rate": 1.8
         },
         {
             "diagnosed_date": "2020-06-21",
             "positive_count": 17,
-            "negative_count": 378,
+            "negative_count": 380,
             "positive_rate": 1.9
         },
         {
             "diagnosed_date": "2020-06-22",
             "positive_count": 47,
-            "negative_count": 1860,
-            "positive_rate": 2.2
+            "negative_count": 1888,
+            "positive_rate": 2.1
         },
         {
             "diagnosed_date": "2020-06-23",
             "positive_count": 45,
-            "negative_count": 1639,
+            "negative_count": 1716,
             "positive_rate": 2.2
         },
         {
             "diagnosed_date": "2020-06-24",
-            "positive_count": 43,
-            "negative_count": 1672,
-            "positive_rate": 2.4
+            "positive_count": 46,
+            "negative_count": 1780,
+            "positive_rate": 2.3
         },
         {
             "diagnosed_date": "2020-06-25",
-            "positive_count": 53,
-            "negative_count": 1194,
+            "positive_count": 58,
+            "negative_count": 1452,
+            "positive_rate": 2.6
+        },
+        {
+            "diagnosed_date": "2020-06-26",
+            "positive_count": 16,
+            "negative_count": 714,
             "positive_rate": 2.7
         }
     ]
