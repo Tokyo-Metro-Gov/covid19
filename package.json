@@ -85,8 +85,8 @@
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.5",
     "vue-axe": "^2.3.1",
-    "vue-template-compiler": "^2.6.11",
     "vue-jest": "^4.0.0-0",
+    "vue-template-compiler": "^2.6.11",
     "webpack": "^4.43.0"
   }
 }
