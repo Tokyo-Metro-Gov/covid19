@@ -7,8 +7,7 @@
       :chart-option="{}"
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
-      :url="'https://opendata.pref.shizuoka.jp/'"
-      :source="$t('オープンデータを入手')"
+      :url="'https://opendata.pref.shizuoka.jp/dataset/8167.html'"
     />
   </v-col>
 </template>
