@@ -7,7 +7,7 @@
       :chart-data="querentsGraph"
       :date="Data.querents.date"
       :unit="$t('件.reports')"
-      :url="'https://opendata.pref.shizuoka.jp/'"
+      :url="'https://opendata.pref.shizuoka.jp/dataset/8167.html'"
     />
     <!-- 件.reports = 窓口相談件数 -->
   </v-col>
