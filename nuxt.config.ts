@@ -1,7 +1,6 @@
 import { Configuration } from '@nuxt/types'
 import { Configuration as WebpackConfiguration } from 'webpack'
 import i18n from './nuxt-i18n.config'
-require('webpack')
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
 const environment = process.env.NODE_ENV || 'development'
