@@ -171,6 +171,7 @@ Tokyo Covid-19 response site contributors
 | [yuu26](https://yuu26.com) | [@yuu26jp](https://github.com/yuu26jp) | [@m_on_yu](https://twitter.com/m_on_yu) | Coding |
 | Takayuki Inadome | [@InadomeLabo](https://github.com/InadomeLabo) | | Coding |
 | [MYUNG](https://1998.media) | [@1998code](https://github.com/1998code) | [@1998design](https://twitter.com/1998design) | Translation |
+| goki90210 | [@goki90210](https://github.com/goki90210) | | Coding, Code Reviewer |
 
 ご協力に感謝です！！！
 
