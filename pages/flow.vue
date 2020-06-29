@@ -891,8 +891,17 @@ $margin: 20;
 // 960
 @include lessThan(960) {
   .anchor {
+    padding-top: 2px;
     .anchorLink {
-      padding: 10px 10px 40px;
+      padding: 10px 10px 20px;
+      > svg {
+        margin-top: 1px;
+        max-width: 80px;
+        max-height: 80px;
+      }
+      &::after {
+        bottom: 5px;
+      }
     }
   }
   .boxes {
