@@ -1,9 +1,9 @@
 <template>
   <div>
     <site-top-upper />
-    <v-tabs hide-slider>
+    <v-tabs v-model="tab" hide-slider>
       <v-tab
-        v-for="(tab, i) in tabs"
+        v-for="(item, i) in items"
         :key="i"
         v-ripple="false"
         :href="`#tab-${i}`"
@@ -11,11 +11,13 @@
         <v-icon class="TabIcon">
           mdi-chart-timeline-variant
         </v-icon>
-        {{ tab.label }}
+        {{ item.label }}
       </v-tab>
-      <v-tab-item v-for="(tab, i) in tabs" :key="i" :value="`tab-${i}`">
-        <component :is="tab.component" />
-      </v-tab-item>
+      <v-tabs-items v-model="tab" touchless>
+        <v-tab-item v-for="(item, i) in items" :key="i" :value="`tab-${i}`">
+          <component :is="item.component" />
+        </v-tab-item>
+      </v-tabs-items>
     </v-tabs>
   </div>
 </template>
@@ -34,7 +36,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      tabs: [
+      tab: null,
+      items: [
         { label: this.$t('モニタリング指標'), component: CardsMonitoring },
         { label: this.$t('その他 参考指標'), component: CardsReference }
       ]
