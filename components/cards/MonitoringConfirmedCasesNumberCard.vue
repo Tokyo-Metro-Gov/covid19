@@ -64,7 +64,7 @@ export default {
     const chartData = [patientsCount, sevenDayMoveAverages]
     const dataLabels = [
       this.$t('陽性者数'),
-      this.$t('７日間移動平均'),
+      this.$t('７日間移動平均')
     ]
     const tableLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
     const date = Data.date

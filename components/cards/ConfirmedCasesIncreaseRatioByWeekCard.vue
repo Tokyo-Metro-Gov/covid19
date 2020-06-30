@@ -59,8 +59,7 @@ export default {
     const tableLabels = [this.$t('週単位の陽性者増加比')]
 
     const items = [
-      this.$t('週単位の陽性者増加比'),
-      this.$t('緩和の目安'),
+      this.$t('週単位の陽性者増加比')
     ]
 
     // モニタリング指標(3)週単位の陽性者増加比は小数点第2位まで表示する。
