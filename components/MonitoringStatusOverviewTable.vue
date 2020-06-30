@@ -6,10 +6,10 @@
   >
     <thead id="tableHeader">
       <tr>
-        <th scope="col" rowspan="2">
+        <th scope="col">
           {{ $t('項目') }}
         </th>
-        <th scope="col" rowspan="2">
+        <th scope="col">
           {{ $t('数値') }}
         </th>
       </tr>
