@@ -145,7 +145,6 @@ type Props = {
   unit: string
   url: string
   tableLabels: string[] | TranslateResult[]
-  additionalLines: number[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
@@ -208,10 +207,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => []
     },
-    additionalLines: {
-      type: Array,
-      default: () => []
-    },
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin
@@ -255,31 +250,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             pointBorderColor: 'rgba(0,0,0,0)',
             lineTension: 0,
             order: 1
-          },
-          {
-            label: this.items[1],
-            data: this.makeLineData(this.additionalLines[0]),
-            backgroundColor: style[1].fillColor,
-            borderColor: style[1].strokeColor,
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            lineTension: 0,
-            borderDash: [4, 4],
-            fill: false,
-            order: 0
-          },
-          {
-            label: this.items[2],
-            data: this.makeLineData(this.additionalLines[1]),
-            backgroundColor: style[1].fillColor,
-            borderColor: style[1].strokeColor,
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            lineTension: 0,
-            fill: false,
-            order: 0
           }
         ]
       }
@@ -386,22 +356,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         datasets: [
           {
             data: [Math.max(...this.chartData.map(d => d.transition))],
-            backgroundColor: 'transparent',
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: 'rgba(0,0,0,0)',
-            borderWidth: 0
-          },
-          {
-            data: [this.additionalLines[0]],
-            backgroundColor: 'transparent',
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: 'rgba(0,0,0,0)',
-            borderWidth: 0
-          },
-          {
-            data: [this.additionalLines[1]],
             backgroundColor: 'transparent',
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',

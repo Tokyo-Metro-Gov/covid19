@@ -149,7 +149,6 @@ type Props = {
   tableLabels: string[] | TranslateResult[]
   unit: string
   url: string
-  additionalLines: number[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -217,10 +216,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     unit: {
       type: String,
       default: ''
-    },
-    additionalLines: {
-      type: Array,
-      default: () => []
     }
   },
   data() {
@@ -280,31 +275,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             borderWidth: 3,
             fill: false,
             order: 2,
-            lineTension: 0
-          },
-          {
-            type: 'line',
-            label: this.dataLabels[2],
-            data: this.makeLineData(this.additionalLines[0]),
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: this.colors[2].fillColor,
-            borderWidth: 2,
-            borderDash: [4, 4],
-            fill: false,
-            order: 1,
-            lineTension: 0
-          },
-          {
-            type: 'line',
-            label: this.dataLabels[3],
-            data: this.makeLineData(this.additionalLines[1]),
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: this.colors[2].fillColor,
-            borderWidth: 2,
-            fill: false,
-            order: 0,
             lineTension: 0
           }
         ]

@@ -72,9 +72,6 @@
         />
       </template>
     </scrollable-chart>
-    <template v-slot:additionalDescription>
-      <slot name="additionalDescription" />
-    </template>
     <template v-slot:dataTable>
       <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
@@ -154,7 +151,6 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
   unit: string
-  additionalLines: number[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
 }
@@ -219,10 +215,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     unit: {
       type: String,
       default: ''
-    },
-    additionalLines: {
-      type: Array,
-      default: () => []
     },
     yAxesBgPlugin: {
       type: Array,
@@ -301,20 +293,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             borderWidth: 3,
             fill: false,
             order: 1,
-            lineTension: 0
-          },
-          {
-            type: 'line',
-            yAxisID: 'y-axis-2',
-            label: this.dataLabels[3],
-            data: this.makeLineData(this.additionalLines[0]),
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: graphSeries[3].strokeColor,
-            borderWidth: 2,
-            borderDash: [4, 4],
-            fill: false,
-            order: 0,
             lineTension: 0
           }
         ]
@@ -500,12 +478,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           },
           {
             data: [this.displayData.datasets[2].data[n]],
-            backgroundColor: 'transparent',
-            yAxisID: 'y-axis-2',
-            borderWidth: 0
-          },
-          {
-            data: [this.additionalLines[0]],
             backgroundColor: 'transparent',
             yAxisID: 'y-axis-2',
             borderWidth: 0
