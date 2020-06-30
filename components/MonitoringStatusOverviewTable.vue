@@ -12,17 +12,6 @@
         <th scope="col" rowspan="2">
           {{ $t('数値') }}
         </th>
-        <th :class="$style.headerDivided" scope="colgroup" colspan="2">
-          {{ $t('目安となる数値') }}
-        </th>
-      </tr>
-      <tr>
-        <th :class="$style.headerDivided" scope="col">
-          {{ $t('緩和') }}
-        </th>
-        <th :class="$style.headerDivided" scope="col">
-          {{ $t('再要請') }}
-        </th>
       </tr>
     </thead>
     <tbody id="tableBody">
@@ -37,40 +26,6 @@
           }}</span>
           <span v-else :class="$style.unit">{{ item.itemValue.unit }}</span>
         </td>
-        <template
-          v-if="
-            item.itemValue.goThreshold !== null &&
-              item.itemValue.stopThreshold !== null
-          "
-        >
-          <td v-if="isNaN(item.itemValue.goThreshold)">
-            {{ $t(item.itemValue.goThreshold) }}
-          </td>
-          <td v-else>
-            {{ item.itemValue.goThreshold }}
-          </td>
-          <td v-if="isNaN(item.itemValue.stopThreshold)">
-            {{ $t(item.itemValue.stopThreshold) }}
-          </td>
-          <td v-else :class="$style.threshold">
-            {{ item.itemValue.stopThreshold }}
-          </td>
-        </template>
-        <template
-          v-else-if="
-            item.itemValue.goThreshold !== null &&
-              item.itemValue.stopThreshold === null
-          "
-        >
-          <td colspan="2">
-            {{ $t(item.itemValue.goThreshold) }}
-          </td>
-        </template>
-        <template v-else>
-          <td colspan="2">
-            &ndash;
-          </td>
-        </template>
       </tr>
     </tbody>
   </table>
