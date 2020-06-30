@@ -3,18 +3,18 @@
     "data": {
         "（１）新規陽性者数": {
             "value": 55.1,
-            "go_threshold": "<20人\/日",
-            "stop_threshold": "50人\/日"
+            "go_threshold": "―",
+            "stop_threshold": "―"
         },
         "（２）新規陽性者数における接触歴等不明率": {
             "value": 50,
-            "go_threshold": "<50%",
-            "stop_threshold": "50%"
+            "go_threshold": "―",
+            "stop_threshold": "―"
         },
         "（３）週単位の陽性者増加比": {
             "value": 1.72,
-            "go_threshold": "<1",
-            "stop_threshold": 2
+            "go_threshold": "―",
+            "stop_threshold": "―"
         },
         "（４）重症患者数": {
             "value": 10,
