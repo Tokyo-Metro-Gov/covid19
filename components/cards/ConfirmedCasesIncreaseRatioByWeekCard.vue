@@ -10,7 +10,6 @@
       :items="items"
       :unit="''"
       :table-labels="tableLabels"
-      :additional-lines="additionalLines"
     >
       <template v-slot:additionalDescription>
         <ul class="ListStyleNone">
@@ -62,10 +61,7 @@ export default {
     const items = [
       this.$t('週単位の陽性者増加比'),
       this.$t('緩和の目安'),
-      this.$t('再要請の目安')
     ]
-
-    const additionalLines = [1, 2]
 
     // モニタリング指標(3)週単位の陽性者増加比は小数点第2位まで表示する。
     const formatter = getNumberToFixedFunction(2)
@@ -75,7 +71,6 @@ export default {
       graphData,
       tableLabels,
       items,
-      additionalLines,
       formatter
     }
   }
