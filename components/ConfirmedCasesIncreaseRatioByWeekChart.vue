@@ -10,23 +10,6 @@
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
           <div
-            v-if="i === 1"
-            :style="{
-              background: `repeating-linear-gradient(90deg, ${colors[1].fillColor}, ${colors[1].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0,
-              height: '2px'
-            }"
-          />
-          <div
-            v-else-if="i === 2"
-            :style="{
-              background: colors[1].fillColor,
-              border: 0,
-              height: '2px'
-            }"
-          />
-          <div
-            v-else
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor
@@ -145,7 +128,6 @@ type Props = {
   unit: string
   url: string
   tableLabels: string[] | TranslateResult[]
-  additionalLines: number[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
@@ -208,10 +190,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => []
     },
-    additionalLines: {
-      type: Array,
-      default: () => []
-    },
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin
@@ -219,8 +197,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
-    displayLegends: [true, true, true],
-    colors: [getGraphSeriesColor('D'), getGraphSeriesColor('F')],
+    displayLegends: [true],
+    colors: [getGraphSeriesColor('D')],
     canvas: true
   }),
   computed: {
@@ -241,7 +219,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
-      const style = [getGraphSeriesColor('D'), getGraphSeriesColor('F')]
+      const style = [getGraphSeriesColor('D')]
       return {
         labels: this.chartData.map(d => d.label),
         datasets: [
@@ -255,31 +233,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             pointBorderColor: 'rgba(0,0,0,0)',
             lineTension: 0,
             order: 1
-          },
-          {
-            label: this.items[1],
-            data: this.makeLineData(this.additionalLines[0]),
-            backgroundColor: style[1].fillColor,
-            borderColor: style[1].strokeColor,
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            lineTension: 0,
-            borderDash: [4, 4],
-            fill: false,
-            order: 0
-          },
-          {
-            label: this.items[2],
-            data: this.makeLineData(this.additionalLines[1]),
-            backgroundColor: style[1].fillColor,
-            borderColor: style[1].strokeColor,
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            lineTension: 0,
-            fill: false,
-            order: 0
           }
         ]
       }
@@ -386,22 +339,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         datasets: [
           {
             data: [Math.max(...this.chartData.map(d => d.transition))],
-            backgroundColor: 'transparent',
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: 'rgba(0,0,0,0)',
-            borderWidth: 0
-          },
-          {
-            data: [this.additionalLines[0]],
-            backgroundColor: 'transparent',
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: 'rgba(0,0,0,0)',
-            borderWidth: 0
-          },
-          {
-            data: [this.additionalLines[1]],
             backgroundColor: 'transparent',
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
