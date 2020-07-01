@@ -4,15 +4,15 @@
       <div class="DataView-Header">
         <h3
           class="DataView-Title"
-          :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
           v-if="$slots.titleNode"
+          :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
         >
           <slot name="titleNode" />
         </h3>
         <h3
           class="DataView-Title"
-          :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
           v-else="$slots.titleNode"
+          :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
         >
           {{ title }}
         </h3>
