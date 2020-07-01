@@ -1,11 +1,11 @@
-import { Configuration } from '@nuxt/types'
-import { Configuration as WebpackConfiguration } from 'webpack'
+import { NuxtConfig } from '@nuxt/types'
+import { Configuration } from 'webpack'
 import i18n from './nuxt-i18n.config'
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
 const environment = process.env.NODE_ENV || 'development'
 
-const config: Configuration = {
+const config: NuxtConfig  = {
   mode: 'universal',
   /*
    ** Headers of the page
@@ -140,7 +140,7 @@ const config: Configuration = {
         })
       ]
     },
-    extend(config: WebpackConfiguration, _: any) {
+    extend(config: Configuration, _: any) {
       // default externals option is undefined
       config.externals = [{ moment: 'moment' }]
     }
