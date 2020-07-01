@@ -1,5 +1,9 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
+    <template v-slot:titleNode>
+      <span>{{$t("モニタリング指標")}}</span>
+      <span>{{title}}</span>
+    </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>

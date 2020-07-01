@@ -5,6 +5,14 @@
         <h3
           class="DataView-Title"
           :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
+          v-if="$slots.titleNode"
+        >
+          <slot name="titleNode" />
+        </h3>
+        <h3
+          class="DataView-Title"
+          :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
+          v-else="$slots.titleNode"
         >
           {{ title }}
         </h3>
@@ -168,6 +176,10 @@ export default Vue.extend({
         flex: 0 1 auto;
         margin-right: 24px;
       }
+    }
+
+    span {
+      display: inline-block;
     }
   }
 
