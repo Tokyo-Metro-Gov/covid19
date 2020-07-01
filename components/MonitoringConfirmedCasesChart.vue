@@ -1,7 +1,8 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:titleNode>
-      <span>{{ $t('モニタリング指標') }}</span><span>{{ title }}</span>
+      <span>{{ $t('モニタリング指標') }}</span>
+      <span>{{ title }}</span>
     </template>
     <ul
       :class="$style.GraphLegend"

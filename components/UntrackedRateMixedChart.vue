@@ -1,7 +1,8 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:titleNode>
-      <span>{{ $t('モニタリング指標') }}</span><span>{{ title }}</span>
+      <span>{{ $t('モニタリング指標') }}</span>
+      <span>{{ title }}</span>
     </template>
     <template v-slot:description>
       <slot name="description" />
@@ -225,10 +226,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     displayLegends: [true, true, true],
-    colors: [
-      ...getGraphSeriesStyle(2),
-      getGraphSeriesColor('E')
-    ],
+    colors: [...getGraphSeriesStyle(2), getGraphSeriesColor('E')],
     canvas: true
   }),
   computed: {
@@ -251,10 +249,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
-      const graphSeries = [
-        ...getGraphSeriesStyle(2),
-        getGraphSeriesColor('E')
-      ]
+      const graphSeries = [...getGraphSeriesStyle(2), getGraphSeriesColor('E')]
       return {
         labels: this.labels,
         datasets: [
