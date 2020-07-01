@@ -11,7 +11,6 @@
       unit="%"
       :data-labels="dataLabels"
       :table-labels="tableLabels"
-      :additional-lines="additionalLines"
     >
       <template v-slot:additionalDescription>
         <ul class="ListStyleNone">
@@ -75,15 +74,13 @@ export default {
     const dataLabels = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
-      this.$t('接触歴等不明率（7日間移動平均）'),
-      this.$t('緩和・再要請の目安')
+      this.$t('接触歴等不明率（7日間移動平均）')
     ]
     const tableLabels = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
       this.$t('接触歴等不明率（7日間移動平均）')
     ]
-    const additionalLines = [50]
 
     const getFormatter = columnIndex => {
       // モニタリング指標(2)新規陽性者における接触歴等不明率の7日間移動平均は小数点第1位まで表示する。
@@ -99,7 +96,6 @@ export default {
       dateList,
       dataLabels,
       tableLabels,
-      additionalLines,
       getFormatter
     }
   }

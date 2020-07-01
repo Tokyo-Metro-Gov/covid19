@@ -8,7 +8,6 @@ type RawDataKey =
   | '（５）入院患者数'
   | '（６）PCR検査の陽性率'
   | '（７）受診相談窓口における相談件数'
-type NullableString = string | null
 type StringOrNumber = string | number
 
 type RawData = {
@@ -17,8 +16,6 @@ type RawData = {
 
 interface RawDataItemValue {
   value: StringOrNumber
-  go_threshold: NullableString // eslint-disable-line camelcase
-  stop_threshold: NullableString // eslint-disable-line camelcase
 }
 
 // -----------------------------------------
@@ -33,8 +30,6 @@ interface StatusItem {
 
 interface StatusItemValue {
   value: StringOrNumber
-  goThreshold: NullableString
-  stopThreshold: NullableString
   unit: string // 元データに無いので独自に追加
 }
 
@@ -64,16 +59,12 @@ export default (rawDataObj: RawData) => {
     // 非camelcaseプロパティの名前変更
     const {
       value,
-      go_threshold: goThreshold,
-      stop_threshold: stopThreshold
     } = rawValue
 
     formattedData.push({
       itemName: rawDataKey,
       itemValue: {
         value,
-        goThreshold,
-        stopThreshold,
         unit: units[rawDataKey]
       }
     })

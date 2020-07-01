@@ -15,22 +15,6 @@
             }"
           />
           <div
-            v-else-if="i === 2"
-            :style="{
-              background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0,
-              height: '2px'
-            }"
-          />
-          <div
-            v-else-if="i === 3"
-            :style="{
-              background: colors[i].fillColor,
-              border: 0,
-              height: '2px'
-            }"
-          />
-          <div
             v-else
             :style="{
               backgroundColor: colors[i].fillColor,
@@ -149,7 +133,6 @@ type Props = {
   tableLabels: string[] | TranslateResult[]
   unit: string
   url: string
-  additionalLines: number[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -217,21 +200,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     unit: {
       type: String,
       default: ''
-    },
-    additionalLines: {
-      type: Array,
-      default: () => []
     }
   },
   data() {
     const colors: SurfaceStyle[] = [
       getGraphSeriesColor('C'),
-      getGraphSeriesColor('E'),
-      getGraphSeriesColor('A'),
-      getGraphSeriesColor('A')
+      getGraphSeriesColor('E')
     ]
     return {
-      displayLegends: [true, true, true, true],
+      displayLegends: [true, true],
       colors,
       canvas: true,
       yAxesBgPlugin
@@ -280,31 +257,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             borderWidth: 3,
             fill: false,
             order: 2,
-            lineTension: 0
-          },
-          {
-            type: 'line',
-            label: this.dataLabels[2],
-            data: this.makeLineData(this.additionalLines[0]),
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: this.colors[2].fillColor,
-            borderWidth: 2,
-            borderDash: [4, 4],
-            fill: false,
-            order: 1,
-            lineTension: 0
-          },
-          {
-            type: 'line',
-            label: this.dataLabels[3],
-            data: this.makeLineData(this.additionalLines[1]),
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: this.colors[2].fillColor,
-            borderWidth: 2,
-            fill: false,
-            order: 0,
             lineTension: 0
           }
         ]
