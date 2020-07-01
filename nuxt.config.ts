@@ -5,7 +5,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
 const environment = process.env.NODE_ENV || 'development'
 
-const config: NuxtConfig  = {
+const config: NuxtConfig = {
   mode: 'universal',
   /*
    ** Headers of the page
