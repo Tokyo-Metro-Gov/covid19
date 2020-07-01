@@ -3,15 +3,15 @@
     <div class="DataView-Inner">
       <div class="DataView-Header">
         <h3
-          class="DataView-Title"
           v-if="$slots.titleNode"
+          class="DataView-Title"
           :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
         >
           <slot name="titleNode" />
         </h3>
         <h3
-          class="DataView-Title"
           v-else="$slots.titleNode"
+          class="DataView-Title"
           :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
         >
           {{ title }}
