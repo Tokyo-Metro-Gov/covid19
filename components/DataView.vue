@@ -10,7 +10,7 @@
           <slot name="titleNode" />
         </h3>
         <h3
-          v-else="$slots.titleNode"
+          v-else
           class="DataView-Title"
           :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
         >
