@@ -10,23 +10,6 @@
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
           <div
-            v-if="i === 1"
-            :style="{
-              background: `repeating-linear-gradient(90deg, ${colors[1].fillColor}, ${colors[1].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0,
-              height: '2px'
-            }"
-          />
-          <div
-            v-else-if="i === 2"
-            :style="{
-              background: colors[1].fillColor,
-              border: 0,
-              height: '2px'
-            }"
-          />
-          <div
-            v-else
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor
@@ -214,8 +197,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
-    displayLegends: [true, true, true],
-    colors: [getGraphSeriesColor('D'), getGraphSeriesColor('F')],
+    displayLegends: [true],
+    colors: [getGraphSeriesColor('D')],
     canvas: true
   }),
   computed: {
@@ -236,7 +219,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayData() {
-      const style = [getGraphSeriesColor('D'), getGraphSeriesColor('F')]
+      const style = [getGraphSeriesColor('D')]
       return {
         labels: this.chartData.map(d => d.label),
         datasets: [

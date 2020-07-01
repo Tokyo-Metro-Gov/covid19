@@ -15,22 +15,6 @@
             }"
           />
           <div
-            v-else-if="i === 2"
-            :style="{
-              background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0,
-              height: '2px'
-            }"
-          />
-          <div
-            v-else-if="i === 3"
-            :style="{
-              background: colors[i].fillColor,
-              border: 0,
-              height: '2px'
-            }"
-          />
-          <div
             v-else
             :style="{
               backgroundColor: colors[i].fillColor,
@@ -221,12 +205,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   data() {
     const colors: SurfaceStyle[] = [
       getGraphSeriesColor('C'),
-      getGraphSeriesColor('E'),
-      getGraphSeriesColor('A'),
-      getGraphSeriesColor('A')
+      getGraphSeriesColor('E')
     ]
     return {
-      displayLegends: [true, true, true, true],
+      displayLegends: [true, true],
       colors,
       canvas: true,
       yAxesBgPlugin
