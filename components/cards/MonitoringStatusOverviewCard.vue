@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <data-view
-      :title="$t('モニタリング指標')"
+      :title="$t('旧モニタリング指標')"
       title-id="monitoring-status-overview"
       :date="monitoringStatusData.date"
     >
@@ -31,7 +31,7 @@
         </ul>
       </template>
       <monitoring-status-overview-table
-        :aria-label="$t('モニタリング指標')"
+        :aria-label="$t('旧モニタリング指標')"
         :status="monitoringStatus"
       />
     </data-view>
