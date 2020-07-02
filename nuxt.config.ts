@@ -1,5 +1,4 @@
 import { NuxtConfig } from '@nuxt/types'
-import { Configuration } from 'webpack'
 import i18n from './nuxt-i18n.config'
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
@@ -140,7 +139,7 @@ const config: NuxtConfig = {
         })
       ]
     },
-    extend(config: Configuration, _: any) {
+    extend(config) {
       // default externals option is undefined
       config.externals = [{ moment: 'moment' }]
     }
