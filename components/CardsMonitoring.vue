@@ -3,7 +3,7 @@
     <div class="AttentionNote">
       <p>
         {{ $t('新たなモニタリング項目は現在試行中です。') }}
-        <i18n path="その状況は{linkToMonitoring}をご覧ください">
+        <i18n path="その状況は{linkToMonitoring}をご覧ください。">
           <template v-slot:linkToMonitoring>
             <external-link
               url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
