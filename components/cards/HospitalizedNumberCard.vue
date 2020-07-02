@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <dashed-rectangle-time-bar-chart
-      :title="$t('モニタリング指標(5)入院患者数')"
+      :title="$t('旧モニタリング指標(5)入院患者数')"
       :title-id="'number-of-hospitalized'"
       :chart-id="'dashed-rectangle-time-bar-chart-hospitalized'"
       :chart-data="patientsGraph"

@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <monitoring-confirmed-cases-chart
-      :title="$t('モニタリング指標(1)新規陽性者数')"
+      :title="$t('旧モニタリング指標(1)新規陽性者数')"
       title-id="monitoring-number-of-confirmed-cases"
       chart-id="monitoring-confirmed-cases-chart"
       :chart-data="chartData"
