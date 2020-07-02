@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <untracked-rate-mixed-chart
-      :title="$t('モニタリング指標(2)新規陽性者における接触歴等不明率')"
+      :title="$t('旧モニタリング指標(2)新規陽性者における接触歴等不明率')"
       :title-id="'untracked-rate'"
       :chart-id="'untracked-rate-chart'"
       :chart-data="graphData"
