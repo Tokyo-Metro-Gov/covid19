@@ -11,6 +11,7 @@
       :unit="$t('件.tested')"
       :data-labels="inspectionsDataLabels"
       :initial-cumulative="inspectionsInitialCumulative"
+      :url="'https://opendata.pref.shizuoka.jp/dataset/8167.html'"
     />
   </v-col>
 </template>

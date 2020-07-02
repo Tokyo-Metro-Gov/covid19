@@ -52,6 +52,9 @@
         :unit="displayInfo.unit"
       />
     </template>
+    <template v-slot:footer>
+      <open-data-link :url="url" />
+    </template>
   </data-view>
 </template>
 
@@ -62,6 +65,7 @@ import { TranslateResult } from 'vue-i18n'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
 import { double as colors } from '@/utils/colors'
 
 interface HTMLElementEvent<T extends HTMLElement> extends Event {
@@ -132,6 +136,7 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   unit: string
   initialCumulative: number
+  url: string
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -144,7 +149,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
   props: {
     title: {
       type: String,
@@ -188,6 +193,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     initialCumulative: {
       type: Number,
       default: 0
+    },
+    url: {
+      type: String,
+      default: ''
     }
   },
   data: () => ({
