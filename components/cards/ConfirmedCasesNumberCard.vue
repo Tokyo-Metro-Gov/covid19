@@ -7,7 +7,7 @@
       :chart-data="patientsGraph"
       :date="Data.patients.date"
       :unit="$t('人')"
-      :url="'https://opendata.pref.shizuoka.jp/'"
+      :url="'https://opendata.pref.shizuoka.jp/dataset/8167.html'"
     />
   </v-col>
 </template>
