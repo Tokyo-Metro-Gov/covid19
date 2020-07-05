@@ -31,11 +31,12 @@
     <template v-slot:dataTable>
       <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
-    <template v-slot:infoPanel>
-      <data-view-basic-info-panel
-        :l-text="displayInfo.lText"
-        :s-text="displayInfo.sText"
-        :unit="displayInfo.unit"
+    <template v-slot:dataSetPanel>
+      <data-view-data-set-panel
+        :title="summaryTitles[0]"
+        :l-text="displayInfo[0].lText"
+        :s-text="displayInfo[0].sText"
+        :unit="displayInfo[0].unit"
       />
     </template>
   </data-view>
@@ -52,7 +53,7 @@ import DataViewTable, {
   TableHeader,
   TableItem
 } from '@/components/DataViewTable.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
@@ -67,11 +68,13 @@ type Methods = {
 }
 
 type Computed = {
-  displayInfo: {
-    lText: string
-    sText: string
-    unit: string
-  }
+  displayInfo: [
+    {
+      lText: string
+      sText: string
+      unit: string
+    }
+  ]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
@@ -83,6 +86,7 @@ type Computed = {
 type Props = {
   title: string
   titleId: string
+  summaryTitles: string[]
   chartId: string
   chartData: GraphDataType[]
   date: string
@@ -104,7 +108,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: {
     DataView,
     DataViewTable,
-    DataViewBasicInfoPanel,
+    DataViewDataSetPanel,
     ScrollableChart,
     OpenDataLink
   },
@@ -116,6 +120,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     titleId: {
       type: String,
       default: ''
+    },
+    summaryTitles: {
+      type: Array,
+      default: () => []
     },
     chartId: {
       type: String,
@@ -152,13 +160,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const dayBeforeRatio = this.formatDayBeforeRatio(
         lastDay.transition - lastDayBefore.transition
       )
-      return {
-        lText: `${lastDay.transition.toLocaleString()}`,
-        sText: `${lastDay.label} ${this.$t('の数値')}（${this.$t(
-          '前日比'
-        )}: ${dayBeforeRatio} ${this.unit}）`,
-        unit: this.unit
-      }
+      return [
+        {
+          lText: `${lastDay.transition.toLocaleString()}`,
+          sText: `${lastDay.label} ${this.$t('の数値')}（${this.$t(
+            '前日比'
+          )}: ${dayBeforeRatio} ${this.unit}）`,
+          unit: this.unit
+        }
+      ]
     },
     displayData() {
       const style = getGraphSeriesStyle(1)[0]

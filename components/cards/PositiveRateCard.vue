@@ -1,8 +1,9 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <positive-rate-mixed-chart
-      :title="$t('旧モニタリング指標(6)PCR検査の陽性率')"
+      :title="$t('旧モニタリング指標(6)')"
       :title-id="'positive-rate'"
+      :summary-titles="[$t('PCR検査の陽性率')]"
       :chart-id="'positive-rate-chart'"
       :chart-data="positiveRateGraph"
       :get-formatter="getFormatter"

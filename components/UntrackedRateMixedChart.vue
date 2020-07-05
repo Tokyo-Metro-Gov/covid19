@@ -70,11 +70,12 @@
     <template v-slot:dataTable>
       <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
-    <template v-slot:infoPanel>
-      <data-view-basic-info-panel
-        :l-text="displayInfo.lText"
-        :s-text="displayInfo.sText"
-        :unit="displayInfo.unit"
+    <template v-slot:dataSetPanel>
+      <data-view-data-set-panel
+        :title="summaryTitles[0]"
+        :l-text="displayInfo[0].lText"
+        :s-text="displayInfo[0].sText"
+        :unit="displayInfo[0].unit"
       />
     </template>
   </data-view>
@@ -91,7 +92,7 @@ import DataViewTable, {
   TableHeader,
   TableItem
 } from '@/components/DataViewTable.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import {
   DisplayData,
@@ -120,11 +121,13 @@ type Methods = {
 
 type Computed = {
   displayTransitionRatio: string
-  displayInfo: {
-    lText: string
-    sText: string
-    unit: string
-  }
+  displayInfo: [
+    {
+      lText: string
+      sText: string
+      unit: string
+    }
+  ]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
@@ -138,6 +141,7 @@ type Computed = {
 type Props = {
   title: string
   titleId: string
+  summaryTitles: string[]
   chartId: string
   chartData: number[][]
   getFormatter: Function
@@ -163,7 +167,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: {
     DataView,
     DataViewTable,
-    DataViewBasicInfoPanel,
+    DataViewDataSetPanel,
     ScrollableChart
   },
   props: {
@@ -175,6 +179,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       required: false,
       default: ''
+    },
+    summaryTitles: {
+      type: Array,
+      required: false,
+      default: () => []
     },
     chartId: {
       type: String,
@@ -222,10 +231,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     displayLegends: [true, true, true],
-    colors: [
-      ...getGraphSeriesStyle(2),
-      getGraphSeriesColor('E')
-    ],
+    colors: [...getGraphSeriesStyle(2), getGraphSeriesColor('E')],
     canvas: true
   }),
   computed: {
@@ -235,23 +241,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
-      return {
-        lText: this.getFormatter(2)(
-          parseFloat(this.pickLastNumber(this.chartData)[2].toLocaleString())
-        ),
-        sText: `${this.$t('{date}の数値', {
-          date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
-        })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-          this.unit
-        }）`,
-        unit: this.unit
-      }
+      return [
+        {
+          lText: this.getFormatter(2)(
+            parseFloat(this.pickLastNumber(this.chartData)[2].toLocaleString())
+          ),
+          sText: `${this.$t('{date}の数値', {
+            date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
+          })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+            this.unit
+          }）`,
+          unit: this.unit
+        }
+      ]
     },
     displayData() {
-      const graphSeries = [
-        ...getGraphSeriesStyle(2),
-        getGraphSeriesColor('E')
-      ]
+      const graphSeries = [...getGraphSeriesStyle(2), getGraphSeriesColor('E')]
       return {
         labels: this.labels,
         datasets: [

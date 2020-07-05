@@ -63,11 +63,12 @@
     <template v-slot:dataTable>
       <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
-    <template v-slot:infoPanel>
-      <data-view-basic-info-panel
-        :l-text="displayInfo.lText"
-        :s-text="displayInfo.sText"
-        :unit="unit"
+    <template v-slot:dataSetPanel>
+      <data-view-data-set-panel
+        :title="summaryTitles[0]"
+        :l-text="displayInfo[0].lText"
+        :s-text="displayInfo[0].sText"
+        :unit="displayInfo[0].unit"
       />
     </template>
     <template v-slot:footer>
@@ -88,7 +89,7 @@ import DataViewTable, {
   TableItem
 } from '@/components/DataViewTable.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
@@ -107,11 +108,13 @@ type Methods = {
 
 type Computed = {
   displayTransitionRatio: string
-  displayInfo: {
-    lText: string
-    sText: string
-    unit: string
-  }
+  displayInfo: [
+    {
+      lText: string
+      sText: string
+      unit: string
+    }
+  ]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
@@ -124,6 +127,7 @@ type Computed = {
 type Props = {
   title: string
   titleId: string
+  summaryTitles: string[]
   chartId: string
   chartData: number[][]
   getFormatter: Function
@@ -148,7 +152,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: {
     DataView,
     DataViewTable,
-    DataViewBasicInfoPanel,
+    DataViewDataSetPanel,
     ScrollableChart,
     OpenDataLink
   },
@@ -161,6 +165,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       required: false,
       default: 'monitoring-number-of-confirmed-cases'
+    },
+    summaryTitles: {
+      type: Array,
+      required: false,
+      default: () => []
     },
     chartId: {
       type: String,
@@ -222,17 +231,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
-      return {
-        lText: this.getFormatter(1)(
-          this.chartData[1][this.chartData[1].length - 1]
-        ),
-        sText: `${this.$t('{date} の数値', {
-          date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
-        })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-          this.unit
-        }）`,
-        unit: this.unit
-      }
+      return [
+        {
+          lText: this.getFormatter(1)(
+            this.chartData[1][this.chartData[1].length - 1]
+          ),
+          sText: `${this.$t('{date} の数値', {
+            date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
+          })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+            this.unit
+          }）`,
+          unit: this.unit
+        }
+      ]
     },
     displayData() {
       return {

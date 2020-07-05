@@ -1,8 +1,9 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <confirmed-cases-increase-ratio-by-week-chart
-      :title="$t('旧モニタリング指標(3)週単位の陽性者増加比')"
+      :title="$t('旧モニタリング指標(3)')"
       :title-id="'increase-ratio-of-confirmed-cases-by-daily'"
+      :summary-titles="[$t('週単位の陽性者増加比')]"
       :chart-id="'time-line-chart-patients-increase-ratio'"
       :chart-data="graphData"
       :formatter="formatter"
@@ -58,9 +59,7 @@ export default {
     const graphData = formatGraph(formatData)
     const tableLabels = [this.$t('週単位の陽性者増加比')]
 
-    const items = [
-      this.$t('週単位の陽性者増加比')
-    ]
+    const items = [this.$t('週単位の陽性者増加比')]
 
     // モニタリング指標(3)週単位の陽性者増加比は小数点第2位まで表示する。
     const formatter = getNumberToFixedFunction(2)

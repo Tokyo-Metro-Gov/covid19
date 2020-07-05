@@ -4,12 +4,21 @@
       <div class="DataView-Header">
         <h3
           class="DataView-Title"
-          :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
+          :class="
+            !!$slots.infoPanel
+              ? 'with-infoPanel'
+              : !!$slots.dataSetPanel
+              ? 'with-dataSetPanel'
+              : ''
+          "
         >
           {{ title }}
         </h3>
         <div class="DataView-InfoPanel">
           <slot name="infoPanel" />
+        </div>
+        <div class="DataView-DataSetPanel">
+          <slot name="dataSetPanel" />
         </div>
       </div>
 
@@ -161,6 +170,10 @@ export default Vue.extend({
     color: $gray-2;
     @include font-size(20);
 
+    &.with-dataSetPanel {
+      margin-bottom: 0;
+    }
+
     @include largerThan($large) {
       margin-bottom: 0;
 
@@ -169,11 +182,20 @@ export default Vue.extend({
         margin-right: 24px;
       }
     }
+
+    span {
+      display: inline-block;
+    }
   }
 
   &-InfoPanel {
     flex: 1 0 auto;
     max-width: 50%;
+  }
+
+  &-DataSetPanel {
+    flex: 1 0 auto;
+    width: 100%;
   }
 
   &-Content {
