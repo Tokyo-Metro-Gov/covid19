@@ -65,7 +65,7 @@
     </template>
     <template v-slot:dataSetPanel>
       <data-view-data-set-panel
-        :title="summaryTitles[0]"
+        :title="infoTitles[0]"
         :l-text="displayInfo[0].lText"
         :s-text="displayInfo[0].sText"
         :unit="displayInfo[0].unit"
@@ -127,7 +127,7 @@ type Computed = {
 type Props = {
   title: string
   titleId: string
-  summaryTitles: string[]
+  infoTitles: string[]
   chartId: string
   chartData: number[][]
   getFormatter: Function
@@ -166,7 +166,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: false,
       default: 'monitoring-number-of-confirmed-cases'
     },
-    summaryTitles: {
+    infoTitles: {
       type: Array,
       required: false,
       default: () => []

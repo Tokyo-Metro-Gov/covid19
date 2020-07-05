@@ -3,7 +3,7 @@
     <dashed-rectangle-time-bar-chart
       :title="$t('旧モニタリング指標(5)')"
       :title-id="'number-of-hospitalized'"
-      :summary-titles="[$t('入院患者数')]"
+      :info-titles="[$t('入院患者数')]"
       :chart-id="'dashed-rectangle-time-bar-chart-hospitalized'"
       :chart-data="patientsGraph"
       :date="positiveStatus.date"

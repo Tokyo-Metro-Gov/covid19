@@ -3,7 +3,7 @@
     <monitoring-consultation-desk-report-chart
       :title="$t('旧モニタリング指標(7)')"
       title-id="monitoring-number-of-reports-to-covid19-consultation-desk"
-      :summary-titles="[$t('受診相談窓口における相談件数')]"
+      :info-titles="[$t('受診相談窓口における相談件数')]"
       chart-id="monitoring-consultation-desk-report-chart"
       :chart-data="chartData"
       :date="date"

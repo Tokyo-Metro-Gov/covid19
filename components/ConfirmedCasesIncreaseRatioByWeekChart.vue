@@ -59,7 +59,7 @@
     </template>
     <template v-slot:dataSetPanel>
       <data-view-data-set-panel
-        :title="summaryTitles[0]"
+        :title="infoTitles[0]"
         :l-text="displayInfo[0].lText"
         :s-text="displayInfo[0].sText"
         :unit="displayInfo[0].unit"
@@ -123,7 +123,7 @@ type Computed = {
 type Props = {
   title: string
   titleId: string
-  summaryTitles: string[]
+  infoTitles: string[]
   chartId: string
   chartData: GraphDataType[]
   formatter: Function
@@ -161,7 +161,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       default: ''
     },
-    summaryTitles: {
+    infoTitles: {
       type: Array,
       default: () => []
     },

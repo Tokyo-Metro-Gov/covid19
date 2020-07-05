@@ -3,7 +3,7 @@
     <monitoring-confirmed-cases-chart
       :title="$t('旧モニタリング指標(1)')"
       title-id="monitoring-number-of-confirmed-cases"
-      :summary-titles="[$t('新規陽性者数')]"
+      :info-titles="[$t('新規陽性者数')]"
       chart-id="monitoring-confirmed-cases-chart"
       :chart-data="chartData"
       :get-formatter="getFormatter"

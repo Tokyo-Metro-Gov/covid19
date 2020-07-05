@@ -3,7 +3,7 @@
     <severe-case-bar-chart
       :title="$t('旧モニタリング指標(4)')"
       title-id="positive-status-severe-case"
-      :summary-titles="[$t('重症患者数')]"
+      :info-titles="[$t('重症患者数')]"
       chart-id="time-bar-chart-positive-status-severe-case"
       :chart-data="graphData"
       :date="Data.date"

@@ -3,7 +3,7 @@
     <untracked-rate-mixed-chart
       :title="$t('旧モニタリング指標(2)')"
       :title-id="'untracked-rate'"
-      :summary-titles="[$t('新規陽性者数における接触歴等不明率')]"
+      :info-titles="[$t('新規陽性者数における接触歴等不明率')]"
       :chart-id="'untracked-rate-chart'"
       :chart-data="graphData"
       :get-formatter="getFormatter"

@@ -3,7 +3,7 @@
     <confirmed-cases-increase-ratio-by-week-chart
       :title="$t('旧モニタリング指標(3)')"
       :title-id="'increase-ratio-of-confirmed-cases-by-daily'"
-      :summary-titles="[$t('週単位の陽性者増加比')]"
+      :info-titles="[$t('週単位の陽性者増加比')]"
       :chart-id="'time-line-chart-patients-increase-ratio'"
       :chart-data="graphData"
       :formatter="formatter"
