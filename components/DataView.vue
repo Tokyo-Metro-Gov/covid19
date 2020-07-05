@@ -1,7 +1,10 @@
 <template>
   <v-card class="DataView">
     <div class="DataView-Inner">
-      <div class="DataView-Header">
+      <div
+        class="DataView-Header"
+        :class="!!$slots.dataSetPanel ? 'with-dataSetPanel' : ''"
+      >
         <h3
           class="DataView-Title"
           :class="
@@ -14,10 +17,10 @@
         >
           {{ title }}
         </h3>
-        <div class="DataView-InfoPanel">
+        <div v-if="!!$slots.infoPanel" class="DataView-InfoPanel">
           <slot name="infoPanel" />
         </div>
-        <div class="DataView-DataSetPanel">
+        <div v-if="!!$slots.dataSetPanel" class="DataView-DataSetPanel">
           <slot name="dataSetPanel" />
         </div>
       </div>
@@ -152,6 +155,10 @@ export default Vue.extend({
       justify-content: space-between;
       flex-flow: row;
       padding: 0;
+
+      &.with-dataSetPanel {
+        flex-flow: column;
+      }
     }
   }
 
