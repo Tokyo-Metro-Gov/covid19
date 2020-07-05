@@ -1,5 +1,10 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :head-title="title + infoTitles.join(',')"
+  >
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>

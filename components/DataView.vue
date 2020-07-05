@@ -98,6 +98,10 @@ export default Vue.extend({
     date: {
       type: String,
       default: ''
+    },
+    headTitle: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -117,12 +121,12 @@ export default Vue.extend({
     if (!this.$route.params.card) return {}
 
     return {
-      title: this.title,
+      title: this.headTitle ? this.headTitle : this.title,
       meta: [
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.title
+          content: this.headTitle ? this.headTitle : this.title
         },
         { hid: 'description', name: 'description', content: this.date },
         {
