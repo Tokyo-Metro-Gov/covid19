@@ -1,18 +1,18 @@
 {
-    "date": "2020\/7\/2 19:30",
+    "date": "2020\/7\/5 19:00",
     "data": {
         "（１）新規陽性者数": {
-            "value": 65.3,
+            "value": 93.1,
             "go_threshold": "―",
             "stop_threshold": "―"
         },
         "（２）新規陽性者数における接触歴等不明率": {
-            "value": 47.5,
+            "value": 39.3,
             "go_threshold": "―",
             "stop_threshold": "―"
         },
         "（３）週単位の陽性者増加比": {
-            "value": 1.69,
+            "value": 1.95,
             "go_threshold": "―",
             "stop_threshold": "―"
         },
@@ -22,17 +22,17 @@
             "stop_threshold": null
         },
         "（５）入院患者数": {
-            "value": 296,
+            "value": 369,
             "go_threshold": "【参考】1,000床(レベル1)",
             "stop_threshold": null
         },
         "（６）PCR検査の陽性率": {
-            "value": 4,
+            "value": 4.5,
             "go_threshold": "―",
             "stop_threshold": null
         },
         "（７）受診相談窓口における相談件数": {
-            "value": 1058,
+            "value": "1,141",
             "go_threshold": "―",
             "stop_threshold": null
         }
