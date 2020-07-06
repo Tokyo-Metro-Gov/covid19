@@ -1,15 +1,27 @@
 <template>
   <v-card class="DataView">
     <div class="DataView-Inner">
-      <div class="DataView-Header">
+      <div
+        class="DataView-Header"
+        :class="!!$slots.dataSetPanel ? 'with-dataSetPanel' : ''"
+      >
         <h3
           class="DataView-Title"
-          :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
+          :class="
+            !!$slots.infoPanel
+              ? 'with-infoPanel'
+              : !!$slots.dataSetPanel
+              ? 'with-dataSetPanel'
+              : ''
+          "
         >
           {{ title }}
         </h3>
-        <div class="DataView-InfoPanel">
+        <div v-if="!!$slots.infoPanel" class="DataView-InfoPanel">
           <slot name="infoPanel" />
+        </div>
+        <div v-if="!!$slots.dataSetPanel" class="DataView-DataSetPanel">
+          <slot name="dataSetPanel" />
         </div>
       </div>
 
@@ -86,6 +98,10 @@ export default Vue.extend({
     date: {
       type: String,
       default: ''
+    },
+    headTitle: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -105,12 +121,12 @@ export default Vue.extend({
     if (!this.$route.params.card) return {}
 
     return {
-      title: this.title,
+      title: this.headTitle ? this.headTitle : this.title,
       meta: [
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.title
+          content: this.headTitle ? this.headTitle : this.title
         },
         { hid: 'description', name: 'description', content: this.date },
         {
@@ -143,6 +159,10 @@ export default Vue.extend({
       justify-content: space-between;
       flex-flow: row;
       padding: 0;
+
+      &.with-dataSetPanel {
+        flex-flow: column;
+      }
     }
   }
 
@@ -161,6 +181,10 @@ export default Vue.extend({
     color: $gray-2;
     @include font-size(20);
 
+    &.with-dataSetPanel {
+      margin-bottom: 0;
+    }
+
     @include largerThan($large) {
       margin-bottom: 0;
 
@@ -169,11 +193,20 @@ export default Vue.extend({
         margin-right: 24px;
       }
     }
+
+    span {
+      display: inline-block;
+    }
   }
 
   &-InfoPanel {
     flex: 1 0 auto;
     max-width: 50%;
+  }
+
+  &-DataSetPanel {
+    flex: 1 0 auto;
+    width: 100%;
   }
 
   &-Content {
