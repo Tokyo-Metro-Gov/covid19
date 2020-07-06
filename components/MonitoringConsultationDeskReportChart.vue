@@ -1,5 +1,10 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :head-title="title + infoTitles.join(',')"
+  >
     <ul
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
@@ -63,11 +68,12 @@
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
     </template>
-    <template v-slot:infoPanel>
-      <data-view-basic-info-panel
-        :l-text="displayInfo.lText"
-        :s-text="displayInfo.sText"
-        :unit="unit"
+    <template v-slot:dataSetPanel>
+      <data-view-data-set-panel
+        :title="infoTitles[0]"
+        :l-text="displayInfo[0].lText"
+        :s-text="displayInfo[0].sText"
+        :unit="displayInfo[0].unit"
       />
     </template>
     <template v-slot:footer>
@@ -87,7 +93,7 @@ import DataViewTable, {
   TableHeader,
   TableItem
 } from '@/components/DataViewTable.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
@@ -106,11 +112,13 @@ type Methods = {
 
 type Computed = {
   displayTransitionRatio: string
-  displayInfo: {
-    lText: string
-    sText: string
-    unit: string
-  }
+  displayInfo: [
+    {
+      lText: string
+      sText: string
+      unit: string
+    }
+  ]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
@@ -123,6 +131,7 @@ type Computed = {
 type Props = {
   title: string
   titleId: string
+  infoTitles: string[]
   chartId: string
   chartData: number[][]
   date: string
@@ -145,7 +154,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: {
     DataView,
     DataViewTable,
-    DataViewBasicInfoPanel,
+    DataViewDataSetPanel,
     ScrollableChart,
     OpenDataLink
   },
@@ -158,6 +167,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       required: false,
       default: 'monitoring-number-of-reports-to-covid19-consultation-desk'
+    },
+    infoTitles: {
+      type: Array,
+      required: false,
+      default: () => []
     },
     chartId: {
       type: String,
@@ -210,15 +224,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
-      return {
-        lText: this.chartData[1][this.chartData[1].length - 1].toLocaleString(),
-        sText: `${this.$t('{date} の数値', {
-          date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
-        })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-          this.unit
-        }）`,
-        unit: this.unit
-      }
+      return [
+        {
+          lText: this.chartData[1][
+            this.chartData[1].length - 1
+          ].toLocaleString(),
+          sText: `${this.$t('{date} の数値', {
+            date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
+          })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+            this.unit
+          }）`,
+          unit: this.unit
+        }
+      ]
     },
     displayData() {
       return {

@@ -1,8 +1,9 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <monitoring-confirmed-cases-chart
-      :title="$t('旧モニタリング指標(1)新規陽性者数')"
+      :title="$t('旧モニタリング指標(1)')"
       title-id="monitoring-number-of-confirmed-cases"
+      :info-titles="[$t('新規陽性者数')]"
       chart-id="monitoring-confirmed-cases-chart"
       :chart-data="chartData"
       :get-formatter="getFormatter"
@@ -62,10 +63,7 @@ export default {
       [[], [], []]
     )
     const chartData = [patientsCount, sevenDayMoveAverages]
-    const dataLabels = [
-      this.$t('陽性者数'),
-      this.$t('７日間移動平均')
-    ]
+    const dataLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
     const tableLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
     const date = Data.date
 
