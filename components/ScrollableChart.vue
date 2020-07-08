@@ -114,15 +114,6 @@ export default options
 
   .scrollable {
     overflow-x: scroll;
-
-    &::-webkit-scrollbar {
-      height: 4px;
-      background-color: rgba(0, 0, 0, 0.01);
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.07);
-    }
   }
 
   .sticky-legend {

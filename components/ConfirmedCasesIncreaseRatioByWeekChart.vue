@@ -1,5 +1,10 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :head-title="title + infoTitles.join(',')"
+  >
     <template v-slot:description>
       <slot name="description" />
     </template>
@@ -10,23 +15,6 @@
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
           <div
-            v-if="i === 1"
-            :style="{
-              background: `repeating-linear-gradient(90deg, ${colors[1].fillColor}, ${colors[1].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0,
-              height: '2px'
-            }"
-          />
-          <div
-            v-else-if="i === 2"
-            :style="{
-              background: colors[1].fillColor,
-              border: 0,
-              height: '2px'
-            }"
-          />
-          <div
-            v-else
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor
@@ -74,11 +62,12 @@
     <template v-slot:dataTable>
       <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
-    <template v-slot:infoPanel>
-      <data-view-basic-info-panel
-        :l-text="displayInfo.lText"
-        :s-text="displayInfo.sText"
-        :unit="displayInfo.unit"
+    <template v-slot:dataSetPanel>
+      <data-view-data-set-panel
+        :title="infoTitles[0]"
+        :l-text="displayInfo[0].lText"
+        :s-text="displayInfo[0].sText"
+        :unit="displayInfo[0].unit"
       />
     </template>
     <template v-slot:footer>
@@ -99,7 +88,7 @@ import DataViewTable, {
   TableHeader,
   TableItem
 } from '@/components/DataViewTable.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
@@ -121,11 +110,13 @@ type Methods = {
 
 type Computed = {
   displayTransitionRatio: string
-  displayInfo: {
-    lText: string
-    sText: string
-    unit: string
-  }
+  displayInfo: [
+    {
+      lText: string
+      sText: string
+      unit: string
+    }
+  ]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
@@ -137,6 +128,7 @@ type Computed = {
 type Props = {
   title: string
   titleId: string
+  infoTitles: string[]
   chartId: string
   chartData: GraphDataType[]
   formatter: Function
@@ -145,7 +137,6 @@ type Props = {
   unit: string
   url: string
   tableLabels: string[] | TranslateResult[]
-  additionalLines: number[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
@@ -162,7 +153,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: {
     DataView,
     DataViewTable,
-    DataViewBasicInfoPanel,
+    DataViewDataSetPanel,
     ScrollableChart,
     OpenDataLink
   },
@@ -174,6 +165,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     titleId: {
       type: String,
       default: ''
+    },
+    infoTitles: {
+      type: Array,
+      default: () => []
     },
     chartId: {
       type: String,
@@ -208,10 +203,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => []
     },
-    additionalLines: {
-      type: Array,
-      default: () => []
-    },
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin
@@ -219,8 +210,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
-    displayLegends: [true, true, true],
-    colors: [getGraphSeriesColor('D'), getGraphSeriesColor('F')],
+    displayLegends: [true],
+    colors: [getGraphSeriesColor('D')],
     canvas: true
   }),
   computed: {
@@ -230,18 +221,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
-      return {
-        lText: `${this.formatter(this.chartData.slice(-1)[0].transition)}`,
-        sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-          'の数値'
-        )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-          this.unit
-        }）`,
-        unit: this.unit
-      }
+      return [
+        {
+          lText: `${this.formatter(this.chartData.slice(-1)[0].transition)}`,
+          sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
+            'の数値'
+          )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+            this.unit
+          }）`,
+          unit: this.unit
+        }
+      ]
     },
     displayData() {
-      const style = [getGraphSeriesColor('D'), getGraphSeriesColor('F')]
+      const style = [getGraphSeriesColor('D')]
       return {
         labels: this.chartData.map(d => d.label),
         datasets: [
@@ -255,31 +248,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             pointBorderColor: 'rgba(0,0,0,0)',
             lineTension: 0,
             order: 1
-          },
-          {
-            label: this.items[1],
-            data: this.makeLineData(this.additionalLines[0]),
-            backgroundColor: style[1].fillColor,
-            borderColor: style[1].strokeColor,
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            lineTension: 0,
-            borderDash: [4, 4],
-            fill: false,
-            order: 0
-          },
-          {
-            label: this.items[2],
-            data: this.makeLineData(this.additionalLines[1]),
-            backgroundColor: style[1].fillColor,
-            borderColor: style[1].strokeColor,
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            lineTension: 0,
-            fill: false,
-            order: 0
           }
         ]
       }
@@ -386,22 +354,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         datasets: [
           {
             data: [Math.max(...this.chartData.map(d => d.transition))],
-            backgroundColor: 'transparent',
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: 'rgba(0,0,0,0)',
-            borderWidth: 0
-          },
-          {
-            data: [this.additionalLines[0]],
-            backgroundColor: 'transparent',
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: 'rgba(0,0,0,0)',
-            borderWidth: 0
-          },
-          {
-            data: [this.additionalLines[1]],
             backgroundColor: 'transparent',
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',

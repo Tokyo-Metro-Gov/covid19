@@ -1,8 +1,9 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <severe-case-bar-chart
-      :title="$t('モニタリング指標(4)重症患者数')"
+      :title="$t('旧モニタリング指標(4)')"
       title-id="positive-status-severe-case"
+      :info-titles="[$t('重症患者数')]"
       chart-id="time-bar-chart-positive-status-severe-case"
       :chart-data="graphData"
       :date="Data.date"

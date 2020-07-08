@@ -1,8 +1,9 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <monitoring-confirmed-cases-chart
-      :title="$t('モニタリング指標(1)新規陽性者数')"
+      :title="$t('旧モニタリング指標(1)')"
       title-id="monitoring-number-of-confirmed-cases"
+      :info-titles="[$t('新規陽性者数')]"
       chart-id="monitoring-confirmed-cases-chart"
       :chart-data="chartData"
       :get-formatter="getFormatter"
@@ -10,7 +11,6 @@
       :labels="labels"
       :data-labels="dataLabels"
       :table-labels="tableLabels"
-      :additional-lines="additionalLines"
       :unit="$t('人')"
       url="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068"
     >
@@ -63,15 +63,9 @@ export default {
       [[], [], []]
     )
     const chartData = [patientsCount, sevenDayMoveAverages]
-    const dataLabels = [
-      this.$t('陽性者数'),
-      this.$t('７日間移動平均'),
-      this.$t('緩和の目安'),
-      this.$t('再要請の目安')
-    ]
+    const dataLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
     const tableLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
     const date = Data.date
-    const additionalLines = [20, 50]
 
     const getFormatter = columnIndex => {
       // モニタリング指標(1)新規陽性者数の7日間移動平均は小数点第1位まで表示する。
@@ -87,7 +81,6 @@ export default {
       labels,
       dataLabels,
       tableLabels,
-      additionalLines,
       getFormatter
     }
   }

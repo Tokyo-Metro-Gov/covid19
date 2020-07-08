@@ -1,5 +1,10 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :head-title="title + infoTitles.join(',')"
+  >
     <template v-slot:description>
       <slot name="description" />
     </template>
@@ -34,11 +39,12 @@
     <template v-slot:dataTable>
       <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
-    <template v-slot:infoPanel>
-      <data-view-basic-info-panel
-        :l-text="displayInfo.lText"
-        :s-text="displayInfo.sText"
-        :unit="displayInfo.unit"
+    <template v-slot:dataSetPanel>
+      <data-view-data-set-panel
+        :title="infoTitles[0]"
+        :l-text="displayInfo[0].lText"
+        :s-text="displayInfo[0].sText"
+        :unit="displayInfo[0].unit"
       />
     </template>
     <template v-slot:footer>
@@ -59,7 +65,7 @@ import DataViewTable, {
   TableHeader,
   TableItem
 } from '@/components/DataViewTable.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import {
@@ -85,11 +91,13 @@ type Computed = {
     x: string
     y: number
   }[]
-  displayInfo: {
-    lText: string
-    sText: string
-    unit: string
-  }
+  displayInfo: [
+    {
+      lText: string
+      sText: string
+      unit: string
+    }
+  ]
   displayData: {
     labels: string[]
     datasets: (DataSets | DataSetsPoint)[]
@@ -105,6 +113,7 @@ type Computed = {
 type Props = {
   title: string
   titleId: string
+  infoTitles: string[]
   chartId: string
   chartData: GraphDataType[]
   date: string
@@ -129,7 +138,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: {
     DataView,
     DataViewTable,
-    DataViewBasicInfoPanel,
+    DataViewDataSetPanel,
     ScrollableChart,
     OpenDataLink
   },
@@ -141,6 +150,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     titleId: {
       type: String,
       default: ''
+    },
+    infoTitles: {
+      type: Array,
+      default: () => []
     },
     chartId: {
       type: String,
@@ -201,15 +214,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     displayInfo() {
-      return {
-        lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-        sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-          'の数値'
-        )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-          this.unit
-        }）`,
-        unit: this.unit
-      }
+      return [
+        {
+          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
+          sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
+            'の数値'
+          )}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+            this.unit
+          }）`,
+          unit: this.unit
+        }
+      ]
     },
     displayData() {
       const style = getGraphSeriesStyle(1)[0]

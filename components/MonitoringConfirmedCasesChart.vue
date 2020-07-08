@@ -1,5 +1,10 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :head-title="title + infoTitles.join(',')"
+  >
     <ul
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
@@ -12,22 +17,6 @@
               background: colors[i].fillColor,
               border: 0,
               height: '3px'
-            }"
-          />
-          <div
-            v-else-if="i === 2"
-            :style="{
-              background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0,
-              height: '2px'
-            }"
-          />
-          <div
-            v-else-if="i === 3"
-            :style="{
-              background: colors[i].fillColor,
-              border: 0,
-              height: '2px'
             }"
           />
           <div
@@ -79,11 +68,12 @@
     <template v-slot:dataTable>
       <data-view-table :headers="tableHeaders" :items="tableData" />
     </template>
-    <template v-slot:infoPanel>
-      <data-view-basic-info-panel
-        :l-text="displayInfo.lText"
-        :s-text="displayInfo.sText"
-        :unit="unit"
+    <template v-slot:dataSetPanel>
+      <data-view-data-set-panel
+        :title="infoTitles[0]"
+        :l-text="displayInfo[0].lText"
+        :s-text="displayInfo[0].sText"
+        :unit="displayInfo[0].unit"
       />
     </template>
     <template v-slot:footer>
@@ -104,7 +94,7 @@ import DataViewTable, {
   TableItem
 } from '@/components/DataViewTable.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
@@ -123,11 +113,13 @@ type Methods = {
 
 type Computed = {
   displayTransitionRatio: string
-  displayInfo: {
-    lText: string
-    sText: string
-    unit: string
-  }
+  displayInfo: [
+    {
+      lText: string
+      sText: string
+      unit: string
+    }
+  ]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
@@ -140,6 +132,7 @@ type Computed = {
 type Props = {
   title: string
   titleId: string
+  infoTitles: string[]
   chartId: string
   chartData: number[][]
   getFormatter: Function
@@ -149,7 +142,6 @@ type Props = {
   tableLabels: string[] | TranslateResult[]
   unit: string
   url: string
-  additionalLines: number[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -165,7 +157,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: {
     DataView,
     DataViewTable,
-    DataViewBasicInfoPanel,
+    DataViewDataSetPanel,
     ScrollableChart,
     OpenDataLink
   },
@@ -178,6 +170,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       required: false,
       default: 'monitoring-number-of-confirmed-cases'
+    },
+    infoTitles: {
+      type: Array,
+      required: false,
+      default: () => []
     },
     chartId: {
       type: String,
@@ -217,21 +214,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     unit: {
       type: String,
       default: ''
-    },
-    additionalLines: {
-      type: Array,
-      default: () => []
     }
   },
   data() {
     const colors: SurfaceStyle[] = [
       getGraphSeriesColor('C'),
-      getGraphSeriesColor('E'),
-      getGraphSeriesColor('A'),
-      getGraphSeriesColor('A')
+      getGraphSeriesColor('E')
     ]
     return {
-      displayLegends: [true, true, true, true],
+      displayLegends: [true, true],
       colors,
       canvas: true,
       yAxesBgPlugin
@@ -245,17 +236,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
-      return {
-        lText: this.getFormatter(1)(
-          this.chartData[1][this.chartData[1].length - 1]
-        ),
-        sText: `${this.$t('{date} の数値', {
-          date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
-        })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-          this.unit
-        }）`,
-        unit: this.unit
-      }
+      return [
+        {
+          lText: this.getFormatter(1)(
+            this.chartData[1][this.chartData[1].length - 1]
+          ),
+          sText: `${this.$t('{date} の数値', {
+            date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
+          })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
+            this.unit
+          }）`,
+          unit: this.unit
+        }
+      ]
     },
     displayData() {
       return {
@@ -280,31 +273,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             borderWidth: 3,
             fill: false,
             order: 2,
-            lineTension: 0
-          },
-          {
-            type: 'line',
-            label: this.dataLabels[2],
-            data: this.makeLineData(this.additionalLines[0]),
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: this.colors[2].fillColor,
-            borderWidth: 2,
-            borderDash: [4, 4],
-            fill: false,
-            order: 1,
-            lineTension: 0
-          },
-          {
-            type: 'line',
-            label: this.dataLabels[3],
-            data: this.makeLineData(this.additionalLines[1]),
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: this.colors[2].fillColor,
-            borderWidth: 2,
-            fill: false,
-            order: 0,
             lineTension: 0
           }
         ]
