@@ -273,7 +273,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       let lastDayTotalInspections = 0, lastDayBeforeTotalInspections = 0
       const len = this.chartData.length
       this.pickLastNumber(this.chartData).forEach((d, i)=> {
-        console.log(len)
         if (i < len - 2) {
           lastDayTotalInspections += parseInt(d)
         }
