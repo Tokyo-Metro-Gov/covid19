@@ -61,7 +61,7 @@ export default (rawDataObj: RawData): MonitoringItems => {
   const toNumberIn10thPlace = getNumberToFixedFunction(1)
 
   /**
-   * getNumberToFixedFunction の実装を変更せずに、
+   * （getNumberToFixedFunction の実装を変更せずに、）
    * 結果値が undefined だった場合に空文字に置き換える
    * @param fn - getNumberToFixedFunction で得られる関数
    * @param n - fn に渡す数値
