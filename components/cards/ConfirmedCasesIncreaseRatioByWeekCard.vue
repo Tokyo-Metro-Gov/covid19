@@ -38,7 +38,7 @@
 import dailyPositiveDetail from '@/data/daily_positive_detail.json'
 import formatGraph from '@/utils/formatGraph'
 import ConfirmedCasesIncreaseRatioByWeekChart from '@/components/ConfirmedCasesIncreaseRatioByWeekChart.vue'
-import { getNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
+import { getNumberToFixedFunction } from '~/utils/monitoringItemsValueFormatters'
 
 export default {
   components: {

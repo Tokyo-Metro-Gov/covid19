@@ -98,7 +98,7 @@ import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
-import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
+import { getNumberToLocaleStringFunction } from '@/utils/monitoringItemsValueFormatters'
 
 type Data = {
   canvas: boolean

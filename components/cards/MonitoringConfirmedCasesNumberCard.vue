@@ -46,7 +46,7 @@ import Data from '@/data/daily_positive_detail.json'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction
-} from '@/utils/monitoringStatusValueFormatters'
+} from '@/utils/monitoringItemsValueFormatters'
 
 export default {
   components: {

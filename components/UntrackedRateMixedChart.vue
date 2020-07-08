@@ -109,7 +109,7 @@ import {
   getGraphSeriesColor,
   SurfaceStyle
 } from '@/utils/colors'
-import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
+import { getNumberToLocaleStringFunction } from '@/utils/monitoringItemsValueFormatters'
 
 type Data = {
   canvas: boolean

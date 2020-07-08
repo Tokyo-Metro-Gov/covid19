@@ -94,7 +94,7 @@ import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
-import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
+import { getNumberToLocaleStringFunction } from '@/utils/monitoringItemsValueFormatters'
 
 type Data = {
   dataKind: 'transition'

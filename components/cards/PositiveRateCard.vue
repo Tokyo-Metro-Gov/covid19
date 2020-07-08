@@ -82,7 +82,7 @@ import PositiveRateMixedChart from '@/components/PositiveRateMixedChart'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction
-} from '@/utils/monitoringStatusValueFormatters'
+} from '@/utils/monitoringItemsValueFormatters'
 dayjs.extend(duration)
 
 export default {
