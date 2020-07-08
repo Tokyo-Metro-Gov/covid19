@@ -311,7 +311,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     displayData() {
-      const graphSeries = getGraphSeriesStyle(4)
+      const graphSeries = [...getGraphSeriesStyle(4), getGraphSeriesColor('E')]
       return {
         labels: this.labels,
         datasets: [
@@ -362,7 +362,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             data: this.chartData[4],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: '#CC7004',
+            borderColor: graphSeries[4].strokeColor,
             borderWidth: 3,
             fill: false,
             order: 0,
@@ -375,7 +375,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             data: this.chartData[5],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: '#CC7004',
+            borderColor: graphSeries[4].strokeColor,
             borderWidth: 3,
             fill: false,
             order: 0,
