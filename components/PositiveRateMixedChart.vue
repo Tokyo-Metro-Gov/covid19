@@ -91,7 +91,6 @@
         :unit="displayInfo[0].unit"
       />
       <data-view-data-set-panel
-        v-if="infoTitles.length === 2"
         :title="infoTitles[1]"
         :l-text="displayInfo[1].lText"
         :s-text="displayInfo[1].sText"
