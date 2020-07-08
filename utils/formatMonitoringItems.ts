@@ -1,6 +1,6 @@
 // monitoring_items.json の型チェック用
 
-import { getNumberToFixedFunction } from '@/utils/monitoringItemsValueFormatters'
+import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type DataKey =
   | '(1)新規陽性者数'
