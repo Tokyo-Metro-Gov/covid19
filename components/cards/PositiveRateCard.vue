@@ -92,18 +92,18 @@ export default {
   data() {
     // 検査実施日別状況
     const l = PositiveRate.data.length
-    const positiveCount = []
-    const negativeCount = []
+    const pcrPositiveCount = []
+    const pcrNegativeCount = []
     const positiveRates = []
     const positiveRateLabels = []
     for (let i = 0; i < l; i++) {
-      positiveCount.push(PositiveRate.data[i].positive_count)
+      pcrPositiveCount.push(PositiveRate.data[i].pcr_positive_count)
       positiveRates.push(PositiveRate.data[i].positive_rate)
-      negativeCount.push(PositiveRate.data[i].negative_count)
+      pcrNegativeCount.push(PositiveRate.data[i].pcr_negative_count)
       positiveRateLabels.push(PositiveRate.data[i].diagnosed_date)
     }
 
-    const positiveRateGraph = [positiveCount, negativeCount, positiveRates]
+    const positiveRateGraph = [pcrPositiveCount, pcrNegativeCount, positiveRates]
     const positiveRateDataLabels = [
       this.$t('陽性者数'),
       this.$t('陰性者数'),
