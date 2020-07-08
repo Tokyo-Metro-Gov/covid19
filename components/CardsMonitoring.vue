@@ -35,6 +35,10 @@
       <positive-rate-card />
       <!-- モニタリング指標(7)受診相談窓口における相談件数 -->
       <monitoring-consultation-desk-reports-number-card />
+      <!-- モニタリング項目(2)#7119における発熱等相談件数 -->
+      <consultation-about-fever-number-card />
+      <!-- モニタリング項目(5)救急医療の東京ルールの適用件数 -->
+      <tokyo-rules-application-number-card />
     </card-row>
   </div>
 </template>
@@ -53,6 +57,8 @@ import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedC
 import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
 import MonitoringStatusOverviewCard from '@/components/cards/MonitoringStatusOverviewCard.vue'
 import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
+import ConsultationAboutFeverNumberCard from '@/components/cards/ConsultationAboutFeverNumberCard.vue'
+import TokyoRulesApplicationNumberCard from '@/components/cards/TokyoRulesApplicationNumberCard.vue'
 
 export default Vue.extend({
   components: {
@@ -67,7 +73,9 @@ export default Vue.extend({
     ConfirmedCasesNumberCard,
     ConfirmedCasesIncreaseRatioByWeekCard,
     HospitalizedNumberCard,
-    MonitoringStatusOverviewCard
+    MonitoringStatusOverviewCard,
+    ConsultationAboutFeverNumberCard,
+    TokyoRulesApplicationNumberCard
   }
 })
 </script>
