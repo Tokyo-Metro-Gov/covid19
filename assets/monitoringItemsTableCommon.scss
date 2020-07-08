@@ -1,5 +1,5 @@
 $default-bdw: 1px;
-$default-pad: 0.5rem 1rem;
+$default-pad: 0.5rem 0.2rem;
 
 .table {
   width: 100%;
@@ -38,6 +38,10 @@ $default-pad: 0.5rem 1rem;
     justify-content: flex-start;
     text-align: left;
     font-weight: bold;
+    padding: {
+      left: 1rem;
+      right: 1rem;
+    }
   }
 
   .aboveEmptyCell {
