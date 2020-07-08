@@ -9,6 +9,8 @@
       <positive-number-by-diagnosed-date-card />
       <!-- 検査実施件数 -->
       <tested-number-card />
+      <!-- 受診相談窓口における相談件数 -->
+      <monitoring-consultation-desk-reports-number-card />
       <!-- 新型コロナコールセンター相談件数 -->
       <telephone-advisory-reports-number-card />
     </card-row>
@@ -31,6 +33,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
+import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 
 export default Vue.extend({
   components: {
@@ -38,6 +41,7 @@ export default Vue.extend({
     ConfirmedCasesAttributesCard,
     ConfirmedCasesByMunicipalitiesCard,
     TestedNumberCard,
+    MonitoringConsultationDeskReportsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     MetroCard,
     AgencyCard,

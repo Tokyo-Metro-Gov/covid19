@@ -33,8 +33,6 @@
       <hospitalized-number-card />
       <!-- モニタリング指標(6)PCR検査の陽性率-->
       <positive-rate-card />
-      <!-- モニタリング指標(7)受診相談窓口における相談件数 -->
-      <monitoring-consultation-desk-reports-number-card />
     </card-row>
   </div>
 </template>
@@ -52,7 +50,6 @@ import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
 import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
 import MonitoringStatusOverviewCard from '@/components/cards/MonitoringStatusOverviewCard.vue'
-import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 
 export default Vue.extend({
   components: {
@@ -61,7 +58,6 @@ export default Vue.extend({
     MonitoringConfirmedCasesNumberCard,
     UntrackedRateCard,
     SevereCaseCard,
-    MonitoringConsultationDeskReportsNumberCard,
     PositiveRateCard,
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,

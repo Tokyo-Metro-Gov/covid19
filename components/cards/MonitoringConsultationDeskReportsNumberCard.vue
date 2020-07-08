@@ -1,9 +1,8 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <monitoring-consultation-desk-report-chart
-      :title="$t('旧モニタリング指標(7)')"
+      :title="$t('受診相談窓口における相談件数')"
       title-id="monitoring-number-of-reports-to-covid19-consultation-desk"
-      :info-titles="[$t('受診相談窓口における相談件数')]"
       chart-id="monitoring-consultation-desk-report-chart"
       :chart-data="chartData"
       :date="date"
