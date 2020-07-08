@@ -1,6 +1,6 @@
 // monitoring_items.json の型チェック用
 
-type RawDataKey =
+type DataKey =
   | '(1)新規陽性者数'
   | '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
   | '(3)新規陽性者における接触歴等不明者（人数）'
@@ -15,11 +15,7 @@ type RawDataKey =
 type StringOrNumber = string | number
 
 type RawData = {
-  [key in RawDataKey]: RawDataItemValue
-}
-
-interface RawDataItemValue {
-  value: StringOrNumber
+  [key in DataKey]: StringOrNumber
 }
 
 // -----------------------------------------
@@ -49,7 +45,7 @@ export default (rawDataObj: RawData) => {
   const formattedData: MonitoringItem[] = []
 
   // switch文の代わりに RawDataKey と対応させたオブジェクトを用いる
-  const units: { [key in RawDataKey]: Unit | null } = {
+  const units: { [key in DataKey]: Unit | null } = {
     '(1)新規陽性者数': {
       text: '人',
       translatable: true
@@ -90,12 +86,11 @@ export default (rawDataObj: RawData) => {
     '(7)重症患者確保病床数': null
   }
 
-  for (const [key, rawValue] of Object.entries(rawDataObj)) {
+  for (const [key, value] of Object.entries(rawDataObj)) {
     // 型を絞るために再代入
-    const rawDataKey = key as RawDataKey
+    const rawDataKey = key as DataKey
 
     // 非camelcaseプロパティの名前変更
-    const { value } = rawValue
 
     formattedData.push({
       itemName: rawDataKey,
