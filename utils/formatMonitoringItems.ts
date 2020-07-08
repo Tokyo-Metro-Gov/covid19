@@ -21,7 +21,7 @@ type RawData = {
 // -----------------------------------------
 // フォーマット済み モニタリング指標データ用
 
-type MonitoringItems = Record<DataKey, MonitoringItemValue>
+export type MonitoringItems = Record<DataKey, MonitoringItemValue>
 
 interface MonitoringItemValue {
   value: StringOrNumber
