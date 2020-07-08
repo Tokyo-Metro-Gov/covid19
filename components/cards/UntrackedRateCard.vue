@@ -48,7 +48,7 @@ import UntrackedRateMixedChart from '@/components/UntrackedRateMixedChart'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction
-} from '@/utils/monitoringItemsValueFormatters'
+} from '@/utils/monitoringStatusValueFormatters'
 
 export default {
   components: {

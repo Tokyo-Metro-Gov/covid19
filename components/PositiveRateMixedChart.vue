@@ -108,7 +108,7 @@ import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction
-} from '~/utils/monitoringItemsValueFormatters'
+} from '~/utils/monitoringStatusValueFormatters'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
