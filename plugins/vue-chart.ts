@@ -3,6 +3,7 @@ import { ChartData, ChartOptions } from 'chart.js'
 import { Doughnut, Bar, Line, mixins } from 'vue-chartjs'
 import { Plugin } from '@nuxt/types'
 import { useDayjsAdapter } from './chartjs-adapter-dayjs'
+import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 
 type ChartVCData = { chartData: ChartData }
 type ChartVCMethod = {
@@ -60,8 +61,11 @@ const createCustomChart = () => {
       }
     },
     mounted() {
-      setTimeout(() => {
-        this.renderChart(this.chartData, this.options)
+      setTimeout(() => this.renderChart(this.chartData, this.options))
+
+      // タブ変更時にグラフの`height`を再計算する
+      EventBus.$on(TOGGLE_EVENT, () => {
+        setTimeout(() => this.renderChart(this.chartData, this.options))
       })
     }
   })

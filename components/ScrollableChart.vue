@@ -13,6 +13,7 @@
 import Vue, { PropType } from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { DisplayData } from '@/plugins/vue-chart'
+import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 
 type Data = {
   chartWidth: number
@@ -91,6 +92,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   mounted() {
     this.adjustChartWidth()
     window.addEventListener('resize', this.handleResize)
+
+    // タブ変更時にグラフ`width`を再計算する
+    EventBus.$on(TOGGLE_EVENT, () => {
+      setTimeout(() => this.adjustChartWidth())
+    })
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize)
