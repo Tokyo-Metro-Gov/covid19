@@ -118,7 +118,11 @@ import {
   yAxesBgPlugin,
   yAxesBgRightPlugin
 } from '@/plugins/vue-chart'
-import { getGraphSeriesStyle, getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
+import {
+  getGraphSeriesStyle,
+  getGraphSeriesColor,
+  SurfaceStyle
+} from '@/utils/colors'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction
@@ -270,15 +274,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         new Date(this.labels[this.labels.length - 1]),
         'dateWithoutYear'
       )
-      let lastDayTotalInspections = 0, lastDayBeforeTotalInspections = 0
+      let lastDayTotalInspections = 0
+      let lastDayBeforeTotalInspections = 0
       const len = this.chartData.length
-      this.pickLastNumber(this.chartData).forEach((d, i)=> {
+      this.pickLastNumber(this.chartData).forEach((d, i) => {
         if (i < len - 2) {
           lastDayTotalInspections += parseInt(d)
         }
       })
-      this.pickLastSecondNumber(this.chartData).forEach((d, i)=> {
-        if (i < len - 2){
+      this.pickLastSecondNumber(this.chartData).forEach((d, i) => {
+        if (i < len - 2) {
           lastDayBeforeTotalInspections += parseInt(d)
         }
       })
@@ -298,9 +303,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           lText: lastDayTotalInspections.toLocaleString(),
           sText: `${this.$t('{date}の数値', {
             date
-          })}（${this.$t('前日比')}: ${this.formatDayBeforeRatio(lastDayTotalInspections - lastDayBeforeTotalInspections)} ${
-            this.optionUnit
-          }）`,
+          })}（${this.$t('前日比')}: ${this.formatDayBeforeRatio(
+            lastDayTotalInspections - lastDayBeforeTotalInspections
+          )} ${this.optionUnit}）`,
           unit: this.optionUnit
         }
       ]
@@ -693,7 +698,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     scaledTicksYAxisMax() {
       let max = 0
       for (const i in this.chartData[0]) {
-        max = Math.max(max, this.chartData[0][i] + this.chartData[1][i] + this.chartData[2][i] + this.chartData[3][i])
+        max = Math.max(
+          max,
+          this.chartData[0][i] +
+            this.chartData[1][i] +
+            this.chartData[2][i] +
+            this.chartData[3][i]
+        )
       }
       return max
     },
