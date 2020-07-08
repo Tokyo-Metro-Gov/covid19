@@ -21,6 +21,14 @@
           <div
             v-if="i === 2"
             :style="{
+              backgroundColor: 'none',
+              border: 'dashed 1.5px' + colors[i].strokeColor,
+              height: '3px'
+            }"
+          />
+          <div
+            v-else-if="i === 3"
+            :style="{
               backgroundColor: colors[i].fillColor,
               border: 0,
               height: '3px'
@@ -82,6 +90,12 @@
         :s-text="displayInfo[0].sText"
         :unit="displayInfo[0].unit"
       />
+      <data-view-data-set-panel
+        :title="infoTitles[1]"
+        :l-text="displayInfo[1].lText"
+        :s-text="displayInfo[1].sText"
+        :unit="displayInfo[1].unit"
+      />
     </template>
   </data-view>
 </template>
@@ -104,11 +118,7 @@ import {
   yAxesBgPlugin,
   yAxesBgRightPlugin
 } from '@/plugins/vue-chart'
-import {
-  getGraphSeriesStyle,
-  getGraphSeriesColor,
-  SurfaceStyle
-} from '@/utils/colors'
+import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type Data = {
@@ -126,7 +136,13 @@ type Methods = {
 
 type Computed = {
   displayTransitionRatio: string
+  displayUntrackedIncreseRatio: string
   displayInfo: [
+    {
+      lText: string
+      sText: string
+      unit: string
+    },
     {
       lText: string
       sText: string
@@ -154,7 +170,7 @@ type Props = {
   labels: string[]
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
-  unit: string
+  unit: string[]
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
 }
@@ -222,8 +238,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: () => []
     },
     unit: {
-      type: String,
-      default: ''
+      type: Array,
+      default: () => []
     },
     yAxesBgPlugin: {
       type: Array,
@@ -235,33 +251,59 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
-    displayLegends: [true, true, true],
-    colors: [...getGraphSeriesStyle(2), getGraphSeriesColor('E')],
+    displayLegends: [true, true, true, true],
+    colors: [
+      getGraphSeriesColor('A'),
+      getGraphSeriesColor('C'),
+      getGraphSeriesColor('E'),
+      getGraphSeriesColor('E')
+    ],
     canvas: true
   }),
   computed: {
+    displayUntrackedIncreseRatio() {
+      const lastDay = this.pickLastNumber(this.chartData)[3]
+      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[3]
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+    },
     displayTransitionRatio() {
-      const lastDay = this.pickLastNumber(this.chartData)[2]
-      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[2]
+      const lastDay = this.pickLastNumber(this.chartData)[1]
+      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[1]
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
       return [
         {
-          lText: this.getFormatter(2)(
-            parseFloat(this.pickLastNumber(this.chartData)[2].toLocaleString())
+          lText: this.getFormatter(1)(
+            parseFloat(this.pickLastNumber(this.chartData)[1].toLocaleString())
           ),
           sText: `${this.$t('{date}の数値', {
             date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
           })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-            this.unit
+            this.unit[0]
           }）`,
-          unit: this.unit
+          unit: this.unit[0]
+        },
+        {
+          lText: this.getFormatter(2)(
+            parseFloat(this.pickLastNumber(this.chartData)[3].toLocaleString())
+          ),
+          sText: `${this.$t('{date}の数値', {
+            date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
+          })}（${this.$t('前日比')}: ${this.displayUntrackedIncreseRatio} ${
+            this.unit[1]
+          }）`,
+          unit: this.unit[1]
         }
       ]
     },
     displayData() {
-      const graphSeries = [...getGraphSeriesStyle(2), getGraphSeriesColor('E')]
+      const graphSeries = [
+        getGraphSeriesColor('A'),
+        getGraphSeriesColor('C'),
+        getGraphSeriesColor('E'),
+        getGraphSeriesColor('E')
+      ]
       return {
         labels: this.labels,
         datasets: [
@@ -273,7 +315,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             backgroundColor: graphSeries[0].fillColor,
             borderColor: graphSeries[0].strokeColor,
             borderWidth: 1,
-            order: 2
+            order: 4
           },
           {
             type: 'bar',
@@ -293,6 +335,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
             borderColor: graphSeries[2].strokeColor,
+            borderWidth: 3,
+            borderDash: [4],
+            fill: false,
+            order: 2,
+            lineTension: 0
+          },
+          {
+            type: 'line',
+            yAxisID: 'y-axis-2',
+            label: this.dataLabels[3],
+            data: this.chartData[3],
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            borderColor: graphSeries[3].strokeColor,
             borderWidth: 3,
             fill: false,
             order: 1,
@@ -331,7 +387,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
-      const unit = this.unit
+      const unit = this.unit[1]
       const getFormatter = this.getFormatter
       const options: Chart.ChartOptions = {
         tooltips: {
@@ -484,6 +540,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             backgroundColor: 'transparent',
             yAxisID: 'y-axis-2',
             borderWidth: 0
+          },
+          {
+            data: [this.displayData.datasets[3].data[n]],
+            backgroundColor: 'transparent',
+            yAxisID: 'y-axis-2',
+            borderWidth: 0
           }
         ]
       }
@@ -589,6 +651,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       let max = 0
       for (const i in this.chartData[2]) {
         max = Math.max(max, this.chartData[2][i])
+      }
+      for (const i in this.chartData[3]) {
+        max = Math.max(max, this.chartData[3][i])
       }
       return max
     }
