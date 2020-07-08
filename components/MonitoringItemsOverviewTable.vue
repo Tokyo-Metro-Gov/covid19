@@ -32,12 +32,13 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
+import { MonitoringItems } from '@/utils/formatMonitoringItems'
 
 export default Vue.extend({
   props: {
     items: {
-      type: Array,
+      type: Object as PropType<MonitoringItems>,
       required: true
     }
   },
