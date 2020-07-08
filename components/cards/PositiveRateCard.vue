@@ -34,14 +34,14 @@
           <li>
             {{
               $t(
-                '陽性率：陽性判明数の移動平均／（陽性判明数＋陰性判明数）の移動平均'
+                '陽性率：陽性判明数（PCR・抗原）の移動平均／検査人数（＝陽性判明数（PCR・抗原）＋陰性判明数（PCR・抗原））の移動平均'
               )
             }}
           </li>
           <li>
             {{
               $t(
-                '集団感染発生や曜日による件数のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値を陽性率として算出（例えば、5月7日の陽性率は、5月1日から5月7日までの実績平均を用いて算出）'
+                '集団感染発生や曜日による数値のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値をもとに算出し、折れ線グラフで示す（例えば、5月7日の陽性率は、5月1日から5月7日までの実績平均を用いて算出）'
               )
             }}
           </li>
@@ -54,6 +54,16 @@
                 '5月7日以降は(1)東京都健康安全研究センター、(2)PCRセンター（地域外来・検査センター）、(3)医療機関での保険適用検査実績により算出。4月10日～5月6日は(3)が含まれず(1)(2)のみ、4月9日以前は(2)(3)が含まれず(1)のみのデータ'
               )
             }}
+          </li>
+          <li>
+            {{
+              $t(
+                '5月13日から6月16日までに行われた抗原検査については、結果が陰性の場合、PCR検査での確定検査が必要であったため、検査件数の二重計上を避けるため、陽性判明数のみ計上。6月17日以降に行われた抗原検査については、陽性判明数、陰性判明数の両方を計上'
+              )
+            }}
+          </li>
+          <li>
+            {{ $t('陰性確認のために行った検査の実施人数は含まない') }}
           </li>
           <li>
             {{
@@ -107,7 +117,9 @@ export default {
       antigenNegativeCount.push(PositiveRate.data[i].antigen_negative_count)
       positiveRates.push(PositiveRate.data[i].positive_rate)
       positiveRateLabels.push(PositiveRate.data[i].diagnosed_date)
-      weeklyAverageDiagnosedCount.push(PositiveRate.data[i].weekly_average_diagnosed_count)
+      weeklyAverageDiagnosedCount.push(
+        PositiveRate.data[i].weekly_average_diagnosed_count
+      )
     }
 
     const positiveRateGraph = [
