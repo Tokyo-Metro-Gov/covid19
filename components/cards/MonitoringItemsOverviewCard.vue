@@ -47,7 +47,7 @@
       <div>
         <!-- @todo urlを指定 -->
         <external-link :class="$style.button" url="">
-          {{ $t('感染状況・医療提供体制の分析について') }}
+          {{ $t('最新のモニタリング項目の分析・総括コメントについて') }}
         </external-link>
       </div>
     </data-view>
