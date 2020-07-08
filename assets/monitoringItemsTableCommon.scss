@@ -1,0 +1,99 @@
+$default-bdw: 1px;
+$default-pad: 0.5rem;
+
+.table {
+  width: 100%;
+  color: $green-1;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+
+  @include font-size(16);
+
+  th,
+  td {
+    padding: $default-pad;
+    border: $default-bdw solid $green-1;
+    height: 100%;
+  }
+
+  tbody th {
+    font-weight: normal;
+    text-align: center;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  thead {
+    white-space: nowrap;
+  }
+
+  .itemName {
+    justify-content: flex-start;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .aboveEmptyCell {
+    border: none;
+  }
+
+  .emptyCell {
+    border-top: none;
+  }
+
+  .wrapAllowed {
+    white-space: normal;
+  }
+}
+
+@mixin override($vw, $bdw, $fz, $pad) {
+  .table {
+    border-width: $bdw;
+    @include font-size($fz);
+
+    th,
+    td {
+      padding: $pad;
+      border-width: $bdw;
+    }
+  }
+}
+
+/*
+// variables.scss Breakpoints: huge (1440)
+@include lessThan(1440) {
+  @include override(1440, 3, 15, 150);
+}
+
+// Vuetify Breakpoints: Large (1264)
+@include lessThan(1263) {
+  @include override(1263, 2, 13, 107);
+}
+
+// variables.scss Breakpoints: large (1170)
+@include lessThan(1170) {
+  @include override(1170, 2, 13, 107);
+}
+
+// Vuetify Breakpoints: Small (960)
+@include lessThan(959) {
+  @include override(960, 4, 14, 180);
+}
+
+@include lessThan(767) {
+  @include override(960, 3, 14, 180);
+}
+
+// Vuetify Breakpoints: Extra Small (600)
+@include lessThan(600) {
+  @include override(600, 3, 14, 150);
+}
+
+@include lessThan(420) {
+  @include override(600, 2, 12, 150);
+}
+*/

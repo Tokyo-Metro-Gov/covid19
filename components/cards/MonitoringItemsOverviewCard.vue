@@ -30,8 +30,15 @@
           </li>
         </ul>
       </template>
-      <monitoring-items-overview-table
-        :aria-label="$t('モニタリング項目')"
+      <h4>{{ $t('感染状況') }}</h4>
+      <monitoring-items-overview-table-infection-status
+        :aria-label="$t('感染状況')"
+        :items="monitoringItems"
+      />
+
+      <h4>{{ $t('医療提供体制') }}</h4>
+      <monitoring-items-overview-table-medical-system
+        :aria-label="$t('医療提供体制')"
         :items="monitoringItems"
       />
     </data-view>
@@ -42,16 +49,17 @@
 import monitoringItemsData from '@/data/monitoring_items.json'
 import formatMonitoringItems from '@/utils/formatMonitoringItems'
 import DataView from '@/components/DataView.vue'
-import MonitoringItemsOverviewTable from '@/components/MonitoringItemsOverviewTable.vue'
+import MonitoringItemsOverviewTableInfectionStatus from '@/components/MonitoringItemsOverviewTableInfectionStatus.vue'
+import MonitoringItemsOverviewTableMedicalSystem from '@/components/MonitoringItemsOverviewTableMedicalSystem.vue'
 
 export default {
   components: {
     DataView,
-    MonitoringItemsOverviewTable
+    MonitoringItemsOverviewTableInfectionStatus,
+    MonitoringItemsOverviewTableMedicalSystem
   },
   data() {
     const monitoringItems = formatMonitoringItems(monitoringItemsData.data)
-
     return {
       monitoringItemsData,
       monitoringItems
@@ -59,3 +67,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" module>
+h4 {
+  margin: 20px 0 10px;
+  font-weight: normal;
+  @include font-size(16);
+
+  &:first-child {
+    margin-top: 5px;
+  }
+}
+</style>
