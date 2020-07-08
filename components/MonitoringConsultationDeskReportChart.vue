@@ -1,9 +1,5 @@
 <template>
-  <data-view
-    :title="title"
-    :title-id="titleId"
-    :date="date"
-  >
+  <data-view :title="title" :title-id="titleId" :date="date">
     <ul
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
