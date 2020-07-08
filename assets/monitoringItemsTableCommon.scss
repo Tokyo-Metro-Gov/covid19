@@ -5,11 +5,14 @@ $default-pad: 0.5rem 1rem;
   width: 100%;
   color: $green-1;
   border-collapse: collapse;
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
 
   @include font-size(16);
+
+  @include lessThan($small) {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 
   th,
   td {
