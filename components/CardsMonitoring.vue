@@ -1,19 +1,5 @@
 <template>
   <div>
-    <div class="AttentionNote">
-      <p>
-        {{ $t('新たなモニタリング項目は現在試行中です。') }}
-        <i18n path="その状況は{linkToMonitoring}をご覧ください。">
-          <template v-slot:linkToMonitoring>
-            <external-link
-              url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
-            >
-              {{ $t('こちらのリンク') }}
-            </external-link>
-          </template>
-        </i18n>
-      </p>
-    </div>
     <card-row class="DataBlock">
       <!-- 検査陽性者の状況 -->
       <confirmed-cases-details-card />
@@ -42,22 +28,20 @@
 <script lang="ts">
 import Vue from 'vue'
 import CardRow from '@/components/cards/CardRow.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
-import PositiveRateCard from '~/components/cards/PositiveRateCard.vue'
 import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
 import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
 import MonitoringStatusOverviewCard from '@/components/cards/MonitoringStatusOverviewCard.vue'
 import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
+import PositiveRateCard from '~/components/cards/PositiveRateCard.vue'
 
 export default Vue.extend({
   components: {
     CardRow,
-    ExternalLink,
     MonitoringConfirmedCasesNumberCard,
     UntrackedRateCard,
     SevereCaseCard,
