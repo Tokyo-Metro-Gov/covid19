@@ -49,19 +49,45 @@ export default (rawDataObj: RawData) => {
   const formattedData: MonitoringItem[] = []
 
   // switch文の代わりに RawDataKey と対応させたオブジェクトを用いる
-  const units: { [key in RawDataKey]: string } = {
-    '(1)新規陽性者数': ' 人',
-    '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ':
-      '件.reports',
-    '(3)新規陽性者における接触歴等不明者（人数）': '人',
-    '(3)新規陽性者における接触歴等不明者（増加比）': '%',
-    '(4)PCR・抗原検査（検査人数）': '人',
-    '(4)PCR・抗原検査（陽性率）': '%',
-    '(5)救急医療の東京ルールの適用件数': '件.reports',
-    '(6)入院患者数': '人',
-    '(6)入院患者確保病床数': '',
-    '(7)重症患者数': '人',
-    '(7)重症患者確保病床数': ''
+  const units: { [key in RawDataKey]: Unit | null } = {
+    '(1)新規陽性者数': {
+      text: '人',
+      translatable: true
+    },
+    '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ': {
+      text: '件.reports',
+      translatable: true
+    },
+    '(3)新規陽性者における接触歴等不明者（人数）': {
+      text: '人',
+      translatable: true
+    },
+    '(3)新規陽性者における接触歴等不明者（増加比）': {
+      text: '%',
+      translatable: false
+    },
+    '(4)PCR・抗原検査（検査人数）': {
+      text: '人',
+      translatable: true
+    },
+    '(4)PCR・抗原検査（陽性率）': {
+      text: '%',
+      translatable: false
+    },
+    '(5)救急医療の東京ルールの適用件数': {
+      text: '件.reports',
+      translatable: true
+    },
+    '(6)入院患者数': {
+      text: '人',
+      translatable: true
+    },
+    '(6)入院患者確保病床数': null,
+    '(7)重症患者数': {
+      text: '人',
+      translatable: true
+    },
+    '(7)重症患者確保病床数': null
   }
 
   for (const [key, rawValue] of Object.entries(rawDataObj)) {
