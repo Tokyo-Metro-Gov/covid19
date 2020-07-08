@@ -32,7 +32,12 @@ interface MonitoringItem {
 
 interface MonitoringItemValue {
   value: StringOrNumber
-  unit: string // 元データに無いので独自に追加
+  unit: Unit | null // 元データに無いので独自に追加, 単位がない場合は null
+}
+
+type Unit = {
+  text: string // *********** もとの日本語のテキスト
+  translatable: boolean // ** 翻訳が必要かどうか
 }
 
 /**
