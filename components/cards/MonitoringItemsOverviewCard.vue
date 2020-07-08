@@ -50,7 +50,6 @@ export default {
     MonitoringItemsOverviewTable
   },
   data() {
-    // モニタリング指標
     const monitoringItems = formatMonitoringItems(monitoringItemsData.data)
 
     return {
