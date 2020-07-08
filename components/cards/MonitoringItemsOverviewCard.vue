@@ -65,7 +65,6 @@
         />
       </section>
       <div>
-        <!-- @todo urlを指定 -->
         <external-link
           :class="$style.button"
           url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
