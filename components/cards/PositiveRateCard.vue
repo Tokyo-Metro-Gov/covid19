@@ -1,15 +1,16 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <positive-rate-mixed-chart
-      :title="$t('旧モニタリング指標(6)')"
+      :title="$t('モニタリング項目(4)')"
       :title-id="'positive-rate'"
-      :info-titles="[$t('PCR検査の陽性率')]"
+      :info-titles="[$t('検査の陽性率'), $t('検査人数')]"
       :chart-id="'positive-rate-chart'"
       :chart-data="positiveRateGraph"
       :get-formatter="getFormatter"
       :date="PositiveRate.date"
       :labels="positiveRateLabels"
       unit="%"
+      :option-unit="$t('人')"
       :data-labels="positiveRateDataLabels"
       :table-labels="positiveRateTableLabels"
     >
@@ -94,32 +95,42 @@ export default {
     const l = PositiveRate.data.length
     const pcrPositiveCount = []
     const pcrNegativeCount = []
+    const antigenPositiveCount = []
+    const antigenNegativeCount = []
     const positiveRates = []
     const positiveRateLabels = []
+    const weeklyAverageDiagnosedCount = []
     for (let i = 0; i < l; i++) {
       pcrPositiveCount.push(PositiveRate.data[i].pcr_positive_count)
-      positiveRates.push(PositiveRate.data[i].positive_rate)
       pcrNegativeCount.push(PositiveRate.data[i].pcr_negative_count)
+      antigenPositiveCount.push(PositiveRate.data[i].antigen_positive_count)
+      antigenNegativeCount.push(PositiveRate.data[i].antigen_negative_count)
+      positiveRates.push(PositiveRate.data[i].positive_rate)
       positiveRateLabels.push(PositiveRate.data[i].diagnosed_date)
+      weeklyAverageDiagnosedCount.push(PositiveRate.data[i].weekly_average_diagnosed_count)
     }
 
-    const positiveRateGraph = [pcrPositiveCount, pcrNegativeCount, positiveRates]
+    const positiveRateGraph = [
+      pcrPositiveCount,
+      antigenPositiveCount,
+      pcrNegativeCount,
+      antigenNegativeCount,
+      weeklyAverageDiagnosedCount,
+      positiveRates
+    ]
     const positiveRateDataLabels = [
-      this.$t('陽性者数'),
-      this.$t('陰性者数'),
+      this.$t('PCR検査陽性者数'),
+      this.$t('抗原検査陽性者数'),
+      this.$t('PCR検査陰性者数'),
+      this.$t('抗原検査陰性者数'),
+      this.$t('検査人数（７日間移動平均）'),
       this.$t('陽性率')
     ]
-    const positiveRateTableLabels = [
-      this.$t('陽性者数'),
-      this.$t('陰性者数'),
-      this.$t('検査実施人数 (日別)'),
-      this.$t('検査実施人数（2月14日以前分を含む累計）'),
-      this.$t('陽性率')
-    ]
+    const positiveRateTableLabels = positiveRateDataLabels.map(d => d)
 
     const getFormatter = columnIndex => {
       // モニタリング指標(6)PCR検査の陽性率は小数点第1位まで表示する。
-      if (columnIndex === 2) {
+      if (columnIndex >= 4) {
         return getNumberToFixedFunction(1)
       }
       return getNumberToLocaleStringFunction()
