@@ -15,9 +15,18 @@ type DataKey =
 type StringOrNumber = string | number
 
 type RawData = {
-  [key in DataKey]: StringOrNumber
+  '(1)新規陽性者数': number
+  '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ': number
+  '(3)新規陽性者における接触歴等不明者（人数）': number
+  '(3)新規陽性者における接触歴等不明者（増加比）': number
+  '(4)PCR・抗原検査（陽性率）': number
+  '(4)PCR・抗原検査（検査人数）': number
+  '(5)救急医療の東京ルールの適用件数': number
+  '(6)入院患者数': number
+  '(6)入院患者確保病床数': string
+  '(7)重症患者数': number
+  '(7)重症患者確保病床数': string
 }
-
 // -----------------------------------------
 // フォーマット済み モニタリング指標データ用
 
