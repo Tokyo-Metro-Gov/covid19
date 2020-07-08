@@ -13,7 +13,7 @@ import { Unit } from '@/utils/formatMonitoringItems'
 export default Vue.extend({
   props: {
     value: {
-      type: [String, Number],
+      type: String,
       required: true
     },
     unit: {
