@@ -6,20 +6,28 @@
   >
     <thead id="infectionStatusHeader">
       <tr>
-        <th scope="col" colspan="3">
+        <th
+          :class="$style['cellMaxWidth-itemNameFullWidth']"
+          scope="col"
+          colspan="3"
+        >
           {{ $t('項目') }}
         </th>
-        <th scope="col">
+        <th :class="$style['cellMaxWidth-itemValue']" scope="col">
           {{ $t('数値') }}
         </th>
       </tr>
     </thead>
     <tbody id="infectionStatusBody">
       <tr>
-        <th :class="$style.itemName" scope="row" colspan="3">
+        <th
+          :class="[$style.itemName, $style['cellMaxWidth-itemNameFullWidth']]"
+          scope="row"
+          colspan="3"
+        >
           {{ $t('(1)新規陽性者') }}
         </th>
-        <td>
+        <td :class="$style['cellMaxWidth-itemValue']">
           <monitoring-items-overview-table-value-with-translatable-unit
             :value="items['(1)新規陽性者数'].value"
             :unit="items['(1)新規陽性者数'].unit"
@@ -27,11 +35,19 @@
         </td>
       </tr>
       <tr>
-        <th scope="row" rowspan="3">
+        <th
+          :class="$style['cellMaxWidth-itemCategorySuperordinate']"
+          scope="row"
+          rowspan="3"
+        >
           {{ $t('潜在・市中感染') }}
         </th>
         <th
-          :class="[$style.itemName, $style.wrapAllowed]"
+          :class="[
+            $style.itemName,
+            $style.wrapAllowed,
+            $style['cellMaxWidth-itemNameCategorizedSuper']
+          ]"
           scope="row"
           colspan="2"
         >
@@ -39,7 +55,7 @@
             $t('(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ')
           }}
         </th>
-        <td>
+        <td :class="$style['cellMaxWidth-itemValue']">
           <monitoring-items-overview-table-value-with-translatable-unit
             :value="
               items[
@@ -56,16 +72,20 @@
       </tr>
       <tr>
         <th
-          :class="[$style.itemName, $style.wrapAllowed]"
+          :class="[
+            $style.itemName,
+            $style.wrapAllowed,
+            $style['cellMaxWidth-itemNameCategorizedSuperSub']
+          ]"
           scope="row"
           rowspan="2"
         >
           {{ $t('(3)新規陽性者における接触歴等不明者') }}
         </th>
-        <th scope="row">
+        <th :class="$style['cellMaxWidth-itemCategorySubordinate']" scope="row">
           {{ $t('人数') }}
         </th>
-        <td>
+        <td :class="$style['cellMaxWidth-itemValue']">
           <monitoring-items-overview-table-value-with-translatable-unit
             :value="items['(3)新規陽性者における接触歴等不明者（人数）'].value"
             :unit="items['(3)新規陽性者における接触歴等不明者（人数）'].unit"
@@ -73,10 +93,10 @@
         </td>
       </tr>
       <tr>
-        <th scope="row">
+        <th :class="$style['cellMaxWidth-itemCategorySubordinate']" scope="row">
           {{ $t('増加比') }}
         </th>
-        <td>
+        <td :class="$style['cellMaxWidth-itemValue']">
           <monitoring-items-overview-table-value-with-translatable-unit
             :value="
               items['(3)新規陽性者における接触歴等不明者（増加比）'].value

@@ -52,6 +52,37 @@ $default-pad: 0.5rem 1rem;
     white-space: normal;
     min-width: 10ch;
   }
+
+  .cellMaxWidth {
+    $widthItemName: 85%;
+    $widthItemValue: 15%;
+    $widthCatSuper: 0.2;
+    $widthCatSub: 0.22;
+
+    &-itemNameFullWidth {
+      width: $widthItemName;
+    }
+
+    &-itemNameCategorizedSuper {
+      width: $widthItemName * (1.0 - $widthCatSuper);
+    }
+
+    &-itemNameCategorizedSuperSub {
+      width: $widthItemName * (1.0 - $widthCatSuper - $widthCatSub);
+    }
+
+    &-itemCategorySuperordinate {
+      width: $widthItemName * $widthCatSuper;
+    }
+
+    &-itemCategorySubordinate {
+      width: $widthItemName * $widthCatSub;
+    }
+
+    &-itemValue {
+      width: $widthItemValue;
+    }
+  }
 }
 
 @mixin override($vw, $bdw, $fz, $pad) {
