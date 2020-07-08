@@ -19,7 +19,7 @@ import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
 import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
 import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
-import MonitoringStatusOverviewCard from '@/components/cards/MonitoringStatusOverviewCard.vue'
+import MonitoringItemsOverviewCard from '@/components/cards/MonitoringItemsOverviewCard.vue'
 
 export default {
   components: {
@@ -39,7 +39,7 @@ export default {
     PositiveNumberByDiagnosedDateCard,
     ConfirmedCasesIncreaseRatioByWeekCard,
     HospitalizedNumberCard,
-    MonitoringStatusOverviewCard
+    MonitoringItemsOverviewCard
   },
   data() {
     let title, updatedAt, cardComponent
