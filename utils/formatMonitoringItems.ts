@@ -21,10 +21,7 @@ type RawData = {
 // -----------------------------------------
 // フォーマット済み モニタリング指標データ用
 
-interface MonitoringItem {
-  itemName: string
-  itemValue: MonitoringItemValue
-}
+type MonitoringItems = Record<DataKey, MonitoringItemValue>
 
 interface MonitoringItemValue {
   value: StringOrNumber
@@ -41,64 +38,81 @@ type Unit = {
  *
  * @param data - Raw data
  */
-export default (rawDataObj: RawData) => {
-  const formattedData: MonitoringItem[] = []
-
-  // switch文の代わりに RawDataKey と対応させたオブジェクトを用いる
-  const units: { [key in DataKey]: Unit | null } = {
+export default (rawDataObj: RawData): MonitoringItems => {
+  return {
     '(1)新規陽性者数': {
-      text: '人',
-      translatable: true
+      value: rawDataObj['(1)新規陽性者数'],
+      unit: {
+        text: '人',
+        translatable: true
+      }
     },
     '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ': {
-      text: '件.reports',
-      translatable: true
+      value:
+        rawDataObj[
+          '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
+        ],
+      unit: {
+        text: '件.reports',
+        translatable: true
+      }
     },
     '(3)新規陽性者における接触歴等不明者（人数）': {
-      text: '人',
-      translatable: true
+      value: rawDataObj['(3)新規陽性者における接触歴等不明者（人数）'],
+      unit: {
+        text: '人',
+        translatable: true
+      }
     },
     '(3)新規陽性者における接触歴等不明者（増加比）': {
-      text: '%',
-      translatable: false
+      value: rawDataObj['(3)新規陽性者における接触歴等不明者（増加比）'],
+      unit: {
+        text: '%',
+        translatable: false
+      }
     },
     '(4)PCR・抗原検査（検査人数）': {
-      text: '人',
-      translatable: true
+      value: rawDataObj['(4)PCR・抗原検査（検査人数）'],
+      unit: {
+        text: '人',
+        translatable: true
+      }
     },
     '(4)PCR・抗原検査（陽性率）': {
-      text: '%',
-      translatable: false
+      value: rawDataObj['(4)PCR・抗原検査（陽性率）'],
+      unit: {
+        text: '%',
+        translatable: false
+      }
     },
     '(5)救急医療の東京ルールの適用件数': {
-      text: '件.reports',
-      translatable: true
+      value: rawDataObj['(5)救急医療の東京ルールの適用件数'],
+      unit: {
+        text: '件.reports',
+        translatable: true
+      }
     },
     '(6)入院患者数': {
-      text: '人',
-      translatable: true
-    },
-    '(6)入院患者確保病床数': null,
-    '(7)重症患者数': {
-      text: '人',
-      translatable: true
-    },
-    '(7)重症患者確保病床数': null
-  }
-
-  for (const [key, value] of Object.entries(rawDataObj)) {
-    // 型を絞るために再代入
-    const rawDataKey = key as DataKey
-
-    // 非camelcaseプロパティの名前変更
-
-    formattedData.push({
-      itemName: rawDataKey,
-      itemValue: {
-        value,
-        unit: units[rawDataKey]
+      value: rawDataObj['(6)入院患者数'],
+      unit: {
+        text: '人',
+        translatable: true
       }
-    })
+    },
+    '(6)入院患者確保病床数': {
+      value: rawDataObj['(6)入院患者確保病床数'],
+      unit: null
+    },
+    '(7)重症患者数': {
+      value: rawDataObj['(7)重症患者数'],
+      unit: {
+        text: '人',
+        translatable: true
+      }
+    },
+    '(7)重症患者確保病床数': {
+      value: rawDataObj['(7)重症患者確保病床数'],
+      unit: null
+    }
   }
-  return formattedData
 }
