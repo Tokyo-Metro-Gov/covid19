@@ -69,6 +69,7 @@
         <th
           :class="[
             $style.itemName,
+            $style.wrapAllowed,
             $style['cellMaxWidth-itemNameCategorizedSuper']
           ]"
           scope="row"
