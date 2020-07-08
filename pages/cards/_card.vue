@@ -92,8 +92,8 @@ export default {
       case 'monitoring-number-of-reports-to-covid19-consultation-desk':
         cardComponent = 'monitoring-consultation-desk-reports-number-card'
         break
-      case 'monitoring-status-overview':
-        cardComponent = 'monitoring-status-overview-card'
+      case 'monitoring-items-overview':
+        cardComponent = 'monitoring-items-overview-card'
         break
     }
 

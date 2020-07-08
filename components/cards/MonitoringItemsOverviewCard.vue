@@ -1,8 +1,8 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <data-view
-      :title="$t('旧モニタリング指標')"
-      title-id="monitoring-status-overview"
+      :title="$t('モニタリング項目')"
+      title-id="monitoring-items-overview"
       :date="monitoringStatusData.date"
     >
       <template v-slot:additionalDescription>
@@ -30,8 +30,8 @@
           </li>
         </ul>
       </template>
-      <monitoring-status-overview-table
-        :aria-label="$t('旧モニタリング指標')"
+      <monitoring-items-overview-table
+        :aria-label="$t('モニタリング項目')"
         :status="monitoringStatus"
       />
     </data-view>
@@ -39,23 +39,23 @@
 </template>
 
 <script>
-import monitoringStatusData from '@/data/monitoring_status.json'
-import formatMonitoringStatus from '@/utils/formatMonitoringStatus'
+import monitoringItemsData from '@/data/monitoring_items.json'
+import formatMonitoringItems from '@/utils/formatMonitoringItems'
 import DataView from '@/components/DataView.vue'
-import MonitoringStatusOverviewTable from '@/components/MonitoringStatusOverviewTable.vue'
+import MonitoringItemsOverviewTable from '@/components/MonitoringItemsOverviewTable.vue'
 
 export default {
   components: {
     DataView,
-    MonitoringStatusOverviewTable
+    MonitoringItemsOverviewTable
   },
   data() {
     // モニタリング指標
-    const monitoringStatus = formatMonitoringStatus(monitoringStatusData.data)
+    const monitoringItems = formatMonitoringItems(monitoringItemsData.data)
 
     return {
-      monitoringStatusData,
-      monitoringStatus
+      monitoringItemsData,
+      monitoringItems
     }
   }
 }
