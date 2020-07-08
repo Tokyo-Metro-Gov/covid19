@@ -44,6 +44,12 @@
           :items="monitoringItems"
         />
       </section>
+      <div>
+        <!-- @todo urlを指定 -->
+        <external-link :class="$style.button" url="">
+          {{ $t('感染状況・医療提供体制の分析について') }}
+        </external-link>
+      </div>
     </data-view>
   </v-col>
 </template>
@@ -54,12 +60,14 @@ import formatMonitoringItems from '@/utils/formatMonitoringItems'
 import DataView from '@/components/DataView.vue'
 import MonitoringItemsOverviewTableInfectionStatus from '@/components/MonitoringItemsOverviewTableInfectionStatus.vue'
 import MonitoringItemsOverviewTableMedicalSystem from '@/components/MonitoringItemsOverviewTableMedicalSystem.vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 export default {
   components: {
     DataView,
     MonitoringItemsOverviewTableInfectionStatus,
-    MonitoringItemsOverviewTableMedicalSystem
+    MonitoringItemsOverviewTableMedicalSystem,
+    ExternalLink
   },
   data() {
     const monitoringItems = formatMonitoringItems(monitoringItemsData.data)
@@ -85,5 +93,14 @@ section {
     font-weight: normal;
     @include font-size(16);
   }
+}
+
+.button {
+  color: $green-1 !important;
+  &:hover {
+    color: $white !important;
+  }
+
+  @include button-text('sm');
 }
 </style>
