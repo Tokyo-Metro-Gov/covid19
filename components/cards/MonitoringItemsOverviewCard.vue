@@ -83,7 +83,7 @@ export default {
 section {
   margin: 0 0 20px;
 
-  /* h タグが連続するため DataView-Content の margin を打ち消す */
+  /* h タグが連続するため DataView-Content の margin を少し打ち消す */
   &:first-child {
     margin-top: -10px;
   }
