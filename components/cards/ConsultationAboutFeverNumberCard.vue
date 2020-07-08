@@ -11,7 +11,20 @@
       :labels="labels"
       :data-labels="dataLabels"
       :unit="$t('件.reports')"
-    />
+    >
+      <template v-slot:additionalDescription>
+        <span>{{ $t('（注）') }}</span>
+        <ul>
+          <li>
+            {{
+              $t(
+                '集団感染発生や曜日による数値のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去７日間の移動平均値を折れ線グラフで示す（例えば、7月7日の移動平均値は、7月1日から7月7日までの実績値を平均したもの）'
+              )
+            }}
+          </li>
+        </ul>
+      </template>
+    </mixed-bar-and-line-chart>
   </v-col>
 </template>
 
