@@ -56,6 +56,9 @@
         />
       </template>
     </scrollable-chart>
+    <template v-slot:attentionNote>
+      <slot name="attentionNote" />
+    </template>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
     </template>

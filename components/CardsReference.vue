@@ -18,6 +18,10 @@
       <!-- 都庁来庁者数の推移 -->
       <agency-card />
     </card-row>
+    <card-row class="DataBlock">
+      <!-- 旧モニタリング指標(3)週単位の陽性者増加比 -->
+      <confirmed-cases-increase-ratio-by-week-card />
+    </card-row>
   </div>
 </template>
 
@@ -31,6 +35,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
+import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 
 export default Vue.extend({
   components: {
@@ -41,7 +46,8 @@ export default Vue.extend({
     TelephoneAdvisoryReportsNumberCard,
     MetroCard,
     AgencyCard,
-    PositiveNumberByDiagnosedDateCard
+    PositiveNumberByDiagnosedDateCard,
+    ConfirmedCasesIncreaseRatioByWeekCard
   }
 })
 </script>

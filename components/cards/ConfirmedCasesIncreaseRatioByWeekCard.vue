@@ -12,6 +12,15 @@
       :unit="''"
       :table-labels="tableLabels"
     >
+      <template v-slot:attentionNote>
+        <p>
+          {{
+            $t(
+              '本グラフは、新たなモニタリング項目から除外されたこと、日々公開している陽性者数から算出可能であることから、7月17日をもって削除いたします。'
+            )
+          }}
+        </p>
+      </template>
       <template v-slot:additionalDescription>
         <ul class="ListStyleNone">
           <li>
