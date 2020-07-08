@@ -3,7 +3,7 @@
     <data-view
       :title="$t('モニタリング項目')"
       title-id="monitoring-items-overview"
-      :date="monitoringStatusData.date"
+      :date="monitoringItemsData.date"
     >
       <template v-slot:additionalDescription>
         <span>{{ $t('（注）') }}</span>
@@ -32,7 +32,7 @@
       </template>
       <monitoring-items-overview-table
         :aria-label="$t('モニタリング項目')"
-        :status="monitoringStatus"
+        :items="monitoringItems"
       />
     </data-view>
   </v-col>

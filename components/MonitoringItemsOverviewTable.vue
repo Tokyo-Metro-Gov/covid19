@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody id="tableBody">
-      <tr v-for="item in status" :key="item.itemName">
+      <tr v-for="item in items" :key="item.itemName">
         <th scope="row">
           {{ $t(replaceFullWidthByHalfWidth(item.itemName)) }}
         </th>
@@ -36,7 +36,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   props: {
-    status: {
+    items: {
       type: Array,
       required: true
     }
