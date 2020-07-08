@@ -1,4 +1,4 @@
-// monitoring_status.json の型チェック用
+// monitoring_items.json の型チェック用
 
 type RawDataKey =
   | '（１）新規陽性者数'
@@ -34,7 +34,7 @@ interface StatusItemValue {
 }
 
 /**
- * monitoring_status_json のデータを整形
+ * monitoring_items_json のデータを整形
  *
  * @param data - Raw data
  */
