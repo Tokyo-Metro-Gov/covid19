@@ -25,12 +25,12 @@ interface RawDataItemValue {
 // -----------------------------------------
 // フォーマット済み モニタリング指標データ用
 
-interface StatusItem {
+interface MonitoringItem {
   itemName: string
-  itemValue: StatusItemValue
+  itemValue: MonitoringItemValue
 }
 
-interface StatusItemValue {
+interface MonitoringItemValue {
   value: StringOrNumber
   unit: string // 元データに無いので独自に追加
 }
@@ -41,7 +41,7 @@ interface StatusItemValue {
  * @param data - Raw data
  */
 export default (rawDataObj: RawData) => {
-  const formattedData: StatusItem[] = []
+  const formattedData: MonitoringItem[] = []
 
   // switch文の代わりに RawDataKey と対応させたオブジェクトを用いる
   const units: { [key in RawDataKey]: string } = {
