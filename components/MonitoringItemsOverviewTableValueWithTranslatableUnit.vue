@@ -26,6 +26,6 @@ export default Vue.extend({
 
 <style lang="scss" module>
 .parent {
-  white-space: nowrap;
+  // white-space: nowrap;
 }
 </style>
