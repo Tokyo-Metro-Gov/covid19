@@ -30,17 +30,20 @@
           </li>
         </ul>
       </template>
-      <h4>{{ $t('感染状況') }}</h4>
-      <monitoring-items-overview-table-infection-status
-        :aria-label="$t('感染状況')"
-        :items="monitoringItems"
-      />
-
-      <h4>{{ $t('医療提供体制') }}</h4>
-      <monitoring-items-overview-table-medical-system
-        :aria-label="$t('医療提供体制')"
-        :items="monitoringItems"
-      />
+      <section>
+        <h4>{{ $t('感染状況') }}</h4>
+        <monitoring-items-overview-table-infection-status
+          :aria-label="$t('感染状況')"
+          :items="monitoringItems"
+        />
+      </section>
+      <section>
+        <h4>{{ $t('医療提供体制') }}</h4>
+        <monitoring-items-overview-table-medical-system
+          :aria-label="$t('医療提供体制')"
+          :items="monitoringItems"
+        />
+      </section>
     </data-view>
   </v-col>
 </template>
@@ -69,13 +72,18 @@ export default {
 </script>
 
 <style lang="scss" module>
-h4 {
-  margin: 20px 0 10px;
-  font-weight: normal;
-  @include font-size(16);
+section {
+  margin: 0 0 20px;
 
+  /* h タグが連続するため DataView-Content の margin を打ち消す */
   &:first-child {
-    margin-top: 5px;
+    margin-top: -10px;
+  }
+
+  h4 {
+    margin: 5px 0 10px;
+    font-weight: normal;
+    @include font-size(16);
   }
 }
 </style>
