@@ -107,6 +107,7 @@ type Data = {
 }
 type Methods = {
   pickLastNumber: (chartDataArray: number[][]) => number[]
+  pickLastSecondNumber: (chartDataArray: number[][]) => number[]
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
@@ -226,9 +227,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   computed: {
     displayTransitionRatio() {
-      const data = this.chartData[1]
-      const lastDay = data[data.length - 1]
-      const lastDayBefore = data[data.length - 2]
+      const lastDay = this.pickLastNumber(this.chartData)[1]
+      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[1]
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
@@ -486,6 +486,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     pickLastNumber(chartDataArray: number[][]) {
       return chartDataArray.map((array, i) => {
         return this.getFormatter(i)(array[array.length - 1])
+      })
+    },
+    pickLastSecondNumber(chartDataArray: number[][]) {
+      return chartDataArray.map((array, i) => {
+        return this.getFormatter(i)(array[array.length - 2])
       })
     },
     makeLineData(value: number): number[] {
