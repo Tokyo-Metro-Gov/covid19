@@ -24,6 +24,8 @@ PATHS = {
     "/cards/number-of-hospitalized": (959, 500),
     "/cards/monitoring-number-of-reports-to-covid19-consultation-desk": (959, 500),
     "/cards/monitoring-status-overview": (959, 570),
+    "/cards/number-of-reports-to-consultations-about-fever-in-7119": (959, 500),
+    "/cards/number-of-tokyo-rules-applied": (959, 500),
 }
 
 options = webdriver.ChromeOptions()

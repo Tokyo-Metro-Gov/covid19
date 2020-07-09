@@ -20,6 +20,8 @@ import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedC
 import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
 import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
 import MonitoringStatusOverviewCard from '@/components/cards/MonitoringStatusOverviewCard.vue'
+import ConsultationAboutFeverNumberCard from '@/components/cards/ConsultationAboutFeverNumberCard.vue'
+import TokyoRulesApplicationNumberCard from '@/components/cards/TokyoRulesApplicationNumberCard.vue'
 
 export default {
   components: {
@@ -39,7 +41,9 @@ export default {
     PositiveNumberByDiagnosedDateCard,
     ConfirmedCasesIncreaseRatioByWeekCard,
     HospitalizedNumberCard,
-    MonitoringStatusOverviewCard
+    MonitoringStatusOverviewCard,
+    ConsultationAboutFeverNumberCard,
+    TokyoRulesApplicationNumberCard
   },
   data() {
     let title, updatedAt, cardComponent
@@ -94,6 +98,12 @@ export default {
         break
       case 'monitoring-status-overview':
         cardComponent = 'monitoring-status-overview-card'
+        break
+      case 'number-of-reports-to-consultations-about-fever-in-7119':
+        cardComponent = 'consultation-about-fever-number-card'
+        break
+      case 'number-of-tokyo-rules-applied':
+        cardComponent = 'tokyo-rules-application-number-card'
         break
     }
 
