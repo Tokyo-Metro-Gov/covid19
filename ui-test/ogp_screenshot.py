@@ -23,7 +23,7 @@ PATHS = {
     "/cards/positive-status-severe-case": (959, 500),
     "/cards/number-of-hospitalized": (959, 500),
     "/cards/monitoring-number-of-reports-to-covid19-consultation-desk": (959, 500),
-    "/cards/monitoring-status-overview": (959, 570),
+    "/cards/monitoring-items-overview": (959, 570),
 }
 
 options = webdriver.ChromeOptions()
