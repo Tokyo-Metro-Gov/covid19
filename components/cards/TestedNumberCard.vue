@@ -13,7 +13,7 @@
       :table-labels="inspectionsTableLabels"
     >
       <!-- 件.tested = 検査数 -->
-      <template v-slot:description>
+      <template v-slot:additionalDescription>
         <span>{{ $t('（注）') }}</span>
         <ul>
           <li>
