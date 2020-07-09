@@ -25,7 +25,7 @@
           scope="row"
           colspan="3"
         >
-          {{ $t('(1)新規陽性者') }}
+          {{ $t('(1)新規陽性者数') }}
         </th>
         <td :class="$style['cellWidth-itemValue']">
           <monitoring-items-overview-table-value-with-translatable-unit
