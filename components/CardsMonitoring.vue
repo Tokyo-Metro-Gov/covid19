@@ -7,22 +7,20 @@
       <confirmed-cases-number-card />
       <!-- モニタリング項目 -->
       <monitoring-items-overview-card />
-      <!-- モニタリング(1)新規陽性者数 -->
+      <!-- モニタリング項目(1)新規陽性者数 -->
       <monitoring-confirmed-cases-number-card />
-      <!-- モニタリング指標(2)新規陽性者における接触歴等不明率 -->
-      <untracked-rate-card />
-      <!-- モニタリング指標(4)重症患者数 -->
-      <severe-case-card />
-      <!-- モニタリング指標(5)入院患者数 -->
-      <hospitalized-number-card />
-      <!-- モニタリング指標(6)PCR検査の陽性率-->
-      <positive-rate-card />
-      <!-- モニタリング指標(7)受診相談窓口における相談件数 -->
-      <monitoring-consultation-desk-reports-number-card />
       <!-- モニタリング項目(2)#7119における発熱等相談件数 -->
       <consultation-about-fever-number-card />
+      <!-- モニタリング項目(3)新規陽性者における接触歴等不明者数 -->
+      <untracked-rate-card />
+      <!-- モニタリング項目(4)検査の陽性率-->
+      <positive-rate-card />
       <!-- モニタリング項目(5)救急医療の東京ルールの適用件数 -->
       <tokyo-rules-application-number-card />
+      <!-- モニタリング項目(6)入院患者数 -->
+      <hospitalized-number-card />
+      <!-- モニタリング項目(7)重症患者数 -->
+      <severe-case-card />
     </card-row>
   </div>
 </template>
@@ -38,7 +36,6 @@ import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
 import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
 import MonitoringItemsOverviewCard from '@/components/cards/MonitoringItemsOverviewCard.vue'
-import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 import ConsultationAboutFeverNumberCard from '@/components/cards/ConsultationAboutFeverNumberCard.vue'
 import TokyoRulesApplicationNumberCard from '@/components/cards/TokyoRulesApplicationNumberCard.vue'
 
@@ -52,7 +49,6 @@ export default Vue.extend({
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     HospitalizedNumberCard,
-    MonitoringConsultationDeskReportsNumberCard,
     ConsultationAboutFeverNumberCard,
     TokyoRulesApplicationNumberCard,
     MonitoringItemsOverviewCard
