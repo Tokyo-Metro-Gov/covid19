@@ -1,10 +1,5 @@
 <template>
-  <data-view
-    :title="title"
-    :title-id="titleId"
-    :date="date"
-    :head-title="title + infoTitles.join(',')"
-  >
+  <data-view :title="title" :title-id="titleId" :date="date">
     <ul
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
@@ -68,9 +63,8 @@
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
     </template>
-    <template v-slot:dataSetPanel>
-      <data-view-data-set-panel
-        :title="infoTitles[0]"
+    <template v-slot:infoPanel>
+      <data-view-basic-info-panel
         :l-text="displayInfo[0].lText"
         :s-text="displayInfo[0].sText"
         :unit="displayInfo[0].unit"
@@ -93,7 +87,7 @@ import DataViewTable, {
   TableHeader,
   TableItem
 } from '@/components/DataViewTable.vue'
-import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
+import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
@@ -131,7 +125,6 @@ type Computed = {
 type Props = {
   title: string
   titleId: string
-  infoTitles: string[]
   chartId: string
   chartData: number[][]
   date: string
@@ -154,7 +147,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: {
     DataView,
     DataViewTable,
-    DataViewDataSetPanel,
+    DataViewBasicInfoPanel,
     ScrollableChart,
     OpenDataLink
   },
@@ -167,11 +160,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       required: false,
       default: 'monitoring-number-of-reports-to-covid19-consultation-desk'
-    },
-    infoTitles: {
-      type: Array,
-      required: false,
-      default: () => []
     },
     chartId: {
       type: String,
