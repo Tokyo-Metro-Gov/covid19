@@ -3,7 +3,7 @@
     <untracked-rate-mixed-chart
       :title="$t('モニタリング指標(3)')"
       :title-id="'untracked-rate'"
-      :info-titles="[$t('新規陽性者数における接触歴等不明者数'), $t('増加比')]"
+      :info-titles="[$t('新規陽性者における接触歴等不明者数'), $t('増加比')]"
       :chart-id="'untracked-rate-chart'"
       :chart-data="graphData"
       :get-formatter="getFormatter"
@@ -88,13 +88,13 @@ export default {
     const dataLabels = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
-      this.$t('接触歴等不明率（7日間移動平均）'),
+      this.$t('接触歴等不明者数（７日間移動平均）'),
       this.$t('増加比')
     ]
     const tableLabels = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
-      this.$t('接触歴等不明率（7日間移動平均）'),
+      this.$t('接触歴等不明者数（７日間移動平均）'),
       this.$t('増加比')
     ]
 
