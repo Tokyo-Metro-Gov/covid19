@@ -26,6 +26,7 @@ PATHS = {
     "/cards/monitoring-status-overview": (959, 570),
     "/cards/number-of-reports-to-consultations-about-fever-in-7119": (959, 500),
     "/cards/number-of-tokyo-rules-applied": (959, 500),
+    "/cards/monitoring-items-overview": (959, 570),
 }
 
 options = webdriver.ChromeOptions()

@@ -178,7 +178,8 @@ const config: NuxtConfig = {
         '/cards/monitoring-number-of-reports-to-covid19-consultation-desk',
         '/cards/monitoring-status-overview',
         '/cards/number-of-reports-to-consultations-about-fever-in-7119',
-        '/cards/number-of-tokyo-rules-applied'
+        '/cards/number-of-tokyo-rules-applied',
+        '/cards/monitoring-items-overview'
       ]
 
       const routes: string[] = []
