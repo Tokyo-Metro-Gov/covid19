@@ -143,7 +143,7 @@ type DisplayInfo = {
 }
 type Computed = {
   displayTransitionRatio: string
-  displayTransitionInspections: string
+  displayInspectionsTransitionRatio: string
   displayInfo: DisplayInfo[]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
@@ -263,7 +263,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const lastDayBefore = this.pickLastSecondNumber(this.chartData)[5]
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
-    displayTransitionInspections() {
+    displayInspectionsTransitionRatio() {
       const lastDay = this.pickLastNumber(this.chartData)[4]
       const lastDayBefore = this.pickLastSecondNumber(this.chartData)[4]
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
@@ -291,9 +291,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ),
           sText: `${this.$t('{date}の数値', {
             date
-          })}（${this.$t('前日比')}: ${this.displayTransitionInspections} ${
-            this.optionUnit
-          }）`,
+          })}（${this.$t('前日比')}: ${
+            this.displayInspectionsTransitionRatio
+          } ${this.optionUnit}）`,
           unit: this.optionUnit
         }
       ]
