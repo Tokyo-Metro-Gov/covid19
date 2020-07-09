@@ -407,7 +407,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               return label
             },
             title(tooltipItem, data) {
-              if (tooltipItem[0].datasetIndex! < 3) {
+              if (tooltipItem[0].datasetIndex! < 4) {
                 const date = dayjs(
                   data.labels![tooltipItem[0].index!].toString()
                 ).format('M/D')
