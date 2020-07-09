@@ -57,9 +57,7 @@ export default (rawDataObj: RawData) => {
     const rawDataKey = key as RawDataKey
 
     // 非camelcaseプロパティの名前変更
-    const {
-      value,
-    } = rawValue
+    const { value } = rawValue
 
     formattedData.push({
       itemName: rawDataKey,
