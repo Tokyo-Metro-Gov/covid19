@@ -5,9 +5,6 @@
     :date="date"
     :head-title="title + infoTitles.join(',')"
   >
-    <template v-slot:description>
-      <slot name="description" />
-    </template>
     <ul
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"

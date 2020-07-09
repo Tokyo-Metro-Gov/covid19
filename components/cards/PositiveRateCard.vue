@@ -14,20 +14,6 @@
       :data-labels="positiveRateDataLabels"
       :table-labels="positiveRateTableLabels"
     >
-      <template v-slot:description>
-        <ul>
-          <li>
-            {{
-              $t(
-                '「検査実施人数」の推移は本グラフ及びテーブルにて掲載（検査実施人数＝陽性者数＋陰性者数）'
-              )
-            }}
-          </li>
-          <li>
-            {{ $t('陰性確認のために行った検査の実施人数は含まない') }}
-          </li>
-        </ul>
-      </template>
       <template v-slot:additionalDescription>
         <span>{{ $t('（注）') }}</span>
         <ul>
