@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <severe-case-bar-chart
-      :title="$t('旧モニタリング指標(4)')"
+      :title="$t('モニタリング項目(7)')"
       title-id="positive-status-severe-case"
       :info-titles="[$t('重症患者数')]"
       chart-id="time-bar-chart-positive-status-severe-case"
@@ -12,18 +12,21 @@
       <template v-slot:additionalDescription>
         <ul class="ListStyleNone">
           <li>
-            {{
-              $t(
-                '（注）入院患者数のうち、集中治療室（ICU）等での管理又は人工呼吸器管理が必要な患者数を計上'
-              )
-            }}
-          </li>
-          <li>
-            {{
-              $t(
-                '（注）上記の考え方で重症患者数の計上を開始した4月27日から作成'
-              )
-            }}
+            {{ $t('（注）') }}
+            <ul>
+              <li>
+                {{
+                  $t(
+                    '入院患者数のうち、集中治療室（ICU）等での管理又は人工呼吸器管理が必要な患者数を計上'
+                  )
+                }}
+              </li>
+              <li>
+                {{
+                  $t('上記の考え方で重症患者数の計上を開始した4月27日から作成')
+                }}
+              </li>
+            </ul>
           </li>
         </ul>
       </template>

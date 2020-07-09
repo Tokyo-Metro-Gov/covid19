@@ -1,9 +1,8 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <confirmed-cases-increase-ratio-by-week-chart
-      :title="$t('旧モニタリング指標(3)')"
+      :title="$t('週単位の陽性者増加比')"
       :title-id="'increase-ratio-of-confirmed-cases-by-daily'"
-      :info-titles="[$t('週単位の陽性者増加比')]"
       :chart-id="'time-line-chart-patients-increase-ratio'"
       :chart-data="graphData"
       :formatter="formatter"
@@ -12,6 +11,15 @@
       :unit="''"
       :table-labels="tableLabels"
     >
+      <template v-slot:attentionNote>
+        <p>
+          {{
+            $t(
+              '本グラフは、新たなモニタリング項目から除外されたこと、日々公開している陽性者数から算出可能であることから、7月17日をもって削除いたします。'
+            )
+          }}
+        </p>
+      </template>
       <template v-slot:additionalDescription>
         <ul class="ListStyleNone">
           <li>
