@@ -19,7 +19,7 @@
       <agency-card />
     </card-row>
     <card-row class="DataBlock">
-      <!-- 旧モニタリング指標(3)週単位の陽性者増加比 -->
+      <!-- 週単位の陽性者増加比 -->
       <confirmed-cases-increase-ratio-by-week-card />
     </card-row>
   </div>
