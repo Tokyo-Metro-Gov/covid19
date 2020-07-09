@@ -141,7 +141,7 @@ export default {
     const positiveRateTableLabels = positiveRateDataLabels.map(d => d)
 
     const getFormatter = columnIndex => {
-      // モニタリング指標(6)PCR検査の陽性率は小数点第1位まで表示する。
+      // 検査人数（７日間移動平均）と陽性率は小数点第1位まで表示する。
       if (columnIndex >= 4) {
         return getNumberToFixedFunction(1)
       }

@@ -123,10 +123,7 @@ import {
   getGraphSeriesColor,
   SurfaceStyle
 } from '@/utils/colors'
-import {
-  getNumberToFixedFunction,
-  getNumberToLocaleStringFunction
-} from '~/utils/monitoringStatusValueFormatters'
+import { getNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -149,6 +146,7 @@ type DisplayInfo = {
 }
 type Computed = {
   displayTransitionRatio: string
+  displayTransitionInspections: string
   displayInfo: DisplayInfo[]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
@@ -268,27 +266,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const lastDayBefore = this.pickLastSecondNumber(this.chartData)[5]
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
+    displayTransitionInspections() {
+      const lastDay = this.pickLastNumber(this.chartData)[4]
+      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[4]
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+    },
     displayInfo() {
       const date = this.$d(
         new Date(this.labels[this.labels.length - 1]),
         'dateWithoutYear'
       )
-      let lastDayTotalInspections = 0
-      let lastDayBeforeTotalInspections = 0
-      const len = this.chartData.length
-      this.pickLastNumber(this.chartData).forEach((d, i) => {
-        if (i < len - 2) {
-          lastDayTotalInspections += Math.floor(d)
-        }
-      })
-      this.pickLastSecondNumber(this.chartData).forEach((d, i) => {
-        if (i < len - 2) {
-          lastDayBeforeTotalInspections += Math.floor(d)
-        }
-      })
       return [
         {
-          lText: this.getFormatter(2)(
+          lText: this.getFormatter(5)(
             parseFloat(this.pickLastNumber(this.chartData)[5].toLocaleString())
           ),
           sText: `${this.$t('{date}の数値', {
@@ -299,12 +289,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           unit: this.unit
         },
         {
-          lText: lastDayTotalInspections.toLocaleString(),
+          lText: this.getFormatter(4)(
+            parseFloat(this.pickLastNumber(this.chartData)[4].toLocaleString())
+          ),
           sText: `${this.$t('{date}の数値', {
             date
-          })}（${this.$t('前日比')}: ${this.formatDayBeforeRatio(
-            lastDayTotalInspections - lastDayBeforeTotalInspections
-          )} ${this.optionUnit}）`,
+          })}（${this.$t('前日比')}: ${this.displayTransitionInspections} ${
+            this.optionUnit
+          }）`,
           unit: this.optionUnit
         }
       ]
@@ -392,36 +384,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      // 2月14日以前の分39件を累計値に足す
-      let cumulative = 39
       return this.labels
         .map((label, i) => {
-          let [dailySum, datum] = [0, 0]
           return Object.assign(
-            { text: this.$d(new Date(label), 'dateWithoutYear') },
-            ...this.tableHeaders.map((_, j) => {
-              let formatter = getNumberToLocaleStringFunction()
-              switch (j) {
-                case 0: // 陽性者数
-                case 1: // 陰性者数
-                  dailySum += datum = this.chartData[j][i]
-                  formatter = this.getFormatter(j)
-                  break
-                case 2: // 検査実施人数 (日別)
-                  cumulative += datum = dailySum
-                  formatter = getNumberToLocaleStringFunction()
-                  break
-                case 3: // 検査実施人数 (累計)
-                  datum = cumulative
-                  formatter = getNumberToLocaleStringFunction()
-                  break
-                case 4: // 陽性率
-                  datum = this.chartData[2][i]
-                  formatter = this.getFormatter(2)
-                  break
+            { text: dayjs(label).format('M/D') },
+            ...(this.dataLabels as string[]).map((_, j) => {
+              if (this.chartData[j][i] === null) {
+                return {
+                  [j]: ''
+                }
               }
               return {
-                [j]: formatter(datum)
+                [j]: this.getFormatter(j)(this.chartData[j][i])
               }
             })
           )
