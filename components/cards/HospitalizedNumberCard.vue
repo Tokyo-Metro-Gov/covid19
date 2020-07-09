@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <dashed-rectangle-time-bar-chart
-      :title="$t('旧モニタリング指標(5)')"
+      :title="$t('モニタリング項目(6)')"
       :title-id="'number-of-hospitalized'"
       :info-titles="[$t('入院患者数')]"
       :chart-id="'dashed-rectangle-time-bar-chart-hospitalized'"
@@ -15,18 +15,21 @@
       <template v-slot:additionalDescription>
         <ul class="ListStyleNone">
           <li>
-            {{
-              $t(
-                '（注）5月11日までの入院患者数には宿泊療養者・自宅療養者等を含んでいるため、参考値である'
-              )
-            }}
-          </li>
-          <li>
-            {{
-              $t(
-                '（注）当サイトにおいて入院患者数の公表を開始した3月6日から作成'
-              )
-            }}
+            {{ $t('（注）') }}
+            <ul>
+              <li>
+                {{
+                  $t(
+                    '5月11日までの入院患者数には宿泊療養者・自宅療養者等を含んでいるため、参考値である'
+                  )
+                }}
+              </li>
+              <li>
+                {{
+                  $t('当サイトにおいて入院患者数の公表を開始した3月6日から作成')
+                }}
+              </li>
+            </ul>
           </li>
         </ul>
       </template>

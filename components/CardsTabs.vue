@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       tabs: [
-        { label: this.$t('モニタリング指標'), path: '/' },
+        { label: this.$t('モニタリング項目'), path: '/' },
         { label: this.$t('その他 参考指標'), path: '/?tab=reference' }
       ]
     }
