@@ -99,7 +99,7 @@ export default {
     ]
 
     const getFormatter = columnIndex => {
-      // モニタリング指標(2)新規陽性者における接触歴等不明率の7日間移動平均は小数点第1位まで表示する。
+      // 7日間移動平均と増加比は小数点第1位まで表示する。
       if (columnIndex >= 2) {
         return getNumberToFixedFunction(1)
       }

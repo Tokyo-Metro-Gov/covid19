@@ -21,8 +21,8 @@
           <div
             v-if="i === 2"
             :style="{
-              backgroundColor: 'none',
-              border: 'dashed 1.5px' + colors[i].strokeColor,
+              background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
+              border: 0,
               height: '3px'
             }"
           />
@@ -267,15 +267,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayTransitionRatio() {
-      const lastDay = this.pickLastNumber(this.chartData)[1]
-      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[1]
+      const lastDay = this.pickLastNumber(this.chartData)[2]
+      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[2]
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
       return [
         {
-          lText: this.getFormatter(1)(
-            parseFloat(this.pickLastNumber(this.chartData)[1].toLocaleString())
+          lText: this.getFormatter(2)(
+            parseFloat(this.pickLastNumber(this.chartData)[2].toLocaleString())
           ),
           sText: `${this.$t('{date}の数値', {
             date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
@@ -285,7 +285,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           unit: this.unit[0]
         },
         {
-          lText: this.getFormatter(2)(
+          lText: this.getFormatter(3)(
             parseFloat(this.pickLastNumber(this.chartData)[3].toLocaleString())
           ),
           sText: `${this.$t('{date}の数値', {
