@@ -142,16 +142,14 @@ type Methods = {
   onClickLegend: (i: number) => void
   formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
-
+type DisplayInfo = {
+  lText: string
+  sText: string
+  unit: string
+}
 type Computed = {
   displayTransitionRatio: string
-  displayInfo: [
-    {
-      lText: string
-      sText: string
-      unit: string
-    }
-  ]
+  displayInfo: DisplayInfo[]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
@@ -174,6 +172,7 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
   unit: string
+  optionUnit: string
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
 }
@@ -279,12 +278,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const len = this.chartData.length
       this.pickLastNumber(this.chartData).forEach((d, i) => {
         if (i < len - 2) {
-          lastDayTotalInspections += parseInt(d)
+          lastDayTotalInspections += Math.floor(d)
         }
       })
       this.pickLastSecondNumber(this.chartData).forEach((d, i) => {
         if (i < len - 2) {
-          lastDayBeforeTotalInspections += parseInt(d)
+          lastDayBeforeTotalInspections += Math.floor(d)
         }
       })
       return [
