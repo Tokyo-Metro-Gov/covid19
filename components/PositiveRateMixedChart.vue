@@ -134,7 +134,7 @@ type Methods = {
   pickLastNumber: (chartDataArray: number[][]) => number[]
   pickLastSecondNumber: (chartDataArray: number[][]) => number[]
   onClickLegend: (i: number) => void
-  formatDayBeforeRatio: (dayBeforeRatio: number) => string
+  formatDayBeforeRatio: (dayBeforeRatio: number, formatter: number) => string
 }
 type DisplayInfo = {
   lText: string
@@ -261,12 +261,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayTransitionRatio() {
       const lastDay = this.pickLastNumber(this.chartData)[5]
       const lastDayBefore = this.pickLastSecondNumber(this.chartData)[5]
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore, 5)
     },
     displayInspectionsTransitionRatio() {
       const lastDay = this.pickLastNumber(this.chartData)[4]
       const lastDayBefore = this.pickLastSecondNumber(this.chartData)[4]
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore, 4)
     },
     displayInfo() {
       const date = this.$d(
@@ -276,7 +276,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return [
         {
           lText: this.getFormatter(5)(
-            parseFloat(this.pickLastNumber(this.chartData)[5].toLocaleString())
+            this.pickLastNumber(this.chartData)[5]
           ),
           sText: `${this.$t('{date}の数値', {
             date
@@ -287,7 +287,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         },
         {
           lText: this.getFormatter(4)(
-            parseFloat(this.pickLastNumber(this.chartData)[4].toLocaleString())
+            this.pickLastNumber(this.chartData)[4]
           ),
           sText: `${this.$t('{date}の数値', {
             date
@@ -693,16 +693,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     pickLastNumber(chartDataArray: number[][]) {
       return chartDataArray.map((array, i) => {
-        return this.getFormatter(i)(array[array.length - 1])
+        return array[array.length - 1]
       })
     },
     pickLastSecondNumber(chartDataArray: number[][]) {
       return chartDataArray.map((array, i) => {
-        return this.getFormatter(i)(array[array.length - 2])
+        return array[array.length - 2]
       })
     },
-    formatDayBeforeRatio(dayBeforeRatio: number): string {
-      const dayBeforeRatioLocaleString = this.getFormatter(2)(dayBeforeRatio)
+    formatDayBeforeRatio(dayBeforeRatio: number, formatter: number): string {
+      const dayBeforeRatioLocaleString = this.getFormatter(formatter)(dayBeforeRatio)
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
           return `+${dayBeforeRatioLocaleString}`
