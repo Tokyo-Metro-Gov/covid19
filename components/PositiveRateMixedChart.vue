@@ -275,9 +275,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       )
       return [
         {
-          lText: this.getFormatter(5)(
-            this.pickLastNumber(this.chartData)[5]
-          ),
+          lText: this.getFormatter(5)(this.pickLastNumber(this.chartData)[5]),
           sText: `${this.$t('{date}の数値', {
             date
           })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
@@ -286,9 +284,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           unit: this.unit
         },
         {
-          lText: this.getFormatter(4)(
-            this.pickLastNumber(this.chartData)[4]
-          ),
+          lText: this.getFormatter(4)(this.pickLastNumber(this.chartData)[4]),
           sText: `${this.$t('{date}の数値', {
             date
           })}（${this.$t('前日比')}: ${
@@ -702,7 +698,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       })
     },
     formatDayBeforeRatio(dayBeforeRatio: number, formatter: number): string {
-      const dayBeforeRatioLocaleString = this.getFormatter(formatter)(dayBeforeRatio)
+      const dayBeforeRatioLocaleString = this.getFormatter(formatter)(
+        dayBeforeRatio
+      )
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
           return `+${dayBeforeRatioLocaleString}`

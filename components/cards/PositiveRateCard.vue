@@ -131,12 +131,10 @@ export default {
       if (columnIndex === 4) {
         // 検査人数（７日間移動平均）は小数点第1位まで表示し、整数部分は３桁区切りにする。
         return getCommaSeparatedNumberToFixedFunction(1)
-      }
-      else if (columnIndex === 5) {
+      } else if (columnIndex === 5) {
         // 陽性率は小数点第1位まで表示する。
         return getNumberToFixedFunction(1)
-      }
-      else {
+      } else {
         return getNumberToLocaleStringFunction()
       }
     }
