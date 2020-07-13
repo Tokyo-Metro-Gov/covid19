@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ja-basic/cards/number-of-tested", {data:[{}],fetch:[],mutations:void 0});

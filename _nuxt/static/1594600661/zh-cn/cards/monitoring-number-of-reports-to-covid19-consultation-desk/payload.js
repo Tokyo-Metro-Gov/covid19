@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/zh-cn/cards/monitoring-number-of-reports-to-covid19-consultation-desk", {data:[{}],fetch:[],mutations:void 0});

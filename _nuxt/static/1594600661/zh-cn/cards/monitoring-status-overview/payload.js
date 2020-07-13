@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/zh-cn/cards/monitoring-status-overview", {data:[{}],fetch:[],mutations:void 0});

@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/zh-tw/cards/agency", {data:[{}],fetch:[],mutations:void 0});

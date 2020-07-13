@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ko/cards/positive-number-by-diagnosed-date", {data:[{}],fetch:[],mutations:void 0});

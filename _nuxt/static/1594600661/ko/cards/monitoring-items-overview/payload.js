@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ko/cards/monitoring-items-overview", {data:[{}],fetch:[],mutations:void 0});
