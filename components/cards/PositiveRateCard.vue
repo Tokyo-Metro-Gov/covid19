@@ -78,7 +78,8 @@ import PositiveRate from '@/data/positive_rate.json'
 import PositiveRateMixedChart from '@/components/PositiveRateMixedChart'
 import {
   getNumberToFixedFunction,
-  getNumberToLocaleStringFunction
+  getNumberToLocaleStringFunction,
+  getCommaSeparatedNumberToFixedFunction
 } from '@/utils/monitoringStatusValueFormatters'
 dayjs.extend(duration)
 
@@ -127,11 +128,15 @@ export default {
     const positiveRateTableLabels = positiveRateDataLabels.map(d => d)
 
     const getFormatter = columnIndex => {
-      // 検査人数（７日間移動平均）と陽性率は小数点第1位まで表示する。
-      if (columnIndex >= 4) {
+      if (columnIndex === 4) {
+        // 検査人数（７日間移動平均）は小数点第1位まで表示し、整数部分は３桁区切りにする。
+        return getCommaSeparatedNumberToFixedFunction(1)
+      } else if (columnIndex === 5) {
+        // 陽性率は小数点第1位まで表示する。
         return getNumberToFixedFunction(1)
+      } else {
+        return getNumberToLocaleStringFunction()
       }
-      return getNumberToLocaleStringFunction()
     }
 
     return {
