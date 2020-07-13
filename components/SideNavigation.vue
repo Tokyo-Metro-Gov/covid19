@@ -44,8 +44,6 @@
         <menu-list :items="items" @click="$emit('closeNavi', $event)" />
       </nav>
 
-<<<<<<< HEAD
-=======
       <div class="SideNavigation-Language">
         <!--<label class="SideNavigation-LanguageLabel" for="LanguageSelector">
           {{ $t('多言語対応選択メニュー') }}
@@ -53,7 +51,6 @@
         <LanguageSelector />-->
       </div>
 
->>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
       <footer class="SideNavigation-Footer">
         <div class="SideNavigation-Social">
           <!--<a
@@ -63,11 +60,16 @@
             class="SideNavigation-SocialLink"
           >
 <<<<<<< HEAD
+<<<<<<< HEAD
             <picture>
               <source srcset="/line.webp" type="image/webp" />
               <img src="/line.png" alt="LINE" />
             </picture>
           </a>
+=======
+            <img src="/line.png" alt="LINE" />
+          </a>-->
+>>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
 =======
             <img src="/line.png" alt="LINE" />
           </a>-->
@@ -101,6 +103,7 @@
             class="SideNavigation-SocialLink"
           >
 <<<<<<< HEAD
+<<<<<<< HEAD
             <picture>
               <source srcset="/github.webp" type="image/webp" />
               <img src="/github.png" alt="GitHub" />
@@ -131,6 +134,14 @@
           {{ $t('の下に提供されています。') }}
           <br />
           &copy; 2020 Tokyo Metropolitan Government
+=======
+            <img src="/github.png" alt="GitHub" />
+          </a>-->
+        </div>
+        <small class="SideNavigation-Copyright">
+            Operations by:<br>
+            <a href="https://www.t-catv.co.jp/" target="_blank"><img src="/catvlogo.svg" :alt="$t('福井県')" /></a>
+>>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
 =======
             <img src="/github.png" alt="GitHub" />
           </a>-->
@@ -181,6 +192,7 @@ export default Vue.extend({
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
 <<<<<<< HEAD
+<<<<<<< HEAD
           link: this.localePath('/flow')
         },
         {
@@ -203,6 +215,9 @@ export default Vue.extend({
 =======
           link: 'https://www.pref.fukui.lg.jp/doc/kouho/navi.html',
 >>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
+=======
+          link: 'https://www.pref.fukui.lg.jp/doc/kouho/navi.html',
+>>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
         },
         {
           icon: 'mdi-account-multiple',
@@ -221,6 +236,7 @@ export default Vue.extend({
           link: 'https://www.pref.fukui.lg.jp/doc/kyousei/korona_kyouiku.html'
         },
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
           title: this.$t('東京都 新型コロナウイルス感染症 支援情報ナビ'),
           link: 'https://covid19.supportnavi.metro.tokyo.lg.jp/'
@@ -243,6 +259,10 @@ export default Vue.extend({
           icon: 'mdi-domain',
           title: this.$t('企業の皆様へ'),
           link: 'https://www.pref.fukui.lg.jp/doc/kenkou/covid19_kigyo.html',
+=======
+          icon: 'mdi-domain',
+          title: this.$t('企業の皆様へ'),
+          link: 'https://www.pref.fukui.lg.jp/doc/kenkou/covid19_kigyo.html',
         },
         {
           icon: 'mdi-domain',
@@ -252,10 +272,20 @@ export default Vue.extend({
 >>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
         },
         {
+          icon: 'mdi-domain',
+          title: this.$t('医療機関の皆様へ'),
+          link: 'https://www.pref.fukui.lg.jp/doc/kenkou/covid19_iryo.html',
+          divider: true
+>>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
+        },
+        {
+<<<<<<< HEAD
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
         },
         {
+=======
+>>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
           title: this.$t('福井県公式ホームページ'),
           link: 'https://www.pref.fukui.lg.jp/'
         }
@@ -428,6 +458,9 @@ export default Vue.extend({
 
 .SideNavigation-Language {
   padding-top: 10px;
+<<<<<<< HEAD
+>>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
+=======
 >>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
 }
 
@@ -439,8 +472,11 @@ export default Vue.extend({
 
 .SideNavigation-Footer {
 <<<<<<< HEAD
+<<<<<<< HEAD
   padding-top: 20px;
 =======
+=======
+>>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
   background-color: $white;
 >>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
 }
@@ -485,13 +521,21 @@ export default Vue.extend({
   margin-top: 15px;
   color: $gray-1;
 <<<<<<< HEAD
+<<<<<<< HEAD
   line-height: 1.3;
 =======
+=======
+>>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
   font-size: 12px;
   line-height: 1.2;
 >>>>>>> 249cc8187e9de558f2dddbae2220ccf2d61ea53b
   font-weight: bold;
   @include font-size(10);
+}
+
+.SideNavigation-Copyright img {
+    width: 150px;
+    margin: 10px 0 0 0;
 }
 
 .SideNavigation-Copyright img {

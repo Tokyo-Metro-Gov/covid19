@@ -135,6 +135,11 @@ export default Vue.extend({
           property: 'og:url',
           content: `https://covid19-fukui.bosai-signal.jp${this.$route.path}`
         },
+        {
+          hid: 'og:locale',
+          property: 'og:locale',
+          content: this.$i18n.locale
+        },
         ogLocale,
         {
           hid: 'og:title',
