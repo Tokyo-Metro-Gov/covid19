@@ -114,14 +114,15 @@ export default {
     }
   },
   head() {
-    const url = 'https://stopcovid19.metro.tokyo.lg.jp'
+    const url = 'https://covid19-fukui.bosai-signal.jp'
     const timestamp = new Date().getTime()
     const ogpImage =
       this.$i18n.locale === 'ja'
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
-    const description = `${this.$t(
-      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+
+    const description = `${this.updatedAt} | ${this.$t(
+      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、丹南ケーブルテレビが開設したものです。'
     )}`
     const defaultTitle = `${this.$t('東京都')} ${this.$t(
       '新型コロナウイルス感染症'
@@ -138,8 +139,14 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          template: title => `${this.title || title} | ${defaultTitle}`,
-          content: ''
+          content:
+            this.title +
+            ' | ' +
+            this.$t('福井県') +
+            ' ' +
+            this.$t('新型コロナウイルス感染症') +
+            this.$t('対策サイト')
+
         },
         {
           hid: 'description',

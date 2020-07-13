@@ -55,8 +55,27 @@
       <div class="DataView-Space" />
 
       <div class="DataView-Footer">
-        <div>
-          <slot name="footer" />
+        <div class="Footer-Left">
+          <div>
+            <a
+              class="OpenDataLink"
+              href="https://www.pref.fukui.lg.jp/doc/toukei-jouhou/covid-19.html"
+              target="_blank"
+              rel="noopener"
+            >
+              {{ $t('福井県のオープンデータ') }}
+              <v-icon
+                class="ExternalLinkIcon"
+                size="15"
+                :aria-label="this.$t('別タブで開く')"
+                role="img"
+                :aria-hidden="false"
+              >
+                mdi-open-in-new
+              </v-icon>
+            </a>
+            + 会見/資料
+          </div>
           <div>
             <a class="Permalink" :href="permalink">
               <time :datetime="formattedDate">

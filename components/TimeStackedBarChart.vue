@@ -81,11 +81,7 @@ import { TranslateResult } from 'vue-i18n'
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import DataView from '@/components/DataView.vue'
-import DataSelector from '@/components/DataSelector.vue'
-import DataViewTable, {
-  TableHeader,
-  TableItem
-} from '@/components/DataViewTable.vue'
+import DataSelector from '@/components/DataSelector2.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
@@ -319,8 +315,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         tooltips: {
           displayColors: false,
           callbacks: {
-            label: tooltipItem => {
-              let casesTotal, cases, label
+            label: (tooltipItem: any) => {
+              const labelTokyo = this.$t('県内')
+              const labelArray = [labelTokyo]
+              let casesTotal, cases
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index!].toLocaleString()
                 cases = data[tooltipItem.datasetIndex!][
@@ -358,163 +356,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         },
         scales: {
           xAxes: [
-            {
-              id: 'day',
-              stacked: true,
-              gridLines: {
-                display: false
-              },
-              ticks: {
-                fontSize: 9,
-                maxTicksLimit: 20,
-                fontColor: '#808080',
-                maxRotation: 0,
-                callback: (label: string) => {
-                  return label.split('/')[1]
-                }
-              }
-              // #2384: If you set "type" to "time", make sure that the bars at both ends are not hidden.
-              // #2384: typeをtimeに設定する時はグラフの両端が見切れないか確認してください
-            },
-            {
-              id: 'month',
-              stacked: true,
-              gridLines: {
-                drawOnChartArea: false,
-                drawTicks: true,
-                drawBorder: false,
-                tickMarkLength: 10
-              },
-              ticks: {
-                fontSize: 11,
-                fontColor: '#808080',
-                padding: 3,
-                fontStyle: 'bold'
-              },
-              type: 'time',
-              time: {
-                unit: 'month',
-                parser: 'M/D',
-                displayFormats: {
-                  month: 'MMM'
-                }
-              }
-            }
-          ],
-          yAxes: [
-            {
-              stacked: true,
-              gridLines: {
-                display: true,
-                color: '#E5E5E5'
-              },
-              ticks: {
-                suggestedMin: 0,
-                suggestedMax: this.scaledTicksYAxisMax,
-                maxTicksLimit: 8,
-                fontColor: '#808080'
-              }
-            }
-          ]
-        }
-      }
-      if (this.$route.query.ogp === 'true') {
-        Object.assign(options, { animation: { duration: 0 } })
-      }
-      return options
-    },
-    displayDataHeader() {
-      let n = 0
-      let max = 0
-      for (const i in this.displayData.datasets[0].data) {
-        const current =
-          this.displayData.datasets[0].data[i] +
-          this.displayData.datasets[1].data[i]
-        if (current > max) {
-          max = current
-          n = Number(i)
-        }
-      }
-      return {
-        labels: ['2020/1/1'],
-        datasets: [
-          {
-            data: [this.displayData.datasets[0].data[n]],
-            backgroundColor: 'transparent',
-            borderWidth: 0
-          },
-          {
-            data: [this.displayData.datasets[1].data[n]],
-            backgroundColor: 'transparent',
-            borderWidth: 0
-          }
-        ]
-      }
-    },
-    displayOptionHeader() {
-      const options: Chart.ChartOptions = {
-        maintainAspectRatio: false,
-        legend: {
-          display: false
-        },
-        tooltips: { enabled: false },
-        scales: {
-          xAxes: [
-            {
-              id: 'day',
-              stacked: true,
-              gridLines: {
-                display: false
-              },
-              ticks: {
-                fontSize: 9,
-                maxTicksLimit: 20,
-                fontColor: 'transparent',
-                maxRotation: 0,
-                minRotation: 0,
-                callback: (label: string) => {
-                  return label.split('/')[1]
-                }
-              }
-            },
-            {
-              id: 'month',
-              stacked: true,
-              gridLines: {
-                drawOnChartArea: false,
-                drawTicks: false, // true -> false
-                drawBorder: false,
-                tickMarkLength: 10
-              },
-              ticks: {
-                fontSize: 11,
-                fontColor: 'transparent', // #808080
-                padding: 13, // 3 + 10(tickMarkLength)
-                fontStyle: 'bold',
-                callback: (label: string) => {
-                  const monthStringArry = [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec'
-                  ]
-                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
-                  return `${month}月`
-                }
-              },
-              type: 'time',
-              time: {
-                unit: 'month'
-              }
-            }
           ],
           yAxes: [
             {
@@ -579,7 +420,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     eachArraySum(chartDataArray: number[][]) {
       const sumArray: number[] = []
       for (let i = 0; i < chartDataArray[0].length; i++) {
-        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
+        sumArray.push(chartDataArray[0][i])
       }
       return sumArray
     }

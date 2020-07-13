@@ -7,25 +7,8 @@
       :chart-data="patientsGraph"
       :date="Data.patients_summary.date"
       :unit="$t('人')"
-      :by-date="true"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
-    >
-      <template v-slot:description>
-        <ul class="ListStyleNone">
-          <li>
-            {{ $t('（注）保健所から発生届が提出された日を基準とする') }}
-          </li>
-          <li>
-            {{ $t('（注）医療機関等が行った検査も含む') }}
-          </li>
-          <li>
-            {{
-              $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-            }}
-          </li>
-        </ul>
-      </template>
-    </time-bar-chart>
+      :url="'https://www.pref.fukui.lg.jp/doc/toukei-jouhou/covid-19.html'"
+    />
   </v-col>
 </template>
 

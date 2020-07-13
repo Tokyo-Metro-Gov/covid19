@@ -14,14 +14,16 @@ const config: NuxtConfig = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
+    titleTemplate: '%s | 福井県 新型コロナウイルス対策サイト（非公式）',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'keywords', name: 'keywords', content: '福井県,コロナ,コロナウイルス,covid19,対策,動向,丹南ケーブルテレビ' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp'
+        content: 'https://covid19-fukui.bosai-signal.jp'
       },
       {
         hid: 'twitter:card',
@@ -31,17 +33,17 @@ const config: NuxtConfig = {
       {
         hid: 'twitter:site',
         name: 'twitter:site',
-        content: '@tokyo_bousai'
+        content: '@fukui_bosai'
       },
       {
         hid: 'twitter:creator',
         name: 'twitter:creator',
-        content: '@tokyo_bousai'
+        content: '@fukui_bosai'
       },
       {
         hid: 'fb:app_id',
         property: 'fb:app_id',
-        content: '2879625188795443'
+        content: ''
       },
       {
         hid: 'note:card',
@@ -112,7 +114,7 @@ const config: NuxtConfig = {
     }
   },
   googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID // .env.production などに設定してください。
+    id: 'UA-27489049-19'
   },
   optionalCookies: [
     {
@@ -148,7 +150,7 @@ const config: NuxtConfig = {
     // hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: '東京都 新型コロナウイルス感染症対策サイト',
+    name: '福井県 新型コロナウイルス対策サイト（非公式）',
     theme_color: '#00a040',
     background_color: '#ffffff',
     display: 'standalone',

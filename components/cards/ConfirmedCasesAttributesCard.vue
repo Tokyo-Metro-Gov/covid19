@@ -7,9 +7,7 @@
       :chart-option="{}"
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
-      :source="$t('オープンデータを入手')"
-      :custom-sort="customSort"
+      :url="'https://www.pref.fukui.lg.jp/doc/toukei-jouhou/covid-19.html'"
     />
   </v-col>
 </template>
@@ -42,14 +40,15 @@ export default {
 
     // 陽性患者の属性 ヘッダー翻訳
     for (const header of patientsTable.headers) {
-      header.text =
-        header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
+      //header.text =
+        //header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
     }
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
-      row['居住地'] = this.getTranslatedWording(row['居住地'])
-      row['性別'] = this.getTranslatedWording(row['性別'])
-      row['退院'] = this.getTranslatedWording(row['退院'])
+      row['ID'] = this.$t(row['ID'])+"例目"
+      row['居住地'] = this.$t(row['居住地'])
+      row['性別'] = this.$t(row['性別'])
+      row['濃厚接触者数'] = this.$t(row['濃厚接触者数'])
 
       if (row['年代'].substr(-1, 1) === '代') {
         const age = row['年代'].substring(0, 2)

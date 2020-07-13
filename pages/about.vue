@@ -2,22 +2,17 @@
   <div class="About">
     <page-header class="mb-3">
       {{ $t('当サイトについて') }}
-    </page-header>
-    <static-card>
-      {{
-        $t(
-          '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
-        )
-      }}<br />
-      <br />
-      {{
-        $t(
-          '東京都による公式情報と客観的な数値をわかりやすく伝えることで、東京都にお住まいの方や、東京都内に拠点を持つ企業の方、東京都を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。'
-        )
-      }}
-    </static-card>
-    <static-card>
-      <h3>{{ $t('ブラウザ環境について') }}</h3>
+    </h2>
+    <StaticCard>
+    当サイトは、福井県内の新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために作成されました。<br>
+    開発は、丹南ケーブルテレビ株式会社メディア戦略室が行っています。<br>
+    複製・改変が許されたオープンソースライセンスで公開されている、東京都公式新型コロナウイルス対策サイトの仕組みを利用しています。<br>
+    福井県による公式情報と客観的な数値をわかりやすく伝えることで、福井県にお住まいの方や、福井県内に拠点を持つ企業の方、福井県を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。<br>
+    紹介などにこちらのページをぜひご利用ください。<br>
+    複製・配布は自由です。ご自由にコピーまたはプリントアウトしてご利用ください。
+    </StaticCard>
+    <StaticCard>
+      <h2>{{ $t('ブラウザ環境について') }}</h2>
       <p>
         {{ $t('当サイトは以下の環境でご覧いただくことを推奨いたします。') }}
       </p>
@@ -148,80 +143,24 @@
           </external-link>
         </li>
       </ul>
-      <i18n
-        tag="p"
-        path="Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。"
-      >
-        <template v-slot:addon>
-          <external-link
-            :url="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
-            :icon-size="16"
-          >
-            {{ $t('測定を無効にするブラウザ アドオン') }}
-          </external-link>
-        </template>
-      </i18n>
-    </static-card>
-    <static-card>
-      <h3>{{ $t('免責事項') }}</h3>
-      <p>
-        {{
-          $t(
-            '当サイトに掲載されている情報の正確性については万全を期していますが、東京都は利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。'
-          )
-        }}
-      </p>
-      <p>
-        {{
-          $t(
-            'また、利用者が当サイトを利用したことにより発生した利用者の損害及び利用者が第三者に与えた損害に対して、責任を負うものではありません。'
-          )
-        }}
-      </p>
-      <p>
-        {{
-          $t(
-            '当サイトに掲載されている情報は、予告なしに変更又は削除することがあります。'
-          )
-        }}
-      </p>
-    </static-card>
-    <static-card>
-      <h3>{{ $t('データについて') }}</h3>
-      <i18n
-        tag="p"
-        path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
-      >
-        <template v-slot:catalogWebsite>
-          <external-link
-            url="https://portal.data.metro.tokyo.lg.jp/"
-            :icon-size="16"
-          >
-            {{ $t('東京都オープンデータカタログサイト') }}
-          </external-link>
-        </template>
-      </i18n>
-    </static-card>
-    <static-card>
-      <h3>{{ $t('ソースコードについて') }}</h3>
-      <p>
-        {{
-          $t(
-            '当サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。'
-          )
-        }}
-        <i18n path="詳しくは、{githubRepo}をご確認ください。">
-          <template v-slot:githubRepo>
-            <external-link
-              url="https://github.com/tokyo-metropolitan-gov/covid19"
-              :icon-size="16"
-            >
-              {{ $t('GitHub リポジトリ') }}
-            </external-link>
-          </template>
-        </i18n>
-      </p>
-    </static-card>
+    </StaticCard>
+    <StaticCard>
+      <h2>{{ $t('免責事項') }}</h2>
+      当サイトに掲載されている情報については、福井県の「新型コロナウイルス感染症について」（<a href="https://www.pref.fukui.lg.jp/doc/kenkou/kansensyo-yobousessyu/corona.html" target="_blank">https://www.pref.fukui.lg.jp/doc/kenkou/kansensyo-yobousessyu/corona.html</a>）から取得したデータですが、福井県、当サイトの開発者・関係者は、利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。<br>
+      また、利用者が当サイトを利用したことにより発生した利用者の損害及び利用者が第三者に与えた損害に対して、責任を負うものではありません。<br>
+      当サイトに掲載されている情報は、予告なしに変更又は削除することがあります。
+    </StaticCard>
+    <StaticCard>
+      <h2>{{ $t('データについて') }}</h2>
+      本サイトで公表しているデータは、福井県のホームページに掲載されているものです。<br>
+      <a href="https://www.pref.fukui.lg.jp/doc/kenkou/kansensyo-yobousessyu/corona.html" target="_blank">福井県ホームページ（新型コロナウイルス感染症について）</a>
+    </StaticCard>
+    <StaticCard>
+      <h2>お問い合わせ先</h2>
+      丹南ケーブルテレビ株式会社　メディア戦略室<br>
+    （お問い合わせ受付　平日：09:00～18:00）<br>
+      <a href="https://fukui.bosai-signal.jp/#/contact" target="_blank">お問合せフォームはこちら</a>
+    </StaticCard>
   </div>
 </template>
 

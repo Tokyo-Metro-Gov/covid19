@@ -55,21 +55,11 @@ export default {
   },
   data() {
     // 検査実施日別状況
-    const l = Data.inspections_summary.data['都内'].length
-    const domestic = []
-    const insurance = []
-    for (let i = 0; i < l; i++) {
-      domestic.push(
-        Data.inspections_summary.data['都内'][i] +
-          Data.inspections_summary.data['その他'][i]
-      )
-      insurance.push(Data.inspections_summary.data['保険適用分'][i])
-    }
-
-    const inspectionsGraph = [domestic, insurance]
+    const inspectionsGraph = [
+      Data.inspections_summary.data['県内']
+    ]
     const inspectionsItems = [
-      this.$t('健康安全研究センターが行った検査件数'),
-      this.$t('医療機関等が行った検査件数')
+      this.$t('県内')
     ]
     const inspectionsLabels = Data.inspections_summary.labels
     const inspectionsDataLabels = [
