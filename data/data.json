@@ -1263,11 +1263,11 @@
                 "children": [
                     {
                         "attr": "入院中",
-                        "value": 127,
+                        "value": 125,
                         "children": [
                             {
                                 "attr": "軽症・中等症",
-                                "value": 127
+                                "value": 125
                             },
                             {
                                 "attr": "重症",
@@ -1277,7 +1277,7 @@
                     },
                     {
                         "attr": "退院",
-                        "value": 28
+                        "value": 30
                     },
                     {
                         "attr": "死亡",
