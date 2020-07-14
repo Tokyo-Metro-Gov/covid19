@@ -6,6 +6,7 @@ const environment = process.env.NODE_ENV || 'development'
 
 const config: NuxtConfig = {
   mode: 'universal',
+  target: 'static',
   /*
    ** Headers of the page
    */
@@ -176,7 +177,10 @@ const config: NuxtConfig = {
         '/cards/positive-status-severe-case',
         '/cards/number-of-hospitalized',
         '/cards/monitoring-number-of-reports-to-covid19-consultation-desk',
-        '/cards/monitoring-status-overview'
+        '/cards/monitoring-status-overview',
+        '/cards/number-of-reports-to-consultations-about-fever-in-7119',
+        '/cards/number-of-tokyo-rules-applied',
+        '/cards/monitoring-items-overview'
       ]
 
       const routes: string[] = []

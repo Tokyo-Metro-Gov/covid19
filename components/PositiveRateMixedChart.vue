@@ -5,9 +5,6 @@
     :date="date"
     :head-title="title + infoTitles.join(',')"
   >
-    <template v-slot:description>
-      <slot name="description" />
-    </template>
     <ul
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
@@ -19,9 +16,17 @@
       >
         <button>
           <div
-            v-if="i === 2"
+            v-if="i === 4"
             :style="{
-              backgroundColor: '#CC7004',
+              background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
+              border: 0,
+              height: '3px'
+            }"
+          />
+          <div
+            v-else-if="i === 5"
+            :style="{
+              backgroundColor: colors[4].fillColor,
               border: 0,
               height: '3px'
             }"
@@ -82,6 +87,12 @@
         :s-text="displayInfo[0].sText"
         :unit="displayInfo[0].unit"
       />
+      <data-view-data-set-panel
+        :title="infoTitles[1]"
+        :l-text="displayInfo[1].lText"
+        :s-text="displayInfo[1].sText"
+        :unit="displayInfo[1].unit"
+      />
     </template>
   </data-view>
 </template>
@@ -104,11 +115,12 @@ import {
   yAxesBgPlugin,
   yAxesBgRightPlugin
 } from '@/plugins/vue-chart'
-import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 import {
-  getNumberToFixedFunction,
-  getNumberToLocaleStringFunction
-} from '~/utils/monitoringStatusValueFormatters'
+  getGraphSeriesStyle,
+  getGraphSeriesColor,
+  SurfaceStyle
+} from '@/utils/colors'
+import { getNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -122,18 +134,17 @@ type Methods = {
   pickLastNumber: (chartDataArray: number[][]) => number[]
   pickLastSecondNumber: (chartDataArray: number[][]) => number[]
   onClickLegend: (i: number) => void
-  formatDayBeforeRatio: (dayBeforeRatio: number) => string
+  formatDayBeforeRatio: (dayBeforeRatio: number, formatter: number) => string
 }
-
+type DisplayInfo = {
+  lText: string
+  sText: string
+  unit: string
+}
 type Computed = {
   displayTransitionRatio: string
-  displayInfo: [
-    {
-      lText: string
-      sText: string
-      unit: string
-    }
-  ]
+  displayInspectionsTransitionRatio: string
+  displayInfo: DisplayInfo[]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
@@ -156,6 +167,7 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
   unit: string
+  optionUnit: string
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
 }
@@ -226,6 +238,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       default: ''
     },
+    optionUnit: {
+      type: String,
+      required: false,
+      default: ''
+    },
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin
@@ -236,15 +253,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   data: () => ({
-    displayLegends: [true, true, true],
-    colors: getGraphSeriesStyle(2),
+    displayLegends: [true, true, true, true, true, true],
+    colors: [...getGraphSeriesStyle(4), getGraphSeriesColor('E')],
     canvas: true
   }),
   computed: {
     displayTransitionRatio() {
-      const lastDay = this.pickLastNumber(this.chartData)[2]
-      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[2]
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      const lastDay = this.pickLastNumber(this.chartData)[5]
+      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[5]
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore, 5)
+    },
+    displayInspectionsTransitionRatio() {
+      const lastDay = this.pickLastNumber(this.chartData)[4]
+      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[4]
+      return this.formatDayBeforeRatio(lastDay - lastDayBefore, 4)
     },
     displayInfo() {
       const date = this.$d(
@@ -253,20 +275,27 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       )
       return [
         {
-          lText: this.getFormatter(2)(
-            parseFloat(this.pickLastNumber(this.chartData)[2].toLocaleString())
-          ),
+          lText: this.getFormatter(5)(this.pickLastNumber(this.chartData)[5]),
           sText: `${this.$t('{date}の数値', {
             date
           })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
             this.unit
           }）`,
           unit: this.unit
+        },
+        {
+          lText: this.getFormatter(4)(this.pickLastNumber(this.chartData)[4]),
+          sText: `${this.$t('{date}の数値', {
+            date
+          })}（${this.$t('前日比')}: ${
+            this.displayInspectionsTransitionRatio
+          } ${this.optionUnit}）`,
+          unit: this.optionUnit
         }
       ]
     },
     displayData() {
-      const graphSeries = getGraphSeriesStyle(2)
+      const graphSeries = [...getGraphSeriesStyle(4), getGraphSeriesColor('E')]
       return {
         labels: this.labels,
         datasets: [
@@ -291,13 +320,46 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             order: 2
           },
           {
-            type: 'line',
-            yAxisID: 'y-axis-2',
+            type: 'bar',
+            yAxisID: 'y-axis-1',
             label: this.dataLabels[2],
             data: this.chartData[2],
+            backgroundColor: graphSeries[2].fillColor,
+            borderColor: graphSeries[2].strokeColor,
+            borderWidth: 1,
+            order: 3
+          },
+          {
+            type: 'bar',
+            yAxisID: 'y-axis-1',
+            label: this.dataLabels[3],
+            data: this.chartData[3],
+            backgroundColor: graphSeries[3].fillColor,
+            borderColor: graphSeries[3].strokeColor,
+            borderWidth: 1,
+            order: 4
+          },
+          {
+            type: 'line',
+            yAxisID: 'y-axis-1',
+            label: this.dataLabels[4],
+            data: this.chartData[4],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: '#CC7004',
+            borderColor: graphSeries[4].strokeColor,
+            borderWidth: 3,
+            fill: false,
+            order: 0,
+            borderDash: [4, 4]
+          },
+          {
+            type: 'line',
+            yAxisID: 'y-axis-2',
+            label: this.dataLabels[5],
+            data: this.chartData[5],
+            pointBackgroundColor: 'rgba(0,0,0,0)',
+            pointBorderColor: 'rgba(0,0,0,0)',
+            borderColor: graphSeries[4].strokeColor,
             borderWidth: 3,
             fill: false,
             order: 0,
@@ -315,36 +377,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      // 2月14日以前の分39件を累計値に足す
-      let cumulative = 39
       return this.labels
         .map((label, i) => {
-          let [dailySum, datum] = [0, 0]
           return Object.assign(
-            { text: this.$d(new Date(label), 'dateWithoutYear') },
-            ...this.tableHeaders.map((_, j) => {
-              let formatter = getNumberToLocaleStringFunction()
-              switch (j) {
-                case 0: // 陽性者数
-                case 1: // 陰性者数
-                  dailySum += datum = this.chartData[j][i]
-                  formatter = this.getFormatter(j)
-                  break
-                case 2: // 検査実施人数 (日別)
-                  cumulative += datum = dailySum
-                  formatter = getNumberToLocaleStringFunction()
-                  break
-                case 3: // 検査実施人数 (累計)
-                  datum = cumulative
-                  formatter = getNumberToLocaleStringFunction()
-                  break
-                case 4: // 陽性率
-                  datum = this.chartData[2][i]
-                  formatter = this.getFormatter(2)
-                  break
+            { text: dayjs(label).format('M/D') },
+            ...(this.dataLabels as string[]).map((_, j) => {
+              if (this.chartData[j][i] === null) {
+                return {
+                  [j]: ''
+                }
               }
               return {
-                [j]: formatter(datum)
+                [j]: this.getFormatter(j)(this.chartData[j][i])
               }
             })
           )
@@ -366,7 +410,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${this.$t('人')}`
-              if (tooltipItem.datasetIndex! >= 2) {
+              if (tooltipItem.datasetIndex! >= 5) {
                 label = `${
                   this.dataLabels[tooltipItem.datasetIndex!]
                 } : ${cases} ${unit}`
@@ -476,7 +520,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       for (const i in this.displayData.datasets[0].data) {
         const current =
           this.displayData.datasets[0].data[i] +
-          this.displayData.datasets[1].data[i]
+          this.displayData.datasets[1].data[i] +
+          this.displayData.datasets[2].data[i] +
+          this.displayData.datasets[3].data[i]
         if (current > max) {
           max = current
           n = Number(i)
@@ -499,6 +545,24 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           },
           {
             data: [this.displayData.datasets[2].data[n]],
+            backgroundColor: 'transparent',
+            yAxisID: 'y-axis-1',
+            borderWidth: 0
+          },
+          {
+            data: [this.displayData.datasets[3].data[n]],
+            backgroundColor: 'transparent',
+            yAxisID: 'y-axis-1',
+            borderWidth: 0
+          },
+          {
+            data: [0],
+            backgroundColor: 'transparent',
+            yAxisID: 'y-axis-1',
+            borderWidth: 0
+          },
+          {
+            data: [this.displayData.datasets[5].data[n]],
             backgroundColor: 'transparent',
             yAxisID: 'y-axis-2',
             borderWidth: 0
@@ -600,14 +664,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     scaledTicksYAxisMax() {
       let max = 0
       for (const i in this.chartData[0]) {
-        max = Math.max(max, this.chartData[0][i] + this.chartData[1][i])
+        max = Math.max(
+          max,
+          this.chartData[0][i] +
+            this.chartData[1][i] +
+            this.chartData[2][i] +
+            this.chartData[3][i]
+        )
       }
       return max
     },
     scaledTicksYAxisMaxRight() {
       let max = 0
-      for (const i in this.chartData[2]) {
-        max = Math.max(max, this.chartData[2][i])
+      for (const i in this.chartData[5]) {
+        max = Math.max(max, this.chartData[5][i])
       }
       return max
     }
@@ -619,16 +689,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     pickLastNumber(chartDataArray: number[][]) {
       return chartDataArray.map((array, i) => {
-        return this.getFormatter(i)(array[array.length - 1])
+        return array[array.length - 1]
       })
     },
     pickLastSecondNumber(chartDataArray: number[][]) {
       return chartDataArray.map((array, i) => {
-        return this.getFormatter(i)(array[array.length - 2])
+        return array[array.length - 2]
       })
     },
-    formatDayBeforeRatio(dayBeforeRatio: number): string {
-      const dayBeforeRatioLocaleString = this.getFormatter(2)(dayBeforeRatio)
+    formatDayBeforeRatio(dayBeforeRatio: number, formatter: number): string {
+      const dayBeforeRatioLocaleString = this.getFormatter(formatter)(
+        dayBeforeRatio
+      )
       switch (Math.sign(dayBeforeRatio)) {
         case 1:
           return `+${dayBeforeRatioLocaleString}`
