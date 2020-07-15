@@ -17,8 +17,7 @@ from bs4 import BeautifulSoup
 CHECK_DIR = ["pages", "components", "layouts", "data", "utils"]
 
 # チェックするjsonファイルのリスト
-# 現状はdata.jsonとpatient.jsonしかないが、のちにファイル分割や、データ追加により必要になった場合は追加しなければならない。
-JSON_FILES = ["data.json", "patient.json", "monitoring_status.json"]
+JSON_FILES = ["data.json", "patient.json"]
 
 # チェックするTypeScriptファイルのリスト
 # 現状はformatTable.tsしかないが、のちに表追加や、データ追加により必要になった場合は追加しなければならない。
@@ -153,22 +152,6 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                                 tags.append(city["label"]) if city["label"] != "小計" else None
                                 # ルビを取得
                                 tags.append(city["ruby"])
-                        elif file_name == JSON_FILES[2]:  # monitoring_status.jsonの場合
-                            for monitoring_name in json_content["data"].keys():
-                                # モニタリング指標名を取得(数字と括弧を半角に変換)
-                                translated_name = monitoring_name.translate(
-                                    str.maketrans({chr(0xFF01 + i): chr(0x21 + i) for i in range(94)})
-                                )
-                                tags.append(translated_name)
-                                # モニタリング指標内容を取得
-                                monitoring = json_content["data"][monitoring_name]
-                                # モニタリング指標の緩和値を取得
-                                tags.append(monitoring["go_threshold"]) \
-                                    if isinstance(monitoring["go_threshold"], str) else None
-                                # モニタリング指標の再要請値を取得
-                                tags.append(str(monitoring["stop_threshold"])) \
-                                    if isinstance(monitoring["stop_threshold"], str) else None
-
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + tags))
             # Noneが混じっているので、取り除く
