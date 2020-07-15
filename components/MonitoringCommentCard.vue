@@ -112,6 +112,7 @@ export default Vue.extend({
 
   .MonitoringComment-comments {
     h4 {
+      margin-bottom: 10px;
       color: $gray-3;
       font-weight: normal;
 
