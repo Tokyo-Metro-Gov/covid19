@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="MonitoringCommentFrame" :style="{ color: `${colors[level]}` }">
+    <div class="MonitoringCommentFrame" :style="{ borderColor: `${colors[level]}` }">
       <p>{{ $t(comment) }}</p>
     </div>
     <div
       class="MonitoringCommentFrameAfter"
-      :style="{ color: `${colors[level]}`, background: `${colors[level]}` }"
+      :style="{ borderColor: `${colors[level]}`, background: `${colors[level]}` }"
     />
   </div>
 </template>
