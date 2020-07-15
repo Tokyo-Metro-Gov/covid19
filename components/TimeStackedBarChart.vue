@@ -279,7 +279,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             return arr
           }, [] as string[])
           .map((text, i) => {
-            return { text, value: String(i), align: 'end', width: this.isSmall ? '6em' : 'auto' }
+            return {
+              text,
+              value: String(i),
+              align: 'end',
+              width: this.isSmall ? '6em' : 'auto'
+            }
           })
       ]
     },
