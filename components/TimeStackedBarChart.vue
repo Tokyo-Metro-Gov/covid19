@@ -100,6 +100,7 @@ type Data = {
   canvas: boolean
   displayLegends: boolean[]
   colors: SurfaceStyle[]
+  isSmall: boolean
 }
 type Methods = {
   sum: (array: number[]) => number
@@ -108,6 +109,7 @@ type Methods = {
   cumulativeSum: (chartDataArray: number[][]) => number[]
   eachArraySum: (chartDataArray: number[][]) => number[]
   onClickLegend: (i: number) => void
+  handleResize: () => void
 }
 
 type Computed = {
@@ -213,7 +215,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     dataKind: 'transition',
     displayLegends: [true, true],
     colors: getGraphSeriesStyle(2),
-    canvas: true
+    canvas: true,
+    isSmall: false
   }),
   computed: {
     displayInfo() {
@@ -276,7 +279,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             return arr
           }, [] as string[])
           .map((text, i) => {
-            return { text, value: String(i), align: 'end' }
+            return { text, value: String(i), align: 'end', width: this.isSmall ? '6em' : 'auto' }
           })
       ]
     },
@@ -582,6 +585,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
       }
       return sumArray
+    },
+    handleResize() {
+      this.isSmall = window.innerWidth <= 400
     }
   },
   mounted() {
@@ -594,6 +600,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
+
+    window.addEventListener('resize', this.handleResize)
+    this.handleResize()
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize)
   }
 }
 
