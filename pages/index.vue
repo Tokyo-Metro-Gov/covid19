@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ nav ? nav.languages : 'empty string' }}
     <site-top-upper />
     <cards-tabs />
     <cards-monitoring v-if="this.$route.query.tab !== 'reference'" />
@@ -20,6 +21,11 @@ export default Vue.extend({
     CardsTabs,
     CardsMonitoring,
     CardsReference
+  },
+  data() {
+    return {
+      nav: typeof navigator !== 'undefined' ? navigator : null
+    }
   }
 })
 </script>
