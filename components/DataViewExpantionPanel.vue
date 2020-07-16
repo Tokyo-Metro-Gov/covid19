@@ -8,7 +8,7 @@
           @click="toggleDetails"
         >
           <div class="v-expansion-panel-header__icon">
-            <v-icon left>mdi-chevron-right</v-icon>
+            <v-icon left size="2.4rem">mdi-chevron-right</v-icon>
           </div>
           <span class="expansion-panel-text">{{ $t('テーブルを表示') }}</span>
         </v-expansion-panel-header>

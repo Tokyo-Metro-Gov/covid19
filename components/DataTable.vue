@@ -65,11 +65,11 @@
 .cardTable {
   &.v-data-table {
     th {
-      padding: 8px 10px;
-      height: auto;
-      border-bottom: 1px solid $gray-4;
-      color: $gray-2;
-      @include font-size(12);
+      padding: 8px 10px !important;
+      height: auto !important;
+      border-bottom: 1px solid $gray-4 !important;
+      color: $gray-2 !important;
+      @include font-size(12, true);
 
       &.text-center {
         text-align: center;
@@ -83,9 +83,9 @@
           font-weight: normal;
         }
         td {
-          padding: 8px 10px;
-          height: auto;
-          @include font-size(12);
+          padding: 8px 10px !important;
+          height: auto !important;
+          @include font-size(12, true);
 
           &.text-center {
             text-align: center;

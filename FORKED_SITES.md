@@ -32,7 +32,6 @@
 [](17)石川県|https://stopcovid19.pref.ishikawa.jp/|石川県（**公式**）||
 [](17)石川県|https://ishikawa-covid19.netlify.app/|個人|[Retsuki/covid19-ishikawa/](https://github.com/Retsuki/covid19-ishikawa/)|
 [](18)福井県|https://covid19-fukui.com/|地元有志（**福井県公認**）|[nomunomu0504/covid19](https://github.com/nomunomu0504/covid19)|
-[](18)福井県|https://covid19-fukui.bosai-signal.jp/|丹南ケーブルテレビ株式会社|[westar7/fukui-covid19](https://github.com/westar7/fukui-covid19)|
 [](19)山梨県|https://stopcovid19.yamanashi.dev/|stopcovid19.yamanashi.devチーム|[covid19-yamanashi/covid19](https://github.com/covid19-yamanashi/covid19)|
 [](20)長野県|https://stop-covid19-nagano.netlify.app/|有志|[Stop-COVID19-Nagano/covid19](https://github.com/Stop-COVID19-Nagano/covid19)|
 [](20)長野県|https://covid19-nagano.info/|個人|[kanai3id/covid19](https://github.com/kanai3id/covid19)|
@@ -51,6 +50,7 @@
 [](32)島根県|https://shimane-covid19.netlify.app/|島根出身学生有志|[TaigaMikami/covid19](https://github.com/TaigaMikami)|
 [](33)岡山県|https://okayama.stopcovid19.jp/|学生エンジニア（有志）|[stopcovid19-okayama/covid19](https://github.com/stopcovid19-okayama/covid19)|
 [](34)広島県|https://covid19-hiroshima.netlify.app/|個人|[tatsuya1970/covid19](https://github.com/tatsuya1970/covid19)|
+[](34)広島市|https://stopcovid19-hiroshima-city.hiroshima-cu.ac.jp/|学生エンジニア（**広島市公式**）|[covid19-hirosima_city](https://github.com/inspired-fox/covid19-hirosima_city)|
 [](35)山口県|https://covid19-yamaguchi.netlify.app/|有志|[nishidayoshikatsu/covid19-yamaguchi](https://github.com/nishidayoshikatsu/covid19-yamaguchi)|
 [](37)香川県|https://kagawa.stopcovid19.jp/|学生エンジニア（有志）|[codeforkagawa/covid19](https://github.com/codeforkagawa/covid19)|
 [](37)香川県|https://covid19-kagawa.jp/|学生エンジニア（有志）|[i15317/covid19](https://github.com/i15317/covid19) |
