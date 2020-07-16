@@ -84,7 +84,7 @@ export default Vue.extend(options)
 
 <style lang="scss">
 .cardTable-header {
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 .v-data-table .text-end {
   text-align: right;
