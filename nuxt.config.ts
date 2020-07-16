@@ -143,21 +143,6 @@ const config: NuxtConfig = {
     extend(config) {
       // default externals option is undefined
       config.externals = [{ moment: 'moment' }]
-    },
-    babel: {
-      presets({ isServer }) {
-        return [
-          [
-            '@nuxt/babel-preset-app',
-            {
-              buildTarget: isServer ? 'server' : 'client',
-              corejs: {
-                version: 2 // GoTo 3
-              }
-            }
-          ]
-        ]
-      }
     }
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
