@@ -573,7 +573,7 @@
   "増加比": "Rate of Increase",
   "集団感染発生や曜日による数値のばらつきにより、日々の結果が変動するため、こうしたばらつきを平準化し全体の傾向を見る趣旨から、過去7日間の移動平均値を不明者数として算出（例えば、5月7日の移動平均値は、5月1日から5月7日までの実績値を平均したもの）": "The positive rate here is a 7-day moving average that evens out the day-to-day variation caused by mass infections and other factors, for the purpose of overall trend analysis. (e.g. the positive rate of 7th May is calculated by the average during 1st to 7th May.)",
   "接触歴等不明者数（７日間移動平均）": "Number of test positives in the unknown route of infection(a 7-day moving average)",
-  "5月13日から6月16日までに行われた抗原検査については、結果が陰性の場合、PCR検査での確定検査が必要であったため、検査件数の二重計上を避けるため、陽性判明数のみ計上。6月17日以降に行われた抗原検査については、陽性判明数、陰性判明数の両方を計上": "About antigen test performed from 13 May to 16 June :\nIf the result was negative, a confirmatory test by PCR was required. Duplication of the number of tests has been excluded and only the number of positive results was recorded. But, Now the antigen tests performed after 17 June, both the number of positive findings and the number of negative findings were counted.",
+  "5月13日から6月16日までに行われた抗原検査については、結果が陰性の場合、PCR検査での確定検査が必要であったため、検査件数の二重計上を避けるため、陽性判明数のみ計上。6月17日以降に行われた抗原検査については、陽性判明数、陰性判明数の両方を計上": "About the antigen test performed from 13 May to 16 June: If the result was negative, a confirmatory test by PCR was required. So, Duplication of the number of tests had been excluded and only the number of positive results was recorded. But, Now the antigen tests have performed after 17 June, both the number of positive findings and the number of negative findings are counted.",
   "陽性率：陽性判明数（PCR・抗原）の移動平均／検査人数（＝陽性判明数（PCR・抗原）＋陰性判明数（PCR・抗原））の移動平均": "Rate of Test Positives: moving average of confirmed positive test results (PCR * antigen)/moving average of all (positive and negative) tested people",
   "検査人数": "Number of tested people ",
   "PCR検査陰性者数": "Negative PCR Test Count",
@@ -594,7 +594,7 @@
   "感染状況": "Current Infection Status",
   "(5)救急医療の東京ルールの適用件数": "(5) Cases are taken in the Tokyo Emergency Medicine Rule",
   "(7)確保病床：レベル1→100床、レベル2→300床、レベル3→700床": "(7) Number of beds for seriously patients: Level 1: 100 beds -> Level 2: 300 beds -> Level 3: 700 beds",
-  "確保病床": "Number of beds for seriously patients",
+  "確保病床": "Number of beds for serious patients",
   "救急医療の東京ルールの適用件数：救急隊による5医療機関への受入要請又は選定開始から20分以上経過しても搬送先が決定しない事案の件数": "Cases are taken in the Tokyo Emergency Medicine Rule: IF NOT Confirmed 1) A request from an emergency staff to 5 medical institutions, or:2) The delivery destination doesn't determine even after 20 minutes or more have passed from starting to select it.",
   "(3)新規陽性者における接触歴等不明者": "(3)Number of test positives in the unknown route of infection ",
   "(4)PCR・抗原検査": "(4)PCR/Antigen Test",
@@ -603,12 +603,13 @@
   "人数": "Number of People",
   "(7)重症患者数": "(7) Number of serious patients",
   "検査体制": "Testing",
-  "潜在・市中感染": "Infected in the city but not incidence yet",
+  "潜在・市中感染": " Latent or community acquired infections",
   "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": "(2) #7119: Number of consultations about cases such as fever (in Tokyo Fire Department Emergency Medical Consultation Center)",
   "「＃7119」：急病やけがの際に、緊急受診の必要性や診察可能な医療機関をアドバイスする電話相談窓口": "「＃7119」: In case of sudden illness or injury, there is a telephone consultation service that advises the necessity of emergency consultation, and medical institutions that can examine such patients.",
   "最新のモニタリング項目の分析・総括コメントについて": "About trends of the latest monitorings",
   "(6)入院患者数": "(6) Number of hospitalized patients",
   "(2)(4)(5)は報告日の前日時点の数値": "(2)(4)(5) are reported from the previous day.",
   "(1)～(5)は7日間移動平均で算出": "(1) to (5) are calculated as a 7-day moving average",
-  "(6)確保病床：レベル1→1,000床、レベル2→3,000床、レベル3→4,000床": "(6) Number of beds for seriously patients: Level 1: 1,000 beds -> Level 2: 3,000 beds -> Level 3: 4,000 beds"
+  "(6)確保病床：レベル1→1,000床、レベル2→3,000床、レベル3→4,000床": "(6) Number of beds for seriously patients: Level 1: 1,000 beds -> Level 2: 3,000 beds -> Level 3: 4,000 beds",
+  "女": "Female"
 }
