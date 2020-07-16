@@ -13,10 +13,12 @@
 import Vue, { PropType } from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { DisplayData } from '@/plugins/vue-chart'
+import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 
 type Data = {
   chartWidth: number
   timerId: number
+  windowWidth: number
 }
 type Methods = {
   adjustChartWidth: () => void
@@ -47,7 +49,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   data() {
     return {
       chartWidth: 300,
-      timerId: 0
+      timerId: 0,
+      windowWidth: 0
     }
   },
   watch: {
@@ -90,7 +93,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   mounted() {
     this.adjustChartWidth()
-    window.addEventListener('resize', this.handleResize)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth !== this.windowWidth) {
+        this.handleResize()
+      }
+      this.windowWidth = window.innerWidth
+    })
+
+    // タブ変更時にグラフ`width`を再計算する
+    EventBus.$on(TOGGLE_EVENT, () => {
+      setTimeout(() => this.adjustChartWidth())
+    })
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize)
