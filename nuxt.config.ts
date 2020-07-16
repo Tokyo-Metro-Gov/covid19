@@ -143,6 +143,21 @@ const config: NuxtConfig = {
     extend(config) {
       // default externals option is undefined
       config.externals = [{ moment: 'moment' }]
+    },
+    babel: {
+      presets({ isServer }) {
+        return [
+          [
+            '@nuxt/babel-preset-app',
+            {
+              buildTarget: isServer ? 'server' : 'client',
+              corejs: {
+                version: 3
+              }
+            }
+          ]
+        ]
+      }
     }
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
@@ -173,7 +188,6 @@ const config: NuxtConfig = {
         '/cards/positive-number-by-diagnosed-date',
         '/cards/monitoring-number-of-confirmed-cases',
         '/cards/untracked-rate',
-        '/cards/increase-ratio-of-confirmed-cases-by-daily',
         '/cards/positive-status-severe-case',
         '/cards/number-of-hospitalized',
         '/cards/monitoring-number-of-reports-to-covid19-consultation-desk',
