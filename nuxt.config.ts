@@ -152,7 +152,7 @@ const config: NuxtConfig = {
             {
               buildTarget: isServer ? 'server' : 'client',
               corejs: {
-                version: 3
+                version: 2 // GoTo 3
               }
             }
           ]
