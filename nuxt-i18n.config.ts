@@ -27,10 +27,8 @@ const dateTimeFormatsCommon = {
 
 const options: NuxtVueI18n.Options.AllOptionsInterface = {
   strategy: 'prefix_except_default',
-  detectBrowserLanguage: {
-    useCookie: true,
-    cookieKey: 'i18n_redirected'
-  },
+  // @ts-ignore nuxt-18n側のTypes設定ミスによる暫定対応
+  detectBrowserLanguage: false,
   defaultLocale: 'ja',
   vueI18n: {
     fallbackLocale: 'ja',
