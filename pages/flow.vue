@@ -684,7 +684,7 @@ $margin: 20;
   }
 }
 .section {
-  margin-top: $margin * 2px;
+  margin-top: $margin * 10px;
   padding: $padding * 1px;
   border: 3px solid $gray-3;
   border-radius: 10px;
