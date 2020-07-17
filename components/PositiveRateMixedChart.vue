@@ -688,12 +688,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       this.displayLegends = this.displayLegends.slice()
     },
     pickLastNumber(chartDataArray: number[][]) {
-      return chartDataArray.map((array, i) => {
+      return chartDataArray.map((array, _) => {
         return array[array.length - 1]
       })
     },
     pickLastSecondNumber(chartDataArray: number[][]) {
-      return chartDataArray.map((array, i) => {
+      return chartDataArray.map((array, _) => {
         return array[array.length - 2]
       })
     },
