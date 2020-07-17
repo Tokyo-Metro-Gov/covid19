@@ -173,7 +173,6 @@ const config: NuxtConfig = {
         '/cards/positive-number-by-diagnosed-date',
         '/cards/monitoring-number-of-confirmed-cases',
         '/cards/untracked-rate',
-        '/cards/increase-ratio-of-confirmed-cases-by-daily',
         '/cards/positive-status-severe-case',
         '/cards/number-of-hospitalized',
         '/cards/monitoring-number-of-reports-to-covid19-consultation-desk',
