@@ -16,7 +16,6 @@ import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
-import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
 import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
 import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
 import ConsultationAboutFeverNumberCard from '@/components/cards/ConsultationAboutFeverNumberCard.vue'
@@ -39,7 +38,6 @@ export default {
     MetroCard,
     AgencyCard,
     PositiveNumberByDiagnosedDateCard,
-    ConfirmedCasesIncreaseRatioByWeekCard,
     HospitalizedNumberCard,
     ConsultationAboutFeverNumberCard,
     TokyoRulesApplicationNumberCard,
@@ -83,9 +81,6 @@ export default {
         break
       case 'untracked-rate':
         cardComponent = 'untracked-rate-card'
-        break
-      case 'increase-ratio-of-confirmed-cases-by-daily':
-        cardComponent = 'confirmed-cases-increase-ratio-by-week-card'
         break
       case 'positive-status-severe-case':
         cardComponent = 'severe-case-card'
