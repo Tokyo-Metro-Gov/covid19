@@ -422,7 +422,6 @@ export default Vue.extend({
   },
   methods: {
     onBrowserRender(): void {
-      const self = this
       this.timerId = 0
 
       if (this.forceFloating) {
