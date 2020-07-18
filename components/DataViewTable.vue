@@ -14,7 +14,9 @@
     <template v-slot:body="{ items }">
       <tbody>
         <tr v-for="(item, i) in items" :key="i">
-          <th scope="row" class="cardTable-header">{{ item[headerKey] }}</th>
+          <th scope="row" class="cardTable-header">
+            {{ formatDate(item[headerKey]) }}
+          </th>
           <td v-for="(dataKey, j) in dataKeys" :key="j" class="text-end">
             {{ item[dataKey] }}
           </td>
@@ -28,6 +30,7 @@
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
+import dayjs from 'dayjs'
 
 export type TableHeader = {
   text: TranslateResult
@@ -41,7 +44,9 @@ export type TableItem = {
   [key: number]: number
 }
 type Data = {}
-type Methods = {}
+type Methods = {
+  formatDate: (dateString: string) => string
+}
 type Computed = {
   dataKeys: string[]
 }
@@ -75,6 +80,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   computed: {
     dataKeys() {
       return this.headers.map(h => h.value).filter(h => h !== this.headerKey)
+    }
+  },
+  methods: {
+    formatDate(dateString) {
+      if (dayjs(dateString).isValid()) {
+        return this.$d(new Date(dateString), 'dateWithoutYear')
+      } else {
+        return dateString
+      }
     }
   }
 }

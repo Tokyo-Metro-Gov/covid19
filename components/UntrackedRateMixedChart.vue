@@ -369,7 +369,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.labels
         .map((label, i) => {
           return Object.assign(
-            { text: dayjs(label).format('M/D') },
+            { text: label },
             ...this.chartData.map((_, j) => {
               const data = this.chartData[j]
               if (data[i] === null) {

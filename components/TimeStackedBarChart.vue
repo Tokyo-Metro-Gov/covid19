@@ -292,12 +292,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.labels
         .map((label, i) => {
           return Object.assign(
-            {
-              text: this.$d(
-                new Date(getComplementedDate(label)),
-                'dateWithoutYear'
-              )
-            },
+            { text: label },
             ...this.tableHeaders.map((_, j) => {
               const index = j < 2 ? 0 : 1
               const transition = this.chartData[index]

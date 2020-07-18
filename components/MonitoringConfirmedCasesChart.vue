@@ -290,7 +290,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.labels
         .map((label, i) => {
           return Object.assign(
-            { text: dayjs(label).format('M/D') },
+            { text: label },
             ...(this.tableLabels as string[]).map((_, j) => {
               return {
                 [j]: this.getFormatter(j)(this.chartData[j][i])

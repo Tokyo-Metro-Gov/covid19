@@ -513,10 +513,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.chartData
         .map((d, _) => {
           return {
-            text: this.$d(
-              new Date(getComplementedDate(d.label)),
-              'dateWithoutYear'
-            ),
+            text: d.label,
             transition: d.transition.toLocaleString(),
             cumulative: d.cumulative.toLocaleString()
           }
