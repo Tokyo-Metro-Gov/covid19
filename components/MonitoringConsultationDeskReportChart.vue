@@ -92,6 +92,7 @@ import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
+import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 
 type Data = {
   canvas: boolean
@@ -101,11 +102,9 @@ type Data = {
 type Methods = {
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
-  formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
 
 type Computed = {
-  displayTransitionRatio: string
   displayInfo: [
     {
       lText: string
@@ -205,23 +204,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   computed: {
-    displayTransitionRatio() {
-      const data = this.chartData[1]
-      const lastDay = data[data.length - 1]
-      const lastDayBefore = data[data.length - 2]
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
     displayInfo() {
+      const [lastDay, lastDayData, dayBeforeRatio] = calcDayBeforeRatio(
+        this.displayData,
+        1
+      )
       return [
         {
-          lText: this.chartData[1][
-            this.chartData[1].length - 1
-          ].toLocaleString(),
+          lText: lastDayData.toLocaleString(),
           sText: `${this.$t('{date} の数値', {
-            date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
-          })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-            this.unit
-          }）`,
+            date: lastDay
+          })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
           unit: this.unit
         }
       ]
@@ -456,17 +449,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     makeLineData(value: number): number[] {
       return this.chartData[0].map(_ => value)
-    },
-    formatDayBeforeRatio(dayBeforeRatio: number): string {
-      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
-      switch (Math.sign(dayBeforeRatio)) {
-        case 1:
-          return `+${dayBeforeRatioLocaleString}`
-        case -1:
-          return `${dayBeforeRatioLocaleString}`
-        default:
-          return `${dayBeforeRatioLocaleString}`
-      }
     }
   },
   mounted() {

@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import { DisplayData } from '@/plugins/vue-chart'
 
 /**
@@ -8,7 +9,6 @@ import { DisplayData } from '@/plugins/vue-chart'
  * @returns [lastDay, lastDayData, datBeforeRatio]
  */
 export const calcDayBeforeRatio = function(
-  this: Vue,
   displayData: DisplayData,
   dataIndex = 0
 ): [string, number, string] {
@@ -20,7 +20,7 @@ export const calcDayBeforeRatio = function(
   const dayBeforeRatio = formatDayBeforeRatio(diff)
 
   return [
-    this.$d(new Date(lastDay), 'dateWithoutYear'),
+    Vue.prototype.$nuxt.$options.i18n.d(new Date(lastDay), 'dateWithoutYear'),
     lastDayData,
     dayBeforeRatio
   ]

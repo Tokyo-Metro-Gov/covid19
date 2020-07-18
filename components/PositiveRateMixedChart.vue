@@ -121,6 +121,7 @@ import {
   SurfaceStyle
 } from '@/utils/colors'
 import { getNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
+import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -131,10 +132,7 @@ type Data = {
   colors: SurfaceStyle[]
 }
 type Methods = {
-  pickLastNumber: (chartDataArray: number[][]) => number[]
-  pickLastSecondNumber: (chartDataArray: number[][]) => number[]
   onClickLegend: (i: number) => void
-  formatDayBeforeRatio: (dayBeforeRatio: number, formatter: number) => string
 }
 type DisplayInfo = {
   lText: string
@@ -142,8 +140,6 @@ type DisplayInfo = {
   unit: string
 }
 type Computed = {
-  displayTransitionRatio: string
-  displayInspectionsTransitionRatio: string
   displayInfo: DisplayInfo[]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
@@ -258,38 +254,29 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     canvas: true
   }),
   computed: {
-    displayTransitionRatio() {
-      const lastDay = this.pickLastNumber(this.chartData)[5]
-      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[5]
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore, 5)
-    },
-    displayInspectionsTransitionRatio() {
-      const lastDay = this.pickLastNumber(this.chartData)[4]
-      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[4]
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore, 4)
-    },
     displayInfo() {
-      const date = this.$d(
-        new Date(this.labels[this.labels.length - 1]),
-        'dateWithoutYear'
+      const [lastDay, lastDayData, dayBeforeRatio] = calcDayBeforeRatio(
+        this.displayData,
+        5
       )
+      const [lastDay4, lastDayData4, dayBeforeRatio4] = calcDayBeforeRatio(
+        this.displayData,
+        4
+      )
+
       return [
         {
-          lText: this.getFormatter(5)(this.pickLastNumber(this.chartData)[5]),
-          sText: `${this.$t('{date}の数値', {
-            date
-          })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-            this.unit
-          }）`,
+          lText: this.getFormatter(5)(lastDayData),
+          sText: `${this.$t('{date} の数値', {
+            date: lastDay
+          })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
           unit: this.unit
         },
         {
-          lText: this.getFormatter(4)(this.pickLastNumber(this.chartData)[4]),
-          sText: `${this.$t('{date}の数値', {
-            date
-          })}（${this.$t('前日比')}: ${
-            this.displayInspectionsTransitionRatio
-          } ${this.optionUnit}）`,
+          lText: this.getFormatter(4)(lastDayData4),
+          sText: `${this.$t('{date} の数値', {
+            date: lastDay4
+          })}（${this.$t('前日比')}: ${dayBeforeRatio4} ${this.optionUnit}）`,
           unit: this.optionUnit
         }
       ]
@@ -686,29 +673,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     onClickLegend(i) {
       this.displayLegends[i] = !this.displayLegends[i]
       this.displayLegends = this.displayLegends.slice()
-    },
-    pickLastNumber(chartDataArray: number[][]) {
-      return chartDataArray.map((array, _) => {
-        return array[array.length - 1]
-      })
-    },
-    pickLastSecondNumber(chartDataArray: number[][]) {
-      return chartDataArray.map((array, _) => {
-        return array[array.length - 2]
-      })
-    },
-    formatDayBeforeRatio(dayBeforeRatio: number, formatter: number): string {
-      const dayBeforeRatioLocaleString = this.getFormatter(formatter)(
-        dayBeforeRatio
-      )
-      switch (Math.sign(dayBeforeRatio)) {
-        case 1:
-          return `+${dayBeforeRatioLocaleString}`
-        case -1:
-          return `${dayBeforeRatioLocaleString}`
-        default:
-          return `${dayBeforeRatioLocaleString}`
-      }
     }
   },
   mounted() {

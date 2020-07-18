@@ -7,7 +7,6 @@
       :chart-data="graphData"
       :date="data.date"
       :unit="$t('人')"
-      :by-date="true"
     >
       <template v-slot:additionalDescription>
         <span>{{ $t('（注）') }}</span>
@@ -29,6 +28,7 @@
 import Data from '@/data/positive_by_diagnosed.json'
 import formatGraph from '@/utils/formatGraph'
 import TimeBarChart from '@/components/TimeBarChart.vue'
+import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 
 export default {
   components: {
@@ -36,34 +36,19 @@ export default {
       extends: TimeBarChart,
       computed: {
         displayInfo() {
-          if (this.dataKind === 'transition' && this.byDate) {
+          const [lastDay, lastDayData] = calcDayBeforeRatio(this.displayData, 1)
+          if (this.dataKind === 'transition') {
             return {
-              lText: `${this.chartData
-                .slice(-1)[0]
-                .transition.toLocaleString()}`,
-              sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-                '日別値'
-              )}（${this.$t(
+              lText: lastDayData.toLocaleString(),
+              sText: `${lastDay} ${this.$t('日別値')}（${this.$t(
                 '現在判明している人数であり、後日修正される場合がある'
               )}）`,
               unit: this.unit
             }
-          } else if (this.dataKind === 'transition') {
-            return {
-              lText: `${this.chartData
-                .slice(-1)[0]
-                .transition.toLocaleString()}`,
-              sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
-                '実績値'
-              )}`,
-              unit: this.unit
-            }
           }
           return {
-            lText: this.chartData[
-              this.chartData.length - 1
-            ].cumulative.toLocaleString(),
-            sText: `${this.chartData.slice(-1)[0].label} ${this.$t('累計値')}`,
+            lText: lastDayData.toLocaleString(),
+            sText: `${lastDay} ${this.$t('累計値')}`,
             unit: this.unit
           }
         }

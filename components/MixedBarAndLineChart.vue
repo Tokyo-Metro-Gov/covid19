@@ -99,6 +99,7 @@ import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { getNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
+import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 
 type Data = {
   canvas: boolean
@@ -106,15 +107,11 @@ type Data = {
   colors: SurfaceStyle[]
 }
 type Methods = {
-  pickLastNumber: (chartDataArray: number[][]) => number[]
-  pickLastSecondNumber: (chartDataArray: number[][]) => number[]
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
-  formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
 
 type Computed = {
-  displayTransitionRatio: string
   displayInfo: [
     {
       lText: string
@@ -226,22 +223,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   computed: {
-    displayTransitionRatio() {
-      const lastDay = this.pickLastNumber(this.chartData)[1]
-      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[1]
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
     displayInfo() {
+      const [lastDay, lastDayData, dayBeforeRatio] = calcDayBeforeRatio(
+        this.displayData,
+        1
+      )
       return [
         {
-          lText: this.getFormatter(1)(
-            parseFloat(this.pickLastNumber(this.chartData)[1].toLocaleString())
-          ),
+          lText: this.getFormatter(1)(lastDayData),
           sText: `${this.$t('{date} の数値', {
-            date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
-          })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-            this.unit
-          }）`,
+            date: lastDay
+          })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
           unit: this.unit
         }
       ]
@@ -483,29 +475,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       this.displayLegends[i] = !this.displayLegends[i]
       this.displayLegends = this.displayLegends.slice()
     },
-    pickLastNumber(chartDataArray: number[][]) {
-      return chartDataArray.map((array, i) => {
-        return this.getFormatter(i)(array[array.length - 1])
-      })
-    },
-    pickLastSecondNumber(chartDataArray: number[][]) {
-      return chartDataArray.map((array, i) => {
-        return this.getFormatter(i)(array[array.length - 2])
-      })
-    },
     makeLineData(value: number): number[] {
       return this.chartData[0].map(_ => value)
-    },
-    formatDayBeforeRatio(dayBeforeRatio: number): string {
-      const dayBeforeRatioLocaleString = this.getFormatter(1)(dayBeforeRatio)
-      switch (Math.sign(dayBeforeRatio)) {
-        case 1:
-          return `+${dayBeforeRatioLocaleString}`
-        case -1:
-          return `${dayBeforeRatioLocaleString}`
-        default:
-          return `${dayBeforeRatioLocaleString}`
-      }
     }
   },
   mounted() {
