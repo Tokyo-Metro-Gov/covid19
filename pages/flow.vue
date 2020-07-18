@@ -412,14 +412,11 @@ export default Vue.extend({
     // ハッシュ付きアクセス処理
     const hash = this.$route.hash
     if (hash !== '') {
-      if (hash !== '#sydr') {
-        this.startFloating()
-      }
       document // eslint-disable-line no-unused-expressions
         .querySelector(`a.${this.$style.anchorLink}[href='${hash}']`)
         ?.classList.add(this.$style.active)
       VueScrollTo.scrollTo(hash, 300, {
-        offset: -(this.navH + this.floatingOffset + 1) // +1はIE11用サブピクセル対策
+        offset: -(this.floatingOffset + 1) // +1はIE11用サブピクセル対策
       })
     }
   },
@@ -446,45 +443,16 @@ export default Vue.extend({
         this.floatingOffset = 0
       }
       this.upperTriggerOffsetTop = upperTriggerRect.bottom - this.floatingOffset
-
-      // 表示切替
-      if (
-        this.upperTriggerOffsetTop <= 0 + 2 && // +2はサブピクセル対策
-        this.lowerTriggerOffsetTop >= this.navH + this.floatingOffset
-      ) {
-        this.startFloating()
-
-        // 表示位置追従カレント処理
-        this.sections!.forEach(function(ele: HTMLElement, idx: number) {
-          const rect = ele.getBoundingClientRect()
-          if (
-            rect.top <= self.navH + self.floatingOffset + 10 &&
-            rect.bottom >= self.navH + self.floatingOffset - 10
-          ) {
-            self.buttons![idx].classList.add(self.$style.active)
-          } else if (
-            self.buttons![idx].classList.contains(self.$style.active)
-          ) {
-            self.buttons![idx].classList.remove(self.$style.active)
-          }
-        })
-      } else {
-        this.stopFloating()
-        this.resetNavCurrent()
-      }
     },
     onClickAnchor(event: Event): void {
       const self = this
       const target = event.target as HTMLAnchorElement
       const hash = target.hash
       this.forceFloating = true
-      if (hash !== '#sydr') {
-        this.startFloating()
-      }
       this.resetNavCurrent()
       target.classList.add(this.$style.active)
       VueScrollTo.scrollTo(hash, 1000, {
-        offset: -(this.navH + this.floatingOffset + 1), // +1はIE11用サブピクセル対策
+        offset: -(this.floatingOffset + 1), // +1はIE11用サブピクセル対策
         onDone() {
           self.forceFloating = false
           self.onBrowserRender()
@@ -661,14 +629,6 @@ $margin: 20;
         fill: $white;
       }
     }
-    &.active {
-      &::after {
-        bottom: -1px;
-        transform: translate(-50%, 100%);
-        border-width: 19.5px 12.99px 0 12.99px;
-        transition: none;
-      }
-    }
     &:not(.active) {
       &:hover {
         &::after {
@@ -684,7 +644,7 @@ $margin: 20;
   }
 }
 .section {
-  margin-top: $margin * 10px;
+  margin-top: $margin * 2.5px;
   padding: $padding * 1px;
   border: 3px solid $gray-3;
   border-radius: 10px;
