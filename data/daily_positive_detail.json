@@ -1980,6 +1980,17 @@
             "weekly_average_count": 202.6,
             "weekly_average_untracked_count": 98.1,
             "weekly_average_untracked_increse_percent": 161.6
+        },
+        {
+            "diagnosed_date": "2020-07-18",
+            "count": 290,
+            "missing_count": 158,
+            "reported_count": 132,
+            "weekly_gain_ratio": 1.41,
+            "untracked_percent": 49.5,
+            "weekly_average_count": 214.6,
+            "weekly_average_untracked_count": 106.3,
+            "weekly_average_untracked_increse_percent": 155
         }
     ]
 }
