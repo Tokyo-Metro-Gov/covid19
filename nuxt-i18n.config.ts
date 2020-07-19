@@ -101,7 +101,8 @@ const options: NuxtVueI18n.Options.AllOptionsInterface = {
       file: 'ja-Hira.json',
       description: 'Easy Japanese'
     }
-  ]
+  ],
+  seo: false
 }
 
 export default options
