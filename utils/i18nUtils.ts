@@ -17,15 +17,15 @@ export const getLinksLanguageAlternative = (
   }
 
   if (locales) {
-    for (const lang of locales) {
-      if (typeof lang === 'string') continue
-      if (lang.code === 'ja-basic') continue
+    for (const locale of locales) {
+      if (typeof locale === 'string') continue
+      if (locale.code === 'ja-basic') continue
 
       links.push({
-        hid: `alternate-hreflang-${lang.iso}`,
+        hid: `alternate-hreflang-${locale.iso}`,
         rel: 'alternate',
-        href: getFullPathWihLocale(lang.code),
-        hreflang: lang.iso
+        href: getFullPathWihLocale(locale.code),
+        hreflang: locale.iso
       })
     }
   }
