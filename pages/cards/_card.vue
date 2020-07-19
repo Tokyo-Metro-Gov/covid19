@@ -21,6 +21,7 @@ import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vu
 import ConsultationAboutFeverNumberCard from '@/components/cards/ConsultationAboutFeverNumberCard.vue'
 import TokyoRulesApplicationNumberCard from '@/components/cards/TokyoRulesApplicationNumberCard.vue'
 import MonitoringItemsOverviewCard from '@/components/cards/MonitoringItemsOverviewCard.vue'
+import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
 export default {
   components: {
@@ -124,6 +125,13 @@ export default {
 
     return {
       titleTemplate: title => `${this.title || title} | ${defaultTitle}`,
+      link: [
+        ...getLinksLanguageAlternative(
+          `cards/${this.$route.params.card}`,
+          this.$i18n.locales,
+          this.$i18n.defaultLocale
+        )
+      ],
       meta: [
         {
           hid: 'og:url',
