@@ -1,12 +1,13 @@
 <template>
   <div>
     <site-top-upper />
-    <v-tabs v-model="tab" hide-slider @change="change">
+    <v-tabs v-model="tab" hide-slider>
       <v-tab
         v-for="(item, i) in items"
         :key="i"
         v-ripple="false"
         :href="`#tab-${i}`"
+        @click="change"
       >
         <v-icon class="TabIcon">
           mdi-chart-timeline-variant

@@ -492,7 +492,7 @@
   "速報値として公表するものであり、後日確定データとして修正される場合がある": "This is announced as a preliminary value and might be modified as confirmed data later.",
   "陰性確認のために行った検査の実施人数は含まない": "Not included; The number of people for Test positive check",
   "(4)重症患者数 レベル1：100床 → レベル2：300床 → レベル3：700床": "(4) The Number of serious patients Level 1: 100 patients -> Level 2: 300 patients -> Level 3: 700 patients",
-  "(4)(5)の目安となる数値は、患者数に応じた病床の確保数を参考として記載している": "The reference value for (4) and (5) are based on the number of beds secured according to the number of patients.",
+  "(4)(5)の目安となる数値は、患者数に応じた病床の確保数を参考として記載している": "The value for (4) and (5) are based on the number of beds secured according to the number of patients.",
   "「検査実施人数」の推移は本グラフ及びテーブルにて掲載（検査実施人数＝陽性者数＋陰性者数）": "Changes in the number of tested people(=Test positive+Test negatives) get on this graph and table.",
   "陽性者が1月24日、25日、30日、2月13日にそれぞれ1名、2月14日に2名発生しているが、有意な数値がとれる2月15日から作成": "The graph starts from 15th Feb by considering the statistical significance (Although there were newly infected patients each on 24th, 25th, 30th Jan. and 13th Feb, and two newly infected patients on 14th Feb.)",
   "速報値として公表するものであり、後日修正する場合がある": "Preliminary value; might be modified later",
@@ -593,7 +593,7 @@
   "受入体制": "Admitted Cases",
   "感染状況": "Current Infection Status",
   "(5)救急医療の東京ルールの適用件数": "(5) Cases are taken in the Tokyo Emergency Medicine Rule",
-  "(7)確保病床：レベル1→100床、レベル2→300床、レベル3→700床": "(7) Number of beds for seriously patients: Level 1: 100 beds -> Level 2: 300 beds -> Level 3: 700 beds",
+  "(7)確保病床：レベル1→100床、レベル2→300床、レベル3→700床": "(7) Number of beds for serious patients: Level 1: 100 beds -> Level 2: 300 beds -> Level 3: 700 beds",
   "確保病床": "Number of beds for serious patients",
   "救急医療の東京ルールの適用件数：救急隊による5医療機関への受入要請又は選定開始から20分以上経過しても搬送先が決定しない事案の件数": "Cases are taken in the Tokyo Emergency Medicine Rule: IF NOT Confirmed 1) A request from an emergency staff to 5 medical institutions, or:2) The delivery destination doesn't determine even after 20 minutes or more have passed from starting to select it.",
   "(3)新規陽性者における接触歴等不明者": "(3)Number of test positives in the unknown route of infection ",
@@ -610,6 +610,13 @@
   "(6)入院患者数": "(6) Number of hospitalized patients",
   "(2)(4)(5)は報告日の前日時点の数値": "(2)(4)(5) are reported from the previous day.",
   "(1)～(5)は7日間移動平均で算出": "(1) to (5) are calculated as a 7-day moving average",
-  "(6)確保病床：レベル1→1,000床、レベル2→3,000床、レベル3→4,000床": "(6) Number of beds for seriously patients: Level 1: 1,000 beds -> Level 2: 3,000 beds -> Level 3: 4,000 beds",
-  "女": "Female"
+  "(6)確保病床：レベル1→1,000床、レベル2→3,000床、レベル3→4,000床": "(6) Number of beds for serious patients: Level 1: 1,000 beds -> Level 2: 3,000 beds -> Level 3: 4,000 beds",
+  "女": "Female",
+  "(6)の確保病床数には、(7)の確保病床数を含む": "The value of (6) is the number of beds for serious patients including (7).",
+  "体制強化が必要であると思われる": "It seems that the medical system needs to be strengthened.",
+  "毎週、専門家による状況分析を項目ごとに行い、都内の感染状況と医療提供体制それぞれについて「総括コメント」として4段階で評価します。": "Every week, Analysts will evaluate in 4 levels as \"Trends \" about the infection and each medical system provisions in Tokyo.",
+  "{date}付の総括コメントは以下のとおりです。": "The following are trends on {date}.",
+  "感染が拡大していると思われる": "The infection in Tokyo seems to be spreading",
+  "東京都では、都内の「感染状況」と「医療提供体制」を2つの柱として7つのモニタリング項目を設定しています。": "In Tokyo Metropolitan Government, we have set 7 monitorings is based on three core pillars being the ”The Infection trends in Tokyo\" and ”Medical System Provisions”.",
+  "感染状況・医療提供体制の分析": "Analysis of ”The Infection trends in Tokyo\" and ”Medical System Provisions”."
 }

@@ -61,7 +61,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       side.dataset.height = side.dataset.height || `${side.offsetHeight}`
 
       self.style.height =
-        self.style.height === `auto` ? `${self.dataset.height}px` : 'auto'
+        self.style.height === 'auto' ? `${self.dataset.height}px` : 'auto'
       side.style.height =
         side.style.height === 'auto' ? 'auto' : `${side.dataset.height}px`
     }
@@ -73,8 +73,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const cards = this.$el.children
       const self = this.payload.dataView.$el.parentElement
       const index = Array.prototype.indexOf.call(cards, self) + 1
+      if (index === 0) return [null, null]
+
       const sideIndex = index % 2 === 0 ? index - 1 : index + 1
-      const side = document.querySelector(
+      const side = this.$el.querySelector(
         `${cardClassName}:nth-child(${sideIndex}`
       ) as HTMLElement
       return [self, side]
@@ -82,7 +84,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   mounted() {
     window.addEventListener('resize', this.handleCardHeight)
-
     EventBus.$on(TOGGLE_EVENT, (payload: Payload) => {
       this.payload = payload
       this.alignHeight()
@@ -90,6 +91,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleCardHeight)
+    EventBus.$off(TOGGLE_EVENT)
   }
 }
 
