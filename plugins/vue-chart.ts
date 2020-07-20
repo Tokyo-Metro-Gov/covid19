@@ -67,6 +67,9 @@ const createCustomChart = () => {
       EventBus.$on(TOGGLE_EVENT, () => {
         setTimeout(() => this.renderChart(this.chartData, this.options))
       })
+    },
+    beforeDestroy() {
+      EventBus.$off(TOGGLE_EVENT)
     }
   })
 
@@ -162,8 +165,8 @@ export const yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[] = [
       )
       gradient.addColorStop(0, rgba1)
       gradient.addColorStop(1, rgba0)
-      gradientr.addColorStop(1, rgba0)
-      gradientr.addColorStop(0, rgba1)
+      gradientr.addColorStop(0, rgba0)
+      gradientr.addColorStop(1, rgba1)
       ctx.fillStyle = gradientr
       ctx.fillRect(
         chartInstance.chartArea.right,
