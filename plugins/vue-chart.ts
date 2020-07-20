@@ -67,6 +67,9 @@ const createCustomChart = () => {
       EventBus.$on(TOGGLE_EVENT, () => {
         setTimeout(() => this.renderChart(this.chartData, this.options))
       })
+    },
+    beforeDestroy() {
+      EventBus.$off(TOGGLE_EVENT)
     }
   })
 
