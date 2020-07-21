@@ -176,13 +176,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   }),
   computed: {
     displayInfo() {
-      const [lastDay, lastDayData, dayBeforeRatio] = calcDayBeforeRatio(
-        this.displayData,
-        1
-      )
+      const [lastDay, lastDayData, dayBeforeRatio] = calcDayBeforeRatio({
+        displayData: this.displayData,
+        dataIndex: 1
+      })
       if (this.dataKind === 'transition' && this.byDate) {
         return {
-          lText: lastDayData.toLocaleString(),
+          lText: lastDayData,
           sText: `${lastDay} ${this.$t('日別値')}（${this.$t(
             '前日比'
           )}: ${dayBeforeRatio} ${this.unit}）`,
@@ -190,7 +190,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       } else if (this.dataKind === 'transition') {
         return {
-          lText: lastDayData.toLocaleString(),
+          lText: lastDayData,
           sText: `${lastDay} ${this.$t('実績値')}（${this.$t(
             '前日比'
           )}: ${dayBeforeRatio} ${this.unit}）`,
@@ -198,7 +198,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       return {
-        lText: lastDayData.toLocaleString(),
+        lText: lastDayData,
         sText: `${lastDay} ${this.$t('累計値')}（${this.$t(
           '前日比'
         )}: ${dayBeforeRatio} ${this.unit}）`,

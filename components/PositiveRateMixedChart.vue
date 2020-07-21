@@ -255,25 +255,27 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   }),
   computed: {
     displayInfo() {
-      const [lastDay, lastDayData, dayBeforeRatio] = calcDayBeforeRatio(
-        this.displayData,
-        5
-      )
-      const [lastDay4, lastDayData4, dayBeforeRatio4] = calcDayBeforeRatio(
-        this.displayData,
-        4
-      )
+      const [lastDay, lastDayData, dayBeforeRatio] = calcDayBeforeRatio({
+        displayData: this.displayData,
+        dataIndex: 5,
+        digit: 1
+      })
+      const [lastDay4, lastDayData4, dayBeforeRatio4] = calcDayBeforeRatio({
+        displayData: this.displayData,
+        dataIndex: 4,
+        digit: 1
+      })
 
       return [
         {
-          lText: this.getFormatter(5)(lastDayData),
+          lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
             date: lastDay
           })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
           unit: this.unit
         },
         {
-          lText: this.getFormatter(4)(lastDayData4),
+          lText: lastDayData4,
           sText: `${this.$t('{date} の数値', {
             date: lastDay4
           })}（${this.$t('前日比')}: ${dayBeforeRatio4} ${this.optionUnit}）`,

@@ -258,26 +258,26 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   }),
   computed: {
     displayInfo() {
-      const [lastDay, lastDayData, dayBeforeRatio] = calcDayBeforeRatio(
-        this.displayData,
-        2
-      )
-      const [lastDay3, lastDayData3, dayBeforeRatio3] = calcDayBeforeRatio(
-        this.displayData,
-        3
-      )
+      const [lastDay, lastDayData, dayBeforeRatio] = calcDayBeforeRatio({
+        displayData: this.displayData,
+        dataIndex: 2,
+        digit: 1
+      })
+      const [lastDay3, lastDayData3, dayBeforeRatio3] = calcDayBeforeRatio({
+        displayData: this.displayData,
+        dataIndex: 3,
+        digit: 1
+      })
       return [
         {
-          lText: this.getFormatter(2)(parseFloat(lastDayData.toLocaleString())),
+          lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
             date: lastDay
           })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit[0]}）`,
           unit: this.unit[0]
         },
         {
-          lText: this.getFormatter(3)(
-            parseFloat(lastDayData3.toLocaleString())
-          ),
+          lText: lastDayData3,
           sText: `${this.$t('{date} の数値', {
             date: lastDay3
           })}（${this.$t('前日比')}: ${dayBeforeRatio3} ${this.unit[1]}）`,

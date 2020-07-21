@@ -36,10 +36,13 @@ export default {
       extends: TimeBarChart,
       computed: {
         displayInfo() {
-          const [lastDay, lastDayData] = calcDayBeforeRatio(this.displayData, 1)
+          const [lastDay, lastDayData] = calcDayBeforeRatio({
+            displayData: this.displayData,
+            dataIndex: 1
+          })
           if (this.dataKind === 'transition') {
             return {
-              lText: lastDayData.toLocaleString(),
+              lText: lastDayData,
               sText: `${lastDay} ${this.$t('日別値')}（${this.$t(
                 '現在判明している人数であり、後日修正される場合がある'
               )}）`,
@@ -47,7 +50,7 @@ export default {
             }
           }
           return {
-            lText: lastDayData.toLocaleString(),
+            lText: lastDayData,
             sText: `${lastDay} ${this.$t('累計値')}`,
             unit: this.unit
           }

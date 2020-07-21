@@ -205,13 +205,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   computed: {
     displayInfo() {
-      const [lastDay, lastDayData, dayBeforeRatio] = calcDayBeforeRatio(
-        this.displayData,
-        1
-      )
+      const [lastDay, lastDayData, dayBeforeRatio] = calcDayBeforeRatio({
+        displayData: this.displayData,
+        dataIndex: 1
+      })
       return [
         {
-          lText: lastDayData.toLocaleString(),
+          lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
             date: lastDay
           })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
