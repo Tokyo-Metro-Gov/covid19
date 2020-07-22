@@ -1,17 +1,20 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
-    <data-table
-      :title="$t('陽性患者の属性')"
-      :title-id="'attributes-of-confirmed-cases'"
-      :chart-data="patientsTable"
-      :chart-option="{}"
-      :date="Data.patients.date"
-      :info="sumInfoOfPatients"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
-      :source="$t('オープンデータを入手')"
-      :custom-sort="customSort"
-    />
-  </v-col>
+  <v-col cols="12" md="6" class="DataCard"
+    ><client-only>
+      <data-table
+        :title="$t('陽性患者の属性')"
+        :title-id="'attributes-of-confirmed-cases'"
+        :chart-data="patientsTable"
+        :chart-option="{}"
+        :date="Data.patients.date"
+        :info="sumInfoOfPatients"
+        :url="
+          'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
+        "
+        :source="$t('オープンデータを入手')"
+        :custom-sort="customSort"
+      /> </client-only
+  ></v-col>
 </template>
 
 <script>
