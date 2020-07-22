@@ -33,8 +33,9 @@
           :aria-label="$t('検査陽性者の状況')"
           v-bind="confirmedCases"
         />
-      </data-view> </client-only
-  ></v-col>
+      </data-view>
+    </client-only>
+  </v-col>
 </template>
 
 <script>

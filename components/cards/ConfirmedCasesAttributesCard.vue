@@ -13,8 +13,9 @@
         "
         :source="$t('オープンデータを入手')"
         :custom-sort="customSort"
-      /> </client-only
-  ></v-col>
+      />
+    </client-only>
+  </v-col>
 </template>
 
 <script>
