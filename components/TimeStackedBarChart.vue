@@ -59,7 +59,9 @@
       </template>
     </scrollable-chart>
     <template v-slot:dataTable>
-      <data-view-table :headers="tableHeaders" :items="tableData" />
+      <client-only>
+        <data-view-table :headers="tableHeaders" :items="tableData" />
+      </client-only>
     </template>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
