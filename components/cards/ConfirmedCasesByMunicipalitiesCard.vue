@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard"
-    ><client-only>
+  <v-col cols="12" md="6" class="DataCard">
+    <client-only>
       <confirmed-cases-by-municipalities-table
         :title="$t('陽性患者数（区市町村別）')"
         :title-id="'number-of-confirmed-cases-by-municipalities'"
@@ -21,8 +21,8 @@
           </ul>
         </template>
       </confirmed-cases-by-municipalities-table>
-    </client-only></v-col
-  >
+    </client-only>
+  </v-col>
 </template>
 
 <script>

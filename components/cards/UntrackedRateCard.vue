@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard"
-    ><client-only>
+  <v-col cols="12" md="6" class="DataCard">
+    <client-only>
       <untracked-rate-mixed-chart
         :title="$t('モニタリング項目(3)')"
         :title-id="'untracked-rate'"
@@ -46,8 +46,8 @@
           </ul>
         </template>
       </untracked-rate-mixed-chart>
-    </client-only></v-col
-  >
+    </client-only>
+  </v-col>
 </template>
 
 <script>

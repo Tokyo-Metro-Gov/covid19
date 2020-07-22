@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard"
-    ><client-only>
+  <v-col cols="12" md="6" class="DataCard">
+    <client-only>
       <time-stacked-bar-chart
         :title="$t('検査実施件数')"
         :title-id="'number-of-tested'"
@@ -40,8 +40,8 @@
           </ul>
         </template>
       </time-stacked-bar-chart>
-    </client-only></v-col
-  >
+    </client-only>
+  </v-col>
 </template>
 
 <script>

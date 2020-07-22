@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard"
-    ><client-only>
+  <v-col cols="12" md="6" class="DataCard">
+    <client-only>
       <metro-bar-chart
         :title="$t('都営地下鉄の利用者数の推移')"
         :title-id="'predicted-number-of-toei-subway-passengers'"
@@ -27,8 +27,8 @@
           }}
         </template>
       </metro-bar-chart>
-    </client-only></v-col
-  >
+    </client-only>
+  </v-col>
 </template>
 
 <script>

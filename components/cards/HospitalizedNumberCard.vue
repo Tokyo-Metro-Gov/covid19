@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard"
-    ><client-only>
+  <v-col cols="12" md="6" class="DataCard">
+    <client-only>
       <dashed-rectangle-time-bar-chart
         :title="$t('モニタリング項目(6)')"
         :title-id="'number-of-hospitalized'"
@@ -37,8 +37,8 @@
           </ul>
         </template>
       </dashed-rectangle-time-bar-chart>
-    </client-only></v-col
-  >
+    </client-only>
+  </v-col>
 </template>
 
 <script>

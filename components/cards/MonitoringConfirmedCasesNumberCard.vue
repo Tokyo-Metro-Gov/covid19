@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard"
-    ><client-only>
+  <v-col cols="12" md="6" class="DataCard">
+    <client-only>
       <monitoring-confirmed-cases-chart
         :title="$t('モニタリング項目(1)')"
         title-id="monitoring-number-of-confirmed-cases"
@@ -43,8 +43,8 @@
           </ul>
         </template>
       </monitoring-confirmed-cases-chart>
-    </client-only></v-col
-  >
+    </client-only>
+  </v-col>
 </template>
 
 <script>

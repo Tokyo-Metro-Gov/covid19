@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard"
-    ><client-only>
+  <v-col cols="12" md="6" class="DataCard">
+    <client-only>
       <mixed-bar-and-line-chart
         :title="$t('モニタリング項目(2)')"
         title-id="number-of-reports-to-consultations-about-fever-in-7119"
@@ -26,8 +26,8 @@
           </ul>
         </template>
       </mixed-bar-and-line-chart>
-    </client-only></v-col
-  >
+    </client-only>
+  </v-col>
 </template>
 
 <script>

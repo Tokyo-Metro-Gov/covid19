@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard"
-    ><client-only>
+  <v-col cols="12" md="6" class="DataCard">
+    <client-only>
       <agency-bar-chart
         :title="$t('都庁来庁者数の推移')"
         :title-id="'agency'"
@@ -13,8 +13,8 @@
           {{ $t('※土・日・祝日を除く庁舎開庁日の1週間累計数') }}
         </template>
       </agency-bar-chart>
-    </client-only></v-col
-  >
+    </client-only>
+  </v-col>
 </template>
 
 <script>

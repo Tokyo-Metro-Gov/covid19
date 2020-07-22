@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard"
-    ><client-only>
+  <v-col cols="12" md="6" class="DataCard">
+    <client-only>
       <data-view
         :title="$t('モニタリング項目')"
         title-id="monitoring-items-overview"
@@ -67,8 +67,8 @@
           </external-link>
         </div>
       </data-view>
-    </client-only></v-col
-  >
+    </client-only>
+  </v-col>
 </template>
 
 <script>

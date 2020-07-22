@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard"
-    ><client-only>
+  <v-col cols="12" md="6" class="DataCard">
+    <client-only>
       <data-table
         :title="$t('陽性患者の属性')"
         :title-id="'attributes-of-confirmed-cases'"

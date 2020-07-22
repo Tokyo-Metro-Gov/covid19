@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard"
-    ><client-only>
+  <v-col cols="12" md="6" class="DataCard">
+    <client-only>
       <severe-case-bar-chart
         :title="$t('モニタリング項目(7)')"
         title-id="positive-status-severe-case"
@@ -34,8 +34,8 @@
           </ul>
         </template>
       </severe-case-bar-chart>
-    </client-only></v-col
-  >
+    </client-only>
+  </v-col>
 </template>
 
 <script>

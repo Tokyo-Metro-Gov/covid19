@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard"
-    ><client-only>
+  <v-col cols="12" md="6" class="DataCard">
+    <client-only>
       <monitoring-consultation-desk-report-chart
         :title="$t('受診相談窓口における相談件数')"
         title-id="monitoring-number-of-reports-to-covid19-consultation-desk"
@@ -32,8 +32,8 @@
           </ul>
         </template>
       </monitoring-consultation-desk-report-chart>
-    </client-only></v-col
-  >
+    </client-only>
+  </v-col>
 </template>
 
 <script>

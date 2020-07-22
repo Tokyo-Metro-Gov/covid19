@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard"
-    ><client-only>
+  <v-col cols="12" md="6" class="DataCard">
+    <client-only>
       <positive-rate-mixed-chart
         :title="$t('モニタリング項目(4)')"
         :title-id="'positive-rate'"
@@ -69,8 +69,8 @@
           </ul>
         </template>
       </positive-rate-mixed-chart>
-    </client-only></v-col
-  >
+    </client-only>
+  </v-col>
 </template>
 
 <script>
