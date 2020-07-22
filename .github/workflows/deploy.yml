@@ -1,7 +1,7 @@
 name: production deploy
 
 on:
-  gollum:
+  push
     branches:
       - master
 
