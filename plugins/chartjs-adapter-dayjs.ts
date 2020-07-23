@@ -29,7 +29,7 @@ export function useDayjsAdapter(nuxtI18n: NuxtAppOptions['i18n']) {
 
   // set locale when page onload
   setLocale(nuxtI18n.locale)
-  nuxtI18n.onLanguageSwitched = (_: string, newLocale: string) => {
+  nuxtI18n.onLanguageSwitched = (_any: string, newLocale: string) => {
     setLocale(newLocale)
   }
 
@@ -58,7 +58,7 @@ export function useDayjsAdapter(nuxtI18n: NuxtAppOptions['i18n']) {
       return dayjs(max).diff(dayjs(min), unit)
     },
 
-    startOf(time, unit, _) {
+    startOf(time, unit, _any) {
       return dayjs(time).startOf(unit)
     },
 
@@ -69,11 +69,5 @@ export function useDayjsAdapter(nuxtI18n: NuxtAppOptions['i18n']) {
 }
 
 function setLocale(newLocale: string) {
-  let locale = newLocale
-
-  if (locale.includes('ja')) {
-    locale = 'ja'
-  }
-
-  dayjs.locale(locale)
+  dayjs.locale(newLocale.replace('/^ja*/', 'ja') as Partial<string>)
 }
