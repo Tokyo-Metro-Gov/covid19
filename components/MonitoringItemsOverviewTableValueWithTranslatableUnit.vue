@@ -1,6 +1,6 @@
 <template>
   <span :class="$style.parent">
-    {{ value }}
+    <strong>{{ value }}</strong>
     <span v-if="unit.translatable">{{ $t(unit.text) }}</span>
     <span v-else>{{ unit.text }}</span>
   </span>
@@ -26,6 +26,9 @@ export default Vue.extend({
 
 <style lang="scss" module>
 .parent {
-  // white-space: nowrap;
+  margin-left: 10px;
+  text-align: right;
+  white-space: nowrap;
+  flex-shrink: 1;
 }
 </style>
