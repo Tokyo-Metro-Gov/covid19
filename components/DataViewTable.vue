@@ -30,7 +30,7 @@
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
-import dayjs from 'dayjs'
+import { getDayjsObject } from '@/utils/formatDate'
 
 export type TableHeader = {
   text: TranslateResult
@@ -82,9 +82,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   filters: {
     formatDate(dateString: string): string {
-      if (dayjs(dateString).isValid()) {
+      const date = getDayjsObject(dateString)
+      if (date.isValid()) {
         return Vue.prototype.$nuxt.$options.i18n.d(
-          new Date(dateString),
+          date.toDate(),
           'dateWithoutYear'
         )
       } else {

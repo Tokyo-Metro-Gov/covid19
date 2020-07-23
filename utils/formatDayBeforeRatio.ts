@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { DisplayData } from '@/plugins/vue-chart'
+import { getDayjsObject } from '@/utils/formatDate'
 import { getCommaSeparatedNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
 
 interface DayBeforeRatioParameters {
@@ -34,7 +35,7 @@ export const calcDayBeforeRatio = function({
 
   return {
     lastDay: Vue.prototype.$nuxt.$options.i18n.d(
-      new Date(lastDay),
+      getDayjsObject(lastDay).toDate(),
       'dateWithoutYear'
     ),
     lastDayData: formatter(lastDayData),
