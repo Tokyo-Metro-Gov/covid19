@@ -15,7 +15,7 @@
       <tbody>
         <tr v-for="(item, i) in items" :key="i">
           <th scope="row" class="cardTable-header">
-            {{ formatDate(item[headerKey]) }}
+            {{ item[headerKey] | formatDate }}
           </th>
           <td v-for="(dataKey, j) in dataKeys" :key="j" class="text-end">
             {{ item[dataKey] }}
@@ -44,9 +44,7 @@ export type TableItem = {
   [key: number]: number
 }
 type Data = {}
-type Methods = {
-  formatDate: (dateString: string) => string
-}
+type Methods = {}
 type Computed = {
   dataKeys: string[]
 }
@@ -82,10 +80,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.headers.map(h => h.value).filter(h => h !== this.headerKey)
     }
   },
-  methods: {
-    formatDate(dateString) {
+  filters: {
+    formatDate(dateString: string): string {
       if (dayjs(dateString).isValid()) {
-        return this.$d(new Date(dateString), 'dateWithoutYear')
+        return Vue.prototype.$nuxt.$options.i18n.d(
+          new Date(dateString),
+          'dateWithoutYear'
+        )
       } else {
         return dateString
       }
