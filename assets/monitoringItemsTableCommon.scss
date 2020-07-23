@@ -9,9 +9,7 @@ $default-pad: 0.5rem 0.2rem;
   @include font-size(16);
 
   @include lessThan($small) {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+    @include font-size(12);
   }
 
   th,
