@@ -18,7 +18,9 @@
           <div :class="$style.content">
             <span>
               {{
-                $t('(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ')
+                $t(
+                  '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
+                )
               }}
             </span>
             <monitoring-items-overview-table-value-with-translatable-unit
@@ -44,8 +46,12 @@
               <div :class="$style.content">
                 <span>{{ $t('人数') }}</span>
                 <monitoring-items-overview-table-value-with-translatable-unit
-                  :value="items['(3)新規陽性者における接触歴等不明者（人数）'].value"
-                  :unit="items['(3)新規陽性者における接触歴等不明者（人数）'].unit"
+                  :value="
+                    items['(3)新規陽性者における接触歴等不明者（人数）'].value
+                  "
+                  :unit="
+                    items['(3)新規陽性者における接触歴等不明者（人数）'].unit
+                  "
                 />
               </div>
             </li>
@@ -56,7 +62,9 @@
                   :value="
                     items['(3)新規陽性者における接触歴等不明者（増加比）'].value
                   "
-                  :unit="items['(3)新規陽性者における接触歴等不明者（増加比）'].unit"
+                  :unit="
+                    items['(3)新規陽性者における接触歴等不明者（増加比）'].unit
+                  "
                 />
               </div>
             </li>
