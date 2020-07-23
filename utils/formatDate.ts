@@ -70,7 +70,7 @@ export const getComplementedDate = (dateString: string): string => {
 }
 
 /**
- * Get dayjsq object from date string
+ * Get dayjs object from date string
  *
  * @param dateString- Parsable string by dayjs
  */

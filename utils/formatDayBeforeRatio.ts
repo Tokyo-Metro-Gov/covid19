@@ -19,7 +19,6 @@ interface DayBeforeRatioData {
  * @param displayData - Chart displayData
  * @param dataIndex - Target data index in `displayData.datasets`
  * @param digit - The number of digits to appear after the decimal point
- * @returns [lastDay, lastDayData, datBeforeRatio]
  */
 export const calcDayBeforeRatio = function({
   displayData,
