@@ -7,7 +7,11 @@ interface DayBeforeRatioParameters {
   dataIndex?: number
   digit?: number
 }
-
+interface DayBeforeRatioData {
+  lastDay: string
+  lastDayData: string
+  dayBeforeRatio: string
+}
 /**
  * Get day before ratio values
  *
@@ -20,7 +24,7 @@ export const calcDayBeforeRatio = function({
   displayData,
   dataIndex = 0,
   digit = 0
-}: DayBeforeRatioParameters): string[] {
+}: DayBeforeRatioParameters): DayBeforeRatioData {
   const lastDay = displayData.labels!.slice(-1)[0]
   const data = displayData.datasets[dataIndex].data
   const lastDayData = data.slice(-1)[0]
@@ -28,11 +32,14 @@ export const calcDayBeforeRatio = function({
   const dayBeforeRatio = lastDayData - lastBeforeData
   const formatter = getCommaSeparatedNumberToFixedFunction(digit)
 
-  return [
-    Vue.prototype.$nuxt.$options.i18n.d(new Date(lastDay), 'dateWithoutYear'),
-    formatter(lastDayData),
-    formatDayBeforeRatio(dayBeforeRatio, formatter)
-  ]
+  return {
+    lastDay: Vue.prototype.$nuxt.$options.i18n.d(
+      new Date(lastDay),
+      'dateWithoutYear'
+    ),
+    lastDayData: formatter(lastDayData),
+    dayBeforeRatio: formatDayBeforeRatio(dayBeforeRatio, formatter)
+  }
 }
 
 function formatDayBeforeRatio(

@@ -36,7 +36,7 @@ export default {
       extends: TimeBarChart,
       computed: {
         displayInfo() {
-          const [lastDay, lastDayData] = calcDayBeforeRatio({
+          const { lastDay, lastDayData } = calcDayBeforeRatio({
             displayData: this.displayData,
             dataIndex: 1
           })

@@ -207,7 +207,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     displayInfo() {
-      const [lastDay, lastDayData, dayBeforeRatio] = calcDayBeforeRatio({
+      const { lastDay, lastDayData, dayBeforeRatio } = calcDayBeforeRatio({
         displayData: this.displayData as DisplayData
       })
       return [
