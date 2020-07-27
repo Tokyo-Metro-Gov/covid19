@@ -1,27 +1,29 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <time-bar-chart
-      :title="$t('確定日別による陽性者数の推移')"
-      :title-id="'positive-number-by-diagnosed-date'"
-      :chart-id="'positive-number-by-diagnosed-date'"
-      :chart-data="graphData"
-      :date="data.date"
-      :unit="$t('人')"
-      :by-date="true"
-    >
-      <template v-slot:additionalDescription>
-        <span>{{ $t('（注）') }}</span>
-        <ul>
-          <li>
-            {{
-              $t(
-                '患者発生の動向をより正確に分析するため、各保健所から報告があった患者の発生情報を、検査により陽性であることを医師が確認した日別（確定日別）に整理したものである'
-              )
-            }}
-          </li>
-        </ul>
-      </template>
-    </time-bar-chart>
+    <client-only>
+      <time-bar-chart
+        :title="$t('確定日別による陽性者数の推移')"
+        :title-id="'positive-number-by-diagnosed-date'"
+        :chart-id="'positive-number-by-diagnosed-date'"
+        :chart-data="graphData"
+        :date="data.date"
+        :unit="$t('人')"
+        :by-date="true"
+      >
+        <template v-slot:additionalDescription>
+          <span>{{ $t('（注）') }}</span>
+          <ul>
+            <li>
+              {{
+                $t(
+                  '患者発生の動向をより正確に分析するため、各保健所から報告があった患者の発生情報を、検査により陽性であることを医師が確認した日別（確定日別）に整理したものである'
+                )
+              }}
+            </li>
+          </ul>
+        </template>
+      </time-bar-chart>
+    </client-only>
   </v-col>
 </template>
 
