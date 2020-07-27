@@ -100,8 +100,8 @@ import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
-import { getNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
 import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
+import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type Data = {
   canvas: boolean
