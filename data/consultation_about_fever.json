@@ -1,5 +1,5 @@
 {
-    "date": "2020\/7\/22 20:30",
+    "date": "2020\/7\/27 20:30",
     "data": [
         {
             "date": "2020-03-01",
@@ -715,6 +715,31 @@
             "date": "2020-07-21",
             "count": 70,
             "weekly_average_count": 67
+        },
+        {
+            "date": "2020-07-22",
+            "count": 80,
+            "weekly_average_count": 70.7
+        },
+        {
+            "date": "2020-07-23",
+            "count": 112,
+            "weekly_average_count": 78.7
+        },
+        {
+            "date": "2020-07-24",
+            "count": 112,
+            "weekly_average_count": 87
+        },
+        {
+            "date": "2020-07-25",
+            "count": 107,
+            "weekly_average_count": 90
+        },
+        {
+            "date": "2020-07-26",
+            "count": 101,
+            "weekly_average_count": 93.1
         }
     ]
 }
