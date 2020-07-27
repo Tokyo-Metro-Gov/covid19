@@ -117,10 +117,6 @@ export default Vue.extend({
           rel: 'canonical',
           href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
         },
-        {
-          rel: 'stylesheet',
-          href: 'https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css'
-        },
         ...linksAlternate
       ],
       // Disable prettier for readability purposes
@@ -193,6 +189,10 @@ export default Vue.extend({
 })
 </script>
 <style lang="scss">
+@font-face {
+  font-family: Roboto;
+  font-display: swap;
+}
 .app {
   max-width: 1440px;
   margin: 0 auto;
