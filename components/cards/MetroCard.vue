@@ -1,31 +1,33 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <metro-bar-chart
-      :title="$t('都営地下鉄の利用者数の推移')"
-      :title-id="'predicted-number-of-toei-subway-passengers'"
-      :chart-id="'metro-bar-chart'"
-      :chart-data="metroGraph"
-      :date="metroGraph.date"
-      :tooltips-title="metroGraphTooltipTitle"
-      :tooltips-label="metroGraphTooltipLabel"
-      unit="%"
-    >
-      <template v-slot:description>
-        {{
-          $t('{range}の利用者数*の平均値を基準としたときの相対値', {
-            range: metroGraph.base_period
-          })
-        }}
-        <br />
-        *{{ $t('都営地下鉄4路線の自動改札出場数') }}
-        <br />
-        {{
-          $t(
-            '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
-          )
-        }}
-      </template>
-    </metro-bar-chart>
+    <client-only>
+      <metro-bar-chart
+        :title="$t('都営地下鉄の利用者数の推移')"
+        :title-id="'predicted-number-of-toei-subway-passengers'"
+        :chart-id="'metro-bar-chart'"
+        :chart-data="metroGraph"
+        :date="metroGraph.date"
+        :tooltips-title="metroGraphTooltipTitle"
+        :tooltips-label="metroGraphTooltipLabel"
+        unit="%"
+      >
+        <template v-slot:description>
+          {{
+            $t('{range}の利用者数*の平均値を基準としたときの相対値', {
+              range: metroGraph.base_period
+            })
+          }}
+          <br />
+          *{{ $t('都営地下鉄4路線の自動改札出場数') }}
+          <br />
+          {{
+            $t(
+              '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+            )
+          }}
+        </template>
+      </metro-bar-chart>
+    </client-only>
   </v-col>
 </template>
 
