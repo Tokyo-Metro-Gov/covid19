@@ -13,18 +13,24 @@
           'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
         "
       >
-        <template v-slot:description>
-          <ul class="ListStyleNone">
+        <template v-slot:additionalDescription>
+          <div class="Description-ExternalLink">
+            <external-link
+              url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/todokedehcyouseisya.html"
+            >
+              {{ $t('届出保健所別の内訳') }}
+            </external-link>
+          </div>
+          <span>{{ $t('（注）') }}</span>
+          <ul>
             <li>
-              {{ $t('（注）保健所から発生届が提出された日を基準とする') }}
+              {{ $t('保健所から発生届が提出された日を基準とする') }}
             </li>
             <li>
-              {{ $t('（注）医療機関等が行った検査も含む') }}
+              {{ $t('医療機関等が行った検査も含む') }}
             </li>
             <li>
-              {{
-                $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-              }}
+              {{ $t('チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
             </li>
           </ul>
         </template>
@@ -37,10 +43,12 @@
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import TimeBarChart from '@/components/TimeBarChart.vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 export default {
   components: {
-    TimeBarChart
+    TimeBarChart,
+    ExternalLink
   },
   data() {
     // 感染者数グラフ
@@ -53,3 +61,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.Description-ExternalLink {
+  margin-bottom: 10px;
+}
+</style>
