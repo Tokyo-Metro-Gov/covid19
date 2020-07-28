@@ -6,7 +6,7 @@ import dayjs from 'dayjs'
  * @param dateString - Parsable string by dayjs
  */
 export const convertDatetimeToISO8601Format = (dateString: string): string => {
-  return dayjs(dateString).format('YYYY-MM-DDTHH:mm:ss')
+  return dayjs(dateString).format('YYYY-MM-DDTHH:mm:ss[+09:00]')
 }
 
 /**
