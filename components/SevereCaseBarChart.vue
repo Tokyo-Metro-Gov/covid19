@@ -64,15 +64,13 @@ import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
-
 import { getGraphSeriesStyle } from '@/utils/colors'
+import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 
 type Data = {
   canvas: boolean
 }
-type Methods = {
-  formatDayBeforeRatio: (dayBeforeRatio: number) => string
-}
+type Methods = {}
 
 type Computed = {
   displayInfo: [
@@ -99,7 +97,6 @@ type Props = {
   date: string
   unit: string
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
-  byDate: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -151,10 +148,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin
-    },
-    byDate: {
-      type: Boolean,
-      default: false
     }
   },
   data: () => ({
@@ -162,17 +155,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   }),
   computed: {
     displayInfo() {
-      const lastDay = this.chartData.slice(-1)[0]
-      const lastDayBefore = this.chartData.slice(-2)[0]
-      const dayBeforeRatio = this.formatDayBeforeRatio(
-        lastDay.transition - lastDayBefore.transition
-      )
+      const { lastDay, lastDayData, dayBeforeRatio } = calcDayBeforeRatio({
+        displayData: this.displayData
+      })
       return [
         {
-          lText: `${lastDay.transition.toLocaleString()}`,
-          sText: `${lastDay.label} ${this.$t('の数値')}（${this.$t(
-            '前日比'
-          )}: ${dayBeforeRatio} ${this.unit}）`,
+          lText: lastDayData,
+          sText: `${this.$t('{date} の数値', {
+            date: lastDay
+          })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
           unit: this.unit
         }
       ]
@@ -404,19 +395,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         })
         .sort((a, b) => dayjs(a.text).unix() - dayjs(b.text).unix())
         .reverse()
-    }
-  },
-  methods: {
-    formatDayBeforeRatio(dayBeforeRatio: number): string {
-      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
-      switch (Math.sign(dayBeforeRatio)) {
-        case 1:
-          return `+${dayBeforeRatioLocaleString}`
-        case -1:
-          return `${dayBeforeRatioLocaleString}`
-        default:
-          return `${dayBeforeRatioLocaleString}`
-      }
     }
   },
   mounted() {

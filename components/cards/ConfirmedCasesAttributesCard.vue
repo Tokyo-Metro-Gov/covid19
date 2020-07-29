@@ -22,6 +22,7 @@
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
+import { getDayjsObject } from '@/utils/formatDate'
 import DataTable from '@/components/DataTable.vue'
 
 export default {
@@ -34,7 +35,8 @@ export default {
     // 感染者数
     const patientsTable = formatTable(Data.patients.data)
     // 日付
-    const date = patientsGraph[patientsGraph.length - 1].label
+    const lastDay = patientsGraph[patientsGraph.length - 1].label
+    const date = this.$d(getDayjsObject(lastDay).toDate(), 'dateWithoutYear')
 
     const sumInfoOfPatients = {
       lText: patientsGraph[

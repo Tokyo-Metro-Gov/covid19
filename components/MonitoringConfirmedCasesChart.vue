@@ -101,6 +101,7 @@ import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
+import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 
 type Data = {
   canvas: boolean
@@ -110,11 +111,9 @@ type Data = {
 type Methods = {
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
-  formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
 
 type Computed = {
-  displayTransitionRatio: string
   displayInfo: [
     {
       lText: string
@@ -231,23 +230,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   computed: {
-    displayTransitionRatio() {
-      const data = this.chartData[1]
-      const lastDay = data[data.length - 1]
-      const lastDayBefore = data[data.length - 2]
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
     displayInfo() {
+      const { lastDay, lastDayData, dayBeforeRatio } = calcDayBeforeRatio({
+        displayData: this.displayData,
+        dataIndex: 1,
+        digit: 1
+      })
       return [
         {
-          lText: this.getFormatter(1)(
-            this.chartData[1][this.chartData[1].length - 1]
-          ),
+          lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
-            date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
-          })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-            this.unit
-          }）`,
+            date: lastDay
+          })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
           unit: this.unit
         }
       ]
@@ -292,7 +286,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.labels
         .map((label, i) => {
           return Object.assign(
-            { text: dayjs(label).format('M/D') },
+            { text: label },
             ...(this.tableLabels as string[]).map((_, j) => {
               return {
                 [j]: this.getFormatter(j)(this.chartData[j][i])
@@ -485,17 +479,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     makeLineData(value: number): number[] {
       return this.chartData[0].map(_ => value)
-    },
-    formatDayBeforeRatio(dayBeforeRatio: number): string {
-      const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
-      switch (Math.sign(dayBeforeRatio)) {
-        case 1:
-          return `+${dayBeforeRatioLocaleString}`
-        case -1:
-          return `${dayBeforeRatioLocaleString}`
-        default:
-          return `${dayBeforeRatioLocaleString}`
-      }
     }
   },
   mounted() {
