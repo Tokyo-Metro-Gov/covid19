@@ -122,6 +122,7 @@ import {
 } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
+import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 
 type Data = {
   canvas: boolean
@@ -129,16 +130,11 @@ type Data = {
   colors: SurfaceStyle[]
 }
 type Methods = {
-  pickLastNumber: (chartDataArray: number[][]) => number[]
-  pickLastSecondNumber: (chartDataArray: number[][]) => number[]
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
-  formatDayBeforeRatio: (dayBeforeRatio: number) => string
 }
 
 type Computed = {
-  displayTransitionRatio: string
-  displayUntrackedIncreseRatio: string
   displayInfo: [
     {
       lText: string
@@ -263,38 +259,34 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     canvas: true
   }),
   computed: {
-    displayUntrackedIncreseRatio() {
-      const lastDay = this.pickLastNumber(this.chartData)[3]
-      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[3]
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
-    displayTransitionRatio() {
-      const lastDay = this.pickLastNumber(this.chartData)[2]
-      const lastDayBefore = this.pickLastSecondNumber(this.chartData)[2]
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
-    },
     displayInfo() {
+      const { lastDay, lastDayData, dayBeforeRatio } = calcDayBeforeRatio({
+        displayData: this.displayData,
+        dataIndex: 2,
+        digit: 1
+      })
+      const {
+        lastDay: lastDay3,
+        lastDayData: lastDayData3,
+        dayBeforeRatio: dayBeforeRatio3
+      } = calcDayBeforeRatio({
+        displayData: this.displayData,
+        dataIndex: 3,
+        digit: 1
+      })
       return [
         {
-          lText: this.getFormatter(2)(
-            parseFloat(this.pickLastNumber(this.chartData)[2].toLocaleString())
-          ),
-          sText: `${this.$t('{date}の数値', {
-            date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
-          })}（${this.$t('前日比')}: ${this.displayTransitionRatio} ${
-            this.unit[0]
-          }）`,
+          lText: lastDayData,
+          sText: `${this.$t('{date} の数値', {
+            date: lastDay
+          })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit[0]}）`,
           unit: this.unit[0]
         },
         {
-          lText: this.getFormatter(3)(
-            parseFloat(this.pickLastNumber(this.chartData)[3].toLocaleString())
-          ),
-          sText: `${this.$t('{date}の数値', {
-            date: dayjs(this.labels[this.labels.length - 1]).format('M/D')
-          })}（${this.$t('前日比')}: ${this.displayUntrackedIncreseRatio} ${
-            this.unit[1]
-          }）`,
+          lText: lastDayData3,
+          sText: `${this.$t('{date} の数値', {
+            date: lastDay3
+          })}（${this.$t('前日比')}: ${dayBeforeRatio3} ${this.unit[1]}）`,
           unit: this.unit[1]
         }
       ]
@@ -371,7 +363,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.labels
         .map((label, i) => {
           return Object.assign(
-            { text: dayjs(label).format('M/D') },
+            { text: label },
             ...this.chartData.map((_, j) => {
               const data = this.chartData[j]
               if (data[i] === null) {
@@ -667,27 +659,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     makeLineData(value: number): number[] {
       return this.chartData[0].map(_ => value)
-    },
-    pickLastNumber(chartDataArray: number[][]) {
-      return chartDataArray.map(array => {
-        return array[array.length - 1]
-      })
-    },
-    pickLastSecondNumber(chartDataArray: number[][]) {
-      return chartDataArray.map(array => {
-        return array[array.length - 2]
-      })
-    },
-    formatDayBeforeRatio(dayBeforeRatio: number): string {
-      const dayBeforeRatioLocaleString = this.getFormatter(2)(dayBeforeRatio)
-      switch (Math.sign(dayBeforeRatio)) {
-        case 1:
-          return `+${dayBeforeRatioLocaleString}`
-        case -1:
-          return `${dayBeforeRatioLocaleString}`
-        default:
-          return `${dayBeforeRatioLocaleString}`
-      }
     }
   },
   mounted() {
