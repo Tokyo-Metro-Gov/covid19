@@ -81,13 +81,13 @@ import PositiveRateMixedChart from '@/components/PositiveRateMixedChart'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
-  getCommaSeparatedNumberToFixedFunction
+  getCommaSeparatedNumberToFixedFunction,
 } from '@/utils/monitoringStatusValueFormatters'
 dayjs.extend(duration)
 
 export default {
   components: {
-    PositiveRateMixedChart
+    PositiveRateMixedChart,
   },
   data() {
     // 検査実施日別状況
@@ -117,7 +117,7 @@ export default {
       pcrNegativeCount,
       antigenNegativeCount,
       weeklyAverageDiagnosedCount,
-      positiveRates
+      positiveRates,
     ]
     const positiveRateDataLabels = [
       this.$t('PCR検査陽性者数'),
@@ -125,11 +125,11 @@ export default {
       this.$t('PCR検査陰性者数'),
       this.$t('抗原検査陰性者数'),
       this.$t('検査人数（７日間移動平均）'),
-      this.$t('陽性率')
+      this.$t('陽性率'),
     ]
-    const positiveRateTableLabels = positiveRateDataLabels.map(d => d)
+    const positiveRateTableLabels = positiveRateDataLabels.map((d) => d)
 
-    const getFormatter = columnIndex => {
+    const getFormatter = (columnIndex) => {
       if (columnIndex === 4) {
         // 検査人数（７日間移動平均）は小数点第1位まで表示し、整数部分は３桁区切りにする。
         return getCommaSeparatedNumberToFixedFunction(1)
@@ -147,8 +147,8 @@ export default {
       positiveRateLabels,
       positiveRateDataLabels,
       positiveRateTableLabels,
-      getFormatter
+      getFormatter,
     }
-  }
+  },
 }
 </script>

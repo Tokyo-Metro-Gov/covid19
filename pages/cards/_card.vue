@@ -42,7 +42,7 @@ export default {
     HospitalizedNumberCard,
     ConsultationAboutFeverNumberCard,
     TokyoRulesApplicationNumberCard,
-    MonitoringItemsOverviewCard
+    MonitoringItemsOverviewCard,
   },
   data() {
     let title, updatedAt, cardComponent
@@ -106,7 +106,7 @@ export default {
     return {
       cardComponent,
       title,
-      updatedAt
+      updatedAt,
     }
   },
   head() {
@@ -124,52 +124,52 @@ export default {
     )}${this.$t('対策サイト')}`
 
     return {
-      titleTemplate: title => `${this.title || title} | ${defaultTitle}`,
+      titleTemplate: (title) => `${this.title || title} | ${defaultTitle}`,
       link: [
         ...getLinksLanguageAlternative(
           `cards/${this.$route.params.card}`,
           this.$i18n.locales,
           this.$i18n.defaultLocale
-        )
+        ),
       ],
       meta: [
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `${url}${this.$route.path}/`
+          content: `${url}${this.$route.path}/`,
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          template: title => `${this.title || title} | ${defaultTitle}`,
-          content: ''
+          template: (title) => `${this.title || title} | ${defaultTitle}`,
+          content: '',
         },
         {
           hid: 'description',
           name: 'description',
-          template: updatedAt =>
+          template: (updatedAt) =>
             `${this.updatedAt || updatedAt} | ${description}`,
-          content: ''
+          content: '',
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          template: updatedAt =>
+          template: (updatedAt) =>
             `${this.updatedAt || updatedAt} | ${description}`,
-          content: ''
+          content: '',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: ogpImage
+          content: ogpImage,
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: ogpImage
-        }
-      ]
+          content: ogpImage,
+        },
+      ],
     }
-  }
+  },
 }
 </script>

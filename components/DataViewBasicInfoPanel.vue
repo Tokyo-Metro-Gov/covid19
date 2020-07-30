@@ -52,17 +52,17 @@ export default Vue.extend({
     lText: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     sText: {
       type: String,
-      required: true
+      required: true,
     },
     unit: {
       type: String,
       required: false,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>

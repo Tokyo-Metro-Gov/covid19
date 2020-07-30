@@ -40,7 +40,7 @@ export default {
         displayInfo() {
           const { lastDay, lastDayData } = calcDayBeforeRatio({
             displayData: this.displayData,
-            dataIndex: 1
+            dataIndex: 1,
           })
           if (this.dataKind === 'transition') {
             return {
@@ -48,23 +48,23 @@ export default {
               sText: `${lastDay} ${this.$t('日別値')}（${this.$t(
                 '現在判明している人数であり、後日修正される場合がある'
               )}）`,
-              unit: this.unit
+              unit: this.unit,
             }
           }
           return {
             lText: lastDayData,
             sText: `${lastDay} ${this.$t('累計値')}`,
-            unit: this.unit
+            unit: this.unit,
           }
-        }
-      }
-    }
+        },
+      },
+    },
   },
   data() {
-    const formatData = Data.data.map(data => {
+    const formatData = Data.data.map((data) => {
       return {
         日付: data.diagnosed_date,
-        小計: data.count
+        小計: data.count,
       }
     })
 
@@ -73,8 +73,8 @@ export default {
 
     return {
       data: Data,
-      graphData
+      graphData,
     }
-  }
+  },
 }
 </script>

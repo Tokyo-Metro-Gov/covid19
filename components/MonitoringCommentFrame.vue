@@ -10,7 +10,7 @@
       class="MonitoringCommentFrameAfter"
       :style="{
         borderColor: `${colors[level]}`,
-        background: `${colors[level]}`
+        background: `${colors[level]}`,
       }"
     />
   </div>
@@ -24,19 +24,19 @@ export default Vue.extend({
     level: {
       type: Number,
       required: true,
-      default: 0
+      default: 0,
     },
     comment: {
       type: String,
       required: true,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
-      colors: ['#96cd5f', '#fffc4e', '#fdbe40', '#fa1629']
+      colors: ['#96cd5f', '#fffc4e', '#fdbe40', '#fa1629'],
     }
-  }
+  },
 })
 </script>
 

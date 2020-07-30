@@ -26,21 +26,21 @@ import PrinterWhiteIcon from '@/static/printer-white.svg'
 export default {
   components: {
     PrinterIcon,
-    PrinterWhiteIcon
+    PrinterWhiteIcon,
   },
   props: {
     wrapperClass: {
       type: String,
-      default: ''
+      default: '',
     },
     to: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-      hover: this.hover
+      hover: this.hover,
     }
   },
   methods: {
@@ -49,8 +49,8 @@ export default {
     },
     mouseleave() {
       this.hover = false
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -32,6 +32,6 @@ export function getNumberToLocaleStringFunction() {
 export function getCommaSeparatedNumberToFixedFunction(digit = 0) {
   return (d: number): string =>
     Number(getNumberToFixedFunction(digit)(d)).toLocaleString('en', {
-      minimumFractionDigits: digit
+      minimumFractionDigits: digit,
     })
 }

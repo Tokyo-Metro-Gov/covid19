@@ -64,21 +64,23 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   props: {
     headers: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     items: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     headerKey: {
       type: String,
-      default: 'text'
-    }
+      default: 'text',
+    },
   },
   computed: {
     dataKeys() {
-      return this.headers.map(h => h.value).filter(h => h !== this.headerKey)
-    }
+      return this.headers
+        .map((h) => h.value)
+        .filter((h) => h !== this.headerKey)
+    },
   },
   filters: {
     formatDate(dateString: string): string {
@@ -91,8 +93,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       } else {
         return dateString
       }
-    }
-  }
+    },
+  },
 }
 
 export default Vue.extend(options)

@@ -53,7 +53,7 @@ dayjs.extend(duration)
 
 export default {
   components: {
-    TimeStackedBarChart
+    TimeStackedBarChart,
   },
   data() {
     // 検査実施日別状況
@@ -71,16 +71,16 @@ export default {
     const inspectionsGraph = [domestic, insurance]
     const inspectionsItems = [
       this.$t('健康安全研究センターが行った検査件数'),
-      this.$t('医療機関等が行った検査件数')
+      this.$t('医療機関等が行った検査件数'),
     ]
     const inspectionsLabels = Data.inspections_summary.labels
     const inspectionsDataLabels = [
       this.$t('健康安全研究センターが行った検査件数'),
-      this.$t('医療機関等が行った検査件数')
+      this.$t('医療機関等が行った検査件数'),
     ]
     const inspectionsTableLabels = [
       this.$t('健康安全研究センター実施分'),
-      this.$t('医療機関等実施分')
+      this.$t('医療機関等実施分'),
     ]
 
     return {
@@ -89,8 +89,8 @@ export default {
       inspectionsItems,
       inspectionsLabels,
       inspectionsDataLabels,
-      inspectionsTableLabels
+      inspectionsTableLabels,
     }
-  }
+  },
 }
 </script>

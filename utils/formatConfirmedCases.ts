@@ -107,6 +107,6 @@ export default (data: DataType) => {
     自宅療養: getSelectedItem(data, '自宅療養'),
     調査中: getSelectedItem(data, '調査中'),
     死亡: getSelectedItem(data, '死亡'),
-    退院: getSelectedItem(data, '退院')
+    退院: getSelectedItem(data, '退院'),
   } as ConfirmedCasesType
 }

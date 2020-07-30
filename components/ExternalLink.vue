@@ -28,12 +28,12 @@ export default Vue.extend({
   props: {
     url: {
       type: String,
-      default: ''
+      default: '',
     },
     iconSize: {
       type: Number,
-      default: 15
-    }
-  }
+      default: 15,
+    },
+  },
 })
 </script>

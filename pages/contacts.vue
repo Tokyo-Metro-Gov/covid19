@@ -194,11 +194,11 @@ import PageHeader from '@/components/PageHeader.vue'
 
 export default Vue.extend({
   components: {
-    PageHeader
+    PageHeader,
   },
   data() {
     return {
-      pc: true
+      pc: true,
     }
   },
   computed: {
@@ -207,7 +207,7 @@ export default Vue.extend({
     },
     headingAttrs(): any {
       return this.pc ? {} : { role: 'heading', 'aria-level': '3' }
-    }
+    },
   },
   mounted() {
     if (process.browser) {
@@ -223,13 +223,13 @@ export default Vue.extend({
   methods: {
     handleResize() {
       this.pc = window.innerWidth > 768
-    }
+    },
   },
   head(): MetaInfo {
     return {
-      title: this.$t('お問い合わせ先一覧') as string
+      title: this.$t('お問い合わせ先一覧') as string,
     }
-  }
+  },
 })
 </script>
 
