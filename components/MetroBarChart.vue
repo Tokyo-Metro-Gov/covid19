@@ -15,7 +15,9 @@
       :height="240"
     />
     <template v-slot:dataTable>
-      <data-view-table :headers="tableHeaders" :items="tableData" />
+      <client-only>
+        <data-view-table :headers="tableHeaders" :items="tableData" />
+      </client-only>
     </template>
     <template v-slot:footer>
       <ul>
@@ -156,7 +158,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.displayData.datasets[0].data
         .map((_, i) => {
           return Object.assign(
-            { text: this.chartData.datasets![i].label as string },
+            { text: this.chartData.datasets![i].label },
             ...this.chartData.labels!.map((_, j) => {
               return {
                 [j]: this.displayData.datasets[j].data[i]

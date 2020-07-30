@@ -59,7 +59,9 @@
       </template>
     </scrollable-chart>
     <template v-slot:dataTable>
-      <data-view-table :headers="tableHeaders" :items="tableData" />
+      <client-only>
+        <data-view-table :headers="tableHeaders" :items="tableData" />
+      </client-only>
     </template>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
@@ -90,7 +92,7 @@ import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
-import { getComplementedDate } from '@/utils/formatDate'
+import { getComplementedDate, getDayjsObject } from '@/utils/formatDate'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -220,20 +222,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   }),
   computed: {
     displayInfo() {
+      const lastDay = this.labels[this.labels.length - 1]
+      const date = this.$d(getDayjsObject(lastDay).toDate(), 'dateWithoutYear')
+
       if (this.dataKind === 'transition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
-          sText: `${this.$t('{date}の合計', {
-            date: this.labels[this.labels.length - 1]
-          })}`,
+          sText: `${this.$t('{date}の合計', { date })}`,
           unit: this.unit
         }
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.$t('{date}の合計', {
-          date: this.labels[this.labels.length - 1]
-        })}`,
+        sText: `${this.$t('{date}の合計', { date })}`,
         unit: this.unit
       }
     },
@@ -292,12 +293,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.labels
         .map((label, i) => {
           return Object.assign(
-            {
-              text: this.$d(
-                new Date(getComplementedDate(label)),
-                'dateWithoutYear'
-              )
-            },
+            { text: label },
             ...this.tableHeaders.map((_, j) => {
               const index = j < 2 ? 0 : 1
               const transition = this.chartData[index]
