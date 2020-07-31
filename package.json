@@ -54,7 +54,7 @@
     "vue-spinner": "1.0.4"
   },
   "devDependencies": {
-    "@babel/core": "7.10.5",
+    "@babel/core": "7.11.0",
     "@fullhuman/postcss-purgecss": "2.3.0",
     "@mdi/font": "5.4.55",
     "@nuxt/typescript-build": "2.0.2",
