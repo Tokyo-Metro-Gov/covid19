@@ -66,7 +66,7 @@ export const getComplementedDate = (dateString: string): string => {
     targetYear -= 1
   }
 
-  return `${targetYear}/${month}/${date}`
+  return `${targetYear}-${month}-${date}`
 }
 
 /**
