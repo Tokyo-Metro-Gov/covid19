@@ -19,7 +19,7 @@
         }}
         {{
           $t('{date}付の総括コメントは以下のとおりです。', {
-            date: commentDate()
+            date: commentDate(),
           })
         }}
       </p>
@@ -60,11 +60,11 @@ import monitoringItems from '@/data/monitoring_items.json'
 
 export default Vue.extend({
   components: {
-    MonitoringCommentFrame
+    MonitoringCommentFrame,
   },
   data() {
     return {
-      monitoringItems
+      monitoringItems,
     }
   },
   methods: {
@@ -73,8 +73,8 @@ export default Vue.extend({
         new Date(monitoringItems.data['総括コメント-更新日']),
         'dateWithoutYear'
       )
-    }
-  }
+    },
+  },
 })
 </script>
 

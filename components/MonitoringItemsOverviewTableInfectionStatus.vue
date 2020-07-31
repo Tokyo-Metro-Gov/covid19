@@ -46,7 +46,7 @@
           :class="[
             $style.itemName,
             $style.wrapAllowed,
-            $style['cellWidth-itemNameCategorizedSuper']
+            $style['cellWidth-itemNameCategorizedSuper'],
           ]"
           scope="row"
           colspan="2"
@@ -75,7 +75,7 @@
           :class="[
             $style.itemName,
             $style.wrapAllowed,
-            $style['cellWidth-itemNameCategorizedSuperSub']
+            $style['cellWidth-itemNameCategorizedSuperSub'],
           ]"
           scope="row"
           rowspan="2"
@@ -116,14 +116,14 @@ import MonitoringItemsOverviewTableValueWithTranslatableUnit from '@/components/
 
 export default Vue.extend({
   components: {
-    MonitoringItemsOverviewTableValueWithTranslatableUnit
+    MonitoringItemsOverviewTableValueWithTranslatableUnit,
   },
   props: {
     items: {
       type: Object as PropType<MonitoringItems>,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
 </script>
 

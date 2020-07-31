@@ -52,7 +52,7 @@ export default Vue.extend({
     DevelopmentModeMark,
     ScaleLoader,
     SideNavigation,
-    NoScript
+    NoScript,
   },
   data(): LocalData {
     let hasNavigation = true
@@ -67,7 +67,7 @@ export default Vue.extend({
     return {
       hasNavigation,
       loading,
-      isOpenNavigation: false
+      isOpenNavigation: false,
     }
   },
   mounted() {
@@ -86,7 +86,7 @@ export default Vue.extend({
     },
     getMatchMedia(): MediaQueryList {
       return window.matchMedia('(min-width: 601px)')
-    }
+    },
   },
   head(): MetaInfo {
     const { htmlAttrs, meta } = this.$nuxtI18nSeo()
@@ -96,7 +96,7 @@ export default Vue.extend({
         : {
             hid: 'og:locale',
             name: 'og:locale',
-            content: this.$i18n.locale
+            content: this.$i18n.locale,
           }
 
     let linksAlternate: LinkPropertyHref[] = []
@@ -115,9 +115,9 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`,
         },
-        ...linksAlternate
+        ...linksAlternate,
       ],
       // Disable prettier for readability purposes
       // eslint-disable-next-line prettier/prettier
@@ -126,28 +126,28 @@ export default Vue.extend({
         {
           hid: 'author',
           name: 'author',
-          content: this.$tc('東京都')
+          content: this.$tc('東京都'),
         },
         {
           hid: 'description',
           name: 'description',
           content: `${this.$t('{date} 更新', {
-            date: convertDateToSimpleFormat(Data.lastUpdate)
+            date: convertDateToSimpleFormat(Data.lastUpdate),
           })}: ${this.$tc(
             '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
-          )}`
+          )}`,
         },
         {
           hid: 'og:site_name',
           property: 'og:site_name',
           content: `${this.$t('東京都')} ${this.$t(
             '新型コロナウイルス感染症'
-          )} ${this.$t('対策サイト')}`
+          )} ${this.$t('対策サイト')}`,
         },
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
+          content: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`,
         },
         ogLocale,
         {
@@ -155,37 +155,37 @@ export default Vue.extend({
           property: 'og:title',
           content: `${this.$t('東京都')} ${this.$t(
             '新型コロナウイルス感染症'
-          )} ${this.$t('対策サイト')}`
+          )} ${this.$t('対策サイト')}`,
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content: `${this.$t('{date} 更新', {
-            date: convertDateToSimpleFormat(Data.lastUpdate)
+            date: convertDateToSimpleFormat(Data.lastUpdate),
           })}: ${this.$tc(
             '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
-          )}`
+          )}`,
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.$tc('ogp.og:image')
+          content: this.$tc('ogp.og:image'),
         },
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
           content: `${this.$t('東京都')} ${this.$t(
             '新型コロナウイルス感染症'
-          )} ${this.$t('対策サイト')}`
+          )} ${this.$t('対策サイト')}`,
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.$tc('ogp.og:image')
-        }
-      ]
+          content: this.$tc('ogp.og:image'),
+        },
+      ],
     }
-  }
+  },
 })
 </script>
 <style lang="scss">

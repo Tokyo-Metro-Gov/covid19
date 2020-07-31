@@ -9,9 +9,7 @@
         :date="Data.patients_summary.date"
         :unit="$t('人')"
         :by-date="true"
-        :url="
-          'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
-        "
+        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
       >
         <template v-slot:additionalDescription>
           <div class="Description-ExternalLink">
@@ -48,7 +46,7 @@ import ExternalLink from '@/components/ExternalLink.vue'
 export default {
   components: {
     TimeBarChart,
-    ExternalLink
+    ExternalLink,
   },
   data() {
     // 感染者数グラフ
@@ -56,9 +54,9 @@ export default {
 
     return {
       Data,
-      patientsGraph
+      patientsGraph,
     }
-  }
+  },
 }
 </script>
 

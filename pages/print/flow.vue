@@ -7,7 +7,7 @@ import Flow from '@/pages/flow.vue'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 export default {
   components: {
-    Flow
+    Flow,
   },
   layout: 'print',
   head() {
@@ -18,9 +18,9 @@ export default {
           'print/flow',
           this.$i18n.locales,
           this.$i18n.defaultLocale
-        )
-      ]
+        ),
+      ],
     }
-  }
+  },
 }
 </script>
