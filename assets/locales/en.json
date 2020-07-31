@@ -619,11 +619,12 @@
   "感染が拡大していると思われる": "It seems that the infection in Tokyo is spreading.",
   "東京都では、都内の「感染状況」と「医療提供体制」を2つの柱として7つのモニタリング項目を設定しています。": "In the Tokyo Metropolitan Government, there are 7 items being monitored, based on the two core pillars of ”Infection Trends in Tokyo\" and ”Medical System Provisions”.",
   "感染状況・医療提供体制の分析": "Analysis of ”The Infection trends in Tokyo\" and ”Medical System Provisions”.",
-  "入院患者数のうち、人工呼吸器管理（ECMOを含む）が必要な患者数を計上": "入院患者数のうち、人工呼吸器管理（ECMOを含む）が必要な患者数を計上",
-  "届出保健所別の内訳": "届出保健所別の内訳",
+  "入院患者数のうち、人工呼吸器管理（ECMOを含む）が必要な患者数を計上": "Within hospitalized patients, \"serious symptoms\" are considered to be those patients who need ventilators or ECMO.",
+  "届出保健所別の内訳": "Cases by public health center location",
   "男": "Male",
-  "退院者数の把握には一定の期間を要しており、確認次第数値を更新している": "退院者数の把握には一定の期間を要しており、確認次第数値を更新している",
-  "「重症」は、人工呼吸器管理（ECMOを含む）が必要な患者数を計上": "「重症」は、人工呼吸器管理（ECMOを含む）が必要な患者数を計上",
-  "東京都ステッカー申請・感染拡大防止協力金相談センター": "東京都ステッカー申請・感染拡大防止協力金相談センター",
-  "感染防止徹底宣言ステッカー、感染拡大防止協力金等に関すること": "感染防止徹底宣言ステッカー、感染拡大防止協力金等に関すること"
+  "退院者数の把握には一定の期間を要しており、確認次第数値を更新している": "It takes a certain period of time to confirm hospital discharges, and the number will be updated as information becomes available",
+  "「重症」は、人工呼吸器管理（ECMOを含む）が必要な患者数を計上": "\"Serious symptoms\" is the number of patients who need ventilators or ECMO",
+  "東京都ステッカー申請・感染拡大防止協力金相談センター": "Tokyo Metropolis Sticker Application / Infection Spread Prevention Support Fund Call Center",
+  "感染防止徹底宣言ステッカー、感染拡大防止協力金等に関すること": "About COVID-19 Safety Sticker and Infection Spread Prevention Support Fund",
+  "－": "－"
 }
