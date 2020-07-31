@@ -13,7 +13,7 @@
       :custom-sort="customSort"
       :footer-props="{
         'items-per-page-options': [15, 30, 50, 100, 200, 300, -1],
-        'items-per-page-text': $t('1ページ当たり')
+        'items-per-page-text': $t('1ページ当たり'),
       }"
       class="cardTable"
     >
@@ -33,7 +33,7 @@
           $t('{itemsLength} 項目中 {pageStart} - {pageStop} ', {
             itemsLength: props.itemsLength,
             pageStart: props.pageStart,
-            pageStop: props.pageStop
+            pageStop: props.pageStop,
           })
         }}
       </template>
@@ -143,27 +143,27 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
-      default: ''
+      default: '',
     },
     chartData: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     date: {
       type: String,
-      default: ''
+      default: '',
     },
     info: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     url: {
       type: String,
-      default: ''
+      default: '',
     },
     customSort: {
       type: Function,
@@ -184,8 +184,8 @@ export default Vue.extend({
           return comparison
         })
         return items
-      }
-    }
+      },
+    },
   },
   mounted() {
     const vTables = this.$refs.displayedTable as Vue
@@ -196,6 +196,6 @@ export default Vue.extend({
     nodes.forEach((table: HTMLElement) => {
       table.setAttribute('tabindex', '0')
     })
-  }
+  },
 })
 </script>

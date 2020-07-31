@@ -34,22 +34,22 @@ export default Vue.extend({
   components: {
     SiteTopUpper,
     CardsMonitoring,
-    CardsReference
+    CardsReference,
   },
   data() {
     return {
       tab: null,
       items: [
         { label: this.$t('モニタリング項目'), component: CardsMonitoring },
-        { label: this.$t('その他 参考指標'), component: CardsReference }
-      ]
+        { label: this.$t('その他 参考指標'), component: CardsReference },
+      ],
     }
   },
   methods: {
     change() {
       EventBus.$emit(TOGGLE_EVENT)
-    }
-  }
+    },
+  },
 })
 </script>
 

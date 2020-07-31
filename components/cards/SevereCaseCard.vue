@@ -44,26 +44,26 @@ import SevereCaseBarChart from '@/components/SevereCaseBarChart.vue'
 
 export default {
   components: {
-    SevereCaseBarChart
+    SevereCaseBarChart,
   },
   data() {
     const graphData = []
     Data.data
-      .filter(d => new Date(d.date) > new Date('2020-04-26'))
-      .forEach(d => {
+      .filter((d) => new Date(d.date) > new Date('2020-04-26'))
+      .forEach((d) => {
         const date = new Date(d.date)
         const subTotal = d.severe_case
         if (!isNaN(subTotal)) {
           graphData.push({
             label: `${date.getMonth() + 1}/${date.getDate()}`,
-            transition: subTotal
+            transition: subTotal,
           })
         }
       })
     return {
       Data,
-      graphData
+      graphData,
     }
-  }
+  },
 }
 </script>

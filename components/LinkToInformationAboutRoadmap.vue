@@ -14,7 +14,7 @@ import Vue from 'vue'
 import ExternalLink from '@/components/ExternalLink.vue'
 
 export default Vue.extend({
-  components: { ExternalLink }
+  components: { ExternalLink },
 })
 </script>
 

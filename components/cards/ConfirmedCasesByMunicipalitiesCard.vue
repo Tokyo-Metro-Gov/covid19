@@ -32,13 +32,13 @@ import ConfirmedCasesByMunicipalitiesTable from '~/components/ConfirmedCasesByMu
 
 export default {
   components: {
-    ConfirmedCasesByMunicipalitiesTable
+    ConfirmedCasesByMunicipalitiesTable,
   },
   data() {
     // 区市町村ごとの陽性患者数
     const municipalitiesTable = {
       headers: [],
-      datasets: []
+      datasets: [],
     }
 
     // ヘッダーを設定
@@ -47,13 +47,13 @@ export default {
         { text: this.$t('地域'), value: 'area' },
         { text: this.$t('ふりがな'), value: 'ruby' },
         { text: this.$t('区市町村'), value: 'label' },
-        { text: this.$t('陽性患者数'), value: 'count', align: 'end' }
+        { text: this.$t('陽性患者数'), value: 'count', align: 'end' },
       ]
     } else {
       municipalitiesTable.headers = [
         { text: this.$t('地域'), value: 'area' },
         { text: this.$t('区市町村'), value: 'label' },
-        { text: this.$t('陽性患者数'), value: 'count', align: 'end' }
+        { text: this.$t('陽性患者数'), value: 'count', align: 'end' },
       ]
     }
 
@@ -86,13 +86,13 @@ export default {
           area: this.$t(d.area),
           ruby: this.$t(d.ruby),
           label: this.$t(d.label),
-          count: d.count
+          count: d.count,
         })
       } else {
         municipalitiesTable.datasets.push({
           area: this.$t(d.area),
           label: this.$t(d.label),
-          count: d.count
+          count: d.count,
         })
       }
     }
@@ -101,16 +101,16 @@ export default {
 
     const info = {
       sText: this.$t('{date}の累計', {
-        date: this.$d(new Date(Data.datasets.date), 'dateWithoutYear')
-      })
+        date: this.$d(new Date(Data.datasets.date), 'dateWithoutYear'),
+      }),
     }
 
     return {
       Data,
       date,
       municipalitiesTable,
-      info
+      info,
     }
-  }
+  },
 }
 </script>

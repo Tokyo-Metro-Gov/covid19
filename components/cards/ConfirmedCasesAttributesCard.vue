@@ -8,9 +8,7 @@
         :chart-option="{}"
         :date="Data.patients.date"
         :info="sumInfoOfPatients"
-        :url="
-          'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
-        "
+        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
         :source="$t('オープンデータを入手')"
         :custom-sort="customSort"
       />
@@ -27,7 +25,7 @@ import DataTable from '@/components/DataTable.vue'
 
 export default {
   components: {
-    DataTable
+    DataTable,
   },
   data() {
     // 感染者数グラフ
@@ -43,7 +41,7 @@ export default {
         patientsGraph.length - 1
       ].cumulative.toLocaleString(),
       sText: this.$t('{date}の累計', { date }),
-      unit: this.$t('人')
+      unit: this.$t('人'),
     }
 
     // 陽性患者の属性 ヘッダー翻訳
@@ -68,7 +66,7 @@ export default {
     return {
       Data,
       patientsTable,
-      sumInfoOfPatients
+      sumInfoOfPatients,
     }
   },
   methods: {
@@ -119,10 +117,10 @@ export default {
           // 公表日に年まで含む場合は以下が使用可能になり、逆に今使用しているコードが使用不可能となる。
           // comparison = new Date(a[index[0]]) < new Date(b[index[0]]) ? -1 : 1
 
-          const aDate = a[index[0]].split('/').map(d => {
+          const aDate = a[index[0]].split('/').map((d) => {
             return parseInt(d)
           })
-          const bDate = b[index[0]].split('/').map(d => {
+          const bDate = b[index[0]].split('/').map((d) => {
             return parseInt(d)
           })
           comparison = aDate[1] > bDate[1] ? 1 : -1
@@ -150,7 +148,7 @@ export default {
         return isDesc[0] ? comparison * -1 : comparison
       })
       return items
-    }
-  }
+    },
+  },
 }
 </script>

@@ -55,12 +55,12 @@ import Data from '@/data/daily_positive_detail.json'
 import UntrackedRateMixedChart from '@/components/UntrackedRateMixedChart'
 import {
   getNumberToFixedFunction,
-  getNumberToLocaleStringFunction
+  getNumberToLocaleStringFunction,
 } from '@/utils/monitoringStatusValueFormatters'
 
 export default {
   components: {
-    UntrackedRateMixedChart
+    UntrackedRateMixedChart,
   },
   data() {
     const reportedCount = []
@@ -70,8 +70,8 @@ export default {
     const dateList = []
 
     Data.data
-      .filter(d => new Date(d.diagnosed_date) >= new Date('2020-03-27'))
-      .forEach(d => {
+      .filter((d) => new Date(d.diagnosed_date) >= new Date('2020-03-27'))
+      .forEach((d) => {
         reportedCount.push(d.reported_count)
         missingCount.push(d.missing_count)
         untrackedRate.push(d.weekly_average_untracked_count)
@@ -84,23 +84,23 @@ export default {
       reportedCount,
       missingCount,
       untrackedRate,
-      untrackedIncreseRate
+      untrackedIncreseRate,
     ]
 
     const dataLabels = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
       this.$t('接触歴等不明者数（７日間移動平均）'),
-      this.$t('増加比')
+      this.$t('増加比'),
     ]
     const tableLabels = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
       this.$t('接触歴等不明者数（７日間移動平均）'),
-      this.$t('増加比')
+      this.$t('増加比'),
     ]
 
-    const getFormatter = columnIndex => {
+    const getFormatter = (columnIndex) => {
       // 7日間移動平均と増加比は小数点第1位まで表示する。
       if (columnIndex >= 2) {
         return getNumberToFixedFunction(1)
@@ -114,8 +114,8 @@ export default {
       dateList,
       dataLabels,
       tableLabels,
-      getFormatter
+      getFormatter,
     }
-  }
+  },
 }
 </script>

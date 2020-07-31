@@ -52,12 +52,12 @@ import MonitoringConfirmedCasesChart from '@/components/MonitoringConfirmedCases
 import Data from '@/data/daily_positive_detail.json'
 import {
   getNumberToFixedFunction,
-  getNumberToLocaleStringFunction
+  getNumberToLocaleStringFunction,
 } from '@/utils/monitoringStatusValueFormatters'
 
 export default {
   components: {
-    MonitoringConfirmedCasesChart
+    MonitoringConfirmedCasesChart,
   },
   data() {
     const [patientsCount, sevenDayMoveAverages, labels] = Data.data.reduce(
@@ -74,7 +74,7 @@ export default {
     const tableLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
     const date = Data.date
 
-    const getFormatter = columnIndex => {
+    const getFormatter = (columnIndex) => {
       // モニタリング指標(1)新規陽性者数の7日間移動平均は小数点第1位まで表示する。
       if (columnIndex === 1) {
         return getNumberToFixedFunction(1)
@@ -88,8 +88,8 @@ export default {
       labels,
       dataLabels,
       tableLabels,
-      getFormatter
+      getFormatter,
     }
-  }
+  },
 }
 </script>

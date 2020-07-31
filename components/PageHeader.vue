@@ -17,9 +17,9 @@ export default Vue.extend({
     icon: {
       type: String,
       required: false,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>
 

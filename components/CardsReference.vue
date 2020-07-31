@@ -45,8 +45,8 @@ export default Vue.extend({
     TelephoneAdvisoryReportsNumberCard,
     MetroCard,
     AgencyCard,
-    PositiveNumberByDiagnosedDateCard
-  }
+    PositiveNumberByDiagnosedDateCard,
+  },
 })
 </script>
 

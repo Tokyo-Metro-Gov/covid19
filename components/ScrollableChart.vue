@@ -43,25 +43,25 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   props: {
     displayData: {
       type: Object as PropType<DisplayData>,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       chartWidth: 300,
       timerId: 0,
-      windowWidth: 0
+      windowWidth: 0,
     }
   },
   watch: {
     displayData() {
       this.scrollRightSide()
-    }
+    },
   },
   computed: {
     labelCount() {
       return this.displayData.labels?.length || 0
-    }
+    },
   },
   methods: {
     adjustChartWidth() {
@@ -89,7 +89,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     handleResize() {
       clearTimeout(this.timerId)
       this.timerId = window.setTimeout(this.adjustChartWidth, 500)
-    }
+    },
   },
   mounted() {
     this.adjustChartWidth()
@@ -107,7 +107,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize)
-  }
+  },
 }
 
 export default options

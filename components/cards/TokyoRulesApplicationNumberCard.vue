@@ -35,19 +35,19 @@ import MixedBarAndLineChart from '@/components/MixedBarAndLineChart.vue'
 import TokyoRule from '@/data/tokyo_rule.json'
 import {
   getNumberToFixedFunction,
-  getNumberToLocaleStringFunction
+  getNumberToLocaleStringFunction,
 } from '@/utils/monitoringStatusValueFormatters'
 
 export default {
   components: {
-    MixedBarAndLineChart
+    MixedBarAndLineChart,
   },
   data() {
     const applicationReportsCount = []
     const sevendayMoveAverages = []
     const labels = []
 
-    TokyoRule.data.forEach(d => {
+    TokyoRule.data.forEach((d) => {
       applicationReportsCount.push(d.count)
       sevendayMoveAverages.push(d.weekly_average_count)
       labels.push(d.date)
@@ -56,7 +56,7 @@ export default {
     const chartData = [applicationReportsCount, sevendayMoveAverages]
     const dataLabels = [this.$t('適用件数'), this.$t('７日間移動平均')]
     const date = TokyoRule.date
-    const getFormatter = columnIndex => {
+    const getFormatter = (columnIndex) => {
       // ７日間移動平均は小数点第1位まで表示する。
       if (columnIndex === 1) {
         return getNumberToFixedFunction(1)
@@ -69,8 +69,8 @@ export default {
       date,
       labels,
       dataLabels,
-      getFormatter
+      getFormatter,
     }
-  }
+  },
 }
 </script>
