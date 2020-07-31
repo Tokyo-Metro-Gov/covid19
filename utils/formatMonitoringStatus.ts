@@ -49,7 +49,7 @@ export default (rawDataObj: RawData) => {
     '（４）重症患者数': '人',
     '（５）入院患者数': '人',
     '（６）PCR検査の陽性率': '%',
-    '（７）受診相談窓口における相談件数': '件.reports'
+    '（７）受診相談窓口における相談件数': '件.reports',
   }
 
   for (const [key, rawValue] of Object.entries(rawDataObj)) {
@@ -63,8 +63,8 @@ export default (rawDataObj: RawData) => {
       itemName: rawDataKey,
       itemValue: {
         value,
-        unit: units[rawDataKey]
-      }
+        unit: units[rawDataKey],
+      },
     })
   }
   return formattedData

@@ -20,8 +20,8 @@ import AntennaIcon from '@/static/antenna.svg'
 export default Vue.extend({
   components: {
     ExternalLink,
-    AntennaIcon
-  }
+    AntennaIcon,
+  },
 })
 </script>
 

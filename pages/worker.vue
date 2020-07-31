@@ -67,12 +67,12 @@ export default Vue.extend({
   components: {
     PageHeader,
     StaticCard,
-    ExternalLink
+    ExternalLink,
   },
   head(): MetaInfo {
     return {
-      title: this.$t('企業の皆様・はたらく皆様へ') as string
+      title: this.$t('企業の皆様・はたらく皆様へ') as string,
     }
-  }
+  },
 })
 </script>

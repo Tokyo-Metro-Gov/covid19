@@ -30,7 +30,7 @@
         <th
           :class="[
             $style.itemName,
-            $style['cellWidth-itemNameCategorizedSuperSub']
+            $style['cellWidth-itemNameCategorizedSuperSub'],
           ]"
           scope="row"
           rowspan="2"
@@ -70,7 +70,7 @@
           :class="[
             $style.itemName,
             $style.wrapAllowed,
-            $style['cellWidth-itemNameCategorizedSuper']
+            $style['cellWidth-itemNameCategorizedSuper'],
           ]"
           scope="row"
           colspan="2"
@@ -89,7 +89,7 @@
           :class="[
             $style.itemName,
             $style.aboveEmptyCell,
-            $style['cellWidth-itemNameCategorizedSuper']
+            $style['cellWidth-itemNameCategorizedSuper'],
           ]"
           scope="row"
           colspan="2"
@@ -107,7 +107,7 @@
         <th
           :class="[
             $style.emptyCell,
-            $style['cellWidth-itemNameCategorizedSuperSub']
+            $style['cellWidth-itemNameCategorizedSuperSub'],
           ]"
           scope="row"
         />
@@ -123,7 +123,7 @@
           :class="[
             $style.itemName,
             $style.aboveEmptyCell,
-            $style['cellWidth-itemNameCategorizedSuper']
+            $style['cellWidth-itemNameCategorizedSuper'],
           ]"
           scope="row"
           colspan="2"
@@ -141,7 +141,7 @@
         <th
           :class="[
             $style.emptyCell,
-            $style['cellWidth-itemNameCategorizedSuperSub']
+            $style['cellWidth-itemNameCategorizedSuperSub'],
           ]"
           scope="row"
         />
@@ -163,14 +163,14 @@ import MonitoringItemsOverviewTableValueWithTranslatableUnit from '@/components/
 
 export default Vue.extend({
   components: {
-    MonitoringItemsOverviewTableValueWithTranslatableUnit
+    MonitoringItemsOverviewTableValueWithTranslatableUnit,
   },
   props: {
     items: {
       type: Object as PropType<MonitoringItems>,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
 </script>
 

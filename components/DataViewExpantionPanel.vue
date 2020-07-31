@@ -30,7 +30,7 @@ import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 export default Vue.extend({
   data() {
     return {
-      showDetails: false
+      showDetails: false,
     }
   },
   mounted() {
@@ -39,8 +39,8 @@ export default Vue.extend({
   methods: {
     toggleDetails() {
       EventBus.$emit(TOGGLE_EVENT, { dataView: this.$parent })
-    }
-  }
+    },
+  },
 })
 </script>
 

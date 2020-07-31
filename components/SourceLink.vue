@@ -35,16 +35,16 @@ export default Vue.extend({
   props: {
     url: {
       type: String,
-      default: ''
+      default: '',
     },
     linkString: {
       type: String,
-      default: ''
+      default: '',
     },
     header: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>

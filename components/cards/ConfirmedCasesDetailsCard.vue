@@ -47,7 +47,7 @@ import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.
 export default {
   components: {
     DataView,
-    ConfirmedCasesDetailsTable
+    ConfirmedCasesDetailsTable,
   },
   data() {
     // 検査陽性者の状況
@@ -60,8 +60,8 @@ export default {
     return {
       Data,
       confirmedCases,
-      updatedAt
+      updatedAt,
     }
-  }
+  },
 }
 </script>

@@ -29,8 +29,8 @@ export default Vue.extend({
   props: {
     error: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     isNotFound(): boolean {
@@ -40,8 +40,8 @@ export default Vue.extend({
       return this.isNotFound
         ? (this.$t('このページはご利用いただけません') as string)
         : (this.$t('現在ご利用できません') as string)
-    }
-  }
+    },
+  },
 })
 </script>
 

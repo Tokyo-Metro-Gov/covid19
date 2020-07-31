@@ -20,10 +20,10 @@ interface DayBeforeRatioData {
  * @param dataIndex - Target data index in `displayData.datasets`
  * @param digit - The number of digits to appear after the decimal point
  */
-export const calcDayBeforeRatio = function({
+export const calcDayBeforeRatio = function ({
   displayData,
   dataIndex = 0,
-  digit = 0
+  digit = 0,
 }: DayBeforeRatioParameters): DayBeforeRatioData {
   const lastDay = displayData.labels!.slice(-1)[0]
   const data = displayData.datasets[dataIndex].data
@@ -38,7 +38,7 @@ export const calcDayBeforeRatio = function({
       'dateWithoutYear'
     ),
     lastDayData: formatter(lastDayData),
-    dayBeforeRatio: formatDayBeforeRatio(dayBeforeRatio, formatter)
+    dayBeforeRatio: formatDayBeforeRatio(dayBeforeRatio, formatter),
   }
 }
 

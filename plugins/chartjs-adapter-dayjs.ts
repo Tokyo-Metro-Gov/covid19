@@ -21,7 +21,7 @@ const DEFAULT_FORMATS = {
   week: 'll',
   month: 'MMM YYYY',
   quarter: '[Q]Q - YYYY',
-  year: 'YYYY'
+  year: 'YYYY',
 }
 
 export function useDayjsAdapter(nuxtI18n: NuxtAppOptions['i18n']) {
@@ -64,7 +64,7 @@ export function useDayjsAdapter(nuxtI18n: NuxtAppOptions['i18n']) {
 
     endOf(time, unit) {
       return dayjs(time).endOf(unit)
-    }
+    },
   })
 }
 

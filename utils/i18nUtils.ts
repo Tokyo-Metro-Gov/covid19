@@ -25,7 +25,7 @@ export const getLinksLanguageAlternative = (
         hid: `alternate-hreflang-${locale.iso}`,
         rel: 'alternate',
         href: getFullPathWihLocale(locale.code),
-        hreflang: locale.iso
+        hreflang: locale.iso,
       })
     }
   }
@@ -34,7 +34,7 @@ export const getLinksLanguageAlternative = (
       hid: 'alternate-hreflang-x-default',
       rel: 'alternate',
       href: getFullPathWihLocale(defaultLocale),
-      hreflang: 'x-default'
+      hreflang: 'x-default',
     })
   }
 

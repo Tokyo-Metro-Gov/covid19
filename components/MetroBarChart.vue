@@ -49,7 +49,7 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import DataView from '@/components/DataView.vue'
 import DataViewTable, {
   TableHeader,
-  TableItem
+  TableItem,
 } from '@/components/DataViewTable.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import ExternalLink from '@/components/ExternalLink.vue'
@@ -95,39 +95,39 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     chartData: Object,
     chartOption: Object,
     chartId: {
       type: String,
-      default: 'metro-bar-chart'
+      default: 'metro-bar-chart',
     },
     date: {
       type: String,
-      required: true
+      required: true,
     },
     unit: {
       type: String,
       required: false,
-      default: '%'
+      default: '%',
     },
     tooltipsTitle: {
       type: Function,
-      required: true
+      required: true,
     },
     tooltipsLabel: {
       type: Function,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
-    canvas: true
+    canvas: true,
   }),
   computed: {
     displayData() {
@@ -135,15 +135,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const datasets = this.chartData.labels!.map((label, i) => {
         return {
           label: label as string,
-          data: this.chartData.datasets!.map(d => d.data![i]) as number[],
+          data: this.chartData.datasets!.map((d) => d.data![i]) as number[],
           backgroundColor: graphSeries[i].fillColor,
           borderColor: graphSeries[i].strokeColor,
-          borderWidth: 1
+          borderWidth: 1,
         }
       })
       return {
-        labels: this.chartData.datasets!.map(d => d.label!),
-        datasets
+        labels: this.chartData.datasets!.map((d) => d.label!),
+        datasets,
       }
     },
     tableHeaders() {
@@ -151,7 +151,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         { text: this.$t('日付'), value: 'text' },
         ...this.chartData.labels!.map((text, value) => {
           return { text: text as string, value: String(value), align: 'end' }
-        })
+        }),
       ]
     },
     tableData() {
@@ -161,7 +161,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             { text: this.chartData.datasets![i].label },
             ...this.chartData.labels!.map((_, j) => {
               return {
-                [j]: this.displayData.datasets[j].data[i]
+                [j]: this.displayData.datasets[j].data[i],
               }
             })
           )
@@ -180,8 +180,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             e.currentTarget.style.cursor = 'default'
           },
           labels: {
-            boxWidth: 20
-          }
+            boxWidth: 20,
+          },
         },
         scales: {
           xAxes: [
@@ -189,20 +189,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               position: 'bottom',
               stacked: false,
               gridLines: {
-                display: true
+                display: true,
               },
               ticks: {
                 fontSize: 10,
                 maxTicksLimit: 20,
-                fontColor: '#808080'
-              }
-            }
+                fontColor: '#808080',
+              },
+            },
           ],
           yAxes: [
             {
               stacked: false,
               gridLines: {
-                display: true
+                display: true,
               },
               ticks: {
                 fontSize: 12,
@@ -214,24 +214,24 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                       2
                     ) + self.unit
                   )
-                }
-              }
-            }
-          ]
+                },
+              },
+            },
+          ],
         },
         tooltips: {
           displayColors: false,
           callbacks: {
             title: self.tooltipsTitle,
-            label: self.tooltipsLabel
-          }
-        }
+            label: self.tooltipsLabel,
+          },
+        },
       }
       if (this.$route.query.ogp === 'true') {
         Object.assign(options, { animation: { duration: 0 } })
       }
       return options
-    }
+    },
   },
   mounted() {
     const barChart = this.$refs.barChart as Vue
@@ -243,7 +243,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
-  }
+  },
 }
 
 export default Vue.extend(options)

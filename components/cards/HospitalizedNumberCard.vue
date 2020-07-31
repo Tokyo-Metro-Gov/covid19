@@ -48,15 +48,15 @@ import DashedRectangleTimeBarChart from '@/components/DashedRectangleTimeBarChar
 
 export default {
   components: {
-    DashedRectangleTimeBarChart
+    DashedRectangleTimeBarChart,
   },
   data() {
     const formatData = []
-    positiveStatus.data.forEach(d => {
+    positiveStatus.data.forEach((d) => {
       if (new Date(d.date) >= new Date('2020-03-06')) {
         formatData.push({
           日付: new Date(d.date),
-          小計: d.hospitalized
+          小計: d.hospitalized,
         })
       }
     })
@@ -67,8 +67,8 @@ export default {
     return {
       positiveStatus,
       patientsGraph,
-      tableLabels
+      tableLabels,
     }
-  }
+  },
 }
 </script>
