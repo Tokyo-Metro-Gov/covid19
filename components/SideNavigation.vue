@@ -158,7 +158,13 @@ export default Vue.extend({
         {
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: this.localePath('/flow'),
+          link: this.localePath('/flow')
+        },
+        {
+          icon: 'MHLWIcon',
+          title: this.$t('新型コロナウイルス接触確認アプリ（ＣＯＣＯＡ）'),
+          link:
+            'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/cocoa_00138.html',
           divider: true
         },
         {
