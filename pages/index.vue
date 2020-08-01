@@ -111,7 +111,7 @@ export default Vue.extend({
       return convertDatetimeToISO8601Format(this.$data.Data.lastUpdate)
     },
     homepageNewsItems() {
-      return this.newsItems.filter(function(item) {
+      return this.$data.newsItems.filter(function(item: any) {
         return item.homepage
       })
     }
