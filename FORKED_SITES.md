@@ -29,7 +29,7 @@
 [](14)横浜市|https://covid19.yokohama/|個人|[covid19yokohama/covid19](https://github.com/covid19yokohama/covid19)|
 [](15)新潟県|https://niigata.stopcovid19.jp/|Code for Niigata|[CodeForNiigata/covid19](https://github.com/CodeForNiigata/covid19)|
 [](15)新潟県|https://stopcovid19-niigata-unofficial.netlify.app/|air-h-128k-il|[air-h-128k-il/covid19](https://github.com/air-h-128k-il/covid19)|
-[](16)富山県|https://stopcovid19-toyama.netlify.app/|運営者：有志（富山県公認）|[Terachan0117 /covid19-toyama](Terachan0117/covid19-toyama)|
+[](16)富山県|https://stopcovid19-toyama.netlify.app/|運営者：有志（富山県公認）|[Terachan0117/covid19-toyama](https://github.com/Terachan0117/covid19-toyama)|
 [](17)石川県|https://stopcovid19.pref.ishikawa.jp/|石川県（**公式**）||
 [](17)石川県|https://ishikawa-covid19.netlify.app/|個人|[Retsuki/covid19-ishikawa/](https://github.com/Retsuki/covid19-ishikawa/)|
 [](18)福井県|https://covid19-fukui.com/|地元有志（**福井県公認**）|[nomunomu0504/covid19](https://github.com/nomunomu0504/covid19)|
