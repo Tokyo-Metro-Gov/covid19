@@ -107,11 +107,11 @@ export default {
       const dates = label.split('~')
       if (slashCount === 1 && dates.length === 2) {
         const from = this.$d(
-          new Date(getComplementedDate(dates[0])),
+          getComplementedDate(dates[0]),
           'dateWithoutYear'
         )
         const to = this.$d(
-          new Date(getComplementedDate(dates[1])),
+          getComplementedDate(dates[1]),
           'dateWithoutYear'
         )
         return `${from}~${to}`
