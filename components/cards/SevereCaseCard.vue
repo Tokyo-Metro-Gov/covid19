@@ -41,6 +41,7 @@
 <script>
 import Data from '@/data/positive_status.json'
 import SevereCaseBarChart from '@/components/SevereCaseBarChart.vue'
+import { convertDateToISO8601Format } from '@/utils/formatDate.ts'
 
 export default {
   components: {
@@ -51,11 +52,10 @@ export default {
     Data.data
       .filter((d) => new Date(d.date) > new Date('2020-04-26'))
       .forEach((d) => {
-        const date = new Date(d.date)
         const subTotal = d.severe_case
         if (!isNaN(subTotal)) {
           graphData.push({
-            label: `${date.getMonth() + 1}/${date.getDate()}`,
+            label: convertDateToISO8601Format(d.date),
             transition: subTotal,
           })
         }
