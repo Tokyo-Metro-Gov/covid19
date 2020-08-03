@@ -31,11 +31,11 @@ export default {
       const dates = l.split('~')
       if (dates.length === 2) {
         const from = this.$d(
-          new Date(getComplementedDate(dates[0])),
+          getComplementedDate(dates[0]),
           'dateWithoutYear'
         )
         const to = this.$d(
-          new Date(getComplementedDate(dates[1])),
+          getComplementedDate(dates[1]),
           'dateWithoutYear'
         )
         return `${from}~${to}`
