@@ -1,31 +1,33 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <metro-bar-chart
-      :title="$t('都営地下鉄の利用者数の推移')"
-      :title-id="'predicted-number-of-toei-subway-passengers'"
-      :chart-id="'metro-bar-chart'"
-      :chart-data="metroGraph"
-      :date="metroGraph.date"
-      :tooltips-title="metroGraphTooltipTitle"
-      :tooltips-label="metroGraphTooltipLabel"
-      unit="%"
-    >
-      <template v-slot:description>
-        {{
-          $t('{range}の利用者数*の平均値を基準としたときの相対値', {
-            range: metroGraph.base_period
-          })
-        }}
-        <br />
-        *{{ $t('都営地下鉄4路線の自動改札出場数') }}
-        <br />
-        {{
-          $t(
-            '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
-          )
-        }}
-      </template>
-    </metro-bar-chart>
+    <client-only>
+      <metro-bar-chart
+        :title="$t('都営地下鉄の利用者数の推移')"
+        :title-id="'predicted-number-of-toei-subway-passengers'"
+        :chart-id="'metro-bar-chart'"
+        :chart-data="metroGraph"
+        :date="metroGraph.date"
+        :tooltips-title="metroGraphTooltipTitle"
+        :tooltips-label="metroGraphTooltipLabel"
+        unit="%"
+      >
+        <template v-slot:description>
+          {{
+            $t('{range}の利用者数*の平均値を基準としたときの相対値', {
+              range: metroGraph.base_period,
+            })
+          }}
+          <br />
+          *{{ $t('都営地下鉄4路線の自動改札出場数') }}
+          <br />
+          {{
+            $t(
+              '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+            )
+          }}
+        </template>
+      </metro-bar-chart>
+    </client-only>
   </v-col>
 </template>
 
@@ -37,17 +39,17 @@ import { getComplementedDate } from '@/utils/formatDate'
 
 export default {
   components: {
-    MetroBarChart
+    MetroBarChart,
   },
   data() {
     // 都営地下鉄の利用者数の推移
-    const datasets = MetroData.datasets.map(d => ({
+    const datasets = MetroData.datasets.map((d) => ({
       ...d,
-      label: this.getWeekLabel(d.label)
+      label: this.getWeekLabel(d.label),
     }))
     const metroGraph = {
       ...MetroData,
-      datasets
+      datasets,
     }
 
     // metroGraph ツールチップ title文字列
@@ -65,7 +67,7 @@ export default {
       return this.$t('{duration}の利用者数との相対値: {percentage}', {
         // duration = metroGraph.base_period = '1\/20~1\/24'
         duration: this.$t(metroGraph.base_period),
-        percentage
+        percentage,
       })
     }
 
@@ -73,7 +75,7 @@ export default {
       Data,
       metroGraph,
       metroGraphTooltipTitle,
-      metroGraphTooltipLabel
+      metroGraphTooltipLabel,
     }
   },
   methods: {
@@ -105,18 +107,18 @@ export default {
       const dates = label.split('~')
       if (slashCount === 1 && dates.length === 2) {
         const from = this.$d(
-          new Date(getComplementedDate(dates[0])),
+          getComplementedDate(dates[0]),
           'dateWithoutYear'
         )
         const to = this.$d(
-          new Date(getComplementedDate(dates[1])),
+          getComplementedDate(dates[1]),
           'dateWithoutYear'
         )
         return `${from}~${to}`
       } else {
         return `${dates[0]}~${dates[1]}`
       }
-    }
-  }
+    },
+  },
 }
 </script>

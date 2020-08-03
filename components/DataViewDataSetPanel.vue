@@ -64,22 +64,22 @@ export default Vue.extend({
     title: {
       type: String,
       required: true,
-      default: ''
+      default: '',
     },
     lText: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     sText: {
       type: String,
-      required: true
+      required: true,
     },
     unit: {
       type: String,
       required: false,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>

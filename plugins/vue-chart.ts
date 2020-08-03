@@ -2,8 +2,8 @@ import Vue, { PropType } from 'vue'
 import { ChartData, ChartOptions } from 'chart.js'
 import { Doughnut, Bar, Line, mixins } from 'vue-chartjs'
 import { Plugin } from '@nuxt/types'
-import { useDayjsAdapter } from './chartjs-adapter-dayjs'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
+import { useDayjsAdapter } from './chartjs-adapter-dayjs'
 
 type ChartVCData = { chartData: ChartData }
 type ChartVCMethod = {
@@ -23,7 +23,7 @@ const rgba1 = 'rgba(255,255,255,1)'
 const createCustomChart = () => {
   const { reactiveProp } = mixins
 
-  const watchDisplayLegends = function(this: Vue, v?: boolean[] | null) {
+  const watchDisplayLegends = function (this: Vue, v?: boolean[] | null) {
     if (v == null) {
       return
     }
@@ -47,18 +47,18 @@ const createCustomChart = () => {
     props: {
       displayLegends: {
         type: Array,
-        default: () => null
+        default: () => null,
       },
       options: {
         type: Object as PropType<ChartOptions>,
-        default: () => {}
-      }
+        default: () => {},
+      },
     },
     watch: {
       displayLegends: watchDisplayLegends,
       width() {
         setTimeout(() => this.$data._chart.resize())
-      }
+      },
     },
     mounted() {
       setTimeout(() => this.renderChart(this.chartData, this.options))
@@ -70,27 +70,27 @@ const createCustomChart = () => {
     },
     beforeDestroy() {
       EventBus.$off(TOGGLE_EVENT)
-    }
+    },
   })
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'line-chart',
     {
-      mixins: [reactiveProp, Line, generalChart]
+      mixins: [reactiveProp, Line, generalChart],
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'bar',
     {
-      mixins: [reactiveProp, Bar, generalChart]
+      mixins: [reactiveProp, Bar, generalChart],
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'doughnut-chart',
     {
-      mixins: [reactiveProp, Doughnut, generalChart]
+      mixins: [reactiveProp, Doughnut, generalChart],
     }
   )
 }
@@ -127,8 +127,8 @@ export const yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[] = [
         chartInstance.chartArea.left,
         (chartInstance.height as number) - chartInstance.chartArea.bottom - 1
       )
-    }
-  }
+    },
+  },
 ]
 
 export const yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[] = [
@@ -181,8 +181,8 @@ export const yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[] = [
         chartInstance.chartArea.left,
         (chartInstance.height as number) - chartInstance.chartArea.bottom - 1
       )
-    }
-  }
+    },
+  },
 ]
 
 export interface DataSets<T = number> extends ChartData {

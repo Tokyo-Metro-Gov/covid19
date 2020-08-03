@@ -19,12 +19,12 @@
           <div
             :style="{
               backgroundColor: colors[i].fillColor,
-              borderColor: colors[i].strokeColor
+              borderColor: colors[i].strokeColor,
             }"
           />
           <span
             :style="{
-              textDecoration: displayLegends[i] ? 'none' : 'line-through'
+              textDecoration: displayLegends[i] ? 'none' : 'line-through',
             }"
             >{{ item }}</span
           >
@@ -59,7 +59,9 @@
       </template>
     </scrollable-chart>
     <template v-slot:dataTable>
-      <data-view-table :headers="tableHeaders" :items="tableData" />
+      <client-only>
+        <data-view-table :headers="tableHeaders" :items="tableData" />
+      </client-only>
     </template>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
@@ -84,13 +86,13 @@ import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewTable, {
   TableHeader,
-  TableItem
+  TableItem,
 } from '@/components/DataViewTable.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
-import { getComplementedDate } from '@/utils/formatDate'
+import { getComplementedDate, getDayjsObject } from '@/utils/formatDate'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -160,81 +162,80 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     DataSelector,
     DataViewTable,
     DataViewBasicInfoPanel,
-    ScrollableChart
+    ScrollableChart,
   },
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     chartId: {
       type: String,
-      default: 'time-stacked-bar-chart'
+      default: 'time-stacked-bar-chart',
     },
     chartData: {
       type: Array,
       required: false,
-      default: () => []
+      default: () => [],
     },
     date: {
       type: String,
       required: true,
-      default: ''
+      default: '',
     },
     items: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     labels: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     dataLabels: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     tableLabels: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     unit: {
       type: String,
-      default: ''
+      default: '',
     },
     yAxesBgPlugin: {
       type: Array,
-      default: () => yAxesBgPlugin
-    }
+      default: () => yAxesBgPlugin,
+    },
   },
   data: () => ({
     dataKind: 'transition',
     displayLegends: [true, true],
     colors: getGraphSeriesStyle(2),
     canvas: true,
-    isSmall: false
+    isSmall: false,
   }),
   computed: {
     displayInfo() {
+      const lastDay = this.labels[this.labels.length - 1]
+      const date = this.$d(getDayjsObject(lastDay).toDate(), 'dateWithoutYear')
+
       if (this.dataKind === 'transition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
-          sText: `${this.$t('{date}の合計', {
-            date: this.labels[this.labels.length - 1]
-          })}`,
-          unit: this.unit
+          sText: `${this.$t('{date}の合計', { date })}`,
+          unit: this.unit,
         }
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.$t('{date}の合計', {
-          date: this.labels[this.labels.length - 1]
-        })}`,
-        unit: this.unit
+        sText: `${this.$t('{date}の合計', { date })}`,
+        unit: this.unit,
       }
     },
     displayData() {
@@ -248,9 +249,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               data: item,
               backgroundColor: graphSeries[index].fillColor,
               borderColor: graphSeries[index].strokeColor,
-              borderWidth: 1
+              borderWidth: 1,
             }
-          })
+          }),
         }
       }
       return {
@@ -261,9 +262,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             data: this.cumulative(item),
             backgroundColor: graphSeries[index].fillColor,
             borderColor: graphSeries[index].strokeColor,
-            borderWidth: 1
+            borderWidth: 1,
           }
-        })
+        }),
       }
     },
     tableHeaders() {
@@ -273,7 +274,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           .reduce((arr, text) => {
             arr.push(
               ...[this.$t('日別'), this.$t('累計')].map(
-                label => `${text} (${label})`
+                (label) => `${text} (${label})`
               )
             )
             return arr
@@ -283,21 +284,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               text,
               value: String(i),
               align: 'end',
-              width: this.isSmall ? '6em' : 'auto'
+              width: this.isSmall ? '6em' : 'auto',
             }
-          })
+          }),
       ]
     },
     tableData() {
       return this.labels
         .map((label, i) => {
           return Object.assign(
-            {
-              text: this.$d(
-                new Date(getComplementedDate(label)),
-                'dateWithoutYear'
-              )
-            },
+            { text: label },
             ...this.tableHeaders.map((_, j) => {
               const index = j < 2 ? 0 : 1
               const transition = this.chartData[index]
@@ -306,7 +302,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 [j]:
                   j % 2 === 0
                     ? transition[i].toLocaleString()
-                    : cumulative[i].toLocaleString()
+                    : cumulative[i].toLocaleString(),
               }
             })
           )
@@ -319,7 +315,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const unit = this.unit
       const sumArray = this.eachArraySum(this.chartData)
       const data = this.chartData
-      const cumulativeData = this.chartData.map(item => {
+      const cumulativeData = this.chartData.map((item) => {
         return this.cumulative(item)
       })
       const cumulativeSumArray = this.eachArraySum(cumulativeData)
@@ -327,7 +323,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         tooltips: {
           displayColors: false,
           callbacks: {
-            label: tooltipItem => {
+            label: (tooltipItem) => {
               let casesTotal, cases, label
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index!].toLocaleString()
@@ -353,16 +349,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               const label = data.labels![tooltipItem[0].index!] as string
-              return self.$d(
-                new Date(getComplementedDate(label)),
-                'dateWithoutYear'
-              )
-            }
-          }
+              return self.$d(getComplementedDate(label), 'dateWithoutYear')
+            },
+          },
         },
         maintainAspectRatio: false,
         legend: {
-          display: false
+          display: false,
         },
         scales: {
           xAxes: [
@@ -370,7 +363,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               id: 'day',
               stacked: true,
               gridLines: {
-                display: false
+                display: false,
               },
               ticks: {
                 fontSize: 9,
@@ -378,9 +371,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080',
                 maxRotation: 0,
                 callback: (label: string) => {
-                  return label.split('/')[1]
-                }
-              }
+                  return dayjs(label).format('D')
+                },
+              },
               // #2384: If you set "type" to "time", make sure that the bars at both ends are not hidden.
               // #2384: typeをtimeに設定する時はグラフの両端が見切れないか確認してください
             },
@@ -391,40 +384,40 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 drawOnChartArea: false,
                 drawTicks: true,
                 drawBorder: false,
-                tickMarkLength: 10
+                tickMarkLength: 10,
               },
               ticks: {
                 fontSize: 11,
                 fontColor: '#808080',
                 padding: 3,
-                fontStyle: 'bold'
+                fontStyle: 'bold',
               },
               type: 'time',
               time: {
                 unit: 'month',
                 parser: 'M/D',
                 displayFormats: {
-                  month: 'MMM'
-                }
-              }
-            }
+                  month: 'MMM',
+                },
+              },
+            },
           ],
           yAxes: [
             {
               stacked: true,
               gridLines: {
                 display: true,
-                color: '#E5E5E5'
+                color: '#E5E5E5',
               },
               ticks: {
                 suggestedMin: 0,
                 suggestedMax: this.scaledTicksYAxisMax,
                 maxTicksLimit: 8,
-                fontColor: '#808080'
-              }
-            }
-          ]
-        }
+                fontColor: '#808080',
+              },
+            },
+          ],
+        },
       }
       if (this.$route.query.ogp === 'true') {
         Object.assign(options, { animation: { duration: 0 } })
@@ -444,26 +437,26 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       return {
-        labels: ['2020/1/1'],
+        labels: ['2020-01-01'],
         datasets: [
           {
             data: [this.displayData.datasets[0].data[n]],
             backgroundColor: 'transparent',
-            borderWidth: 0
+            borderWidth: 0,
           },
           {
             data: [this.displayData.datasets[1].data[n]],
             backgroundColor: 'transparent',
-            borderWidth: 0
-          }
-        ]
+            borderWidth: 0,
+          },
+        ],
       }
     },
     displayOptionHeader() {
       const options: Chart.ChartOptions = {
         maintainAspectRatio: false,
         legend: {
-          display: false
+          display: false,
         },
         tooltips: { enabled: false },
         scales: {
@@ -472,7 +465,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               id: 'day',
               stacked: true,
               gridLines: {
-                display: false
+                display: false,
               },
               ticks: {
                 fontSize: 9,
@@ -481,9 +474,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxRotation: 0,
                 minRotation: 0,
                 callback: (label: string) => {
-                  return label.split('/')[1]
-                }
-              }
+                  return dayjs(label).format('D')
+                },
+              },
             },
             {
               id: 'month',
@@ -492,7 +485,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 drawOnChartArea: false,
                 drawTicks: false, // true -> false
                 drawBorder: false,
-                tickMarkLength: 10
+                tickMarkLength: 10,
               },
               ticks: {
                 fontSize: 11,
@@ -512,17 +505,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                     'Sep',
                     'Oct',
                     'Nov',
-                    'Dec'
+                    'Dec',
                   ]
                   const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
                   return `${month}月`
-                }
+                },
               },
               type: 'time',
               time: {
-                unit: 'month'
-              }
-            }
+                unit: 'month',
+              },
+            },
           ],
           yAxes: [
             {
@@ -530,18 +523,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
-                color: '#E5E5E5' // #E5E5E5
+                color: '#E5E5E5', // #E5E5E5
               },
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMax
-              }
-            }
-          ]
+                suggestedMax: this.scaledTicksYAxisMax,
+              },
+            },
+          ],
         },
-        animation: { duration: 0 }
+        animation: { duration: 0 },
       }
       return options
     },
@@ -551,7 +544,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         max = Math.max(max, this.chartData[0][i] + this.chartData[1][i])
       }
       return max
-    }
+    },
   },
   methods: {
     onClickLegend(i) {
@@ -561,7 +554,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     cumulative(array: number[]): number[] {
       const cumulativeArray: number[] = []
       let patSum = 0
-      array.forEach(d => {
+      array.forEach((d) => {
         patSum += d
         cumulativeArray.push(patSum)
       })
@@ -573,12 +566,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       })
     },
     pickLastNumber(chartDataArray: number[][]) {
-      return chartDataArray.map(array => {
+      return chartDataArray.map((array) => {
         return array[array.length - 1]
       })
     },
     cumulativeSum(chartDataArray: number[][]) {
-      return chartDataArray.map(array => {
+      return chartDataArray.map((array) => {
         return array.reduce((acc, cur) => {
           return acc + cur
         })
@@ -593,7 +586,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     handleResize() {
       this.isSmall = window.innerWidth <= 400
-    }
+    },
   },
   mounted() {
     const barChart = this.$refs.barChart as Vue
@@ -611,7 +604,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   destroyed() {
     window.removeEventListener('resize', this.handleResize)
-  }
+  },
 }
 
 export default Vue.extend(options)

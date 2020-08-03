@@ -82,14 +82,14 @@ import MonitoringItemsOverviewTableValueWithTranslatableUnit from '@/components/
 
 export default Vue.extend({
   components: {
-    MonitoringItemsOverviewTableValueWithTranslatableUnit
+    MonitoringItemsOverviewTableValueWithTranslatableUnit,
   },
   props: {
     items: {
       type: Object as PropType<MonitoringItems>,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
 </script>
 

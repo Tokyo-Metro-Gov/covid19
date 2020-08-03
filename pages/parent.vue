@@ -99,12 +99,12 @@ export default Vue.extend({
   components: {
     PageHeader,
     StaticCard,
-    ExternalLink
+    ExternalLink,
   },
   head(): MetaInfo {
     return {
-      title: this.$t('お子様をお持ちの皆様へ') as string
+      title: this.$t('お子様をお持ちの皆様へ') as string,
     }
-  }
+  },
 })
 </script>

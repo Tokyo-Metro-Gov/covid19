@@ -50,11 +50,13 @@
           <tr>
             <td class="content importantContact" v-bind="headingAttrs">
               {{
-                $t('特措法に定める要請・指示、感染拡大防止協力金等に関すること')
+                $t(
+                  '感染防止徹底宣言ステッカー、感染拡大防止協力金等に関すること'
+                )
               }}
             </td>
             <td class="bureau importantContact">
-              {{ $t('東京都緊急事態措置等・感染拡大防止協力金相談センター') }}
+              {{ $t('東京都ステッカー申請・感染拡大防止協力金相談センター') }}
             </td>
             <td class="tel">
               <a href="tel:03-5388-0567" class="importantContact"
@@ -192,11 +194,11 @@ import PageHeader from '@/components/PageHeader.vue'
 
 export default Vue.extend({
   components: {
-    PageHeader
+    PageHeader,
   },
   data() {
     return {
-      pc: true
+      pc: true,
     }
   },
   computed: {
@@ -205,7 +207,7 @@ export default Vue.extend({
     },
     headingAttrs(): any {
       return this.pc ? {} : { role: 'heading', 'aria-level': '3' }
-    }
+    },
   },
   mounted() {
     if (process.browser) {
@@ -221,13 +223,13 @@ export default Vue.extend({
   methods: {
     handleResize() {
       this.pc = window.innerWidth > 768
-    }
+    },
   },
   head(): MetaInfo {
     return {
-      title: this.$t('お問い合わせ先一覧') as string
+      title: this.$t('お問い合わせ先一覧') as string,
     }
-  }
+  },
 })
 </script>
 

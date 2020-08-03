@@ -51,8 +51,8 @@ export default Vue.extend({
     HospitalizedNumberCard,
     ConsultationAboutFeverNumberCard,
     TokyoRulesApplicationNumberCard,
-    MonitoringItemsOverviewCard
-  }
+    MonitoringItemsOverviewCard,
+  },
 })
 </script>
 

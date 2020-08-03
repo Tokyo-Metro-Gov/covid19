@@ -24,13 +24,13 @@ import tokyoAlert from '@/data/tokyo_alert.json'
 
 export default Vue.extend({
   components: {
-    ActiveTokyoAlert
+    ActiveTokyoAlert,
   },
   data() {
     return {
-      tokyoAlert
+      tokyoAlert,
     }
-  }
+  },
 })
 </script>
 

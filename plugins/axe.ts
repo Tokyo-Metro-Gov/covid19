@@ -15,10 +15,10 @@ if (NODE_ENV === 'development' && VUE_AXE === 'true') {
           // 色コントラストの検査を無効化する。
           // Node数の多い環境で検査コストが高いため。
           id: 'color-contrast',
-          enabled: false
-        }
-      ]
+          enabled: false,
+        },
+      ],
     },
-    clearConsoleOnUpdate: false
+    clearConsoleOnUpdate: false,
   })
 }
