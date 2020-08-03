@@ -291,10 +291,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               const label = data.labels![tooltipItem[0].index!] as string
-              return self.$d(
-                getComplementedDate(label),
-                'dateWithoutYear'
-              )
+              return self.$d(getComplementedDate(label), 'dateWithoutYear')
             },
           },
         },
@@ -316,7 +313,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080',
                 maxRotation: 0,
                 callback: (label: string) => {
-                  return label.split('/')[1]
+                  return dayjs(label).format('D')
                 },
               },
               // #2384: If you set "type" to "time", make sure that the bars at both ends are not hidden.
@@ -372,7 +369,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayDataHeader() {
       if (this.dataKind === 'transition') {
         return {
-          labels: ['2020/1/1'],
+          labels: ['2020-01-01'],
           datasets: [
             {
               data: [Math.max(...this.chartData.map((d) => d.transition))],
@@ -383,7 +380,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       return {
-        labels: ['2020/1/1'],
+        labels: ['2020-01-01'],
         datasets: [
           {
             data: [Math.max(...this.chartData.map((d) => d.cumulative))],
@@ -415,7 +412,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxRotation: 0,
                 minRotation: 0,
                 callback: (label: string) => {
-                  return label.split('/')[1]
+                  return dayjs(label).format('D')
                 },
               },
             },
