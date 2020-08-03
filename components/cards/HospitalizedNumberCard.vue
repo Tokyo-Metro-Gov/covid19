@@ -9,7 +9,7 @@
         :chart-data="patientsGraph"
         :date="positiveStatus.date"
         :unit="$t('人')"
-        :dashed-rectangle-range="'5/11'"
+        :dashed-rectangle-range="'2020-05-11'"
         :added-value="200"
         :table-labels="tableLabels"
       >

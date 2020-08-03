@@ -48,6 +48,7 @@
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import Data from '@/data/data.json'
+import { getDayjsObject } from '@/utils/formatDate'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 dayjs.extend(duration)
 
@@ -73,7 +74,9 @@ export default {
       this.$t('健康安全研究センターが行った検査件数'),
       this.$t('医療機関等が行った検査件数'),
     ]
-    const inspectionsLabels = Data.inspections_summary.labels
+    const inspectionsLabels = Data.inspections_summary.labels.map((d) => {
+      return getDayjsObject(d).format('YYYY-MM-DD')
+    })
     const inspectionsDataLabels = [
       this.$t('健康安全研究センターが行った検査件数'),
       this.$t('医療機関等が行った検査件数'),
