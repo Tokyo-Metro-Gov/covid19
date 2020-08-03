@@ -7140,11 +7140,11 @@
                 "children": [
                     {
                         "attr": "入院中（調整中含む）",
-                        "value": 407,
+                        "value": 403,
                         "children": [
                             {
                                 "attr": "その他",
-                                "value": 404
+                                "value": 400
                             },
                             {
                                 "attr": "重症",
@@ -7154,7 +7154,7 @@
                     },
                     {
                         "attr": "退院",
-                        "value": 141
+                        "value": 144
                     },
                     {
                         "attr": "死亡",
