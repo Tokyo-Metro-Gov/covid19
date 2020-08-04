@@ -23,7 +23,7 @@ jobs:
         uses: carlosperate/download-file-action@v1.0.3
         id: download_cases_csv
         with:
-            file-url: 'https://docs.google.com/spreadsheets/d/1YnOrlX4Bvp2vuPGikBhhoT8oboqhv02D-8WYOuOeZuA/gviz/tq?tqx=out:csv&sheet=confirmed_cases'
+            file-url: 'https://isc-okinawa.org/opendata/470007_okinawa_covid19_patients.csv'
             file-name: 'cases.csv'
             location: 'tool/downloads'
       - name: Download status.csv
