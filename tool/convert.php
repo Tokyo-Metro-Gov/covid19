@@ -45,7 +45,14 @@ function xlsxToArray(string $format, string $path, string $sheet_name, string $r
     $spreadsheet = $reader->load($path);
     $sheet = $spreadsheet->getSheet(0);
   }
+  
+  if ($range == 'all') {
+    $worksheetInfo = $reader->listWorksheetInfo($path)[0];
+    $dataDimension = "A2:" . $worksheetInfo['lastColumnLetter'] . $worksheetInfo['totalRows'];
+    $range = $dataDimension;
 
+    $header_range = "A1:" . $worksheetInfo['lastColumnLetter'] . '1';
+  }
   $data =  new Collection($sheet->rangeToArray($range));
   $data = $data->map(function ($row) {
     return new Collection($row);
@@ -136,7 +143,7 @@ function readQuerents() : array
 
 function readPatientsV2() : array
 {
-  $data = xlsxToArray('Csv', __DIR__.'/downloads/cases.csv', 'RAW', 'E2:P200', 'E1:P1');
+  $data = xlsxToArray('Csv', __DIR__.'/downloads/cases.csv', 'RAW', 'all', 'E1:P1');
   $base_data = $data->filter(function ($row) {
     return $row['公表_年月日'];
   })->map(function ($row) {
@@ -200,12 +207,11 @@ function readPatientsV2() : array
 
 function readPatients() : array
 {
-    $data = xlsxToArray('Csv', __DIR__.'/downloads/cases.csv', 'RAW', 'E2:P200', 'E1:P1');
-
+    $data = xlsxToArray('Csv', __DIR__.'/downloads/cases.csv', 'RAW', 'all', '');
     return [
       'date' => xlsxToArray('Csv', __DIR__.'/downloads/summary.csv', 'summary', 'A2')[0][0],
       'data' => $data->filter(function ($row) {
-        return $row['公表_年月日'];
+        return $row['公表_年月日'] !== null;;
       })->map(function ($row) {
         $date = $row['公表_年月日'];
         $carbon = Carbon::parse($date);
@@ -247,8 +253,6 @@ function createSummary(array $patients) {
       ];
     }))->values()
   ];
-
-
 }
 
 function discharges(array $patients) : array {
@@ -308,25 +312,63 @@ function readInspections() : array{
   ];
 }
 
+function readTyksInspections() : array
+{
+  $data = xlsxToArray('Csv', __DIR__.'/downloads/prefectures.csv', 'RAW', 'all', 'A1:L1');
+
+  $lastPositive = 0;
+  $lastTested = 0;
+  $number = $data->filter(function ($row){
+    return $row['prefectureNameE'] == 'Okinawa';
+  })->map(function ($row) use (&$lastTested, &$lastPositive) {
+    $date = $row['year'] . '/' . $row['month'] . '/' . $row['date'];
+    $carbon = Carbon::parse($date);
+    $date = $carbon->format('Y/m/d H:i');
+
+    $thisPositive = $row['testedPositive'] - $lastPositive;
+    $lastPositive = $row['testedPositive'];
+
+    $thisTested = $row['peopleTested'] - $lastTested;
+    $lastTested = $row['peopleTested'];
+
+    $result = [
+      'date' => $date,
+      'testedPositive' => $row['testedPositive'],
+      'thisPositive' => $thisPositive,
+      'peopleTested' => $row['peopleTested'],
+      'thisTested' => $thisTested
+    ];
+
+    return $result;
+  });
+
+var_dump($number->last()['date']);
+  return [
+    'date' => $number->last()['date'],
+    'data' => $number
+  ];
+}
+
 function readInspectionsSummary(array $inspections) : array
 {
+  $data = $inspections['data']->map(function ($row) {
+    $testedNumber = empty($row['thisTested']) ? 0 : $row['thisTested'];
+    return $row['thisTested'];
+  });
+  
+  $labels = $inspections['data']->map(function ($row) {
+    return Carbon::parse($row['date'])->format('n/j');
+  });
+
   return [
     'date' => $inspections['date'],
-    'data' => $inspections['data']->map(function ($row) {
-      // var_dump($row);
-      $testedNumber = empty($row['検査実施人数']) ? 0 : $row['検査実施人数'];
-      return str_replace(' ', '', $testedNumber);
-    }),
-    'labels' =>$inspections['data']->map(function ($row) {
-        return Carbon::parse($row['更新時間'])->format('n/j');
-    })
+    'data' => array_values($data->all()),
+    'labels' => array_values($labels->all())
   ];
 }
 
 function readSummaryFile() : array {
   $data = xlsxToArray('Csv', __DIR__.'/downloads/summary.csv', 'RAW', 'A2:F2', 'A1:F1');
-
-  
 
   return [
     'data' => $data->filter(function ($row) {
@@ -413,7 +455,8 @@ $status_data = readStasusFile();
 $latest_status = array_slice($status_data['data']->all(), -1)[0];
 
 // $inspections =readInspections();
-$inspections_summary =readInspectionsSummary($status_data);
+$inspectionsTyk = readTyksInspections();
+$inspections_summary = readInspectionsSummary($inspectionsTyk);
 
 $data = compact([
   // 'contacts',
