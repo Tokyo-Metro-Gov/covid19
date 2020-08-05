@@ -15,7 +15,7 @@
         <span>{{ $t('注釈') }} </span>
       </div>
     </div>
-    <whats-new class="mb-4" :items="newsItems" />
+    <whats-new class="mb-4" :items="homepageNewsItems" />
     <static-info
       class="mb-4"
       href="https://www.pref.okinawa.lg.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html"
@@ -109,6 +109,11 @@ export default Vue.extend({
   computed: {
     updatedAt() {
       return convertDatetimeToISO8601Format(this.$data.Data.lastUpdate)
+    },
+    homepageNewsItems() {
+      return this.$data.newsItems.filter(function(item: any) {
+        return item.homepage
+      })
     }
   },
   head(): MetaInfo {

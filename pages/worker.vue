@@ -11,7 +11,7 @@
           rel="noopener noreferrer"
           >{{
             $t(
-              '「中小企業セーフティネット資金」による金融支援について【沖縄県】）'
+              '「中小企業セーフティネット資金」による金融支援について【沖縄県】'
             )
           }}</a
         >
@@ -91,8 +91,7 @@
           href="https://www.okinawakouko.go.jp/3748"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          $t('中小企業相談窓口【沖縄県よろず支援拠点】') }}</a
+          >{{ $t('中小企業相談窓口【沖縄県よろず支援拠点】') }}</a
         >
       </h3>
       <p>
