@@ -3080,10 +3080,10 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.10.0.tgz#a17b3a8ea811060e74d47d306122400ad4497ae2"
   integrity sha512-3YDiu347mtVtjpyV3u5kVqQLP242c06zwDOgpeRnybmXlYYsLbtTrUBUm8i8srONt+FWobl5aibnU1030PeeuA==
 
-axe-core@3.5.5:
-  version "3.5.5"
-  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.5.5.tgz#84315073b53fa3c0c51676c588d59da09a192227"
-  integrity sha512-5P0QZ6J5xGikH780pghEdbEKijCTrruK9KxtPZCFWUpef0f6GipO+xEZ5GKCb020mmqgbiNO6TcA55CriL784Q==
+axe-core@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.0.0.tgz#f8c44de4c771429ef56e4501e48f58587936b30f"
+  integrity sha512-oH8qwPUd+039iY5NtEX3vqHXYEhi81DgnAmB82dbqHaACIuaotyQ5Hua+CFEQQPanpCgGsB/uIxUQBZGW+YW/A==
 
 babel-eslint@^10.1.0:
   version "10.1.0"
