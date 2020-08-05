@@ -1,64 +1,112 @@
 {
     "newsItems": [
         {
+            "date": "2020\/08\/01",
+            "url": "https://www.pref.okinawa.lg.jp/20200731.html",
+            "text": "沖縄県緊急事態宣言について",
+            "homepage": true
+        },
+        {
+            "date": "2020\/07\/31",
+            "url": "https://www.pref.okinawa.lg.jp/site/shoko/koyo/koyokeizoku.html",
+            "text": "沖縄県雇用継続助成金（雇用調整助成金等の上乗せ助成）",
+            "homepage": false
+        },
+        {
+            "date": "2020\/07\/31",
+            "url": "https://www.pref.okinawa.lg.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html",
+            "text": "新型コロナウイルス感染症にかかる知事コメント",
+            "homepage": true
+        },
+        {
+            "date": "2020\/07\/30",
+            "url": "https://www.pref.okinawa.lg.jp/site/chijiko/koho/20200730.html",
+            "text": "沖縄県内離島への渡航について（7月30日更新）",
+            "homepage": true
+        },
+        {
+            "date": "2020\/07\/28",
+            "url": "https://www.pref.okinawa.lg.jp/site/chijiko/koho/corona/20200728.html",
+            "text": "警戒レベル第２段階の実施内容について",
+            "homepage": false
+        },
+        {
+            "date": "2020\/07\/24",
+            "url": "https://www.pref.okinawa.lg.jp/site/chijiko/kohokoryu/koho/2020_new_korona_event_info.html",
+            "text": "沖縄県主催イベント等実施ガイドラインについて",
+            "homepage": true
+        },
+        {
             "date": "2020\/06\/01",
             "url": "https://www.pref.okinawa.lg.jp/site/chijiko/kohokoryu/koho/2020_new_corona_potal.html",
-            "text": "新型コロナウイルス感染症に関する各種情報について"
+            "text": "新型コロナウイルス感染症に関する各種情報について",
+            "homepage": true
         },
         {
             "date": "2020\/05\/25",
             "url": "https://www.pref.okinawa.lg.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html",
-            "text": "新型コロナウイルス感染症拡大防止にかかる知事コメント"
+            "text": "新型コロナウイルス感染症拡大防止にかかる知事コメント",
+            "homepage": false
         },
         {
             "date": "2020\/05\/20",
             "url": "https://www.pref.okinawa.lg.jp/site/chijiko/koho/20205020.html",
-            "text": "沖縄県主催イベント等実施ガイドラインの策定について"
+            "text": "沖縄県主催イベント等実施ガイドラインの策定について",
+            "homepage": false
         },
         {
             "date": "2020\/05\/15",
             "url": "https://www.pref.okinawa.lg.jp/200515.html",
-            "text": "新型コロナウイルス感染症対策に係る県独自の実施方針策定について"
+            "text": "新型コロナウイルス感染症対策に係る県独自の実施方針策定について",
+            "homepage": false
         },
         {
             "date": "2020\/05\/15",
             "url": "https://www.pref.okinawa.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html",
-            "text": "新型コロナウイルス感染症拡大防止にかかる知事コメント"
+            "text": "新型コロナウイルス感染症拡大防止にかかる知事コメント",
+            "homepage": false
         },
         {
             "date": "2020\/05\/11",
             "url": "https://www.pref.okinawa.lg.jp/site/chijiko/koho/20200511.html",
-            "text": "沖縄県新型コロナウイルス感染症拡大予防ガイドラインの作成について"
+            "text": "沖縄県新型コロナウイルス感染症拡大予防ガイドラインの作成について",
+            "homepage": false
         },
         {
             "date": "2020\/05\/07",
             "url": "https://www.pref.okinawa.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html",
-            "text": "新型コロナウイルス感染症沖縄県緊急事態宣言を受けた沖縄県実施方針の変更について"
+            "text": "新型コロナウイルス感染症沖縄県緊急事態宣言を受けた沖縄県実施方針の変更について",
+            "homepage": false
         },
         {
             "date": "2020\/04\/23",
             "url": "https://www.pref.okinawa.jp/20200422.html",
-            "text": "沖縄県緊急事態宣言を受けた沖縄県実施方針の策定について"
+            "text": "沖縄県緊急事態宣言を受けた沖縄県実施方針の策定について",
+            "homepage": false
         },
         {
             "date": "2020\/04\/21",
             "url": "https://www.pref.okinawa.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html",
-            "text": "新型コロナウイルス感染症　沖縄県緊急事態宣言"
+            "text": "新型コロナウイルス感染症　沖縄県緊急事態宣言",
+            "homepage": false
         },
         {
             "date": "2020\/04\/13",
             "url": "https://www.pref.okinawa.jp/site/hoken/chiikihoken/kekkaku/2019-ncov.html",
-            "text": "新型コロナウイルス感染症について（一般の方へ）"
+            "text": "新型コロナウイルス感染症について（一般の方へ）",
+            "homepage": false
         },
         {
             "date": "2020\/04\/10",
             "url": "https://www.youtube.com/watch?v=qJVGnPjwTpo&list=PLjCs709XbPupyuNlRpPw2NrMXPmXf5cN7&index=4&t=0s",
-            "text": "新型コロナウイルス感染症の拡大を防ぐための玉城知事から県民の皆様へのメッセージ"
+            "text": "新型コロナウイルス感染症の拡大を防ぐための玉城知事から県民の皆様へのメッセージ",
+            "homepage": false
         },
         {
             "date": "2020\/04\/10",
             "url": "https://www.pref.okinawa.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html",
-            "text": "沖縄県新型コロナウイルス感染症対策本部会議における玉城知事のコメント"
+            "text": "沖縄県新型コロナウイルス感染症対策本部会議における玉城知事のコメント",
+            "homepage": false
         }
     ]
 }
