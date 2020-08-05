@@ -23,15 +23,22 @@ jobs:
         uses: carlosperate/download-file-action@v1.0.3
         id: download_cases_csv
         with:
-            file-url: 'https://isc-okinawa.org/opendata/470007_okinawa_covid19_patients.csv'
+            file-url: 'https://docs.google.com/spreadsheets/d/1YnOrlX4Bvp2vuPGikBhhoT8oboqhv02D-8WYOuOeZuA/gviz/tq?tqx=out:csv&sheet=confirmed_cases'
             file-name: 'cases.csv'
             location: 'tool/downloads'
       - name: Download status.csv
         uses: carlosperate/download-file-action@v1.0.3
         id: download_status_csv
         with:
-            file-url: 'https://isc-okinawa.org/opendata/470007_okinawa_covid19_patients.symptom.csv'
+            file-url: 'https://docs.google.com/spreadsheets/d/1xO4JrQRv90ybfwQWiDL9JBvvxl8j_iRTbMbJsjUWzFo/gviz/tq?tqx=out:csv&sheet=status'
             file-name: 'status.csv'
+            location: 'tool/downloads'
+      - name: Download prefectures.csv
+        uses: carlosperate/download-file-action@v1.0.3
+        id: download_prefectures_csv
+        with:
+            file-url: 'https://raw.githubusercontent.com/kaz-ogiwara/covid19/master/data/prefectures.csv'
+            file-name: 'prefectures.csv'
             location: 'tool/downloads'
       - name: Print the file path
         run: |
@@ -41,7 +48,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v1
         with:
-          files: "tool/downloads/summary.csv, tool/downloads/cases.csv, tool/downloads/status.csv"
+          files: "tool/downloads/summary.csv, tool/downloads/cases.csv, tool/downloads/status.csv, tool/downloads/prefectures.csv"
       - name: Run composer install
         run: |
           cd tool
@@ -60,7 +67,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add tool/downloads
           git add data
-          git commit -m "[BOT] Update cases.csv, status.csv, data.json"
+          git commit -m "[BOT] Update cases.csv, status.csv, prefectures.csv, data.json"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
