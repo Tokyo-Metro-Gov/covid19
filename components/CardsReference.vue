@@ -1,7 +1,7 @@
 <template>
   <div>
     <card-row class="DataBlock">
-      <!-- 陽性患者の属性 -->
+      <!-- 陽性者の属性 -->
       <confirmed-cases-attributes-card />
       <!-- 区市町村別患者数 -->
       <confirmed-cases-by-municipalities-card />
