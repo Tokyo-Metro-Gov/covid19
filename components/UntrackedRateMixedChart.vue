@@ -323,7 +323,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           },
           {
             type: 'line',
-            yAxisID: 'y-axis-2',
+            yAxisID: 'y-axis-1',
             label: this.dataLabels[2],
             data: this.chartData[2],
             pointBackgroundColor: 'rgba(0,0,0,0)',
@@ -462,7 +462,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           yAxes: [
             {
               id: 'y-axis-1',
-              position: 'right',
+              position: 'left',
               stacked: true,
               gridLines: {
                 display: true,
@@ -478,7 +478,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             {
               id: 'y-axis-2',
-              position: 'left',
+              position: 'right',
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
@@ -595,7 +595,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             {
               id: 'y-axis-1',
               type: 'linear',
-              position: 'right',
+              position: 'left',
               stacked: true,
               gridLines: {
                 display: true,
@@ -612,7 +612,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             {
               id: 'y-axis-2',
               type: 'linear',
-              position: 'left',
+              position: 'right',
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
@@ -639,13 +639,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       for (const i in this.chartData[0]) {
         max = Math.max(max, this.chartData[0][i] + this.chartData[1][i])
       }
+      for (const i in this.chartData[2]) {
+        max = Math.max(max, this.chartData[2][i])
+      }
       return max
     },
     scaledTicksYAxisMaxRight() {
       let max = 0
-      for (const i in this.chartData[2]) {
-        max = Math.max(max, this.chartData[2][i])
-      }
       for (const i in this.chartData[3]) {
         max = Math.max(max, this.chartData[3][i])
       }
