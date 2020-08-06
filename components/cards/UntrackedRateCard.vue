@@ -10,7 +10,7 @@
         :get-formatter="getFormatter"
         :date="updated"
         :labels="dateList"
-        :unit="['人', '%']"
+        :unit="[$t('人'), '%']"
         :data-labels="dataLabels"
         :table-labels="tableLabels"
       >
