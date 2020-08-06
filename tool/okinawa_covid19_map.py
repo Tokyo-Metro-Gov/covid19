@@ -120,9 +120,13 @@ def make_map(data_df, loc_df):
     my_map.add_child(cluster)
 
     group_list = []
-    for age_id in range(10):
+    for age_id in range(12):
         if age_id == 9:
             age_str = 'N/A'
+        elif age_id == 10:
+            age_str = 'Under 10'
+        elif age_id == 11:
+            age_str = 'Above 90'
         else:
             age_str = '%d0s' % (age_id + 1)
 
@@ -142,6 +146,10 @@ def make_map(data_df, loc_df):
 
         if age == 'N/A':
             age_id = 9
+        elif 'Under' in age:
+            age_id = 10
+        elif 'Above' in age:
+            age_id = 11
         else:
             age_id = int(age[0])-1
 
