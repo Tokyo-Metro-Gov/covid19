@@ -49,15 +49,32 @@ export default {
       row['性別'] = this.$t(row['性別'])
       // row['退院'] = this.$t(row['退院'])
 
-      if (row['年代'] === '10歳未満') {
-        row['年代'] = this.$t('10歳未満')
-      } else if (row['年代'] === '不明') {
-        row['年代'] = this.$t('不明')
-      } else if (row['年代'] === '調査中') {
-        row['年代'] = this.$t('調査中')
-      } else {
-        const age = row['年代'].substring(0, 2)
-        row['年代'] = this.$t('{age}代', { age })
+      switch (row['年代']) {
+        case '10歳未満': {
+          row['年代'] = this.$t('10歳未満')
+          break
+        }
+        case '90歳以上': {
+          row['年代'] = this.$t('90歳以上')
+          break
+        }
+        case '非公表': {
+          row['年代'] = this.$t('非公表')
+          break
+        }
+        case '調査中': {
+          row['年代'] = this.$t('調査中')
+          break
+        }
+        case '不明': {
+          row['年代'] = this.$t('不明')
+          break
+        }
+        default: {
+          const age = row['年代'].substring(0, 2)
+          row['年代'] = this.$t('{age}代', { age })
+          break
+        }
       }
     }
 
