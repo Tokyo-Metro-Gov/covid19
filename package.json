@@ -35,18 +35,18 @@
     }
   },
   "dependencies": {
-    "@nuxt/types": "2.14.0",
+    "@nuxt/types": "2.14.1",
     "@nuxt/typescript-runtime": "1.0.0",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/pwa": "3.0.0-beta.20",
     "@types/d3": "5.7.2",
-    "axe-core": "3.5.5",
+    "axe-core": "4.0.1",
     "chart.js": "2.9.3",
     "cross-env": "7.0.2",
-    "dayjs": "1.8.31",
+    "dayjs": "1.8.32",
     "express": "4.17.1",
-    "nuxt": "2.14.0",
-    "nuxt-i18n": "6.13.2",
+    "nuxt": "2.14.1",
+    "nuxt-i18n": "6.13.7",
     "vue": "2.6.11",
     "vue-chartjs": "3.5.0",
     "vue-meta": "2.4.0",
@@ -54,7 +54,7 @@
     "vue-spinner": "1.0.4"
   },
   "devDependencies": {
-    "@babel/core": "7.11.0",
+    "@babel/core": "7.11.1",
     "@fullhuman/postcss-purgecss": "2.3.0",
     "@mdi/font": "5.4.55",
     "@nuxt/typescript-build": "2.0.2",
