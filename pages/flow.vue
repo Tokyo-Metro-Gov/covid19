@@ -681,6 +681,9 @@ $margin: 20;
     position: fixed;
     top: 0;
     z-index: 1;
+    .fig {
+      display: none;
+    }
   }
 }
 .section {
