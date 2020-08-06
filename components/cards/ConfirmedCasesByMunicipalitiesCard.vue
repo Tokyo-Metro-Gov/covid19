@@ -8,15 +8,14 @@
         :date="date"
         :info="info"
       >
-        <template v-slot:description>
-          <ul class="ListStyleNone">
+        <template v-slot:additionalDescription>
+          <span>{{ $t('（注）') }}</span>
+          <ul>
             <li>
-              {{ $t('（注）前日までに報告された陽性者数の累計値') }}
+              {{ $t('前日までに報告された陽性者数の累計値') }}
             </li>
             <li>
-              {{
-                $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-              }}
+              {{ $t('チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
             </li>
           </ul>
         </template>

@@ -1,8 +1,5 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:description>
-      <slot name="description" />
-    </template>
     <v-data-table
       :ref="'displayedTable'"
       :headers="chartData.headers"
@@ -15,6 +12,9 @@
       :disable-sort="true"
       class="cardTable"
     />
+    <template v-slot:additionalDescription>
+      <slot name="additionalDescription" />
+    </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="info.lText"
