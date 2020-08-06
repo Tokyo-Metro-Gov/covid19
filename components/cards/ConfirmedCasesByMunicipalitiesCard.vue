@@ -2,7 +2,7 @@
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
       <confirmed-cases-by-municipalities-table
-        :title="$t('陽性患者数（区市町村別）')"
+        :title="$t('陽性者数（区市町村別）')"
         :title-id="'number-of-confirmed-cases-by-municipalities'"
         :chart-data="municipalitiesTable"
         :date="date"
@@ -11,7 +11,7 @@
         <template v-slot:description>
           <ul class="ListStyleNone">
             <li>
-              {{ $t('（注）前日までに発生した患者数の累計値') }}
+              {{ $t('（注）前日までに報告された陽性者数の累計値') }}
             </li>
             <li>
               {{
@@ -35,7 +35,7 @@ export default {
     ConfirmedCasesByMunicipalitiesTable,
   },
   data() {
-    // 区市町村ごとの陽性患者数
+    // 区市町村ごとの陽性者数
     const municipalitiesTable = {
       headers: [],
       datasets: [],
@@ -47,13 +47,13 @@ export default {
         { text: this.$t('地域'), value: 'area' },
         { text: this.$t('ふりがな'), value: 'ruby' },
         { text: this.$t('区市町村'), value: 'label' },
-        { text: this.$t('陽性患者数'), value: 'count', align: 'end' },
+        { text: this.$t('陽性者数'), value: 'count', align: 'end' },
       ]
     } else {
       municipalitiesTable.headers = [
         { text: this.$t('地域'), value: 'area' },
         { text: this.$t('区市町村'), value: 'label' },
-        { text: this.$t('陽性患者数'), value: 'count', align: 'end' },
+        { text: this.$t('陽性者数'), value: 'count', align: 'end' },
       ]
     }
 
