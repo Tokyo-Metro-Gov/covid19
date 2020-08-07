@@ -2,7 +2,7 @@
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
       <time-bar-chart
-        :title="$t('新規患者に関する報告件数の推移')"
+        :title="$t('報告日別による陽性者数の推移')"
         :title-id="'number-of-confirmed-cases'"
         :chart-id="'time-bar-chart-patients'"
         :chart-data="patientsGraph"
@@ -11,6 +11,14 @@
         :by-date="true"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
       >
+        <template v-slot:description>
+          <a
+            class="Description-Link"
+            href="/cards/positive-number-by-developed-date"
+          >
+            {{ $t('発症日別による陽性者数の推移はこちら') }}
+          </a>
+        </template>
         <template v-slot:additionalDescription>
           <div class="Description-ExternalLink">
             <external-link
@@ -61,6 +69,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.Description-Link {
+  text-decoration: none;
+  @include button-text('sm');
+}
 .Description-ExternalLink {
   margin-bottom: 10px;
 }
