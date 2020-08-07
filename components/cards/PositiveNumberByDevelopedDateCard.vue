@@ -89,7 +89,7 @@ export default {
     // 陽性患者数グラフ
     const graphData = formatGraph(formatData)
 
-    // 感染源不明者
+    // 発症日不明者数
     const formatter = getCommaSeparatedNumberToFixedFunction()
     const unknownCount = formatter(positiveByDeveloped.unknown_count)
     const lastDay = this.$d(
