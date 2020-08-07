@@ -5,6 +5,8 @@
       <confirmed-cases-attributes-card />
       <!-- 区市町村別患者数 -->
       <confirmed-cases-by-municipalities-card />
+      <!-- 発症日別による陽性者数の推移 -->
+      <positive-number-by-developed-date-card />
       <!-- 確定日別による陽性者数の推移 -->
       <positive-number-by-diagnosed-date-card />
       <!-- 検査実施件数 -->
@@ -34,6 +36,7 @@ import MetroCard from '@/components/cards/MetroCard.vue'
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
+import PositiveNumberByDevelopedDateCard from '@/components/cards/PositiveNumberByDevelopedDateCard.vue'
 
 export default Vue.extend({
   components: {
@@ -46,6 +49,7 @@ export default Vue.extend({
     MetroCard,
     AgencyCard,
     PositiveNumberByDiagnosedDateCard,
+    PositiveNumberByDevelopedDateCard,
   },
 })
 </script>
