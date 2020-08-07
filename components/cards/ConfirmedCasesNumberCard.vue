@@ -12,12 +12,12 @@
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
       >
         <template v-slot:description>
-          <a
+          <nuxt-link
             class="Description-Link"
-            href="/cards/positive-number-by-developed-date"
+            to="/cards/positive-number-by-developed-date"
           >
             {{ $t('発症日別による陽性者数の推移はこちら') }}
-          </a>
+          </nuxt-link>
         </template>
         <template v-slot:additionalDescription>
           <div class="Description-ExternalLink">
