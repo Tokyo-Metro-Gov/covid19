@@ -46,11 +46,7 @@
       </nav>
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a
-            href="https://twitter.com/c4kgsm"
-            target="_blank"
-            rel="noopener"
-          >
+          <a href="https://twitter.com/c4kgsm" target="_blank" rel="noopener">
             <img src="/twitter.png" alt="Twitter" />
           </a>
           <a
@@ -125,11 +121,11 @@ export default {
           link: 'https://sakura.mbc.co.jp/dbsites/poster/poster15.php',
           divider: true
         },
-        {
-          title: this.$t('知事からのメッセージ'),
-          link:
-            'http://www.pref.kagoshima.jp/chiji/covid19/message.html'
-        },
+        // {
+        //   title: this.$t('知事からのメッセージ'),
+        //   link:
+        //     'http://www.pref.kagoshima.jp/chiji/covid19/message.html'
+        // },
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
