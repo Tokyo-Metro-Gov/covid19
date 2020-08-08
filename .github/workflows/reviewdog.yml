@@ -8,23 +8,21 @@ on:
 jobs:
   eslint:
     name: check_eslint_error
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: eslint review
         uses: reviewdog/action-eslint@v1
         with:
-          github_token: ${{ secrets.github_token }}
           reporter: github-pr-check
           eslint_flags: './**/*.{vue,ts,js}'
   stylelint:
     name: check_stylelint_error
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: stylelint review
         uses: reviewdog/action-stylelint@v1
         with:
-          github_token: ${{ secrets.github_token }}
           reporter: github-pr-check
           stylelint_input: '**/*.{css,scss,vue}'
