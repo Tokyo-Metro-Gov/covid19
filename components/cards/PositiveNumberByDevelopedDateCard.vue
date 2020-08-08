@@ -102,7 +102,7 @@ export default {
     return {
       positiveByDeveloped,
       graphData,
-      lText: this.$t('発生日不明者 {num} 人を除く'),
+      lText: this.$t('発症日不明者 {num} 人を除く'),
       sText: `${lastDay} ${this.$t('累計値')}`,
       num: unknownCount,
     }
