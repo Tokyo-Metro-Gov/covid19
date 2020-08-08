@@ -11,6 +11,8 @@
       <positive-number-by-diagnosed-date-card />
       <!-- 検査実施件数 -->
       <tested-number-card />
+    </card-row>
+    <card-row class="DataBlock">
       <!-- 受診相談窓口における相談件数 -->
       <monitoring-consultation-desk-reports-number-card />
       <!-- 新型コロナコールセンター相談件数 -->
