@@ -1,7 +1,13 @@
 import Vue from 'vue'
 import dayjs from 'dayjs'
 
-const headers = [
+type Header = {
+  text: string
+  value: string
+  align?: string
+}
+
+const headers: Header[] = [
   { text: '公表日', value: '公表日' },
   { text: '居住地', value: '居住地' },
   { text: '年代', value: '年代' },
@@ -27,7 +33,7 @@ type TableDataType = {
 }
 
 type TableDateType = {
-  headers: typeof headers
+  headers: Header[]
   datasets: TableDataType[]
 }
 
