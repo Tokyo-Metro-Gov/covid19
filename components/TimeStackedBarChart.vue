@@ -540,7 +540,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     scaledTicksYAxisMax() {
       return Array.from(this.chartData[0].keys())
         .map((i) => this.chartData[0][i] + this.chartData[1][i])
-        .reduce((a, b) => Math.max(a, b))
+        .reduce((a, b) => Math.max(a, b), 0)
     },
   },
   methods: {
