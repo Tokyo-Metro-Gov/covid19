@@ -1,9 +1,39 @@
 {
     "newsItems": [
         {
+            "date": "2020\/08\/07",
+            "url": "https://www.pref.okinawa.jp/site/chijiko/koho/corona/20200807.html",
+            "text": "PCR検査の対象者の考え方について",
+            "homepage": true
+        },
+        {
+            "date": "2020\/08\/07",
+            "url": "https://www.pref.okinawa.jp/corona_kyugyonoyosei_sien.html",
+            "text": "新型コロナウイルス感染症対策にかかる施設の休業要請等について(８月６日更新)",
+            "homepage": true
+        },
+        {
+            "date": "2020\/08\/07",
+            "url": "https://www.pref.okinawa.jp/site/chijiko/koho/corona/20200802.html",
+            "text": "沖縄県緊急事態宣言下における各関係施設等の運営状況について（警戒レベル３）",
+            "homepage": true
+        },
+        {
+            "date": "2020\/08\/05",
+            "url": "https://www.pref.okinawa.jp/20200805.html",
+            "text": "沖縄県緊急事態宣言の変更について （８月５日）",
+            "homepage": true
+        },
+        {
             "date": "2020\/08\/01",
             "url": "https://www.pref.okinawa.lg.jp/20200731.html",
             "text": "沖縄県緊急事態宣言について",
+            "homepage": false
+        },
+        {
+            "date": "2020\/08\/03",
+            "url": "https://www.pref.okinawa.jp/site/chijiko/kohokoryu/koho/documents/zitaku-tyuiziko.pdf",
+            "text": "新型コロナ感染症の方がご自宅で安全にお過ごし頂く場合の注意事項(８月３日更新)（PDF：355KB）",
             "homepage": true
         },
         {
@@ -16,13 +46,13 @@
             "date": "2020\/07\/31",
             "url": "https://www.pref.okinawa.lg.jp/site/chijiko/kohokoryu/koho/2020_new_korona_virs.html",
             "text": "新型コロナウイルス感染症にかかる知事コメント",
-            "homepage": true
+            "homepage": false
         },
         {
             "date": "2020\/07\/30",
             "url": "https://www.pref.okinawa.lg.jp/site/chijiko/koho/20200730.html",
             "text": "沖縄県内離島への渡航について（7月30日更新）",
-            "homepage": true
+            "homepage": false
         },
         {
             "date": "2020\/07\/28",
