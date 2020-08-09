@@ -664,7 +664,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reduce((a, b) => Math.max(a, b), 0)
     },
     scaledTicksYAxisMaxRight() {
-      return this.chartData[5].reduce((a, b) => Math.max(a, b))
+      return this.chartData[5].reduce((a, b) => Math.max(a, b), 0)
     },
   },
   methods: {
