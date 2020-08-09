@@ -63,22 +63,16 @@ export default {
     UntrackedRateMixedChart,
   },
   data() {
-    const reportedCount = []
-    const missingCount = []
-    const untrackedRate = []
-    const untrackedIncreseRate = []
-    const dateList = []
-
-    Data.data
-      .filter((d) => new Date(d.diagnosed_date) >= new Date('2020-03-27'))
-      .forEach((d) => {
-        reportedCount.push(d.reported_count)
-        missingCount.push(d.missing_count)
-        untrackedRate.push(d.weekly_average_untracked_count)
-        untrackedIncreseRate.push(d.weekly_average_untracked_increse_percent)
-        dateList.push(d.diagnosed_date)
-      })
-
+    const data = Data.data.filter(
+      (d) => new Date(d.diagnosed_date) >= new Date('2020-03-27')
+    )
+    const reportedCount = data.map((d) => d.reported_count)
+    const missingCount = data.map((d) => d.missing_count)
+    const untrackedRate = data.map((d) => d.weekly_average_untracked_count)
+    const untrackedIncreseRate = data.map(
+      (d) => d.weekly_average_untracked_increse_percent
+    )
+    const dateList = data.map((d) => d.diagnosed_date)
     const updated = Data.date
     const graphData = [
       reportedCount,
