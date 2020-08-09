@@ -503,17 +503,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      let n = 0
-      let max = 0
-      for (const i in this.displayData.datasets[0].data) {
-        const current =
-          this.displayData.datasets[0].data[i] +
-          this.displayData.datasets[1].data[i]
-        if (current > max) {
-          max = current
-          n = Number(i)
-        }
-      }
+      const { datasets } = this.displayData
+      const sums = Array.from(datasets[0].data.keys()).map(
+        (i) => datasets[0].data[i] + datasets[1].data[i]
+      )
+      const max = sums.reduce((a, b) => Math.max(a, b), 0)
+      const n = sums.indexOf(max)
       return {
         labels: ['2020-01-01'],
         datasets: [
@@ -635,21 +630,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     scaledTicksYAxisMax() {
-      let max = 0
-      for (const i in this.chartData[0]) {
-        max = Math.max(max, this.chartData[0][i] + this.chartData[1][i])
-      }
-      for (const i in this.chartData[2]) {
-        max = Math.max(max, this.chartData[2][i])
-      }
-      return max
+      const max = Array.from(this.chartData[0].keys())
+        .map((i) => this.chartData[0][i] + this.chartData[1][i])
+        .reduce((a, b) => Math.max(a, b), 0)
+      return this.chartData[2].reduce((a, b) => Math.max(a, b), max)
     },
     scaledTicksYAxisMaxRight() {
-      let max = 0
-      for (const i in this.chartData[3]) {
-        max = Math.max(max, this.chartData[3][i])
-      }
-      return max
+      return this.chartData[3].reduce((a, b) => Math.max(a, b), 0)
     },
   },
   methods: {
