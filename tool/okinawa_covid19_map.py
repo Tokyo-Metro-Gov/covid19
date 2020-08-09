@@ -52,8 +52,8 @@ def load_data_en():
     # translate from JP to EN
     column_dict = {'date': 'date', '居住地': 'place', '年代': 'age',  '性別': 'gender',
                    '確定日': 'confirm_date', '状態': 'status', '退院': 'discharged'}
-    age_dict = {'10代': '10s', '20代': '20s', '30代': '30s', '40代': '40s', '50代': '50s',
-                '60代': '60s', '70代': '70s', '80代': '80s', '90代': '90s', '不明': 'N/A', '調査中': 'N/A', '確認中':'N/A'}
+    age_dict = {'10歳未満': 'Under 10', '10代': '10s', '20代': '20s', '30代': '30s', '40代': '40s', '50代': '50s',
+            '60代': '60s', '70代': '70s', '80代': '80s', '90代': '90s', '90歳以上': 'Above 90', '非公表': 'N/A', '不明': 'N/A', '調査中': 'N/A', '確認中':'N/A'}
     gender_dict = {'女性': 'Female', '男性': 'Male', '不明': 'N/A', '調査中': 'N/A', '確認中':'N/A'}
     status_dict = {'退院': 'discharged', '入院勧告解除': 'discharged', '入院': 'hospitalized',
                    '調査中': 'N/A', '入院調整中': 'being arranged', '入院調整': 'to be hospitalized', '不明': 'N/A', '確認中':'N/A'}
@@ -76,20 +76,20 @@ def get_count_df(data_df):
 
 
 def get_loc_df():
-    
+
     place_list = ['那覇市', '中部保健所管内', '南部保健所管内', '沖縄市', '浦添市', '豊見城市', '宜野湾市', '石垣市',
        '名護市', '南城市', 'うるま市', '糸満市', '北部保健所管内','宮古保健所管内', '宮古島市', '調査中', '県外']
-    
+
     lat_list = [26.2122345, 26.319941 , 26.192634 , 26.3343738, 26.249754 ,
        26.1772381, 26.2815839, 24.366098 , 26.5914524, 26.142512 ,
-       26.384705 , 26.106017 , 
+       26.384705 , 26.106017 ,
                 26.633257,
                 24.790582,
                 24.805460, 26.32, 26.5]
-    
+
     lng_list = [127.6791452, 127.763825 , 127.729369 , 127.8056597, 127.716591 ,
        127.6863791, 127.7785754, 124.163499 , 127.9773062, 127.765058 ,
-       127.851324 , 127.686066, 
+       127.851324 , 127.686066,
            128.157012,
                 125.298005,
                 125.281102, 127.69, 127.69]
@@ -120,9 +120,13 @@ def make_map(data_df, loc_df):
     my_map.add_child(cluster)
 
     group_list = []
-    for age_id in range(10):
+    for age_id in range(12):
         if age_id == 9:
             age_str = 'N/A'
+        elif age_id == 10:
+            age_str = 'Under 10'
+        elif age_id == 11:
+            age_str = 'Above 90'
         else:
             age_str = '%d0s' % (age_id + 1)
 
@@ -142,11 +146,15 @@ def make_map(data_df, loc_df):
 
         if age == 'N/A':
             age_id = 9
+        elif 'Under' in age:
+            age_id = 10
+        elif 'Above' in age:
+            age_id = 11
         else:
             age_id = int(age[0])-1
-        
+
         pop_str = 'date:%s, age:%s' % (conf_date, age)
-        
+
 
         if gender == 'Male':
             icon = Icon(color='blue', icon='male', prefix='fa')
@@ -163,7 +171,7 @@ def make_map(data_df, loc_df):
             lat_value = loc_df[loc_df.place == '県外'].lat.values[0]
             lng_value = loc_df[loc_df.place == '県外'].lng.values[0]
             pop_str = 'date:%s, age:%s, place=%s' % (conf_date, age, 'outside Okinawa')
-            
+
         #print(place, lat_value, lng_value)
 
         # create marker with coordinates & pop-up info
