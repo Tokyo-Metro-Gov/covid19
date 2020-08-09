@@ -48,15 +48,8 @@ export default (data: DataType[]) => {
     datasets: [],
   }
   data.forEach((d) => {
-    const releaseDate = dayjs(d['リリース日']).isValid()
-      ? Vue.prototype.$nuxt.$options.i18n.d(
-          new Date(d['リリース日']),
-          'dateWithoutYear'
-        )
-      : '不明'
-
     const TableRow: TableDataType = {
-      公表日: releaseDate,
+      公表日: formatDateString(d['リリース日']) ?? '不明',
       居住地: d['居住地'] ?? '調査中',
       年代: d['年代'] ?? '不明',
       性別: d['性別'] ?? '不明',
@@ -69,4 +62,11 @@ export default (data: DataType[]) => {
   )
   tableDate.datasets.reverse()
   return tableDate
+}
+
+function formatDateString(date: string): string | undefined {
+  const day = dayjs(date)
+  if (day.isValid()) {
+    return Vue.prototype.$nuxt.$options.i18n.d(day.toDate(), 'dateWithoutYear')
+  }
 }
