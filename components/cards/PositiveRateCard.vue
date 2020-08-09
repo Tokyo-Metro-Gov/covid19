@@ -91,26 +91,16 @@ export default {
   },
   data() {
     // 検査実施日別状況
-    const l = PositiveRate.data.length
-    const pcrPositiveCount = []
-    const pcrNegativeCount = []
-    const antigenPositiveCount = []
-    const antigenNegativeCount = []
-    const positiveRates = []
-    const positiveRateLabels = []
-    const weeklyAverageDiagnosedCount = []
-    for (let i = 0; i < l; i++) {
-      pcrPositiveCount.push(PositiveRate.data[i].pcr_positive_count)
-      pcrNegativeCount.push(PositiveRate.data[i].pcr_negative_count)
-      antigenPositiveCount.push(PositiveRate.data[i].antigen_positive_count)
-      antigenNegativeCount.push(PositiveRate.data[i].antigen_negative_count)
-      positiveRates.push(PositiveRate.data[i].positive_rate)
-      positiveRateLabels.push(PositiveRate.data[i].diagnosed_date)
-      weeklyAverageDiagnosedCount.push(
-        PositiveRate.data[i].weekly_average_diagnosed_count
-      )
-    }
-
+    const { data } = PositiveRate
+    const pcrPositiveCount = data.map((data) => data.pcr_positive_count)
+    const pcrNegativeCount = data.map((data) => data.pcr_negative_count)
+    const antigenPositiveCount = data.map((data) => data.antigen_positive_count)
+    const antigenNegativeCount = data.map((data) => data.antigen_negative_count)
+    const positiveRates = data.map((data) => data.positive_rate)
+    const positiveRateLabels = data.map((data) => data.diagnosed_date)
+    const weeklyAverageDiagnosedCount = data.map(
+      (data) => data.weekly_average_diagnosed_count
+    )
     const positiveRateGraph = [
       pcrPositiveCount,
       antigenPositiveCount,
