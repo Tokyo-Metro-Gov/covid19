@@ -13,8 +13,10 @@
       >
         <template v-slot:description>
           <nuxt-link
+            :to="`${
+              $i18n.locale !== 'ja' ? $i18n.locale : ''
+            }/cards/positive-number-by-developed-date`"
             class="Description-Link"
-            to="/cards/positive-number-by-developed-date"
           >
             {{ $t('発症日別による陽性者数の推移はこちら') }}
           </nuxt-link>
