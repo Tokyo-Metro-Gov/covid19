@@ -517,7 +517,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           this.displayData.datasets[2].data[i] +
           this.displayData.datasets[3].data[i]
       )
-      const max = sums.reduce((a, b) => Math.max(a, b))
+      const max = sums.reduce((a, b) => Math.max(a, b), 0)
       const n = sums.indexOf(max)
       return {
         labels: ['2020-01-01'],
