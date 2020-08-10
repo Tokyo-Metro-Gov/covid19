@@ -7,7 +7,7 @@
         :info-titles="[$t('重症患者数')]"
         chart-id="time-bar-chart-positive-status-severe-case"
         :chart-data="graphData"
-        :date="Data.date"
+        :date="date"
         :unit="$t('人')"
       >
         <template v-slot:additionalDescription>
@@ -60,9 +60,12 @@ export default {
           })
         }
       })
+
+    const { date } = Data
+
     return {
-      Data,
       graphData,
+      date,
     }
   },
 }
