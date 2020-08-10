@@ -6,7 +6,7 @@
         :title-id="'number-of-tested'"
         :chart-id="'time-stacked-bar-chart-inspections'"
         :chart-data="inspectionsGraph"
-        :date="Data.inspections_summary.date"
+        :date="date"
         :items="inspectionsItems"
         :labels="inspectionsLabels"
         :unit="$t('件.tested')"
@@ -57,16 +57,19 @@ export default {
     TimeStackedBarChart,
   },
   data() {
+    const inspectionsSummary = Data.inspections_summary
+    const { date } = inspectionsSummary
+
     // 検査実施日別状況
-    const l = Data.inspections_summary.data['都内'].length
+    const l = inspectionsSummary.data['都内'].length
     const domestic = []
     const insurance = []
     for (let i = 0; i < l; i++) {
       domestic.push(
-        Data.inspections_summary.data['都内'][i] +
-          Data.inspections_summary.data['その他'][i]
+        inspectionsSummary.data['都内'][i] +
+          inspectionsSummary.data['その他'][i]
       )
-      insurance.push(Data.inspections_summary.data['保険適用分'][i])
+      insurance.push(inspectionsSummary.data['保険適用分'][i])
     }
 
     const inspectionsGraph = [domestic, insurance]
@@ -74,7 +77,7 @@ export default {
       this.$t('健康安全研究センターが行った検査件数'),
       this.$t('医療機関等が行った検査件数'),
     ]
-    const inspectionsLabels = Data.inspections_summary.labels.map((d) => {
+    const inspectionsLabels = inspectionsSummary.labels.map((d) => {
       return getDayjsObject(d).format('YYYY-MM-DD')
     })
     const inspectionsDataLabels = [
@@ -87,7 +90,7 @@ export default {
     ]
 
     return {
-      Data,
+      date,
       inspectionsGraph,
       inspectionsItems,
       inspectionsLabels,
