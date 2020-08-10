@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
 import MetroBarChart from '@/components/MetroBarChart.vue'
 import { getComplementedDate } from '@/utils/formatDate'
@@ -72,7 +71,6 @@ export default {
     }
 
     return {
-      Data,
       metroGraph,
       metroGraphTooltipTitle,
       metroGraphTooltipLabel,
