@@ -6,7 +6,7 @@
         :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
         :chart-id="'time-bar-chart-contacts'"
         :chart-data="contactsGraph"
-        :date="Data.contacts.date"
+        :date="date"
         :unit="$t('件.reports')"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000071'"
       />
@@ -25,12 +25,14 @@ export default {
     TimeBarChart,
   },
   data() {
+    const { contacts } = Data
+    const { date } = contacts
     // 相談件数
-    const contactsGraph = formatGraph(Data.contacts.data)
+    const contactsGraph = formatGraph(contacts.data)
 
     return {
-      Data,
       contactsGraph,
+      date,
     }
   },
 }
