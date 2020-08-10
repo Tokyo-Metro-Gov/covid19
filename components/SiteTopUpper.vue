@@ -47,22 +47,24 @@ export default Vue.extend({
     MonitoringCommentCard,
   },
   data() {
+    const { lastUpdate } = Data
+
     return {
-      Data,
       TokyoAlert,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: this.$t('都内の最新感染動向'),
       },
+      lastUpdate,
       newsItems: News.newsItems,
     }
   },
   computed: {
     updatedAt() {
-      return convertDatetimeToISO8601Format(this.$data.Data.lastUpdate)
+      return convertDatetimeToISO8601Format(this.$data.lastUpdate)
     },
     formattedDateForDisplay() {
-      return this.$d(new Date(Data.lastUpdate), 'dateTime')
+      return this.$d(new Date(this.$data.lastUpdate), 'dateTime')
     },
   },
   head(): MetaInfo {
