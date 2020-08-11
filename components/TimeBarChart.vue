@@ -52,6 +52,7 @@
         :s-text="displayInfo.sText"
         :unit="displayInfo.unit"
       />
+      <slot v-if="dataKind === 'cumulative'" name="additionalInfoPanel" />
     </template>
     <template v-slot:footer>
       <open-data-link v-show="url" :url="url" />

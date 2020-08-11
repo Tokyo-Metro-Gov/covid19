@@ -185,6 +185,7 @@ const config: NuxtConfig = {
         '/cards/number-of-reports-to-consultations-about-fever-in-7119',
         '/cards/number-of-tokyo-rules-applied',
         '/cards/monitoring-items-overview',
+        '/cards/positive-number-by-developed-date',
       ]
       const localizedPages = locales
         .map((locale) => pages.map((page) => `/${locale}${page}`))

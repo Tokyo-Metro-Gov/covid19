@@ -189,7 +189,7 @@ export default Vue.extend({
       margin-bottom: 0;
 
       &.with-infoPanel {
-        flex: 0 1 auto;
+        flex: 1 1 50%;
         margin-right: 24px;
       }
     }
@@ -200,8 +200,7 @@ export default Vue.extend({
   }
 
   &-InfoPanel {
-    flex: 1 0 auto;
-    max-width: 50%;
+    flex: 1 1 50%;
   }
 
   &-DataSetPanel {

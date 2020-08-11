@@ -21,6 +21,7 @@ import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vu
 import ConsultationAboutFeverNumberCard from '@/components/cards/ConsultationAboutFeverNumberCard.vue'
 import TokyoRulesApplicationNumberCard from '@/components/cards/TokyoRulesApplicationNumberCard.vue'
 import MonitoringItemsOverviewCard from '@/components/cards/MonitoringItemsOverviewCard.vue'
+import PositiveNumberByDevelopedDateCard from '@/components/cards/PositiveNumberByDevelopedDateCard.vue'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
 export default {
@@ -43,6 +44,7 @@ export default {
     ConsultationAboutFeverNumberCard,
     TokyoRulesApplicationNumberCard,
     MonitoringItemsOverviewCard,
+    PositiveNumberByDevelopedDateCard,
   },
   data() {
     let title, updatedAt, cardComponent
@@ -101,6 +103,8 @@ export default {
       case 'number-of-tokyo-rules-applied':
         cardComponent = 'tokyo-rules-application-number-card'
         break
+      case 'positive-number-by-developed-date':
+        cardComponent = 'positive-number-by-developed-date-card'
     }
 
     return {
