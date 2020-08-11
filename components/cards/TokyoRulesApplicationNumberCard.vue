@@ -43,16 +43,10 @@ export default {
     MixedBarAndLineChart,
   },
   data() {
-    const applicationReportsCount = []
-    const sevendayMoveAverages = []
-    const labels = []
-
-    TokyoRule.data.forEach((d) => {
-      applicationReportsCount.push(d.count)
-      sevendayMoveAverages.push(d.weekly_average_count)
-      labels.push(d.date)
-    })
-
+    const data = TokyoRule.data
+    const applicationReportsCount = data.map((d) => d.count)
+    const sevendayMoveAverages = data.map((d) => d.weekly_average_count)
+    const labels = data.map((d) => d.date)
     const chartData = [applicationReportsCount, sevendayMoveAverages]
     const dataLabels = [this.$t('適用件数'), this.$t('７日間移動平均')]
     const date = TokyoRule.date

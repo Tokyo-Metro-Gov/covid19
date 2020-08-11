@@ -69,7 +69,6 @@ export default Vue.extend({
     targetId: {
       type: String,
       default: (val: string | null) => {
-        // TODO: type は NullableString 型をとり、default: null とする
         return val && val !== '' ? val : null
       },
     },

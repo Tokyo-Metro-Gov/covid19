@@ -43,16 +43,10 @@ export default {
     MixedBarAndLineChart,
   },
   data() {
-    const consulationReportsCount = []
-    const sevendayMoveAverages = []
-    const labels = []
-
-    ConsultationAboutFever.data.forEach((d) => {
-      consulationReportsCount.push(d.count)
-      sevendayMoveAverages.push(d.weekly_average_count)
-      labels.push(d.date)
-    })
-
+    const data = ConsultationAboutFever.data
+    const consulationReportsCount = data.map((d) => d.count)
+    const sevendayMoveAverages = data.map((d) => d.weekly_average_count)
+    const labels = data.map((d) => d.date)
     const chartData = [consulationReportsCount, sevendayMoveAverages]
     const dataLabels = [this.$t('相談件数'), this.$t('７日間移動平均')]
     const date = ConsultationAboutFever.date
