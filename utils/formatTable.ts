@@ -1,7 +1,13 @@
 import Vue from 'vue'
 import dayjs from 'dayjs'
 
-const headers = [
+type Header = {
+  text: string
+  value: string
+  align?: string
+}
+
+const headers: Header[] = [
   { text: '公表日', value: '公表日' },
   { text: '居住地', value: '居住地' },
   { text: '年代', value: '年代' },
@@ -27,7 +33,7 @@ type TableDataType = {
 }
 
 type TableDateType = {
-  headers: typeof headers
+  headers: Header[]
   datasets: TableDataType[]
 }
 
@@ -36,31 +42,26 @@ type TableDateType = {
  *
  * @param data - Raw data
  */
-export default (data: DataType[]) => {
-  const tableDate: TableDateType = {
-    headers,
-    datasets: [],
-  }
-  data.forEach((d) => {
-    const releaseDate = dayjs(d['リリース日']).isValid()
-      ? Vue.prototype.$nuxt.$options.i18n.d(
-          new Date(d['リリース日']),
-          'dateWithoutYear'
-        )
-      : '不明'
-
-    const TableRow: TableDataType = {
-      公表日: releaseDate,
+export default function (data: DataType[]): TableDateType {
+  const datasets = data
+    .map((d) => ({
+      公表日: formatDateString(d['リリース日']) ?? '不明',
       居住地: d['居住地'] ?? '調査中',
       年代: d['年代'] ?? '不明',
       性別: d['性別'] ?? '不明',
       退院: d['退院'],
-    }
-    tableDate.datasets.push(TableRow)
-  })
-  tableDate.datasets.sort(
-    (a, b) => dayjs(a.公表日).unix() - dayjs(b.公表日).unix()
-  )
-  tableDate.datasets.reverse()
-  return tableDate
+    }))
+    .sort((a, b) => dayjs(a.公表日).unix() - dayjs(b.公表日).unix())
+    .reverse()
+  return {
+    headers,
+    datasets,
+  }
+}
+
+function formatDateString(date: string): string | undefined {
+  const day = dayjs(date)
+  if (day.isValid()) {
+    return Vue.prototype.$nuxt.$options.i18n.d(day.toDate(), 'dateWithoutYear')
+  }
 }
