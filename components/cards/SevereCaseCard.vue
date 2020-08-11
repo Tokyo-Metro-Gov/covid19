@@ -48,18 +48,13 @@ export default {
     SevereCaseBarChart,
   },
   data() {
-    const graphData = []
-    Data.data
+    const graphData = Data.data
       .filter((d) => new Date(d.date) > new Date('2020-04-26'))
-      .forEach((d) => {
-        const subTotal = d.severe_case
-        if (!isNaN(subTotal)) {
-          graphData.push({
-            label: convertDateToISO8601Format(d.date),
-            transition: subTotal,
-          })
-        }
-      })
+      .filter((d) => !isNaN(d.severe_case))
+      .map((d) => ({
+        label: convertDateToISO8601Format(d.date),
+        transition: d.severe_case,
+      }))
     return {
       Data,
       graphData,
