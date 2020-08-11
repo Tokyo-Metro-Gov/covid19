@@ -1,4 +1,4 @@
-import { NuxtVueI18n } from 'nuxt-i18n'
+import type { NuxtVueI18n } from 'nuxt-i18n'
 
 const dateTimeFormatsCommon = {
   dateTime: {
@@ -27,12 +27,7 @@ const dateTimeFormatsCommon = {
 
 const options: NuxtVueI18n.Options.AllOptionsInterface = {
   strategy: 'prefix_except_default',
-  /*
-   * 型定義には boolean が含まれていないが、明示的に false を指定しないと
-   * 'i18n_redirected' cookie がブラウザに残っている場合にリダイレクトしてしまうため
-   * any 型を経由して false を代入している
-   */
-  detectBrowserLanguage: false as any,
+  detectBrowserLanguage: false,
   defaultLocale: 'ja',
   vueI18n: {
     fallbackLocale: 'ja',
