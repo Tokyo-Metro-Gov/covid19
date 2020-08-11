@@ -1,5 +1,5 @@
 import { LinkPropertyHref } from 'vue-meta'
-import { NuxtVueI18n } from 'nuxt-i18n'
+import type { NuxtVueI18n } from 'nuxt-i18n'
 
 export const getLinksLanguageAlternative = (
   routeBaseName: string,
