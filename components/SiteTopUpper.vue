@@ -63,7 +63,7 @@ export default Vue.extend({
     },
     formattedDateForDisplay() {
       return `${this.$d(new Date(Data.lastUpdate), 'dateTime')} JST`
-    }
+    },
   },
   head(): MetaInfo {
     return {
