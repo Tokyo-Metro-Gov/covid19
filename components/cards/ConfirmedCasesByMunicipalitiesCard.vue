@@ -76,26 +76,24 @@ export default {
       })
 
     // データを追加
-    for (const d of Data.datasets.data) {
-      // 「小計」は表示しない
-      if (d.label === '小計') {
-        continue
-      }
-      if (this.$i18n.locale === 'ja') {
-        municipalitiesTable.datasets.push({
-          area: this.$t(d.area),
-          ruby: this.$t(d.ruby),
-          label: this.$t(d.label),
-          count: d.count,
-        })
-      } else {
-        municipalitiesTable.datasets.push({
-          area: this.$t(d.area),
-          label: this.$t(d.label),
-          count: d.count,
-        })
-      }
-    }
+    municipalitiesTable.datasets = Data.datasets.data
+      .filter((d) => d.label !== '小計')
+      .map((d) => {
+        if (this.$i18n.locale === 'ja') {
+          return {
+            area: this.$t(d.area),
+            ruby: this.$t(d.ruby),
+            label: this.$t(d.label),
+            count: d.count,
+          }
+        } else {
+          return {
+            area: this.$t(d.area),
+            label: this.$t(d.label),
+            count: d.count,
+          }
+        }
+      })
 
     const date = dayjs(Data.date).format('YYYY/MM/DD HH:mm')
 
