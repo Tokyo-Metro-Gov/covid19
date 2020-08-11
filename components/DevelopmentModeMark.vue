@@ -44,8 +44,8 @@ export default {
     value: {
       type: String,
       required: false,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     isDevelopmentMode: () => {
@@ -53,7 +53,7 @@ export default {
         return process.env.GENERATE_ENV === 'development'
       }
       return false
-    }
-  }
+    },
+  },
 }
 </script>

@@ -35,7 +35,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 > = {
   data() {
     return {
-      payload: {}
+      payload: {},
     }
   },
   methods: {
@@ -64,7 +64,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         self.style.height === 'auto' ? `${self.dataset.height}px` : 'auto'
       side.style.height =
         side.style.height === 'auto' ? 'auto' : `${side.dataset.height}px`
-    }
+    },
   },
   computed: {
     cardElements() {
@@ -80,7 +80,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         `${cardClassName}:nth-child(${sideIndex}`
       ) as HTMLElement
       return [self, side]
-    }
+    },
   },
   mounted() {
     window.addEventListener('resize', this.handleCardHeight)
@@ -92,7 +92,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   beforeDestroy() {
     window.removeEventListener('resize', this.handleCardHeight)
     EventBus.$off(TOGGLE_EVENT)
-  }
+  },
 }
 
 export default Vue.extend(options)

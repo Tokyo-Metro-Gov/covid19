@@ -81,43 +81,33 @@ import PositiveRateMixedChart from '@/components/PositiveRateMixedChart'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
-  getCommaSeparatedNumberToFixedFunction
+  getCommaSeparatedNumberToFixedFunction,
 } from '@/utils/monitoringStatusValueFormatters'
 dayjs.extend(duration)
 
 export default {
   components: {
-    PositiveRateMixedChart
+    PositiveRateMixedChart,
   },
   data() {
     // 検査実施日別状況
-    const l = PositiveRate.data.length
-    const pcrPositiveCount = []
-    const pcrNegativeCount = []
-    const antigenPositiveCount = []
-    const antigenNegativeCount = []
-    const positiveRates = []
-    const positiveRateLabels = []
-    const weeklyAverageDiagnosedCount = []
-    for (let i = 0; i < l; i++) {
-      pcrPositiveCount.push(PositiveRate.data[i].pcr_positive_count)
-      pcrNegativeCount.push(PositiveRate.data[i].pcr_negative_count)
-      antigenPositiveCount.push(PositiveRate.data[i].antigen_positive_count)
-      antigenNegativeCount.push(PositiveRate.data[i].antigen_negative_count)
-      positiveRates.push(PositiveRate.data[i].positive_rate)
-      positiveRateLabels.push(PositiveRate.data[i].diagnosed_date)
-      weeklyAverageDiagnosedCount.push(
-        PositiveRate.data[i].weekly_average_diagnosed_count
-      )
-    }
-
+    const { data } = PositiveRate
+    const pcrPositiveCount = data.map((data) => data.pcr_positive_count)
+    const pcrNegativeCount = data.map((data) => data.pcr_negative_count)
+    const antigenPositiveCount = data.map((data) => data.antigen_positive_count)
+    const antigenNegativeCount = data.map((data) => data.antigen_negative_count)
+    const positiveRates = data.map((data) => data.positive_rate)
+    const positiveRateLabels = data.map((data) => data.diagnosed_date)
+    const weeklyAverageDiagnosedCount = data.map(
+      (data) => data.weekly_average_diagnosed_count
+    )
     const positiveRateGraph = [
       pcrPositiveCount,
       antigenPositiveCount,
       pcrNegativeCount,
       antigenNegativeCount,
       weeklyAverageDiagnosedCount,
-      positiveRates
+      positiveRates,
     ]
     const positiveRateDataLabels = [
       this.$t('PCR検査陽性者数'),
@@ -125,11 +115,11 @@ export default {
       this.$t('PCR検査陰性者数'),
       this.$t('抗原検査陰性者数'),
       this.$t('検査人数（７日間移動平均）'),
-      this.$t('陽性率')
+      this.$t('陽性率'),
     ]
-    const positiveRateTableLabels = positiveRateDataLabels.map(d => d)
+    const positiveRateTableLabels = positiveRateDataLabels.map((d) => d)
 
-    const getFormatter = columnIndex => {
+    const getFormatter = (columnIndex) => {
       if (columnIndex === 4) {
         // 検査人数（７日間移動平均）は小数点第1位まで表示し、整数部分は３桁区切りにする。
         return getCommaSeparatedNumberToFixedFunction(1)
@@ -147,8 +137,8 @@ export default {
       positiveRateLabels,
       positiveRateDataLabels,
       positiveRateTableLabels,
-      getFormatter
+      getFormatter,
     }
-  }
+  },
 }
 </script>

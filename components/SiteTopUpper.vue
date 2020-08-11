@@ -44,7 +44,7 @@ export default Vue.extend({
     WhatsNew,
     StaticInfo,
     TokyoAlertCard,
-    MonitoringCommentCard
+    MonitoringCommentCard,
   },
   data() {
     return {
@@ -52,9 +52,9 @@ export default Vue.extend({
       TokyoAlert,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: this.$t('都内の最新感染動向')
+        title: this.$t('都内の最新感染動向'),
       },
-      newsItems: News.newsItems
+      newsItems: News.newsItems,
     }
   },
   computed: {
@@ -67,9 +67,9 @@ export default Vue.extend({
   },
   head(): MetaInfo {
     return {
-      title: this.$t('都内の最新感染動向') as string
+      title: this.$t('都内の最新感染動向') as string,
     }
-  }
+  },
 })
 </script>
 

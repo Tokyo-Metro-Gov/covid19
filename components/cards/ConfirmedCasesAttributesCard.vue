@@ -2,15 +2,13 @@
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
       <data-table
-        :title="$t('陽性患者の属性')"
+        :title="$t('陽性者の属性')"
         :title-id="'attributes-of-confirmed-cases'"
         :chart-data="patientsTable"
         :chart-option="{}"
         :date="Data.patients.date"
         :info="sumInfoOfPatients"
-        :url="
-          'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
-        "
+        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
         :source="$t('オープンデータを入手')"
         :custom-sort="customSort"
       />
@@ -22,11 +20,12 @@
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
+import { getDayjsObject } from '@/utils/formatDate'
 import DataTable from '@/components/DataTable.vue'
 
 export default {
   components: {
-    DataTable
+    DataTable,
   },
   data() {
     // 感染者数グラフ
@@ -34,22 +33,23 @@ export default {
     // 感染者数
     const patientsTable = formatTable(Data.patients.data)
     // 日付
-    const date = patientsGraph[patientsGraph.length - 1].label
+    const lastDay = patientsGraph[patientsGraph.length - 1].label
+    const date = this.$d(getDayjsObject(lastDay).toDate(), 'dateWithoutYear')
 
     const sumInfoOfPatients = {
       lText: patientsGraph[
         patientsGraph.length - 1
       ].cumulative.toLocaleString(),
       sText: this.$t('{date}の累計', { date }),
-      unit: this.$t('人')
+      unit: this.$t('人'),
     }
 
-    // 陽性患者の属性 ヘッダー翻訳
+    // 陽性者の属性 ヘッダー翻訳
     for (const header of patientsTable.headers) {
       header.text =
         header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
     }
-    // 陽性患者の属性 中身の翻訳
+    // 陽性者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
       row['居住地'] = this.getTranslatedWording(row['居住地'])
       row['性別'] = this.getTranslatedWording(row['性別'])
@@ -66,7 +66,7 @@ export default {
     return {
       Data,
       patientsTable,
-      sumInfoOfPatients
+      sumInfoOfPatients,
     }
   },
   methods: {
@@ -117,10 +117,10 @@ export default {
           // 公表日に年まで含む場合は以下が使用可能になり、逆に今使用しているコードが使用不可能となる。
           // comparison = new Date(a[index[0]]) < new Date(b[index[0]]) ? -1 : 1
 
-          const aDate = a[index[0]].split('/').map(d => {
+          const aDate = a[index[0]].split('/').map((d) => {
             return parseInt(d)
           })
-          const bDate = b[index[0]].split('/').map(d => {
+          const bDate = b[index[0]].split('/').map((d) => {
             return parseInt(d)
           })
           comparison = aDate[1] > bDate[1] ? 1 : -1
@@ -148,7 +148,7 @@ export default {
         return isDesc[0] ? comparison * -1 : comparison
       })
       return items
-    }
-  }
+    },
+  },
 }
 </script>

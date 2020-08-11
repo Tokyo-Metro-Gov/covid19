@@ -19,7 +19,7 @@
         }}
         {{
           $t('{date}付の総括コメントは以下のとおりです。', {
-            date: commentDate()
+            date: commentDate(),
           })
         }}
       </p>
@@ -35,14 +35,14 @@
     <div class="MonitoringComment-comments">
       <v-row>
         <v-col cols="12" sm="12" md="6" lg="6">
-          <h4>感染状況</h4>
+          <h4>{{ $t('感染状況') }}</h4>
           <monitoring-comment-frame
             :level="monitoringItems.data['総括コメント-感染状況'].level - 1"
             :comment="monitoringItems.data['総括コメント-感染状況'].label"
           />
         </v-col>
         <v-col cols="12" sm="12" md="6" lg="6">
-          <h4>医療提供体制</h4>
+          <h4>{{ $t('医療提供体制') }}</h4>
           <monitoring-comment-frame
             :level="monitoringItems.data['総括コメント-医療提供体制'].level - 1"
             :comment="monitoringItems.data['総括コメント-医療提供体制'].label"
@@ -60,11 +60,11 @@ import monitoringItems from '@/data/monitoring_items.json'
 
 export default Vue.extend({
   components: {
-    MonitoringCommentFrame
+    MonitoringCommentFrame,
   },
   data() {
     return {
-      monitoringItems
+      monitoringItems,
     }
   },
   methods: {
@@ -73,8 +73,8 @@ export default Vue.extend({
         new Date(monitoringItems.data['総括コメント-更新日']),
         'dateWithoutYear'
       )
-    }
-  }
+    },
+  },
 })
 </script>
 

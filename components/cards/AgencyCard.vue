@@ -24,20 +24,14 @@ import { getComplementedDate } from '@/utils/formatDate'
 
 export default {
   components: {
-    AgencyBarChart
+    AgencyBarChart,
   },
   data() {
-    const labels = AgencyData.labels.map(l => {
+    const labels = AgencyData.labels.map((l) => {
       const dates = l.split('~')
       if (dates.length === 2) {
-        const from = this.$d(
-          new Date(getComplementedDate(dates[0])),
-          'dateWithoutYear'
-        )
-        const to = this.$d(
-          new Date(getComplementedDate(dates[1])),
-          'dateWithoutYear'
-        )
+        const from = this.$d(getComplementedDate(dates[0]), 'dateWithoutYear')
+        const to = this.$d(getComplementedDate(dates[1]), 'dateWithoutYear')
         return `${from}~${to}`
       } else {
         return ''
@@ -45,11 +39,11 @@ export default {
     })
     const agencyData = {
       ...AgencyData,
-      labels
+      labels,
     }
     return {
-      agencyData
+      agencyData,
     }
-  }
+  },
 }
 </script>

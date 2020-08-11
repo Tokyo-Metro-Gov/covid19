@@ -114,18 +114,18 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
       openGraphEmbed: false,
       displayShare: false,
-      showOverlay: false
+      showOverlay: false,
     }
   },
   computed: {
@@ -135,7 +135,7 @@ export default Vue.extend({
         true
       )}" frameborder="0"></iframe>`
       return graphEmbedValue
-    }
+    },
   },
   watch: {
     displayShare(isShow: boolean) {
@@ -147,7 +147,7 @@ export default Vue.extend({
           this.toggleShareMenu
         )
       }
-    }
+    },
   },
   methods: {
     toggleShareMenu(e: Event) {
@@ -205,8 +205,8 @@ export default Vue.extend({
         true
       )}`
       window.open(url)
-    }
-  }
+    },
+  },
 })
 </script>
 

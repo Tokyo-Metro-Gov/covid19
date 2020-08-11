@@ -48,39 +48,38 @@
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import Data from '@/data/data.json'
+import { getDayjsObject } from '@/utils/formatDate'
 import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 dayjs.extend(duration)
 
 export default {
   components: {
-    TimeStackedBarChart
+    TimeStackedBarChart,
   },
   data() {
     // 検査実施日別状況
-    const l = Data.inspections_summary.data['都内'].length
-    const domestic = []
-    const insurance = []
-    for (let i = 0; i < l; i++) {
-      domestic.push(
-        Data.inspections_summary.data['都内'][i] +
-          Data.inspections_summary.data['その他'][i]
-      )
-      insurance.push(Data.inspections_summary.data['保険適用分'][i])
-    }
-
+    const { data } = Data.inspections_summary
+    const domestic = Array.from(data['都内'].keys()).map(
+      (i) => data['都内'][i] + data['その他'][i]
+    )
+    const insurance = Array.from(data['都内'].keys()).map(
+      (i) => data['保険適用分'][i]
+    )
     const inspectionsGraph = [domestic, insurance]
     const inspectionsItems = [
       this.$t('健康安全研究センターが行った検査件数'),
-      this.$t('医療機関等が行った検査件数')
+      this.$t('医療機関等が行った検査件数'),
     ]
-    const inspectionsLabels = Data.inspections_summary.labels
+    const inspectionsLabels = Data.inspections_summary.labels.map((d) => {
+      return getDayjsObject(d).format('YYYY-MM-DD')
+    })
     const inspectionsDataLabels = [
       this.$t('健康安全研究センターが行った検査件数'),
-      this.$t('医療機関等が行った検査件数')
+      this.$t('医療機関等が行った検査件数'),
     ]
     const inspectionsTableLabels = [
       this.$t('健康安全研究センター実施分'),
-      this.$t('医療機関等実施分')
+      this.$t('医療機関等実施分'),
     ]
 
     return {
@@ -89,8 +88,8 @@ export default {
       inspectionsItems,
       inspectionsLabels,
       inspectionsDataLabels,
-      inspectionsTableLabels
+      inspectionsTableLabels,
     }
-  }
+  },
 }
 </script>

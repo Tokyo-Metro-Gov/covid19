@@ -49,18 +49,18 @@ import { convertDateToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
-    LinkToInformationAboutEmergencyMeasure
+    LinkToInformationAboutEmergencyMeasure,
   },
   props: {
     items: {
       type: Array,
-      required: true
+      required: true,
     },
     isEmergency: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     isInternalLink(path: string): boolean {
@@ -71,8 +71,8 @@ export default Vue.extend({
     },
     formattedDateForDisplay(dateString: string) {
       return this.$d(new Date(dateString), 'date')
-    }
-  }
+    },
+  },
 })
 </script>
 

@@ -2,21 +2,20 @@
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
       <confirmed-cases-by-municipalities-table
-        :title="$t('陽性患者数（区市町村別）')"
+        :title="$t('陽性者数（区市町村別）')"
         :title-id="'number-of-confirmed-cases-by-municipalities'"
         :chart-data="municipalitiesTable"
         :date="date"
         :info="info"
       >
-        <template v-slot:description>
-          <ul class="ListStyleNone">
+        <template v-slot:additionalDescription>
+          <span>{{ $t('（注）') }}</span>
+          <ul>
             <li>
-              {{ $t('（注）前日までに発生した患者数の累計値') }}
+              {{ $t('前日までに報告された陽性者数の累計値') }}
             </li>
             <li>
-              {{
-                $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-              }}
+              {{ $t('チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
             </li>
           </ul>
         </template>
@@ -32,13 +31,13 @@ import ConfirmedCasesByMunicipalitiesTable from '~/components/ConfirmedCasesByMu
 
 export default {
   components: {
-    ConfirmedCasesByMunicipalitiesTable
+    ConfirmedCasesByMunicipalitiesTable,
   },
   data() {
-    // 区市町村ごとの陽性患者数
+    // 区市町村ごとの陽性者数
     const municipalitiesTable = {
       headers: [],
-      datasets: []
+      datasets: [],
     }
 
     // ヘッダーを設定
@@ -47,13 +46,13 @@ export default {
         { text: this.$t('地域'), value: 'area' },
         { text: this.$t('ふりがな'), value: 'ruby' },
         { text: this.$t('区市町村'), value: 'label' },
-        { text: this.$t('陽性患者数'), value: 'count', align: 'end' }
+        { text: this.$t('陽性者数'), value: 'count', align: 'end' },
       ]
     } else {
       municipalitiesTable.headers = [
         { text: this.$t('地域'), value: 'area' },
         { text: this.$t('区市町村'), value: 'label' },
-        { text: this.$t('陽性患者数'), value: 'count', align: 'end' }
+        { text: this.$t('陽性者数'), value: 'count', align: 'end' },
       ]
     }
 
@@ -76,41 +75,39 @@ export default {
       })
 
     // データを追加
-    for (const d of Data.datasets.data) {
-      // 「小計」は表示しない
-      if (d.label === '小計') {
-        continue
-      }
-      if (this.$i18n.locale === 'ja') {
-        municipalitiesTable.datasets.push({
-          area: this.$t(d.area),
-          ruby: this.$t(d.ruby),
-          label: this.$t(d.label),
-          count: d.count
-        })
-      } else {
-        municipalitiesTable.datasets.push({
-          area: this.$t(d.area),
-          label: this.$t(d.label),
-          count: d.count
-        })
-      }
-    }
+    municipalitiesTable.datasets = Data.datasets.data
+      .filter((d) => d.label !== '小計')
+      .map((d) => {
+        if (this.$i18n.locale === 'ja') {
+          return {
+            area: this.$t(d.area),
+            ruby: this.$t(d.ruby),
+            label: this.$t(d.label),
+            count: d.count,
+          }
+        } else {
+          return {
+            area: this.$t(d.area),
+            label: this.$t(d.label),
+            count: d.count,
+          }
+        }
+      })
 
     const date = dayjs(Data.date).format('YYYY/MM/DD HH:mm')
 
     const info = {
       sText: this.$t('{date}の累計', {
-        date: this.$d(new Date(Data.datasets.date), 'dateWithoutYear')
-      })
+        date: this.$d(new Date(Data.datasets.date), 'dateWithoutYear'),
+      }),
     }
 
     return {
       Data,
       date,
       municipalitiesTable,
-      info
+      info,
     }
-  }
+  },
 }
 </script>

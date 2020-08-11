@@ -35,28 +35,22 @@ import MixedBarAndLineChart from '@/components/MixedBarAndLineChart.vue'
 import ConsultationAboutFever from '@/data/consultation_about_fever.json'
 import {
   getNumberToFixedFunction,
-  getNumberToLocaleStringFunction
+  getNumberToLocaleStringFunction,
 } from '@/utils/monitoringStatusValueFormatters'
 
 export default {
   components: {
-    MixedBarAndLineChart
+    MixedBarAndLineChart,
   },
   data() {
-    const consulationReportsCount = []
-    const sevendayMoveAverages = []
-    const labels = []
-
-    ConsultationAboutFever.data.forEach(d => {
-      consulationReportsCount.push(d.count)
-      sevendayMoveAverages.push(d.weekly_average_count)
-      labels.push(d.date)
-    })
-
+    const data = ConsultationAboutFever.data
+    const consulationReportsCount = data.map((d) => d.count)
+    const sevendayMoveAverages = data.map((d) => d.weekly_average_count)
+    const labels = data.map((d) => d.date)
     const chartData = [consulationReportsCount, sevendayMoveAverages]
     const dataLabels = [this.$t('相談件数'), this.$t('７日間移動平均')]
     const date = ConsultationAboutFever.date
-    const getFormatter = columnIndex => {
+    const getFormatter = (columnIndex) => {
       // ７日間移動平均は小数点第1位まで表示する。
       if (columnIndex === 1) {
         return getNumberToFixedFunction(1)
@@ -69,8 +63,8 @@ export default {
       date,
       labels,
       dataLabels,
-      getFormatter
+      getFormatter,
     }
-  }
+  },
 }
 </script>

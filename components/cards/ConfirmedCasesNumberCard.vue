@@ -2,17 +2,25 @@
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
       <time-bar-chart
-        :title="$t('新規患者に関する報告件数の推移')"
+        :title="$t('報告日別による陽性者数の推移')"
         :title-id="'number-of-confirmed-cases'"
         :chart-id="'time-bar-chart-patients'"
         :chart-data="patientsGraph"
         :date="Data.patients_summary.date"
         :unit="$t('人')"
         :by-date="true"
-        :url="
-          'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'
-        "
+        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
       >
+        <template v-slot:description>
+          <nuxt-link
+            :to="`${
+              $i18n.locale !== 'ja' ? $i18n.locale : ''
+            }/cards/positive-number-by-developed-date`"
+            class="Description-Link"
+          >
+            {{ $t('発症日別による陽性者数の推移はこちら') }}
+          </nuxt-link>
+        </template>
         <template v-slot:additionalDescription>
           <div class="Description-ExternalLink">
             <external-link
@@ -48,7 +56,7 @@ import ExternalLink from '@/components/ExternalLink.vue'
 export default {
   components: {
     TimeBarChart,
-    ExternalLink
+    ExternalLink,
   },
   data() {
     // 感染者数グラフ
@@ -56,13 +64,17 @@ export default {
 
     return {
       Data,
-      patientsGraph
+      patientsGraph,
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
+.Description-Link {
+  text-decoration: none;
+  @include button-text('sm');
+}
 .Description-ExternalLink {
   margin-bottom: 10px;
 }

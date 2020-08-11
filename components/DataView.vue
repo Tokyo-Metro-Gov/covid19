@@ -89,20 +89,20 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
-      default: ''
+      default: '',
     },
     date: {
       type: String,
-      default: ''
+      default: '',
     },
     headTitle: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     formattedDate(): string {
@@ -114,7 +114,7 @@ export default Vue.extend({
     permalink(): string {
       const permalink = `/cards/${this.titleId}`
       return this.localePath(permalink)
-    }
+    },
   },
   head(): MetaInfo {
     // カードの個別ページの場合は、タイトルと更新時刻を`page/cards/_card`に渡す
@@ -126,17 +126,17 @@ export default Vue.extend({
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.headTitle ? this.headTitle : this.title
+          content: this.headTitle ? this.headTitle : this.title,
         },
         { hid: 'description', name: 'description', content: this.date },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.date
-        }
-      ]
+          content: this.date,
+        },
+      ],
     }
-  }
+  },
 })
 </script>
 
@@ -189,7 +189,7 @@ export default Vue.extend({
       margin-bottom: 0;
 
       &.with-infoPanel {
-        flex: 0 1 auto;
+        flex: 1 1 50%;
         margin-right: 24px;
       }
     }
@@ -200,8 +200,7 @@ export default Vue.extend({
   }
 
   &-InfoPanel {
-    flex: 1 0 auto;
-    max-width: 50%;
+    flex: 1 1 50%;
   }
 
   &-DataSetPanel {

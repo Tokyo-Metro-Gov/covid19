@@ -41,29 +41,24 @@
 <script>
 import Data from '@/data/positive_status.json'
 import SevereCaseBarChart from '@/components/SevereCaseBarChart.vue'
+import { convertDateToISO8601Format } from '@/utils/formatDate.ts'
 
 export default {
   components: {
-    SevereCaseBarChart
+    SevereCaseBarChart,
   },
   data() {
-    const graphData = []
-    Data.data
-      .filter(d => new Date(d.date) > new Date('2020-04-26'))
-      .forEach(d => {
-        const date = new Date(d.date)
-        const subTotal = d.severe_case
-        if (!isNaN(subTotal)) {
-          graphData.push({
-            label: `${date.getMonth() + 1}/${date.getDate()}`,
-            transition: subTotal
-          })
-        }
-      })
+    const graphData = Data.data
+      .filter((d) => new Date(d.date) > new Date('2020-04-26'))
+      .filter((d) => !isNaN(d.severe_case))
+      .map((d) => ({
+        label: convertDateToISO8601Format(d.date),
+        transition: d.severe_case,
+      }))
     return {
       Data,
-      graphData
+      graphData,
     }
-  }
+  },
 }
 </script>

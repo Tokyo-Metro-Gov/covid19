@@ -6,24 +6,23 @@
         :title-id="'details-of-confirmed-cases'"
         :date="updatedAt"
       >
-        <template v-slot:description>
-          <ul class="ListStyleNone">
+        <template v-slot:additionalDescription>
+          <span>{{ $t('（注）') }}</span>
+          <ul>
             <li>
-              {{
-                $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-              }}
+              {{ $t('チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
             </li>
             <li>
               {{
                 $t(
-                  '（注）「重症」は、集中治療室（ICU）等での管理又は人工呼吸器管理が必要な患者数を計上'
+                  '「重症」は、人工呼吸器管理（ECMOを含む）が必要な患者数を計上'
                 )
               }}
             </li>
             <li>
               {{
                 $t(
-                  '（注）退院者数の把握には一定の期間を要しており、確認次第数値を更新している'
+                  '退院者数の把握には一定の期間を要しており、確認次第数値を更新している'
                 )
               }}
             </li>
@@ -48,7 +47,7 @@ import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.
 export default {
   components: {
     DataView,
-    ConfirmedCasesDetailsTable
+    ConfirmedCasesDetailsTable,
   },
   data() {
     // 検査陽性者の状況
@@ -61,8 +60,8 @@ export default {
     return {
       Data,
       confirmedCases,
-      updatedAt
+      updatedAt,
     }
-  }
+  },
 }
 </script>

@@ -10,7 +10,7 @@
         :get-formatter="getFormatter"
         :date="updated"
         :labels="dateList"
-        :unit="['人', '%']"
+        :unit="[$t('人'), '%']"
         :data-labels="dataLabels"
         :table-labels="tableLabels"
       >
@@ -55,52 +55,46 @@ import Data from '@/data/daily_positive_detail.json'
 import UntrackedRateMixedChart from '@/components/UntrackedRateMixedChart'
 import {
   getNumberToFixedFunction,
-  getNumberToLocaleStringFunction
+  getNumberToLocaleStringFunction,
 } from '@/utils/monitoringStatusValueFormatters'
 
 export default {
   components: {
-    UntrackedRateMixedChart
+    UntrackedRateMixedChart,
   },
   data() {
-    const reportedCount = []
-    const missingCount = []
-    const untrackedRate = []
-    const untrackedIncreseRate = []
-    const dateList = []
-
-    Data.data
-      .filter(d => new Date(d.diagnosed_date) >= new Date('2020-03-27'))
-      .forEach(d => {
-        reportedCount.push(d.reported_count)
-        missingCount.push(d.missing_count)
-        untrackedRate.push(d.weekly_average_untracked_count)
-        untrackedIncreseRate.push(d.weekly_average_untracked_increse_percent)
-        dateList.push(d.diagnosed_date)
-      })
-
+    const data = Data.data.filter(
+      (d) => new Date(d.diagnosed_date) >= new Date('2020-03-27')
+    )
+    const reportedCount = data.map((d) => d.reported_count)
+    const missingCount = data.map((d) => d.missing_count)
+    const untrackedRate = data.map((d) => d.weekly_average_untracked_count)
+    const untrackedIncreseRate = data.map(
+      (d) => d.weekly_average_untracked_increse_percent
+    )
+    const dateList = data.map((d) => d.diagnosed_date)
     const updated = Data.date
     const graphData = [
       reportedCount,
       missingCount,
       untrackedRate,
-      untrackedIncreseRate
+      untrackedIncreseRate,
     ]
 
     const dataLabels = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
       this.$t('接触歴等不明者数（７日間移動平均）'),
-      this.$t('増加比')
+      this.$t('増加比'),
     ]
     const tableLabels = [
       this.$t('接触歴等判明者数'),
       this.$t('接触歴等不明者数'),
       this.$t('接触歴等不明者数（７日間移動平均）'),
-      this.$t('増加比')
+      this.$t('増加比'),
     ]
 
-    const getFormatter = columnIndex => {
+    const getFormatter = (columnIndex) => {
       // 7日間移動平均と増加比は小数点第1位まで表示する。
       if (columnIndex >= 2) {
         return getNumberToFixedFunction(1)
@@ -114,8 +108,8 @@ export default {
       dateList,
       dataLabels,
       tableLabels,
-      getFormatter
+      getFormatter,
     }
-  }
+  },
 }
 </script>

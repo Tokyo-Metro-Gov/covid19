@@ -9,7 +9,7 @@
         :chart-data="patientsGraph"
         :date="positiveStatus.date"
         :unit="$t('人')"
-        :dashed-rectangle-range="'5/11'"
+        :dashed-rectangle-range="'2020-05-11'"
         :added-value="200"
         :table-labels="tableLabels"
       >
@@ -48,18 +48,15 @@ import DashedRectangleTimeBarChart from '@/components/DashedRectangleTimeBarChar
 
 export default {
   components: {
-    DashedRectangleTimeBarChart
+    DashedRectangleTimeBarChart,
   },
   data() {
-    const formatData = []
-    positiveStatus.data.forEach(d => {
-      if (new Date(d.date) >= new Date('2020-03-06')) {
-        formatData.push({
-          日付: new Date(d.date),
-          小計: d.hospitalized
-        })
-      }
-    })
+    const formatData = positiveStatus.data
+      .filter((d) => new Date(d.date) >= new Date('2020-03-06'))
+      .map((d) => ({
+        日付: new Date(d.date),
+        小計: d.hospitalized,
+      }))
     // 入院患者数グラフ
     const patientsGraph = formatGraph(formatData)
     const tableLabels = [this.$t('入院患者数')]
@@ -67,8 +64,8 @@ export default {
     return {
       positiveStatus,
       patientsGraph,
-      tableLabels
+      tableLabels,
     }
-  }
+  },
 }
 </script>
