@@ -75,6 +75,7 @@
         :title="infoTitles[0]"
         :l-text="displayInfo[0].lText"
         :s-text="displayInfo[0].sText"
+        :s-text-under="displayInfo[0].sTextUnder"
         :unit="displayInfo[0].unit"
       />
     </template>
@@ -118,6 +119,7 @@ type Computed = {
     {
       lText: string
       sText: string
+      sTextUnder: string
       unit: string
     }
   ]
@@ -236,7 +238,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
             date: lastDay,
-          })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
+          })}（${this.$t('７日間移動平均')}）`,
+          sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
+            this.unit
+          }）`,
           unit: this.unit,
         },
       ]
