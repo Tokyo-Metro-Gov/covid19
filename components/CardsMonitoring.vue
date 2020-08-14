@@ -3,7 +3,7 @@
     <card-row class="DataBlock">
       <!-- 検査陽性者の状況 -->
       <confirmed-cases-details-card />
-      <!-- 新規患者に関する報告件数の推移 -->
+      <!-- 報告日別による陽性者数の推移 -->
       <confirmed-cases-number-card />
       <!-- モニタリング項目 -->
       <monitoring-items-overview-card />

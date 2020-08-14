@@ -1,112 +1,78 @@
 <template>
-  <table
-    :class="$style.table"
-    aria-labelledby="infectionStatusHeader"
-    aria-describedby="infectionStatusBody"
-  >
-    <thead id="infectionStatusHeader">
-      <tr>
-        <th
-          :class="$style['cellWidth-itemNameFullWidth']"
-          scope="col"
-          colspan="3"
-        >
-          {{ $t('項目') }}
-        </th>
-        <th :class="$style['cellWidth-itemValue']" scope="col">
-          {{ $t('数値') }}
-        </th>
-      </tr>
-    </thead>
-    <tbody id="infectionStatusBody">
-      <tr>
-        <th
-          :class="[$style.itemName, $style['cellWidth-itemNameFullWidth']]"
-          scope="row"
-          colspan="3"
-        >
-          {{ $t('(1)新規陽性者数') }}
-        </th>
-        <td :class="$style['cellWidth-itemValue']">
-          <monitoring-items-overview-table-value-with-translatable-unit
-            :value="items['(1)新規陽性者数'].value"
-            :unit="items['(1)新規陽性者数'].unit"
-          />
-        </td>
-      </tr>
-      <tr>
-        <th
-          :class="$style['cellWidth-itemCategorySuperordinate']"
-          scope="row"
-          rowspan="3"
-        >
-          {{ $t('潜在・市中感染') }}
-        </th>
-        <th
-          :class="[
-            $style.itemName,
-            $style.wrapAllowed,
-            $style['cellWidth-itemNameCategorizedSuper'],
-          ]"
-          scope="row"
-          colspan="2"
-        >
-          {{
-            $t('(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ')
-          }}
-        </th>
-        <td :class="$style['cellWidth-itemValue']">
-          <monitoring-items-overview-table-value-with-translatable-unit
-            :value="
-              items[
-                '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
-              ].value
-            "
-            :unit="
-              items[
-                '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
-              ].unit
-            "
-          />
-        </td>
-      </tr>
-      <tr>
-        <th
-          :class="[
-            $style.itemName,
-            $style.wrapAllowed,
-            $style['cellWidth-itemNameCategorizedSuperSub'],
-          ]"
-          scope="row"
-          rowspan="2"
-        >
-          {{ $t('(3)新規陽性者における接触歴等不明者') }}
-        </th>
-        <th :class="$style['cellWidth-itemCategorySubordinate']" scope="row">
-          {{ $t('人数') }}
-        </th>
-        <td :class="$style['cellWidth-itemValue']">
-          <monitoring-items-overview-table-value-with-translatable-unit
-            :value="items['(3)新規陽性者における接触歴等不明者（人数）'].value"
-            :unit="items['(3)新規陽性者における接触歴等不明者（人数）'].unit"
-          />
-        </td>
-      </tr>
-      <tr>
-        <th :class="$style['cellWidth-itemCategorySubordinate']" scope="row">
-          {{ $t('増加比') }}
-        </th>
-        <td :class="$style['cellWidth-itemValue']">
-          <monitoring-items-overview-table-value-with-translatable-unit
-            :value="
-              items['(3)新規陽性者における接触歴等不明者（増加比）'].value
-            "
-            :unit="items['(3)新規陽性者における接触歴等不明者（増加比）'].unit"
-          />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <ul :class="$style.container">
+    <li :class="[$style.box]">
+      <div :class="$style.content">
+        <span>{{ $t('(1)新規陽性者数') }}</span>
+        <monitoring-items-overview-table-value-with-translatable-unit
+          :value="items['(1)新規陽性者数'].value"
+          :unit="items['(1)新規陽性者数'].unit"
+        />
+      </div>
+    </li>
+    <li :class="[$style.box, $style.parent]">
+      <div :class="$style.content">
+        <span>{{ $t('潜在・市中感染') }}</span>
+      </div>
+      <ul :class="$style.group">
+        <li :class="[$style.box]">
+          <div :class="$style.content">
+            <span>
+              {{
+                $t(
+                  '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
+                )
+              }}
+            </span>
+            <monitoring-items-overview-table-value-with-translatable-unit
+              :value="
+                items[
+                  '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
+                ].value
+              "
+              :unit="
+                items[
+                  '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
+                ].unit
+              "
+            />
+          </div>
+        </li>
+        <li :class="[$style.box, $style.parent]">
+          <div :class="$style.content">
+            <span>{{ $t('(3)新規陽性者における接触歴等不明者') }}</span>
+          </div>
+          <ul :class="$style.group">
+            <li :class="[$style.box]">
+              <div :class="$style.content">
+                <span>{{ $t('人数') }}</span>
+                <monitoring-items-overview-table-value-with-translatable-unit
+                  :value="
+                    items['(3)新規陽性者における接触歴等不明者（人数）'].value
+                  "
+                  :unit="
+                    items['(3)新規陽性者における接触歴等不明者（人数）'].unit
+                  "
+                />
+              </div>
+            </li>
+            <li :class="[$style.box]">
+              <div :class="$style.content">
+                <span>{{ $t('増加比') }}</span>
+                <monitoring-items-overview-table-value-with-translatable-unit
+                  :value="
+                    items['(3)新規陽性者における接触歴等不明者（増加比）'].value
+                  "
+                  :unit="
+                    items['(3)新規陽性者における接触歴等不明者（増加比）'].unit
+                  "
+                />
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </template>
 
 <script lang="ts">

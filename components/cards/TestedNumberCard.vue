@@ -58,20 +58,15 @@ export default {
   },
   data() {
     const inspectionsSummary = Data.inspections_summary
-    const { date } = inspectionsSummary
+    const { date, data } = inspectionsSummary
 
     // 検査実施日別状況
-    const l = inspectionsSummary.data['都内'].length
-    const domestic = []
-    const insurance = []
-    for (let i = 0; i < l; i++) {
-      domestic.push(
-        inspectionsSummary.data['都内'][i] +
-          inspectionsSummary.data['その他'][i]
-      )
-      insurance.push(inspectionsSummary.data['保険適用分'][i])
-    }
-
+    const domestic = Array.from(data['都内'].keys()).map(
+      (i) => data['都内'][i] + data['その他'][i]
+    )
+    const insurance = Array.from(data['都内'].keys()).map(
+      (i) => data['保険適用分'][i]
+    )
     const inspectionsGraph = [domestic, insurance]
     const inspectionsItems = [
       this.$t('健康安全研究センターが行った検査件数'),

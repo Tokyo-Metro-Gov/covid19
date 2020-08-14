@@ -14,25 +14,19 @@
         :table-labels="tableLabels"
       >
         <template v-slot:additionalDescription>
-          <ul class="ListStyleNone">
+          <span>{{ $t('（注）') }}</span>
+          <ul>
             <li>
-              {{ $t('（注）') }}
-              <ul>
-                <li>
-                  {{
-                    $t(
-                      '5月11日までの入院患者数には宿泊療養者・自宅療養者等を含んでいるため、参考値である'
-                    )
-                  }}
-                </li>
-                <li>
-                  {{
-                    $t(
-                      '当サイトにおいて入院患者数の公表を開始した3月6日から作成'
-                    )
-                  }}
-                </li>
-              </ul>
+              {{
+                $t(
+                  '5月11日までの入院患者数には宿泊療養者・自宅療養者等を含んでいるため、参考値である'
+                )
+              }}
+            </li>
+            <li>
+              {{
+                $t('当サイトにおいて入院患者数の公表を開始した3月6日から作成')
+              }}
             </li>
           </ul>
         </template>
@@ -51,15 +45,12 @@ export default {
     DashedRectangleTimeBarChart,
   },
   data() {
-    const formatData = []
-    positiveStatus.data.forEach((d) => {
-      if (new Date(d.date) >= new Date('2020-03-06')) {
-        formatData.push({
-          日付: new Date(d.date),
-          小計: d.hospitalized,
-        })
-      }
-    })
+    const formatData = positiveStatus.data
+      .filter((d) => new Date(d.date) >= new Date('2020-03-06'))
+      .map((d) => ({
+        日付: new Date(d.date),
+        小計: d.hospitalized,
+      }))
     // 入院患者数グラフ
     const patientsGraph = formatGraph(formatData)
     const tableLabels = [this.$t('入院患者数')]

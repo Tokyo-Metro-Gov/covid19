@@ -164,7 +164,7 @@ const config: NuxtConfig = {
   generate: {
     fallback: true,
     routes() {
-      const locales = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
+      const locales = ['en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
       const pages = [
         '/cards/details-of-confirmed-cases',
         '/cards/number-of-confirmed-cases',
@@ -185,20 +185,12 @@ const config: NuxtConfig = {
         '/cards/number-of-reports-to-consultations-about-fever-in-7119',
         '/cards/number-of-tokyo-rules-applied',
         '/cards/monitoring-items-overview',
+        '/cards/positive-number-by-developed-date',
       ]
-
-      const routes: string[] = []
-      locales.forEach((locale) => {
-        pages.forEach((page) => {
-          if (locale === 'ja') {
-            routes.push(page)
-            return
-          }
-          const route = `/${locale}${page}`
-          routes.push(route)
-        })
-      })
-      return routes
+      const localizedPages = locales
+        .map((locale) => pages.map((page) => `/${locale}${page}`))
+        .reduce((a, b) => [...a, ...b], [])
+      return [...pages, ...localizedPages]
     },
   },
   // /*

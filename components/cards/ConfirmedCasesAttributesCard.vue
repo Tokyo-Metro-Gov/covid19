@@ -2,7 +2,7 @@
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
       <data-table
-        :title="$t('陽性患者の属性')"
+        :title="$t('陽性者の属性')"
         :title-id="'attributes-of-confirmed-cases'"
         :chart-data="patientsTable"
         :chart-option="{}"
@@ -51,12 +51,12 @@ export default {
       unit: this.$t('人'),
     }
 
-    // 陽性患者の属性 ヘッダー翻訳
+    // 陽性者の属性 ヘッダー翻訳
     for (const header of patientsTable.headers) {
       header.text =
         header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
     }
-    // 陽性患者の属性 中身の翻訳
+    // 陽性者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
       row['居住地'] = this.getTranslatedWording(row['居住地'])
       row['性別'] = this.getTranslatedWording(row['性別'])
@@ -78,11 +78,18 @@ export default {
   },
   methods: {
     getTranslatedWording(value) {
-      if (value === '-' || value === '‐' || value === '―' || value == null) {
+      if (
+        value === '-' ||
+        value === '‐' ||
+        value === '―' ||
+        value === '－' ||
+        value === null
+      ) {
         // 翻訳しようとしている文字列が以下のいずれかだった場合、翻訳しない
         // - 全角のハイフン
         // - 半角のハイフン
         // - 全角のダッシュ
+        // - 全角ハイフンマイナス
         // - null
         return value
       }
