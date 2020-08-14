@@ -157,3 +157,9 @@ Please use the following naming rules for the branch when sending a Pull Request
 | Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
 | Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | Where to find statically built HTML |
 | For OGP working directory | deploy / new_ogp | None | For updating OGP |
+
+---
+
+### 6. Data
+
+* `data/data.json`: the last updated date of the page header is taken from the `lastUpdate` value in this file. The time zone of the `lastUpdate` value in this file is Japan Standard Time (JST; UTC+9). This file is periodically updated and its data is managed by the Tokyo Metropolitan Government. See [this issue comment](https://github.com/tokyo-metropolitan-gov/covid19/issues/1207#issuecomment-664172525) for more details.

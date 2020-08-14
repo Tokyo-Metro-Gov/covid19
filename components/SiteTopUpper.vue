@@ -62,7 +62,7 @@ export default Vue.extend({
       return convertDatetimeToISO8601Format(this.$data.Data.lastUpdate)
     },
     formattedDateForDisplay() {
-      return this.$d(new Date(Data.lastUpdate), 'dateTime')
+      return `${this.$d(new Date(Data.lastUpdate), 'dateTime')} JST`
     },
   },
   head(): MetaInfo {
