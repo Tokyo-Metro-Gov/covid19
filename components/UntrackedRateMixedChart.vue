@@ -404,7 +404,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               if (tooltipItem[0].datasetIndex! < 4) {
                 const date = dayjs(
                   data.labels![tooltipItem[0].index!].toString()
-                ).format('M/D')
+                ).format('M月D日')
                 return String(date)
               }
               return ''

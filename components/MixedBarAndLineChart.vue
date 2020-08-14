@@ -315,7 +315,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               const date = data.labels![tooltipItem[0].index!].toString()
-              return dayjs(date).format('M/D')
+              return dayjs(date).format('M月D日')
             },
           },
         },

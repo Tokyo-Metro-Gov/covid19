@@ -285,8 +285,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               } : ${cases} ${unit}`
             },
             title(tooltipItem, data) {
-              const date = data.labels![tooltipItem[0].index!].toString()
-              return dayjs(date).format('M/D')
+              if (tooltipItem[0].datasetIndex! < 2) {
+                const date = data.labels![tooltipItem[0].index!].toString()
+                return dayjs(date).format('M月D日')
+              }
+              return ''
             },
           },
         },

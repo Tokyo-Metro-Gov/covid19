@@ -196,7 +196,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               return labelText
             },
             title(tooltipItem, data) {
-              return data.labels![tooltipItem[0].index!] as string[]
+              if (tooltipItem[0].datasetIndex! < 2) {
+                const date = data.labels![tooltipItem[0].index!].toString()
+                return dayjs(date).format('M月D日')
+              }
+              return ''
             },
           },
         },
