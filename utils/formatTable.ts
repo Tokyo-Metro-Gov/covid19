@@ -38,7 +38,7 @@ type TableDateType = {
 }
 
 /**
- * Format for DataTable component
+ * Format for ComfirmedCasesAttributesTable component
  *
  * @param data - Raw data
  */
