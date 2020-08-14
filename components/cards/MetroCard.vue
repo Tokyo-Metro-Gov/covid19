@@ -19,12 +19,18 @@
           }}
           <br />
           *{{ $t('都営地下鉄4路線の自動改札出場数') }}
-          <br />
-          {{
-            $t(
-              '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
-            )
-          }}
+        </template>
+        <template v-slot:additionalDescription>
+          <span>{{ $t('（注）') }}</span>
+          <ul>
+            <li>
+              {{
+                $t(
+                  '速報値として公開するものであり、後日確定データとして修正される場合あり'
+                )
+              }}
+            </li>
+          </ul>
         </template>
       </metro-bar-chart>
     </client-only>

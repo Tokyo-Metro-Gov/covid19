@@ -14,6 +14,9 @@
       :options="displayOption"
       :height="240"
     />
+    <template v-slot:additionalDescription>
+      <slot name="additionalDescription" />
+    </template>
     <template v-slot:dataTable>
       <client-only>
         <data-view-table :headers="tableHeaders" :items="tableData" />
