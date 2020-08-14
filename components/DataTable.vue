@@ -39,12 +39,13 @@
       </template>
     </v-data-table>
     <template v-slot:additionalDescription>
-      <ul class="ListStyleNone">
+      <span>{{ $t('（注）') }}</span>
+      <ul>
         <li>
-          {{ $t('※退院は、保健所から報告があり、確認ができているものを反映') }}
+          {{ $t('退院は、保健所から報告があり、確認ができているものを反映') }}
         </li>
         <li>
-          {{ $t('※死亡退院を含む') }}
+          {{ $t('死亡退院を含む') }}
         </li>
       </ul>
     </template>
