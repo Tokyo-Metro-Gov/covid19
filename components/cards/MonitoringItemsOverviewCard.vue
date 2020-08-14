@@ -10,11 +10,14 @@
           <span>{{ $t('（注）') }}</span>
           <ul>
             <li>
-              {{
-                $t(
-                  '「＃7119」：急病やけがの際に、緊急受診の必要性や診察可能な医療機関をアドバイスする電話相談窓口'
-                )
-              }}
+              <i18n
+                tag="span"
+                path="{number}：急病やけがの際に、緊急受診の必要性や診察可能な医療機関をアドバイスする電話相談窓口"
+              >
+                <template v-slot:number>
+                  <dfn>#7119</dfn>
+                </template>
+              </i18n>
             </li>
             <li>
               {{
@@ -119,5 +122,10 @@ section {
   }
 
   @include button-text('sm');
+}
+
+dfn {
+  font-style: normal;
+  font-weight: bold;
 }
 </style>

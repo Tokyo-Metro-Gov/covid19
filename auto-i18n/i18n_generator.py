@@ -160,9 +160,9 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         all_tags = list(set(all_tags + tags))
             # Noneが混じっているので、取り除く
             all_tags.pop(all_tags.index(None))
-            # 全角のハイフン、半角のハイフン、全角のダッシュが混じっているので、取り除く
+            # 全角のハイフン、半角のハイフン、全角のダッシュ、全角ハイフンマイナスが混じっているので、取り除く
             # 理由は components/cards/ConfirmedCasesAttributesCard.vue の75行目辺りを参照。
-            for x in ["-", "‐", "―"]:
+            for x in ["-", "‐", "―", "－"]:
                 try:
                     all_tags.pop(all_tags.index(x))
                 except Exception:
