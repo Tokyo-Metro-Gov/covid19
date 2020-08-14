@@ -19,7 +19,7 @@
 <script>
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
-import formatTable from '@/utils/formatTable'
+import formatComfirmedCasesAttributesTable from '@/utils/formatComfirmedCasesAttributesTable'
 import { getDayjsObject } from '@/utils/formatDate'
 import ComfirmedCasesAttributesTable from '@/components/ComfirmedCasesAttributesTable.vue'
 
@@ -35,7 +35,7 @@ export default {
     // 感染者数グラフ
     const patientsGraph = formatGraph(patientSummary.data)
     // 感染者数
-    const patientsTable = formatTable(patients.data)
+    const patientsTable = formatComfirmedCasesAttributesTable(patients.data)
     // 日付
     const lastDay = patientsGraph[patientsGraph.length - 1].label
     const dateAsOf = this.$d(
