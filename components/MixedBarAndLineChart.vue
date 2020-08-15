@@ -101,6 +101,7 @@ import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
+import { getComplementedDate } from '@/utils/formatDate'
 import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type Data = {
@@ -300,6 +301,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
+      const self = this
       const unit = this.unit
       const options: Chart.ChartOptions = {
         tooltips: {
@@ -314,8 +316,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               } : ${cases} ${unit}`
             },
             title(tooltipItem, data) {
-              const date = data.labels![tooltipItem[0].index!].toString()
-              return dayjs(date).format('M月D日')
+              const label = data.labels![tooltipItem[0].index!] as string
+              return self.$d(getComplementedDate(label), 'dateWithoutYear')
             },
           },
         },

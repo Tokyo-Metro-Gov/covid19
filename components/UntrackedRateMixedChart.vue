@@ -123,6 +123,7 @@ import {
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
 import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
+import { getComplementedDate } from '@/utils/formatDate'
 
 type Data = {
   canvas: boolean
@@ -381,6 +382,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
+      const self = this
       const unit = this.unit[1]
       const getFormatter = this.getFormatter
       const options: Chart.ChartOptions = {
@@ -402,10 +404,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               if (tooltipItem[0].datasetIndex! < 4) {
-                const date = dayjs(
-                  data.labels![tooltipItem[0].index!].toString()
-                ).format('M月D日')
-                return String(date)
+                const label = data.labels![tooltipItem[0].index!] as string
+                return self.$d(getComplementedDate(label), 'dateWithoutYear')
               }
               return ''
             },

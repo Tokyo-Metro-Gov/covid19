@@ -79,6 +79,7 @@ import {
 
 import { getGraphSeriesStyle } from '@/utils/colors'
 import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
+import { getComplementedDate } from '@/utils/formatDate'
 
 type Data = {
   dataKind: 'transition'
@@ -255,6 +256,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOption() {
+      const self = this
       const unit = this.unit
       const options: Chart.ChartOptions = {
         tooltips: {
@@ -267,11 +269,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               return `${parseInt(tooltipItem.value!).toLocaleString()} ${unit}`
             },
             title(tooltipItem, data) {
-              if (tooltipItem[0].datasetIndex! < 2) {
-                const date = data.labels![tooltipItem[0].index!].toString()
-                return dayjs(date).format('M月D日')
-              }
-              return ''
+              const label = data.labels![tooltipItem[0].index!] as string
+              return self.$d(getComplementedDate(label), 'dateWithoutYear')
             },
           },
         },
