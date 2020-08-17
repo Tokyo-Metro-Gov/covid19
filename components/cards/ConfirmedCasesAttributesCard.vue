@@ -10,7 +10,10 @@
         :info="sumInfoOfPatients"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
         :source="$t('オープンデータを入手')"
-        :custom-sort="customSort"
+        :loaded="loaded"
+        :data-length="dataLength"
+        @onChangeItemsPerPage="onChangeItemsPerPage"
+        @onChangePage="onChangePage"
       />
     </client-only>
   </v-col>
@@ -34,14 +37,13 @@ export default {
 
     // 感染者数グラフ
     const patientsGraph = formatGraph(patientSummary.data)
-    // 感染者数
-    const patientsTable = formatTable(patients.data)
     // 日付
     const lastDay = patientsGraph[patientsGraph.length - 1].label
     const dateAsOf = this.$d(
       getDayjsObject(lastDay).toDate(),
       'dateWithoutYear'
     )
+    const dataLength = patientsGraph[patientsGraph.length - 1].cumulative
 
     const sumInfoOfPatients = {
       lText: patientsGraph[
@@ -51,32 +53,92 @@ export default {
       unit: this.$t('人'),
     }
 
-    // 陽性者の属性 ヘッダー翻訳
-    for (const header of patientsTable.headers) {
-      header.text =
-        header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
-    }
-    // 陽性者の属性 中身の翻訳
-    for (const row of patientsTable.datasets) {
-      row['居住地'] = this.getTranslatedWording(row['居住地'])
-      row['性別'] = this.getTranslatedWording(row['性別'])
-      row['退院'] = this.getTranslatedWording(row['退院'])
-
-      if (row['年代'].substr(-1, 1) === '代') {
-        const age = row['年代'].substring(0, 2)
-        row['年代'] = this.$t('{age}代', { age })
-      } else {
-        row['年代'] = this.$t(row['年代'])
-      }
-    }
-
     return {
-      patientsTable,
+      patientsTable: {},
+      dataLength,
       sumInfoOfPatients,
       date,
+      loaded: false,
+      itemsPerPage: 15,
+      page: 1,
+      maxPage: 1,
+      endCursor: '',
+      patientsRawDataArray: [],
     }
   },
+  created() {
+    this.getPatientsTableFromAPI(this.itemsPerPage)
+  },
   methods: {
+    onChangeItemsPerPage(num) {
+      this.itemsPerPage = num
+      this.maxPage = 1
+      this.getPatientsTableFromAPI(true)
+    },
+    onChangePage(num) {
+      if (this.page < num) {
+        this.page = num
+        if (this.maxPage < num) {
+          this.getPatientsTableFromAPI()
+          this.maxPage = num
+        } else {
+          this.getpatientsTableByPageNumber()
+        }
+      } else {
+        this.page = num
+        this.getpatientsTableByPageNumber()
+      }
+    },
+    async getPatientsTableFromAPI(changeLimit) {
+      this.loaded = false
+      if (changeLimit) {
+        this.endCursor = ''
+        this.patientsRawDataArray = []
+      }
+      await fetch(
+        `https://api.data.metro.tokyo.lg.jp/v1/Covid19Patient?limit=${
+          this.itemsPerPage
+        }&cursor=${encodeURIComponent(this.endCursor)}`
+      )
+        .then((response) => response.json())
+        .then((responseJson) => {
+          this.patientsRawDataArray = this.patientsRawDataArray.concat(
+            responseJson[0]
+          )
+          this.endCursor = responseJson[1].endCursor
+          this.getpatientsTableByPageNumber()
+          this.loaded = true
+        })
+      /* .catch((error) => {
+          console.error(error)
+        }) */
+    },
+    getpatientsTableByPageNumber() {
+      this.patientsTable = formatTable(
+        this.patientsRawDataArray.slice(
+          this.page * this.itemsPerPage - this.itemsPerPage,
+          this.page * this.itemsPerPage
+        )
+      )
+      // 陽性者の属性 ヘッダー翻訳
+      for (const header of this.patientsTable.headers) {
+        header.text =
+          header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
+      }
+      // 陽性者の属性 中身の翻訳
+      for (const row of this.patientsTable.datasets) {
+        row['居住地'] = this.getTranslatedWording(row['居住地'])
+        row['性別'] = this.getTranslatedWording(row['性別'])
+        row['退院'] = this.getTranslatedWording(row['退院'])
+
+        if (row['年代'].substr(-1, 1) === '代') {
+          const age = row['年代'].substring(0, 2)
+          row['年代'] = this.$t('{age}代', { age })
+        } else {
+          row['年代'] = this.$t(row['年代'])
+        }
+      }
+    },
     getTranslatedWording(value) {
       if (
         value === '-' ||
@@ -95,73 +157,6 @@ export default {
       }
 
       return this.$t(value)
-    },
-    customSort(items, index, isDesc) {
-      const lt10 = this.$t('10歳未満').toString()
-      const lt100 = this.$t('100歳以上').toString()
-      const unknown = this.$t('不明').toString()
-      const investigating = this.$t('調査中').toString()
-      items.sort((a, b) => {
-        // 両者が等しい場合は 0 を返す
-        if (a[index[0]] === b[index[0]]) {
-          return 0
-        }
-
-        let comparison = 0
-
-        // '10歳未満' < '10代' ... '90代' < '100歳以上' となるようにソートする
-        // 「10歳未満」同士を比較する場合、と「100歳以上」同士を比較する場合、更にそうでない場合に場合分け
-        if (
-          index[0] === '年代' &&
-          (a[index[0]] === lt10 || b[index[0]] === lt10)
-        ) {
-          comparison = a[index[0]] === lt10 ? -1 : 1
-        } else if (
-          index[0] === '年代' &&
-          (a[index[0]] === lt100 || b[index[0]] === lt100)
-        ) {
-          comparison = a[index[0]] === lt100 ? 1 : -1
-        } else {
-          comparison = String(a[index[0]]) < String(b[index[0]]) ? -1 : 1
-        }
-
-        // 公表日のソートを正しくする
-        if (index[0] === '公表日') {
-          // 2/29と3/1が正しくソートできないため、以下は使えない。
-          // 公表日に年まで含む場合は以下が使用可能になり、逆に今使用しているコードが使用不可能となる。
-          // comparison = new Date(a[index[0]]) < new Date(b[index[0]]) ? -1 : 1
-
-          const aDate = a[index[0]].split('/').map((d) => {
-            return parseInt(d)
-          })
-          const bDate = b[index[0]].split('/').map((d) => {
-            return parseInt(d)
-          })
-          comparison = aDate[1] > bDate[1] ? 1 : -1
-          if (aDate[0] > bDate[0]) {
-            comparison = 1
-          } else if (aDate[0] < bDate[0]) {
-            comparison = -1
-          }
-        }
-
-        // 「調査中」は年代に限らず、居住地にも存在するので、年代ソートの外に置いている。
-        // 内容としては、「不明」の次に高い(大きい)ものとして扱う。
-        // 日本語の場合、「調査中」は「不明」より低い(小さい)ものとして扱われるが、
-        // 他言語の場合はそうではないため、ここで統一している。
-        if (a[index[0]] === investigating || b[index[0]] === investigating) {
-          comparison = a[index[0]] === investigating ? 1 : -1
-        }
-
-        // 「不明」は年代に限らず、性別にも存在するので、年代ソートの外に置いている。
-        // 内容としては一番高い(大きい)ものとして扱う。
-        if (a[index[0]] === unknown || b[index[0]] === unknown) {
-          comparison = a[index[0]] === unknown ? 1 : -1
-        }
-
-        return isDesc[0] ? comparison * -1 : comparison
-      })
-      return items
     },
   },
 }
