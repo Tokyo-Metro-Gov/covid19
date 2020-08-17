@@ -28,8 +28,8 @@ export default Vue.extend({
   props: {
     url: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>

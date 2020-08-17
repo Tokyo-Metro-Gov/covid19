@@ -40,13 +40,13 @@ import Data from '@/data/data.json'
 
 export default {
   components: {
-    MonitoringConsultationDeskReportChart
+    MonitoringConsultationDeskReportChart,
   },
   data() {
     const [
       consulationReportsCount,
       sevendayMoveAverages,
-      labels
+      labels,
     ] = Data.querents.data.reduce(
       (res, data) => {
         res[0].push(data['小計'])
@@ -64,8 +64,8 @@ export default {
       chartData,
       date,
       labels,
-      dataLabels
+      dataLabels,
     }
-  }
+  },
 }
 </script>

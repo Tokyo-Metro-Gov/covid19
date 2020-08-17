@@ -50,15 +50,15 @@ import { getNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatter
 
 export default {
   components: {
-    ConfirmedCasesIncreaseRatioByWeekChart
+    ConfirmedCasesIncreaseRatioByWeekChart,
   },
   data() {
     const formatData = []
-    dailyPositiveDetail.data.forEach(d => {
+    dailyPositiveDetail.data.forEach((d) => {
       if (d.weekly_gain_ratio) {
         formatData.push({
           日付: new Date(d.diagnosed_date),
-          小計: d.weekly_gain_ratio
+          小計: d.weekly_gain_ratio,
         })
       }
     })
@@ -77,8 +77,8 @@ export default {
       graphData,
       tableLabels,
       items,
-      formatter
+      formatter,
     }
-  }
+  },
 }
 </script>

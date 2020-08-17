@@ -51,8 +51,8 @@ export default Vue.extend({
     MetroCard,
     AgencyCard,
     PositiveNumberByDiagnosedDateCard,
-    ConfirmedCasesIncreaseRatioByWeekCard
-  }
+    ConfirmedCasesIncreaseRatioByWeekCard,
+  },
 })
 </script>
 
