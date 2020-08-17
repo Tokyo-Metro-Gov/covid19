@@ -13,7 +13,7 @@
       <template v-slot:description>
         {{
           $t('{range}の利用者数*の平均値を基準としたときの相対値', {
-            range: metroGraph.base_period
+            range: metroGraph.base_period,
           })
         }}
         <br />
@@ -30,24 +30,23 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
 import MetroData from '@/data/metro.json'
 import MetroBarChart from '@/components/MetroBarChart.vue'
 import { getComplementedDate } from '@/utils/formatDate'
 
 export default {
   components: {
-    MetroBarChart
+    MetroBarChart,
   },
   data() {
     // 都営地下鉄の利用者数の推移
-    const datasets = MetroData.datasets.map(d => ({
+    const datasets = MetroData.datasets.map((d) => ({
       ...d,
-      label: this.getWeekLabel(d.label)
+      label: this.getWeekLabel(d.label),
     }))
     const metroGraph = {
       ...MetroData,
-      datasets
+      datasets,
     }
 
     // metroGraph ツールチップ title文字列
@@ -65,15 +64,14 @@ export default {
       return this.$t('{duration}の利用者数との相対値: {percentage}', {
         // duration = metroGraph.base_period = '1\/20~1\/24'
         duration: this.$t(metroGraph.base_period),
-        percentage
+        percentage,
       })
     }
 
     return {
-      Data,
       metroGraph,
       metroGraphTooltipTitle,
-      metroGraphTooltipLabel
+      metroGraphTooltipLabel,
     }
   },
   methods: {
@@ -116,7 +114,7 @@ export default {
       } else {
         return `${dates[0]}~${dates[1]}`
       }
-    }
-  }
+    },
+  },
 }
 </script>
