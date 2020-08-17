@@ -34,6 +34,10 @@ export default {
     ConfirmedCasesByMunicipalitiesTable,
   },
   data() {
+    const { datasets, date } = Data
+
+    const formattedDate = dayjs(date).format('YYYY/MM/DD HH:mm')
+
     // 区市町村ごとの陽性者数
     const municipalitiesTable = {
       headers: [],
@@ -58,7 +62,7 @@ export default {
 
     // データをソート
     const areaOrder = ['特別区', '多摩地域', '島しょ地域', null]
-    Data.datasets.data
+    datasets.data
       .sort((a, b) => {
         // 全体をふりがなでソート
         if (a.ruby === b.ruby) {
@@ -75,7 +79,7 @@ export default {
       })
 
     // データを追加
-    municipalitiesTable.datasets = Data.datasets.data
+    municipalitiesTable.datasets = datasets.data
       .filter((d) => d.label !== '小計')
       .map((d) => {
         if (this.$i18n.locale === 'ja') {
@@ -94,17 +98,14 @@ export default {
         }
       })
 
-    const date = dayjs(Data.date).format('YYYY/MM/DD HH:mm')
-
     const info = {
       sText: this.$t('{date}の累計', {
-        date: this.$d(new Date(Data.datasets.date), 'dateWithoutYear'),
+        date: this.$d(new Date(datasets.date), 'dateWithoutYear'),
       }),
     }
 
     return {
-      Data,
-      date,
+      date: formattedDate,
       municipalitiesTable,
       info,
     }

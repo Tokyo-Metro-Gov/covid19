@@ -75,6 +75,7 @@
         :title="infoTitles[0]"
         :l-text="displayInfo[0].lText"
         :s-text="displayInfo[0].sText"
+        :s-text-under="displayInfo[0].sTextUnder"
         :unit="displayInfo[0].unit"
       />
     </template>
@@ -101,6 +102,7 @@ import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
+import { getComplementedDate } from '@/utils/formatDate'
 import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type Data = {
@@ -118,6 +120,7 @@ type Computed = {
     {
       lText: string
       sText: string
+      sTextUnder: string
       unit: string
     }
   ]
@@ -236,7 +239,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
             date: lastDay,
-          })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
+          })}（${this.$t('７日間移動平均')}）`,
+          sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
+            this.unit
+          }）`,
           unit: this.unit,
         },
       ]
@@ -300,6 +306,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
+      const self = this
       const unit = this.unit
       const options: Chart.ChartOptions = {
         tooltips: {
@@ -314,8 +321,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               } : ${cases} ${unit}`
             },
             title(tooltipItem, data) {
-              const date = data.labels![tooltipItem[0].index!].toString()
-              return dayjs(date).format('M/D')
+              const label = data.labels![tooltipItem[0].index!] as string
+              return self.$d(getComplementedDate(label), 'dateWithoutYear')
             },
           },
         },

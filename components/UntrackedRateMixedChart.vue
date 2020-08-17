@@ -90,12 +90,14 @@
         :title="infoTitles[0]"
         :l-text="displayInfo[0].lText"
         :s-text="displayInfo[0].sText"
+        :s-text-under="displayInfo[0].sTextUnder"
         :unit="displayInfo[0].unit"
       />
       <data-view-data-set-panel
         :title="infoTitles[1]"
         :l-text="displayInfo[1].lText"
         :s-text="displayInfo[1].sText"
+        :s-text-under="displayInfo[1].sTextUnder"
         :unit="displayInfo[1].unit"
       />
     </template>
@@ -123,6 +125,7 @@ import {
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
 import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
+import { getComplementedDate } from '@/utils/formatDate'
 
 type Data = {
   canvas: boolean
@@ -133,20 +136,15 @@ type Methods = {
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
 }
+type DisplayInfo = {
+  lText: string
+  sText: string
+  sTextUnder: string
+  unit: string
+}
 
 type Computed = {
-  displayInfo: [
-    {
-      lText: string
-      sText: string
-      unit: string
-    },
-    {
-      lText: string
-      sText: string
-      unit: string
-    }
-  ]
+  displayInfo: DisplayInfo[]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
@@ -279,14 +277,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
             date: lastDay,
-          })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit[0]}）`,
+          })}（${this.$t('７日間移動平均')}）`,
+          sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
+            this.unit[0]
+          }）`,
           unit: this.unit[0],
         },
         {
           lText: lastDayData3,
           sText: `${this.$t('{date} の数値', {
             date: lastDay3,
-          })}（${this.$t('前日比')}: ${dayBeforeRatio3} ${this.unit[1]}）`,
+          })}（${this.$t('７日間移動平均値をもとに算出')}）`,
+          sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio3} ${
+            this.unit[1]
+          }）`,
           unit: this.unit[1],
         },
       ]
@@ -381,6 +385,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
+      const self = this
       const unit = this.unit[1]
       const getFormatter = this.getFormatter
       const options: Chart.ChartOptions = {
@@ -402,10 +407,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               if (tooltipItem[0].datasetIndex! < 4) {
-                const date = dayjs(
-                  data.labels![tooltipItem[0].index!].toString()
-                ).format('M/D')
-                return String(date)
+                const label = data.labels![tooltipItem[0].index!] as string
+                return self.$d(getComplementedDate(label), 'dateWithoutYear')
               }
               return ''
             },

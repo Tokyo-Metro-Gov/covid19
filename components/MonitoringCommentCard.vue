@@ -24,13 +24,11 @@
         }}
       </p>
       <v-icon color="#D9D9D9">mdi-chevron-right</v-icon>
-      <a
-        href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
-        target="_blank"
-        rel="noopener noreferrer"
+      <external-link
+        url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
       >
         {{ $t('最新のモニタリング項目の分析・総括コメントについて') }}
-      </a>
+      </external-link>
     </div>
     <div class="MonitoringComment-comments">
       <v-row>
@@ -55,11 +53,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import ExternalLink from '@/components/ExternalLink.vue'
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
 import monitoringItems from '@/data/monitoring_items.json'
 
 export default Vue.extend({
   components: {
+    ExternalLink,
     MonitoringCommentFrame,
   },
   data() {

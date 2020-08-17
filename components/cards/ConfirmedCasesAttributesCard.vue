@@ -6,7 +6,7 @@
         :title-id="'attributes-of-confirmed-cases'"
         :chart-data="patientsTable"
         :chart-option="{}"
-        :date="Data.patients.date"
+        :date="date"
         :info="sumInfoOfPatients"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
         :source="$t('オープンデータを入手')"
@@ -28,19 +28,26 @@ export default {
     DataTable,
   },
   data() {
+    const patientSummary = Data.patients_summary
+    const patients = Data.patients
+    const { date } = patients
+
     // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.patients_summary.data)
+    const patientsGraph = formatGraph(patientSummary.data)
     // 感染者数
-    const patientsTable = formatTable(Data.patients.data)
+    const patientsTable = formatTable(patients.data)
     // 日付
     const lastDay = patientsGraph[patientsGraph.length - 1].label
-    const date = this.$d(getDayjsObject(lastDay).toDate(), 'dateWithoutYear')
+    const dateAsOf = this.$d(
+      getDayjsObject(lastDay).toDate(),
+      'dateWithoutYear'
+    )
 
     const sumInfoOfPatients = {
       lText: patientsGraph[
         patientsGraph.length - 1
       ].cumulative.toLocaleString(),
-      sText: this.$t('{date}の累計', { date }),
+      sText: this.$t('{date}の累計', { date: dateAsOf }),
       unit: this.$t('人'),
     }
 
@@ -64,9 +71,9 @@ export default {
     }
 
     return {
-      Data,
       patientsTable,
       sumInfoOfPatients,
+      date,
     }
   },
   methods: {
