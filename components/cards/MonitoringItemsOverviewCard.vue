@@ -82,15 +82,15 @@ export default {
     DataView,
     MonitoringItemsOverviewTableInfectionStatus,
     MonitoringItemsOverviewTableMedicalSystem,
-    ExternalLink,
+    ExternalLink
   },
   data() {
     const monitoringItems = formatMonitoringItems(monitoringItemsData.data)
     return {
       monitoringItemsData,
-      monitoringItems,
+      monitoringItems
     }
-  },
+  }
 }
 </script>
 
