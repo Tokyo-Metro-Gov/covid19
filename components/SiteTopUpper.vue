@@ -44,34 +44,32 @@ export default Vue.extend({
     WhatsNew,
     StaticInfo,
     TokyoAlertCard,
-    MonitoringCommentCard,
+    MonitoringCommentCard
   },
   data() {
-    const { lastUpdate } = Data
-
     return {
+      Data,
       TokyoAlert,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: this.$t('都内の最新感染動向'),
+        title: this.$t('都内の最新感染動向')
       },
-      lastUpdate,
-      newsItems: News.newsItems,
+      newsItems: News.newsItems
     }
   },
   computed: {
     updatedAt() {
-      return convertDatetimeToISO8601Format(this.$data.lastUpdate)
+      return convertDatetimeToISO8601Format(this.$data.Data.lastUpdate)
     },
     formattedDateForDisplay() {
-      return `${this.$d(new Date(this.$data.lastUpdate), 'dateTime')} JST`
-    },
+      return this.$d(new Date(Data.lastUpdate), 'dateTime')
+    }
   },
   head(): MetaInfo {
     return {
-      title: this.$t('都内の最新感染動向') as string,
+      title: this.$t('都内の最新感染動向') as string
     }
-  },
+  }
 })
 </script>
 

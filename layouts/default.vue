@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <v-app class="app">
     <v-overlay :value="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
@@ -33,15 +33,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MetaInfo, LinkPropertyHref } from 'vue-meta'
+import { MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import Data from '@/data/data.json'
 import SideNavigation from '@/components/SideNavigation.vue'
 import NoScript from '@/components/NoScript.vue'
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
-import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
-
 type LocalData = {
   hasNavigation: boolean
   isOpenNavigation: boolean
@@ -52,7 +50,7 @@ export default Vue.extend({
     DevelopmentModeMark,
     ScaleLoader,
     SideNavigation,
-    NoScript,
+    NoScript
   },
   data(): LocalData {
     let hasNavigation = true
@@ -67,7 +65,7 @@ export default Vue.extend({
     return {
       hasNavigation,
       loading,
-      isOpenNavigation: false,
+      isOpenNavigation: false
     }
   },
   mounted() {
@@ -86,7 +84,7 @@ export default Vue.extend({
     },
     getMatchMedia(): MediaQueryList {
       return window.matchMedia('(min-width: 601px)')
-    },
+    }
   },
   head(): MetaInfo {
     const { htmlAttrs, meta } = this.$nuxtI18nSeo()
@@ -96,30 +94,19 @@ export default Vue.extend({
         : {
             hid: 'og:locale',
             name: 'og:locale',
-            content: this.$i18n.locale,
+            content: this.$i18n.locale
           }
-
-    let linksAlternate: LinkPropertyHref[] = []
-    const basename = this.getRouteBaseName()
-    // 404 エラーなどのときは this.getRouteBaseName() が null になるため除外
-    if (basename) {
-      linksAlternate = getLinksLanguageAlternative(
-        basename,
-        this.$i18n.locales,
-        this.$i18n.defaultLocale
-      )
-    }
-
-    const { lastUpdate } = Data
-
     return {
       htmlAttrs,
       link: [
         {
           rel: 'canonical',
-          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`,
+          href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
         },
-        ...linksAlternate,
+        {
+          rel: 'stylesheet',
+          href: 'https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css'
+        }
       ],
       // Disable prettier for readability purposes
       // eslint-disable-next-line prettier/prettier
@@ -128,28 +115,28 @@ export default Vue.extend({
         {
           hid: 'author',
           name: 'author',
-          content: this.$tc('東京都'),
+          content: this.$tc('東京都')
         },
         {
           hid: 'description',
           name: 'description',
           content: `${this.$t('{date} 更新', {
-            date: convertDateToSimpleFormat(lastUpdate),
+            date: convertDateToSimpleFormat(Data.lastUpdate)
           })}: ${this.$tc(
             '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
-          )}`,
+          )}`
         },
         {
           hid: 'og:site_name',
           property: 'og:site_name',
           content: `${this.$t('東京都')} ${this.$t(
             '新型コロナウイルス感染症'
-          )} ${this.$t('対策サイト')}`,
+          )} ${this.$t('対策サイト')}`
         },
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`,
+          content: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`
         },
         ogLocale,
         {
@@ -157,44 +144,40 @@ export default Vue.extend({
           property: 'og:title',
           content: `${this.$t('東京都')} ${this.$t(
             '新型コロナウイルス感染症'
-          )} ${this.$t('対策サイト')}`,
+          )} ${this.$t('対策サイト')}`
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content: `${this.$t('{date} 更新', {
-            date: convertDateToSimpleFormat(lastUpdate),
+            date: convertDateToSimpleFormat(Data.lastUpdate)
           })}: ${this.$tc(
             '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
-          )}`,
+          )}`
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.$tc('ogp.og:image'),
+          content: this.$tc('ogp.og:image')
         },
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
           content: `${this.$t('東京都')} ${this.$t(
             '新型コロナウイルス感染症'
-          )} ${this.$t('対策サイト')}`,
+          )} ${this.$t('対策サイト')}`
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.$tc('ogp.og:image'),
-        },
-      ],
+          content: this.$tc('ogp.og:image')
+        }
+      ]
     }
-  },
+  }
 })
 </script>
 <style lang="scss">
-@font-face {
-  font-family: Roboto;
-  font-display: swap;
-}
 .app {
   max-width: 1440px;
   margin: 0 auto;

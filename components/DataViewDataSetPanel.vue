@@ -8,10 +8,6 @@
       </span>
       <br v-if="lText !== ''" />
       <small class="DataView-DataSet-DataInfo-date">{{ sText }}</small>
-      <br v-if="sTextUnder !== ''" />
-      <small v-if="sTextUnder !== ''" class="DataView-DataSet-DataInfo-date">{{
-        sTextUnder
-      }}</small>
     </div>
   </div>
 </template>
@@ -20,28 +16,19 @@
 .DataView {
   &-DataSet {
     display: flex;
-    flex-flow: column;
+    width: 100%;
     margin-bottom: 10px;
-
-    @include largerThan($large) {
-      justify-content: space-between;
-      flex-flow: row;
-    }
 
     &-title {
       font-size: 2rem;
-      flex: 1 1 50%;
-      margin-bottom: 10px;
+      flex: 1 1 auto;
     }
 
     &-DataInfo {
-      flex: 1 1 50%;
-
-      @include largerThan($large) {
-        text-align: right;
-      }
+      text-align: right;
 
       &-summary {
+        flex: 0 1 auto;
         display: inline-block;
         color: $gray-2;
         white-space: nowrap;
@@ -61,6 +48,7 @@
         width: 100%;
         color: $gray-3;
         line-height: initial;
+        text-align: right;
         @include font-size(12);
       }
     }
@@ -76,27 +64,22 @@ export default Vue.extend({
     title: {
       type: String,
       required: true,
-      default: '',
+      default: ''
     },
     lText: {
       type: String,
       required: false,
-      default: '',
+      default: ''
     },
     sText: {
       type: String,
-      required: true,
-    },
-    sTextUnder: {
-      type: String,
-      required: false,
-      default: '',
+      required: true
     },
     unit: {
       type: String,
       required: false,
-      default: '',
-    },
-  },
+      default: ''
+    }
+  }
 })
 </script>
