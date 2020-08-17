@@ -6,6 +6,10 @@
     </span>
     <br v-if="lText !== ''" />
     <small class="DataView-DataInfo-date">{{ sText }}</small>
+    <br v-if="sTextUnder !== ''" />
+    <small v-if="sTextUnder !== ''" class="DataView-DataInfo-date">{{
+      sTextUnder
+    }}</small>
   </div>
 </template>
 
@@ -57,6 +61,11 @@ export default Vue.extend({
     sText: {
       type: String,
       required: true,
+    },
+    sTextUnder: {
+      type: String,
+      required: false,
+      default: '',
     },
     unit: {
       type: String,
