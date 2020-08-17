@@ -13,7 +13,7 @@
         }}
       </p>
       <div class="Error-ButtonContainer">
-        <nuxt-link :to="localePath('/')" class="Error-Button">
+        <nuxt-link to="`${localePath('/')}`" class="Error-Button">
           {{ $t('トップページへ戻る') }}
         </nuxt-link>
       </div>

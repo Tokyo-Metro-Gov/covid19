@@ -13,7 +13,7 @@
       >
         <template v-slot:description>
           <nuxt-link
-            :to="`${
+            to="`${
               $i18n.locale !== 'ja' ? $i18n.locale : ''
             }/cards/positive-number-by-developed-date`"
             class="Description-Link"
