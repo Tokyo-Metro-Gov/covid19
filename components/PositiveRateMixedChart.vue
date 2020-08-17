@@ -87,12 +87,14 @@
         :title="infoTitles[0]"
         :l-text="displayInfo[0].lText"
         :s-text="displayInfo[0].sText"
+        :s-text-under="displayInfo[0].sTextUnder"
         :unit="displayInfo[0].unit"
       />
       <data-view-data-set-panel
         :title="infoTitles[1]"
         :l-text="displayInfo[1].lText"
         :s-text="displayInfo[1].sText"
+        :s-text-under="displayInfo[1].sTextUnder"
         :unit="displayInfo[1].unit"
       />
     </template>
@@ -139,6 +141,7 @@ type Methods = {
 type DisplayInfo = {
   lText: string
   sText: string
+  sTextUnder: string
   unit: string
 }
 type Computed = {
@@ -277,14 +280,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
             date: lastDay,
-          })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
+          })}（${this.$t('７日間移動平均値をもとに算出')}）`,
+          sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
+            this.unit
+          }）`,
           unit: this.unit,
         },
         {
           lText: lastDayData4,
           sText: `${this.$t('{date} の数値', {
             date: lastDay4,
-          })}（${this.$t('前日比')}: ${dayBeforeRatio4} ${this.optionUnit}）`,
+          })}（${this.$t('７日間移動平均')}）`,
+          sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio4} ${
+            this.optionUnit
+          }）`,
           unit: this.optionUnit,
         },
       ]

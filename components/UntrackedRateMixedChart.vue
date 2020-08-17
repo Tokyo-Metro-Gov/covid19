@@ -90,12 +90,14 @@
         :title="infoTitles[0]"
         :l-text="displayInfo[0].lText"
         :s-text="displayInfo[0].sText"
+        :s-text-under="displayInfo[0].sTextUnder"
         :unit="displayInfo[0].unit"
       />
       <data-view-data-set-panel
         :title="infoTitles[1]"
         :l-text="displayInfo[1].lText"
         :s-text="displayInfo[1].sText"
+        :s-text-under="displayInfo[1].sTextUnder"
         :unit="displayInfo[1].unit"
       />
     </template>
@@ -134,20 +136,15 @@ type Methods = {
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
 }
+type DisplayInfo = {
+  lText: string
+  sText: string
+  sTextUnder: string
+  unit: string
+}
 
 type Computed = {
-  displayInfo: [
-    {
-      lText: string
-      sText: string
-      unit: string
-    },
-    {
-      lText: string
-      sText: string
-      unit: string
-    }
-  ]
+  displayInfo: DisplayInfo[]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
@@ -280,14 +277,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
             date: lastDay,
-          })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit[0]}）`,
+          })}（${this.$t('７日間移動平均')}）`,
+          sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
+            this.unit[0]
+          }）`,
           unit: this.unit[0],
         },
         {
           lText: lastDayData3,
           sText: `${this.$t('{date} の数値', {
             date: lastDay3,
-          })}（${this.$t('前日比')}: ${dayBeforeRatio3} ${this.unit[1]}）`,
+          })}（${this.$t('７日間移動平均値をもとに算出')}）`,
+          sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio3} ${
+            this.unit[1]
+          }）`,
           unit: this.unit[1],
         },
       ]
