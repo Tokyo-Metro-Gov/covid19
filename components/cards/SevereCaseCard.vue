@@ -7,7 +7,7 @@
         :info-titles="[$t('重症患者数')]"
         chart-id="time-bar-chart-positive-status-severe-case"
         :chart-data="graphData"
-        :date="Data.date"
+        :date="date"
         :unit="$t('人')"
       >
         <template v-slot:additionalDescription>
@@ -42,6 +42,7 @@ export default {
     SevereCaseBarChart,
   },
   data() {
+    const { date } = Data
     const graphData = Data.data
       .filter((d) => new Date(d.date) > new Date('2020-04-26'))
       .filter((d) => !isNaN(d.severe_case))
@@ -50,8 +51,8 @@ export default {
         transition: d.severe_case,
       }))
     return {
-      Data,
       graphData,
+      date,
     }
   },
 }

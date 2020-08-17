@@ -4,7 +4,7 @@
       <data-view
         :title="$t('検査陽性者の状況')"
         :title-id="'details-of-confirmed-cases'"
-        :date="updatedAt"
+        :date="date"
       >
         <template v-slot:additionalDescription>
           <span>{{ $t('（注）') }}</span>
@@ -50,17 +50,15 @@ export default {
     ConfirmedCasesDetailsTable,
   },
   data() {
+    const mainSummary = Data.main_summary
     // 検査陽性者の状況
-    const confirmedCases = formatConfirmedCases(Data.main_summary)
+    const confirmedCases = formatConfirmedCases(mainSummary)
 
-    const updatedAt = dayjs(Data.main_summary.children[0].date).format(
-      'YYYY/MM/DD HH:mm'
-    )
+    const date = dayjs(mainSummary.children[0].date).format('YYYY/MM/DD HH:mm')
 
     return {
-      Data,
       confirmedCases,
-      updatedAt,
+      date,
     }
   },
 }

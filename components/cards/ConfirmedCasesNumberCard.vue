@@ -6,7 +6,7 @@
         :title-id="'number-of-confirmed-cases'"
         :chart-id="'time-bar-chart-patients'"
         :chart-data="patientsGraph"
-        :date="Data.patients_summary.date"
+        :date="date"
         :unit="$t('人')"
         :by-date="true"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
@@ -61,10 +61,11 @@ export default {
   data() {
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
+    const date = Data.patients_summary.date
 
     return {
-      Data,
       patientsGraph,
+      date,
     }
   },
 }

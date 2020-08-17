@@ -6,7 +6,7 @@
         :title-id="'positive-number-by-diagnosed-date'"
         :chart-id="'positive-number-by-diagnosed-date'"
         :chart-data="graphData"
-        :date="data.date"
+        :date="date"
         :unit="$t('人')"
       >
         <template v-slot:additionalDescription>
@@ -71,8 +71,10 @@ export default {
     // 陽性患者数グラフ
     const graphData = formatGraph(formatData)
 
+    const { date } = Data
+
     return {
-      data: Data,
+      date,
       graphData,
     }
   },
