@@ -20,7 +20,7 @@ type DataType = {
   患者_居住地: string | null
   患者_年代: string | null
   患者_性別: '男性' | '女性' | string
-  退院済フラグ: number | null
+  退院済フラグ: number | undefined
   [key: string]: any
 }
 
@@ -29,7 +29,7 @@ type TableDataType = {
   居住地: DataType['患者_居住地']
   年代: DataType['患者_年代']
   性別: DataType['患者_性別'] | '不明'
-  退院: DataType['退院済フラグ']
+  退院: string | null
 }
 
 type TableDateType = {
@@ -49,7 +49,7 @@ export default function (data: DataType[]): TableDateType {
       居住地: d['患者_居住地'] ?? '調査中',
       年代: d['患者_年代'] ?? '不明',
       性別: d['患者_性別'] ?? '不明',
-      退院: d['退院済フラグ'],
+      退院: d['退院済フラグ'] ? '〇' : '',
     }))
     .sort((a, b) => dayjs(a.公表日).unix() - dayjs(b.公表日).unix())
   // .reverse()
