@@ -99,16 +99,19 @@ export default {
         this.patientsRawDataArray = []
       }
       const limit =
-        this.patientsRawDataArray.length === 0
-          ? this.itemsPerPage * 2
+        this.itemsPerPage <= 500
+          ? this.patientsRawDataArray.length === 0
+            ? this.itemsPerPage * 2
+            : this.itemsPerPage
           : this.itemsPerPage
       if (this.patientsRawDataArray.length < this.page * this.itemsPerPage) {
         this.loaded = false
       }
+      const endCursorParam = this.endCursor
+        ? `&cursor=${encodeURIComponent(this.endCursor)}`
+        : ''
       await fetch(
-        `https://api.data.metro.tokyo.lg.jp/v1/Covid19Patient?limit=${limit}&cursor=${encodeURIComponent(
-          this.endCursor
-        )}`
+        `https://api.data.metro.tokyo.lg.jp/v1/Covid19Patient?limit=${limit}${endCursorParam}`
       )
         .then((response) => response.json())
         .then((responseJson) => {
