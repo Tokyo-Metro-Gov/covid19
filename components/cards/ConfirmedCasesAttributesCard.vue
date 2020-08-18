@@ -11,6 +11,8 @@
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
         :source="$t('オープンデータを入手')"
         :loaded="loaded"
+        :error="error"
+        :errormsg="errormsg"
         :data-length="dataLength"
         @onChangeItemsPerPage="onChangeItemsPerPage"
         @onChangePage="onChangePage"
@@ -59,6 +61,8 @@ export default {
       sumInfoOfPatients,
       date,
       loaded: false,
+      error: false,
+      errormsg: '',
       itemsPerPage: 15,
       page: 1,
       maxPage: 1,
@@ -109,9 +113,10 @@ export default {
           this.getpatientsTableByPageNumber()
           this.loaded = true
         })
-      /* .catch((error) => {
-          console.error(error)
-        }) */
+        .catch((error) => {
+          this.error = true
+          this.errormsg = error
+        })
     },
     getpatientsTableByPageNumber() {
       this.patientsTable = formatTable(

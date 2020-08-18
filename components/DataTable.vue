@@ -12,8 +12,13 @@
     >
       <scale-loader color="#00A040" />
     </v-overlay>
-
-    <v-layout :class="{ loading: !loaded }" column>
+    <v-overlay absolute :value="error" justify-center align-center>
+      <v-alert type="error">
+        {{ title }} {{ $t('の読み込みに失敗しました') }} <br />
+        エラーメッセージ: {{ errormsg }}
+      </v-alert>
+    </v-overlay>
+    <v-layout :class="{ loading: !loaded || error }" column>
       <v-data-table
         :ref="'displayedTable'"
         :headers="chartData.headers"
@@ -190,6 +195,14 @@ export default Vue.extend({
     loaded: {
       type: Boolean,
       default: false,
+    },
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    errormsg: {
+      type: String,
+      default: '',
     },
     dataLength: {
       type: Number,
