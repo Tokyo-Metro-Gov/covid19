@@ -124,7 +124,7 @@ export default {
         })
         .catch((error) => {
           this.error = true
-          this.errormsg = error
+          this.errormsg = error.toString()
         })
     },
     getpatientsTableByPageNumber() {
