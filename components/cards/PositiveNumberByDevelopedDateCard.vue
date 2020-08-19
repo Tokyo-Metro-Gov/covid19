@@ -44,10 +44,11 @@
 import positiveByDeveloped from '@/data/positive_by_developed.json'
 import formatGraph from '@/utils/formatGraph'
 import TimeBarChart from '@/components/TimeBarChart.vue'
-import DataViewCustomInfoPanel from '@/components/DataViewCustomInfoPanel.vue'
 import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 import { getDayjsObject } from '@/utils/formatDate'
 import { getCommaSeparatedNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
+const DataViewCustomInfoPanel = () =>
+  import('@/components/DataViewCustomInfoPanel.vue')
 
 export default {
   components: {

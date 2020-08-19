@@ -82,17 +82,18 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
-import DataView from '@/components/DataView.vue'
-import DataSelector from '@/components/DataSelector.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 import { getComplementedDate, getDayjsObject } from '@/utils/formatDate'
+const DataView = () => import('@/components/DataView.vue')
+const DataSelector = () => import('@/components/DataSelector.vue')
+const DataViewBasicInfoPanel = () =>
+  import('@/components/DataViewBasicInfoPanel.vue')
+const ScrollableChart = () => import('@/components/ScrollableChart.vue')
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -586,9 +587,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   mounted() {
-    const barChart = this.$refs.barChart as Vue
-    const barElement = barChart.$el
-    const canvas = barElement.querySelector('canvas')
+    const canvas = document.querySelector('canvas')
     const labelledbyId = `${this.titleId}-graph`
 
     if (canvas) {

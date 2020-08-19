@@ -25,10 +25,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import SiteTopUpper from '@/components/SiteTopUpper.vue'
-import CardsMonitoring from '@/components/CardsMonitoring.vue'
-import CardsReference from '@/components/CardsReference.vue'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
+const SiteTopUpper = () => import('@/components/SiteTopUpper.vue')
+const CardsMonitoring = () => import('@/components/CardsMonitoring.vue')
+const CardsReference = () => import('@/components/CardsReference.vue')
 
 export default Vue.extend({
   components: {

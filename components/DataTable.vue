@@ -134,9 +134,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import DataView from '@/components/DataView.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import OpenDataLink from '@/components/OpenDataLink.vue'
+const DataView = () => import('@/components/DataView.vue')
+const DataViewBasicInfoPanel = () =>
+  import('@/components/DataViewBasicInfoPanel.vue')
+const OpenDataLink = () => import('@/components/OpenDataLink.vue')
 
 export default Vue.extend({
   components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
@@ -188,9 +189,7 @@ export default Vue.extend({
     },
   },
   mounted() {
-    const vTables = this.$refs.displayedTable as Vue
-    const vTableElement = vTables.$el
-    const tables = vTableElement.querySelectorAll('table')
+    const tables = document.querySelectorAll('table')
     // NodeListをIE11でforEachするためのワークアラウンド
     const nodes = Array.prototype.slice.call(tables, 0)
     nodes.forEach((table: HTMLElement) => {

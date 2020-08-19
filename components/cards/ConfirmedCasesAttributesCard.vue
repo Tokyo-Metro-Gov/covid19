@@ -21,7 +21,7 @@ import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import { getDayjsObject } from '@/utils/formatDate'
-import DataTable from '@/components/DataTable.vue'
+const DataTable = () => import('@/components/DataTable.vue')
 
 export default {
   components: {

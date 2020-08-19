@@ -28,13 +28,13 @@ import VueI18n from 'vue-i18n'
 import { ChartOptions } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import AgencyData from '@/data/agency.json'
-import DataView from '@/components/DataView.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import { DisplayData, DataSets } from '@/plugins/vue-chart'
+const DataView = () => import('@/components/DataView.vue')
 
 interface AgencyDataSets extends DataSets {
   label: string
@@ -225,9 +225,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   mounted() {
-    const barChart = this.$refs.barChart as Vue
-    const barElement = barChart.$el
-    const canvas = barElement.querySelector('canvas')
+    const canvas = document.querySelector('canvas')
     const labelledbyId = `${this.titleId}-graph`
 
     if (canvas) {

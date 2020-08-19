@@ -3,26 +3,40 @@
 </template>
 
 <script>
-import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
-import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
-import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
-import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
-import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
-import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
-import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
-import MetroCard from '@/components/cards/MetroCard.vue'
-import AgencyCard from '@/components/cards/AgencyCard.vue'
-import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
-import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
-import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
-import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
-import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
-import ConsultationAboutFeverNumberCard from '@/components/cards/ConsultationAboutFeverNumberCard.vue'
-import TokyoRulesApplicationNumberCard from '@/components/cards/TokyoRulesApplicationNumberCard.vue'
-import MonitoringItemsOverviewCard from '@/components/cards/MonitoringItemsOverviewCard.vue'
-import PositiveNumberByDevelopedDateCard from '@/components/cards/PositiveNumberByDevelopedDateCard.vue'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
+const ConfirmedCasesDetailsCard = () =>
+  import('@/components/cards/ConfirmedCasesDetailsCard.vue')
+const ConfirmedCasesNumberCard = () =>
+  import('@/components/cards/ConfirmedCasesNumberCard.vue')
+const ConfirmedCasesAttributesCard = () =>
+  import('@/components/cards/ConfirmedCasesAttributesCard.vue')
+const ConfirmedCasesByMunicipalitiesCard = () =>
+  import('@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue')
+const TestedNumberCard = () => import('@/components/cards/TestedNumberCard.vue')
+const TelephoneAdvisoryReportsNumberCard = () =>
+  import('@/components/cards/TelephoneAdvisoryReportsNumberCard.vue')
+const MonitoringConfirmedCasesNumberCard = () =>
+  import('@/components/cards/MonitoringConfirmedCasesNumberCard.vue')
+const MonitoringConsultationDeskReportsNumberCard = () =>
+  import('@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue')
+const MetroCard = () => import('@/components/cards/MetroCard.vue')
+const AgencyCard = () => import('@/components/cards/AgencyCard.vue')
+const PositiveNumberByDiagnosedDateCard = () =>
+  import('@/components/cards/PositiveNumberByDiagnosedDateCard.vue')
+const PositiveRateCard = () => import('@/components/cards/PositiveRateCard.vue')
+const UntrackedRateCard = () =>
+  import('@/components/cards/UntrackedRateCard.vue')
+const SevereCaseCard = () => import('@/components/cards/SevereCaseCard.vue')
+const HospitalizedNumberCard = () =>
+  import('@/components/cards/HospitalizedNumberCard.vue')
+const ConsultationAboutFeverNumberCard = () =>
+  import('@/components/cards/ConsultationAboutFeverNumberCard.vue')
+const TokyoRulesApplicationNumberCard = () =>
+  import('@/components/cards/TokyoRulesApplicationNumberCard.vue')
+const MonitoringItemsOverviewCard = () =>
+  import('@/components/cards/MonitoringItemsOverviewCard.vue')
+const PositiveNumberByDevelopedDateCard = () =>
+  import('@/components/cards/PositiveNumberByDevelopedDateCard.vue')
 
 export default {
   components: {

@@ -33,8 +33,8 @@
 
 <script>
 import MetroData from '@/data/metro.json'
-import MetroBarChart from '@/components/MetroBarChart.vue'
 import { getComplementedDate } from '@/utils/formatDate'
+const MetroBarChart = () => import('@/components/MetroBarChart.vue')
 
 export default {
   components: {

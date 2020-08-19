@@ -42,12 +42,13 @@
 </template>
 
 <script>
-import MonitoringConfirmedCasesChart from '@/components/MonitoringConfirmedCasesChart.vue'
 import Data from '@/data/daily_positive_detail.json'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
 } from '@/utils/monitoringStatusValueFormatters'
+const MonitoringConfirmedCasesChart = () =>
+  import('@/components/MonitoringConfirmedCasesChart.vue')
 
 export default {
   components: {

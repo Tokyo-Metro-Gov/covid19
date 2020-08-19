@@ -77,10 +77,12 @@
 <script>
 import monitoringItemsData from '@/data/monitoring_items.json'
 import formatMonitoringItems from '@/utils/formatMonitoringItems'
-import DataView from '@/components/DataView.vue'
-import MonitoringItemsOverviewTableInfectionStatus from '@/components/MonitoringItemsOverviewTableInfectionStatus.vue'
-import MonitoringItemsOverviewTableMedicalSystem from '@/components/MonitoringItemsOverviewTableMedicalSystem.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+const DataView = () => import('@/components/DataView.vue')
+const MonitoringItemsOverviewTableInfectionStatus = () =>
+  import('@/components/MonitoringItemsOverviewTableInfectionStatus.vue')
+const MonitoringItemsOverviewTableMedicalSystem = () =>
+  import('@/components/MonitoringItemsOverviewTableMedicalSystem.vue')
+const ExternalLink = () => import('@/components/ExternalLink.vue')
 
 export default {
   components: {

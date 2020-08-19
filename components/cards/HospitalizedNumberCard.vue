@@ -38,7 +38,8 @@
 <script>
 import positiveStatus from '@/data/positive_status.json'
 import formatGraph from '@/utils/formatGraph'
-import DashedRectangleTimeBarChart from '@/components/DashedRectangleTimeBarChart.vue'
+const DashedRectangleTimeBarChart = () =>
+  import('@/components/DashedRectangleTimeBarChart.vue')
 
 export default {
   components: {

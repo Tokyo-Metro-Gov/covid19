@@ -19,8 +19,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import ActiveTokyoAlert from '@/components/ActiveTokyoAlert.vue'
 import tokyoAlert from '@/data/tokyo_alert.json'
+const ActiveTokyoAlert = () => import('@/components/ActiveTokyoAlert.vue')
 
 export default Vue.extend({
   components: {

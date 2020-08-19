@@ -318,14 +318,14 @@ import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import VueScrollTo from 'vue-scrollto'
 import CovidIcon from '@/static/covid.svg'
-import PrinterButton from '@/components/PrinterButton.vue'
-import PageHeader from '@/components/PageHeader.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
 import FigCondSyDr from '@/static/flow/cond_sydr.svg'
 import FigCondSy from '@/static/flow/cond_sy.svg'
 import FigCondAnx from '@/static/flow/cond_anx.svg'
 import IconPhone from '@/static/flow/phone.svg'
 import IconBed from '@/static/flow/bed.svg'
+const PrinterButton = () => import('@/components/PrinterButton.vue')
+const PageHeader = () => import('@/components/PageHeader.vue')
+const ExternalLink = () => import('@/components/ExternalLink.vue')
 
 type LocalData = {
   nav: HTMLElement | null // アンカーリンクコンテナ（フローティング対象）

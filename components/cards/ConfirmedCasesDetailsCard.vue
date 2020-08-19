@@ -41,8 +41,9 @@
 import dayjs from 'dayjs'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
-import DataView from '@/components/DataView.vue'
-import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
+const DataView = () => import('@/components/DataView.vue')
+const ConfirmedCasesDetailsTable = () =>
+  import('@/components/ConfirmedCasesDetailsTable.vue')
 
 export default {
   components: {

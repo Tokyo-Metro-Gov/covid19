@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import Flow from '@/pages/flow.vue'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
+const Flow = () => import('@/pages/flow.vue')
 export default {
   components: {
     Flow,

@@ -36,11 +36,11 @@ import Vue from 'vue'
 import { MetaInfo, LinkPropertyHref } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import Data from '@/data/data.json'
-import SideNavigation from '@/components/SideNavigation.vue'
-import NoScript from '@/components/NoScript.vue'
-import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
+const SideNavigation = () => import('@/components/SideNavigation.vue')
+const NoScript = () => import('@/components/NoScript.vue')
+const DevelopmentModeMark = () => import('@/components/DevelopmentModeMark.vue')
 
 type LocalData = {
   hasNavigation: boolean

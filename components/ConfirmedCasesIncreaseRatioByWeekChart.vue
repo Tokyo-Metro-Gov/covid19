@@ -82,18 +82,19 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import { GraphDataType } from '@/utils/formatGraph'
-import DataView from '@/components/DataView.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import ScrollableChart from '@/components/ScrollableChart.vue'
-import OpenDataLink from '@/components/OpenDataLink.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
+const DataView = () => import('@/components/DataView.vue')
+const DataViewBasicInfoPanel = () =>
+  import('@/components/DataViewBasicInfoPanel.vue')
+const ScrollableChart = () => import('@/components/ScrollableChart.vue')
+const OpenDataLink = () => import('@/components/OpenDataLink.vue')
 
 type Data = {
   dataKind: 'transition'

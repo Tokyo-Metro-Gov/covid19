@@ -37,8 +37,9 @@
 </template>
 
 <script>
-import MonitoringConsultationDeskReportChart from '@/components/MonitoringConsultationDeskReportChart.vue'
 import Data from '@/data/data.json'
+const MonitoringConsultationDeskReportChart = () =>
+  import('@/components/MonitoringConsultationDeskReportChart.vue')
 
 export default {
   components: {

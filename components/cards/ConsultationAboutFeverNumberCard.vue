@@ -31,12 +31,13 @@
 </template>
 
 <script>
-import MixedBarAndLineChart from '@/components/MixedBarAndLineChart.vue'
 import ConsultationAboutFever from '@/data/consultation_about_fever.json'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
 } from '@/utils/monitoringStatusValueFormatters'
+const MixedBarAndLineChart = () =>
+  import('@/components/MixedBarAndLineChart.vue')
 
 export default {
   components: {

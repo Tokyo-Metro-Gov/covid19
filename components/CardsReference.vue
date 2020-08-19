@@ -29,16 +29,22 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import CardRow from '@/components/cards/CardRow.vue'
-import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
-import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
-import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
-import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import MetroCard from '@/components/cards/MetroCard.vue'
-import AgencyCard from '@/components/cards/AgencyCard.vue'
-import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
-import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
-import PositiveNumberByDevelopedDateCard from '@/components/cards/PositiveNumberByDevelopedDateCard.vue'
+const CardRow = () => import('@/components/cards/CardRow.vue')
+const ConfirmedCasesAttributesCard = () =>
+  import('@/components/cards/ConfirmedCasesAttributesCard.vue')
+const ConfirmedCasesByMunicipalitiesCard = () =>
+  import('@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue')
+const TestedNumberCard = () => import('@/components/cards/TestedNumberCard.vue')
+const TelephoneAdvisoryReportsNumberCard = () =>
+  import('@/components/cards/TelephoneAdvisoryReportsNumberCard.vue')
+const MetroCard = () => import('@/components/cards/MetroCard.vue')
+const AgencyCard = () => import('@/components/cards/AgencyCard.vue')
+const PositiveNumberByDiagnosedDateCard = () =>
+  import('@/components/cards/PositiveNumberByDiagnosedDateCard.vue')
+const MonitoringConsultationDeskReportsNumberCard = () =>
+  import('@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue')
+const PositiveNumberByDevelopedDateCard = () =>
+  import('@/components/cards/PositiveNumberByDevelopedDateCard.vue')
 
 export default Vue.extend({
   components: {

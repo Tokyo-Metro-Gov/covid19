@@ -78,7 +78,10 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { MonitoringItems } from '@/utils/formatMonitoringItems'
-import MonitoringItemsOverviewTableValueWithTranslatableUnit from '@/components/MonitoringItemsOverviewTableValueWithTranslatableUnit.vue'
+const MonitoringItemsOverviewTableValueWithTranslatableUnit = () =>
+  import(
+    '@/components/MonitoringItemsOverviewTableValueWithTranslatableUnit.vue'
+  )
 
 export default Vue.extend({
   components: {

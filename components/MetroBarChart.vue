@@ -46,14 +46,14 @@
 import Vue from 'vue'
 import { ChartOptions, ChartData, Chart } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import DataView from '@/components/DataView.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
-import ExternalLink from '@/components/ExternalLink.vue'
 import { DisplayData } from '@/plugins/vue-chart'
+const DataView = () => import('@/components/DataView.vue')
+const ExternalLink = () => import('@/components/ExternalLink.vue')
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -234,9 +234,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   mounted() {
-    const barChart = this.$refs.barChart as Vue
-    const barElement = barChart.$el
-    const canvas = barElement.querySelector('canvas')
+    const canvas = document.querySelector('canvas')
     const labelledbyId = `${this.titleId}-graph`
 
     if (canvas) {

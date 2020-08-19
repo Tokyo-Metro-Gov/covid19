@@ -128,8 +128,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
-import LanguageSelector from '@/components/LanguageSelector.vue'
-import MenuList from '@/components/MenuList.vue'
+const LanguageSelector = () => import('@/components/LanguageSelector.vue')
+const MenuList = () => import('@/components/MenuList.vue')
 
 type Item = {
   icon?: string

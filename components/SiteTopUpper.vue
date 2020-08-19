@@ -28,15 +28,16 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import PageHeader from '@/components/PageHeader.vue'
-import WhatsNew from '@/components/WhatsNew.vue'
-import StaticInfo from '@/components/StaticInfo.vue'
-import TokyoAlertCard from '@/components/TokyoAlertCard.vue'
-import MonitoringCommentCard from '@/components/MonitoringCommentCard.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
 import TokyoAlert from '@/data/tokyo_alert.json'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+const PageHeader = () => import('@/components/PageHeader.vue')
+const WhatsNew = () => import('@/components/WhatsNew.vue')
+const StaticInfo = () => import('@/components/StaticInfo.vue')
+const TokyoAlertCard = () => import('@/components/TokyoAlertCard.vue')
+const MonitoringCommentCard = () =>
+  import('@/components/MonitoringCommentCard.vue')
 
 export default Vue.extend({
   components: {
