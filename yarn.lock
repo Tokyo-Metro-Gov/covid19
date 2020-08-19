@@ -1845,10 +1845,10 @@
   resolved "https://registry.yarnpkg.com/@types/browserslist/-/browserslist-4.8.0.tgz#60489aefdf0fcb56c2d8eb65267ff08dad7a526d"
   integrity sha512-4PyO9OM08APvxxo1NmQyQKlJdowPCOQIy5D/NLO3aO0vGC57wsMptvGp3b8IbYnupFZr92l1dlVief1JvS6STQ==
 
-"@types/chart.js@2.9.23":
-  version "2.9.23"
-  resolved "https://registry.yarnpkg.com/@types/chart.js/-/chart.js-2.9.23.tgz#5de713e801f5aff4d042c7d49ab9691489c11848"
-  integrity sha512-4QQNE/b+digosu3mnj4E7aNQGKnlpzXa9JvQYPtexpO7v9gnDeqwc1DxF8vLJWLDCNoO6hH0EgO8K/7PtJl8wg==
+"@types/chart.js@2.9.24":
+  version "2.9.24"
+  resolved "https://registry.yarnpkg.com/@types/chart.js/-/chart.js-2.9.24.tgz#f044fde90c928cb054e2ea582eb68d9945d84bc6"
+  integrity sha512-AQI7X+ow3SaONl44JrHoL/5B+lCsJyG31UHZ5RP98Uh15hI/zjEkDsAb4EIm4P9TGfNhZLXw/nMc5w0u10+/fQ==
   dependencies:
     moment "^2.10.2"
 
