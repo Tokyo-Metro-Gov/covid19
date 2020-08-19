@@ -13,7 +13,7 @@
       <scale-loader color="#00A040" />
     </v-overlay>
     <v-overlay absolute :value="error" justify-center align-center>
-      <v-alert type="error">
+      <v-alert type="error" color="#AD2121">
         {{ title }} {{ $t('の読み込みに失敗しました') }} <br />
         エラーメッセージ: {{ errormsg }}
       </v-alert>
