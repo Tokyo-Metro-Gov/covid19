@@ -71,7 +71,7 @@ export default Vue.extend({
         }
         return this.showIcon
       }
-    }
+    },
   },
   methods: {
     isExternal(path: string): boolean {
@@ -80,7 +80,7 @@ export default Vue.extend({
     },
     linkTag(path: string): string {
       return this.isExternal(path) ? 'external-link' : 'nuxt-link'
-    }
-  }
+    },
+  },
 })
 </script>
