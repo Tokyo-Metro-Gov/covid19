@@ -39,7 +39,7 @@ import { convertDateToISO8601Format } from '@/utils/formatDate'
 export default Vue.extend({
   components: {
     LinkToInformationAboutEmergencyMeasure,
-    AppLink
+    AppLink,
   },
   props: {
     items: {

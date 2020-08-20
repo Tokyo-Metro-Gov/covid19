@@ -63,7 +63,7 @@ export default Vue.extend({
   components: {
     PageHeader,
     StaticCard,
-    AppLink
+    AppLink,
   },
   head(): MetaInfo {
     return {

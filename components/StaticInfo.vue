@@ -14,23 +14,21 @@ import Vue from 'vue'
 import AppLink from '@/components/AppLink.vue'
 
 export default Vue.extend({
-  components: {
-    AppLink
-  },
+  components: { AppLink },
   props: {
     url: {
       type: String,
-      default: ''
+      default: '',
     },
     text: {
       type: String,
-      default: ''
+      default: '',
     },
     btnText: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>
 

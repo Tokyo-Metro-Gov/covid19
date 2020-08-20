@@ -39,7 +39,7 @@ import AppLink from '@/components/AppLink.vue'
 export default {
   name: 'DevelopmentModeMark',
   components: {
-    AppLink
+    AppLink,
   },
   props: {
     value: {

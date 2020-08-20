@@ -37,13 +37,13 @@ export default Vue.extend({
     CovidIcon,
     MaskTrashIcon,
     ParentIcon,
-    AppLink
+    AppLink,
   },
   props: {
     items: {
       type: Array as PropType<MenuItem[]>,
       required: true
-    }
+    },
   },
   methods: {
     iconTag(icon: MenuItem['icon']) {
@@ -61,8 +61,8 @@ export default Vue.extend({
               class: 'MenuList-SvgIcon'
             }
         : null
-    }
-  }
+    },
+  },
 })
 </script>
 

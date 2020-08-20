@@ -58,7 +58,7 @@ import AppLink from '@/components/AppLink.vue'
 export default {
   components: {
     TimeBarChart,
-    AppLink
+    AppLink,
   },
   data() {
     // 感染者数グラフ

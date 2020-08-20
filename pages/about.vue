@@ -233,12 +233,12 @@ export default Vue.extend({
   components: {
     PageHeader,
     StaticCard,
-    AppLink
+    AppLink,
   },
   head(): MetaInfo {
     return {
-      title: this.$t('当サイトについて') as string
+      title: this.$t('当サイトについて') as string,
     }
-  }
+  },
 })
 </script>

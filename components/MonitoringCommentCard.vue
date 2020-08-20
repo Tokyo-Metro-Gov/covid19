@@ -60,7 +60,7 @@ import monitoringItems from '@/data/monitoring_items.json'
 export default Vue.extend({
   components: {
     AppLink,
-    MonitoringCommentFrame
+    MonitoringCommentFrame,
   },
   data() {
     return {

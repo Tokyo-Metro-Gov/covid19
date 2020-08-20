@@ -87,7 +87,7 @@ export default {
     DataView,
     MonitoringItemsOverviewTableInfectionStatus,
     MonitoringItemsOverviewTableMedicalSystem,
-    AppLink
+    AppLink,
   },
   data() {
     const monitoringItems = formatMonitoringItems(monitoringItemsData.data)

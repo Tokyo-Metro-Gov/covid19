@@ -30,24 +30,24 @@ export default Vue.extend({
   props: {
     to: {
       type: String,
-      default: ''
+      default: '',
     },
     showIcon: {
       type: Boolean,
-      default: true
+      default: true,
     },
     iconSize: {
       type: Number,
-      default: 15
+      default: 15,
     },
     iconType: {
       type: String,
-      default: 'mdi-open-in-new'
+      default: 'mdi-open-in-new',
     },
     iconClass: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>
