@@ -42,7 +42,7 @@ export default Vue.extend({
   props: {
     items: {
       type: Array as PropType<MenuItem[]>,
-      required: true
+      required: true,
     },
   },
   methods: {
@@ -54,11 +54,11 @@ export default Vue.extend({
         ? icon.startsWith('mdi')
           ? {
               size: '2rem',
-              class: 'MenuList-MdIcon'
+              class: 'MenuList-MdIcon',
             }
           : {
               'aria-hidden': true,
-              class: 'MenuList-SvgIcon'
+              class: 'MenuList-SvgIcon',
             }
         : null
     },
