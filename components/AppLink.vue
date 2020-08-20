@@ -28,33 +28,33 @@ import ExternalLink from '@/components/ExternalLink.vue'
 
 export default Vue.extend({
   components: {
-    ExternalLink
+    ExternalLink,
   },
   props: {
     to: {
       type: String,
-      default: ''
+      default: '',
     },
     external: {
       type: Boolean,
-      default: null
+      default: null,
     },
     showIcon: {
       type: Boolean,
-      default: null
+      default: null,
     },
     iconSize: {
       type: Number,
-      default: 15
+      default: 15,
     },
     iconType: {
       type: String,
-      default: 'mdi-open-in-new'
+      default: 'mdi-open-in-new',
     },
     iconClass: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     _showIcon(): boolean {
