@@ -15,7 +15,7 @@
           <app-link
             :to="`${
               $i18n.locale !== 'ja' ? $i18n.locale : ''
-              }/cards/positive-number-by-developed-date`"
+            }/cards/positive-number-by-developed-date`"
             class="Description-Link"
           >
             {{ $t('発症日別による陽性者数の推移はこちら') }}

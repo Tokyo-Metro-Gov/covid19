@@ -9,6 +9,6 @@ module.exports = {
       {
         ignorePseudoElements: ['v-deep'],
       },
-    ]
+    ],
   },
 }
