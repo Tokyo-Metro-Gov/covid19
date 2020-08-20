@@ -417,10 +417,11 @@ function readStasusFile() : array {
       
       $result = [
         "更新時間" => $row['更新時間'],
-        "検査人数累計" => $row['検査人数累計'],
-        "検査実施人数" => $row['検査実施人数'],
+        // "検査人数累計" => $row['検査人数累計'],
+        // "検査実施人数" => $row['検査実施人数'],
         "重症" => $row['重症'],
-        "輸入病例" => $row['輸入病例'],
+        "中等症" => $row['中等症'],
+        // "輸入病例" => $row['輸入病例'],
         "県関係者陽性者数" => $row['県関係者陽性者数'],
         "入院中" => $row['入院中'],
         "入院調整中" => $row['入院調整中'],
@@ -486,8 +487,8 @@ $data['lastUpdate'] = $lastUpdate;
 
 $data['main_summary'] = [
   'date' => $latest_status['更新時間'],
-  'attr' => '検査実施人数',
-  'value' => $latest_status['検査人数累計'],
+  // 'attr' => '検査実施人数',
+  // 'value' => $latest_status['検査人数累計'],
   'children' => [
     [
       'attr' => '陽性患者数（県外感染者含む）',
@@ -504,6 +505,10 @@ $data['main_summary'] = [
             [
               'attr' => '重症',
               'value' => $latest_status['重症']
+            ],
+            [
+              'attr' => '中等症',
+              'value' => $latest_status['中等症']
             ]
           ]
         ],
