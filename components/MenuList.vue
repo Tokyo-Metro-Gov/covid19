@@ -158,7 +158,7 @@ export default Vue.extend({
   }
 }
 
-.MenuList-ExternalIcon {
+.MenuList ::v-deep .ExternalLinkIcon {
   margin-left: 5px;
   color: $gray-3;
   @include lessThan($small) {
