@@ -33,7 +33,7 @@ export default Vue.extend({
     },
     linkAttrs(): any {
       return this.isInternalLink
-        ? { to: this.url, class: 'StaticInfo' }
+        ? { to: `${this.url}`, class: 'StaticInfo' }
         : { href: this.url, class: 'StaticInfo' }
     },
     isInternalLink(): boolean {
