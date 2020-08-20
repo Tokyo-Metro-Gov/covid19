@@ -66,7 +66,7 @@ export default Vue.extend({
             class: 'MenuList-Link',
           }
         : {
-            to: link,
+            to: `${link}`,
             router: true,
             class: 'MenuList-Link',
           }

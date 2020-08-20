@@ -96,10 +96,6 @@ import Vue from 'vue'
 /* eslint-disable vue/prop-name-casing */
 export default Vue.extend({
   props: {
-    検査実施人数: {
-      type: Number,
-      required: true,
-    },
     陽性者数: {
       type: Number,
       required: true,
