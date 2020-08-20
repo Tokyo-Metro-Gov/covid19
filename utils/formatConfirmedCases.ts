@@ -1,6 +1,4 @@
 type DataType = {
-  attr: '検査実施人数'
-  value: number
   children: [
     {
       attr: '陽性患者数'
@@ -46,7 +44,6 @@ type DataType = {
 }
 
 type ConfirmedCasesType = {
-  検査実施人数: number
   陽性者数: number
   入院中: number
   軽症中等症: number
@@ -64,8 +61,8 @@ interface ChildData {
 }
 
 type ChildDataType = {
-  attr: string
-  value: number
+  attr?: string
+  value?: number
   children?: ChildData[]
 }
 
@@ -98,7 +95,6 @@ function getSelectedItem(data: DataType, key: string) {
  */
 export default (data: DataType) => {
   return {
-    検査実施人数: getSelectedItem(data, '検査実施人数'),
     陽性者数: getSelectedItem(data, '陽性患者数'),
     入院中: getSelectedItem(data, '入院中'),
     軽症中等症: getSelectedItem(data, '軽症・中等症'),
