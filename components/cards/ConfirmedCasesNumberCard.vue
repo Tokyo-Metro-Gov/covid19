@@ -48,10 +48,10 @@
 </template>
 
 <script>
+import ExternalLink from '@/components/ExternalLink.vue'
+import TimeBarChart from '@/components/TimeBarChart.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
-import TimeBarChart from '@/components/TimeBarChart.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
 
 export default {
   components: {

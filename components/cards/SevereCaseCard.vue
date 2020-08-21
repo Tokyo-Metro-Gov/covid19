@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import Data from '@/data/positive_status.json'
 import SevereCaseBarChart from '@/components/SevereCaseBarChart.vue'
+import Data from '@/data/positive_status.json'
 import { convertDateToISO8601Format } from '@/utils/formatDate.ts'
 
 export default {

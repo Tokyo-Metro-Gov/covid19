@@ -317,15 +317,16 @@
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import VueScrollTo from 'vue-scrollto'
-import CovidIcon from '@/static/covid.svg'
-import PrinterButton from '@/components/PrinterButton.vue'
-import PageHeader from '@/components/PageHeader.vue'
+
 import ExternalLink from '@/components/ExternalLink.vue'
-import FigCondSyDr from '@/static/flow/cond_sydr.svg'
-import FigCondSy from '@/static/flow/cond_sy.svg'
-import FigCondAnx from '@/static/flow/cond_anx.svg'
-import IconPhone from '@/static/flow/phone.svg'
+import PageHeader from '@/components/PageHeader.vue'
+import PrinterButton from '@/components/PrinterButton.vue'
+import CovidIcon from '@/static/covid.svg'
 import IconBed from '@/static/flow/bed.svg'
+import FigCondAnx from '@/static/flow/cond_anx.svg'
+import FigCondSy from '@/static/flow/cond_sy.svg'
+import FigCondSyDr from '@/static/flow/cond_sydr.svg'
+import IconPhone from '@/static/flow/phone.svg'
 
 type LocalData = {
   nav: HTMLElement | null // アンカーリンクコンテナ（フローティング対象）

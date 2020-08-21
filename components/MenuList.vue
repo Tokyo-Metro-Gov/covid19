@@ -30,6 +30,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
+
 import CovidIcon from '@/static/covid.svg'
 import MaskTrashIcon from '@/static/masktrash.svg'
 import ParentIcon from '@/static/parent.svg'
