@@ -1,6 +1,9 @@
 <template>
   <span :class="$style.parent">
-    <strong>{{ value }}</strong>
+    <span v-if="bold"
+      ><strong>{{ value }}</strong></span
+    >
+    <span v-else>{{ value }}</span>
     <span v-if="unit.translatable">{{ $t(unit.text) }}</span>
     <span v-else>{{ unit.text }}</span>
   </span>
