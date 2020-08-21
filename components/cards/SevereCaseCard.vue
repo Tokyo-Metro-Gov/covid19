@@ -16,9 +16,14 @@
             <li>
               {{
                 $t(
-                  '入院患者数のうち、人工呼吸器管理（ECMOを含む）が必要な患者数を計上'
+                  '入院患者数のうち、人工呼吸器管理（ECMOを含む）が必要な患者数を計上。'
                 )
               }}
+              <external-link
+                url="https://www.bousai.metro.tokyo.lg.jp/_res/projects/default_project/_page_/001/011/435/7kai/202008207.pdf"
+              >
+                {{ $t('重症基準の考え方はこちら') }}
+              </external-link>
             </li>
             <li>
               {{
@@ -36,10 +41,12 @@
 import Data from '@/data/positive_status.json'
 import SevereCaseBarChart from '@/components/SevereCaseBarChart.vue'
 import { convertDateToISO8601Format } from '@/utils/formatDate.ts'
+import ExternalLink from '@/components/ExternalLink.vue'
 
 export default {
   components: {
     SevereCaseBarChart,
+    ExternalLink,
   },
   data() {
     const { date } = Data
