@@ -25,6 +25,26 @@
   </v-btn-toggle>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  name: 'DataSelector',
+  props: {
+    value: {
+      type: String,
+      default: 'transition',
+    },
+    targetId: {
+      type: String,
+      default: (val: string | null) => {
+        return val && val !== '' ? val : null
+      },
+    },
+  },
+})
+</script>
+
 <style lang="scss">
 .DataSelector {
   margin-top: 20px;
@@ -55,23 +75,3 @@
   }
 }
 </style>
-
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'DataSelector',
-  props: {
-    value: {
-      type: String,
-      default: 'transition',
-    },
-    targetId: {
-      type: String,
-      default: (val: string | null) => {
-        return val && val !== '' ? val : null
-      },
-    },
-  },
-})
-</script>
