@@ -72,6 +72,10 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
     translatable: true,
   }
   const unitPercentage: Unit = { text: '%', translatable: false }
+  const unitBed: Unit = {
+    text: '床',
+    translatable: true,
+  }
 
   const toInteger = getCommaSeparatedNumberToFixedFunction(0)
   const toNumberIn10thPlace = getCommaSeparatedNumberToFixedFunction(1)
@@ -137,7 +141,7 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
       value: toInteger(
         parseInt(`${rawDataObj['(6)入院患者確保病床数']}`.replace(/床$/, ''))
       ),
-      unit: null,
+      unit: unitBed,
       bold: false,
     },
     '(7)重症患者数': {
@@ -155,7 +159,7 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
       value: toInteger(
         parseInt(`${rawDataObj['(7)重症患者確保病床数']}`.replace(/床$/, ''))
       ),
-      unit: null,
+      unit: unitBed,
       bold: false,
     },
   }
