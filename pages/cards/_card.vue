@@ -3,6 +3,7 @@
 </template>
 
 <script>
+// NOTE: 以下，ブラウザでの表示順に合わせて component を import する
 // ---- モニタリング項目
 // 検査陽性者の状況
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
@@ -73,6 +74,7 @@ export default {
   data() {
     let title, updatedAt, cardComponent
     switch (this.$route.params.card) {
+      // NOTE: 以下，ブラウザでの表示順に合わせて条件分岐を行う
       // ---- モニタリング項目
       // 検査陽性者の状況
       case 'details-of-confirmed-cases':

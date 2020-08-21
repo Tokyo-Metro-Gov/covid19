@@ -28,6 +28,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import CardRow from '@/components/cards/CardRow.vue'
+
+// NOTE: 以下，ブラウザでの表示順に合わせて component を import する
 // 検査陽性者の状況
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 // 報告日別による陽性者数の推移

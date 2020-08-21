@@ -30,6 +30,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import CardRow from '@/components/cards/CardRow.vue'
+
+// NOTE: 以下，ブラウザでの表示順に合わせて component を import する
 // 陽性者の属性
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 // 陽性者数（区市町村別）
