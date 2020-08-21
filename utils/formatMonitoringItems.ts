@@ -26,9 +26,9 @@ type RawData = {
   '(4)PCR・抗原検査（検査人数）': number
   '(5)救急医療の東京ルールの適用件数': number
   '(6)入院患者数': number
-  '(6)入院患者確保病床数': string
+  '(6)入院患者確保病床数': number
   '(7)重症患者数': number
-  '(7)重症患者確保病床数': string
+  '(7)重症患者確保病床数': number
 }
 
 interface Comment {
@@ -119,7 +119,15 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
       unit: unitPerson,
     },
     '(6)入院患者確保病床数': {
-      value: rawDataObj['(6)入院患者確保病床数'],
+      // NOTE:
+      //   data/monitoring_items.json の '(6)入院患者確保病床数' の値が String 型のため，
+      //   末尾の「床」を除去して Integer 型に変換している．
+      // TODO: data/monitoring_items.json の '(6)入院患者確保病床数' の値を Integer 型にする．
+      // NOTE: data/monitoring_items.json の '(6)入院患者確保病床数' の値を Integer 型にしても動作するようにしてある．
+      // TODO: data/monitoring_items.json の '(6)入院患者確保病床数' の値を Integer 型にした後，書き換える．
+      value: toInteger(
+        parseInt(`${rawDataObj['(6)入院患者確保病床数']}`.replace(/床$/, ''))
+      ),
       unit: null,
     },
     '(7)重症患者数': {
@@ -127,7 +135,15 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
       unit: unitPerson,
     },
     '(7)重症患者確保病床数': {
-      value: rawDataObj['(7)重症患者確保病床数'],
+      // NOTE:
+      //   data/monitoring_items.json の '(7)重症患者確保病床数' の値が String 型のため，
+      //   末尾の「床」を除去して Integer 型に変換している．
+      // TODO: data/monitoring_items.json の '(7)重症患者確保病床数' の値を Integer 型にする．
+      // NOTE: data/monitoring_items.json の '(7)重症患者確保病床数' の値を Integer 型にしても動作するようにしてある．
+      // TODO: data/monitoring_items.json の '(7)重症患者確保病床数' の値を Integer 型にした後，書き換える．
+      value: toInteger(
+        parseInt(`${rawDataObj['(7)重症患者確保病床数']}`.replace(/床$/, ''))
+      ),
       unit: null,
     },
   }
