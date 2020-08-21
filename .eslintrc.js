@@ -1,5 +1,5 @@
 module.exports = {
-  plugins: ['eslint-plugin-tsdoc'],
+  plugins: ['eslint-plugin-tsdoc', 'simple-import-sort'],
   extends: [
     '@nuxtjs/eslint-config-typescript',
     'prettier/vue',
@@ -24,5 +24,6 @@ module.exports = {
       },
     ],
     'tsdoc/syntax': 'error',
+    'simple-import-sort/sort': 'error',
   },
 }
