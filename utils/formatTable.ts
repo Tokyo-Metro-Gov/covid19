@@ -50,6 +50,9 @@ export default (data: DataType[]) => {
     }
     tableDate.datasets.push(TableRow)
   })
-  tableDate.datasets.sort((a, b) => (a === b ? 0 : a < b ? 1 : -1))
+  // tableDate.datasets.sort((a, b) => (a === b ? 0 : a < b ? 1 : -1))
+  tableDate.datasets
+    .sort((a, b) => dayjs(a.確定日).unix() - dayjs(b.確定日).unix())
+    .reverse()
   return tableDate
 }

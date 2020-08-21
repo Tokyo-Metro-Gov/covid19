@@ -7,13 +7,36 @@
       :ref="'displayedTable'"
       :headers="chartData.headers"
       :items="chartData.datasets"
-      :items-per-page="-1"
-      :hide-default-footer="true"
       :height="240"
-      :fixed-header="true"
+      fixed-header
       :mobile-breakpoint="0"
+      :custom-sort="customSort"
+      :footer-props="{
+        'items-per-page-options': [15, 30, 50, 100, 200, 300, -1],
+        'items-per-page-text': $t('1ページ当たり')
+      }"
       class="cardTable"
-    />
+    >
+      <template v-slot:body="{ items }">
+        <tbody>
+          <tr v-for="item in items" :key="item.text">
+            <th class="text-start" scope="row">{{ item['確定日'] }}</th>
+            <td class="text-start">{{ item['居住地'] }}</td>
+            <td class="text-start">{{ item['年代'] }}</td>
+            <td class="text-start">{{ item['性別'] }}</td>
+          </tr>
+        </tbody>
+      </template>
+      <template slot="footer.page-text" slot-scope="props">
+        {{
+          $t('{itemsLength} 項目中 {pageStart} - {pageStop}', {
+            itemsLength: props.itemsLength,
+            pageStart: props.pageStart,
+            pageStop: props.pageStop
+          })
+        }}
+      </template>
+    </v-data-table>
     <!-- <div class="note">
       {{ $t('※退院には、死亡退院を含む') }}
     </div>
@@ -36,7 +59,6 @@
 <style lang="scss">
 .cardTable {
   &.v-data-table {
-    box-shadow: 0 -20px 12px -12px #0003 inset;
     th {
       padding: 8px 10px;
       height: auto;
@@ -53,7 +75,9 @@
     tbody {
       tr {
         color: $gray-1;
-
+        th {
+          font-weight: normal;
+        }
         td {
           padding: 8px 10px;
           height: auto;
@@ -65,28 +89,47 @@
         }
 
         &:nth-child(odd) {
+          th,
           td {
             background: rgba($gray-4, 0.3);
           }
         }
-
-        &:not(:last-child) {
-          td:not(.v-data-table__mobile-row) {
-            border: none;
-          }
-        }
       }
+    }
+    .v-select {
+      margin-left: 10px;
     }
     &:focus {
       outline: dotted $gray-3 1px;
     }
   }
+  .v-data-table__wrapper {
+    box-shadow: 0 -20px 12px -12px #0003 inset;
+  }
+  .v-data-footer {
+    @include font-size(12);
+    &__pagination {
+      margin-left: 0;
+      margin-right: 5px;
+    }
+  }
+  .v-data-footer__select .v-select__selections .v-select__selection--comma {
+    font-size: 1.2rem;
+  }
 }
-
 .note {
   padding: 8px;
   font-size: 12px;
   color: $gray-3;
+}
+.v-menu__content {
+  width: 60px;
+  .v-list-item {
+    padding: 0 8px;
+  }
+}
+.v-list-item__title {
+  font-size: 1.5rem;
 }
 </style>
 
