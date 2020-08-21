@@ -28,10 +28,10 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable simple-import-sort/sort -- ブラウザでの表示順に合わせて各 card の component を import する */
 import Vue from 'vue'
 import CardRow from '@/components/cards/CardRow.vue'
 
-// NOTE: 以下，ブラウザでの表示順に合わせて component を import する
 // 陽性者の属性
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 // 陽性者数（区市町村別）
@@ -50,6 +50,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import MetroCard from '@/components/cards/MetroCard.vue'
 // 都庁来庁者数の推移
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+/* eslint-enable simple-import-sort/sort */
 
 export default Vue.extend({
   components: {
