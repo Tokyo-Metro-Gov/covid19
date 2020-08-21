@@ -55,6 +55,7 @@ export type Unit = {
 interface MonitoringItemValue {
   value: string
   unit: Unit | null // 元データに無いので独自に追加, 単位がない場合は null
+  bold: boolean // 太字で表示するか否かの設定
 }
 
 export type MonitoringItems = Record<DataKey, MonitoringItemValue>
@@ -79,6 +80,7 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
     '(1)新規陽性者数': {
       value: toNumberIn10thPlace(rawDataObj['(1)新規陽性者数']),
       unit: unitPerson,
+      bold: true,
     },
     '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ': {
       value: toNumberIn10thPlace(
@@ -87,36 +89,43 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
         ]
       ),
       unit: unitReports,
+      bold: true,
     },
     '(3)新規陽性者における接触歴等不明者（人数）': {
       value: toNumberIn10thPlace(
         rawDataObj['(3)新規陽性者における接触歴等不明者（人数）']
       ),
       unit: unitPerson,
+      bold: true,
     },
     '(3)新規陽性者における接触歴等不明者（増加比）': {
       value: toNumberIn10thPlace(
         rawDataObj['(3)新規陽性者における接触歴等不明者（増加比）']
       ),
       unit: unitPercentage,
+      bold: true,
     },
     '(4)PCR・抗原検査（検査人数）': {
       value: toNumberIn10thPlace(rawDataObj['(4)PCR・抗原検査（検査人数）']),
       unit: unitPerson,
+      bold: true,
     },
     '(4)PCR・抗原検査（陽性率）': {
       value: toNumberIn10thPlace(rawDataObj['(4)PCR・抗原検査（陽性率）']),
       unit: unitPercentage,
+      bold: true,
     },
     '(5)救急医療の東京ルールの適用件数': {
       value: toNumberIn10thPlace(
         rawDataObj['(5)救急医療の東京ルールの適用件数']
       ),
       unit: unitReports,
+      bold: true,
     },
     '(6)入院患者数': {
       value: toInteger(rawDataObj['(6)入院患者数']),
       unit: unitPerson,
+      bold: true,
     },
     '(6)入院患者確保病床数': {
       // NOTE:
@@ -129,10 +138,12 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
         parseInt(`${rawDataObj['(6)入院患者確保病床数']}`.replace(/床$/, ''))
       ),
       unit: null,
+      bold: false,
     },
     '(7)重症患者数': {
       value: toInteger(rawDataObj['(7)重症患者数']),
       unit: unitPerson,
+      bold: true,
     },
     '(7)重症患者確保病床数': {
       // NOTE:
@@ -145,6 +156,7 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
         parseInt(`${rawDataObj['(7)重症患者確保病床数']}`.replace(/床$/, ''))
       ),
       unit: null,
+      bold: false,
     },
   }
 }

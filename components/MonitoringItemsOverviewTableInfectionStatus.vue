@@ -6,6 +6,7 @@
         <monitoring-items-overview-table-value-with-translatable-unit
           :value="items['(1)新規陽性者数'].value"
           :unit="items['(1)新規陽性者数'].unit"
+          :bold="items['(1)新規陽性者数'].bold"
         />
       </div>
     </li>
@@ -34,6 +35,11 @@
                   '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
                 ].unit
               "
+              :bold="
+                items[
+                  '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
+                ].bold
+              "
             />
           </div>
         </li>
@@ -52,6 +58,9 @@
                   :unit="
                     items['(3)新規陽性者における接触歴等不明者（人数）'].unit
                   "
+                  :bold="
+                    items['(3)新規陽性者における接触歴等不明者（人数）'].bold
+                  "
                 />
               </div>
             </li>
@@ -64,6 +73,9 @@
                   "
                   :unit="
                     items['(3)新規陽性者における接触歴等不明者（増加比）'].unit
+                  "
+                  :bold="
+                    items['(3)新規陽性者における接触歴等不明者（増加比）'].bold
                   "
                 />
               </div>

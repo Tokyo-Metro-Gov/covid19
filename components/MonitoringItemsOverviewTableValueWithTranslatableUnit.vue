@@ -21,6 +21,10 @@ export default Vue.extend({
       type: Object as PropType<Unit>,
       required: true,
     },
+    bold: {
+      type: Boolean,
+      required: true,
+    },
   },
 })
 </script>
