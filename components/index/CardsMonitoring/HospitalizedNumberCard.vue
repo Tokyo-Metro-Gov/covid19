@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
-      <dashed-rectangle-time-bar-chart
+      <hospitalized-number-chart
         :title="$t('モニタリング項目(6)')"
         :title-id="'number-of-hospitalized'"
         :info-titles="[$t('入院患者数')]"
@@ -30,19 +30,19 @@
             </li>
           </ul>
         </template>
-      </dashed-rectangle-time-bar-chart>
+      </hospitalized-number-chart>
     </client-only>
   </v-col>
 </template>
 
 <script>
-import DashedRectangleTimeBarChart from '@/components/DashedRectangleTimeBarChart.vue'
+import HospitalizedNumberChart from '@/components/index/CardsMonitoring/HospitalizedNumber/Chart.vue'
 import positiveStatus from '@/data/positive_status.json'
 import formatGraph from '@/utils/formatGraph'
 
 export default {
   components: {
-    DashedRectangleTimeBarChart,
+    HospitalizedNumberChart,
   },
   data() {
     const formatData = positiveStatus.data
