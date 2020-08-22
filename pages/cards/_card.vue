@@ -24,7 +24,7 @@ import TokyoRulesApplicationNumberCard from '@/components/index/CardsMonitoring/
 // モニタリング項目(6)入院患者数
 import HospitalizedNumberCard from '@/components/index/CardsMonitoring/HospitalizedNumberCard.vue'
 // モニタリング項目(7)重症患者数
-import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
+import SevereCaseCard from '@/components/index/CardsMonitoring/SevereCaseCard.vue'
 // ---- その他 参考指標
 // 陽性者の属性
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
