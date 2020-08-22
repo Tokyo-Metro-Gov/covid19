@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
-      <positive-rate-mixed-chart
+      <positive-rate-chart
         :title="$t('モニタリング項目(4)')"
         :title-id="'positive-rate'"
         :info-titles="[$t('検査の陽性率'), $t('検査人数')]"
@@ -68,7 +68,7 @@
             </li>
           </ul>
         </template>
-      </positive-rate-mixed-chart>
+      </positive-rate-chart>
     </client-only>
   </v-col>
 </template>
@@ -77,7 +77,7 @@
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 
-import PositiveRateMixedChart from '@/components/PositiveRateMixedChart'
+import PositiveRateChart from '@/components/index/CardsMonitoring/PositiveRate/Chart.vue'
 import PositiveRate from '@/data/positive_rate.json'
 import {
   getCommaSeparatedNumberToFixedFunction,
@@ -88,7 +88,7 @@ dayjs.extend(duration)
 
 export default {
   components: {
-    PositiveRateMixedChart,
+    PositiveRateChart,
   },
   data() {
     // 検査実施日別状況
