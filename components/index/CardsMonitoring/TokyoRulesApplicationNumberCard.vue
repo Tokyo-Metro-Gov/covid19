@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
-      <mixed-bar-and-line-chart
+      <mixed-chart
         :title="$t('モニタリング項目(5)')"
         title-id="number-of-tokyo-rules-applied"
         :info-titles="[$t('救急医療の東京ルールの適用件数')]"
@@ -25,13 +25,13 @@
             </li>
           </ul>
         </template>
-      </mixed-bar-and-line-chart>
+      </mixed-chart>
     </client-only>
   </v-col>
 </template>
 
 <script>
-import MixedBarAndLineChart from '@/components/MixedBarAndLineChart.vue'
+import MixedChart from '@/components/index/_shared/charts/MixedChart.vue'
 import TokyoRule from '@/data/tokyo_rule.json'
 import {
   getNumberToFixedFunction,
@@ -40,7 +40,7 @@ import {
 
 export default {
   components: {
-    MixedBarAndLineChart,
+    MixedChart,
   },
   data() {
     const data = TokyoRule.data
