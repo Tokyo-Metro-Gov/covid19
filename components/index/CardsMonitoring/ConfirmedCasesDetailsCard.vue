@@ -33,7 +33,7 @@
             </li>
           </ul>
         </template>
-        <confirmed-cases-details-table
+        <confirmed-cases-details-stacked-table
           :aria-label="$t('検査陽性者の状況')"
           v-bind="confirmedCases"
         />
@@ -46,15 +46,15 @@
 import dayjs from 'dayjs'
 
 import AppLink from '@/components/AppLink.vue'
-import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
 import DataView from '@/components/DataView.vue'
+import ConfirmedCasesDetailsStackedTable from '@/components/index/CardsMonitoring/ConfirmedCasesDetails/StackedTable.vue'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 
 export default {
   components: {
     DataView,
-    ConfirmedCasesDetailsTable,
+    ConfirmedCasesDetailsStackedTable,
     AppLink,
   },
   data() {
