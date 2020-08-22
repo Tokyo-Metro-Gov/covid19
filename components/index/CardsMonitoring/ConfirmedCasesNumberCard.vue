@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
-      <time-bar-chart
+      <bar-chart
         :title="$t('報告日別による陽性者数の推移')"
         :title-id="'number-of-confirmed-cases'"
         :chart-id="'time-bar-chart-patients'"
@@ -42,20 +42,20 @@
             </li>
           </ul>
         </template>
-      </time-bar-chart>
+      </bar-chart>
     </client-only>
   </v-col>
 </template>
 
 <script>
 import AppLink from '@/components/_shared/AppLink.vue'
-import TimeBarChart from '@/components/TimeBarChart.vue'
+import BarChart from '@/components/index/_shared/charts/BarChart.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 
 export default {
   components: {
-    TimeBarChart,
+    BarChart,
     AppLink,
   },
   data() {

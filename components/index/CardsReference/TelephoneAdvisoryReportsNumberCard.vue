@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
-      <time-bar-chart
+      <bar-chart
         :title="$t('新型コロナコールセンター相談件数')"
         :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
         :chart-id="'time-bar-chart-contacts'"
@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import TimeBarChart from '@/components/TimeBarChart.vue'
+import BarChart from '@/components/index/_shared/charts/BarChart.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 
 export default {
   components: {
-    TimeBarChart,
+    BarChart,
   },
   data() {
     const { contacts } = Data

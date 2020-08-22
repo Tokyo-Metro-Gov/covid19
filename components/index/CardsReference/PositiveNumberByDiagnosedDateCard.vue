@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
-      <time-bar-chart
+      <bar-chart
         :title="$t('確定日別による陽性者数の推移')"
         :title-id="'positive-number-by-diagnosed-date'"
         :chart-id="'positive-number-by-diagnosed-date'"
@@ -21,21 +21,21 @@
             </li>
           </ul>
         </template>
-      </time-bar-chart>
+      </bar-chart>
     </client-only>
   </v-col>
 </template>
 
 <script>
-import TimeBarChart from '@/components/TimeBarChart.vue'
+import BarChart from '@/components/index/_shared/charts/BarChart.vue'
 import Data from '@/data/positive_by_diagnosed.json'
 import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 import formatGraph from '@/utils/formatGraph'
 
 export default {
   components: {
-    TimeBarChart: {
-      extends: TimeBarChart,
+    BarChart: {
+      extends: BarChart,
       computed: {
         displayInfo() {
           const { lastDay, lastDayData } = calcDayBeforeRatio({
