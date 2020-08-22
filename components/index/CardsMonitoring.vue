@@ -33,7 +33,7 @@ import CardRow from '@/components/index/CardRow.vue'
 // 検査陽性者の状況
 import ConfirmedCasesDetailsCard from '@/components/index/CardsMonitoring/ConfirmedCasesDetailsCard.vue'
 // 報告日別による陽性者数の推移
-import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
+import ConfirmedCasesNumberCard from '@/components/index/CardsMonitoring/ConfirmedCasesNumberCard.vue'
 // モニタリング項目
 import MonitoringItemsOverviewCard from '@/components/cards/MonitoringItemsOverviewCard.vue'
 // モニタリング項目(1)新規陽性者数
