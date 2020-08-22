@@ -317,7 +317,7 @@ import VueScrollTo from 'vue-scrollto'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import PageHeader from '@/components/_shared/PageHeader.vue'
-import PrinterButton from '@/components/PrinterButton.vue'
+import PrinterButton from '@/components/flow/PrinterButton.vue'
 import CovidIcon from '@/static/covid.svg'
 import IconBed from '@/static/flow/bed.svg'
 import FigCondAnx from '@/static/flow/cond_anx.svg'
