@@ -35,7 +35,7 @@ import PositiveNumberByDevelopedDateCard from '@/components/index/CardsReference
 // 確定日別による陽性者数の推移
 import PositiveNumberByDiagnosedDateCard from '@/components/index/CardsReference/PositiveNumberByDiagnosedDateCard.vue'
 // 検査実施件数
-import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+import TestedNumberCard from '@/components/index/CardsReference/TestedNumberCard.vue'
 // 受診相談窓口における相談件数
 import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 // 新型コロナコールセンター相談件数
