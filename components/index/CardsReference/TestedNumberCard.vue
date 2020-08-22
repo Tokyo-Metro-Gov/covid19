@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
-      <time-stacked-bar-chart
+      <tested-number-chart
         :title="$t('検査実施件数')"
         :title-id="'number-of-tested'"
         :chart-id="'time-stacked-bar-chart-inspections'"
@@ -39,7 +39,7 @@
             </li>
           </ul>
         </template>
-      </time-stacked-bar-chart>
+      </tested-number-chart>
     </client-only>
   </v-col>
 </template>
@@ -48,14 +48,14 @@
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 
-import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
+import TestedNumberChart from '@/components/index/CardsReference/TestedNumber/Chart.vue'
 import Data from '@/data/data.json'
 import { getDayjsObject } from '@/utils/formatDate'
 dayjs.extend(duration)
 
 export default {
   components: {
-    TimeStackedBarChart,
+    TestedNumberChart,
   },
   data() {
     const inspectionsSummary = Data.inspections_summary
