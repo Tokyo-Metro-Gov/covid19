@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
-      <severe-case-bar-chart
+      <severe-case-chart
         :title="$t('モニタリング項目(7)')"
         title-id="positive-status-severe-case"
         :info-titles="[$t('重症患者数')]"
@@ -32,20 +32,20 @@
             </li>
           </ul>
         </template>
-      </severe-case-bar-chart>
+      </severe-case-chart>
     </client-only>
   </v-col>
 </template>
 
 <script>
 import AppLink from '@/components/AppLink.vue'
-import SevereCaseBarChart from '@/components/SevereCaseBarChart.vue'
+import SevereCaseChart from '@/components/index/CardsMonitoring/SevereCase/Chart.vue'
 import Data from '@/data/positive_status.json'
 import { convertDateToISO8601Format } from '@/utils/formatDate.ts'
 
 export default {
   components: {
-    SevereCaseBarChart,
+    SevereCaseChart,
     AppLink,
   },
   data() {
