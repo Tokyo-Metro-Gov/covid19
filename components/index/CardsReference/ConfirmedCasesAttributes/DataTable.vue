@@ -64,9 +64,9 @@
 <script lang="ts">
 import Vue from 'vue'
 
+import OpenDataLink from '@/components/_shared/OpenDataLink.vue'
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default Vue.extend({
   components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
