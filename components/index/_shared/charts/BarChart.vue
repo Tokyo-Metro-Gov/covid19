@@ -67,7 +67,6 @@ import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import OpenDataLink from '@/components/_shared/OpenDataLink.vue'
-import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import DataViewTable, {
   TableHeader,
@@ -75,6 +74,7 @@ import DataViewTable, {
 } from '@/components/DataViewTable.vue'
 import DataSelector from '@/components/index/_shared/charts/_base/DataSelector.vue'
 import ScrollableChart from '@/components/index/_shared/charts/_base/ScrollableChart.vue'
+import DataView from '@/components/index/_shared/DataView.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import { getComplementedDate } from '@/utils/formatDate'
