@@ -37,7 +37,7 @@ import PositiveNumberByDiagnosedDateCard from '@/components/index/CardsReference
 // 検査実施件数
 import TestedNumberCard from '@/components/index/CardsReference/TestedNumberCard.vue'
 // 受診相談窓口における相談件数
-import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
+import MonitoringConsultationDeskReportsNumberCard from '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumberCard.vue'
 // 新型コロナコールセンター相談件数
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 // 都営地下鉄の利用者数の推移
