@@ -28,11 +28,11 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
+import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
-} from '@/components/DataViewTable.vue'
-import DataView from '@/components/index/_shared/DataView.vue'
+} from '@/components/index/_shared/DataView/Table.vue'
 import AgencyData from '@/data/agency.json'
 import { DataSets, DisplayData } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle } from '@/utils/colors'

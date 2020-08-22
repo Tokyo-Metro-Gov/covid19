@@ -93,13 +93,13 @@ import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import OpenDataLink from '@/components/_shared/OpenDataLink.vue'
-import DataViewTable, {
-  TableHeader,
-  TableItem,
-} from '@/components/DataViewTable.vue'
 import ScrollableChart from '@/components/index/_shared/charts/_base/ScrollableChart.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataView/DataSetPanel.vue'
+import DataViewTable, {
+  TableHeader,
+  TableItem,
+} from '@/components/index/_shared/DataView/Table.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { getComplementedDate } from '@/utils/formatDate'
