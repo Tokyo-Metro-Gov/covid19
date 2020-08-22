@@ -13,7 +13,7 @@
         <span>{{ $t('注釈') }}</span>
       </div>
     </div>
-    <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
+    <whats-new-card class="mb-4" :items="newsItems" :is-emergency="false" />
     <monitoring-comment-card />
     <tokyo-alert-card v-if="TokyoAlert.alert" />
     <static-info-card
@@ -32,8 +32,8 @@ import { MetaInfo } from 'vue-meta'
 import MonitoringCommentCard from '@/components/index/SiteTopUpper/MonitoringCommentCard.vue'
 import StaticInfoCard from '@/components/index/SiteTopUpper/StaticInfoCard.vue'
 import TokyoAlertCard from '@/components/index/SiteTopUpper/TokyoAlertCard.vue'
+import WhatsNewCard from '@/components/index/SiteTopUpper/WhatsNewCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
-import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
 import TokyoAlert from '@/data/tokyo_alert.json'
@@ -42,7 +42,7 @@ import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 export default Vue.extend({
   components: {
     PageHeader,
-    WhatsNew,
+    WhatsNewCard,
     StaticInfoCard,
     TokyoAlertCard,
     MonitoringCommentCard,
