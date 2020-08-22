@@ -29,7 +29,7 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
-import MonitoringCommentCard from '@/components/MonitoringCommentCard.vue'
+import MonitoringCommentCard from '@/components/index/SiteTopUpper/MonitoringCommentCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
 import TokyoAlertCard from '@/components/TokyoAlertCard.vue'
