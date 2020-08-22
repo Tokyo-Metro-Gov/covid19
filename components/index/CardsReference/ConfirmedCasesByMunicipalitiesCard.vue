@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
-      <confirmed-cases-by-municipalities-table
+      <confirmed-cases-by-municipalities-data-table
         :title="$t('陽性者数（区市町村別）')"
         :title-id="'number-of-confirmed-cases-by-municipalities'"
         :chart-data="municipalitiesTable"
@@ -19,7 +19,7 @@
             </li>
           </ul>
         </template>
-      </confirmed-cases-by-municipalities-table>
+      </confirmed-cases-by-municipalities-data-table>
     </client-only>
   </v-col>
 </template>
@@ -27,15 +27,15 @@
 <script>
 import dayjs from 'dayjs'
 
+import ConfirmedCasesByMunicipalitiesDataTable from '@/components/index/CardsReference/ConfirmedCasesByMunicipalities/DataTable.vue'
 import Data from '@/data/patient.json'
-import ConfirmedCasesByMunicipalitiesTable from '~/components/ConfirmedCasesByMunicipalitiesTable.vue'
 import { getCommaSeparatedNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
 
 const countFormatter = getCommaSeparatedNumberToFixedFunction()
 
 export default {
   components: {
-    ConfirmedCasesByMunicipalitiesTable,
+    ConfirmedCasesByMunicipalitiesDataTable,
   },
   data() {
     const { datasets, date } = Data
