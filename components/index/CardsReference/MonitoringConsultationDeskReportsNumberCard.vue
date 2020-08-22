@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
-      <monitoring-consultation-desk-report-chart
+      <monitoring-consultation-desk-reports-number-chart
         :title="$t('受診相談窓口における相談件数')"
         title-id="monitoring-number-of-reports-to-covid19-consultation-desk"
         chart-id="monitoring-consultation-desk-report-chart"
@@ -31,18 +31,18 @@
             </li>
           </ul>
         </template>
-      </monitoring-consultation-desk-report-chart>
+      </monitoring-consultation-desk-reports-number-chart>
     </client-only>
   </v-col>
 </template>
 
 <script>
-import MonitoringConsultationDeskReportChart from '@/components/MonitoringConsultationDeskReportChart.vue'
+import MonitoringConsultationDeskReportsNumberChart from '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Chart.vue'
 import Data from '@/data/data.json'
 
 export default {
   components: {
-    MonitoringConsultationDeskReportChart,
+    MonitoringConsultationDeskReportsNumberChart,
   },
   data() {
     const [
