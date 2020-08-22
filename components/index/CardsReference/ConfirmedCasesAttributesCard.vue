@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <client-only>
-      <data-table
+      <confirmed-cases-attributes-data-table
         :title="$t('陽性者の属性')"
         :title-id="'attributes-of-confirmed-cases'"
         :chart-data="patientsTable"
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import DataTable from '@/components/DataTable.vue'
+import ConfirmedCasesAttributesDataTable from '@/components/index/CardsReference/ConfirmedCasesAttributes/DataTable.vue'
 import Data from '@/data/data.json'
 import { getDayjsObject } from '@/utils/formatDate'
 import formatGraph from '@/utils/formatGraph'
@@ -25,7 +25,7 @@ import formatTable from '@/utils/formatTable'
 
 export default {
   components: {
-    DataTable,
+    ConfirmedCasesAttributesDataTable,
   },
   data() {
     const patientSummary = Data.patients_summary
