@@ -41,8 +41,8 @@
 </template>
 
 <script>
-import DataViewCustomInfoPanel from '@/components/DataViewCustomInfoPanel.vue'
 import BarChart from '@/components/index/_shared/charts/BarChart.vue'
+import DataViewCustomInfoPanel from '@/components/index/CardsReference/PositiveNumberByDevelopedDate/DataViewCustomInfoPanel.vue'
 import positiveByDeveloped from '@/data/positive_by_developed.json'
 import { getDayjsObject } from '@/utils/formatDate'
 import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
