@@ -3,7 +3,7 @@
     <li :class="[$style.box]">
       <div :class="$style.content">
         <span>{{ $t('(1)新規陽性者数') }}</span>
-        <monitoring-items-overview-table-value-with-translatable-unit
+        <value-with-translatable-unit
           :value="items['(1)新規陽性者数'].value"
           :unit="items['(1)新規陽性者数'].unit"
         />
@@ -23,7 +23,7 @@
                 )
               }}
             </span>
-            <monitoring-items-overview-table-value-with-translatable-unit
+            <value-with-translatable-unit
               :value="
                 items[
                   '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
@@ -45,7 +45,7 @@
             <li :class="[$style.box]">
               <div :class="$style.content">
                 <span>{{ $t('人数') }}</span>
-                <monitoring-items-overview-table-value-with-translatable-unit
+                <value-with-translatable-unit
                   :value="
                     items['(3)新規陽性者における接触歴等不明者（人数）'].value
                   "
@@ -58,7 +58,7 @@
             <li :class="[$style.box]">
               <div :class="$style.content">
                 <span>{{ $t('増加比') }}</span>
-                <monitoring-items-overview-table-value-with-translatable-unit
+                <value-with-translatable-unit
                   :value="
                     items['(3)新規陽性者における接触歴等不明者（増加比）'].value
                   "
@@ -78,12 +78,12 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 
-import MonitoringItemsOverviewTableValueWithTranslatableUnit from '@/components/MonitoringItemsOverviewTableValueWithTranslatableUnit.vue'
+import ValueWithTranslatableUnit from '@/components/index/CardsMonitoring/MonitoringItemsOverview/ValueWithTranslatableUnit.vue'
 import { MonitoringItems } from '@/utils/formatMonitoringItems'
 
 export default Vue.extend({
   components: {
-    MonitoringItemsOverviewTableValueWithTranslatableUnit,
+    ValueWithTranslatableUnit,
   },
   props: {
     items: {
