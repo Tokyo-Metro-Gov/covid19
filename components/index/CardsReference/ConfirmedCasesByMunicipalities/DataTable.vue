@@ -28,8 +28,8 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
+import DataViewBasicInfoPanel from '@/components/index/_shared/DataView/BasicInfoPanel.vue'
 
 export default Vue.extend({
   components: { DataView, DataViewBasicInfoPanel },

@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewBasicInfoPanel from '@/components/index/_shared/DataView/BasicInfoPanel.vue'
 export default DataViewBasicInfoPanel.extend({
   props: {
     lText: {
