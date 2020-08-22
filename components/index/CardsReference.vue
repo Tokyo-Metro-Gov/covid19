@@ -49,7 +49,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsReferenc
 // 都営地下鉄の利用者数の推移
 import MetroCard from '@/components/index/CardsReference/MetroCard.vue'
 // 都庁来庁者数の推移
-import AgencyCard from '@/components/cards/AgencyCard.vue'
+import AgencyCard from '@/components/index/CardsReference/AgencyCard.vue'
 /* eslint-enable simple-import-sort/sort */
 
 export default Vue.extend({
