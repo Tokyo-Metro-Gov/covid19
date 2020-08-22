@@ -45,7 +45,7 @@ import TestedNumberCard from '@/components/index/CardsReference/TestedNumberCard
 // 受診相談窓口における相談件数
 import MonitoringConsultationDeskReportsNumberCard from '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumberCard.vue'
 // 新型コロナコールセンター相談件数
-import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
+import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsReference/TelephoneAdvisoryReportsNumberCard.vue'
 // 都営地下鉄の利用者数の推移
 import MetroCard from '@/components/cards/MetroCard.vue'
 // 都庁来庁者数の推移
