@@ -39,7 +39,7 @@ import ConfirmedCasesByMunicipalitiesCard from '@/components/index/CardsReferenc
 // 発症日別による陽性者数の推移
 import PositiveNumberByDevelopedDateCard from '@/components/index/CardsReference/PositiveNumberByDevelopedDateCard.vue'
 // 確定日別による陽性者数の推移
-import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
+import PositiveNumberByDiagnosedDateCard from '@/components/index/CardsReference/PositiveNumberByDiagnosedDateCard.vue'
 // 検査実施件数
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 // 受診相談窓口における相談件数
