@@ -190,7 +190,7 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
-import PageHeader from '@/components/PageHeader.vue'
+import PageHeader from '@/components/_shared/PageHeader.vue'
 
 export default Vue.extend({
   components: {

@@ -29,11 +29,11 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
+import PageHeader from '@/components/_shared/PageHeader.vue'
 import MonitoringCommentCard from '@/components/index/SiteTopUpper/MonitoringCommentCard.vue'
 import StaticInfoCard from '@/components/index/SiteTopUpper/StaticInfoCard.vue'
 import TokyoAlertCard from '@/components/index/SiteTopUpper/TokyoAlertCard.vue'
 import WhatsNewCard from '@/components/index/SiteTopUpper/WhatsNewCard.vue'
-import PageHeader from '@/components/PageHeader.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
 import TokyoAlert from '@/data/tokyo_alert.json'

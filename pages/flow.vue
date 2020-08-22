@@ -316,7 +316,7 @@ import { TranslateResult } from 'vue-i18n'
 import VueScrollTo from 'vue-scrollto'
 
 import AppLink from '@/components/_shared/AppLink.vue'
-import PageHeader from '@/components/PageHeader.vue'
+import PageHeader from '@/components/_shared/PageHeader.vue'
 import PrinterButton from '@/components/PrinterButton.vue'
 import CovidIcon from '@/static/covid.svg'
 import IconBed from '@/static/flow/bed.svg'
