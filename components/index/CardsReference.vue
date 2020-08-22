@@ -33,7 +33,7 @@ import Vue from 'vue'
 import CardRow from '@/components/index/CardRow.vue'
 
 // 陽性者の属性
-import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
+import ConfirmedCasesAttributesCard from '@/components/index/CardsReference/ConfirmedCasesAttributesCard.vue'
 // 陽性者数（区市町村別）
 import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
 // 発症日別による陽性者数の推移
