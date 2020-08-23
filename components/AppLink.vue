@@ -1,17 +1,10 @@
 <template>
-  <component
-    :is="linkTag(to)"
-    :to="to"
-    :show-icon="_showIcon"
-    :icon-type="iconType"
-    :icon-size="iconSize"
-    :icon-class="iconClass"
-  >
+  <component :is="linkTag" v-bind="attr">
     <slot />
     <v-icon
-      v-if="showIcon"
-      class="LinkIcon"
-      :icon-class="iconClass"
+      v-if="_showIcon"
+      class="ExternalLinkIcon"
+      :class="iconClass"
       :size="`${iconSize / 10}rem`"
       :aria-label="this.$t('別タブで開く')"
       role="img"
@@ -22,22 +15,32 @@
   </component>
 </template>
 
+<style lang="scss" scopred>
+.ExternalLink {
+  text-decoration: none;
+  .ExternalLinkIcon {
+    vertical-align: text-bottom;
+  }
+}
+</style>
+
 <script lang="ts">
 import Vue from 'vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+import { isExternal } from '@/utils/urls.ts'
+
+type ExternalAttr = {
+  to?: String
+  href?: String
+  target?: String
+  rel?: String
+  class: String
+}
 
 export default Vue.extend({
-  components: {
-    ExternalLink,
-  },
   props: {
     to: {
       type: String,
-      default: '',
-    },
-    external: {
-      type: Boolean,
-      default: null,
+      required: true,
     },
     showIcon: {
       type: Boolean,
@@ -57,29 +60,31 @@ export default Vue.extend({
     },
   },
   computed: {
+    linkTag(): string {
+      return isExternal(this.to) ? 'a' : 'nuxt-link'
+    },
+    attr(): ExternalAttr {
+      if (isExternal(this.to)) {
+        return {
+          href: this.to,
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          class: 'ExternalLink',
+        }
+      } else {
+        return {
+          to: this.to,
+          class: 'Link',
+        }
+      }
+    },
     _showIcon(): boolean {
       // 指定がない場合、外部なら表示、内部なら表示しない
       if (this.showIcon == null) {
-        if (this.isExternal(this.to)) {
-          return true
-        } else {
-          return false
-        }
+        return isExternal(this.to)
       } else {
-        if (this.isExternal(this.to)) {
-          return false
-        }
         return this.showIcon
       }
-    },
-  },
-  methods: {
-    isExternal(path: string): boolean {
-      if (this.external) return true
-      return /^https?:\/\//.test(path)
-    },
-    linkTag(path: string): string {
-      return this.isExternal(path) ? 'external-link' : 'nuxt-link'
     },
   },
 })
