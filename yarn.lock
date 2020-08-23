@@ -1845,7 +1845,7 @@
   resolved "https://registry.yarnpkg.com/@types/browserslist/-/browserslist-4.8.0.tgz#60489aefdf0fcb56c2d8eb65267ff08dad7a526d"
   integrity sha512-4PyO9OM08APvxxo1NmQyQKlJdowPCOQIy5D/NLO3aO0vGC57wsMptvGp3b8IbYnupFZr92l1dlVief1JvS6STQ==
 
-"@types/chart.js@2.9.24":
+"@types/chart.js@2.9.24", "@types/chart.js@^2.7.55":
   version "2.9.24"
   resolved "https://registry.yarnpkg.com/@types/chart.js/-/chart.js-2.9.24.tgz#f044fde90c928cb054e2ea582eb68d9945d84bc6"
   integrity sha512-AQI7X+ow3SaONl44JrHoL/5B+lCsJyG31UHZ5RP98Uh15hI/zjEkDsAb4EIm4P9TGfNhZLXw/nMc5w0u10+/fQ==
@@ -12617,10 +12617,12 @@ vue-axe@2.4.0:
   resolved "https://registry.yarnpkg.com/vue-axe/-/vue-axe-2.4.0.tgz#d271d5267ab2e799d825f39026960680713f1be4"
   integrity sha512-5U231G1piMhLZsjy5ezZCBogx3bCN2wb24wR6hilhTz0wygJ+xOs1pnTRjx3HkASoTLduhj/dYQhrvcn65d7Kw==
 
-vue-chartjs@3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-3.5.0.tgz#edd0c2be94c521bcbc5357c24afb9f3560855f84"
-  integrity sha512-yWNhG3B6g6lvYqNInP0WaDWNZG/SNb6XnltkjR0wYC5pmLm6jvdiotj8er7Mui8qkJGfLZe6ULjrZdHWjegAUg==
+vue-chartjs@3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-3.5.1.tgz#d25e845708f7744ae51bed9d23a975f5f8fc6529"
+  integrity sha512-foocQbJ7FtveICxb4EV5QuVpo6d8CmZFmAopBppDIGKY+esJV8IJgwmEW0RexQhxqXaL/E1xNURsgFFYyKzS/g==
+  dependencies:
+    "@types/chart.js" "^2.7.55"
 
 vue-client-only@^2.0.0:
   version "2.0.0"
