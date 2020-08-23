@@ -15,15 +15,6 @@
   </component>
 </template>
 
-<style lang="scss" scopred>
-.ExternalLink {
-  text-decoration: none;
-  .ExternalLinkIcon {
-    vertical-align: text-bottom;
-  }
-}
-</style>
-
 <script lang="ts">
 import Vue from 'vue'
 import { isExternal } from '@/utils/urls.ts'
@@ -89,3 +80,12 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss" scopred>
+.ExternalLink {
+  text-decoration: none;
+  .ExternalLinkIcon {
+    vertical-align: text-bottom;
+  }
+}
+</style>
