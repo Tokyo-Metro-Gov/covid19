@@ -19814,29 +19814,29 @@
         "children": [
             {
                 "attr": "陽性患者数（県外感染者含む）",
-                "value": 1834,
+                "value": 1864,
                 "children": [
                     {
                         "attr": "入院中（調整中含む）",
-                        "value": 681,
+                        "value": 616,
                         "children": [
                             {
                                 "attr": "その他",
-                                "value": 665
+                                "value": 601
                             },
                             {
                                 "attr": "重症",
-                                "value": 16
+                                "value": 15
                             },
                             {
                                 "attr": "中等症",
-                                "value": 116
+                                "value": 119
                             }
                         ]
                     },
                     {
                         "attr": "退院",
-                        "value": 1135
+                        "value": 1230
                     },
                     {
                         "attr": "死亡",
