@@ -9,7 +9,7 @@
         mdi-menu
       </v-icon>
       <h1 class="SideNavigation-HeaderTitle">
-        <nuxt-link :to="localePath('/')" class="SideNavigation-HeaderLink">
+        <nuxt-link :to="`${localePath('/')}`" class="SideNavigation-HeaderLink">
           <img
             class="SideNavigation-HeaderLogo"
             src="/logo.svg"
