@@ -81,7 +81,7 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss" scopred>
+<style lang="scss" scoped>
 .ExternalLink {
   text-decoration: none;
   .ExternalLinkIcon {
