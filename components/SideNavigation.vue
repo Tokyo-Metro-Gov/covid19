@@ -4,16 +4,16 @@
       <v-icon
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
-        @click="$emit('openNavi', $event)"
+        @click="$emit('open-navi', $event)"
       >
-        mdi-menu
+        {{ mdiMenu }}
       </v-icon>
       <h1 class="SideNavigation-HeaderTitle">
         <nuxt-link :to="`${localePath('/')}`" class="SideNavigation-HeaderLink">
           <img
             class="SideNavigation-HeaderLogo"
-            src="/logo.svg"
-            :alt="$t('東京都')"
+            :aria-label="$t('東京都')"
+            :src="'/logo.svg?inline'"
           />
           <div class="SideNavigation-HeaderText">
             {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
@@ -28,9 +28,9 @@
       <v-icon
         class="SideNavigation-CloseIcon"
         :aria-label="$t('サイドメニュー項目を閉じる')"
-        @click="$emit('closeNavi', $event)"
+        @click="$emit('close-navi', $event)"
       >
-        mdi-close
+        {{ mdiClose }}
       </v-icon>
 
       <nav class="SideNavigation-Menu">
@@ -45,7 +45,7 @@
             <language-selector />
           </div>
         </div>
-        <menu-list :items="items" @click="$emit('closeNavi', $event)" />
+        <menu-list :items="items" @click="$emit('close-navi', $event)" />
       </nav>
 
       <footer class="SideNavigation-Footer">
@@ -130,6 +130,13 @@ import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import LanguageSelector from '@/components/LanguageSelector.vue'
 import MenuList from '@/components/MenuList.vue'
+import {
+  mdiMenu,
+  mdiClose,
+  mdiChartTimelineVariant,
+  mdiAccountMultiple,
+  mdiDomain,
+} from '@mdi/js'
 
 type Item = {
   icon?: string
@@ -149,18 +156,26 @@ export default Vue.extend({
       required: true,
     },
   },
+  data() {
+    const svgPath = {
+      mdiMenu,
+      mdiClose,
+      mdiChartTimelineVariant,
+    }
+    return svgPath
+  },
   computed: {
     items(): Item[] {
       return [
         {
-          icon: 'mdi-chart-timeline-variant',
+          icon: mdiChartTimelineVariant,
           title: this.$t('都内の最新感染動向'),
-          link: this.localePath('/'),
+          link: `${this.localePath('/')}`,
         },
         {
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: this.localePath('/flow'),
+          link: `${this.localePath('/flow')}`,
         },
         {
           icon: 'CovidIcon',
@@ -178,17 +193,17 @@ export default Vue.extend({
         {
           icon: 'ParentIcon',
           title: this.$t('お子様をお持ちの皆様へ'),
-          link: this.localePath('/parent'),
+          link: `${this.localePath('/parent')}`,
         },
         {
-          icon: 'mdi-account-multiple',
+          icon: mdiAccountMultiple,
           title: this.$t('都民の皆様へ'),
           link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
         },
         {
-          icon: 'mdi-domain',
+          icon: mdiDomain,
           title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: this.localePath('/worker'),
+          link: `${this.localePath('/worker')}`,
           divider: true,
         },
         {
@@ -217,11 +232,11 @@ export default Vue.extend({
         },
         {
           title: this.$t('当サイトについて'),
-          link: this.localePath('/about'),
+          link: `${this.localePath('/about')}`,
         },
         {
           title: this.$t('お問い合わせ先一覧'),
-          link: this.localePath('/contacts'),
+          link: `${this.localePath('/contacts')}`,
         },
         {
           title: this.$t('東京都公式ホームページ'),

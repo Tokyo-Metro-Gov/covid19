@@ -21,7 +21,7 @@
           class="MenuList-ExternalIcon"
           size="1.2rem"
         >
-          mdi-open-in-new
+          {{ mdiOpenInNew }}
         </v-icon>
       </component>
     </li>
@@ -30,12 +30,21 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-import CovidIcon from '@/static/covid.svg'
-import MaskTrashIcon from '@/static/masktrash.svg'
-import ParentIcon from '@/static/parent.svg'
+import {
+  mdiMenu,
+  mdiClose,
+  mdiChartTimelineVariant,
+  mdiAccountMultiple,
+  mdiDomain,
+  mdiOpenInNew,
+} from '@mdi/js'
+const isPath = require('is-svg-path')
+const CovidIcon = require('@/static/covid.svg?inline')
+const MaskTrashIcon = require('@/static/masktrash.svg?inline')
+const ParentIcon = require('@/static/parent.svg?inline')
 
 type MenuItem = {
-  icon?: string
+  icon?: string | any
   title: string
   link: string
   divider?: boolean
@@ -46,6 +55,17 @@ export default Vue.extend({
     CovidIcon,
     MaskTrashIcon,
     ParentIcon,
+  },
+  data() {
+    const svgPath = {
+      mdiMenu,
+      mdiClose,
+      mdiChartTimelineVariant,
+      mdiAccountMultiple,
+      mdiDomain,
+      mdiOpenInNew,
+    }
+    return svgPath
   },
   props: {
     items: {
@@ -66,17 +86,24 @@ export default Vue.extend({
             class: 'MenuList-Link',
           }
         : {
-            to: `${link}`,
+            href: link,
             router: true,
             class: 'MenuList-Link',
+            to: '/#',
           }
     },
     iconTag(icon: MenuItem['icon']) {
-      return icon ? (icon.startsWith('mdi') ? 'v-icon' : icon) : null
+      return icon
+        ? // icon.includes('mdi') ||
+          isPath(icon)
+          ? 'v-icon'
+          : icon
+        : null
     },
     iconAttrs(icon: MenuItem['icon']) {
       return icon
-        ? icon.startsWith('mdi')
+        ? // icon.includes('mdi') ||
+          isPath(icon)
           ? {
               size: '2rem',
               class: 'MenuList-MdIcon',

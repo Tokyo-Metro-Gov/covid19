@@ -24,8 +24,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import EarthIcon from '@/static/earth.svg'
-import SelectMenuIcon from '@/static/selectmenu.svg'
+const EarthIcon = require('@/static/earth.svg?inline')
+const SelectMenuIcon = require('@/static/selectmenu.svg?inline')
 
 type LocalData = {
   currentLocaleCode: string
