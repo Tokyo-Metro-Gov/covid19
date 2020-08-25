@@ -28,6 +28,9 @@
 import dayjs from 'dayjs'
 import Data from '@/data/patient.json'
 import ConfirmedCasesByMunicipalitiesTable from '~/components/ConfirmedCasesByMunicipalitiesTable.vue'
+import { getCommaSeparatedNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
+
+const countFormatter = getCommaSeparatedNumberToFixedFunction()
 
 export default {
   components: {
@@ -82,19 +85,15 @@ export default {
     municipalitiesTable.datasets = datasets.data
       .filter((d) => d.label !== '小計')
       .map((d) => {
+        const area = this.$t(d.area)
+        const label = this.$t(d.label)
+        const count = countFormatter(d.count)
+
         if (this.$i18n.locale === 'ja') {
-          return {
-            area: this.$t(d.area),
-            ruby: this.$t(d.ruby),
-            label: this.$t(d.label),
-            count: d.count,
-          }
+          const ruby = this.$t(d.ruby)
+          return { area, ruby, label, count }
         } else {
-          return {
-            area: this.$t(d.area),
-            label: this.$t(d.label),
-            count: d.count,
-          }
+          return { area, label, count }
         }
       })
 

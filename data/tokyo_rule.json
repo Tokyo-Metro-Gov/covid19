@@ -1,5 +1,5 @@
 {
-    "date": "2020\/8\/20 20:15",
+    "date": "2020\/8\/25 19:30",
     "data": [
         {
             "date": "2020-03-01",
@@ -860,6 +860,31 @@
             "date": "2020-08-19",
             "count": 56,
             "weekly_average_count": 74
+        },
+        {
+            "date": "2020-08-20",
+            "count": 51,
+            "weekly_average_count": 70.4
+        },
+        {
+            "date": "2020-08-21",
+            "count": 43,
+            "weekly_average_count": 68.7
+        },
+        {
+            "date": "2020-08-22",
+            "count": 48,
+            "weekly_average_count": 64
+        },
+        {
+            "date": "2020-08-23",
+            "count": 48,
+            "weekly_average_count": 56.4
+        },
+        {
+            "date": "2020-08-24",
+            "count": 49,
+            "weekly_average_count": 51.7
         }
     ]
 }

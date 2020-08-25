@@ -1,5 +1,5 @@
 {
-    "date": "2020\/8\/20 20:15",
+    "date": "2020\/8\/25 19:30",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -735,7 +735,7 @@
         },
         {
             "diagnosed_date": "2020-07-24",
-            "count": 252
+            "count": 254
         },
         {
             "diagnosed_date": "2020-07-25",
@@ -783,11 +783,11 @@
         },
         {
             "diagnosed_date": "2020-08-05",
-            "count": 432
+            "count": 433
         },
         {
             "diagnosed_date": "2020-08-06",
-            "count": 440
+            "count": 441
         },
         {
             "diagnosed_date": "2020-08-07",
@@ -803,15 +803,15 @@
         },
         {
             "diagnosed_date": "2020-08-10",
-            "count": 119
+            "count": 122
         },
         {
             "diagnosed_date": "2020-08-11",
-            "count": 205
+            "count": 206
         },
         {
             "diagnosed_date": "2020-08-12",
-            "count": 247
+            "count": 248
         },
         {
             "diagnosed_date": "2020-08-13",
@@ -827,7 +827,7 @@
         },
         {
             "diagnosed_date": "2020-08-16",
-            "count": 139
+            "count": 141
         },
         {
             "diagnosed_date": "2020-08-17",
@@ -835,15 +835,31 @@
         },
         {
             "diagnosed_date": "2020-08-18",
-            "count": 226
+            "count": 230
         },
         {
             "diagnosed_date": "2020-08-19",
-            "count": 238
+            "count": 289
         },
         {
             "diagnosed_date": "2020-08-20",
-            "count": 1
+            "count": 295
+        },
+        {
+            "diagnosed_date": "2020-08-21",
+            "count": 279
+        },
+        {
+            "diagnosed_date": "2020-08-22",
+            "count": 158
+        },
+        {
+            "diagnosed_date": "2020-08-23",
+            "count": 97
+        },
+        {
+            "diagnosed_date": "2020-08-24",
+            "count": 109
         }
     ]
 }
