@@ -286,10 +286,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             label: (tooltipItem) => {
-              const cases = tooltipItem.value!.toLocaleString()
-              return `${
-                this.dataLabels[tooltipItem.datasetIndex!]
-              } : ${cases} ${unit}`
+              const labelText = this.dataLabels[tooltipItem.datasetIndex!]
+              const numberAsString = parseInt(
+                tooltipItem.value!
+              ).toLocaleString()
+              return `${labelText} : ${numberAsString} ${unit}`
             },
             title(tooltipItem, data) {
               const label = data.labels![tooltipItem[0].index!] as string
