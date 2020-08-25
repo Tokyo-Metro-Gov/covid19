@@ -86,10 +86,10 @@ export default Vue.extend({
             class: 'MenuList-Link',
           }
         : {
-            href: link,
+            href: '/#',
             router: true,
             class: 'MenuList-Link',
-            to: '/#',
+            to: `${link}`,
           }
     },
     iconTag(icon: MenuItem['icon']) {
