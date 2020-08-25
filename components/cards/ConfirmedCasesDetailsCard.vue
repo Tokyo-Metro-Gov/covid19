@@ -18,11 +18,11 @@
                   '「重症」は、人工呼吸器管理（ECMOを含む）が必要な患者数を計上。'
                 )
               }}
-              <external-link
-                url="https://www.bousai.metro.tokyo.lg.jp/_res/projects/default_project/_page_/001/011/435/7kai/202008207.pdf"
+              <app-link
+                to="https://www.bousai.metro.tokyo.lg.jp/_res/projects/default_project/_page_/001/011/435/7kai/202008207.pdf"
               >
                 {{ $t('重症基準の考え方はこちら') }}
-              </external-link>
+              </app-link>
             </li>
             <li>
               {{
@@ -48,13 +48,13 @@ import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import DataView from '@/components/DataView.vue'
 import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+import AppLink from '@/components/AppLink.vue'
 
 export default {
   components: {
     DataView,
     ConfirmedCasesDetailsTable,
-    ExternalLink,
+    AppLink,
   },
   data() {
     const mainSummary = Data.main_summary
