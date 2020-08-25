@@ -5,7 +5,7 @@
       v-if="_showIcon"
       class="ExternalLinkIcon"
       :class="iconClass"
-      :size="`${iconSize / 10}rem`"
+      :size="_iconSize"
       :aria-label="this.$t('別タブで開く')"
       role="img"
       :aria-hidden="false"
@@ -39,7 +39,7 @@ export default Vue.extend({
     },
     iconSize: {
       type: Number,
-      default: 15,
+      default: 12,
     },
     iconType: {
       type: String,
@@ -77,6 +77,9 @@ export default Vue.extend({
         return this.showIcon
       }
     },
+    _iconSize(): string | undefined {
+      return `${this.iconSize / 10}rem`
+    },
   },
 })
 </script>
@@ -84,8 +87,5 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .ExternalLink {
   text-decoration: none;
-  .ExternalLinkIcon {
-    vertical-align: text-bottom;
-  }
 }
 </style>
