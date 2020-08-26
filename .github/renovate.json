@@ -1,0 +1,15 @@
+{
+    "extends": ["config:base"],
+    "timezone": "Asia/Tokyo",
+    "labels": ["renovate"],
+    "lockFileMaintenance": {
+        "enabled": true,
+        "schedule": ["before 5pm on wednesday"]
+    },
+    "packageRules": [
+        {
+            "updateTypes": ["minor", "patch", "pin", "digest"],
+            "automerge": false
+        }
+    ]
+}

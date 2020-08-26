@@ -7,16 +7,9 @@
         </v-icon>
         {{ $t('最新のお知らせ') }}
       </h3>
-      <span class="WhatsNew-link-to-emergency-page">
-        <external-link
-          url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
-        >
-          <v-icon size="2rem" class="WhatsNew-link-to-emergency-page-icon">
-            mdi-bullhorn
-          </v-icon>
-          {{ $t('東京都緊急事態措置について') }}
-        </external-link>
-      </span>
+      <div class="WhatsNew-linkGroup">
+        <link-to-information-about-emergency-measure v-if="isEmergency" />
+      </div>
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
@@ -50,20 +43,24 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+import LinkToInformationAboutEmergencyMeasure from '@/components/LinkToInformationAboutEmergencyMeasure.vue'
 
-import {
-  convertDateByCountryPreferTimeFormat,
-  convertDateToISO8601Format
-} from '@/utils/formatDate'
+import { convertDateToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
-  components: { ExternalLink },
+  components: {
+    LinkToInformationAboutEmergencyMeasure,
+  },
   props: {
     items: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
+    isEmergency: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   methods: {
     isInternalLink(path: string): boolean {
@@ -73,9 +70,9 @@ export default Vue.extend({
       return convertDateToISO8601Format(dateString)
     },
     formattedDateForDisplay(dateString: string) {
-      return convertDateByCountryPreferTimeFormat(dateString, this.$i18n.locale)
-    }
-  }
+      return this.$d(new Date(dateString), 'date')
+    },
+  },
 })
 </script>
 
@@ -103,32 +100,14 @@ export default Vue.extend({
       }
     }
 
-    .WhatsNew-link-to-emergency-page {
-      background-color: $emergency;
-      border: 2px solid $emergency;
-      color: $gray-2;
-      border-radius: 4px;
-      padding: 4px 8px;
-      display: inline-flex;
-      @include font-size(16);
-      &:hover {
-        background-color: $white;
-        border-radius: 4px;
-      }
+    .WhatsNew-linkGroup {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
 
-      .ExternalLink {
-        color: $gray-2 !important;
-        text-decoration: none;
-        margin: -10px;
-        padding: 10px;
-      }
-
-      > span {
-        @include button-text('sm');
-      }
-
-      @include lessThan($small) {
-        margin-top: 4px;
+      @include lessThan($medium) {
+        justify-content: flex-start;
       }
     }
   }

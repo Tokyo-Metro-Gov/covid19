@@ -353,7 +353,7 @@ export default Vue.extend({
     FigCondSy,
     FigCondAnx,
     IconPhone,
-    IconBed
+    IconBed,
   },
   data(): LocalData {
     const nav = null
@@ -383,7 +383,7 @@ export default Vue.extend({
       lowerTriggerOffsetTop,
       floatingOffset,
       forceFloating,
-      timerId
+      timerId,
     }
   },
   mounted() {
@@ -397,7 +397,7 @@ export default Vue.extend({
     )
     this.upperTrigger = this.$refs.upperTrigger as HTMLElement
     this.lowerTrigger = this.$refs.lowerTrigger as HTMLElement
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       // debounce
       if (self.timerId) {
         window.clearTimeout(self.timerId)
@@ -419,7 +419,7 @@ export default Vue.extend({
         .querySelector(`a.${this.$style.anchorLink}[href='${hash}']`)
         ?.classList.add(this.$style.active)
       VueScrollTo.scrollTo(hash, 300, {
-        offset: -(this.navH + this.floatingOffset + 1) // +1はIE11用サブピクセル対策
+        offset: -(this.navH + this.floatingOffset + 1), // +1はIE11用サブピクセル対策
       })
     }
   },
@@ -455,7 +455,7 @@ export default Vue.extend({
         this.startFloating()
 
         // 表示位置追従カレント処理
-        this.sections!.forEach(function(ele: HTMLElement, idx: number) {
+        this.sections!.forEach(function (ele: HTMLElement, idx: number) {
           const rect = ele.getBoundingClientRect()
           if (
             rect.top <= self.navH + self.floatingOffset + 10 &&
@@ -492,7 +492,7 @@ export default Vue.extend({
         onCancel() {
           self.forceFloating = false
           self.onBrowserRender()
-        }
+        },
       })
     },
     startFloating(): void {
@@ -511,21 +511,21 @@ export default Vue.extend({
     },
     resetNavCurrent(): void {
       const self = this
-      this.buttons!.forEach(function(ele: HTMLElement) {
+      this.buttons!.forEach(function (ele: HTMLElement) {
         if (ele.classList.contains(self.$style.active)) {
           ele.classList.remove(self.$style.active)
         }
       })
-    }
+    },
   },
   head(): any {
     const title: TranslateResult = this.$t(
       '新型コロナウイルス感染症が心配なときに'
     )
     return {
-      title
+      title,
     }
-  }
+  },
 })
 </script>
 
@@ -681,6 +681,9 @@ $margin: 20;
     position: fixed;
     top: 0;
     z-index: 1;
+    .fig {
+      display: none;
+    }
   }
 }
 .section {
@@ -891,8 +894,17 @@ $margin: 20;
 // 960
 @include lessThan(960) {
   .anchor {
+    padding-top: 2px;
     .anchorLink {
-      padding: 10px 10px 40px;
+      padding: 10px 10px 20px;
+      > svg {
+        margin-top: 1px;
+        max-width: 80px;
+        max-height: 80px;
+      }
+      &::after {
+        bottom: 5px;
+      }
     }
   }
   .boxes {

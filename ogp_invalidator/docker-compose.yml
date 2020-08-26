@@ -7,5 +7,5 @@ services:
     tty: true
     env_file: .env
     volumes:
-        - ./twitter_card_invalidator.py:/app/twitter_card_invalidator.p
-        - ./out:/app/out
+      - ./twitter_card_invalidator.py:/app/twitter_card_invalidator.p
+      - ./out:/app/out

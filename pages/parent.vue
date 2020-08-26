@@ -1,8 +1,20 @@
 <template>
   <div class="Parent">
     <page-header class="mb-3">
-      {{ $t('臨時休校中の新型コロナウイルス感染症対応についてのお願い') }}
+      {{ $t('新型コロナウイルス感染症対応についてのお願い') }}
     </page-header>
+    <static-card>
+      <h3>
+        <external-link
+          url="https://tokyodouga.jp/playlist/ohayoschool.html"
+          :icon-size="24"
+          >{{ $t('TOKYOおはようスクール') }}
+        </external-link>
+      </h3>
+      <p>
+        {{ $t('学校休校中の子供たちの生活や学習を応援するテレビ番組です。') }}
+      </p>
+    </static-card>
     <static-card>
       <h3>
         <external-link
@@ -14,9 +26,7 @@
       <ul>
         <li>
           {{
-            $t(
-              '臨時休業期間における子供たちの学びを支援する様々なウェブサイトを紹介しています。'
-            )
+            $t('子供たちの学びを支援する様々なウェブサイトを紹介しています。')
           }}
         </li>
         <li>
@@ -72,7 +82,7 @@
       </ul>
     </static-card>
     <static-card>
-      <h3>{{ $t('その他.parent') }}</h3>
+      <h3>{{ $t('その他') }}</h3>
       <p>{{ $t('詳細は、各学校からのお知らせ等をご確認ください。') }}</p>
     </static-card>
   </div>
@@ -89,12 +99,12 @@ export default Vue.extend({
   components: {
     PageHeader,
     StaticCard,
-    ExternalLink
+    ExternalLink,
   },
   head(): MetaInfo {
     return {
-      title: this.$t('お子様をお持ちの皆様へ') as string
+      title: this.$t('お子様をお持ちの皆様へ') as string,
     }
-  }
+  },
 })
 </script>

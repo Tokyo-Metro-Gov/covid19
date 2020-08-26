@@ -20,12 +20,12 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 
 ## このサイトから派生したサイト
 
-[Link先](./FORKED_SITES.md)を御覧ください。
+[このサイトから派生したサイト](./FORKED_SITES.md)を御覧ください。
 
 ## 翻訳者向け情報
 
-翻訳をお手伝いいただける方は、[こちらのドキュメント](./TRANSLATION.md)を御覧ください。
+翻訳をお手伝いいただける方は、[How to contribute translations](./TRANSLATION.md)を御覧ください。
 
 ## 開発者向け情報
 
-開発をお手伝いいただける方は、[こちらのドキュメント](./FOR_DEVELOPERS.md)を御覧ください。
+開発をお手伝いいただける方は、[開発者向け情報](./FOR_DEVELOPERS.md)を御覧ください。

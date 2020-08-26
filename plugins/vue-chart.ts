@@ -2,6 +2,7 @@ import Vue, { PropType } from 'vue'
 import { ChartData, ChartOptions } from 'chart.js'
 import { Doughnut, Bar, Line, mixins } from 'vue-chartjs'
 import { Plugin } from '@nuxt/types'
+import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 import { useDayjsAdapter } from './chartjs-adapter-dayjs'
 
 type ChartVCData = { chartData: ChartData }
@@ -16,10 +17,13 @@ const VueChartPlugin: Plugin = ({ app }) => {
   createCustomChart()
 }
 
+const rgba0 = 'rgba(255,255,255,0)'
+const rgba1 = 'rgba(255,255,255,1)'
+
 const createCustomChart = () => {
   const { reactiveProp } = mixins
 
-  const watchDisplayLegends = function(this: Vue, v?: boolean[] | null) {
+  const watchDisplayLegends = function (this: Vue, v?: boolean[] | null) {
     if (v == null) {
       return
     }
@@ -33,77 +37,60 @@ const createCustomChart = () => {
     chart.update()
   }
 
+  const generalChart = Vue.component<
+    ChartVCData,
+    ChartVCMethod,
+    ChartVCComputed,
+    ChartVCProps
+  >('general-chart', {
+    mixins: [reactiveProp],
+    props: {
+      displayLegends: {
+        type: Array,
+        default: () => null,
+      },
+      options: {
+        type: Object as PropType<ChartOptions>,
+        default: () => {},
+      },
+    },
+    watch: {
+      displayLegends: watchDisplayLegends,
+      width() {
+        setTimeout(() => this.$data._chart.resize())
+      },
+    },
+    mounted() {
+      setTimeout(() => this.renderChart(this.chartData, this.options))
+
+      // タブ変更時にグラフの`height`を再計算する
+      EventBus.$on(TOGGLE_EVENT, () => {
+        setTimeout(() => this.renderChart(this.chartData, this.options))
+      })
+    },
+    beforeDestroy() {
+      EventBus.$off(TOGGLE_EVENT)
+    },
+  })
+
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'doughnut-chart',
+    'line-chart',
     {
-      extends: Doughnut,
-      mixins: [reactiveProp],
-      props: {
-        displayLegends: {
-          type: Array,
-          default: () => null
-        },
-        options: {
-          type: Object as PropType<ChartOptions>,
-          default: () => {}
-        }
-      },
-      watch: {
-        displayLegends: watchDisplayLegends
-      },
-      mounted(): void {
-        this.renderChart(this.chartData, this.options)
-      }
+      mixins: [reactiveProp, Line, generalChart],
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'bar',
     {
-      extends: Bar,
-      mixins: [reactiveProp],
-      props: {
-        displayLegends: {
-          type: Array,
-          default: () => []
-        },
-        options: {
-          type: Object,
-          default: () => {}
-        }
-      },
-      watch: {
-        displayLegends: watchDisplayLegends
-      },
-      mounted(): void {
-        setTimeout(() => {
-          this.renderChart(this.chartData, this.options)
-        })
-      }
+      mixins: [reactiveProp, Bar, generalChart],
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'line-chart',
+    'doughnut-chart',
     {
-      extends: Line,
-      mixins: [reactiveProp],
-      props: {
-        displayLegends: {
-          type: Array,
-          default: () => []
-        },
-        options: {
-          type: Object,
-          default: () => {}
-        }
-      },
-      watch: {
-        displayLegends: watchDisplayLegends
-      },
-      mounted(): void {
-        this.renderChart(this.chartData, this.options)
-      }
+      mixins: [reactiveProp, Doughnut, generalChart],
     }
   )
 }
@@ -113,7 +100,7 @@ export default VueChartPlugin
 export const yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
     beforeDraw(chartInstance) {
-      const ctx = chartInstance.ctx!
+      const ctx = chartInstance.ctx as CanvasRenderingContext2D
 
       // プロットエリアマスク用
       ctx.fillStyle = '#fff'
@@ -131,35 +118,81 @@ export const yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[] = [
         chartInstance.chartArea.left,
         0
       )
-      gradient.addColorStop(0, 'rgba(255,255,255,1)')
-      gradient.addColorStop(1, 'rgba(255,255,255,0)')
+      gradient.addColorStop(0, rgba1)
+      gradient.addColorStop(1, rgba0)
       ctx.fillStyle = gradient
       ctx.fillRect(
         0,
         chartInstance.chartArea.bottom + 1,
         chartInstance.chartArea.left,
-        chartInstance.height! - chartInstance.chartArea.bottom - 1
+        (chartInstance.height as number) - chartInstance.chartArea.bottom - 1
       )
-    }
-  }
+    },
+  },
 ]
-export const scrollPlugin: Chart.PluginServiceRegistrationOptions[] = [
+
+export const yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[] = [
   {
-    beforeInit(chartInstance) {
-      const fn = () => {
-        try {
-          chartInstance.canvas!.parentElement!.parentElement!.parentElement!.scrollLeft! = chartInstance.width!
-        } catch (e) {}
-      }
-      window.addEventListener('resize', fn)
-      fn()
-    }
-  }
+    beforeDraw(chartInstance) {
+      const ctx = chartInstance.ctx as CanvasRenderingContext2D
+
+      // プロットエリアマスク用
+      ctx.fillStyle = '#fff'
+      ctx.fillRect(
+        chartInstance.chartArea.right,
+        0,
+        chartInstance.width as number,
+        chartInstance.chartArea.bottom + 1
+      )
+      ctx.fillRect(
+        0,
+        0,
+        chartInstance.chartArea.left,
+        chartInstance.chartArea.bottom + 1
+      )
+      // 横軸マスク用
+      const gradientr = ctx.createLinearGradient(
+        chartInstance.chartArea.right,
+        0,
+        chartInstance.width as number,
+        0
+      )
+      const gradient = ctx.createLinearGradient(
+        0,
+        0,
+        chartInstance.chartArea.left,
+        0
+      )
+      gradient.addColorStop(0, rgba1)
+      gradient.addColorStop(1, rgba0)
+      gradientr.addColorStop(0, rgba0)
+      gradientr.addColorStop(1, rgba1)
+      ctx.fillStyle = gradientr
+      ctx.fillRect(
+        chartInstance.chartArea.right,
+        chartInstance.chartArea.bottom + 1,
+        chartInstance.width as number,
+        (chartInstance.height as number) - chartInstance.chartArea.bottom - 1
+      )
+      ctx.fillStyle = gradient
+      ctx.fillRect(
+        0,
+        chartInstance.chartArea.bottom + 1,
+        chartInstance.chartArea.left,
+        (chartInstance.height as number) - chartInstance.chartArea.bottom - 1
+      )
+    },
+  },
 ]
 
 export interface DataSets<T = number> extends ChartData {
   data: T[]
 }
+
+export interface DataSetsPoint<T = { x: string; y: number }> extends ChartData {
+  data: T[]
+}
+
 export interface DisplayData<T = number, U = string> {
   labels?: U[]
   datasets: DataSets<T>[]

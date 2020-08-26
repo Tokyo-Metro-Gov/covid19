@@ -17,8 +17,7 @@ from bs4 import BeautifulSoup
 CHECK_DIR = ["pages", "components", "layouts", "data", "utils"]
 
 # チェックするjsonファイルのリスト
-# 現状はdata.jsonとpatient.jsonしかないが、のちにファイル分割や、データ追加により必要になった場合は追加しなければならない。
-JSON_FILES = ["data.json", "patient.json"]
+JSON_FILES = ["data.json", "patient.json", "monitoring_items.json"]
 
 # チェックするTypeScriptファイルのリスト
 # 現状はformatTable.tsしかないが、のちに表追加や、データ追加により必要になった場合は追加しなければならない。
@@ -153,18 +152,21 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                                 tags.append(city["label"]) if city["label"] != "小計" else None
                                 # ルビを取得
                                 tags.append(city["ruby"])
-
+                        elif file_name == JSON_FILES[2]:  # monitoring_items.jsonの場合
+                            for key in json_content["data"]:
+                                if isinstance(json_content["data"][key], dict):
+                                    tags.append(json_content["data"][key]["label"])
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + tags))
-                    # Noneが混じっているので、取り除く
-                    all_tags.pop(all_tags.index(None))
-                    # 全角のハイフン、半角のハイフン、全角のダッシュが混じっているので、取り除く
-                    # 理由は components/cards/ConfirmedCasesAttributesCard.vue の75行目辺りを参照。
-                    for x in ["-", "‐", "―"]:
-                        try:
-                            all_tags.pop(all_tags.index(x))
-                        except Exception:
-                            pass
+            # Noneが混じっているので、取り除く
+            all_tags.pop(all_tags.index(None))
+            # 全角のハイフン、半角のハイフン、全角のダッシュ、全角ハイフンマイナスが混じっているので、取り除く
+            # 理由は components/cards/ConfirmedCasesAttributesCard.vue の75行目辺りを参照。
+            for x in ["-", "‐", "―", "－"]:
+                try:
+                    all_tags.pop(all_tags.index(x))
+                except Exception:
+                    pass
 
     # 翻訳が複数あるもの("."で区切られている特殊なもの)を保管するリスト
     has_many_tags = []
@@ -241,14 +243,14 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
             ja_json_keys.pop(ja_json_keys.index(key))
 
     # 以前はあったが今はない翻訳を削除する
-    for key in ja_json_keys:
-        ja_tag = ja_json.get(key)
-        ja_json.pop(key)
-        print("Remove TAG: " + str(ja_tag) + " from " + JA_JSON_PATH)
-        if not warn_count:
-            result.write(",".join(["RUN", datetime.today().strftime("%Y/%m/%d %H:%M")]) + '\n')
-        result.write(",".join(["TAG_REMOVE", str(ja_tag)]) + '\n')
-        warn_count += 1
+#     for key in ja_json_keys:
+#         ja_tag = ja_json.get(key)
+#         ja_json.pop(key)
+#         print("Remove TAG: " + str(ja_tag) + " from " + JA_JSON_PATH)
+#         if not warn_count:
+#             result.write(",".join(["RUN", datetime.today().strftime("%Y/%m/%d %H:%M")]) + '\n')
+#         result.write(",".join(["TAG_REMOVE", str(ja_tag)]) + '\n')
+#         warn_count += 1
 
     made_json = ja_json
 

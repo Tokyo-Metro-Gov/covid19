@@ -1,9 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:infoPanel>
-      <small :class="$style.DataViewDesc">
-        <slot name="description" />
-      </small>
+    <template v-slot:description>
+      <slot name="description" />
     </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
@@ -17,29 +15,9 @@
       :height="240"
     />
     <template v-slot:dataTable>
-      <v-data-table
-        :headers="tableHeaders"
-        :items="tableData"
-        :items-per-page="-1"
-        :hide-default-footer="true"
-        :height="240"
-        :fixed-header="true"
-        :disable-sort="true"
-        :mobile-breakpoint="0"
-        class="cardTable"
-        item-key="name"
-      >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th scope="row">{{ item.text }}</th>
-              <td class="text-end">{{ item[0] }}</td>
-              <td class="text-end">{{ item[1] }}</td>
-              <td class="text-end">{{ item[2] }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
+      <client-only>
+        <data-view-table :headers="tableHeaders" :items="tableData" />
+      </client-only>
     </template>
   </data-view>
 </template>
@@ -49,8 +27,12 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import { ChartOptions } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import agencyData from '@/data/agency.json'
+import AgencyData from '@/data/agency.json'
 import DataView from '@/components/DataView.vue'
+import DataViewTable, {
+  TableHeader,
+  TableItem,
+} from '@/components/DataViewTable.vue'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import { DisplayData, DataSets } from '@/plugins/vue-chart'
 
@@ -66,26 +48,21 @@ interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
 }
 type Data = {
   canvas: boolean
-  chartData: typeof agencyData
-  date: string
   agencies: VueI18n.TranslateResult[]
 }
 type Methods = {}
 type Computed = {
   displayData: AgencyDisplayData
   displayOption: ChartOptions
-  tableHeaders: {
-    text: VueI18n.TranslateResult
-    value: string
-  }[]
-  tableData: {
-    [key: number]: number
-  }[]
+  tableHeaders: TableHeader[]
+  tableData: TableItem[]
 }
 type Props = {
   title: string
   titleId: string
   chartId: string
+  chartData: typeof AgencyData
+  date: string
   unit: string
 }
 
@@ -99,41 +76,44 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView },
+  components: { DataView, DataViewTable },
   props: {
     title: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     chartId: {
       type: String,
       required: false,
-      default: 'agency-bar-chart'
+      default: 'agency-bar-chart',
+    },
+    chartData: Object,
+    date: {
+      type: String,
+      default: '',
     },
     unit: {
       type: String,
       required: false,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     const agencies = [
       this.$t('第一庁舎計'),
       this.$t('第二庁舎計'),
-      this.$t('議事堂計')
+      this.$t('議事堂計'),
     ]
 
     return {
       canvas: true,
-      chartData: agencyData,
-      date: agencyData.date,
-      agencies
+      agencies,
     }
   },
   computed: {
@@ -147,9 +127,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             data: item.data,
             backgroundColor: graphSeries[index].fillColor,
             borderColor: graphSeries[index].strokeColor,
-            borderWidth: 1
+            borderWidth: 1,
           }
-        })
+        }),
       }
     },
     displayOption() {
@@ -161,7 +141,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             title(tooltipItem) {
               const dateString = tooltipItem[0].label
               return self.$t('期間: {duration}', {
-                duration: dateString!
+                duration: dateString!,
               }) as string
             },
             label(tooltipItem, data) {
@@ -170,8 +150,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               const num = parseInt(tooltipItem.value!).toLocaleString()
               const unit = self.$t(self.unit)
               return `${title}: ${num} ${unit}`
-            }
-          }
+            },
+          },
         },
         legend: {
           display: true,
@@ -182,27 +162,27 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             e.currentTarget!.style!.cursor = 'default'
           },
           labels: {
-            boxWidth: 20
-          }
+            boxWidth: 20,
+          },
         },
         scales: {
           xAxes: [
             {
               stacked: true,
               gridLines: {
-                display: false
+                display: false,
               },
               ticks: {
                 fontSize: 9,
-                fontColor: '#808080'
-              }
-            }
+                fontColor: '#808080',
+              },
+            },
           ],
           yAxes: [
             {
               stacked: true,
               gridLines: {
-                display: true
+                display: true,
               },
               ticks: {
                 fontSize: 9,
@@ -210,11 +190,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 10,
                 callback(label) {
                   return `${label}${self.unit}`
-                }
-              }
-            }
-          ]
-        }
+                },
+              },
+            },
+          ],
+        },
       }
       if (this.$route.query.ogp === 'true') {
         Object.assign(options, { animation: { duration: 0 } })
@@ -226,7 +206,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         { text: this.$t('日付'), value: 'text' },
         ...this.displayData.datasets.map((text, value) => {
           return { text: text.label, value: String(value), align: 'end' }
-        })
+        }),
       ]
     },
     tableData() {
@@ -236,13 +216,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             { text: this.displayData.labels![i] },
             ...this.displayData.datasets!.map((_, j) => {
               return {
-                [j]: this.displayData.datasets[j].data[i].toLocaleString()
+                [j]: this.displayData.datasets[j].data[i].toLocaleString(),
               }
             })
           )
         })
         .reverse()
-    }
+    },
   },
   mounted() {
     const barChart = this.$refs.barChart as Vue
@@ -254,19 +234,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
-  }
+  },
 }
 
 export default Vue.extend(options)
 </script>
-
-<style module lang="scss">
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    color: $gray-3;
-    @include font-size(12);
-  }
-}
-</style>

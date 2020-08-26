@@ -1,8 +1,5 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:description>
-      <slot name="description" />
-    </template>
     <v-data-table
       :ref="'displayedTable'"
       :headers="chartData.headers"
@@ -15,6 +12,9 @@
       :disable-sort="true"
       class="cardTable"
     />
+    <template v-slot:additionalDescription>
+      <slot name="additionalDescription" />
+    </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="info.lText"
@@ -24,47 +24,6 @@
     </template>
   </data-view>
 </template>
-
-<style lang="scss">
-.cardTable {
-  &.v-data-table {
-    box-shadow: 0 -20px 12px -12px #0003 inset;
-    th {
-      padding: 8px 10px;
-      height: auto;
-      border-bottom: 1px solid $gray-4;
-      color: $gray-2;
-      @include font-size(12);
-    }
-
-    tbody {
-      tr {
-        color: $gray-1;
-
-        th {
-          font-weight: normal;
-        }
-
-        td {
-          padding: 8px 10px;
-          height: auto;
-          @include font-size(12);
-        }
-
-        &:nth-child(odd) {
-          th,
-          td {
-            background: rgba($gray-4, 0.3);
-          }
-        }
-      }
-    }
-    &:focus {
-      outline: dotted $gray-3 1px;
-    }
-  }
-}
-</style>
 
 <script lang="ts">
 import Vue from 'vue'
@@ -76,33 +35,34 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
-      default: ''
+      default: '',
     },
     chartData: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     date: {
       type: String,
-      default: ''
+      default: '',
     },
     info: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   mounted() {
     const vTables = this.$refs.displayedTable as Vue
     const vTableElement = vTables.$el
     const tables = vTableElement.querySelectorAll('table')
-
-    tables.forEach((table: HTMLElement) => {
+    // NodeListをIE11でforEachするためのワークアラウンド
+    const nodes = Array.prototype.slice.call(tables, 0)
+    nodes.forEach((table: HTMLElement) => {
       table.setAttribute('tabindex', '0')
     })
-  }
+  },
 })
 </script>

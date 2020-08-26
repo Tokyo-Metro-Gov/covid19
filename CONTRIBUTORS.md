@@ -162,6 +162,18 @@ Tokyo Covid-19 response site contributors
 | Taiyu Yoshizawa | [@Nekoya3](https://github.com/Nekoya3) | [@Nekoya3_](https://twitter.com/Nekoya3_) | Coding |
 | Hikaru Hasegawa | [@telumo](https://github.com/telumo) | | Coding |
 | Tatsumi0000 | [@Tatsumi0000](https://github.com/Tatsumi0000) | [@Tatsumi0002](https://twitter.com/Tatsumi0002) | Frontend |
+| [urangurang](https://urangurang.github.io) | [@UrangUrang](https://github.com/UrangUrang) | | Coding, Translation |
+| asuchi0819 | [@asuchi0819](https://github.com/asuchi0819) | | Coding |
+| Kou-Squ | [@Kou-Squ](https://github.com/Kou-Squ) | | Translation |
+| kenem | [@kenem](https://github.com/kenem) | | Translation (Ja -> En) |
+| Marie | [@Marie](https://github.com/Marie) | | Translation (Ja -> De) |
+| Sisi | [@hello-iamsisi](https://github.com/hello-iamsisi) | | Translation Reviewer |
+| [yuu26](https://yuu26.com) | [@yuu26jp](https://github.com/yuu26jp) | [@m_on_yu](https://twitter.com/m_on_yu) | Coding |
+| Takayuki Inadome | [@InadomeLabo](https://github.com/InadomeLabo) | | Coding |
+| [MYUNG](https://1998.media) | [@1998code](https://github.com/1998code) | [@1998design](https://twitter.com/1998design) | Translation |
+| goki90210 | [@goki90210](https://github.com/goki90210) | | Coding, Code Reviewer |
+| Yu Muramatsu | [@Murayu0225](https://github.com/Murayu0225) | | Coding |
+| Pichu Chen ( g0v.tw / TIH.tw ) | [@PichuChen](https://github.com/PichuChen) | [@PichuChen](https://twitter.com/PichuChen) | i18n, Document Translation (zh-tw) |
 
 ご協力に感謝です！！！
 

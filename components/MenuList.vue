@@ -45,13 +45,13 @@ export default Vue.extend({
   components: {
     CovidIcon,
     MaskTrashIcon,
-    ParentIcon
+    ParentIcon,
   },
   props: {
     items: {
       type: Array as PropType<MenuItem[]>,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     linkTag(link: MenuItem['link']) {
@@ -63,12 +63,12 @@ export default Vue.extend({
             href: link,
             target: '_blank',
             rel: 'noopener noreferrer',
-            class: 'MenuList-Link'
+            class: 'MenuList-Link',
           }
         : {
-            to: link,
+            to: `${link}`,
             router: true,
-            class: 'MenuList-Link'
+            class: 'MenuList-Link',
           }
     },
     iconTag(icon: MenuItem['icon']) {
@@ -79,18 +79,18 @@ export default Vue.extend({
         ? icon.startsWith('mdi')
           ? {
               size: '2rem',
-              class: 'MenuList-MdIcon'
+              class: 'MenuList-MdIcon',
             }
           : {
               'aria-hidden': true,
-              class: 'MenuList-SvgIcon'
+              class: 'MenuList-SvgIcon',
             }
         : null
     },
     isExternal(path: MenuItem['link']): boolean {
       return /^https?:\/\//.test(path)
-    }
-  }
+    },
+  },
 })
 </script>
 

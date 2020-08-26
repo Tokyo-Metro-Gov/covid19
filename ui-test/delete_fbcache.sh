@@ -10,7 +10,6 @@ number-of-confirmed-cases
 attributes-of-confirmed-cases
 number-of-tested
 number-of-reports-to-covid19-telephone-advisory-center
-number-of-reports-to-covid19-consultation-desk
 predicted-number-of-toei-subway-passengers
 agency
 EOT

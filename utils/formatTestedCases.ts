@@ -32,11 +32,10 @@ type TestedCasesType = {
  * @param data - Raw data
  */
 export default (data: DataType) => {
-  const formattedData: TestedCasesType = {
+  return {
     累計人数: data.value,
     合計件数: data.children[0].value,
     健康安全研究センター実施分: data.children[0].children[0].value,
-    医療機関等実施分: data.children[0].children[1].value
-  }
-  return formattedData
+    医療機関等実施分: data.children[0].children[1].value,
+  } as TestedCasesType
 }

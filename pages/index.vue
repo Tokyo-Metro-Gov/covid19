@@ -1,158 +1,129 @@
 <template>
-  <div class="MainPage">
-    <div class="Header mb-3">
-      <page-header :icon="headerItem.icon">{{ headerItem.title }}</page-header>
-      <div class="UpdatedAt">
-        <span>{{ $t('最終更新') }}</span>
-        <time :datetime="updatedAt">{{ Data.lastUpdate }}</time>
-      </div>
-      <div
-        v-show="!['ja', 'ja-basic'].includes($i18n.locale)"
-        class="Annotation"
+  <div>
+    <site-top-upper />
+    <v-tabs v-model="tab" hide-slider>
+      <v-tab
+        v-for="(item, i) in items"
+        :key="i"
+        v-ripple="false"
+        :href="`#tab-${i}`"
+        @click="change"
       >
-        <span>{{ $t('注釈') }}</span>
-      </div>
-    </div>
-    <whats-new class="mb-4" :items="newsItems" />
-    <static-info
-      class="mb-4"
-      :url="localePath('/flow')"
-      :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
-      :btn-text="$t('相談の手順を見る')"
-    />
-    <card-row class="DataBlock">
-      <!-- 検査陽性者の状況 -->
-      <confirmed-cases-details-card />
-      <!-- 陽性患者数 -->
-      <confirmed-cases-number-card />
-      <!-- 陽性患者の属性 -->
-      <confirmed-cases-attributes-card />
-      <!-- 区市町村別患者数 -->
-      <confirmed-cases-by-municipalities-card />
-      <!-- 検査実施状況 -->
-      <tested-cases-details-card />
-    </card-row>
-    <card-row class="DataBlock">
-      <!-- 検査実施人数 -->
-      <inspection-persons-number-card />
-      <!-- 検査実施件数 -->
-      <tested-number-card />
-      <!-- 新型コロナコールセンター相談件数 -->
-      <telephone-advisory-reports-number-card />
-      <!-- 新型コロナ受診相談窓口相談件数 -->
-      <consultation-desk-reports-number-card />
-      <!-- 都営地下鉄の利用者数の推移 -->
-      <metro-card />
-      <!-- 都庁来庁者数の推移 -->
-      <agency-card />
-    </card-row>
+        <v-icon class="TabIcon">
+          mdi-chart-timeline-variant
+        </v-icon>
+        {{ item.label }}
+      </v-tab>
+      <v-tabs-items v-model="tab" touchless>
+        <v-tab-item v-for="(item, i) in items" :key="i" :value="`tab-${i}`">
+          <component :is="item.component" />
+        </v-tab-item>
+      </v-tabs-items>
+    </v-tabs>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta'
-import PageHeader from '@/components/PageHeader.vue'
-import WhatsNew from '@/components/WhatsNew.vue'
-import StaticInfo from '@/components/StaticInfo.vue'
-import CardRow from '@/components/cards/CardRow.vue'
-import Data from '@/data/data.json'
-import News from '@/data/news.json'
-import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
-import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
-import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
-import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
-import TestedCasesDetailsCard from '@/components/cards/TestedCasesDetailsCard.vue'
-import InspectionPersonsNumberCard from '@/components/cards/InspectionPersonsNumberCard.vue'
-import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
-import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
-import MetroCard from '@/components/cards/MetroCard.vue'
-import AgencyCard from '@/components/cards/AgencyCard.vue'
-import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import SiteTopUpper from '@/components/SiteTopUpper.vue'
+import CardsMonitoring from '@/components/CardsMonitoring.vue'
+import CardsReference from '@/components/CardsReference.vue'
+import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 
 export default Vue.extend({
   components: {
-    PageHeader,
-    WhatsNew,
-    StaticInfo,
-    CardRow,
-    ConfirmedCasesDetailsCard,
-    ConfirmedCasesNumberCard,
-    ConfirmedCasesAttributesCard,
-    ConfirmedCasesByMunicipalitiesCard,
-    TestedCasesDetailsCard,
-    InspectionPersonsNumberCard,
-    TestedNumberCard,
-    TelephoneAdvisoryReportsNumberCard,
-    ConsultationDeskReportsNumberCard,
-    MetroCard,
-    AgencyCard
+    SiteTopUpper,
+    CardsMonitoring,
+    CardsReference,
   },
   data() {
-    const data = {
-      Data,
-      headerItem: {
-        icon: 'mdi-chart-timeline-variant',
-        title: this.$t('都内の最新感染動向')
-      },
-      newsItems: News.newsItems
-    }
-    return data
-  },
-  computed: {
-    updatedAt() {
-      return convertDatetimeToISO8601Format(this.$data.Data.lastUpdate)
-    }
-  },
-  head(): MetaInfo {
     return {
-      title: this.$t('都内の最新感染動向') as string
+      tab: null,
+      items: [
+        { label: this.$t('モニタリング項目'), component: CardsMonitoring },
+        { label: this.$t('その他 参考指標'), component: CardsReference },
+      ],
     }
-  }
+  },
+  methods: {
+    change() {
+      EventBus.$emit(TOGGLE_EVENT)
+    },
+  },
 })
 </script>
 
-<style lang="scss" scoped>
-.MainPage {
-  .Header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
+<style lang="scss">
+.v-slide-group__content {
+  border-bottom: 1px solid $gray-2;
+  background: $gray-5;
+}
 
-    @include lessThan($small) {
-      flex-direction: column;
-      align-items: baseline;
+.v-tab {
+  top: 1px;
+  margin: 0 8px;
+  border-style: solid;
+  border-radius: 4px 4px 0 0;
+  font-weight: bold !important;
+  @include font-size(16, true);
+
+  &:focus {
+    outline: dotted $gray-3 1px;
+  }
+
+  &--active {
+    color: $gray-2 !important;
+    background: $gray-5;
+    border-color: $gray-2 $gray-2 $gray-5 $gray-2;
+    border-width: 1px 1px 2px 1px;
+    &::before {
+      background-color: transparent;
     }
   }
 
-  .UpdatedAt {
-    @include font-size(14);
-
-    color: $gray-3;
-    margin-bottom: 0.2rem;
-  }
-
-  .Annotation {
-    @include font-size(12);
-
-    color: $gray-3;
-    @include largerThan($small) {
-      margin: 0 0 0 auto;
+  &:not(.v-tab--active) {
+    color: $green-1 !important;
+    background: $white;
+    border-color: $green-1 $green-1 $gray-2 $green-1;
+    border-width: 1px;
+    &:hover {
+      color: $white !important;
+      background: $green-1;
+    }
+    .TabIcon {
+      color: inherit !important;
     }
   }
-  .DataBlock {
-    margin: 20px -8px;
+}
 
-    .DataCard {
-      @include largerThan($medium) {
-        padding: 10px;
-      }
+.v-tabs-items {
+  background-color: transparent !important;
+}
 
-      @include lessThan($small) {
-        padding: 4px 8px;
-      }
-    }
+@function px2vw($px, $vw: 768) {
+  @return $px / $vw * 100vw;
+}
+
+@include lessThan($medium) {
+  .v-slide-group__content {
+    width: 100%;
+  }
+  .v-tab {
+    font-size: px2vw(16) !important;
+    font-weight: normal !important;
+    flex: 1 1 auto;
+    width: 100%;
+    padding: 0 8px !important;
+  }
+}
+
+@include lessThan($small) {
+  .v-tab {
+    font-size: px2vw(20, 600) !important;
+    padding: 0 4px !important;
+  }
+  .TabIcon {
+    font-size: px2vw(24, 600) !important;
   }
 }
 </style>

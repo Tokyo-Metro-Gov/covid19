@@ -16,16 +16,16 @@ export default Vue.extend({
   props: {
     url: {
       type: String,
-      default: ''
+      default: '',
     },
     text: {
       type: String,
-      default: ''
+      default: '',
     },
     btnText: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     linkTag(): string {
@@ -33,13 +33,13 @@ export default Vue.extend({
     },
     linkAttrs(): any {
       return this.isInternalLink
-        ? { to: this.url, class: 'StaticInfo' }
+        ? { to: `${this.url}`, class: 'StaticInfo' }
         : { href: this.url, class: 'StaticInfo' }
     },
     isInternalLink(): boolean {
       return !/^https?:\/\//.test(this.url)
-    }
-  }
+    },
+  },
 })
 </script>
 
