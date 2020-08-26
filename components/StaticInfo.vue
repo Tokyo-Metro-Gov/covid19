@@ -1,12 +1,12 @@
 <template>
-  <component :is="linkTag" v-bind="linkAttrs">
+  <div class="StaticInfo">
     <span>{{ text }}</span>
     <div v-if="btnText" class="StaticInfo-Button">
-      <span>
+      <span :is="linkTag" v-bind="linkAttrs">
         {{ btnText }}
       </span>
     </div>
-  </component>
+  </div>
 </template>
 
 <script lang="ts">
@@ -32,9 +32,7 @@ export default Vue.extend({
       return this.isInternalLink ? 'nuxt-link' : 'a'
     },
     linkAttrs(): any {
-      return this.isInternalLink
-        ? { to: `${this.url}`, class: 'StaticInfo' }
-        : { href: this.url, class: 'StaticInfo' }
+      return this.isInternalLink ? { to: `${this.url}` } : { href: this.url }
     },
     isInternalLink(): boolean {
       return !/^https?:\/\//.test(this.url)
@@ -55,13 +53,14 @@ export default Vue.extend({
   border-radius: 4px;
   padding: 0.5em 1em;
 
-  @include text-link();
+  @include font-size(14);
 
   &-Button {
     flex: 1 0 auto;
     text-align: right;
 
-    > span {
+    > a {
+      text-decoration: none;
       @include button-text('sm');
     }
 
