@@ -10,7 +10,7 @@
         @click="change"
       >
         <v-icon class="TabIcon">
-          mdi-chart-timeline-variant
+          {{ mdiChartTimelineVariant }}
         </v-icon>
         {{ item.label }}
       </v-tab>
@@ -28,7 +28,8 @@ import Vue from 'vue'
 import SiteTopUpper from '@/components/SiteTopUpper.vue'
 import CardsMonitoring from '@/components/CardsMonitoring.vue'
 import CardsReference from '@/components/CardsReference.vue'
-import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
+import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus'
+const mdiChartTimelineVariant = require('@mdi/js')
 
 export default Vue.extend({
   components: {
@@ -43,6 +44,7 @@ export default Vue.extend({
         { label: this.$t('モニタリング項目'), component: CardsMonitoring },
         { label: this.$t('その他 参考指標'), component: CardsReference },
       ],
+      mdiChartTimelineVariant,
     }
   },
   methods: {

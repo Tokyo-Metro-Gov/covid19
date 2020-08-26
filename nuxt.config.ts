@@ -1,7 +1,9 @@
 import { NuxtConfig } from '@nuxt/types'
 import i18n from './nuxt-i18n.config'
-const environment = process.env.NODE_ENV || 'development'
-// import zlib from 'zlib'
+const purgecss = require('@fullhuman/postcss-purgecss')
+const autoprefixer = require('autoprefixer')
+// Eslint says, "no use"
+// const environment = process.env.NODE_ENV || 'development'
 
 const config: NuxtConfig = {
   mode: 'universal',
@@ -91,14 +93,14 @@ const config: NuxtConfig = {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    // 通常は dotenv-expand を使用する（nuxt）。process.env は引き続き使用可能。(Aug. 2020)
-    // ['@nuxtjs/dotenv', { filename: `.env.${environment}`, }],
     '@nuxtjs/pwa',
-    '@nuxtjs/svg',
+    // Doc: https://github.com/nuxt-community/dotenv-module
+    // ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
     ['nuxt-i18n', i18n],
+    // Replacement of nuxt-svg-loader
+    '@nuxtjs/svg',
+    'nuxt-purgecss',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
-    // 'nuxt-purgecss',
   ],
   /*
    ** vuetify module configuration
@@ -132,38 +134,27 @@ const config: NuxtConfig = {
   ], */
   build: {
     postcss: {
-      plugins: {
-        autoprefixer: {
-          grid: 'autoplace',
-        },
-      },
+      plugins: [
+        autoprefixer({ grid: 'autoplace' }),
+        purgecss({
+          content: [
+            '@/pages/**/*.vue',
+            '@/layouts/**/*.vue',
+            '@/components/**/*.vue',
+            'vuetify/dist/vuetify.js',
+            'vue-spinner/src/ScaleLoader.vue',
+          ],
+          whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
+          whitelistPatterns: [/(col|row)/],
+        }),
+      ],
     },
     extend(config) {
       // default externals option is undefined
-      config.externals = {
-        moment: 'moment',
-      }
+      config.externals = [{ moment: 'moment' }]
     },
-  },
-  purgeCSS: {
-    mode: 'postcss',
-    options: {
-      dev: environment.includes('dev'),
-    },
-    plugins: [
-      'nuxt-purgecss',
-      {
-        content: [
-          '@/pages/**/*.vue',
-          '@/layouts/**/*.vue',
-          '@/components/**/*.vue',
-          'vuetify/dist/vuetify.js',
-          'vue-spinner/src/ScaleLoader.vue',
-        ],
-        whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
-        whitelistPatterns: [/(col|row)/],
-      },
-    ],
+    // https://ja.nuxtjs.org/api/configuration-build/#hardsource
+    // hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
     name: '東京都 新型コロナウイルス感染症対策サイト',
@@ -214,26 +205,6 @@ const config: NuxtConfig = {
       poll: true,
     },
   },
-  /*
-  render: {
-    compressor: {
-      gzip:{
-        cache: true,
-      },
-      brotli: {
-        threshold: 10240,
-      },
-      algorithm(
-        buf: zlib.InputType,
-        options: zlib.BrotliOptions,
-        callback: zlib.CompressCallback,
-      ) {
-        return zlib.brotliCompress (buf, options, callback, )
-      },
-      test: /\.(ts|js|json|css|vue|html?|png|jpe?g|gif|svg|eot|ttf|woff2?|pdf|txt|csv|xlsx?)/i,
-    },
-  },
-  */
 }
 
 export default config

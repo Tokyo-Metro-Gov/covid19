@@ -305,9 +305,7 @@
         :class="$style.detailButton"
         rel="noopener noreferrer"
         >{{ $t('詳細を見る（東京都福祉保健局）') }}
-        <v-icon :class="$style.icon" size="2rem">
-          mdi-open-in-new
-        </v-icon>
+        <v-icon :class="$style.icon" size="2rem"> mdi-open-in-new </v-icon>
       </a>
     </div>
   </div>
@@ -317,15 +315,15 @@
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import VueScrollTo from 'vue-scrollto'
-import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import ExternalLink from '@/components/ExternalLink.vue'
-import FigCondSyDr from '@/static/flow/cond_sydr.svg'
-import FigCondSy from '@/static/flow/cond_sy.svg'
-import FigCondAnx from '@/static/flow/cond_anx.svg'
-import IconPhone from '@/static/flow/phone.svg'
-import IconBed from '@/static/flow/bed.svg'
+const CovidIcon = require('@/static/covid.svg?inline')
+const FigCondSyDr = require('@/static/flow/cond_sydr.svg?inline')
+const FigCondSy = require('@/static/flow/cond_sy.svg?inline')
+const FigCondAnx = require('@/static/flow/cond_anx.svg?inline')
+const IconPhone = require('@/static/flow/phone.svg?inline')
+const IconBed = require('@/static/flow/bed.svg?inline')
 
 type LocalData = {
   nav: HTMLElement | null // アンカーリンクコンテナ（フローティング対象）
