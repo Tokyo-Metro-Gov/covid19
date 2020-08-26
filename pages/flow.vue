@@ -305,7 +305,7 @@
         :class="$style.detailButton"
         rel="noopener noreferrer"
         >{{ $t('詳細を見る（東京都福祉保健局）') }}
-        <v-icon :class="$style.icon" size="2rem"> mdi-open-in-new </v-icon>
+        <v-icon :class="$style.icon" size="2rem"> {{ mdiOpenInNew }} </v-icon>
       </a>
     </div>
   </div>
@@ -339,6 +339,7 @@ type LocalData = {
   floatingOffset: number // フローティング時のオフセット量
   forceFloating: boolean // ボタン押下時の強制フローティングフラグ
   timerId: number // scrollイベントのdebounce用タイマーID
+  mdiOpenInNew: string
 }
 
 export default Vue.extend({
@@ -367,6 +368,7 @@ export default Vue.extend({
     const floatingOffset = 0
     const forceFloating = false
     const timerId = 0
+    const mdiOpenInNew = require('@mdi/js')
 
     return {
       nav,
@@ -382,6 +384,7 @@ export default Vue.extend({
       floatingOffset,
       forceFloating,
       timerId,
+      mdiOpenInNew,
     }
   },
   mounted() {
