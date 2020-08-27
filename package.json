@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.11.4",
+    "@babel/runtime-corejs3": "7.11.2",
     "@fullhuman/postcss-purgecss": "2.3.0",
     "@mdi/font": "5.5.55",
     "@nuxt/typescript-build": "2.0.2",
@@ -66,6 +67,7 @@
     "@vue/test-utils": "1.0.4",
     "autoprefixer": "9.8.6",
     "babel-jest": "26.3.0",
+    "core-js": "3.6.5",
     "eslint": "7.7.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
