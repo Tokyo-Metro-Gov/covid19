@@ -77,7 +77,7 @@ export default Vue.extend({
         return this.showIcon
       }
     },
-    _iconSize(): string | undefined {
+    _iconSize(): string {
       return `${this.iconSize / 10}rem`
     },
   },
