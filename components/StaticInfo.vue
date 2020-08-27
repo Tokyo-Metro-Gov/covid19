@@ -61,7 +61,12 @@ export default Vue.extend({
 
     > a {
       text-decoration: none;
+      color: $green-1 !important;
       @include button-text('sm');
+
+      &:hover {
+        color: $white !important;
+      }
     }
 
     @include lessThan($small) {
