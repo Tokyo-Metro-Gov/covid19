@@ -80,7 +80,7 @@ export default Vue.extend({
       // 指定がない場合、外部なら表示、内部なら表示しない
       return this.showIcon ?? this.isExternal
     },
-    _iconSize(): string | undefined {
+    _iconSize(): string {
       return `${this.iconSize / 10}rem`
     },
   },
