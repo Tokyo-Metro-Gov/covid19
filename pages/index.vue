@@ -29,7 +29,7 @@ import SiteTopUpper from '@/components/SiteTopUpper.vue'
 import CardsMonitoring from '@/components/CardsMonitoring.vue'
 import CardsReference from '@/components/CardsReference.vue'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus'
-const mdiChartTimelineVariant = require('@mdi/js')
+import { mdiChartTimelineVariant } from '@mdi/js'
 
 export default Vue.extend({
   components: {

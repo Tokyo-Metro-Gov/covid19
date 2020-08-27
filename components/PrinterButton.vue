@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import PrinterIcon from '@/static/printer.svg'
-import PrinterWhiteIcon from '@/static/printer-white.svg'
+const PrinterIcon = require('@/static/printer.svg?inline')
+const PrinterWhiteIcon = require('@/static/printer-white.svg?inline')
 
 export default {
   components: {

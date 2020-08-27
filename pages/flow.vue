@@ -318,6 +318,7 @@ import VueScrollTo from 'vue-scrollto'
 import PrinterButton from '@/components/PrinterButton.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import ExternalLink from '@/components/ExternalLink.vue'
+import { mdiOpenInNew } from '@mdi/js'
 const CovidIcon = require('@/static/covid.svg?inline')
 const FigCondSyDr = require('@/static/flow/cond_sydr.svg?inline')
 const FigCondSy = require('@/static/flow/cond_sy.svg?inline')
@@ -368,7 +369,6 @@ export default Vue.extend({
     const floatingOffset = 0
     const forceFloating = false
     const timerId = 0
-    const mdiOpenInNew = require('@mdi/js')
 
     return {
       nav,

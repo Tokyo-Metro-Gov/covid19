@@ -8,7 +8,7 @@
       role="img"
       :aria-hidden="false"
     >
-      mdi-open-in-new
+      {{ openInNew }}
     </v-icon>
   </a>
 </template>
@@ -23,6 +23,7 @@
 </style>
 <script lang="ts">
 import Vue from 'vue'
+import { mdiOpenInNew } from '@mdi/js'
 
 export default Vue.extend({
   props: {
@@ -34,6 +35,10 @@ export default Vue.extend({
       type: Number,
       default: 15,
     },
+  },
+  data() {
+    const openInNew = mdiOpenInNew
+    return { openInNew }
   },
 })
 </script>

@@ -1,9 +1,7 @@
 import { NuxtConfig } from '@nuxt/types'
 import i18n from './nuxt-i18n.config'
-const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
-// Eslint says, "no use"
-// const environment = process.env.NODE_ENV || 'development'
+const environment = process.env.NODE_ENV || 'development'
 
 const config: NuxtConfig = {
   mode: 'universal',
@@ -134,20 +132,7 @@ const config: NuxtConfig = {
   ], */
   build: {
     postcss: {
-      plugins: [
-        autoprefixer({ grid: 'autoplace' }),
-        purgecss({
-          content: [
-            '@/pages/**/*.vue',
-            '@/layouts/**/*.vue',
-            '@/components/**/*.vue',
-            'vuetify/dist/vuetify.js',
-            'vue-spinner/src/ScaleLoader.vue',
-          ],
-          whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
-          whitelistPatterns: [/(col|row)/],
-        }),
-      ],
+      plugins: [autoprefixer({ grid: 'autoplace' })],
     },
     extend(config) {
       // default externals option is undefined
@@ -155,6 +140,23 @@ const config: NuxtConfig = {
     },
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
+  },
+  purgeCSS: {
+    mode: 'postcss',
+    options: {
+      dev: environment.includes('dev'),
+    },
+    'nuxt-purgecss': {
+      content: [
+        '@/pages/**/*.vue',
+        '@/layouts/**/*.vue',
+        '@/components/**/*.vue',
+        'vuetify/dist/vuetify.js',
+        'vue-spinner/src/ScaleLoader.vue',
+      ],
+      whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
+      whitelistPatterns: [/(col|row)/],
+    },
   },
   manifest: {
     name: '東京都 新型コロナウイルス感染症対策サイト',
