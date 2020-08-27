@@ -319,12 +319,12 @@ import PrinterButton from '@/components/PrinterButton.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import ExternalLink from '@/components/ExternalLink.vue'
 import { mdiOpenInNew } from '@mdi/js'
-const CovidIcon = require('@/static/covid.svg?inline')
-const FigCondSyDr = require('@/static/flow/cond_sydr.svg?inline')
-const FigCondSy = require('@/static/flow/cond_sy.svg?inline')
-const FigCondAnx = require('@/static/flow/cond_anx.svg?inline')
-const IconPhone = require('@/static/flow/phone.svg?inline')
-const IconBed = require('@/static/flow/bed.svg?inline')
+const CovidIcon = require('@/static/covid.svg')
+const FigCondSyDr = require('@/static/flow/cond_sydr.svg')
+const FigCondSy = require('@/static/flow/cond_sy.svg')
+const FigCondAnx = require('@/static/flow/cond_anx.svg')
+const IconPhone = require('@/static/flow/phone.svg')
+const IconBed = require('@/static/flow/bed.svg')
 
 type LocalData = {
   nav: HTMLElement | null // アンカーリンクコンテナ（フローティング対象）
