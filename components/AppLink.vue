@@ -19,11 +19,15 @@
 import Vue from 'vue'
 import { isExternal } from '@/utils/urls.ts'
 
+type InternalAttr = {
+  to: String
+  class: String
+}
+
 type ExternalAttr = {
-  to?: String
-  href?: String
-  target?: String
-  rel?: String
+  href: String
+  target: String
+  rel: String
   class: String
 }
 
@@ -51,11 +55,14 @@ export default Vue.extend({
     },
   },
   computed: {
-    linkTag(): string {
-      return isExternal(this.to) ? 'a' : 'nuxt-link'
+    isExternal(): boolean {
+      return isExternal(this.to)
     },
-    attr(): ExternalAttr {
-      if (isExternal(this.to)) {
+    linkTag(): string {
+      return this.isExternal ? 'a' : 'nuxt-link'
+    },
+    attr(): ExternalAttr | InternalAttr {
+      if (this.isExternal) {
         return {
           href: this.to,
           target: '_blank',
@@ -71,11 +78,7 @@ export default Vue.extend({
     },
     _showIcon(): boolean {
       // 指定がない場合、外部なら表示、内部なら表示しない
-      if (this.showIcon == null) {
-        return isExternal(this.to)
-      } else {
-        return this.showIcon
-      }
+      return this.showIcon ?? this.isExternal
     },
     _iconSize(): string | undefined {
       return `${this.iconSize / 10}rem`
