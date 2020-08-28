@@ -1,12 +1,12 @@
 <template>
-  <app-link :to="url" class="StaticInfo">
+  <div class="StaticInfo">
     <span>{{ text }}</span>
     <div v-if="btnText" class="StaticInfo-Button">
-      <span>
+      <span :is="linkTag" v-bind="linkAttrs">
         {{ btnText }}
       </span>
     </div>
-  </app-link>
+  </div>
 </template>
 
 <script lang="ts">
@@ -18,17 +18,28 @@ export default Vue.extend({
   props: {
     url: {
       type: String,
-      default: '',
+      default: ''
     },
     text: {
       type: String,
-      default: '',
+      default: ''
     },
     btnText: {
       type: String,
-      default: '',
-    },
+      default: ''
+    }
   },
+  computed: {
+    linkTag(): string {
+      return this.isInternalLink ? 'nuxt-link' : 'a'
+    },
+    linkAttrs(): any {
+      return this.isInternalLink ? { to: `${this.url}` } : { href: this.url }
+    },
+    isInternalLink(): boolean {
+      return !/^https?:\/\//.test(this.url)
+    }
+  }
 })
 </script>
 
@@ -44,14 +55,20 @@ export default Vue.extend({
   border-radius: 4px;
   padding: 0.5em 1em;
 
-  @include text-link();
+  @include font-size(14);
 
   &-Button {
     flex: 1 0 auto;
     text-align: right;
 
-    > span {
+    > a {
+      text-decoration: none;
+      color: $green-1 !important;
       @include button-text('sm');
+
+      &:hover {
+        color: $white !important;
+      }
     }
 
     @include lessThan($small) {
