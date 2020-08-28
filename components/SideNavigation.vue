@@ -9,7 +9,7 @@
         mdi-menu
       </v-icon>
       <h1 class="SideNavigation-HeaderTitle">
-        <nuxt-link :to="`${localePath('/')}`" class="SideNavigation-HeaderLink">
+        <app-link :to="localePath('/')" class="SideNavigation-HeaderLink">
           <img
             class="SideNavigation-HeaderLogo"
             src="/logo.svg"
@@ -20,7 +20,7 @@
               $t('menu/対策サイト')
             }}
           </div>
-        </nuxt-link>
+        </app-link>
       </h1>
     </header>
 
@@ -50,72 +50,66 @@
 
       <footer class="SideNavigation-Footer">
         <div class="SideNavigation-Social">
-          <a
-            href="https://line.me/R/ti/p/%40822sysfc"
-            target="_blank"
-            rel="noopener noreferrer"
+          <app-link
+            to="https://line.me/R/ti/p/%40822sysfc"
+            :show-icon="false"
             class="SideNavigation-SocialLink"
           >
             <picture>
               <source srcset="/line.webp" type="image/webp" />
               <img src="/line.png" alt="LINE" />
             </picture>
-          </a>
-          <a
-            href="https://twitter.com/tokyo_bousai"
-            target="_blank"
-            rel="noopener noreferrer"
+          </app-link>
+          <app-link
+            to="https://twitter.com/tokyo_bousai"
+            :show-icon="false"
             class="SideNavigation-SocialLink"
           >
             <picture>
               <source srcset="/twitter.webp" type="image/webp" />
               <img src="/twitter.png" alt="Twitter" />
             </picture>
-          </a>
-          <a
-            href="https://www.facebook.com/tochokoho"
-            target="_blank"
-            rel="noopener noreferrer"
+          </app-link>
+          <app-link
+            to="https://www.facebook.com/tochokoho"
+            :show-icon="false"
             class="SideNavigation-SocialLink"
           >
             <picture>
               <source srcset="/facebook.webp" type="image/webp" />
               <img src="/facebook.png" alt="Facebook" />
             </picture>
-          </a>
-          <a
-            href="https://github.com/tokyo-metropolitan-gov/covid19"
-            target="_blank"
-            rel="noopener noreferrer"
+          </app-link>
+          <app-link
+            to="https://github.com/tokyo-metropolitan-gov/covid19"
+            :show-icon="false"
             class="SideNavigation-SocialLink"
           >
             <picture>
               <source srcset="/github.webp" type="image/webp" />
               <img src="/github.png" alt="GitHub" />
             </picture>
-          </a>
-          <a
-            href="https://www.youtube.com/user/tokyo/videos"
-            target="_blank"
-            rel="noopener noreferrer"
+          </app-link>
+          <app-link
+            to="https://www.youtube.com/user/tokyo/videos"
+            :show-icon="false"
             class="SideNavigation-SocialLink"
           >
             <picture>
               <source srcset="/youtube.webp" type="image/webp" />
               <img src="/youtube.png" alt="YouTube" />
             </picture>
-          </a>
+          </app-link>
         </div>
         <small class="SideNavigation-Copyright">
           {{ $t('このサイトの内容物は') }}
-          <a
-            :href="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
-            target="_blank"
-            rel="noopener noreferrer license"
+          <app-link
+            :to="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
+            :icon-size="12"
             class="SideNavigation-LicenseLink"
           >
             {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
-          </a>
+          </app-link>
           {{ $t('の下に提供されています。') }}
           <br />
           &copy; 2020 Tokyo Metropolitan Government
@@ -130,6 +124,7 @@ import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import LanguageSelector from '@/components/LanguageSelector.vue'
 import MenuList from '@/components/MenuList.vue'
+import AppLink from '@/components/AppLink.vue'
 
 type Item = {
   icon?: string
@@ -142,6 +137,7 @@ export default Vue.extend({
   components: {
     LanguageSelector,
     MenuList,
+    AppLink,
   },
   props: {
     isNaviOpen: {

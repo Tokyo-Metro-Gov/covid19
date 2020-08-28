@@ -1,20 +1,20 @@
 <template>
   <span :class="$style.linkButton">
-    <external-link
+    <app-link
       :class="$style.TextLink"
-      url="https://www.bousai.metro.tokyo.lg.jp/1007942/index.html"
+      to="https://www.bousai.metro.tokyo.lg.jp/1007942/index.html"
     >
       {{ $t('ロードマップについて') }}
-    </external-link>
+    </app-link>
   </span>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+import AppLink from '@/components/AppLink.vue'
 
 export default Vue.extend({
-  components: { ExternalLink },
+  components: { AppLink },
 })
 </script>
 
