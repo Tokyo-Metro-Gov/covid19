@@ -1,8 +1,6 @@
 <template>
   <span class="link-to-information-about-emergency-measure">
-    <external-link
-      url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
-    >
+    <app-link to="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html">
       <v-icon
         size="2rem"
         class="link-to-information-about-emergency-measure-icon"
@@ -10,16 +8,16 @@
         mdi-bullhorn
       </v-icon>
       {{ $t('東京都緊急事態措置について') }}
-    </external-link>
+    </app-link>
   </span>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+import AppLink from '@/components/AppLink.vue'
 
 export default Vue.extend({
-  components: { ExternalLink },
+  components: { AppLink },
 })
 </script>
 

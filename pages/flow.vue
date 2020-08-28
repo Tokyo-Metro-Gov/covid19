@@ -149,11 +149,11 @@
               <dd :class="$style.overrideExternalLink">
                 <i18n path="{publicHealthCenter}に掲載しています">
                   <template v-slot:publicHealthCenter>
-                    <external-link
-                      url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+                    <app-link
+                      to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
                     >
                       {{ $t('各保健所の電話番号は福祉保健局HP') }}
-                    </external-link>
+                    </app-link>
                   </template>
                 </i18n>
               </dd>
@@ -299,16 +299,13 @@
       </div>
     </div>
     <div :class="$style.detail">
-      <a
-        href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-        target="_blank"
+      <app-link
+        to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+        :icon-size="20"
+        :icon-class="$style.icon"
         :class="$style.detailButton"
-        rel="noopener noreferrer"
         >{{ $t('詳細を見る（東京都福祉保健局）') }}
-        <v-icon :class="$style.icon" size="2rem">
-          mdi-open-in-new
-        </v-icon>
-      </a>
+      </app-link>
     </div>
   </div>
 </template>
@@ -320,7 +317,7 @@ import VueScrollTo from 'vue-scrollto'
 import CovidIcon from '@/static/covid.svg'
 import PrinterButton from '@/components/PrinterButton.vue'
 import PageHeader from '@/components/PageHeader.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+import AppLink from '@/components/AppLink.vue'
 import FigCondSyDr from '@/static/flow/cond_sydr.svg'
 import FigCondSy from '@/static/flow/cond_sy.svg'
 import FigCondAnx from '@/static/flow/cond_anx.svg'
@@ -348,7 +345,7 @@ export default Vue.extend({
     CovidIcon,
     PrinterButton,
     PageHeader,
-    ExternalLink,
+    AppLink,
     FigCondSyDr,
     FigCondSy,
     FigCondAnx,
@@ -884,7 +881,7 @@ $margin: 20;
     &:hover {
       color: $white !important;
     }
-    > .icon {
+    .icon {
       margin-left: 2px;
       color: $green-1 !important;
     }

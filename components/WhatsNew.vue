@@ -13,12 +13,7 @@
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
-        <a
-          class="WhatsNew-list-item-anchor"
-          :href="item.url"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <app-link :to="item.url" class="WhatsNew-list-item-anchor">
           <time
             class="WhatsNew-list-item-anchor-time px-2"
             :datetime="formattedDate(item.date)"
@@ -27,15 +22,8 @@
           </time>
           <span class="WhatsNew-list-item-anchor-link">
             {{ item.text }}
-            <v-icon
-              v-if="!isInternalLink(item.url)"
-              class="WhatsNew-item-ExternalLinkIcon"
-              size="1.2rem"
-            >
-              mdi-open-in-new
-            </v-icon>
           </span>
-        </a>
+        </app-link>
       </li>
     </ul>
   </div>
@@ -44,12 +32,14 @@
 <script lang="ts">
 import Vue from 'vue'
 import LinkToInformationAboutEmergencyMeasure from '@/components/LinkToInformationAboutEmergencyMeasure.vue'
+import AppLink from '@/components/AppLink.vue'
 
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
     LinkToInformationAboutEmergencyMeasure,
+    AppLink,
   },
   props: {
     items: {
@@ -63,9 +53,6 @@ export default Vue.extend({
     },
   },
   methods: {
-    isInternalLink(path: string): boolean {
-      return !/^https?:\/\//.test(path)
-    },
     formattedDate(dateString: string) {
       return convertDateToISO8601Format(dateString)
     },

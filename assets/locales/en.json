@@ -640,5 +640,9 @@
   "{number}：急病やけがの際に、緊急受診の必要性や診察可能な医療機関をアドバイスする電話相談窓口": "{number}: telephone consultation service to advise on the necessity of emergency care and available medical institutions in case of sudden illness or injury",
   "東京都家賃等支援給付金": "Tokyo Metropolitan Rent Support Benefit",
   "事業者における家賃等の負担を軽減し、事業の継続を下支えするため、国の家賃支援給付金に独自の上乗せ給付（３ヶ月分）を実施します。": "Tokyo Metropolitan Government pays extra benefit (for 3 months) on National Rent Support Benefit to reduce a burden of house-rent or the like for businesses and uphold the business continuation.",
-  "７日間移動平均値をもとに算出": "Calculated from 7-day moving average"
+  "７日間移動平均値をもとに算出": "Calculated from 7-day moving average",
+  "○": "✔",
+  "重症基準の考え方はこちら": "Click here for severity criteria",
+  "「重症」は、人工呼吸器管理（ECMOを含む）が必要な患者数を計上。": "\"Serious symptoms\" is the number of patients who need ventilators or ECMO.",
+  "入院患者数のうち、人工呼吸器管理（ECMOを含む）が必要な患者数を計上。": "Within hospitalized patients, \"serious symptoms\" are considered to be those patients who need ventilators or ECMO."
 }
