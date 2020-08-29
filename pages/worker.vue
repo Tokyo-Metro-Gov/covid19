@@ -21,7 +21,7 @@
     </static-card>
      <static-card>
       <h3>
-        <app-link to="https://jitan.metro.tokyo.lg.jp/index.html" :icon-size="24"
+        <app-link to="https://jitan.metro.tokyo.lg.jp/" :icon-size="24"
           >{{ $t('営業時間短縮に係る感染拡大防止協力金') }}
         </app-link>
       </h3>
