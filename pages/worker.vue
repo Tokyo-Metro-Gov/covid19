@@ -21,6 +21,22 @@
     </static-card>
     <static-card>
       <h3>
+        <app-link
+          to="https://jitan.metro.tokyo.lg.jp/index.html"
+          :icon-size="24"
+          >{{ $t('営業時間短縮に係る感染拡大防止協力金') }}
+        </app-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '新型コロナウイルス感染拡大防止のため、酒類の提供を行う飲食店及びカラオケ店に対する都の営業時間短縮の要請に全面的に協力いただける中小の事業者の皆様に対し、協力金を支給します。'
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
         <app-link to="https://tokyoyachin.metro.tokyo.lg.jp" :icon-size="24"
           >{{ $t('東京都家賃等支援給付金') }}
         </app-link>
