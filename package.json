@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@nuxt/types": "2.14.3",
-    "@nuxt/typescript-runtime": "1.0.0",
+    "@nuxt/typescript-runtime": "2.0.0",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/pwa": "3.0.2",
     "@types/d3": "5.7.2",
