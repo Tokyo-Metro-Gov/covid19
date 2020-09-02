@@ -32,8 +32,8 @@
               {{ $t('新型コロナコールセンター') }}
             </td>
             <td class="tel">
-              <a href="tel:0570-550-571" class="importantContact"
-                >0570-550-571</a
+              <a href="tel:0570-550571" class="importantContact"
+                >0570-550571</a
               ><br />
               <p class="caution">
                 {{ $t(`午前9時00分から午後10時00分（土日祝含む）`) }}
