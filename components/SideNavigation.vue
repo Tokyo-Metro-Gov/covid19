@@ -190,7 +190,7 @@ export default Vue.extend({
         {
           title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
           link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1007261/index.html',
+            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1010035/index.html',
         },
         {
           title: this.$t('東京都 新型コロナウイルス感染症 支援情報ナビ'),
