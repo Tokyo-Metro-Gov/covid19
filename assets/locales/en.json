@@ -362,7 +362,7 @@
   "東京都及び国の新型コロナウイルス感染症に関する支援策の情報をまとめています。": "Support measures of the Tokyo Metropolitan Government and Japanese Government against COVID-19 are organized here.",
   "新型コロナウイルス感染拡大防止のため、都の要請や協力依頼に応じて、施設の使用停止や営業時間の短縮に全面的に協力いただける中小事業者の皆様に対し、協力金を支給いたします（支給額50万円〈2事業所以上で休業等に取り組む事業者は100万円〉）。": "Tokyo will provide aid to small and medium-sized businesses that fully cooperate with requests to close facilities or shorten business hours to prevent the spread of COVID-19. The amount is 500,000 yen (1 million yen for businesses observing these measures at 2 or more locations).",
   "東京都 新型コロナウイルス感染症 支援情報ナビ": "Tokyo CORID-19 INFORMATION NAVI",
-  "東京都感染拡大防止協力金": "Tokyo metropolis infection expansion prevention supported fund",
+  "東京都感染拡大防止協力金": "Tokyo metropolis Infection Spread Prevention Support Fund",
   "Opera 最新版": "latest version of Opera",
   "医療機関等が行った検査件数": "Number of tests conducted at medical institutions",
   "健康安全研究センター実施分": " Tests at the Tokyo Metropolitan Institute of Public Health",
@@ -502,7 +502,7 @@
   "（注）": "(Note) ",
   "休業要請緩和のステップについては、令和2年5月22日時点の状況を「ステップ0」とし、施設の特性やクラスター発生歴等から判断して、「ステップ3」までの4段階を設定し、段階的に施設の休業要請を緩和してきましたが、6月11日（木）をもって、ほぼ全ての施設の休業要請を終了しました。": "We explained that there are 4 steps to alleviate leave requests for facilities. “Step 0”, which referred to the situation as of 22nd May 2020. After that, it gradually proceeded to \"Step 3\" based on the characteristics of the facilities and the history of cluster occurrence. Now, Almost all facilities stopped unsealing from June 11 (Thursday).",
   "なお、接待を伴う飲食店等及びライブハウスについては、6月18日（木）をもって、休業要請を終了します。": "In addition, Restaurants with entertainment, and \"Gig Venues\" will stop unsealing from June 18 (Thursday).",
-  "東京都感染拡大防止協力金（第2回）": "About Tokyo Metropolitan Infection Spread Prevention Support Fund (the 2nd notice)",
+  "東京都感染拡大防止協力金（第2回）": "About Tokyo Metropolitan Infection Spread Prevention Support Fund (2nd notice)",
   "※イベントの開催に当たっては、引き続き規模に応じた制限があります。": "*All events will continue to be limited according to scale.",
   "休業要請緩和のステップについては、令和2年5月22日時点の状況を「ステップ0」とし、施設の特性やクラスター発生歴等から判断して、「ステップ3」までの4段階を設定し、段階的に施設の休業要請を緩和してきましたが、6月18日（木）をもって、全ての施設の休業要請を終了しました。": "We explained that there are 4 steps to alleviate leave requests for facilities. “Step 0”, which referred to the situation as of 22nd May 2020. After that, it gradually proceeded to \"Step 3\" based on the characteristics of the facilities and the history of cluster occurrence. Now, All facilities stopped unsealing Thursday, 18th June.",
   "施設別休止要請について": "About requests for closing facilities from Tokyo Metropolitan Government",
@@ -640,5 +640,11 @@
   "{number}：急病やけがの際に、緊急受診の必要性や診察可能な医療機関をアドバイスする電話相談窓口": "{number}: telephone consultation service to advise on the necessity of emergency care and available medical institutions in case of sudden illness or injury",
   "東京都家賃等支援給付金": "Tokyo Metropolitan Rent Support Benefit",
   "事業者における家賃等の負担を軽減し、事業の継続を下支えするため、国の家賃支援給付金に独自の上乗せ給付（３ヶ月分）を実施します。": "Tokyo Metropolitan Government pays extra benefit (for 3 months) on National Rent Support Benefit to reduce a burden of house-rent or the like for businesses and uphold the business continuation.",
-  "７日間移動平均値をもとに算出": "Calculated from 7-day moving average"
+  "７日間移動平均値をもとに算出": "Calculated from 7-day moving average",
+  "○": "✔",
+  "重症基準の考え方はこちら": "Click here for severity criteria",
+  "「重症」は、人工呼吸器管理（ECMOを含む）が必要な患者数を計上。": "\"Serious symptoms\" is the number of patients who need ventilators or ECMO.",
+  "入院患者数のうち、人工呼吸器管理（ECMOを含む）が必要な患者数を計上。": "Within hospitalized patients, \"serious symptoms\" are considered to be those patients who need ventilators or ECMO.",
+  "新型コロナウイルス感染拡大防止のため、酒類の提供を行う飲食店及びカラオケ店に対する都の営業時間短縮の要請に全面的に協力いただける中小の事業者の皆様に対し、協力金を支給します。": "Tokyo will provide aid by fund to small and medium-sized businesses with restaurants and karaoke stores that provide alcoholic that fully cooperate requests to shorten business hours to prevent the spread of COVID-19. ",
+  "営業時間短縮に係る感染拡大防止協力金": "Infection Spread Prevention Support Fund for shorten the amount of business hour"
 }

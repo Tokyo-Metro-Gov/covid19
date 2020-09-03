@@ -22,20 +22,20 @@
     <template v-slot:footer>
       <ul>
         <li>
-          <external-link
-            url="https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf"
+          <app-link
+            to="https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf"
           >
             {{ $t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）[PDF]') }}
-          </external-link>
+          </app-link>
         </li>
         <li>
-          <external-link url="https://corona.go.jp/">
+          <app-link to="https://corona.go.jp/">
             {{
               $t(
                 '主要駅の改札通過人数の推移（東京、新宿、渋谷、池袋ほか）[内閣官房HP]（ページ下部）'
               )
             }}
-          </external-link>
+          </app-link>
         </li>
       </ul>
     </template>
@@ -47,12 +47,12 @@ import { Chart, ChartData, ChartOptions } from 'chart.js'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
+import AppLink from '@/components/AppLink.vue'
 import DataView from '@/components/DataView.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
 import { DisplayData } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle } from '@/utils/colors'
 
@@ -92,7 +92,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataViewTable, ExternalLink },
+  components: { DataView, DataViewTable, AppLink },
   props: {
     title: {
       type: String,

@@ -62,12 +62,12 @@
           />
         </section>
         <div>
-          <external-link
+          <app-link
             :class="$style.button"
-            url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
           >
             {{ $t('最新のモニタリング項目の分析・総括コメントについて') }}
-          </external-link>
+          </app-link>
         </div>
       </data-view>
     </client-only>
@@ -75,8 +75,8 @@
 </template>
 
 <script>
+import AppLink from '@/components/AppLink.vue'
 import DataView from '@/components/DataView.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
 import MonitoringItemsOverviewTableInfectionStatus from '@/components/MonitoringItemsOverviewTableInfectionStatus.vue'
 import MonitoringItemsOverviewTableMedicalSystem from '@/components/MonitoringItemsOverviewTableMedicalSystem.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'
@@ -87,7 +87,7 @@ export default {
     DataView,
     MonitoringItemsOverviewTableInfectionStatus,
     MonitoringItemsOverviewTableMedicalSystem,
-    ExternalLink,
+    AppLink,
   },
   data() {
     const monitoringItems = formatMonitoringItems(monitoringItemsData.data)

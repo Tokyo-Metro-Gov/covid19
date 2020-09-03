@@ -1,18 +1,20 @@
 <template>
-  <component :is="linkTag" v-bind="linkAttrs">
+  <div class="StaticInfo">
     <span>{{ text }}</span>
     <div v-if="btnText" class="StaticInfo-Button">
-      <span>
+      <app-link :to="url" class="StaticInfo">
         {{ btnText }}
-      </span>
+      </app-link>
     </div>
-  </component>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import AppLink from '@/components/AppLink.vue'
 
 export default Vue.extend({
+  components: { AppLink },
   props: {
     url: {
       type: String,
@@ -25,19 +27,6 @@ export default Vue.extend({
     btnText: {
       type: String,
       default: '',
-    },
-  },
-  computed: {
-    linkTag(): string {
-      return this.isInternalLink ? 'nuxt-link' : 'a'
-    },
-    linkAttrs(): any {
-      return this.isInternalLink
-        ? { to: `${this.url}`, class: 'StaticInfo' }
-        : { href: this.url, class: 'StaticInfo' }
-    },
-    isInternalLink(): boolean {
-      return !/^https?:\/\//.test(this.url)
     },
   },
 })
@@ -55,14 +44,20 @@ export default Vue.extend({
   border-radius: 4px;
   padding: 0.5em 1em;
 
-  @include text-link();
+  @include font-size(14);
 
   &-Button {
     flex: 1 0 auto;
     text-align: right;
 
-    > span {
+    > a {
+      text-decoration: none;
+      color: $green-1 !important;
       @include button-text('sm');
+
+      &:hover {
+        color: $white !important;
+      }
     }
 
     @include lessThan($small) {
