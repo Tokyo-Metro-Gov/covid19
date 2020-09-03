@@ -123,9 +123,9 @@
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 
+import AppLink from '@/components/AppLink.vue'
 import LanguageSelector from '@/components/LanguageSelector.vue'
 import MenuList from '@/components/MenuList.vue'
-import AppLink from '@/components/AppLink.vue'
 
 type Item = {
   icon?: string

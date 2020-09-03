@@ -38,10 +38,10 @@
 </template>
 
 <script>
+import AppLink from '@/components/AppLink.vue'
 import SevereCaseBarChart from '@/components/SevereCaseBarChart.vue'
 import Data from '@/data/positive_status.json'
 import { convertDateToISO8601Format } from '@/utils/formatDate.ts'
-import AppLink from '@/components/AppLink.vue'
 
 export default {
   components: {
