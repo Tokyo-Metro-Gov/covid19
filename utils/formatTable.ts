@@ -17,8 +17,8 @@ const headers: Header[] = [
 
 type DataType = {
   公表_年月日: string
-  患者_居住地: string | null
-  患者_年代: string | null
+  患者_居住地: string | undefined
+  患者_年代: string | undefined
   患者_性別: '男性' | '女性' | string
   退院済フラグ: number | undefined
   [key: string]: any
