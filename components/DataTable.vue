@@ -57,19 +57,17 @@
           }}
         </template>
       </v-data-table>
-      <template v-slot:additionalDescription>
-        <ul class="ListStyleNone">
-          <li>
-            {{
-              $t('※退院は、保健所から報告があり、確認ができているものを反映')
-            }}
-          </li>
-          <li>
-            {{ $t('※死亡退院を含む') }}
-          </li>
-        </ul>
-      </template>
     </v-layout>
+    <template v-slot:additionalDescription>
+      <ul class="ListStyleNone">
+        <li>
+          {{ $t('※退院は、保健所から報告があり、確認ができているものを反映') }}
+        </li>
+        <li>
+          {{ $t('※死亡退院を含む') }}
+        </li>
+      </ul>
+    </template>
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="info.lText"
