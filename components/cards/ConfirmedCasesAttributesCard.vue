@@ -34,9 +34,6 @@ export default {
   },
   data() {
     const patientSummary = Data.patients_summary
-    const patients = Data.patients
-    const { date } = patients
-
     // 感染者数グラフ
     const patientsGraph = formatGraph(patientSummary.data)
     // 日付
@@ -59,7 +56,7 @@ export default {
       patientsTable: {},
       dataLength,
       sumInfoOfPatients,
-      date,
+      date: '',
       loaded: false,
       error: false,
       errormsg: '',
@@ -120,6 +117,7 @@ export default {
           )
           this.endCursor = responseJson[1].endCursor
           this.getpatientsTableByPageNumber()
+          this.date = responseJson[1].updated
           this.loaded = true
         })
         .catch((error) => {

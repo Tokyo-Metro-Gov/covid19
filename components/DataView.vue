@@ -109,7 +109,7 @@ export default Vue.extend({
       return convertDatetimeToISO8601Format(this.date)
     },
     formattedDateForDisplay(): string {
-      return this.$d(new Date(this.date), 'dateTime')
+      return this.date !== '' ? this.$d(new Date(this.date), 'dateTime') : ''
     },
     permalink(): string {
       const permalink = `/cards/${this.titleId}`
