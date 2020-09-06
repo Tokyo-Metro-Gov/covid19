@@ -128,11 +128,15 @@ export default Vue.extend({
           property: 'og:title',
           content: this.headTitle ? this.headTitle : this.title,
         },
-        { hid: 'description', name: 'description', content: this.date },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.formattedDateForDisplay,
+        },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.date,
+          content: this.formattedDateForDisplay,
         },
       ],
     }
