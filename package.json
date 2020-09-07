@@ -42,7 +42,7 @@
     "axe-core": "4.0.1",
     "chart.js": "2.9.3",
     "cross-env": "7.0.2",
-    "dayjs": "1.8.34",
+    "dayjs": "1.8.35",
     "express": "4.17.1",
     "nuxt": "2.14.3",
     "nuxt-i18n": "6.13.12",
@@ -53,7 +53,7 @@
     "vue-spinner": "1.0.4"
   },
   "devDependencies": {
-    "@babel/core": "7.11.5",
+    "@babel/core": "7.11.6",
     "@babel/runtime-corejs3": "7.11.2",
     "@fullhuman/postcss-purgecss": "2.3.0",
     "@mdi/font": "5.5.55",
@@ -71,6 +71,7 @@
     "eslint": "7.7.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
     "eslint-plugin-tsdoc": "0.2.6",
     "husky": "4.2.5",
     "jest": "26.4.2",

@@ -33,12 +33,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MetaInfo, LinkPropertyHref } from 'vue-meta'
+import { LinkPropertyHref, MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
-import Data from '@/data/data.json'
-import SideNavigation from '@/components/SideNavigation.vue'
-import NoScript from '@/components/NoScript.vue'
+
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
+import NoScript from '@/components/NoScript.vue'
+import SideNavigation from '@/components/SideNavigation.vue'
+import Data from '@/data/data.json'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 

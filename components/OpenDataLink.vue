@@ -14,6 +14,7 @@
 </style>
 <script lang="ts">
 import Vue from 'vue'
+
 import AppLink from '@/components/AppLink.vue'
 
 export default Vue.extend({

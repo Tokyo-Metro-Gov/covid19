@@ -71,9 +71,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import StaticCard from '@/components/StaticCard.vue'
-import PageHeader from '@/components/PageHeader.vue'
+
 import AppLink from '@/components/AppLink.vue'
+import PageHeader from '@/components/PageHeader.vue'
+import StaticCard from '@/components/StaticCard.vue'
 
 export default Vue.extend({
   components: {

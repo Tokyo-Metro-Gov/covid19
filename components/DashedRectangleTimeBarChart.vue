@@ -56,30 +56,30 @@
 </template>
 
 <script lang="ts">
+import { Chart } from 'chart.js'
+import dayjs from 'dayjs'
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { Chart } from 'chart.js'
-import dayjs from 'dayjs'
-import { GraphDataType } from '@/utils/formatGraph'
+
 import DataView from '@/components/DataView.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
-import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
-import ScrollableChart from '@/components/ScrollableChart.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
 import {
-  DisplayData,
   DataSets,
   DataSetsPoint,
+  DisplayData,
   yAxesBgPlugin,
 } from '@/plugins/vue-chart'
-
 import { getGraphSeriesStyle } from '@/utils/colors'
-import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 import { getComplementedDate } from '@/utils/formatDate'
+import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
+import { GraphDataType } from '@/utils/formatGraph'
 
 type Data = {
   dataKind: 'transition'
