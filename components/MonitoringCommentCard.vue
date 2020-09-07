@@ -53,6 +53,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 import AppLink from '@/components/AppLink.vue'
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
 import monitoringItems from '@/data/monitoring_items.json'

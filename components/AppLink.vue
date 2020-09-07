@@ -17,6 +17,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 import { isExternal } from '@/utils/urls.ts'
 
 type InternalAttr = {

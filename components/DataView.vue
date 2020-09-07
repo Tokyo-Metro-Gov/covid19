@@ -80,10 +80,11 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+
+import AppLink from '@/components/AppLink.vue'
 import DataViewExpantionPanel from '@/components/DataViewExpantionPanel.vue'
 import DataViewShare from '@/components/DataViewShare.vue'
-import AppLink from '@/components/AppLink.vue'
+import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: { DataViewExpantionPanel, DataViewShare, AppLink },

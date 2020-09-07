@@ -24,6 +24,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 import EarthIcon from '@/static/earth.svg'
 import SelectMenuIcon from '@/static/selectmenu.svg'
 

@@ -43,17 +43,18 @@
 </template>
 
 <script lang="ts">
+import { Chart, ChartData, ChartOptions } from 'chart.js'
 import Vue from 'vue'
-import { ChartOptions, ChartData, Chart } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+
+import AppLink from '@/components/AppLink.vue'
 import DataView from '@/components/DataView.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
-import { getGraphSeriesStyle } from '@/utils/colors'
-import AppLink from '@/components/AppLink.vue'
 import { DisplayData } from '@/plugins/vue-chart'
+import { getGraphSeriesStyle } from '@/utils/colors'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T

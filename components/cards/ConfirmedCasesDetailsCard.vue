@@ -44,11 +44,12 @@
 
 <script>
 import dayjs from 'dayjs'
+
+import AppLink from '@/components/AppLink.vue'
+import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
+import DataView from '@/components/DataView.vue'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
-import DataView from '@/components/DataView.vue'
-import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
-import AppLink from '@/components/AppLink.vue'
 
 export default {
   components: {

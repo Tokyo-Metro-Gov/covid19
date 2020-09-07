@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import AgencyData from '@/data/agency.json'
 import AgencyBarChart from '@/components/AgencyBarChart.vue'
+import AgencyData from '@/data/agency.json'
 import { getComplementedDate } from '@/utils/formatDate'
 
 export default {
