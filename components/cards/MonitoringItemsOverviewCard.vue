@@ -75,12 +75,12 @@
 </template>
 
 <script>
-import monitoringItemsData from '@/data/monitoring_items.json'
-import formatMonitoringItems from '@/utils/formatMonitoringItems'
+import AppLink from '@/components/AppLink.vue'
 import DataView from '@/components/DataView.vue'
 import MonitoringItemsOverviewTableInfectionStatus from '@/components/MonitoringItemsOverviewTableInfectionStatus.vue'
 import MonitoringItemsOverviewTableMedicalSystem from '@/components/MonitoringItemsOverviewTableMedicalSystem.vue'
-import AppLink from '@/components/AppLink.vue'
+import monitoringItemsData from '@/data/monitoring_items.json'
+import formatMonitoringItems from '@/utils/formatMonitoringItems'
 
 export default {
   components: {

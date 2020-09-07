@@ -14,6 +14,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 import AppLink from '@/components/AppLink.vue'
 import AntennaIcon from '@/static/antenna.svg'
 

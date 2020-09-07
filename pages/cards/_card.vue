@@ -3,7 +3,7 @@
 </template>
 
 <script>
-// NOTE: 以下，ブラウザでの表示順に合わせて component を import する
+/* eslint-disable simple-import-sort/sort -- ブラウザでの表示順に合わせて各 card の component を import する */
 // ---- モニタリング項目
 // 検査陽性者の状況
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
@@ -44,6 +44,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvi
 import MetroCard from '@/components/cards/MetroCard.vue'
 // 都庁来庁者数の推移
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+/* eslint-enable simple-import-sort/sort */
 
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 

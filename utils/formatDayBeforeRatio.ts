@@ -1,4 +1,5 @@
 import Vue from 'vue'
+
 import { DisplayData } from '@/plugins/vue-chart'
 import { getDayjsObject } from '@/utils/formatDate'
 import { getCommaSeparatedNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'

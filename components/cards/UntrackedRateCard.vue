@@ -51,8 +51,8 @@
 </template>
 
 <script>
-import Data from '@/data/daily_positive_detail.json'
 import UntrackedRateMixedChart from '@/components/UntrackedRateMixedChart'
+import Data from '@/data/daily_positive_detail.json'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
