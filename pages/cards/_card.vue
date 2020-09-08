@@ -145,21 +145,28 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          template: (title) => `${this.title || title} | ${defaultTitle}`,
+          template: (title) =>
+            title !== ''
+              ? `${this.title || title} | ${defaultTitle}`
+              : `${defaultTitle}`,
           content: '',
         },
         {
           hid: 'description',
           name: 'description',
           template: (updatedAt) =>
-            `${this.updatedAt || updatedAt} | ${description}`,
+            updatedAt !== ''
+              ? `${this.updatedAt || updatedAt} | ${description}`
+              : `${description}`,
           content: '',
         },
         {
           hid: 'og:description',
           property: 'og:description',
           template: (updatedAt) =>
-            `${this.updatedAt || updatedAt} | ${description}`,
+            updatedAt !== ''
+              ? `${this.updatedAt || updatedAt} | ${description}`
+              : `${description}`,
           content: '',
         },
         {
