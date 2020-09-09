@@ -12400,10 +12400,10 @@ vue-analytics@^5.22.1:
   resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.22.1.tgz#9d6b32da56daee1b9dfb23a267b50349a03f710f"
   integrity sha512-HPKQMN7gfcUqS5SxoO0VxqLRRSPkG1H1FqglsHccz6BatBatNtm/Vyy8brApktZxNCfnAkrSVDpxg3/FNDeOgQ==
 
-vue-axe@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/vue-axe/-/vue-axe-2.4.0.tgz#d271d5267ab2e799d825f39026960680713f1be4"
-  integrity sha512-5U231G1piMhLZsjy5ezZCBogx3bCN2wb24wR6hilhTz0wygJ+xOs1pnTRjx3HkASoTLduhj/dYQhrvcn65d7Kw==
+vue-axe@2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/vue-axe/-/vue-axe-2.4.1.tgz#000317d8c3087cff3b5eaf0eb619f0d8eda2325f"
+  integrity sha512-3G+sz5dB2UFzFCVFTwBL+sLb+XtGvMysZQQZWGYBNpraEvSiJ6iOlcSpeMcFelM60dPuOxexal1OQrAkb6jadg==
 
 vue-chartjs@3.5.1:
   version "3.5.1"
