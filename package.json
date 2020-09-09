@@ -71,7 +71,7 @@
     "eslint": "7.7.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
-    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "eslint-plugin-simple-import-sort": "5.0.3",
     "eslint-plugin-tsdoc": "0.2.6",
     "husky": "4.2.5",
     "jest": "26.4.2",
