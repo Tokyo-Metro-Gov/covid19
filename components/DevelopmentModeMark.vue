@@ -7,32 +7,6 @@
   </div>
 </template>
 
-<style lang="scss">
-.DevelopmentModeMark {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 20px;
-  text-align: center;
-  background-color: #ffe200;
-  color: #4d4d4d;
-  line-height: 20px;
-  opacity: 0.9;
-  @include font-size(12);
-
-  // mobile view
-  @include lessThan($small) {
-    height: 40px;
-
-    a {
-      display: block;
-    }
-  }
-}
-</style>
-
 <script>
 import AppLink from '@/components/AppLink.vue'
 
@@ -58,3 +32,29 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.DevelopmentModeMark {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  background-color: #ffe200;
+  color: #4d4d4d;
+  line-height: 20px;
+  opacity: 0.9;
+  @include font-size(12);
+
+  // mobile view
+  @include lessThan($small) {
+    height: 40px;
+
+    a {
+      display: block;
+    }
+  }
+}
+</style>

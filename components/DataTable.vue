@@ -61,6 +61,75 @@
   </data-view>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+
+import DataView from '@/components/DataView.vue'
+import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
+
+export default Vue.extend({
+  components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
+  props: {
+    title: {
+      type: String,
+      default: '',
+    },
+    titleId: {
+      type: String,
+      default: '',
+    },
+    chartData: {
+      type: Object,
+      default: () => {},
+    },
+    date: {
+      type: String,
+      default: '',
+    },
+    info: {
+      type: Object,
+      default: () => {},
+    },
+    url: {
+      type: String,
+      default: '',
+    },
+    customSort: {
+      type: Function,
+      default(items: Object[], index: string[], isDesc: boolean[]) {
+        items.sort((a: any, b: any) => {
+          let comparison = 0
+          if (String(a[index[0]]) < String(b[index[0]])) {
+            comparison = -1
+          } else if (String(b[index[0]]) < String(a[index[0]])) {
+            comparison = 1
+          }
+          // a と b が等しい場合は上記のif文を両方とも通過するので 0 のままとなる
+
+          // 降順指定の場合は符号を反転
+          if (comparison !== 0) {
+            comparison = isDesc[0] ? comparison * -1 : comparison
+          }
+          return comparison
+        })
+        return items
+      },
+    },
+  },
+  mounted() {
+    const vTables = this.$refs.displayedTable as Vue
+    const vTableElement = vTables.$el
+    const tables = vTableElement.querySelectorAll('table')
+    // NodeListをIE11でforEachするためのワークアラウンド
+    const nodes = Array.prototype.slice.call(tables, 0)
+    nodes.forEach((table: HTMLElement) => {
+      table.setAttribute('tabindex', '0')
+    })
+  },
+})
+</script>
+
 <style lang="scss">
 .cardTable {
   &.v-data-table {
@@ -131,72 +200,3 @@
   font-size: 1.5rem;
 }
 </style>
-
-<script lang="ts">
-import Vue from 'vue'
-
-import DataView from '@/components/DataView.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import OpenDataLink from '@/components/OpenDataLink.vue'
-
-export default Vue.extend({
-  components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
-    titleId: {
-      type: String,
-      default: '',
-    },
-    chartData: {
-      type: Object,
-      default: () => {},
-    },
-    date: {
-      type: String,
-      default: '',
-    },
-    info: {
-      type: Object,
-      default: () => {},
-    },
-    url: {
-      type: String,
-      default: '',
-    },
-    customSort: {
-      type: Function,
-      default(items: Object[], index: string[], isDesc: boolean[]) {
-        items.sort((a: any, b: any) => {
-          let comparison = 0
-          if (String(a[index[0]]) < String(b[index[0]])) {
-            comparison = -1
-          } else if (String(b[index[0]]) < String(a[index[0]])) {
-            comparison = 1
-          }
-          // a と b が等しい場合は上記のif文を両方とも通過するので 0 のままとなる
-
-          // 降順指定の場合は符号を反転
-          if (comparison !== 0) {
-            comparison = isDesc[0] ? comparison * -1 : comparison
-          }
-          return comparison
-        })
-        return items
-      },
-    },
-  },
-  mounted() {
-    const vTables = this.$refs.displayedTable as Vue
-    const vTableElement = vTables.$el
-    const tables = vTableElement.querySelectorAll('table')
-    // NodeListをIE11でforEachするためのワークアラウンド
-    const nodes = Array.prototype.slice.call(tables, 0)
-    nodes.forEach((table: HTMLElement) => {
-      table.setAttribute('tabindex', '0')
-    })
-  },
-})
-</script>
