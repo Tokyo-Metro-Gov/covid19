@@ -4,14 +4,6 @@
   </app-link>
 </template>
 
-<style lang="scss">
-.OpenDataLink {
-  text-decoration: none;
-  .ExternalLinkIcon {
-    vertical-align: text-bottom;
-  }
-}
-</style>
 <script lang="ts">
 import Vue from 'vue'
 
@@ -27,3 +19,12 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss">
+.OpenDataLink {
+  text-decoration: none;
+  .ExternalLinkIcon {
+    vertical-align: text-bottom;
+  }
+}
+</style>
