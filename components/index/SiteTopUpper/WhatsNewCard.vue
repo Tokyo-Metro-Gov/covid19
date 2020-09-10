@@ -32,7 +32,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import AppLink from '@/components/AppLink.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
 import LinkToInformationAboutEmergencyMeasure from '@/components/index/SiteTopUpper/WhatsNew/LinkToInformationAboutEmergencyMeasure.vue'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 

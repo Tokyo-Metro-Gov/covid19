@@ -45,7 +45,7 @@
 <script>
 import dayjs from 'dayjs'
 
-import AppLink from '@/components/AppLink.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
 import DataView from '@/components/DataView.vue'
 import ConfirmedCasesDetailsStackedTable from '@/components/index/CardsMonitoring/ConfirmedCasesDetails/StackedTable.vue'
 import Data from '@/data/data.json'

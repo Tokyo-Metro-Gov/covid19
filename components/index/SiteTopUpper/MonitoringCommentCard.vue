@@ -54,7 +54,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import AppLink from '@/components/AppLink.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
 import Frame from '@/components/index/SiteTopUpper/MonitoringComment/Frame.vue'
 import monitoringItems from '@/data/monitoring_items.json'
 

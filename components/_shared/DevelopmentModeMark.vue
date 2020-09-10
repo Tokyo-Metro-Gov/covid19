@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import AppLink from '@/components/AppLink.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
 
 export default {
   name: 'DevelopmentModeMark',
