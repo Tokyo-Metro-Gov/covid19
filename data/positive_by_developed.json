@@ -1,6 +1,6 @@
 {
-    "date": "2020\/9\/9 19:30",
-    "unknown_count": 7766,
+    "date": "2020\/9\/10 19:30",
+    "unknown_count": 7879,
     "data": [
         {
             "developed_date": "2020-01-14",
@@ -756,7 +756,7 @@
         },
         {
             "developed_date": "2020-07-20",
-            "count": 209
+            "count": 210
         },
         {
             "developed_date": "2020-07-21",
@@ -776,7 +776,7 @@
         },
         {
             "developed_date": "2020-07-25",
-            "count": 179
+            "count": 180
         },
         {
             "developed_date": "2020-07-26",
@@ -792,7 +792,7 @@
         },
         {
             "developed_date": "2020-07-29",
-            "count": 198
+            "count": 200
         },
         {
             "developed_date": "2020-07-30",
@@ -880,7 +880,7 @@
         },
         {
             "developed_date": "2020-08-20",
-            "count": 105
+            "count": 106
         },
         {
             "developed_date": "2020-08-21",
@@ -904,11 +904,11 @@
         },
         {
             "developed_date": "2020-08-26",
-            "count": 90
+            "count": 91
         },
         {
             "developed_date": "2020-08-27",
-            "count": 82
+            "count": 83
         },
         {
             "developed_date": "2020-08-28",
@@ -916,47 +916,51 @@
         },
         {
             "developed_date": "2020-08-29",
-            "count": 84
+            "count": 86
         },
         {
             "developed_date": "2020-08-30",
-            "count": 65
-        },
-        {
-            "developed_date": "2020-08-31",
-            "count": 81
-        },
-        {
-            "developed_date": "2020-09-01",
-            "count": 88
-        },
-        {
-            "developed_date": "2020-09-02",
             "count": 67
         },
         {
+            "developed_date": "2020-08-31",
+            "count": 88
+        },
+        {
+            "developed_date": "2020-09-01",
+            "count": 96
+        },
+        {
+            "developed_date": "2020-09-02",
+            "count": 75
+        },
+        {
             "developed_date": "2020-09-03",
-            "count": 57
+            "count": 72
         },
         {
             "developed_date": "2020-09-04",
-            "count": 52
+            "count": 78
         },
         {
             "developed_date": "2020-09-05",
-            "count": 43
+            "count": 62
         },
         {
             "developed_date": "2020-09-06",
-            "count": 21
+            "count": 55
         },
         {
             "developed_date": "2020-09-07",
-            "count": 12
+            "count": 30
         },
         {
             "developed_date": "2020-09-08",
-            "count": 5
+            "count": 12
+        },
+        {
+            "developed_date": "2020-09-09",
+            "count": 10
         }
     ]
 }
