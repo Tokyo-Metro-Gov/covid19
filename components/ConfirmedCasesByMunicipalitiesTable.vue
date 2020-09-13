@@ -27,6 +27,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 

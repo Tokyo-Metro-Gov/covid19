@@ -8,6 +8,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
+
 import { Unit } from '@/utils/formatMonitoringItems'
 
 export default Vue.extend({

@@ -81,81 +81,6 @@
   </data-view>
 </template>
 
-<style lang="scss">
-.cardTable {
-  &.v-data-table {
-    th {
-      padding: 8px 10px !important;
-      height: auto !important;
-      border-bottom: 1px solid $gray-4 !important;
-      color: $gray-2 !important;
-      @include font-size(12, true);
-
-      &.text-center {
-        text-align: center;
-      }
-    }
-
-    tbody {
-      tr {
-        color: $gray-1;
-        th {
-          font-weight: normal;
-        }
-        td {
-          padding: 8px 10px !important;
-          height: auto !important;
-          @include font-size(12, true);
-
-          &.text-center {
-            text-align: center;
-          }
-        }
-
-        &:nth-child(odd) {
-          th,
-          td {
-            background: rgba($gray-4, 0.3);
-          }
-        }
-      }
-    }
-    .v-select {
-      margin-left: 10px;
-    }
-    &:focus {
-      outline: dotted $gray-3 1px;
-    }
-  }
-  .v-data-table__wrapper {
-    box-shadow: 0 -20px 12px -12px #0003 inset;
-  }
-  .v-data-footer {
-    @include font-size(12);
-    &__pagination {
-      margin-left: 0;
-      margin-right: 5px;
-    }
-  }
-  .v-data-footer__select .v-select__selections .v-select__selection--comma {
-    font-size: 1.2rem;
-  }
-}
-.v-menu__content {
-  width: 80px;
-  .v-list-item {
-    padding: 0 8px;
-  }
-}
-.v-list-item__title {
-  font-size: 1.5rem;
-}
-
-.loading {
-  visibility: hidden;
-}
-</style>
-
 <script lang="ts">
 import Vue from 'vue'
 import DataView from '@/components/DataView.vue'
@@ -234,3 +159,78 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss">
+.cardTable {
+  &.v-data-table {
+    th {
+      padding: 8px 10px !important;
+      height: auto !important;
+      border-bottom: 1px solid $gray-4 !important;
+      color: $gray-2 !important;
+      @include font-size(12, true);
+
+      &.text-center {
+        text-align: center;
+      }
+    }
+
+    tbody {
+      tr {
+        color: $gray-1;
+        th {
+          font-weight: normal;
+        }
+        td {
+          padding: 8px 10px !important;
+          height: auto !important;
+          @include font-size(12, true);
+
+          &.text-center {
+            text-align: center;
+          }
+        }
+
+        &:nth-child(odd) {
+          th,
+          td {
+            background: rgba($gray-4, 0.3);
+          }
+        }
+      }
+    }
+    .v-select {
+      margin-left: 10px;
+    }
+    &:focus {
+      outline: dotted $gray-3 1px;
+    }
+  }
+  .v-data-table__wrapper {
+    box-shadow: 0 -20px 12px -12px #0003 inset;
+  }
+  .v-data-footer {
+    @include font-size(12);
+    &__pagination {
+      margin-left: 0;
+      margin-right: 5px;
+    }
+  }
+  .v-data-footer__select .v-select__selections .v-select__selection--comma {
+    font-size: 1.2rem;
+  }
+}
+.v-menu__content {
+  width: 80px;
+  .v-list-item {
+    padding: 0 8px;
+  }
+}
+.v-list-item__title {
+  font-size: 1.5rem;
+}
+
+.loading {
+  visibility: hidden;
+}
+</style>

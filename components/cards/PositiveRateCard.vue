@@ -76,12 +76,13 @@
 <script>
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
-import PositiveRate from '@/data/positive_rate.json'
+
 import PositiveRateMixedChart from '@/components/PositiveRateMixedChart'
+import PositiveRate from '@/data/positive_rate.json'
 import {
+  getCommaSeparatedNumberToFixedFunction,
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
-  getCommaSeparatedNumberToFixedFunction,
 } from '@/utils/monitoringStatusValueFormatters'
 dayjs.extend(duration)
 

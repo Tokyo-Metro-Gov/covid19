@@ -28,8 +28,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+
 import { getDayjsObject } from '@/utils/formatDate'
 
 export type TableHeader = {

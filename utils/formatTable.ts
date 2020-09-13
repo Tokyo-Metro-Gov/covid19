@@ -1,5 +1,5 @@
-import Vue from 'vue'
 import dayjs from 'dayjs'
+import Vue from 'vue'
 
 type Header = {
   text: string
