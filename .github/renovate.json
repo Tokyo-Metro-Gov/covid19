@@ -8,8 +8,8 @@
     },
     "packageRules": [
         {
-            "updateTypes": ["minor", "patch", "pin", "digest"],
-            "automerge": false
+            "updateTypes": ["patch"],
+            "automerge": true
         }
     ]
 }
