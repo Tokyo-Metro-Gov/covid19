@@ -64,7 +64,10 @@ const config: NuxtConfig = {
   /*
    ** Global CSS
    */
-  css: ['@/assets/global.scss'],
+  css: ['~assets/global.scss'],
+  styleResources: {
+    scss: ['@/assets/*.scss'],
+  },
   /*
    ** Plugins to load before mounting the App
    */
@@ -102,6 +105,7 @@ const config: NuxtConfig = {
     'nuxt-svg-loader',
     'nuxt-purgecss',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
+    '@nuxtjs/style-resources',
   ],
   /*
    ** vuetify module configuration
