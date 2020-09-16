@@ -125,8 +125,8 @@ const config: NuxtConfig = {
   },
   publicRuntimeConfig: {
     gtm: {
-      id: process.env.GTM_CONTAINER_ID
-    }
+      id: process.env.GTM_CONTAINER_ID,
+    },
   },
   /*
    * nuxt-i18n による自動リダイレクトを停止したためコメントアウト
