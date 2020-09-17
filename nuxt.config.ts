@@ -120,13 +120,9 @@ const config: NuxtConfig = {
    ** @nuxtjs/gtm config
    */
   gtm: {
+    id: process.env.GTM_CONTAINER_ID,
     pageTracking: true,
     enabled: true,
-  },
-  publicRuntimeConfig: {
-    gtm: {
-      id: process.env.GTM_CONTAINER_ID,
-    },
   },
   /*
    * nuxt-i18n による自動リダイレクトを停止したためコメントアウト
