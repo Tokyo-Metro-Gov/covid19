@@ -174,6 +174,8 @@ Tokyo Covid-19 response site contributors
 | goki90210 | [@goki90210](https://github.com/goki90210) | | Coding, Code Reviewer |
 | Yu Muramatsu | [@Murayu0225](https://github.com/Murayu0225) | | Coding |
 | Pichu Chen ( g0v.tw / TIH.tw ) | [@PichuChen](https://github.com/PichuChen) | [@PichuChen](https://twitter.com/PichuChen) | i18n, Document Translation (zh-tw) |
+| [Masatoshi Ishihara](https://huxiin.ga/) | [@jSm449g4d](https://github.com/jSm449g4d) | | Kaizen |
+| Shoichiro Kawauchi | [@lacrosse91](https://github.com/lacrosse91) | | Coding |
 
 ご協力に感謝です！！！
 
