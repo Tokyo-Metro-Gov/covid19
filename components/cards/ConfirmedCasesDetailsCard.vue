@@ -37,6 +37,14 @@
           :aria-label="$t('検査陽性者の状況')"
           v-bind="confirmedCases"
         />
+        <div>
+          <app-link
+            :class="$style.button"
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/shibou.html"
+          >
+            {{ $t('死亡日別による死亡者数の推移はこちら') }}
+          </app-link>
+        </div>
       </data-view>
     </client-only>
   </v-col>
@@ -71,3 +79,15 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" module>
+.button {
+  margin: 20px 0 0;
+  color: $green-1 !important;
+  &:hover {
+    color: $white !important;
+  }
+
+  @include button-text('sm');
+}
+</style>
