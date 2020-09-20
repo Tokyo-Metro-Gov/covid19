@@ -1542,7 +1542,7 @@
   dependencies:
     vue-analytics "^5.22.1"
 
-"@nuxtjs/gtm@^2.3.2":
+"@nuxtjs/gtm@2.3.2":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@nuxtjs/gtm/-/gtm-2.3.2.tgz#7b1b9a37f8250c475007cfde1294b7b8bc43d025"
   integrity sha512-DC4m8mqKv8WkmFZJ/qEnpDXhJgbMQfTyny1p2GGbV+QzEtm61tAsNIjx9tO15KYH99EG3LqJN68RxsEMtn2ZVQ==
