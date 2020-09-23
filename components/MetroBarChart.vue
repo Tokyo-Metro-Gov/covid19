@@ -1,8 +1,5 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:description>
-      <slot name="description" />
-    </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
@@ -18,6 +15,9 @@
       <client-only>
         <data-view-table :headers="tableHeaders" :items="tableData" />
       </client-only>
+    </template>
+    <template v-slot:additionalDescription>
+      <slot name="additionalDescription" />
     </template>
     <template v-slot:footer>
       <ul>
