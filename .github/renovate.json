@@ -6,10 +6,7 @@
         "enabled": true,
         "schedule": ["before 5pm on wednesday"]
     },
-    "packageRules": [
-        {
-            "updateTypes": ["patch"],
-            "automerge": true
-        }
-    ]
+    "patch": {
+        "automerge": true
+    }
 }
