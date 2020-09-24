@@ -89,6 +89,7 @@ const config: NuxtConfig = {
     '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
     '@nuxtjs/google-analytics',
+    '@nuxtjs/gtm',
   ],
   /*
    ** Nuxt.js modules
@@ -114,6 +115,14 @@ const config: NuxtConfig = {
   },
   googleAnalytics: {
     id: process.env.GOOGLE_ANALYTICS_ID, // .env.production などに設定してください。
+  },
+  /*
+   ** @nuxtjs/gtm config
+   */
+  gtm: {
+    id: process.env.GTM_CONTAINER_ID,
+    pageTracking: true,
+    enabled: true,
   },
   /*
    * nuxt-i18n による自動リダイレクトを停止したためコメントアウト
