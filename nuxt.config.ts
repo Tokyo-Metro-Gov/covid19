@@ -1,5 +1,4 @@
 import { NuxtConfig } from '@nuxt/types'
-
 import i18n from './nuxt-i18n.config'
 const environment = process.env.NODE_ENV || 'development'
 
@@ -64,10 +63,7 @@ const config: NuxtConfig = {
   /*
    ** Global CSS
    */
-  css: ['~assets/global.scss'],
-  styleResources: {
-    scss: ['@/assets/*.scss'],
-  },
+  css: ['@/assets/global.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -103,9 +99,7 @@ const config: NuxtConfig = {
     ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
     ['nuxt-i18n', i18n],
     'nuxt-svg-loader',
-    'nuxt-purgecss',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
-    '@nuxtjs/style-resources',
   ],
   /*
    ** vuetify module configuration
@@ -151,7 +145,7 @@ const config: NuxtConfig = {
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
   },
-  purgeCSS: {
+  'nuxt-purgecss': {
     mode: 'postcss',
     enabled: ({ isDev, isClient }) => !isDev && isClient,
     '@fullhuman/postcss-purgecss': {
