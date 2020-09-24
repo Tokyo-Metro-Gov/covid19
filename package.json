@@ -34,7 +34,7 @@
     }
   },
   "dependencies": {
-    "@nuxt/types": "2.14.5",
+    "@nuxt/types": "2.14.6",
     "@nuxt/typescript-runtime": "2.0.0",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/gtm": "2.3.2",
@@ -45,7 +45,7 @@
     "cross-env": "7.0.2",
     "dayjs": "1.8.36",
     "express": "4.17.1",
-    "nuxt": "2.14.5",
+    "nuxt": "2.14.6",
     "nuxt-i18n": "6.15.1",
     "vue": "2.6.12",
     "vue-chartjs": "3.5.1",
