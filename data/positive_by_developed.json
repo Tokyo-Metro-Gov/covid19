@@ -1,6 +1,6 @@
 {
-    "date": "2020\/9\/24 19:30",
-    "unknown_count": 8862,
+    "date": "2020\/9\/25 19:30",
+    "unknown_count": 8947,
     "data": [
         {
             "developed_date": "2020-01-14",
@@ -964,7 +964,7 @@
         },
         {
             "developed_date": "2020-09-10",
-            "count": 86
+            "count": 87
         },
         {
             "developed_date": "2020-09-11",
@@ -976,46 +976,50 @@
         },
         {
             "developed_date": "2020-09-13",
-            "count": 70
-        },
-        {
-            "developed_date": "2020-09-14",
-            "count": 125
-        },
-        {
-            "developed_date": "2020-09-15",
-            "count": 82
-        },
-        {
-            "developed_date": "2020-09-16",
-            "count": 63
-        },
-        {
-            "developed_date": "2020-09-17",
             "count": 71
         },
         {
+            "developed_date": "2020-09-14",
+            "count": 127
+        },
+        {
+            "developed_date": "2020-09-15",
+            "count": 83
+        },
+        {
+            "developed_date": "2020-09-16",
+            "count": 75
+        },
+        {
+            "developed_date": "2020-09-17",
+            "count": 77
+        },
+        {
             "developed_date": "2020-09-18",
-            "count": 42
+            "count": 53
         },
         {
             "developed_date": "2020-09-19",
-            "count": 32
+            "count": 42
         },
         {
             "developed_date": "2020-09-20",
-            "count": 23
+            "count": 35
         },
         {
             "developed_date": "2020-09-21",
-            "count": 21
+            "count": 39
         },
         {
             "developed_date": "2020-09-22",
-            "count": 20
+            "count": 39
         },
         {
             "developed_date": "2020-09-23",
+            "count": 17
+        },
+        {
+            "developed_date": "2020-09-24",
             "count": 2
         }
     ]
