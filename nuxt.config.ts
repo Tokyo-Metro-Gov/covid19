@@ -1,6 +1,8 @@
 import { NuxtConfig } from '@nuxt/types'
+
 import i18n from './nuxt-i18n.config'
-const environment = process.env.NODE_ENV || 'development'
+// Commented because of no use (Eslint check target)
+// const environment = process.env.NODE_ENV || 'development'
 
 const config: NuxtConfig = {
   // Since nuxt@2.14.5, there have been significant changes.

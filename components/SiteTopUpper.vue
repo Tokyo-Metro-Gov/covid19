@@ -26,6 +26,7 @@
 </template>
 
 <script lang="ts">
+import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
@@ -38,7 +39,6 @@ import Data from '@/data/data.json'
 import News from '@/data/news.json'
 import TokyoAlert from '@/data/tokyo_alert.json'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
-import { mdiChartTimelineVariant } from '@mdi/js'
 
 export default Vue.extend({
   components: {
@@ -48,18 +48,12 @@ export default Vue.extend({
     TokyoAlertCard,
     MonitoringCommentCard,
   },
-  props: {
-    mdiChartTimelineVariant: {
-      default: () => mdiChartTimelineVariant,
-    },
-  },
   data() {
     const { lastUpdate } = Data
-
     return {
       TokyoAlert,
       headerItem: {
-        icon: mdiChartTimelineVariant,
+        icon: mdiChartTimelineVariant as string,
         title: this.$t('都内の最新感染動向'),
       },
       lastUpdate,
@@ -74,12 +68,10 @@ export default Vue.extend({
       return `${this.$d(new Date(this.$data.lastUpdate), 'dateTime')} JST`
     },
   },
-  head: {
-    /*
-    title: {
-      type: $t('都内の最新感染動向'),
-    },
-    */
+  head(): MetaInfo {
+    return {
+      title: this.$t('都内の最新感染動向') as string,
+    }
   },
 })
 </script>
@@ -90,20 +82,17 @@ export default Vue.extend({
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
-
     @include lessThan($small) {
       flex-direction: column;
       align-items: baseline;
     }
   }
-
   .UpdatedAt {
     @include font-size(14);
 
     color: $gray-3;
     margin-bottom: 0.2rem;
   }
-
   .Annotation {
     @include font-size(12);
 
