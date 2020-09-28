@@ -19,6 +19,7 @@
 import Vue from 'vue'
 
 import { isExternal } from '@/utils/urls.ts'
+import { mdiOpenInNew, mdiChartTimelineVariant, mdiAccountMultiple, mdiDomain, } from '@mdi/js'
 
 type InternalAttr = {
   to: String
@@ -47,8 +48,16 @@ export default Vue.extend({
       default: 12,
     },
     iconType: {
-      type: String,
-      default: 'mdi-open-in-new',
+      default: () => mdiOpenInNew,
+    },
+    mdiChartTimelineVariant:  {
+      default: () => mdiChartTimelineVariant,
+    },
+    mdiAccountMultiple:  {
+      default: () => mdiAccountMultiple,
+    },
+    mdiDomain:  {
+      default: () => mdiDomain,
     },
     iconClass: {
       type: String,

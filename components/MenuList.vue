@@ -20,6 +20,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
+const isPath = require('is-svg-path')
 
 import AppLink from '@/components/AppLink.vue'
 import CovidIcon from '@/static/covid.svg'
@@ -48,11 +49,11 @@ export default Vue.extend({
   },
   methods: {
     iconTag(icon: MenuItem['icon']) {
-      return icon ? (icon.startsWith('mdi') ? 'v-icon' : icon) : null
+      return icon ? (isPath(icon) ? 'v-icon' : icon) : null
     },
     iconAttrs(icon: MenuItem['icon']) {
       return icon
-        ? icon.startsWith('mdi')
+        ? isPath(icon)
           ? {
               size: '2rem',
               class: 'MenuList-MdIcon',

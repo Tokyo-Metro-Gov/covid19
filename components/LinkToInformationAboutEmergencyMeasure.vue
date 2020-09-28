@@ -5,7 +5,7 @@
         size="2rem"
         class="link-to-information-about-emergency-measure-icon"
       >
-        mdi-bullhorn
+        {{ mdiBullhorn }}
       </v-icon>
       {{ $t('東京都緊急事態措置について') }}
     </app-link>
@@ -14,11 +14,17 @@
 
 <script lang="ts">
 import Vue from 'vue'
-
 import AppLink from '@/components/AppLink.vue'
+import { mdiBullhorn } from '@mdi/js'
 
 export default Vue.extend({
   components: { AppLink },
+  props: {
+    mdiBullhorn: {
+      type: Object,
+      default: () => mdiBullhorn,
+    },
+  },
 })
 </script>
 

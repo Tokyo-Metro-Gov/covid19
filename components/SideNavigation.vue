@@ -4,9 +4,9 @@
       <v-icon
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
-        @click="$emit('openNavi', $event)"
+        @click="$emit('open-navi', $event)"
       >
-        mdi-menu
+        {{ mdiMenu }}
       </v-icon>
       <h1 class="SideNavigation-HeaderTitle">
         <app-link :to="localePath('/')" class="SideNavigation-HeaderLink">
@@ -28,9 +28,9 @@
       <v-icon
         class="SideNavigation-CloseIcon"
         :aria-label="$t('サイドメニュー項目を閉じる')"
-        @click="$emit('closeNavi', $event)"
+        @click="$emit('close-navi', $event)"
       >
-        mdi-close
+        {{ mdiClose }}
       </v-icon>
 
       <nav class="SideNavigation-Menu">
@@ -45,7 +45,7 @@
             <language-selector />
           </div>
         </div>
-        <menu-list :items="items" @click="$emit('closeNavi', $event)" />
+        <menu-list :items="items" @click="$emit('close-navi', $event)" />
       </nav>
 
       <footer class="SideNavigation-Footer">
@@ -122,13 +122,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
-
 import AppLink from '@/components/AppLink.vue'
 import LanguageSelector from '@/components/LanguageSelector.vue'
 import MenuList from '@/components/MenuList.vue'
+import { mdiClose, mdiMenu, mdiChartTimelineVariant, mdiAccountMultiple, mdiDomain, } from '@mdi/js'
 
 type Item = {
-  icon?: string
+  icon?: string | object
   title: TranslateResult
   link: string
   divider?: boolean
@@ -145,12 +145,27 @@ export default Vue.extend({
       type: Boolean,
       required: true,
     },
+    mdiClose: {
+      default: () => mdiClose,
+    },
+    mdiMenu:  {
+      default: () => mdiMenu,
+    },
+    mdiChartTimelineVariant:  {
+      default: () => mdiChartTimelineVariant,
+    },
+    mdiAccountMultiple:  {
+      default: () => mdiAccountMultiple,
+    },
+    mdiDomain:  {
+      default: () => mdiDomain,
+    },
   },
   computed: {
     items(): Item[] {
       return [
         {
-          icon: 'mdi-chart-timeline-variant',
+          icon: `${mdiChartTimelineVariant}`,
           title: this.$t('都内の最新感染動向'),
           link: this.localePath('/'),
         },
@@ -178,12 +193,12 @@ export default Vue.extend({
           link: this.localePath('/parent'),
         },
         {
-          icon: 'mdi-account-multiple',
+          icon: `${mdiAccountMultiple}`,
           title: this.$t('都民の皆様へ'),
           link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
         },
         {
-          icon: 'mdi-domain',
+          icon: `${mdiDomain}`,
           title: this.$t('企業の皆様・はたらく皆様へ'),
           link: this.localePath('/worker'),
           divider: true,

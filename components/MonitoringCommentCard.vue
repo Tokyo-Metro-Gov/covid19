@@ -16,7 +16,7 @@
           )
         }}
       </p>
-      <v-icon color="#D9D9D9">mdi-chevron-right</v-icon>
+      <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
       <app-link
         to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
       >
@@ -46,10 +46,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
-
 import AppLink from '@/components/AppLink.vue'
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
 import monitoringItems from '@/data/monitoring_items.json'
+import { mdiChevronRight } from '@mdi/js'
 
 export default Vue.extend({
   components: {
@@ -60,6 +60,11 @@ export default Vue.extend({
     return {
       monitoringItems,
     }
+  },
+  props: {
+    mdiChevronRight: {
+      default: () => mdiChevronRight,
+    },
   },
   methods: {
     commentDate() {
