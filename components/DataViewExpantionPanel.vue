@@ -32,6 +32,7 @@ export default Vue.extend({
   data() {
     return {
       showDetails: false,
+      mdiChevronRight,
     }
   },
   props: {

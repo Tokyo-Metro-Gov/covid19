@@ -11,6 +11,7 @@
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
         :source="$t('オープンデータを入手')"
         :custom-sort="customSort"
+        :expand-icon="{ appendIcon, prevIcon, nextIcon }"
       />
     </client-only>
   </v-col>
@@ -22,6 +23,7 @@ import Data from '@/data/data.json'
 import { getDayjsObject } from '@/utils/formatDate'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
+import { mdiChevronDoubleDown, mdiChevronLeft, mdiChevronRight } from '@mdi/js'
 
 export default {
   components: {
@@ -31,7 +33,6 @@ export default {
     const patientSummary = Data.patients_summary
     const patients = Data.patients
     const { date } = patients
-
     // 感染者数グラフ
     const patientsGraph = formatGraph(patientSummary.data)
     // 感染者数
@@ -70,10 +71,17 @@ export default {
       }
     }
 
+    const appendIcon = { mdiChevronDoubleDown }
+    const prevIcon = { mdiChevronLeft }
+    const nextIcon = { mdiChevronRight }
+
     return {
       patientsTable,
       sumInfoOfPatients,
       date,
+      appendIcon,
+      prevIcon,
+      nextIcon,
     }
   },
   methods: {

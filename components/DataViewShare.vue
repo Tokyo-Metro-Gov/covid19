@@ -135,6 +135,7 @@ export default Vue.extend({
       openGraphEmbed: false,
       displayShare: false,
       showOverlay: false,
+      mdiClose,
     }
   },
   computed: {

@@ -28,7 +28,7 @@ import MaskTrashIcon from '@/static/masktrash.svg'
 import ParentIcon from '@/static/parent.svg'
 
 type MenuItem = {
-  icon?: string
+  icon?: string | any
   title: string
   link: string
   divider?: boolean

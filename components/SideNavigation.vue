@@ -12,8 +12,8 @@
         <app-link :to="localePath('/')" class="SideNavigation-HeaderLink">
           <img
             class="SideNavigation-HeaderLogo"
-            src="/logo.svg"
-            :alt="$t('東京都')"
+            :aria-label="$t('東京都')"
+            :src="'/logo.svg?inline'"
           />
           <div class="SideNavigation-HeaderText">
             {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
@@ -165,14 +165,14 @@ export default Vue.extend({
     items(): Item[] {
       return [
         {
-          icon: `${mdiChartTimelineVariant}`,
+          icon: mdiChartTimelineVariant,
           title: this.$t('都内の最新感染動向'),
-          link: this.localePath('/'),
+          link: `${this.localePath('/')}`,
         },
         {
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに'),
-          link: this.localePath('/flow'),
+          link: `${this.localePath('/flow')}`,
         },
         {
           icon: 'CovidIcon',
@@ -190,17 +190,17 @@ export default Vue.extend({
         {
           icon: 'ParentIcon',
           title: this.$t('お子様をお持ちの皆様へ'),
-          link: this.localePath('/parent'),
+          link: `${this.localePath('/parent')}`,
         },
         {
-          icon: `${mdiAccountMultiple}`,
+          icon: mdiAccountMultiple,
           title: this.$t('都民の皆様へ'),
           link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
         },
         {
-          icon: `${mdiDomain}`,
+          icon: mdiDomain,
           title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: this.localePath('/worker'),
+          link: `${this.localePath('/worker')}`,
           divider: true,
         },
         {
@@ -229,11 +229,11 @@ export default Vue.extend({
         },
         {
           title: this.$t('当サイトについて'),
-          link: this.localePath('/about'),
+          link: `${this.localePath('/about')}`,
         },
         {
           title: this.$t('お問い合わせ先一覧'),
-          link: this.localePath('/contacts'),
+          link: `${this.localePath('/contacts')}`,
         },
         {
           title: this.$t('東京都公式ホームページ'),
