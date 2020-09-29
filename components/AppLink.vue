@@ -16,10 +16,15 @@
 </template>
 
 <script lang="ts">
+import {
+  mdiAccountMultiple,
+  mdiChartTimelineVariant,
+  mdiDomain,
+  mdiOpenInNew,
+} from '@mdi/js'
 import Vue from 'vue'
 
 import { isExternal } from '@/utils/urls.ts'
-import { mdiOpenInNew, mdiChartTimelineVariant, mdiAccountMultiple, mdiDomain, } from '@mdi/js'
 
 type InternalAttr = {
   to: String
@@ -50,13 +55,13 @@ export default Vue.extend({
     iconType: {
       default: () => mdiOpenInNew,
     },
-    mdiChartTimelineVariant:  {
+    mdiChartTimelineVariant: {
       default: () => mdiChartTimelineVariant,
     },
-    mdiAccountMultiple:  {
+    mdiAccountMultiple: {
       default: () => mdiAccountMultiple,
     },
-    mdiDomain:  {
+    mdiDomain: {
       default: () => mdiDomain,
     },
     iconClass: {
