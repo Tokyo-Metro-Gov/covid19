@@ -24,17 +24,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 import { mdiChevronRight, mdiOpenInNew } from '@mdi/js'
+import Vue from 'vue'
+
+import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 
 export default Vue.extend({
-  data() {
-    return {
-      showDetails: false,
-      mdiChevronRight,
-    }
-  },
   props: {
     mdiOpenInNew: {
       type: Object,
@@ -44,6 +39,11 @@ export default Vue.extend({
       type: Object,
       default: () => mdiChevronRight,
     },
+  },
+  data() {
+    return {
+      showDetails: false,
+    }
   },
   mounted() {
     this.showDetails = true
