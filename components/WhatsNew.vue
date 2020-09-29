@@ -30,11 +30,12 @@
 </template>
 
 <script lang="ts">
+import { mdiInformation } from '@mdi/js'
 import Vue from 'vue'
+
 import AppLink from '@/components/AppLink.vue'
 import LinkToInformationAboutEmergencyMeasure from '@/components/LinkToInformationAboutEmergencyMeasure.vue'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
-import { mdiInformation } from '@mdi/js'
 
 export default Vue.extend({
   components: {
@@ -52,6 +53,7 @@ export default Vue.extend({
       default: false,
     },
     mdiInformation: {
+      type: String,
       default: () => mdiInformation,
     },
   },

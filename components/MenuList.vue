@@ -20,12 +20,12 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-const isPath = require('is-svg-path')
 
 import AppLink from '@/components/AppLink.vue'
 import CovidIcon from '@/static/covid.svg'
 import MaskTrashIcon from '@/static/masktrash.svg'
 import ParentIcon from '@/static/parent.svg'
+const isPath = require('is-svg-path')
 
 type MenuItem = {
   icon?: string | any

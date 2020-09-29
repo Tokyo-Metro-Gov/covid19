@@ -24,18 +24,25 @@
 </template>
 
 <script lang="ts">
+import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
+
 import CardsMonitoring from '@/components/CardsMonitoring.vue'
 import CardsReference from '@/components/CardsReference.vue'
 import SiteTopUpper from '@/components/SiteTopUpper.vue'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
-import { mdiChartTimelineVariant } from '@mdi/js'
 
 export default Vue.extend({
   components: {
     SiteTopUpper,
     CardsMonitoring,
     CardsReference,
+  },
+  props: {
+    mdiChartTimelineVariant: {
+      type: String,
+      default: () => mdiChartTimelineVariant,
+    },
   },
   data() {
     return {
@@ -45,11 +52,6 @@ export default Vue.extend({
         { label: this.$t('その他 参考指標'), component: CardsReference },
       ],
     }
-  },
-  props: {
-    mdiChartTimelineVariant: {
-      default: () => mdiChartTimelineVariant,
-    },
   },
   methods: {
     change() {

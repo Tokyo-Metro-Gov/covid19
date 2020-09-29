@@ -18,12 +18,13 @@
 </template>
 
 <script>
+import { mdiChevronDoubleDown, mdiChevronLeft, mdiChevronRight } from '@mdi/js'
+
 import DataTable from '@/components/DataTable.vue'
 import Data from '@/data/data.json'
 import { getDayjsObject } from '@/utils/formatDate'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
-import { mdiChevronDoubleDown, mdiChevronLeft, mdiChevronRight } from '@mdi/js'
 
 export default {
   components: {

@@ -53,15 +53,19 @@ export default Vue.extend({
       default: 12,
     },
     iconType: {
+      type: String,
       default: () => mdiOpenInNew,
     },
     mdiChartTimelineVariant: {
+      type: String,
       default: () => mdiChartTimelineVariant,
     },
     mdiAccountMultiple: {
+      type: String,
       default: () => mdiAccountMultiple,
     },
     mdiDomain: {
+      type: String,
       default: () => mdiDomain,
     },
     iconClass: {

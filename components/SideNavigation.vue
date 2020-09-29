@@ -120,12 +120,19 @@
 </template>
 
 <script lang="ts">
+import {
+  mdiAccountMultiple,
+  mdiChartTimelineVariant,
+  mdiClose,
+  mdiDomain,
+  mdiMenu,
+} from '@mdi/js'
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
+
 import AppLink from '@/components/AppLink.vue'
 import LanguageSelector from '@/components/LanguageSelector.vue'
 import MenuList from '@/components/MenuList.vue'
-import { mdiClose, mdiMenu, mdiChartTimelineVariant, mdiAccountMultiple, mdiDomain, } from '@mdi/js'
 
 type Item = {
   icon?: string | object
@@ -146,18 +153,23 @@ export default Vue.extend({
       required: true,
     },
     mdiClose: {
+      type: String,
       default: () => mdiClose,
     },
-    mdiMenu:  {
+    mdiMenu: {
+      type: String,
       default: () => mdiMenu,
     },
-    mdiChartTimelineVariant:  {
+    mdiChartTimelineVariant: {
+      type: String,
       default: () => mdiChartTimelineVariant,
     },
-    mdiAccountMultiple:  {
+    mdiAccountMultiple: {
+      type: String,
       default: () => mdiAccountMultiple,
     },
-    mdiDomain:  {
+    mdiDomain: {
+      type: String,
       default: () => mdiDomain,
     },
   },

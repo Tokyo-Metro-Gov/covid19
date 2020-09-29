@@ -45,26 +45,28 @@
 </template>
 
 <script lang="ts">
+import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
+
 import AppLink from '@/components/AppLink.vue'
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
 import monitoringItems from '@/data/monitoring_items.json'
-import { mdiChevronRight } from '@mdi/js'
 
 export default Vue.extend({
   components: {
     AppLink,
     MonitoringCommentFrame,
   },
+  props: {
+    mdiChevronRight: {
+      type: String,
+      default: () => mdiChevronRight,
+    },
+  },
   data() {
     return {
       monitoringItems,
     }
-  },
-  props: {
-    mdiChevronRight: {
-      default: () => mdiChevronRight,
-    },
   },
   methods: {
     commentDate() {
