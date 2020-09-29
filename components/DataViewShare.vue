@@ -122,11 +122,11 @@ export default Vue.extend({
       default: '',
     },
     mdiClose: {
-      type: Object,
+      type: String,
       default: () => mdiClose,
     },
     mdiClipboardOutline: {
-      type: Object,
+      type: String,
       default: () => mdiClipboardOutline,
     },
   },

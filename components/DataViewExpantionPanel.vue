@@ -32,11 +32,11 @@ import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 export default Vue.extend({
   props: {
     mdiOpenInNew: {
-      type: Object,
+      type: String,
       default: () => mdiOpenInNew,
     },
     mdiChevronRight: {
-      type: Object,
+      type: String,
       default: () => mdiChevronRight,
     },
   },

@@ -151,6 +151,8 @@
                   <template v-slot:publicHealthCenter>
                     <app-link
                       to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+                      :show-icon="true"
+                      :class="$style.icon"
                     >
                       {{ $t('各保健所の電話番号は福祉保健局HP') }}
                     </app-link>
@@ -839,11 +841,14 @@ $margin: 20;
   width: 100%;
 }
 .overrideExternalLink {
-  i {
+  .ExternalLinkIcon {
     font-size: 1em !important;
     &::before {
       color: $white;
       margin-right: 0.2em;
+    }
+    .icon {
+      fill: $white;
     }
   }
 }

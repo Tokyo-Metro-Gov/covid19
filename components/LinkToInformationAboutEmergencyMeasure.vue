@@ -22,7 +22,7 @@ export default Vue.extend({
   components: { AppLink },
   props: {
     mdiBullhorn: {
-      type: Object,
+      type: String,
       default: () => mdiBullhorn,
     },
   },

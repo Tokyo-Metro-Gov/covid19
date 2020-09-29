@@ -1,13 +1,15 @@
 <template>
   <div ref="Side" class="SideNavigation" tabindex="-1">
     <header class="SideNavigation-Header">
-      <v-icon
+      <app-link
+        to="#"
+        :show-icon="true"
+        :icon-type="mdiMenu"
+        :icon-size="30"
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
         @click="$emit('open-navi', $event)"
-      >
-        {{ mdiMenu }}
-      </v-icon>
+      />
       <h1 class="SideNavigation-HeaderTitle">
         <app-link :to="localePath('/')" class="SideNavigation-HeaderLink">
           <img
@@ -25,13 +27,15 @@
     </header>
 
     <div :class="['SideNavigation-Body', { '-opened': isNaviOpen }]">
-      <v-icon
+      <app-link
+        to="#"
+        :show-icon="true"
+        :icon-type="mdiClose"
+        :icon-size="30"
         class="SideNavigation-CloseIcon"
         :aria-label="$t('サイドメニュー項目を閉じる')"
         @click="$emit('close-navi', $event)"
-      >
-        {{ mdiClose }}
-      </v-icon>
+      />
 
       <nav class="SideNavigation-Menu">
         <div class="SideNavigation-Language">
@@ -301,14 +305,14 @@ export default Vue.extend({
   position: absolute;
   top: 0;
   left: 0;
-  padding: 18px 8px 18px 16px;
+  padding: 9px 10px 27px 14px;
   font-size: 28px;
   @include lessThan($tiny) {
     font-size: 24px;
     padding: 20px 10px;
   }
   @include largerThan($small) {
-    display: none;
+    @include visually-hidden;
   }
 }
 
@@ -316,14 +320,14 @@ export default Vue.extend({
   position: absolute;
   top: 0;
   left: 0;
-  padding: 18px 8px 18px 16px;
+  padding: 9px 10px 27px 14px;
   font-size: 28px;
   @include lessThan($tiny) {
     font-size: 24px;
     padding: 20px 10px;
   }
   @include largerThan($small) {
-    display: none;
+    @include visually-hidden;
   }
 }
 
@@ -391,7 +395,8 @@ export default Vue.extend({
 .SideNavigation-Body {
   padding: 0 20px 20px;
   @include lessThan($small) {
-    display: none;
+    @include visually-hidden;
+
     padding: 0 36px 36px;
     &.-opened {
       position: fixed;

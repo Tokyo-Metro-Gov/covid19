@@ -1,8 +1,7 @@
 import { NuxtConfig } from '@nuxt/types'
 
 import i18n from './nuxt-i18n.config'
-// Commented because of no use (Eslint check target)
-// const environment = process.env.NODE_ENV || 'development'
+const environment = process.env.NODE_ENV || 'development'
 
 const config: NuxtConfig = {
   // Since nuxt@2.14.5, there have been significant changes.
@@ -99,7 +98,7 @@ const config: NuxtConfig = {
   modules: [
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    // ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
+    ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
     ['nuxt-i18n', i18n],
     'nuxt-svg-loader',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
