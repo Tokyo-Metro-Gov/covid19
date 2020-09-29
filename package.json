@@ -27,7 +27,9 @@
     "*.{css,scss,vue}": "stylelint"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "./pre-commit.sh && lint-staged"
+    }
   },
   "dependencies": {
     "@nuxt/types": "2.14.6",
