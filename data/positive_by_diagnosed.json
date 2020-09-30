@@ -1,5 +1,5 @@
 {
-    "date": "2020\/9\/29 19:30",
+    "date": "2020\/9\/30 19:00",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -891,15 +891,15 @@
         },
         {
             "diagnosed_date": "2020-09-01",
-            "count": 167
-        },
-        {
-            "diagnosed_date": "2020-09-02",
             "count": 169
         },
         {
+            "diagnosed_date": "2020-09-02",
+            "count": 171
+        },
+        {
             "diagnosed_date": "2020-09-03",
-            "count": 164
+            "count": 167
         },
         {
             "diagnosed_date": "2020-09-04",
@@ -911,11 +911,11 @@
         },
         {
             "diagnosed_date": "2020-09-06",
-            "count": 67
+            "count": 69
         },
         {
             "diagnosed_date": "2020-09-07",
-            "count": 113
+            "count": 115
         },
         {
             "diagnosed_date": "2020-09-08",
@@ -927,7 +927,7 @@
         },
         {
             "diagnosed_date": "2020-09-10",
-            "count": 175
+            "count": 176
         },
         {
             "diagnosed_date": "2020-09-11",
@@ -939,7 +939,7 @@
         },
         {
             "diagnosed_date": "2020-09-13",
-            "count": 79
+            "count": 80
         },
         {
             "diagnosed_date": "2020-09-14",
@@ -979,7 +979,7 @@
         },
         {
             "diagnosed_date": "2020-09-23",
-            "count": 191
+            "count": 190
         },
         {
             "diagnosed_date": "2020-09-24",
@@ -987,19 +987,23 @@
         },
         {
             "diagnosed_date": "2020-09-25",
-            "count": 254
+            "count": 253
         },
         {
             "diagnosed_date": "2020-09-26",
-            "count": 162
+            "count": 163
         },
         {
             "diagnosed_date": "2020-09-27",
-            "count": 93
+            "count": 94
         },
         {
             "diagnosed_date": "2020-09-28",
-            "count": 117
+            "count": 142
+        },
+        {
+            "diagnosed_date": "2020-09-29",
+            "count": 153
         }
     ]
 }
