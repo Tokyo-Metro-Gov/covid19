@@ -303,6 +303,7 @@
     <div :class="$style.detail">
       <app-link
         to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+        :show-icon="true"
         :icon-size="20"
         :icon-class="$style.icon"
         :class="$style.detailButton"

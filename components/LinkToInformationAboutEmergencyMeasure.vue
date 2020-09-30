@@ -1,12 +1,13 @@
 <template>
   <span class="link-to-information-about-emergency-measure">
-    <app-link to="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html">
-      <v-icon
-        size="2rem"
-        class="link-to-information-about-emergency-measure-icon"
-      >
-        {{ mdiBullhorn }}
-      </v-icon>
+    <app-link
+      to="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
+      :show-icon="true"
+      :icon-size="20"
+      :icon-type="mdiBullhorn"
+      class="link-to-information-about-emergency-measure-icon"
+      :aria-label="$t('東京都緊急事態措置について')"
+    >
       {{ $t('東京都緊急事態措置について') }}
     </app-link>
   </span>
