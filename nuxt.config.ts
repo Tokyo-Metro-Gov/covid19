@@ -156,7 +156,8 @@ const config: NuxtConfig = {
   },
   'nuxt-purgecss': {
     mode: 'postcss',
-    enabled: ({ isDev, isClient }) => !isDev && isClient,
+    enabled: ({ isDev, isClient }: { isDev: boolean; isClient: boolean }) =>
+      !isDev && isClient,
     '@fullhuman/postcss-purgecss': {
       content: [
         '@/pages/**/*.vue',
@@ -165,8 +166,7 @@ const config: NuxtConfig = {
         'vuetify/dist/vuetify.js',
         'vue-spinner/src/ScaleLoader.vue',
       ],
-      whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
-      whitelistPatterns: [/(col|row)/],
+      safelist: ['html', 'body', 'nuxt-progress', 'DataCard', /(col|row)/],
     },
   },
   manifest: {
