@@ -1,5 +1,4 @@
 import { NuxtConfig } from '@nuxt/types'
-
 import i18n from './nuxt-i18n.config'
 const environment = process.env.NODE_ENV || 'development'
 
@@ -162,7 +161,7 @@ const config: NuxtConfig = {
   },
   'nuxt-purgecss': {
     mode: 'postcss',
-    dev: (isDev: Boolean, isClient: Boolean) => !isDev && isClient,
+    enabled: ({ isDev, isClient }) => !isDev && isClient,
     '@fullhuman/postcss-purgecss': {
       content: [
         '@/pages/**/*.vue',
