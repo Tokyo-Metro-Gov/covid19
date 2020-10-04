@@ -1,5 +1,5 @@
 {
-    "date": "2020\/9\/28 19:00",
+    "date": "2020\/10\/4 19:00",
     "data": [
         {
             "date": "2020-02-28",
@@ -1069,6 +1069,36 @@
         {
             "date": "2020-09-28",
             "hospitalized": 1198,
+            "severe_case": 26
+        },
+        {
+            "date": "2020-09-29",
+            "hospitalized": 1159,
+            "severe_case": 23
+        },
+        {
+            "date": "2020-09-30",
+            "hospitalized": 1165,
+            "severe_case": 21
+        },
+        {
+            "date": "2020-10-01",
+            "hospitalized": 1103,
+            "severe_case": 22
+        },
+        {
+            "date": "2020-10-02",
+            "hospitalized": 1047,
+            "severe_case": 22
+        },
+        {
+            "date": "2020-10-03",
+            "hospitalized": 1024,
+            "severe_case": 25
+        },
+        {
+            "date": "2020-10-04",
+            "hospitalized": 1070,
             "severe_case": 26
         }
     ]

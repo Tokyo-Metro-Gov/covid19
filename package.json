@@ -64,6 +64,7 @@
     "@nuxtjs/vuetify": "1.11.2",
     "@types/chart.js": "2.9.24",
     "@vue/test-utils": "1.1.0",
+    "babel-jest": "26.3.0",
     "core-js": "3.6.5",
     "eslint": "7.10.0",
     "eslint-config-prettier": "6.12.0",
