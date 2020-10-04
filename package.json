@@ -4,9 +4,7 @@
   "description": "東京都 新型コロナウイルス感染症対策サイト",
   "author": "東京都",
   "private": true,
-  "engines": {
-    "node": "^12.18.4"
-  },
+  "engines": {},
   "scripts": {
     "dev": "cross-env NODE_ENV=development GENERATE_ENV=development nuxt-ts",
     "dev-no-axe": "cross-env NODE_ENV=dev-no-axe GENERATE_ENV=development nuxt-ts",
