@@ -102,6 +102,7 @@ const config: NuxtConfig = {
     ['nuxt-i18n', i18n],
     'nuxt-svg-loader',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
+    '@nuxtjs/device',
   ],
   /*
    ** vuetify module configuration
