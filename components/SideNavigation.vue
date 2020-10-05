@@ -9,38 +9,36 @@
       hide-overlay
       width="100%"
     >
-      <template v-slot:prepend>
-        <v-app-bar
-          id="header"
-          class="SideNavigation-Header"
-          flat
-          floating
-          height="64px"
-          min-height="64px"
-          color="#fff"
-        >
-          <v-input
-            class="SideNavigation-OpenIcon"
-            :aria-label="$t('サイドメニュー項目を開く')"
-            :prepend-icon="mdiMenu"
-            @click.stop="drawer = true"
-          />
-          <h1 class="SideNavigation-HeaderTitle">
-            <app-link :to="localePath('/')" class="SideNavigation-HeaderLink">
-              <img
-                class="SideNavigation-HeaderLogo"
-                :aria-label="$t('東京都')"
-                :src="'/logo.svg?inline'"
-              />
-              <div class="SideNavigation-HeaderText">
-                {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
-                  $t('menu/対策サイト')
-                }}
-              </div>
-            </app-link>
-          </h1>
-        </v-app-bar>
-      </template>
+      <v-app-bar
+        id="header"
+        class="SideNavigation-Header"
+        flat
+        floating
+        height="64px"
+        min-height="64px"
+        color="#fff"
+      >
+        <v-input
+          class="SideNavigation-OpenIcon"
+          :aria-label="$t('サイドメニュー項目を開く')"
+          :prepend-icon="mdiMenu"
+          @click.stop="drawer = true"
+        />
+        <h1 class="SideNavigation-HeaderTitle">
+          <app-link :to="localePath('/')" class="SideNavigation-HeaderLink">
+            <img
+              class="SideNavigation-HeaderLogo"
+              :aria-label="$t('東京都')"
+              :src="'/logo.svg?inline'"
+            />
+            <div class="SideNavigation-HeaderText">
+              {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
+                $t('menu/対策サイト')
+              }}
+            </div>
+          </app-link>
+        </h1>
+      </v-app-bar>
 
       <v-item-group id="body" class="SideNavigation-Body">
         <v-icon
@@ -299,10 +297,10 @@ export default Vue.extend({
   }
   @include lessThan($small) {
     display: flex;
-    padding-left: 24px;
+    padding-left: 12px;
   }
   @include lessThan($tiny) {
-    padding-left: 22px;
+    padding-left: 10px;
   }
 }
 
@@ -312,11 +310,11 @@ export default Vue.extend({
   left: 0;
   padding: 32px 8px 18px 2px;
   font-size: 28px;
-  @include lessThan($tiny) {
-    font-size: 24px;
-  }
   @include largerThan($small) {
     @include visually-hidden;
+  }
+  @include lessThan($tiny) {
+    font-size: 24px;
   }
 }
 
@@ -324,7 +322,7 @@ export default Vue.extend({
   position: relative;
   top: 0;
   left: 0;
-  padding: 18px 8px 18px 16px;
+  padding: 18px 8px 18px 12px;
   font-size: 28px;
   @include lessThan($tiny) {
     font-size: 24px;
@@ -447,7 +445,7 @@ export default Vue.extend({
 
   .SideNavigation-Footer {
     position: relative;
-    padding: 0 20px 20px 20px;
+    padding: 0 20px 20px 12px;
   }
 
   .SideNavigation-Social {

@@ -4,9 +4,7 @@
   "description": "東京都 新型コロナウイルス感染症対策サイト",
   "author": "東京都",
   "private": true,
-  "engines": {
-    "node": "^10.19.0"
-  },
+  "engines": {},
   "scripts": {
     "dev": "cross-env NODE_ENV=development GENERATE_ENV=development nuxt-ts",
     "dev-no-axe": "cross-env NODE_ENV=dev-no-axe GENERATE_ENV=development nuxt-ts",
@@ -54,6 +52,8 @@
     "vue-spinner": "1.0.4"
   },
   "devDependencies": {
+    "@babel/core": "7.11.6",
+    "@babel/runtime-corejs3": "7.11.2",
     "@fullhuman/postcss-purgecss": "3.0.0",
     "@mdi/font": "5.6.55",
     "@mdi/js": "5.6.55",
