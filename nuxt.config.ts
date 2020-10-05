@@ -1,4 +1,5 @@
 import { NuxtConfig } from '@nuxt/types'
+
 import i18n from './nuxt-i18n.config'
 const environment = process.env.NODE_ENV || 'development'
 
@@ -156,7 +157,7 @@ const config: NuxtConfig = {
   },
   'nuxt-purgecss': {
     mode: 'postcss',
-    enabled: ({ isDev, isClient }) => !isDev && isClient,
+    enabled: environment !== 'development' && process.client,
     '@fullhuman/postcss-purgecss': {
       content: [
         '@/pages/**/*.vue',
@@ -165,8 +166,7 @@ const config: NuxtConfig = {
         'vuetify/dist/vuetify.js',
         'vue-spinner/src/ScaleLoader.vue',
       ],
-      whitelist: ['html', 'body', 'nuxt-progress', 'DataCard'],
-      whitelistPatterns: [/(col|row)/],
+      safelist: ['html', 'body', 'nuxt-progress', 'DataCard', /(col|row)/],
     },
   },
   manifest: {
