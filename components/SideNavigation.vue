@@ -116,6 +116,7 @@
             </app-link>
           </template>
         </i18n>
+        <br />
         <small class="SideNavigation-Copyright">
           &copy; 2020 Tokyo Metropolitan Government
         </small>
@@ -438,7 +439,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-Copyright {
-  display: block;
+  display: inline-block;
   color: $gray-1;
   line-height: 1.3;
   font-weight: bold;
