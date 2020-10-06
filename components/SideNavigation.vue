@@ -101,17 +101,23 @@
             </picture>
           </app-link>
         </div>
+        <i18n
+          tag="small"
+          path="このサイトの内容物は{creativeCommons}の下に提供されています。"
+          class="SideNavigation-Copyright"
+        >
+          <template v-slot:creativeCommons>
+            <app-link
+              :to="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
+              :icon-size="12"
+              class="SideNavigation-LicenseLink"
+            >
+              {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
+            </app-link>
+          </template>
+        </i18n>
+        <br />
         <small class="SideNavigation-Copyright">
-          {{ $t('このサイトの内容物は') }}
-          <app-link
-            :to="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
-            :icon-size="12"
-            class="SideNavigation-LicenseLink"
-          >
-            {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
-          </app-link>
-          {{ $t('の下に提供されています。') }}
-          <br />
           &copy; 2020 Tokyo Metropolitan Government
         </small>
       </footer>
@@ -406,6 +412,7 @@ export default Vue.extend({
   border: 1px dotted transparent;
   border-radius: 30px;
   color: $gray-3;
+  margin-bottom: 15px;
 
   &:link,
   &:hover,
@@ -432,8 +439,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-Copyright {
-  display: block;
-  margin-top: 15px;
+  display: inline-block;
   color: $gray-1;
   line-height: 1.3;
   font-weight: bold;
