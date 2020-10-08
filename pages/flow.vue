@@ -3,7 +3,7 @@
     <div :class="$style.title">
       <covid-icon aria-hidden="true" />
       <page-header :class="$style.text">
-        {{ $t('新型コロナウイルス感染症が心配なときに') }}
+        {{ $t('新型コロナウイルス感染症が心配なときに.title') }}
       </page-header>
       <printer-button :wrapper-class="$style.printerButton" to="/print/flow" />
     </div>
@@ -518,7 +518,7 @@ export default Vue.extend({
   },
   head(): any {
     const title: TranslateResult = this.$t(
-      '新型コロナウイルス感染症が心配なときに'
+      '新型コロナウイルス感染症が心配なときに.title'
     )
     return {
       title,
