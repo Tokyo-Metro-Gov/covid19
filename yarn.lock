@@ -3629,10 +3629,10 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
-dayjs@1.9.2:
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.9.2.tgz#544197b9e84e5193bcc55752cd38a88d7ccbfa79"
-  integrity sha512-5l+y3PCqAe6LXEC/Tcx7O3t/qqESZO9siraIXZSrPRNqwFzJopYcaKSh271XbAUsdQ3dUBcJ5N//nEjTjF1ebw==
+dayjs@1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.9.3.tgz#b7f94b22ad2a136a4ca02a01ab68ae893fe1a268"
+  integrity sha512-V+1SyIvkS+HmNbN1G7A9+ERbFTV9KTXu6Oor98v2xHmzzpp52OIJhQuJSTywWuBY5pyAEmlwbCi1Me87n/SLOw==
 
 de-indent@^1.0.2:
   version "1.0.2"
