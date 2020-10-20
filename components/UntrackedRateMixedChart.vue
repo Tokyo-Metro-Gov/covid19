@@ -277,7 +277,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         {
           lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
-            date: lastDay,
+            date: this.$d(lastDay, 'dateWithoutYear'),
           })}（${this.$t('７日間移動平均')}）`,
           sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
             this.unit[0]
@@ -287,7 +287,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         {
           lText: lastDayData3,
           sText: `${this.$t('{date} の数値', {
-            date: lastDay3,
+            date: this.$d(lastDay3, 'dateWithoutYear'),
           })}（${this.$t('７日間移動平均値をもとに算出')}）`,
           sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio3} ${
             this.unit[1]
