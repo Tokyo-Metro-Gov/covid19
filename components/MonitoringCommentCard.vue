@@ -29,14 +29,14 @@
           <h4>{{ $t('感染状況') }}</h4>
           <monitoring-comment-frame
             :level="monitoringItems.data['総括コメント-感染状況'].level - 1"
-            :comment="monitoringItems.data['総括コメント-感染状況'].label"
+            :comment="commentCurrentInfectionStatus()"
           />
         </v-col>
         <v-col cols="12" sm="12" md="6" lg="6">
           <h4>{{ $t('医療提供体制') }}</h4>
           <monitoring-comment-frame
             :level="monitoringItems.data['総括コメント-医療提供体制'].level - 1"
-            :comment="monitoringItems.data['総括コメント-医療提供体制'].label"
+            :comment="commentMedicalSystemProvisions()"
           />
         </v-col>
       </v-row>
@@ -67,6 +67,16 @@ export default Vue.extend({
         new Date(monitoringItems.data['総括コメント-更新日']),
         'dateWithoutYear'
       )
+    },
+    commentCurrentInfectionStatus() {
+      return ['ja', 'ja-basic'].includes(this.$root.$i18n.locale)
+        ? monitoringItems.data['総括コメント-感染状況'].display['@ja']
+        : monitoringItems.data['総括コメント-感染状況'].display['@en']
+    },
+    commentMedicalSystemProvisions() {
+      return ['ja', 'ja-basic'].includes(this.$root.$i18n.locale)
+        ? monitoringItems.data['総括コメント-医療提供体制'].display['@ja']
+        : monitoringItems.data['総括コメント-医療提供体制'].display['@en']
     },
   },
 })
