@@ -15,6 +15,8 @@ type DataKey =
   | '(7)重症患者数'
   | '(7)重症患者確保病床数'
 
+type DataCommentKey = '総括コメント-感染状況' | '総括コメント-医療提供体制'
+
 type RawData = {
   '(1)新規陽性者数': number
   '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ': number
@@ -27,6 +29,19 @@ type RawData = {
   '(6)入院患者確保病床数': string
   '(7)重症患者数': number
   '(7)重症患者確保病床数': string
+}
+
+interface Comment {
+  level: number
+  display: {
+    '@ja': string
+    '@en': string
+  }
+}
+
+type RawDataComment = {
+  '総括コメント-感染状況': Comment
+  '総括コメント-医療提供体制': Comment
 }
 
 // -----------------------------------------
@@ -49,7 +64,7 @@ export type Unit = {
  *
  * @param data - Raw data
  */
-export default (rawDataObj: RawData): MonitoringItems => {
+export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
   const unitPerson: Unit = { text: '人', translatable: true }
   const unitReports: Unit = {
     text: '件.reports',
@@ -114,6 +129,42 @@ export default (rawDataObj: RawData): MonitoringItems => {
     '(7)重症患者確保病床数': {
       value: rawDataObj['(7)重症患者確保病床数'],
       unit: null,
+    },
+  }
+}
+
+export type MonitoringCommentItems = Record<DataCommentKey, MonitoringComment>
+
+export type MonitoringComment = {
+  level: number
+  display: {
+    '@ja': string
+    '@en': string
+  }
+}
+
+/**
+ * monitoring_items_json のデータを整形（総括コメント）
+ *
+ * @param data - Raw data
+ */
+export const formatMonitoringCommentItems = (
+  rawDataObj: RawDataComment
+): MonitoringCommentItems => {
+  return {
+    '総括コメント-感染状況': {
+      level: rawDataObj['総括コメント-感染状況'].level,
+      display: {
+        '@ja': rawDataObj['総括コメント-感染状況'].display['@ja'],
+        '@en': rawDataObj['総括コメント-感染状況'].display['@en'],
+      },
+    },
+    '総括コメント-医療提供体制': {
+      level: rawDataObj['総括コメント-医療提供体制'].level,
+      display: {
+        '@ja': rawDataObj['総括コメント-医療提供体制'].display['@ja'],
+        '@en': rawDataObj['総括コメント-医療提供体制'].display['@en'],
+      },
     },
   }
 }
