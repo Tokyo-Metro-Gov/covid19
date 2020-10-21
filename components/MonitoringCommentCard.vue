@@ -28,16 +28,14 @@
         <v-col cols="12" sm="12" md="6" lg="6">
           <h4>{{ $t('感染状況') }}</h4>
           <monitoring-comment-frame
-            :level="monitoringCommentItems['総括コメント-感染状況'].level - 1"
+            :level="monitoringComment['総括コメント-感染状況'].level - 1"
             :comment="commentMonitoring('総括コメント-感染状況')"
           />
         </v-col>
         <v-col cols="12" sm="12" md="6" lg="6">
           <h4>{{ $t('医療提供体制') }}</h4>
           <monitoring-comment-frame
-            :level="
-              monitoringCommentItems['総括コメント-医療提供体制'].level - 1
-            "
+            :level="monitoringComment['総括コメント-医療提供体制'].level - 1"
             :comment="commentMonitoring('総括コメント-医療提供体制')"
           />
         </v-col>
@@ -53,7 +51,7 @@ import AppLink from '@/components/AppLink.vue'
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'
 import {
-  formatMonitoringCommentItems,
+  formatMonitoringComment,
   MonitoringComment,
 } from '@/utils/formatMonitoringItems'
 
@@ -67,11 +65,11 @@ export default Vue.extend({
     MonitoringCommentFrame,
   },
   data() {
-    const monitoringCommentItems: CommentKey = formatMonitoringCommentItems(
+    const monitoringComment: CommentKey = formatMonitoringComment(
       monitoringItemsData.data
     )
     return {
-      monitoringCommentItems,
+      monitoringComment,
     }
   },
   methods: {
@@ -83,8 +81,8 @@ export default Vue.extend({
     },
     commentMonitoring(item: string) {
       return ['ja', 'ja-basic'].includes(this.$root.$i18n.locale)
-        ? this.monitoringCommentItems[item].display['@ja']
-        : this.monitoringCommentItems[item].display['@en']
+        ? this.monitoringComment[item].display['@ja']
+        : this.monitoringComment[item].display['@en']
     },
   },
 })

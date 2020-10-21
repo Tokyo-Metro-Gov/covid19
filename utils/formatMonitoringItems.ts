@@ -144,11 +144,11 @@ export type MonitoringComment = {
 }
 
 /**
- * monitoring_items_json のデータを整形（総括コメント）
+ * monitoring_items_json から総括コメントのみ抜き出し
  *
  * @param data - Raw data
  */
-export const formatMonitoringCommentItems = (
+export const formatMonitoringComment = (
   rawDataObj: RawDataComment
 ): MonitoringCommentItems => {
   return {
