@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+
 import DataTable from '@/components/DataTable.vue'
 import Data from '@/data/data.json'
 import { getDayjsObject } from '@/utils/formatDate'
@@ -61,6 +63,9 @@ export default {
       row['居住地'] = this.getTranslatedWording(row['居住地'])
       row['性別'] = this.getTranslatedWording(row['性別'])
       row['退院'] = this.getTranslatedWording(row['退院'])
+      row['公表日'] = dayjs(row['公表日']).isValid()
+        ? this.$d(dayjs(row['公表日']).toDate(), 'dateWithoutYear')
+        : '不明'
 
       if (row['年代'].substr(-1, 1) === '代') {
         const age = row['年代'].substring(0, 2)
