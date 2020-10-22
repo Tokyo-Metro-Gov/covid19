@@ -183,10 +183,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         displayData: this.displayData,
         dataIndex: 1,
       })
+      const formattedLastDay = this.$d(lastDay, 'dateWithoutYear')
       if (this.dataKind === 'transition' && this.byDate) {
         return {
           lText: lastDayData,
-          sText: `${lastDay} ${this.$t('日別値')}（${this.$t(
+          sText: `${formattedLastDay} ${this.$t('日別値')}（${this.$t(
             '前日比'
           )}: ${dayBeforeRatio} ${this.unit}）`,
           unit: this.unit,
@@ -194,7 +195,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       } else if (this.dataKind === 'transition') {
         return {
           lText: lastDayData,
-          sText: `${lastDay} ${this.$t('実績値')}（${this.$t(
+          sText: `${formattedLastDay} ${this.$t('実績値')}（${this.$t(
             '前日比'
           )}: ${dayBeforeRatio} ${this.unit}）`,
           unit: this.unit,
@@ -202,7 +203,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
       return {
         lText: lastDayData,
-        sText: `${lastDay} ${this.$t('累計値')}（${this.$t(
+        sText: `${formattedLastDay} ${this.$t('累計値')}（${this.$t(
           '前日比'
         )}: ${dayBeforeRatio} ${this.unit}）`,
         unit: this.unit,

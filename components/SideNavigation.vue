@@ -172,6 +172,14 @@ export default Vue.extend({
             'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/corona_0401.html',
         },
         {
+          icon: 'SupportIcon',
+          title: this.$t(
+            '新型コロナウイルス感染症の患者発生状況に関するよくあるご質問'
+          ),
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronafaq.html',
+        },
+        {
           icon: 'MaskTrashIcon',
           title: this.$t('ご家庭でのマスク等の捨て方'),
           link:

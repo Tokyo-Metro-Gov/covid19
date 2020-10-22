@@ -28,15 +28,15 @@
         <v-col cols="12" sm="12" md="6" lg="6">
           <h4>{{ $t('感染状況') }}</h4>
           <monitoring-comment-frame
-            :level="monitoringItems.data['総括コメント-感染状況'].level - 1"
-            :comment="monitoringItems.data['総括コメント-感染状況'].label"
+            :level="monitoringComment['総括コメント-感染状況'].level - 1"
+            :comment="commentMonitoring('総括コメント-感染状況')"
           />
         </v-col>
         <v-col cols="12" sm="12" md="6" lg="6">
           <h4>{{ $t('医療提供体制') }}</h4>
           <monitoring-comment-frame
-            :level="monitoringItems.data['総括コメント-医療提供体制'].level - 1"
-            :comment="monitoringItems.data['総括コメント-医療提供体制'].label"
+            :level="monitoringComment['総括コメント-医療提供体制'].level - 1"
+            :comment="commentMonitoring('総括コメント-医療提供体制')"
           />
         </v-col>
       </v-row>
@@ -49,7 +49,15 @@ import Vue from 'vue'
 
 import AppLink from '@/components/AppLink.vue'
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
-import monitoringItems from '@/data/monitoring_items.json'
+import monitoringItemsData from '@/data/monitoring_items.json'
+import {
+  formatMonitoringComment,
+  MonitoringComment,
+} from '@/utils/formatMonitoringItems'
+
+type CommentKey = {
+  [key: string]: MonitoringComment
+}
 
 export default Vue.extend({
   components: {
@@ -57,16 +65,24 @@ export default Vue.extend({
     MonitoringCommentFrame,
   },
   data() {
+    const monitoringComment: CommentKey = formatMonitoringComment(
+      monitoringItemsData.data
+    )
     return {
-      monitoringItems,
+      monitoringComment,
     }
   },
   methods: {
     commentDate() {
       return this.$d(
-        new Date(monitoringItems.data['総括コメント-更新日']),
+        new Date(monitoringItemsData.data['総括コメント-更新日']),
         'dateWithoutYear'
       )
+    },
+    commentMonitoring(item: string) {
+      return ['ja', 'ja-basic'].includes(this.$root.$i18n.locale)
+        ? this.monitoringComment[item].display['@ja']
+        : this.monitoringComment[item].display['@en']
     },
   },
 })
