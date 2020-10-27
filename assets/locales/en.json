@@ -174,8 +174,8 @@
   "局名": "Bureau/Organization",
   "電話番号": "phone number",
   "政策企画局": "Bureau of the Governor for Policy Planning",
-  "新型コロナウイルス感染症対策本部会議に関すること": "About Tokyo COVID-19 measures HQ meeting",
-  "都庁来庁者データに関すること": "About the data of visitors in Tokyo Government Office Tower",
+  "新型コロナウイルス感染症対策本部会議に関すること": "Matters related to meetings of the Tokyo Novel Coronavirus Response Headquarters",
+  "都庁来庁者データに関すること": "/ Visitor data for the Tokyo Metropolitan Government Main Buildings ",
   "総務局": "Bureau of General Affairs",
   "都公式ホームページに関すること": "For the official Tokyo Metropolitan Government website",
   "都公式SNSアカウントに関すること": "Tokyo Metropolitan Government official SNS accounts",
@@ -186,7 +186,7 @@
   "経営に関すること": "Business management",
   "労働関係に関すること": "Labor relations",
   "新型コロナウイルス感染症の予防・検査・医療に関すること": "COVID-19 prevention, testing, and health care",
-  "都立学校に関すること": "Metropolitan high schools",
+  "都立学校に関すること": "Matters related to Tokyo Metropolitan schools",
   "教育庁": "Office of Education",
   "スムーズビズに関すること": "Smooth-Biz",
   "都市整備局": "Bureau of Urban Development",
@@ -387,7 +387,7 @@
   "陽性率": "Positive rate",
   "（注）陽性率：陽性判明数の移動平均／（陽性判明数＋陰性判明数）の移動平均": "(Note) Rate of Test Positives : Moving average of test positive patients /Moving average of Tested people (as test positive + negative cases)",
   "午前9時00分から午後10時00分（土日祝含む）": "9:00 a.m. to 10:00 p.m. (including weekends and holidays) ",
-  "ご家庭でのマスク等の捨て方に関すること": "How to home dispose of masks and others",
+  "ご家庭でのマスク等の捨て方に関すること": "Matters related to disposal of masks, etc. at home",
   "特措法に定める要請・指示、感染拡大防止協力金等に関すること": "Request / Instructions based on Special Measures Law for Pandemic of COVID-19, About Infection expansion prevention supported fund",
   "新型コロナコールセンター": "The Tokyo COVID-19 Call Center",
   "午前9時00分から午後7時00分（土日祝含む）": "9:00 a.m. - 7:00 p.m. (includes weekends and holidays)",
@@ -660,5 +660,6 @@
     "nav": "To those concerned about COVID-19"
   },
   "営業時間短縮に係る感染拡大防止協力金（９月実施分）": "Infection Spread Prevention Support Fund (for shortened business hours in September)",
-  "新型コロナウイルス感染拡大防止のため、特別区内の酒類の提供を行う飲食店及びカラオケ店に対する都の営業時間短縮の要請に全面的に協力いただいた中小の事業者の皆様に対し、協力金を支給します。": "Payments are provided to small and medium sized businesses that cooperated fully with the request made by the Tokyo Metropolitan Government to karaoke establishments and places serving alcoholic beverages operating in the 23-ward area to shorten their business hours in order to help prevent the spread of infection."
+  "新型コロナウイルス感染拡大防止のため、特別区内の酒類の提供を行う飲食店及びカラオケ店に対する都の営業時間短縮の要請に全面的に協力いただいた中小の事業者の皆様に対し、協力金を支給します。": "Payments are provided to small and medium sized businesses that cooperated fully with the request made by the Tokyo Metropolitan Government to karaoke establishments and places serving alcoholic beverages operating in the 23-ward area to shorten their business hours in order to help prevent the spread of infection.",
+  "新型コロナウイルス感染症の患者発生状況に関するよくあるご質問": "FAQ of COVID-19 in Tokyo"
 }
