@@ -77,16 +77,20 @@
     </template>
     <template v-slot:footer>
       <open-data-link :url="url" />
+      <p class="FooterNote">
+        {{ $t('下記更新日時はオープンデータAPIの反映日時に準じています') }}
+      </p>
     </template>
   </data-view>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
+
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
-import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
 export default Vue.extend({
   components: { DataView, DataViewBasicInfoPanel, OpenDataLink, ScaleLoader },
