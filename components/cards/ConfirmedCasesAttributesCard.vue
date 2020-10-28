@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+
 import DataTable from '@/components/DataTable.vue'
 import Data from '@/data/data.json'
 import { getDayjsObject } from '@/utils/formatDate'
@@ -132,6 +134,7 @@ export default {
           this.page * this.itemsPerPage
         )
       )
+
       // 陽性者の属性 ヘッダー翻訳
       for (const header of this.patientsTable.headers) {
         header.text =
@@ -143,6 +146,9 @@ export default {
         row['性別'] = this.getTranslatedWording(row['性別'])
         row['退院'] = this.getTranslatedWording(row['退院'])
 
+        row['公表日'] = dayjs(row['公表日']).isValid()
+          ? this.$d(dayjs(row['公表日']).toDate(), 'dateWithoutYear')
+          : '不明'
         if (row['年代'].substr(-1, 1) === '代') {
           const age = row['年代'].substring(0, 2)
           row['年代'] = this.$t('{age}代', { age })

@@ -1,5 +1,4 @@
 import dayjs from 'dayjs'
-import Vue from 'vue'
 
 type Header = {
   text: string
@@ -45,7 +44,7 @@ type TableDateType = {
 export default function (data: DataType[]): TableDateType {
   const datasets = data
     .map((d) => ({
-      公表日: formatDateString(d['公表_年月日']) ?? '不明',
+      公表日: d['公表_年月日'] ?? '不明',
       居住地: d['患者_居住地'] ?? '調査中',
       年代: d['患者_年代'] ?? '不明',
       性別: d['患者_性別'] ?? '不明',
@@ -55,12 +54,5 @@ export default function (data: DataType[]): TableDateType {
   return {
     headers,
     datasets,
-  }
-}
-
-function formatDateString(date: string): string | undefined {
-  const day = dayjs(date)
-  if (day.isValid()) {
-    return Vue.prototype.$nuxt.$options.i18n.d(day.toDate(), 'dateWithoutYear')
   }
 }

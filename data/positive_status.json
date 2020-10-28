@@ -1,5 +1,5 @@
 {
-    "date": "2020\/9\/12 19:15",
+    "date": "2020\/10\/27 19:15",
     "data": [
         {
             "date": "2020-02-28",
@@ -990,6 +990,231 @@
             "date": "2020-09-12",
             "hospitalized": 1216,
             "severe_case": 23
+        },
+        {
+            "date": "2020-09-13",
+            "hospitalized": 1262,
+            "severe_case": 24
+        },
+        {
+            "date": "2020-09-14",
+            "hospitalized": 1284,
+            "severe_case": 22
+        },
+        {
+            "date": "2020-09-15",
+            "hospitalized": 1204,
+            "severe_case": 21
+        },
+        {
+            "date": "2020-09-16",
+            "hospitalized": 1149,
+            "severe_case": 23
+        },
+        {
+            "date": "2020-09-17",
+            "hospitalized": 1160,
+            "severe_case": 27
+        },
+        {
+            "date": "2020-09-18",
+            "hospitalized": 1147,
+            "severe_case": 26
+        },
+        {
+            "date": "2020-09-19",
+            "hospitalized": 1135,
+            "severe_case": 25
+        },
+        {
+            "date": "2020-09-20",
+            "hospitalized": 1199,
+            "severe_case": 27
+        },
+        {
+            "date": "2020-09-21",
+            "hospitalized": 1224,
+            "severe_case": 27
+        },
+        {
+            "date": "2020-09-22",
+            "hospitalized": 1232,
+            "severe_case": 30
+        },
+        {
+            "date": "2020-09-23",
+            "hospitalized": 1258,
+            "severe_case": 28
+        },
+        {
+            "date": "2020-09-24",
+            "hospitalized": 1170,
+            "severe_case": 29
+        },
+        {
+            "date": "2020-09-25",
+            "hospitalized": 1083,
+            "severe_case": 30
+        },
+        {
+            "date": "2020-09-26",
+            "hospitalized": 1109,
+            "severe_case": 29
+        },
+        {
+            "date": "2020-09-27",
+            "hospitalized": 1154,
+            "severe_case": 29
+        },
+        {
+            "date": "2020-09-28",
+            "hospitalized": 1198,
+            "severe_case": 26
+        },
+        {
+            "date": "2020-09-29",
+            "hospitalized": 1159,
+            "severe_case": 23
+        },
+        {
+            "date": "2020-09-30",
+            "hospitalized": 1165,
+            "severe_case": 21
+        },
+        {
+            "date": "2020-10-01",
+            "hospitalized": 1103,
+            "severe_case": 22
+        },
+        {
+            "date": "2020-10-02",
+            "hospitalized": 1047,
+            "severe_case": 22
+        },
+        {
+            "date": "2020-10-03",
+            "hospitalized": 1024,
+            "severe_case": 25
+        },
+        {
+            "date": "2020-10-04",
+            "hospitalized": 1070,
+            "severe_case": 26
+        },
+        {
+            "date": "2020-10-05",
+            "hospitalized": 1057,
+            "severe_case": 25
+        },
+        {
+            "date": "2020-10-06",
+            "hospitalized": 976,
+            "severe_case": 25
+        },
+        {
+            "date": "2020-10-07",
+            "hospitalized": 976,
+            "severe_case": 24
+        },
+        {
+            "date": "2020-10-08",
+            "hospitalized": 979,
+            "severe_case": 22
+        },
+        {
+            "date": "2020-10-09",
+            "hospitalized": 1006,
+            "severe_case": 21
+        },
+        {
+            "date": "2020-10-10",
+            "hospitalized": 1008,
+            "severe_case": 24
+        },
+        {
+            "date": "2020-10-11",
+            "hospitalized": 1085,
+            "severe_case": 24
+        },
+        {
+            "date": "2020-10-12",
+            "hospitalized": 1116,
+            "severe_case": 25
+        },
+        {
+            "date": "2020-10-13",
+            "hospitalized": 1083,
+            "severe_case": 27
+        },
+        {
+            "date": "2020-10-14",
+            "hospitalized": 1008,
+            "severe_case": 25
+        },
+        {
+            "date": "2020-10-15",
+            "hospitalized": 1000,
+            "severe_case": 25
+        },
+        {
+            "date": "2020-10-16",
+            "hospitalized": 1002,
+            "severe_case": 25
+        },
+        {
+            "date": "2020-10-17",
+            "hospitalized": 997,
+            "severe_case": 23
+        },
+        {
+            "date": "2020-10-18",
+            "hospitalized": 1051,
+            "severe_case": 24
+        },
+        {
+            "date": "2020-10-19",
+            "hospitalized": 1062,
+            "severe_case": 24
+        },
+        {
+            "date": "2020-10-20",
+            "hospitalized": 982,
+            "severe_case": 24
+        },
+        {
+            "date": "2020-10-21",
+            "hospitalized": 990,
+            "severe_case": 24
+        },
+        {
+            "date": "2020-10-22",
+            "hospitalized": 944,
+            "severe_case": 24
+        },
+        {
+            "date": "2020-10-23",
+            "hospitalized": 964,
+            "severe_case": 23
+        },
+        {
+            "date": "2020-10-24",
+            "hospitalized": 945,
+            "severe_case": 25
+        },
+        {
+            "date": "2020-10-25",
+            "hospitalized": 980,
+            "severe_case": 28
+        },
+        {
+            "date": "2020-10-26",
+            "hospitalized": 1037,
+            "severe_case": 29
+        },
+        {
+            "date": "2020-10-27",
+            "hospitalized": 934,
+            "severe_case": 33
         }
     ]
 }
