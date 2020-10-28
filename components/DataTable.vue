@@ -237,4 +237,7 @@ export default Vue.extend({
 .loading {
   visibility: hidden;
 }
+.FooterNote {
+  margin: 0 !important;
+}
 </style>
