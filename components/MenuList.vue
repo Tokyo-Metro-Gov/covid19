@@ -25,6 +25,7 @@ import AppLink from '@/components/AppLink.vue'
 import CovidIcon from '@/static/covid.svg'
 import MaskTrashIcon from '@/static/masktrash.svg'
 import ParentIcon from '@/static/parent.svg'
+import SupportIcon from '@/static/support.svg'
 const isPath = require('is-svg-path')
 
 type MenuItem = {
@@ -40,6 +41,7 @@ export default Vue.extend({
     MaskTrashIcon,
     ParentIcon,
     AppLink,
+    SupportIcon,
   },
   props: {
     items: {
