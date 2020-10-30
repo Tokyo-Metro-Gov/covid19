@@ -111,7 +111,7 @@ export default Vue.extend({
       return convertDatetimeToISO8601Format(this.date)
     },
     formattedDateForDisplay(): string {
-      return this.$d(new Date(this.date), 'dateTime')
+      return this.date !== '' ? this.$d(new Date(this.date), 'dateTime') : ''
     },
     permalink(): string {
       const permalink = `/cards/${this.titleId}`
@@ -130,11 +130,15 @@ export default Vue.extend({
           property: 'og:title',
           content: this.headTitle ? this.headTitle : this.title,
         },
-        { hid: 'description', name: 'description', content: this.date },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.formattedDateForDisplay,
+        },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.date,
+          content: this.formattedDateForDisplay,
         },
       ],
     }
