@@ -3,41 +3,61 @@
     <template v-slot:button>
       <span />
     </template>
-    <v-data-table
-      :ref="'displayedTable'"
-      :headers="chartData.headers"
-      :items="chartData.datasets"
-      :height="240"
-      fixed-header
-      :mobile-breakpoint="0"
-      :custom-sort="customSort"
-      :footer-props="{
-        'items-per-page-options': [15, 30, 50, 100, 200, 300, -1],
-        'items-per-page-text': $t('1ページ当たり'),
-      }"
-      class="cardTable"
+    <v-overlay
+      opacity="0"
+      absolute
+      :value="!loaded"
+      justify-center
+      align-center
     >
-      <template v-slot:body="{ items }">
-        <tbody>
-          <tr v-for="item in items" :key="item.text">
-            <th class="text-start" scope="row">{{ item['公表日'] }}</th>
-            <td class="text-start">{{ item['居住地'] }}</td>
-            <td class="text-start">{{ item['年代'] }}</td>
-            <td class="text-start">{{ item['性別'] }}</td>
-            <td class="text-center">{{ item['退院'] }}</td>
-          </tr>
-        </tbody>
-      </template>
-      <template slot="footer.page-text" slot-scope="props">
-        {{
-          $t('{itemsLength} 項目中 {pageStart} - {pageStop} ', {
-            itemsLength: props.itemsLength,
-            pageStart: props.pageStart,
-            pageStop: props.pageStop,
-          })
-        }}
-      </template>
-    </v-data-table>
+      <scale-loader color="#00A040" />
+    </v-overlay>
+    <v-overlay absolute :value="error" justify-center align-center>
+      <v-alert type="error" color="#AD2121">
+        {{ title }} {{ $t('の読み込みに失敗しました') }} <br />
+        エラーメッセージ: {{ errormsg }}
+      </v-alert>
+    </v-overlay>
+    <v-layout :class="{ loading: !loaded || error }" column>
+      <v-data-table
+        :ref="'displayedTable'"
+        :headers="chartData.headers"
+        :items="chartData.datasets"
+        :height="240"
+        fixed-header
+        :mobile-breakpoint="0"
+        :footer-props="{
+          'items-per-page-options': [15, 30, 50, 100, 200, 300, 500, 1000],
+          'items-per-page-text': $t('1ページ当たり'),
+        }"
+        :items-per-page.sync="itemsPerPage"
+        :page.sync="page"
+        :disable-sort="true"
+        class="cardTable"
+        :server-items-length="dataLength"
+      >
+        <template v-slot:body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.text">
+              <th class="text-start" scope="row">{{ item['公表日'] }}</th>
+              <td class="text-start">{{ item['居住地'] }}</td>
+              <td class="text-start">{{ item['年代'] }}</td>
+              <td class="text-start">{{ item['性別'] }}</td>
+              <td class="text-center">{{ item['退院'] }}</td>
+            </tr>
+          </tbody>
+        </template>
+        <template slot="footer.page-text" slot-scope="props">
+          {{
+            $t('{itemsLength} 項目中 {pageStart} - {pageStop} ', {
+              itemsLength: props.itemsLength,
+              pageStart: props.pageStart,
+              pageStop: props.pageStop,
+            })
+          }}
+        </template>
+      </v-data-table>
+    </v-layout>
     <template v-slot:additionalDescription>
       <ul class="ListStyleNone">
         <li>
@@ -57,19 +77,23 @@
     </template>
     <template v-slot:footer>
       <open-data-link :url="url" />
+      <p class="FooterNote">
+        {{ $t('下記更新日時はオープンデータAPIの反映日時に準じています') }}
+      </p>
     </template>
   </data-view>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default Vue.extend({
-  components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
+  components: { DataView, DataViewBasicInfoPanel, OpenDataLink, ScaleLoader },
   props: {
     title: {
       type: String,
@@ -95,26 +119,36 @@ export default Vue.extend({
       type: String,
       default: '',
     },
-    customSort: {
-      type: Function,
-      default(items: Object[], index: string[], isDesc: boolean[]) {
-        items.sort((a: any, b: any) => {
-          let comparison = 0
-          if (String(a[index[0]]) < String(b[index[0]])) {
-            comparison = -1
-          } else if (String(b[index[0]]) < String(a[index[0]])) {
-            comparison = 1
-          }
-          // a と b が等しい場合は上記のif文を両方とも通過するので 0 のままとなる
-
-          // 降順指定の場合は符号を反転
-          if (comparison !== 0) {
-            comparison = isDesc[0] ? comparison * -1 : comparison
-          }
-          return comparison
-        })
-        return items
-      },
+    loaded: {
+      type: Boolean,
+      default: false,
+    },
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    errormsg: {
+      type: String,
+      default: '',
+    },
+    dataLength: {
+      type: Number,
+      default: 10,
+    },
+  },
+  data() {
+    return {
+      itemsPerPage: 15,
+      page: 1,
+    }
+  },
+  watch: {
+    itemsPerPage() {
+      this.$emit('onChangeItemsPerPage', this.itemsPerPage)
+      this.page = 1
+    },
+    page() {
+      this.$emit('onChangePage', this.page)
     },
   },
   mounted() {
@@ -191,12 +225,19 @@ export default Vue.extend({
   }
 }
 .v-menu__content {
-  width: 60px;
+  width: 80px;
   .v-list-item {
     padding: 0 8px;
   }
 }
 .v-list-item__title {
   font-size: 1.5rem;
+}
+
+.loading {
+  visibility: hidden;
+}
+.FooterNote {
+  margin: 0 !important;
 }
 </style>
