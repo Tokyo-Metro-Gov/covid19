@@ -18,7 +18,7 @@
     <tokyo-alert-card v-if="TokyoAlert.alert" />
     <static-info
       class="mb-4"
-      :url="localePath('/flow')"
+      :url="'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'"
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
