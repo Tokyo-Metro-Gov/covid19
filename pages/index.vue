@@ -10,7 +10,7 @@
         @click="change"
       >
         <v-icon class="TabIcon">
-          mdi-chart-timeline-variant
+          {{ mdiChartTimelineVariant }}
         </v-icon>
         {{ item.label }}
       </v-tab>
@@ -24,6 +24,7 @@
 </template>
 
 <script lang="ts">
+import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 
 import CardsMonitoring from '@/components/CardsMonitoring.vue'
@@ -36,6 +37,12 @@ export default Vue.extend({
     SiteTopUpper,
     CardsMonitoring,
     CardsReference,
+  },
+  props: {
+    mdiChartTimelineVariant: {
+      type: String,
+      default: () => mdiChartTimelineVariant,
+    },
   },
   data() {
     return {

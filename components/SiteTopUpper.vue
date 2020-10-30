@@ -26,6 +26,7 @@
 </template>
 
 <script lang="ts">
+import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
@@ -49,11 +50,10 @@ export default Vue.extend({
   },
   data() {
     const { lastUpdate } = Data
-
     return {
       TokyoAlert,
       headerItem: {
-        icon: 'mdi-chart-timeline-variant',
+        icon: mdiChartTimelineVariant as string,
         title: this.$t('都内の最新感染動向'),
       },
       lastUpdate,
@@ -82,20 +82,17 @@ export default Vue.extend({
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
-
     @include lessThan($small) {
       flex-direction: column;
       align-items: baseline;
     }
   }
-
   .UpdatedAt {
     @include font-size(14);
 
     color: $gray-3;
     margin-bottom: 0.2rem;
   }
-
   .Annotation {
     @include font-size(12);
 

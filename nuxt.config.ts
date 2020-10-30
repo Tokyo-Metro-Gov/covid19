@@ -64,7 +64,7 @@ const config: NuxtConfig = {
   /*
    ** Global CSS
    */
-  css: ['@/assets/global.scss'],
+  css: ['~/assets/global.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -102,6 +102,7 @@ const config: NuxtConfig = {
     ['nuxt-i18n', i18n],
     'nuxt-svg-loader',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
+    '@nuxtjs/device',
   ],
   /*
    ** vuetify module configuration
@@ -110,9 +111,7 @@ const config: NuxtConfig = {
   vuetify: {
     customVariables: ['@/assets/variables.scss'],
     treeShake: true,
-    defaultAssets: {
-      icons: false,
-    },
+    defaultAssets: false,
   },
   googleAnalytics: {
     id: process.env.GOOGLE_ANALYTICS_ID, // .env.production などに設定してください。
@@ -146,6 +145,12 @@ const config: NuxtConfig = {
           // Built-in since nuxt@2.14.5
           grid: 'autoplace',
         },
+      },
+    },
+    loaders: {
+      file: {
+        regExp: /\.svg$/,
+        name: '[path][name].[ext]?inline',
       },
     },
     extend(config) {

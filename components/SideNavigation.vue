@@ -1,54 +1,74 @@
 <template>
-  <div ref="Side" class="SideNavigation" tabindex="-1">
-    <header class="SideNavigation-Header">
-      <v-icon
-        class="SideNavigation-OpenIcon"
-        :aria-label="$t('サイドメニュー項目を開く')"
-        @click="$emit('openNavi', $event)"
+  <v-sheet ref="Side" class="SideNavigation">
+    <v-navigation-drawer
+      v-model="drawer"
+      floating
+      tabindex="-1"
+      touchless
+      stateless
+      hide-overlay
+      width="100%"
+    >
+      <v-app-bar
+        id="header"
+        class="SideNavigation-Header"
+        flat
+        floating
+        height="64px"
+        min-height="64px"
+        color="#fff"
       >
-        mdi-menu
-      </v-icon>
-      <h1 class="SideNavigation-HeaderTitle">
-        <app-link :to="localePath('/')" class="SideNavigation-HeaderLink">
-          <img
-            class="SideNavigation-HeaderLogo"
-            src="/logo.svg"
-            :alt="$t('東京都')"
-          />
-          <div class="SideNavigation-HeaderText">
-            {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
-              $t('menu/対策サイト')
-            }}
+        <v-input
+          class="SideNavigation-OpenIcon"
+          :aria-label="$t('サイドメニュー項目を開く')"
+          :prepend-icon="mdiMenu"
+          @click.stop="drawer = true"
+        />
+        <h1 class="SideNavigation-HeaderTitle">
+          <app-link :to="localePath('/')" class="SideNavigation-HeaderLink">
+            <img
+              class="SideNavigation-HeaderLogo"
+              :aria-label="$t('東京都')"
+              :src="'/logo.svg?inline'"
+            />
+            <div class="SideNavigation-HeaderText">
+              {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
+                $t('menu/対策サイト')
+              }}
+            </div>
+          </app-link>
+        </h1>
+      </v-app-bar>
+
+      <v-item-group id="body" class="SideNavigation-Body">
+        <v-icon
+          class="SideNavigation-CloseIcon"
+          :aria-label="$t('サイドメニュー項目を閉じる')"
+          @click.stop="drawer = false"
+        >
+          {{ mdiClose }}
+        </v-icon>
+
+        <nav class="SideNavigation-Menu">
+          <div class="SideNavigation-Language">
+            <div
+              v-if="$i18n.locales.length > 1"
+              class="SideNavigation-Language"
+            >
+              <label
+                class="SideNavigation-LanguageLabel"
+                for="LanguageSelector"
+              >
+                {{ $t('多言語対応選択メニュー') }}
+              </label>
+              <language-selector />
+            </div>
           </div>
-        </app-link>
-      </h1>
-    </header>
+          <menu-list :items="items" @blur="$refs.MainPage.focus()" />
+        </nav>
+      </v-item-group>
 
-    <div :class="['SideNavigation-Body', { '-opened': isNaviOpen }]">
-      <v-icon
-        class="SideNavigation-CloseIcon"
-        :aria-label="$t('サイドメニュー項目を閉じる')"
-        @click="$emit('closeNavi', $event)"
-      >
-        mdi-close
-      </v-icon>
-
-      <nav class="SideNavigation-Menu">
-        <div class="SideNavigation-Language">
-          <div
-            v-if="this.$i18n.locales.length > 1"
-            class="SideNavigation-Language"
-          >
-            <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
-              {{ $t('多言語対応選択メニュー') }}
-            </label>
-            <language-selector />
-          </div>
-        </div>
-        <menu-list :items="items" @click="$emit('closeNavi', $event)" />
-      </nav>
-
-      <footer class="SideNavigation-Footer">
+      <v-item-group id="footer" class="SideNavigation-Footer">
         <div class="SideNavigation-Social">
           <app-link
             to="https://line.me/R/ti/p/%40822sysfc"
@@ -120,12 +140,20 @@
         <small class="SideNavigation-Copyright">
           &copy; 2020 Tokyo Metropolitan Government
         </small>
-      </footer>
-    </div>
-  </div>
+      </v-item-group>
+    </v-navigation-drawer>
+  </v-sheet>
 </template>
 
 <script lang="ts">
+import {
+  mdiAccountMultiple,
+  mdiChartTimelineVariant,
+  mdiClose,
+  mdiDomain,
+  mdiMenu,
+} from '@mdi/js'
+import isDesktopOrTablet from '@nuxtjs/device'
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 
@@ -134,7 +162,7 @@ import LanguageSelector from '@/components/LanguageSelector.vue'
 import MenuList from '@/components/MenuList.vue'
 
 type Item = {
-  icon?: string
+  icon?: string | object
   title: TranslateResult
   link: string
   divider?: boolean
@@ -147,18 +175,38 @@ export default Vue.extend({
     AppLink,
   },
   props: {
-    isNaviOpen: {
-      type: Boolean,
-      required: true,
+    mdiClose: {
+      type: String,
+      default: () => mdiClose,
+    },
+    mdiMenu: {
+      type: String,
+      default: () => mdiMenu,
+    },
+    mdiChartTimelineVariant: {
+      type: String,
+      default: () => mdiChartTimelineVariant,
+    },
+    mdiAccountMultiple: {
+      type: String,
+      default: () => mdiAccountMultiple,
+    },
+    mdiDomain: {
+      type: String,
+      default: () => mdiDomain,
+    },
+    drawer: {
+      type: [Boolean, Function],
+      default: () => isDesktopOrTablet,
     },
   },
   computed: {
     items(): Item[] {
       return [
         {
-          icon: 'mdi-chart-timeline-variant',
+          icon: mdiChartTimelineVariant,
           title: this.$t('都内の最新感染動向'),
-          link: this.localePath('/'),
+          link: `${this.localePath('/')}`,
         },
         {
           icon: 'CovidIcon',
@@ -172,6 +220,14 @@ export default Vue.extend({
             'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/corona_0401.html',
         },
         {
+          icon: 'SupportIcon',
+          title: this.$t(
+            '新型コロナウイルス感染症の患者発生状況に関するよくあるご質問'
+          ),
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronafaq.html',
+        },
+        {
           icon: 'MaskTrashIcon',
           title: this.$t('ご家庭でのマスク等の捨て方'),
           link:
@@ -181,17 +237,17 @@ export default Vue.extend({
         {
           icon: 'ParentIcon',
           title: this.$t('お子様をお持ちの皆様へ'),
-          link: this.localePath('/parent'),
+          link: `${this.localePath('/parent')}`,
         },
         {
-          icon: 'mdi-account-multiple',
+          icon: mdiAccountMultiple,
           title: this.$t('都民の皆様へ'),
           link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
         },
         {
-          icon: 'mdi-domain',
+          icon: mdiDomain,
           title: this.$t('企業の皆様・はたらく皆様へ'),
-          link: this.localePath('/worker'),
+          link: `${this.localePath('/worker')}`,
           divider: true,
         },
         {
@@ -220,31 +276,17 @@ export default Vue.extend({
         },
         {
           title: this.$t('当サイトについて'),
-          link: this.localePath('/about'),
+          link: `${this.localePath('/about')}`,
         },
         {
           title: this.$t('お問い合わせ先一覧'),
-          link: this.localePath('/contacts'),
+          link: `${this.localePath('/contacts')}`,
         },
         {
           title: this.$t('東京都公式ホームページ'),
           link: 'https://www.metro.tokyo.lg.jp/',
         },
       ]
-    },
-  },
-  watch: {
-    $route: 'handleChageRoute',
-  },
-  methods: {
-    handleChageRoute() {
-      // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
-      return this.$nextTick().then(() => {
-        const $Side = this.$refs.Side as HTMLEmbedElement | undefined
-        if ($Side) {
-          $Side.focus()
-        }
-      })
     },
   },
 })
@@ -263,46 +305,45 @@ export default Vue.extend({
 
 .SideNavigation-Header {
   height: 64px;
-  padding-left: 52px;
+  min-height: 64px;
   @include largerThan($small) {
-    height: auto;
-    padding: 20px;
+    padding: 20px 0 96px;
   }
   @include lessThan($small) {
     display: flex;
+    padding-left: 12px;
   }
   @include lessThan($tiny) {
-    padding-left: 44px;
+    padding-left: 10px;
   }
 }
 
 .SideNavigation-OpenIcon {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  padding: 18px 8px 18px 16px;
+  padding: 32px 8px 18px 2px;
   font-size: 28px;
+  @include largerThan($small) {
+    @include visually-hidden;
+  }
   @include lessThan($tiny) {
     font-size: 24px;
-    padding: 20px 10px;
-  }
-  @include largerThan($small) {
-    display: none;
   }
 }
 
 .SideNavigation-CloseIcon {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  padding: 18px 8px 18px 16px;
+  padding: 18px 8px 18px 12px;
   font-size: 28px;
   @include lessThan($tiny) {
     font-size: 24px;
     padding: 20px 10px;
   }
   @include largerThan($small) {
-    display: none;
+    @include visually-hidden;
   }
 }
 
@@ -311,8 +352,7 @@ export default Vue.extend({
   color: #707070;
   @include font-size(13);
   @include largerThan($small) {
-    margin: 0;
-    margin-top: 10px;
+    margin: 10px 0 0 0;
   }
 }
 
@@ -320,9 +360,7 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   padding-right: 10px;
-  @include lessThan($small) {
-    height: 64px;
-  }
+  height: 64px;
   @include lessThan($tiny) {
     justify-content: space-between;
   }
@@ -334,16 +372,13 @@ export default Vue.extend({
     color: inherit;
     text-decoration: none;
   }
-
   &:hover,
   &:focus {
     font-weight: bold;
   }
-
   &:focus {
     outline: dotted $gray-3 1px;
   }
-
   @include largerThan($small) {
     display: block;
     padding: 15px 0;
@@ -361,94 +396,120 @@ export default Vue.extend({
   @include lessThan($small) {
     margin: 0 0 0 10px;
   }
-
   @include lessThan($tiny) {
     margin: 0;
   }
 }
 
-.SideNavigation-Body {
-  padding: 0 20px 20px;
-  @include lessThan($small) {
-    display: none;
-    padding: 0 36px 36px;
-    &.-opened {
-      position: fixed;
+.v-navigation-drawer {
+  position: relative;
+  overflow-y: visible;
+  z-index: 0;
+  @include largerThan($small) {
+    width: 256px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none none;
+    }
+  }
+
+  .SideNavigation-Body {
+    padding: 20px 20px 20px 20px;
+    position: relative;
+    @include largerThan($small) {
+      width: inherit;
+    }
+    @include lessThan($small) {
+      padding: 0 36px 36px 0;
       top: 0;
       bottom: 0;
       left: 0;
       display: block !important;
-      width: 100%;
-      z-index: z-index-of(opened-side-navigation);
       background-color: $white;
+      width: 100%;
       height: 100%;
-      overflow: auto;
       -webkit-overflow-scrolling: touch;
     }
   }
-}
 
-.SideNavigation-Menu {
-  @include lessThan($small) {
-    padding-top: 50px;
+  .v-navigation-drawer--is-mobile:not(.v-navigation-drawer--close)
+    + .v-navigation-drawer__content {
+    visibility: visible;
   }
-}
-
-.SideNavigation-LanguageLabel {
-  display: block;
-  margin-bottom: 5px;
-  @include font-size(14);
-}
-
-.SideNavigation-Footer {
-  padding-top: 20px;
-}
-
-.SideNavigation-Social {
-  display: flex;
-}
-
-.SideNavigation-SocialLink {
-  border: 1px dotted transparent;
-  border-radius: 30px;
-  color: $gray-3;
-  margin-bottom: 15px;
-
-  &:link,
-  &:hover,
-  &:visited,
-  &:active {
-    color: inherit;
-    text-decoration: none;
+  .v-navigation-drawer--is-mobile::after(.v-navigation-drawer--close)
+    + .v-navigation-drawer__content {
+    @include visually-hidden;
+  }
+  .v-navigation-drawer--bottom.v-navigation-drawer--is-mobile {
+    min-width: inherit;
   }
 
-  &:focus {
-    color: inherit;
-    text-decoration: none;
-    border: 1px dotted $gray-3;
-    outline: none;
+  .SideNavigation-Menu {
+    @include lessThan($small) {
+      padding-top: 50px;
+    }
   }
 
-  & + & {
-    margin-left: 10px;
+  .SideNavigation-SocialLink {
+    border: 1px dotted transparent;
+    border-radius: 30px;
+    color: $gray-3;
+    margin-bottom: 15px;
   }
 
-  img {
-    width: 30px;
+  .SideNavigation-LanguageLabel {
+    display: block;
+    margin-bottom: 5px;
+    @include font-size(14);
   }
-}
 
-.SideNavigation-Copyright {
-  display: inline-block;
-  color: $gray-1;
-  line-height: 1.3;
-  font-weight: bold;
-  @include font-size(10);
-}
+  .SideNavigation-Footer {
+    position: relative;
+    padding: 0 20px 20px 12px;
+  }
 
-.SideNavigation-LicenseLink {
-  &:focus {
-    outline: 1px dotted $gray-3;
+  .SideNavigation-Social {
+    display: flex;
+  }
+
+  .SideNavigation-SocialLink {
+    border: 1px dotted transparent;
+    border-radius: 30px;
+    color: $gray-3;
+    &:link,
+    &:hover,
+    &:visited,
+    &:active {
+      color: inherit;
+      text-decoration: none;
+    }
+    &:focus {
+      color: inherit;
+      text-decoration: none;
+      border: 1px dotted $gray-3;
+      outline: none;
+    }
+    & + & {
+      margin-left: 10px;
+    }
+    img {
+      width: 30px;
+    }
+  }
+
+  .SideNavigation-Copyright {
+    display: inline-block;
+    color: $gray-1;
+    line-height: 1.3;
+    font-weight: bold;
+    @include font-size(10);
+  }
+
+  .SideNavigation-LicenseLink {
+    &:focus {
+      outline: 1px dotted $gray-3;
+    }
   }
 }
 </style>

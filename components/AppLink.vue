@@ -16,6 +16,12 @@
 </template>
 
 <script lang="ts">
+import {
+  mdiAccountMultiple,
+  mdiChartTimelineVariant,
+  mdiDomain,
+  mdiOpenInNew,
+} from '@mdi/js'
 import Vue from 'vue'
 
 import { isExternal } from '@/utils/urls.ts'
@@ -48,7 +54,19 @@ export default Vue.extend({
     },
     iconType: {
       type: String,
-      default: 'mdi-open-in-new',
+      default: () => mdiOpenInNew,
+    },
+    mdiChartTimelineVariant: {
+      type: String,
+      default: () => mdiChartTimelineVariant,
+    },
+    mdiAccountMultiple: {
+      type: String,
+      default: () => mdiAccountMultiple,
+    },
+    mdiDomain: {
+      type: String,
+      default: () => mdiDomain,
     },
     iconClass: {
       type: String,

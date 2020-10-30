@@ -25,9 +25,11 @@ import AppLink from '@/components/AppLink.vue'
 import CovidIcon from '@/static/covid.svg'
 import MaskTrashIcon from '@/static/masktrash.svg'
 import ParentIcon from '@/static/parent.svg'
+import SupportIcon from '@/static/support.svg'
+const isPath = require('is-svg-path')
 
 type MenuItem = {
-  icon?: string
+  icon?: string | any
   title: string
   link: string
   divider?: boolean
@@ -39,6 +41,7 @@ export default Vue.extend({
     MaskTrashIcon,
     ParentIcon,
     AppLink,
+    SupportIcon,
   },
   props: {
     items: {
@@ -48,11 +51,11 @@ export default Vue.extend({
   },
   methods: {
     iconTag(icon: MenuItem['icon']) {
-      return icon ? (icon.startsWith('mdi') ? 'v-icon' : icon) : null
+      return icon ? (isPath(icon) ? 'v-icon' : icon) : null
     },
     iconAttrs(icon: MenuItem['icon']) {
       return icon
-        ? icon.startsWith('mdi')
+        ? isPath(icon)
           ? {
               size: '2rem',
               class: 'MenuList-MdIcon',

@@ -59,10 +59,11 @@ export default {
             displayData: this.displayData,
             dataIndex: 1,
           })
+          const formattedLastDay = this.$d(lastDay, 'dateWithoutYear')
           if (this.dataKind === 'transition') {
             return {
               lText: lastDayData,
-              sText: `${lastDay} ${this.$t('日別値')}（${this.$t(
+              sText: `${formattedLastDay} ${this.$t('日別値')}（${this.$t(
                 '現在判明している人数であり、後日修正される場合がある'
               )}）`,
               unit: this.unit,
@@ -70,7 +71,7 @@ export default {
           }
           return {
             lText: lastDayData,
-            sText: `${lastDay} ${this.$t('累計値')}`,
+            sText: `${formattedLastDay} ${this.$t('累計値')}`,
             unit: this.unit,
           }
         },
