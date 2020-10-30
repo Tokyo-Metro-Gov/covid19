@@ -163,7 +163,8 @@ export default Vue.extend({
         {
           icon: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに.nav'),
-          link: this.localePath('/flow'),
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html',
         },
         {
           icon: 'CovidIcon',
