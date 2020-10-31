@@ -31,9 +31,23 @@ import { getDayjsObject } from '@/utils/formatDate'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 
-export default {
+const options = {
   components: {
     DataTable,
+  },
+  props: {
+    mdiChevronDoubleDown: {
+      type: String,
+      default: () => mdiChevronDoubleDown,
+    },
+    mdiChevronLeft: {
+      type: String,
+      default: () => mdiChevronLeft,
+    },
+    mdiChevronRight: {
+      type: String,
+      default: () => mdiChevronRight,
+    },
   },
   data() {
     const patientSummary = Data.patients_summary
@@ -179,4 +193,6 @@ export default {
     },
   },
 }
+
+export default options
 </script>
