@@ -1,9 +1,7 @@
-import { NuxtConfig } from '@nuxt/types'
-
 import i18n from './nuxt-i18n.config'
 const environment = process.env.NODE_ENV || 'development'
 
-const config: NuxtConfig = {
+const config = {
   // Since nuxt@2.14.5, there have been significant changes.
   // We dealt with typical two (2) out of them:
   // 1) The "mode:" directive got deprecated (seen right below);
@@ -13,49 +11,56 @@ const config: NuxtConfig = {
   /*
    ** Headers of the page
    */
-  head: {
-    htmlAttrs: {
-      prefix: 'og: http://ogp.me/ns#',
+  metaInfo: {
+    head() {
+      return {
+        htmlAttrs: {
+          prefix: 'og: http://ogp.me/ns#',
+        },
+        meta: [
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { hid: 'og:type', property: 'og:type', content: 'website' },
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: 'https://stopcovid19.metro.tokyo.lg.jp',
+          },
+          {
+            hid: 'twitter:card',
+            name: 'twitter:card',
+            content: 'summary_large_image',
+          },
+          {
+            hid: 'twitter:site',
+            name: 'twitter:site',
+            content: '@tokyo_bousai',
+          },
+          {
+            hid: 'twitter:creator',
+            name: 'twitter:creator',
+            content: '@tokyo_bousai',
+          },
+          {
+            hid: 'fb:app_id',
+            property: 'fb:app_id',
+            content: '2879625188795443',
+          },
+          {
+            hid: 'note:card',
+            property: 'note:card',
+            content: 'summary_large_image',
+          },
+        ],
+        link: [
+          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+          {
+            rel: 'apple-touch-icon',
+            href: '/apple-touch-icon-precomposed.png',
+          },
+        ],
+      }
     },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'og:type', property: 'og:type', content: 'website' },
-      {
-        hid: 'og:url',
-        property: 'og:url',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp',
-      },
-      {
-        hid: 'twitter:card',
-        name: 'twitter:card',
-        content: 'summary_large_image',
-      },
-      {
-        hid: 'twitter:site',
-        name: 'twitter:site',
-        content: '@tokyo_bousai',
-      },
-      {
-        hid: 'twitter:creator',
-        name: 'twitter:creator',
-        content: '@tokyo_bousai',
-      },
-      {
-        hid: 'fb:app_id',
-        property: 'fb:app_id',
-        content: '2879625188795443',
-      },
-      {
-        hid: 'note:card',
-        property: 'note:card',
-        content: 'summary_large_image',
-      },
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
-    ],
   },
   /*
    ** Customize the progress-bar color
@@ -81,6 +86,10 @@ const config: NuxtConfig = {
       src: '@/plugins/vuetify.ts',
       ssr: true,
     },
+    {
+      src: '@/plugins/chartjs-adapter-dayjs.ts',
+      ssr: true,
+    },
   ],
   /*
    ** Nuxt.js dev-modules
@@ -89,20 +98,20 @@ const config: NuxtConfig = {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
+    '@nuxtjs/device',
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
+    '@nuxtjs/pwa',
+    'nuxt-svg-loader',
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
-    '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
     ['nuxt-i18n', i18n],
-    'nuxt-svg-loader',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
-    '@nuxtjs/device',
   ],
   /*
    ** vuetify module configuration

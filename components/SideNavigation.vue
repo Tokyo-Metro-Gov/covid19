@@ -452,13 +452,6 @@ export default Vue.extend({
     }
   }
 
-  .SideNavigation-SocialLink {
-    border: 1px dotted transparent;
-    border-radius: 30px;
-    color: $gray-3;
-    margin-bottom: 15px;
-  }
-
   .SideNavigation-LanguageLabel {
     display: block;
     margin-bottom: 5px;
@@ -478,6 +471,7 @@ export default Vue.extend({
     border: 1px dotted transparent;
     border-radius: 30px;
     color: $gray-3;
+    margin-bottom: 15px;
     &:link,
     &:hover,
     &:visited,
