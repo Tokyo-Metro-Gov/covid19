@@ -1,16 +1,58 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
+    <ul
+      :class="$style.GraphLegend"
+      :style="{ display: canvas ? 'block' : 'none' }"
+    >
+      <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
+        <button>
+          <div
+            :style="{
+              backgroundColor: colors[i].fillColor,
+              borderColor: colors[i].strokeColor,
+              width: '20px',
+            }"
+          />
+          <span
+            :style="{
+              textDecoration: displayLegends[i] ? 'none' : 'line-through',
+            }"
+            >{{ item }}</span
+          >
+        </button>
+      </li>
+    </ul>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <bar
-      :ref="'barChart'"
-      :style="{ display: canvas ? 'block' : 'none' }"
-      :chart-id="chartId"
-      :chart-data="displayData"
-      :options="displayOption"
-      :height="240"
-    />
+    <scrollable-chart
+      v-show="canvas"
+      :display-data="displayData"
+      :is-weekly="true"
+    >
+      <template v-slot:chart="{ chartWidth }">
+        <bar
+          :ref="'barChart'"
+          :chart-id="chartId"
+          :chart-data="displayData"
+          :options="displayOption"
+          :display-legends="displayLegends"
+          :height="240"
+          :width="chartWidth"
+        />
+      </template>
+      <template v-slot:sticky-chart>
+        <bar
+          class="sticky-legend"
+          :chart-id="`${chartId}-header-right`"
+          :chart-data="displayDataHeader"
+          :options="displayOptionHeader"
+          :display-legends="displayLegends"
+          :plugins="yAxesBgPlugin"
+          :height="240"
+        />
+      </template>
+    </scrollable-chart>
     <template v-slot:dataTable>
       <client-only>
         <data-view-table :headers="tableHeaders" :items="tableData" />
@@ -23,9 +65,8 @@
 </template>
 
 <script lang="ts">
-import { ChartOptions } from 'chart.js'
+import { Chart, ChartOptions } from 'chart.js'
 import Vue from 'vue'
-import VueI18n from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import DataView from '@/components/DataView.vue'
@@ -33,9 +74,10 @@ import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
 import AgencyData from '@/data/agency.json'
-import { DataSets, DisplayData } from '@/plugins/vue-chart'
-import { getGraphSeriesStyle } from '@/utils/colors'
+import { DataSets, DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
+import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 
 interface AgencyDataSets extends DataSets {
   label: string
@@ -48,13 +90,18 @@ interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
 }
 type Data = {
+  colors: SurfaceStyle[]
   canvas: boolean
-  agencies: VueI18n.TranslateResult[]
+  displayLegends: boolean[]
 }
-type Methods = {}
+type Methods = {
+  onClickLegend: (i: number) => void
+}
 type Computed = {
   displayData: AgencyDisplayData
   displayOption: ChartOptions
+  displayDataHeader: AgencyDisplayData
+  displayOptionHeader: ChartOptions
   tableHeaders: TableHeader[]
   tableData: TableItem[]
 }
@@ -64,6 +111,7 @@ type Props = {
   chartId: string
   chartData: typeof AgencyData
   date: string
+  items: string[]
   unit: string
 }
 
@@ -77,7 +125,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataViewTable },
+  components: { DataView, DataViewTable, ScrollableChart },
   props: {
     title: {
       type: String,
@@ -99,35 +147,32 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       default: '',
     },
+    items: {
+      type: Array,
+      default: () => [],
+    },
     unit: {
       type: String,
       required: false,
       default: '',
     },
   },
-  data() {
-    const agencies = [
-      this.$t('第一庁舎計'),
-      this.$t('第二庁舎計'),
-      this.$t('議事堂計'),
-    ]
-
-    return {
-      canvas: true,
-      agencies,
-    }
-  },
+  data: () => ({
+    colors: getGraphSeriesStyle(3),
+    canvas: true,
+    yAxesBgPlugin,
+    displayLegends: [true, true, true],
+  }),
   computed: {
     displayData() {
-      const graphSeries = getGraphSeriesStyle(this.chartData.datasets.length)
       return {
         labels: this.chartData.labels as string[],
         datasets: this.chartData.datasets.map((item, index) => {
           return {
-            label: this.agencies[index] as string,
+            label: this.items[index] as string,
             data: item.data,
-            backgroundColor: graphSeries[index].fillColor,
-            borderColor: graphSeries[index].strokeColor,
+            backgroundColor: this.colors[index].fillColor,
+            borderColor: this.colors[index].strokeColor,
             borderWidth: 1,
           }
         }),
@@ -136,6 +181,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOption() {
       const self = this
       const options: ChartOptions = {
+        maintainAspectRatio: false,
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -155,16 +201,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           },
         },
         legend: {
-          display: true,
-          onHover: (e: HTMLElementEvent<HTMLInputElement>) => {
-            e.currentTarget!.style!.cursor = 'pointer'
-          },
-          onLeave: (e: HTMLElementEvent<HTMLInputElement>) => {
-            e.currentTarget!.style!.cursor = 'default'
-          },
-          labels: {
-            boxWidth: 20,
-          },
+          display: false,
         },
         scales: {
           xAxes: [
@@ -202,6 +239,63 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
       return options
     },
+    displayDataHeader() {
+      return {
+        labels: this.chartData.labels as string[],
+        datasets: this.chartData.datasets.map((item, index) => {
+          return {
+            label: this.items[index] as string,
+            data: item.data,
+            backgroundColor: 'transparent',
+            borderWidth: 0,
+          }
+        }),
+      }
+    },
+    displayOptionHeader() {
+      const self = this
+      const options: Chart.ChartOptions = {
+        maintainAspectRatio: false,
+        legend: {
+          display: false,
+        },
+        tooltips: { enabled: false },
+        scales: {
+          xAxes: [
+            {
+              stacked: true,
+              gridLines: {
+                display: false,
+              },
+              ticks: {
+                fontSize: 9,
+                fontColor: 'transparent',
+              },
+            },
+          ],
+          yAxes: [
+            {
+              stacked: true,
+              gridLines: {
+                display: true,
+                drawOnChartArea: false,
+                color: '#E5E5E5', // #E5E5E5
+              },
+              ticks: {
+                suggestedMin: 0,
+                maxTicksLimit: 10,
+                fontColor: '#808080', // #808080
+                callback(label) {
+                  return `${label}${self.unit}`
+                },
+              },
+            },
+          ],
+        },
+        animation: { duration: 0 },
+      }
+      return options
+    },
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
@@ -225,6 +319,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
   },
+  methods: {
+    onClickLegend(i) {
+      this.displayLegends[i] = !this.displayLegends[i]
+      this.displayLegends = this.displayLegends.slice()
+    },
+  },
   mounted() {
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
@@ -240,3 +340,30 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
 export default Vue.extend(options)
 </script>
+
+<style module lang="scss">
+.Graph {
+  &Legend {
+    text-align: center;
+    list-style: none;
+    padding: 0 !important;
+    li {
+      display: inline-block;
+      margin: 0 3px;
+      div {
+        height: 12px;
+        margin: 2px 4px;
+        width: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        border-width: 1px;
+        border-style: solid;
+      }
+      button {
+        color: $gray-3;
+        @include font-size(12);
+      }
+    }
+  }
+}
+</style>
