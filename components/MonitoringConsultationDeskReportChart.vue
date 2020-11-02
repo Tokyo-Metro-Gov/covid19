@@ -62,6 +62,9 @@
         <data-view-table :headers="tableHeaders" :items="tableData" />
       </client-only>
     </template>
+    <template v-slot:attentionNote>
+      <slot name="attentionNote" />
+    </template>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
     </template>
