@@ -1,5 +1,5 @@
 {
-    "date": "2020\/10\/30 19:30",
+    "date": "2020\/11\/2 19:15",
     "data": [
         {
             "date": "2020-03-01",
@@ -1215,6 +1215,21 @@
             "date": "2020-10-29",
             "count": 44,
             "weekly_average_count": 50.3
+        },
+        {
+            "date": "2020-10-30",
+            "count": 44,
+            "weekly_average_count": 51.1
+        },
+        {
+            "date": "2020-10-31",
+            "count": 70,
+            "weekly_average_count": 55.4
+        },
+        {
+            "date": "2020-11-01",
+            "count": 61,
+            "weekly_average_count": 53.9
         }
     ]
 }
