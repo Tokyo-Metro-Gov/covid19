@@ -214,7 +214,7 @@ export default Vue.extend({
         },
         {
           title: this.$t('東京iCDC（東京感染症対策センター）からのお知らせ'),
-          link: 'https://note.com/tokyo_icdc'
+          link: 'https://note.com/tokyo_icdc',
         },
         {
           title: this.$t('都民利用施設・都主催イベントに関する情報'),
