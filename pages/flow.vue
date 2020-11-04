@@ -342,6 +342,7 @@ type LocalData = {
 }
 
 export default Vue.extend({
+  middleware: 'redirect',
   components: {
     CovidIcon,
     PrinterButton,
