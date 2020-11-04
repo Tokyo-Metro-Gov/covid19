@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.12.3",
-    "@babel/runtime-corejs3": "7.12.1",
+    "@babel/runtime-corejs3": "7.12.5",
     "@fullhuman/postcss-purgecss": "3.0.0",
     "@mdi/font": "5.8.55",
     "@nuxt/typescript-build": "2.0.3",
