@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/ja-basic/flow", {data:[{}],fetch:[],mutations:void 0});
