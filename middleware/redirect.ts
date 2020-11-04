@@ -2,7 +2,9 @@ import { Middleware } from '@nuxt/types'
 
 const redirect: Middleware = ({ route, redirect }) => {
   if (route.path.includes('flow')) {
-    redirect('https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html');
+    redirect(
+      'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'
+    )
   }
 }
 
