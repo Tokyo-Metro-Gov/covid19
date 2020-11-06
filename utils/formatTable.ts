@@ -50,7 +50,7 @@ export default function (data: DataType[]): TableDateType {
       性別: d['患者_性別'] ?? '不明',
       退院: d['退院済フラグ'] ? '〇' : '',
     }))
-    .sort((a, b) => dayjs(a.公表日).unix() - dayjs(b.公表日).unix())
+    .sort((a, b) => dayjs(b.公表日).unix() - dayjs(a.公表日).unix())
   return {
     headers,
     datasets,
