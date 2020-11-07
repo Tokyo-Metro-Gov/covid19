@@ -1,6 +1,6 @@
 <template>
   <div class="DataView-DataSet">
-    <span class="DataView-DataSet-title">{{ title }}</span>
+    <span v-if="title" class="DataView-DataSet-title">{{ title }}</span>
     <div class="DataView-DataSet-DataInfo">
       <span v-if="lText !== ''" class="DataView-DataSet-DataInfo-summary">
         {{ lText }}
@@ -23,7 +23,7 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      required: true,
+      required: false,
       default: '',
     },
     lText: {
