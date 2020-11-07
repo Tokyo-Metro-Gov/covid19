@@ -1,17 +1,19 @@
 <template>
   <div class="DataView-DataSet">
     <span v-if="title" class="DataView-DataSet-title">{{ title }}</span>
-    <div class="DataView-DataSet-DataInfo">
-      <span v-if="lText !== ''" class="DataView-DataSet-DataInfo-summary">
-        {{ lText }}
-        <small class="DataView-DataSet-DataInfo-summary-unit">{{ unit }}</small>
-      </span>
-      <br v-if="lText !== ''" />
-      <small class="DataView-DataSet-DataInfo-date">{{ sText }}</small>
-      <br v-if="sTextUnder !== ''" />
-      <small v-if="sTextUnder !== ''" class="DataView-DataSet-DataInfo-date">{{
-        sTextUnder
-      }}</small>
+    <div class="DataView-DataSet-info">
+      <template v-if="lText">
+        <span class="DataView-DataSet-summary">
+          {{ lText }}
+          <small class="DataView-DataSet-summary-unit">{{ unit }}</small>
+        </span>
+        <br />
+      </template>
+      <small class="DataView-DataSet-date">{{ sText }}</small>
+      <template v-if="sTextUnder">
+        <br />
+        <small class="DataView-DataSet-date">{{ sTextUnder }}</small>
+      </template>
     </div>
   </div>
 </template>
@@ -67,35 +69,35 @@ export default Vue.extend({
       margin-bottom: 10px;
     }
 
-    &-DataInfo {
+    &-info {
       flex: 1 1 50%;
 
       @include largerThan($large) {
         text-align: right;
       }
+    }
 
-      &-summary {
-        display: inline-block;
-        color: $gray-2;
-        white-space: nowrap;
-        font-family: Hiragino Sans, sans-serif;
-        font-style: normal;
-        line-height: 30px;
-        @include font-size(30);
+    &-summary {
+      display: inline-block;
+      color: $gray-2;
+      white-space: nowrap;
+      font-family: Hiragino Sans, sans-serif;
+      font-style: normal;
+      line-height: 30px;
+      @include font-size(30);
 
-        &-unit {
-          width: 100%;
-          @include font-size(18);
-        }
-      }
-
-      &-date {
-        display: inline-block;
+      &-unit {
         width: 100%;
-        color: $gray-3;
-        line-height: initial;
-        @include font-size(12);
+        @include font-size(18);
       }
+    }
+
+    &-date {
+      display: inline-block;
+      width: 100%;
+      color: $gray-3;
+      line-height: initial;
+      @include font-size(12);
     }
   }
 }
