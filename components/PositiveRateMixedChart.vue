@@ -84,18 +84,13 @@
     </template>
     <template v-slot:dataSetPanel>
       <data-view-data-set-panel
-        :title="infoTitles[0]"
-        :l-text="displayInfo[0].lText"
-        :s-text="displayInfo[0].sText"
-        :s-text-under="displayInfo[0].sTextUnder"
-        :unit="displayInfo[0].unit"
-      />
-      <data-view-data-set-panel
-        :title="infoTitles[1]"
-        :l-text="displayInfo[1].lText"
-        :s-text="displayInfo[1].sText"
-        :s-text-under="displayInfo[1].sTextUnder"
-        :unit="displayInfo[1].unit"
+        v-for="(di, i) in displayInfo"
+        :key="i"
+        :title="infoTitles[i]"
+        :l-text="di.lText"
+        :s-text="di.sText"
+        :s-text-under="di.sTextUnder"
+        :unit="di.unit"
       />
     </template>
   </data-view>
