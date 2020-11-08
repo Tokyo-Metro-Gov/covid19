@@ -259,11 +259,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
-                  return (
-                    (typeof value === 'number' ? value : Number(value)).toFixed(
-                      2
-                    ) + self.unit
-                  )
+                  const valueCasted = (typeof value === 'number' ? value : Number(value))
+                  return `${valueCasted.toFixed(2)}${self.unit}`
                 },
               },
             },
@@ -332,11 +329,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
-                  return (
-                    (typeof value === 'number' ? value : Number(value)).toFixed(
-                      2
-                    ) + self.unit
-                  )
+                  const valueCasted = (typeof value === 'number' ? value : Number(value))
+                  return `${valueCasted.toFixed(2)}${self.unit}`
                 },
               },
             },
