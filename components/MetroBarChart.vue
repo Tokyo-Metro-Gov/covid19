@@ -259,7 +259,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
-                  const valueCasted = (typeof value === 'number' ? value : Number(value))
+                  const valueCasted =
+                    typeof value === 'number' ? value : Number(value)
                   return `${valueCasted.toFixed(2)}${self.unit}`
                 },
               },
@@ -329,7 +330,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
-                  const valueCasted = (typeof value === 'number' ? value : Number(value))
+                  const valueCasted =
+                    typeof value === 'number' ? value : Number(value)
                   return `${valueCasted.toFixed(2)}${self.unit}`
                 },
               },
