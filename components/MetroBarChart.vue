@@ -325,7 +325,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
-                color: '#E5E5E5', // #E5E5E5
+                color: '#E5E5E5',
               },
               ticks: {
                 fontSize: 12,
