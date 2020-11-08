@@ -4,7 +4,7 @@
       <v-icon
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
-        @click="$emit('openNavi', $event)"
+        @click="$emit('open-navigation', $event)"
       >
         mdi-menu
       </v-icon>
@@ -28,7 +28,7 @@
       <v-icon
         class="SideNavigation-CloseIcon"
         :aria-label="$t('サイドメニュー項目を閉じる')"
-        @click="$emit('closeNavi', $event)"
+        @click="$emit('close-navigation', $event)"
       >
         mdi-close
       </v-icon>
@@ -45,7 +45,7 @@
             <language-selector />
           </div>
         </div>
-        <menu-list :items="items" @click="$emit('closeNavi', $event)" />
+        <menu-list :items="items" @click="$emit('close-navigation', $event)" />
       </nav>
 
       <footer class="SideNavigation-Footer">

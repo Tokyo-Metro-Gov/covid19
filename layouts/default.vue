@@ -11,8 +11,8 @@
         <side-navigation
           :is-navi-open="isOpenNavigation"
           :class="{ open: isOpenNavigation }"
-          @openNavi="openNavigation"
-          @closeNavi="closeNavigation"
+          @open-navigation="openNavigation"
+          @close-navigation="closeNavigation"
         />
       </div>
       <main class="mainContainer" :class="{ open: isOpenNavigation }">
