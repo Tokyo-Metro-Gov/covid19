@@ -5,14 +5,15 @@
     </page-header>
     <static-card>
       <h3>
-        <app-link
-          to="https://www.tgs.metro.tokyo.lg.jp/"
+        <app-link to="https://www.tgs.metro.tokyo.lg.jp/"
           :icon-size="24"
           >{{ $t('TokyoGlobalStudio') }}
         </app-link>
       </h3>
       <p>
-        {{ $t('英語を使う楽しさを体感できる動画コンテンツを、小学生・中学生・高校生向けに順次配信しています。') }}
+        {{ 
+          $t('英語を使う楽しさを体感できる動画コンテンツを、小学生・中学生・高校生向けに順次配信しています。') 
+        }}
       </p>
     </static-card>
     <static-card>
