@@ -1,5 +1,5 @@
 {
-    "date": "2020\/10\/30 19:30",
+    "date": "2020\/11\/10 19:30",
     "data": [
         {
             "date": "2020-02-28",
@@ -1230,6 +1230,61 @@
             "date": "2020-10-30",
             "hospitalized": 973,
             "severe_case": 31
+        },
+        {
+            "date": "2020-10-31",
+            "hospitalized": 943,
+            "severe_case": 33
+        },
+        {
+            "date": "2020-11-01",
+            "hospitalized": 1013,
+            "severe_case": 34
+        },
+        {
+            "date": "2020-11-02",
+            "hospitalized": 1031,
+            "severe_case": 32
+        },
+        {
+            "date": "2020-11-03",
+            "hospitalized": 1024,
+            "severe_case": 32
+        },
+        {
+            "date": "2020-11-04",
+            "hospitalized": 1040,
+            "severe_case": 35
+        },
+        {
+            "date": "2020-11-05",
+            "hospitalized": 973,
+            "severe_case": 38
+        },
+        {
+            "date": "2020-11-06",
+            "hospitalized": 978,
+            "severe_case": 37
+        },
+        {
+            "date": "2020-11-07",
+            "hospitalized": 988,
+            "severe_case": 36
+        },
+        {
+            "date": "2020-11-08",
+            "hospitalized": 1060,
+            "severe_case": 36
+        },
+        {
+            "date": "2020-11-09",
+            "hospitalized": 1114,
+            "severe_case": 35
+        },
+        {
+            "date": "2020-11-10",
+            "hospitalized": 1034,
+            "severe_case": 33
         }
     ]
 }

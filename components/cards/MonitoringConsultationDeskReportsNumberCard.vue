@@ -12,6 +12,15 @@
         :unit="$t('件.reports')"
         url="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000070"
       >
+        <template v-slot:attentionNote>
+          <p>
+            {{
+              $t(
+                '10月30日（金曜日）17時から「東京都発熱相談センター」の開設に伴い、「新型コロナ受診相談窓口」は終了したため、グラフを改修中'
+              )
+            }}
+          </p>
+        </template>
         <template v-slot:additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>

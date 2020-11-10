@@ -1,5 +1,5 @@
 {
-    "date": "2020\/10\/30 19:30",
+    "date": "2020\/11\/10 19:30",
     "data": [
         {
             "date": "2020-03-01",
@@ -1215,6 +1215,61 @@
             "date": "2020-10-29",
             "count": 44,
             "weekly_average_count": 50.3
+        },
+        {
+            "date": "2020-10-30",
+            "count": 44,
+            "weekly_average_count": 51.1
+        },
+        {
+            "date": "2020-10-31",
+            "count": 70,
+            "weekly_average_count": 55.4
+        },
+        {
+            "date": "2020-11-01",
+            "count": 61,
+            "weekly_average_count": 53.9
+        },
+        {
+            "date": "2020-11-02",
+            "count": 40,
+            "weekly_average_count": 51.6
+        },
+        {
+            "date": "2020-11-03",
+            "count": 68,
+            "weekly_average_count": 55
+        },
+        {
+            "date": "2020-11-04",
+            "count": 57,
+            "weekly_average_count": 54.9
+        },
+        {
+            "date": "2020-11-05",
+            "count": 58,
+            "weekly_average_count": 56.9
+        },
+        {
+            "date": "2020-11-06",
+            "count": 50,
+            "weekly_average_count": 57.7
+        },
+        {
+            "date": "2020-11-07",
+            "count": 53,
+            "weekly_average_count": 55.3
+        },
+        {
+            "date": "2020-11-08",
+            "count": 68,
+            "weekly_average_count": 56.3
+        },
+        {
+            "date": "2020-11-09",
+            "count": 52,
+            "weekly_average_count": 58
         }
     ]
 }
