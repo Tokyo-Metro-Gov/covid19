@@ -10,9 +10,6 @@
         {{
           $t(
             '東京都では、都内の「感染状況」と「医療提供体制」を2つの柱として7つのモニタリング項目を設定しています。毎週、専門家による状況分析を項目ごとに行い、都内の感染状況と医療提供体制それぞれについて「総括コメント」として4段階で評価します。最近の総括コメントは以下のとおりです。',
-            {
-              date: commentDate(),
-            }
           )
         }}
       </p>
@@ -73,12 +70,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    commentDate() {
-      return this.$d(
-        new Date(monitoringItemsData.data['総括コメント-更新日']),
-        'dateWithoutYear'
-      )
-    },
     commentMonitoring(item: string) {
       return ['ja', 'ja-basic'].includes(this.$root.$i18n.locale)
         ? this.monitoringComment[item].display['@ja']
