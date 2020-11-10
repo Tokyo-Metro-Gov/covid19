@@ -74,7 +74,7 @@ export default Vue.extend({
       return ['ja', 'ja-basic'].includes(this.$root.$i18n.locale)
         ? this.monitoringComment[item].display['@ja']
         : this.monitoringComment[item].display['@en']
-    },
+    }
   },
 })
 </script>
