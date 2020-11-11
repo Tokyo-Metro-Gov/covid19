@@ -1,5 +1,5 @@
 {
-    "date": "2020\/11\/10 19:30",
+    "date": "2020\/11\/11 19:45",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -771,7 +771,7 @@
         },
         {
             "diagnosed_date": "2020-08-02",
-            "count": 219
+            "count": 220
         },
         {
             "diagnosed_date": "2020-08-03",
@@ -1091,7 +1091,7 @@
         },
         {
             "diagnosed_date": "2020-10-21",
-            "count": 191
+            "count": 192
         },
         {
             "diagnosed_date": "2020-10-22",
@@ -1099,7 +1099,7 @@
         },
         {
             "diagnosed_date": "2020-10-23",
-            "count": 184
+            "count": 186
         },
         {
             "diagnosed_date": "2020-10-24",
@@ -1107,11 +1107,11 @@
         },
         {
             "diagnosed_date": "2020-10-25",
-            "count": 85
+            "count": 86
         },
         {
             "diagnosed_date": "2020-10-26",
-            "count": 103
+            "count": 105
         },
         {
             "diagnosed_date": "2020-10-27",
@@ -1119,7 +1119,7 @@
         },
         {
             "diagnosed_date": "2020-10-28",
-            "count": 202
+            "count": 203
         },
         {
             "diagnosed_date": "2020-10-29",
@@ -1127,7 +1127,7 @@
         },
         {
             "diagnosed_date": "2020-10-30",
-            "count": 207
+            "count": 208
         },
         {
             "diagnosed_date": "2020-10-31",
@@ -1159,15 +1159,23 @@
         },
         {
             "diagnosed_date": "2020-11-07",
-            "count": 241
+            "count": 243
         },
         {
             "diagnosed_date": "2020-11-08",
-            "count": 152
+            "count": 154
         },
         {
             "diagnosed_date": "2020-11-09",
-            "count": 167
+            "count": 211
+        },
+        {
+            "diagnosed_date": "2020-11-10",
+            "count": 259
+        },
+        {
+            "diagnosed_date": "2020-11-11",
+            "count": 1
         }
     ]
 }
