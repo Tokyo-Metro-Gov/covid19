@@ -91,6 +91,7 @@ const config: NuxtConfig = {
     '@nuxt/typescript-build',
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
+    'nuxt-purgecss',
   ],
   /*
    ** Nuxt.js modules
@@ -155,19 +156,13 @@ const config: NuxtConfig = {
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
   },
-  'nuxt-purgecss': {
-    mode: 'postcss',
-    enabled: environment !== 'development' && process.client,
-    '@fullhuman/postcss-purgecss': {
-      content: [
-        '@/pages/**/*.vue',
-        '@/layouts/**/*.vue',
-        '@/components/**/*.vue',
-        'vuetify/dist/vuetify.js',
-        'vue-spinner/src/ScaleLoader.vue',
-      ],
-      safelist: ['html', 'body', 'nuxt-progress', 'DataCard', /(col|row)/],
-    },
+  purgeCSS: {
+    paths: [
+      './node_modules/vuetify/dist/vuetify.js',
+      './node_modules/vue-spinner/src/ScaleLoader.vue',
+    ],
+    whitelist: ['DataCard', 'GraphLegend'],
+    whitelistPatterns: [/(col|row)/],
   },
   manifest: {
     name: '東京都 新型コロナウイルス感染症対策サイト',
