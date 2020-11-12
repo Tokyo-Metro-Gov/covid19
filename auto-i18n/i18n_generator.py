@@ -134,17 +134,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         json_content = json.load(file)
                         # タグリストを生成
                         tags = []
-                        if file_name == JSON_FILES[0]:  # data.jsonの場合
-                            for patients in json_content["patients"]["data"]:
-                                # 居住地を取得
-                                tags.append(patients["居住地"])
-                                # 年代を取得
-                                tags.append(patients["年代"])
-                                # 性別を取得
-                                tags.append(patients["性別"])
-                                # 退院を取得
-                                tags.append(patients["退院"])
-                        elif file_name == JSON_FILES[1]:  # patient.jsonの場合
+                        if file_name == JSON_FILES[1]:  # patient.jsonの場合
                             for city in json_content["datasets"]["data"]:
                                 # エリアを取得
                                 tags.append(city["area"])
