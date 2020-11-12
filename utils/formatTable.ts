@@ -1,5 +1,3 @@
-import dayjs from 'dayjs'
-
 type Header = {
   text: string
   value: string
@@ -14,7 +12,7 @@ const headers: Header[] = [
   { text: '退院※', value: '退院', align: 'center' },
 ]
 
-type DataType = {
+export type DataType = {
   公表_年月日: string
   患者_居住地: string | undefined
   患者_年代: string | undefined
@@ -31,7 +29,7 @@ type TableDataType = {
   退院: string | undefined
 }
 
-type TableDateType = {
+export type TableDateType = {
   headers: Header[]
   datasets: TableDataType[]
 }
@@ -41,15 +39,14 @@ type TableDateType = {
  *
  * @param data - Raw data
  */
-export default function (data: DataType[]): TableDateType {
-  const datasets = data
-    .map((d) => ({
-      公表日: d['公表_年月日'] ?? '不明',
-      居住地: d['患者_居住地'] ?? '調査中',
-      年代: d['患者_年代'] ?? '不明',
-      性別: d['患者_性別'] ?? '不明',
-      退院: d['退院済フラグ'] ? '〇' : '',
-    }))
+export function formatTable(data: DataType[]): TableDateType {
+  const datasets = data.map((d) => ({
+    公表日: d['公表_年月日'] ?? '不明',
+    居住地: d['患者_居住地'] ?? '調査中',
+    年代: d['患者_年代'] ?? '不明',
+    性別: d['患者_性別'] ?? '不明',
+    退院: d['退院済フラグ'] ? '〇' : '',
+  }))
   return {
     headers,
     datasets,

@@ -4,178 +4,184 @@
       <data-table
         :title="$t('陽性者の属性')"
         :title-id="'attributes-of-confirmed-cases'"
-        :chart-data="patientsTable"
-        :chart-option="{}"
+        :table-data="patientsTable"
         :date="date"
         :info="sumInfoOfPatients"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
         :source="$t('オープンデータを入手')"
-        :loaded="loaded"
-        :error="error"
-        :errormsg="errormsg"
+        :loaded="dataMargin >= 0"
+        :error="$fetchState.error"
         :data-length="dataLength"
         @onChangeItemsPerPage="onChangeItemsPerPage"
         @onChangePage="onChangePage"
-      />
+      >
+        <template v-slot:table-body="{ items }">
+          <tbody>
+            <tr v-for="(item, i) in items" :key="i">
+              <th class="text-start" scope="row">
+                {{ translateDate(item['公表日']) }}
+              </th>
+              <td class="text-start">
+                {{ translateWord(item['居住地']) }}
+              </td>
+              <td class="text-start">
+                {{ translateAge(item['年代']) }}
+              </td>
+              <td class="text-start">
+                {{ translateWord(item['性別']) }}
+              </td>
+              <td class="text-center">
+                {{ translateWord(item['退院']) }}
+              </td>
+            </tr>
+          </tbody>
+        </template>
+      </data-table>
     </client-only>
   </v-col>
 </template>
 
-<script>
+<script lang="ts">
 import dayjs from 'dayjs'
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import DataTable from '@/components/DataTable.vue'
 import Data from '@/data/data.json'
 import { getDayjsObject } from '@/utils/formatDate'
 import formatGraph from '@/utils/formatGraph'
-import formatTable from '@/utils/formatTable'
+import { DataType, formatTable, TableDateType } from '@/utils/formatTable'
 
-export default {
-  components: {
-    DataTable,
-  },
+interface MetaData {
+  endCursor: string
+  updated: string
+}
+type Data = {
+  dataLength: number
+  sumInfoOfPatients: {
+    lText: string
+    sText: VueI18n.TranslateResult
+    unit: VueI18n.TranslateResult
+  }
+  date: string
+  page: number
+  itemsPerPage: number
+  endCursor: string
+  patientsData: DataType[]
+}
+type Methods = {
+  fetchOpenAPI: () => Promise<{ patientsData: DataType; metaData: MetaData }>
+  onChangeItemsPerPage: (num: number) => Promise<void>
+  onChangePage: (num: number) => Promise<void>
+  translateWord: (word: string) => string | VueI18n.TranslateResult
+  translateDate: (date: string) => VueI18n.TranslateResult
+  translateAge: (age: string) => VueI18n.TranslateResult
+}
+type Computed = {
+  limit: number
+  patientsTable: TableDateType
+  dataMargin: number
+}
+type Props = {}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
+  components: { DataTable },
   data() {
-    const patientSummary = Data.patients_summary
     // 感染者数グラフ
-    const patientsGraph = formatGraph(patientSummary.data)
-    // 日付
-    const lastDay = patientsGraph[patientsGraph.length - 1].label
-    const dateAsOf = this.$d(
-      getDayjsObject(lastDay).toDate(),
+    const patientsGraph = formatGraph(Data.patients_summary.data)
+    const lastData = patientsGraph[patientsGraph.length - 1]
+    const lastDay = this.$d(
+      getDayjsObject(lastData.label).toDate(),
       'dateWithoutYear'
     )
-    const dataLength = patientsGraph[patientsGraph.length - 1].cumulative
-
+    const dataLength = lastData.cumulative
     const sumInfoOfPatients = {
-      lText: patientsGraph[
-        patientsGraph.length - 1
-      ].cumulative.toLocaleString(),
-      sText: this.$t('{date}の累計', { date: dateAsOf }),
+      lText: dataLength.toLocaleString(),
+      sText: this.$t('{date}の累計', { date: lastDay }),
       unit: this.$t('人'),
     }
 
     return {
-      patientsTable: {},
       dataLength,
       sumInfoOfPatients,
       date: '',
-      loaded: false,
-      error: false,
-      errormsg: '',
-      itemsPerPage: 15,
       page: 1,
-      maxPage: 1,
+      itemsPerPage: 15,
       endCursor: '',
-      patientsRawDataArray: [],
+      patientsData: [],
     }
   },
-  created() {
-    this.getPatientsTableFromAPI(this.itemsPerPage)
+  computed: {
+    limit() {
+      const times = this.itemsPerPage <= 500 ? 2 : 1
+      return this.itemsPerPage * times
+    },
+    patientsTable() {
+      const end = this.page * this.itemsPerPage
+      const start = end - this.itemsPerPage
+      const currentPageData = this.patientsData.slice(start, end)
+      return formatTable(currentPageData)
+    },
+    dataMargin() {
+      return this.patientsData.length - this.page * this.itemsPerPage
+    },
+  },
+  async fetch() {
+    const { patientsData, metaData } = await this.fetchOpenAPI()
+    this.patientsData = this.patientsData.concat(patientsData)
+    this.endCursor = metaData.endCursor
+    this.date = metaData.updated
   },
   methods: {
-    onChangeItemsPerPage(num) {
-      this.itemsPerPage = num
-      this.maxPage = 1
-      this.getPatientsTableFromAPI(true)
-    },
-    onChangePage(num) {
-      if (this.page < num) {
-        this.page = num
-        if (this.maxPage < num) {
-          this.getPatientsTableFromAPI()
-          this.maxPage = num
-        } else {
-          this.getpatientsTableByPageNumber()
-        }
-      } else {
-        this.page = num
-        this.getpatientsTableByPageNumber()
-      }
-    },
-    async getPatientsTableFromAPI(changeLimit) {
-      if (changeLimit) {
-        this.endCursor = ''
-        this.patientsRawDataArray = []
-      }
-      const limit =
-        this.itemsPerPage <= 500
-          ? this.patientsRawDataArray.length === 0
-            ? this.itemsPerPage * 2
-            : this.itemsPerPage
-          : this.itemsPerPage
-      if (this.patientsRawDataArray.length < this.page * this.itemsPerPage) {
-        this.loaded = false
-      }
-      const endCursorParam = this.endCursor
-        ? `&cursor=${encodeURIComponent(this.endCursor)}`
-        : ''
-      await fetch(
-        `https://api.data.metro.tokyo.lg.jp/v1/Covid19Patient?limit=${limit}${endCursorParam}`
-      )
+    async fetchOpenAPI() {
+      const endpoint = 'https://api.data.metro.tokyo.lg.jp'
+      const url =
+        `${endpoint}/v1/Covid19Patient?limit=${this.limit}` +
+        (this.endCursor ? `&cursor=${encodeURIComponent(this.endCursor)}` : '')
+
+      return await fetch(url)
         .then((response) => response.json())
-        .then((responseJson) => {
-          this.patientsRawDataArray = this.patientsRawDataArray.concat(
-            responseJson[0]
-          )
-          this.endCursor = responseJson[1].endCursor
-          this.getpatientsTableByPageNumber()
-          this.date = responseJson[1].updated
-          this.loaded = true
-        })
+        .then((data) => ({ patientsData: data[0], metaData: data[1] }))
         .catch((error) => {
-          this.error = true
-          this.errormsg = error.toString()
+          throw new Error(error.toString())
         })
     },
-    getpatientsTableByPageNumber() {
-      this.patientsTable = formatTable(
-        this.patientsRawDataArray.slice(
-          this.page * this.itemsPerPage - this.itemsPerPage,
-          this.page * this.itemsPerPage
-        )
-      )
-
-      // 陽性者の属性 ヘッダー翻訳
-      for (const header of this.patientsTable.headers) {
-        header.text =
-          header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
-      }
-      // 陽性者の属性 中身の翻訳
-      for (const row of this.patientsTable.datasets) {
-        row['居住地'] = this.getTranslatedWording(row['居住地'])
-        row['性別'] = this.getTranslatedWording(row['性別'])
-        row['退院'] = this.getTranslatedWording(row['退院'])
-
-        row['公表日'] = dayjs(row['公表日']).isValid()
-          ? this.$d(dayjs(row['公表日']).toDate(), 'dateWithoutYear')
-          : '不明'
-        if (row['年代'].substr(-1, 1) === '代') {
-          const age = row['年代'].substring(0, 2)
-          row['年代'] = this.$t('{age}代', { age })
-        } else {
-          row['年代'] = this.$t(row['年代'])
-        }
-      }
+    async onChangeItemsPerPage(num) {
+      this.itemsPerPage = num
+      this.endCursor = ''
+      this.patientsData = []
+      await this.$fetch()
     },
-    getTranslatedWording(value) {
-      if (
-        value === '-' ||
-        value === '‐' ||
-        value === '―' ||
-        value === '－' ||
-        value === null
-      ) {
-        // 翻訳しようとしている文字列が以下のいずれかだった場合、翻訳しない
-        // - 全角のハイフン
-        // - 半角のハイフン
-        // - 全角のダッシュ
-        // - 全角ハイフンマイナス
-        // - null
-        return value
+    async onChangePage(page) {
+      this.page = page
+      // メモリ上に次ページのデータがなければ先読みしてページネーション時の待ち時間を減らす
+      if (this.dataMargin < this.itemsPerPage) await this.$fetch()
+    },
+    translateDate(date) {
+      const day = dayjs(date)
+      if (day.isValid()) {
+        return this.$d(day.toDate(), 'dateWithoutYear')
       }
-
-      return this.$t(value)
+      return this.$t('不明')
+    },
+    translateAge(_age) {
+      const [age, dai] = _age.split(/(代)$/, 2)
+      return dai ? this.$t('{age}代', { age }) : this.$t(_age)
+    },
+    translateWord(word) {
+      // 文字列が `null` or 以下の記号だった場合は翻訳しない
+      // 全角のハイフン, 半角のハイフン, 全角のダッシュ, 全角ハイフンマイナス
+      const notTranslateWords = ['-', '‐', '―', '－', null]
+      return notTranslateWords.includes(word) ? word : this.$t(word)
     },
   },
 }
+export default options
 </script>

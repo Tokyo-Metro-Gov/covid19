@@ -1,8 +1,5 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:button>
-      <span />
-    </template>
     <v-overlay
       opacity="0"
       absolute
@@ -12,19 +9,20 @@
     >
       <scale-loader color="#00A040" />
     </v-overlay>
-    <v-overlay absolute :value="error" justify-center align-center>
+    <v-overlay v-if="error" absolute justify-center align-center>
       <v-alert type="error" color="#AD2121">
         {{ title }} {{ $t('の読み込みに失敗しました') }} <br />
-        エラーメッセージ: {{ errormsg }}
+        エラーメッセージ: {{ error.message }}
       </v-alert>
     </v-overlay>
     <v-layout :class="{ loading: !loaded || error }" column>
       <v-data-table
         :ref="'displayedTable'"
-        :headers="chartData.headers"
-        :items="chartData.datasets"
+        :headers="tableData.headers"
+        :items="tableData.datasets"
         :height="240"
         fixed-header
+        :hide-default-header="true"
         :mobile-breakpoint="0"
         :footer-props="{
           'items-per-page-options': [15, 30, 50, 100, 200, 300, 500, 1000],
@@ -36,16 +34,21 @@
         class="cardTable"
         :server-items-length="dataLength"
       >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th class="text-start" scope="row">{{ item['公表日'] }}</th>
-              <td class="text-start">{{ item['居住地'] }}</td>
-              <td class="text-start">{{ item['年代'] }}</td>
-              <td class="text-start">{{ item['性別'] }}</td>
-              <td class="text-center">{{ item['退院'] }}</td>
+        <template v-slot:header="{ props: { headers } }">
+          <thead>
+            <tr>
+              <th
+                v-for="(header, i) in headers"
+                :key="i"
+                :class="`text-${header.align || 'start'}`"
+              >
+                {{ $t(header.text) }}
+              </th>
             </tr>
-          </tbody>
+          </thead>
+        </template>
+        <template v-slot:body="{ items }">
+          <slot name="table-body" :items="items" />
         </template>
         <template slot="footer.page-text" slot-scope="props">
           {{
@@ -103,7 +106,7 @@ export default Vue.extend({
       type: String,
       default: '',
     },
-    chartData: {
+    tableData: {
       type: Object,
       default: () => {},
     },
@@ -124,12 +127,8 @@ export default Vue.extend({
       default: false,
     },
     error: {
-      type: Boolean,
-      default: false,
-    },
-    errormsg: {
-      type: String,
-      default: '',
+      type: Object,
+      default: () => {},
     },
     dataLength: {
       type: Number,
