@@ -1,6 +1,6 @@
 {
-    "date": "2020\/11\/12 19:45",
-    "unknown_count": 12446,
+    "date": "2020\/11\/13 19:45",
+    "unknown_count": 12595,
     "data": [
         {
             "developed_date": "2020-01-14",
@@ -1144,7 +1144,7 @@
         },
         {
             "developed_date": "2020-10-25",
-            "count": 95
+            "count": 96
         },
         {
             "developed_date": "2020-10-26",
@@ -1164,7 +1164,7 @@
         },
         {
             "developed_date": "2020-10-30",
-            "count": 118
+            "count": 119
         },
         {
             "developed_date": "2020-10-31",
@@ -1172,47 +1172,51 @@
         },
         {
             "developed_date": "2020-11-01",
-            "count": 105
+            "count": 106
         },
         {
             "developed_date": "2020-11-02",
-            "count": 155
+            "count": 162
         },
         {
             "developed_date": "2020-11-03",
-            "count": 155
+            "count": 166
         },
         {
             "developed_date": "2020-11-04",
-            "count": 128
-        },
-        {
-            "developed_date": "2020-11-05",
             "count": 138
         },
         {
+            "developed_date": "2020-11-05",
+            "count": 151
+        },
+        {
             "developed_date": "2020-11-06",
-            "count": 126
+            "count": 138
         },
         {
             "developed_date": "2020-11-07",
-            "count": 94
+            "count": 117
         },
         {
             "developed_date": "2020-11-08",
-            "count": 80
+            "count": 102
         },
         {
             "developed_date": "2020-11-09",
-            "count": 57
+            "count": 96
         },
         {
             "developed_date": "2020-11-10",
-            "count": 30
+            "count": 71
         },
         {
             "developed_date": "2020-11-11",
-            "count": 8
+            "count": 40
+        },
+        {
+            "developed_date": "2020-11-12",
+            "count": 12
         }
     ]
 }
