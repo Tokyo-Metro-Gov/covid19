@@ -47,8 +47,8 @@
             </tr>
           </thead>
         </template>
-        <template v-slot:body="{ items }">
-          <slot name="table-body" :items="items" />
+        <template v-slot:body="{ items, headers }">
+          <slot name="tableBody" :items="items" :headers="headers" />
         </template>
         <template slot="footer.page-text" slot-scope="props">
           {{
@@ -165,6 +165,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .cardTable {
+  white-space: nowrap;
   &.v-data-table {
     th {
       padding: 8px 10px !important;

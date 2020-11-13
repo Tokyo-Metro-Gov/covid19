@@ -15,24 +15,23 @@
         @onChangeItemsPerPage="onChangeItemsPerPage"
         @onChangePage="onChangePage"
       >
-        <template v-slot:table-body="{ items }">
+        <template v-slot:tableBody="{ items, headers }">
           <tbody>
             <tr v-for="(item, i) in items" :key="i">
-              <th class="text-start" scope="row">
-                {{ translateDate(item['公表日']) }}
-              </th>
-              <td class="text-start">
-                {{ translateWord(item['居住地']) }}
-              </td>
-              <td class="text-start">
-                {{ translateAge(item['年代']) }}
-              </td>
-              <td class="text-start">
-                {{ translateWord(item['性別']) }}
-              </td>
-              <td class="text-center">
-                {{ translateWord(item['退院']) }}
-              </td>
+              <template v-for="(header, j) in headers">
+                <th v-if="j === 0" :key="j" scope="row">
+                  {{ translateDate(item[header.value]) }}
+                </th>
+                <td v-else-if="header.type === 'date'" :key="j">
+                  {{ translateDate(item[header.value]) }}
+                </td>
+                <td v-else-if="header.type === 'age'" :key="j">
+                  {{ translateAge(item[header.value]) }}
+                </td>
+                <td v-else :key="j" :class="`text-${header.align || 'start'}`">
+                  {{ translateWord(item[header.value]) }}
+                </td>
+              </template>
             </tr>
           </tbody>
         </template>
