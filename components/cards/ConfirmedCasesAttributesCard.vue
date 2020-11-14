@@ -165,10 +165,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     translateDate(date) {
       const day = dayjs(date)
-      if (day.isValid()) {
-        return this.$d(day.toDate(), 'dateWithoutYear')
-      }
-      return this.$t('不明')
+      if (!day.isValid()) return date
+      return this.$d(day.toDate(), 'dateWithoutYear')
     },
     translateAge(_age) {
       const [age, dai] = _age.split(/(代)$/, 2)

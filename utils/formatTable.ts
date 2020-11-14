@@ -10,7 +10,7 @@ const headers: Header[] = [
   { text: '居住地', value: '居住地' },
   { text: '年代', value: '年代', type: 'age' },
   { text: '性別', value: '性別' },
-  { text: '職業', value: '職業' },
+  { text: '職業', value: '職業', align: 'center' },
   { text: '接触歴', value: '接触歴', align: 'center' },
   { text: '発症日', value: '発症日', type: 'date' },
   { text: '確定日', value: '確定日', type: 'date' },
@@ -58,10 +58,10 @@ export function formatTable(data: DataType[]): TableDateType {
     居住地: d['患者_居住地'] ?? '調査中',
     年代: d['患者_年代'] ?? '不明',
     性別: d['患者_性別'] ?? '不明',
-    職業: d['患者_職業'] ?? '不明',
+    職業: d['患者_職業'] ?? '-',
     接触歴: d['患者_接触歴の有無フラグ'] ? '〇' : '',
-    発症日: d['発症_年月日'] ?? '不明',
-    確定日: d['確定_年月日'] ?? '不明',
+    発症日: d['発症_年月日'] ?? '',
+    確定日: d['確定_年月日'] ?? '',
     退院: d['退院済フラグ'] ? '〇' : '',
   }))
   return {
