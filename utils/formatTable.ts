@@ -22,10 +22,10 @@ export type DataType = {
   患者_居住地: string | undefined
   患者_年代: string | undefined
   患者_性別: '男性' | '女性' | string
-  患者_職業: string
+  患者_職業: string | undefined
   患者_接触歴の有無フラグ: number | undefined
-  発症_年月日: string
-  確定_年月日: string
+  発症_年月日: string | undefined
+  確定_年月日: string | undefined
   退院済フラグ: number | undefined
   [key: string]: any
 }

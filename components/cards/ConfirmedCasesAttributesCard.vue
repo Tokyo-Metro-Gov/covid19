@@ -18,20 +18,24 @@
         <template v-slot:tableBody="{ items, headers }">
           <tbody>
             <tr v-for="(item, i) in items" :key="i">
-              <template v-for="(header, j) in headers">
-                <th v-if="j === 0" :key="j" scope="row">
+              <th scope="row" class="text-start">
+                {{ translateDate(item['公表日']) }}
+              </th>
+              <td
+                v-for="(header, j) in headers.slice(1)"
+                :key="j"
+                :class="`text-${header.align || 'start'}`"
+              >
+                <template v-if="header.type === 'date'">
                   {{ translateDate(item[header.value]) }}
-                </th>
-                <td v-else-if="header.type === 'date'" :key="j">
-                  {{ translateDate(item[header.value]) }}
-                </td>
-                <td v-else-if="header.type === 'age'" :key="j">
+                </template>
+                <template v-else-if="header.type === 'age'">
                   {{ translateAge(item[header.value]) }}
-                </td>
-                <td v-else :key="j" :class="`text-${header.align || 'start'}`">
+                </template>
+                <template v-else>
                   {{ translateWord(item[header.value]) }}
-                </td>
-              </template>
+                </template>
+              </td>
             </tr>
           </tbody>
         </template>
@@ -71,10 +75,10 @@ type Data = {
 }
 type Methods = {
   fetchOpenAPI: () => Promise<{ patientsData: DataType; metaData: MetaData }>
-  onChangeItemsPerPage: (num: number) => Promise<void>
-  onChangePage: (num: number) => Promise<void>
+  onChangeItemsPerPage: (itemsPerPage: number) => Promise<void>
+  onChangePage: (page: number) => Promise<void>
   translateWord: (word: string) => string | VueI18n.TranslateResult
-  translateDate: (date: string) => VueI18n.TranslateResult
+  translateDate: (date: string) => string | VueI18n.TranslateResult
   translateAge: (age: string) => VueI18n.TranslateResult
 }
 type Computed = {
@@ -138,6 +142,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     this.endCursor = metaData.endCursor
     this.date = metaData.updated
   },
+  fetchOnServer: false, // i18nによる日付の変換ができないのでサーバーでは無効化
   methods: {
     async fetchOpenAPI() {
       const endpoint = 'https://api.data.metro.tokyo.lg.jp'
@@ -152,8 +157,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           throw new Error(error.toString())
         })
     },
-    async onChangeItemsPerPage(num) {
-      this.itemsPerPage = num
+    async onChangeItemsPerPage(itemsPerPage) {
+      this.itemsPerPage = itemsPerPage
       this.endCursor = ''
       this.patientsData = []
       await this.$fetch()

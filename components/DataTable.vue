@@ -128,7 +128,7 @@ export default Vue.extend({
     },
     error: {
       type: Object,
-      default: () => {},
+      default: null,
     },
     dataLength: {
       type: Number,
