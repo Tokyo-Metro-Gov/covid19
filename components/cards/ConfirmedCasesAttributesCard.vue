@@ -69,20 +69,20 @@ type Data = {
   }
   date: string
   page: number
-  itemsPerPage: number
+  itemsPerPage: 15 | 30 | 50 | 100 | 200 | 300 | 500 | 1000
   endCursor: string
   patientsData: DataType[]
 }
 type Methods = {
   fetchOpenAPI: () => Promise<{ patientsData: DataType; metaData: MetaData }>
-  onChangeItemsPerPage: (itemsPerPage: number) => Promise<void>
-  onChangePage: (page: number) => Promise<void>
+  fetchIfNoCache: () => void
+  onChangeItemsPerPage: (itemsPerPage: Data['itemsPerPage']) => void
+  onChangePage: (page: number) => void
   translateWord: (word: string) => string | VueI18n.TranslateResult
   translateDate: (date: string) => string | VueI18n.TranslateResult
   translateAge: (age: string) => VueI18n.TranslateResult
 }
 type Computed = {
-  limit: number
   patientsTable: TableDateType
   dataMargin: number
 }
@@ -122,10 +122,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   computed: {
-    limit() {
-      const times = this.itemsPerPage <= 500 ? 2 : 1
-      return this.itemsPerPage * times
-    },
     patientsTable() {
       const end = this.page * this.itemsPerPage
       const start = end - this.itemsPerPage
@@ -141,13 +137,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     this.patientsData = this.patientsData.concat(patientsData)
     this.endCursor = metaData.endCursor
     this.date = metaData.updated
+    this.fetchIfNoCache()
   },
   fetchOnServer: false, // i18nによる日付の変換ができないのでサーバーでは無効化
   methods: {
     async fetchOpenAPI() {
       const endpoint = 'https://api.data.metro.tokyo.lg.jp'
       const url =
-        `${endpoint}/v1/Covid19Patient?limit=${this.limit}` +
+        `${endpoint}/v1/Covid19Patient?limit=${this.itemsPerPage}` +
         (this.endCursor ? `&cursor=${encodeURIComponent(this.endCursor)}` : '')
 
       return await fetch(url)
@@ -157,16 +154,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           throw new Error(error.toString())
         })
     },
-    async onChangeItemsPerPage(itemsPerPage) {
+    fetchIfNoCache() {
+      // メモリ上に次ページのデータがなければ先読みしてページネーション時の待ち時間を減らす
+      if (this.dataMargin <= 0) setTimeout(() => this.$fetch(), 0)
+    },
+    onChangeItemsPerPage(itemsPerPage) {
       this.itemsPerPage = itemsPerPage
       this.endCursor = ''
       this.patientsData = []
-      await this.$fetch()
+      this.$fetch()
     },
-    async onChangePage(page) {
+    onChangePage(page) {
       this.page = page
-      // メモリ上に次ページのデータがなければ先読みしてページネーション時の待ち時間を減らす
-      if (this.dataMargin < this.itemsPerPage) await this.$fetch()
+      this.fetchIfNoCache()
     },
     translateDate(date) {
       const day = dayjs(date)
