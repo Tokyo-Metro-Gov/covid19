@@ -8,7 +8,6 @@
         :date="date"
         :info="sumInfoOfPatients"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
-        :source="$t('オープンデータを入手')"
         :loaded="dataMargin >= 0"
         :error="$fetchState.error"
         :data-length="dataLength"
