@@ -1,5 +1,6 @@
 <template>
   <span :class="$style.linkButton">
+    <!-- TODO： リンク先を変更する -->
     <app-link
       :class="$style.textLink"
       to="https://www.bousai.metro.tokyo.lg.jp/1007942/1008167.html"
