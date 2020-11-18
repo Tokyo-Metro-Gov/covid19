@@ -14,7 +14,7 @@ const headers: Header[] = [
   { text: '接触歴', value: '接触歴', align: 'center' },
   { text: '発症日', value: '発症日', type: 'date' },
   { text: '確定日', value: '確定日', type: 'date' },
-  { text: '退院※', value: '退院', align: 'center' },
+  { text: '退院', value: '退院', align: 'center' },
 ]
 
 export type DataType = {

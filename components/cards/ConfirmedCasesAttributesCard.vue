@@ -39,6 +39,24 @@
             </tr>
           </tbody>
         </template>
+        <template v-slot:additionalDescription>
+          <span>{{ $t('（注）') }}</span>
+          <ul>
+            <li>
+              {{ $t('「確定日」は検査により陽性であることを医師が確認した日') }}
+            </li>
+            <li>
+              {{ $t('「職業」「接触歴」「発症日」「確定日」は週１回更新') }}
+            </li>
+            <li>
+              {{
+                $t(
+                  '「退院」は、保健所から報告があり、確認ができているものを反映（死亡退院を含む）'
+                )
+              }}
+            </li>
+          </ul>
+        </template>
       </data-table>
     </client-only>
   </v-col>
