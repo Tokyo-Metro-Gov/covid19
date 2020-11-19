@@ -47,7 +47,7 @@
       </client-only>
     </template>
     <template v-slot:infoPanel>
-      <data-view-basic-info-panel
+      <data-view-data-set-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
         :unit="displayInfo.unit"
@@ -68,7 +68,7 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import DataSelector from '@/components/DataSelector.vue'
 import DataView from '@/components/DataView.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
@@ -130,7 +130,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   components: {
     DataView,
     DataSelector,
-    DataViewBasicInfoPanel,
+    DataViewDataSetPanel,
     DataViewTable,
     ScrollableChart,
     OpenDataLink,

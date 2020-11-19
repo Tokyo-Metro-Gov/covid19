@@ -69,7 +69,7 @@
       </ul>
     </template>
     <template v-slot:infoPanel>
-      <data-view-basic-info-panel
+      <data-view-data-set-panel
         :l-text="info.lText"
         :s-text="info.sText"
         :unit="info.unit"
@@ -89,11 +89,11 @@ import Vue from 'vue'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
 import DataView from '@/components/DataView.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default Vue.extend({
-  components: { DataView, DataViewBasicInfoPanel, OpenDataLink, ScaleLoader },
+  components: { DataView, DataViewDataSetPanel, OpenDataLink, ScaleLoader },
   props: {
     title: {
       type: String,
