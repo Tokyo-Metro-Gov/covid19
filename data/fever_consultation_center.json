@@ -1,0 +1,131 @@
+{
+    "date": "2020\/11\/19 20:00",
+    "data": [
+        {
+            "date": "2020-10-30",
+            "count": {
+                "fever_consultation_center": 347,
+                "cocoa_dial": 9,
+                "total": 356,
+                "weekly_average_total": null
+            }
+        },
+        {
+            "date": "2020-10-31",
+            "count": {
+                "fever_consultation_center": 705,
+                "cocoa_dial": 33,
+                "total": 738,
+                "weekly_average_total": null
+            }
+        },
+        {
+            "date": "2020-11-01",
+            "count": {
+                "fever_consultation_center": 785,
+                "cocoa_dial": 15,
+                "total": 800,
+                "weekly_average_total": null
+            }
+        },
+        {
+            "date": "2020-11-02",
+            "count": {
+                "fever_consultation_center": 637,
+                "cocoa_dial": 17,
+                "total": 654,
+                "weekly_average_total": null
+            }
+        },
+        {
+            "date": "2020-11-03",
+            "count": {
+                "fever_consultation_center": 844,
+                "cocoa_dial": 12,
+                "total": 856,
+                "weekly_average_total": null
+            }
+        },
+        {
+            "date": "2020-11-04",
+            "count": {
+                "fever_consultation_center": 686,
+                "cocoa_dial": 13,
+                "total": 699,
+                "weekly_average_total": null
+            }
+        },
+        {
+            "date": "2020-11-05",
+            "count": {
+                "fever_consultation_center": 546,
+                "cocoa_dial": 22,
+                "total": 568,
+                "weekly_average_total": 667
+            }
+        },
+        {
+            "date": "2020-11-06",
+            "count": {
+                "fever_consultation_center": 520,
+                "cocoa_dial": 27,
+                "total": 547,
+                "weekly_average_total": 695
+            }
+        },
+        {
+            "date": "2020-11-07",
+            "count": {
+                "fever_consultation_center": 708,
+                "cocoa_dial": 42,
+                "total": 750,
+                "weekly_average_total": 696
+            }
+        },
+        {
+            "date": "2020-11-08",
+            "count": {
+                "fever_consultation_center": 860,
+                "cocoa_dial": 32,
+                "total": 892,
+                "weekly_average_total": 709
+            }
+        },
+        {
+            "date": "2020-11-09",
+            "count": {
+                "fever_consultation_center": 655,
+                "cocoa_dial": 35,
+                "total": 690,
+                "weekly_average_total": 715
+            }
+        },
+        {
+            "date": "2020-11-10",
+            "count": {
+                "fever_consultation_center": 617,
+                "cocoa_dial": 57,
+                "total": 674,
+                "weekly_average_total": 689
+            }
+        },
+        {
+            "date": "2020-11-11",
+            "count": {
+                "fever_consultation_center": 674,
+                "cocoa_dial": 39,
+                "total": 713,
+                "weekly_average_total": 691
+            }
+        },
+        {
+            "date": "2020-11-12",
+            "count": {
+                "fever_consultation_center": 703,
+                "cocoa_dial": 60,
+                "total": 763,
+                "weekly_average_total": 718
+            }
+        }
+    ]
+}
