@@ -7,6 +7,7 @@
         :chart-id="'metro-bar-chart'"
         :chart-data="metroGraph"
         :date="metroGraph.date"
+        :items="metroGraph.labels"
         :tooltips-title="metroGraphTooltipTitle"
         :tooltips-label="metroGraphTooltipLabel"
         unit="%"
