@@ -16,7 +16,7 @@
       <slot name="additionalDescription" />
     </template>
     <template v-slot:infoPanel>
-      <data-view-basic-info-panel
+      <data-view-data-set-panel
         :l-text="info.lText"
         :s-text="info.sText"
         :unit="info.unit"
@@ -29,10 +29,10 @@
 import Vue from 'vue'
 
 import DataView from '@/components/DataView.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 
 export default Vue.extend({
-  components: { DataView, DataViewBasicInfoPanel },
+  components: { DataView, DataViewDataSetPanel },
   props: {
     title: {
       type: String,

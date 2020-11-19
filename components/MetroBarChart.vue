@@ -1,16 +1,59 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
+    <ul
+      :class="$style.GraphLegend"
+      :style="{ display: canvas ? 'block' : 'none' }"
+    >
+      <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
+        <button>
+          <div
+            :style="{
+              backgroundColor: colors[i].fillColor,
+              borderColor: colors[i].strokeColor,
+              width: '20px',
+            }"
+          />
+          <span
+            :style="{
+              textDecoration: displayLegends[i] ? 'none' : 'line-through',
+            }"
+          >
+            {{ item }}
+          </span>
+        </button>
+      </li>
+    </ul>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <bar
-      :ref="'barChart'"
-      :style="{ display: canvas ? 'block' : 'none' }"
-      :chart-id="chartId"
-      :chart-data="displayData"
-      :options="displayOption"
-      :height="240"
-    />
+    <scrollable-chart
+      v-show="canvas"
+      :display-data="displayData"
+      :is-weekly="true"
+    >
+      <template v-slot:chart="{ chartWidth }">
+        <bar
+          :ref="'barChart'"
+          :chart-id="chartId"
+          :chart-data="displayData"
+          :options="displayOption"
+          :display-legends="displayLegends"
+          :height="240"
+          :width="chartWidth"
+        />
+      </template>
+      <template v-slot:sticky-chart>
+        <bar
+          class="sticky-legend"
+          :chart-id="`${chartId}-header-right`"
+          :chart-data="displayDataHeader"
+          :options="displayOptionHeader"
+          :display-legends="displayLegends"
+          :plugins="yAxesBgPlugin"
+          :height="240"
+        />
+      </template>
+    </scrollable-chart>
     <template v-slot:dataTable>
       <client-only>
         <data-view-table :headers="tableHeaders" :items="tableData" />
@@ -53,22 +96,29 @@ import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
-import { DisplayData } from '@/plugins/vue-chart'
-import { getGraphSeriesStyle } from '@/utils/colors'
+import ScrollableChart from '@/components/ScrollableChart.vue'
+import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
+import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
 }
 
 type Data = {
+  colors: SurfaceStyle[]
   canvas: boolean
+  displayLegends: boolean[]
 }
-type Methods = {}
+type Methods = {
+  onClickLegend: (i: number) => void
+}
 type Computed = {
   displayData: DisplayData
   tableHeaders: TableHeader[]
   tableData: TableItem[]
   displayOption: Chart.ChartOptions
+  displayDataHeader: DisplayData
+  displayOptionHeader: Chart.ChartOptions
 }
 type Props = {
   chartData: ChartData
@@ -77,6 +127,7 @@ type Props = {
   title: string
   titleId: string
   date: string
+  items: string[]
   unit: string
   tooltipsTitle: Chart.ChartTooltipCallback['title']
   tooltipsLabel: Chart.ChartTooltipCallback['label']
@@ -92,7 +143,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, DataViewTable, AppLink },
+  components: { DataView, DataViewTable, AppLink, ScrollableChart },
   props: {
     title: {
       type: String,
@@ -113,6 +164,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       required: true,
     },
+    items: {
+      type: Array,
+      default: () => [],
+    },
     unit: {
       type: String,
       required: false,
@@ -128,17 +183,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   data: () => ({
+    colors: getGraphSeriesStyle(3),
     canvas: true,
+    yAxesBgPlugin,
+    displayLegends: [true, true, true],
   }),
   computed: {
     displayData() {
-      const graphSeries = getGraphSeriesStyle(this.chartData.labels!.length)
       const datasets = this.chartData.labels!.map((label, i) => {
         return {
           label: label as string,
           data: this.chartData.datasets!.map((d) => d.data![i]) as number[],
-          backgroundColor: graphSeries[i].fillColor,
-          borderColor: graphSeries[i].strokeColor,
+          backgroundColor: this.colors[i].fillColor,
+          borderColor: this.colors[i].strokeColor,
           borderWidth: 1,
         }
       })
@@ -172,17 +229,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOption() {
       const self = this
       const options: ChartOptions = {
+        maintainAspectRatio: false,
         legend: {
-          display: true,
-          onHover: (e: HTMLElementEvent<HTMLInputElement>) => {
-            e.currentTarget.style.cursor = 'pointer'
-          },
-          onLeave: (e: HTMLElementEvent<HTMLInputElement>) => {
-            e.currentTarget.style.cursor = 'default'
-          },
-          labels: {
-            boxWidth: 20,
-          },
+          display: false,
         },
         scales: {
           xAxes: [
@@ -210,11 +259,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 callback(value) {
-                  return (
-                    (typeof value === 'number' ? value : Number(value)).toFixed(
-                      2
-                    ) + self.unit
-                  )
+                  const valueCasted =
+                    typeof value === 'number' ? value : Number(value)
+                  return `${valueCasted.toFixed(2)}${self.unit}`
                 },
               },
             },
@@ -233,6 +280,74 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
       return options
     },
+    displayDataHeader() {
+      const datasets = this.chartData.labels!.map((label, i) => {
+        return {
+          label: label as string,
+          data: this.chartData.datasets!.map((d) => d.data![i]) as number[],
+          backgroundColor: 'transparent',
+          borderWidth: 0,
+        }
+      })
+      return {
+        labels: this.chartData.datasets!.map((d) => d.label!),
+        datasets,
+      }
+    },
+    displayOptionHeader() {
+      const self = this
+      const options: Chart.ChartOptions = {
+        maintainAspectRatio: false,
+        legend: {
+          display: false,
+        },
+        tooltips: { enabled: false },
+        scales: {
+          xAxes: [
+            {
+              position: 'bottom',
+              stacked: false,
+              gridLines: {
+                display: false,
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: 'transparent',
+              },
+            },
+          ],
+          yAxes: [
+            {
+              stacked: false,
+              gridLines: {
+                display: true,
+                drawOnChartArea: false,
+                color: '#E5E5E5',
+              },
+              ticks: {
+                fontSize: 12,
+                maxTicksLimit: 10,
+                fontColor: '#808080',
+                callback(value) {
+                  const valueCasted =
+                    typeof value === 'number' ? value : Number(value)
+                  return `${valueCasted.toFixed(2)}${self.unit}`
+                },
+              },
+            },
+          ],
+        },
+        animation: { duration: 0 },
+      }
+      return options
+    },
+  },
+  methods: {
+    onClickLegend(i) {
+      this.displayLegends[i] = !this.displayLegends[i]
+      this.displayLegends = this.displayLegends.slice()
+    },
   },
   mounted() {
     const barChart = this.$refs.barChart as Vue
@@ -249,3 +364,30 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
 export default Vue.extend(options)
 </script>
+
+<style module lang="scss">
+.Graph {
+  &Legend {
+    text-align: center;
+    list-style: none;
+    padding: 0 !important;
+    li {
+      display: inline-block;
+      margin: 0 3px;
+      div {
+        height: 12px;
+        margin: 2px 4px;
+        width: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        border-width: 1px;
+        border-style: solid;
+      }
+      button {
+        color: $gray-3;
+        @include font-size(12);
+      }
+    }
+  }
+}
+</style>

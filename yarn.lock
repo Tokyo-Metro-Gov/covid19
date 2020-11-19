@@ -1473,10 +1473,10 @@
   resolved "https://registry.yarnpkg.com/@types/browserslist/-/browserslist-4.8.0.tgz#60489aefdf0fcb56c2d8eb65267ff08dad7a526d"
   integrity sha512-4PyO9OM08APvxxo1NmQyQKlJdowPCOQIy5D/NLO3aO0vGC57wsMptvGp3b8IbYnupFZr92l1dlVief1JvS6STQ==
 
-"@types/chart.js@2.9.27":
-  version "2.9.27"
-  resolved "https://registry.yarnpkg.com/@types/chart.js/-/chart.js-2.9.27.tgz#716fd57b4cc791dc592cd424a44df95f2aefb918"
-  integrity sha512-b3ho2RpPLWzLzOXKkFwpvlRDEVWQrCknu2/p90mLY5v2DO8owk0OwWkv4MqAC91kJL52bQGXkVw/De+N/0/1+A==
+"@types/chart.js@2.9.28":
+  version "2.9.28"
+  resolved "https://registry.yarnpkg.com/@types/chart.js/-/chart.js-2.9.28.tgz#75f1a456ee2eace136073c3264da271a27dcdc8a"
+  integrity sha512-9YYhsxRngRJb0dkuaU5BezkF+zvvVHnwdRw+rtlahtFb4zqNf9YSgWsOq+dLYeh0fqsWmHUYLR64eNigh02F+w==
   dependencies:
     moment "^2.10.2"
 
@@ -10215,10 +10215,10 @@ vue-analytics@^5.22.1:
   resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.22.1.tgz#9d6b32da56daee1b9dfb23a267b50349a03f710f"
   integrity sha512-HPKQMN7gfcUqS5SxoO0VxqLRRSPkG1H1FqglsHccz6BatBatNtm/Vyy8brApktZxNCfnAkrSVDpxg3/FNDeOgQ==
 
-vue-axe@2.4.2:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/vue-axe/-/vue-axe-2.4.2.tgz#cb2e23bc209a2b7fb71cd33cb41829752046719b"
-  integrity sha512-qrt94fk55GUcoDefoIL9fd+UkZ3CFWgXd42PyiWb22ZeV8pHxrZ3WkQz/ekmjO/nKXVya546QywNX0LW6RmWkA==
+vue-axe@2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/vue-axe/-/vue-axe-2.4.3.tgz#90944a3ae70490c0d688c2e1f241a159f7ad1e4c"
+  integrity sha512-16R1IFoVGpet268D6+xdIm0pIf9161ZoXQDJ+xSe5QOdIIKhy8bQ25CW+b+3v40x97K/vYqe1w9bkvJBuVkd1w==
 
 vue-chartjs@3.5.1:
   version "3.5.1"
