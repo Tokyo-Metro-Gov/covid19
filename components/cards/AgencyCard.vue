@@ -7,6 +7,7 @@
         :chart-id="'agency'"
         :chart-data="agencyData"
         :date="agencyData.date"
+        :items="agencyItems"
         :unit="$t('人')"
       >
         <template v-slot:additionalDescription>
@@ -41,8 +42,14 @@ export default {
       ...AgencyData,
       labels,
     }
+    const agencyItems = [
+      this.$t('第一庁舎計'),
+      this.$t('第二庁舎計'),
+      this.$t('議事堂計'),
+    ]
     return {
       agencyData,
+      agencyItems,
     }
   },
 }
