@@ -17,13 +17,13 @@
         <template v-slot:tableBody="{ items, headers }">
           <tbody>
             <tr v-for="(item, i) in items" :key="i">
-              <th scope="row" class="text-start">
+              <th scope="row" class="text-start DataTable-cell">
                 {{ translateDate(item['公表日']) }}
               </th>
               <td
                 v-for="(header, j) in headers.slice(1)"
                 :key="j"
-                :class="`text-${header.align || 'start'}`"
+                :class="`text-${header.align || 'start'} DataTable-cell`"
               >
                 <template v-if="header.type === 'date'">
                   {{ translateDate(item[header.value]) }}
@@ -208,3 +208,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 }
 export default options
 </script>
+
+<style lang="scss" scoped>
+.DataTable-cell {
+  white-space: nowrap;
+}
+</style>

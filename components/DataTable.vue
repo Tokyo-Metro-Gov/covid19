@@ -40,7 +40,7 @@
               <th
                 v-for="(header, i) in headers"
                 :key="i"
-                :class="`text-${header.align || 'start'}`"
+                :class="`text-${header.align || 'start'} DataTable-header`"
               >
                 {{ $t(header.text) }}
               </th>
@@ -158,7 +158,6 @@ export default Vue.extend({
 
 <style lang="scss">
 .cardTable {
-  white-space: nowrap;
   &.v-data-table {
     th {
       padding: 8px 10px !important;
@@ -232,5 +231,8 @@ export default Vue.extend({
 }
 .FooterNote {
   margin: 0 !important;
+}
+.DataTable-header {
+  white-space: nowrap;
 }
 </style>
