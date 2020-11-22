@@ -19,7 +19,7 @@
 [](09)栃木県|https://covid19-tochigi.netlify.com/|有志|[covid19-tochigi/covid19](https://github.com/covid19-tochigi/covid19)|
 [](10)群馬県|https://stopcovid19.pref.gunma.jp/|群馬県（**公式**）|[bpr-gunma/covid19](https://github.com/bpr-gunma/covid19)|
 [](11)埼玉県|https://saitama.stopcovid19.jp/|Code for TODA|[codefortoda/covid19-saitama](https://github.com/codefortoda/covid19-saitama)|
-[](12)千葉県|https://covid19.civictech.chiba.jp/|Civic Tech Zen Chiba|[civictechzenchiba/covid19-chiba](https://github.com/civictechzenchiba/covid19-chiba)|
+[](12)千葉県|https://covid19.civictech.chiba.jp/|Civic Tech Zen Chiba（**千葉県公認**）|[civictechzenchiba/covid19-chiba](https://github.com/civictechzenchiba/covid19-chiba)|
 [](12)千葉市|https://stopcovid19.code4chiba.org/|Code for Chiba|[codeforchiba/covid19](https://github.com/codeforchiba/covid19)|
 [](12)市原市|https://covid19-ichihara.netlify.app/|個人|[YanaseT/covid19-ichihara/](https://github.com/YanaseT/covid19-ichihara/)|
 [](12)八千代市|https://yachiyo-covid19.netlify.app/|有志（学生）|[taichi1222/covid19-yachiyo](https://github.com/taichi1222/covid19-yachiyo)|
