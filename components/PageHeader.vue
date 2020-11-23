@@ -1,8 +1,8 @@
 <template>
   <div class="header">
     <h2 class="pageTitle">
-      <v-icon v-if="icon" size="4rem" class="mr-2">
-        {{ icon }}
+      <v-icon v-if="iconPath" size="4rem" class="mr-2">
+        {{ iconPath }}
       </v-icon>
       <slot />
     </h2>
@@ -14,7 +14,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   props: {
-    icon: {
+    iconPath: {
       type: String,
       required: false,
       default: '',
