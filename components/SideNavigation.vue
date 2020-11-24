@@ -13,6 +13,8 @@
           <img
             class="SideNavigation-HeaderLogo"
             src="/logo.svg"
+            width="111"
+            height="28"
             :alt="$t('東京都')"
           />
           <div class="SideNavigation-HeaderText">
@@ -57,7 +59,7 @@
           >
             <picture>
               <source srcset="/line.webp" type="image/webp" />
-              <img src="/line.png" alt="LINE" />
+              <img src="/line.png" width="130" height="130" alt="LINE" />
             </picture>
           </app-link>
           <app-link
@@ -67,7 +69,7 @@
           >
             <picture>
               <source srcset="/twitter.webp" type="image/webp" />
-              <img src="/twitter.png" alt="Twitter" />
+              <img src="/twitter.png" width="130" height="130" alt="Twitter" />
             </picture>
           </app-link>
           <app-link
@@ -77,7 +79,12 @@
           >
             <picture>
               <source srcset="/facebook.webp" type="image/webp" />
-              <img src="/facebook.png" alt="Facebook" />
+              <img
+                src="/facebook.png"
+                width="130"
+                height="130"
+                alt="Facebook"
+              />
             </picture>
           </app-link>
           <app-link
@@ -87,7 +94,7 @@
           >
             <picture>
               <source srcset="/github.webp" type="image/webp" />
-              <img src="/github.png" alt="GitHub" />
+              <img src="/github.png" width="130" height="130" alt="GitHub" />
             </picture>
           </app-link>
           <app-link
@@ -97,7 +104,7 @@
           >
             <picture>
               <source srcset="/youtube.webp" type="image/webp" />
-              <img src="/youtube.png" alt="YouTube" />
+              <img src="/youtube.png" width="130" height="130" alt="YouTube" />
             </picture>
           </app-link>
         </div>
