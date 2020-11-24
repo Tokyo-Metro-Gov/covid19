@@ -55,10 +55,12 @@
 <script>
 import MonitoringConsultationDeskReportChart from '@/components/MonitoringConsultationDeskReportChart.vue'
 import Data from '@/data/data.json'
+import AppLink from '@/components/AppLink.vue'
 
 export default {
   components: {
     MonitoringConsultationDeskReportChart,
+    AppLink,
   },
   data() {
     const [
