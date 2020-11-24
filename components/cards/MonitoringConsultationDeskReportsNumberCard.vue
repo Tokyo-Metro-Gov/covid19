@@ -59,7 +59,6 @@ import Data from '@/data/data.json'
 export default {
   components: {
     MonitoringConsultationDeskReportChart,
-    AppLink,
   },
   data() {
     const [
