@@ -103,6 +103,7 @@ const config: NuxtConfig = {
     ['nuxt-i18n', i18n],
     'nuxt-svg-loader',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
+    'nuxt-webfontloader',
   ],
   /*
    ** vuetify module configuration
@@ -111,8 +112,15 @@ const config: NuxtConfig = {
   vuetify: {
     customVariables: ['@/assets/variables.scss'],
     treeShake: true,
-    defaultAssets: {
-      icons: false,
+    defaultAssets: false,
+  },
+  /*
+   * Webfontloader
+   * https://github.com/Developmint/nuxt-webfontloader
+   */
+  webfontloader: {
+    google: {
+      families: ['Roboto:100,300,400,500,700,900&display=swap'],
     },
   },
   googleAnalytics: {
