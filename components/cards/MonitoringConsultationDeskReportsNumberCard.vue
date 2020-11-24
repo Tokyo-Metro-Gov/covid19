@@ -20,7 +20,7 @@
               )
             }}
             <app-link
-              to="/cards/number-of-reports-to-tokyo-fever-consultation-center"
+              :to="/cards/number-of-reports-to-tokyo-fever-consultation-center"
             >
               {{
                 $t('「東京都発熱相談センターにおける相談件数グラフ」はこちら。')
