@@ -1,8 +1,5 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:description>
-      <slot name="description" />
-    </template>
     <ul
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
@@ -65,8 +62,8 @@
         <data-view-table :headers="tableHeaders" :items="tableData" />
       </client-only>
     </template>
-    <template v-slot:attentionNote>
-      <slot name="attentionNote" />
+    <template v-slot:description>
+      <slot name="description" />
     </template>
     <template v-slot:additionalDescription>
       <slot name="additionalDescription" />
