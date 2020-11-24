@@ -12,7 +12,7 @@
         :unit="$t('件.reports')"
         url="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000070"
       >
-        <template v-slot:description>
+        <template v-slot:additionalDescription>
           <p>
             {{
               $t('「東京都発熱相談センター」の開設に伴い、「新型コロナ受診相談窓口」は終了したため、10月30日（金曜日）17時をもって本グラフの数値更新を終了しました。')
