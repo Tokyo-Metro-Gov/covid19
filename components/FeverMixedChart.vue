@@ -250,6 +250,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             backgroundColor: graphSeries[0].fillColor,
             borderColor: graphSeries[0].strokeColor,
             borderWidth: 1,
+            order: 1,
           },
           {
             type: 'bar',
@@ -258,6 +259,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             backgroundColor: graphSeries[1].fillColor,
             borderColor: graphSeries[1].strokeColor,
             borderWidth: 1,
+            order: 2,
           },
           {
             type: 'line',
