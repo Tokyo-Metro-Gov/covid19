@@ -430,6 +430,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             type: 'line',
             data: [this.displayData.datasets[2].data[n]],
             backgroundColor: 'transparent',
+            borderColor: 'transparent',
             borderWidth: 0,
           },
         ],
