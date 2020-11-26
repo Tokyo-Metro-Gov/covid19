@@ -36,10 +36,12 @@ import PositiveNumberByDevelopedDateCard from '@/components/cards/PositiveNumber
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 // 検査実施件数
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
-// 受診相談窓口における相談件数
-import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 // 新型コロナコールセンター相談件数
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
+// 受診相談窓口における相談件数
+import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
+// 東京都発熱相談センターにおける相談件数
+import TokyoFeverConsultationCenterReportsNumberCard from '@/components/cards/TokyoFeverConsultationCenterReportsNumberCard.vue'
 // 都営地下鉄の利用者数の推移
 import MetroCard from '@/components/cards/MetroCard.vue'
 // 都庁来庁者数の推移
@@ -67,8 +69,9 @@ export default {
     PositiveNumberByDevelopedDateCard,
     PositiveNumberByDiagnosedDateCard,
     TestedNumberCard,
-    MonitoringConsultationDeskReportsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
+    MonitoringConsultationDeskReportsNumberCard,
+    TokyoFeverConsultationCenterReportsNumberCard,
     MetroCard,
     AgencyCard,
   },
@@ -138,13 +141,17 @@ export default {
       case 'number-of-tested':
         cardComponent = 'tested-number-card'
         break
+      // 新型コロナコールセンター相談件数
+      case 'number-of-reports-to-covid19-telephone-advisory-center':
+        cardComponent = 'telephone-advisory-reports-number-card'
+        break
       // 受診相談窓口における相談件数
       case 'monitoring-number-of-reports-to-covid19-consultation-desk':
         cardComponent = 'monitoring-consultation-desk-reports-number-card'
         break
-      // 新型コロナコールセンター相談件数
-      case 'number-of-reports-to-covid19-telephone-advisory-center':
-        cardComponent = 'telephone-advisory-reports-number-card'
+      // 東京都発熱相談センターにおける相談件数
+      case 'number-of-reports-to-tokyo-fever-consultation-center':
+        cardComponent = 'tokyo-fever-consultation-center-reports-number-card'
         break
       // 都営地下鉄の利用者数の推移
       case 'predicted-number-of-toei-subway-passengers':
