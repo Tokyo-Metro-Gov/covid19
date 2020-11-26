@@ -3,7 +3,7 @@
     <div class="WhatsNew-heading">
       <h3 class="WhatsNew-title">
         <v-icon size="2.4rem" class="WhatsNew-title-icon">
-          mdi-information
+          {{ mdiInformation }}
         </v-icon>
         {{ $t('最新のお知らせ') }}
       </h3>
@@ -30,6 +30,7 @@
 </template>
 
 <script lang="ts">
+import { mdiInformation } from '@mdi/js'
 import Vue from 'vue'
 
 import AppLink from '@/components/AppLink.vue'
@@ -51,6 +52,11 @@ export default Vue.extend({
       required: false,
       default: false,
     },
+  },
+  data() {
+    return {
+      mdiInformation,
+    }
   },
   methods: {
     formattedDate(dateString: string) {

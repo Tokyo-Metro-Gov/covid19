@@ -4,15 +4,17 @@
       <v-icon
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
-        @click="$emit('openNavi', $event)"
+        @click="$emit('open-navigation', $event)"
       >
-        mdi-menu
+        {{ mdiMenu }}
       </v-icon>
       <h1 class="SideNavigation-HeaderTitle">
         <app-link :to="localePath('/')" class="SideNavigation-HeaderLink">
           <img
             class="SideNavigation-HeaderLogo"
             src="/logo.svg"
+            width="111"
+            height="28"
             :alt="$t('東京都')"
           />
           <div class="SideNavigation-HeaderText">
@@ -28,9 +30,9 @@
       <v-icon
         class="SideNavigation-CloseIcon"
         :aria-label="$t('サイドメニュー項目を閉じる')"
-        @click="$emit('closeNavi', $event)"
+        @click="$emit('close-navigation', $event)"
       >
-        mdi-close
+        {{ mdiClose }}
       </v-icon>
 
       <nav class="SideNavigation-Menu">
@@ -45,7 +47,7 @@
             <language-selector />
           </div>
         </div>
-        <menu-list :items="items" @click="$emit('closeNavi', $event)" />
+        <menu-list :items="items" @click="$emit('close-navigation', $event)" />
       </nav>
 
       <footer class="SideNavigation-Footer">
@@ -57,7 +59,7 @@
           >
             <picture>
               <source srcset="/line.webp" type="image/webp" />
-              <img src="/line.png" alt="LINE" />
+              <img src="/line.png" width="130" height="130" alt="LINE" />
             </picture>
           </app-link>
           <app-link
@@ -67,7 +69,7 @@
           >
             <picture>
               <source srcset="/twitter.webp" type="image/webp" />
-              <img src="/twitter.png" alt="Twitter" />
+              <img src="/twitter.png" width="130" height="130" alt="Twitter" />
             </picture>
           </app-link>
           <app-link
@@ -77,7 +79,12 @@
           >
             <picture>
               <source srcset="/facebook.webp" type="image/webp" />
-              <img src="/facebook.png" alt="Facebook" />
+              <img
+                src="/facebook.png"
+                width="130"
+                height="130"
+                alt="Facebook"
+              />
             </picture>
           </app-link>
           <app-link
@@ -87,7 +94,7 @@
           >
             <picture>
               <source srcset="/github.webp" type="image/webp" />
-              <img src="/github.png" alt="GitHub" />
+              <img src="/github.png" width="130" height="130" alt="GitHub" />
             </picture>
           </app-link>
           <app-link
@@ -97,7 +104,7 @@
           >
             <picture>
               <source srcset="/youtube.webp" type="image/webp" />
-              <img src="/youtube.png" alt="YouTube" />
+              <img src="/youtube.png" width="130" height="130" alt="YouTube" />
             </picture>
           </app-link>
         </div>
@@ -126,6 +133,13 @@
 </template>
 
 <script lang="ts">
+import {
+  mdiAccountMultiple,
+  mdiChartTimelineVariant,
+  mdiClose,
+  mdiDomain,
+  mdiMenu,
+} from '@mdi/js'
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 
@@ -134,7 +148,8 @@ import LanguageSelector from '@/components/LanguageSelector.vue'
 import MenuList from '@/components/MenuList.vue'
 
 type Item = {
-  icon?: string
+  iconPath?: string
+  svg?: string
   title: TranslateResult
   link: string
   divider?: boolean
@@ -152,28 +167,34 @@ export default Vue.extend({
       required: true,
     },
   },
+  data() {
+    return {
+      mdiClose,
+      mdiMenu,
+    }
+  },
   computed: {
     items(): Item[] {
       return [
         {
-          icon: 'mdi-chart-timeline-variant',
+          iconPath: mdiChartTimelineVariant,
           title: this.$t('都内の最新感染動向'),
           link: this.localePath('/'),
         },
         {
-          icon: 'CovidIcon',
+          svg: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに.nav'),
           link:
             'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html',
         },
         {
-          icon: 'CovidIcon',
+          svg: 'CovidIcon',
           title: this.$t('新型コロナウイルスの感染が判明した方へ'),
           link:
             'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/corona_0401.html',
         },
         {
-          icon: 'SupportIcon',
+          svg: 'SupportIcon',
           title: this.$t(
             '新型コロナウイルス感染症の患者発生状況に関するよくあるご質問'
           ),
@@ -181,24 +202,24 @@ export default Vue.extend({
             'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronafaq.html',
         },
         {
-          icon: 'MaskTrashIcon',
+          svg: 'MaskTrashIcon',
           title: this.$t('ご家庭でのマスク等の捨て方'),
           link:
             'https://www.kankyo.metro.tokyo.lg.jp/resource/500200a20200221162304660.files/200327_chirashi.pdf',
           divider: true,
         },
         {
-          icon: 'ParentIcon',
+          svg: 'ParentIcon',
           title: this.$t('お子様をお持ちの皆様へ'),
           link: this.localePath('/parent'),
         },
         {
-          icon: 'mdi-account-multiple',
+          iconPath: mdiAccountMultiple,
           title: this.$t('都民の皆様へ'),
           link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
         },
         {
-          icon: 'mdi-domain',
+          iconPath: mdiDomain,
           title: this.$t('企業の皆様・はたらく皆様へ'),
           link: this.localePath('/worker'),
           divider: true,

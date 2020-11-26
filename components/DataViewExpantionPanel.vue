@@ -8,7 +8,7 @@
           @click="toggleDetails"
         >
           <div class="v-expansion-panel-header__icon">
-            <v-icon left size="2.4rem">mdi-chevron-right</v-icon>
+            <v-icon left size="2.4rem">{{ mdiChevronRight }}</v-icon>
           </div>
           <span class="expansion-panel-text">{{ $t('テーブルを表示') }}</span>
         </v-expansion-panel-header>
@@ -24,6 +24,7 @@
 </template>
 
 <script lang="ts">
+import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
 import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
@@ -32,6 +33,7 @@ export default Vue.extend({
   data() {
     return {
       showDetails: false,
+      mdiChevronRight,
     }
   },
   mounted() {

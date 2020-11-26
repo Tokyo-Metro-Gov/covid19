@@ -10,12 +10,13 @@
       role="img"
       :aria-hidden="false"
     >
-      {{ iconType }}
+      {{ iconPath }}
     </v-icon>
   </component>
 </template>
 
 <script lang="ts">
+import { mdiOpenInNew } from '@mdi/js'
 import Vue from 'vue'
 
 import { isExternal } from '@/utils/urls.ts'
@@ -46,9 +47,9 @@ export default Vue.extend({
       type: Number,
       default: 12,
     },
-    iconType: {
+    iconPath: {
       type: String,
-      default: 'mdi-open-in-new',
+      default: mdiOpenInNew,
     },
     iconClass: {
       type: String,
