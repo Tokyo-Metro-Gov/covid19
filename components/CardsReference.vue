@@ -11,12 +11,12 @@
       <positive-number-by-diagnosed-date-card />
       <!-- 検査実施件数 -->
       <tested-number-card />
-    </card-row>
-    <card-row class="DataBlock">
-      <!-- 受診相談窓口における相談件数 -->
-      <monitoring-consultation-desk-reports-number-card />
       <!-- 新型コロナコールセンター相談件数 -->
       <telephone-advisory-reports-number-card />
+      <!-- 受診相談窓口における相談件数 -->
+      <monitoring-consultation-desk-reports-number-card />
+      <!-- 東京都発熱相談センターにおける相談件数 -->
+      <tokyo-fever-consultation-center-reports-number-card />
     </card-row>
     <card-row class="DataBlock">
       <!-- 都営地下鉄の利用者数の推移 -->
@@ -42,10 +42,12 @@ import PositiveNumberByDevelopedDateCard from '@/components/cards/PositiveNumber
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 // 検査実施件数
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
-// 受診相談窓口における相談件数
-import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
 // 新型コロナコールセンター相談件数
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
+// 受診相談窓口における相談件数
+import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
+// 東京都発熱相談センターにおける相談件数
+import TokyoFeverConsultationCenterReportsNumberCard from '@/components/cards/TokyoFeverConsultationCenterReportsNumberCard.vue'
 // 都営地下鉄の利用者数の推移
 import MetroCard from '@/components/cards/MetroCard.vue'
 // 都庁来庁者数の推移
@@ -60,8 +62,9 @@ export default Vue.extend({
     PositiveNumberByDevelopedDateCard,
     PositiveNumberByDiagnosedDateCard,
     TestedNumberCard,
-    MonitoringConsultationDeskReportsNumberCard,
     TelephoneAdvisoryReportsNumberCard,
+    MonitoringConsultationDeskReportsNumberCard,
+    TokyoFeverConsultationCenterReportsNumberCard,
     MetroCard,
     AgencyCard,
   },
