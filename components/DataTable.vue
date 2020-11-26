@@ -136,11 +136,11 @@ export default Vue.extend({
   },
   watch: {
     itemsPerPage() {
-      this.$emit('onChangeItemsPerPage', this.itemsPerPage)
+      this.$emit('on-change-items-per-page', this.itemsPerPage)
       this.page = 1
     },
     page() {
-      this.$emit('onChangePage', this.page)
+      this.$emit('on-change-page', this.page)
     },
   },
   mounted() {

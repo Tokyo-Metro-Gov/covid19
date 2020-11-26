@@ -11,8 +11,8 @@
         <side-navigation
           :is-navi-open="isOpenNavigation"
           :class="{ open: isOpenNavigation }"
-          @openNavi="openNavigation"
-          @closeNavi="hideNavigation"
+          @open-navigation="openNavigation"
+          @close-navigation="closeNavigation"
         />
       </div>
       <main class="mainContainer" :class="{ open: isOpenNavigation }">
@@ -73,16 +73,16 @@ export default Vue.extend({
   },
   mounted() {
     this.loading = false
-    this.getMatchMedia().addListener(this.hideNavigation)
+    this.getMatchMedia().addListener(this.closeNavigation)
   },
   beforeDestroy() {
-    this.getMatchMedia().removeListener(this.hideNavigation)
+    this.getMatchMedia().removeListener(this.closeNavigation)
   },
   methods: {
     openNavigation(): void {
       this.isOpenNavigation = true
     },
-    hideNavigation(): void {
+    closeNavigation(): void {
       this.isOpenNavigation = false
     },
     getMatchMedia(): MediaQueryList {

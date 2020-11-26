@@ -11,8 +11,8 @@
         :loaded="dataMargin >= 0"
         :error="$fetchState.error"
         :data-length="dataLength"
-        @onChangeItemsPerPage="onChangeItemsPerPage"
-        @onChangePage="onChangePage"
+        @on-change-items-per-page="onChangeItemsPerPage"
+        @on-change-page="onChangePage"
       >
         <template v-slot:tableBody="{ items, headers }">
           <tbody>
