@@ -9,7 +9,7 @@
         :href="`#tab-${i}`"
         @click="change"
       >
-        <v-icon class="TabIcon"> mdi-chart-timeline-variant </v-icon>
+        <v-icon class="TabIcon">{{ mdiChartTimelineVariant }}</v-icon>
         {{ item.label }}
       </v-tab>
       <v-tabs-items v-model="tab" touchless>
@@ -22,6 +22,7 @@
 </template>
 
 <script lang="ts">
+import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 
 import CardsMonitoring from '@/components/CardsMonitoring.vue'
@@ -42,6 +43,7 @@ export default Vue.extend({
         { label: this.$t('モニタリング項目'), component: CardsMonitoring },
         { label: this.$t('その他 参考指標'), component: CardsReference },
       ],
+      mdiChartTimelineVariant,
     }
   },
   methods: {

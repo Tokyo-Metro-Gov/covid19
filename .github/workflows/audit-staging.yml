@@ -18,7 +18,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v2
+        uses: treosh/lighthouse-ci-action@v3
         with:
           urls: |
             https://stopcovid19.metro.tokyo.lg.jp/

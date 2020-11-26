@@ -52,9 +52,9 @@
     "vue-spinner": "1.0.4"
   },
   "devDependencies": {
-    "@babel/core": "7.12.8",
+    "@babel/core": "7.12.9",
     "@babel/runtime-corejs3": "7.12.5",
-    "@mdi/font": "5.8.55",
+    "@mdi/js": "^5.8.55",
     "@nuxt/typescript-build": "2.0.3",
     "@nuxtjs/eslint-config": "3.1.0",
     "@nuxtjs/eslint-config-typescript": "3.0.0",
@@ -69,9 +69,10 @@
     "eslint-plugin-simple-import-sort": "5.0.3",
     "eslint-plugin-tsdoc": "0.2.7",
     "husky": "4.3.0",
-    "lint-staged": "10.5.1",
+    "lint-staged": "10.5.2",
     "nuxt-purgecss": "1.0.0",
     "nuxt-svg-loader": "1.2.0",
+    "nuxt-webfontloader": "^1.1.0",
     "prettier": "2.2.0",
     "rimraf": "3.0.2",
     "stylelint": "13.8.0",
