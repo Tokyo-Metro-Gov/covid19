@@ -14,7 +14,7 @@
       </v-tab>
       <v-tabs-items v-model="tab" touchless>
         <v-tab-item v-for="(item, i) in items" :key="i" :value="`tab-${i}`">
-          <component :is="item.component" />
+          <lazy-component :is="item.component" />
         </v-tab-item>
       </v-tabs-items>
     </v-tabs>
@@ -25,10 +25,11 @@
 import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 
-import CardsMonitoring from '@/components/CardsMonitoring.vue'
-import CardsReference from '@/components/CardsReference.vue'
-import SiteTopUpper from '@/components/SiteTopUpper.vue'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
+
+const CardsMonitoring = () => import('@/components/CardsMonitoring.vue')
+const SiteTopUpper = () => import('@/components/SiteTopUpper.vue')
+const CardsReference = () => import('@/components/CardsReference.vue')
 
 export default Vue.extend({
   components: {
