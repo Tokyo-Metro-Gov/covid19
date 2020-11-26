@@ -77,10 +77,6 @@ const config: NuxtConfig = {
       src: '@/plugins/axe',
       ssr: true,
     },
-    {
-      src: '@/plugins/vuetify.ts',
-      ssr: true,
-    },
   ],
   /*
    ** Nuxt.js dev-modules
@@ -110,6 +106,7 @@ const config: NuxtConfig = {
    */
   vuetify: {
     customVariables: ['@/assets/variables.scss'],
+    optionsPath: './plugins/vuetify.options.ts',
     treeShake: true,
     defaultAssets: {
       icons: false,

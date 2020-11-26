@@ -1,7 +1,9 @@
 <template>
   <div class="MainPage">
     <div class="Header mb-3">
-      <page-header :icon="headerItem.icon">{{ headerItem.title }}</page-header>
+      <page-header :icon-path="headerItem.iconPath">{{
+        headerItem.title
+      }}</page-header>
       <div class="UpdatedAt">
         <span>{{ $t('最終更新') }}</span>
         <time :datetime="updatedAt">{{ formattedDateForDisplay }}</time>
@@ -26,6 +28,7 @@
 </template>
 
 <script lang="ts">
+import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
@@ -53,7 +56,7 @@ export default Vue.extend({
     return {
       TokyoAlert,
       headerItem: {
-        icon: 'mdi-chart-timeline-variant',
+        iconPath: mdiChartTimelineVariant,
         title: this.$t('都内の最新感染動向'),
       },
       lastUpdate,
