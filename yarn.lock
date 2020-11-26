@@ -1002,7 +1002,7 @@
     js-yaml "^3.13.1"
     json5 "^2.1.1"
 
-"@mdi/js@^5.8.55":
+"@mdi/js@5.8.55":
   version "5.8.55"
   resolved "https://registry.yarnpkg.com/@mdi/js/-/js-5.8.55.tgz#630bc5fafd8b1d2f6e63489a9ab170177559e41b"
   integrity sha512-2bvln56SW6V/nSDC/0/NTu1bMF/CgSyZox8mcWbAPWElBN3UYIrukKDUckEER8ifr8X2YJl1RLKQqi7T7qLzmg==
@@ -7014,7 +7014,7 @@ nuxt-svg-loader@1.2.0:
     consola "^2.3.2"
     svg-to-vue-component "^0.3.1"
 
-nuxt-webfontloader@^1.1.0:
+nuxt-webfontloader@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/nuxt-webfontloader/-/nuxt-webfontloader-1.1.0.tgz#68b47ffbeaee4c41969f42f57a86946e0c36715c"
   integrity sha512-GyDgABmI0Oq54s2tA9SZC28TmHy2xGdWSXrfcGPPfDBVhgQQlGL5CJcAlvovcuhefzzZrzGgs35HIcv5qym4fQ==
