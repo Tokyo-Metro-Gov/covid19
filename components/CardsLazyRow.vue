@@ -1,5 +1,5 @@
 <template>
-  <div v-scroll="onScroll" class="DataBlock">
+  <div class="DataBlock">
     <v-lazy
       v-for="(row, i) in rows"
       :key="i"
@@ -28,7 +28,6 @@ type Methods = {
     observer: IntersectionObserver,
     isIntersecting: boolean
   ) => void
-  onScroll: () => void
 }
 type Computed = {}
 type Props = {
@@ -56,9 +55,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     hander(_entries, _observer, isIntersecting) {
       if (!isIntersecting) return
       this.$set(this.actives, this.actives.indexOf(false), true)
-    },
-    onScroll() {
-      if (!this.actives[0]) this.$set(this.actives, 0, true)
     },
   },
 }
