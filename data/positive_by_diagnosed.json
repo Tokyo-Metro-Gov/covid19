@@ -1,5 +1,5 @@
 {
-    "date": "2020\/11\/26 19:30",
+    "date": "2020\/11\/27 19:45",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -1187,7 +1187,7 @@
         },
         {
             "diagnosed_date": "2020-11-14",
-            "count": 343
+            "count": 344
         },
         {
             "diagnosed_date": "2020-11-15",
@@ -1199,23 +1199,23 @@
         },
         {
             "diagnosed_date": "2020-11-17",
-            "count": 519
+            "count": 532
         },
         {
             "diagnosed_date": "2020-11-18",
-            "count": 451
+            "count": 462
         },
         {
             "diagnosed_date": "2020-11-19",
-            "count": 471
+            "count": 476
         },
         {
             "diagnosed_date": "2020-11-20",
-            "count": 534
+            "count": 537
         },
         {
             "diagnosed_date": "2020-11-21",
-            "count": 456
+            "count": 458
         },
         {
             "diagnosed_date": "2020-11-22",
@@ -1227,15 +1227,19 @@
         },
         {
             "diagnosed_date": "2020-11-24",
-            "count": 348
+            "count": 370
         },
         {
             "diagnosed_date": "2020-11-25",
-            "count": 345
+            "count": 490
         },
         {
             "diagnosed_date": "2020-11-26",
-            "count": 6
+            "count": 373
+        },
+        {
+            "diagnosed_date": "2020-11-27",
+            "count": 1
         }
     ]
 }
