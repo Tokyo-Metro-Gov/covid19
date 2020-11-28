@@ -19,7 +19,6 @@ import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
 type Data = {
   chartWidth: number
   timerId: number
-  windowWidth: number
 }
 type Methods = {
   adjustChartWidth: () => void
@@ -57,7 +56,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     return {
       chartWidth: 300,
       timerId: 0,
-      windowWidth: 0,
     }
   },
   watch: {
@@ -73,10 +71,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   methods: {
     adjustChartWidth() {
       const container = this.$refs.chartContainer as HTMLElement
-      if (!container) return
+      if (!container || container.clientWidth === 0) return
       const containerWidth = container.clientWidth
       this.chartWidth = this.calcChartWidth(containerWidth, this.labelCount)
-      this.scrollRightSide()
     },
     calcChartWidth(containerWidth, labelCount) {
       const dates = 60
@@ -90,9 +87,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     scrollRightSide() {
       const scrollable = this.$refs.scrollable as HTMLElement
       if (!scrollable) return
-      setTimeout(() => {
-        scrollable.scrollLeft = this.chartWidth
-      })
+      scrollable.scrollLeft = this.chartWidth
     },
     handleResize() {
       clearTimeout(this.timerId)
@@ -101,20 +96,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   mounted() {
     this.adjustChartWidth()
-    window.addEventListener('resize', () => {
-      if (window.innerWidth !== this.windowWidth) {
-        this.handleResize()
-      }
-      this.windowWidth = window.innerWidth
-    })
-
-    // タブ変更時にグラフ`width`を再計算する
-    EventBus.$on(TOGGLE_EVENT, () => {
-      setTimeout(() => this.adjustChartWidth())
-    })
+    this.$on('update-width', this.scrollRightSide)
+    window.addEventListener('resize', this.handleResize)
+    // タブ切り替え時にグラフ幅を再計算
+    EventBus.$on(TOGGLE_EVENT, () => setTimeout(() => this.adjustChartWidth()))
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize)
+    EventBus.$off(TOGGLE_EVENT)
   },
 }
 
