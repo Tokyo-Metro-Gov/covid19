@@ -36,7 +36,7 @@ jobs:
       - name: Summary
         run: |
           export LH_SUMMARY_FILE="${GITHUB_WORKSPACE}/.lighthouseci/result.md"
-          echo "::set-env name=LH_SUMMARY_FILE::${LH_SUMMARY_FILE}"
+          echo "LH_SUMMARY_FILE=${LH_SUMMARY_FILE}" >> $GITHUB_ENV
           cat "${GITHUB_WORKSPACE}/.lighthouseci/"lhr-*.json \
           | jq -rs 'def formatScore(s):
               "https://img.shields.io" as $baseUrl |
