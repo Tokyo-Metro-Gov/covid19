@@ -1,9 +1,7 @@
 <template>
-  <div>
+  <div v-scroll="onScroll">
     <site-top-upper />
-    <v-lazy v-intersect="onIntersect">
-      <lazy-cards-tab v-if="showCardsTab" />
-    </v-lazy>
+    <lazy-cards-tab v-if="$vuetify.breakpoint.smAndUp || showCardsTab" />
   </div>
 </template>
 
@@ -15,11 +13,7 @@ type Data = {
   showCardsTab: boolean
 }
 type Methods = {
-  onIntersect: (
-    entries: IntersectionObserverEntry[],
-    observer: IntersectionObserver,
-    isIntersecting: boolean
-  ) => void
+  onScroll: () => void
 }
 type Computed = {}
 type Props = {}
@@ -37,8 +31,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
   },
   methods: {
-    onIntersect(_entries, _observer, isIntersect) {
-      if (isIntersect) this.showCardsTab = true
+    onScroll() {
+      this.showCardsTab = true
     },
   },
 }

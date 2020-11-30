@@ -4,9 +4,11 @@
       v-for="(row, i) in rows"
       :key="i"
       v-intersect="hander"
+      v-scroll="onScroll"
       :value="actives[i]"
       :options="{ threshold: 0 }"
       min-height="600"
+      min-width="50%"
     >
       <lazy-card-row v-if="actives[i]">
         <component :is="component" v-for="(component, j) in row" :key="j" />
@@ -21,6 +23,7 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 type Data = {
   actives: boolean[]
+  scroll: boolean
 }
 type Methods = {
   hander: (
@@ -28,10 +31,11 @@ type Methods = {
     observer: IntersectionObserver,
     isIntersecting: boolean
   ) => void
+  onScroll: () => void
 }
 type Computed = {}
 type Props = {
-  rows: Vue[]
+  rows: Vue[][]
 }
 const options: ThisTypedComponentOptionsWithRecordProps<
   Vue,
@@ -49,12 +53,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   data() {
     return {
       actives: Array.from({ length: this.rows.length }, () => false),
+      scroll: false,
     }
   },
   methods: {
     hander(_entries, _observer, isIntersecting) {
       if (!isIntersecting) return
       this.$set(this.actives, this.actives.indexOf(false), true)
+    },
+    onScroll() {
+      if (this.scroll) return
+      this.scroll = true
+      this.$set(this.actives, 0, true)
+      this.$set(this.actives, 1, true)
     },
   },
 }
