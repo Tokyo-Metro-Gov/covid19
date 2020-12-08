@@ -24,7 +24,9 @@
         <app-link
           to="https://jitan.metro.tokyo.lg.jp/nov/index.html"
           :icon-size="24"
-          >{{ $t('営業時間短縮に係る感染拡大防止協力金（11/28～12/17実施分）') }}
+          >{{
+            $t('営業時間短縮に係る感染拡大防止協力金（11/28～12/17実施分）')
+          }}
         </app-link>
       </h3>
       <p>
