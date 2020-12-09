@@ -10,9 +10,18 @@
       <scale-loader color="#00A040" />
     </v-overlay>
     <v-overlay v-if="error" absolute justify-center align-center>
-      <v-alert type="error" color="#AD2121">
-        {{ title }} {{ $t('の読み込みに失敗しました') }} <br />
-        エラーメッセージ: {{ error.message }}
+      <v-alert color="#AD2121">
+        <v-row>
+          <v-col class="shrink">
+            <v-icon>
+              {{ mdiAlert }}
+            </v-icon>
+          </v-col>
+          <v-col class="grow">
+            {{ title }} {{ $t('の読み込みに失敗しました') }} <br />
+            エラーメッセージ: {{ error.message }}
+          </v-col>
+        </v-row>
       </v-alert>
     </v-overlay>
     <v-layout :class="{ loading: !loaded || error }" column>
@@ -81,6 +90,9 @@
 </template>
 
 <script lang="ts">
+import {
+  mdiAlert,
+} from '@mdi/js'
 import Vue from 'vue'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
@@ -132,6 +144,7 @@ export default Vue.extend({
     return {
       itemsPerPage: 15,
       page: 1,
+      mdiAlert,
     }
   },
   watch: {
