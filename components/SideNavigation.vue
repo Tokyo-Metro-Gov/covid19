@@ -26,7 +26,10 @@
       </h1>
     </header>
 
-    <div :class="['SideNavigation-Body', { '-opened': isNaviOpen }]">
+    <div
+      v-if="isNaviOpen || $vuetify.breakpoint.smAndUp"
+      :class="['SideNavigation-Body', { '-opened': isNaviOpen }]"
+    >
       <v-icon
         class="SideNavigation-CloseIcon"
         :aria-label="$t('サイドメニュー項目を閉じる')"

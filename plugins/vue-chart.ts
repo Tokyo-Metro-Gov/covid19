@@ -3,8 +3,6 @@ import { ChartData, ChartOptions } from 'chart.js'
 import Vue, { PropType } from 'vue'
 import { Bar, Doughnut, Line, mixins } from 'vue-chartjs'
 
-import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
-
 import { useDayjsAdapter } from './chartjs-adapter-dayjs'
 
 type ChartVCData = { chartData: ChartData }
@@ -60,18 +58,11 @@ const createCustomChart = () => {
       displayLegends: watchDisplayLegends,
       width() {
         setTimeout(() => this.$data._chart.resize())
+        this.$parent.$emit('update-width')
       },
     },
     mounted() {
       setTimeout(() => this.renderChart(this.chartData, this.options))
-
-      // タブ変更時にグラフの`height`を再計算する
-      EventBus.$on(TOGGLE_EVENT, () => {
-        setTimeout(() => this.renderChart(this.chartData, this.options))
-      })
-    },
-    beforeDestroy() {
-      EventBus.$off(TOGGLE_EVENT)
     },
   })
 
