@@ -8,7 +8,7 @@
         {{ $t('最新のお知らせ') }}
       </h3>
       <div class="WhatsNew-linkGroup">
-        <link-to-information-about-emergency-measure v-if="isEmergency" />
+        <lazy-link-to-information-about-emergency-measure v-if="isEmergency" />
       </div>
     </div>
     <ul class="WhatsNew-list">
@@ -34,12 +34,10 @@ import { mdiInformation } from '@mdi/js'
 import Vue from 'vue'
 
 import AppLink from '@/components/AppLink.vue'
-import LinkToInformationAboutEmergencyMeasure from '@/components/LinkToInformationAboutEmergencyMeasure.vue'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
-    LinkToInformationAboutEmergencyMeasure,
     AppLink,
   },
   props: {
