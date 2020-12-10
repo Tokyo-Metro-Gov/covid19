@@ -10,6 +10,7 @@ const config: NuxtConfig = {
   // 2) Autoprefixer has been included so that we can lessen upgrade burden.
   // mode: 'universal',
   target: 'static',
+  components: true,
   /*
    ** Headers of the page
    */
@@ -55,6 +56,13 @@ const config: NuxtConfig = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
+    ],
+    script: [
+      {
+        src:
+          'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
+        defer: true,
+      },
     ],
   },
   /*

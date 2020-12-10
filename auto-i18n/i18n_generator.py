@@ -17,7 +17,7 @@ from bs4 import BeautifulSoup
 CHECK_DIR = ["pages", "components", "layouts", "data", "utils"]
 
 # チェックするjsonファイルのリスト
-JSON_FILES = ["data.json", "patient.json", "monitoring_items.json"]
+JSON_FILES = ["data.json", "patient.json"]
 
 # チェックするTypeScriptファイルのリスト
 # 現状はformatTable.tsしかないが、のちに表追加や、データ追加により必要になった場合は追加しなければならない。
@@ -142,10 +142,6 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                                 tags.append(city["label"]) if city["label"] != "小計" else None
                                 # ルビを取得
                                 tags.append(city["ruby"])
-                        elif file_name == JSON_FILES[2]:  # monitoring_items.jsonの場合
-                            for key in json_content["data"]:
-                                if isinstance(json_content["data"][key], dict):
-                                    tags.append(json_content["data"][key]["label"])
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + tags))
             # Noneが混じっているので、取り除く

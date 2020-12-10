@@ -1,5 +1,5 @@
 <template>
-  <div class="MainPage">
+  <div v-scroll="onScroll" class="MainPage">
     <div class="Header mb-3">
       <page-header :icon-path="headerItem.iconPath">{{
         headerItem.title
@@ -17,8 +17,9 @@
     </div>
     <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
     <monitoring-comment-card />
-    <tokyo-alert-card v-if="TokyoAlert.alert" />
-    <static-info
+    <lazy-tokyo-alert-card v-if="TokyoAlert.alert" />
+    <lazy-static-info
+      v-if="$vuetify.breakpoint.smAndUp || showStaticInfo"
       class="mb-4"
       :url="'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'"
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
@@ -34,8 +35,6 @@ import { MetaInfo } from 'vue-meta'
 
 import MonitoringCommentCard from '@/components/MonitoringCommentCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
-import StaticInfo from '@/components/StaticInfo.vue'
-import TokyoAlertCard from '@/components/TokyoAlertCard.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
@@ -46,8 +45,6 @@ export default Vue.extend({
   components: {
     PageHeader,
     WhatsNew,
-    StaticInfo,
-    TokyoAlertCard,
     MonitoringCommentCard,
   },
   data() {
@@ -61,6 +58,7 @@ export default Vue.extend({
       },
       lastUpdate,
       newsItems: News.newsItems,
+      showStaticInfo: false,
     }
   },
   computed: {
@@ -69,6 +67,11 @@ export default Vue.extend({
     },
     formattedDateForDisplay() {
       return `${this.$d(new Date(this.$data.lastUpdate), 'dateTime')} JST`
+    },
+  },
+  methods: {
+    onScroll() {
+      this.showStaticInfo = true
     },
   },
   head(): MetaInfo {
