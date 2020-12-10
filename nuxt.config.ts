@@ -162,6 +162,13 @@ const config: NuxtConfig = {
         },
       },
     },
+    loaders: {
+      file: {
+        // Auto-add '?inline' parameter to import every .svg
+        regExp: /\.svg$/,
+        name: '[path][name].[ext]?inline',
+      },
+    },
     extend(config) {
       // default externals option is undefined
       config.externals = [{ moment: 'moment' }]
@@ -176,6 +183,18 @@ const config: NuxtConfig = {
     ],
     whitelist: ['DataCard', 'GraphLegend'],
     whitelistPatterns: [/(col|row)/],
+  },
+  render: {
+    compressor: {
+      // Compress icons that aren't permitted to modify
+      // formats/layouts for legal constraints
+      plugins: [
+        'compression-webpack-plugin',
+        {
+          test: /\.(eot|ttf|woff2?)/i,
+        },
+      ],
+    },
   },
   manifest: {
     name: '東京都 新型コロナウイルス感染症対策サイト',
