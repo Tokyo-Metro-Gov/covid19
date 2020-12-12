@@ -12,7 +12,7 @@
         <app-link :to="localePath('/')" class="SideNavigation-HeaderLink">
           <img
             class="SideNavigation-HeaderLogo"
-            src="/logo.svg"
+            :src="$t('/logo.svg')"
             width="111"
             height="28"
             :alt="$t('東京都')"
