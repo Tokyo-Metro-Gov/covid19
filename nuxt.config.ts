@@ -1,6 +1,8 @@
 import { NuxtConfig } from '@nuxt/types'
+import CompressionPlugin from 'compression-webpack-plugin'
 
 import i18n from './nuxt-i18n.config'
+
 const environment = process.env.NODE_ENV || 'development'
 
 const config: NuxtConfig = {
@@ -9,61 +11,69 @@ const config: NuxtConfig = {
   // 1) The "mode:" directive got deprecated (seen right below);
   // 2) Autoprefixer has been included so that we can lessen upgrade burden.
   // mode: 'universal',
+  name: 'covid19',
   target: 'static',
   components: true,
   /*
    ** Headers of the page
    */
-  head: {
-    htmlAttrs: {
-      prefix: 'og: http://ogp.me/ns#',
+  metaInfo: {
+    head() {
+      return {
+        htmlAttrs: {
+          prefix: 'og: http://ogp.me/ns#',
+        },
+        meta: [
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { hid: 'og:type', property: 'og:type', content: 'website' },
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: 'https://stopcovid19.metro.tokyo.lg.jp',
+          },
+          {
+            hid: 'twitter:card',
+            name: 'twitter:card',
+            content: 'summary_large_image',
+          },
+          {
+            hid: 'twitter:site',
+            name: 'twitter:site',
+            content: '@tokyo_bousai',
+          },
+          {
+            hid: 'twitter:creator',
+            name: 'twitter:creator',
+            content: '@tokyo_bousai',
+          },
+          {
+            hid: 'fb:app_id',
+            property: 'fb:app_id',
+            content: '2879625188795443',
+          },
+          {
+            hid: 'note:card',
+            property: 'note:card',
+            content: 'summary_large_image',
+          },
+        ],
+        link: [
+          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+          {
+            rel: 'apple-touch-icon',
+            href: '/apple-touch-icon-precomposed.png',
+          },
+        ],
+        script: [
+          {
+            src:
+              'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
+            defer: true,
+          },
+        ],
+      }
     },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'og:type', property: 'og:type', content: 'website' },
-      {
-        hid: 'og:url',
-        property: 'og:url',
-        content: 'https://stopcovid19.metro.tokyo.lg.jp',
-      },
-      {
-        hid: 'twitter:card',
-        name: 'twitter:card',
-        content: 'summary_large_image',
-      },
-      {
-        hid: 'twitter:site',
-        name: 'twitter:site',
-        content: '@tokyo_bousai',
-      },
-      {
-        hid: 'twitter:creator',
-        name: 'twitter:creator',
-        content: '@tokyo_bousai',
-      },
-      {
-        hid: 'fb:app_id',
-        property: 'fb:app_id',
-        content: '2879625188795443',
-      },
-      {
-        hid: 'note:card',
-        property: 'note:card',
-        content: 'summary_large_image',
-      },
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
-    ],
-    script: [
-      {
-        src:
-          'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
-        defer: true,
-      },
-    ],
   },
   /*
    ** Customize the progress-bar color
@@ -95,19 +105,19 @@ const config: NuxtConfig = {
     '@nuxt/typescript-build',
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
+    '@nuxtjs/pwa',
     'nuxt-purgecss',
+    'nuxt-svg-loader',
+    'nuxt-webfontloader',
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
-    '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
     ['nuxt-i18n', i18n],
-    'nuxt-svg-loader',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
-    'nuxt-webfontloader',
   ],
   /*
    ** vuetify module configuration
@@ -178,8 +188,8 @@ const config: NuxtConfig = {
   },
   purgeCSS: {
     paths: [
-      './node_modules/vuetify/dist/vuetify.js',
-      './node_modules/vue-spinner/src/ScaleLoader.vue',
+      '@/node_modules/vuetify/dist/vuetify.js',
+      '@/node_modules/vue-spinner/src/ScaleLoader.vue',
     ],
     whitelist: ['DataCard', 'GraphLegend'],
     whitelistPatterns: [/(col|row)/],
@@ -189,7 +199,7 @@ const config: NuxtConfig = {
       // Compress icons that aren't permitted to modify
       // formats/layouts for legal constraints
       plugins: [
-        'compression-webpack-plugin',
+        new CompressionPlugin(),
         {
           test: /\.(eot|ttf|woff2?)/i,
         },
