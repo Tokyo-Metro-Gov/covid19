@@ -1,5 +1,5 @@
 {
-    "date": "2020\/12\/10 19:45",
+    "date": "2020\/12\/13 19:45",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -1199,11 +1199,11 @@
         },
         {
             "diagnosed_date": "2020-11-17",
-            "count": 537
+            "count": 538
         },
         {
             "diagnosed_date": "2020-11-18",
-            "count": 473
+            "count": 481
         },
         {
             "diagnosed_date": "2020-11-19",
@@ -1215,7 +1215,7 @@
         },
         {
             "diagnosed_date": "2020-11-21",
-            "count": 464
+            "count": 466
         },
         {
             "diagnosed_date": "2020-11-22",
@@ -1259,11 +1259,11 @@
         },
         {
             "diagnosed_date": "2020-12-02",
-            "count": 504
+            "count": 506
         },
         {
             "diagnosed_date": "2020-12-03",
-            "count": 551
+            "count": 552
         },
         {
             "diagnosed_date": "2020-12-04",
@@ -1271,23 +1271,39 @@
         },
         {
             "diagnosed_date": "2020-12-05",
-            "count": 408
+            "count": 410
         },
         {
             "diagnosed_date": "2020-12-06",
-            "count": 207
+            "count": 208
         },
         {
             "diagnosed_date": "2020-12-07",
-            "count": 326
+            "count": 337
         },
         {
             "diagnosed_date": "2020-12-08",
-            "count": 576
+            "count": 628
         },
         {
             "diagnosed_date": "2020-12-09",
-            "count": 412
+            "count": 583
+        },
+        {
+            "diagnosed_date": "2020-12-10",
+            "count": 603
+        },
+        {
+            "diagnosed_date": "2020-12-11",
+            "count": 514
+        },
+        {
+            "diagnosed_date": "2020-12-12",
+            "count": 328
+        },
+        {
+            "diagnosed_date": "2020-12-13",
+            "count": 0
         }
     ]
 }
