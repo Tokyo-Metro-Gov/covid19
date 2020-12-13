@@ -62,6 +62,7 @@
     "@nuxtjs/stylelint-module": "4.0.0",
     "@nuxtjs/vuetify": "1.11.2",
     "@types/chart.js": "2.9.28",
+    "@types/compression-webpack-plugin": "6.0.1",
     "compression-webpack-plugin": "7.0.0",
     "core-js": "3.8.1",
     "eslint": "7.15.0",
