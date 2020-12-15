@@ -252,7 +252,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 20,
                 fontColor: '#808080',
                 callback: (_, i) => {
-                  return this.periods[i]
+                  return self.periods[i]
                 },
               },
             },
@@ -348,7 +348,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 20,
                 fontColor: 'transparent',
                 callback: (_, i) => {
-                  return this.periods[i]
+                  return self.periods[i]
                 },
               },
             },
