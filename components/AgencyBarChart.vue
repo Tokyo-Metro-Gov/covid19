@@ -38,7 +38,7 @@
           :chart-data="displayData"
           :options="displayOption"
           :display-legends="displayLegends"
-          :height="240"
+          :height="280"
           :width="chartWidth"
         />
       </template>
@@ -50,7 +50,7 @@
           :options="displayOptionHeader"
           :display-legends="displayLegends"
           :plugins="yAxesBgPlugin"
-          :height="240"
+          :height="280"
         />
       </template>
     </scrollable-chart>
@@ -86,6 +86,9 @@ interface AgencyDataSets extends DataSets {
 interface AgencyDisplayData extends DisplayData {
   datasets: AgencyDataSets[]
 }
+interface AgencyData extends AgencyDisplayData {
+  labels: string[]
+}
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -106,13 +109,15 @@ type Computed = {
   tableHeaders: TableHeader[]
   tableData: TableItem[]
 }
+
 type Props = {
   title: string
   titleId: string
   chartId: string
-  chartData: typeof AgencyData
+  chartData: AgencyData
   date: string
   items: string[]
+  periods: string[]
   unit: string
 }
 
@@ -152,6 +157,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => [],
     },
+    periods: {
+      type: Array,
+      default: () => [],
+    },
     unit: {
       type: String,
       required: false,
@@ -167,7 +176,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   computed: {
     displayData() {
       return {
-        labels: this.chartData.labels as string[],
+        labels: this.chartData.labels,
         datasets: this.chartData.datasets.map((item, index) => {
           return {
             label: this.items[index] as string,
@@ -187,7 +196,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             title(tooltipItem) {
-              const dateString = tooltipItem[0].label
+              const dateString = self.periods[tooltipItem[0].index!]
               return self.$t('期間: {duration}', {
                 duration: dateString!,
               }) as string
@@ -207,6 +216,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         scales: {
           xAxes: [
             {
+              id: 'period',
               stacked: true,
               gridLines: {
                 display: false,
@@ -214,6 +224,32 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 9,
                 fontColor: '#808080',
+                callback: (_, i) => {
+                  return self.periods[i]
+                },
+              },
+            },
+            {
+              id: 'year',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: true,
+                drawBorder: false,
+                tickMarkLength: 10,
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: '#808080',
+                padding: 3,
+                fontStyle: 'bold',
+              },
+              type: 'time',
+              time: {
+                unit: 'year',
+                displayFormats: {
+                  year: 'YYYY',
+                },
               },
             },
           ],
@@ -242,7 +278,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayDataHeader() {
       return {
-        labels: this.chartData.labels as string[],
+        labels: this.chartData.labels,
         datasets: this.chartData.datasets.map((item, index) => {
           return {
             label: this.items[index] as string,
@@ -264,6 +300,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         scales: {
           xAxes: [
             {
+              id: 'period',
               stacked: true,
               gridLines: {
                 display: false,
@@ -271,6 +308,29 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 9,
                 fontColor: 'transparent',
+                callback: (_, i) => {
+                  return self.periods[i]
+                },
+              },
+            },
+            {
+              id: 'year',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: false, // true -> false
+                drawBorder: false,
+                tickMarkLength: 10,
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: 'transparent', // #808080
+                padding: 13, // 3 + 10(tickMarkLength)
+                fontStyle: 'bold',
+              },
+              type: 'time',
+              time: {
+                unit: 'year',
               },
             },
           ],
@@ -309,7 +369,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.displayData.datasets[0].data
         .map((_, i) => {
           return Object.assign(
-            { text: this.displayData.labels![i] },
+            { text: this.periods[i] },
             ...this.displayData.datasets!.map((_, j) => {
               return {
                 [j]: this.displayData.datasets[j].data[i].toLocaleString(),
