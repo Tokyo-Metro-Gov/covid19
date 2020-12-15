@@ -76,7 +76,6 @@ import DataViewTable, {
   TableItem,
 } from '@/components/DataViewTable.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
-import AgencyData from '@/data/agency.json'
 import { DataSets, DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 
