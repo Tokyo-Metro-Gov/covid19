@@ -30,6 +30,7 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run test
       - run: yarn run generate:deploy
+      - run: brew install gdal
       - run: pip3 install gdal==2.2.3 geocoder==1.3 geopandas folium pandas numpy matplotlib seaborn
       - run: python3 ./tool/okinawa_covid19_map.py
       - name: Upload okinawa_covid19_map
