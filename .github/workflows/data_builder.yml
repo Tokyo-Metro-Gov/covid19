@@ -11,6 +11,10 @@ jobs:
     name: Convert csv to data.json
     runs-on: ubuntu-latest
     steps:
+      - name: Setup PHP with PECL extension
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.2'
       - name: Extract branch name
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
