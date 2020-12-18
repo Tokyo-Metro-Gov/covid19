@@ -16,58 +16,60 @@ const config: NuxtConfig = {
   /*
    ** Headers of the page
    */
-  htmlAttrs: {
-    prefix: 'og: http://ogp.me/ns#',
+  head: {
+    htmlAttrs: {
+      prefix: 'og: http://ogp.me/ns#',
+    },
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://stopcovid19.metro.tokyo.lg.jp',
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@tokyo_bousai',
+      },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: '@tokyo_bousai',
+      },
+      {
+        hid: 'fb:app_id',
+        property: 'fb:app_id',
+        content: '2879625188795443',
+      },
+      {
+        hid: 'note:card',
+        property: 'note:card',
+        content: 'summary_large_image',
+      },
+    ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'apple-touch-icon',
+        href: '/apple-touch-icon-precomposed.png',
+      },
+    ],
+    script: [
+      {
+        src:
+          'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
+        defer: true,
+      },
+    ],
   },
-  meta: [
-    { charset: 'utf-8' },
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { hid: 'og:type', property: 'og:type', content: 'website' },
-    {
-      hid: 'og:url',
-      property: 'og:url',
-      content: 'https://stopcovid19.metro.tokyo.lg.jp',
-    },
-    {
-      hid: 'twitter:card',
-      name: 'twitter:card',
-      content: 'summary_large_image',
-    },
-    {
-      hid: 'twitter:site',
-      name: 'twitter:site',
-      content: '@tokyo_bousai',
-    },
-    {
-      hid: 'twitter:creator',
-      name: 'twitter:creator',
-      content: '@tokyo_bousai',
-    },
-    {
-      hid: 'fb:app_id',
-      property: 'fb:app_id',
-      content: '2879625188795443',
-    },
-    {
-      hid: 'note:card',
-      property: 'note:card',
-      content: 'summary_large_image',
-    },
-  ],
-  link: [
-    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-    {
-      rel: 'apple-touch-icon',
-      href: '/apple-touch-icon-precomposed.png',
-    },
-  ],
-  script: [
-    {
-      src:
-        'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
-      defer: true,
-    },
-  ],
   /*
    ** Customize the progress-bar color
    */
