@@ -1,5 +1,5 @@
 {
-    "date": "2020\/12\/19 20:00",
+    "date": "2020\/12\/20 20:00",
     "data": [
         {
             "diagnosed_date": "2020-01-20",
@@ -3685,6 +3685,17 @@
             "weekly_average_count": 592.1,
             "weekly_average_untracked_count": 346.3,
             "weekly_average_untracked_increse_percent": 123.4
+        },
+        {
+            "diagnosed_date": "2020-12-20",
+            "count": 556,
+            "missing_count": 320,
+            "reported_count": 236,
+            "weekly_gain_ratio": 1.2,
+            "untracked_percent": 58.9,
+            "weekly_average_count": 603,
+            "weekly_average_untracked_count": 354.9,
+            "weekly_average_untracked_increse_percent": 123.2
         }
     ]
 }
