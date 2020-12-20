@@ -97,7 +97,7 @@ export default {
       getDayjsObject(
         positiveByDeveloped.data.slice(-1)[0].developed_date
       ).toDate(),
-      'dateWithoutYear'
+      'date'
     )
 
     return {
