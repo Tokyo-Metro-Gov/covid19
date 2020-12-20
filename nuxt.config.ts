@@ -100,10 +100,7 @@ const config: NuxtConfig = {
     '@nuxt/typescript-build',
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
-    '@nuxtjs/pwa',
-    '@nuxtjs/svg',
     'nuxt-purgecss',
-    'nuxt-webfontloader',
   ],
   /*
    ** Nuxt.js modules
@@ -111,8 +108,12 @@ const config: NuxtConfig = {
   modules: [
     // Doc: https://github.com/nuxt-community/dotenv-module
     ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
+    '@nuxtjs/pwa',
+    '@nuxtjs/svg',
     ['nuxt-i18n', i18n],
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
+    'nuxt-svg-loader',
+    'nuxt-webfontloader',
   ],
   /*
    ** vuetify module configuration
@@ -182,18 +183,19 @@ const config: NuxtConfig = {
     // hardSource: process.env.NODE_ENV === 'development'
   },
   purgeCSS: {
-    paths: [
-      '@/node_modules/vuetify/dist/vuetify.js',
-      '@/node_modules/vue-spinner/src/ScaleLoader.vue',
-    ],
-    whitelist: ['DataCard', 'GraphLegend'],
-    whitelistPatterns: [/(col|row)/],
+    mode: 'postcss',
+    paths: ['vuetify/dist/vuetify.js', 'vue-spinner/src/ScaleLoader.vue'],
+    safelist: {
+      standard: ['DataCard', 'GraphLegend'],
+      deep: [/(col|row)/],
+    },
   },
   render: {
+    // Compress icons that aren't permitted to modify
+    // formats/layouts for legal constraints
     compressor: {
-      // Compress icons that aren't permitted to modify
-      // formats/layouts for legal constraints
-      plugins: [new CompressionPlugin()],
+      path: /\.(s?css|tsx?|jsx?|vue)$/,
+      handler: new CompressionPlugin(),
     },
   },
   manifest: {
