@@ -121,10 +121,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
     const lastData = patientsGraph[patientsGraph.length - 1]
-    const lastDay = this.$d(
-      getDayjsObject(lastData.label).toDate(),
-      'dateWithoutYear'
-    )
+    const lastDay = this.$d(getDayjsObject(lastData.label).toDate(), 'date')
     const dataLength = lastData.cumulative
     const sumInfoOfPatients = {
       lText: dataLength.toLocaleString(),
