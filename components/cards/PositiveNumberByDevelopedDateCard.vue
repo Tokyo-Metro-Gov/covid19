@@ -59,7 +59,7 @@ export default {
             displayData: this.displayData,
             dataIndex: 1,
           })
-          const formattedLastDay = this.$d(lastDay, 'dateWithoutYear')
+          const formattedLastDay = this.$d(lastDay, 'date')
           if (this.dataKind === 'transition') {
             return {
               lText: lastDayData,
