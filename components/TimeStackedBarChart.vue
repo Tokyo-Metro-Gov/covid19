@@ -224,7 +224,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   computed: {
     displayInfo() {
       const lastDay = this.labels[this.labels.length - 1]
-      const date = this.$d(getDayjsObject(lastDay).toDate(), 'dateWithoutYear')
+      const date = this.$d(getDayjsObject(lastDay).toDate(), 'date')
 
       if (this.dataKind === 'transition') {
         return {
