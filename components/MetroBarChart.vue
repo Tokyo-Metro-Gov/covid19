@@ -38,7 +38,7 @@
           :chart-data="displayData"
           :options="displayOption"
           :display-legends="displayLegends"
-          :height="240"
+          :height="280"
           :width="chartWidth"
         />
       </template>
@@ -50,7 +50,7 @@
           :options="displayOptionHeader"
           :display-legends="displayLegends"
           :plugins="yAxesBgPlugin"
-          :height="240"
+          :height="280"
         />
       </template>
     </scrollable-chart>
@@ -128,6 +128,7 @@ type Props = {
   titleId: string
   date: string
   items: string[]
+  periods: string[]
   unit: string
   tooltipsTitle: Chart.ChartTooltipCallback['title']
   tooltipsLabel: Chart.ChartTooltipCallback['label']
@@ -165,6 +166,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: true,
     },
     items: {
+      type: Array,
+      default: () => [],
+    },
+    periods: {
       type: Array,
       default: () => [],
     },
@@ -216,7 +221,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.displayData.datasets[0].data
         .map((_, i) => {
           return Object.assign(
-            { text: this.chartData.datasets![i].label },
+            { text: this.periods[i] },
             ...this.chartData.labels!.map((_, j) => {
               return {
                 [j]: this.displayData.datasets[j].data[i],
@@ -236,6 +241,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         scales: {
           xAxes: [
             {
+              id: 'period',
               position: 'bottom',
               stacked: false,
               gridLines: {
@@ -245,6 +251,32 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 10,
                 maxTicksLimit: 20,
                 fontColor: '#808080',
+                callback: (_, i) => {
+                  return self.periods[i]
+                },
+              },
+            },
+            {
+              id: 'year',
+              stacked: false,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: true,
+                drawBorder: false,
+                tickMarkLength: 10,
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: '#808080',
+                padding: 3,
+                fontStyle: 'bold',
+              },
+              type: 'time',
+              time: {
+                unit: 'year',
+                displayFormats: {
+                  year: 'YYYY',
+                },
               },
             },
           ],
@@ -305,6 +337,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         scales: {
           xAxes: [
             {
+              id: 'period',
               position: 'bottom',
               stacked: false,
               gridLines: {
@@ -314,6 +347,29 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 10,
                 maxTicksLimit: 20,
                 fontColor: 'transparent',
+                callback: (_, i) => {
+                  return self.periods[i]
+                },
+              },
+            },
+            {
+              id: 'year',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: false, // true -> false
+                drawBorder: false,
+                tickMarkLength: 10,
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: 'transparent', // #808080
+                padding: 13, // 3 + 10(tickMarkLength)
+                fontStyle: 'bold',
+              },
+              type: 'time',
+              time: {
+                unit: 'year',
               },
             },
           ],
