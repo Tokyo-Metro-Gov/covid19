@@ -11,17 +11,11 @@
     </v-overlay>
     <v-overlay v-if="error" absolute justify-center align-center>
       <v-alert color="#AD2121">
-        <v-row>
-          <v-col class="shrink">
-            <v-icon>
-              {{ mdiAlert }}
-            </v-icon>
-          </v-col>
-          <v-col class="grow">
-            {{ title }} {{ $t('の読み込みに失敗しました') }} <br />
-            エラーメッセージ: {{ error.message }}
-          </v-col>
-        </v-row>
+        <v-icon>
+          {{ mdiAlert }}
+        </v-icon>
+        {{ title }} {{ $t('の読み込みに失敗しました') }} <br />
+        エラーメッセージ: {{ error.message }}
       </v-alert>
     </v-overlay>
     <v-layout :class="{ loading: !loaded || error }" column>
