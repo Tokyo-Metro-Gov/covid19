@@ -8,6 +8,7 @@
         :chart-data="metroGraph"
         :date="metroGraph.date"
         :items="metroGraph.labels"
+        :periods="metroGraph.periods"
         :tooltips-title="metroGraphTooltipTitle"
         :tooltips-label="metroGraphTooltipLabel"
         unit="%"
@@ -33,9 +34,10 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+
 import MetroBarChart from '@/components/MetroBarChart.vue'
 import MetroData from '@/data/metro.json'
-import { getComplementedDate } from '@/utils/formatDate'
 
 export default {
   components: {
@@ -45,17 +47,21 @@ export default {
     // 都営地下鉄の利用者数の推移
     const datasets = MetroData.datasets.map((d) => ({
       ...d,
-      label: this.getWeekLabel(d.label),
+      label: d.period.begin,
     }))
+    const periods = MetroData.datasets.map((d) =>
+      this.getWeekLabel(d.period.begin, d.period.end)
+    )
     const metroGraph = {
       ...MetroData,
       datasets,
+      periods,
     }
 
     // metroGraph ツールチップ title文字列
     // this.$t を使うため metroGraphOption の外側へ
     const metroGraphTooltipTitle = (tooltipItems, _) => {
-      const duration = this.getWeekLabel(tooltipItems[0].label)
+      const duration = metroGraph.periods[tooltipItems[0].index]
       return this.$t('期間: {duration}', { duration })
     }
     // metroGraph ツールチップ label文字列
@@ -81,36 +87,10 @@ export default {
     /**
      * 表の横軸に表示する、「MM/DD~MM/DD」形式のラベルを取得する
      */
-    getWeekLabel(label) {
-      const slashCount = label.split('/').length - 1
-      if (slashCount === 1) {
-        // MM/DD~DD形式だったので、「~」の後に「MM/」を追加する
-        let month = label.substr(0, label.indexOf('/'))
-
-        const startDate = Number(
-          label.substr(
-            label.indexOf('/') + 1,
-            label.indexOf('~') - label.indexOf('/') - 1
-          )
-        )
-        const endDate = Number(label.substr(label.indexOf('~') + 1))
-        if (startDate > endDate) {
-          const date = new Date()
-          date.setMonth(Number(month) + 1)
-          month = date.getMonth().toString()
-        }
-
-        label = label.replace('~', `~${month}/`)
-      }
-
-      const dates = label.split('~')
-      if (slashCount === 1 && dates.length === 2) {
-        const from = this.$d(getComplementedDate(dates[0]), 'dateWithoutYear')
-        const to = this.$d(getComplementedDate(dates[1]), 'dateWithoutYear')
-        return `${from}~${to}`
-      } else {
-        return `${dates[0]}~${dates[1]}`
-      }
+    getWeekLabel(begin, end) {
+      const from = this.$d(dayjs(begin).toDate(), 'dateWithoutYear')
+      const to = this.$d(dayjs(end).toDate(), 'dateWithoutYear')
+      return `${from}~${to}`
     },
   },
 }
