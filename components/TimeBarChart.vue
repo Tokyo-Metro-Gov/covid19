@@ -23,7 +23,7 @@
           :chart-id="chartId"
           :chart-data="displayData"
           :options="displayOption"
-          :height="240"
+          :height="280"
           :width="chartWidth"
         />
       </template>
@@ -34,7 +34,7 @@
           :chart-data="displayDataHeader"
           :options="displayOptionHeader"
           :plugins="yAxesBgPlugin"
-          :height="240"
+          :height="280"
         />
       </template>
     </scrollable-chart>
@@ -344,6 +344,29 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 },
               },
             },
+            {
+              id: 'year',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: true,
+                drawBorder: false,
+                tickMarkLength: 10,
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: '#808080',
+                padding: 3,
+                fontStyle: 'bold',
+              },
+              type: 'time',
+              time: {
+                unit: 'year',
+                displayFormats: {
+                  year: 'YYYY',
+                },
+              },
+            },
           ],
           yAxes: [
             {
@@ -370,7 +393,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayDataHeader() {
       if (this.dataKind === 'transition') {
         return {
-          labels: ['2020-01-01'],
           datasets: [
             {
               data: [Math.max(...this.chartData.map((d) => d.transition))],
@@ -381,7 +403,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       return {
-        labels: ['2020-01-01'],
         datasets: [
           {
             data: [Math.max(...this.chartData.map((d) => d.cumulative))],
@@ -453,6 +474,26 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               type: 'time',
               time: {
                 unit: 'month',
+              },
+            },
+            {
+              id: 'year',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: false, // true -> false
+                drawBorder: false,
+                tickMarkLength: 10,
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: 'transparent', // #808080
+                padding: 24, // 4 + 10(tickMarkLength) * 2
+                fontStyle: 'bold',
+              },
+              type: 'time',
+              time: {
+                unit: 'year',
               },
             },
           ],
