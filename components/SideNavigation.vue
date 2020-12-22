@@ -241,6 +241,13 @@ export default Vue.extend({
           link: 'https://note.com/tokyo_icdc',
         },
         {
+          title: this.$t(
+            '新型コロナウイルス感染症都民向け感染予防ハンドブック'
+          ),
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/kannsenyobouhandbook.html',
+        },
+        {
           title: this.$t('都民利用施設・都主催イベントに関する情報'),
           link:
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html',
