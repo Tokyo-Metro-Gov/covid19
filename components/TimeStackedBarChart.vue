@@ -93,7 +93,6 @@ import DataViewTable, {
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
-import { getComplementedDate } from '@/utils/formatDate'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -350,7 +349,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               const label = data.labels![tooltipItem[0].index!] as string
-              return self.$d(getComplementedDate(label), 'date')
+              return self.$d(new Date(label), 'date')
             },
           },
         },
