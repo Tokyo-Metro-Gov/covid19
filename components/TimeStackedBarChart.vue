@@ -93,7 +93,7 @@ import DataViewTable, {
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
-import { getComplementedDate, getDayjsObject } from '@/utils/formatDate'
+import { getComplementedDate } from '@/utils/formatDate'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
   currentTarget: T
@@ -223,8 +223,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   }),
   computed: {
     displayInfo() {
-      const lastDay = this.labels[this.labels.length - 1]
-      const date = this.$d(getDayjsObject(lastDay).toDate(), 'date')
+      const lastDay: string = this.labels[this.labels.length - 1]
+      const date = this.$d(new Date(lastDay), 'date')
 
       if (this.dataKind === 'transition') {
         return {
