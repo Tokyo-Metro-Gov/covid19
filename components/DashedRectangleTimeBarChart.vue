@@ -270,7 +270,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               const label = data.labels![tooltipItem[0].index!] as string
-              return self.$d(getComplementedDate(label), 'dateWithoutYear')
+              return self.$d(getComplementedDate(label), 'date')
             },
           },
         },
