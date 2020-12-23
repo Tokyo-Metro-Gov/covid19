@@ -89,7 +89,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     formatDate(dateString: string): string {
       const date = getDayjsObject(dateString)
       if (date.isValid()) {
-        return this.$d(date.toDate(), 'dateWithoutYear')
+        return this.$d(date.toDate(), 'date')
       } else {
         return dateString
       }
