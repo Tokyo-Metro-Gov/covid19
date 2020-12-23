@@ -1,5 +1,5 @@
 {
-    "date": "2020\/12\/20 20:00",
+    "date": "2020\/12\/23 20:00",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -1155,7 +1155,7 @@
         },
         {
             "diagnosed_date": "2020-11-06",
-            "count": 319
+            "count": 318
         },
         {
             "diagnosed_date": "2020-11-07",
@@ -1199,15 +1199,15 @@
         },
         {
             "diagnosed_date": "2020-11-17",
-            "count": 538
+            "count": 537
         },
         {
             "diagnosed_date": "2020-11-18",
-            "count": 482
+            "count": 480
         },
         {
             "diagnosed_date": "2020-11-19",
-            "count": 488
+            "count": 487
         },
         {
             "diagnosed_date": "2020-11-20",
@@ -1215,7 +1215,7 @@
         },
         {
             "diagnosed_date": "2020-11-21",
-            "count": 466
+            "count": 465
         },
         {
             "diagnosed_date": "2020-11-22",
@@ -1227,7 +1227,7 @@
         },
         {
             "diagnosed_date": "2020-11-24",
-            "count": 384
+            "count": 383
         },
         {
             "diagnosed_date": "2020-11-25",
@@ -1251,59 +1251,59 @@
         },
         {
             "diagnosed_date": "2020-11-30",
-            "count": 570
+            "count": 569
         },
         {
             "diagnosed_date": "2020-12-01",
-            "count": 234
+            "count": 239
         },
         {
             "diagnosed_date": "2020-12-02",
-            "count": 513
+            "count": 514
         },
         {
             "diagnosed_date": "2020-12-03",
-            "count": 555
+            "count": 566
         },
         {
             "diagnosed_date": "2020-12-04",
-            "count": 482
+            "count": 488
         },
         {
             "diagnosed_date": "2020-12-05",
-            "count": 417
+            "count": 423
         },
         {
             "diagnosed_date": "2020-12-06",
-            "count": 212
+            "count": 214
         },
         {
             "diagnosed_date": "2020-12-07",
-            "count": 348
+            "count": 349
         },
         {
             "diagnosed_date": "2020-12-08",
-            "count": 639
+            "count": 642
         },
         {
             "diagnosed_date": "2020-12-09",
-            "count": 591
-        },
-        {
-            "diagnosed_date": "2020-12-10",
-            "count": 624
-        },
-        {
-            "diagnosed_date": "2020-12-11",
             "count": 594
         },
         {
+            "diagnosed_date": "2020-12-10",
+            "count": 629
+        },
+        {
+            "diagnosed_date": "2020-12-11",
+            "count": 601
+        },
+        {
             "diagnosed_date": "2020-12-12",
-            "count": 502
+            "count": 503
         },
         {
             "diagnosed_date": "2020-12-13",
-            "count": 254
+            "count": 255
         },
         {
             "diagnosed_date": "2020-12-14",
@@ -1311,23 +1311,39 @@
         },
         {
             "diagnosed_date": "2020-12-15",
-            "count": 686
+            "count": 694
         },
         {
             "diagnosed_date": "2020-12-16",
-            "count": 719
+            "count": 726
         },
         {
             "diagnosed_date": "2020-12-17",
-            "count": 675
+            "count": 693
         },
         {
             "diagnosed_date": "2020-12-18",
-            "count": 650
+            "count": 755
         },
         {
             "diagnosed_date": "2020-12-19",
-            "count": 370
+            "count": 635
+        },
+        {
+            "diagnosed_date": "2020-12-20",
+            "count": 331
+        },
+        {
+            "diagnosed_date": "2020-12-21",
+            "count": 489
+        },
+        {
+            "diagnosed_date": "2020-12-22",
+            "count": 416
+        },
+        {
+            "diagnosed_date": "2020-12-23",
+            "count": 1
         }
     ]
 }
