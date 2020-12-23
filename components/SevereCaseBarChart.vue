@@ -64,8 +64,8 @@ import DataViewTable, {
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
+import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesStyle } from '@/utils/colors'
-import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 import { GraphDataType } from '@/utils/formatGraph'
 
 type Data = {

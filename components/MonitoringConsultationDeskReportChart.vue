@@ -98,8 +98,8 @@ import DataViewTable, {
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
+import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
-import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 
 type Data = {
   canvas: boolean

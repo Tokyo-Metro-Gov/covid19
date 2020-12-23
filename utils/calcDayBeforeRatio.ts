@@ -21,7 +21,7 @@ interface DayBeforeRatioData {
  * @param dataIndex - Target data index in `displayData.datasets`
  * @param digit - The number of digits to appear after the decimal point
  */
-export const calcDayBeforeRatio = function ({
+export default function ({
   displayData,
   dataIndex = 0,
   digit = 0,

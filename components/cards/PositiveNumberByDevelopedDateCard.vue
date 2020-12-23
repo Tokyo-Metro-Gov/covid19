@@ -44,7 +44,7 @@
 import DataViewCustomInfoPanel from '@/components/DataViewCustomInfoPanel.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import positiveByDeveloped from '@/data/positive_by_developed.json'
-import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
+import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import formatGraph from '@/utils/formatGraph'
 import { getCommaSeparatedNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
 
