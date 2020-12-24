@@ -44,8 +44,7 @@
 import DataViewCustomInfoPanel from '@/components/DataViewCustomInfoPanel.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import positiveByDeveloped from '@/data/positive_by_developed.json'
-import { getDayjsObject } from '@/utils/formatDate'
-import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
+import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import formatGraph from '@/utils/formatGraph'
 import { getCommaSeparatedNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
 
@@ -59,7 +58,7 @@ export default {
             displayData: this.displayData,
             dataIndex: 1,
           })
-          const formattedLastDay = this.$d(lastDay, 'dateWithoutYear')
+          const formattedLastDay = this.$d(lastDay, 'date')
           if (this.dataKind === 'transition') {
             return {
               lText: lastDayData,
@@ -94,10 +93,8 @@ export default {
     const formatter = getCommaSeparatedNumberToFixedFunction()
     const unknownCount = formatter(positiveByDeveloped.unknown_count)
     const lastDay = this.$d(
-      getDayjsObject(
-        positiveByDeveloped.data.slice(-1)[0].developed_date
-      ).toDate(),
-      'dateWithoutYear'
+      new Date(positiveByDeveloped.data.slice(-1)[0].developed_date),
+      'date'
     )
 
     return {

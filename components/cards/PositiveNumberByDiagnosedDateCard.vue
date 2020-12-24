@@ -29,7 +29,7 @@
 <script>
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import Data from '@/data/positive_by_diagnosed.json'
-import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
+import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import formatGraph from '@/utils/formatGraph'
 
 export default {
@@ -42,7 +42,7 @@ export default {
             displayData: this.displayData,
             dataIndex: 1,
           })
-          const formattedLastDay = this.$d(lastDay, 'dateWithoutYear')
+          const formattedLastDay = this.$d(lastDay, 'date')
           if (this.dataKind === 'transition') {
             return {
               lText: lastDayData,
