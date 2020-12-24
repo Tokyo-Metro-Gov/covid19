@@ -101,9 +101,8 @@ import DataViewTable, {
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
+import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
-import { getComplementedDate } from '@/utils/formatDate'
-import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type Data = {
@@ -322,7 +321,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             title(tooltipItem, data) {
               if (tooltipItem[0].datasetIndex! < 2) {
                 const label = data.labels![tooltipItem[0].index!] as string
-                return self.$d(getComplementedDate(label), 'date')
+                return self.$d(new Date(label), 'date')
               }
               return ''
             },

@@ -115,12 +115,12 @@ import {
   yAxesBgPlugin,
   yAxesBgRightPlugin,
 } from '@/plugins/vue-chart'
+import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import {
   getGraphSeriesColor,
   getGraphSeriesStyle,
   SurfaceStyle,
 } from '@/utils/colors'
-import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
 
 interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
