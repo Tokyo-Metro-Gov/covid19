@@ -419,7 +419,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               const label = data.labels![tooltipItem[0].index!].toString()
-              return self.$d(new Date(label), 'dateWithoutYear')
+              return self.$d(new Date(label), 'date')
             },
           },
         },
