@@ -164,7 +164,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         {
           lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
-            date: this.$d(lastDay, 'dateWithoutYear'),
+            date: this.$d(lastDay, 'date'),
           })}（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
           unit: this.unit,
         },
