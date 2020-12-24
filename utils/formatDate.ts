@@ -68,12 +68,3 @@ export const getComplementedDate = (dateString: string): Date => {
 
   return new Date(targetYear, month - 1, date)
 }
-
-/**
- * Get dayjs object from date string
- *
- * @param dateString- Parsable string by dayjs
- */
-export const getDayjsObject = (dateString: string): dayjs.Dayjs => {
-  return dayjs(getComplementedDate(dateString))
-}

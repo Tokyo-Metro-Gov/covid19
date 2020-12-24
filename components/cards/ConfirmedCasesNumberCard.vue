@@ -26,7 +26,7 @@
             <app-link
               to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/todokedehcyouseisya.html"
             >
-              {{ $t('届出保健所別の内訳') }}
+              {{ $t('65歳以上の新規陽性者数の推移及び届出保健所別の内訳') }}
             </app-link>
           </div>
           <span>{{ $t('（注）') }}</span>

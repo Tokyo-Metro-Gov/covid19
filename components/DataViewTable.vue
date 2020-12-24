@@ -27,11 +27,10 @@
 </template>
 
 <script lang="ts">
+import dayjs from 'dayjs'
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-
-import { getDayjsObject } from '@/utils/formatDate'
 
 export type TableHeader = {
   text: TranslateResult
@@ -87,9 +86,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   methods: {
     formatDate(dateString: string): string {
-      const date = getDayjsObject(dateString)
+      const date = dayjs(new Date(dateString))
       if (date.isValid()) {
-        return this.$d(date.toDate(), 'dateWithoutYear')
+        return this.$d(date.toDate(), 'date')
       } else {
         return dateString
       }
