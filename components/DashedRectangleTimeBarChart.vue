@@ -76,9 +76,8 @@ import {
   DisplayData,
   yAxesBgPlugin,
 } from '@/plugins/vue-chart'
+import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesStyle } from '@/utils/colors'
-import { getComplementedDate } from '@/utils/formatDate'
-import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 import { GraphDataType } from '@/utils/formatGraph'
 
 type Data = {
@@ -270,7 +269,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               const label = data.labels![tooltipItem[0].index!] as string
-              return self.$d(getComplementedDate(label), 'date')
+              return self.$d(new Date(label), 'date')
             },
           },
         },
