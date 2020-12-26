@@ -7,7 +7,7 @@ const allowedHosts = [
   /^https:\/\/deploy-preview-\d+--dev-covid19-tokyo\.netlify\.app/,
 ]
 
-exports.handler = (event) => {
+exports.handler = async (event) => {
   const referer = event.headers.referer
 
   let statusCode, data
@@ -20,12 +20,10 @@ exports.handler = (event) => {
     console.log('Referer', referer)
   }
 
-  const contentType = data
-    .toString()
-    .slice(data.indexOf(':') + 1, data.indexOf(';'))
+  const contentType = data.slice(data.indexOf(':') + 1, data.indexOf(';'))
   const body = data.replace(/^data:\w+\/\w+;base64,/, '')
 
-  return {
+  return await {
     statusCode,
     headers: { contentType },
     isBase64Encoded: true,
