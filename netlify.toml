@@ -2,3 +2,7 @@
   from = "/*"
   to = "/404.html"
   status = 404
+
+[build]
+  command = "yarn functions:build"
+  functions = "dist/functions"
