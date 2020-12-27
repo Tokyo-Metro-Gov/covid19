@@ -9,6 +9,12 @@
       :options="displayOption"
       :height="240"
     />
+    <date-select-slider
+      :chart-data="chartData"
+      :value="[0, sliderMax]"
+      :slider-max="sliderMax"
+      @sliderInput="sliderUpdate"
+    />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -27,9 +33,15 @@
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DateSelectSlider from '@/components/DateSelectSlider.vue'
 
 export default {
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: {
+    DataView,
+    DataSelector,
+    DataViewBasicInfoPanel,
+    DateSelectSlider
+  },
   props: {
     title: {
       type: String,
@@ -65,14 +77,28 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    defaultDataKind: {
+      type: String,
+      required: false,
+      default: 'transition'
     }
   },
   data() {
     return {
-      dataKind: 'transition'
+      dataKind: 'transition',
+      //   dataKind: this.defaultDataKind,
+      graphRange: [0, 1]
     }
   },
   computed: {
+    sliderMax() {
+      if (!this.chartData || this.chartData.length === 0) {
+        return 1
+      }
+      this.sliderUpdate([0, this.chartData.length - 1])
+      return this.chartData.length - 1
+    },
     displayCumulativeRatio() {
       const lastDay = this.chartData.slice(-1)[0].cumulative
       const lastDayBefore = this.chartData.slice(-2)[0].cumulative
@@ -142,6 +168,10 @@ export default {
     displayOption() {
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+      if (!this.chartData || this.chartData.length === 0) {
+        return {}
+      }
+
       return {
         tooltips: {
           displayColors: false,
@@ -166,6 +196,7 @@ export default {
           xAxes: [
             {
               id: 'day',
+              offset: true,
               stacked: true,
               gridLines: {
                 display: false
@@ -176,6 +207,8 @@ export default {
                 fontColor: '#808080',
                 maxRotation: 0,
                 minRotation: 0,
+                max: this.chartData[this.graphRange[1]].label,
+                min: this.chartData[this.graphRange[0]].label,
                 callback: label => {
                   return label.split('/')[1]
                 }
@@ -195,6 +228,8 @@ export default {
                 fontColor: '#808080',
                 padding: 3,
                 fontStyle: 'bold',
+                max: this.chartData[this.graphRange[1]].label,
+                min: this.chartData[this.graphRange[0]].label,
                 gridLines: {
                   display: true
                 },
@@ -251,6 +286,9 @@ export default {
     }
   },
   methods: {
+    sliderUpdate(sliderValue) {
+      this.graphRange = sliderValue
+    },
     formatDayBeforeRatio(dayBeforeRatio) {
       const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
       switch (Math.sign(dayBeforeRatio)) {
