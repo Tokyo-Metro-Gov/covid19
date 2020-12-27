@@ -20,6 +20,13 @@
       :options="options"
       :height="240"
     />
+    <date-select-slider
+      :chart-data="labels"
+      :value="[0, sliderMax]"
+      :slider-max="sliderMax"
+      :is-object="isObject"
+      @sliderInput="sliderUpdate"
+    />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -36,9 +43,14 @@
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-
+import DateSelectSlider from '@/components/DateSelectSlider.vue'
 export default {
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: {
+    DataView,
+    DataSelector,
+    DataViewBasicInfoPanel,
+    DateSelectSlider
+  },
   props: {
     title: {
       type: String,
@@ -79,14 +91,26 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    isObject: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
-      dataKind: 'transition'
+      dataKind: 'transition',
+      graphRange: [0, 1]
     }
   },
   computed: {
+    sliderMax() {
+      if (!this.labels || this.labels.length === 0) {
+        return 1
+      }
+      this.sliderUpdate([0, this.labels.length - 1])
+      return this.labels.length - 1
+    },
     displayInfo() {
       if (this.dataKind === 'transition') {
         return {
@@ -197,6 +221,8 @@ export default {
                 fontColor: '#808080',
                 maxRotation: 0,
                 minRotation: 0,
+                max: this.labels[this.graphRange[1]],
+                min: this.labels[this.graphRange[0]],
                 callback: label => {
                   return label.split('/')[1]
                 }
@@ -261,6 +287,9 @@ export default {
     }
   },
   methods: {
+    sliderUpdate(sliderValue) {
+      this.graphRange = sliderValue
+    },
     cumulative(array) {
       const cumulativeArray = []
       let patSum = 0
