@@ -102,8 +102,7 @@ const config: Configuration = {
     {
       src: '@/plugins/vuetify.ts',
       ssr: true
-    },
-    '@/plugins/dayjs.js'
+    }
   ],
   /*
    ** Nuxt.js dev-modules
