@@ -9,7 +9,7 @@
     thumb-label="always"
     style="padding-top: 45px;"
     color="#F07828"
-    track-color="#c9eace"
+    track-color="#fcd6bd"
     :thumb-size="38"
   >
     <template v-slot:thumb-label="props">
@@ -79,7 +79,7 @@ export default {
       } else {
         day = this.chartData[id].label
       }
-      return this.$dayjs(day).format('M/D')
+      return day
     }
   }
 }
