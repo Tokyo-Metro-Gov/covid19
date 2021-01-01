@@ -1,6 +1,6 @@
 {
-    "date": "2020\/12\/31 18:00",
-    "unknown_count": 22680,
+    "date": "2021\/1\/1 18:00",
+    "unknown_count": 22982,
     "data": [
         {
             "developed_date": "2020-01-14",
@@ -1328,7 +1328,7 @@
         },
         {
             "developed_date": "2020-12-10",
-            "count": 359
+            "count": 360
         },
         {
             "developed_date": "2020-12-11",
@@ -1356,59 +1356,63 @@
         },
         {
             "developed_date": "2020-12-17",
-            "count": 388
+            "count": 390
         },
         {
             "developed_date": "2020-12-18",
-            "count": 370
+            "count": 375
         },
         {
             "developed_date": "2020-12-19",
-            "count": 355
+            "count": 358
         },
         {
             "developed_date": "2020-12-20",
-            "count": 411
+            "count": 412
         },
         {
             "developed_date": "2020-12-21",
-            "count": 505
+            "count": 511
         },
         {
             "developed_date": "2020-12-22",
-            "count": 529
+            "count": 541
         },
         {
             "developed_date": "2020-12-23",
-            "count": 492
+            "count": 505
         },
         {
             "developed_date": "2020-12-24",
-            "count": 422
+            "count": 438
         },
         {
             "developed_date": "2020-12-25",
-            "count": 416
+            "count": 445
         },
         {
             "developed_date": "2020-12-26",
-            "count": 396
+            "count": 442
         },
         {
             "developed_date": "2020-12-27",
-            "count": 348
+            "count": 398
         },
         {
             "developed_date": "2020-12-28",
-            "count": 298
+            "count": 363
         },
         {
             "developed_date": "2020-12-29",
-            "count": 142
+            "count": 260
         },
         {
             "developed_date": "2020-12-30",
-            "count": 39
+            "count": 117
+        },
+        {
+            "developed_date": "2021-01-01",
+            "count": 36
         }
     ]
 }
