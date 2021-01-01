@@ -388,12 +388,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               gridLines: {
                 display: true,
                 drawOnChartArea: true,
-                color: '#E5E5E5', // #E5E5E5
+                color: '#E5E5E5',
               },
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
+                fontColor: '#808080',
                 suggestedMax: this.scaledTicksYAxisMax,
               },
             },
@@ -453,7 +453,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: 'transparent',
+                fontColor: 'transparent', // displayOption では '#808080'
                 maxRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
@@ -465,14 +465,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               stacked: true,
               gridLines: {
                 drawOnChartArea: false,
-                drawTicks: false, // true -> false
+                drawTicks: false, // displayOption では true
                 drawBorder: false,
                 tickMarkLength: 10,
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // #808080
-                padding: 13, // 3 + 10(tickMarkLength)
+                fontColor: 'transparent', // displayOption では '#808080'
+                padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
               type: 'time',
@@ -489,13 +489,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               position: 'left',
               gridLines: {
                 display: true,
-                drawOnChartArea: false,
-                color: '#E5E5E5', // #E5E5E5
+                drawOnChartArea: false, // displayOption では true
+                color: '#E5E5E5',
               },
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
+                fontColor: '#808080',
                 suggestedMax: this.scaledTicksYAxisMax,
               },
             },
