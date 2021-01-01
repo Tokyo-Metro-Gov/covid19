@@ -469,7 +469,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: 'transparent',
+                fontColor: 'transparent', // displayOption では '#808080'
                 maxRotation: 0,
                 minRotation: 0,
                 callback: (label: string) => {
@@ -482,14 +482,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               stacked: true,
               gridLines: {
                 drawOnChartArea: false,
-                drawTicks: false, // true -> false
+                drawTicks: false, // displayOption では true
                 drawBorder: false,
                 tickMarkLength: 10,
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // #808080
-                padding: 13, // 3 + 10(tickMarkLength)
+                fontColor: 'transparent', // displayOption では '#808080'
+                padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
                 callback: (label: string) => {
                   const monthStringArry = [
@@ -521,13 +521,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               stacked: true,
               gridLines: {
                 display: true,
-                drawOnChartArea: false,
-                color: '#E5E5E5', // #E5E5E5
+                drawOnChartArea: false, // displayOption では設定なし
+                color: '#E5E5E5',
               },
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
+                fontColor: '#808080',
                 suggestedMax: this.scaledTicksYAxisMax,
               },
             },
