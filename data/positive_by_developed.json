@@ -1,6 +1,6 @@
 {
-    "date": "2021\/1\/1 18:00",
-    "unknown_count": 22982,
+    "date": "2021\/1\/2 18:00",
+    "unknown_count": 23312,
     "data": [
         {
             "developed_date": "2020-01-14",
@@ -1328,7 +1328,7 @@
         },
         {
             "developed_date": "2020-12-10",
-            "count": 360
+            "count": 361
         },
         {
             "developed_date": "2020-12-11",
@@ -1360,59 +1360,67 @@
         },
         {
             "developed_date": "2020-12-18",
-            "count": 375
+            "count": 376
         },
         {
             "developed_date": "2020-12-19",
-            "count": 358
+            "count": 359
         },
         {
             "developed_date": "2020-12-20",
-            "count": 412
+            "count": 415
         },
         {
             "developed_date": "2020-12-21",
-            "count": 511
+            "count": 515
         },
         {
             "developed_date": "2020-12-22",
-            "count": 541
+            "count": 547
         },
         {
             "developed_date": "2020-12-23",
-            "count": 505
+            "count": 516
         },
         {
             "developed_date": "2020-12-24",
-            "count": 438
+            "count": 457
         },
         {
             "developed_date": "2020-12-25",
-            "count": 445
+            "count": 465
         },
         {
             "developed_date": "2020-12-26",
-            "count": 442
+            "count": 470
         },
         {
             "developed_date": "2020-12-27",
-            "count": 398
+            "count": 434
         },
         {
             "developed_date": "2020-12-28",
-            "count": 363
+            "count": 432
         },
         {
             "developed_date": "2020-12-29",
-            "count": 260
+            "count": 344
         },
         {
             "developed_date": "2020-12-30",
-            "count": 117
+            "count": 222
+        },
+        {
+            "developed_date": "2020-12-31",
+            "count": 112
         },
         {
             "developed_date": "2021-01-01",
-            "count": 36
+            "count": 19
+        },
+        {
+            "developed_date": "2021-01-02",
+            "count": 1
         }
     ]
 }
