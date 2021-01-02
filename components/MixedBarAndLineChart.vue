@@ -101,9 +101,8 @@ import DataViewTable, {
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
+import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
-import { getComplementedDate } from '@/utils/formatDate'
-import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type Data = {
@@ -239,7 +238,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         {
           lText: lastDayData,
           sText: `${this.$t('{date} の数値', {
-            date: this.$d(lastDay, 'dateWithoutYear'),
+            date: this.$d(lastDay, 'date'),
           })}（${this.$t('７日間移動平均')}）`,
           sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
             this.unit
@@ -323,7 +322,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               const label = data.labels![tooltipItem[0].index!] as string
-              return self.$d(getComplementedDate(label), 'dateWithoutYear')
+              return self.$d(new Date(label), 'date')
             },
           },
         },

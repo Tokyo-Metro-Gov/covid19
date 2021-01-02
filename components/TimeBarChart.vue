@@ -76,9 +76,8 @@ import DataViewTable, {
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
+import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesStyle } from '@/utils/colors'
-import { getComplementedDate } from '@/utils/formatDate'
-import { calcDayBeforeRatio } from '@/utils/formatDayBeforeRatio'
 import { GraphDataType } from '@/utils/formatGraph'
 
 type Data = {
@@ -183,7 +182,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         displayData: this.displayData,
         dataIndex: 1,
       })
-      const formattedLastDay = this.$d(lastDay, 'dateWithoutYear')
+      const formattedLastDay = this.$d(lastDay, 'date')
       if (this.dataKind === 'transition' && this.byDate) {
         return {
           lText: lastDayData,
@@ -293,7 +292,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             title(tooltipItem, data) {
               const label = data.labels![tooltipItem[0].index!] as string
-              return self.$d(getComplementedDate(label), 'dateWithoutYear')
+              return self.$d(new Date(label), 'date')
             },
           },
         },

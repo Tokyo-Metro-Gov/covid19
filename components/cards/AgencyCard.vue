@@ -8,6 +8,7 @@
         :chart-data="agencyData"
         :date="agencyData.date"
         :items="agencyItems"
+        :periods="agencyData.periods"
         :unit="$t('人')"
       >
         <template v-slot:additionalDescription>
@@ -19,28 +20,26 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+
 import AgencyBarChart from '@/components/AgencyBarChart.vue'
 import AgencyData from '@/data/agency.json'
-import { getComplementedDate } from '@/utils/formatDate'
 
 export default {
   components: {
     AgencyBarChart,
   },
   data() {
-    const labels = AgencyData.labels.map((l) => {
-      const dates = l.split('~')
-      if (dates.length === 2) {
-        const from = this.$d(getComplementedDate(dates[0]), 'dateWithoutYear')
-        const to = this.$d(getComplementedDate(dates[1]), 'dateWithoutYear')
-        return `${from}~${to}`
-      } else {
-        return ''
-      }
+    const labels = AgencyData.periods.map((p) => p.begin)
+    const periods = AgencyData.periods.map((p) => {
+      const from = this.$d(dayjs(p.begin).toDate(), 'dateWithoutYear')
+      const to = this.$d(dayjs(p.end).toDate(), 'dateWithoutYear')
+      return `${from}~${to}`
     })
     const agencyData = {
       ...AgencyData,
       labels,
+      periods,
     }
     const agencyItems = [
       this.$t('第一庁舎計'),
