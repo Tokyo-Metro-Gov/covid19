@@ -183,17 +183,12 @@ const config: NuxtConfig = {
     // hardSource: process.env.NODE_ENV === 'development'
   },
   purgeCSS: {
-    mode: 'postcss',
-    enabled: ({ isDev, isClient }: any) => !isDev && isClient,
-    paths: ['vuetify/dist/vuetify.js', 'vue-spinner/src/ScaleLoader.vue'],
-    styleExtensions: ['.css', '.scss'],
-    whitelist: ['DataCard', 'GraphLegend'],
-    extractors: [
-      {
-        extractor: (content: string) => content.match(/(col|row)/) || [],
-        extensions: ['html', 'vue', 'js', 'jsx', 'ts', 'tsx'],
-      },
+    paths: [
+      './node_modules/vuetify/dist/vuetify.js',
+      './node_modules/vue-spinner/src/ScaleLoader.vue',
     ],
+    whitelist: ['DataCard', 'GraphLegend'],
+    whitelistPatterns: [/(col|row)/],
   },
   render: {
     // Compress icons that aren't permitted to modify
