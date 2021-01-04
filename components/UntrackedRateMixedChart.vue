@@ -523,9 +523,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             borderWidth: 0,
           },
           {
-            data: [this.displayData.datasets[2].data[n]],
+            data: [0],
             backgroundColor: 'transparent',
-            yAxisID: 'y-axis-2',
+            yAxisID: 'y-axis-1',
             borderWidth: 0,
           },
           {
