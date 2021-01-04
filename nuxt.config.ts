@@ -194,7 +194,7 @@ const config: NuxtConfig = {
     // Compress icons that aren't permitted to modify
     // formats/layouts for legal constraints
     compressor: {
-      path: /\.(s?css|tsx?|jsx?|vue)$/,
+      path: /\.(tsx?|jsx?|vue)$/,
       handler: new CompressionPlugin(),
     },
   },
