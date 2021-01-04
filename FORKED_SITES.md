@@ -49,7 +49,7 @@
 [](31)鳥取県|https://tottori-covid19.netlify.app/|有志|[tottori-covid19/covid19](https://github.com/tottori-covid19/covid19)|
 [](32)島根県|https://shimane-covid19.netlify.app/|島根出身学生有志|[TaigaMikami/covid19](https://github.com/TaigaMikami)|
 [](33)岡山県|https://okayama.stopcovid19.jp/|学生エンジニア（有志）|[stopcovid19-okayama/covid19](https://github.com/stopcovid19-okayama/covid19)|
-[](34)広島県|https://covid19-hiroshima.netlify.app/|個人|[tatsuya1970/covid19](https://github.com/tatsuya1970/covid19)|
+[](34)広島県|https://hiroshima.stopcovid19.jp/|広島県（**公式**）||
 [](34)広島市|https://stopcovid19-hiroshima-city.hiroshima-cu.ac.jp/|学生エンジニア（**広島市公式**）|[covid19-hirosima_city](https://github.com/inspired-fox/covid19-hirosima_city)|
 [](35)山口県|https://covid19-yamaguchi.netlify.app/|有志|[nishidayoshikatsu/covid19-yamaguchi](https://github.com/nishidayoshikatsu/covid19-yamaguchi)|
 [](37)香川県|https://kagawa.stopcovid19.jp/|学生エンジニア（有志）|[codeforkagawa/covid19](https://github.com/codeforkagawa/covid19)|
