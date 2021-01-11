@@ -287,7 +287,7 @@ export default Vue.extend({
         case 'zh-cn':
           return '/logo-zh-cn.png'
         default:
-          return '/logo-en.svg'
+          return '/logo-en.png'
       }
     },
   },
