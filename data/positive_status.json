@@ -1,5 +1,5 @@
 {
-    "date": "2020\/12\/25 20:00",
+    "date": "2021\/1\/12 20:00",
     "data": [
         {
             "date": "2020-02-28",
@@ -1510,6 +1510,96 @@
             "date": "2020-12-25",
             "hospitalized": 2139,
             "severe_case": 81
+        },
+        {
+            "date": "2020-12-26",
+            "hospitalized": 2179,
+            "severe_case": 81
+        },
+        {
+            "date": "2020-12-27",
+            "hospitalized": 2261,
+            "severe_case": 82
+        },
+        {
+            "date": "2020-12-28",
+            "hospitalized": 2303,
+            "severe_case": 81
+        },
+        {
+            "date": "2020-12-29",
+            "hospitalized": 2274,
+            "severe_case": 84
+        },
+        {
+            "date": "2020-12-30",
+            "hospitalized": 2384,
+            "severe_case": 85
+        },
+        {
+            "date": "2020-12-31",
+            "hospitalized": 2594,
+            "severe_case": 89
+        },
+        {
+            "date": "2021-01-01",
+            "hospitalized": 2730,
+            "severe_case": 88
+        },
+        {
+            "date": "2021-01-02",
+            "hospitalized": 2781,
+            "severe_case": 94
+        },
+        {
+            "date": "2021-01-03",
+            "hospitalized": 2902,
+            "severe_case": 101
+        },
+        {
+            "date": "2021-01-04",
+            "hospitalized": 2995,
+            "severe_case": 108
+        },
+        {
+            "date": "2021-01-05",
+            "hospitalized": 3025,
+            "severe_case": 111
+        },
+        {
+            "date": "2021-01-06",
+            "hospitalized": 3090,
+            "severe_case": 113
+        },
+        {
+            "date": "2021-01-07",
+            "hospitalized": 3154,
+            "severe_case": 121
+        },
+        {
+            "date": "2021-01-08",
+            "hospitalized": 3178,
+            "severe_case": 129
+        },
+        {
+            "date": "2021-01-09",
+            "hospitalized": 3119,
+            "severe_case": 129
+        },
+        {
+            "date": "2021-01-10",
+            "hospitalized": 3239,
+            "severe_case": 128
+        },
+        {
+            "date": "2021-01-11",
+            "hospitalized": 3355,
+            "severe_case": 131
+        },
+        {
+            "date": "2021-01-12",
+            "hospitalized": 3427,
+            "severe_case": 144
         }
     ]
 }
