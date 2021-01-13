@@ -48,11 +48,7 @@
           </tr>
           <tr>
             <td class="content importantContact" v-bind="headingAttrs">
-              {{
-                $t(
-                  '東京都緊急事態措置等・感染拡大防止協力金等に関すること'
-                )
-              }}
+              {{ $t('東京都緊急事態措置等・感染拡大防止協力金等に関すること') }}
             </td>
             <td class="bureau importantContact">
               {{ $t('東京都緊急事態措置等・感染拡大防止協力金相談センター') }}
