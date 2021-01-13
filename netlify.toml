@@ -4,5 +4,4 @@
   status = 404
 
 [build]
-  command = "yarn generate:dev && yarn functions:build"
   functions = "dist/functions"
