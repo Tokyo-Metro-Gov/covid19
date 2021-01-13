@@ -1,6 +1,6 @@
 {
-    "date": "2021\/1\/12 20:00",
-    "unknown_count": 28462,
+    "date": "2021\/1\/13 20:00",
+    "unknown_count": 28928,
     "data": [
         {
             "developed_date": "2020-01-14",
@@ -1368,7 +1368,7 @@
         },
         {
             "developed_date": "2020-12-20",
-            "count": 430
+            "count": 431
         },
         {
             "developed_date": "2020-12-21",
@@ -1388,7 +1388,7 @@
         },
         {
             "developed_date": "2020-12-25",
-            "count": 546
+            "count": 547
         },
         {
             "developed_date": "2020-12-26",
@@ -1396,67 +1396,75 @@
         },
         {
             "developed_date": "2020-12-27",
-            "count": 573
+            "count": 576
         },
         {
             "developed_date": "2020-12-28",
-            "count": 664
+            "count": 668
         },
         {
             "developed_date": "2020-12-29",
-            "count": 729
+            "count": 731
         },
         {
             "developed_date": "2020-12-30",
-            "count": 772
+            "count": 780
         },
         {
             "developed_date": "2020-12-31",
-            "count": 849
+            "count": 855
         },
         {
             "developed_date": "2021-01-01",
-            "count": 1024
+            "count": 1042
         },
         {
             "developed_date": "2021-01-02",
-            "count": 1121
+            "count": 1136
         },
         {
             "developed_date": "2021-01-03",
-            "count": 1107
+            "count": 1142
         },
         {
             "developed_date": "2021-01-04",
-            "count": 1227
+            "count": 1280
         },
         {
             "developed_date": "2021-01-05",
-            "count": 1059
+            "count": 1125
         },
         {
             "developed_date": "2021-01-06",
-            "count": 934
+            "count": 1025
         },
         {
             "developed_date": "2021-01-07",
-            "count": 675
+            "count": 798
         },
         {
             "developed_date": "2021-01-08",
-            "count": 400
+            "count": 552
         },
         {
             "developed_date": "2021-01-09",
-            "count": 201
+            "count": 352
         },
         {
             "developed_date": "2021-01-10",
-            "count": 57
+            "count": 166
         },
         {
             "developed_date": "2021-01-11",
-            "count": 22
+            "count": 101
+        },
+        {
+            "developed_date": "2021-01-12",
+            "count": 49
+        },
+        {
+            "developed_date": "2021-01-13",
+            "count": 1
         }
     ]
 }
