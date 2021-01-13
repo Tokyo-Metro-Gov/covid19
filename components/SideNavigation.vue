@@ -12,7 +12,7 @@
         <app-link :to="localePath('/')" class="SideNavigation-HeaderLink">
           <img
             class="SideNavigation-HeaderLogo"
-            src="/logo.svg"
+            :src="logoSrc"
             width="111"
             height="28"
             :alt="$t('東京都')"
@@ -275,6 +275,20 @@ export default Vue.extend({
           link: 'https://www.metro.tokyo.lg.jp/',
         },
       ]
+    },
+    logoSrc(): string {
+      switch (this.$i18n.locale) {
+        case 'ja':
+        case 'ja-basic':
+        case 'zh-tw':
+          return '/logo.svg'
+        case 'ko':
+          return '/logo-ko.png'
+        case 'zh-cn':
+          return '/logo-zh-cn.png'
+        default:
+          return '/logo-en.png'
+      }
     },
   },
   watch: {
