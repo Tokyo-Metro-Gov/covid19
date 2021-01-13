@@ -17,7 +17,6 @@ exports.handler = async (event) => {
   } else {
     statusCode = 403
     data = dummyData
-    console.log('Referer', referer)
   }
 
   const contentType = data.slice(data.indexOf(':') + 1, data.indexOf(';'))
