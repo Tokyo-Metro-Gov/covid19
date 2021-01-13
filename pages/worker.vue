@@ -42,9 +42,7 @@
         <app-link
           to="https://jitan.metro.tokyo.lg.jp/dec/index.html"
           :icon-size="24"
-          >{{
-            $t('営業時間短縮に係る感染拡大防止協力金（12/18～1/7実施分）')
-          }}
+          >{{ $t('営業時間短縮に係る感染拡大防止協力金（12/18～1/7実施分）') }}
         </app-link>
       </h3>
       <p>
@@ -60,9 +58,7 @@
         <app-link
           to="https://www.sangyo-rodo.metro.tokyo.lg.jp/attention/2021/0107_14118.html"
           :icon-size="24"
-          >{{
-            $t('営業時間短縮に係る感染拡大防止協力金（1/8～2/7実施分）')
-          }}
+          >{{ $t('営業時間短縮に係る感染拡大防止協力金（1/8～2/7実施分）') }}
         </app-link>
       </h3>
       <p>
