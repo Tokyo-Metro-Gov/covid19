@@ -50,12 +50,12 @@
             <td class="content importantContact" v-bind="headingAttrs">
               {{
                 $t(
-                  '感染防止徹底宣言ステッカー、感染拡大防止協力金等に関すること'
+                  '東京都緊急事態措置等・感染拡大防止協力金等に関すること'
                 )
               }}
             </td>
             <td class="bureau importantContact">
-              {{ $t('東京都ステッカー申請・感染拡大防止協力金相談センター') }}
+              {{ $t('東京都緊急事態措置等・感染拡大防止協力金相談センター') }}
             </td>
             <td class="tel">
               <a href="tel:03-5388-0567" class="importantContact"
