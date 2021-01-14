@@ -113,7 +113,7 @@
         </div>
         <i18n
           tag="small"
-          path="このサイトの内容物は{creativeCommons}の下に提供されています。"
+          path="このサイトの内容物は{creativeCommons}の下に提供されています（ただし商標等の他団体が権利を持つものは除く）。"
           class="SideNavigation-Copyright"
         >
           <template v-slot:creativeCommons>
@@ -130,6 +130,13 @@
         <small class="SideNavigation-Copyright">
           &copy; 2020 Tokyo Metropolitan Government
         </small>
+        <div class="SideNavigation-GMark">
+          <img
+            src="/.netlify/functions/g-mark"
+            width="200"
+            alt="GOOD DESIGN AWARD 2020年度受賞"
+          />
+        </div>
       </footer>
     </div>
   </div>
@@ -508,5 +515,9 @@ export default Vue.extend({
   &:focus {
     outline: 1px dotted $gray-3;
   }
+}
+
+.SideNavigation-GMark {
+  margin-top: 16px;
 }
 </style>
