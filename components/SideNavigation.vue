@@ -132,7 +132,7 @@
         </small>
         <div class="SideNavigation-GMark">
           <img
-            src="/.netlify/functions/g-mark"
+            :src="gMarkUrlSrc"
             width="200"
             alt="GOOD DESIGN AWARD 2020年度受賞"
           />
@@ -296,6 +296,15 @@ export default Vue.extend({
         default:
           return '/logo-en.png'
       }
+    },
+    gMarkUrlSrc(): string {
+      if (process && process.env && process.env.GENERATE_ENV) {
+        return '/.netlify/functions/g-mark'
+      }
+
+      // NOTE: ローカル環境で G マークを表示させる場合は yarn functions:dev コマンドを実行すること
+      // ポート番号 9000 は netlify-lambda のデフォルトのポート番号
+      return 'http://127.0.0.1:9000/.netlify/functions/g-mark'
     },
   },
   watch: {
