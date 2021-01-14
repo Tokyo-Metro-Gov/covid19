@@ -130,12 +130,18 @@
         <small class="SideNavigation-Copyright">
           &copy; 2020 Tokyo Metropolitan Government
         </small>
-        <div class="SideNavigation-GMark">
-          <img
-            src="/.netlify/functions/g-mark"
-            width="200"
-            alt="GOOD DESIGN AWARD 2020年度受賞"
-          />
+        <div class="SideNavigation-GMarkWrapper">
+          <app-link
+            to="https://www.g-mark.org/award/describe/51112"
+            :show-icon="false"
+          >
+            <img
+              src="/.netlify/functions/g-mark"
+              width="200"
+              alt="GOOD DESIGN AWARD 2020年度受賞"
+              class="SideNavigation-GMark"
+            />
+          </app-link>
         </div>
       </footer>
     </div>
@@ -517,7 +523,7 @@ export default Vue.extend({
   }
 }
 
-.SideNavigation-GMark {
+.SideNavigation-GMarkWrapper {
   margin-top: 16px;
 }
 </style>
