@@ -13,7 +13,7 @@
     "build": "nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts start",
     "generate:deploy": "cross-env GENERATE_ENV=production NODE_OPTIONS=--max_old_space_size=2048 nuxt-ts generate --fail-on-page-error && yarn functions:build",
-    "generate:dev": "cross-env GENERATE_ENV=development NODE_OPTIONS=--max_old_space_size=2048 nuxt-ts generate && yarn functions:build",
+    "generate:dev": "cross-env GENERATE_ENV=development NODE_OPTIONS=--max_old_space_size=2048 nuxt-ts generate --fail-on-page-error && yarn functions:build",
     "generate": "eslint \"./**/*.{js,ts,vue}\" && nuxt-ts generate",
     "test": "echo 'skip tests (there is no test)'",
     "lint": "eslint \"./**/*.{js,ts,vue}\"",
