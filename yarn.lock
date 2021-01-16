@@ -1464,15 +1464,15 @@
     "@types/webpack-dev-middleware" "^3.7.2"
     "@types/webpack-hot-middleware" "^2.25.3"
 
-"@nuxt/typescript-build@2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@nuxt/typescript-build/-/typescript-build-2.0.3.tgz#338094f1bbadc21a59942c0aa0e272dff5a3f6a8"
-  integrity sha512-iqxUV6sv86sat9VIlJyjL38oP+OkLg+gOr7uvYYRcYYGL6h/1OSWWIawyVsc4/RX9UGOy3JNj+BcvEo/7SkAUA==
+"@nuxt/typescript-build@2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@nuxt/typescript-build/-/typescript-build-2.0.4.tgz#54cdff8ac83340ad45bff6b2262850380fdf3821"
+  integrity sha512-n66rkkjzMeWBzREcHxKB33JAwdR6bQGR8pWX0WNgVEWcySOeedSAZ4gXcXHX7ie39pZTJzY08M97DB5HbM4Lpw==
   dependencies:
     consola "^2.15.0"
-    fork-ts-checker-webpack-plugin "^5.1.0"
-    ts-loader "^8.0.3"
-    typescript "~4.0"
+    fork-ts-checker-webpack-plugin "^6.1.0"
+    ts-loader "^8.0.14"
+    typescript "~4.1"
 
 "@nuxt/typescript-runtime@2.0.0":
   version "2.0.0"
@@ -3268,6 +3268,21 @@ chokidar@^2.1.8:
     upath "^1.1.1"
   optionalDependencies:
     fsevents "^1.2.7"
+
+chokidar@^3.4.2:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.1.tgz#ee9ce7bbebd2b79f49f304799d5468e31e14e68a"
+  integrity sha512-9+s+Od+W0VJJzawDma/gvBNQqkTiqYTWLuZoyAsivsI4AaWTCzHG06/TMjsf1cYe9Cb97UCEhjz7HvnPk2p/tw==
+  dependencies:
+    anymatch "~3.1.1"
+    braces "~3.0.2"
+    glob-parent "~5.1.0"
+    is-binary-path "~2.1.0"
+    is-glob "~4.0.1"
+    normalize-path "~3.0.0"
+    readdirp "~3.5.0"
+  optionalDependencies:
+    fsevents "~2.3.1"
 
 chownr@^1.1.1, chownr@^1.1.2:
   version "1.1.4"
@@ -5147,14 +5162,15 @@ foreach@^2.0.5:
   resolved "https://registry.yarnpkg.com/foreach/-/foreach-2.0.5.tgz#0bee005018aeb260d0a3af3ae658dd0136ec1b99"
   integrity sha1-C+4AUBiusmDQo6865ljdATbsG5k=
 
-fork-ts-checker-webpack-plugin@^5.1.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-5.2.0.tgz#780a14fb0da02a892baedd7aa0d089a1eda7b3e5"
-  integrity sha512-NEKcI0+osT5bBFZ1SFGzJMQETjQWZrSvMO1g0nAR/w0t328Z41eN8BJEIZyFCl2HsuiJpa9AN474Nh2qLVwGLQ==
+fork-ts-checker-webpack-plugin@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-6.1.0.tgz#7581a6ccd7cbbed9ecce3de64fb1f599d7a2990b"
+  integrity sha512-xLNufWQ1dfQUdZe48TGQlER/0OkcMnUB6lfbN9Tt13wsYyo+2DwcCbnOaPBo1PoFow/WL8pJPktGIdbJaHxAnw==
   dependencies:
     "@babel/code-frame" "^7.8.3"
     "@types/json-schema" "^7.0.5"
     chalk "^4.1.0"
+    chokidar "^3.4.2"
     cosmiconfig "^6.0.0"
     deepmerge "^4.2.2"
     fs-extra "^9.0.0"
@@ -5252,6 +5268,11 @@ fsevents@~2.1.2:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.1.3.tgz#fb738703ae8d2f9fe900c33836ddebee8b97f23e"
   integrity sha512-Auw9a4AxqWpa9GUfj370BMPzzyncfBABW8Mab7BGWBYDj4Isgq+cDKtx0i6u9jcX9pQDnswsaaOTgTmA5pEjuQ==
+
+fsevents@~2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.1.tgz#b209ab14c61012636c8863507edf7fb68cc54e9f"
+  integrity sha512-YR47Eg4hChJGAB1O3yEAOkGO+rlzutoICGqGo9EZ4lKWokzZRSyIW1QmTzqjtw8MJdj9srP869CuWw/hyzSiBw==
 
 function-bind@^1.1.1:
   version "1.1.1"
@@ -10157,7 +10178,7 @@ tryer@^1.0.1:
   resolved "https://registry.yarnpkg.com/tryer/-/tryer-1.0.1.tgz#f2c85406800b9b0f74c9f7465b81eaad241252f8"
   integrity sha512-c3zayb8/kWWpycWYg87P71E1S1ZL6b6IJxfb5fvsUgsf0S2MVGaDhDXXjDMpdCpfWXqptc+4mXwmiy1ypXqRAA==
 
-ts-loader@8.0.14:
+ts-loader@8.0.14, ts-loader@^8.0.14:
   version "8.0.14"
   resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-8.0.14.tgz#e46ac1f8dcb88808d0b1335d2eae65b74bd78fe8"
   integrity sha512-Jt/hHlUnApOZjnSjTmZ+AbD5BGlQFx3f1D0nYuNKwz0JJnuDGHJas6az+FlWKwwRTu+26GXpv249A8UAnYUpqA==
@@ -10167,17 +10188,6 @@ ts-loader@8.0.14:
     loader-utils "^2.0.0"
     micromatch "^4.0.0"
     semver "^7.3.4"
-
-ts-loader@^8.0.3:
-  version "8.0.5"
-  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-8.0.5.tgz#fa42b9305247eb964843df1ecb0e589b1bff0f77"
-  integrity sha512-MvLXmjDxl2Mhv17nvkrB6BrpC8FTwSb7K38oIgdUI6BMx4XgVbljmcoOzlrYn4wyjNTFQ3utd7s2TyigJyR3YA==
-  dependencies:
-    chalk "^2.3.0"
-    enhanced-resolve "^4.0.0"
-    loader-utils "^1.0.2"
-    micromatch "^4.0.0"
-    semver "^6.0.0"
 
 ts-node@^9.0.0:
   version "9.0.0"
@@ -10264,7 +10274,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@4.1.3:
+typescript@4.1.3, typescript@~4.1:
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.3.tgz#519d582bd94cba0cf8934c7d8e8467e473f53bb7"
   integrity sha512-B3ZIOf1IKeH2ixgHhj6la6xdwR9QrLC5d1VKeCSY4tvkqhF2eqd9O7txNlS0PO3GrBAFIdr3L1ndNwteUbZLYg==
