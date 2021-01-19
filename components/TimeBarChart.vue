@@ -392,11 +392,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const options: Chart.ChartOptions = {
+        tooltips: { enabled: false },
         maintainAspectRatio: false,
         legend: {
           display: false,
         },
-        tooltips: { enabled: false },
         scales: {
           xAxes: [
             {
@@ -410,7 +410,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 20,
                 fontColor: 'transparent', // displayOption では '#808080'
                 maxRotation: 0,
-                minRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
                 },
@@ -430,28 +429,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: 'transparent', // displayOption では '#808080'
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
-                callback: (label: string) => {
-                  const monthStringArry = [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec',
-                  ]
-                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
-                  return month + '月'
-                },
               },
               type: 'time',
               time: {
                 unit: 'month',
+                displayFormats: {
+                  month: 'MMM',
+                },
               },
             },
           ],
