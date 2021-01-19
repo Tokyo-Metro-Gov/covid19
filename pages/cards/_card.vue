@@ -2,7 +2,7 @@
   <component :is="cardComponent" />
 </template>
 
-<script>
+<script lang="ts">
 /* eslint-disable simple-import-sort/sort -- ブラウザでの表示順に合わせて各 card の component を import する */
 // ---- モニタリング項目
 // 検査陽性者の状況
@@ -47,9 +47,12 @@ import MetroCard from '@/components/cards/MetroCard.vue'
 // 都庁来庁者数の推移
 import AgencyCard from '@/components/cards/AgencyCard.vue'
 
+import Vue from '@nuxt/types'
+import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
+import { convertDateToSimpleFormat } from '@/utils/formatDate'
 
-const options = {
+const options: Vue.NuxtConfig = {
   components: {
     // ---- モニタリング項目
     ConfirmedCasesDetailsCard,
@@ -171,27 +174,20 @@ const options = {
   head() {
     const url = 'https://stopcovid19.metro.tokyo.lg.jp'
     const timestamp = new Date().getTime()
+    const defaultTitle = `${this.$t('東京都')} ${this.$t(
+      '新型コロナウイルス感染症'
+    )}${this.$t('対策サイト')}`
     const ogpImage =
       (this.$i18n.locale ?? 'ja-JP') === 'ja-JP'
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
-    const description = `${this.$t(
-      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
-    )}`
-    const updatedAt =
-      (this.updatedAt ?? '') !== ''
-        ? `${this.updatedAt} | ${description}`
-        : `${description}`
-    const defaultTitle = `${this.$t('東京都')} ${this.$t(
-      '新型コロナウイルス感染症'
-    )}${this.$t('対策サイト')}`
-    const title =
-      (this.title ?? '') !== ''
-        ? `${this.title} | ${defaultTitle}`
-        : `${defaultTitle}`
 
-    const minfo = {
-      title: `${title}`,
+    const minfo: MetaInfo = {
+      title: `${
+        (this.title ?? '') !== ''
+          ? this.title + ' | ' + defaultTitle
+          : defaultTitle
+      }`,
       link: [
         ...getLinksLanguageAlternative(
           `cards/${this.$route.params.card}`,
@@ -208,17 +204,29 @@ const options = {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: `${title}`,
+          content: `${
+            (this.title ?? '') !== ''
+              ? this.title + ' | ' + defaultTitle
+              : defaultTitle
+          }`,
         },
         {
           hid: 'description',
           property: 'description',
-          content: `${updatedAt}`,
+          content: `${this.$t('{date} 更新', {
+            date: convertDateToSimpleFormat(this.updatedAt),
+          })}: ${this.$tc(
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+          )}`,
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: `${updatedAt}`,
+          content: `${this.$t('{date} 更新', {
+            date: convertDateToSimpleFormat(this.updatedAt),
+          })}: ${this.$tc(
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+          )}`,
         },
         {
           hid: 'og:image',
