@@ -46,11 +46,10 @@ import TokyoFeverConsultationCenterReportsNumberCard from '@/components/cards/To
 import MetroCard from '@/components/cards/MetroCard.vue'
 // 都庁来庁者数の推移
 import AgencyCard from '@/components/cards/AgencyCard.vue'
-/* eslint-enable simple-import-sort/sort */
 
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
-export default {
+const options = {
   components: {
     // ---- モニタリング項目
     ConfirmedCasesDetailsCard,
@@ -75,6 +74,7 @@ export default {
     MetroCard,
     AgencyCard,
   },
+  /* eslint-enable simple-import-sort/sort */
   data() {
     let title, updatedAt, cardComponent
     switch (this.$route.params.card) {
@@ -172,18 +172,26 @@ export default {
     const url = 'https://stopcovid19.metro.tokyo.lg.jp'
     const timestamp = new Date().getTime()
     const ogpImage =
-      this.$i18n.locale === 'ja'
+      (this.$i18n.locale ?? 'ja-JP') === 'ja-JP'
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
     const description = `${this.$t(
       '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
     )}`
+    const updatedAt =
+      (this.updatedAt ?? '') !== ''
+        ? `${this.updatedAt} | ${description}`
+        : `${description}`
     const defaultTitle = `${this.$t('東京都')} ${this.$t(
       '新型コロナウイルス感染症'
     )}${this.$t('対策サイト')}`
+    const title =
+      (this.title ?? '') !== ''
+        ? `${this.title} | ${defaultTitle}`
+        : `${defaultTitle}`
 
-    return {
-      titleTemplate: (title) => `${this.title || title} | ${defaultTitle}`,
+    const minfo = {
+      title: `${title}`,
       link: [
         ...getLinksLanguageAlternative(
           `cards/${this.$route.params.card}`,
@@ -200,42 +208,32 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          template: (title) =>
-            title !== ''
-              ? `${this.title || title} | ${defaultTitle}`
-              : `${defaultTitle}`,
-          content: '',
+          content: `${title}`,
         },
         {
           hid: 'description',
-          name: 'description',
-          template: (updatedAt) =>
-            updatedAt !== ''
-              ? `${this.updatedAt || updatedAt} | ${description}`
-              : `${description}`,
-          content: '',
+          property: 'description',
+          content: `${updatedAt}`,
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          template: (updatedAt) =>
-            updatedAt !== ''
-              ? `${this.updatedAt || updatedAt} | ${description}`
-              : `${description}`,
-          content: '',
+          content: `${updatedAt}`,
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: ogpImage,
+          content: `${ogpImage}`,
         },
         {
           hid: 'twitter:image',
-          name: 'twitter:image',
-          content: ogpImage,
+          property: 'twitter:image',
+          content: `${ogpImage}`,
         },
       ],
     }
+    return minfo
   },
 }
+export default options
 </script>
