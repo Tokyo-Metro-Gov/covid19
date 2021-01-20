@@ -277,22 +277,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOption() {
-      const self = this
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+
       const options: Chart.ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label(tooltipItem) {
+            label: (tooltipItem) => {
               const labelText = `${parseInt(
                 tooltipItem.value!
               ).toLocaleString()} ${unit}`
               return labelText
             },
-            title(tooltipItem, data) {
+            title: (tooltipItem, data) => {
               const label = data.labels![tooltipItem[0].index!] as string
-              return self.$d(new Date(label), 'date')
+              return this.$d(new Date(label), 'date')
             },
           },
         },
@@ -353,18 +353,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 color: '#E5E5E5',
               },
               ticks: {
-                suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080',
+                suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
               },
             },
           ],
         },
       }
+
       if (this.$route.query.ogp === 'true') {
         Object.assign(options, { animation: { duration: 0 } })
       }
+
       return options
     },
     displayDataHeader() {
@@ -451,9 +453,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 color: '#E5E5E5',
               },
               ticks: {
-                suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080',
+                suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
               },
             },
@@ -461,6 +463,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         },
         animation: { duration: 0 },
       }
+
       return options
     },
     scaledTicksYAxisMax() {

@@ -305,15 +305,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
-      const self = this
       const unit = this.unit[1]
-      const getFormatter = this.getFormatter
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+
       const options: Chart.ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
             label: (tooltipItem) => {
-              const formatter = getFormatter(tooltipItem.datasetIndex!)
+              const formatter = this.getFormatter(tooltipItem.datasetIndex!)
               const cases = formatter(parseFloat(tooltipItem.value!))
               let label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
@@ -325,10 +325,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               }
               return label
             },
-            title(tooltipItem, data) {
+            title: (tooltipItem, data) => {
               if (tooltipItem[0].datasetIndex! < 4) {
                 const label = data.labels![tooltipItem[0].index!] as string
-                return self.$d(new Date(label), 'date')
+                return this.$d(new Date(label), 'date')
               }
               return ''
             },
@@ -391,18 +391,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 color: '#E5E5E5',
               },
               ticks: {
-                suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080',
-                suggestedMax: this.scaledTicksYAxisMax,
+                suggestedMin: 0,
+                suggestedMax: scaledTicksYAxisMax,
               },
             },
           ],
         },
       }
+
       if (this.$route.query.ogp === 'true') {
         Object.assign(options, { animation: { duration: 0 } })
       }
+
       return options
     },
     displayDataHeader() {
@@ -436,6 +438,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOptionHeader() {
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+
       const options: Chart.ChartOptions = {
         tooltips: { enabled: false },
         maintainAspectRatio: false,
@@ -493,16 +497,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 color: '#E5E5E5',
               },
               ticks: {
-                suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080',
-                suggestedMax: this.scaledTicksYAxisMax,
+                suggestedMin: 0,
+                suggestedMax: scaledTicksYAxisMax,
               },
             },
           ],
         },
         animation: { duration: 0 },
       }
+
       return options
     },
     scaledTicksYAxisMax() {
