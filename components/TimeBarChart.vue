@@ -392,6 +392,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOptionHeader() {
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+
       const options: Chart.ChartOptions = {
         tooltips: { enabled: false },
         maintainAspectRatio: false,
@@ -452,7 +454,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080',
-                // displayOption では suggestedMax の設定あり
+                suggestedMax: scaledTicksYAxisMax,
               },
             },
           ],
