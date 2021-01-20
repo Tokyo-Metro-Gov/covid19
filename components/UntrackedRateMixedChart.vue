@@ -539,11 +539,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayOptionHeader() {
       const options: Chart.ChartOptions = {
+        tooltips: { enabled: false },
         maintainAspectRatio: false,
         legend: {
           display: false,
         },
-        tooltips: { enabled: false },
         scales: {
           xAxes: [
             {
@@ -557,7 +557,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 20,
                 fontColor: 'transparent', // displayOption では '#808080'
                 maxRotation: 0,
-                minRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
                 },
@@ -581,13 +580,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               type: 'time',
               time: {
                 unit: 'month',
+                displayFormats: {
+                  month: 'MMM',
+                },
               },
             },
           ],
           yAxes: [
             {
               id: 'y-axis-1',
-              type: 'linear',
               position: 'left',
               stacked: true,
               gridLines: {
@@ -604,7 +605,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             {
               id: 'y-axis-2',
-              type: 'linear',
               position: 'right',
               gridLines: {
                 display: true,
