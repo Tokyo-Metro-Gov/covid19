@@ -253,7 +253,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
+              position: 'left',
               gridLines: {
                 display: true,
                 drawOnChartArea: true,
@@ -340,7 +340,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
+              position: 'left',
               gridLines: {
                 display: true,
                 drawOnChartArea: false, // displayOption では true
