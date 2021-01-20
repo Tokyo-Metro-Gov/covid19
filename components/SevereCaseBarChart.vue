@@ -256,6 +256,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               stacked: true,
               gridLines: {
                 display: true,
+                drawOnChartArea: true,
                 color: '#E5E5E5',
               },
               ticks: {
@@ -342,14 +343,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               stacked: true,
               gridLines: {
                 display: true,
-                drawOnChartArea: false, // displayOption では設定なし
+                drawOnChartArea: false, // displayOption では true
                 color: '#E5E5E5',
               },
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080',
-                // displayOption では suggestedMax の設定あり
+                suggestedMax: this.scaledTicksYAxisMax,
               },
             },
           ],
