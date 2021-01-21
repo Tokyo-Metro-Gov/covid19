@@ -123,12 +123,12 @@ const options: Vue.NuxtConfig = {
       meta: [
         {
           hid: 'author',
-          property: 'author',
+          name: 'author',
           content: this.$tc('東京都'),
         },
         {
           hid: 'description',
-          property: 'description',
+          name: 'description',
           content: `${this.$t('{date} 更新', {
             date: convertDateToSimpleFormat(lastUpdate),
           })}: ${this.$tc(
@@ -171,14 +171,14 @@ const options: Vue.NuxtConfig = {
         },
         {
           hid: 'apple-mobile-web-app-title',
-          property: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
           content: `${this.$t('東京都')} ${this.$t(
             '新型コロナウイルス感染症'
           )} ${this.$t('対策サイト')}`,
         },
         {
           hid: 'twitter:image',
-          property: 'twitter:image',
+          name: 'twitter:image',
           content: this.$tc('ogp.og:image'),
         },
       ],
