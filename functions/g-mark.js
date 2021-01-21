@@ -9,8 +9,6 @@ const allowedHosts = [
   /^https:\/\/deploy-preview-\d+--stopcovid19\.metro\.tokyo\.lg\.jp/, // production preview
   /^https:\/\/deploy-preview-\d+--stg-covid19-tokyo\.netlify\.app/, // staging preview
   /^https:\/\/deploy-preview-\d+--dev-covid19-tokyo\.netlify\.app/, // development preview
-  /^https?:\/\/127\.0\.0\.1:\d+/, // local environment
-  /^https?:\/\/localhost:\d+/, // local environment
 ]
 
 exports.handler = async (event) => {
