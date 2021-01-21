@@ -178,11 +178,11 @@ const options: Vue.NuxtConfig = {
       '新型コロナウイルス感染症'
     )}${this.$t('対策サイト')}`
     const ogpImage =
-      (this.$i18n.locale ?? 'ja-JP') === 'ja-JP'
+      (this.$i18n.locale ?? 'ja') === 'ja'
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
 
-    const minfo: MetaInfo = {
+    const mInfo: MetaInfo = {
       title: `${
         (this.title ?? '') !== ''
           ? this.title + ' | ' + defaultTitle
@@ -212,7 +212,7 @@ const options: Vue.NuxtConfig = {
         },
         {
           hid: 'description',
-          property: 'description',
+          name: 'description',
           content: `${this.$t('{date} 更新', {
             date: convertDateToSimpleFormat(this.updatedAt),
           })}: ${this.$tc(
@@ -235,12 +235,12 @@ const options: Vue.NuxtConfig = {
         },
         {
           hid: 'twitter:image',
-          property: 'twitter:image',
+          name: 'twitter:image',
           content: `${ogpImage}`,
         },
       ],
     }
-    return minfo
+    return mInfo
   },
 }
 export default options
