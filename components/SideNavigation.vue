@@ -139,7 +139,6 @@
               src="/.netlify/functions/g-mark"
               width="200"
               alt="GOOD DESIGN AWARD 2020年度受賞"
-              class="SideNavigation-GMark"
             />
           </app-link>
         </div>
