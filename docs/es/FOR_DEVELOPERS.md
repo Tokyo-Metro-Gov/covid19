@@ -1,47 +1,47 @@
-# Para Desarrolladoras
+# Para Desarrolladores
 
 ## 1. Cómo Configurar Entornos
 
-Install the following application to the environment for development.
+Instale las siguientes aplicaciones para el ambiente de desarrollo.
 
-| Application name | Application version(Fill in only if specified) | Installation conditions |
+| Nombre de la aplicación | Versión de la aplicación (Proporcionar sólo si se especifica) | Condiciones de instalación |
 | ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/es/)|10.19.0 or higher|Required|
-|[Visual Studio Code](https://code.visualstudio.com/)| |If you use Visual Studio Code|
-|[yarn](https://classic.yarnpkg.com/es-ES/)| |When executing this program with `yarn`|
-|[docker compose](https://docs.docker.com/compose/install/)| |When executing this program with `docker compose`|
-|[Vagrant](https://www.vagrantup.com/)| |When executing this program with `Vagrant`|
+|[Node.js](https://nodejs.org/es/)|10.23.1 o superior |Requerido|
+|[Visual Studio Code](https://code.visualstudio.com/)| |si usas Visual Studio Code|
+|[yarn](https://classic.yarnpkg.com/es-ES/)| |Cuando se ejecuta este programa con `yarn`|
+|[docker compose](https://docs.docker.com/compose/install/)| |Cuando se ejecuta este programa con `docker compose`|
+|[Vagrant](https://www.vagrantup.com/)| |Cuando se ejecuta este programa con `Vagrant`|
 
-### 1-1. Extensions for Visual Studio Code
+### 1-1. Extensiones para Visual Studio Code
 
-To use Visual Studio Code, install the following extension.
+Para usar con Visual Studio Code, instale las siguientes extensiones.
 
-| Extensions | Installation conditions |
+| Extensiones | Condiciones de instalación |
 | ------- | ------- |
-|[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)|Any|
-|[Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)|Any|
-|[TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)|Any|
-|[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)|Any|
-|[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)|When developing with Visual Studio Code and Remote Containers|
+|[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)|Cualquiera|
+|[Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)|Cualquiera|
+|[TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)|Cualquiera|
+|[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)|Cualquiera|
+|[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)|Cuando se desarrolla con Visual Studio Code y contenedores remotos|
 
 ---
 
-## 2. Run this program
+## 2. Ejecución del programa
 
-The command is executed in the working copy root directory.
+El comando se ejecuta en el directorio raíz de la copia de trabajo.
 
-### 2-1. Using `yarn`
+### 2-1. Usando `yarn`
 
-#### 2-1-1. Install dependencies
+#### 2-1-1. Instalación de dependenciass
 
 ```bash
-# install dependencies
+# instalar dependencias
 $ yarn install
 ```
 
-#### 2-1-2. Run this program
+#### 2-1-2. Ejecutar este programa
 
-After executing the following command, you can check the program under development by accessing http://localhost:3000 .
+Después de ejecutar el siguiente comando, puedes revisar el programa en desarrollo accediendo a http://localhost:3000 .
 
 ##### 2-1-2-1. Normal
 
@@ -50,116 +50,111 @@ After executing the following command, you can check the program under developme
 $ yarn dev
 ```
 
-##### 2-1-2-2. Faster
+##### 2-1-2-2. Más rápido
 
-You can disable accessibility auditing, which would make your local server faster.
+Puedes desactivar la auditoría de accesibilidad, lo cual hará más rápido a tu servidor local.
 
 ```bash
 # serve with hot reload at localhost:3000
 $ yarn dev-no-axe
 ```
 
-### 2-1-3. Troubleshoot
+### 2-1-3. Solución de problemas
 
-#### 2-1-3-1. How to resolve `Cannot find module ****` error
+#### 2-1-3-1. Como resolver el error `Cannot find module ****`
 
-Build the dependency again and run the program.
+Construye nuevamente la dependecia y ejecuta el programa.
 
-### 2-2. Using `docker compose`
+### 2-2. Usando `docker compose`
 
-#### 2-2-1. Install dependencies and run this program
+#### 2-2-1. Instalar dependencias y ejecutar el programa
 
-After executing the following command, you can check the program under development by accessing http://localhost:3000 .
+Después de ejecutar el siguiente comando, puedes revisar el programa en desarrollo accediendo a http://localhost:3000 .
 
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
 ```
 
-### 2-2-2. Troubleshoot
+### 2-2-2. Solución de problemas
 
-#### 2-2-2-1. How to resolve `Cannot find module ****` error
+#### 2-2-2-1. Como resolver el error `Cannot find module ****`
 
-Stop the program and execute the following command.
+Detener el programa y eejecutar el siguiente comando.
 ```bash
 $ docker-compose run --rm app yarn install
 ```
 
-### 2-3. Using `Vagrant`
+### 2-3. Usando `Vagrant`
 
-#### 2-3-1. Install dependencies and run this program
+#### 2-3-1. Instalar dependencias y ejecutar el programa
 
-After executing the following command, you can check the program under development by accessing http://localhost:3000 .
+Después de ejecutar el siguiente comando, puedes revisar el programa en desarrollo accediendo a http://localhost:3000 .
 
 ```bash
 # serve with hot reload at localhost:3000
 $ vagrant up
 ```
 
-### 2-4. When developing with Visual Studio Code and Remote Containers
+### 2-4. Al desarrollar con Visual Studio Code y contenedores remotos
 
-#### 2-4-1. Install dependencies and run this program
+#### 2-4-1. Instalar dependencias y ejecutar el programa
 
-If you select the “Open Folder in Container” root of this repository (as seen in the lower left [Quick start: Try a dev container (external site)](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)), the environment construction will start.
+Si seleccionas la raíz de este directorio como “Open Folder in Container” (como se uestra en la parte inferior izquierda [Inicio rápido: Prueba un contenedor de desarrollo (sitio externo)](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)), la construcción del ambiente iniciará.
 
-You can check the program under development by accessing http://localhost:3000 after building the environment.
+Puedes revisar el programa en desarrollo accediendo a http://localhost:3000 después de construir el ambiente.
 
-#### 2-4-2. Notes
+#### 2-4-2. Notas
 
-- If you want to change the settings, modify `.devcontainer/devcontainer.json`. Please refer to [devcontainer.json reference](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference) for more details.
-- The extension "ESLint" is only valid when executing Remote Container. Please add it to the `extensions` of `.devcontainer/devcontainer.json` if necessary.
-- A detailed procedure can be found [Managing extensions (external site)](https://code.visualstudio.com/docs/remote/containers#_managing-extensions).
-- When rebuilding the development environment, please execute “Rebuild Container” which can be found at the lower left.
+- Si quieres cambiar las configuraciones, modifica `.devcontainer/devcontainer.json`. Consulta [Referencia a devcontainer.json](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference) para más detalles.
+- La extensión "ESLint" sólo es válida cuando se ejecuta un contenedor remoto. Por favor agrégalo a las `extensions` de `.devcontainer/devcontainer.json` si es necesario.
+- Aquí puedes encontrar un procedimiento detallado [Administrando extensiones (sitio externo)](https://code.visualstudio.com/docs/remote/containers#_managing-extensions).
+- Al reconstruir el ambiente de desarrollo, ejecuta “Rebuild Container” el cual se encuentra en la parte inferior izquierda.
 
 ---
 
-## 3. Detect production/others environment
+## 3. Detectar ambiente de producción/otros
 
-On the production environment, `'production'` is assigned to `process.env.GENERATE_ENV` variable, on the other case `'development'` is assigned to the variable.  
-Please use the variable to detect which enviroinment is used at the runtime.
+En el ambiente de producción, el valor `'production'` es asignado a la variable `process.env.GENERATE_ENV`, en el otro caso, el valor `'development'` es asignado.  
+Por favor usa la variable para detectar qué ambiente es usado en tiempo de ejecución.
 
-[/PLEASE TRANSLATE ME]
 
 ---
 
 ## 4. Implementación en entornos de preparación y producción
 
-[PLEASE TRANSLATE ME]
+Cuando se actualiza alguna rama en la columna izquierda de la tabla inferior, la rama y el sitio web serán actualizados automáticamente.
 
-When the branch listed in the left column of the table below is updated, the branch and website will be updated automatically.
-
-| branch | A branch where HTML is built and updated | Website updated |
+| Rama | Una rama donde el HTML es construido y actualizado | Sitio web actualizado |
 | ---- | ---- | ---- |
-|`master`|`production`|The production site https://stopcovid19.metro.tokyo.lg.jp/|
-|`staging`|`gh-pages`|The staging site https://stg-covid19-tokyo.netlify.app/|
-|`development`|`dev-pages`|The development site https://dev-covid19-tokyo.netlify.app/|
+|`master`|`production`|El sitio de producción https://stopcovid19.metro.tokyo.lg.jp/|
+|`staging`|`gh-pages`|El sitio de staging https://stg-covid19-tokyo.netlify.app/|
+|`development`|`dev-pages`|El sitio de desarrollo https://dev-covid19-tokyo.netlify.app/|
 
 ---
 
-## 5. Branch rules
+## 5. Reglas para ramas
 
-Pull Request is allowed only for `development`.
-Please use the following naming rules for the branch when sending a Pull Request.
+Los Pull Request se hacen únicamente para `development`.
+Por favor usa las siguientes reglas de nombrado para la rama al enviar un Pull Request.
 
-| Types of changes | Naming rules for the branch |
+| Tipo de cambios | Reglas de nombrado para la rama |
 | ---- | ---- |
 |Feature implementation|`feature/#{ISSUE_ID}-#{branch_title_name}`|
 |Hotfix commit|`hotfix/#{ISSUE_ID}-#{branch_title_name}`|
 
-### 5-1. Basic branch
+### 5-1. Rama básica
 
-| Purpose | Branch | Confirmation URL | People who can make pull requests | Remarks |
+| Propósito | Rama | URL de confirmación | Personas que pueden hace Pull Request | Observaciones |
 | ---- | ---- | ---- | ---- | ---- |
-| Development | development | https://dev-covid19-tokyo.netlify.app/ | All developers | base branch. Basically send a Pull Request here |
-| Staging | staging | https://stg-covid19-tokyo.netlify.app/ | Only administrators | For final confirmation before production. Non-admin pull requests are prohibited. |
-| Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators | Pull Requests other than Administrators are prohibited |
+| Desarrollo | development | https://dev-covid19-tokyo.netlify.app/ | Todos los desarrolladores | Rama base. Envía los Pull Request aquí |
+| Staging | staging | https://stg-covid19-tokyo.netlify.app/ | Sólo administradores | Para confirmación final antes de producción. Prohibidos los Pull Request de quien no sea administrador |
+| Producción | master | https://stopcovid19.metro.tokyo.lg.jp/ | Sólo administradores | Prohibidos los Pull Request de quien no sea administrador |
 
-### 5-2. Branch used by the system
+### 5-2. Rama usada por el sistema
 
-| Purpose | Branch | Confirmation URL | Remarks |
+| Propósito | Rama | URL de confirmación | Observaciones |
 | ---- | -------- | ---- | ---- |
-| Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
-| Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | Where to find statically built HTML |
-| For OGP working directory | deploy / new_ogp | None | For updating OGP |
-
-[/PLEASE TRANSLATE ME]
+| HTML del sitio de producción | production | https://stopcovid19.metro.tokyo.lg.jp/ | Ubicación donde se localiza el HTML generado estáticamente |
+| Sitio HTML de staging | gh-pages | https://stg-covid19-tokyo.netlify.app/ | Dónde encontrar el HTML generado estáticamente |
+| Para el directorio de trabajo OGP | deploy / new_ogp | Ninguna | Para actualizar OGP |

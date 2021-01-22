@@ -3,7 +3,7 @@
     <div :class="$style.title">
       <covid-icon aria-hidden="true" />
       <page-header :class="$style.text">
-        {{ $t('新型コロナウイルス感染症が心配なときに') }}
+        {{ $t('新型コロナウイルス感染症が心配なときに.title') }}
       </page-header>
       <printer-button :wrapper-class="$style.printerButton" to="/print/flow" />
     </div>
@@ -149,11 +149,11 @@
               <dd :class="$style.overrideExternalLink">
                 <i18n path="{publicHealthCenter}に掲載しています">
                   <template v-slot:publicHealthCenter>
-                    <external-link
-                      url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+                    <app-link
+                      to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
                     >
                       {{ $t('各保健所の電話番号は福祉保健局HP') }}
-                    </external-link>
+                    </app-link>
                   </template>
                 </i18n>
               </dd>
@@ -299,16 +299,13 @@
       </div>
     </div>
     <div :class="$style.detail">
-      <a
-        href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
-        target="_blank"
+      <app-link
+        to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+        :icon-size="20"
+        :icon-class="$style.icon"
         :class="$style.detailButton"
-        rel="noopener noreferrer"
         >{{ $t('詳細を見る（東京都福祉保健局）') }}
-        <v-icon :class="$style.icon" size="2rem">
-          mdi-open-in-new
-        </v-icon>
-      </a>
+      </app-link>
     </div>
   </div>
 </template>
@@ -317,15 +314,16 @@
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import VueScrollTo from 'vue-scrollto'
-import CovidIcon from '@/static/covid.svg'
-import PrinterButton from '@/components/PrinterButton.vue'
+
+import AppLink from '@/components/AppLink.vue'
 import PageHeader from '@/components/PageHeader.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
-import FigCondSyDr from '@/static/flow/cond_sydr.svg'
-import FigCondSy from '@/static/flow/cond_sy.svg'
-import FigCondAnx from '@/static/flow/cond_anx.svg'
-import IconPhone from '@/static/flow/phone.svg'
+import PrinterButton from '@/components/PrinterButton.vue'
+import CovidIcon from '@/static/covid.svg'
 import IconBed from '@/static/flow/bed.svg'
+import FigCondAnx from '@/static/flow/cond_anx.svg'
+import FigCondSy from '@/static/flow/cond_sy.svg'
+import FigCondSyDr from '@/static/flow/cond_sydr.svg'
+import IconPhone from '@/static/flow/phone.svg'
 
 type LocalData = {
   nav: HTMLElement | null // アンカーリンクコンテナ（フローティング対象）
@@ -344,16 +342,17 @@ type LocalData = {
 }
 
 export default Vue.extend({
+  middleware: 'redirect',
   components: {
     CovidIcon,
     PrinterButton,
     PageHeader,
-    ExternalLink,
+    AppLink,
     FigCondSyDr,
     FigCondSy,
     FigCondAnx,
     IconPhone,
-    IconBed
+    IconBed,
   },
   data(): LocalData {
     const nav = null
@@ -383,7 +382,7 @@ export default Vue.extend({
       lowerTriggerOffsetTop,
       floatingOffset,
       forceFloating,
-      timerId
+      timerId,
     }
   },
   mounted() {
@@ -397,7 +396,7 @@ export default Vue.extend({
     )
     this.upperTrigger = this.$refs.upperTrigger as HTMLElement
     this.lowerTrigger = this.$refs.lowerTrigger as HTMLElement
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       // debounce
       if (self.timerId) {
         window.clearTimeout(self.timerId)
@@ -419,7 +418,7 @@ export default Vue.extend({
         .querySelector(`a.${this.$style.anchorLink}[href='${hash}']`)
         ?.classList.add(this.$style.active)
       VueScrollTo.scrollTo(hash, 300, {
-        offset: -(this.navH + this.floatingOffset + 1) // +1はIE11用サブピクセル対策
+        offset: -(this.navH + this.floatingOffset + 1), // +1はIE11用サブピクセル対策
       })
     }
   },
@@ -455,7 +454,7 @@ export default Vue.extend({
         this.startFloating()
 
         // 表示位置追従カレント処理
-        this.sections!.forEach(function(ele: HTMLElement, idx: number) {
+        this.sections!.forEach(function (ele: HTMLElement, idx: number) {
           const rect = ele.getBoundingClientRect()
           if (
             rect.top <= self.navH + self.floatingOffset + 10 &&
@@ -492,7 +491,7 @@ export default Vue.extend({
         onCancel() {
           self.forceFloating = false
           self.onBrowserRender()
-        }
+        },
       })
     },
     startFloating(): void {
@@ -511,21 +510,21 @@ export default Vue.extend({
     },
     resetNavCurrent(): void {
       const self = this
-      this.buttons!.forEach(function(ele: HTMLElement) {
+      this.buttons!.forEach(function (ele: HTMLElement) {
         if (ele.classList.contains(self.$style.active)) {
           ele.classList.remove(self.$style.active)
         }
       })
-    }
+    },
   },
   head(): any {
     const title: TranslateResult = this.$t(
-      '新型コロナウイルス感染症が心配なときに'
+      '新型コロナウイルス感染症が心配なときに.title'
     )
     return {
-      title
+      title,
     }
-  }
+  },
 })
 </script>
 
@@ -681,6 +680,9 @@ $margin: 20;
     position: fixed;
     top: 0;
     z-index: 1;
+    .fig {
+      display: none;
+    }
   }
 }
 .section {
@@ -881,7 +883,7 @@ $margin: 20;
     &:hover {
       color: $white !important;
     }
-    > .icon {
+    .icon {
       margin-left: 2px;
       color: $green-1 !important;
     }
@@ -891,8 +893,17 @@ $margin: 20;
 // 960
 @include lessThan(960) {
   .anchor {
+    padding-top: 2px;
     .anchorLink {
-      padding: 10px 10px 40px;
+      padding: 10px 10px 20px;
+      > svg {
+        margin-top: 1px;
+        max-width: 80px;
+        max-height: 80px;
+      }
+      &::after {
+        bottom: 5px;
+      }
     }
   }
   .boxes {

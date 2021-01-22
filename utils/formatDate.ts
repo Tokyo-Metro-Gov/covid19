@@ -6,7 +6,7 @@ import dayjs from 'dayjs'
  * @param dateString - Parsable string by dayjs
  */
 export const convertDatetimeToISO8601Format = (dateString: string): string => {
-  return dayjs(dateString).format('YYYY-MM-DDTHH:mm:ss')
+  return dayjs(dateString).format('YYYY-MM-DDTHH:mm:ss[+09:00]')
 }
 
 /**
@@ -50,10 +50,10 @@ export const convertDateToSimpleFormat = (dateString: string): string => {
  *
  * @param dateString- Parsable string by dayjs
  */
-export const getComplementedDate = (dateString: string): string => {
+export const getComplementedDate = (dateString: string): Date => {
   const dates = dateString.split('/')
   if (dates.length !== 2) {
-    return dateString
+    return new Date(dateString)
   }
   const month = Number(dates[0])
   const date = Number(dates[1])
@@ -62,9 +62,9 @@ export const getComplementedDate = (dateString: string): string => {
   const currentDate = today.getDate()
   let targetYear = today.getFullYear()
 
-  if (currentMonth <= month && currentDate <= date) {
+  if (currentMonth < month || (currentMonth === month && currentDate < date)) {
     targetYear -= 1
   }
 
-  return `${targetYear}/${month}/${date}`
+  return new Date(targetYear, month - 1, date)
 }

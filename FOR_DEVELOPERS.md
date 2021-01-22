@@ -6,7 +6,7 @@
 
 | アプリケーション名 | バージョン(指定がある場合のみ、記載する) | インストール条件 |
 | ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/ja/)|10.19.0以上|必須|
+|[Node.js](https://nodejs.org/ja/)|10.23.1以上|必須|
 |[Visual Studio Code](https://code.visualstudio.com/)| |Visual Studio Codeを利用する場合|
 |[yarn](https://classic.yarnpkg.com/ja/)| |本プログラムをyarnで実行する場合|
 |[docker compose](https://docs.docker.com/compose/install/)| |本プログラムをdocker composeで実行する場合|
@@ -109,6 +109,14 @@ $ vagrant up
 - Remote Container実行時のみ有効な拡張機能「ESLint」を導入していますが、必要に応じて`.devcontainer/devcontainer.json`の`extensions`に追加してください。
 詳細な手順は、[Managing extensions (外部サイト)](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)を参照してください。
 - 開発環境を再構築する場合は、左下部の「Rebuild Container」を実行してください。
+
+### 2-5. Gitpodで開発する場合
+
+以下のボタンを押し、GitHubアカウント認証をすると、自動的にリモート開発環境のセットアップが行われます。
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/tokyo-metropolitan-gov/covid19)
+
+無償ユーザーは月50時間まで利用できます。
 
 ---
 

@@ -1,14 +1,28 @@
 <template>
   <v-card class="DataView">
     <div class="DataView-Inner">
-      <div class="DataView-Header">
+      <div
+        class="DataView-Header"
+        :class="!!$slots.dataSetPanel ? 'with-dataSetPanel' : ''"
+      >
         <h3
           class="DataView-Title"
-          :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
+          :class="
+            !!$slots.infoPanel
+              ? 'with-infoPanel'
+              : !!$slots.dataSetPanel
+              ? 'with-dataSetPanel'
+              : ''
+          "
         >
           {{ title }}
         </h3>
-        <slot name="infoPanel" />
+        <div v-if="!!$slots.infoPanel" class="DataView-InfoPanel">
+          <slot name="infoPanel" />
+        </div>
+        <div v-if="!!$slots.dataSetPanel" class="DataView-DataSetPanel">
+          <slot name="dataSetPanel" />
+        </div>
       </div>
 
       <div v-if="this.$slots.attentionNote" class="DataView-AttentionNote">
@@ -44,11 +58,11 @@
         <div>
           <slot name="footer" />
           <div>
-            <a class="Permalink" :href="permalink">
+            <app-link class="Permalink" :to="permalink">
               <time :datetime="formattedDate">
                 {{ $t('{date} 更新', { date: formattedDateForDisplay }) }}
               </time>
-            </a>
+            </app-link>
           </div>
         </div>
 
@@ -66,59 +80,69 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+
+import AppLink from '@/components/AppLink.vue'
 import DataViewExpantionPanel from '@/components/DataViewExpantionPanel.vue'
 import DataViewShare from '@/components/DataViewShare.vue'
+import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
-  components: { DataViewExpantionPanel, DataViewShare },
+  components: { DataViewExpantionPanel, DataViewShare, AppLink },
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
-      default: ''
+      default: '',
     },
     date: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
+    headTitle: {
+      type: String,
+      default: '',
+    },
   },
   computed: {
     formattedDate(): string {
       return convertDatetimeToISO8601Format(this.date)
     },
     formattedDateForDisplay(): string {
-      return this.$d(new Date(this.date), 'dateTime')
+      return this.date !== '' ? this.$d(new Date(this.date), 'dateTime') : ''
     },
     permalink(): string {
-      const permalink = '/cards/' + this.titleId
+      const permalink = `/cards/${this.titleId}`
       return this.localePath(permalink)
-    }
+    },
   },
   head(): MetaInfo {
     // カードの個別ページの場合は、タイトルと更新時刻を`page/cards/_card`に渡す
     if (!this.$route.params.card) return {}
 
     return {
-      title: this.title,
+      title: this.headTitle ? this.headTitle : this.title,
       meta: [
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.title
+          content: this.headTitle ? this.headTitle : this.title,
         },
-        { hid: 'description', name: 'description', content: this.date },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.formattedDateForDisplay,
+        },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.date
-        }
-      ]
+          content: this.formattedDateForDisplay,
+        },
+      ],
     }
-  }
+  },
 })
 </script>
 
@@ -138,8 +162,13 @@ export default Vue.extend({
     }
 
     @include largerThan($large) {
+      justify-content: space-between;
       flex-flow: row;
       padding: 0;
+
+      &.with-dataSetPanel {
+        flex-flow: column;
+      }
     }
   }
 
@@ -158,13 +187,31 @@ export default Vue.extend({
     color: $gray-2;
     @include font-size(20);
 
+    &.with-dataSetPanel {
+      margin-bottom: 0;
+    }
+
     @include largerThan($large) {
       margin-bottom: 0;
 
       &.with-infoPanel {
-        width: 50%;
+        flex: 1 1 50%;
+        margin-right: 24px;
       }
     }
+
+    span {
+      display: inline-block;
+    }
+  }
+
+  &-InfoPanel {
+    flex: 1 1 50%;
+  }
+
+  &-DataSetPanel {
+    flex: 1 0 auto;
+    width: 100%;
   }
 
   &-Content {
@@ -180,14 +227,29 @@ export default Vue.extend({
     color: $gray-3;
     @include font-size(12);
 
-    &--Additional {
-      margin-bottom: 10px;
-    }
-
     ul,
     ol {
-      list-style-type: none;
-      padding: 0;
+      list-style: disc inside;
+      padding-left: 1em;
+
+      li {
+        margin-left: 1.5em;
+        text-indent: -1.5em;
+      }
+    }
+
+    .ListStyleNone {
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        margin-left: 0;
+        text-indent: 0;
+      }
+    }
+
+    &--Additional {
+      margin-bottom: 10px;
     }
   }
 
@@ -215,6 +277,12 @@ export default Vue.extend({
     color: $gray-3;
     @include font-size(12);
 
+    ul,
+    ol {
+      list-style-type: none;
+      padding: 0;
+    }
+
     .Permalink {
       color: $gray-3 !important;
     }
@@ -222,15 +290,6 @@ export default Vue.extend({
     .Footer-Right {
       display: flex;
       align-items: flex-end;
-    }
-  }
-
-  &-Description,
-  &-Footer {
-    ul,
-    ol {
-      list-style-type: none;
-      padding: 0;
     }
   }
 
@@ -244,31 +303,6 @@ export default Vue.extend({
 
     p {
       margin: 0;
-    }
-  }
-
-  .LegendStickyChart {
-    margin: 16px 0;
-    position: relative;
-    overflow: hidden;
-
-    .scrollable {
-      overflow-x: scroll;
-
-      &::-webkit-scrollbar {
-        height: 4px;
-        background-color: rgba(0, 0, 0, 0.01);
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.07);
-      }
-    }
-
-    .sticky-legend {
-      position: absolute;
-      top: 0;
-      pointer-events: none;
     }
   }
 }

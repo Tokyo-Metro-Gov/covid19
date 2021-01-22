@@ -96,47 +96,43 @@ import Vue from 'vue'
 /* eslint-disable vue/prop-name-casing */
 export default Vue.extend({
   props: {
-    検査実施人数: {
-      type: Number,
-      required: true
-    },
     陽性者数: {
       type: Number,
-      required: true
+      required: true,
     },
     入院中: {
       type: Number,
-      required: true
+      required: true,
     },
     軽症中等症: {
       type: Number,
-      required: true
+      required: true,
     },
     重症: {
       type: Number,
-      required: true
+      required: true,
     },
     宿泊療養: {
       type: Number,
-      required: true
+      required: true,
     },
     自宅療養: {
       type: Number,
-      required: true
+      required: true,
     },
     調査中: {
       type: Number,
-      required: true
+      required: true,
     },
     死亡: {
       type: Number,
-      required: true
+      required: true,
     },
     退院: {
       type: Number,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
 </script>
 

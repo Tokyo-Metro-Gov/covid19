@@ -1,73 +1,67 @@
 <template>
-  <div>
-    <card-row class="DataBlock">
-      <!-- 検査陽性者の状況 -->
-      <confirmed-cases-details-card />
-      <!-- 新規患者に関する報告件数の推移 -->
-      <confirmed-cases-number-card />
-      <!-- モニタリング指標 -->
-      <monitoring-status-overview-card />
-      <!-- モニタリング(1)新規陽性者数 -->
-      <monitoring-confirmed-cases-number-card />
-      <!-- モニタリング指標(2)新規陽性者における接触歴等不明率 -->
-      <untracked-rate-card />
-      <!-- モニタリング指標(3)週単位の陽性者増加比 -->
-      <confirmed-cases-increase-ratio-by-week-card />
-      <!-- モニタリング指標(4)重症患者数 -->
-      <severe-case-card />
-      <!-- モニタリング指標(5)入院患者数 -->
-      <hospitalized-number-card />
-      <!-- モニタリング指標(6)PCR検査の陽性率-->
-      <positive-rate-card />
-      <!-- モニタリング指標(7)受診相談窓口における相談件数 -->
-      <monitoring-consultation-desk-reports-number-card />
-    </card-row>
-  </div>
+  <cards-lazy-row :rows="rows" />
 </template>
 
 <script lang="ts">
+/* eslint-disable simple-import-sort/sort -- ブラウザでの表示順に合わせて各 card の component を import する */
 import Vue from 'vue'
-import CardRow from '@/components/cards/CardRow.vue'
-import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
-import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
-import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
-import PositiveRateCard from '~/components/cards/PositiveRateCard.vue'
-import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
-import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
-import ConfirmedCasesIncreaseRatioByWeekCard from '@/components/cards/ConfirmedCasesIncreaseRatioByWeekCard.vue'
-import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
-import MonitoringStatusOverviewCard from '@/components/cards/MonitoringStatusOverviewCard.vue'
-import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
+
+// 検査陽性者の状況
+const ConfirmedCasesDetailsCard = () =>
+  import('@/components/cards/ConfirmedCasesDetailsCard.vue')
+// 報告日別による陽性者数の推移
+const ConfirmedCasesNumberCard = () =>
+  import('@/components/cards/ConfirmedCasesNumberCard.vue')
+// モニタリング項目
+const MonitoringItemsOverviewCard = () =>
+  import('@/components/cards/MonitoringItemsOverviewCard.vue')
+// モニタリング項目(1)新規陽性者数
+const MonitoringConfirmedCasesNumberCard = () =>
+  import('@/components/cards/MonitoringConfirmedCasesNumberCard.vue')
+// モニタリング項目(2)#7119における発熱等相談件数
+const ConsultationAboutFeverNumberCard = () =>
+  import('@/components/cards/ConsultationAboutFeverNumberCard.vue')
+// モニタリング項目(3)新規陽性者における接触歴等不明者数
+const UntrackedRateCard = () =>
+  import('@/components/cards/UntrackedRateCard.vue')
+// モニタリング項目(4)検査の陽性率
+const PositiveRateCard = () => import('@/components/cards/PositiveRateCard.vue')
+// モニタリング項目(5)救急医療の東京ルールの適用件数
+const TokyoRulesApplicationNumberCard = () =>
+  import('@/components/cards/TokyoRulesApplicationNumberCard.vue')
+// モニタリング項目(6)入院患者数
+const HospitalizedNumberCard = () =>
+  import('@/components/cards/HospitalizedNumberCard.vue')
+// モニタリング項目(7)重症患者数
+const SevereCaseCard = () => import('@/components/cards/SevereCaseCard.vue')
+/* eslint-enable simple-import-sort/sort */
 
 export default Vue.extend({
-  components: {
-    CardRow,
-    MonitoringConfirmedCasesNumberCard,
-    UntrackedRateCard,
-    SevereCaseCard,
-    MonitoringConsultationDeskReportsNumberCard,
-    PositiveRateCard,
-    ConfirmedCasesDetailsCard,
-    ConfirmedCasesNumberCard,
-    ConfirmedCasesIncreaseRatioByWeekCard,
-    HospitalizedNumberCard,
-    MonitoringStatusOverviewCard
-  }
+  data() {
+    return {
+      rows: [
+        [ConfirmedCasesDetailsCard, ConfirmedCasesNumberCard],
+        [MonitoringItemsOverviewCard, MonitoringConfirmedCasesNumberCard],
+        [ConsultationAboutFeverNumberCard, UntrackedRateCard],
+        [PositiveRateCard, TokyoRulesApplicationNumberCard],
+        [HospitalizedNumberCard, SevereCaseCard],
+      ],
+    }
+  },
 })
 </script>
 
 <style lang="scss" scoped>
-.DataBlock {
-  margin: 20px -8px;
+.AttentionNote {
+  margin: 10px 0;
+  padding: 12px;
+  background-color: $emergency;
+  border-radius: 4px;
+  color: $gray-2;
+  @include font-size(12);
 
-  .DataCard {
-    @include largerThan($medium) {
-      padding: 10px;
-    }
-
-    @include lessThan($small) {
-      padding: 4px 8px;
-    }
+  p {
+    margin: 0;
   }
 }
 </style>

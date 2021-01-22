@@ -1,15 +1,29 @@
 <template>
   <div class="Parent">
     <page-header class="mb-3">
-      {{ $t('臨時休校中の新型コロナウイルス感染症対応についてのお願い') }}
+      {{ $t('新型コロナウイルス感染症対応についてのお願い') }}
     </page-header>
     <static-card>
       <h3>
-        <external-link
-          url="https://tokyodouga.jp/playlist/ohayoschool.html"
+        <app-link to="https://www.tgs.metro.tokyo.lg.jp/" :icon-size="24"
+          >{{ $t('TokyoGlobalStudio') }}
+        </app-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '英語を使う楽しさを体感できる動画コンテンツを、小学生・中学生・高校生向けに順次配信しています。'
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <app-link
+          to="https://tokyodouga.jp/playlist/ohayoschool.html"
           :icon-size="24"
           >{{ $t('TOKYOおはようスクール') }}
-        </external-link>
+        </app-link>
       </h3>
       <p>
         {{ $t('学校休校中の子供たちの生活や学習を応援するテレビ番組です。') }}
@@ -17,18 +31,16 @@
     </static-card>
     <static-card>
       <h3>
-        <external-link
-          url="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html"
+        <app-link
+          to="https://www.kyoiku.metro.tokyo.lg.jp/school/content/learning_support.html"
           :icon-size="24"
           >{{ $t('学びの支援サイト') }}
-        </external-link>
+        </app-link>
       </h3>
       <ul>
         <li>
           {{
-            $t(
-              '臨時休業期間における子供たちの学びを支援する様々なウェブサイトを紹介しています。'
-            )
+            $t('子供たちの学びを支援する様々なウェブサイトを紹介しています。')
           }}
         </li>
         <li>
@@ -53,11 +65,9 @@
         <li>
           {{ $t('手洗い、咳エチケット等により、感染予防に努めてください。')
           }}<br />
-          <external-link
-            url="https://tokyodouga.jp/lViN9C_BS-0.html"
-            :icon-size="16"
+          <app-link to="https://tokyodouga.jp/lViN9C_BS-0.html" :icon-size="16"
             >{{ $t('【参考】感染症予防のための正しい手洗い方法（動画）') }}
-          </external-link>
+          </app-link>
         </li>
         <li>
           {{
@@ -75,11 +85,11 @@
         <li>
           {{ $t('各保健所の電話番号について') }}
           <br />
-          <external-link
-            url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+          <app-link
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
             :icon-size="16"
             >{{ $t('「新型コロナウイルス感染症にかかる相談窓口について」') }}
-          </external-link>
+          </app-link>
         </li>
       </ul>
     </static-card>
@@ -93,20 +103,21 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import StaticCard from '@/components/StaticCard.vue'
+
+import AppLink from '@/components/AppLink.vue'
 import PageHeader from '@/components/PageHeader.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+import StaticCard from '@/components/StaticCard.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
     StaticCard,
-    ExternalLink
+    AppLink,
   },
   head(): MetaInfo {
     return {
-      title: this.$t('お子様をお持ちの皆様へ') as string
+      title: this.$t('お子様をお持ちの皆様へ') as string,
     }
-  }
+  },
 })
 </script>

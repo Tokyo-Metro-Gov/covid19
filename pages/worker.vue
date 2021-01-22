@@ -5,11 +5,11 @@
     </page-header>
     <static-card>
       <h3>
-        <external-link
-          url="https://covid19.supportnavi.metro.tokyo.lg.jp/"
+        <app-link
+          to="https://covid19.supportnavi.metro.tokyo.lg.jp/"
           :icon-size="24"
           >{{ $t('東京都 新型コロナウイルス感染症 支援情報ナビ') }}
-        </external-link>
+        </app-link>
       </h3>
       <p>
         {{
@@ -21,27 +21,75 @@
     </static-card>
     <static-card>
       <h3>
-        <external-link url="https://www.tokyo-kyugyo.com/" :icon-size="24"
-          >{{ $t('東京都感染拡大防止協力金') }}
-        </external-link>
+        <app-link
+          to="https://jitan.metro.tokyo.lg.jp/nov/index.html"
+          :icon-size="24"
+          >{{
+            $t('営業時間短縮に係る感染拡大防止協力金（11/28～12/17実施分）')
+          }}
+        </app-link>
       </h3>
       <p>
         {{
           $t(
-            '新型コロナウイルス感染拡大防止のため、都の要請や協力依頼に応じて、施設の使用停止や営業時間の短縮に全面的に協力いただける中小事業者の皆様に対し、協力金を支給いたします（支給額50万円〈2事業所以上で休業等に取り組む事業者は100万円〉）。'
+            '新型コロナウイルス感染拡大防止のため、特別区及び多摩地域の各市町村の飲食店等に営業時間の短縮要請が行われることに伴い、要請に全面的にご協力いただいた中小の事業者の皆様に対し、協力金を支給します。'
           )
         }}
       </p>
     </static-card>
     <static-card>
       <h3>
-        <external-link
-          url="https://smooth-biz.metro.tokyo.lg.jp/"
+        <app-link
+          to="https://jitan.metro.tokyo.lg.jp/dec/index.html"
           :icon-size="24"
+          >{{ $t('営業時間短縮に係る感染拡大防止協力金（12/18～1/7実施分）') }}
+        </app-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '新型コロナウイルス感染拡大防止のため、特別区及び多摩地域の各市町村の飲食店等に営業時間の短縮要請が行われることに伴い、要請に全面的にご協力いただいた中小の事業者の皆様に対し、協力金を支給します。'
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <app-link
+          to="https://www.sangyo-rodo.metro.tokyo.lg.jp/attention/2021/0107_14118.html"
+          :icon-size="24"
+          >{{ $t('営業時間短縮に係る感染拡大防止協力金（1/8～2/7実施分）') }}
+        </app-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '新型コロナウイルス感染拡大防止のため、緊急事態宣言が発令され、営業時間短縮が強化されることに伴い、要請に全面的にご協力いただける飲食事業者等に対し、新たに協力金を支給いたします。'
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <app-link to="https://tokyoyachin.metro.tokyo.lg.jp" :icon-size="24"
+          >{{ $t('東京都家賃等支援給付金') }}
+        </app-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '事業者における家賃等の負担を軽減し、事業の継続を下支えするため、国の家賃支援給付金に独自の上乗せ給付（３ヶ月分）を実施します。'
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <app-link to="https://smooth-biz.metro.tokyo.lg.jp/" :icon-size="24"
           >{{
             $t('新しいワークスタイルや企業活動の東京モデル「スムーズビズ」')
           }}
-        </external-link>
+        </app-link>
       </h3>
       <p>
         {{
@@ -57,20 +105,21 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import StaticCard from '@/components/StaticCard.vue'
+
+import AppLink from '@/components/AppLink.vue'
 import PageHeader from '@/components/PageHeader.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
+import StaticCard from '@/components/StaticCard.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
     StaticCard,
-    ExternalLink
+    AppLink,
   },
   head(): MetaInfo {
     return {
-      title: this.$t('企業の皆様・はたらく皆様へ') as string
+      title: this.$t('企業の皆様・はたらく皆様へ') as string,
     }
-  }
+  },
 })
 </script>

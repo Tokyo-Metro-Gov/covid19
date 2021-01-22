@@ -1,151 +1,212 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <data-table
-      :title="$t('陽性患者の属性')"
-      :title-id="'attributes-of-confirmed-cases'"
-      :chart-data="patientsTable"
-      :chart-option="{}"
-      :date="Data.patients.date"
-      :info="sumInfoOfPatients"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
-      :source="$t('オープンデータを入手')"
-      :custom-sort="customSort"
-    />
+    <client-only>
+      <data-table
+        :title="$t('陽性者の属性')"
+        :title-id="'attributes-of-confirmed-cases'"
+        :table-data="patientsTable"
+        :date="date"
+        :info="sumInfoOfPatients"
+        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+        :loaded="dataMargin >= 0"
+        :error="$fetchState.error"
+        :data-length="dataLength"
+        @on-change-items-per-page="onChangeItemsPerPage"
+        @on-change-page="onChangePage"
+      >
+        <template v-slot:tableBody="{ items, headers }">
+          <tbody>
+            <tr v-for="(item, i) in items" :key="i">
+              <th scope="row" class="text-start DataTable-cell">
+                {{ translateDate(item['公表日']) }}
+              </th>
+              <td
+                v-for="(header, j) in headers.slice(1)"
+                :key="j"
+                :class="`text-${header.align || 'start'} DataTable-cell`"
+              >
+                <template v-if="header.type === 'date'">
+                  {{ translateDate(item[header.value]) }}
+                </template>
+                <template v-else-if="header.type === 'age'">
+                  {{ translateAge(item[header.value]) }}
+                </template>
+                <template v-else>
+                  {{ translateWord(item[header.value]) }}
+                </template>
+              </td>
+            </tr>
+          </tbody>
+        </template>
+        <template v-slot:additionalDescription>
+          <span>{{ $t('（注）') }}</span>
+          <ul>
+            <li>
+              {{ $t('「確定日」は検査により陽性であることを医師が確認した日') }}
+            </li>
+            <li>
+              {{
+                $t(
+                  '「職業」「接触歴」「発症日」「確定日」は、10月1日以降の情報について週１回更新'
+                )
+              }}
+            </li>
+            <li>
+              {{
+                $t(
+                  '「退院」は、保健所から報告があり、確認ができているものを反映（死亡退院を含む）'
+                )
+              }}
+            </li>
+          </ul>
+        </template>
+      </data-table>
+    </client-only>
   </v-col>
 </template>
 
-<script>
+<script lang="ts">
+import dayjs from 'dayjs'
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+
+import DataTable from '@/components/DataTable.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
-import formatTable from '@/utils/formatTable'
-import DataTable from '@/components/DataTable.vue'
+import { DataType, formatTable, TableDateType } from '@/utils/formatTable'
 
-export default {
-  components: {
-    DataTable
-  },
+interface MetaData {
+  endCursor: string
+  updated: string
+}
+type Data = {
+  dataLength: number
+  sumInfoOfPatients: {
+    lText: string
+    sText: VueI18n.TranslateResult
+    unit: VueI18n.TranslateResult
+  }
+  date: string
+  page: number
+  itemsPerPage: 15 | 30 | 50 | 100 | 200 | 300 | 500 | 1000
+  endCursor: string
+  patientsData: DataType[]
+}
+type Methods = {
+  fetchOpenAPI: () => Promise<{ patientsData: DataType; metaData: MetaData }>
+  fetchIfNoCache: () => void
+  onChangeItemsPerPage: (itemsPerPage: Data['itemsPerPage']) => void
+  onChangePage: (page: number) => void
+  translateWord: (word: string) => string | VueI18n.TranslateResult
+  translateDate: (date: string) => string | VueI18n.TranslateResult
+  translateAge: (age: string) => VueI18n.TranslateResult
+}
+type Computed = {
+  patientsTable: TableDateType
+  dataMargin: number
+}
+type Props = {}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
+  components: { DataTable },
   data() {
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
-    // 感染者数
-    const patientsTable = formatTable(Data.patients.data)
-    // 日付
-    const date = patientsGraph[patientsGraph.length - 1].label
-
+    const lastData = patientsGraph[patientsGraph.length - 1]
+    const lastDay = this.$d(new Date(lastData.label), 'date')
+    const dataLength = lastData.cumulative
     const sumInfoOfPatients = {
-      lText: patientsGraph[
-        patientsGraph.length - 1
-      ].cumulative.toLocaleString(),
-      sText: this.$t('{date}の累計', { date }),
-      unit: this.$t('人')
+      lText: dataLength.toLocaleString(),
+      sText: this.$t('{date}の累計', { date: lastDay }),
+      unit: this.$t('人'),
     }
 
-    // 陽性患者の属性 ヘッダー翻訳
-    for (const header of patientsTable.headers) {
-      header.text =
-        header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
+    return {
+      dataLength,
+      sumInfoOfPatients,
+      date: '',
+      page: 1,
+      itemsPerPage: 15,
+      endCursor: '',
+      patientsData: [],
     }
-    // 陽性患者の属性 中身の翻訳
-    for (const row of patientsTable.datasets) {
-      row['居住地'] = this.getTranslatedWording(row['居住地'])
-      row['性別'] = this.getTranslatedWording(row['性別'])
-      row['退院'] = this.getTranslatedWording(row['退院'])
-
-      if (row['年代'].substr(-1, 1) === '代') {
-        const age = row['年代'].substring(0, 2)
-        row['年代'] = this.$t('{age}代', { age })
-      } else {
-        row['年代'] = this.$t(row['年代'])
-      }
-    }
-
-    const data = {
-      Data,
-      patientsTable,
-      sumInfoOfPatients
-    }
-    return data
   },
-  methods: {
-    getTranslatedWording(value) {
-      if (value === '-' || value === '‐' || value === '―' || value == null) {
-        // 翻訳しようとしている文字列が以下のいずれかだった場合、翻訳しない
-        // - 全角のハイフン
-        // - 半角のハイフン
-        // - 全角のダッシュ
-        // - null
-        return value
-      }
-
-      return this.$t(value)
+  computed: {
+    patientsTable() {
+      const end = this.page * this.itemsPerPage
+      const start = end - this.itemsPerPage
+      const currentPageData = this.patientsData.slice(start, end)
+      return formatTable(currentPageData)
     },
-    customSort(items, index, isDesc) {
-      const lt10 = this.$t('10歳未満').toString()
-      const lt100 = this.$t('100歳以上').toString()
-      const unknown = this.$t('不明').toString()
-      const investigating = this.$t('調査中').toString()
-      items.sort((a, b) => {
-        // 両者が等しい場合は 0 を返す
-        if (a[index[0]] === b[index[0]]) {
-          return 0
-        }
+    dataMargin() {
+      return this.patientsData.length - this.page * this.itemsPerPage
+    },
+  },
+  async fetch() {
+    const { patientsData, metaData } = await this.fetchOpenAPI()
+    this.patientsData = this.patientsData.concat(patientsData)
+    this.endCursor = metaData.endCursor
+    this.date = metaData.updated
+    this.fetchIfNoCache()
+  },
+  fetchOnServer: false, // i18nによる日付の変換ができないのでサーバーでは無効化
+  methods: {
+    async fetchOpenAPI() {
+      const endpoint = 'https://api.data.metro.tokyo.lg.jp'
+      const url =
+        `${endpoint}/v1/Covid19Patient?limit=${this.itemsPerPage}` +
+        (this.endCursor ? `&cursor=${encodeURIComponent(this.endCursor)}` : '')
 
-        let comparison = 0
-
-        // '10歳未満' < '10代' ... '90代' < '100歳以上' となるようにソートする
-        // 「10歳未満」同士を比較する場合、と「100歳以上」同士を比較する場合、更にそうでない場合に場合分け
-        if (
-          index[0] === '年代' &&
-          (a[index[0]] === lt10 || b[index[0]] === lt10)
-        ) {
-          comparison = a[index[0]] === lt10 ? -1 : 1
-        } else if (
-          index[0] === '年代' &&
-          (a[index[0]] === lt100 || b[index[0]] === lt100)
-        ) {
-          comparison = a[index[0]] === lt100 ? 1 : -1
-        } else {
-          comparison = String(a[index[0]]) < String(b[index[0]]) ? -1 : 1
-        }
-
-        // 公表日のソートを正しくする
-        if (index[0] === '公表日') {
-          // 2/29と3/1が正しくソートできないため、以下は使えない。
-          // 公表日に年まで含む場合は以下が使用可能になり、逆に今使用しているコードが使用不可能となる。
-          // comparison = new Date(a[index[0]]) < new Date(b[index[0]]) ? -1 : 1
-
-          const aDate = a[index[0]].split('/').map(d => {
-            return parseInt(d)
-          })
-          const bDate = b[index[0]].split('/').map(d => {
-            return parseInt(d)
-          })
-          comparison = aDate[1] > bDate[1] ? 1 : -1
-          if (aDate[0] > bDate[0]) {
-            comparison = 1
-          } else if (aDate[0] < bDate[0]) {
-            comparison = -1
-          }
-        }
-
-        // 「調査中」は年代に限らず、居住地にも存在するので、年代ソートの外に置いている。
-        // 内容としては、「不明」の次に高い(大きい)ものとして扱う。
-        // 日本語の場合、「調査中」は「不明」より低い(小さい)ものとして扱われるが、
-        // 他言語の場合はそうではないため、ここで統一している。
-        if (a[index[0]] === investigating || b[index[0]] === investigating) {
-          comparison = a[index[0]] === investigating ? 1 : -1
-        }
-
-        // 「不明」は年代に限らず、性別にも存在するので、年代ソートの外に置いている。
-        // 内容としては一番高い(大きい)ものとして扱う。
-        if (a[index[0]] === unknown || b[index[0]] === unknown) {
-          comparison = a[index[0]] === unknown ? 1 : -1
-        }
-
-        return isDesc[0] ? comparison * -1 : comparison
-      })
-      return items
-    }
-  }
+      return await fetch(url)
+        .then((response) => response.json())
+        .then((data) => ({ patientsData: data[0], metaData: data[1] }))
+        .catch((error) => {
+          throw new Error(error.toString())
+        })
+    },
+    fetchIfNoCache() {
+      // メモリ上に次ページのデータがなければ先読みしてページネーション時の待ち時間を減らす
+      if (this.dataMargin <= 0) setTimeout(() => this.$fetch(), 0)
+    },
+    onChangeItemsPerPage(itemsPerPage) {
+      this.itemsPerPage = itemsPerPage
+      this.endCursor = ''
+      this.patientsData = []
+      this.$fetch()
+    },
+    onChangePage(page) {
+      this.page = page
+      this.fetchIfNoCache()
+    },
+    translateDate(date) {
+      const day = dayjs(date)
+      if (!day.isValid()) return date
+      return this.$d(day.toDate(), 'date')
+    },
+    translateAge(_age) {
+      const [age, dai] = _age.split(/(代)$/, 2)
+      return dai ? this.$t('{age}代', { age }) : this.$t(_age)
+    },
+    translateWord(word) {
+      // 文字列が `null` or 以下の記号だった場合は翻訳しない
+      // 全角のハイフン, 半角のハイフン, 全角のダッシュ, 全角ハイフンマイナス
+      const notTranslateWords = ['-', '‐', '―', '－', null]
+      return notTranslateWords.includes(word) ? word : this.$t(word)
+    },
+  },
 }
+export default options
 </script>
+
+<style lang="scss" scoped>
+.DataTable-cell {
+  white-space: nowrap;
+}
+</style>

@@ -3,22 +3,17 @@
     <div class="WhatsNew-heading">
       <h3 class="WhatsNew-title">
         <v-icon size="2.4rem" class="WhatsNew-title-icon">
-          mdi-information
+          {{ mdiInformation }}
         </v-icon>
         {{ $t('最新のお知らせ') }}
       </h3>
       <div class="WhatsNew-linkGroup">
-        <link-to-information-about-emergency-measure v-if="isEmergency" />
+        <lazy-link-to-information-about-emergency-measure v-if="isEmergency" />
       </div>
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
-        <a
-          class="WhatsNew-list-item-anchor"
-          :href="item.url"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <app-link :to="item.url" class="WhatsNew-list-item-anchor">
           <time
             class="WhatsNew-list-item-anchor-time px-2"
             :datetime="formattedDate(item.date)"
@@ -27,52 +22,48 @@
           </time>
           <span class="WhatsNew-list-item-anchor-link">
             {{ item.text }}
-            <v-icon
-              v-if="!isInternalLink(item.url)"
-              class="WhatsNew-item-ExternalLinkIcon"
-              size="1.2rem"
-            >
-              mdi-open-in-new
-            </v-icon>
           </span>
-        </a>
+        </app-link>
       </li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
+import { mdiInformation } from '@mdi/js'
 import Vue from 'vue'
-import LinkToInformationAboutEmergencyMeasure from '@/components/LinkToInformationAboutEmergencyMeasure.vue'
 
+import AppLink from '@/components/AppLink.vue'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
-    LinkToInformationAboutEmergencyMeasure
+    AppLink,
   },
   props: {
     items: {
       type: Array,
-      required: true
+      required: true,
     },
     isEmergency: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
+    },
+  },
+  data() {
+    return {
+      mdiInformation,
     }
   },
   methods: {
-    isInternalLink(path: string): boolean {
-      return !/^https?:\/\//.test(path)
-    },
     formattedDate(dateString: string) {
       return convertDateToISO8601Format(dateString)
     },
     formattedDateForDisplay(dateString: string) {
       return this.$d(new Date(dateString), 'date')
-    }
-  }
+    },
+  },
 })
 </script>
 

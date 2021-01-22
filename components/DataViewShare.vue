@@ -34,9 +34,9 @@
       @click="stopClosingShareMenu"
     >
       <div class="Close-Button">
-        <v-icon :aria-label="$t('閉じる')" @click="closeShareMenu"
-          >mdi-close</v-icon
-        >
+        <v-icon :aria-label="$t('閉じる')" @click="closeShareMenu">
+          {{ mdiClose }}
+        </v-icon>
       </div>
 
       <h4>{{ $t('埋め込み用コード') }}</h4>
@@ -47,7 +47,7 @@
           class="EmbedCode-Copy"
           :aria-label="$t('クリップボードにコピー')"
           @click="copyEmbedCode"
-          >mdi-clipboard-outline</v-icon
+          >{{ mdiClipboardOutline }}</v-icon
         >
         {{ graphEmbedValue }}
       </div>
@@ -109,33 +109,36 @@
 </template>
 
 <script lang="ts">
+import { mdiClipboardOutline, mdiClose } from '@mdi/js'
 import Vue from 'vue'
 export default Vue.extend({
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
       openGraphEmbed: false,
       displayShare: false,
-      showOverlay: false
+      showOverlay: false,
+      mdiClipboardOutline,
+      mdiClose,
     }
   },
   computed: {
     graphEmbedValue(): string {
-      const graphEmbedValue =
-        '<iframe width="560" height="315" src="' +
-        this.permalink(true, true) +
-        '" frameborder="0"></iframe>'
+      const graphEmbedValue = `<iframe width="560" height="315" src="${this.permalink(
+        true,
+        true
+      )}" frameborder="0"></iframe>`
       return graphEmbedValue
-    }
+    },
   },
   watch: {
     displayShare(isShow: boolean) {
@@ -147,7 +150,7 @@ export default Vue.extend({
           this.toggleShareMenu
         )
       }
-    }
+    },
   },
   methods: {
     toggleShareMenu(e: Event) {
@@ -175,43 +178,38 @@ export default Vue.extend({
       e.stopPropagation()
     },
     permalink(host: boolean = false, embed: boolean = false) {
-      let permalink = '/cards/' + this.titleId
+      let permalink = `/cards/${this.titleId}`
       if (embed) {
-        permalink = permalink + '?embed=true'
+        permalink = `${permalink}?embed=true`
       }
       permalink = this.localePath(permalink)
 
       if (host) {
-        permalink = location.protocol + '//' + location.host + permalink
+        permalink = `${location.protocol}//${location.host}${permalink}`
       }
       return permalink
     },
     twitter() {
-      const url =
-        'https://twitter.com/intent/tweet?text=' +
-        this.title +
-        ' / ' +
-        this.$t('東京都') +
-        this.$t('新型コロナウイルス感染症') +
-        this.$t('対策サイト') +
-        '&url=' +
-        this.permalink(true) +
-        '&' +
-        'hashtags=StopCovid19JP'
+      const url = `https://twitter.com/intent/tweet?text=${
+        this.title
+      } / ${this.$t('東京都')}${this.$t('新型コロナウイルス感染症')}${this.$t(
+        '対策サイト'
+      )}&url=${this.permalink(true)}&hashtags=StopCovid19JP`
       window.open(url)
     },
     facebook() {
-      const url =
-        'https://www.facebook.com/sharer.php?u=' + this.permalink(true)
+      const url = `https://www.facebook.com/sharer.php?u=${this.permalink(
+        true
+      )}`
       window.open(url)
     },
     line() {
-      const url =
-        'https://social-plugins.line.me/lineit/share?url=' +
-        this.permalink(true)
+      const url = `https://social-plugins.line.me/lineit/share?url=${this.permalink(
+        true
+      )}`
       window.open(url)
-    }
-  }
+    },
+  },
 })
 </script>
 

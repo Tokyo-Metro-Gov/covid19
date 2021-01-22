@@ -14,7 +14,7 @@
         v-for="locale in $i18n.locales"
         :key="locale.code"
         :value="locale.code"
-        :title="'Switch to ' + locale.description"
+        :title="`Switch to ${locale.description}`"
       >
         {{ locale.name }}
       </option>
@@ -24,6 +24,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 import EarthIcon from '@/static/earth.svg'
 import SelectMenuIcon from '@/static/selectmenu.svg'
 
@@ -34,23 +35,23 @@ type LocalData = {
 export default Vue.extend({
   components: {
     EarthIcon,
-    SelectMenuIcon
+    SelectMenuIcon,
   },
   data(): LocalData {
     return {
-      currentLocaleCode: this.$root.$i18n.locale
+      currentLocaleCode: this.$root.$i18n.locale,
     }
   },
   watch: {
     '$root.$i18n.locale'(locale: string) {
       this.currentLocaleCode = locale
-    }
+    },
   },
   methods: {
     handleChangeLanguage() {
       this.$root.$i18n.setLocale(this.currentLocaleCode)
-    }
-  }
+    },
+  },
 })
 </script>
 

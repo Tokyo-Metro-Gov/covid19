@@ -28,10 +28,10 @@ jobs:
           python i18n_generator.py
           cd ..
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v2
+        uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update assets/locales/ja.json
-          title: Update transration files
+          title: Update translation files
           labels: auto_merge
           branch-suffix: 'short-commit-hash'

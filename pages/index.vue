@@ -1,25 +1,41 @@
 <template>
-  <div>
+  <div v-scroll="onScroll">
     <site-top-upper />
-    <cards-tabs />
-    <cards-monitoring v-if="this.$route.query.tab !== 'reference'" />
-    <cards-reference v-else />
+    <lazy-cards-tab v-if="$vuetify.breakpoint.smAndUp || showCardsTab" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import SiteTopUpper from '@/components/SiteTopUpper.vue'
-import CardsTabs from '@/components/CardsTabs.vue'
-import CardsMonitoring from '@/components/CardsMonitoring.vue'
-import CardsReference from '@/components/CardsReference.vue'
+import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
-export default Vue.extend({
-  components: {
-    SiteTopUpper,
-    CardsTabs,
-    CardsMonitoring,
-    CardsReference
-  }
-})
+type Data = {
+  showCardsTab: boolean
+}
+type Methods = {
+  onScroll: () => void
+}
+type Computed = {}
+type Props = {}
+
+const options: ThisTypedComponentOptionsWithRecordProps<
+  Vue,
+  Data,
+  Methods,
+  Computed,
+  Props
+> = {
+  data() {
+    return {
+      showCardsTab: false,
+    }
+  },
+  methods: {
+    onScroll() {
+      this.showCardsTab = true
+    },
+  },
+}
+
+export default options
 </script>

@@ -1,58 +1,81 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <confirmed-cases-by-municipalities-table
-      :title="$t('陽性患者数（区市町村別）')"
-      :title-id="'number-of-confirmed-cases-by-municipalities'"
-      :chart-data="municipalitiesTable"
-      :date="date"
-      :info="info"
-    >
-      <template v-slot:description>
-        <ul>
-          <li>
-            {{ $t('（注）前日までに発生した患者数の累計値') }}
-          </li>
-          <li>
-            {{
-              $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-            }}
-          </li>
-        </ul>
-      </template>
-    </confirmed-cases-by-municipalities-table>
+    <client-only>
+      <confirmed-cases-by-municipalities-table
+        :title="$t('陽性者数（区市町村別）')"
+        :title-id="'number-of-confirmed-cases-by-municipalities'"
+        :chart-data="municipalitiesTable"
+        :date="date"
+        :info="info"
+      >
+        <template v-slot:additionalDescription>
+          <span>{{ $t('（注）') }}</span>
+          <ul>
+            <li>
+              {{ $t('前日までに報告された陽性者数の累計値') }}
+            </li>
+            <li>
+              {{ $t('チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
+            </li>
+          </ul>
+        </template>
+      </confirmed-cases-by-municipalities-table>
+    </client-only>
   </v-col>
 </template>
 
 <script>
 import dayjs from 'dayjs'
+
 import Data from '@/data/patient.json'
 import ConfirmedCasesByMunicipalitiesTable from '~/components/ConfirmedCasesByMunicipalitiesTable.vue'
+import { getCommaSeparatedNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
+
+const countFormatter = getCommaSeparatedNumberToFixedFunction()
 
 export default {
   components: {
-    ConfirmedCasesByMunicipalitiesTable
+    ConfirmedCasesByMunicipalitiesTable,
   },
   data() {
-    // 区市町村ごとの陽性患者数
+    const { datasets, date } = Data
+
+    const formattedDate = dayjs(date).format('YYYY/MM/DD HH:mm')
+
+    // 区市町村ごとの陽性者数
     const municipalitiesTable = {
       headers: [],
-      datasets: []
+      datasets: [],
     }
 
     // ヘッダーを設定
-    municipalitiesTable.headers = [
-      { text: this.$t('地域'), value: 'area' },
-      { text: this.$t('ふりがな'), value: 'ruby' },
-      { text: this.$t('区市町村'), value: 'label' },
-      { text: this.$t('陽性患者数'), value: 'count', align: 'end' }
-    ]
+    if (this.$i18n.locale === 'ja') {
+      municipalitiesTable.headers = [
+        { text: this.$t('地域'), value: 'area' },
+        { text: this.$t('ふりがな'), value: 'ruby' },
+        { text: this.$t('区市町村'), value: 'label' },
+        { text: this.$t('陽性者数'), value: 'count', align: 'end' },
+      ]
+    } else {
+      municipalitiesTable.headers = [
+        { text: this.$t('地域'), value: 'area' },
+        { text: this.$t('区市町村'), value: 'label' },
+        { text: this.$t('陽性者数'), value: 'count', align: 'end' },
+      ]
+    }
 
     // データをソート
     const areaOrder = ['特別区', '多摩地域', '島しょ地域', null]
-    Data.datasets.data
+    datasets.data
       .sort((a, b) => {
         // 全体をふりがなでソート
-        return a.ruby === b.ruby ? 0 : a.ruby > b.ruby ? 1 : -1
+        if (a.ruby === b.ruby) {
+          return 0
+        } else if (a.ruby > b.ruby) {
+          return 1
+        } else {
+          return -1
+        }
       })
       .sort((a, b) => {
         // '特別区' -> '多摩地域' -> '島しょ地域' -> その他 の順にソート
@@ -60,33 +83,32 @@ export default {
       })
 
     // データを追加
-    for (const d of Data.datasets.data) {
-      // 「小計」は表示しない
-      if (d.label === '小計') {
-        continue
-      }
-      municipalitiesTable.datasets.push({
-        area: this.$t(d.area),
-        ruby: this.$t(d.ruby),
-        label: this.$t(d.label),
-        count: d.count
-      })
-    }
+    municipalitiesTable.datasets = datasets.data
+      .filter((d) => d.label !== '小計')
+      .map((d) => {
+        const area = this.$t(d.area)
+        const label = this.$t(d.label)
+        const count = countFormatter(d.count)
 
-    const date = dayjs(Data.date).format('YYYY/MM/DD HH:mm')
+        if (this.$i18n.locale === 'ja') {
+          const ruby = this.$t(d.ruby)
+          return { area, ruby, label, count }
+        } else {
+          return { area, label, count }
+        }
+      })
 
     const info = {
       sText: this.$t('{date}の累計', {
-        date: this.$d(new Date(Data.datasets.date), 'dateWithoutYear')
-      })
+        date: this.$d(new Date(datasets.date), 'date'),
+      }),
     }
 
     return {
-      Data,
-      date,
+      date: formattedDate,
       municipalitiesTable,
-      info
+      info,
     }
-  }
+  },
 }
 </script>

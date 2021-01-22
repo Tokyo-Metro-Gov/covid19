@@ -1,8 +1,5 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:description>
-      <slot name="description" />
-    </template>
     <v-data-table
       :ref="'displayedTable'"
       :headers="chartData.headers"
@@ -15,8 +12,11 @@
       :disable-sort="true"
       class="cardTable"
     />
+    <template v-slot:additionalDescription>
+      <slot name="additionalDescription" />
+    </template>
     <template v-slot:infoPanel>
-      <data-view-basic-info-panel
+      <data-view-data-set-panel
         :l-text="info.lText"
         :s-text="info.sText"
         :unit="info.unit"
@@ -27,32 +27,33 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 import DataView from '@/components/DataView.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
 
 export default Vue.extend({
-  components: { DataView, DataViewBasicInfoPanel },
+  components: { DataView, DataViewDataSetPanel },
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
-      default: ''
+      default: '',
     },
     chartData: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     date: {
       type: String,
-      default: ''
+      default: '',
     },
     info: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   mounted() {
     const vTables = this.$refs.displayedTable as Vue
@@ -63,6 +64,6 @@ export default Vue.extend({
     nodes.forEach((table: HTMLElement) => {
       table.setAttribute('tabindex', '0')
     })
-  }
+  },
 })
 </script>

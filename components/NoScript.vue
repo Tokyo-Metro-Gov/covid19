@@ -38,6 +38,14 @@
   <!--eslint-enable-->
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  //
+})
+</script>
+
 <style lang="scss" scoped>
 @include lessThan($small) {
   .noscript-body {
@@ -74,11 +82,3 @@
   z-index: 3;
 }
 </style>
-
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  //
-})
-</script>

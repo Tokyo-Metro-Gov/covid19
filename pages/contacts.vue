@@ -1,10 +1,19 @@
 <template>
-  <div class="Contacts">
-    <page-header class="mb-3">
+  <div
+    class="Contacts"
+    aria-labelledby="pageHeader"
+    aria-describedby="contactsCardTable"
+  >
+    <page-header id="pageHeader" class="mb-3">
       {{ $t('お問い合わせ先一覧') }}
     </page-header>
     <div class="Contacts-Card">
-      <table class="Contacts-Card-Table" v-bind="tableAttrs">
+      <table
+        id="contactsCardTable"
+        class="Contacts-Card-Table"
+        v-bind="tableAttrs"
+        aria-describedby="pageHeader"
+      >
         <thead>
           <tr>
             <th class="text-center" scope="col">
@@ -23,8 +32,7 @@
               {{ $t('新型コロナコールセンター') }}
             </td>
             <td class="tel">
-              <a href="tel:0570-550-571" class="importantContact"
-                >0570-550-571</a
+              <a href="tel:0570-550571" class="importantContact">0570-550571</a
               ><br />
               <p class="caution">
                 {{ $t(`午前9時00分から午後10時00分（土日祝含む）`) }}
@@ -40,9 +48,7 @@
           </tr>
           <tr>
             <td class="content importantContact" v-bind="headingAttrs">
-              {{
-                $t('特措法に定める要請・指示、感染拡大防止協力金等に関すること')
-              }}
+              {{ $t('東京都緊急事態措置等・感染拡大防止協力金等に関すること') }}
             </td>
             <td class="bureau importantContact">
               {{ $t('東京都緊急事態措置等・感染拡大防止協力金相談センター') }}
@@ -74,16 +80,12 @@
                 <li>
                   {{ $t('新型コロナウイルス感染症対策本部会議に関すること') }}
                   <br />
-                  <a href="tel:03-5388-2453">
-                    03-5388-2453
-                  </a>
+                  <a href="tel:03-5388-2453"> 03-5388-2453 </a>
                 </li>
                 <li>
                   {{ $t('都庁来庁者データに関すること') }}
                   <br />
-                  <a href="tel:03-5388-2319">
-                    03-5388-2319
-                  </a>
+                  <a href="tel:03-5388-2319"> 03-5388-2319 </a>
                 </li>
               </ul>
             </td>
@@ -179,15 +181,16 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+
 import PageHeader from '@/components/PageHeader.vue'
 
 export default Vue.extend({
   components: {
-    PageHeader
+    PageHeader,
   },
   data() {
     return {
-      pc: true
+      pc: true,
     }
   },
   computed: {
@@ -196,7 +199,7 @@ export default Vue.extend({
     },
     headingAttrs(): any {
       return this.pc ? {} : { role: 'heading', 'aria-level': '3' }
-    }
+    },
   },
   mounted() {
     if (process.browser) {
@@ -212,13 +215,13 @@ export default Vue.extend({
   methods: {
     handleResize() {
       this.pc = window.innerWidth > 768
-    }
+    },
   },
   head(): MetaInfo {
     return {
-      title: this.$t('お問い合わせ先一覧') as string
+      title: this.$t('お問い合わせ先一覧') as string,
     }
-  }
+  },
 })
 </script>
 

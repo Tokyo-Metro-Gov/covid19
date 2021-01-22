@@ -1,66 +1,93 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <data-view
-      :title="$t('検査陽性者の状況')"
-      :title-id="'details-of-confirmed-cases'"
-      :date="updatedAt"
-    >
-      <template v-slot:description>
-        <ul>
-          <li>
-            {{
-              $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない')
-            }}
-          </li>
-          <li>
-            {{
-              $t(
-                '（注）「重症」は、集中治療室（ICU）等での管理又は人工呼吸器管理が必要な患者数を計上'
-              )
-            }}
-          </li>
-          <li>
-            {{
-              $t(
-                '（注）退院者数の把握には一定の期間を要しており、確認次第数値を更新している'
-              )
-            }}
-          </li>
-        </ul>
-      </template>
-      <confirmed-cases-details-table
-        :aria-label="$t('検査陽性者の状況')"
-        v-bind="confirmedCases"
-      />
-    </data-view>
+    <client-only>
+      <data-view
+        :title="$t('検査陽性者の状況')"
+        :title-id="'details-of-confirmed-cases'"
+        :date="date"
+      >
+        <template v-slot:additionalDescription>
+          <span>{{ $t('（注）') }}</span>
+          <ul>
+            <li>
+              {{ $t('チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
+            </li>
+            <li>
+              {{
+                $t(
+                  '「重症」は、人工呼吸器管理（ECMOを含む）が必要な患者数を計上。'
+                )
+              }}
+              <app-link
+                to="https://www.bousai.metro.tokyo.lg.jp/_res/projects/default_project/_page_/001/011/435/7kai/202008207.pdf"
+              >
+                {{ $t('重症基準の考え方はこちら') }}
+              </app-link>
+            </li>
+            <li>
+              {{
+                $t(
+                  '退院者数の把握には一定の期間を要しており、確認次第数値を更新している'
+                )
+              }}
+            </li>
+          </ul>
+        </template>
+        <confirmed-cases-details-table
+          :aria-label="$t('検査陽性者の状況')"
+          v-bind="confirmedCases"
+        />
+        <div>
+          <app-link
+            :class="$style.button"
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/shibou.html"
+          >
+            {{ $t('死亡日別による死亡者数の推移はこちら') }}
+          </app-link>
+        </div>
+      </data-view>
+    </client-only>
   </v-col>
 </template>
 
 <script>
 import dayjs from 'dayjs'
+
+import AppLink from '@/components/AppLink.vue'
+import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
+import DataView from '@/components/DataView.vue'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
-import DataView from '@/components/DataView.vue'
-import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
 
 export default {
   components: {
     DataView,
-    ConfirmedCasesDetailsTable
+    ConfirmedCasesDetailsTable,
+    AppLink,
   },
   data() {
+    const mainSummary = Data.main_summary
     // 検査陽性者の状況
-    const confirmedCases = formatConfirmedCases(Data.main_summary)
+    const confirmedCases = formatConfirmedCases(mainSummary)
 
-    const updatedAt = dayjs(Data.main_summary.children[0].date).format(
-      'YYYY/MM/DD HH:mm'
-    )
+    const date = dayjs(mainSummary.children[0].date).format('YYYY/MM/DD HH:mm')
 
     return {
-      Data,
       confirmedCases,
-      updatedAt
+      date,
     }
-  }
+  },
 }
 </script>
+
+<style lang="scss" module>
+.button {
+  margin: 20px 0 0;
+  color: $green-1 !important;
+  &:hover {
+    color: $white !important;
+  }
+
+  @include button-text('sm');
+}
+</style>

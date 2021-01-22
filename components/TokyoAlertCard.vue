@@ -19,24 +19,19 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 import ActiveTokyoAlert from '@/components/ActiveTokyoAlert.vue'
 import tokyoAlert from '@/data/tokyo_alert.json'
 
 export default Vue.extend({
   components: {
-    ActiveTokyoAlert
-  },
-  props: {
-    items: {
-      type: Array,
-      required: true
-    }
+    ActiveTokyoAlert,
   },
   data() {
     return {
-      tokyoAlert
+      tokyoAlert,
     }
-  }
+  },
 })
 </script>
 
@@ -70,6 +65,7 @@ export default Vue.extend({
       flex-wrap: wrap;
       align-items: center;
       justify-content: flex-end;
+      padding-left: 12px;
 
       @include lessThan($medium) {
         justify-content: flex-start;

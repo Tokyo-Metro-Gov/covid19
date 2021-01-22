@@ -1,59 +1,67 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <metro-bar-chart
-      :title="$t('都営地下鉄の利用者数の推移')"
-      :title-id="'predicted-number-of-toei-subway-passengers'"
-      :chart-id="'metro-bar-chart'"
-      :chart-data="metroGraph"
-      :date="metroGraph.date"
-      :tooltips-title="metroGraphTooltipTitle"
-      :tooltips-label="metroGraphTooltipLabel"
-      unit="%"
-    >
-      <template v-slot:description>
-        {{
-          $t('{range}の利用者数*の平均値を基準としたときの相対値', {
-            range: metroGraph.base_period
-          })
-        }}
-        <br />
-        *{{ $t('都営地下鉄4路線の自動改札出場数') }}
-        <br />
-        {{
-          $t(
-            '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
-          )
-        }}
-      </template>
-    </metro-bar-chart>
+    <client-only>
+      <metro-bar-chart
+        :title="$t('都営地下鉄の利用者数の推移')"
+        :title-id="'predicted-number-of-toei-subway-passengers'"
+        :chart-id="'metro-bar-chart'"
+        :chart-data="metroGraph"
+        :date="metroGraph.date"
+        :items="metroGraph.labels"
+        :periods="metroGraph.periods"
+        :tooltips-title="metroGraphTooltipTitle"
+        :tooltips-label="metroGraphTooltipLabel"
+        unit="%"
+      >
+        <template v-slot:additionalDescription>
+          {{
+            $t('{range}の利用者数*の平均値を基準としたときの相対値', {
+              range: metroGraph.base_period,
+            })
+          }}
+          <br />
+          *{{ $t('都営地下鉄4路線の自動改札出場数') }}
+          <br />
+          {{
+            $t(
+              '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+            )
+          }}
+        </template>
+      </metro-bar-chart>
+    </client-only>
   </v-col>
 </template>
 
 <script>
-import Data from '@/data/data.json'
-import MetroData from '@/data/metro.json'
+import dayjs from 'dayjs'
+
 import MetroBarChart from '@/components/MetroBarChart.vue'
-import { getComplementedDate } from '@/utils/formatDate'
+import MetroData from '@/data/metro.json'
 
 export default {
   components: {
-    MetroBarChart
+    MetroBarChart,
   },
   data() {
     // 都営地下鉄の利用者数の推移
-    const datasets = MetroData.datasets.map(d => ({
+    const datasets = MetroData.datasets.map((d) => ({
       ...d,
-      label: this.getWeekLabel(d.label)
+      label: d.period.begin,
     }))
+    const periods = MetroData.datasets.map((d) =>
+      this.getWeekLabel(d.period.begin, d.period.end)
+    )
     const metroGraph = {
       ...MetroData,
-      datasets
+      datasets,
+      periods,
     }
 
     // metroGraph ツールチップ title文字列
     // this.$t を使うため metroGraphOption の外側へ
     const metroGraphTooltipTitle = (tooltipItems, _) => {
-      const duration = this.getWeekLabel(tooltipItems[0].label)
+      const duration = metroGraph.periods[tooltipItems[0].index]
       return this.$t('期間: {duration}', { duration })
     }
     // metroGraph ツールチップ label文字列
@@ -65,58 +73,25 @@ export default {
       return this.$t('{duration}の利用者数との相対値: {percentage}', {
         // duration = metroGraph.base_period = '1\/20~1\/24'
         duration: this.$t(metroGraph.base_period),
-        percentage
+        percentage,
       })
     }
 
     return {
-      Data,
       metroGraph,
       metroGraphTooltipTitle,
-      metroGraphTooltipLabel
+      metroGraphTooltipLabel,
     }
   },
   methods: {
     /**
      * 表の横軸に表示する、「MM/DD~MM/DD」形式のラベルを取得する
      */
-    getWeekLabel(label) {
-      const slashCount = label.split('/').length - 1
-      if (slashCount === 1) {
-        // MM/DD~DD形式だったので、「~」の後に「MM/」を追加する
-        let month = label.substr(0, label.indexOf('/'))
-
-        const startDate = Number(
-          label.substr(
-            label.indexOf('/') + 1,
-            label.indexOf('~') - label.indexOf('/') - 1
-          )
-        )
-        const endDate = Number(label.substr(label.indexOf('~') + 1))
-        if (startDate > endDate) {
-          const date = new Date()
-          date.setMonth(Number(month) + 1)
-          month = date.getMonth().toString()
-        }
-
-        label = label.replace('~', `~${month}/`)
-      }
-
-      const dates = label.split('~')
-      if (slashCount === 1 && dates.length === 2) {
-        const from = this.$d(
-          new Date(getComplementedDate(dates[0])),
-          'dateWithoutYear'
-        )
-        const to = this.$d(
-          new Date(getComplementedDate(dates[1])),
-          'dateWithoutYear'
-        )
-        return `${from}~${to}`
-      } else {
-        return `${dates[0]}~${dates[1]}`
-      }
-    }
-  }
+    getWeekLabel(begin, end) {
+      const from = this.$d(dayjs(begin).toDate(), 'dateWithoutYear')
+      const to = this.$d(dayjs(end).toDate(), 'dateWithoutYear')
+      return `${from}~${to}`
+    },
+  },
 }
 </script>

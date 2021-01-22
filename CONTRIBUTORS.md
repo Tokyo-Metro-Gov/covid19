@@ -171,6 +171,13 @@ Tokyo Covid-19 response site contributors
 | [yuu26](https://yuu26.com) | [@yuu26jp](https://github.com/yuu26jp) | [@m_on_yu](https://twitter.com/m_on_yu) | Coding |
 | Takayuki Inadome | [@InadomeLabo](https://github.com/InadomeLabo) | | Coding |
 | [MYUNG](https://1998.media) | [@1998code](https://github.com/1998code) | [@1998design](https://twitter.com/1998design) | Translation |
+| goki90210 | [@goki90210](https://github.com/goki90210) | | Coding, Code Reviewer |
+| Yu Muramatsu | [@Murayu0225](https://github.com/Murayu0225) | | Coding |
+| Pichu Chen ( g0v.tw / TIH.tw ) | [@PichuChen](https://github.com/PichuChen) | [@PichuChen](https://twitter.com/PichuChen) | i18n, Document Translation (zh-tw) |
+| [Masatoshi Ishihara](https://huxiin.ga/) | [@jSm449g4d](https://github.com/jSm449g4d) | | Kaizen |
+| Shoichiro Kawauchi | [@lacrosse91](https://github.com/lacrosse91) | | Coding |
+| [Yukiya Nagae](https://yukiya.me)  | [@yukiyalien](https://github.com/yukiyalien) | [@yukiyalien](https://twitter.com/yukiyalien) | Kaizen |
+| A_Certain_Shawn | [@certainShawn](https://github.com/certainShawn) | | Translation (JA-> CN) |
 
 ご協力に感謝です！！！
 
