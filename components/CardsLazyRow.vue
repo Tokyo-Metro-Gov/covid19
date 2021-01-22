@@ -77,13 +77,7 @@ export default options
   margin-top: 20px;
 
   .DataCard {
-    @include largerThan($medium) {
-      padding: 10px;
-    }
-
-    @include lessThan($small) {
-      padding: 4px 8px;
-    }
+    margin: 8px 0;
   }
 }
 </style>
