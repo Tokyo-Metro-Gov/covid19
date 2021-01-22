@@ -32,8 +32,8 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { LinkPropertyHref, MetaInfo } from 'vue-meta'
+import Vue from '@nuxt/types'
+import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
@@ -43,19 +43,14 @@ import Data from '@/data/data.json'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
-type LocalData = {
-  hasNavigation: boolean
-  isOpenNavigation: boolean
-  loading: boolean
-}
-export default Vue.extend({
+const options: Vue.NuxtConfig = {
   components: {
     DevelopmentModeMark,
     ScaleLoader,
     SideNavigation,
     NoScript,
   },
-  data(): LocalData {
+  data() {
     let hasNavigation = true
     let loading = true
     if (this.$route.query.embed === 'true') {
@@ -79,17 +74,17 @@ export default Vue.extend({
     this.getMatchMedia().removeListener(this.closeNavigation)
   },
   methods: {
-    openNavigation(): void {
+    openNavigation() {
       this.isOpenNavigation = true
     },
-    closeNavigation(): void {
+    closeNavigation() {
       this.isOpenNavigation = false
     },
-    getMatchMedia(): MediaQueryList {
+    getMatchMedia() {
       return window.matchMedia('(min-width: 601px)')
     },
   },
-  head(): MetaInfo {
+  head() {
     const { htmlAttrs, meta } = this.$nuxtI18nSeo()
     const ogLocale =
       meta && meta.length > 0
@@ -100,7 +95,7 @@ export default Vue.extend({
             content: this.$i18n.locale,
           }
 
-    let linksAlternate: LinkPropertyHref[] = []
+    let linksAlternate = htmlAttrs
     const basename = this.getRouteBaseName()
     // 404 エラーなどのときは this.getRouteBaseName() が null になるため除外
     if (basename) {
@@ -113,7 +108,7 @@ export default Vue.extend({
 
     const { lastUpdate } = Data
 
-    return {
+    const mInfo: MetaInfo = {
       htmlAttrs,
       link: [
         {
@@ -188,8 +183,10 @@ export default Vue.extend({
         },
       ],
     }
+    return mInfo
   },
-})
+}
+export default options
 </script>
 <style lang="scss">
 .app {

@@ -8,7 +8,7 @@ Install the following application to the environment for development.
 
 | Application name | Application version(Fill in only if specified) | Installation conditions |
 | ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/pt-br/)|10.19.0 ou mais nova|Required|
+|[Node.js](https://nodejs.org/pt-br/)|10.23.1 ou mais nova|Required|
 |[Visual Studio Code](https://code.visualstudio.com/)| |If you use Visual Studio Code|
 |[yarn](https://classic.yarnpkg.com/pt-BR/)| |When executing this program with `yarn`|
 |[docker compose](https://docs.docker.com/compose/install/)| |When executing this program with `docker compose`|

@@ -6,7 +6,7 @@ Instale las siguientes aplicaciones para el ambiente de desarrollo.
 
 | Nombre de la aplicación | Versión de la aplicación (Proporcionar sólo si se especifica) | Condiciones de instalación |
 | ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/es/)|10.19.0 o superior |Requerido|
+|[Node.js](https://nodejs.org/es/)|10.23.1 o superior |Requerido|
 |[Visual Studio Code](https://code.visualstudio.com/)| |si usas Visual Studio Code|
 |[yarn](https://classic.yarnpkg.com/es-ES/)| |Cuando se ejecuta este programa con `yarn`|
 |[docker compose](https://docs.docker.com/compose/install/)| |Cuando se ejecuta este programa con `docker compose`|
