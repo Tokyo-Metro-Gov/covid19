@@ -6,7 +6,7 @@
 
 | 應用程式名稱 | 應用程式版本(有特定版本才填寫) | 安裝要求 |
 | ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/zh-tw/)|10.19.0 以上|必要|
+|[Node.js](https://nodejs.org/zh-tw/)|10.23.1 以上|必要|
 |[Visual Studio Code](https://code.visualstudio.com/)| |如果你使用 Visual Studio Code|
 |[yarn](https://classic.yarnpkg.com/zh-Hant/)| |使用 `yarn` 執行本專案時|
 |[docker compose](https://docs.docker.com/compose/install/)| |使用 `docker compose` 直襲本專案時|
