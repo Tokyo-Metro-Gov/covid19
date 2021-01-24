@@ -2,7 +2,7 @@
   <component :is="cardComponent" />
 </template>
 
-<script lang="ts">
+<script>
 /* eslint-disable simple-import-sort/sort -- ブラウザでの表示順に合わせて各 card の component を import する */
 // ---- モニタリング項目
 // 検査陽性者の状況
@@ -46,13 +46,11 @@ import TokyoFeverConsultationCenterReportsNumberCard from '@/components/cards/To
 import MetroCard from '@/components/cards/MetroCard.vue'
 // 都庁来庁者数の推移
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+/* eslint-enable simple-import-sort/sort */
 
-import Vue from '@nuxt/types'
-import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
-import { convertDateToSimpleFormat } from '@/utils/formatDate'
 
-const options: Vue.NuxtConfig = {
+export default {
   components: {
     // ---- モニタリング項目
     ConfirmedCasesDetailsCard,
@@ -77,7 +75,6 @@ const options: Vue.NuxtConfig = {
     MetroCard,
     AgencyCard,
   },
-  /* eslint-enable simple-import-sort/sort */
   data() {
     let title, updatedAt, cardComponent
     switch (this.$route.params.card) {
@@ -174,20 +171,19 @@ const options: Vue.NuxtConfig = {
   head() {
     const url = 'https://stopcovid19.metro.tokyo.lg.jp'
     const timestamp = new Date().getTime()
+    const ogpImage =
+      this.$i18n.locale === 'ja'
+        ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
+        : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
+    const description = `${this.$t(
+      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+    )}`
     const defaultTitle = `${this.$t('東京都')} ${this.$t(
       '新型コロナウイルス感染症'
     )}${this.$t('対策サイト')}`
-    const ogpImage =
-      (this.$i18n.locale ?? 'ja-JP') === 'ja-JP'
-        ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
-        : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
 
-    const minfo: MetaInfo = {
-      title: `${
-        (this.title ?? '') !== ''
-          ? this.title + ' | ' + defaultTitle
-          : defaultTitle
-      }`,
+    return {
+      titleTemplate: (title) => `${this.title || title} | ${defaultTitle}`,
       link: [
         ...getLinksLanguageAlternative(
           `cards/${this.$route.params.card}`,
@@ -204,44 +200,42 @@ const options: Vue.NuxtConfig = {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: `${
-            (this.title ?? '') !== ''
-              ? this.title + ' | ' + defaultTitle
-              : defaultTitle
-          }`,
+          template: (title) =>
+            title !== ''
+              ? `${this.title || title} | ${defaultTitle}`
+              : `${defaultTitle}`,
+          content: '',
         },
         {
           hid: 'description',
-          property: 'description',
-          content: `${this.$t('{date} 更新', {
-            date: convertDateToSimpleFormat(this.updatedAt),
-          })}: ${this.$tc(
-            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
-          )}`,
+          name: 'description',
+          template: (updatedAt) =>
+            updatedAt !== ''
+              ? `${this.updatedAt || updatedAt} | ${description}`
+              : `${description}`,
+          content: '',
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: `${this.$t('{date} 更新', {
-            date: convertDateToSimpleFormat(this.updatedAt),
-          })}: ${this.$tc(
-            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
-          )}`,
+          template: (updatedAt) =>
+            updatedAt !== ''
+              ? `${this.updatedAt || updatedAt} | ${description}`
+              : `${description}`,
+          content: '',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `${ogpImage}`,
+          content: ogpImage,
         },
         {
           hid: 'twitter:image',
-          property: 'twitter:image',
-          content: `${ogpImage}`,
+          name: 'twitter:image',
+          content: ogpImage,
         },
       ],
     }
-    return minfo
   },
 }
-export default options
 </script>

@@ -32,8 +32,8 @@
 </template>
 
 <script lang="ts">
-import Vue from '@nuxt/types'
-import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
+import Vue from 'vue'
+import { LinkPropertyHref, MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
@@ -43,14 +43,19 @@ import Data from '@/data/data.json'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
-const options: Vue.NuxtConfig = {
+type LocalData = {
+  hasNavigation: boolean
+  isOpenNavigation: boolean
+  loading: boolean
+}
+export default Vue.extend({
   components: {
     DevelopmentModeMark,
     ScaleLoader,
     SideNavigation,
     NoScript,
   },
-  data() {
+  data(): LocalData {
     let hasNavigation = true
     let loading = true
     if (this.$route.query.embed === 'true') {
@@ -74,17 +79,17 @@ const options: Vue.NuxtConfig = {
     this.getMatchMedia().removeListener(this.closeNavigation)
   },
   methods: {
-    openNavigation() {
+    openNavigation(): void {
       this.isOpenNavigation = true
     },
-    closeNavigation() {
+    closeNavigation(): void {
       this.isOpenNavigation = false
     },
-    getMatchMedia() {
+    getMatchMedia(): MediaQueryList {
       return window.matchMedia('(min-width: 601px)')
     },
   },
-  head() {
+  head(): MetaInfo {
     const { htmlAttrs, meta } = this.$nuxtI18nSeo()
     const ogLocale =
       meta && meta.length > 0
@@ -95,7 +100,7 @@ const options: Vue.NuxtConfig = {
             content: this.$i18n.locale,
           }
 
-    let linksAlternate = htmlAttrs
+    let linksAlternate: LinkPropertyHref[] = []
     const basename = this.getRouteBaseName()
     // 404 エラーなどのときは this.getRouteBaseName() が null になるため除外
     if (basename) {
@@ -108,7 +113,7 @@ const options: Vue.NuxtConfig = {
 
     const { lastUpdate } = Data
 
-    const mInfo: MetaInfo = {
+    return {
       htmlAttrs,
       link: [
         {
@@ -123,12 +128,12 @@ const options: Vue.NuxtConfig = {
       meta: [
         {
           hid: 'author',
-          property: 'author',
+          name: 'author',
           content: this.$tc('東京都'),
         },
         {
           hid: 'description',
-          property: 'description',
+          name: 'description',
           content: `${this.$t('{date} 更新', {
             date: convertDateToSimpleFormat(lastUpdate),
           })}: ${this.$tc(
@@ -171,22 +176,20 @@ const options: Vue.NuxtConfig = {
         },
         {
           hid: 'apple-mobile-web-app-title',
-          property: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
           content: `${this.$t('東京都')} ${this.$t(
             '新型コロナウイルス感染症'
           )} ${this.$t('対策サイト')}`,
         },
         {
           hid: 'twitter:image',
-          property: 'twitter:image',
+          name: 'twitter:image',
           content: this.$tc('ogp.og:image'),
         },
       ],
     }
-    return mInfo
   },
-}
-export default options
+})
 </script>
 <style lang="scss">
 .app {
