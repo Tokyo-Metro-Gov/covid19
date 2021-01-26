@@ -43,17 +43,24 @@ export default Vue.extend({
   border: 1px solid $gray-4;
   box-shadow: $shadow;
   border-radius: 4px;
-  padding: 0.5em 1em;
+  padding: 1.2em;
+
+  span {
+      white-space: pre-wrap;
+      font-weight: 700;
+  }
 
   @include font-size(14);
 
   &-Button {
     flex: 1 0 auto;
     text-align: right;
+    display: inline-block;
 
     > a {
       text-decoration: none;
       color: $green-1 !important;
+      font-size: 1.8rem !important;
       @include button-text('sm');
 
       &:hover {
