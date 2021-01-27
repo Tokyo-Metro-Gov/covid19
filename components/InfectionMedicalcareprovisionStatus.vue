@@ -6,7 +6,13 @@
       </h3>
     </div>
     <div class="InfectionMedicalcareprovisionStatus-Box">
-      <div class="InfectionMedicalcareprovisionStatus-Headline">感染状況</div>
+      <div class="InfectionMedicalcareprovisionStatus-Headline">
+        <app-link
+          to="https://www.fukushihoken.metro.tokyo.lg.jp/hodo/saishin/hassei.html"
+        >
+          {{ $t('感染状況') }}
+        </app-link>
+      </div>
       <div class="InfectionMedicalcareprovisionStatus-description">
         {{ $t('新規陽性者') }}<span>*,***人</span> / {{ $t('検査数')
         }}<span>**,***件</span>（**/**{{ $t('参考値') }}）、
@@ -17,7 +23,11 @@
     </div>
     <div class="InfectionMedicalcareprovisionStatus-Box">
       <div class="InfectionMedicalcareprovisionStatus-Headline">
-        {{ $t('医療提供体制') }}
+        <app-link
+          to="https://stopcovid19.metro.tokyo.lg.jp/cards/details-of-confirmed-cases/"
+        >
+          {{ $t('医療提供体制') }}
+        </app-link>
       </div>
       <div class="InfectionMedicalcareprovisionStatus-description">
         {{ $t('入院数') }}<span>*,***人</span> （{{ $t('確保病床数')

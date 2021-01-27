@@ -40,7 +40,7 @@
             <app-link
               to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
             >
-              {{ $t('最新のモニタリング項目の分析・総括コメントについて') }}
+              {{ $t('専門家による分析・総括コメントの詳細はこちら') }}
             </app-link>
           </div>
         </v-col>
