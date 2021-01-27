@@ -2,21 +2,27 @@
   <div class="InfectionMedicalcareprovisionStatus">
     <div class="InfectionMedicalcareprovisionStatus-heading">
       <h3 class="InfectionMedicalcareprovisionStatus-title">
-        感染状況・医療提供体制（サマリ） ****年**月**日時点
+        {{ $t('感染状況・医療提供体制（サマリ）') }} ****年**月**日時点
       </h3>
     </div>
     <div class="InfectionMedicalcareprovisionStatus-Box">
       <div class="InfectionMedicalcareprovisionStatus-Headline">感染状況</div>
       <div class="InfectionMedicalcareprovisionStatus-description">
-        新規陽性者*,***人／検査数**,***件（**/**参考値）、うち65歳以上の高齢者数***人、死亡者数*人、都外からの持込検体による陽性数**
+        {{ $t('新規陽性者') }}*,***人／{{
+          $t('検査数')
+        }}**,***件（**/**参考値）、{{ $t('うち65歳以上の高齢者数') }}***人、{{
+          $t('死亡者数')
+        }}*人、{{ $t('都外からの持込検体による陽性数') }}**
       </div>
     </div>
     <div class="InfectionMedicalcareprovisionStatus-Box">
       <div class="InfectionMedicalcareprovisionStatus-Headline">
-        医療提供体制
+        {{ $t('医療提供体制') }}
       </div>
       <div class="InfectionMedicalcareprovisionStatus-description">
-        入院数*,***人（確保病床数*,***床）、うち重症者数***人（うち重症病床数***床）
+        {{ $t('入院数') }}*,***人（{{ $t('確保病床数') }}*,***床）、{{
+          $t('うち重症者数')
+        }}***人（{{ $t('うち重症病床数') }}***床）
       </div>
     </div>
   </div>
