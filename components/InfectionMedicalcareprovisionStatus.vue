@@ -9,7 +9,7 @@
       <div class="InfectionMedicalcareprovisionStatus-Headline">感染状況</div>
       <div class="InfectionMedicalcareprovisionStatus-description">
         {{ $t('新規陽性者') }}<span>*,***人</span> / {{ $t('検査数')
-        }}<span>**,***件</span>（**/**参考値）、
+        }}<span>**,***件</span>（**/**{{ $t('参考値') }}）、
         {{ $t('うち65歳以上の高齢者数') }}<span>***人</span>、
         {{ $t('死亡者数') }}<span>*人</span>、
         {{ $t('都外からの持込検体による陽性数') }}<span>**</span>
