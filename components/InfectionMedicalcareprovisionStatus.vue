@@ -34,7 +34,7 @@
 .InfectionMedicalcareprovisionStatus {
   @include card-container();
 
-  padding: 10px;
+  padding: 8px 10px;
   margin-bottom: 10px;
 
   .InfectionMedicalcareprovisionStatus-heading {
@@ -46,10 +46,11 @@
     .InfectionMedicalcareprovisionStatus-title {
       display: flex;
       align-items: center;
-      padding: 5px;
+      padding: 0 4px 4px 4px;
       color: $gray-2;
 
       @include card-h2();
+      @include font-size(14);
     }
   }
 
@@ -66,13 +67,14 @@
       margin-bottom: 1px;
       color: $gray-3;
 
-      @include font-size(14);
+      @include font-size(12);
     }
 
     .InfectionMedicalcareprovisionStatus-description {
-      @include font-size(14);
+      @include font-size(12);
 
       padding: 3px 0 0 0;
+      margin: 0;
 
       > span {
         color: #008830;

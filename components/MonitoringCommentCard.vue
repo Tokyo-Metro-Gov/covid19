@@ -105,7 +105,7 @@ export default Vue.extend({
     .MonitoringComment-title {
       display: flex;
       align-items: center;
-      padding: 10px;
+      padding: 8px 10px;
       color: $gray-2;
       @include card-h2();
     }
@@ -127,14 +127,21 @@ export default Vue.extend({
 
   .MonitoringComment-comments {
     h4 {
-      margin-bottom: 10px;
+      margin-bottom: 1px;
       color: $gray-3;
       font-weight: normal;
 
       @include font-size(14);
     }
 
-    margin: 0 10px;
+    margin: 0 10px 0 10px;
+    padding: 2px;
+
+    .row {
+      .col {
+        padding: 3px;
+      }
+    }
   }
 }
 </style>
