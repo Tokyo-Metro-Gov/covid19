@@ -8,11 +8,11 @@
     <div class="InfectionMedicalcareprovisionStatus-Box">
       <div class="InfectionMedicalcareprovisionStatus-Headline">感染状況</div>
       <div class="InfectionMedicalcareprovisionStatus-description">
-        {{ $t('新規陽性者') }}*,***人／{{
-          $t('検査数')
-        }}**,***件（**/**参考値）、{{ $t('うち65歳以上の高齢者数') }}***人、{{
-          $t('死亡者数')
-        }}*人、{{ $t('都外からの持込検体による陽性数') }}**
+        {{ $t('新規陽性者') }}<span>*,***人</span> ／{{ $t('検査数')
+        }}<span>**,***件</span>（**/**参考値）、
+        {{ $t('うち65歳以上の高齢者数') }}<span>***人</span>、
+        {{ $t('死亡者数') }}<span>*人</span>、
+        {{ $t('都外からの持込検体による陽性数') }}<span>**</span>
       </div>
     </div>
     <div class="InfectionMedicalcareprovisionStatus-Box">
@@ -20,9 +20,9 @@
         {{ $t('医療提供体制') }}
       </div>
       <div class="InfectionMedicalcareprovisionStatus-description">
-        {{ $t('入院数') }}*,***人（{{ $t('確保病床数') }}*,***床）、{{
-          $t('うち重症者数')
-        }}***人（{{ $t('うち重症病床数') }}***床）
+        {{ $t('入院数') }}<span>*,***人</span> （{{ $t('確保病床数')
+        }}<span>*,***床</span>）、 {{ $t('うち重症者数')
+        }}<span>***人</span> （{{ $t('うち重症病床数') }}<span>***床</span>）
       </div>
     </div>
   </div>
@@ -53,6 +53,7 @@
   }
   .InfectionMedicalcareprovisionStatus-Box {
     overflow: hidden;
+    font-weight: bold;
     .InfectionMedicalcareprovisionStatus-Headline {
       float: left;
       text-align: center;
@@ -61,12 +62,14 @@
       border-color: #000;
       margin-bottom: 1px;
       color: $gray-3;
-      font-weight: normal;
       @include font-size(14);
     }
     .InfectionMedicalcareprovisionStatus-description {
-      padding: 1px;
+      padding: 3px 0 0 0;
       @include font-size(14);
+      > span {
+        color: #008830;
+      }
       > a {
         text-decoration: none;
         @include text-link();
