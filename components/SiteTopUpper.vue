@@ -16,6 +16,7 @@
       </div>
     </div>
     <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
+    <infection-medicalcareprovision-status />
     <monitoring-comment-card />
     <div class="row">
         <consultation />
