@@ -16,6 +16,7 @@
       </div>
     </div>
     <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
+    <infection-medicalcareprovision-status />
     <monitoring-comment-card />
     <lazy-tokyo-alert-card v-if="TokyoAlert.alert" />
     <lazy-static-info
