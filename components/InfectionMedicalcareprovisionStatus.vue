@@ -8,7 +8,7 @@
     <div class="InfectionMedicalcareprovisionStatus-Box">
       <div class="InfectionMedicalcareprovisionStatus-Headline">感染状況</div>
       <div class="InfectionMedicalcareprovisionStatus-description">
-        {{ $t('新規陽性者') }}<span>*,***人</span> ／{{ $t('検査数')
+        {{ $t('新規陽性者') }}<span>*,***人</span> / {{ $t('検査数')
         }}<span>**,***件</span>（**/**参考値）、
         {{ $t('うち65歳以上の高齢者数') }}<span>***人</span>、
         {{ $t('死亡者数') }}<span>*人</span>、
@@ -48,12 +48,15 @@
       align-items: center;
       padding: 5px;
       color: $gray-2;
+
       @include card-h2();
     }
   }
+
   .InfectionMedicalcareprovisionStatus-Box {
     overflow: hidden;
     font-weight: bold;
+
     .InfectionMedicalcareprovisionStatus-Headline {
       float: left;
       text-align: center;
@@ -62,17 +65,23 @@
       border-color: #000;
       margin-bottom: 1px;
       color: $gray-3;
+
       @include font-size(14);
     }
+
     .InfectionMedicalcareprovisionStatus-description {
-      padding: 3px 0 0 0;
       @include font-size(14);
+
+      padding: 3px 0 0 0;
+
       > span {
         color: #008830;
       }
+
       > a {
-        text-decoration: none;
         @include text-link();
+
+        text-decoration: none;
       }
     }
   }
