@@ -5,36 +5,44 @@
         {{ $t('感染状況・医療提供体制の分析') }}
       </h3>
     </div>
-    <div class="MonitoringComment-description">
-      <p>
-        {{
-          $t(
-            '東京都では、都内の「感染状況」と「医療提供体制」を2つの柱として7つのモニタリング項目を設定しています。毎週、専門家による状況分析を項目ごとに行い、都内の感染状況と医療提供体制それぞれについて「総括コメント」として4段階で評価します。最新の総括コメントは以下のとおりです。'
-          )
-        }}
-      </p>
-      <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
-      <app-link
-        to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
-      >
-        {{ $t('最新のモニタリング項目の分析・総括コメントについて') }}
-      </app-link>
-    </div>
     <div class="MonitoringComment-comments">
       <v-row>
-        <v-col cols="12" sm="12" md="6" lg="6">
-          <h4>{{ $t('感染状況') }}</h4>
-          <monitoring-comment-frame
-            :level="monitoringComment['総括コメント-感染状況'].level - 1"
-            :comment="commentMonitoring('総括コメント-感染状況')"
-          />
+        <v-col>
+          <v-col cols="12">
+            <h4>{{ $t('感染状況') }}</h4>
+            <monitoring-comment-frame
+              :level="monitoringComment['総括コメント-感染状況'].level - 1"
+              :comment="commentMonitoring('総括コメント-感染状況')"
+            />
+          </v-col>
+          <v-col cols="12">
+            <h4>{{ $t('医療提供体制') }}</h4>
+            <monitoring-comment-frame
+              :level="monitoringComment['総括コメント-医療提供体制'].level - 1"
+              :comment="commentMonitoring('総括コメント-医療提供体制')"
+            />
+          </v-col>
         </v-col>
-        <v-col cols="12" sm="12" md="6" lg="6">
-          <h4>{{ $t('医療提供体制') }}</h4>
-          <monitoring-comment-frame
-            :level="monitoringComment['総括コメント-医療提供体制'].level - 1"
-            :comment="commentMonitoring('総括コメント-医療提供体制')"
-          />
+        <v-col>
+          <div class="MonitoringComment-description">
+            <div class="MonitoringComment-slide">
+              <app-link
+                to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
+              >
+                <img
+                  width="240px"
+                  alt="モニタリング項目サマリ"
+                  src="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.images/0121bunseki.JPG"
+                />
+              </app-link>
+            </div>
+            <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
+            <app-link
+              to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
+            >
+              {{ $t('最新のモニタリング項目の分析・総括コメントについて') }}
+            </app-link>
+          </div>
         </v-col>
       </v-row>
     </div>
@@ -85,8 +93,8 @@ export default Vue.extend({
 .MonitoringComment {
   @include card-container();
 
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 5px;
+  margin-bottom: 10px;
 
   .MonitoringComment-heading {
     display: flex;
@@ -97,19 +105,23 @@ export default Vue.extend({
     .MonitoringComment-title {
       display: flex;
       align-items: center;
-      padding: 12px;
+      padding: 10px;
       color: $gray-2;
       @include card-h2();
     }
   }
 
   .MonitoringComment-description {
-    padding: 12px;
+    padding: 6px;
+    text-align: center;
 
     @include font-size(14);
     > a {
       text-decoration: none;
       @include text-link();
+    }
+    .MonitoringComment-slide {
+      text-align: center;
     }
   }
 
