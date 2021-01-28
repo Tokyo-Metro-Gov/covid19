@@ -7,28 +7,35 @@
           >{{ mdiChevronRight }}</v-icon
         >
       </div>
-      <div class="StayingPopulation-place">新宿</div>
+      <div class="StayingPopulation-place" v-if="['ja', 'ja-basic'].includes($i18n.locale)">{{ placeName['@ja'] }}</div>
+      <div class="StayingPopulation-place" v-else>{{ placeName['@en'] }}</div>
       <div class="StayingPopulation-state">
-        [ ****年**月**日時点 ]<br />
-        ****年**月比↓**％<br />
-        ****年**月比↓**％<br />
+        [ {{ date }}時点 ]<br />
+        <span v-for="data in StayingPopulation.data.data">
+            {{ data['reference_date'] | formatDate }}比↓{{ data['increase_rate'] }}％<br />
+        </span>
       </div>
     </div>
   </v-col>
 </template>
 
 <script lang="ts">
+import dayjs from 'dayjs'
 import Vue from 'vue'
+
+import StayingPopulation from '@/data/staying_population.json'
 
 export default Vue.extend({
   data() {
     return {
-      showStaticInfo: false,
+      StayingPopulation,
+      placeName: StayingPopulation.data.place.display,
+      date: dayjs(StayingPopulation.data['date']).format('YYYY年MM月DD')
     }
   },
-  methods: {
-    onScroll() {
-      this.showStaticInfo = true
+  filters: {
+    formatDate: function(text) {
+      return dayjs(text).format('YYYY/MM');
     },
   },
 })
