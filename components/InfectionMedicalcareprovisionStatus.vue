@@ -2,7 +2,8 @@
   <div class="InfectionMedicalcareprovisionStatus">
     <div class="InfectionMedicalcareprovisionStatus-heading">
       <h3 class="InfectionMedicalcareprovisionStatus-title">
-        {{ $t('感染状況・医療提供体制（サマリ）') }} ****年**月**日時点
+        {{ $t('感染状況・医療提供体制（サマリ）') }}
+        {{ date }}時点
       </h3>
     </div>
     <div class="InfectionMedicalcareprovisionStatus-Box">
@@ -14,11 +15,22 @@
         </app-link>
       </div>
       <div class="InfectionMedicalcareprovisionStatus-description">
-        {{ $t('新規陽性者') }}<span>*,***人</span> / {{ $t('検査数')
-        }}<span>**,***件</span>（**/**{{ $t('参考値') }}）、
-        {{ $t('うち65歳以上の高齢者数') }}<span>***人</span>、
-        {{ $t('死亡者数') }}<span>*人</span>、
-        {{ $t('都外からの持込検体による陽性数') }}<span>**</span>
+        {{ $t('新規陽性者')
+        }}<span>{{ statuses.data['新規陽性者'].toLocaleString() }}人</span> /
+        {{ $t('検査数')
+        }}<span>{{ statuses.data['検査数'].toLocaleString() }}件</span>（{{
+          statisticDate
+        }}{{ $t('参考値') }}）、 {{ $t('うち65歳以上の高齢者数')
+        }}<span
+          >{{
+            statuses.data['うち65歳以上の高齢者数'].toLocaleString()
+          }}人</span
+        >、 {{ $t('死亡者数')
+        }}<span>{{ statuses.data['死亡者数'].toLocaleString() }}人</span>、
+        {{ $t('都外からの持込検体による陽性数')
+        }}<span>{{
+          statuses.data['都外からの持込検体による陽性数'].toLocaleString()
+        }}</span>
       </div>
     </div>
     <div class="InfectionMedicalcareprovisionStatus-Box">
@@ -30,15 +42,40 @@
         </app-link>
       </div>
       <div class="InfectionMedicalcareprovisionStatus-description">
-        {{ $t('入院数') }}<span>*,***人</span> （{{ $t('確保病床数')
-        }}<span>*,***床</span>）、 {{ $t('うち重症者数')
-        }}<span>***人</span> （{{ $t('うち重症病床数') }}<span>***床</span>）
+        {{ $t('入院数')
+        }}<span>{{ statuses.data['入院数'].toLocaleString() }}人</span> （{{
+          $t('確保病床数')
+        }}<span>{{ statuses.data['確保病床数'].toLocaleString() }}床</span>）、
+        {{ $t('うち重症者数')
+        }}<span>{{ statuses.data['うち重症者数'].toLocaleString() }}人</span>
+        （{{ $t('うち重症病床数')
+        }}<span>{{ statuses.data['うち重症病床数'].toLocaleString() }}床</span
+        >）
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts"></script>
+<script lang="ts">
+import dayjs from 'dayjs'
+import Vue from 'vue'
+
+import InfectionMedicalcareprovisionStatus from '@/data/infection_medicalcareprovision_status.json'
+
+export default Vue.extend({
+  data() {
+    return {
+      statuses: InfectionMedicalcareprovisionStatus,
+      date: dayjs(InfectionMedicalcareprovisionStatus.date).format(
+        'YYYY年MM月DD日'
+      ),
+      statisticDate: dayjs(
+        InfectionMedicalcareprovisionStatus.data['検査統計日時']
+      ).format('MM/DD'),
+    }
+  },
+})
+</script>
 
 <style lang="scss">
 .InfectionMedicalcareprovisionStatus {
