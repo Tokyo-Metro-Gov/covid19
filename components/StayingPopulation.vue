@@ -12,7 +12,7 @@
       <div class="StayingPopulation-state">
         [ {{ date }}時点 ]<br />
         <span v-for="data in StayingPopulation.data.data">
-            {{ data['reference_date'] | formatDate }}比↓{{ data['increase_rate'] }}％<br />
+            {{ data['reference_date'] | formatDate }}比 {{ data['increase_rate'] | arrow }}％<br />
         </span>
       </div>
     </div>
@@ -37,6 +37,10 @@ export default Vue.extend({
     formatDate: function(text) {
       return dayjs(text).format('YYYY/MM');
     },
+    arrow: function(increase_rate) {
+        if (!increase_rate == 0) return 0;
+        return ((increase_rate > 0) ? '↑' : '↓')+Math.abs(increase_rate);
+    }
   },
 })
 </script>
