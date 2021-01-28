@@ -16,9 +16,10 @@
       </div>
     </div>
     <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
+    <infection-medicalcareprovision-status />
     <monitoring-comment-card />
     <div class="row mb-4">
-      <consultation />
+      <staying-population />
       <consultation />
     </div>
   </div>
@@ -32,6 +33,7 @@ import { MetaInfo } from 'vue-meta'
 import Consultation from '@/components/Consultation.vue'
 import MonitoringCommentCard from '@/components/MonitoringCommentCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import StayingPopulation from '@/components/StayingPopulation.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
@@ -44,6 +46,7 @@ export default Vue.extend({
     WhatsNew,
     MonitoringCommentCard,
     Consultation,
+    StayingPopulation,
   },
   data() {
     const { lastUpdate } = Data
