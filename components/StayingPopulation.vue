@@ -34,11 +34,11 @@ export default Vue.extend({
     }
   },
   filters: {
-    formatDate: function(text) {
+    formatDate: function(text: string) {
       return dayjs(text).format('YYYY/MM');
     },
-    arrow: function(increase_rate) {
-        if (!increase_rate == 0) return 0;
+    arrow: function(increase_rate: number) {
+        if (increase_rate == 0) return 0;
         return ((increase_rate > 0) ? '↑' : '↓')+Math.abs(increase_rate);
     }
   },
