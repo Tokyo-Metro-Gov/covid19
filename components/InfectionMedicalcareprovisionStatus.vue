@@ -3,7 +3,7 @@
     <div class="InfectionMedicalcareprovisionStatus-heading">
       <h3 class="InfectionMedicalcareprovisionStatus-title">
         {{ $t('感染状況・医療提供体制（サマリ）') }}
-        {{ date.format('YYYY年MM月DD日') }}時点
+        {{ date }}時点
       </h3>
     </div>
     <div class="InfectionMedicalcareprovisionStatus-Box">
@@ -19,7 +19,7 @@
         }}<span>{{ statuses.data['新規陽性者'].toLocaleString() }}人</span> /
         {{ $t('検査数')
         }}<span>{{ statuses.data['検査数'].toLocaleString() }}件</span>（{{
-          date.format('MM/DD')
+          statisticDate
         }}{{ $t('参考値') }}）、 {{ $t('うち65歳以上の高齢者数')
         }}<span
           >{{
@@ -66,7 +66,12 @@ export default Vue.extend({
   data() {
     return {
       statuses: InfectionMedicalcareprovisionStatus,
-      date: dayjs(InfectionMedicalcareprovisionStatus.date),
+      date: dayjs(InfectionMedicalcareprovisionStatus.date).format(
+        'YYYY年MM月DD日'
+      ),
+      statisticDate: dayjs(
+        InfectionMedicalcareprovisionStatus.data['検査統計日時']
+      ).format('MM/DD'),
     }
   },
 })
