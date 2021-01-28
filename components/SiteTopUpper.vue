@@ -1,5 +1,5 @@
 <template>
-  <div v-scroll="onScroll" class="MainPage">
+  <div class="MainPage">
     <div class="Header mb-3">
       <page-header :icon-path="headerItem.iconPath">{{
         headerItem.title
@@ -18,7 +18,7 @@
     <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
     <infection-medicalcareprovision-status />
     <monitoring-comment-card />
-    <div class="row">
+    <div class="row mb-4">
       <staying-population />
       <consultation />
     </div>
@@ -59,7 +59,6 @@ export default Vue.extend({
       },
       lastUpdate,
       newsItems: News.newsItems,
-      showStaticInfo: false,
     }
   },
   computed: {
@@ -68,11 +67,6 @@ export default Vue.extend({
     },
     formattedDateForDisplay() {
       return `${this.$d(new Date(this.$data.lastUpdate), 'dateTime')} JST`
-    },
-  },
-  methods: {
-    onScroll() {
-      this.showStaticInfo = true
     },
   },
   head(): MetaInfo {
