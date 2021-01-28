@@ -46,8 +46,8 @@ export default Vue.extend({
   padding: 1.2em;
 
   span {
-      white-space: pre-wrap;
-      font-weight: 700;
+    white-space: pre-wrap;
+    font-weight: 700;
   }
 
   @include font-size(14);
@@ -60,8 +60,18 @@ export default Vue.extend({
     > a {
       text-decoration: none;
       color: $green-1 !important;
-      font-size: 1.8rem !important;
       @include button-text('sm');
+      @include font-size(15);
+
+      .v-icon.v-icon {
+        width: 1.8rem !important;
+        height: 1.8rem !important;
+
+        .v-icon__svg {
+          width: 100% !important;
+          height: 100% !important;
+        }
+      }
 
       &:hover {
         color: $white !important;
