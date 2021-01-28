@@ -8,5 +8,6 @@
     },
     "patch": {
         "automerge": true
-    }
+    },
+    "ignoreDeps": ["node"]
 }
