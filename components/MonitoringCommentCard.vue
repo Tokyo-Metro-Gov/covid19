@@ -93,7 +93,7 @@ export default Vue.extend({
 .MonitoringComment {
   @include card-container();
 
-  padding: 5px 12px 5px 12px;
+  padding: 5px 12px 10px 12px;
   margin: 0 0 10px 0;
 
   .MonitoringComment-heading {
