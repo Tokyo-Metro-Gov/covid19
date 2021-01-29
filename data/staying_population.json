@@ -1,0 +1,22 @@
+{
+    "date": "2021\/1\/28 20:00",
+    "data": {
+        "place": {
+            "display": {
+                "@ja": "新宿",
+                "@en": "Shinjuku"
+            }
+        },
+        "date": "2021-01-26",
+        "data": [
+            {
+                 "reference_date": "2020-01-01",
+                 "increase_rate": 40
+            },
+            {
+                 "reference_date": "2020-12-01",
+                 "increase_rate": -50
+            }
+        ]
+    }
+}
