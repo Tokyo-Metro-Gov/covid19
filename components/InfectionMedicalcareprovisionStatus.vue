@@ -107,7 +107,6 @@ export default Vue.extend({
     .InfectionMedicalcareprovisionStatus-Headline {
       float: left;
       text-align: center;
-      font-weight: bold;
       width: 10em;
       border: 1px solid;
       border-color: #000;
