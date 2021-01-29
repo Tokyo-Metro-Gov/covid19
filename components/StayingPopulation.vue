@@ -2,17 +2,24 @@
   <v-col cols="12" md="6">
     <div class="StayingPopulation">
       <div class="StayingPopulation-title">
-        ●緊急事態宣言中の<br />都内の滞在人口の増減状況<br />詳細はこちら<v-icon
-          color="#D9D9D9"
-          >{{ mdiChevronRight }}</v-icon
-        >
+        {{ $t('●緊急事態宣言中の\n都内の滞在人口の増減状況') }}<br />
+        <app-link
+          to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html"
+          >{{ $t('詳細はこちら') }}</app-link
+        ><v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
       </div>
-      <div class="StayingPopulation-place" v-if="['ja', 'ja-basic'].includes($i18n.locale)">{{ placeName['@ja'] }}</div>
-      <div class="StayingPopulation-place" v-else>{{ placeName['@en'] }}</div>
+      <div
+        v-if="['ja', 'ja-basic'].includes($i18n.locale)"
+        class="StayingPopulation-place"
+      >
+        {{ placeName['@ja'] }}
+      </div>
+      <div v-else class="StayingPopulation-place">{{ placeName['@en'] }}</div>
       <div class="StayingPopulation-state">
         [ {{ date }}時点 ]<br />
-        <span v-for="data in StayingPopulation.data.data">
-            {{ data['reference_date'] | formatDate }}比 {{ data['increase_rate'] | arrow }}％<br />
+        <span v-for="(data, key) in StayingPopulation.data.data" :key="key">
+          {{ data['reference_date'] | formatDate }}比
+          {{ data['increase_rate'] | arrow }}％<br />
         </span>
       </div>
     </div>
@@ -26,20 +33,20 @@ import Vue from 'vue'
 import StayingPopulation from '@/data/staying_population.json'
 
 export default Vue.extend({
+  filters: {
+    formatDate(text: string) {
+      return dayjs(text).format('YYYY/MM')
+    },
+    arrow: (increaseRate: number) => {
+      if (increaseRate === 0) return 0
+      return (increaseRate > 0 ? '↑' : '↓') + Math.abs(increaseRate)
+    },
+  },
   data() {
     return {
       StayingPopulation,
       placeName: StayingPopulation.data.place.display,
-      date: dayjs(StayingPopulation.data['date']).format('YYYY年MM月DD')
-    }
-  },
-  filters: {
-    formatDate: function(text: string) {
-      return dayjs(text).format('YYYY/MM');
-    },
-    arrow: function(increase_rate: number) {
-        if (increase_rate == 0) return 0;
-        return ((increase_rate > 0) ? '↑' : '↓')+Math.abs(increase_rate);
+      date: dayjs(StayingPopulation.data.date).format('YYYY年MM月DD'),
     }
   },
 })
@@ -55,14 +62,14 @@ export default Vue.extend({
   align-items: center;
 
   .StayingPopulation-title {
-    padding: 2px 5px;
+    padding: 2px 15px;
     text-align: left;
     @include card-h2();
     @include font-size(12);
   }
   .StayingPopulation-place {
     padding: 5px 5px 5px 5px;
-    margin: 2px 5px 2px 5px;
+    margin: 2px 5px 2px 10px;
     background-color: #008830;
     color: #fff;
     vertical-align: middle;
@@ -80,6 +87,7 @@ export default Vue.extend({
     border-color: #008830;
     text-align: center;
     vertical-align: middle;
+    min-width: 15em;
     @include font-size(11);
   }
 }

@@ -93,8 +93,8 @@ export default Vue.extend({
 .MonitoringComment {
   @include card-container();
 
-  padding: 5px;
-  margin-bottom: 10px;
+  padding: 5px 12px 5px 12px;
+  margin: 0 0 10px 0;
 
   .MonitoringComment-heading {
     display: flex;
@@ -105,7 +105,7 @@ export default Vue.extend({
     .MonitoringComment-title {
       display: flex;
       align-items: center;
-      padding: 8px 10px;
+      padding: 8px 6px;
       color: $gray-2;
       @include card-h2();
     }

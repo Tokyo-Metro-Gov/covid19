@@ -11,7 +11,7 @@
 
 <style lang="scss" scoped>
 .Consultation {
-  padding: 3px 0.8rem;
+  padding: 3px 18px;
   min-height: 5.5em;
 }
 </style>

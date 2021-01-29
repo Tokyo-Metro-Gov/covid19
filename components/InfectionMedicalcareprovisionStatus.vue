@@ -81,7 +81,7 @@ export default Vue.extend({
 .InfectionMedicalcareprovisionStatus {
   @include card-container();
 
-  padding: 8px 10px;
+  padding: 8px 18px;
   margin-bottom: 10px;
 
   .InfectionMedicalcareprovisionStatus-heading {
@@ -93,7 +93,7 @@ export default Vue.extend({
     .InfectionMedicalcareprovisionStatus-title {
       display: flex;
       align-items: center;
-      padding: 0 4px 4px 4px;
+      padding: 0 0 4px 0;
       color: $gray-2;
 
       @include card-h2();
@@ -103,11 +103,11 @@ export default Vue.extend({
 
   .InfectionMedicalcareprovisionStatus-Box {
     overflow: hidden;
-    font-weight: bold;
 
     .InfectionMedicalcareprovisionStatus-Headline {
       float: left;
       text-align: center;
+      font-weight: bold;
       width: 10em;
       border: 1px solid;
       border-color: #000;

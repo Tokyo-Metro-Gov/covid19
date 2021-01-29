@@ -71,7 +71,7 @@ export default Vue.extend({
 .WhatsNew {
   @include card-container();
 
-  padding: 5px;
+  padding: 5px 18px;
   margin-bottom: 10px;
 
   .WhatsNew-heading {
