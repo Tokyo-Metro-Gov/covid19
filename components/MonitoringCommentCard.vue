@@ -32,7 +32,7 @@
                 <img
                   width="240px"
                   alt="モニタリング項目サマリ"
-                  src="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.images/0121bunseki.JPG"
+                  src="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.images/0128bunseki.JPG"
                 />
               </app-link>
             </div>
