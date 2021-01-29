@@ -2,7 +2,7 @@
   <v-col cols="12" md="6">
     <div class="StayingPopulation">
       <div class="StayingPopulation-title">
-        {{ $t('●緊急事態宣言中の\n都内の滞在人口の増減状況') }}<br />
+        {{ $t('●緊急事態宣言中の都内の滞在人口の増減状況') }}<br />
         <app-link
           to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html"
           >{{ $t('詳細はこちら') }}</app-link
