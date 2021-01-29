@@ -111,7 +111,7 @@ export default Vue.extend({
       width: 10em;
       border: 1px solid;
       border-color: #000;
-      margin-bottom: 1px;
+      margin: 0 4px 1px 0;
       color: $gray-3;
 
       @include font-size(12);
