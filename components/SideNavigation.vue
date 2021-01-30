@@ -279,6 +279,11 @@ export default Vue.extend({
           link: this.localePath('/about'),
         },
         {
+          title: this.$t('ご意見はこちら（外部サービスを使用しています）'),
+          link:
+            'https://docs.google.com/forms/d/e/1FAIpQLSdSROCPyr6Aj6WoAoYfqcT6StDOEUB38Grug1EJjUYzppcEZg/viewform?usp=sf_link',
+        },
+        {
           title: this.$t('お問い合わせ先一覧'),
           link: this.localePath('/contacts'),
         },
