@@ -36,7 +36,7 @@
     <div class="InfectionMedicalcareprovisionStatus-Box">
       <div class="InfectionMedicalcareprovisionStatus-Headline">
         <app-link
-          to="/cards/details-of-confirmed-cases/"
+          to="https://stopcovid19.metro.tokyo.lg.jp/cards/details-of-confirmed-cases/"
         >
           {{ $t('医療提供体制') }}
         </app-link>
