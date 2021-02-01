@@ -32,8 +32,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { LinkPropertyHref, MetaInfo } from 'vue-meta'
+import type { NuxtConfig } from '@nuxt/types'
+import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
+import { Component, Vue } from 'nuxt-property-decorator'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
@@ -43,19 +44,16 @@ import Data from '@/data/data.json'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
-type LocalData = {
-  hasNavigation: boolean
-  isOpenNavigation: boolean
-  loading: boolean
-}
-export default Vue.extend({
+@Component({
   components: {
     DevelopmentModeMark,
     ScaleLoader,
     SideNavigation,
     NoScript,
   },
-  data(): LocalData {
+})
+export default class Default extends Vue implements NuxtConfig {
+  data() {
     let hasNavigation = true
     let loading = true
     if (this.$route.query.embed === 'true') {
@@ -70,27 +68,32 @@ export default Vue.extend({
       loading,
       isOpenNavigation: false,
     }
-  },
+  }
+
   mounted() {
-    this.loading = false
+    this.$data.loading = false
     this.getMatchMedia().addListener(this.closeNavigation)
-  },
+  }
+
   beforeDestroy() {
     this.getMatchMedia().removeListener(this.closeNavigation)
-  },
-  methods: {
-    openNavigation(): void {
-      this.isOpenNavigation = true
-    },
-    closeNavigation(): void {
-      this.isOpenNavigation = false
-    },
-    getMatchMedia(): MediaQueryList {
-      return window.matchMedia('(min-width: 601px)')
-    },
-  },
-  head(): MetaInfo {
+  }
+
+  openNavigation() {
+    this.data().isOpenNavigation = true
+  }
+
+  closeNavigation() {
+    this.data().isOpenNavigation = false
+  }
+
+  getMatchMedia() {
+    return window.matchMedia('(min-width: 601px)')
+  }
+
+  head() {
     const { htmlAttrs, meta } = this.$nuxtI18nSeo()
+    type LinkPropertyHref = typeof htmlAttrs
     const ogLocale =
       meta && meta.length > 0
         ? meta[0]
@@ -99,7 +102,6 @@ export default Vue.extend({
             name: 'og:locale',
             content: this.$i18n.locale,
           }
-
     let linksAlternate: LinkPropertyHref[] = []
     const basename = this.getRouteBaseName()
     // 404 エラーなどのときは this.getRouteBaseName() が null になるため除外
@@ -110,17 +112,15 @@ export default Vue.extend({
         this.$i18n.defaultLocale
       )
     }
-
     const { lastUpdate } = Data
-
-    return {
+    const mInfo: MetaInfo = {
       htmlAttrs,
       link: [
         {
           rel: 'canonical',
           href: `https://stopcovid19.metro.tokyo.lg.jp${this.$route.path}`,
         },
-        ...linksAlternate,
+        ...(linksAlternate as []),
       ],
       // Disable prettier for readability purposes
       // eslint-disable-next-line prettier/prettier
@@ -188,8 +188,9 @@ export default Vue.extend({
         },
       ],
     }
-  },
-})
+    return mInfo
+  }
+}
 </script>
 <style lang="scss">
 .app {
