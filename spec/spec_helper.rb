@@ -38,3 +38,15 @@ RSpec.configure do |config|
   end
 end
 
+def render_lazy_contents
+  # Scroll to Bottom for building all lazy-loading DOM
+  scroll_to = 1600
+  scroll_step = 600
+  loop do
+    page.evaluate_script "window.scroll(0,#{scroll_to})"
+    lazy_row = page.all('div.v-lazy').count * 2
+    scroll_to = scroll_to > scroll_step * lazy_row ? 0 : scroll_to + scroll_step
+    card_count = page.all('div.v-lazy > div.row > div.DataCard').count
+    break if [lazy_row - 1, lazy_row].include?(card_count)
+  end
+end
