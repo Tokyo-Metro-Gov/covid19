@@ -99,3 +99,6 @@ ogp/*
 
 # Vagrant
 .vagrant
+
+# RSpec screenshots
+spec/screenshot
