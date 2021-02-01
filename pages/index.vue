@@ -180,7 +180,7 @@ export default {
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: '都内の最新感染動向',
+        title: 'DENSOの最新感染動向',
         date: Data.lastUpdate
       },
       newsItems: News.newsItems,
@@ -242,7 +242,7 @@ export default {
   },
   head() {
     return {
-      title: '都内の最新感染動向'
+      title: 'DENSOのf最新感染動向'
     }
   }
 }
