@@ -1,5 +1,5 @@
 <template>
-  <div v-scroll="onScroll" class="MainPage">
+  <div class="MainPage">
     <div class="Header mb-3">
       <page-header :icon-path="headerItem.iconPath">{{
         headerItem.title
@@ -15,16 +15,13 @@
         <span>{{ $t('注釈') }}</span>
       </div>
     </div>
-    <whats-new class="mb-4" :items="newsItems" :is-emergency="false" />
+    <whats-new :items="newsItems" :is-emergency="false" />
+    <infection-medicalcareprovision-status />
     <monitoring-comment-card />
-    <lazy-tokyo-alert-card v-if="TokyoAlert.alert" />
-    <lazy-static-info
-      v-if="$vuetify.breakpoint.smAndUp || showStaticInfo"
-      class="mb-4"
-      :url="'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html'"
-      :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
-      :btn-text="$t('相談の手順を見る')"
-    />
+    <div class="row mb-4">
+      <staying-population />
+      <consultation />
+    </div>
   </div>
 </template>
 
@@ -33,8 +30,10 @@ import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
+import Consultation from '@/components/Consultation.vue'
 import MonitoringCommentCard from '@/components/MonitoringCommentCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import StayingPopulation from '@/components/StayingPopulation.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
@@ -46,6 +45,8 @@ export default Vue.extend({
     PageHeader,
     WhatsNew,
     MonitoringCommentCard,
+    Consultation,
+    StayingPopulation,
   },
   data() {
     const { lastUpdate } = Data
@@ -58,7 +59,6 @@ export default Vue.extend({
       },
       lastUpdate,
       newsItems: News.newsItems,
-      showStaticInfo: false,
     }
   },
   computed: {
@@ -67,11 +67,6 @@ export default Vue.extend({
     },
     formattedDateForDisplay() {
       return `${this.$d(new Date(this.$data.lastUpdate), 'dateTime')} JST`
-    },
-  },
-  methods: {
-    onScroll() {
-      this.showStaticInfo = true
     },
   },
   head(): MetaInfo {
