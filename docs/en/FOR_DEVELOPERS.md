@@ -6,7 +6,7 @@ Install the following application to the environment for development.
 
 | Application name | Application version(Fill in only if specified) | Installation conditions |
 | ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/en/)|10.23.1 or higher|Required|
+|[Node.js](https://nodejs.org/en/)|10.23.2 or higher|Required|
 |[Visual Studio Code](https://code.visualstudio.com/)| |If you use Visual Studio Code|
 |[yarn](https://classic.yarnpkg.com/en/)| |When executing this program with `yarn`|
 |[docker compose](https://docs.docker.com/compose/install/)| |When executing this program with `docker compose`|
