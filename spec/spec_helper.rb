@@ -4,6 +4,8 @@ require 'capybara/rspec'
 require 'capybara/dsl'
 require 'selenium-webdriver'
 
+require 'lib/locales_setting'
+
 APP_HOST = 'http://localhost:3000'
 
 Capybara.register_driver :emulated_chrome_ios do |app|
