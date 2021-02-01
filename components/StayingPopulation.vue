@@ -27,6 +27,7 @@
 </template>
 
 <script lang="ts">
+import { mdiChevronRight } from '@mdi/js'
 import dayjs from 'dayjs'
 import Vue from 'vue'
 
@@ -44,6 +45,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      mdiChevronRight,
       StayingPopulation,
       placeName: StayingPopulation.data.place.display,
       date: dayjs(StayingPopulation.data.date).format('YYYY年MM月DD'),
