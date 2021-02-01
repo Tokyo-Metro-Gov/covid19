@@ -80,11 +80,11 @@ export default class Default extends Vue implements NuxtConfig {
   }
 
   openNavigation() {
-    this.data().isOpenNavigation = true
+    this.$data.isOpenNavigation = true
   }
 
   closeNavigation() {
-    this.data().isOpenNavigation = false
+    this.$data.isOpenNavigation = false
   }
 
   getMatchMedia() {
