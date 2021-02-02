@@ -6,8 +6,8 @@
       </h3>
     </div>
     <div class="MonitoringComment-comments">
-      <v-row>
-        <v-col>
+      <v-row class="MonitoringComment-row">
+        <v-col class="MonitoringComment-col">
           <v-col cols="12">
             <h4>{{ $t('感染状況') }}</h4>
             <monitoring-comment-frame
@@ -23,7 +23,7 @@
             />
           </v-col>
         </v-col>
-        <v-col>
+        <v-col class="MonitoringComment-col">
           <div class="MonitoringComment-description">
             <monitoring-comment-card-image-swipe />
             <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
@@ -128,9 +128,12 @@ export default Vue.extend({
     margin: 0 10px 0 10px;
     padding: 2px;
 
-    .row {
-      .col {
+    .MonitoringComment-row {
+      .MonitoringComment-col {
+        float: left;
+        clear: both;
         padding: 3px;
+        min-width: 300px;
       }
     }
   }
