@@ -1,21 +1,21 @@
 {
-    "date": "2021\/1\/31 16:00",
+    "date": "2021\/2\/2 13:50",
     "data": {
         "place": {
             "display": {
-                "@ja": "銀座",
-                "@en": "Ginza"
+                "@ja": "歌舞伎町",
+                "@en": "Kabukicho"
             }
         },
-        "date": "2021-01-30",
+        "date": "2021-02-01",
         "data": [
             {
                  "reference_date": "2020-12-01",
-                 "increase_rate": -36
+                 "increase_rate": -47
             },
             {
                  "reference_date": "2020-01-01",
-                 "increase_rate": -52
+                 "increase_rate": -66
             }
         ]
     }
