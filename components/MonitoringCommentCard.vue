@@ -25,17 +25,7 @@
         </v-col>
         <v-col>
           <div class="MonitoringComment-description">
-            <div class="MonitoringComment-slide">
-              <app-link
-                to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
-              >
-                <img
-                  width="240px"
-                  alt="モニタリング項目サマリ"
-                  src="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.images/0128bunseki.JPG"
-                />
-              </app-link>
-            </div>
+            <monitoring-comment-card-image-swipe />
             <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
             <app-link
               to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
@@ -53,7 +43,6 @@
 import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
-import AppLink from '@/components/AppLink.vue'
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'
 import {
@@ -61,14 +50,16 @@ import {
   MonitoringComment,
 } from '@/utils/formatMonitoringItems'
 
+import MonitoringCommentCardImageSwipe from './MonitoringCommentCardImageSwipe.vue'
+
 type CommentKey = {
   [key: string]: MonitoringComment
 }
 
 export default Vue.extend({
   components: {
-    AppLink,
     MonitoringCommentFrame,
+    MonitoringCommentCardImageSwipe,
   },
   data() {
     const monitoringComment: CommentKey = formatMonitoringComment(
