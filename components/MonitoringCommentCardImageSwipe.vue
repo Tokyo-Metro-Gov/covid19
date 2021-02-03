@@ -18,7 +18,6 @@
 </template>
 
 <script lang="ts">
-import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
 import monitoringCommentImage from '@/data/monitoring_comment_image.json'
@@ -27,7 +26,6 @@ export default Vue.extend({
   data() {
     return {
       monitoringCommentImage,
-      mdiChevronRight,
     }
   },
 })
