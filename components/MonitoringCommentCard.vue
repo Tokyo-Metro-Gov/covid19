@@ -40,7 +40,6 @@
 </template>
 
 <script lang="ts">
-import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
@@ -67,7 +66,6 @@ export default Vue.extend({
     )
     return {
       monitoringComment,
-      mdiChevronRight,
     }
   },
   methods: {
