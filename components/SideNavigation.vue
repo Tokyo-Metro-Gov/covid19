@@ -389,6 +389,7 @@ export default Vue.extend({
 .SideNavigation-HeaderTitle {
   width: 100%;
   color: #707070;
+  font-weight: 600;
   @include font-size(13);
   @include largerThan($small) {
     margin: 0;
