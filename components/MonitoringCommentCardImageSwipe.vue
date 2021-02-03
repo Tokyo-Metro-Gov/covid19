@@ -1,11 +1,5 @@
 <template>
-  <v-carousel
-    cycle
-    width="240"
-    height="180"
-    hide-delimiter-background
-    show-arrows-on-hover
-  >
+  <v-carousel cycle width="240" height="180" hide-delimiter-background>
     <v-carousel-item
       v-for="(item, i) in monitoringCommentImage.data.images"
       :key="i"
