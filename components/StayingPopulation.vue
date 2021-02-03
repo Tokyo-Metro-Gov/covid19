@@ -77,7 +77,7 @@ export default Vue.extend({
     vertical-align: middle;
     text-align: center;
     writing-mode: vertical-rl;
-    font-weight: bold;
+    font-weight: 600;
 
     @include font-size(12);
   }

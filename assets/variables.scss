@@ -69,21 +69,21 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
   @include font-size(24);
 
   color: $gray-2;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 @mixin card-h2 {
   @include font-size(19);
 
   color: $gray-2;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 @mixin card-h3 {
   @include font-size(16);
 
   color: $gray-2;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 @mixin body-text {

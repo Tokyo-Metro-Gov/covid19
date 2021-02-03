@@ -417,7 +417,7 @@ export default Vue.extend({
 
   &:hover,
   &:focus {
-    font-weight: bold;
+    font-weight: 600;
   }
 
   &:focus {
@@ -522,7 +522,7 @@ export default Vue.extend({
   display: inline-block;
   color: $gray-1;
   line-height: 1.3;
-  font-weight: bold;
+  font-weight: 600;
   @include font-size(10);
 }
 
