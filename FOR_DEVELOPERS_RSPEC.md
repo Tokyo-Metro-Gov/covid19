@@ -10,6 +10,28 @@
 |[Google Chrome](https://www.google.com/chrome/)| | |
 |[ChromeDriver](https://chromedriver.chromium.org/)|Google Chromeとバージョンを揃える|`$PATH`を通しておきます|
 
+ChromeDriverの`$PATH`を通すとは、例えばmacosの場合
+
+- https://chromedriver.chromium.org/ から ダウンロードしたzipファイルをダブルクリックでzip解凍して /usr/local/bin にFinderでコピーする
+- ```bash
+  curl -O https://chromedriver.storage.googleapis.com/バージョン番号/chromedriver_mac64.zip
+  unzip chromedriver_mac64.zip
+  mv chromedriver /usr/local/bin/
+  # を実行する
+  ```
+- Homebrew を使っているならば、`brew install --cask chromedriver` を実行する。
+- 自分の好きなディレクトリにchromedriverをコピーして、.zshrc や .bashrc で $PATH に追加する
+
+などいろんな方法があります。
+
+macosのGatekeeperでchromedriverの起動が妨げられる場合は
+
+```bash
+xattr -d com.apple.quarantine /usr/local/bin/chromedriver 
+```
+
+を実行する必要があるかもしれません。
+
 ---
 
 ## 2. セットアップ
