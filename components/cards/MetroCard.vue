@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col id="MetroCard" cols="12" md="6" class="DataCard">
     <client-only>
       <metro-bar-chart
         :title="$t('都営地下鉄の利用者数の推移')"

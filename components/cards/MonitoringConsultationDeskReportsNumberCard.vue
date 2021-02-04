@@ -1,5 +1,10 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col
+    id="MonitoringConsultationDeskReportsNumberCard"
+    cols="12"
+    md="6"
+    class="DataCard"
+  >
     <client-only>
       <monitoring-consultation-desk-report-chart
         :title="$t('受診相談窓口における相談件数')"

@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col id="TestedNumberCard" cols="12" md="6" class="DataCard">
     <client-only>
       <time-stacked-bar-chart
         :title="$t('検査実施件数')"
