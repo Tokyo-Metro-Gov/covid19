@@ -109,7 +109,6 @@ type Props = {
   unit: string
   url: string
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
-  byDate: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -167,10 +166,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => yAxesBgPlugin,
     },
-    byDate: {
-      type: Boolean,
-      default: false,
-    },
   },
   data: () => ({
     dataKind: 'transition',
@@ -183,15 +178,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         dataIndex: 1,
       })
       const formattedLastDay = this.$d(lastDay, 'date')
-      if (this.dataKind === 'transition' && this.byDate) {
-        return {
-          lText: lastDayData,
-          sText: `${formattedLastDay} ${this.$t('日別値')}（${this.$t(
-            '前日比'
-          )}: ${dayBeforeRatio} ${this.unit}）`,
-          unit: this.unit,
-        }
-      } else if (this.dataKind === 'transition') {
+      if (this.dataKind === 'transition') {
         return {
           lText: lastDayData,
           sText: `${formattedLastDay} ${this.$t('実績値')}（${this.$t(
