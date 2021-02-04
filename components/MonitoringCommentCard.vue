@@ -6,8 +6,8 @@
       </h3>
     </div>
     <div class="MonitoringComment-comments">
-      <v-row>
-        <v-col>
+      <v-row class="MonitoringComment-row">
+        <v-col class="MonitoringComment-col">
           <v-col cols="12">
             <h4>{{ $t('感染状況') }}</h4>
             <monitoring-comment-frame
@@ -23,19 +23,9 @@
             />
           </v-col>
         </v-col>
-        <v-col>
+        <v-col class="MonitoringComment-col">
           <div class="MonitoringComment-description">
-            <div class="MonitoringComment-slide">
-              <app-link
-                to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
-              >
-                <img
-                  width="240px"
-                  alt="モニタリング項目サマリ"
-                  src="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.images/0204bunsekisyuusei.jpg"
-                />
-              </app-link>
-            </div>
+            <monitoring-comment-card-image-swipe />
             <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
             <app-link
               to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
@@ -53,7 +43,6 @@
 import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
-import AppLink from '@/components/AppLink.vue'
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'
 import {
@@ -61,14 +50,16 @@ import {
   MonitoringComment,
 } from '@/utils/formatMonitoringItems'
 
+import MonitoringCommentCardImageSwipe from './MonitoringCommentCardImageSwipe.vue'
+
 type CommentKey = {
   [key: string]: MonitoringComment
 }
 
 export default Vue.extend({
   components: {
-    AppLink,
     MonitoringCommentFrame,
+    MonitoringCommentCardImageSwipe,
   },
   data() {
     const monitoringComment: CommentKey = formatMonitoringComment(
@@ -137,9 +128,12 @@ export default Vue.extend({
     margin: 0 10px 0 10px;
     padding: 2px;
 
-    .row {
-      .col {
+    .MonitoringComment-row {
+      .MonitoringComment-col {
+        float: left;
+        clear: both;
         padding: 3px;
+        min-width: 300px;
       }
     }
   }
