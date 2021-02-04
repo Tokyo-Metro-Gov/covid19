@@ -102,3 +102,6 @@ ogp/*
 
 # RSpec screenshots
 spec/screenshot
+
+# Gem Libralies
+vendor/bundle
