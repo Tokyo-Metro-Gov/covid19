@@ -71,7 +71,7 @@ export default {
       const percentage = `${currentData.data[tooltipItem.index]}%`
 
       return this.$t('{duration}の利用者数との相対値: {percentage}', {
-        // duration = metroGraph.base_period = '1\/20~1\/24'
+        // duration = metroGraph.base_period = '2020\/1\/20~2020\/1\/24'
         duration: this.$t(metroGraph.base_period),
         percentage,
       })

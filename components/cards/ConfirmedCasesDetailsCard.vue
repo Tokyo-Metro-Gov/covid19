@@ -59,7 +59,7 @@ import DataView from '@/components/DataView.vue'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 
-export default {
+const options = {
   components: {
     DataView,
     ConfirmedCasesDetailsTable,
@@ -78,6 +78,8 @@ export default {
     }
   },
 }
+
+export default options
 </script>
 
 <style lang="scss" module>
