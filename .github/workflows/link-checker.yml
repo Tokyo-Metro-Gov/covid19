@@ -27,6 +27,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install Markdown
           pip install pandas
+          pip install lxml
 
       - name: Run scripts
         run: |
