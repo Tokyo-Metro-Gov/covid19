@@ -61,7 +61,7 @@ export default Vue.extend({
   margin: 0 8px;
   border-style: solid;
   border-radius: 4px 4px 0 0;
-  font-weight: bold !important;
+  font-weight: 600 !important;
   @include font-size(16, true);
 
   &:focus {

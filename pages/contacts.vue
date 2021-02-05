@@ -245,7 +245,7 @@ export default Vue.extend({
       }
 
       .importantContact {
-        font-weight: bold;
+        font-weight: 600;
         @include font-size(16, true);
       }
 
@@ -285,7 +285,7 @@ export default Vue.extend({
             height: auto;
 
             .content {
-              font-weight: bold;
+              font-weight: 600;
               border-bottom: none !important;
               padding-top: 12px;
               padding-bottom: 8px;

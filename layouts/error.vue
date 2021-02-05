@@ -82,7 +82,7 @@ export default Vue.extend({
     text-decoration: none;
     max-width: 300px;
     width: 100%;
-    font-weight: bold;
+    font-weight: 600;
   }
 }
 </style>

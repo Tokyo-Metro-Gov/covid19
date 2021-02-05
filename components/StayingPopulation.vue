@@ -48,7 +48,7 @@ export default Vue.extend({
       mdiChevronRight,
       StayingPopulation,
       placeName: StayingPopulation.data.place.display,
-      date: dayjs(StayingPopulation.data.date).format('YYYY年MM月DD'),
+      date: dayjs(StayingPopulation.data.date).format('YYYY年MM月DD日'),
     }
   },
 })
@@ -77,7 +77,7 @@ export default Vue.extend({
     vertical-align: middle;
     text-align: center;
     writing-mode: vertical-rl;
-    font-weight: bold;
+    font-weight: 600;
 
     @include font-size(12);
   }

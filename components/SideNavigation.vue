@@ -389,6 +389,7 @@ export default Vue.extend({
 .SideNavigation-HeaderTitle {
   width: 100%;
   color: #707070;
+  font-weight: 600;
   @include font-size(13);
   @include largerThan($small) {
     margin: 0;
@@ -417,7 +418,7 @@ export default Vue.extend({
 
   &:hover,
   &:focus {
-    font-weight: bold;
+    font-weight: 600;
   }
 
   &:focus {
@@ -522,7 +523,7 @@ export default Vue.extend({
   display: inline-block;
   color: $gray-1;
   line-height: 1.3;
-  font-weight: bold;
+  font-weight: 600;
   @include font-size(10);
 }
 
