@@ -37,7 +37,13 @@ forked_sites: list = [
 ]
 
 for website in forked_sites:
-    req = urllib.request.Request(website['url'])
+    req = urllib.request.Request(
+        website['url'],
+        data=None,
+        headers={
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0'
+        }
+    )
 
     try:
         with urllib.request.urlopen(req) as r:
