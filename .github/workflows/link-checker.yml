@@ -32,7 +32,6 @@ jobs:
       - name: Run scripts
         run: |
           python ./auto-link-check/link_checker.py
-          cat -n FORKED_SITES.md
 
       # TODO: commit 及び PR 作成の処理について尋ねる
       # - name: Create a Pull Request
