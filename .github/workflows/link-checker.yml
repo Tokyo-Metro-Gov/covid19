@@ -26,6 +26,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install Markdown
+          pip install pandas
 
       - name: Run scripts
         run: |
