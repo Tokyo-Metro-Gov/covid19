@@ -30,9 +30,9 @@ jobs:
 
       - name: Run scripts
         run: |
-          python ./auto-link-check/link_checker.py
+          python ./audit-forked-sites/check_status.py
 
-      - name: Create a Pull Request
+      - name: Create a pull request
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
