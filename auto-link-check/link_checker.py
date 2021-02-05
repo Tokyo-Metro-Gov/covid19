@@ -57,12 +57,18 @@ dead_sites: list = [
 
 if len(dead_sites) > 0:
     for i, website in enumerate(dead_sites):
+        # dead_sites の URL を含む行を検出する
+        row_find: str = r'(\n\|\[\]\(\d*\)\D+\|)(' + \
+            website['url'] + r')(\|.+)\|{2}'
+
+        # 該当する URL に二重線を引き，「リンク切れ」を追記
+        row_replace: str = r'\1~~\2~~\3|**リンク切れ**|'
+
         md_replaced = re.sub(
-            '\n.+' + website['url'] + '.+',  # dead_sites の URL を含む行を検出する
-            '',
+            row_find,
+            row_replace,
             md_replaced if i > 0 else md
         )
-        print(md_replaced)
 
     with open(MD_PATH, 'w', encoding='utf-8', newline='\n') as f:
         f.write(md_replaced)
