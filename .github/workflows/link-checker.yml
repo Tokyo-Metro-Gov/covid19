@@ -1,0 +1,43 @@
+name: Link Checker for FORKED_SITES.md
+
+on:
+  # TODO: 実行開始時刻をいつにするか
+  # schedule:
+  #   - cron: "0 15 * * *" # 00:00 JST
+
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Switch to the development branch
+        uses: actions/checkout@v2
+        with:
+          ref: development
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install Markdown
+
+      - name: Run scripts
+        run: |
+          python ./auto-link-check/link_checker.py
+          cat -n FORKED_SITES.md
+
+      # TODO: commit 及び PR 作成の処理について尋ねる
+      # - name: Create a Pull Request
+      #   uses: peter-evans/create-pull-request@v3
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     commit-message: Update assets/locales/ja.json
+      #     title: Update translation files
+      #     labels: auto_merge
+      #     branch-suffix: 'short-commit-hash'
