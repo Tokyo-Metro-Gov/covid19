@@ -32,12 +32,11 @@ jobs:
         run: |
           python ./auto-link-check/link_checker.py
 
-      # TODO: commit 及び PR 作成の処理について尋ねる
-      # - name: Create a Pull Request
-      #   uses: peter-evans/create-pull-request@v3
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     commit-message: Update assets/locales/ja.json
-      #     title: Update translation files
-      #     labels: auto_merge
-      #     branch-suffix: 'short-commit-hash'
+      - name: Create a Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update FORKED_SITES.md
+          title: Update FORKED_SITES.md
+          labels: auto_merge
+          branch-suffix: 'short-commit-hash'
