@@ -35,7 +35,7 @@ export default Vue.extend({
   padding: 4px 8px;
   margin-right: 8px;
   display: inline-flex;
-  font-weight: bold;
+  font-weight: 600;
   @include font-size(14);
 
   .svgIcon path {

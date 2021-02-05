@@ -576,7 +576,7 @@ $margin: 20;
   > .anchorLead {
     margin-top: $margin * 1.5px;
     color: $green-1;
-    font-weight: bold;
+    font-weight: 600;
     text-align: center;
     @include font-size($fzHuge);
   }
@@ -614,7 +614,7 @@ $margin: 20;
     border: 4px solid $green-1;
     border-radius: 10px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
     text-decoration: none;
     font-size: inherit;
     color: $gray-2;
@@ -703,18 +703,18 @@ $margin: 20;
   }
   > .sxnHeading {
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
     @include font-size($fzHeadingL);
   }
   > .sxnHeadingSmall {
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
     @include font-size($fzHuge);
   }
   > .sxnText {
     margin-top: 20px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
     @include font-size($fzMedium);
   }
   > .hr {
@@ -754,15 +754,15 @@ $margin: 20;
     background-color: $emergency;
   }
   > .boxHeading {
-    font-weight: bold;
+    font-weight: 600;
     @include font-size($fzLarge);
   }
   > .boxLead {
-    font-weight: bold;
+    font-weight: 600;
     @include font-size($fzMedium);
   }
   > .large {
-    font-weight: bold;
+    font-weight: 600;
     @include font-size($fzHuge);
   }
   > .small {
@@ -787,7 +787,7 @@ $margin: 20;
     background-color: $white;
     color: #a00000;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 1.35;
     @include font-size($fzSmall);
   }
@@ -849,7 +849,7 @@ $margin: 20;
   }
 }
 .tel {
-  font-weight: bold;
+  font-weight: 600;
   vertical-align: baseline;
   white-space: nowrap;
   line-height: 1px * $fzHuge * 1.35;
@@ -877,7 +877,7 @@ $margin: 20;
     @include font-size(20);
 
     margin: ($margin * 1.5px) auto 0;
-    font-weight: bold;
+    font-weight: 600;
     text-decoration: none;
     color: $green-1 !important;
     &:hover {
