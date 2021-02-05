@@ -1,9 +1,8 @@
 name: Link Checker for FORKED_SITES.md
 
 on:
-  # TODO: 実行開始時刻をいつにするか
-  # schedule:
-  #   - cron: "0 15 * * *" # 00:00 JST
+  schedule:
+    - cron: '0 0 1 * *'
 
   workflow_dispatch:
 
