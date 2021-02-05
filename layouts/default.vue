@@ -198,6 +198,21 @@ export default class Default extends Vue implements NuxtConfig {
   margin: 0 auto;
   background-color: inherit !important;
 }
+.app:lang(en) {
+  font-family: $western, sans-serif;
+}
+.app:lang(ja) {
+  font-family: $western, $japanese, sans-serif;
+}
+.app:lang(zh-CN) {
+  font-family: $western, $chinese-hans, sans-serif;
+}
+.app:lang(zh-TW) {
+  font-family: $western, $chinese-hant, sans-serif;
+}
+.app:lang(ko) {
+  font-family: $western, $korean, sans-serif;
+}
 .v-application--wrap {
   width: 100%;
 }
