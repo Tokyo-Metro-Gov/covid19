@@ -58,26 +58,43 @@ for website in forked_sites:
     finally:
         website['timestamp'] = now_in_jst()
 
+alive_sites: list = [
+    website for website in forked_sites if website['exists'] is True]
+
+if len(alive_sites) > 0:
+    for website in alive_sites:
+        # alive_sites の内，アクセスが復帰した URL を含む行を検出する
+        row_find: str = r'(\n\|\[\]\(\d*\)\D+\|' + \
+            website['url'] + r'\|.+\|.+\|)\*\*リンク切れ\*\*(\|)'
+
+        # 該当する行の「リンク切れ」表記を削除する
+        row_replace: str = r'\1\2'
+
+        md = re.sub(
+            row_find,
+            row_replace,
+            md
+        )
+else:
+    print('There is no page which has been alive or recovered.')
+
 dead_sites: list = [
     website for website in forked_sites if website['exists'] is False]
 
 if len(dead_sites) > 0:
-    for i, website in enumerate(dead_sites):
+    for website in dead_sites:
         # dead_sites の URL を含む行を検出する
-        row_find: str = r'(\n\|\[\]\(\d*\)\D+\|)(' + \
-            website['url'] + r')(\|.+)\|{2}'
+        row_find: str = r'(\n\|\[\]\(\d*\)\D+\|' + \
+            website['url'] + r'\|.+\|.+\|)(\|)'
 
-        # 該当する URL に二重線を引き，「リンク切れ」を追記
-        row_replace: str = r'\1~~\2~~\3|**リンク切れ**|'
+        # 該当する URL を含む行に「リンク切れ」を追記
+        row_replace: str = r'\1**リンク切れ**\2'
 
-        md_replaced = re.sub(
+        md = re.sub(
             row_find,
             row_replace,
-            md_replaced if i > 0 else md
+            md
         )
-
-    with open(MD_PATH, 'w', encoding='utf-8', newline='\n') as f:
-        f.write(md_replaced)
 
     with open(LOG_PATH, 'a', encoding='utf-8', newline='\n') as f:
         writer = csv.writer(f)
@@ -85,4 +102,7 @@ if len(dead_sites) > 0:
         for data in dead_sites:
             writer.writerow(data.values())
 else:
-    print('Nothing to update.')
+    print('There is no page which has been dead.')
+
+with open(MD_PATH, 'w', encoding='utf-8', newline='\n') as f:
+    f.write(md)
