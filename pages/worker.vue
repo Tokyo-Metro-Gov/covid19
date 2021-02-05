@@ -22,24 +22,6 @@
     <static-card>
       <h3>
         <app-link
-          to="https://jitan.metro.tokyo.lg.jp/nov/index.html"
-          :icon-size="24"
-          >{{
-            $t('営業時間短縮に係る感染拡大防止協力金（11/28～12/17実施分）')
-          }}
-        </app-link>
-      </h3>
-      <p>
-        {{
-          $t(
-            '新型コロナウイルス感染拡大防止のため、特別区及び多摩地域の各市町村の飲食店等に営業時間の短縮要請が行われることに伴い、要請に全面的にご協力いただいた中小の事業者の皆様に対し、協力金を支給します。'
-          )
-        }}
-      </p>
-    </static-card>
-    <static-card>
-      <h3>
-        <app-link
           to="https://jitan.metro.tokyo.lg.jp/dec/index.html"
           :icon-size="24"
           >{{ $t('営業時間短縮に係る感染拡大防止協力金（12/18～1/7実施分）') }}
@@ -56,7 +38,7 @@
     <static-card>
       <h3>
         <app-link
-          to="https://www.sangyo-rodo.metro.tokyo.lg.jp/attention/2021/0107_14118.html"
+          to="https://jitan.metro.tokyo.lg.jp/jan/index.html"
           :icon-size="24"
           >{{ $t('営業時間短縮に係る感染拡大防止協力金（1/8～2/7実施分）') }}
         </app-link>
@@ -95,6 +77,22 @@
         {{
           $t(
             'テレワーク・時差出勤などスムーズビズの取組は、新型コロナウイルス感染症の対策としても効果的です。感染症対策として、東京2020大会時の交通混雑緩和に向けた取組の前倒しをお願いします。'
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
+        <app-link
+          to="https://tokyo-telework.jp/lp/2002app/index.html"
+          :icon-size="24"
+          >{{ $t('TOKYOテレワークアプリ') }}
+        </app-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            'テレワークの導入・実践に必要な情報を入手できるほか、セミナー等のお申込みやサテライトオフィス等の検索など、テレワークの推進を支援する東京都公式アプリです。'
           )
         }}
       </p>
