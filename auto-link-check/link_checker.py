@@ -76,7 +76,7 @@ if len(alive_sites) > 0:
             md
         )
 else:
-    print('There is no page which has been alive or recovered.')
+    print('There is no website which has been alive or recovered.')
 
 dead_sites: list = [
     website for website in forked_sites if website['exists'] is False]
@@ -102,7 +102,7 @@ if len(dead_sites) > 0:
         for data in dead_sites:
             writer.writerow(data.values())
 else:
-    print('There is no page which has been dead.')
+    print('There is no website which has been dead.')
 
 with open(MD_PATH, 'w', encoding='utf-8', newline='\n') as f:
     f.write(md)
