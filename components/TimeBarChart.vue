@@ -194,6 +194,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: false,
     },
   },
+  watch: {
+    dayOfTheWeek(v) {
+      console.error(v)
+    },
+  },
   data: () => ({
     dataKind: 'transition',
     dayOfTheWeek: new Date().getDay(),
