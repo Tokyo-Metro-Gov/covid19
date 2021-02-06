@@ -8,27 +8,59 @@
   >
     <v-btn
       v-ripple="false"
-      :aria-pressed="value === 'transition' ? 'true' : 'false'"
-      value="transition"
+      :aria-pressed="value === 1 ? 'true' : 'false'"
+      :value="1"
       class="DataSelector-Button"
     >
-      {{ $t('日別') }}
+      {{ $t('月') }}
     </v-btn>
     <v-btn
       v-ripple="false"
-      :aria-pressed="value === 'transitionByDayOfTheWeek' ? 'true' : 'false'"
-      value="transitionByDayOfTheWeek"
+      :aria-pressed="value === 2 ? 'true' : 'false'"
+      :value="2"
       class="DataSelector-Button"
     >
-      {{ $t('曜日毎') }}
+      {{ $t('火') }}
     </v-btn>
     <v-btn
       v-ripple="false"
-      :aria-pressed="value === 'cumulative' ? 'true' : 'false'"
-      value="cumulative"
+      :aria-pressed="value === 3 ? 'true' : 'false'"
+      :value="3"
       class="DataSelector-Button"
     >
-      {{ $t('累計') }}
+      {{ $t('水') }}
+    </v-btn>
+    <v-btn
+      v-ripple="false"
+      :aria-pressed="value === 4 ? 'true' : 'false'"
+      :value="4"
+      class="DataSelector-Button"
+    >
+      {{ $t('木') }}
+    </v-btn>
+    <v-btn
+      v-ripple="false"
+      :aria-pressed="value === 5 ? 'true' : 'false'"
+      :value="5"
+      class="DataSelector-Button"
+    >
+      {{ $t('金') }}
+    </v-btn>
+    <v-btn
+      v-ripple="false"
+      :aria-pressed="value === 6 ? 'true' : 'false'"
+      :value="6"
+      class="DataSelector-Button"
+    >
+      {{ $t('土') }}
+    </v-btn>
+    <v-btn
+      v-ripple="false"
+      :aria-pressed="value === 0 ? 'true' : 'false'"
+      :value="0"
+      class="DataSelector-Button"
+    >
+      {{ $t('日') }}
     </v-btn>
   </v-btn-toggle>
 </template>
@@ -40,8 +72,8 @@ export default Vue.extend({
   name: 'DataSelector',
   props: {
     value: {
-      type: String,
-      default: 'transition',
+      type: Number,
+      default: 0,
     },
     targetId: {
       type: String,

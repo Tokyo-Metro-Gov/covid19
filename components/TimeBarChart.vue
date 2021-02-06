@@ -7,11 +7,20 @@
       <slot name="description" />
     </template>
     <template v-slot:button>
-      <data-selector
-        v-model="dataKind"
-        :target-id="chartId"
-        :style="{ display: canvas ? 'inline-block' : 'none' }"
-      />
+      <div>
+        <data-selector
+          v-model="dataKind"
+          :target-id="chartId"
+          :style="{ display: canvas ? 'inline-block' : 'none' }"
+        />
+      </div>
+      <div v-if="dataKind === 'transitionByDayOfTheWeek'">
+        <day-selector
+          v-model.number="dayOfTheWeek"
+          :target-id="chartId"
+          :style="{ display: canvas ? 'inline-block' : 'none' }"
+        />
+      </div>
     </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
@@ -73,6 +82,7 @@ import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
+import DaySelector from '@/components/DaySelector.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
@@ -81,7 +91,8 @@ import { getGraphSeriesStyle } from '@/utils/colors'
 import { GraphDataType } from '@/utils/formatGraph'
 
 type Data = {
-  dataKind: 'transition' | 'cumulative'
+  dataKind: 'transition' | 'transitionByDayOfTheWeek' | 'cumulative'
+  dayOfTheWeek: number
   canvas: boolean
 }
 type Methods = {}
@@ -92,6 +103,7 @@ type Computed = {
     sText: string
     unit: string
   }
+  chartDataFilteredByDay: GraphDataType[]
   displayData: DisplayData
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
@@ -121,14 +133,24 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 > = {
   created() {
     this.canvas = process.browser
-    this.dataKind =
-      this.$route.query.embed && this.$route.query.dataKind === 'cumulative'
-        ? 'cumulative'
-        : 'transition'
+    // init dataKind
+    if (!this.$route.query.embed) {
+      this.dataKind = 'transition'
+    } else {
+      switch (this.$route.query.dataKind) {
+        case 'cumulative':
+        case 'transitionByDayOfTheWeek':
+          this.dataKind = this.$route.query.dataKind
+          break
+        default:
+          this.dataKind = 'transition'
+      }
+    }
   },
   components: {
     DataView,
     DataSelector,
+    DaySelector,
     DataViewDataSetPanel,
     DataViewTable,
     ScrollableChart,
@@ -174,6 +196,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
+    dayOfTheWeek: new Date().getDay(),
     canvas: true,
   }),
   computed: {
@@ -199,6 +222,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           )}: ${dayBeforeRatio} ${this.unit}）`,
           unit: this.unit,
         }
+      } else if (this.dataKind === 'transitionByDayOfTheWeek') {
+        return {
+          lText: lastDayData,
+          sText: `${formattedLastDay} ${this.$t('実績値')}（${this.$t(
+            '前週比'
+          )}: ${dayBeforeRatio} ${this.unit}）`,
+          unit: this.unit,
+        }
       }
       return {
         lText: lastDayData,
@@ -207,6 +238,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         )}: ${dayBeforeRatio} ${this.unit}）`,
         unit: this.unit,
       }
+    },
+    chartDataFilteredByDay() {
+      return this.chartData.filter(
+        (v) => new Date(v.label).getDay() === this.dayOfTheWeek
+      )
     },
     displayData() {
       const style = getGraphSeriesStyle(1)[0]
@@ -237,6 +273,38 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             {
               label: this.dataKind,
               data: this.chartData.map((d) => {
+                return d.transition
+              }),
+              backgroundColor: style.fillColor,
+              borderColor: style.strokeColor,
+              borderWidth: 1,
+            },
+          ],
+        }
+      } else if (this.dataKind === 'transitionByDayOfTheWeek') {
+        return {
+          labels: this.chartDataFilteredByDay.map((d) => {
+            return d.label
+          }),
+          datasets: [
+            {
+              label: this.dataKind,
+              data: this.chartDataFilteredByDay.map((_d) => {
+                return 0
+              }),
+              backgroundColor: transparentWhite,
+              borderColor: transparentWhite,
+              borderWidth: 0,
+              minBarLength: this.chartDataFilteredByDay.map((d) => {
+                if (d.transition <= 0) {
+                  return zeroMouseOverHeight
+                }
+                return 0
+              }),
+            },
+            {
+              label: this.dataKind,
+              data: this.chartDataFilteredByDay.map((d) => {
                 return d.transition
               }),
               backgroundColor: style.fillColor,
@@ -381,6 +449,21 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
           ],
         }
+      } else if (this.dataKind === 'transitionByDayOfTheWeek') {
+        return {
+          labels: ['2020-01-01'],
+          datasets: [
+            {
+              data: [
+                Math.max(
+                  ...this.chartDataFilteredByDay.map((d) => d.transition)
+                ),
+              ],
+              backgroundColor: 'transparent',
+              borderWidth: 0,
+            },
+          ],
+        }
       }
       return {
         labels: ['2020-01-01'],
@@ -467,10 +550,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     scaledTicksYAxisMax() {
-      const dataKind =
-        this.dataKind === 'transition' ? 'transition' : 'cumulative'
-      const values = this.chartData.map((d) => d[dataKind])
-      return Math.max(...values)
+      switch (this.dataKind) {
+        case 'transition':
+          return Math.max(...this.chartData.map((d) => d.transition))
+        case 'transitionByDayOfTheWeek':
+          return Math.max(
+            ...this.chartDataFilteredByDay.map((d) => d.transition)
+          )
+        default:
+          // 'cumulative' is come to here
+          return Math.max(...this.chartData.map((d) => d.cumulative))
+      }
     },
     tableHeaders() {
       return [
@@ -488,7 +578,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      return this.chartData
+      const data =
+        this.dataKind === 'transitionByDayOfTheWeek'
+          ? this.chartDataFilteredByDay
+          : this.chartData
+      return data
         .map((d, _) => {
           return {
             text: d.label,
