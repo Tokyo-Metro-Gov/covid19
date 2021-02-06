@@ -201,7 +201,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     dataKind: 'transition',
-    dayOfTheWeek: new Date().getDay(),
+    dayOfTheWeek: dayjs().day(),
     canvas: true,
   }),
   computed: {
@@ -246,7 +246,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     chartDataFilteredByDay() {
       return this.chartData.filter(
-        (v) => new Date(v.label).getDay() === this.dayOfTheWeek
+        (v) => dayjs(v.label).day() === this.dayOfTheWeek
       )
     },
     displayData() {
