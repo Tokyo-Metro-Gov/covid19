@@ -64,8 +64,8 @@ alive_sites: list = [
 if len(alive_sites) > 0:
     for website in alive_sites:
         # alive_sites の内，アクセスが復帰した URL を含む行を検出する
-        row_find: str = r'(\n\|\[\]\(\d*\)\D+\|' + \
-            website['url'] + r'\|.+\|.+\|)\*\*リンク切れ\*\*(\|)'
+        row_find: str = r'(\n\| *\[\]\(\d*\)[^\W\s]+ *\| *' + \
+            website['url'] + r' *\|.*\|.*\| *)\*\*リンク切れ\*\*( *\|)'
 
         # 該当する行の「リンク切れ」表記を削除する
         row_replace: str = r'\1\2'
@@ -84,8 +84,8 @@ dead_sites: list = [
 if len(dead_sites) > 0:
     for website in dead_sites:
         # dead_sites の URL を含む行を検出する
-        row_find: str = r'(\n\|\[\]\(\d*\)\D+\|' + \
-            website['url'] + r'\|.+\|.+\|)(\|)'
+        row_find: str = r'(\n\| *\[\]\(\d*\)[^\W\s]+ *\| *' + \
+            website['url'] + r' *\|.*\|.*\| *)( *\|)'
 
         # 該当する URL を含む行に「リンク切れ」を追記
         row_replace: str = r'\1**リンク切れ**\2'
