@@ -19,7 +19,7 @@ def now_in_jst():
 
 
 MD_PATH: str = './FORKED_SITES.md'
-LOG_PATH: str = './audit-forked-sites/result.csv'
+LOG_PATH: str = './audit-forked-sites/error.csv'
 
 with open(MD_PATH, 'r', encoding='utf-8') as f:
     md: str = f.read()
