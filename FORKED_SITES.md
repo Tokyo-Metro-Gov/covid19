@@ -2,7 +2,7 @@
 
 下表に列挙するサイトは、このサイトから派生（fork）したサイトです。
 
-リンク切れでアクセスできないサイトについては、表中の「ステータス」の欄にその旨が明記されています。なお、リンク切れのチェックは自動で行っています。
+アクセスできないサイトについては、表中の「ステータス」の欄に「**リンク切れ**」と記されています。なお、リンク切れのチェックは毎月1日の午前9時頃（日本時間）に自動で行われます。
 
 |都道府県名|公開サイト|運営者|プロジェクト|ステータス|
 |---|---|---|---|---|
@@ -55,7 +55,7 @@
 |[](34)広島市|https://stopcovid19-hiroshima-city.hiroshima-cu.ac.jp/|学生エンジニア（**広島市公式**）|[covid19-hirosima_city](https://github.com/inspired-fox/covid19-hirosima_city)||
 |[](35)山口県|https://covid19-yamaguchi.netlify.app/|有志|[nishidayoshikatsu/covid19-yamaguchi](https://github.com/nishidayoshikatsu/covid19-yamaguchi)||
 |[](37)香川県|https://kagawa.stopcovid19.jp/|学生エンジニア（有志）|[codeforkagawa/covid19](https://github.com/codeforkagawa/covid19)||
-|[](37)香川県|https://covid19-kagawa.jp/|学生エンジニア（有志）|[i15317/covid19](https://github.com/i15317/covid19) ||
+|[](37)香川県|https://covid19-kagawa.jp/|学生エンジニア（有志）|[i15317/covid19](https://github.com/i15317/covid19)||
 |[](38)愛媛県|https://ehime-covid19.com/|ボランティア（有志）|[ehime-covid19/covid19](https://github.com/ehime-covid19/covid19)||
 |[](39)高知県|https://covid19-kochi.netlify.app/|学生エンジニア（有志）|||
 |[](40)福岡県|https://fukuoka.stopcovid19.jp/|Code for Fukuoka, Code for Kurume|[Code-for-Fukuoka/covid19-fukuoka](https://github.com/Code-for-Fukuoka/covid19-fukuoka)||
@@ -81,3 +81,4 @@
       - Public Repository
          - GitHub: `[organization/repository](https://github.com/organization/repository)`形式で記載する。
          - GitHub以外: URLを記載する。
+   - ステータス: 未記入とする。
