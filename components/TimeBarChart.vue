@@ -134,9 +134,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
     // init dataKind
-    if (!this.$route.query.embed) {
-      this.dataKind = 'transition'
-    } else {
+    if (this.$route.query.embed) {
       switch (this.$route.query.dataKind) {
         case 'cumulative':
         case 'transitionByDayOfTheWeek':
@@ -145,6 +143,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         default:
           this.dataKind = 'transition'
       }
+    } else {
+      this.dataKind = 'transition'
     }
   },
   components: {
