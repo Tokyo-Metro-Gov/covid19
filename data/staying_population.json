@@ -1,21 +1,21 @@
 {
-    "date": "2021\/2\/7 14:00",
+    "date": "2021\/2\/8 14:00",
     "data": {
         "place": {
             "display": {
-                "@ja": "新宿",
-                "@en": "Shinjuku"
+                "@ja": "銀座",
+                "@en": "Ginza"
             }
         },
-        "date": "2021-02-06",
+        "date": "2021-02-07",
         "data": [
             {
                 "reference_date": "2020-12-01",
-                "increase_rate": -29
+                "increase_rate": -49
             },
             {
                 "reference_date": "2020-01-01",
-                "increase_rate": -51
+                "increase_rate": -62
             }
         ]
     }
