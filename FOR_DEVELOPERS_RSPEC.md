@@ -49,7 +49,7 @@ $ bundle install
 ### 2-2. productionコードの生成
 
 ```bash
-$ yarn build
+$ yarn run generate:deploy
 ```
 
 ### 2-3. ローカルWebサーバーを起動
