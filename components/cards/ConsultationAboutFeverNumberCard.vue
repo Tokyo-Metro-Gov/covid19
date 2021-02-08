@@ -1,10 +1,5 @@
 <template>
-  <v-col
-    id="ConsultationAboutFeverNumberCard"
-    cols="12"
-    md="6"
-    class="DataCard"
-  >
+  <v-col cols="12" md="6" class="DataCard ConsultationAboutFeverNumberCard">
     <client-only>
       <mixed-bar-and-line-chart
         :title="$t('モニタリング項目(2)')"

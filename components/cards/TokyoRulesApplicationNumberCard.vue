@@ -1,5 +1,5 @@
 <template>
-  <v-col id="TokyoRulesApplicationNumberCard" cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard TokyoRulesApplicationNumberCard">
     <client-only>
       <mixed-bar-and-line-chart
         :title="$t('モニタリング項目(5)')"

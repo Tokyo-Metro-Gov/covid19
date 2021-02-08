@@ -1,5 +1,5 @@
 <template>
-  <v-col id="SevereCaseCard" cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard SevereCaseCard">
     <client-only>
       <severe-case-bar-chart
         :title="$t('モニタリング項目(7)')"

@@ -1,10 +1,5 @@
 <template>
-  <v-col
-    id="PositiveNumberByDiagnosedDateCard"
-    cols="12"
-    md="6"
-    class="DataCard"
-  >
+  <v-col cols="12" md="6" class="DataCard PositiveNumberByDiagnosedDateCard">
     <client-only>
       <time-bar-chart
         :title="$t('確定日別による陽性者数の推移')"

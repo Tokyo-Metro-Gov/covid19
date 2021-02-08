@@ -2,14 +2,14 @@
 
 require 'spec_helper'
 
-card_ids = [
-  '#ConfirmedCasesNumberCard',
-  '#MonitoringConfirmedCasesNumberCard',
-  '#UntrackedRateCard',
-  '#PositiveRateCard',
-  '#TokyoRulesApplicationNumberCard',
-  '#HospitalizedNumberCard',
-  '#SevereCaseCard'
+card_classes = [
+  '.DataCard.ConfirmedCasesNumberCard',
+  '.DataCard.MonitoringConfirmedCasesNumberCard',
+  '.DataCard.UntrackedRateCard',
+  '.DataCard.PositiveRateCard',
+  '.DataCard.TokyoRulesApplicationNumberCard',
+  '.DataCard.HospitalizedNumberCard',
+  '.DataCard.SevereCaseCard'
 ]
 
 describe 'page [/]', type: :feature do
@@ -23,22 +23,22 @@ describe 'page [/]', type: :feature do
       shared_examples 'DataViewExpansionPanel' do
         example 'Open Panel -> Close Panel' do
           # Open Panel
-          expect(page).not_to have_selector("#{card_id} .DataView-ExpantionPanel .v-expansion-panel--active")
-          expect(page).not_to have_selector("#{card_id} .DataView-ExpantionPanel button.v-expansion-panel-header.v-expansion-panel-header--active")
-          find("#{card_id} .DataView-ExpantionPanel button.v-expansion-panel-header").click
-          expect(page).to have_selector("#{card_id} .DataView-ExpantionPanel .v-expansion-panel--active")
-          expect(page).to have_selector("#{card_id} .DataView-ExpantionPanel button.v-expansion-panel-header.v-expansion-panel-header--active")
+          expect(page).not_to have_selector("#{card_class} .DataView-ExpantionPanel .v-expansion-panel--active")
+          expect(page).not_to have_selector("#{card_class} .DataView-ExpantionPanel button.v-expansion-panel-header.v-expansion-panel-header--active")
+          find("#{card_class} .DataView-ExpantionPanel button.v-expansion-panel-header").click
+          expect(page).to have_selector("#{card_class} .DataView-ExpantionPanel .v-expansion-panel--active")
+          expect(page).to have_selector("#{card_class} .DataView-ExpantionPanel button.v-expansion-panel-header.v-expansion-panel-header--active")
 
           # Close Panel
-          find("#{card_id} .DataView-ExpantionPanel button.v-expansion-panel-header.v-expansion-panel-header--active").click
-          expect(page).not_to have_selector("#{card_id} .DataView-ExpantionPanel .v-expansion-panel--active")
-          expect(page).not_to have_selector("#{card_id} .DataView-ExpantionPanel button.v-expansion-panel-header.v-expansion-panel-header--active")
+          find("#{card_class} .DataView-ExpantionPanel button.v-expansion-panel-header.v-expansion-panel-header--active").click
+          expect(page).not_to have_selector("#{card_class} .DataView-ExpantionPanel .v-expansion-panel--active")
+          expect(page).not_to have_selector("#{card_class} .DataView-ExpantionPanel button.v-expansion-panel-header.v-expansion-panel-header--active")
         end
       end
 
-      card_ids.each do |card_id|
-        context card_id do
-          let(:card_id) { card_id }
+      card_classes.each do |card_class|
+        context card_class do
+          let(:card_class) { card_class }
           it_behaves_like 'DataViewExpansionPanel'
         end
       end

@@ -1,9 +1,8 @@
 <template>
   <v-col
-    id="TokyoFeverConsultationCenterReportsNumberCard"
     cols="12"
     md="6"
-    class="DataCard"
+    class="DataCard TokyoFeverConsultationCenterReportsNumberCard"
   >
     <client-only>
       <fever-mixed-chart

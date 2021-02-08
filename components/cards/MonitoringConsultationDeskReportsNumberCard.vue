@@ -1,9 +1,8 @@
 <template>
   <v-col
-    id="MonitoringConsultationDeskReportsNumberCard"
     cols="12"
     md="6"
-    class="DataCard"
+    class="DataCard MonitoringConsultationDeskReportsNumberCard"
   >
     <client-only>
       <monitoring-consultation-desk-report-chart
