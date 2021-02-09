@@ -6,8 +6,8 @@
         <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
         <app-link
           to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html"
-          >
-            {{ $t('詳細はこちら') }}
+        >
+          {{ $t('詳細はこちら') }}
         </app-link>
       </div>
       <div
