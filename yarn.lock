@@ -7017,10 +7017,10 @@ num2fraction@^1.2.2:
   resolved "https://registry.yarnpkg.com/num2fraction/-/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"
   integrity sha1-b2gragJ6Tp3fpFZM0lidHU5mnt4=
 
-nuxt-i18n@6.17.0:
-  version "6.17.0"
-  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-6.17.0.tgz#4d774f93c1ba76b89d380dd5b46888c9dd69e0c7"
-  integrity sha512-hP+ZWv+bB+OpgypL0RmFRRxPCDG0GgheeFE4877VqNxPKnTzPgKu1xyLRpa0m9Mj6DOGfCVHyqO4ER4RNFPo4A==
+nuxt-i18n@6.20.0:
+  version "6.20.0"
+  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-6.20.0.tgz#09d7839c56b2f4eec6b37e55ee7be0b0d18563d4"
+  integrity sha512-R6NrAskfaaUvs7xAvApZ+Piakqx3x50EAF5wOsxQZLc2Yx2/pN0C3sktxlFhrf0lr9lD1F9WhgUwz3GJV1ul3A==
   dependencies:
     "@babel/parser" "^7.5.5"
     "@babel/traverse" "^7.5.5"
