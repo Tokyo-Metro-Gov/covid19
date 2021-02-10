@@ -4,7 +4,7 @@
       <div class="StayingPopulation-title">
         {{ $t('●緊急事態宣言中の都内の滞在人口の増減状況') }}<br />
         <app-link
-          to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html"
+          to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html#nav1"
           >{{ $t('詳細はこちら') }}</app-link
         ><v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
       </div>
