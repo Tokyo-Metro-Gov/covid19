@@ -46,7 +46,7 @@ export default Vue.extend({
 
   span {
     white-space: pre-wrap;
-    font-weight: 700;
+    font-weight: 600;
   }
 
   @include font-size(12);

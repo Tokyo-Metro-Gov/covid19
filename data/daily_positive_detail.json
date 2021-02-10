@@ -1,5 +1,5 @@
 {
-    "date": "2021\/2\/4 19:45",
+    "date": "2021\/2\/9 19:15",
     "data": [
         {
             "diagnosed_date": "2020-01-20",
@@ -4202,6 +4202,61 @@
             "weekly_average_count": 661.3,
             "weekly_average_untracked_count": 327.9,
             "weekly_average_untracked_increse_percent": 63.2
+        },
+        {
+            "diagnosed_date": "2021-02-05",
+            "count": 577,
+            "missing_count": 294,
+            "reported_count": 283,
+            "weekly_gain_ratio": 0.66,
+            "untracked_percent": 49.7,
+            "weekly_average_count": 619.7,
+            "weekly_average_untracked_count": 308.3,
+            "weekly_average_untracked_increse_percent": 63
+        },
+        {
+            "diagnosed_date": "2021-02-06",
+            "count": 639,
+            "missing_count": 299,
+            "reported_count": 340,
+            "weekly_gain_ratio": 0.67,
+            "untracked_percent": 49.2,
+            "weekly_average_count": 601.1,
+            "weekly_average_untracked_count": 295.9,
+            "weekly_average_untracked_increse_percent": 63.7
+        },
+        {
+            "diagnosed_date": "2021-02-07",
+            "count": 429,
+            "missing_count": 213,
+            "reported_count": 216,
+            "weekly_gain_ratio": 0.67,
+            "untracked_percent": 49.8,
+            "weekly_average_count": 572,
+            "weekly_average_untracked_count": 284.7,
+            "weekly_average_untracked_increse_percent": 65.6
+        },
+        {
+            "diagnosed_date": "2021-02-08",
+            "count": 276,
+            "missing_count": 131,
+            "reported_count": 145,
+            "weekly_gain_ratio": 0.68,
+            "untracked_percent": 50.4,
+            "weekly_average_count": 555.3,
+            "weekly_average_untracked_count": 279.6,
+            "weekly_average_untracked_increse_percent": 67.6
+        },
+        {
+            "diagnosed_date": "2021-02-09",
+            "count": 412,
+            "missing_count": 216,
+            "reported_count": 196,
+            "weekly_gain_ratio": 0.71,
+            "untracked_percent": 49.8,
+            "weekly_average_count": 534.7,
+            "weekly_average_untracked_count": 266.3,
+            "weekly_average_untracked_increse_percent": 70.5
         }
     ]
 }

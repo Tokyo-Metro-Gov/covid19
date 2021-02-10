@@ -1,5 +1,5 @@
 {
-    "date": "2021\/2\/4 19:45",
+    "date": "2021\/2\/9 19:15",
     "data": [
         {
             "date": "2020-10-30",
@@ -872,6 +872,51 @@
                 "cocoa_dial": 33,
                 "total": 1084,
                 "weekly_average_total": 1268
+            }
+        },
+        {
+            "date": "2021-02-04",
+            "count": {
+                "fever_consultation_center": 971,
+                "cocoa_dial": 24,
+                "total": 995,
+                "weekly_average_total": 1236
+            }
+        },
+        {
+            "date": "2021-02-05",
+            "count": {
+                "fever_consultation_center": 1005,
+                "cocoa_dial": 20,
+                "total": 1025,
+                "weekly_average_total": 1225
+            }
+        },
+        {
+            "date": "2021-02-06",
+            "count": {
+                "fever_consultation_center": 1322,
+                "cocoa_dial": 17,
+                "total": 1339,
+                "weekly_average_total": 1194
+            }
+        },
+        {
+            "date": "2021-02-07",
+            "count": {
+                "fever_consultation_center": 1289,
+                "cocoa_dial": 9,
+                "total": 1298,
+                "weekly_average_total": 1164
+            }
+        },
+        {
+            "date": "2021-02-08",
+            "count": {
+                "fever_consultation_center": 1017,
+                "cocoa_dial": 18,
+                "total": 1035,
+                "weekly_average_total": 1133
             }
         }
     ]
