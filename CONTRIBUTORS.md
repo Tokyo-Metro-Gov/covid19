@@ -178,6 +178,7 @@ Tokyo Covid-19 response site contributors
 | Shoichiro Kawauchi | [@lacrosse91](https://github.com/lacrosse91) | | Coding |
 | [Yukiya Nagae](https://yukiya.me)  | [@yukiyalien](https://github.com/yukiyalien) | [@yukiyalien](https://twitter.com/yukiyalien) | Kaizen |
 | A_Certain_Shawn | [@certainShawn](https://github.com/certainShawn) | | Translation (JA-> CN) |
+| MATSUNO Tomoo | [@tmatsuno](https://github.com/tmatsuno) | | Frontend / TMG-DevRel |
 
 ご協力に感謝です！！！
 
