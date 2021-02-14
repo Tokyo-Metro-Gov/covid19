@@ -3,19 +3,19 @@
     "data": {
         "place": {
             "display": {
-                "@ja": "品川",
-                "@en": "Shinagawa"
+                "@ja": "銀座",
+                "@en": "Ginza"
             }
         },
-        "date": "2021-02-12",
+        "date": "2021-02-13",
         "data": [
             {
                 "reference_date": "2020-12-01",
-                "increase_rate": -28
+                "increase_rate": -26
             },
             {
                 "reference_date": "2020-01-01",
-                "increase_rate": -62
+                "increase_rate": -45
             }
         ]
     }
