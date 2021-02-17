@@ -24,6 +24,11 @@ module.exports = {
       },
     ],
     'tsdoc/syntax': 'error',
-    'simple-import-sort/sort': 'error',
+    /*
+     * updated from 'simple-import-sort/sort' to 'simple-import-sort/imports'
+     * https://github.com/lydell/eslint-plugin-simple-import-sort#usage
+    */
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
   },
 }
