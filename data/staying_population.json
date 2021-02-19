@@ -1,21 +1,21 @@
 {
-    "date": "2021\/2\/18 16:30",
+    "date": "2021\/2\/19 18:30",
     "data": {
         "place": {
             "display": {
-                "@ja": "池袋",
-                "@en": "Ikebukuro"
+                "@ja": "銀座",
+                "@en": "Ginza"
             }
         },
-        "date": "2021-02-17",
+        "date": "2021-02-18",
         "data": [
             {
                 "reference_date": "2020-12-01",
-                "increase_rate": -34
+                "increase_rate": -31
             },
             {
                 "reference_date": "2020-01-01",
-                "increase_rate": -56
+                "increase_rate": -57
             }
         ]
     }
