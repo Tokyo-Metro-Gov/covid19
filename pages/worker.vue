@@ -53,6 +53,20 @@
     </static-card>
     <static-card>
       <h3>
+        <app-link to="https://www.sangyo-rodo.metro.tokyo.lg.jp/attention/2021/0205_14245.html" :icon-size="24"
+          >{{ $t('営業時間短縮に係る感染拡大防止協力金（2/8～3/7実施分）') }}
+        </app-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '新型コロナウイルス感染拡大防止のため、緊急事態宣言が延長され、引き続き、営業時間の短縮が要請されることに伴い、要請に全面的にご協力いただける飲食事業者等に対し、新たに協力金を支給いたします。　'
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
         <app-link to="https://tokyoyachin.metro.tokyo.lg.jp" :icon-size="24"
           >{{ $t('東京都家賃等支援給付金') }}
         </app-link>
