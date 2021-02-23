@@ -44,14 +44,13 @@ import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
 import AppLink from '@/components/AppLink.vue'
+import MonitoringCommentCardImageSwipe from '@/components/MonitoringCommentCardImageSwipe.vue'
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'
 import {
   formatMonitoringComment,
   MonitoringComment,
 } from '@/utils/formatMonitoringItems'
-
-import MonitoringCommentCardImageSwipe from './MonitoringCommentCardImageSwipe.vue'
 
 type CommentKey = {
   [key: string]: MonitoringComment
