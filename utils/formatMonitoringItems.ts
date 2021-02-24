@@ -47,17 +47,17 @@ type RawDataComment = {
 // -----------------------------------------
 // フォーマット済み モニタリング指標データ用
 
-export type MonitoringItems = Record<DataKey, MonitoringItemValue>
+export type Unit = {
+  text: string // *********** もとの日本語のテキスト
+  translatable: boolean // ** 翻訳が必要かどうか
+}
 
 interface MonitoringItemValue {
   value: string
   unit: Unit | null // 元データに無いので独自に追加, 単位がない場合は null
 }
 
-export type Unit = {
-  text: string // *********** もとの日本語のテキスト
-  translatable: boolean // ** 翻訳が必要かどうか
-}
+export type MonitoringItems = Record<DataKey, MonitoringItemValue>
 
 /**
  * monitoring_items_json のデータを整形
@@ -133,8 +133,6 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
   }
 }
 
-export type MonitoringCommentItems = Record<DataCommentKey, MonitoringComment>
-
 export type MonitoringComment = {
   level: number
   display: {
@@ -142,6 +140,8 @@ export type MonitoringComment = {
     '@en': string
   }
 }
+
+export type MonitoringCommentItems = Record<DataCommentKey, MonitoringComment>
 
 /**
  * monitoring_items_json から総括コメントのみ抜き出し

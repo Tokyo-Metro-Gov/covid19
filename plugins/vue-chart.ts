@@ -1,5 +1,5 @@
 import { Plugin } from '@nuxt/types'
-import { ChartData, ChartOptions } from 'chart.js'
+import { Chart, ChartData, ChartOptions } from 'chart.js'
 import Vue, { PropType } from 'vue'
 import { Bar, Doughnut, Line, mixins } from 'vue-chartjs'
 
