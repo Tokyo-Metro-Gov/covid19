@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard UntrackedRateCard">
     <client-only>
       <untracked-rate-mixed-chart
         :title="$t('モニタリング項目(3)')"
