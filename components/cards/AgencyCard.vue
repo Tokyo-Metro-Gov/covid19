@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard AgencyCard">
     <client-only>
       <agency-bar-chart
         :title="$t('都庁来庁者数の推移')"
