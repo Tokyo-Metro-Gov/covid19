@@ -7039,10 +7039,10 @@ num2fraction@^1.2.2:
   resolved "https://registry.yarnpkg.com/num2fraction/-/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"
   integrity sha1-b2gragJ6Tp3fpFZM0lidHU5mnt4=
 
-nuxt-i18n@6.20.1:
-  version "6.20.1"
-  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-6.20.1.tgz#a4247315d835e0d24cca162a5794fdc779d1a7d6"
-  integrity sha512-ZI0WsuxroqULJ0BcbR+PXY7nZJ/vUcaUeCz9AxDjoHNzWAJQdlgsdhmdD1V+u5GtDSMqUkDp3gI+dLQ2n7eOjg==
+nuxt-i18n@6.20.2:
+  version "6.20.2"
+  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-6.20.2.tgz#d5323c9a4f55ee21cc0daad9917414888d8d5f5f"
+  integrity sha512-uJo4eUqB8TWequcFZ7k5s7zKo6OuhQu+Y0q6BK6nDymZyT+wPWDLgYtLpIkA8MrXeJlX0EReURW39558EGFtHQ==
   dependencies:
     "@babel/parser" "^7.5.5"
     "@babel/traverse" "^7.5.5"
