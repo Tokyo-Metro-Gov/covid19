@@ -1,5 +1,9 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col
+    cols="12"
+    md="6"
+    class="DataCard TokyoFeverConsultationCenterReportsNumberCard"
+  >
     <client-only>
       <fever-mixed-chart
         :title="$t('東京都発熱相談センターにおける相談件数')"

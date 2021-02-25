@@ -43,6 +43,8 @@
 import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
+import AppLink from '@/components/AppLink.vue'
+import MonitoringCommentCardImageSwipe from '@/components/MonitoringCommentCardImageSwipe.vue'
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'
 import {
@@ -50,14 +52,13 @@ import {
   MonitoringComment,
 } from '@/utils/formatMonitoringItems'
 
-import MonitoringCommentCardImageSwipe from './MonitoringCommentCardImageSwipe.vue'
-
 type CommentKey = {
   [key: string]: MonitoringComment
 }
 
 export default Vue.extend({
   components: {
+    AppLink,
     MonitoringCommentFrame,
     MonitoringCommentCardImageSwipe,
   },
