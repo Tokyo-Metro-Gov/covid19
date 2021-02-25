@@ -10,7 +10,7 @@
         <v-col class="MonitoringComment-col">
           <v-col cols="12">
             <p class="MonitoringComment-summary">
-              {{ monitoringCommnetSummry['summary'] }}
+              {{ monitoringCommentSummry['summary'] }}
             </p>
             <h4>{{ $t('感染状況') }}</h4>
             <monitoring-comment-frame
@@ -70,12 +70,12 @@ export default Vue.extend({
     const monitoringComment: CommentKey = formatMonitoringComment(
       monitoringItemsData.data
     )
-    const monitoringCommnetSummry = monitoringCommentSummaryData.data
+    const monitoringCommentSummry = monitoringCommentSummaryData.data
 
     return {
       monitoringComment,
       mdiChevronRight,
-      monitoringCommnetSummry,
+      monitoringCommentSummry,
     }
   },
   methods: {
