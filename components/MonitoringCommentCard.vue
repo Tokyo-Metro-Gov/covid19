@@ -9,6 +9,9 @@
       <v-row class="MonitoringComment-row">
         <v-col class="MonitoringComment-col">
           <v-col cols="12">
+            <p class="MonitoringComment-summary">
+              {{ monitoringCommentSummry['summary'] }}
+            </p>
             <h4>{{ $t('感染状況') }}</h4>
             <monitoring-comment-frame
               :level="monitoringComment['総括コメント-感染状況'].level - 1"
@@ -46,6 +49,7 @@ import Vue from 'vue'
 import AppLink from '@/components/AppLink.vue'
 import MonitoringCommentCardImageSwipe from '@/components/MonitoringCommentCardImageSwipe.vue'
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
+import monitoringCommentSummaryData from '@/data/monitoring_comment_summary_temporary.json'
 import monitoringItemsData from '@/data/monitoring_items.json'
 import {
   formatMonitoringComment,
@@ -66,9 +70,12 @@ export default Vue.extend({
     const monitoringComment: CommentKey = formatMonitoringComment(
       monitoringItemsData.data
     )
+    const monitoringCommentSummry = monitoringCommentSummaryData.data
+
     return {
       monitoringComment,
       mdiChevronRight,
+      monitoringCommentSummry,
     }
   },
   methods: {
@@ -117,6 +124,9 @@ export default Vue.extend({
     }
   }
 
+  .MonitoringComment-summary {
+    @include font-size(12);
+  }
   .MonitoringComment-comments {
     h4 {
       margin-bottom: 1px;
