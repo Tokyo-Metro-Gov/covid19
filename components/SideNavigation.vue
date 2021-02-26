@@ -265,6 +265,11 @@ export default Vue.extend({
             'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/zitakuryouyouhandbook.html',
         },
         {
+          title: this.$t('新型コロナウイルスワクチンの接種について'),
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine.html',
+        },
+        {
           title: this.$t('都民利用施設・都主催イベントに関する情報'),
           link:
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html',
