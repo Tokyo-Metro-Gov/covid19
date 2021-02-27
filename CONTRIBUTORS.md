@@ -179,6 +179,8 @@ Tokyo Covid-19 response site contributors
 | [Yukiya Nagae](https://yukiya.me)  | [@yukiyalien](https://github.com/yukiyalien) | [@yukiyalien](https://twitter.com/yukiyalien) | Kaizen |
 | A_Certain_Shawn | [@certainShawn](https://github.com/certainShawn) | | Translation (JA-> CN) |
 | MATSUNO Tomoo | [@tmatsuno](https://github.com/tmatsuno) | | Frontend / TMG-DevRel |
+| Daichi Hata (Atria) | [@Atria64](https://github.com/Atria64) | [@AtriaSoft](https://twitter.com/AtriaSoft) | Coding |
+| [Meiryo7743](https://meiryo7743.net) | [@Meiryo7743](https://github.com/Meiryo7743) | | Coding |
 
 ご協力に感謝です！！！
 
