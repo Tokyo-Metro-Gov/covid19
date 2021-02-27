@@ -36,6 +36,7 @@
     }
   },
   "dependencies": {
+    "@babel/preset-env": "7.13.8",
     "@nuxt/types": "2.14.12",
     "@nuxt/typescript-runtime": "2.0.2",
     "@nuxtjs/dotenv": "1.4.1",
@@ -57,7 +58,6 @@
   "devDependencies": {
     "@babel/core": "7.13.8",
     "@babel/helper-define-map": "7.12.13",
-    "@babel/preset-env": "7.13.8",
     "@babel/runtime-corejs3": "7.13.8",
     "@mdi/js": "5.9.55",
     "@nuxt/typescript-build": "2.0.6",
