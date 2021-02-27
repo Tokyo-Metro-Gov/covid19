@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard SevereCaseCard">
     <client-only>
       <severe-case-bar-chart
         :title="$t('モニタリング項目(7)')"
@@ -27,7 +27,9 @@
             </li>
             <li>
               {{
-                $t('上記の考え方で重症患者数の計上を開始した4月27日から作成')
+                $t(
+                  '上記の考え方で重症患者数の計上を開始した2020年4月27日から作成'
+                )
               }}
             </li>
           </ul>

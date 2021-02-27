@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard ConfirmedCasesAttributesCard">
     <client-only>
       <data-table
         :title="$t('陽性者の属性')"
@@ -47,7 +47,7 @@
             <li>
               {{
                 $t(
-                  '「職業」「接触歴」「発症日」「確定日」は、10月1日以降の情報について週１回更新'
+                  '「職業」「接触歴」「発症日」「確定日」は、2020年10月1日以降の情報について週1回更新'
                 )
               }}
             </li>
@@ -80,7 +80,7 @@ interface MetaData {
   endCursor: string
   updated: string
 }
-type Data = {
+type DataT = {
   dataLength: number
   sumInfoOfPatients: {
     lText: string
@@ -96,7 +96,7 @@ type Data = {
 type Methods = {
   fetchOpenAPI: () => Promise<{ patientsData: DataType; metaData: MetaData }>
   fetchIfNoCache: () => void
-  onChangeItemsPerPage: (itemsPerPage: Data['itemsPerPage']) => void
+  onChangeItemsPerPage: (itemsPerPage: DataT['itemsPerPage']) => void
   onChangePage: (page: number) => void
   translateWord: (word: string) => string | VueI18n.TranslateResult
   translateDate: (date: string) => string | VueI18n.TranslateResult
@@ -110,7 +110,7 @@ type Props = {}
 
 const options: ThisTypedComponentOptionsWithRecordProps<
   Vue,
-  Data,
+  DataT,
   Methods,
   Computed,
   Props

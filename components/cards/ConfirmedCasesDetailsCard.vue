@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard ConfirmedCasesDetailsCard">
     <client-only>
       <data-view
         :title="$t('検査陽性者の状況')"
@@ -59,7 +59,7 @@ import DataView from '@/components/DataView.vue'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 
-export default {
+const options = {
   components: {
     DataView,
     ConfirmedCasesDetailsTable,
@@ -78,6 +78,8 @@ export default {
     }
   },
 }
+
+export default options
 </script>
 
 <style lang="scss" module>

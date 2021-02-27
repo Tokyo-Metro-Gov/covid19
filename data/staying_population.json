@@ -1,0 +1,22 @@
+{
+    "date": "2021\/2\/27 15:30",
+    "data": {
+        "place": {
+            "display": {
+                "@ja": "銀座",
+                "@en": "Ginza"
+            }
+        },
+        "date": "2021-02-26",
+        "data": [
+            {
+                "reference_date": "2020-12-01",
+                "increase_rate": -26
+            },
+            {
+                "reference_date": "2020-01-01",
+                "increase_rate": -54
+            }
+        ]
+    }
+}

@@ -1,12 +1,17 @@
 import { ConfigType, Dayjs, OpUnitType, QUnitType } from 'dayjs'
 
 declare module 'chart.js' {
-  export class _adapters {
-    static _date: DayjsDateAdapter
-  }
-
-  interface DayjsDateAdapter {
-    override: (options: Options) => void
+  export type DateAdapterFormats = {
+    datetime: string
+    millisecond: string
+    second: string
+    minute: string
+    hour: string
+    day: string
+    week: string
+    month: string
+    quarter: string
+    year: string
   }
 
   interface Options {
@@ -28,16 +33,11 @@ declare module 'chart.js' {
     endOf: (time: ConfigType, unit: OpUnitType) => Dayjs
   }
 
-  export type DateAdapterFormats = {
-    datetime: string
-    millisecond: string
-    second: string
-    minute: string
-    hour: string
-    day: string
-    week: string
-    month: string
-    quarter: string
-    year: string
+  interface DayjsDateAdapter {
+    override: (options: Options) => void
+  }
+
+  export class _adapters {
+    static _date: DayjsDateAdapter
   }
 }

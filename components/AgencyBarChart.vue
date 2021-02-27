@@ -89,9 +89,6 @@ interface AgencyData extends AgencyDisplayData {
   labels: string[]
 }
 
-interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
-  currentTarget: T
-}
 type Data = {
   colors: SurfaceStyle[]
   canvas: boolean

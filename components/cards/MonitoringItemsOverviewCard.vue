@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard MonitoringItemsOverviewCard">
     <client-only>
       <data-view
         :title="$t('モニタリング項目')"
@@ -126,6 +126,6 @@ section {
 
 dfn {
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
 }
 </style>

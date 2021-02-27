@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col cols="12" md="6" class="DataCard HospitalizedNumberCard">
     <client-only>
       <dashed-rectangle-time-bar-chart
         :title="$t('モニタリング項目(6)')"
@@ -19,13 +19,15 @@
             <li>
               {{
                 $t(
-                  '5月11日までの入院患者数には宿泊療養者・自宅療養者等を含んでいるため、参考値である'
+                  '2020年5月11日までの入院患者数には宿泊療養者・自宅療養者等を含んでいるため、参考値である'
                 )
               }}
             </li>
             <li>
               {{
-                $t('当サイトにおいて入院患者数の公表を開始した3月6日から作成')
+                $t(
+                  '当サイトにおいて入院患者数の公表を開始した2020年3月6日から作成'
+                )
               }}
             </li>
           </ul>
