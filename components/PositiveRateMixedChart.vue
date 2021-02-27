@@ -123,9 +123,6 @@ import {
 } from '@/utils/colors'
 import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
 
-interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
-  currentTarget: T
-}
 type Data = {
   canvas: boolean
   displayLegends: boolean[]

@@ -50,7 +50,7 @@ export default Vue.extend({
     margin-bottom: auto;
     position: relative;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 600;
     color: $gray-2;
     padding: 10px 0 10px 0;
 
