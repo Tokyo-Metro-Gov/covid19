@@ -1,5 +1,5 @@
 {
-    "date": "2021\/2\/26 18:15",
+    "date": "2021\/2\/28 17:45",
     "data": [
         {
             "diagnosed_date": "2020-01-20",
@@ -4444,6 +4444,28 @@
             "weekly_average_count": 267.9,
             "weekly_average_untracked_count": 130.7,
             "weekly_average_untracked_increse_percent": 70.4
+        },
+        {
+            "diagnosed_date": "2021-02-27",
+            "count": 337,
+            "missing_count": 189,
+            "reported_count": 148,
+            "weekly_gain_ratio": 0.76,
+            "untracked_percent": 50.4,
+            "weekly_average_count": 269.3,
+            "weekly_average_untracked_count": 135.7,
+            "weekly_average_untracked_increse_percent": 75.5
+        },
+        {
+            "diagnosed_date": "2021-02-28",
+            "count": 329,
+            "missing_count": 116,
+            "reported_count": 213,
+            "weekly_gain_ratio": 0.81,
+            "untracked_percent": 47.6,
+            "weekly_average_count": 277.4,
+            "weekly_average_untracked_count": 132,
+            "weekly_average_untracked_increse_percent": 75.4
         }
     ]
 }
