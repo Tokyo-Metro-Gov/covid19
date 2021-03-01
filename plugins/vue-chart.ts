@@ -3,7 +3,7 @@ import { Chart, ChartData, ChartOptions } from 'chart.js'
 import Vue, { PropType } from 'vue'
 import { Bar, Doughnut, Line, mixins } from 'vue-chartjs'
 
-import { useDayjsAdapter } from './chartjs-adapter-dayjs'
+import { useDayjsAdapter } from '@/plugins/chartjs-adapter-dayjs'
 
 type ChartVCData = { chartData: ChartData }
 type ChartVCMethod = {
