@@ -17,8 +17,10 @@
       </div>
       <div v-else class="StayingPopulation-place">{{ placeName['@en'] }}</div>
       <div class="StayingPopulation-state">
+        <!-- TODO: 「時点」は辞書を参照するようにする -->
         [ {{ date }}時点 ]<br />
         <span v-for="(data, index) in formattedData" :key="index">
+          <!-- TODO: 「比」は辞書を参照するようにする -->
           {{ data.formattedMonth }}比 {{ data.increaseRateWithArrow }}<br />
         </span>
       </div>
