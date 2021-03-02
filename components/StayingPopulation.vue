@@ -19,7 +19,7 @@
       <div class="StayingPopulation-state">
         [ {{ date }}時点 ]<br />
         <span v-for="(data, index) in formattedData" :key="index">
-          {{ data.formattedMonth }}比 {{ data.increaseRateWithArrow }}％<br />
+          {{ data.formattedMonth }}比 {{ data.increaseRateWithArrow }}<br />
         </span>
       </div>
     </div>
@@ -59,7 +59,7 @@ export default Vue.extend({
         let increaseRateWithArrow = '0'
         if (increaseRate !== 0) {
           const arrow = increaseRate > 0 ? '↑' : '↓'
-          increaseRateWithArrow = `${arrow}${Math.abs(increaseRate)}`
+          increaseRateWithArrow = `${arrow}${Math.abs(increaseRate)} %`
         }
 
         return {
