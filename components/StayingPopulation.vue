@@ -18,9 +18,8 @@
       <div v-else class="StayingPopulation-place">{{ placeName['@en'] }}</div>
       <div class="StayingPopulation-state">
         [ {{ date }}時点 ]<br />
-        <span v-for="(data, key) in StayingPopulation.data.data" :key="key">
-          {{ data['reference_date'] | formattedMonth }}比
-          {{ data['increase_rate'] | increaseRateWithArrow }}％<br />
+        <span v-for="(data, index) in formattedData" :key="index">
+          {{ data.formattedMonth }}比 {{ data.increaseRateWithArrow }}％<br />
         </span>
       </div>
     </div>
@@ -35,15 +34,6 @@ import Vue from 'vue'
 import StayingPopulation from '@/data/staying_population.json'
 
 export default Vue.extend({
-  filters: {
-    formattedMonth(text: string) {
-      return dayjs(text).format('YYYY/MM')
-    },
-    increaseRateWithArrow: (increaseRate: number) => {
-      if (increaseRate === 0) return 0
-      return (increaseRate > 0 ? '↑' : '↓') + Math.abs(increaseRate)
-    },
-  },
   data() {
     const date = StayingPopulation.data.date
     return {
@@ -52,6 +42,29 @@ export default Vue.extend({
       placeName: StayingPopulation.data.place.display,
       date: this.$d(new Date(date), 'date'),
     }
+  },
+  computed: {
+    formattedData() {
+      const data = StayingPopulation.data.data
+
+      return data.map((dataForEachMonth) => {
+        const formattedMonth = dayjs(dataForEachMonth.reference_date).format(
+          'YYYY/MM'
+        )
+        const increaseRate = dataForEachMonth.increase_rate
+
+        let increaseRateWithArrow = '0'
+        if (increaseRate !== 0) {
+          const arrow = increaseRate > 0 ? '↑' : '↓'
+          increaseRateWithArrow = `${arrow}${Math.abs(increaseRate)}`
+        }
+
+        return {
+          formattedMonth,
+          increaseRateWithArrow,
+        }
+      })
+    },
   },
 })
 </script>
