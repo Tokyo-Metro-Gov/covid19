@@ -4,8 +4,7 @@
       ><strong>{{ value }}</strong></span
     >
     <span v-else>{{ value }}</span>
-    <span v-if="unit.translatable">{{ $t(unit.text) }}</span>
-    <span v-else>{{ unit.text }}</span>
+    <span v-if="translatedUnit">{{ translatedUnit }}</span>
   </span>
 </template>
 
@@ -27,6 +26,26 @@ export default Vue.extend({
     bold: {
       type: Boolean,
       required: true,
+    },
+  },
+  data() {
+    return {
+      currentLocaleCode: this.$root.$i18n.locale,
+    }
+  },
+  computed: {
+    translatedUnit() {
+      const unit = this.unit
+      const { text, translatable, except } = unit
+      if (translatable) {
+        if (except && except.includes(String(this.currentLocaleCode))) {
+          return null
+        }
+
+        return this.$t(unit.text)
+      }
+
+      return text
     },
   },
 })

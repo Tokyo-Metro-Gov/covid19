@@ -48,8 +48,9 @@ type RawDataComment = {
 // フォーマット済み モニタリング指標データ用
 
 export type Unit = {
-  text: string // *********** もとの日本語のテキスト
-  translatable: boolean // ** 翻訳が必要かどうか
+  text: string // もとの日本語のテキスト
+  translatable: boolean // 翻訳が必要かどうか
+  except?: Array<String> // 翻訳しない言語の配列
 }
 
 interface MonitoringItemValue {
@@ -75,6 +76,8 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
   const unitBed: Unit = {
     text: '床',
     translatable: true,
+    // 英語では対応する単位を表示しない
+    except: ['en'],
   }
 
   const toInteger = getCommaSeparatedNumberToFixedFunction(0)
