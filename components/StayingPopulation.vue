@@ -45,11 +45,12 @@ export default Vue.extend({
     },
   },
   data() {
+    const date = StayingPopulation.data.date
     return {
       mdiChevronRight,
       StayingPopulation,
       placeName: StayingPopulation.data.place.display,
-      date: dayjs(StayingPopulation.data.date).format('YYYY年MM月DD日'),
+      date: this.$d(new Date(date), 'date'),
     }
   },
 })
