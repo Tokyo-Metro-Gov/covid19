@@ -28,7 +28,6 @@
 
 <script lang="ts">
 import { mdiChevronRight } from '@mdi/js'
-import dayjs from 'dayjs'
 import Vue from 'vue'
 
 import StayingPopulation from '@/data/staying_population.json'
