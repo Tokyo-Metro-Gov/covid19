@@ -19,8 +19,8 @@
       <div class="StayingPopulation-state">
         [ {{ date }}時点 ]<br />
         <span v-for="(data, key) in StayingPopulation.data.data" :key="key">
-          {{ data['reference_date'] | formatDate }}比
-          {{ data['increase_rate'] | arrow }}％<br />
+          {{ data['reference_date'] | formattedMonth }}比
+          {{ data['increase_rate'] | increaseRateWithArrow }}％<br />
         </span>
       </div>
     </div>
@@ -36,10 +36,10 @@ import StayingPopulation from '@/data/staying_population.json'
 
 export default Vue.extend({
   filters: {
-    formatDate(text: string) {
+    formattedMonth(text: string) {
       return dayjs(text).format('YYYY/MM')
     },
-    arrow: (increaseRate: number) => {
+    increaseRateWithArrow: (increaseRate: number) => {
       if (increaseRate === 0) return 0
       return (increaseRate > 0 ? '↑' : '↓') + Math.abs(increaseRate)
     },
