@@ -9,16 +9,18 @@
           >{{ $t('詳細はこちら') }}
         </app-link>
       </div>
-      <div class="StayingPopulation-place">
-        {{ placeName }}
-      </div>
-      <div class="StayingPopulation-state">
-        <!-- TODO: 「時点」は辞書を参照するようにする -->
-        [ {{ date }}時点 ]<br />
-        <span v-for="(data, index) in formattedData" :key="index">
-          <!-- TODO: 「比」は辞書を参照するようにする -->
-          {{ data.formattedMonth }}比 {{ data.increaseRateWithArrow }}<br />
-        </span>
+      <div class="StayingPopulation-value">
+        <div class="StayingPopulation-place">
+          {{ placeName }}
+        </div>
+        <div class="StayingPopulation-state">
+          <!-- TODO: 「時点」は辞書を参照するようにする -->
+          [ {{ date }}時点 ]<br />
+          <span v-for="(data, index) in formattedData" :key="index">
+            <!-- TODO: 「比」は辞書を参照するようにする -->
+            {{ data.formattedMonth }}比 {{ data.increaseRateWithArrow }}<br />
+          </span>
+        </div>
       </div>
     </div>
   </v-col>
@@ -80,37 +82,37 @@ export default Vue.extend({
 .StayingPopulation {
   @include card-container();
 
-  padding: 3px;
+  padding: 5px 18px;
   min-height: 5em;
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 
   .StayingPopulation-title {
-    padding: 2px 15px;
     text-align: left;
     @include card-h2();
     @include font-size(12);
   }
+
+  .StayingPopulation-value {
+    border: 2px solid $green-1;
+  }
+
   .StayingPopulation-place {
-    padding: 5px 5px 5px 5px;
-    margin: 2px 5px 2px 10px;
-    background-color: #008830;
+    padding: 2px;
+    background-color: $green-1;
     color: #fff;
-    vertical-align: middle;
     text-align: center;
-    writing-mode: vertical-rl;
     font-weight: 600;
 
     @include font-size(12);
   }
+
   .StayingPopulation-state {
     flex: 1;
-    border: 2px solid;
-    padding: 2px;
-    margin: 2px 5px 2px 5px;
-    border-color: #008830;
+    padding: 5px;
     text-align: center;
-    vertical-align: middle;
     min-width: 15em;
     @include font-size(11);
   }
