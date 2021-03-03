@@ -1,5 +1,5 @@
 {
-    "date": "2021\/2\/24 18:45",
+    "date": "2021\/3\/3 18:45",
     "data": [
         {
             "date": "2020-02-28",
@@ -1815,6 +1815,41 @@
             "date": "2021-02-24",
             "hospitalized": 1882,
             "severe_case": 69
+        },
+        {
+            "date": "2021-02-25",
+            "hospitalized": 1812,
+            "severe_case": 71
+        },
+        {
+            "date": "2021-02-26",
+            "hospitalized": 1774,
+            "severe_case": 70
+        },
+        {
+            "date": "2021-02-27",
+            "hospitalized": 1694,
+            "severe_case": 68
+        },
+        {
+            "date": "2021-02-28",
+            "hospitalized": 1696,
+            "severe_case": 67
+        },
+        {
+            "date": "2021-03-01",
+            "hospitalized": 1663,
+            "severe_case": 61
+        },
+        {
+            "date": "2021-03-02",
+            "hospitalized": 1617,
+            "severe_case": 54
+        },
+        {
+            "date": "2021-03-03",
+            "hospitalized": 1548,
+            "severe_case": 52
         }
     ]
 }
