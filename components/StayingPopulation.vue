@@ -36,15 +36,16 @@ import StayingPopulation from '@/data/staying_population.json'
 
 export default Vue.extend({
   data() {
-    const date = StayingPopulation.data.date
     return {
       mdiChevronRight,
       StayingPopulation,
       placeName: StayingPopulation.data.place.display,
-      date: this.$d(new Date(date), 'date'),
     }
   },
   computed: {
+    date() {
+      return this.$d(new Date(StayingPopulation.data.date), 'date')
+    },
     formattedData() {
       const data = StayingPopulation.data.data
       const self = this
