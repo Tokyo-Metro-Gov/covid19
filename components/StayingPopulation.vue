@@ -17,10 +17,11 @@
       </div>
       <div v-else class="StayingPopulation-place">{{ placeName['@en'] }}</div>
       <div class="StayingPopulation-state">
+        <!-- TODO: 「時点」は辞書を参照するようにする -->
         [ {{ date }}時点 ]<br />
-        <span v-for="(data, key) in StayingPopulation.data.data" :key="key">
-          {{ data['reference_date'] | formatDate }}比
-          {{ data['increase_rate'] | arrow }}％<br />
+        <span v-for="(data, index) in formattedData" :key="index">
+          <!-- TODO: 「比」は辞書を参照するようにする -->
+          {{ data.formattedMonth }}比 {{ data.increaseRateWithArrow }}<br />
         </span>
       </div>
     </div>
@@ -29,28 +30,47 @@
 
 <script lang="ts">
 import { mdiChevronRight } from '@mdi/js'
-import dayjs from 'dayjs'
 import Vue from 'vue'
 
 import StayingPopulation from '@/data/staying_population.json'
 
 export default Vue.extend({
-  filters: {
-    formatDate(text: string) {
-      return dayjs(text).format('YYYY/MM')
-    },
-    arrow: (increaseRate: number) => {
-      if (increaseRate === 0) return 0
-      return (increaseRate > 0 ? '↑' : '↓') + Math.abs(increaseRate)
-    },
-  },
   data() {
     return {
       mdiChevronRight,
       StayingPopulation,
       placeName: StayingPopulation.data.place.display,
-      date: dayjs(StayingPopulation.data.date).format('YYYY年MM月DD日'),
     }
+  },
+  computed: {
+    date() {
+      return this.$d(new Date(StayingPopulation.data.date), 'date')
+    },
+    formattedData() {
+      const data = StayingPopulation.data.data
+      const self = this
+
+      return data.map((dataForEachMonth) => {
+        const referenceDate = dataForEachMonth.reference_date
+        const increaseRate = dataForEachMonth.increase_rate
+
+        const formattedMonth = self.$d(
+          new Date(referenceDate),
+          'dateWithoutDay'
+        )
+
+        let increaseRateWithArrow = '0'
+        if (increaseRate !== 0) {
+          const arrow = increaseRate > 0 ? '↑' : '↓'
+          increaseRateWithArrow = `${arrow}${Math.abs(increaseRate)} %`
+        }
+
+        return {
+          formattedMonth,
+          increaseRateWithArrow,
+        }
+      })
+    },
   },
 })
 </script>
