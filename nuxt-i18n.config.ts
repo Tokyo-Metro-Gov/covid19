@@ -18,6 +18,10 @@ const dateTimeFormatsCommon = {
     month: 'long',
     day: 'numeric',
   },
+  dateWithoutDay: {
+    year: 'numeric',
+    month: 'short',
+  },
   dateWithDayOfWeek: {
     weekday: 'short',
     month: 'short',
