@@ -1,5 +1,5 @@
 {
-    "date": "2021\/3\/3 15:00",
+    "date": "2021\/3\/4 14:45",
     "data": {
         "place": {
             "display": {
@@ -7,15 +7,15 @@
                 "@en": "Ginza"
             }
         },
-        "date": "2021-03-02",
+        "date": "2021-03-03",
         "data": [
             {
                 "reference_date": "2020-12-01",
-                "increase_rate": -41
+                "increase_rate": -32
             },
             {
                 "reference_date": "2020-01-01",
-                "increase_rate": -63
+                "increase_rate": -58
             }
         ]
     }
