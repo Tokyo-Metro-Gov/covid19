@@ -57,21 +57,19 @@
 </template>
 
 <script lang="ts">
-import dayjs from 'dayjs'
 import Vue from 'vue'
 
 import InfectionMedicalcareprovisionStatus from '@/data/infection_medicalcareprovision_status.json'
 
 export default Vue.extend({
   data() {
+    const date = InfectionMedicalcareprovisionStatus.date
+    const statisticDate =
+      InfectionMedicalcareprovisionStatus.data['検査統計日時']
     return {
       statuses: InfectionMedicalcareprovisionStatus,
-      date: dayjs(InfectionMedicalcareprovisionStatus.date).format(
-        'YYYY年MM月DD日'
-      ),
-      statisticDate: dayjs(
-        InfectionMedicalcareprovisionStatus.data['検査統計日時']
-      ).format('MM/DD'),
+      date: this.$d(new Date(date), 'date'),
+      statisticDate: this.$d(new Date(statisticDate), 'dateWithoutYear'),
     }
   },
 })
