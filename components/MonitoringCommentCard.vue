@@ -9,8 +9,23 @@
       <v-row class="MonitoringComment-row">
         <v-col class="MonitoringComment-col">
           <v-col cols="12">
-            <p class="MonitoringComment-summary">
-              {{ monitoringCommentSummry['summary'] }}
+            <p v-if="['ja', 'ja-basic'].includes($i18n.locale)">
+              <span
+                v-for="(item, i) in monitoringCommentSummry['3行コメント']"
+                :key="i"
+                class="MonitoringComment-summary"
+              >
+                {{ item['@ja'] }}
+              </span>
+            </p>
+            <p v-else>
+              <span
+                v-for="(item, i) in monitoringCommentSummry['3行コメント']"
+                :key="i"
+                class="MonitoringComment-summary"
+              >
+                {{ item['@en'] }}
+              </span>
             </p>
             <h4>{{ $t('感染状況') }}</h4>
             <monitoring-comment-frame
