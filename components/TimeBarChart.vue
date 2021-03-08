@@ -19,7 +19,7 @@
       :chart-id="chartId"
       :chart-data="displayData"
       :options="displayOption"
-      :height="540"
+      :height="240"
     />
     <v-data-table
       :style="{ top: '-9999px', position: canvas ? 'fixed' : 'static' }"
