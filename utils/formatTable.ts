@@ -18,6 +18,7 @@ type DataType = {
 }
 
 type TableDataType = {
+  sort_key: string
   確定日: string
   居住地: DataType['居住地']
   年代: DataType['年代']
@@ -42,6 +43,7 @@ export default (data: DataType[]) => {
   }
   data.forEach(d => {
     const TableRow: TableDataType = {
+      sort_key: dayjs(d['確定日']).format('YYYY/MM/DD') ?? '1970/01/01',
       確定日: dayjs(d['確定日']).format('MM/DD') ?? '不明',
       居住地: d['居住地'] ?? '調査中',
       年代: d['年代'] ?? '不明',
@@ -52,7 +54,7 @@ export default (data: DataType[]) => {
   })
   // tableDate.datasets.sort((a, b) => (a === b ? 0 : a < b ? 1 : -1))
   tableDate.datasets
-    .sort((a, b) => dayjs(a.確定日).unix() - dayjs(b.確定日).unix())
+    .sort((a, b) => dayjs(a.sort_key).unix() - dayjs(b.sort_key).unix())
     .reverse()
   return tableDate
 }
