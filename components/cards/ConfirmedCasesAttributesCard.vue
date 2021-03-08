@@ -127,6 +127,7 @@
 
 <script>
 import Data from '@/data/data.json'
+import Patients from '@/data/patients.json'
 import formatGraph from '@/utils/formatGraph'
 import formatTable from '@/utils/formatTable'
 import DataTable from '@/components/DataTable.vue'
@@ -138,8 +139,7 @@ export default {
   data() {
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
-    // 感染者数
-    const patientsTable = formatTable(Data.patients.data)
+    const patientsTable = formatTable(Patients.data.slice(-100))
 
     const sumInfoOfPatients = {
       lText: patientsGraph[
@@ -156,6 +156,7 @@ export default {
       header.text =
         header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
     }
+
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
       row['居住地'] = this.$t(row['居住地'])
