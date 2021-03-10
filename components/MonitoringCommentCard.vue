@@ -83,17 +83,17 @@ export default Vue.extend({
   data(): {
     monitoringComment: CommentKey
     mdiChevronRight: string
-    monitoringCommentSummry: { '@ja': string; '@en': string }[]
+    monitoringCommentSummary: { '@ja': string; '@en': string }[]
   } {
     const monitoringComment: CommentKey = formatMonitoringComment(
       monitoringItemsData.data
     )
-    const monitoringCommentSummry = monitoringItemsData.data.専門家3行コメント
+    const monitoringCommentSummary = monitoringItemsData.data.専門家3行コメント
 
     return {
       monitoringComment,
       mdiChevronRight,
-      monitoringCommentSummry,
+      monitoringCommentSummary,
     }
   },
   methods: {
