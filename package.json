@@ -8,13 +8,13 @@
     "node": ">=14.16.0"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development GENERATE_ENV=development nuxt-ts",
-    "dev-no-axe": "cross-env NODE_ENV=dev-no-axe GENERATE_ENV=development nuxt-ts",
-    "build": "nuxt-ts build",
-    "start": "cross-env NODE_ENV=production nuxt-ts start",
-    "generate:deploy": "cross-env GENERATE_ENV=production NODE_OPTIONS=--max_old_space_size=2048 nuxt-ts generate --fail-on-page-error && yarn functions:build",
-    "generate:dev": "cross-env GENERATE_ENV=development NODE_OPTIONS=--max_old_space_size=2048 nuxt-ts generate --fail-on-page-error && yarn functions:build",
-    "generate": "eslint \"./**/*.{js,ts,vue}\" && nuxt-ts generate",
+    "dev": "cross-env NODE_ENV=development GENERATE_ENV=development nuxt",
+    "dev-no-axe": "cross-env NODE_ENV=dev-no-axe GENERATE_ENV=development nuxt",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production nuxt start",
+    "generate:deploy": "cross-env GENERATE_ENV=production NODE_OPTIONS=--max_old_space_size=2048 nuxt generate --fail-on-page-error && yarn functions:build",
+    "generate:dev": "cross-env GENERATE_ENV=development NODE_OPTIONS=--max_old_space_size=2048 nuxt generate --fail-on-page-error && yarn functions:build",
+    "generate": "eslint \"./**/*.{js,ts,vue}\" && nuxt generate",
     "test": "echo 'skip tests (there is no test)'",
     "lint": "eslint \"./**/*.{js,ts,vue}\"",
     "lint:fix": "eslint \"./**/*.{js,ts,vue}\" --fix",
@@ -37,7 +37,6 @@
   },
   "dependencies": {
     "@nuxt/types": "2.15.3",
-    "@nuxt/typescript-runtime": "2.0.2",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/gtm": "2.4.0",
     "@nuxtjs/pwa": "3.3.5",
