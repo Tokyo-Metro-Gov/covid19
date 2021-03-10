@@ -1,9 +1,9 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:description>
+    <template #description>
       <slot name="description" />
     </template>
-    <template v-slot:button>
+    <template #button>
       <data-selector
         v-model="dataKind"
         :target-id="chartId"
@@ -35,7 +35,7 @@
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
     <scrollable-chart v-show="canvas" :display-data="displayData">
-      <template v-slot:chart="{ chartWidth }">
+      <template #chart="{ chartWidth }">
         <bar
           :ref="'barChart'"
           :chart-id="chartId"
@@ -46,7 +46,7 @@
           :width="chartWidth"
         />
       </template>
-      <template v-slot:sticky-chart>
+      <template #sticky-chart>
         <bar
           class="sticky-legend"
           :chart-id="`${chartId}-header`"
@@ -58,15 +58,15 @@
         />
       </template>
     </scrollable-chart>
-    <template v-slot:dataTable>
+    <template #dataTable>
       <client-only>
         <data-view-table :headers="tableHeaders" :items="tableData" />
       </client-only>
     </template>
-    <template v-slot:additionalDescription>
+    <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
-    <template v-slot:infoPanel>
+    <template #infoPanel>
       <data-view-data-set-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"

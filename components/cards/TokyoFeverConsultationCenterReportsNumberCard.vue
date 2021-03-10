@@ -17,7 +17,7 @@
         :data-labels="labels"
         :table-labels="labels"
       >
-        <template v-slot:additionalDescription>
+        <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
             <li>

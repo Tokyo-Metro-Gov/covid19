@@ -11,7 +11,7 @@
         :by-date="true"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
       >
-        <template v-slot:description>
+        <template #description>
           <app-link
             :to="`${
               $i18n.locale !== 'ja' ? $i18n.locale : ''
@@ -21,7 +21,7 @@
             {{ $t('発症日別による陽性者数の推移はこちら') }}
           </app-link>
         </template>
-        <template v-slot:additionalDescription>
+        <template #additionalDescription>
           <div class="Description-ExternalLink">
             <app-link
               to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/todokedehcyouseisya.html"

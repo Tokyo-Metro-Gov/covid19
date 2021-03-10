@@ -8,7 +8,7 @@
         :date="date"
         :info="info"
       >
-        <template v-slot:additionalDescription>
+        <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
             <li>

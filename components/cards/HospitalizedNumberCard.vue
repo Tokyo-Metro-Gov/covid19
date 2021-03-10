@@ -13,7 +13,7 @@
         :added-value="200"
         :table-labels="tableLabels"
       >
-        <template v-slot:additionalDescription>
+        <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
             <li>

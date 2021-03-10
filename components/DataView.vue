@@ -106,18 +106,6 @@ export default Vue.extend({
       default: '',
     },
   },
-  computed: {
-    formattedDate(): string {
-      return convertDatetimeToISO8601Format(this.date)
-    },
-    formattedDateForDisplay(): string {
-      return this.date !== '' ? this.$d(new Date(this.date), 'dateTime') : ''
-    },
-    permalink(): string {
-      const permalink = `/cards/${this.titleId}`
-      return this.localePath(permalink)
-    },
-  },
   head(): MetaInfo {
     // カードの個別ページの場合は、タイトルと更新時刻を`page/cards/_card`に渡す
     if (!this.$route.params.card) return {}
@@ -142,6 +130,18 @@ export default Vue.extend({
         },
       ],
     }
+  },
+  computed: {
+    formattedDate(): string {
+      return convertDatetimeToISO8601Format(this.date)
+    },
+    formattedDateForDisplay(): string {
+      return this.date !== '' ? this.$d(new Date(this.date), 'dateTime') : ''
+    },
+    permalink(): string {
+      const permalink = `/cards/${this.titleId}`
+      return this.localePath(permalink)
+    },
   },
 })
 </script>

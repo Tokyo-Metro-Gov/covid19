@@ -11,7 +11,7 @@
     class="cardTable"
     item-key="name"
   >
-    <template v-slot:body="{ items }">
+    <template #body="{ items }">
       <tbody>
         <tr v-for="(item, i) in items" :key="i">
           <th scope="row" class="cardTable-header">

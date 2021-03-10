@@ -6,7 +6,7 @@
         title-id="monitoring-items-overview"
         :date="monitoringItemsData.date"
       >
-        <template v-slot:additionalDescription>
+        <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
             <li>
@@ -14,7 +14,7 @@
                 tag="span"
                 path="{number}：急病やけがの際に、緊急受診の必要性や診察可能な医療機関をアドバイスする電話相談窓口"
               >
-                <template v-slot:number>
+                <template #number>
                   <dfn>#7119</dfn>
                 </template>
               </i18n>

@@ -1,7 +1,7 @@
 <template>
   <div class="DataView-DataSet-info">
     <i18n tag="small" class="DataView-DataSet-summary-unit" :path="lText">
-      <template v-slot:num>
+      <template #num>
         <span class="DataView-DataSet-summary">
           {{ num }}
         </span>

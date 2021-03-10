@@ -9,7 +9,7 @@
         :date="positiveByDeveloped.date"
         :unit="$t('人')"
       >
-        <template v-slot:additionalDescription>
+        <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
             <li>
@@ -28,7 +28,7 @@
             </li>
           </ul>
         </template>
-        <template v-slot:additionalInfoPanel>
+        <template #additionalInfoPanel>
           <data-view-custom-info-panel
             :l-text="lText"
             :s-text="sText"
