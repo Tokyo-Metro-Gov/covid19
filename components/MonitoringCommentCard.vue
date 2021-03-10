@@ -11,7 +11,7 @@
           <v-col cols="12">
             <p v-if="['ja', 'ja-basic'].includes($i18n.locale)">
               <span
-                v-for="(item, i) in monitoringCommentSummry"
+                v-for="(item, i) in monitoringCommentSummary"
                 :key="i"
                 class="MonitoringComment-summary"
               >
@@ -20,7 +20,7 @@
             </p>
             <p v-else>
               <span
-                v-for="(item, i) in monitoringCommentSummry"
+                v-for="(item, i) in monitoringCommentSummary"
                 :key="i"
                 class="MonitoringComment-summary"
               >
