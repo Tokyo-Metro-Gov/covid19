@@ -18,8 +18,9 @@
 </template>
 
 <script lang="ts">
-import CardRow from '@/components/cards/CardRow.vue'
 import Vue from 'vue'
+
+import CardRow from '@/components/cards/CardRow.vue'
 
 type Data = {
   actives: boolean[]
