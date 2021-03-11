@@ -29,8 +29,8 @@
 <script lang="ts">
 import dayjs from 'dayjs'
 import Vue from 'vue'
-import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { TranslateResult } from 'vue-i18n'
 
 export type TableHeader = {
   text: TranslateResult

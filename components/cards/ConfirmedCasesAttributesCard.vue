@@ -68,8 +68,8 @@
 <script lang="ts">
 import dayjs from 'dayjs'
 import Vue from 'vue'
-import VueI18n from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import VueI18n from 'vue-i18n'
 
 import DataTable from '@/components/DataTable.vue'
 import Data from '@/data/data.json'

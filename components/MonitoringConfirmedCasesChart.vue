@@ -89,8 +89,8 @@
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import Vue from 'vue'
-import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { TranslateResult } from 'vue-i18n'
 
 import DataView from '@/components/DataView.vue'
 import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
