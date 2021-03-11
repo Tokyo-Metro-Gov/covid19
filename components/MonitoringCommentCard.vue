@@ -11,7 +11,7 @@
           <v-col cols="12">
             <p v-if="['ja', 'ja-basic'].includes($i18n.locale)">
               <span
-                v-for="(item, i) in monitoringCommentSummry['3行コメント']"
+                v-for="(item, i) in monitoringCommentSummary"
                 :key="i"
                 class="MonitoringComment-summary"
               >
@@ -20,7 +20,7 @@
             </p>
             <p v-else>
               <span
-                v-for="(item, i) in monitoringCommentSummry['3行コメント']"
+                v-for="(item, i) in monitoringCommentSummary"
                 :key="i"
                 class="MonitoringComment-summary"
               >
@@ -64,7 +64,6 @@ import Vue from 'vue'
 import AppLink from '@/components/AppLink.vue'
 import MonitoringCommentCardImageSwipe from '@/components/MonitoringCommentCardImageSwipe.vue'
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
-import monitoringCommentSummaryData from '@/data/monitoring_comment_summary_temporary.json'
 import monitoringItemsData from '@/data/monitoring_items.json'
 import {
   formatMonitoringComment,
@@ -81,16 +80,20 @@ export default Vue.extend({
     MonitoringCommentFrame,
     MonitoringCommentCardImageSwipe,
   },
-  data() {
+  data(): {
+    monitoringComment: CommentKey
+    mdiChevronRight: string
+    monitoringCommentSummary: { '@ja': string; '@en': string }[]
+  } {
     const monitoringComment: CommentKey = formatMonitoringComment(
       monitoringItemsData.data
     )
-    const monitoringCommentSummry = monitoringCommentSummaryData.data
+    const monitoringCommentSummary = monitoringItemsData.data.専門家3行コメント
 
     return {
       monitoringComment,
       mdiChevronRight,
-      monitoringCommentSummry,
+      monitoringCommentSummary,
     }
   },
   methods: {

@@ -9,6 +9,13 @@
       </h3>
       <div class="WhatsNew-linkGroup">
         <lazy-link-to-information-about-emergency-measure v-if="isEmergency" />
+        <app-link
+          class="WhatsNew-linkButton"
+          to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine.html"
+        >
+          <VaccineIcon class="WhatsNew-linkButton-icon" aria-hidden="true" />
+          {{ $t('ワクチン情報') }}
+        </app-link>
       </div>
     </div>
     <ul class="WhatsNew-list">
@@ -34,11 +41,13 @@ import { mdiInformation } from '@mdi/js'
 import Vue from 'vue'
 
 import AppLink from '@/components/AppLink.vue'
+import VaccineIcon from '@/static/vaccine.svg'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
   components: {
     AppLink,
+    VaccineIcon,
   },
   props: {
     items: {
@@ -76,7 +85,6 @@ export default Vue.extend({
 
   .WhatsNew-heading {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     margin-bottom: 8px;
@@ -85,6 +93,7 @@ export default Vue.extend({
       display: flex;
       align-items: center;
       color: $gray-2;
+      margin: 8px 12px 8px 0;
       @include card-h2();
       &-icon {
         margin: 3px;
@@ -99,6 +108,14 @@ export default Vue.extend({
 
       @include lessThan($medium) {
         justify-content: flex-start;
+      }
+    }
+
+    .WhatsNew-linkButton {
+      @include button-text('sm');
+      &-icon {
+        width: 1em;
+        height: 1em;
       }
     }
   }
