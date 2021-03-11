@@ -40,10 +40,7 @@
 
       <nav class="SideNavigation-Menu">
         <div class="SideNavigation-Language">
-          <div
-            v-if="this.$i18n.locales.length > 1"
-            class="SideNavigation-Language"
-          >
+          <div v-if="$i18n.locales.length > 1" class="SideNavigation-Language">
             <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
               {{ $t('多言語対応選択メニュー') }}
             </label>

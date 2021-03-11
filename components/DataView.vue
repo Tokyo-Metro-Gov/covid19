@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <div v-if="this.$slots.attentionNote" class="DataView-AttentionNote">
+      <div v-if="$slots.attentionNote" class="DataView-AttentionNote">
         <slot name="attentionNote" />
       </div>
 
@@ -46,7 +46,7 @@
       </div>
 
       <data-view-expantion-panel
-        v-if="this.$slots.dataTable"
+        v-if="$slots.dataTable"
         class="DataView-ExpantionPanel"
       >
         <slot name="dataTable" />
@@ -67,7 +67,7 @@
         </div>
 
         <data-view-share
-          v-if="this.$route.query.embed != 'true'"
+          v-if="$route.query.embed !== 'true'"
           :title="title"
           :title-id="titleId"
           class="Footer-Right"
