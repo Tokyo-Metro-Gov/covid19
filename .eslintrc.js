@@ -23,7 +23,7 @@ module.exports = {
       },
     ],
     'tsdoc/syntax': 'error',
-    'simple-import-sort/sort': 'error',
+    'simple-import-sort/imports': 'error',
     'no-restricted-imports': [
       'error',
       {
