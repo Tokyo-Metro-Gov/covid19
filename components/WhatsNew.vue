@@ -92,7 +92,7 @@ export default Vue.extend({
     .WhatsNew-title {
       display: flex;
       align-items: center;
-      margin: 8px 12px 8px 0;
+      padding: 8px 12px 8px 0;
       @include card-h2();
       &-icon {
         margin: 3px;
@@ -126,7 +126,6 @@ export default Vue.extend({
     &-item {
       &-anchor {
         text-decoration: none;
-        margin: 5px;
         @include font-size(14);
 
         @include lessThan($medium) {
