@@ -134,9 +134,6 @@ export default Vue.extend({
     > a {
       @include text-link();
     }
-    .MonitoringComment-slide {
-      text-align: center;
-    }
   }
 
   .MonitoringComment-summary {
