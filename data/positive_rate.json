@@ -1,5 +1,5 @@
 {
-    "date": "2021\/3\/10 18:30",
+    "date": "2021\/3\/11 18:30",
     "data": [
         {
             "diagnosed_date": "2020-02-15",
@@ -4184,101 +4184,112 @@
         {
             "diagnosed_date": "2021-03-01",
             "positive_count": 219,
-            "negative_count": 7646,
+            "negative_count": 7652,
             "positive_rate": 3.3,
-            "weekly_average_diagnosed_count": 6475.1,
+            "weekly_average_diagnosed_count": 6476,
             "pcr_positive_count": 175,
-            "pcr_negative_count": 5799,
+            "pcr_negative_count": 5804,
             "antigen_positive_count": 44,
-            "antigen_negative_count": 1847
+            "antigen_negative_count": 1848
         },
         {
             "diagnosed_date": "2021-03-02",
-            "positive_count": 285,
-            "negative_count": 8617,
+            "positive_count": 286,
+            "negative_count": 8624,
             "positive_rate": 3.2,
-            "weekly_average_diagnosed_count": 7143.9,
-            "pcr_positive_count": 242,
-            "pcr_negative_count": 7037,
+            "weekly_average_diagnosed_count": 7145.9,
+            "pcr_positive_count": 243,
+            "pcr_negative_count": 7041,
             "antigen_positive_count": 43,
-            "antigen_negative_count": 1580
+            "antigen_negative_count": 1583
         },
         {
             "diagnosed_date": "2021-03-03",
             "positive_count": 247,
-            "negative_count": 7627,
+            "negative_count": 7655,
             "positive_rate": 3.2,
-            "weekly_average_diagnosed_count": 7061.7,
+            "weekly_average_diagnosed_count": 7067.7,
             "pcr_positive_count": 214,
-            "pcr_negative_count": 6243,
+            "pcr_negative_count": 6269,
             "antigen_positive_count": 33,
-            "antigen_negative_count": 1384
+            "antigen_negative_count": 1386
         },
         {
             "diagnosed_date": "2021-03-04",
             "positive_count": 243,
-            "negative_count": 7025,
+            "negative_count": 7032,
             "positive_rate": 3.2,
-            "weekly_average_diagnosed_count": 6886.4,
+            "weekly_average_diagnosed_count": 6893.4,
             "pcr_positive_count": 200,
-            "pcr_negative_count": 5638,
+            "pcr_negative_count": 5643,
             "antigen_positive_count": 43,
-            "antigen_negative_count": 1387
+            "antigen_negative_count": 1389
         },
         {
             "diagnosed_date": "2021-03-05",
-            "positive_count": 270,
-            "negative_count": 7416,
+            "positive_count": 271,
+            "negative_count": 7429,
             "positive_rate": 3.2,
-            "weekly_average_diagnosed_count": 6778.3,
-            "pcr_positive_count": 218,
-            "pcr_negative_count": 5896,
+            "weekly_average_diagnosed_count": 6787.3,
+            "pcr_positive_count": 219,
+            "pcr_negative_count": 5908,
             "antigen_positive_count": 52,
-            "antigen_negative_count": 1520
+            "antigen_negative_count": 1521
         },
         {
             "diagnosed_date": "2021-03-06",
             "positive_count": 167,
-            "negative_count": 5422,
+            "negative_count": 5435,
             "positive_rate": 3.2,
-            "weekly_average_diagnosed_count": 6789.4,
+            "weekly_average_diagnosed_count": 6800.3,
             "pcr_positive_count": 145,
-            "pcr_negative_count": 4479,
+            "pcr_negative_count": 4490,
             "antigen_positive_count": 22,
-            "antigen_negative_count": 943
+            "antigen_negative_count": 945
         },
         {
             "diagnosed_date": "2021-03-07",
             "positive_count": 94,
-            "negative_count": 2161,
+            "negative_count": 2172,
             "positive_rate": 3.2,
-            "weekly_average_diagnosed_count": 6777,
+            "weekly_average_diagnosed_count": 6789.4,
             "pcr_positive_count": 81,
-            "pcr_negative_count": 1682,
+            "pcr_negative_count": 1688,
             "antigen_positive_count": 13,
-            "antigen_negative_count": 479
+            "antigen_negative_count": 484
         },
         {
             "diagnosed_date": "2021-03-08",
-            "positive_count": 221,
-            "negative_count": 6568,
+            "positive_count": 223,
+            "negative_count": 6717,
             "positive_rate": 3.3,
-            "weekly_average_diagnosed_count": 6623.3,
-            "pcr_positive_count": 175,
-            "pcr_negative_count": 4867,
-            "antigen_positive_count": 46,
-            "antigen_negative_count": 1701
+            "weekly_average_diagnosed_count": 6656.4,
+            "pcr_positive_count": 176,
+            "pcr_negative_count": 4980,
+            "antigen_positive_count": 47,
+            "antigen_negative_count": 1737
         },
         {
             "diagnosed_date": "2021-03-09",
-            "positive_count": 244,
-            "negative_count": 7220,
+            "positive_count": 265,
+            "negative_count": 8029,
             "positive_rate": 3.3,
-            "weekly_average_diagnosed_count": 6417.9,
-            "pcr_positive_count": 215,
-            "pcr_negative_count": 6049,
-            "antigen_positive_count": 29,
-            "antigen_negative_count": 1171
+            "weekly_average_diagnosed_count": 6568.4,
+            "pcr_positive_count": 232,
+            "pcr_negative_count": 6720,
+            "antigen_positive_count": 33,
+            "antigen_negative_count": 1309
+        },
+        {
+            "diagnosed_date": "2021-03-10",
+            "positive_count": 237,
+            "negative_count": 6337,
+            "positive_rate": 3.4,
+            "weekly_average_diagnosed_count": 6378.7,
+            "pcr_positive_count": 203,
+            "pcr_negative_count": 5178,
+            "antigen_positive_count": 34,
+            "antigen_negative_count": 1159
         }
     ]
 }
