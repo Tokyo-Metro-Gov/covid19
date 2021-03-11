@@ -126,28 +126,7 @@ export default Vue.extend({
     }
   }
 
-  .MonitoringComment-description {
-    padding: 6px;
-    text-align: center;
-
-    @include font-size(14);
-    > a {
-      @include text-link();
-    }
-  }
-
-  .MonitoringComment-summary {
-    @include font-size(12);
-  }
   .MonitoringComment-comments {
-    .MonitoringCommentFrame-title {
-      margin-bottom: 1px;
-      color: $gray-3;
-      font-weight: normal;
-
-      @include font-size(14);
-    }
-
     margin: 0 10px 0 10px;
     padding: 2px;
 
@@ -157,7 +136,29 @@ export default Vue.extend({
         clear: both;
         padding: 3px;
         min-width: 300px;
+
+        .MonitoringComment-summary {
+          @include font-size(12);
+        }
+
+        .MonitoringCommentFrame-title {
+          margin-bottom: 1px;
+          color: $gray-3;
+          font-weight: normal;
+
+          @include font-size(14);
+        }
       }
+    }
+  }
+
+  .MonitoringComment-description {
+    padding: 6px;
+    text-align: center;
+
+    @include font-size(14);
+    > a {
+      @include text-link();
     }
   }
 }
