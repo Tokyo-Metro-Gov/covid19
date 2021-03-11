@@ -115,6 +115,7 @@ export default Vue.extend({
       @include button-text('sm');
       &-icon {
         width: 1em;
+        height: 1em;
       }
     }
   }
