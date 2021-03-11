@@ -9,22 +9,12 @@
       <v-row class="MonitoringComment-row">
         <v-col class="MonitoringComment-col">
           <v-col cols="12">
-            <p v-if="['ja', 'ja-basic'].includes($i18n.locale)">
+            <p class="MonitoringComment-summary">
               <span
-                v-for="(item, i) in monitoringCommentSummary"
+                v-for="(comment, i) in translatedMonitoringSummarizedComments"
                 :key="i"
-                class="MonitoringComment-summary"
               >
-                {{ item['@ja'] }}
-              </span>
-            </p>
-            <p v-else>
-              <span
-                v-for="(item, i) in monitoringCommentSummary"
-                :key="i"
-                class="MonitoringComment-summary"
-              >
-                {{ item['@en'] }}
+                {{ comment }}
               </span>
             </p>
             <h4>{{ $t('感染状況') }}</h4>
@@ -83,18 +73,25 @@ export default Vue.extend({
   data(): {
     monitoringComment: CommentKey
     mdiChevronRight: string
-    monitoringCommentSummary: { '@ja': string; '@en': string }[]
   } {
     const monitoringComment: CommentKey = formatMonitoringComment(
       monitoringItemsData.data
     )
-    const monitoringCommentSummary = monitoringItemsData.data.専門家3行コメント
 
     return {
       monitoringComment,
       mdiChevronRight,
-      monitoringCommentSummary,
     }
+  },
+  computed: {
+    translatedMonitoringSummarizedComments(): Array<String> {
+      const comments = monitoringItemsData.data.専門家3行コメント
+      if (['ja', 'ja-basic'].includes(this.$i18n.locale)) {
+        return comments.map((comment) => comment['@ja'])
+      } else {
+        return comments.map((comment) => comment['@en'])
+      }
+    },
   },
   methods: {
     commentMonitoring(item: string) {
