@@ -270,6 +270,13 @@ export default Vue.extend({
             'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine.html',
         },
         {
+          title: this.$t(
+            '新型コロナウイルス感染症に罹患し回復された方の体験に基づくメッセージの紹介'
+          ),
+          link:
+            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-message-for-you-02.html',
+        },
+        {
           title: this.$t('都民利用施設・都主催イベントに関する情報'),
           link:
             'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html',
