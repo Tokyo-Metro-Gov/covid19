@@ -17,14 +17,16 @@
                 {{ comment }}
               </span>
             </p>
-            <h4>{{ $t('感染状況') }}</h4>
+            <h4 class="MonitoringCommentFrame-title">{{ $t('感染状況') }}</h4>
             <monitoring-comment-frame
               :level="monitoringComment['総括コメント-感染状況'].level - 1"
               :comment="commentMonitoring('総括コメント-感染状況')"
             />
           </v-col>
           <v-col cols="12">
-            <h4>{{ $t('医療提供体制') }}</h4>
+            <h4 class="MonitoringCommentFrame-title">
+              {{ $t('医療提供体制') }}
+            </h4>
             <monitoring-comment-frame
               :level="monitoringComment['総括コメント-医療提供体制'].level - 1"
               :comment="commentMonitoring('総括コメント-医療提供体制')"
@@ -141,7 +143,7 @@ export default Vue.extend({
     @include font-size(12);
   }
   .MonitoringComment-comments {
-    h4 {
+    .MonitoringCommentFrame-title {
       margin-bottom: 1px;
       color: $gray-3;
       font-weight: normal;
