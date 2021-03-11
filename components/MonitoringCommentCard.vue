@@ -120,7 +120,6 @@ export default Vue.extend({
       display: flex;
       align-items: center;
       padding: 8px 6px;
-      color: $gray-2;
       @include card-h2();
     }
   }
@@ -131,7 +130,6 @@ export default Vue.extend({
 
     @include font-size(14);
     > a {
-      text-decoration: none;
       @include text-link();
     }
     .MonitoringComment-slide {
