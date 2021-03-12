@@ -13,7 +13,7 @@
 |[](02)青森県|https://covid19-daily-tohoku.news/|デーリー東北新聞社|[momujin/covid19](https://github.com/momujin/covid19)||
 |[](03)岩手県|https://iwate.stopcovid19.jp/|有志|[MeditationDuck/covid19](https://github.com/MeditationDuck/covid19)||
 |[](04)宮城県|https://miyagi.stopcovid19.jp/|Code for Shiogama|[code4shiogama/covid19-miyagi](https://github.com/code4shiogama/covid19-miyagi)||
-|[](05)秋田県|https://covid19-akita.netlify.app/|学生（有志）|[asaba-zauberer/covid19-akita](https://github.com/asaba-zauberer/covid19-akita)||
+|[](05)秋田県|https://covid19-akita.netlify.app/|Code for Akita|[code4akita/covid19-akita](https://github.com/code4akita/covid19-akita)||
 |[](06)山形県|https://stopcovid19-yamagata.netlify.app/|有志|[yamaserif/covid19](https://github.com/yamaserif/covid19)||
 |[](07)福島県|https://fukushima-covid19.firebaseapp.com/|福島県（**公式**）|[donuzium/covid19](https://github.com/donuzium/covid19)||
 |[](08)茨城県|https://ibaraki.stopcovid19.jp/|個人|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)||
