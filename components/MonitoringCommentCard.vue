@@ -109,7 +109,7 @@ export default Vue.extend({
 .MonitoringComment {
   @include card-container();
 
-  padding: 5px 12px 10px 12px;
+  padding: 5px 18px;
   margin: 0 0 10px 0;
 
   .MonitoringComment-heading {
@@ -121,20 +121,21 @@ export default Vue.extend({
     .MonitoringComment-title {
       display: flex;
       align-items: center;
-      padding: 8px 6px;
+      padding: 8px 12px 8px 0;
       @include card-h2();
     }
   }
 
   .MonitoringComment-comments {
-    margin: 0 10px 0 10px;
-    padding: 2px;
+    margin: 0;
+    padding: 0;
 
     .MonitoringComment-row {
       .MonitoringComment-col {
         float: left;
         clear: both;
-        padding: 3px;
+        padding-left: 0;
+        padding-right: 0;
         min-width: 300px;
 
         .MonitoringComment-summary {
