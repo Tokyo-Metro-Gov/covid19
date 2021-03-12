@@ -79,7 +79,7 @@ export default Vue.extend({
 .InfectionMedicalcareprovisionStatus {
   @include card-container();
 
-  padding: 8px 18px;
+  padding: 5px 18px;
   margin-bottom: 10px;
 
   .InfectionMedicalcareprovisionStatus-heading {
