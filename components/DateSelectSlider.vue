@@ -78,6 +78,8 @@ export default {
         day = this.chartData[id]
       } else {
         day = this.chartData[id].label
+        const dataDay = this.chartData[id].label.split('/')
+        day = dataDay[1] + '/' + dataDay[2]
       }
       return day
     }

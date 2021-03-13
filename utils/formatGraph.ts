@@ -26,7 +26,8 @@ export default (data: DataType[]) => {
       if (!isNaN(subTotal)) {
         patSum += subTotal
         graphData.push({
-          label: `${date.getMonth() + 1}/${date.getDate()}`,
+          label: `${date.getFullYear()}/${date.getMonth() +
+            1}/${date.getDate()}`,
           transition: subTotal,
           cumulative: patSum
         })
