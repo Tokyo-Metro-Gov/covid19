@@ -32,6 +32,7 @@ type RawData = {
 }
 
 interface Comment {
+  date: string
   level: number
   display: {
     '@ja': string
@@ -134,6 +135,7 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
 }
 
 export type MonitoringComment = {
+  date: string
   level: number
   display: {
     '@ja': string
@@ -153,6 +155,7 @@ export const formatMonitoringComment = (
 ): MonitoringCommentItems => {
   return {
     '総括コメント-感染状況': {
+      date: rawDataObj['総括コメント-感染状況'].date,
       level: rawDataObj['総括コメント-感染状況'].level,
       display: {
         '@ja': rawDataObj['総括コメント-感染状況'].display['@ja'],
@@ -160,6 +163,7 @@ export const formatMonitoringComment = (
       },
     },
     '総括コメント-医療提供体制': {
+      date: rawDataObj['総括コメント-医療提供体制'].date,
       level: rawDataObj['総括コメント-医療提供体制'].level,
       display: {
         '@ja': rawDataObj['総括コメント-医療提供体制'].display['@ja'],
