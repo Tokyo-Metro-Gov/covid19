@@ -34,11 +34,12 @@ import MonitoringCommentCard from '@/components/MonitoringCommentCard.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import StayingPopulation from '@/components/StayingPopulation.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
-import Data from '@/data/data.json'
+import { Data as IData } from '@/libraries/auto_generated/data_converter/convertData'
 import { News as INews } from '@/libraries/auto_generated/data_converter/convertNews'
 import { Registry } from '@/libraries/Registry'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
+const data: IData = Registry.DataRepository.data
 const newsData: INews = Registry.NewsRepository.data
 
 export default Vue.extend({
@@ -50,7 +51,7 @@ export default Vue.extend({
     StayingPopulation,
   },
   data() {
-    const { lastUpdate } = Data
+    const { lastUpdate } = data
 
     return {
       headerItem: {
