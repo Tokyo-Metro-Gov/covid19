@@ -20,12 +20,16 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import monitoringCommentImage from '@/data/monitoring_comment_image.json'
+import { MonitoringCommentImage as IMonitoringCommentImage } from '@/libraries/auto_generated/data_converter/convertMonitoringCommentImage'
+import { Registry } from '@/libraries/Registry'
+
+const monitoringCommentImageData: IMonitoringCommentImage =
+  Registry.MonitoringCommentImageRepository.data
 
 export default Vue.extend({
   data() {
     return {
-      monitoringCommentImage,
+      monitoringCommentImage: monitoringCommentImageData,
     }
   },
 })
