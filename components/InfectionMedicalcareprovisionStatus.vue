@@ -59,15 +59,19 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import InfectionMedicalcareprovisionStatus from '@/data/infection_medicalcareprovision_status.json'
+import { InfectionMedicalcareprovisionStatus as IInfectionMedicalCareProvisionStatus } from '@/libraries/auto_generated/data_converter/convertInfectionMedicalcareprovisionStatus'
+import { Registry } from '@/libraries/Registry'
+
+const infectionMedicalcareprovisionStatusData: IInfectionMedicalCareProvisionStatus =
+  Registry.InfectionMedicalCareProvisionStatusRepository.data
 
 export default Vue.extend({
   data() {
-    const date = InfectionMedicalcareprovisionStatus.date
+    const date = infectionMedicalcareprovisionStatusData.date
     const statisticDate =
-      InfectionMedicalcareprovisionStatus.data['検査統計日時']
+      infectionMedicalcareprovisionStatusData.data['検査統計日時']
     return {
-      statuses: InfectionMedicalcareprovisionStatus,
+      statuses: infectionMedicalcareprovisionStatusData,
       date: this.$d(new Date(date), 'date'),
       statisticDate: this.$d(new Date(statisticDate), 'dateWithoutYear'),
     }
