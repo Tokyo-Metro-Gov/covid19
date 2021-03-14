@@ -35,8 +35,11 @@ import PageHeader from '@/components/PageHeader.vue'
 import StayingPopulation from '@/components/StayingPopulation.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
-import News from '@/data/news.json'
+import { News as INews } from '@/libraries/auto_generated/data_converter/convertNews'
+import { Registry } from '@/libraries/Registry'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+
+const newsData: INews = Registry.NewsRepository.data
 
 export default Vue.extend({
   components: {
@@ -55,7 +58,7 @@ export default Vue.extend({
         title: this.$t('都内の最新感染動向'),
       },
       lastUpdate,
-      newsItems: News.newsItems,
+      newsItems: newsData.newsItems,
     }
   },
   computed: {
