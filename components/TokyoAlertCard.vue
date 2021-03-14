@@ -21,7 +21,10 @@
 import Vue from 'vue'
 
 import ActiveTokyoAlert from '@/components/ActiveTokyoAlert.vue'
-import tokyoAlert from '@/data/tokyo_alert.json'
+import { TokyoAlert as ITokyoAlert } from '@/libraries/auto_generated/data_converter/convertTokyoAlert'
+import { Registry } from '@/libraries/Registry'
+
+const tokyoAlertData: ITokyoAlert = Registry.TokyoAlertRepository.data
 
 export default Vue.extend({
   components: {
@@ -29,7 +32,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      tokyoAlert,
+      tokyoAlert: tokyoAlertData,
     }
   },
 })
