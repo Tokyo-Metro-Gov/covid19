@@ -28,32 +28,36 @@
 import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
-import StayingPopulation from '@/data/staying_population.json'
+import { StayingPopulation as IStayingPopulation } from '@/libraries/auto_generated/data_converter/convertStayingPopulation'
+import { Registry } from '@/libraries/Registry'
+
+const stayingPopulationData: IStayingPopulation =
+  Registry.StayingPopulationRepository.data
 
 export default Vue.extend({
   data() {
     return {
       mdiChevronRight,
-      StayingPopulation,
+      StayingPopulation: stayingPopulationData,
     }
   },
   computed: {
     date() {
-      return this.$d(new Date(StayingPopulation.data.date), 'date')
+      return this.$d(new Date(stayingPopulationData.data.date), 'date')
     },
     placeName() {
-      const placeToDisplay = StayingPopulation.data.place.display
+      const placeToDisplay = stayingPopulationData.data.place.display
       return ['ja', 'ja-basic'].includes(this.$i18n.locale)
-        ? placeToDisplay['@ja']
-        : placeToDisplay['@en']
+        ? placeToDisplay.ja
+        : placeToDisplay.en
     },
     formattedData() {
-      const data = StayingPopulation.data.data
+      const data = stayingPopulationData.data.data
       const self = this
 
       return data.map((dataForEachMonth) => {
-        const referenceDate = dataForEachMonth.reference_date
-        const increaseRate = dataForEachMonth.increase_rate
+        const referenceDate = dataForEachMonth.referenceDate
+        const increaseRate = dataForEachMonth.increaseRate
 
         const formattedMonth = self.$d(
           new Date(referenceDate),
