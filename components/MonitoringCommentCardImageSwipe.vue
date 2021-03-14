@@ -1,5 +1,5 @@
 <template>
-  <v-carousel cycle width="240" height="260">
+  <v-carousel cycle width="240" height="260" :delimiter-icon="delimiterIcon">
     <v-carousel-item
       v-for="(item, i) in monitoringCommentImage.data.images"
       :key="i"
@@ -18,6 +18,7 @@
 </template>
 
 <script lang="ts">
+import { mdiCircle } from '@mdi/js'
 import Vue from 'vue'
 
 import monitoringCommentImage from '@/data/monitoring_comment_image.json'
@@ -25,6 +26,7 @@ import monitoringCommentImage from '@/data/monitoring_comment_image.json'
 export default Vue.extend({
   data() {
     return {
+      delimiterIcon: mdiCircle,
       monitoringCommentImage,
     }
   },
