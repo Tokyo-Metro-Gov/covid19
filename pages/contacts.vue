@@ -193,6 +193,11 @@ export default Vue.extend({
       pc: true,
     }
   },
+  head(): MetaInfo {
+    return {
+      title: this.$t('お問い合わせ先一覧') as string,
+    }
+  },
   computed: {
     tableAttrs(): any {
       return this.pc ? {} : { role: 'presentation' }
@@ -216,11 +221,6 @@ export default Vue.extend({
     handleResize() {
       this.pc = window.innerWidth > 768
     },
-  },
-  head(): MetaInfo {
-    return {
-      title: this.$t('お問い合わせ先一覧') as string,
-    }
   },
 })
 </script>

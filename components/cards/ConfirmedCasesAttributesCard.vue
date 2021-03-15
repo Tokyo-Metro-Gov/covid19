@@ -14,7 +14,7 @@
         @on-change-items-per-page="onChangeItemsPerPage"
         @on-change-page="onChangePage"
       >
-        <template v-slot:tableBody="{ items, headers }">
+        <template #tableBody="{ items, headers }">
           <tbody>
             <tr v-for="(item, i) in items" :key="i">
               <th scope="row" class="text-start DataTable-cell">
@@ -38,7 +38,7 @@
             </tr>
           </tbody>
         </template>
-        <template v-slot:additionalDescription>
+        <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
             <li>
@@ -68,8 +68,8 @@
 <script lang="ts">
 import dayjs from 'dayjs'
 import Vue from 'vue'
-import VueI18n from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import VueI18n from 'vue-i18n'
 
 import DataTable from '@/components/DataTable.vue'
 import Data from '@/data/data.json'

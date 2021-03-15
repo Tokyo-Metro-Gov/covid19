@@ -6,7 +6,7 @@
         :title-id="'details-of-confirmed-cases'"
         :date="date"
       >
-        <template v-slot:additionalDescription>
+        <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
             <li>
