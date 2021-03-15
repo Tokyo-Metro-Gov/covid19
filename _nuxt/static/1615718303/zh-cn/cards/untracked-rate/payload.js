@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/zh-cn/cards/untracked-rate", {data:[{}],fetch:[],mutations:void 0});

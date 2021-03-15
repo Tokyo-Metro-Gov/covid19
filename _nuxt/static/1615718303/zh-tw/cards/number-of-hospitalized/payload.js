@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/zh-tw/cards/number-of-hospitalized", {data:[{}],fetch:[],mutations:void 0});

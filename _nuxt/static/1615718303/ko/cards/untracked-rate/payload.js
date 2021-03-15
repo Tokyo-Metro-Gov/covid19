@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/ko/cards/untracked-rate", {data:[{}],fetch:[],mutations:void 0});

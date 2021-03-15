@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/ja-basic/contacts", {data:[{}],fetch:[],mutations:void 0});

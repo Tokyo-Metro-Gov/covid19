@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/cards/number-of-confirmed-cases-by-municipalities", {data:[{}],fetch:{},mutations:void 0});

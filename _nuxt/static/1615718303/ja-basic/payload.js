@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/ja-basic", {data:[{}],fetch:[],mutations:void 0});
