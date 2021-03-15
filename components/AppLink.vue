@@ -6,7 +6,7 @@
       class="ExternalLinkIcon"
       :class="iconClass"
       :size="_iconSize"
-      :aria-label="this.$t('別タブで開く')"
+      :aria-label="$t('別タブで開く')"
       role="img"
       :aria-hidden="false"
     >

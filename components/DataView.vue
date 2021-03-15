@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <div v-if="this.$slots.attentionNote" class="DataView-AttentionNote">
+      <div v-if="$slots.attentionNote" class="DataView-AttentionNote">
         <slot name="attentionNote" />
       </div>
 
@@ -46,7 +46,7 @@
       </div>
 
       <data-view-expantion-panel
-        v-if="this.$slots.dataTable"
+        v-if="$slots.dataTable"
         class="DataView-ExpantionPanel"
       >
         <slot name="dataTable" />
@@ -67,7 +67,7 @@
         </div>
 
         <data-view-share
-          v-if="this.$route.query.embed != 'true'"
+          v-if="$route.query.embed !== 'true'"
           :title="title"
           :title-id="titleId"
           class="Footer-Right"
@@ -106,18 +106,6 @@ export default Vue.extend({
       default: '',
     },
   },
-  computed: {
-    formattedDate(): string {
-      return convertDatetimeToISO8601Format(this.date)
-    },
-    formattedDateForDisplay(): string {
-      return this.date !== '' ? this.$d(new Date(this.date), 'dateTime') : ''
-    },
-    permalink(): string {
-      const permalink = `/cards/${this.titleId}`
-      return this.localePath(permalink)
-    },
-  },
   head(): MetaInfo {
     // カードの個別ページの場合は、タイトルと更新時刻を`page/cards/_card`に渡す
     if (!this.$route.params.card) return {}
@@ -142,6 +130,18 @@ export default Vue.extend({
         },
       ],
     }
+  },
+  computed: {
+    formattedDate(): string {
+      return convertDatetimeToISO8601Format(this.date)
+    },
+    formattedDateForDisplay(): string {
+      return this.date !== '' ? this.$d(new Date(this.date), 'dateTime') : ''
+    },
+    permalink(): string {
+      const permalink = `/cards/${this.titleId}`
+      return this.localePath(permalink)
+    },
   },
 })
 </script>
