@@ -164,3 +164,20 @@ Pull Request を送る際のブランチは、以下のネーミングルール�
 | 本番サイトHTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | 静的ビルドされたHTMLが置いてある場所 |
 | ステージングサイト HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | 静的ビルドされたHTMLが置いてある場所 |
 | OGP作業用 | deploy/new_ogp | なし | OGPの更新用 |
+
+---
+
+## 6. 依存性の管理
+
+このプロジェクトでは、[Renovate](https://github.com/renovatebot/renovate)によって依存性の更新を管理しています。  
+適用されるルールについては、[renovate.json](./.github/renovate.json)を参照してください。
+
+### 6-1. Node.jsのバージョンアップ
+
+このプロジェクトでは、Node.jsをRenovateの管理対象から除外しています。  
+Node.jsのバージョンを更新したい場合、次の手順に従ってください。
+
+1. このプロジェクトの現在のNode.jsバージョンを確認
+2. 現在のNode.jsバージョンを示す文字列（例：14.16.x）をすべて新しいバージョン（例：14.16.y）に置換
+
+Visual Studio Codeなどのエディタの検索機能で一括置換するのが簡単でしょう。
