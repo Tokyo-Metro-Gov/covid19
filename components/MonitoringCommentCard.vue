@@ -9,32 +9,24 @@
       <v-row class="MonitoringComment-row">
         <v-col class="MonitoringComment-col">
           <v-col cols="12">
-            <p v-if="['ja', 'ja-basic'].includes($i18n.locale)">
+            <p class="MonitoringComment-summary">
               <span
-                v-for="(item, i) in monitoringCommentSummary"
+                v-for="(comment, i) in translatedMonitoringSummarizedComments"
                 :key="i"
-                class="MonitoringComment-summary"
               >
-                {{ item['@ja'] }}
+                {{ comment }}
               </span>
             </p>
-            <p v-else>
-              <span
-                v-for="(item, i) in monitoringCommentSummary"
-                :key="i"
-                class="MonitoringComment-summary"
-              >
-                {{ item['@en'] }}
-              </span>
-            </p>
-            <h4>{{ $t('感染状況') }}</h4>
+            <h4 class="MonitoringCommentFrame-title">{{ $t('感染状況') }}</h4>
             <monitoring-comment-frame
               :level="monitoringComment['総括コメント-感染状況'].level - 1"
               :comment="commentMonitoring('総括コメント-感染状況')"
             />
           </v-col>
           <v-col cols="12">
-            <h4>{{ $t('医療提供体制') }}</h4>
+            <h4 class="MonitoringCommentFrame-title">
+              {{ $t('医療提供体制') }}
+            </h4>
             <monitoring-comment-frame
               :level="monitoringComment['総括コメント-医療提供体制'].level - 1"
               :comment="commentMonitoring('総括コメント-医療提供体制')"
@@ -83,18 +75,25 @@ export default Vue.extend({
   data(): {
     monitoringComment: CommentKey
     mdiChevronRight: string
-    monitoringCommentSummary: { '@ja': string; '@en': string }[]
   } {
     const monitoringComment: CommentKey = formatMonitoringComment(
       monitoringItemsData.data
     )
-    const monitoringCommentSummary = monitoringItemsData.data.専門家3行コメント
 
     return {
       monitoringComment,
       mdiChevronRight,
-      monitoringCommentSummary,
     }
+  },
+  computed: {
+    translatedMonitoringSummarizedComments(): Array<String> {
+      const comments = monitoringItemsData.data.専門家3行コメント
+      if (['ja', 'ja-basic'].includes(this.$i18n.locale)) {
+        return comments.map((comment) => comment['@ja'])
+      } else {
+        return comments.map((comment) => comment['@en'])
+      }
+    },
   },
   methods: {
     commentMonitoring(item: string) {
@@ -123,37 +122,11 @@ export default Vue.extend({
       display: flex;
       align-items: center;
       padding: 8px 6px;
-      color: $gray-2;
       @include card-h2();
     }
   }
 
-  .MonitoringComment-description {
-    padding: 6px;
-    text-align: center;
-
-    @include font-size(14);
-    > a {
-      text-decoration: none;
-      @include text-link();
-    }
-    .MonitoringComment-slide {
-      text-align: center;
-    }
-  }
-
-  .MonitoringComment-summary {
-    @include font-size(12);
-  }
   .MonitoringComment-comments {
-    h4 {
-      margin-bottom: 1px;
-      color: $gray-3;
-      font-weight: normal;
-
-      @include font-size(14);
-    }
-
     margin: 0 10px 0 10px;
     padding: 2px;
 
@@ -163,7 +136,29 @@ export default Vue.extend({
         clear: both;
         padding: 3px;
         min-width: 300px;
+
+        .MonitoringComment-summary {
+          @include font-size(12);
+        }
+
+        .MonitoringCommentFrame-title {
+          margin-bottom: 1px;
+          color: $gray-3;
+          font-weight: normal;
+
+          @include font-size(14);
+        }
       }
+    }
+  }
+
+  .MonitoringComment-description {
+    padding: 6px;
+    text-align: center;
+
+    @include font-size(14);
+    > a {
+      @include text-link();
     }
   }
 }

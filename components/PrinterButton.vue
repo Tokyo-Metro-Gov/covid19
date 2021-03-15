@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import PrinterWhiteIcon from '@/static/printer-white.svg'
 import PrinterIcon from '@/static/printer.svg'
+import PrinterWhiteIcon from '@/static/printer-white.svg'
 
 export default {
   components: {

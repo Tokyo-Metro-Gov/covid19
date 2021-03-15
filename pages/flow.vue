@@ -58,7 +58,7 @@
               path="発熱や咳などの{minorSymptom}がある"
               :class="$style.boxLead"
             >
-              <template v-slot:minorSymptom>
+              <template #minorSymptom>
                 <span :class="$style.underline">
                   {{ $t('比較的軽い風邪の症状') }}
                 </span>
@@ -75,7 +75,7 @@
               path="息苦しさ（呼吸困難）、強いだるさ（倦怠感）、高熱等の{majorSymptom}がある"
               :class="$style.boxLead"
             >
-              <template v-slot:majorSymptom>
+              <template #majorSymptom>
                 <span :class="$style.underline">
                   {{ $t('強い症状') }}
                 </span>
@@ -109,7 +109,7 @@
               path="発熱や咳などの{minorSymptom}がある"
               :class="$style.boxLead"
             >
-              <template v-slot:minorSymptom>
+              <template #minorSymptom>
                 <span :class="$style.underline">
                   {{ $t('比較的軽い風邪の症状') }}
                 </span>
@@ -126,7 +126,7 @@
               path="息苦しさ（呼吸困難）、強いだるさ（倦怠感）、高熱等の{majorSymptom}がある"
               :class="$style.boxLead"
             >
-              <template v-slot:majorSymptom>
+              <template #majorSymptom>
                 <span :class="$style.underline">
                   {{ $t('強い症状') }}
                 </span>
@@ -148,7 +148,7 @@
               <dt>{{ $t('平日（日中）:') }}</dt>
               <dd :class="$style.overrideExternalLink">
                 <i18n path="{publicHealthCenter}に掲載しています">
-                  <template v-slot:publicHealthCenter>
+                  <template #publicHealthCenter>
                     <app-link
                       to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
                     >
@@ -342,7 +342,6 @@ type LocalData = {
 }
 
 export default Vue.extend({
-  middleware: 'redirect',
   components: {
     CovidIcon,
     PrinterButton,
@@ -354,6 +353,7 @@ export default Vue.extend({
     IconPhone,
     IconBed,
   },
+  middleware: 'redirect',
   data(): LocalData {
     const nav = null
     const upperTrigger = null
@@ -383,6 +383,14 @@ export default Vue.extend({
       floatingOffset,
       forceFloating,
       timerId,
+    }
+  },
+  head(): any {
+    const title: TranslateResult = this.$t(
+      '新型コロナウイルス感染症が心配なときに.title'
+    )
+    return {
+      title,
     }
   },
   mounted() {
@@ -516,14 +524,6 @@ export default Vue.extend({
         }
       })
     },
-  },
-  head(): any {
-    const title: TranslateResult = this.$t(
-      '新型コロナウイルス感染症が心配なときに.title'
-    )
-    return {
-      title,
-    }
   },
 })
 </script>

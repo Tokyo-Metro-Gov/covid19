@@ -61,6 +61,11 @@ export default Vue.extend({
       newsItems: News.newsItems,
     }
   },
+  head(): MetaInfo {
+    return {
+      title: this.$t('都内の最新感染動向') as string,
+    }
+  },
   computed: {
     updatedAt() {
       return convertDatetimeToISO8601Format(this.$data.lastUpdate)
@@ -68,11 +73,6 @@ export default Vue.extend({
     formattedDateForDisplay() {
       return `${this.$d(new Date(this.$data.lastUpdate), 'dateTime')} JST`
     },
-  },
-  head(): MetaInfo {
-    return {
-      title: this.$t('都内の最新感染動向') as string,
-    }
   },
 })
 </script>
