@@ -28,7 +28,6 @@
 <script lang="ts">
 import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta'
 
 import Consultation from '@/components/Consultation.vue'
 import MonitoringCommentCard from '@/components/MonitoringCommentCard.vue'
@@ -59,11 +58,6 @@ export default Vue.extend({
       },
       lastUpdate,
       newsItems: News.newsItems,
-    }
-  },
-  head(): MetaInfo {
-    return {
-      title: this.$t('都内の最新感染動向') as string,
     }
   },
   computed: {
