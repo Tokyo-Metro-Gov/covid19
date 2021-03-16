@@ -37,7 +37,6 @@ import StayingPopulation from '@/components/StayingPopulation.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
-import TokyoAlert from '@/data/tokyo_alert.json'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
@@ -52,7 +51,6 @@ export default Vue.extend({
     const { lastUpdate } = Data
 
     return {
-      TokyoAlert,
       headerItem: {
         iconPath: mdiChartTimelineVariant,
         title: this.$t('都内の最新感染動向'),
