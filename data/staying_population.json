@@ -3,19 +3,19 @@
     "data": {
         "place": {
             "display": {
-                "@ja": "池袋",
-                "@en": "Ikebukuro"
+                "@ja": "銀座",
+                "@en": "Ginza"
             }
         },
-        "date": "2021-03-15",
+        "date": "2021-03-16",
         "data": [
             {
                 "reference_date": "2020-12-01",
-                "increase_rate": -28
+                "increase_rate": -29
             },
             {
                 "reference_date": "2020-01-01",
-                "increase_rate": -53
+                "increase_rate": -55
             }
         ]
     }
