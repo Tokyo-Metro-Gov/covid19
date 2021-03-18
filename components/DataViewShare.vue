@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-tooltip left nudge-right="20" nudge-bottom="4">
-      <template v-slot:activator="{ on }">
+      <template #activator="{ on }">
         <button
           class="DataView-Share-Opener"
           @click="toggleShareMenu"

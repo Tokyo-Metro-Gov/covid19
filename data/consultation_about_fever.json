@@ -1,5 +1,5 @@
 {
-    "date": "2021\/3\/12 18:30",
+    "date": "2021\/3\/18 18:00",
     "data": [
         {
             "date": "2020-03-01",
@@ -1880,6 +1880,36 @@
             "date": "2021-03-11",
             "count": 53,
             "weekly_average_count": 56.4
+        },
+        {
+            "date": "2021-03-12",
+            "count": 34,
+            "weekly_average_count": 52.9
+        },
+        {
+            "date": "2021-03-13",
+            "count": 61,
+            "weekly_average_count": 52.4
+        },
+        {
+            "date": "2021-03-14",
+            "count": 65,
+            "weekly_average_count": 50.7
+        },
+        {
+            "date": "2021-03-15",
+            "count": 51,
+            "weekly_average_count": 50.9
+        },
+        {
+            "date": "2021-03-16",
+            "count": 50,
+            "weekly_average_count": 51.6
+        },
+        {
+            "date": "2021-03-17",
+            "count": 54,
+            "weekly_average_count": 52.6
         }
     ]
 }

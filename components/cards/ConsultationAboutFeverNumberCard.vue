@@ -13,7 +13,7 @@
         :data-labels="dataLabels"
         :unit="$t('件.reports')"
       >
-        <template v-slot:additionalDescription>
+        <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
             <li>

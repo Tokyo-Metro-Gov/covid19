@@ -5,14 +5,14 @@
     :date="date"
     :head-title="title + infoTitles.join(',')"
   >
-    <template v-slot:description>
+    <template #description>
       <slot name="description" />
     </template>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
     <scrollable-chart v-show="canvas" :display-data="displayData">
-      <template v-slot:chart="{ chartWidth }">
+      <template #chart="{ chartWidth }">
         <bar
           :ref="'barChart'"
           :chart-id="chartId"
@@ -22,7 +22,7 @@
           :width="chartWidth"
         />
       </template>
-      <template v-slot:sticky-chart>
+      <template #sticky-chart>
         <bar
           class="sticky-legend"
           :chart-id="`${chartId}-header`"
@@ -33,15 +33,15 @@
         />
       </template>
     </scrollable-chart>
-    <template v-slot:additionalDescription>
+    <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
-    <template v-slot:dataTable>
+    <template #dataTable>
       <client-only>
         <data-view-table :headers="tableHeaders" :items="tableData" />
       </client-only>
     </template>
-    <template v-slot:dataSetPanel>
+    <template #dataSetPanel>
       <data-view-data-set-panel
         :title="infoTitles[0]"
         :l-text="displayInfo[0].lText"
@@ -49,7 +49,7 @@
         :unit="displayInfo[0].unit"
       />
     </template>
-    <template v-slot:footer>
+    <template #footer>
       <open-data-link v-show="url" :url="url" />
     </template>
   </data-view>
@@ -59,8 +59,8 @@
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
 import Vue from 'vue'
-import { TranslateResult } from 'vue-i18n'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { TranslateResult } from 'vue-i18n'
 
 import DataView from '@/components/DataView.vue'
 import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
