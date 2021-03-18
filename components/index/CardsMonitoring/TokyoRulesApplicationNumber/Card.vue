@@ -38,27 +38,43 @@
   </v-col>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+
 import MixedBarAndLineChart from '@/components/index/_shared/MixedBarAndLineChart.vue'
-import TokyoRule from '@/data/tokyo_rule.json'
+import {
+  Datum as ITokyoRuleDatum,
+  TokyoRule as ITokyoRule,
+} from '@/libraries/auto_generated/data_converter/convertTokyoRule'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
 } from '@/utils/monitoringStatusValueFormatters'
 
-export default {
+type Data = {
+  dataLabels: string[]
+  getFormatter: (columnIndex: number) => (d: number) => string | undefined
+}
+type Methods = {}
+type Computed = {
+  chartData: [number[], (number | null)[]]
+  date: string
+  labels: string[]
+  tokyoRuleData: ITokyoRuleDatum[]
+  tokyoRule: ITokyoRule
+}
+type Props = {}
+
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     MixedBarAndLineChart,
   },
   data() {
-    const data = TokyoRule.data
-    const applicationReportsCount = data.map((d) => d.count)
-    const sevendayMoveAverages = data.map((d) => d.weekly_average_count)
-    const labels = data.map((d) => d.date)
-    const chartData = [applicationReportsCount, sevendayMoveAverages]
-    const dataLabels = [this.$t('適用件数'), this.$t('７日間移動平均')]
-    const date = TokyoRule.date
-    const getFormatter = (columnIndex) => {
+    const dataLabels = [
+      this.$t('適用件数') as string,
+      this.$t('７日間移動平均') as string,
+    ]
+    const getFormatter = (columnIndex: number) => {
       // ７日間移動平均は小数点第1位まで表示する。
       if (columnIndex === 1) {
         return getNumberToFixedFunction(1)
@@ -67,12 +83,31 @@ export default {
     }
 
     return {
-      chartData,
-      date,
-      labels,
       dataLabels,
       getFormatter,
     }
   },
-}
+  computed: {
+    chartData() {
+      const applicationReportsCount = this.tokyoRuleData.map((d) => d.count)
+      const sevendayMoveAverages = this.tokyoRuleData.map(
+        (d) => d.weeklyAverageCount
+      )
+
+      return [applicationReportsCount, sevendayMoveAverages]
+    },
+    date() {
+      return this.tokyoRule.date
+    },
+    labels() {
+      return this.tokyoRuleData.map((data) => this.$d(data.date) as string)
+    },
+    tokyoRuleData() {
+      return this.tokyoRule.data
+    },
+    tokyoRule() {
+      return this.$store.state.tokyoRule
+    },
+  },
+})
 </script>
