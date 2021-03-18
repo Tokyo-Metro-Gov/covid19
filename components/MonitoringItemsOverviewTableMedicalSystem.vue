@@ -16,6 +16,7 @@
                 <monitoring-items-overview-table-value-with-translatable-unit
                   :value="items['(4)PCR・抗原検査（陽性率）'].value"
                   :unit="items['(4)PCR・抗原検査（陽性率）'].unit"
+                  :bold="items['(4)PCR・抗原検査（検査人数）'].bold"
                 />
               </div>
             </li>
@@ -25,6 +26,7 @@
                 <monitoring-items-overview-table-value-with-translatable-unit
                   :value="items['(4)PCR・抗原検査（検査人数）'].value"
                   :unit="items['(4)PCR・抗原検査（検査人数）'].unit"
+                  :bold="items['(4)PCR・抗原検査（検査人数）'].bold"
                 />
               </div>
             </li>
@@ -43,6 +45,7 @@
             <monitoring-items-overview-table-value-with-translatable-unit
               :value="items['(5)救急医療の東京ルールの適用件数'].value"
               :unit="items['(5)救急医療の東京ルールの適用件数'].unit"
+              :bold="items['(5)救急医療の東京ルールの適用件数'].bold"
             />
           </div>
         </li>
@@ -52,13 +55,18 @@
             <monitoring-items-overview-table-value-with-translatable-unit
               :value="items['(6)入院患者数'].value"
               :unit="items['(6)入院患者数'].unit"
+              :bold="items['(6)入院患者数'].bold"
             />
           </div>
           <ul :class="$style.group">
             <li :class="[$style.box]">
               <div :class="$style.content">
                 <span>{{ $t('確保病床') }}</span>
-                <span>{{ items['(6)入院患者確保病床数'].value }}</span>
+                <monitoring-items-overview-table-value-with-translatable-unit
+                  :value="items['(6)入院患者確保病床数'].value"
+                  :unit="items['(6)入院患者確保病床数'].unit"
+                  :bold="items['(6)入院患者確保病床数'].bold"
+                />
               </div>
             </li>
           </ul>
@@ -69,13 +77,18 @@
             <monitoring-items-overview-table-value-with-translatable-unit
               :value="items['(7)重症患者数'].value"
               :unit="items['(7)重症患者数'].unit"
+              :bold="items['(7)重症患者数'].bold"
             />
           </div>
           <ul :class="$style.group">
             <li :class="[$style.box]">
               <div :class="$style.content">
                 <span>{{ $t('確保病床') }}</span>
-                <span>{{ items['(7)重症患者確保病床数'].value }}</span>
+                <monitoring-items-overview-table-value-with-translatable-unit
+                  :value="items['(7)重症患者確保病床数'].value"
+                  :unit="items['(7)重症患者確保病床数'].unit"
+                  :bold="items['(7)重症患者確保病床数'].bold"
+                />
               </div>
             </li>
           </ul>
