@@ -49,13 +49,12 @@ export default Vue.extend({
     },
     formattedData() {
       const data = StayingPopulation.data.data
-      const self = this
 
       return data.map((dataForEachMonth) => {
         const referenceDate = dataForEachMonth.reference_date
         const increaseRate = dataForEachMonth.increase_rate
 
-        const formattedMonth = self.$d(
+        const formattedMonth = this.$d(
           new Date(referenceDate),
           'dateWithoutDay'
         )
