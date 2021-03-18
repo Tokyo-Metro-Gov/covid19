@@ -6,7 +6,9 @@
       }}</page-header>
       <div class="UpdatedAt">
         <span>{{ $t('最終更新') }}</span>
-        <time :datetime="updatedAt">{{ formattedDateForDisplay }}</time>
+        <time :datetime="convertDate(lastUpdateAsString)">{{
+          formatDate(lastUpdate)
+        }}</time>
       </div>
       <div
         v-show="!['ja', 'ja-basic'].includes($i18n.locale)"
@@ -35,14 +37,32 @@ import PageHeader from '@/components/PageHeader.vue'
 import StayingPopulation from '@/components/StayingPopulation.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import { Data as IData } from '@/libraries/auto_generated/data_converter/convertData'
-import { News as INews } from '@/libraries/auto_generated/data_converter/convertNews'
-import { Registry } from '@/libraries/Registry'
+import {
+  News as INews,
+  NewsItem as INewsItem,
+} from '@/libraries/auto_generated/data_converter/convertNews'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
-const data: IData = Registry.DataRepository.data
-const newsData: INews = Registry.NewsRepository.data
+type Data = {
+  headerItem: {
+    iconPath: string
+    title: string
+  }
+}
+type Methods = {
+  formatDate(date: Date): string
+  convertDate(dateAsString: string): string
+}
+type Computed = {
+  lastUpdate: Date
+  lastUpdateAsString: string
+  newsItems: INewsItem[]
+  data: IData
+  news: INews
+}
+type Props = {}
 
-export default Vue.extend({
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     PageHeader,
     WhatsNew,
@@ -51,23 +71,36 @@ export default Vue.extend({
     StayingPopulation,
   },
   data() {
-    const { lastUpdate } = data
-
     return {
       headerItem: {
         iconPath: mdiChartTimelineVariant,
-        title: this.$t('都内の最新感染動向'),
+        title: this.$t('都内の最新感染動向') as string,
       },
-      lastUpdate,
-      newsItems: newsData.newsItems,
     }
   },
   computed: {
-    updatedAt() {
-      return convertDatetimeToISO8601Format(this.$data.lastUpdate)
+    lastUpdate(): Date {
+      return new Date(this.data.lastUpdate)
     },
-    formattedDateForDisplay() {
-      return `${this.$d(new Date(this.$data.lastUpdate), 'dateTime')} JST`
+    lastUpdateAsString(): string {
+      return this.data.lastUpdate
+    },
+    newsItems(): INewsItem[] {
+      return this.news.newsItems
+    },
+    data(): IData {
+      return this.$store.state.data
+    },
+    news(): INews {
+      return this.$store.state.news
+    },
+  },
+  methods: {
+    formatDate(date: Date): string {
+      return `${this.$d(date, 'dateTime')} JST`
+    },
+    convertDate(dateAsString: string): string {
+      return convertDatetimeToISO8601Format(dateAsString)
     },
   },
 })

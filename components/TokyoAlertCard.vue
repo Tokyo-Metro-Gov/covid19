@@ -9,10 +9,7 @@
       </div>
     </div>
     <div class="TokyoAlert-description">
-      <p v-if="['ja', 'ja-basic'].includes($i18n.locale)">
-        {{ tokyoAlert.description['@ja'] }}
-      </p>
-      <p v-else>{{ tokyoAlert.description['@en'] }}</p>
+      <p>{{ description }}</p>
     </div>
   </div>
 </template>
@@ -22,18 +19,32 @@ import Vue from 'vue'
 
 import ActiveTokyoAlert from '@/components/ActiveTokyoAlert.vue'
 import { TokyoAlert as ITokyoAlert } from '@/libraries/auto_generated/data_converter/convertTokyoAlert'
-import { Registry } from '@/libraries/Registry'
 
-const tokyoAlertData: ITokyoAlert = Registry.TokyoAlertRepository.data
+type Data = {}
+type Methods = {}
+type Computed = {
+  description: string
+  tokyoAlert: ITokyoAlert
+}
+type Props = {}
 
-export default Vue.extend({
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     ActiveTokyoAlert,
   },
-  data() {
-    return {
-      tokyoAlert: tokyoAlertData,
-    }
+  computed: {
+    description(): string {
+      const { description } = this.tokyoAlert
+
+      if (['ja', 'ja-basic'].includes(this.$i18n.locale)) {
+        return description.ja
+      }
+
+      return description.en
+    },
+    tokyoAlert(): ITokyoAlert {
+      return this.$store.state.tokyoAlertRepository
+    },
   },
 })
 </script>
