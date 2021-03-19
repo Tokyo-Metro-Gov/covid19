@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable simple-import-sort/sort -- ブラウザでの表示順に合わせて各 card の component を import する */
+/* eslint-disable simple-import-sort/imports -- ブラウザでの表示順に合わせて各 card の component を import する */
 import Vue from 'vue'
 
 // 陽性者の属性
@@ -33,7 +33,7 @@ const TokyoFeverConsultationCenterReportsNumberCard = () =>
 const MetroCard = () => import('@/components/cards/MetroCard.vue')
 // 都庁来庁者数の推移
 const AgencyCard = () => import('@/components/cards/AgencyCard.vue')
-/* eslint-enable simple-import-sort/sort */
+/* eslint-enable simple-import-sort/imports */
 
 export default Vue.extend({
   data() {

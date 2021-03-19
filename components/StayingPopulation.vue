@@ -9,13 +9,9 @@
           >{{ $t('詳細はこちら') }}
         </app-link>
       </div>
-      <div
-        v-if="['ja', 'ja-basic'].includes($i18n.locale)"
-        class="StayingPopulation-place"
-      >
-        {{ placeName['@ja'] }}
+      <div class="StayingPopulation-place">
+        {{ placeName }}
       </div>
-      <div v-else class="StayingPopulation-place">{{ placeName['@en'] }}</div>
       <div class="StayingPopulation-state">
         <!-- TODO: 「時点」は辞書を参照するようにする -->
         [ {{ date }}時点 ]<br />
@@ -39,12 +35,17 @@ export default Vue.extend({
     return {
       mdiChevronRight,
       StayingPopulation,
-      placeName: StayingPopulation.data.place.display,
     }
   },
   computed: {
     date() {
       return this.$d(new Date(StayingPopulation.data.date), 'date')
+    },
+    placeName() {
+      const placeToDisplay = StayingPopulation.data.place.display
+      return ['ja', 'ja-basic'].includes(this.$i18n.locale)
+        ? placeToDisplay['@ja']
+        : placeToDisplay['@en']
     },
     formattedData() {
       const data = StayingPopulation.data.data

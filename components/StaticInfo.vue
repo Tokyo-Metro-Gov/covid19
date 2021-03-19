@@ -35,14 +35,12 @@ export default Vue.extend({
 
 <style lang="scss">
 .StaticInfo {
+  @include card-container();
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background-color: $white;
-  border: 1px solid $gray-4;
-  box-shadow: $shadow;
-  border-radius: 4px;
 
   span {
     white-space: pre-wrap;

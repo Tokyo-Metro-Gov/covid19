@@ -13,9 +13,16 @@
         :data-labels="dataLabels"
         :unit="$t('件.reports')"
       >
-        <template v-slot:additionalDescription>
+        <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
+            <li>
+              {{
+                $t(
+                  '救急医療の東京ルールの適用件数：救急隊による5医療機関への受入要請又は選定開始から20分以上経過しても搬送先が決定しない事案の件数'
+                )
+              }}
+            </li>
             <li>
               {{
                 $t(

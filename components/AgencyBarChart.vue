@@ -31,7 +31,7 @@
       :display-data="displayData"
       :is-weekly="true"
     >
-      <template v-slot:chart="{ chartWidth }">
+      <template #chart="{ chartWidth }">
         <bar
           :ref="'barChart'"
           :chart-id="chartId"
@@ -42,7 +42,7 @@
           :width="chartWidth"
         />
       </template>
-      <template v-slot:sticky-chart>
+      <template #sticky-chart>
         <bar
           class="sticky-legend"
           :chart-id="`${chartId}-header-right`"
@@ -54,12 +54,12 @@
         />
       </template>
     </scrollable-chart>
-    <template v-slot:dataTable>
+    <template #dataTable>
       <client-only>
         <data-view-table :headers="tableHeaders" :items="tableData" />
       </client-only>
     </template>
-    <template v-slot:additionalDescription>
+    <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
   </data-view>

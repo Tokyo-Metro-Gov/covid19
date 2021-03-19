@@ -14,17 +14,19 @@ GEM
     childprocess (3.0.0)
     diff-lcs (1.4.4)
     mini_mime (1.0.2)
-    nokogiri (1.11.1-x86_64-darwin)
+    nokogiri (1.11.2-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.11.2-x86_64-linux)
       racc (~> 1.4)
     parallel (1.20.1)
-    parallel_tests (3.4.0)
+    parallel_tests (3.5.2)
       parallel
     public_suffix (4.0.6)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    regexp_parser (2.0.3)
+    regexp_parser (2.1.1)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -47,6 +49,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   capybara
