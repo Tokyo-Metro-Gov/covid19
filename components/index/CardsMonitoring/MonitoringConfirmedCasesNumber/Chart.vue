@@ -73,10 +73,10 @@
     <template #dataSetPanel>
       <data-view-data-set-panel
         :title="infoTitles[0]"
-        :l-text="displayInfo[0].lText"
-        :s-text="displayInfo[0].sText"
-        :s-text-under="displayInfo[0].sTextUnder"
-        :unit="displayInfo[0].unit"
+        :l-text="displayInfos[0].lText"
+        :s-text="displayInfos[0].sText"
+        :s-text-under="displayInfos[0].sTextUnder"
+        :unit="displayInfos[0].unit"
       />
     </template>
     <template #footer>
@@ -86,11 +86,9 @@
 </template>
 
 <script lang="ts">
-import { ChartOptions } from 'chart.js'
+import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { TranslateResult } from 'vue-i18n'
+import Vue, { PropType } from 'vue'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
@@ -105,32 +103,38 @@ import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
 
+type PatientsCount = number
+type WeeklyAverageCount = number | null
+type ChartData = [PatientsCount[], WeeklyAverageCount[]]
+
+interface DisplayInfo {
+  lText: string
+  sText: string
+  sTextUnder: string
+  unit: string
+}
+
 type Data = {
   canvas: boolean
   displayLegends: boolean[]
   colors: SurfaceStyle[]
+  yAxesBgPlugin: PluginServiceRegistrationOptions[]
 }
+
 type Methods = {
   makeLineData: (value: number) => number[]
   onClickLegend: (i: number) => void
 }
 
 type Computed = {
-  displayInfo: [
-    {
-      lText: string
-      sText: string
-      sTextUnder: string
-      unit: string
-    }
-  ]
-  displayData: DisplayData
+  displayInfos: DisplayInfo[]
+  displayData: DisplayData<PatientsCount | WeeklyAverageCount>
   displayOption: ChartOptions
   displayDataHeader: DisplayData
   displayOptionHeader: ChartOptions
-  scaledTicksYAxisMax: number
   tableHeaders: TableHeader[]
   tableData: TableItem[]
+  scaledTicksYAxisMax: number
 }
 
 type Props = {
@@ -138,26 +142,17 @@ type Props = {
   titleId: string
   infoTitles: string[]
   chartId: string
-  chartData: number[][]
-  getFormatter: Function
+  chartData: ChartData
   date: string
   labels: string[]
-  dataLabels: string[] | TranslateResult[]
-  tableLabels: string[] | TranslateResult[]
+  dataLabels: string[]
+  tableLabels: string[]
+  getFormatter: (columnIndex: number) => (d: number) => string | undefined
   unit: string
   url: string
 }
 
-const options: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  Data,
-  Methods,
-  Computed,
-  Props
-> = {
-  created() {
-    this.canvas = process.browser
-  },
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     DataView,
     DataViewTable,
@@ -176,7 +171,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: 'monitoring-number-of-confirmed-cases',
     },
     infoTitles: {
-      type: Array,
+      type: Array as PropType<string[]>,
       required: false,
       default: () => [],
     },
@@ -185,37 +180,39 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: 'monitoring-confirmed-cases-number-chart',
     },
     chartData: {
-      type: Array,
+      type: Object as PropType<ChartData>,
       required: false,
-      default: () => [],
-    },
-    getFormatter: {
-      type: Function,
-      required: false,
-      default: (_: number) => getNumberToLocaleStringFunction(),
+      default: () => [[], []] as ChartData,
     },
     date: {
       type: String,
       required: true,
       default: '',
     },
-    url: {
-      type: String,
-      default: '',
-    },
     labels: {
-      type: Array,
+      type: Array as PropType<string[]>,
       default: () => [],
     },
     dataLabels: {
-      type: Array,
+      type: Array as PropType<string[]>,
       default: () => [],
     },
     tableLabels: {
-      type: Array,
+      type: Array as PropType<string[]>,
       default: () => [],
     },
+    getFormatter: {
+      type: Function as PropType<
+        (columnIndex: number) => (d: number) => string | undefined
+      >,
+      required: false,
+      default: (_: number) => getNumberToLocaleStringFunction(),
+    },
     unit: {
+      type: String,
+      default: '',
+    },
+    url: {
       type: String,
       default: '',
     },
@@ -225,17 +222,21 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       getGraphSeriesColor('C'),
       getGraphSeriesColor('E'),
     ]
+
     return {
+      canvas: true,
       displayLegends: [true, true],
       colors,
-      canvas: true,
       yAxesBgPlugin,
     }
   },
   computed: {
-    displayInfo() {
+    displayInfos() {
       const { lastDay, lastDayData, dayBeforeRatio } = calcDayBeforeRatio({
-        displayData: this.displayData,
+        // 本来は DisplayData<WeeklyAverageCount> だが，
+        // 直近のデータを扱うため，値が null のケースは考慮せず，
+        // DisplayData<number> とする．
+        displayData: this.displayData as DisplayData<number>,
         dataIndex: 1,
         digit: 1,
       })
@@ -253,55 +254,33 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     displayData() {
+      const barDataSets = {
+        type: 'bar',
+        label: this.dataLabels[0],
+        data: this.chartData[0],
+        backgroundColor: this.colors[0].fillColor,
+        borderColor: this.colors[0].strokeColor,
+        borderWidth: 1,
+        order: 3,
+      }
+
+      const lineDataSets = {
+        type: 'line',
+        label: this.dataLabels[1],
+        data: this.chartData[1],
+        pointBackgroundColor: 'rgba(0,0,0,0)',
+        pointBorderColor: 'rgba(0,0,0,0)',
+        borderColor: this.colors[1].fillColor,
+        borderWidth: 3,
+        fill: false,
+        order: 2,
+        lineTension: 0,
+      }
+
       return {
         labels: this.labels,
-        datasets: [
-          {
-            type: 'bar',
-            label: this.dataLabels[0],
-            data: this.chartData[0],
-            backgroundColor: this.colors[0].fillColor,
-            borderColor: this.colors[0].strokeColor,
-            borderWidth: 1,
-            order: 3,
-          },
-          {
-            type: 'line',
-            label: this.dataLabels[1],
-            data: this.chartData[1],
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: this.colors[1].fillColor,
-            borderWidth: 3,
-            fill: false,
-            order: 2,
-            lineTension: 0,
-          },
-        ],
+        datasets: [barDataSets, lineDataSets],
       }
-    },
-    tableHeaders() {
-      return [
-        { text: this.$t('日付'), value: 'text' },
-        ...(this.tableLabels as string[]).map((text, i) => {
-          return { text, value: `${i}`, align: 'end' }
-        }),
-      ]
-    },
-    tableData() {
-      return this.labels
-        .map((label, i) => {
-          return Object.assign(
-            { text: label },
-            ...(this.tableLabels as string[]).map((_, j) => {
-              return {
-                [j]: this.getFormatter(j)(this.chartData[j][i]),
-              }
-            })
-          )
-        })
-        .sort((a, b) => dayjs(a.text).unix() - dayjs(b.text).unix())
-        .reverse()
     },
     displayOption() {
       const unit = this.unit
@@ -319,9 +298,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${unit}`
             },
-            title: (tooltipItem, data) => {
-              if (tooltipItem[0].datasetIndex! < 2) {
-                const label = data.labels![tooltipItem[0].index!] as string
+            title: (tooltipItems, data) => {
+              if (tooltipItems[0].datasetIndex! < 2) {
+                const label = data.labels![tooltipItems[0].index!] as string
                 return this.$d(new Date(label), 'date')
               }
               return ''
@@ -414,7 +393,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOptionHeader() {
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
 
-      const options: ChartOptions = {
+      return {
         tooltips: { enabled: false },
         maintainAspectRatio: false,
         legend: {
@@ -481,21 +460,39 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         },
         animation: { duration: 0 },
       }
-
-      return options
+    },
+    tableHeaders() {
+      return [
+        { text: this.$t('日付'), value: 'text' },
+        ...(this.tableLabels as string[]).map((text, i) => {
+          return { text, value: `${i}`, align: 'end' }
+        }),
+      ]
+    },
+    tableData() {
+      return this.labels
+        .map((label, i) => {
+          return Object.assign(
+            { text: label },
+            ...(this.tableLabels as string[]).map((_, j) => {
+              return {
+                [j]: this.getFormatter(j)(this.chartData[j][i]!),
+              }
+            })
+          )
+        })
+        .sort((a, b) => dayjs(a.text).unix() - dayjs(b.text).unix())
+        .reverse()
     },
     scaledTicksYAxisMax() {
-      return this.chartData.reduce((max, data) => Math.max(max, ...data), 0)
+      return this.chartData.reduce(
+        (max, data) => Math.max(max, ...(data as number[])),
+        0
+      )
     },
   },
-  methods: {
-    onClickLegend(i) {
-      this.displayLegends[i] = !this.displayLegends[i]
-      this.displayLegends = this.displayLegends.slice()
-    },
-    makeLineData(value: number): number[] {
-      return this.chartData[0].map((_) => value)
-    },
+  created() {
+    this.canvas = process.browser
   },
   mounted() {
     const barChart = this.$refs.barChart as Vue
@@ -508,9 +505,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
   },
-}
-
-export default Vue.extend(options)
+  methods: {
+    onClickLegend(i) {
+      this.displayLegends[i] = !this.displayLegends[i]
+      this.displayLegends = this.displayLegends.slice()
+    },
+    makeLineData(value: number): number[] {
+      return this.chartData[0].map((_) => value)
+    },
+  },
+})
 </script>
 
 <style module lang="scss">
