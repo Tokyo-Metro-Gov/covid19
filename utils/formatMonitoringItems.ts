@@ -65,7 +65,7 @@ export type MonitoringItems = Record<DataKey, MonitoringItemValue>
 /**
  * monitoring_items_json のデータを整形
  *
- * @param data - Raw data
+ * @param rawDataObj - Raw data
  */
 export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
   const unitPerson: Unit = { text: '人', translatable: true }
