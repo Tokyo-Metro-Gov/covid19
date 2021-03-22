@@ -80,7 +80,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
   computed: {
     lastUpdate(): Date {
-      return new Date(this.data.lastUpdate)
+      return new Date(this.lastUpdateAsString)
     },
     lastUpdateAsString(): string {
       return this.data.lastUpdate
