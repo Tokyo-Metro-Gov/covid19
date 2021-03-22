@@ -61,10 +61,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
   computed: {
     date(): string {
-      return this.$d(new Date(this.stayingPopulation.date), 'date')
+      return this.$d(new Date(this.stayingPopulationData.date), 'date')
     },
     enddate(): string {
-      const baseDate = new Date(this.stayingPopulation.date)
+      const baseDate = new Date(this.stayingPopulationData.date)
       baseDate.setDate(baseDate.getDate() + 6)
       return this.$d(baseDate, 'dateWithoutYear')
     },
