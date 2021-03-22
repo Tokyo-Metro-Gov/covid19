@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-tooltip left nudge-right="20" nudge-bottom="4">
-      <template v-slot:activator="{ on }">
+      <template #activator="{ on }">
         <button
           class="DataView-Share-Opener"
           @click="toggleShareMenu"
@@ -164,13 +164,12 @@ export default Vue.extend({
       return !!navigator.clipboard
     },
     copyEmbedCode() {
-      const self = this
       navigator.clipboard.writeText(this.graphEmbedValue).then(() => {
-        self.closeShareMenu()
+        this.closeShareMenu()
 
-        self.showOverlay = true
+        this.showOverlay = true
         setTimeout(() => {
-          self.showOverlay = false
+          this.showOverlay = false
         }, 2000)
       })
     },

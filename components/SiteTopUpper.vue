@@ -28,7 +28,6 @@
 <script lang="ts">
 import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta'
 
 import Consultation from '@/components/Consultation.vue'
 import MonitoringCommentCard from '@/components/MonitoringCommentCard.vue'
@@ -37,7 +36,6 @@ import StayingPopulation from '@/components/StayingPopulation.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
 import News from '@/data/news.json'
-import TokyoAlert from '@/data/tokyo_alert.json'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
@@ -52,7 +50,6 @@ export default Vue.extend({
     const { lastUpdate } = Data
 
     return {
-      TokyoAlert,
       headerItem: {
         iconPath: mdiChartTimelineVariant,
         title: this.$t('都内の最新感染動向'),
@@ -68,11 +65,6 @@ export default Vue.extend({
     formattedDateForDisplay() {
       return `${this.$d(new Date(this.$data.lastUpdate), 'dateTime')} JST`
     },
-  },
-  head(): MetaInfo {
-    return {
-      title: this.$t('都内の最新感染動向') as string,
-    }
   },
 })
 </script>

@@ -31,7 +31,7 @@
       :display-data="displayData"
       :is-weekly="true"
     >
-      <template v-slot:chart="{ chartWidth }">
+      <template #chart="{ chartWidth }">
         <bar
           :ref="'barChart'"
           :chart-id="chartId"
@@ -42,7 +42,7 @@
           :width="chartWidth"
         />
       </template>
-      <template v-slot:sticky-chart>
+      <template #sticky-chart>
         <bar
           class="sticky-legend"
           :chart-id="`${chartId}-header-right`"
@@ -54,12 +54,12 @@
         />
       </template>
     </scrollable-chart>
-    <template v-slot:dataTable>
+    <template #dataTable>
       <client-only>
         <data-view-table :headers="tableHeaders" :items="tableData" />
       </client-only>
     </template>
-    <template v-slot:additionalDescription>
+    <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
   </data-view>
@@ -185,23 +185,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOption() {
-      const self = this
       const options: ChartOptions = {
         maintainAspectRatio: false,
         tooltips: {
           displayColors: false,
           callbacks: {
-            title(tooltipItem) {
-              const dateString = self.periods[tooltipItem[0].index!]
-              return self.$t('期間: {duration}', {
+            title: (tooltipItem) => {
+              const dateString = this.periods[tooltipItem[0].index!]
+              return this.$t('期間: {duration}', {
                 duration: dateString!,
               }) as string
             },
-            label(tooltipItem, data) {
+            label: (tooltipItem, data) => {
               const index = tooltipItem.datasetIndex!
-              const title = self.$t(data.datasets![index].label!)
+              const title = this.$t(data.datasets![index].label!)
               const num = parseInt(tooltipItem.value!).toLocaleString()
-              const unit = self.$t(self.unit)
+              const unit = this.$t(this.unit)
               return `${title}: ${num} ${unit}`
             },
           },
@@ -221,7 +220,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 9,
                 fontColor: '#808080',
                 callback: (_, i) => {
-                  return self.periods[i]
+                  return this.periods[i]
                 },
               },
             },
@@ -259,8 +258,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 9,
                 fontColor: '#808080',
                 maxTicksLimit: 10,
-                callback(label) {
-                  return `${label}${self.unit}`
+                callback: (label) => {
+                  return `${label}${this.unit}`
                 },
               },
             },
@@ -286,7 +285,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOptionHeader() {
-      const self = this
       const options: Chart.ChartOptions = {
         maintainAspectRatio: false,
         legend: {
@@ -305,7 +303,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 9,
                 fontColor: 'transparent',
                 callback: (_, i) => {
-                  return self.periods[i]
+                  return this.periods[i]
                 },
               },
             },
@@ -342,8 +340,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 maxTicksLimit: 10,
                 fontColor: '#808080', // #808080
-                callback(label) {
-                  return `${label}${self.unit}`
+                callback: (label) => {
+                  return `${label}${this.unit}`
                 },
               },
             },

@@ -40,10 +40,7 @@
 
       <nav class="SideNavigation-Menu">
         <div class="SideNavigation-Language">
-          <div
-            v-if="this.$i18n.locales.length > 1"
-            class="SideNavigation-Language"
-          >
+          <div v-if="$i18n.locales.length > 1" class="SideNavigation-Language">
             <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
               {{ $t('多言語対応選択メニュー') }}
             </label>
@@ -116,7 +113,7 @@
           path="このサイトの内容物は{creativeCommons}の下に提供されています（ただし商標等の他団体が権利を持つものは除く）。"
           class="SideNavigation-Copyright"
         >
-          <template v-slot:creativeCommons>
+          <template #creativeCommons>
             <app-link
               :to="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
               :icon-size="12"

@@ -8,6 +8,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { MetaInfo } from 'vue-meta'
 
 type Data = {
   showCardsTab: boolean
@@ -34,6 +35,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     onScroll() {
       this.showCardsTab = true
     },
+  },
+  head(): MetaInfo {
+    return {
+      title: this.$t('都内の最新感染動向') as string,
+    }
   },
 }
 

@@ -58,7 +58,7 @@
               path="発熱や咳などの{minorSymptom}がある"
               :class="$style.boxLead"
             >
-              <template v-slot:minorSymptom>
+              <template #minorSymptom>
                 <span :class="$style.underline">
                   {{ $t('比較的軽い風邪の症状') }}
                 </span>
@@ -75,7 +75,7 @@
               path="息苦しさ（呼吸困難）、強いだるさ（倦怠感）、高熱等の{majorSymptom}がある"
               :class="$style.boxLead"
             >
-              <template v-slot:majorSymptom>
+              <template #majorSymptom>
                 <span :class="$style.underline">
                   {{ $t('強い症状') }}
                 </span>
@@ -109,7 +109,7 @@
               path="発熱や咳などの{minorSymptom}がある"
               :class="$style.boxLead"
             >
-              <template v-slot:minorSymptom>
+              <template #minorSymptom>
                 <span :class="$style.underline">
                   {{ $t('比較的軽い風邪の症状') }}
                 </span>
@@ -126,7 +126,7 @@
               path="息苦しさ（呼吸困難）、強いだるさ（倦怠感）、高熱等の{majorSymptom}がある"
               :class="$style.boxLead"
             >
-              <template v-slot:majorSymptom>
+              <template #majorSymptom>
                 <span :class="$style.underline">
                   {{ $t('強い症状') }}
                 </span>
@@ -148,7 +148,7 @@
               <dt>{{ $t('平日（日中）:') }}</dt>
               <dd :class="$style.overrideExternalLink">
                 <i18n path="{publicHealthCenter}に掲載しています">
-                  <template v-slot:publicHealthCenter>
+                  <template #publicHealthCenter>
                     <app-link
                       to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
                     >
@@ -342,7 +342,6 @@ type LocalData = {
 }
 
 export default Vue.extend({
-  middleware: 'redirect',
   components: {
     CovidIcon,
     PrinterButton,
@@ -354,6 +353,7 @@ export default Vue.extend({
     IconPhone,
     IconBed,
   },
+  middleware: 'redirect',
   data(): LocalData {
     const nav = null
     const upperTrigger = null
@@ -385,8 +385,15 @@ export default Vue.extend({
       timerId,
     }
   },
+  head(): any {
+    const title: TranslateResult = this.$t(
+      '新型コロナウイルス感染症が心配なときに.title'
+    )
+    return {
+      title,
+    }
+  },
   mounted() {
-    const self = this
     this.nav = this.$refs.nav as HTMLElement
     this.buttons = Array.prototype.slice.call(
       document.getElementsByClassName(this.$style.anchorLink)
@@ -396,12 +403,12 @@ export default Vue.extend({
     )
     this.upperTrigger = this.$refs.upperTrigger as HTMLElement
     this.lowerTrigger = this.$refs.lowerTrigger as HTMLElement
-    window.addEventListener('scroll', function () {
+    window.addEventListener('scroll', () => {
       // debounce
-      if (self.timerId) {
-        window.clearTimeout(self.timerId)
+      if (this.timerId) {
+        window.clearTimeout(this.timerId)
       }
-      self.timerId = window.setTimeout(self.onBrowserRender, 100)
+      this.timerId = window.setTimeout(this.onBrowserRender, 100)
     })
     window.addEventListener('resize', this.onBrowserRender)
 
@@ -424,7 +431,6 @@ export default Vue.extend({
   },
   methods: {
     onBrowserRender(): void {
-      const self = this
       this.timerId = 0
 
       if (this.forceFloating) {
@@ -454,17 +460,17 @@ export default Vue.extend({
         this.startFloating()
 
         // 表示位置追従カレント処理
-        this.sections!.forEach(function (ele: HTMLElement, idx: number) {
+        this.sections!.forEach((ele: HTMLElement, idx: number) => {
           const rect = ele.getBoundingClientRect()
           if (
-            rect.top <= self.navH + self.floatingOffset + 10 &&
-            rect.bottom >= self.navH + self.floatingOffset - 10
+            rect.top <= this.navH + this.floatingOffset + 10 &&
+            rect.bottom >= this.navH + this.floatingOffset - 10
           ) {
-            self.buttons![idx].classList.add(self.$style.active)
+            this.buttons![idx].classList.add(this.$style.active)
           } else if (
-            self.buttons![idx].classList.contains(self.$style.active)
+            this.buttons![idx].classList.contains(this.$style.active)
           ) {
-            self.buttons![idx].classList.remove(self.$style.active)
+            this.buttons![idx].classList.remove(this.$style.active)
           }
         })
       } else {
@@ -473,7 +479,6 @@ export default Vue.extend({
       }
     },
     onClickAnchor(event: Event): void {
-      const self = this
       const target = event.target as HTMLAnchorElement
       const hash = target.hash
       this.forceFloating = true
@@ -484,13 +489,13 @@ export default Vue.extend({
       target.classList.add(this.$style.active)
       VueScrollTo.scrollTo(hash, 1000, {
         offset: -(this.navH + this.floatingOffset + 1), // +1はIE11用サブピクセル対策
-        onDone() {
-          self.forceFloating = false
-          self.onBrowserRender()
+        onDone: () => {
+          this.forceFloating = false
+          this.onBrowserRender()
         },
-        onCancel() {
-          self.forceFloating = false
-          self.onBrowserRender()
+        onCancel: () => {
+          this.forceFloating = false
+          this.onBrowserRender()
         },
       })
     },
@@ -509,21 +514,12 @@ export default Vue.extend({
       this.nav!.style.width = ''
     },
     resetNavCurrent(): void {
-      const self = this
-      this.buttons!.forEach(function (ele: HTMLElement) {
-        if (ele.classList.contains(self.$style.active)) {
-          ele.classList.remove(self.$style.active)
+      this.buttons!.forEach((ele: HTMLElement) => {
+        if (ele.classList.contains(this.$style.active)) {
+          ele.classList.remove(this.$style.active)
         }
       })
     },
-  },
-  head(): any {
-    const title: TranslateResult = this.$t(
-      '新型コロナウイルス感染症が心配なときに.title'
-    )
-    return {
-      title,
-    }
   },
 })
 </script>
