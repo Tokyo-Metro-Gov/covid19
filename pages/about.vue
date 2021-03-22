@@ -152,7 +152,7 @@
         tag="p"
         path="Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。"
       >
-        <template v-slot:addon>
+        <template #addon>
           <app-link
             :to="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
             :icon-size="16"
@@ -192,7 +192,7 @@
         tag="p"
         path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
       >
-        <template v-slot:catalogWebsite>
+        <template #catalogWebsite>
           <app-link to="https://portal.data.metro.tokyo.lg.jp/" :icon-size="16">
             {{ $t('東京都オープンデータカタログサイト') }}
           </app-link>
@@ -208,7 +208,7 @@
           )
         }}
         <i18n path="詳しくは、{githubRepo}をご確認ください。">
-          <template v-slot:githubRepo>
+          <template #githubRepo>
             <app-link
               to="https://github.com/tokyo-metropolitan-gov/covid19"
               :icon-size="16"

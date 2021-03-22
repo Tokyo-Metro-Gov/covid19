@@ -46,6 +46,7 @@ import TokyoFeverConsultationCenterReportsNumberCard from '@/components/cards/To
 import MetroCard from '@/components/cards/MetroCard.vue'
 // 都庁来庁者数の推移
 import AgencyCard from '@/components/cards/AgencyCard.vue'
+/* eslint-enable simple-import-sort/imports */
 
 import { Vue, Component } from 'nuxt-property-decorator'
 import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'

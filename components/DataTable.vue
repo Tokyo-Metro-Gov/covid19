@@ -37,7 +37,7 @@
         class="cardTable"
         :server-items-length="dataLength"
       >
-        <template v-slot:header="{ props: { headers } }">
+        <template #header="{ props: { headers } }">
           <thead>
             <tr>
               <th
@@ -50,7 +50,7 @@
             </tr>
           </thead>
         </template>
-        <template v-slot:body="{ items, headers }">
+        <template #body="{ items, headers }">
           <slot name="tableBody" :items="items" :headers="headers" />
         </template>
         <template slot="footer.page-text" slot-scope="props">
@@ -64,17 +64,17 @@
         </template>
       </v-data-table>
     </v-layout>
-    <template v-slot:additionalDescription>
+    <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
-    <template v-slot:infoPanel>
+    <template #infoPanel>
       <data-view-data-set-panel
         :l-text="info.lText"
         :s-text="info.sText"
         :unit="info.unit"
       />
     </template>
-    <template v-slot:footer>
+    <template #footer>
       <open-data-link :url="url" />
       <p class="FooterNote">
         {{ $t('下記更新日時はオープンデータAPIの反映日時に準じています') }}

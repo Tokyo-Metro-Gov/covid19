@@ -42,7 +42,7 @@ const createCustomChart = () => {
     ChartVCMethod,
     ChartVCComputed,
     ChartVCProps
-  >('general-chart', {
+  >('GeneralChart', {
     mixins: [reactiveProp],
     props: {
       displayLegends: {
@@ -67,21 +67,21 @@ const createCustomChart = () => {
   })
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'line-chart',
+    'LineChart',
     {
       mixins: [reactiveProp, Line, generalChart],
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'bar',
+    'Bar',
     {
       mixins: [reactiveProp, Bar, generalChart],
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'doughnut-chart',
+    'DoughnutChart',
     {
       mixins: [reactiveProp, Doughnut, generalChart],
     }

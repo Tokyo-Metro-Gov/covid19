@@ -13,7 +13,7 @@
         :tooltips-label="metroGraphTooltipLabel"
         unit="%"
       >
-        <template v-slot:additionalDescription>
+        <template #additionalDescription>
           {{
             $t('{range}の利用者数*の平均値を基準としたときの相対値', {
               range: metroGraph.base_period,
