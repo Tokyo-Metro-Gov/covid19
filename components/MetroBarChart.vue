@@ -228,7 +228,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
-      const self = this
       const options: ChartOptions = {
         maintainAspectRatio: false,
         legend: {
@@ -248,7 +247,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 20,
                 fontColor: '#808080',
                 callback: (_, i) => {
-                  return self.periods[i]
+                  return this.periods[i]
                 },
               },
             },
@@ -286,10 +285,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 12,
                 maxTicksLimit: 10,
                 fontColor: '#808080',
-                callback(value) {
+                callback: (value) => {
                   const valueCasted =
                     typeof value === 'number' ? value : Number(value)
-                  return `${valueCasted.toFixed(2)}${self.unit}`
+                  return `${valueCasted.toFixed(2)}${this.unit}`
                 },
               },
             },
@@ -298,8 +297,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         tooltips: {
           displayColors: false,
           callbacks: {
-            title: self.tooltipsTitle,
-            label: self.tooltipsLabel,
+            title: this.tooltipsTitle,
+            label: this.tooltipsLabel,
           },
         },
       }
@@ -323,7 +322,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOptionHeader() {
-      const self = this
       const options: Chart.ChartOptions = {
         maintainAspectRatio: false,
         legend: {
@@ -344,7 +342,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 20,
                 fontColor: 'transparent',
                 callback: (_, i) => {
-                  return self.periods[i]
+                  return this.periods[i]
                 },
               },
             },
@@ -381,10 +379,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 12,
                 maxTicksLimit: 10,
                 fontColor: '#808080',
-                callback(value) {
+                callback: (value) => {
                   const valueCasted =
                     typeof value === 'number' ? value : Number(value)
-                  return `${valueCasted.toFixed(2)}${self.unit}`
+                  return `${valueCasted.toFixed(2)}${this.unit}`
                 },
               },
             },
