@@ -2,7 +2,7 @@
   <v-col cols="12" md="6">
     <div class="StayingPopulation">
       <div class="StayingPopulation-title">
-        {{ $t('●緊急事態宣言中の都内の滞在人口の増減状況') }}<br />
+        {{ $t('都内の滞在人口の増減状況（毎週月曜日更新）') }}<br />
         <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
         <app-link
           to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html#nav1"
@@ -13,11 +13,10 @@
         {{ placeName }}
       </div>
       <div class="StayingPopulation-state">
-        <!-- TODO: 「時点」は辞書を参照するようにする -->
-        [ {{ date }}時点 ]<br />
+        [ {{ date }}〜{{ enddate }} ]<br />
         <span v-for="(data, index) in formattedData" :key="index">
-          <!-- TODO: 「比」は辞書を参照するようにする -->
-          {{ data.formattedMonth }}比 {{ data.increaseRateWithArrow }}<br />
+          {{ data.formattedMonth }}{{ $t('比') }} {{ data.increaseRateWithArrow
+          }}<br />
         </span>
       </div>
     </div>
@@ -41,6 +40,11 @@ export default Vue.extend({
     date() {
       return this.$d(new Date(StayingPopulation.data.date), 'date')
     },
+    enddate(): string {
+      const dt = new Date(StayingPopulation.data.date)
+      dt.setDate(dt.getDate() + 6)
+      return this.$d(dt, 'dateWithoutYear')
+    },
     placeName() {
       const placeToDisplay = StayingPopulation.data.place.display
       return ['ja', 'ja-basic'].includes(this.$i18n.locale)
@@ -49,13 +53,12 @@ export default Vue.extend({
     },
     formattedData() {
       const data = StayingPopulation.data.data
-      const self = this
 
       return data.map((dataForEachMonth) => {
         const referenceDate = dataForEachMonth.reference_date
         const increaseRate = dataForEachMonth.increase_rate
 
-        const formattedMonth = self.$d(
+        const formattedMonth = this.$d(
           new Date(referenceDate),
           'dateWithoutDay'
         )
