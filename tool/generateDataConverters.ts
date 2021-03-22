@@ -3,8 +3,6 @@ import { camelCase, upperFirst } from 'lodash'
 // eslint-disable-next-line import/order
 import * as path from 'path'
 import * as quicktype from 'quicktype'
-// TODO: rimraf は Node v12.0.0 でビルトインに追加されたので
-// Node.js のバージョンアップに合わせて除去する
 import { sync as rimrafSync } from 'rimraf'
 
 const basePath = path.dirname(__dirname)
