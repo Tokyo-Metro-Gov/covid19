@@ -165,10 +165,16 @@ Pull Request を送る際のブランチは、以下のネーミングルール�
 | ステージングサイト HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | 静的ビルドされたHTMLが置いてある場所 |
 | OGP作業用 | deploy/new_ogp | なし | OGPの更新用 |
 
-## 6. `data/` 内にある JSON データの構造が変わったとき
+## 6. `data` ディレクトリ以下の JSON データについて
 
-次のコマンドで自動生成しているコードを再生成した上で実装を修正してください。
+### 6-1. データの構造が変わったとき、またはデータが追加されたときは
+
+次のコマンドで、自動生成しているコード（`libraries/auto_generated` 以下のファイル）を再生成してください。
 
 ```bash
-$ yarn generate-data-type
+$ yarn generate-data-converters
 ```
+
+また、このとき自動生成された interface の定義が変更されます。必要に応じて各コンポーネントの実装を修正してください。
+
+JSON の構造に変化がなくデータだけ更新された場合は、コマンドを実行する必要はありません。
