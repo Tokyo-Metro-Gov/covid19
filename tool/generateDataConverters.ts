@@ -17,10 +17,10 @@ const outputPath = path.resolve(
   'data_converter'
 )
 
-// ディレクトリ utils/data_converter を削除する
+// ディレクトリ libraries/auto_generated/data_converter を削除する
 rimrafSync(outputPath)
 ;(async () => {
-  // ディレクトリ utils/data_converter を作成する
+  // ディレクトリ libraries/auto_generated/data_converter を作成する
   await fs.mkdir(outputPath, { recursive: true })
   // ディレクトリ data 内のファイル名の配列
   const dataFileNames = await fs.readdir(inputPath)
