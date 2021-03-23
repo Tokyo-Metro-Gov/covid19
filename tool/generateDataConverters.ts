@@ -1,9 +1,8 @@
-import { promises as fs } from 'fs'
+import { mkdir, readdir, rmdir } from 'fs/promises'
 import { camelCase, upperFirst } from 'lodash'
 // eslint-disable-next-line import/order
 import * as path from 'path'
 import * as quicktype from 'quicktype'
-import { sync as rimrafSync } from 'rimraf'
 
 const basePath = path.dirname(__dirname)
 
@@ -16,12 +15,12 @@ const outputPath = path.resolve(
 )
 
 // ディレクトリ libraries/auto_generated/data_converter を削除する
-rimrafSync(outputPath)
+rmdir(outputPath, { recursive: true })
 ;(async () => {
   // ディレクトリ libraries/auto_generated/data_converter を作成する
-  await fs.mkdir(outputPath, { recursive: true })
+  await mkdir(outputPath, { recursive: true })
   // ディレクトリ data 内のファイル名の配列
-  const dataFileNames = await fs.readdir(inputPath)
+  const dataFileNames = await readdir(inputPath)
 
   for (let index = 0; index < dataFileNames.length; index++) {
     const dataFileName = dataFileNames[index]
