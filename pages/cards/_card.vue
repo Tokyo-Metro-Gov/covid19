@@ -34,6 +34,7 @@ import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCase
 import PositiveNumberByDevelopedDateCard from '@/components/cards/PositiveNumberByDevelopedDateCard.vue'
 // 確定日別による陽性者数の推移
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
+// 死亡者数
 // 検査実施件数
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 // 新型コロナコールセンター相談件数
@@ -142,6 +143,7 @@ export default class CardContainer extends Vue implements NuxtConfig {
       // 確定日別による陽性者数の推移
       case 'positive-number-by-diagnosed-date':
         cardComponent = 'positive-number-by-diagnosed-date-card'
+      // 死亡者数
         break
       // 検査実施件数
       case 'number-of-tested':
