@@ -27,6 +27,7 @@
 |[](12)八千代市|https://yachiyo-covid19.netlify.app/|有志（学生）|[taichi1222/covid19-yachiyo](https://github.com/taichi1222/covid19-yachiyo)|**リンク切れ**|
 |[](14)神奈川県|https://www.pref.kanagawa.jp/osirase/1369/|神奈川県（**公式**）|||
 |[](14)横浜市|https://covid19.yokohama/|個人|[covid19yokohama/covid19](https://github.com/covid19yokohama/covid19)||
+|[](14)相模原市|https://sagamihara-stopcovid19.com/|個人(学生)|[Murayu0225/covid19](https://github.com/Murayu0225/covid19)||
 |[](15)新潟県|https://niigata.stopcovid19.jp/|Code for Niigata|[CodeForNiigata/covid19](https://github.com/CodeForNiigata/covid19)||
 |[](15)新潟県|https://stopcovid19-niigata-unofficial.netlify.app/|air-h-128k-il|[air-h-128k-il/covid19](https://github.com/air-h-128k-il/covid19)||
 |[](16)富山県|https://stopcovid19-toyama.netlify.app/|運営者：有志（**富山県公認**）|[Terachan0117/covid19-toyama](https://github.com/Terachan0117/covid19-toyama)||
