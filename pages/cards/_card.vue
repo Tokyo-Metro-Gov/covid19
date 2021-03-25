@@ -143,8 +143,8 @@ export default class CardContainer extends Vue implements NuxtConfig {
       // 確定日別による陽性者数の推移
       case 'positive-number-by-diagnosed-date':
         cardComponent = 'positive-number-by-diagnosed-date-card'
-      // 死亡者数
         break
+      // 死亡者数
       // 検査実施件数
       case 'number-of-tested':
         cardComponent = 'tested-number-card'
