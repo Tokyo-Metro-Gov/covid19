@@ -394,7 +394,6 @@ export default Vue.extend({
     }
   },
   mounted() {
-    const self = this
     this.nav = this.$refs.nav as HTMLElement
     this.buttons = Array.prototype.slice.call(
       document.getElementsByClassName(this.$style.anchorLink)
@@ -404,12 +403,12 @@ export default Vue.extend({
     )
     this.upperTrigger = this.$refs.upperTrigger as HTMLElement
     this.lowerTrigger = this.$refs.lowerTrigger as HTMLElement
-    window.addEventListener('scroll', function () {
+    window.addEventListener('scroll', () => {
       // debounce
-      if (self.timerId) {
-        window.clearTimeout(self.timerId)
+      if (this.timerId) {
+        window.clearTimeout(this.timerId)
       }
-      self.timerId = window.setTimeout(self.onBrowserRender, 100)
+      this.timerId = window.setTimeout(this.onBrowserRender, 100)
     })
     window.addEventListener('resize', this.onBrowserRender)
 
@@ -432,7 +431,6 @@ export default Vue.extend({
   },
   methods: {
     onBrowserRender(): void {
-      const self = this
       this.timerId = 0
 
       if (this.forceFloating) {
@@ -462,17 +460,17 @@ export default Vue.extend({
         this.startFloating()
 
         // 表示位置追従カレント処理
-        this.sections!.forEach(function (ele: HTMLElement, idx: number) {
+        this.sections!.forEach((ele: HTMLElement, idx: number) => {
           const rect = ele.getBoundingClientRect()
           if (
-            rect.top <= self.navH + self.floatingOffset + 10 &&
-            rect.bottom >= self.navH + self.floatingOffset - 10
+            rect.top <= this.navH + this.floatingOffset + 10 &&
+            rect.bottom >= this.navH + this.floatingOffset - 10
           ) {
-            self.buttons![idx].classList.add(self.$style.active)
+            this.buttons![idx].classList.add(this.$style.active)
           } else if (
-            self.buttons![idx].classList.contains(self.$style.active)
+            this.buttons![idx].classList.contains(this.$style.active)
           ) {
-            self.buttons![idx].classList.remove(self.$style.active)
+            this.buttons![idx].classList.remove(this.$style.active)
           }
         })
       } else {
@@ -481,7 +479,6 @@ export default Vue.extend({
       }
     },
     onClickAnchor(event: Event): void {
-      const self = this
       const target = event.target as HTMLAnchorElement
       const hash = target.hash
       this.forceFloating = true
@@ -492,13 +489,13 @@ export default Vue.extend({
       target.classList.add(this.$style.active)
       VueScrollTo.scrollTo(hash, 1000, {
         offset: -(this.navH + this.floatingOffset + 1), // +1はIE11用サブピクセル対策
-        onDone() {
-          self.forceFloating = false
-          self.onBrowserRender()
+        onDone: () => {
+          this.forceFloating = false
+          this.onBrowserRender()
         },
-        onCancel() {
-          self.forceFloating = false
-          self.onBrowserRender()
+        onCancel: () => {
+          this.forceFloating = false
+          this.onBrowserRender()
         },
       })
     },
@@ -517,10 +514,9 @@ export default Vue.extend({
       this.nav!.style.width = ''
     },
     resetNavCurrent(): void {
-      const self = this
-      this.buttons!.forEach(function (ele: HTMLElement) {
-        if (ele.classList.contains(self.$style.active)) {
-          ele.classList.remove(self.$style.active)
+      this.buttons!.forEach((ele: HTMLElement) => {
+        if (ele.classList.contains(this.$style.active)) {
+          ele.classList.remove(this.$style.active)
         }
       })
     },
