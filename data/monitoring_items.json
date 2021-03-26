@@ -1,30 +1,30 @@
 {
-    "date": "2021\/3\/24 19:00",
+    "date": "2021\/3\/26 19:00",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の7週連続の減少傾向は止まり、増加比は100％を超えた。",
-                "@en": "The seven-week downward trend in new positive cases has stopped, with the 7-day average now more than 100 percent of the previous week. "
+                "@ja": "今一度、感染の再拡大を徹底して防止する必要がある。",
+                "@en": "It is essential to again take thorough steps to prevent a resurgence of infections."
             },
             {
-                "@ja": "今後、変異株等により急激に感染の再拡大が起こる可能性がある。",
-                "@en": "There could be a rapid resurgence in infections from variants and other reasons."
+                "@ja": "人の流れが増加すれば、第3波を超える感染の急激な拡大が危惧される。",
+                "@en": "It is feared that an increase in the movement of people will lead to a rapid spread of the virus that exceeds that of the third wave."
             },
             {
-                "@ja": "今一度、実効性のある感染防止対策を徹底する必要がある。",
-                "@en": "There is the need to once again thoroughly implement effective infection prevention measures."
+                "@ja": "重症化リスクの高い高齢者層の新規陽性者数を減らすことが重要である。",
+                "@en": "It is critical to reduce the number of new positive cases among the elderly who are at high risk of becoming severely ill. "
             }
         ],
-        "(1)新規陽性者数": 309.7,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 64.4,
-        "(3)新規陽性者における接触歴等不明者（人数）": 151.1,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 104.6,
-        "(4)PCR・抗原検査（陽性率）": 3.7,
-        "(4)PCR・抗原検査（検査人数）": 6688.9,
+        "(1)新規陽性者数": 330.3,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 62.3,
+        "(3)新規陽性者における接触歴等不明者（人数）": 161.7,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 114.5,
+        "(4)PCR・抗原検査（陽性率）": 4,
+        "(4)PCR・抗原検査（検査人数）": 6816.9,
         "(5)救急医療の東京ルールの適用件数": 66.1,
-        "(6)入院患者数": 1371,
+        "(6)入院患者数": 1399,
         "(6)入院患者確保病床数": 5048,
-        "(7)重症患者数": 42,
+        "(7)重症患者数": 45,
         "(7)重症患者確保病床数": 332,
         "総括コメント-感染状況": {
             "date": "2021-03-04",
