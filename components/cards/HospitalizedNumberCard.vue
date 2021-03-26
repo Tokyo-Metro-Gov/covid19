@@ -12,6 +12,7 @@
         :dashed-rectangle-range="'2020-05-11'"
         :added-value="200"
         :table-labels="tableLabels"
+        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000092'"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
