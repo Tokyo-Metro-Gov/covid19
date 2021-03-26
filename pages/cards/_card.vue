@@ -34,7 +34,8 @@ import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCase
 import PositiveNumberByDevelopedDateCard from '@/components/cards/PositiveNumberByDevelopedDateCard.vue'
 // 確定日別による陽性者数の推移
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
-// 死亡者数
+// 死亡日別による死亡者数の推移
+import PositiveNumberByDeathDateCard from '@/components/cards/PositiveNumberByDeathDateCard.vue'
 // 検査実施件数
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 // 新型コロナコールセンター相談件数
@@ -73,6 +74,7 @@ import { convertDateToSimpleFormat } from '@/utils/formatDate'
     ConfirmedCasesByMunicipalitiesCard,
     PositiveNumberByDevelopedDateCard,
     PositiveNumberByDiagnosedDateCard,
+    PositiveNumberByDeathDateCard,
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     MonitoringConsultationDeskReportsNumberCard,
@@ -144,7 +146,10 @@ export default class CardContainer extends Vue implements NuxtConfig {
       case 'positive-number-by-diagnosed-date':
         cardComponent = 'positive-number-by-diagnosed-date-card'
         break
-      // 死亡者数
+      // 死亡日別による死亡者数の推移
+      case 'deaths-by-death-date':
+        cardComponent = 'deaths-by-death-date-card'
+        break
       // 検査実施件数
       case 'number-of-tested':
         cardComponent = 'tested-number-card'

@@ -28,12 +28,12 @@ PATHS = {
     "/cards/monitoring-items-overview": (959, 570),
     "/cards/positive-number-by-developed-date": (959, 570),
     "/cards/number-of-reports-to-tokyo-fever-consultation-center": (959, 570),
+    "/cards/deaths-by-death-date": (959, 570),
 }
 
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")
 options.add_argument("--hide-scrollbars")
-
 driver = webdriver.Chrome(options=options)
 
 for lang in ("ja", "en", "zh-cn", "zh-tw", "ko", "ja-basic"):
