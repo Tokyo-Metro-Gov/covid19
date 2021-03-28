@@ -72,7 +72,7 @@ export default {
     // 死亡者数グラフ
     const graphData = formatGraph(formatData)
 
-    const { date } = Data
+    const { date } = deaths
 
     return {
       date,
