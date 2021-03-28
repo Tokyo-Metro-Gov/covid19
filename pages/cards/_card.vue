@@ -35,7 +35,7 @@ import PositiveNumberByDevelopedDateCard from '@/components/cards/PositiveNumber
 // 確定日別による陽性者数の推移
 import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
 // 死亡日別による死亡者数の推移
-import DeathsByDeathDate from '@/components/cards/DeathsByDeathDate.vue'
+import DeathsByDeathDateCard from '@/components/cards/DeathsByDeathDateCard.vue'
 // 検査実施件数
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 // 新型コロナコールセンター相談件数
@@ -74,7 +74,7 @@ import { convertDateToSimpleFormat } from '@/utils/formatDate'
     ConfirmedCasesByMunicipalitiesCard,
     PositiveNumberByDevelopedDateCard,
     PositiveNumberByDiagnosedDateCard,
-    DeathsByDeathDate,
+    DeathsByDeathDateCard,
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     MonitoringConsultationDeskReportsNumberCard,
