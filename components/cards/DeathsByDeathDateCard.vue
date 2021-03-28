@@ -1,12 +1,12 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard DeathsByDeathDate">
+  <v-col cols="12" md="6" class="DataCard DeathsByDeathDateCard">
     <client-only>
       <time-bar-chart
         :title="$t('死亡日別による死亡者数の推移')"
         :title-id="'deaths-by-death-date'"
         :chart-id="'deaths-by-death-date'"
         :chart-data="graphData"
-        :date="date"
+        :date="deaths.date"
         :unit="$t('人')"
       >
         <template #additionalDescription>
@@ -28,7 +28,7 @@
 
 <script>
 import TimeBarChart from '@/components/TimeBarChart.vue'
-import Data from '@/data/deaths.json'
+import deaths from '@/data/deaths.json'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import formatGraph from '@/utils/formatGraph'
 
@@ -62,7 +62,7 @@ export default {
     },
   },
   data() {
-    const formatData = Data.data.map((data) => {
+    const formatData = deaths.data.map((data) => {
       return {
         日付: data.death_date,
         小計: data.count,
