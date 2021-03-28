@@ -19,8 +19,8 @@ const PositiveNumberByDevelopedDateCard = () =>
 const PositiveNumberByDiagnosedDateCard = () =>
   import('@/components/cards/PositiveNumberByDiagnosedDateCard.vue')
 // 死亡日別による死亡者数の推移
-const DeathsByDeathDate = () =>
-  import('@/components/cards/DeathsByDeathDate.vue')
+const DeathsByDeathDateCard = () =>
+  import('@/components/cards/DeathsByDeathDateCard.vue')
 // 検査実施件数
 const TestedNumberCard = () => import('@/components/cards/TestedNumberCard.vue')
 // 新型コロナコールセンター相談件数
@@ -44,7 +44,7 @@ export default Vue.extend({
       rows: [
         [ConfirmedCasesAttributesCard, ConfirmedCasesByMunicipalitiesCard],
         [PositiveNumberByDevelopedDateCard, PositiveNumberByDiagnosedDateCard],
-        [DeathsByDeathDate, TestedNumberCard],
+        [DeathsByDeathDateCard, TestedNumberCard],
         [TelephoneAdvisoryReportsNumberCard],
         [
           MonitoringConsultationDeskReportsNumberCard,
