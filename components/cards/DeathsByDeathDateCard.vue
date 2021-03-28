@@ -6,7 +6,7 @@
         :title-id="'deaths-by-death-date'"
         :chart-id="'deaths-by-death-date'"
         :chart-data="graphData"
-        :date="deaths.date"
+        :date="date"
         :unit="$t('人')"
       >
         <template #additionalDescription>
