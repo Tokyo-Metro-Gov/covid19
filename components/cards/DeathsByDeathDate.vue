@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard PositiveNumberByDeathDateCard">
+  <v-col cols="12" md="6" class="DataCard DeathsByDeathDate">
     <client-only>
       <time-bar-chart
         :title="$t('死亡日別による死亡者数の推移')"
