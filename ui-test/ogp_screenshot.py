@@ -34,6 +34,7 @@ PATHS = {
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")
 options.add_argument("--hide-scrollbars")
+
 driver = webdriver.Chrome(options=options)
 
 for lang in ("ja", "en", "zh-cn", "zh-tw", "ko", "ja-basic"):
