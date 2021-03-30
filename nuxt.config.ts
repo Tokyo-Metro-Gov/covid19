@@ -221,6 +221,13 @@ const config: NuxtConfig = {
       return [...pages, ...localizedPages]
     },
   },
+  /*
+   * PWA - Workbox configuration
+   * https://pwa.nuxtjs.org/workbox
+   */
+  pwa: {
+    workbox: false,
+  },
   // /*
   // ** hot read configuration for docker
   // */
