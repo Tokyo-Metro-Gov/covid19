@@ -226,7 +226,9 @@ const config: NuxtConfig = {
    * https://pwa.nuxtjs.org/workbox
    */
   pwa: {
-    workbox: false,
+    workbox: {
+      enabled: false,
+    },
   },
   // /*
   // ** hot read configuration for docker
