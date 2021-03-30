@@ -40,7 +40,9 @@
         <div>
           <app-link
             :class="$style.button"
-            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/shibou.html"
+            :to="`${
+              $i18n.locale !== 'ja' ? $i18n.locale : ''
+            }/cards/deaths-by-death-date`"
           >
             {{ $t('死亡日別による死亡者数の推移はこちら') }}
           </app-link>
@@ -93,6 +95,7 @@ export default options
 .button {
   margin: 20px 0 0;
   color: $green-1 !important;
+  text-decoration: none;
   &:hover {
     color: $white !important;
   }
