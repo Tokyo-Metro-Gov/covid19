@@ -7,6 +7,7 @@
         :chart-data="municipalitiesTable"
         :date="date"
         :info="info"
+        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000085'"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>

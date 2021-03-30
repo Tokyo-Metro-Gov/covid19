@@ -46,6 +46,9 @@
         :unit="displayInfo[0].unit"
       />
     </template>
+    <template #footer>
+      <open-data-link v-show="url" :url="url" />
+    </template>
   </data-view>
 </template>
 
@@ -97,6 +100,7 @@ type Props = {
   chartData: GraphDataType[]
   date: string
   unit: string
+  url: string
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
@@ -143,6 +147,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: true,
     },
     unit: {
+      type: String,
+      default: '',
+    },
+    url: {
       type: String,
       default: '',
     },

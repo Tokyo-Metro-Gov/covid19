@@ -12,6 +12,7 @@
         :unit="$t('件.tested')"
         :data-labels="inspectionsDataLabels"
         :table-labels="inspectionsTableLabels"
+        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000086'"
       >
         <!-- 件.tested = 検査数 -->
         <template #additionalDescription>

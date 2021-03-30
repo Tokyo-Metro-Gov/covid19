@@ -45,6 +45,11 @@
             {{ $t('死亡日別による死亡者数の推移はこちら') }}
           </app-link>
         </div>
+        <template #footer>
+          <open-data-link
+            url="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000089"
+          />
+        </template>
       </data-view>
     </client-only>
   </v-col>
@@ -56,6 +61,7 @@ import dayjs from 'dayjs'
 import AppLink from '@/components/AppLink.vue'
 import ConfirmedCasesDetailsTable from '@/components/ConfirmedCasesDetailsTable.vue'
 import DataView from '@/components/DataView.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 
@@ -64,6 +70,7 @@ const options = {
     DataView,
     ConfirmedCasesDetailsTable,
     AppLink,
+    OpenDataLink,
   },
   data() {
     const mainSummary = Data.main_summary

@@ -8,6 +8,7 @@
         :chart-data="graphData"
         :date="positiveByDeveloped.date"
         :unit="$t('人')"
+        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000093'"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
