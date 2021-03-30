@@ -1,14 +1,13 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard PositiveNumberByDiagnosedDateCard">
+  <v-col cols="12" md="6" class="DataCard DeathsByDeathDateCard">
     <client-only>
       <time-bar-chart
-        :title="$t('確定日別による陽性者数の推移')"
-        :title-id="'positive-number-by-diagnosed-date'"
-        :chart-id="'positive-number-by-diagnosed-date'"
+        :title="$t('死亡日別による死亡者数の推移')"
+        :title-id="'deaths-by-death-date'"
+        :chart-id="'deaths-by-death-date'"
         :chart-data="graphData"
         :date="date"
         :unit="$t('人')"
-        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000087'"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
@@ -16,7 +15,7 @@
             <li>
               {{
                 $t(
-                  '各保健所から報告があった患者の発生情報を、検査により陽性であることを医師が確認した日別（確定日別）に整理したものである'
+                  '各保健所から報告のあった死亡者について、死亡日別に整理したものである'
                 )
               }}
             </li>
@@ -29,7 +28,7 @@
 
 <script>
 import TimeBarChart from '@/components/TimeBarChart.vue'
-import Data from '@/data/positive_by_diagnosed.json'
+import deaths from '@/data/deaths.json'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import formatGraph from '@/utils/formatGraph'
 
@@ -63,17 +62,17 @@ export default {
     },
   },
   data() {
-    const formatData = Data.data.map((data) => {
+    const formatData = deaths.data.map((data) => {
       return {
-        日付: data.diagnosed_date,
+        日付: data.death_date,
         小計: data.count,
       }
     })
 
-    // 陽性患者数グラフ
+    // 死亡者数グラフ
     const graphData = formatGraph(formatData)
 
-    const { date } = Data
+    const { date } = deaths
 
     return {
       date,

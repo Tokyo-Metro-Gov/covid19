@@ -14,6 +14,7 @@
         :option-unit="$t('人')"
         :data-labels="positiveRateDataLabels"
         :table-labels="positiveRateTableLabels"
+        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000088'"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>

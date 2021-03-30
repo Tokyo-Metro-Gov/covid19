@@ -213,12 +213,20 @@ const config: NuxtConfig = {
         '/cards/monitoring-items-overview',
         '/cards/positive-number-by-developed-date',
         '/cards/number-of-reports-to-tokyo-fever-consultation-center',
+        '/cards/deaths-by-death-date',
       ]
       const localizedPages = locales
         .map((locale) => pages.map((page) => `/${locale}${page}`))
         .reduce((a, b) => [...a, ...b], [])
       return [...pages, ...localizedPages]
     },
+  },
+  /*
+   * PWA - Workbox configuration
+   * https://pwa.nuxtjs.org/workbox
+   */
+  pwa: {
+    workbox: false,
   },
   // /*
   // ** hot read configuration for docker

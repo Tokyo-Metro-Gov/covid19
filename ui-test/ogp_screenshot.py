@@ -28,6 +28,7 @@ PATHS = {
     "/cards/monitoring-items-overview": (959, 570),
     "/cards/positive-number-by-developed-date": (959, 570),
     "/cards/number-of-reports-to-tokyo-fever-consultation-center": (959, 570),
+    "/cards/deaths-by-death-date": (959, 570),
 }
 
 options = webdriver.ChromeOptions()
