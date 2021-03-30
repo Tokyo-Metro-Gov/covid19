@@ -1,7 +1,7 @@
 {
-    "date": "2021\/3\/29 18:45",
+    "date": "2021\/3\/30 19:15",
     "datasets": {
-        "date": "2021\/3\/28",
+        "date": "2021\/3\/29",
         "data": [
             {
                 "code": 131016,
@@ -15,42 +15,42 @@
                 "area": "特別区",
                 "label": "中央区",
                 "ruby": "ちゅうおうく",
-                "count": 1917
+                "count": 1920
             },
             {
                 "code": 131032,
                 "area": "特別区",
                 "label": "港区",
                 "ruby": "みなとく",
-                "count": 3967
+                "count": 3971
             },
             {
                 "code": 131041,
                 "area": "特別区",
                 "label": "新宿区",
                 "ruby": "しんじゅくく",
-                "count": 6884
+                "count": 6893
             },
             {
                 "code": 131059,
                 "area": "特別区",
                 "label": "文京区",
                 "ruby": "ぶんきょうく",
-                "count": 1801
+                "count": 1805
             },
             {
                 "code": 131067,
                 "area": "特別区",
                 "label": "台東区",
                 "ruby": "たいとうく",
-                "count": 2227
+                "count": 2228
             },
             {
                 "code": 131075,
                 "area": "特別区",
                 "label": "墨田区",
                 "ruby": "すみだく",
-                "count": 2407
+                "count": 2410
             },
             {
                 "code": 131083,
@@ -64,126 +64,126 @@
                 "area": "特別区",
                 "label": "品川区",
                 "ruby": "しながわく",
-                "count": 3449
+                "count": 3459
             },
             {
                 "code": 131105,
                 "area": "特別区",
                 "label": "目黒区",
                 "ruby": "めぐろく",
-                "count": 3246
+                "count": 3251
             },
             {
                 "code": 131113,
                 "area": "特別区",
                 "label": "大田区",
                 "ruby": "おおたく",
-                "count": 6235
+                "count": 6246
             },
             {
                 "code": 131121,
                 "area": "特別区",
                 "label": "世田谷区",
                 "ruby": "せたがやく",
-                "count": 8687
+                "count": 8700
             },
             {
                 "code": 131130,
                 "area": "特別区",
                 "label": "渋谷区",
                 "ruby": "しぶやく",
-                "count": 3521
+                "count": 3525
             },
             {
                 "code": 131148,
                 "area": "特別区",
                 "label": "中野区",
                 "ruby": "なかのく",
-                "count": 3899
+                "count": 3909
             },
             {
                 "code": 131156,
                 "area": "特別区",
                 "label": "杉並区",
                 "ruby": "すぎなみく",
-                "count": 4808
+                "count": 4817
             },
             {
                 "code": 131164,
                 "area": "特別区",
                 "label": "豊島区",
                 "ruby": "としまく",
-                "count": 3158
+                "count": 3170
             },
             {
                 "code": 131172,
                 "area": "特別区",
                 "label": "北区",
                 "ruby": "きたく",
-                "count": 2645
+                "count": 2648
             },
             {
                 "code": 131181,
                 "area": "特別区",
                 "label": "荒川区",
                 "ruby": "あらかわく",
-                "count": 1897
+                "count": 1900
             },
             {
                 "code": 131199,
                 "area": "特別区",
                 "label": "板橋区",
                 "ruby": "いたばしく",
-                "count": 4424
+                "count": 4433
             },
             {
                 "code": 131202,
                 "area": "特別区",
                 "label": "練馬区",
                 "ruby": "ねりまく",
-                "count": 5251
+                "count": 5270
             },
             {
                 "code": 131211,
                 "area": "特別区",
                 "label": "足立区",
                 "ruby": "あだちく",
-                "count": 5740
+                "count": 5754
             },
             {
                 "code": 131229,
                 "area": "特別区",
                 "label": "葛飾区",
                 "ruby": "かつしかく",
-                "count": 4229
+                "count": 4238
             },
             {
                 "code": 131237,
                 "area": "特別区",
                 "label": "江戸川区",
                 "ruby": "えどがわく",
-                "count": 5045
+                "count": 5050
             },
             {
                 "code": 132012,
                 "area": "多摩地域",
                 "label": "八王子市",
                 "ruby": "はちおうじし",
-                "count": 2756
+                "count": 2773
             },
             {
                 "code": 132021,
                 "area": "多摩地域",
                 "label": "立川市",
                 "ruby": "たちかわし",
-                "count": 942
+                "count": 944
             },
             {
                 "code": 132039,
                 "area": "多摩地域",
                 "label": "武蔵野市",
                 "ruby": "むさしのし",
-                "count": 949
+                "count": 950
             },
             {
                 "code": 132047,
@@ -197,14 +197,14 @@
                 "area": "多摩地域",
                 "label": "青梅市",
                 "ruby": "おうめし",
-                "count": 662
+                "count": 663
             },
             {
                 "code": 132063,
                 "area": "多摩地域",
                 "label": "府中市",
                 "ruby": "ふちゅうし",
-                "count": 1314
+                "count": 1319
             },
             {
                 "code": 132071,
@@ -218,7 +218,7 @@
                 "area": "多摩地域",
                 "label": "調布市",
                 "ruby": "ちょうふし",
-                "count": 1459
+                "count": 1461
             },
             {
                 "code": 132098,
@@ -232,7 +232,7 @@
                 "area": "多摩地域",
                 "label": "小金井市",
                 "ruby": "こがねいし",
-                "count": 655
+                "count": 656
             },
             {
                 "code": 132110,
@@ -253,7 +253,7 @@
                 "area": "多摩地域",
                 "label": "東村山市",
                 "ruby": "ひがしむらやまし",
-                "count": 607
+                "count": 608
             },
             {
                 "code": 132144,
@@ -267,7 +267,7 @@
                 "area": "多摩地域",
                 "label": "国立市",
                 "ruby": "くにたちし",
-                "count": 305
+                "count": 306
             },
             {
                 "code": 132187,
@@ -281,14 +281,14 @@
                 "area": "多摩地域",
                 "label": "狛江市",
                 "ruby": "こまえし",
-                "count": 419
+                "count": 420
             },
             {
                 "code": 132209,
                 "area": "多摩地域",
                 "label": "東大和市",
                 "ruby": "ひがしやまとし",
-                "count": 359
+                "count": 360
             },
             {
                 "code": 132217,
@@ -302,49 +302,49 @@
                 "area": "多摩地域",
                 "label": "東久留米市",
                 "ruby": "ひがしくるめし",
-                "count": 487
+                "count": 489
             },
             {
                 "code": 132233,
                 "area": "多摩地域",
                 "label": "武蔵村山市",
                 "ruby": "むさしむらやまし",
-                "count": 300
+                "count": 301
             },
             {
                 "code": 132241,
                 "area": "多摩地域",
                 "label": "多摩市",
                 "ruby": "たまし",
-                "count": 653
+                "count": 655
             },
             {
                 "code": 132250,
                 "area": "多摩地域",
                 "label": "稲城市",
                 "ruby": "いなぎし",
-                "count": 400
+                "count": 401
             },
             {
                 "code": 132276,
                 "area": "多摩地域",
                 "label": "羽村市",
                 "ruby": "はむらし",
-                "count": 280
+                "count": 281
             },
             {
                 "code": 132284,
                 "area": "多摩地域",
                 "label": "あきる野市",
                 "ruby": "あきるのし",
-                "count": 397
+                "count": 399
             },
             {
                 "code": 132292,
                 "area": "多摩地域",
                 "label": "西東京市",
                 "ruby": "にしとうきょうし",
-                "count": 1145
+                "count": 1147
             },
             {
                 "code": 133035,
@@ -442,7 +442,7 @@
                 "area": null,
                 "label": "都外",
                 "ruby": null,
-                "count": 8949
+                "count": 8979
             },
             {
                 "code": null,
@@ -456,7 +456,7 @@
                 "area": null,
                 "label": "小計",
                 "ruby": null,
-                "count": 119974
+                "count": 120208
             }
         ]
     }
