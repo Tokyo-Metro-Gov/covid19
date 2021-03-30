@@ -12,6 +12,7 @@
         :labels="labels"
         :data-labels="dataLabels"
         :unit="$t('件.reports')"
+        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000094'"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
