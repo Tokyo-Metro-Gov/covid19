@@ -3,3 +3,6 @@ timestamp,url,exists,status
 2021-03-01T09:37:22+09:00,https://ishikawa-covid19.netlify.app/,False,404
 2021-03-01T09:37:33+09:00,https://covid19-kagawa.jp/,False,[Errno -5] No address associated with hostname
 2021-03-01T09:37:34+09:00,https://covid19-kochi.netlify.app/,False,404
+2021-04-01T11:37:14+09:00,https://covid19-akita.netlify.app/,False,404
+2021-04-01T11:37:33+09:00,https://stopcovid19-kyoto.netlify.app/,False,404
+2021-04-01T11:37:42+09:00,https://covid19-kagawa.jp/,False,[Errno -2] Name or service not known

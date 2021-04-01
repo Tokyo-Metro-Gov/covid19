@@ -13,7 +13,7 @@
 |[](02)青森県|https://covid19-daily-tohoku.news/|デーリー東北新聞社|[momujin/covid19](https://github.com/momujin/covid19)||
 |[](03)岩手県|https://iwate.stopcovid19.jp/|有志|[MeditationDuck/covid19](https://github.com/MeditationDuck/covid19)||
 |[](04)宮城県|https://miyagi.stopcovid19.jp/|Code for Shiogama|[code4shiogama/covid19-miyagi](https://github.com/code4shiogama/covid19-miyagi)||
-|[](05)秋田県|https://covid19-akita.netlify.app/|学生（有志）|[asaba-zauberer/covid19-akita](https://github.com/asaba-zauberer/covid19-akita)||
+|[](05)秋田県|https://covid19-akita.netlify.app/|学生（有志）|[asaba-zauberer/covid19-akita](https://github.com/asaba-zauberer/covid19-akita)|**リンク切れ**|
 |[](06)山形県|https://stopcovid19-yamagata.netlify.app/|有志|[yamaserif/covid19](https://github.com/yamaserif/covid19)||
 |[](07)福島県|https://fukushima-covid19.firebaseapp.com/|福島県（**公式**）|[donuzium/covid19](https://github.com/donuzium/covid19)||
 |[](08)茨城県|https://ibaraki.stopcovid19.jp/|個人|[a01sa01to/covid19-ibaraki](https://github.com/a01sa01to/covid19-ibaraki)||
@@ -24,14 +24,14 @@
 |[](12)千葉県|https://covid19.civictech.chiba.jp/|Civic Tech Zen Chiba（**千葉県公認**）|[civictechzenchiba/covid19-chiba](https://github.com/civictechzenchiba/covid19-chiba)||
 |[](12)千葉市|https://stopcovid19.code4chiba.org/|Code for Chiba|[codeforchiba/covid19](https://github.com/codeforchiba/covid19)||
 |[](12)市原市|https://covid19-ichihara.netlify.app/|個人|[YanaseT/covid19-ichihara/](https://github.com/YanaseT/covid19-ichihara/)||
-|[](12)八千代市|https://yachiyo-covid19.netlify.app/|有志（学生）|[taichi1222/covid19-yachiyo](https://github.com/taichi1222/covid19-yachiyo)|**リンク切れ**|
+|[](12)八千代市|https://yachiyo-covid19.netlify.app/|有志（学生）|[taichi1222/covid19-yachiyo](https://github.com/taichi1222/covid19-yachiyo)||
 |[](14)神奈川県|https://www.pref.kanagawa.jp/osirase/1369/|神奈川県（**公式**）|||
 |[](14)横浜市|https://covid19.yokohama/|個人|[covid19yokohama/covid19](https://github.com/covid19yokohama/covid19)||
 |[](15)新潟県|https://niigata.stopcovid19.jp/|Code for Niigata|[CodeForNiigata/covid19](https://github.com/CodeForNiigata/covid19)||
 |[](15)新潟県|https://stopcovid19-niigata-unofficial.netlify.app/|air-h-128k-il|[air-h-128k-il/covid19](https://github.com/air-h-128k-il/covid19)||
 |[](16)富山県|https://stopcovid19-toyama.netlify.app/|運営者：有志（**富山県公認**）|[Terachan0117/covid19-toyama](https://github.com/Terachan0117/covid19-toyama)||
 |[](17)石川県|https://stopcovid19.pref.ishikawa.jp/|石川県（**公式**）|||
-|[](17)石川県|https://ishikawa-covid19.netlify.app/|個人|[Retsuki/covid19-ishikawa/](https://github.com/Retsuki/covid19-ishikawa/)|**リンク切れ**|
+|[](17)石川県|https://ishikawa-covid19.netlify.app/|個人|[Retsuki/covid19-ishikawa/](https://github.com/Retsuki/covid19-ishikawa/)||
 |[](18)福井県|https://covid19-fukui.com/|地元有志（**福井県公認**）|[nomunomu0504/covid19](https://github.com/nomunomu0504/covid19)||
 |[](19)山梨県|https://stopcovid19.yamanashi.dev/|stopcovid19.yamanashi.devチーム|[covid19-yamanashi/covid19](https://github.com/covid19-yamanashi/covid19)||
 |[](20)長野県|https://stop-covid19-nagano.netlify.app/|有志|[Stop-COVID19-Nagano/covid19](https://github.com/Stop-COVID19-Nagano/covid19)||
@@ -42,7 +42,7 @@
 |[](23)愛知県|https://stopcovid19.code4.nagoya/|有志|[code4nagoya/covid19](https://github.com/code4nagoya/covid19)||
 |[](24)三重県|https://mie.stopcovid19.jp/|高専生チーム（有志）|[FlexiblePrintedCircuits/covid19-mie](https://github.com/FlexiblePrintedCircuits/covid19-mie)||
 |[](25)滋賀県|https://stopcovid19.pref.shiga.jp/|滋賀県（**公式**）|[Shiga-pref-org/covid19](https://github.com/Shiga-pref-org/covid19)||
-|[](26)京都府|https://stopcovid19-kyoto.netlify.app/|有志|[stopcovid19-kyoto/covid19](https://github.com/stopcovid19-kyoto/covid19)||
+|[](26)京都府|https://stopcovid19-kyoto.netlify.app/|有志|[stopcovid19-kyoto/covid19](https://github.com/stopcovid19-kyoto/covid19)|**リンク切れ**|
 |[](26)京都府|https://kyoto.stopcovid19.jp/|京都府（**公式**）|[stop-covid19-kyoto/covid19-kyoto](https://github.com/stop-covid19-kyoto/covid19-kyoto)||
 |[](27)大阪府|https://covid19-osaka.info/|大阪府（**公式**）|[codeforosaka/covid19](https://github.com/codeforosaka/covid19)||
 |[](28)兵庫県|https://stop-covid19-hyogo.org/|有志|[stop-covid19-hyogo/covid19](https://github.com/stop-covid19-hyogo/covid19)||
@@ -58,7 +58,7 @@
 |[](37)香川県|https://kagawa.stopcovid19.jp/|学生エンジニア（有志）|[codeforkagawa/covid19](https://github.com/codeforkagawa/covid19)||
 |[](37)香川県|https://covid19-kagawa.jp/|学生エンジニア（有志）|[i15317/covid19](https://github.com/i15317/covid19)|**リンク切れ**|
 |[](38)愛媛県|https://ehime-covid19.com/|ボランティア（有志）|[ehime-covid19/covid19](https://github.com/ehime-covid19/covid19)||
-|[](39)高知県|https://covid19-kochi.netlify.app/|学生エンジニア（有志）||**リンク切れ**|
+|[](39)高知県|https://covid19-kochi.netlify.app/|学生エンジニア（有志）|||
 |[](40)福岡県|https://fukuoka.stopcovid19.jp/|Code for Fukuoka, Code for Kurume|[Code-for-Fukuoka/covid19-fukuoka](https://github.com/Code-for-Fukuoka/covid19-fukuoka)||
 |[](40)福岡市|https://stopcovid19.codeforfukuoka.org/|Code for Fukuoka|[Code-for-Fukuoka/covid19](https://github.com/Code-for-Fukuoka/covid19)||
 |[](40)北九州市|https://stopcovid19-kitakyushu.jp/|Code for Kitakyushu|[covid19-kitakyushu/covid19](https://github.com/covid19-kitakyushu/covid19)||
