@@ -1,29 +1,9 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:button>
-      <ul :class="$style.GraphDesc">
-        <li>
-          {{
-            $t(
-              '（注）日々の速報値（医療機関が保険適用で行った検査は含まない）は、毎日更新'
-            )
-          }}
-        </li>
-        <li>
-          {{
-            $t(
-              '（注）医療機関が保険適用で行った検査件数を含む検査実施件数は、毎週金曜日に前週木曜日から当該週水曜日までの日々の保険適用分の件数を反映して更新'
-            )
-          }}
-        </li>
-        <li>
-          {{
-            $t(
-              '（注）医療機関が保険適用で行った検査については、４月２９日分までを計上'
-            )
-          }}
-        </li>
-      </ul>
+    <template #description>
+      <slot name="description" />
+    </template>
+    <template #button>
       <data-selector
         v-model="dataKind"
         :target-id="chartId"
@@ -39,12 +19,12 @@
           <div
             :style="{
               backgroundColor: colors[i].fillColor,
-              borderColor: colors[i].strokeColor
+              borderColor: colors[i].strokeColor,
             }"
           />
           <span
             :style="{
-              textDecoration: displayLegends[i] ? 'none' : 'line-through'
+              textDecoration: displayLegends[i] ? 'none' : 'line-through',
             }"
             >{{ item }}</span
           >
@@ -54,65 +34,76 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <div class="LegendStickyChart">
-      <div class="scrollable" :style="{ display: canvas ? 'block' : 'none' }">
-        <div :style="{ width: `${chartWidth}px` }">
-          <bar
-            :ref="'barChart'"
-            :chart-id="chartId"
-            :chart-data="displayData"
-            :options="displayOption"
-            :plugins="scrollPlugin"
-            :display-legends="displayLegends"
-            :height="240"
-            :width="chartWidth"
-          />
-        </div>
-      </div>
-      <bar
-        class="sticky-legend"
-        :style="{ display: canvas ? 'block' : 'none' }"
-        :chart-id="`${chartId}-header`"
-        :chart-data="displayDataHeader"
-        :options="displayOptionHeader"
-        :plugins="yAxesBgPlugin"
-        :display-legends="displayLegends"
-        :height="240"
-        :width="chartWidth"
-      />
-    </div>
-    <slot name="additionalNotes" />
-    <template v-slot:infoPanel>
-      <data-view-basic-info-panel
+    <scrollable-chart v-show="canvas" :display-data="displayData">
+      <template #chart="{ chartWidth }">
+        <bar
+          :ref="'barChart'"
+          :chart-id="chartId"
+          :chart-data="displayData"
+          :options="displayOption"
+          :display-legends="displayLegends"
+          :height="240"
+          :width="chartWidth"
+        />
+      </template>
+      <template #sticky-chart>
+        <bar
+          class="sticky-legend"
+          :chart-id="`${chartId}-header`"
+          :chart-data="displayDataHeader"
+          :options="displayOptionHeader"
+          :plugins="yAxesBgPlugin"
+          :display-legends="displayLegends"
+          :height="240"
+        />
+      </template>
+    </scrollable-chart>
+    <template #dataTable>
+      <client-only>
+        <data-view-table :headers="tableHeaders" :items="tableData" />
+      </client-only>
+    </template>
+    <template #additionalDescription>
+      <slot name="additionalDescription" />
+    </template>
+    <template #infoPanel>
+      <data-view-data-set-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
         :unit="displayInfo.unit"
       />
     </template>
+    <template #footer>
+      <open-data-link v-show="url" :url="url" />
+    </template>
   </data-view>
 </template>
 
 <script lang="ts">
+import { Chart } from 'chart.js'
+import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
-import { Chart } from 'chart.js'
-import dayjs from 'dayjs'
-import DataView from '@/components/DataView.vue'
+
 import DataSelector from '@/components/DataSelector.vue'
-import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
-import { DisplayData, yAxesBgPlugin, scrollPlugin } from '@/plugins/vue-chart'
+import DataView from '@/components/DataView.vue'
+import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
+import DataViewTable, {
+  TableHeader,
+  TableItem,
+} from '@/components/DataViewTable.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
+import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 
-interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
-  currentTarget: T
-}
 type Data = {
   dataKind: 'transition' | 'cumulative'
   canvas: boolean
   displayLegends: boolean[]
   colors: SurfaceStyle[]
-  chartWidth: number | null
+  isSmall: boolean
 }
 type Methods = {
   sum: (array: number[]) => number
@@ -121,6 +112,7 @@ type Methods = {
   cumulativeSum: (chartDataArray: number[][]) => number[]
   eachArraySum: (chartDataArray: number[][]) => number[]
   onClickLegend: (i: number) => void
+  handleResize: () => void
 }
 
 type Computed = {
@@ -134,13 +126,8 @@ type Computed = {
   displayDataHeader: DisplayData
   displayOptionHeader: Chart.ChartOptions
   scaledTicksYAxisMax: number
-  tableHeaders: {
-    text: TranslateResult
-    value: string
-  }[]
-  tableData: {
-    [key: number]: number
-  }[]
+  tableHeaders: TableHeader[]
+  tableData: TableItem[]
 }
 
 type Props = {
@@ -152,8 +139,9 @@ type Props = {
   items: string[]
   labels: string[]
   dataLabels: string[] | TranslateResult[]
+  tableLabels: string[] | TranslateResult[]
   unit: string
-  scrollPlugin: Chart.PluginServiceRegistrationOptions[]
+  url: string
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
@@ -166,81 +154,95 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 > = {
   created() {
     this.canvas = process.browser
+    this.dataKind =
+      this.$route.query.embed && this.$route.query.dataKind === 'cumulative'
+        ? 'cumulative'
+        : 'transition'
   },
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: {
+    DataView,
+    DataSelector,
+    DataViewTable,
+    DataViewDataSetPanel,
+    ScrollableChart,
+    OpenDataLink,
+  },
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     chartId: {
       type: String,
-      default: 'time-stacked-bar-chart'
+      default: 'time-stacked-bar-chart',
     },
     chartData: {
       type: Array,
       required: false,
-      default: () => []
+      default: () => [],
     },
     date: {
       type: String,
       required: true,
-      default: ''
+      default: '',
     },
     items: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     labels: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     dataLabels: {
       type: Array,
-      default: () => []
+      default: () => [],
+    },
+    tableLabels: {
+      type: Array,
+      default: () => [],
     },
     unit: {
       type: String,
-      default: ''
+      default: '',
     },
-    scrollPlugin: {
-      type: Array,
-      default: () => scrollPlugin
+    url: {
+      type: String,
+      default: '',
     },
     yAxesBgPlugin: {
       type: Array,
-      default: () => yAxesBgPlugin
-    }
+      default: () => yAxesBgPlugin,
+    },
   },
   data: () => ({
     dataKind: 'transition',
     displayLegends: [true, true],
     colors: getGraphSeriesStyle(2),
-    chartWidth: null,
-    canvas: true
+    canvas: true,
+    isSmall: false,
   }),
   computed: {
     displayInfo() {
+      const lastDay: string = this.labels[this.labels.length - 1]
+      const date = this.$d(new Date(lastDay), 'date')
+
       if (this.dataKind === 'transition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
-          sText: `${this.$t('{date}の合計', {
-            date: this.labels[this.labels.length - 1]
-          })}`,
-          unit: this.unit
+          sText: `${this.$t('{date}の合計', { date })}`,
+          unit: this.unit,
         }
       }
       return {
         lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
-        sText: `${this.$t('{date}の全体累計', {
-          date: this.labels[this.labels.length - 1]
-        })}`,
-        unit: this.unit
+        sText: `${this.$t('{date}の合計', { date })}`,
+        unit: this.unit,
       }
     },
     displayData() {
@@ -254,9 +256,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               data: item,
               backgroundColor: graphSeries[index].fillColor,
               borderColor: graphSeries[index].strokeColor,
-              borderWidth: 1
+              borderWidth: 1,
             }
-          })
+          }),
         }
       }
       return {
@@ -267,26 +269,31 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             data: this.cumulative(item),
             backgroundColor: graphSeries[index].fillColor,
             borderColor: graphSeries[index].strokeColor,
-            borderWidth: 1
+            borderWidth: 1,
           }
-        })
+        }),
       }
     },
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
-        ...(this.dataLabels as string[])
+        ...(this.tableLabels as string[])
           .reduce((arr, text) => {
             arr.push(
               ...[this.$t('日別'), this.$t('累計')].map(
-                label => `${text} (${label})`
+                (label) => `${text} (${label})`
               )
             )
             return arr
           }, [] as string[])
           .map((text, i) => {
-            return { text, value: String(i), align: 'end' }
-          })
+            return {
+              text,
+              value: String(i),
+              align: 'end',
+              width: this.isSmall ? '6em' : 'auto',
+            }
+          }),
       ]
     },
     tableData() {
@@ -302,7 +309,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 [j]:
                   j % 2 === 0
                     ? transition[i].toLocaleString()
-                    : cumulative[i].toLocaleString()
+                    : cumulative[i].toLocaleString(),
               }
             })
           )
@@ -314,15 +321,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const unit = this.unit
       const sumArray = this.eachArraySum(this.chartData)
       const data = this.chartData
-      const cumulativeData = this.chartData.map(item => {
+      const cumulativeData = this.chartData.map((item) => {
         return this.cumulative(item)
       })
       const cumulativeSumArray = this.eachArraySum(cumulativeData)
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+
       const options: Chart.ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label: tooltipItem => {
+            label: (tooltipItem) => {
               let casesTotal, cases, label
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index!].toLocaleString()
@@ -338,21 +347,23 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 ].toLocaleString()
               }
 
-              label = `${cases} ${unit}`
+              label = `${
+                this.dataLabels[tooltipItem.datasetIndex!]
+              } : ${cases} ${unit}`
               if (this.dataKind === 'cumulative') {
-                label += ` (${this.$t('合計')}: ${casesTotal} ${unit})`
+                label = `${label} (${this.$t('合計')}: ${casesTotal} ${unit})`
               }
               return label
             },
-            title(tooltipItem, data) {
-              return String(data.labels![tooltipItem[0].index!])
-            }
-          }
+            title: (tooltipItem, data) => {
+              const label = data.labels![tooltipItem[0].index!] as string
+              return this.$d(new Date(label), 'date')
+            },
+          },
         },
-        responsive: false,
         maintainAspectRatio: false,
         legend: {
-          display: false
+          display: false,
         },
         scales: {
           xAxes: [
@@ -360,7 +371,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               id: 'day',
               stacked: true,
               gridLines: {
-                display: false
+                display: false,
               },
               ticks: {
                 fontSize: 9,
@@ -368,9 +379,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080',
                 maxRotation: 0,
                 callback: (label: string) => {
-                  return label.split('/')[1]
-                }
-              }
+                  return dayjs(label).format('D')
+                },
+              },
               // #2384: If you set "type" to "time", make sure that the bars at both ends are not hidden.
               // #2384: typeをtimeに設定する時はグラフの両端が見切れないか確認してください
             },
@@ -381,44 +392,46 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 drawOnChartArea: false,
                 drawTicks: true,
                 drawBorder: false,
-                tickMarkLength: 10
+                tickMarkLength: 10,
               },
               ticks: {
                 fontSize: 11,
                 fontColor: '#808080',
                 padding: 3,
-                fontStyle: 'bold'
+                fontStyle: 'bold',
               },
               type: 'time',
               time: {
                 unit: 'month',
-                parser: 'M/D',
                 displayFormats: {
-                  month: 'MMM'
-                }
-              }
-            }
+                  month: 'YYYY-MM',
+                },
+              },
+            },
           ],
           yAxes: [
             {
-              stacked: true,
+              position: 'left',
               gridLines: {
                 display: true,
-                color: '#E5E5E5'
+                drawOnChartArea: true,
+                color: '#E5E5E5',
               },
               ticks: {
-                suggestedMin: 0,
-                suggestedMax: this.scaledTicksYAxisMax,
                 maxTicksLimit: 8,
-                fontColor: '#808080'
-              }
-            }
-          ]
-        }
+                fontColor: '#808080',
+                suggestedMin: 0,
+                suggestedMax: scaledTicksYAxisMax,
+              },
+            },
+          ],
+        },
       }
+
       if (this.$route.query.ogp === 'true') {
         Object.assign(options, { animation: { duration: 0 } })
       }
+
       return options
     },
     displayDataHeader() {
@@ -434,115 +447,99 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }
       }
       return {
-        labels: ['2020/1/1'],
+        labels: ['2020-01-01'],
         datasets: [
           {
             data: [this.displayData.datasets[0].data[n]],
             backgroundColor: 'transparent',
-            borderWidth: 0
+            borderWidth: 0,
           },
           {
             data: [this.displayData.datasets[1].data[n]],
             backgroundColor: 'transparent',
-            borderWidth: 0
-          }
-        ]
+            borderWidth: 0,
+          },
+        ],
       }
     },
     displayOptionHeader() {
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+
       const options: Chart.ChartOptions = {
-        responsive: false,
+        tooltips: { enabled: false },
         maintainAspectRatio: false,
         legend: {
-          display: false
+          display: false,
         },
-        tooltips: { enabled: false },
         scales: {
           xAxes: [
             {
               id: 'day',
               stacked: true,
               gridLines: {
-                display: false
+                display: false,
               },
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: 'transparent',
+                fontColor: 'transparent', // displayOption では '#808080'
                 maxRotation: 0,
-                minRotation: 0,
                 callback: (label: string) => {
-                  return label.split('/')[1]
-                }
-              }
+                  return dayjs(label).format('D')
+                },
+              },
             },
             {
               id: 'month',
               stacked: true,
               gridLines: {
                 drawOnChartArea: false,
-                drawTicks: false, // true -> false
+                drawTicks: false, // displayOption では true
                 drawBorder: false,
-                tickMarkLength: 10
+                tickMarkLength: 10,
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // #808080
-                padding: 13, // 3 + 10(tickMarkLength)
+                fontColor: 'transparent', // displayOption では '#808080'
+                padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
-                callback: (label: string) => {
-                  const monthStringArry = [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec'
-                  ]
-                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
-                  return month + '月'
-                }
               },
               type: 'time',
               time: {
-                unit: 'month'
-              }
-            }
+                unit: 'month',
+                displayFormats: {
+                  month: 'YYYY-MM',
+                },
+              },
+            },
           ],
           yAxes: [
             {
-              stacked: true,
+              position: 'left',
               gridLines: {
                 display: true,
-                drawOnChartArea: false,
-                color: '#E5E5E5' // #E5E5E5
+                drawOnChartArea: false, // displayOption では true
+                color: '#E5E5E5',
               },
               ticks: {
-                suggestedMin: 0,
                 maxTicksLimit: 8,
-                fontColor: '#808080', // #808080
-                suggestedMax: this.scaledTicksYAxisMax
-              }
-            }
-          ]
+                fontColor: '#808080',
+                suggestedMin: 0,
+                suggestedMax: scaledTicksYAxisMax,
+              },
+            },
+          ],
         },
-        animation: { duration: 0 }
+        animation: { duration: 0 },
       }
+
       return options
     },
     scaledTicksYAxisMax() {
-      let max = 0
-      for (const i in this.chartData[0]) {
-        max = Math.max(max, this.chartData[0][i] + this.chartData[1][i])
-      }
-      return max
-    }
+      return Array.from(this.chartData[0].keys())
+        .map((i) => this.chartData[0][i] + this.chartData[1][i])
+        .reduce((a, b) => Math.max(a, b), 0)
+    },
   },
   methods: {
     onClickLegend(i) {
@@ -552,7 +549,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     cumulative(array: number[]): number[] {
       const cumulativeArray: number[] = []
       let patSum = 0
-      array.forEach(d => {
+      array.forEach((d) => {
         patSum += d
         cumulativeArray.push(patSum)
       })
@@ -564,12 +561,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       })
     },
     pickLastNumber(chartDataArray: number[][]) {
-      return chartDataArray.map(array => {
+      return chartDataArray.map((array) => {
         return array[array.length - 1]
       })
     },
     cumulativeSum(chartDataArray: number[][]) {
-      return chartDataArray.map(array => {
+      return chartDataArray.map((array) => {
         return array.reduce((acc, cur) => {
           return acc + cur
         })
@@ -581,17 +578,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
       }
       return sumArray
-    }
+    },
+    handleResize() {
+      this.isSmall = window.innerWidth <= 400
+    },
   },
   mounted() {
-    if (this.$el) {
-      this.chartWidth =
-        ((this.$el!.clientWidth - 22 * 2 - 38) / 60) * this.labels.length + 38
-      this.chartWidth = Math.max(
-        this.$el!.clientWidth - 22 * 2,
-        this.chartWidth
-      )
-    }
     const barChart = this.$refs.barChart as Vue
     const barElement = barChart.$el
     const canvas = barElement.querySelector('canvas')
@@ -601,7 +593,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
-  }
+
+    window.addEventListener('resize', this.handleResize)
+    this.handleResize()
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize)
+  },
 }
 
 export default Vue.extend(options)
@@ -609,15 +607,6 @@ export default Vue.extend(options)
 
 <style module lang="scss">
 .Graph {
-  &Desc {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 0 !important;
-    padding-left: 0 !important;
-    font-size: 12px;
-    color: $gray-3;
-    list-style: none;
-  }
   &Legend {
     text-align: center;
     list-style: none;
@@ -636,19 +625,9 @@ export default Vue.extend(options)
       }
       button {
         color: $gray-3;
-        font-size: 12px;
+        @include font-size(12);
       }
     }
-  }
-}
-
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    font-size: 12px;
-    line-height: 15px;
-    color: $gray-3;
   }
 }
 </style>

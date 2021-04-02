@@ -2,30 +2,25 @@
   <div class="WhatsNew">
     <div class="WhatsNew-heading">
       <h3 class="WhatsNew-title">
-        <v-icon size="24" class="WhatsNew-title-icon">
-          mdi-information
+        <v-icon size="2.4rem" class="WhatsNew-title-icon">
+          {{ mdiInformation }}
         </v-icon>
         {{ $t('最新のお知らせ') }}
       </h3>
-      <span class="WhatsNew-link-to-emergency-page">
-        <external-link
-          url="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
+      <div class="WhatsNew-linkGroup">
+        <lazy-link-to-information-about-emergency-measure v-if="isEmergency" />
+        <app-link
+          class="WhatsNew-linkButton"
+          to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine.html"
         >
-          <v-icon size="20" class="WhatsNew-link-to-emergency-page-icon">
-            mdi-bullhorn
-          </v-icon>
-          {{ $t('東京都緊急事態措置について') }}
-        </external-link>
-      </span>
+          <VaccineIcon class="WhatsNew-linkButton-icon" aria-hidden="true" />
+          {{ $t('ワクチン情報') }}
+        </app-link>
+      </div>
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
-        <a
-          class="WhatsNew-list-item-anchor"
-          :href="item.url"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <app-link :to="item.url" class="WhatsNew-list-item-anchor">
           <time
             class="WhatsNew-list-item-anchor-time px-2"
             :datetime="formattedDate(item.date)"
@@ -34,48 +29,50 @@
           </time>
           <span class="WhatsNew-list-item-anchor-link">
             {{ item.text }}
-            <v-icon
-              v-if="!isInternalLink(item.url)"
-              class="WhatsNew-item-ExternalLinkIcon"
-              size="12"
-            >
-              mdi-open-in-new
-            </v-icon>
           </span>
-        </a>
+        </app-link>
       </li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
+import { mdiInformation } from '@mdi/js'
 import Vue from 'vue'
-import ExternalLink from '@/components/ExternalLink.vue'
 
-import {
-  convertDateByCountryPreferTimeFormat,
-  convertDateToISO8601Format
-} from '@/utils/formatDate'
+import AppLink from '@/components/AppLink.vue'
+import VaccineIcon from '@/static/vaccine.svg'
+import { convertDateToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
-  components: { ExternalLink },
+  components: {
+    AppLink,
+    VaccineIcon,
+  },
   props: {
     items: {
       type: Array,
-      required: true
+      required: true,
+    },
+    isEmergency: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      mdiInformation,
     }
   },
   methods: {
-    isInternalLink(path: string): boolean {
-      return !/^https?:\/\//.test(path)
-    },
     formattedDate(dateString: string) {
       return convertDateToISO8601Format(dateString)
     },
     formattedDateForDisplay(dateString: string) {
-      return convertDateByCountryPreferTimeFormat(dateString, this.$i18n.locale)
-    }
-  }
+      return this.$d(new Date(dateString), 'date')
+    },
+  },
 })
 </script>
 
@@ -83,52 +80,41 @@ export default Vue.extend({
 .WhatsNew {
   @include card-container();
 
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 5px 18px;
+  margin-bottom: 10px;
 
   .WhatsNew-heading {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 
     .WhatsNew-title {
       display: flex;
       align-items: center;
-      color: $gray-2;
+      margin: 8px 12px 8px 0;
       @include card-h2();
       &-icon {
         margin: 3px;
       }
     }
 
-    .WhatsNew-link-to-emergency-page {
-      background-color: $emergency;
-      border: 2px solid $emergency;
-      color: $gray-2;
-      border-radius: 4px;
-      font-size: 1rem;
-      padding: 4px 8px;
-      display: inline-flex;
-      &:hover {
-        background-color: $white;
-        border-radius: 4px;
-      }
+    .WhatsNew-linkGroup {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
 
-      .ExternalLink {
-        color: $gray-2 !important;
-        text-decoration: none;
-        margin: -10px;
-        padding: 10px;
+      @include lessThan($medium) {
+        justify-content: flex-start;
       }
+    }
 
-      > span {
-        @include button-text('sm');
-      }
-
-      @include lessThan($small) {
-        margin-top: 4px;
+    .WhatsNew-linkButton {
+      @include button-text('sm');
+      &-icon {
+        width: 1em;
+        height: 1em;
       }
     }
   }
@@ -141,7 +127,7 @@ export default Vue.extend({
       &-anchor {
         text-decoration: none;
         margin: 5px;
-        font-size: 14px;
+        @include font-size(14);
 
         @include lessThan($medium) {
           display: flex;

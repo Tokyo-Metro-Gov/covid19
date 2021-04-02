@@ -6,8 +6,8 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-    - name: Label for Transifex
-      if: github.actor == 'transifex-integration[bot]'
-      uses: actions/labeler@v2
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Label for Transifex
+        if: github.actor == 'transifex-integration[bot]' && !endsWith(github.event.pull_request.title, '[manual sync]')
+        uses: actions/labeler@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"

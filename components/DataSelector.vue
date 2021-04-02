@@ -25,6 +25,26 @@
   </v-btn-toggle>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  name: 'DataSelector',
+  props: {
+    value: {
+      type: String,
+      default: 'transition',
+    },
+    targetId: {
+      type: String,
+      default: (val: string | null) => {
+        return val && val !== '' ? val : null
+      },
+    },
+  },
+})
+</script>
+
 <style lang="scss">
 .DataSelector {
   margin-top: 20px;
@@ -36,9 +56,9 @@
     margin: 2px;
     border-radius: 4px !important;
     height: 24px !important;
-    font-size: 12px !important;
     color: $gray-1 !important;
     background-color: $white !important;
+    @include font-size(12, true);
 
     &::before {
       background-color: inherit;
@@ -55,24 +75,3 @@
   }
 }
 </style>
-
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'DataSelector',
-  props: {
-    value: {
-      type: String,
-      default: 'transition'
-    },
-    targetId: {
-      type: String,
-      default: (val: string | null) => {
-        // TODO: type は NullableString 型をとり、default: null とする
-        return val && val !== '' ? val : null
-      }
-    }
-  }
-})
-</script>

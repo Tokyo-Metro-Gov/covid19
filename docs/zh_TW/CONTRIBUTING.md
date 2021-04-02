@@ -31,7 +31,7 @@
 * 我們也接受建議！請積極的開新的 Issue 吧。
 
 ## 参考資訊
-* [如何為東京都 新型逛轉病毒網站提供貢獻的解說(Qiita) （日文網頁）](https://qiita.com/FPC_COMMUNITY/items/b9cc072813dc2231b2b2)
+* [如何為東京都 新型冠狀病毒網站提供貢獻的解說(Qiita) （日文網頁）](https://qiita.com/FPC_COMMUNITY/items/b9cc072813dc2231b2b2)
 
 ## 補充 CONTRIBUTORS.md 的相關資訊
 對於提供貢獻的大家、在 [CONTRIBUTORS.md](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/CONTRIBUTORS.md) 這份文件中記載了名字（暱稱）以及角色。

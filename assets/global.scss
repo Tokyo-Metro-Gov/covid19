@@ -1,5 +1,6 @@
 :root {
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 body {
@@ -24,7 +25,7 @@ img {
   outline: dotted $gray-3 1px;
 }
 
-.visually-hidden { 
+.visually-hidden {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;

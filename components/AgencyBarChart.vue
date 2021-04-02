@@ -1,58 +1,83 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:infoPanel>
-      <small :class="$style.DataViewDesc">
-        <slot name="description" />
-      </small>
-    </template>
+    <ul
+      :class="$style.GraphLegend"
+      :style="{ display: canvas ? 'block' : 'none' }"
+    >
+      <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
+        <button>
+          <div
+            :style="{
+              backgroundColor: colors[i].fillColor,
+              borderColor: colors[i].strokeColor,
+              width: '20px',
+            }"
+          />
+          <span
+            :style="{
+              textDecoration: displayLegends[i] ? 'none' : 'line-through',
+            }"
+          >
+            {{ item }}
+          </span>
+        </button>
+      </li>
+    </ul>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <bar
-      :ref="'barChart'"
-      :style="{ display: canvas ? 'block' : 'none' }"
-      :chart-id="chartId"
-      :chart-data="displayData"
-      :options="displayOption"
-      :height="240"
-    />
-    <template v-slot:dataTable>
-      <v-data-table
-        :headers="tableHeaders"
-        :items="tableData"
-        :items-per-page="-1"
-        :hide-default-footer="true"
-        :height="240"
-        :fixed-header="true"
-        :disable-sort="true"
-        :mobile-breakpoint="0"
-        class="cardTable"
-        item-key="name"
-      >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th>{{ item.text }}</th>
-              <td class="text-end">{{ item[0] }}</td>
-              <td class="text-end">{{ item[1] }}</td>
-              <td class="text-end">{{ item[2] }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
+    <scrollable-chart
+      v-show="canvas"
+      :display-data="displayData"
+      :is-weekly="true"
+    >
+      <template #chart="{ chartWidth }">
+        <bar
+          :ref="'barChart'"
+          :chart-id="chartId"
+          :chart-data="displayData"
+          :options="displayOption"
+          :display-legends="displayLegends"
+          :height="280"
+          :width="chartWidth"
+        />
+      </template>
+      <template #sticky-chart>
+        <bar
+          class="sticky-legend"
+          :chart-id="`${chartId}-header-right`"
+          :chart-data="displayDataHeader"
+          :options="displayOptionHeader"
+          :display-legends="displayLegends"
+          :plugins="yAxesBgPlugin"
+          :height="280"
+        />
+      </template>
+    </scrollable-chart>
+    <template #dataTable>
+      <client-only>
+        <data-view-table :headers="tableHeaders" :items="tableData" />
+      </client-only>
+    </template>
+    <template #additionalDescription>
+      <slot name="additionalDescription" />
     </template>
   </data-view>
 </template>
 
 <script lang="ts">
+import { Chart, ChartOptions } from 'chart.js'
 import Vue from 'vue'
-import VueI18n from 'vue-i18n'
-import { ChartOptions } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import agencyData from '@/data/agency.json'
+
 import DataView from '@/components/DataView.vue'
-import { getGraphSeriesStyle } from '@/utils/colors'
-import { DisplayData, DataSets } from '@/plugins/vue-chart'
+import DataViewTable, {
+  TableHeader,
+  TableItem,
+} from '@/components/DataViewTable.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
+import { DataSets, DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
+import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 
 interface AgencyDataSets extends DataSets {
   label: string
@@ -60,32 +85,35 @@ interface AgencyDataSets extends DataSets {
 interface AgencyDisplayData extends DisplayData {
   datasets: AgencyDataSets[]
 }
+interface AgencyData extends AgencyDisplayData {
+  labels: string[]
+}
 
-interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
-  currentTarget: T
-}
 type Data = {
+  colors: SurfaceStyle[]
   canvas: boolean
-  chartData: typeof agencyData
-  date: string
-  agencies: VueI18n.TranslateResult[]
+  displayLegends: boolean[]
 }
-type Methods = {}
+type Methods = {
+  onClickLegend: (i: number) => void
+}
 type Computed = {
   displayData: AgencyDisplayData
   displayOption: ChartOptions
-  tableHeaders: {
-    text: VueI18n.TranslateResult
-    value: string
-  }[]
-  tableData: {
-    [key: number]: number
-  }[]
+  displayDataHeader: AgencyDisplayData
+  displayOptionHeader: ChartOptions
+  tableHeaders: TableHeader[]
+  tableData: TableItem[]
 }
+
 type Props = {
   title: string
   titleId: string
   chartId: string
+  chartData: AgencyData
+  date: string
+  items: string[]
+  periods: string[]
   unit: string
 }
 
@@ -99,125 +127,227 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView },
+  components: { DataView, DataViewTable, ScrollableChart },
   props: {
     title: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     chartId: {
       type: String,
       required: false,
-      default: 'agency-bar-chart'
+      default: 'agency-bar-chart',
+    },
+    chartData: Object,
+    date: {
+      type: String,
+      default: '',
+    },
+    items: {
+      type: Array,
+      default: () => [],
+    },
+    periods: {
+      type: Array,
+      default: () => [],
     },
     unit: {
       type: String,
       required: false,
-      default: ''
-    }
+      default: '',
+    },
   },
-  data() {
-    const agencies = [
-      this.$t('第一庁舎計'),
-      this.$t('第二庁舎計'),
-      this.$t('議事堂計')
-    ]
-
-    return {
-      canvas: true,
-      chartData: agencyData,
-      date: agencyData.date,
-      agencies
-    }
-  },
+  data: () => ({
+    colors: getGraphSeriesStyle(3),
+    canvas: true,
+    yAxesBgPlugin,
+    displayLegends: [true, true, true],
+  }),
   computed: {
     displayData() {
-      const graphSeries = getGraphSeriesStyle(this.chartData.datasets.length)
       return {
-        labels: this.chartData.labels as string[],
+        labels: this.chartData.labels,
         datasets: this.chartData.datasets.map((item, index) => {
           return {
-            label: this.agencies[index] as string,
+            label: this.items[index] as string,
             data: item.data,
-            backgroundColor: graphSeries[index].fillColor,
-            borderColor: graphSeries[index].strokeColor,
-            borderWidth: 1
+            backgroundColor: this.colors[index].fillColor,
+            borderColor: this.colors[index].strokeColor,
+            borderWidth: 1,
           }
-        })
+        }),
       }
     },
     displayOption() {
-      const self = this
       const options: ChartOptions = {
+        maintainAspectRatio: false,
         tooltips: {
           displayColors: false,
           callbacks: {
-            title(tooltipItem) {
-              const dateString = tooltipItem[0].label
-              return self.$t('期間: {duration}', {
-                duration: dateString!
+            title: (tooltipItem) => {
+              const dateString = this.periods[tooltipItem[0].index!]
+              return this.$t('期間: {duration}', {
+                duration: dateString!,
               }) as string
             },
-            label(tooltipItem, data) {
+            label: (tooltipItem, data) => {
               const index = tooltipItem.datasetIndex!
-              const title = self.$t(data.datasets![index].label!)
+              const title = this.$t(data.datasets![index].label!)
               const num = parseInt(tooltipItem.value!).toLocaleString()
-              const unit = self.$t(self.unit)
+              const unit = this.$t(this.unit)
               return `${title}: ${num} ${unit}`
-            }
-          }
+            },
+          },
         },
         legend: {
-          display: true,
-          onHover: (e: HTMLElementEvent<HTMLInputElement>) => {
-            e.currentTarget!.style!.cursor = 'pointer'
-          },
-          onLeave: (e: HTMLElementEvent<HTMLInputElement>) => {
-            e.currentTarget!.style!.cursor = 'default'
-          },
-          labels: {
-            boxWidth: 20
-          }
+          display: false,
         },
         scales: {
           xAxes: [
             {
+              id: 'period',
               stacked: true,
               gridLines: {
-                display: false
+                display: false,
               },
               ticks: {
                 fontSize: 9,
-                fontColor: '#808080'
-              }
-            }
+                fontColor: '#808080',
+                callback: (_, i) => {
+                  return this.periods[i]
+                },
+              },
+            },
+            {
+              id: 'year',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: true,
+                drawBorder: false,
+                tickMarkLength: 10,
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: '#808080',
+                padding: 3,
+                fontStyle: 'bold',
+              },
+              type: 'time',
+              time: {
+                unit: 'year',
+                displayFormats: {
+                  year: 'YYYY',
+                },
+              },
+            },
           ],
           yAxes: [
             {
               stacked: true,
               gridLines: {
-                display: true
+                display: true,
               },
               ticks: {
                 fontSize: 9,
                 fontColor: '#808080',
                 maxTicksLimit: 10,
-                callback(label) {
-                  return `${label}${self.unit}`
-                }
-              }
-            }
-          ]
-        }
+                callback: (label) => {
+                  return `${label}${this.unit}`
+                },
+              },
+            },
+          ],
+        },
       }
       if (this.$route.query.ogp === 'true') {
         Object.assign(options, { animation: { duration: 0 } })
+      }
+      return options
+    },
+    displayDataHeader() {
+      return {
+        labels: this.chartData.labels,
+        datasets: this.chartData.datasets.map((item, index) => {
+          return {
+            label: this.items[index] as string,
+            data: item.data,
+            backgroundColor: 'transparent',
+            borderWidth: 0,
+          }
+        }),
+      }
+    },
+    displayOptionHeader() {
+      const options: Chart.ChartOptions = {
+        maintainAspectRatio: false,
+        legend: {
+          display: false,
+        },
+        tooltips: { enabled: false },
+        scales: {
+          xAxes: [
+            {
+              id: 'period',
+              stacked: true,
+              gridLines: {
+                display: false,
+              },
+              ticks: {
+                fontSize: 9,
+                fontColor: 'transparent',
+                callback: (_, i) => {
+                  return this.periods[i]
+                },
+              },
+            },
+            {
+              id: 'year',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: false, // true -> false
+                drawBorder: false,
+                tickMarkLength: 10,
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: 'transparent', // #808080
+                padding: 13, // 3 + 10(tickMarkLength)
+                fontStyle: 'bold',
+              },
+              type: 'time',
+              time: {
+                unit: 'year',
+              },
+            },
+          ],
+          yAxes: [
+            {
+              stacked: true,
+              gridLines: {
+                display: true,
+                drawOnChartArea: false,
+                color: '#E5E5E5', // #E5E5E5
+              },
+              ticks: {
+                suggestedMin: 0,
+                maxTicksLimit: 10,
+                fontColor: '#808080', // #808080
+                callback: (label) => {
+                  return `${label}${this.unit}`
+                },
+              },
+            },
+          ],
+        },
+        animation: { duration: 0 },
       }
       return options
     },
@@ -226,23 +356,29 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         { text: this.$t('日付'), value: 'text' },
         ...this.displayData.datasets.map((text, value) => {
           return { text: text.label, value: String(value), align: 'end' }
-        })
+        }),
       ]
     },
     tableData() {
       return this.displayData.datasets[0].data
         .map((_, i) => {
           return Object.assign(
-            { text: this.displayData.labels![i] },
+            { text: this.periods[i] },
             ...this.displayData.datasets!.map((_, j) => {
               return {
-                [j]: this.displayData.datasets[j].data[i].toLocaleString()
+                [j]: this.displayData.datasets[j].data[i].toLocaleString(),
               }
             })
           )
         })
         .reverse()
-    }
+    },
+  },
+  methods: {
+    onClickLegend(i) {
+      this.displayLegends[i] = !this.displayLegends[i]
+      this.displayLegends = this.displayLegends.slice()
+    },
   },
   mounted() {
     const barChart = this.$refs.barChart as Vue
@@ -254,19 +390,35 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
-  }
+  },
 }
 
 export default Vue.extend(options)
 </script>
 
 <style module lang="scss">
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    font-size: 12px;
-    color: $gray-3;
+.Graph {
+  &Legend {
+    text-align: center;
+    list-style: none;
+    padding: 0 !important;
+    li {
+      display: inline-block;
+      margin: 0 3px;
+      div {
+        height: 12px;
+        margin: 2px 4px;
+        width: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        border-width: 1px;
+        border-style: solid;
+      }
+      button {
+        color: $gray-3;
+        @include font-size(12);
+      }
+    }
   }
 }
 </style>

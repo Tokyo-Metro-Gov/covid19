@@ -2,117 +2,86 @@
 
 ## 1. 開發環境建置
 
-[PLEASE TRANSLATE ME]
+安裝下列的應用程式來建構開發環境：
 
-Install the following application to the environment for development.
-
-| Application name | Application version(Fill in only if specified) | Installation conditions |
+| 應用程式名稱 | 應用程式版本(有特定版本才填寫) | 安裝要求 |
 | ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/zh-tw/)|10.19.0 以上|Required|
-|[Visual Studio Code](https://code.visualstudio.com/)| |If you use Visual Studio Code|
-|[yarn](https://classic.yarnpkg.com/zh-Hant/)| |When executing this program with `yarn`|
-|[docker compose](https://docs.docker.com/compose/install/)| |When executing this program with `docker compose`|
-|[Vagrant](https://www.vagrantup.com/)| |When executing this program with `Vagrant`|
+|[Node.js](https://nodejs.org/zh-tw/)|14.16.0 以上|必要|
+|[Visual Studio Code](https://code.visualstudio.com/)| |如果你使用 Visual Studio Code|
+|[yarn](https://classic.yarnpkg.com/zh-Hant/)| |使用 `yarn` 執行本專案時|
+|[docker compose](https://docs.docker.com/compose/install/)| |使用 `docker compose` 直襲本專案時|
+|[Vagrant](https://www.vagrantup.com/)| |使用 `Vagrant` 執行本專案時|
 
-### 1-1. Extensions for Visual Studio Code
+### 1-1. Visual Studio Code 的套件
 
-To use Visual Studio Code, install the following extension.
+要使用 Visual Studio Code，請安裝以下套件。
 
-| Extensions | Installation conditions |
+| 套件 | 安裝要求 |
 | ------- | ------- |
-|[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)|Any|
-|[Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)|Any|
-|[TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)|Any|
-|[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)|Any|
-|[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)|When developing with Visual Studio Code and Remote Containers|
+|[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)|任意|
+|[Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)|任意|
+|[TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)|任意|
+|[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)|任意|
+|[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)|當使用 Visual Studio Code 和遠端容器來開發|
 
 ---
 
-## 2. Run this program
+## 2. 執行此專案
 
-The command is executed in the working copy root directory.
+請在根目錄(root)下執行此命令。
 
-[/PLEASE TRANSLATE ME]
 
 ### 2-1. 使用 `yarn` 的做法
 
-[PLEASE TRANSLATE ME]
-
-#### 2-1-1. Install dependencies
-
-[/PLEASE TRANSLATE ME]
+#### 2-1-1. 安裝相依套件
 
 ```bash
 # install dependencies
 $ yarn install
 ```
 
-[PLEASE TRANSLATE ME]
+#### 2-1-2. 執行專案
 
-#### 2-1-2. Run this program
+執行了這個命令後，你就可以存取 `http://localhost:3000` 來查看 development 分支中的程式。
 
-After executing the following command, you can check the program under development by accessing http://localhost:3000 .
-
-##### 2-1-2-1. Normal
-
-[/PLEASE TRANSLATE ME]
+##### 2-1-2-1. 一般
 
 ```bash
 # serve with hot reload at localhost:3000
 $ yarn dev
 ```
 
-[PLEASE TRANSLATE ME]
+##### 2-1-2-2. 快速
 
-##### 2-1-2-2. Faster
-
-You can disable accessibility auditing, which would make your local server faster.
-
-[/PLEASE TRANSLATE ME]
+你可以不啟用 accessibility auditing (它可以使你的 local server 變得更快)
 
 ```bash
 # serve with hot reload at localhost:3000
 $ yarn dev-no-axe
 ```
 
-[PLEASE TRANSLATE ME]
-
 ### 2-1-3. Troubleshoot
-
-[/PLEASE TRANSLATE ME]
 
 #### 2-1-3-1. 被 `Cannot find module ****` 卡住時
 
-Build the dependency again and run the program.
+重新建置(build)一次相依套件然後重新執行專案。
 
 ### 2-2. 使用 `docker compose` 的做法
 
-[PLEASE TRANSLATE ME]
+#### 2-2-1. 安裝相依套件然後執行此專案
 
-#### 2-2-1. Install dependencies and run this program
-
-After executing the following command, you can check the program under development by accessing http://localhost:3000 .
-
-[/PLEASE TRANSLATE ME]
+執行了這個命令後，你就可以存取 `http://localhost:3000` 來查看 development 分支中的程式。
 
 ```bash
 # serve with hot reload at localhost:3000
 $ docker-compose up --build
 ```
 
-[PLEASE TRANSLATE ME]
-
 ### 2-2-2. Troubleshoot
-
-[/PLEASE TRANSLATE ME]
 
 #### 2-2-2-1. 被 `Cannot find module ****` 卡住時
 
-[PLEASE TRANSLATE ME]
-
-Stop the program and execute the following command.
-
-[/PLEASE TRANSLATE ME]
+停止程式並執行下列指令。
 
 ```bash
 $ docker-compose run --rm app yarn install
@@ -120,13 +89,9 @@ $ docker-compose run --rm app yarn install
 
 ### 2-3. 使用 `Vagrant` 的做法
 
-[PLEASE TRANSLATE ME]
+#### 2-3-1. 安裝相依套件然後執行此專案
 
-#### 2-3-1. Install dependencies and run this program
-
-After executing the following command, you can check the program under development by accessing http://localhost:3000 .
-
-[/PLEASE TRANSLATE ME]
+執行了這個命令後，你就可以存取 `http://localhost:3000` 來查看 development 分支中的程式。
 
 ```bash
 # serve with hot reload at localhost:3000
@@ -135,19 +100,11 @@ $ vagrant up
 
 ### 2-4. Visual Studio Code + Remote Containers 的開發環境
 
-[PLEASE TRANSLATE ME]
-
-#### 2-4-1. Install dependencies and run this program
-
-[/PLEASE TRANSLATE ME]
+#### 2-4-1. 安裝相依套件然後執行此專案
 
 如同 [Quick start: Try a dev container（外部連結）](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)點擊左下角的 「Open Folder in Container」 後選擇 Repository 的資料夾路徑開始建立環境。
 
-[PLEASE TRANSLATE ME]
-
-You can check the program under development by accessing http://localhost:3000 after building the environment.
-
-[/PLEASE TRANSLATE ME]
+建置好環境以後後，你就可以存取 `http://localhost:3000` 來查看 development 分支中的程式。
 
 #### 2-4-2. 提示
 
@@ -168,17 +125,13 @@ You can check the program under development by accessing http://localhost:3000 a
 
 ## 4. Deploy 到 Staging 環境以及正式環境的方法
 
-[PLEASE TRANSLATE ME]
+當下表左欄所列的分支更新後，分支和網站將會自動被更新。
 
-When the branch listed in the left column of the table below is updated, the branch and website will be updated automatically.
-
-| branch | A branch where HTML is built and updated | Website updated |
+| 分支 | HTML 建置與更新的分支 | 網站更新 |
 | ---- | ---- | ---- |
 |`master`|`production`|The production site https://stopcovid19.metro.tokyo.lg.jp/|
 |`staging`|`gh-pages`|The staging site https://stg-covid19-tokyo.netlify.app/|
 |`development`|`dev-pages`|The development site https://dev-covid19-tokyo.netlify.app/|
-
-[/PLEASE TRANSLATE ME]
 
 ---
 
@@ -187,26 +140,20 @@ When the branch listed in the left column of the table below is updated, the bra
 只允許推送 Pull Request 到 `development` 。
 在推送 Pull Request 時，請依照以下命名規則為您的分支命名
 
-[PLEASE TRANSLATE ME]
-
-| Types of changes | Naming rules for the branch |
+| 變更種類 | 分支的命名規則 |
 | ---- | ---- |
 |新增功能|`feature/#{ISSUE_ID}-#{branch_title_name}`|
 |Hotfix commit|`hotfix/#{ISSUE_ID}-#{branch_title_name}`|
 
-[/PLEASE TRANSLATE ME]
-
 ### 5-1. 基本分支
 
-[PLEASE TRANSLATE ME]
 
-| 目的 | 分支 | 預覽用 URL | People who can make pull requests | 備註 |
+| 目的 | 分支 | 預覽用 URL | 誰可以發 Pull Request | 備註 |
 | ---- | ---- | ---- | ---- | ---- |
 | 開發 | development | https://dev-covid19-tokyo.netlify.app/ | All developers | 基本上請推送 Pull Request 到這裡 |
 | 正式版預覽 | staging | https://stg-covid19-tokyo.netlify.app/ | Only administrators | 對於正式版釋出前的最終確認，禁止管理員以外的人推送 Pull Request。 |
 | 正式版 | master | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators | 禁止管理員以外的人推送 Pull Request |
 
-[/PLEASE TRANSLATE ME]
 
 ### 5-2. 系統所使用的分支
 

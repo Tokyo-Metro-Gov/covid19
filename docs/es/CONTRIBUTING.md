@@ -11,13 +11,8 @@ Esta página muestra cómo puede contribuir al desarrollo de este sitio.
 * Puede solucionar algunos problemas usando Pull Request.
 * Tenga en cuenta que los problemas de sugerencias de mejora (etiquetados con `improve`)
   puede no ser siempre aceptado (especialmente los de la interfaz de usuario o UI)
-
-[please translate me!]
-* All issues and Pull requests including major content changes such as language expression or the UI are subject to the organizer's review. They may not necessarily be always accepted.
-* The Issue with `waiting` label is under review by the organizer.  The implementation should be refrained until the requirement is fixed.
-
-[/please translate me!]
-
+* Todos los problemas y Pull requests incluyendo cambio mayores al contenido como expresiones del idioma o the UI están sujetos a la revisión del organizador. Éstos pueden ser no necesariamente siempre aceptados.
+* El problema con etiqueta `waiting` estará bajo revisión del organizador. La implementación deberá ser detenida sólo hasta que el requirimiento se corrija.
 * Nos alegra que le dé prioridad a los problemas de [good first issue / help wanted / bug]
 
 ## Cómo participar en comunicaciones
@@ -38,7 +33,7 @@ Esta página muestra cómo puede contribuir al desarrollo de este sitio.
 * Sitio en desarrollo https://dev-covid19-tokyo.netlify.app/
 * Sitio de prueba https://stg-covid19-tokyo.netlify.app/
 * Sitio en producción https://stopcovid19.metro.tokyo.lg.jp/
-* [Design](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
+* [Diseño](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 * [Transifex](https://www.transifex.com/stopcovid19-tokyo/stopcovid19tokyo)
 
 ¡Las actualizaciones de este documento también son bienvenidas!

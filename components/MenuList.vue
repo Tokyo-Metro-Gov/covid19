@@ -96,7 +96,7 @@ export default Vue.extend({
   }
 
   &:hover {
-    text-shadow: 0 0 1px $gray-1;
+    font-weight: 600;
   }
 
   &:focus {

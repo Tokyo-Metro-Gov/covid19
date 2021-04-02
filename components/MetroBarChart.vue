@@ -1,63 +1,84 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <template v-slot:infoPanel>
-      <small :class="$style.DataViewDesc">
-        <slot name="description" />
-      </small>
-    </template>
+    <ul
+      :class="$style.GraphLegend"
+      :style="{ display: canvas ? 'block' : 'none' }"
+    >
+      <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
+        <button>
+          <div
+            :style="{
+              backgroundColor: colors[i].fillColor,
+              borderColor: colors[i].strokeColor,
+              width: '20px',
+            }"
+          />
+          <span
+            :style="{
+              textDecoration: displayLegends[i] ? 'none' : 'line-through',
+            }"
+          >
+            {{ item }}
+          </span>
+        </button>
+      </li>
+    </ul>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <bar
-      :ref="'barChart'"
-      :style="{ display: canvas ? 'block' : 'none' }"
-      :chart-id="chartId"
-      :chart-data="displayData"
-      :options="displayOption"
-      :height="240"
-    />
-    <template v-slot:dataTable>
-      <v-data-table
-        :headers="tableHeaders"
-        :items="tableData"
-        :items-per-page="-1"
-        :hide-default-footer="true"
-        :height="240"
-        :fixed-header="true"
-        :disable-sort="true"
-        :mobile-breakpoint="0"
-        class="cardTable"
-        item-key="name"
-      >
-        <template v-slot:body="{ items }">
-          <tbody>
-            <tr v-for="item in items" :key="item.text">
-              <th>{{ item.text }}</th>
-              <td class="text-end">{{ item[0] }}</td>
-              <td class="text-end">{{ item[1] }}</td>
-              <td class="text-end">{{ item[2] }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
+    <scrollable-chart
+      v-show="canvas"
+      :display-data="displayData"
+      :is-weekly="true"
+    >
+      <template #chart="{ chartWidth }">
+        <bar
+          :ref="'barChart'"
+          :chart-id="chartId"
+          :chart-data="displayData"
+          :options="displayOption"
+          :display-legends="displayLegends"
+          :height="280"
+          :width="chartWidth"
+        />
+      </template>
+      <template #sticky-chart>
+        <bar
+          class="sticky-legend"
+          :chart-id="`${chartId}-header-right`"
+          :chart-data="displayDataHeader"
+          :options="displayOptionHeader"
+          :display-legends="displayLegends"
+          :plugins="yAxesBgPlugin"
+          :height="280"
+        />
+      </template>
+    </scrollable-chart>
+    <template #dataTable>
+      <client-only>
+        <data-view-table :headers="tableHeaders" :items="tableData" />
+      </client-only>
     </template>
-    <template v-slot:footer>
-      <ul :class="$style.DataViewDesc">
+    <template #additionalDescription>
+      <slot name="additionalDescription" />
+    </template>
+    <template #footer>
+      <ul>
         <li>
-          <external-link
-            url="https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf"
+          <app-link
+            to="https://smooth-biz.metro.tokyo.lg.jp/pdf/202004date3.pdf"
           >
             {{ $t('鉄道利用者数の推移（新宿、東京、渋谷、各駅エリア）[PDF]') }}
-          </external-link>
+          </app-link>
         </li>
         <li>
-          <external-link url="https://corona.go.jp/">
+          <app-link to="https://corona.go.jp/">
             {{
               $t(
                 '主要駅の改札通過人数の推移（東京、新宿、渋谷、池袋ほか）[内閣官房HP]（ページ下部）'
               )
             }}
-          </external-link>
+          </app-link>
         </li>
       </ul>
     </template>
@@ -65,33 +86,35 @@
 </template>
 
 <script lang="ts">
+import { Chart, ChartData, ChartOptions } from 'chart.js'
 import Vue from 'vue'
-import { TranslateResult } from 'vue-i18n'
-import { ChartOptions, ChartData, Chart } from 'chart.js'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import DataView from '@/components/DataView.vue'
-import { getGraphSeriesStyle } from '@/utils/colors'
-import ExternalLink from '@/components/ExternalLink.vue'
-import { DisplayData } from '@/plugins/vue-chart'
 
-interface HTMLElementEvent<T extends HTMLElement> extends MouseEvent {
-  currentTarget: T
-}
+import AppLink from '@/components/AppLink.vue'
+import DataView from '@/components/DataView.vue'
+import DataViewTable, {
+  TableHeader,
+  TableItem,
+} from '@/components/DataViewTable.vue'
+import ScrollableChart from '@/components/ScrollableChart.vue'
+import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
+import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 
 type Data = {
+  colors: SurfaceStyle[]
   canvas: boolean
+  displayLegends: boolean[]
 }
-type Methods = {}
+type Methods = {
+  onClickLegend: (i: number) => void
+}
 type Computed = {
   displayData: DisplayData
-  tableHeaders: {
-    text: TranslateResult
-    value: string
-  }[]
-  tableData: {
-    [key: number]: number
-  }[]
+  tableHeaders: TableHeader[]
+  tableData: TableItem[]
   displayOption: Chart.ChartOptions
+  displayDataHeader: DisplayData
+  displayOptionHeader: Chart.ChartOptions
 }
 type Props = {
   chartData: ChartData
@@ -100,6 +123,8 @@ type Props = {
   title: string
   titleId: string
   date: string
+  items: string[]
+  periods: string[]
   unit: string
   tooltipsTitle: Chart.ChartTooltipCallback['title']
   tooltipsLabel: Chart.ChartTooltipCallback['label']
@@ -115,59 +140,69 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   created() {
     this.canvas = process.browser
   },
-  components: { DataView, ExternalLink },
+  components: { DataView, DataViewTable, AppLink, ScrollableChart },
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     titleId: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     chartData: Object,
     chartOption: Object,
     chartId: {
       type: String,
-      default: 'metro-bar-chart'
+      default: 'metro-bar-chart',
     },
     date: {
       type: String,
-      required: true
+      required: true,
+    },
+    items: {
+      type: Array,
+      default: () => [],
+    },
+    periods: {
+      type: Array,
+      default: () => [],
     },
     unit: {
       type: String,
       required: false,
-      default: '%'
+      default: '%',
     },
     tooltipsTitle: {
       type: Function,
-      required: true
+      required: true,
     },
     tooltipsLabel: {
       type: Function,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
-    canvas: true
+    colors: getGraphSeriesStyle(3),
+    canvas: true,
+    yAxesBgPlugin,
+    displayLegends: [true, true, true],
   }),
   computed: {
     displayData() {
-      const graphSeries = getGraphSeriesStyle(this.chartData.labels!.length)
       const datasets = this.chartData.labels!.map((label, i) => {
         return {
           label: label as string,
-          data: this.chartData.datasets!.map(d => d.data![i]) as number[],
-          backgroundColor: graphSeries[i].fillColor,
-          borderColor: graphSeries[i].strokeColor,
-          borderWidth: 1
+          data: this.chartData.datasets!.map((d) => d.data![i]) as number[],
+          backgroundColor: this.colors[i].fillColor,
+          borderColor: this.colors[i].strokeColor,
+          borderWidth: 1,
         }
       })
       return {
-        labels: this.chartData.datasets!.map(d => d.label!),
-        datasets
+        labels: this.chartData.datasets!.map((d) => d.label!),
+        datasets,
       }
     },
     tableHeaders() {
@@ -175,17 +210,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         { text: this.$t('日付'), value: 'text' },
         ...this.chartData.labels!.map((text, value) => {
           return { text: text as string, value: String(value), align: 'end' }
-        })
+        }),
       ]
     },
     tableData() {
       return this.displayData.datasets[0].data
         .map((_, i) => {
           return Object.assign(
-            { text: this.chartData.datasets![i].label as string },
+            { text: this.periods[i] },
             ...this.chartData.labels!.map((_, j) => {
               return {
-                [j]: this.displayData.datasets[j].data[i]
+                [j]: this.displayData.datasets[j].data[i],
               }
             })
           )
@@ -193,66 +228,176 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
-      const self = this
       const options: ChartOptions = {
-        responsive: true,
+        maintainAspectRatio: false,
         legend: {
-          display: true,
-          onHover: (e: HTMLElementEvent<HTMLInputElement>) => {
-            e.currentTarget.style.cursor = 'pointer'
-          },
-          onLeave: (e: HTMLElementEvent<HTMLInputElement>) => {
-            e.currentTarget.style.cursor = 'default'
-          },
-          labels: {
-            boxWidth: 20
-          }
+          display: false,
         },
         scales: {
           xAxes: [
             {
+              id: 'period',
               position: 'bottom',
               stacked: false,
               gridLines: {
-                display: true
+                display: true,
               },
               ticks: {
                 fontSize: 10,
                 maxTicksLimit: 20,
-                fontColor: '#808080'
-              }
-            }
+                fontColor: '#808080',
+                callback: (_, i) => {
+                  return this.periods[i]
+                },
+              },
+            },
+            {
+              id: 'year',
+              stacked: false,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: true,
+                drawBorder: false,
+                tickMarkLength: 10,
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: '#808080',
+                padding: 3,
+                fontStyle: 'bold',
+              },
+              type: 'time',
+              time: {
+                unit: 'year',
+                displayFormats: {
+                  year: 'YYYY',
+                },
+              },
+            },
           ],
           yAxes: [
             {
               stacked: false,
               gridLines: {
-                display: true
+                display: true,
               },
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
                 fontColor: '#808080',
-                callback(value) {
-                  return value.toFixed(2) + self.unit
-                }
-              }
-            }
-          ]
+                callback: (value) => {
+                  const valueCasted =
+                    typeof value === 'number' ? value : Number(value)
+                  return `${valueCasted.toFixed(2)}${this.unit}`
+                },
+              },
+            },
+          ],
         },
         tooltips: {
           displayColors: false,
           callbacks: {
-            title: self.tooltipsTitle,
-            label: self.tooltipsLabel
-          }
-        }
+            title: this.tooltipsTitle,
+            label: this.tooltipsLabel,
+          },
+        },
       }
       if (this.$route.query.ogp === 'true') {
         Object.assign(options, { animation: { duration: 0 } })
       }
       return options
-    }
+    },
+    displayDataHeader() {
+      const datasets = this.chartData.labels!.map((label, i) => {
+        return {
+          label: label as string,
+          data: this.chartData.datasets!.map((d) => d.data![i]) as number[],
+          backgroundColor: 'transparent',
+          borderWidth: 0,
+        }
+      })
+      return {
+        labels: this.chartData.datasets!.map((d) => d.label!),
+        datasets,
+      }
+    },
+    displayOptionHeader() {
+      const options: Chart.ChartOptions = {
+        maintainAspectRatio: false,
+        legend: {
+          display: false,
+        },
+        tooltips: { enabled: false },
+        scales: {
+          xAxes: [
+            {
+              id: 'period',
+              position: 'bottom',
+              stacked: false,
+              gridLines: {
+                display: false,
+              },
+              ticks: {
+                fontSize: 10,
+                maxTicksLimit: 20,
+                fontColor: 'transparent',
+                callback: (_, i) => {
+                  return this.periods[i]
+                },
+              },
+            },
+            {
+              id: 'year',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: false, // true -> false
+                drawBorder: false,
+                tickMarkLength: 10,
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: 'transparent', // #808080
+                padding: 13, // 3 + 10(tickMarkLength)
+                fontStyle: 'bold',
+              },
+              type: 'time',
+              time: {
+                unit: 'year',
+              },
+            },
+          ],
+          yAxes: [
+            {
+              stacked: false,
+              gridLines: {
+                display: true,
+                drawOnChartArea: false,
+                color: '#E5E5E5',
+              },
+              ticks: {
+                fontSize: 12,
+                maxTicksLimit: 10,
+                fontColor: '#808080',
+                callback: (value) => {
+                  const valueCasted =
+                    typeof value === 'number' ? value : Number(value)
+                  return `${valueCasted.toFixed(2)}${this.unit}`
+                },
+              },
+            },
+          ],
+        },
+        animation: { duration: 0 },
+      }
+      return options
+    },
+  },
+  methods: {
+    onClickLegend(i) {
+      this.displayLegends[i] = !this.displayLegends[i]
+      this.displayLegends = this.displayLegends.slice()
+    },
   },
   mounted() {
     const barChart = this.$refs.barChart as Vue
@@ -264,21 +409,35 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
-  }
+  },
 }
 
 export default Vue.extend(options)
 </script>
 
 <style module lang="scss">
-.DataView {
-  &Desc {
-    margin-top: 10px;
-    margin-bottom: 0 !important;
-    padding-left: 0 !important;
-    font-size: 12px;
-    color: $gray-3;
+.Graph {
+  &Legend {
+    text-align: center;
     list-style: none;
+    padding: 0 !important;
+    li {
+      display: inline-block;
+      margin: 0 3px;
+      div {
+        height: 12px;
+        margin: 2px 4px;
+        width: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        border-width: 1px;
+        border-style: solid;
+      }
+      button {
+        color: $gray-3;
+        @include font-size(12);
+      }
+    }
   }
 }
 </style>

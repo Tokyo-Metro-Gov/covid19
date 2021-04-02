@@ -28,7 +28,7 @@
           {{ $t('Google Chrome 最新版（Windows 10以上, Android 8.0以上）') }}
         </li>
         <li>{{ $t('Safari 最新版（macOS, iOS）') }}</li>
-        <li>{{ $t('Opera Software ASA Opera 最新版') }}</li>
+        <li>{{ $t('Opera 最新版') }}</li>
       </ul>
       <p class="StaticCard-Note">
         <span>{{ $t('※') }}</span>
@@ -118,8 +118,8 @@
       </p>
       <ul>
         <li>
-          <external-link
-            :url="
+          <app-link
+            :to="
               $t(
                 'https://marketingplatform.google.com/about/analytics/terms/jp/'
               )
@@ -127,38 +127,38 @@
             :icon-size="16"
           >
             {{ $t('Google Analytics利用規約') }}
-          </external-link>
+          </app-link>
         </li>
         <li>
-          <external-link
-            :url="$t('https://policies.google.com/privacy?hl=ja')"
+          <app-link
+            :to="$t('https://policies.google.com/privacy?hl=ja')"
             :icon-size="16"
           >
             {{ $t('Googleのプライバシーポリシー') }}
-          </external-link>
+          </app-link>
         </li>
         <li>
-          <external-link
-            :url="
+          <app-link
+            :to="
               $t('https://support.google.com/analytics/answer/6004245?hl=ja')
             "
             :icon-size="16"
           >
             {{ $t('Google Analyticsに関する詳細情報') }}
-          </external-link>
+          </app-link>
         </li>
       </ul>
       <i18n
         tag="p"
         path="Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。"
       >
-        <template v-slot:addon>
-          <external-link
-            :url="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
+        <template #addon>
+          <app-link
+            :to="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
             :icon-size="16"
           >
             {{ $t('測定を無効にするブラウザ アドオン') }}
-          </external-link>
+          </app-link>
         </template>
       </i18n>
     </static-card>
@@ -192,13 +192,10 @@
         tag="p"
         path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
       >
-        <template v-slot:catalogWebsite>
-          <external-link
-            url="https://portal.data.metro.tokyo.lg.jp/"
-            :icon-size="16"
-          >
+        <template #catalogWebsite>
+          <app-link to="https://portal.data.metro.tokyo.lg.jp/" :icon-size="16">
             {{ $t('東京都オープンデータカタログサイト') }}
-          </external-link>
+          </app-link>
         </template>
       </i18n>
     </static-card>
@@ -211,16 +208,41 @@
           )
         }}
         <i18n path="詳しくは、{githubRepo}をご確認ください。">
-          <template v-slot:githubRepo>
-            <external-link
-              url="https://github.com/tokyo-metropolitan-gov/covid19"
+          <template #githubRepo>
+            <app-link
+              to="https://github.com/tokyo-metropolitan-gov/covid19"
               :icon-size="16"
             >
               {{ $t('GitHub リポジトリ') }}
-            </external-link>
+            </app-link>
           </template>
         </i18n>
       </p>
+    </static-card>
+    <static-card>
+      <h3>{{ $t('コンテンツについて') }}</h3>
+      <ul>
+        <li>
+          {{
+            $t(
+              'このサイトの内容物はクリエイティブ・コモンズ 表示 4.0 ライセンスの下に提供されています。'
+            )
+          }}
+        </li>
+        <li>
+          {{ $t('ただし商標等の他団体が権利を持つ以下のものは除きます。') }}
+          <ul>
+            <li>{{ $t('Gマーク（グッドデザイン賞受賞マーク）') }}</li>
+            <li>
+              {{
+                $t(
+                  '各SNS（LINE、Twitter、Facebook、GitHub、YouTube）ロゴマーク'
+                )
+              }}
+            </li>
+          </ul>
+        </li>
+      </ul>
     </static-card>
   </div>
 </template>
@@ -228,20 +250,21 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
+
+import AppLink from '@/components/AppLink.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import StaticCard from '@/components/StaticCard.vue'
-import ExternalLink from '@/components/ExternalLink.vue'
 
 export default Vue.extend({
   components: {
     PageHeader,
     StaticCard,
-    ExternalLink
+    AppLink,
   },
   head(): MetaInfo {
     return {
-      title: this.$t('当サイトについて') as string
+      title: this.$t('当サイトについて') as string,
     }
-  }
+  },
 })
 </script>

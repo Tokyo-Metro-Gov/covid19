@@ -1,0 +1,8 @@
+image: node:14.16.0-buster
+
+tasks:
+  - init: yarn install
+    command: export NUXT_TELEMETRY_DISABLED=1 && yarn dev-no-axe
+ports:
+  - port: 3000
+    onOpen: open-preview

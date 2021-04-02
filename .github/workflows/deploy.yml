@@ -18,32 +18,31 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
+          node-version: '14.16.0'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
-          path: ~/.cache/yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      
+
       - run: yarn install --frozen-lockfile
       - run: yarn run test
       - name: generate
         run: |
           echo "GOOGLE_ANALYTICS_ID=${GOOGLE_ANALYTICS_ID}" >> .env.production
+          echo "GTM_CONTAINER_ID=${GTM_CONTAINER_ID}" >> .env.production
           cat .env.production
-          yarn run generate:deploy --fail-on-page-error
+          yarn run generate:deploy
         env:
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
-
-      - name: Temporarily disable "include administrators" branch protection
-        uses: benjefferies/branch-protection-bot@master
-        if: always()
-        with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
-          branch: production
+          GTM_CONTAINER_ID: ${{ secrets.GTM_CONTAINER_ID }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
@@ -51,15 +50,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: production
-          
-      - name: Enable "include administrators" branch protection
-        uses: benjefferies/branch-protection-bot@master
-        if: always()  # Force to always run this step to ensure "include administrators" is always turned back on
-        with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
-          owner: tokyo-metropolitan-gov
-          repo: covid19
-          branch: production
+
       - name: Create GitHub release
         uses: rymndhng/release-on-push-action@master
         with:

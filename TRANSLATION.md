@@ -31,7 +31,7 @@ Transifex has some useful features like a dictionary feature. Feel free to use i
 
 ## Adding new language
 
-If you want to add new language. Please request new language via Transifex system. However, we may not accept every languages due to reviewing capacity limit.
+If you want to add new language. Please request new language via Transifex system. However, due to reviewing capacity, we can provide only English, Japanese, Simplified Chinese, Traditional Chinese, and Korean in the website.
 
 ## For developers
 

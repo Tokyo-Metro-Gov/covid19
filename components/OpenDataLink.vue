@@ -1,17 +1,24 @@
 <template>
-  <a class="OpenDataLink" :href="url" target="_blank" rel="noopener noreferrer">
+  <app-link :to="url">
     {{ $t('オープンデータを入手') }}
-    <v-icon
-      class="ExternalLinkIcon"
-      size="15"
-      :aria-label="this.$t('別タブで開く')"
-      role="img"
-      :aria-hidden="false"
-    >
-      mdi-open-in-new
-    </v-icon>
-  </a>
+  </app-link>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+import AppLink from '@/components/AppLink.vue'
+
+export default Vue.extend({
+  components: { AppLink },
+  props: {
+    url: {
+      type: String,
+      default: '',
+    },
+  },
+})
+</script>
 
 <style lang="scss">
 .OpenDataLink {
@@ -21,15 +28,3 @@
   }
 }
 </style>
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  props: {
-    url: {
-      type: String,
-      default: ''
-    }
-  }
-})
-</script>

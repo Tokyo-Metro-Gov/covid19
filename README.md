@@ -1,6 +1,8 @@
 # 東京都 新型コロナウイルス感染症対策サイト
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
+[![production deploy](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg?branch=master)](https://github.com/tokyo-metropolitan-gov/covid19/actions?query=workflow%3A%22production+deploy%22)
+[![OGP Builder](https://github.com/tokyo-metropolitan-gov/covid19/workflows/OGP%20Builder/badge.svg?branch=master)](https://github.com/tokyo-metropolitan-gov/covid19/actions?query=workflow%3A%22OGP+Builder%22)
+[![Auto-i18n Generator](https://github.com/tokyo-metropolitan-gov/covid19/workflows/Auto-i18n%20Generator/badge.svg?branch=development)](https://github.com/tokyo-metropolitan-gov/covid19/actions?query=workflow%3A%22Auto-i18n+Generator%22)
 
 [![東京都 新型コロナウイルス感染症対策サイト](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
@@ -20,12 +22,12 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 
 ## このサイトから派生したサイト
 
-[Link先](./FORKED_SITES.md)を御覧ください。
+[このサイトから派生したサイト](./FORKED_SITES.md)を御覧ください。
 
 ## 翻訳者向け情報
 
-翻訳をお手伝いいただける方は、[こちらのドキュメント](./TRANSLATION.md)を御覧ください。
+翻訳をお手伝いいただける方は、[How to contribute translations](./TRANSLATION.md)を御覧ください。
 
 ## 開発者向け情報
 
-開発をお手伝いいただける方は、[こちらのドキュメント](./FOR_DEVELOPERS.md)を御覧ください。
+開発をお手伝いいただける方は、[開発者向け情報](./FOR_DEVELOPERS.md)を御覧ください。

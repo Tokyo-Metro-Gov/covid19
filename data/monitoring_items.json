@@ -1,0 +1,46 @@
+{
+    "date": "2021\/4\/2 20:30",
+    "data": {
+        "専門家3行コメント": [
+            {
+                "@ja": "新規陽性者数が増加に転じ、増加比は3月中旬から継続して100％を超えている。",
+                "@en": "The number of new positive cases has shifted to an increase, with the 7-day moving average continuing to surpass that of the previous week since mid-March."
+            },
+            {
+                "@ja": "変異株により感染者が急増する可能性がある。",
+                "@en": "There may be a surge in infections due to variants."
+            },
+            {
+                "@ja": "徹底的に感染防止対策を実行する必要がある。",
+                "@en": "There is the need to thoroughly implement infection prevention measures."
+            }
+        ],
+        "(1)新規陽性者数": 381.4,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 62,
+        "(3)新規陽性者における接触歴等不明者（人数）": 206.3,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 127.6,
+        "(4)PCR・抗原検査（陽性率）": 4.2,
+        "(4)PCR・抗原検査（検査人数）": 6588,
+        "(5)救急医療の東京ルールの適用件数": 69,
+        "(6)入院患者数": 1516,
+        "(6)入院患者確保病床数": 5048,
+        "(7)重症患者数": 43,
+        "(7)重症患者確保病床数": 332,
+        "総括コメント-感染状況": {
+            "date": "2021-03-04",
+            "level": 4,
+            "display": {
+                "@ja": "感染が拡大していると思われる",
+                "@en": "The infection is spreading."
+            }
+        },
+        "総括コメント-医療提供体制": {
+            "date": "2021-03-04",
+            "level": 4,
+            "display": {
+                "@ja": "通常の医療が大きく制限されていると思われる",
+                "@en": "The provision of non-COVID health care is under pressure."
+            }
+        }
+    }
+}

@@ -70,7 +70,7 @@ Tokyo Covid-19 response site contributors
 | ufoo68 | [@ufoo68](https://github.com/ufoo68) | | |
 | 4geru koichi uchinishi | [@4geru](https://github.com/4geru) | | |
 | Francis | [@francisfuzz](https://github.com/francisfuzz) | | |
-| KatsuyaAkasaka | | | |
+| sakas1231 | [@KatsuyaAkasaka](https://github.com/KatsuyaAkasaka) | | Coding |
 | Keiichi Watanabe | [@keiichiw](https://github.com/keiichiw) | | |
 | Kentaro Ohkouchi | [@nanasess](https://github.com/nanasess) | | |
 | Masatoshi Hanai | [@hanahana0201](https://github.com/hanahana0201) | | |
@@ -158,6 +158,29 @@ Tokyo Covid-19 response site contributors
 | [Anharu](https://anharu2394.github.io) | [@anharu2394](https://github.com/anharu2394) | [@_anharu](https://twitter.com/_anharu) | Frontend |
 | Yuto Ashida | [@y-chan](https://github.com/y-chan) | [@Xperia_Build_Y](https://twitter.com/Xperia_Build_Y) | Coding |
 | [Hayashizaki Masayuki](https://miscre.com) | [@sakaitaka](https://github.com/sakaitaka) | | Frontend |
+| Koki Yasuda | [@cohky16](https://github.com/cohky16) | | Issue reporter |
+| Taiyu Yoshizawa | [@Nekoya3](https://github.com/Nekoya3) | [@Nekoya3_](https://twitter.com/Nekoya3_) | Coding |
+| Hikaru Hasegawa | [@telumo](https://github.com/telumo) | | Coding |
+| Tatsumi0000 | [@Tatsumi0000](https://github.com/Tatsumi0000) | [@Tatsumi0002](https://twitter.com/Tatsumi0002) | Frontend |
+| [urangurang](https://urangurang.github.io) | [@UrangUrang](https://github.com/UrangUrang) | | Coding, Translation |
+| asuchi0819 | [@asuchi0819](https://github.com/asuchi0819) | | Coding |
+| Kou-Squ | [@Kou-Squ](https://github.com/Kou-Squ) | | Translation |
+| kenem | [@kenem](https://github.com/kenem) | | Translation (Ja -> En) |
+| Marie | [@Marie](https://github.com/Marie) | | Translation (Ja -> De) |
+| Sisi | [@hello-iamsisi](https://github.com/hello-iamsisi) | | Translation Reviewer |
+| [yuu26](https://yuu26.com) | [@yuu26jp](https://github.com/yuu26jp) | [@m_on_yu](https://twitter.com/m_on_yu) | Coding |
+| Takayuki Inadome | [@InadomeLabo](https://github.com/InadomeLabo) | | Coding |
+| [MYUNG](https://1998.media) | [@1998code](https://github.com/1998code) | [@1998design](https://twitter.com/1998design) | Translation |
+| goki90210 | [@goki90210](https://github.com/goki90210) | | Coding, Code Reviewer |
+| Yu Muramatsu | [@Murayu0225](https://github.com/Murayu0225) | | Coding |
+| Pichu Chen ( g0v.tw / TIH.tw ) | [@PichuChen](https://github.com/PichuChen) | [@PichuChen](https://twitter.com/PichuChen) | i18n, Document Translation (zh-tw) |
+| [Masatoshi Ishihara](https://huxiin.ga/) | [@jSm449g4d](https://github.com/jSm449g4d) | | Kaizen |
+| Shoichiro Kawauchi | [@lacrosse91](https://github.com/lacrosse91) | | Coding |
+| [Yukiya Nagae](https://yukiya.me)  | [@yukiyalien](https://github.com/yukiyalien) | [@yukiyalien](https://twitter.com/yukiyalien) | Kaizen |
+| A_Certain_Shawn | [@certainShawn](https://github.com/certainShawn) | | Translation (JA-> CN) |
+| MATSUNO Tomoo | [@tmatsuno](https://github.com/tmatsuno) | | Frontend / TMG-DevRel |
+| Daichi Hata (Atria) | [@Atria64](https://github.com/Atria64) | [@AtriaSoft](https://twitter.com/AtriaSoft) | Coding |
+| [Meiryo7743](https://meiryo7743.net) | [@Meiryo7743](https://github.com/Meiryo7743) | | Coding |
 
 ご協力に感謝です！！！
 

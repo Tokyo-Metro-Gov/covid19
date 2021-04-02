@@ -1,6 +1,3 @@
-import { _adapters } from 'chart.js'
-import dayjs from 'dayjs'
-import customParseFormat from 'dayjs/plugin/customParseFormat'
 import 'dayjs/locale/en'
 import 'dayjs/locale/ja'
 import 'dayjs/locale/ko'
@@ -9,7 +6,11 @@ import 'dayjs/locale/th'
 import 'dayjs/locale/vi'
 import 'dayjs/locale/zh-cn'
 import 'dayjs/locale/zh-tw'
+
 import { NuxtAppOptions } from '@nuxt/types/app'
+import { _adapters } from 'chart.js'
+import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
 
 const DEFAULT_FORMATS = {
   datetime: 'MMM D, YYYY, h:mm:ss a',
@@ -21,7 +22,7 @@ const DEFAULT_FORMATS = {
   week: 'll',
   month: 'MMM YYYY',
   quarter: '[Q]Q - YYYY',
-  year: 'YYYY'
+  year: 'YYYY',
 }
 
 export function useDayjsAdapter(nuxtI18n: NuxtAppOptions['i18n']) {
@@ -64,7 +65,7 @@ export function useDayjsAdapter(nuxtI18n: NuxtAppOptions['i18n']) {
 
     endOf(time, unit) {
       return dayjs(time).endOf(unit)
-    }
+    },
   })
 }
 

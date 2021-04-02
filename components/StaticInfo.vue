@@ -1,68 +1,67 @@
 <template>
-  <component :is="linkTag" v-bind="linkAttrs">
+  <div class="StaticInfo">
     <span>{{ text }}</span>
     <div v-if="btnText" class="StaticInfo-Button">
-      <span>
+      <app-link :to="url" class="StaticInfo">
         {{ btnText }}
-      </span>
+      </app-link>
     </div>
-  </component>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
+import AppLink from '@/components/AppLink.vue'
+
 export default Vue.extend({
+  components: { AppLink },
   props: {
     url: {
       type: String,
-      default: ''
+      default: '',
     },
     text: {
       type: String,
-      default: ''
+      default: '',
     },
     btnText: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
-  computed: {
-    linkTag(): string {
-      return this.isInternalLink ? 'nuxt-link' : 'a'
-    },
-    linkAttrs(): any {
-      return this.isInternalLink
-        ? { to: this.url, class: 'StaticInfo' }
-        : { href: this.url, class: 'StaticInfo' }
-    },
-    isInternalLink(): boolean {
-      return !/^https?:\/\//.test(this.url)
-    }
-  }
 })
 </script>
 
 <style lang="scss">
 .StaticInfo {
+  @include card-container();
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background-color: $white;
-  border: 1px solid $gray-4;
-  box-shadow: $shadow;
-  border-radius: 4px;
-  padding: 0.5em 1em;
 
-  @include text-link();
+  span {
+    white-space: pre-wrap;
+    font-weight: 600;
+  }
+
+  @include font-size(12);
 
   &-Button {
     flex: 1 0 auto;
     text-align: right;
+    display: inline-block;
 
-    > span {
+    > a {
+      text-decoration: none;
+      color: $green-1 !important;
       @include button-text('sm');
+
+      &:hover {
+        color: $white !important;
+      }
     }
 
     @include lessThan($small) {

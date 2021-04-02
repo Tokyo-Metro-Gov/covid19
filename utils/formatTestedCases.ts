@@ -7,11 +7,11 @@ type DataType = {
       value: number
       children: [
         {
-          attr: '都内発生件数'
+          attr: '健康安全研究センター実施分'
           value: number
         },
         {
-          attr: 'その他件数'
+          attr: '医療機関等実施分'
           value: number
         }
       ]
@@ -22,8 +22,8 @@ type DataType = {
 type TestedCasesType = {
   累計人数: number
   合計件数: number
-  都内発生件数: number
-  その他件数: number
+  健康安全研究センター実施分: number
+  医療機関等実施分: number
 }
 
 /**
@@ -32,11 +32,10 @@ type TestedCasesType = {
  * @param data - Raw data
  */
 export default (data: DataType) => {
-  const formattedData: TestedCasesType = {
+  return {
     累計人数: data.value,
     合計件数: data.children[0].value,
-    都内発生件数: data.children[0].children[0].value,
-    その他件数: data.children[0].children[1].value
-  }
-  return formattedData
+    健康安全研究センター実施分: data.children[0].children[0].value,
+    医療機関等実施分: data.children[0].children[1].value,
+  } as TestedCasesType
 }

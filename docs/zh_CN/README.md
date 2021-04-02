@@ -1,6 +1,8 @@
 # 东京都 新型冠状病毒对策网
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
+[![production deploy](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg?branch=master)](https://github.com/tokyo-metropolitan-gov/covid19/actions?query=workflow%3A%22production+deploy%22)
+[![OGP Builder](https://github.com/tokyo-metropolitan-gov/covid19/workflows/OGP%20Builder/badge.svg?branch=master)](https://github.com/tokyo-metropolitan-gov/covid19/actions?query=workflow%3A%22OGP+Builder%22)
+[![Auto-i18n Generator](https://github.com/tokyo-metropolitan-gov/covid19/workflows/Auto-i18n%20Generator/badge.svg?branch=development)](https://github.com/tokyo-metropolitan-gov/covid19/actions?query=workflow%3A%22Auto-i18n+Generator%22)
 
 [![东京都 新型冠状病毒对策网](https://user-images.githubusercontent.com/1301149/75629392-1d19d900-5c25-11ea-843d-2d4376e3a560.png)](https://stopcovid19.metro.tokyo.lg.jp/)
 
@@ -34,7 +36,7 @@
 
 ### 开发环境搭建
 
-- Node.js 版本最低需求: 10.19.0以上
+- Node.js 版本最低需求: 14.16.0以上
 
 **使用 yarn 时**
 
