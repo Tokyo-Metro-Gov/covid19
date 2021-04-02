@@ -336,7 +336,7 @@ export default Vue.extend({
         }
       })
     },
-    onChangeLocale () {
+    onChangeLocale() {
       this.$emit('close-navigation')
     },
   },
