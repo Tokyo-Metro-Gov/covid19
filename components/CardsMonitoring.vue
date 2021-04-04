@@ -14,7 +14,7 @@ const ConfirmedCasesNumberCard = () =>
   import('@/components/index/CardsMonitoring/ConfirmedCasesNumber/Card.vue')
 // モニタリング項目
 const MonitoringItemsOverviewCard = () =>
-  import('@/components/cards/MonitoringItemsOverviewCard.vue')
+  import('@/components/index/CardsMonitoring/MonitoringItemsOverview/Card.vue')
 // モニタリング項目(1)新規陽性者数
 const MonitoringConfirmedCasesNumberCard = () =>
   import('@/components/cards/MonitoringConfirmedCasesNumberCard.vue')

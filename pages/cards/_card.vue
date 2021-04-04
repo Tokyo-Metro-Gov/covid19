@@ -10,7 +10,7 @@ import ConfirmedCasesDetailsCard from '@/components/index/CardsMonitoring/Confir
 // 報告日別による陽性者数の推移
 import ConfirmedCasesNumberCard from '@/components/index/CardsMonitoring/ConfirmedCasesNumber/Card.vue'
 // モニタリング項目
-import MonitoringItemsOverviewCard from '@/components/cards/MonitoringItemsOverviewCard.vue'
+import MonitoringItemsOverviewCard from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Card.vue'
 // モニタリング項目(1)新規陽性者数
 import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
 // モニタリング項目(2)#7119における発熱等相談件数
