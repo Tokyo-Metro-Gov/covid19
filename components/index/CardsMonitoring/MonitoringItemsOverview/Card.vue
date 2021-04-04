@@ -56,7 +56,7 @@
         </section>
         <section>
           <h4>{{ $t('医療提供体制') }}</h4>
-          <monitoring-items-overview-table-medical-system
+          <medical-system
             :aria-label="$t('医療提供体制')"
             :items="monitoringItems"
           />
@@ -78,7 +78,7 @@
 import AppLink from '@/components/AppLink.vue'
 import DataView from '@/components/DataView.vue'
 import InfectionStatus from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/InfectionStatus.vue'
-import MonitoringItemsOverviewTableMedicalSystem from '@/components/MonitoringItemsOverviewTableMedicalSystem.vue'
+import MedicalSystem from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/MedicalSystem.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'
 import { formatMonitoringItems } from '@/utils/formatMonitoringItems'
 
@@ -86,7 +86,7 @@ export default {
   components: {
     DataView,
     InfectionStatus,
-    MonitoringItemsOverviewTableMedicalSystem,
+    MedicalSystem,
     AppLink,
   },
   data() {
