@@ -49,7 +49,7 @@
         </template>
         <section>
           <h4>{{ $t('感染状況') }}</h4>
-          <monitoring-items-overview-table-infection-status
+          <infection-status
             :aria-label="$t('感染状況')"
             :items="monitoringItems"
           />
@@ -77,7 +77,7 @@
 <script>
 import AppLink from '@/components/AppLink.vue'
 import DataView from '@/components/DataView.vue'
-import MonitoringItemsOverviewTableInfectionStatus from '@/components/MonitoringItemsOverviewTableInfectionStatus.vue'
+import InfectionStatus from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/InfectionStatus.vue'
 import MonitoringItemsOverviewTableMedicalSystem from '@/components/MonitoringItemsOverviewTableMedicalSystem.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'
 import { formatMonitoringItems } from '@/utils/formatMonitoringItems'
@@ -85,7 +85,7 @@ import { formatMonitoringItems } from '@/utils/formatMonitoringItems'
 export default {
   components: {
     DataView,
-    MonitoringItemsOverviewTableInfectionStatus,
+    InfectionStatus,
     MonitoringItemsOverviewTableMedicalSystem,
     AppLink,
   },
