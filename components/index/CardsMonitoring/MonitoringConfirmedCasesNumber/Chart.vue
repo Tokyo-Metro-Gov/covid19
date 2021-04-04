@@ -182,7 +182,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     chartId: {
       type: String,
-      default: 'monitoring-confirmed-cases-chart',
+      default: 'monitoring-confirmed-cases-number-chart',
     },
     chartData: {
       type: Array,
