@@ -19,7 +19,7 @@ export class DailyPositiveDetailRepository
   /**
    * 使用箇所
    *
-   * モニタリング項目(1) 新規陽性者数 (components/cards/MonitoringConfirmedCasesNumberCard.vue)
+   * モニタリング項目(1) 新規陽性者数 (components/index/CardsMonitoring/MonitoringConfirmedCasesNumber/Card.vue)
    *
    * モニタリング項目(3) 新規陽性者における接触歴等不明者数／増加比 (components/cards/UntrackedRateCard.vue)
    */

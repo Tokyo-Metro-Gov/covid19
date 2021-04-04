@@ -12,7 +12,7 @@ import ConfirmedCasesNumberCard from '@/components/index/CardsMonitoring/Confirm
 // モニタリング項目
 import MonitoringItemsOverviewCard from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Card.vue'
 // モニタリング項目(1)新規陽性者数
-import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
+import MonitoringConfirmedCasesNumberCard from '@/components/index/CardsMonitoring/MonitoringConfirmedCasesNumber/Card.vue'
 // モニタリング項目(2)#7119における発熱等相談件数
 import ConsultationAboutFeverNumberCard from '@/components/cards/ConsultationAboutFeverNumberCard.vue'
 // モニタリング項目(3)新規陽性者における接触歴等不明者数
