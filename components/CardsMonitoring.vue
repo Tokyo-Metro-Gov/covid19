@@ -8,7 +8,7 @@ import Vue from 'vue'
 
 // 検査陽性者の状況
 const ConfirmedCasesDetailsCard = () =>
-  import('@/components/cards/ConfirmedCasesDetailsCard.vue')
+  import('@/components/index/CardsMonitoring/ConfirmedCasesDetails/Card.vue')
 // 報告日別による陽性者数の推移
 const ConfirmedCasesNumberCard = () =>
   import('@/components/cards/ConfirmedCasesNumberCard.vue')
