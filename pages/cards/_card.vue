@@ -8,7 +8,7 @@
 // 検査陽性者の状況
 import ConfirmedCasesDetailsCard from '@/components/index/CardsMonitoring/ConfirmedCasesDetails/Card.vue'
 // 報告日別による陽性者数の推移
-import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
+import ConfirmedCasesNumberCard from '@/components/index/CardsMonitoring/ConfirmedCasesNumber/Card.vue'
 // モニタリング項目
 import MonitoringItemsOverviewCard from '@/components/cards/MonitoringItemsOverviewCard.vue'
 // モニタリング項目(1)新規陽性者数
