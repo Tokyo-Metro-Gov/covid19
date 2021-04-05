@@ -18,7 +18,7 @@ import ConsultationAboutFeverNumberCard from '@/components/index/CardsMonitoring
 // モニタリング項目(3)新規陽性者における接触歴等不明者数
 import UntrackedRateCard from '@/components/index/CardsMonitoring/UntrackedRate/Card.vue'
 // モニタリング項目(4)検査の陽性率
-import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
+import PositiveRateCard from '@/components/index/CardsMonitoring/PositiveRate/Card.vue'
 // モニタリング項目(5)救急医療の東京ルールの適用件数
 import TokyoRulesApplicationNumberCard from '@/components/cards/TokyoRulesApplicationNumberCard.vue'
 // モニタリング項目(6)入院患者数

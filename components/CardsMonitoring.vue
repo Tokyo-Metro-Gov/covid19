@@ -29,7 +29,8 @@ const ConsultationAboutFeverNumberCard = () =>
 const UntrackedRateCard = () =>
   import('@/components/index/CardsMonitoring/UntrackedRate/Card.vue')
 // モニタリング項目(4)検査の陽性率
-const PositiveRateCard = () => import('@/components/cards/PositiveRateCard.vue')
+const PositiveRateCard = () =>
+  import('@/components/index/CardsMonitoring/PositiveRate/Card.vue')
 // モニタリング項目(5)救急医療の東京ルールの適用件数
 const TokyoRulesApplicationNumberCard = () =>
   import('@/components/cards/TokyoRulesApplicationNumberCard.vue')
