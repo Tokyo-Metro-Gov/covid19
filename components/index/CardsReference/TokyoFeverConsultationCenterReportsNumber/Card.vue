@@ -5,7 +5,7 @@
     class="DataCard TokyoFeverConsultationCenterReportsNumberCard"
   >
     <client-only>
-      <fever-mixed-chart
+      <chart
         :title="$t('東京都発熱相談センターにおける相談件数')"
         :title-id="'number-of-reports-to-tokyo-fever-consultation-center'"
         :info-titles="[$t('新規陽性者における接触歴等不明者数'), $t('増加比')]"
@@ -34,18 +34,18 @@
             </li>
           </ul>
         </template>
-      </fever-mixed-chart>
+      </chart>
     </client-only>
   </v-col>
 </template>
 
 <script>
-import FeverMixedChart from '@/components/FeverMixedChart'
+import Chart from '@/components/index/CardsReference/TokyoFeverConsultationCenterReportsNumber/Chart.vue'
 import Data from '@/data/fever_consultation_center.json'
 
 export default {
   components: {
-    FeverMixedChart,
+    Chart,
   },
   data() {
     const data = Data.data

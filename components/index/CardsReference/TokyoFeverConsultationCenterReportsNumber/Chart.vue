@@ -170,7 +170,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     chartId: {
       type: String,
-      default: 'FeverMixedChart',
+      default: 'tokyo-fever-consultation-center-chart',
     },
     chartData: {
       type: Array,
