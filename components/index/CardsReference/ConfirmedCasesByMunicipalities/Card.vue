@@ -28,8 +28,9 @@
 <script>
 import dayjs from 'dayjs'
 
+// table タグとの衝突を避けるため ConfirmedCasesByMunicipalitiesTable とする
+import ConfirmedCasesByMunicipalitiesTable from '@/components/index/CardsReference/ConfirmedCasesByMunicipalities/Table.vue'
 import Data from '@/data/patient.json'
-import ConfirmedCasesByMunicipalitiesTable from '~/components/ConfirmedCasesByMunicipalitiesTable.vue'
 import { getCommaSeparatedNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
 
 const countFormatter = getCommaSeparatedNumberToFixedFunction()
