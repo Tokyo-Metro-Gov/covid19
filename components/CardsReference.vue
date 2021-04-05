@@ -52,7 +52,8 @@ const TokyoFeverConsultationCenterReportsNumberCard = () =>
 const MetroCard = () =>
   import('@/components/index/CardsReference/Metro/Card.vue')
 // 都庁来庁者数の推移
-const AgencyCard = () => import('@/components/cards/AgencyCard.vue')
+const AgencyCard = () =>
+  import('@/components/index/CardsReference/Agency/Card.vue')
 /* eslint-enable simple-import-sort/imports */
 
 export default Vue.extend({

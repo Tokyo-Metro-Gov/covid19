@@ -49,7 +49,7 @@ import TokyoFeverConsultationCenterReportsNumberCard from '@/components/index/Ca
 // 都営地下鉄の利用者数の推移
 import MetroCard from '@/components/index/CardsReference/Metro/Card.vue'
 // 都庁来庁者数の推移
-import AgencyCard from '@/components/cards/AgencyCard.vue'
+import AgencyCard from '@/components/index/CardsReference/Agency/Card.vue'
 /* eslint-enable simple-import-sort/imports */
 
 import { Vue, Component } from 'nuxt-property-decorator'
