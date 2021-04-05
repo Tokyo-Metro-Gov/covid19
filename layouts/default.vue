@@ -36,9 +36,9 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
+import SideNavigation from '@/components/_shared/SideNavigation.vue'
 import DevelopmentModeMark from '@/components/DevelopmentModeMark.vue'
 import NoScript from '@/components/NoScript.vue'
-import SideNavigation from '@/components/SideNavigation.vue'
 import Data from '@/data/data.json'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
