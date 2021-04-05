@@ -52,7 +52,9 @@ export type TableDateType = {
  *
  * @param data - Raw data
  */
-export function formatTable(data: DataType[]): TableDateType {
+export function formatConfirmedCasesAttributesTable(
+  data: DataType[]
+): TableDateType {
   const datasets = data.map((d) => ({
     公表日: d['公表_年月日'] ?? '不明',
     居住地: d['患者_居住地'] ?? '調査中',

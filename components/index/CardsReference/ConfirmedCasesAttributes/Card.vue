@@ -73,8 +73,12 @@ import VueI18n from 'vue-i18n'
 
 import DataTable from '@/components/index/CardsReference/ConfirmedCasesAttributes/DataTable.vue'
 import Data from '@/data/data.json'
+import {
+  DataType,
+  formatConfirmedCasesAttributesTable,
+  TableDateType,
+} from '@/utils/formatConfirmedCasesAttributesTable'
 import formatGraph from '@/utils/formatGraph'
-import { DataType, formatTable, TableDateType } from '@/utils/formatTable'
 
 interface MetaData {
   endCursor: string
@@ -143,7 +147,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const end = this.page * this.itemsPerPage
       const start = end - this.itemsPerPage
       const currentPageData = this.patientsData.slice(start, end)
-      return formatTable(currentPageData)
+      return formatConfirmedCasesAttributesTable(currentPageData)
     },
     dataMargin() {
       return this.patientsData.length - this.page * this.itemsPerPage

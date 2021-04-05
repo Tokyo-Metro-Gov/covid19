@@ -20,8 +20,8 @@ CHECK_DIR = ["pages", "components", "layouts", "data", "utils"]
 JSON_FILES = ["data.json", "patient.json"]
 
 # チェックするTypeScriptファイルのリスト
-# 現状はformatTable.tsしかないが、のちに表追加や、データ追加により必要になった場合は追加しなければならない。
-TS_FILES = ["formatTable.ts"]
+# 現状は formatConfirmedCasesAttributesTable.ts しかないが、のちに表追加や、データ追加により必要になった場合は追加しなければならない。
+TS_FILES = ["formatConfirmedCasesAttributesTable.ts"]
 
 # タグの正規表現パターン
 tag_pattern_t = re.compile("\$t\([ ]*?['|`][^']*?['|`]")
