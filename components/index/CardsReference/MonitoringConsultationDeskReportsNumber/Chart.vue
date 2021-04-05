@@ -170,7 +170,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     chartId: {
       type: String,
-      default: 'monitoring-consultation-desk-report-chart',
+      default: 'monitoring-consultation-desk-report-number-chart',
     },
     chartData: {
       type: Array,

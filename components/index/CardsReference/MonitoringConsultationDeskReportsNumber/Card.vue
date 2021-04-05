@@ -5,10 +5,10 @@
     class="DataCard MonitoringConsultationDeskReportsNumberCard"
   >
     <client-only>
-      <monitoring-consultation-desk-report-chart
+      <chart
         :title="$t('受診相談窓口における相談件数')"
         title-id="monitoring-number-of-reports-to-covid19-consultation-desk"
-        chart-id="monitoring-consultation-desk-report-chart"
+        chart-id="monitoring-consultation-desk-report-number-chart"
         :chart-data="chartData"
         :date="date"
         :labels="labels"
@@ -51,19 +51,19 @@
             </li>
           </ul>
         </template>
-      </monitoring-consultation-desk-report-chart>
+      </chart>
     </client-only>
   </v-col>
 </template>
 
 <script>
 import AppLink from '@/components/AppLink.vue'
-import MonitoringConsultationDeskReportChart from '@/components/MonitoringConsultationDeskReportChart.vue'
+import Chart from '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Chart.vue'
 import Data from '@/data/data.json'
 
 export default {
   components: {
-    MonitoringConsultationDeskReportChart,
+    Chart,
     AppLink,
   },
   data() {
