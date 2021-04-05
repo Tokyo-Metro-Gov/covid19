@@ -22,7 +22,9 @@ const MonitoringConfirmedCasesNumberCard = () =>
   )
 // モニタリング項目(2)#7119における発熱等相談件数
 const ConsultationAboutFeverNumberCard = () =>
-  import('@/components/cards/ConsultationAboutFeverNumberCard.vue')
+  import(
+    '@/components/index/CardsMonitoring/ConsultationAboutFeverNumber/Card.vue'
+  )
 // モニタリング項目(3)新規陽性者における接触歴等不明者数
 const UntrackedRateCard = () =>
   import('@/components/cards/UntrackedRateCard.vue')
