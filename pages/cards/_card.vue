@@ -22,7 +22,7 @@ import PositiveRateCard from '@/components/index/CardsMonitoring/PositiveRate/Ca
 // モニタリング項目(5)救急医療の東京ルールの適用件数
 import TokyoRulesApplicationNumberCard from '@/components/index/CardsMonitoring/TokyoRulesApplicationNumber/Card.vue'
 // モニタリング項目(6)入院患者数
-import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
+import HospitalizedNumberCard from '@/components/index/CardsMonitoring/HospitalizedNumber/Card.vue'
 // モニタリング項目(7)重症患者数
 import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
 // ---- その他 参考指標

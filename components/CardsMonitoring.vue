@@ -38,7 +38,7 @@ const TokyoRulesApplicationNumberCard = () =>
   )
 // モニタリング項目(6)入院患者数
 const HospitalizedNumberCard = () =>
-  import('@/components/cards/HospitalizedNumberCard.vue')
+  import('@/components/index/CardsMonitoring/HospitalizedNumber/Card.vue')
 // モニタリング項目(7)重症患者数
 const SevereCaseCard = () => import('@/components/cards/SevereCaseCard.vue')
 /* eslint-enable simple-import-sort/imports */
