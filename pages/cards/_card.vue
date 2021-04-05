@@ -27,7 +27,7 @@ import HospitalizedNumberCard from '@/components/index/CardsMonitoring/Hospitali
 import SevereCaseCard from '@/components/index/CardsMonitoring/SevereCase/Card.vue'
 // ---- その他 参考指標
 // 陽性者の属性
-import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
+import ConfirmedCasesAttributesCard from '@/components/index/CardsReference/ConfirmedCasesAttributes/Card.vue'
 // 陽性者数（区市町村別）
 import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
 // 発症日別による陽性者数の推移

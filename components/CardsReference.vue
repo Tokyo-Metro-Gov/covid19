@@ -8,7 +8,7 @@ import Vue from 'vue'
 
 // 陽性者の属性
 const ConfirmedCasesAttributesCard = () =>
-  import('@/components/cards/ConfirmedCasesAttributesCard.vue')
+  import('@/components/index/CardsReference/ConfirmedCasesAttributes/Card.vue')
 // 陽性者数（区市町村別）
 const ConfirmedCasesByMunicipalitiesCard = () =>
   import('@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue')

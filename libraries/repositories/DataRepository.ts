@@ -26,7 +26,7 @@ export class DataRepository
    *
    * 報告日別による陽性者数の推移 (components/index/CardsMonitoring/ConfirmedCasesNumber/Card.vue)
    *
-   * 陽性者の属性 (components/cards/ConfirmedCasesAttributesCard.vue)
+   * 陽性者の属性 (components/index/CardsReference/ConfirmedCasesAttributes/Card.vue)
    *
    * 検査実施件数 (components/cards/TestedNumberCard.vue)
    *
