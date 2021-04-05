@@ -21,7 +21,7 @@ export class PositiveStatusRepository
    *
    * モニタリング項目(6) 入院患者数 (components/index/CardsMonitoring/HospitalizedNumber/Card.vue)
    *
-   * モニタリング項目(7) 重症患者数 (components/cards/SevereCaseCard.vue)
+   * モニタリング項目(7) 重症患者数 (components/index/CardsMonitoring/SevereCase/Card.vue)
    */
   constructor() {
     super(Convert.toPositiveStatus(JSON.stringify(rawData)))
