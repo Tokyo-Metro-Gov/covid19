@@ -29,7 +29,7 @@ import SevereCaseCard from '@/components/index/CardsMonitoring/SevereCase/Card.v
 // 陽性者の属性
 import ConfirmedCasesAttributesCard from '@/components/index/CardsReference/ConfirmedCasesAttributes/Card.vue'
 // 陽性者数（区市町村別）
-import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
+import ConfirmedCasesByMunicipalitiesCard from '@/components/index/CardsReference/ConfirmedCasesByMunicipalities/Card.vue'
 // 発症日別による陽性者数の推移
 import PositiveNumberByDevelopedDateCard from '@/components/cards/PositiveNumberByDevelopedDateCard.vue'
 // 確定日別による陽性者数の推移
