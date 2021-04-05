@@ -71,7 +71,7 @@ import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import VueI18n from 'vue-i18n'
 
-import DataTable from '@/components/DataTable.vue'
+import DataTable from '@/components/index/CardsReference/ConfirmedCasesAttributes/DataTable.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
 import { DataType, formatTable, TableDateType } from '@/utils/formatTable'
