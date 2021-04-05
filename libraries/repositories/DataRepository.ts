@@ -30,7 +30,7 @@ export class DataRepository
    *
    * 検査実施件数 (components/index/CardsReference/TestedNumber/Card.vue)
    *
-   * 新型コロナコールセンター相談件数 (components/cards/TelephoneAdvisoryReportsNumberCard.vue)
+   * 新型コロナコールセンター相談件数 (components/index/CardsReference/TelephoneAdvisoryReportsNumber/Card.vue)
    *
    * 受診相談窓口における相談件数 (components/cards/MonitoringConsultationDeskReportsNumberCard.vue)
    */

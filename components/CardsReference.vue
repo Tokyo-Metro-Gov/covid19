@@ -35,7 +35,9 @@ const VariantCard = () =>
   import('@/components/index/CardsReference/Variant/Card.vue')
 // 新型コロナコールセンター相談件数
 const TelephoneAdvisoryReportsNumberCard = () =>
-  import('@/components/cards/TelephoneAdvisoryReportsNumberCard.vue')
+  import(
+    '@/components/index/CardsReference/TelephoneAdvisoryReportsNumber/Card.vue'
+  )
 // 受診相談窓口における相談件数
 const MonitoringConsultationDeskReportsNumberCard = () =>
   import('@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue')
