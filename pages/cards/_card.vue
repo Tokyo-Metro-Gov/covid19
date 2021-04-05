@@ -43,7 +43,7 @@ import VariantCard from '@/components/index/CardsReference/Variant/Card.vue'
 // 新型コロナコールセンター相談件数
 import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsReference/TelephoneAdvisoryReportsNumber/Card.vue'
 // 受診相談窓口における相談件数
-import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
+import MonitoringConsultationDeskReportsNumberCard from '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Card.vue'
 // 東京都発熱相談センターにおける相談件数
 import TokyoFeverConsultationCenterReportsNumberCard from '@/components/cards/TokyoFeverConsultationCenterReportsNumberCard.vue'
 // 都営地下鉄の利用者数の推移

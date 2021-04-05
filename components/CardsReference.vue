@@ -40,7 +40,9 @@ const TelephoneAdvisoryReportsNumberCard = () =>
   )
 // 受診相談窓口における相談件数
 const MonitoringConsultationDeskReportsNumberCard = () =>
-  import('@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue')
+  import(
+    '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Card.vue'
+  )
 // 東京都発熱相談センターにおける相談件数
 const TokyoFeverConsultationCenterReportsNumberCard = () =>
   import('@/components/cards/TokyoFeverConsultationCenterReportsNumberCard.vue')

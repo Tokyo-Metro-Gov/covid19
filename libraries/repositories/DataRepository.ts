@@ -32,7 +32,7 @@ export class DataRepository
    *
    * 新型コロナコールセンター相談件数 (components/index/CardsReference/TelephoneAdvisoryReportsNumber/Card.vue)
    *
-   * 受診相談窓口における相談件数 (components/cards/MonitoringConsultationDeskReportsNumberCard.vue)
+   * 受診相談窓口における相談件数 (components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Card.vue)
    */
   constructor() {
     super(Convert.toData(JSON.stringify(rawData)))
