@@ -199,7 +199,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     chartId: {
       type: String,
-      default: 'UntrackedRateMixedChart',
+      default: 'untracked-rate-chart',
     },
     chartData: {
       type: Array,

@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard UntrackedRateCard">
     <client-only>
-      <untracked-rate-mixed-chart
+      <chart
         :title="$t('モニタリング項目(3)')"
         :title-id="'untracked-rate'"
         :info-titles="[$t('新規陽性者における接触歴等不明者数'), $t('増加比')]"
@@ -45,13 +45,13 @@
             </li>
           </ul>
         </template>
-      </untracked-rate-mixed-chart>
+      </chart>
     </client-only>
   </v-col>
 </template>
 
 <script>
-import UntrackedRateMixedChart from '@/components/UntrackedRateMixedChart'
+import Chart from '@/components/index/CardsMonitoring/UntrackedRate/Chart.vue'
 import Data from '@/data/daily_positive_detail.json'
 import {
   getNumberToFixedFunction,
@@ -60,7 +60,7 @@ import {
 
 export default {
   components: {
-    UntrackedRateMixedChart,
+    Chart,
   },
   data() {
     const data = Data.data.filter(
