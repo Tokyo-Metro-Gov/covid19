@@ -16,7 +16,7 @@ import MonitoringConfirmedCasesNumberCard from '@/components/index/CardsMonitori
 // モニタリング項目(2)#7119における発熱等相談件数
 import ConsultationAboutFeverNumberCard from '@/components/index/CardsMonitoring/ConsultationAboutFeverNumber/Card.vue'
 // モニタリング項目(3)新規陽性者における接触歴等不明者数
-import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
+import UntrackedRateCard from '@/components/index/CardsMonitoring/UntrackedRate/Card.vue'
 // モニタリング項目(4)検査の陽性率
 import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
 // モニタリング項目(5)救急医療の東京ルールの適用件数
