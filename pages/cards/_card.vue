@@ -37,7 +37,7 @@ import PositiveNumberByDiagnosedDateCard from '@/components/index/CardsReference
 // 死亡日別による死亡者数の推移
 import DeathsByDeathDateCard from '@/components/index/CardsReference/DeathsByDeathDate/Card.vue'
 // 検査実施件数
-import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+import TestedNumberCard from '@/components/index/CardsReference/TestedNumber/Card.vue'
 // N501Y変異株スクリーニングの実施状況
 import VariantCard from '@/components/cards/VariantCard.vue'
 // 新型コロナコールセンター相談件数

@@ -28,7 +28,7 @@ export class DataRepository
    *
    * 陽性者の属性 (components/index/CardsReference/ConfirmedCasesAttributes/Card.vue)
    *
-   * 検査実施件数 (components/cards/TestedNumberCard.vue)
+   * 検査実施件数 (components/index/CardsReference/TestedNumber/Card.vue)
    *
    * 新型コロナコールセンター相談件数 (components/cards/TelephoneAdvisoryReportsNumberCard.vue)
    *
