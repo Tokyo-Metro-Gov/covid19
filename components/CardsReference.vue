@@ -45,7 +45,9 @@ const MonitoringConsultationDeskReportsNumberCard = () =>
   )
 // 東京都発熱相談センターにおける相談件数
 const TokyoFeverConsultationCenterReportsNumberCard = () =>
-  import('@/components/cards/TokyoFeverConsultationCenterReportsNumberCard.vue')
+  import(
+    '@/components/index/CardsReference/TokyoFeverConsultationCenterReportsNumber/Card.vue'
+  )
 // 都営地下鉄の利用者数の推移
 const MetroCard = () => import('@/components/cards/MetroCard.vue')
 // 都庁来庁者数の推移

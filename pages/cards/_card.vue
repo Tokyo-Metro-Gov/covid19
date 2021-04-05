@@ -45,7 +45,7 @@ import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsReferenc
 // 受診相談窓口における相談件数
 import MonitoringConsultationDeskReportsNumberCard from '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Card.vue'
 // 東京都発熱相談センターにおける相談件数
-import TokyoFeverConsultationCenterReportsNumberCard from '@/components/cards/TokyoFeverConsultationCenterReportsNumberCard.vue'
+import TokyoFeverConsultationCenterReportsNumberCard from '@/components/index/CardsReference/TokyoFeverConsultationCenterReportsNumber/Card.vue'
 // 都営地下鉄の利用者数の推移
 import MetroCard from '@/components/cards/MetroCard.vue'
 // 都庁来庁者数の推移
