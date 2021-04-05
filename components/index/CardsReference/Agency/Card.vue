@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard AgencyCard">
     <client-only>
-      <agency-bar-chart
+      <chart
         :title="$t('都庁来庁者数の推移')"
         :title-id="'agency'"
         :chart-id="'agency'"
@@ -14,7 +14,7 @@
         <template #additionalDescription>
           {{ $t('※土・日・祝日を除く庁舎開庁日の1週間累計数') }}
         </template>
-      </agency-bar-chart>
+      </chart>
     </client-only>
   </v-col>
 </template>
@@ -22,12 +22,12 @@
 <script>
 import dayjs from 'dayjs'
 
-import AgencyBarChart from '@/components/AgencyBarChart.vue'
+import Chart from '@/components/index/CardsReference/Agency/Chart.vue'
 import AgencyData from '@/data/agency.json'
 
 export default {
   components: {
-    AgencyBarChart,
+    Chart,
   },
   data() {
     const labels = AgencyData.periods.map((p) => p.begin)
