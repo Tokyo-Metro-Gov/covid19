@@ -18,7 +18,7 @@ export class TokyoRuleRepository
   /**
    * 使用箇所
    *
-   * モニタリング項目(5) 救急医療の東京ルールの適用件数 (components/cards/TokyoRulesApplicationNumberCard.vue)
+   * モニタリング項目(5) 救急医療の東京ルールの適用件数 (components/index/CardsMonitoring/TokyoRulesApplicationNumber/Card.vue)
    */
   constructor() {
     super(Convert.toTokyoRule(JSON.stringify(rawData)))

@@ -33,7 +33,9 @@ const PositiveRateCard = () =>
   import('@/components/index/CardsMonitoring/PositiveRate/Card.vue')
 // モニタリング項目(5)救急医療の東京ルールの適用件数
 const TokyoRulesApplicationNumberCard = () =>
-  import('@/components/cards/TokyoRulesApplicationNumberCard.vue')
+  import(
+    '@/components/index/CardsMonitoring/TokyoRulesApplicationNumber/Card.vue'
+  )
 // モニタリング項目(6)入院患者数
 const HospitalizedNumberCard = () =>
   import('@/components/cards/HospitalizedNumberCard.vue')

@@ -20,7 +20,7 @@ import UntrackedRateCard from '@/components/index/CardsMonitoring/UntrackedRate/
 // モニタリング項目(4)検査の陽性率
 import PositiveRateCard from '@/components/index/CardsMonitoring/PositiveRate/Card.vue'
 // モニタリング項目(5)救急医療の東京ルールの適用件数
-import TokyoRulesApplicationNumberCard from '@/components/cards/TokyoRulesApplicationNumberCard.vue'
+import TokyoRulesApplicationNumberCard from '@/components/index/CardsMonitoring/TokyoRulesApplicationNumber/Card.vue'
 // モニタリング項目(6)入院患者数
 import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
 // モニタリング項目(7)重症患者数
