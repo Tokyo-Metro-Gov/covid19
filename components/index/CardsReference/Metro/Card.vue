@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard MetroCard">
     <client-only>
-      <metro-bar-chart
+      <chart
         :title="$t('都営地下鉄の利用者数の推移')"
         :title-id="'predicted-number-of-toei-subway-passengers'"
         :chart-id="'metro-bar-chart'"
@@ -28,7 +28,7 @@
             )
           }}
         </template>
-      </metro-bar-chart>
+      </chart>
     </client-only>
   </v-col>
 </template>
@@ -36,12 +36,12 @@
 <script>
 import dayjs from 'dayjs'
 
-import MetroBarChart from '@/components/MetroBarChart.vue'
+import Chart from '@/components/index/CardsReference/Metro/Chart.vue'
 import MetroData from '@/data/metro.json'
 
 export default {
   components: {
-    MetroBarChart,
+    Chart,
   },
   data() {
     // 都営地下鉄の利用者数の推移
