@@ -26,7 +26,7 @@ const PositiveNumberByDiagnosedDateCard = () =>
   )
 // 死亡日別による死亡者数の推移
 const DeathsByDeathDateCard = () =>
-  import('@/components/cards/DeathsByDeathDateCard.vue')
+  import('@/components/index/CardsReference/DeathsByDeathDate/Card.vue')
 // 検査実施件数
 const TestedNumberCard = () => import('@/components/cards/TestedNumberCard.vue')
 // N501Y変異株スクリーニングの実施状況

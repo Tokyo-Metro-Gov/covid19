@@ -35,7 +35,7 @@ import PositiveNumberByDevelopedDateCard from '@/components/index/CardsReference
 // 確定日別による陽性者数の推移
 import PositiveNumberByDiagnosedDateCard from '@/components/index/CardsReference/PositiveNumberByDiagnosedDate/Card.vue'
 // 死亡日別による死亡者数の推移
-import DeathsByDeathDateCard from '@/components/cards/DeathsByDeathDateCard.vue'
+import DeathsByDeathDateCard from '@/components/index/CardsReference/DeathsByDeathDate/Card.vue'
 // 検査実施件数
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 // N501Y変異株スクリーニングの実施状況
