@@ -16,7 +16,9 @@ const ConfirmedCasesByMunicipalitiesCard = () =>
   )
 // 発症日別による陽性者数の推移
 const PositiveNumberByDevelopedDateCard = () =>
-  import('@/components/cards/PositiveNumberByDevelopedDateCard.vue')
+  import(
+    '@/components/index/CardsReference/PositiveNumberByDevelopedDate/Card.vue'
+  )
 // 確定日別による陽性者数の推移
 const PositiveNumberByDiagnosedDateCard = () =>
   import('@/components/cards/PositiveNumberByDiagnosedDateCard.vue')
