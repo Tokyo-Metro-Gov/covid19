@@ -21,7 +21,9 @@ const PositiveNumberByDevelopedDateCard = () =>
   )
 // 確定日別による陽性者数の推移
 const PositiveNumberByDiagnosedDateCard = () =>
-  import('@/components/cards/PositiveNumberByDiagnosedDateCard.vue')
+  import(
+    '@/components/index/CardsReference/PositiveNumberByDiagnosedDate/Card.vue'
+  )
 // 死亡日別による死亡者数の推移
 const DeathsByDeathDateCard = () =>
   import('@/components/cards/DeathsByDeathDateCard.vue')

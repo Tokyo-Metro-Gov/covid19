@@ -33,7 +33,7 @@ import ConfirmedCasesByMunicipalitiesCard from '@/components/index/CardsReferenc
 // 発症日別による陽性者数の推移
 import PositiveNumberByDevelopedDateCard from '@/components/index/CardsReference/PositiveNumberByDevelopedDate/Card.vue'
 // 確定日別による陽性者数の推移
-import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
+import PositiveNumberByDiagnosedDateCard from '@/components/index/CardsReference/PositiveNumberByDiagnosedDate/Card.vue'
 // 死亡日別による死亡者数の推移
 import DeathsByDeathDateCard from '@/components/cards/DeathsByDeathDateCard.vue'
 // 検査実施件数

@@ -19,7 +19,7 @@ export class PositiveByDiagnosedRepository
   /**
    * 使用箇所
    *
-   * 確定日別による陽性者数の推移 (components/cards/PositiveNumberByDiagnosedDateCard.vue)
+   * 確定日別による陽性者数の推移 (components/index/CardsReference/PositiveNumberByDiagnosedDate/Card.vue)
    */
   constructor() {
     super(Convert.toPositiveByDiagnosed(JSON.stringify(rawData)))
