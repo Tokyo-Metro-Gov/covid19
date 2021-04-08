@@ -1,5 +1,5 @@
 {
-    "date": "2021\/4\/2 20:30",
+    "date": "2021\/4\/7 20:00",
     "data": [
         {
             "death_date": "2020-02-26",
@@ -1379,7 +1379,7 @@
         },
         {
             "death_date": "2021-02-04",
-            "count": 16
+            "count": 17
         },
         {
             "death_date": "2021-02-05",
@@ -1527,7 +1527,7 @@
         },
         {
             "death_date": "2021-03-13",
-            "count": 5
+            "count": 7
         },
         {
             "death_date": "2021-03-14",
@@ -1555,15 +1555,15 @@
         },
         {
             "death_date": "2021-03-20",
-            "count": 7
+            "count": 8
         },
         {
             "death_date": "2021-03-21",
-            "count": 3
+            "count": 4
         },
         {
             "death_date": "2021-03-22",
-            "count": 2
+            "count": 3
         },
         {
             "death_date": "2021-03-23",
@@ -1575,11 +1575,11 @@
         },
         {
             "death_date": "2021-03-25",
-            "count": 4
+            "count": 5
         },
         {
             "death_date": "2021-03-26",
-            "count": 3
+            "count": 4
         },
         {
             "death_date": "2021-03-27",
@@ -1595,11 +1595,19 @@
         },
         {
             "death_date": "2021-03-30",
-            "count": 3
+            "count": 5
+        },
+        {
+            "death_date": "2021-03-31",
+            "count": 0
         },
         {
             "death_date": "2021-04-01",
-            "count": 1
+            "count": 2
+        },
+        {
+            "death_date": "2021-04-02",
+            "count": 2
         }
     ]
 }

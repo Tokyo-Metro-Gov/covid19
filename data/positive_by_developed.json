@@ -1,6 +1,6 @@
 {
-    "date": "2021\/4\/4 18:45",
-    "unknown_count": 44616,
+    "date": "2021\/4\/7 20:00",
+    "unknown_count": 44974,
     "data": [
         {
             "developed_date": "2020-01-14",
@@ -1724,11 +1724,11 @@
         },
         {
             "developed_date": "2021-03-19",
-            "count": 242
+            "count": 243
         },
         {
             "developed_date": "2021-03-20",
-            "count": 218
+            "count": 222
         },
         {
             "developed_date": "2021-03-21",
@@ -1736,55 +1736,71 @@
         },
         {
             "developed_date": "2021-03-22",
-            "count": 260
+            "count": 262
         },
         {
             "developed_date": "2021-03-23",
-            "count": 251
-        },
-        {
-            "developed_date": "2021-03-24",
             "count": 254
         },
         {
+            "developed_date": "2021-03-24",
+            "count": 256
+        },
+        {
             "developed_date": "2021-03-25",
-            "count": 231
+            "count": 241
         },
         {
             "developed_date": "2021-03-26",
-            "count": 201
+            "count": 211
         },
         {
             "developed_date": "2021-03-27",
-            "count": 189
+            "count": 204
         },
         {
             "developed_date": "2021-03-28",
-            "count": 217
+            "count": 231
         },
         {
             "developed_date": "2021-03-29",
-            "count": 238
+            "count": 271
         },
         {
             "developed_date": "2021-03-30",
-            "count": 213
+            "count": 247
         },
         {
             "developed_date": "2021-03-31",
-            "count": 163
+            "count": 229
         },
         {
             "developed_date": "2021-04-01",
-            "count": 129
+            "count": 229
         },
         {
             "developed_date": "2021-04-02",
-            "count": 84
+            "count": 234
         },
         {
             "developed_date": "2021-04-03",
-            "count": 23
+            "count": 190
+        },
+        {
+            "developed_date": "2021-04-04",
+            "count": 112
+        },
+        {
+            "developed_date": "2021-04-05",
+            "count": 97
+        },
+        {
+            "developed_date": "2021-04-06",
+            "count": 24
+        },
+        {
+            "developed_date": "2021-04-07",
+            "count": 1
         }
     ]
 }
