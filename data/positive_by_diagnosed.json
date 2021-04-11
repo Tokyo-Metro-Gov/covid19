@@ -1,5 +1,5 @@
 {
-    "date": "2021\/4\/10 19:00",
+    "date": "2021\/4\/11 19:00",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -1755,26 +1755,30 @@
         },
         {
             "diagnosed_date": "2021-04-05",
-            "count": 392
+            "count": 393
         },
         {
             "diagnosed_date": "2021-04-06",
-            "count": 510
+            "count": 531
         },
         {
             "diagnosed_date": "2021-04-07",
-            "count": 517
+            "count": 519
         },
         {
             "diagnosed_date": "2021-04-08",
-            "count": 507
+            "count": 516
         },
         {
             "diagnosed_date": "2021-04-09",
-            "count": 459
+            "count": 544
         },
         {
             "diagnosed_date": "2021-04-10",
+            "count": 303
+        },
+        {
+            "diagnosed_date": "2021-04-11",
             "count": 2
         }
     ]
