@@ -4939,6 +4939,17 @@
             "weekly_average_count": 476.1,
             "weekly_average_untracked_count": 290,
             "weekly_average_untracked_increse_percent": 130.6
+        },
+        {
+            "diagnosed_date": "2021-04-13",
+            "count": 510,
+            "missing_count": 308,
+            "reported_count": 202,
+            "weekly_gain_ratio": 1.24,
+            "untracked_percent": 60.4,
+            "weekly_average_count": 492,
+            "weekly_average_untracked_count": 297.3,
+            "weekly_average_untracked_increse_percent": 129.7
         }
     ]
 }
