@@ -79,27 +79,27 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     }
   },
   computed: {
-    lastUpdate(): Date {
+    lastUpdate() {
       return new Date(this.lastUpdateAsString)
     },
-    lastUpdateAsString(): string {
+    lastUpdateAsString() {
       return this.data.lastUpdate
     },
-    newsItems(): INewsItem[] {
+    newsItems() {
       return this.news.newsItems
     },
-    data(): IData {
+    data() {
       return this.$store.state.data
     },
-    news(): INews {
+    news() {
       return this.$store.state.news
     },
   },
   methods: {
-    formatDate(date: Date): string {
+    formatDate(date) {
       return `${this.$d(date, 'dateTime')} JST`
     },
-    convertDate(dateAsString: string): string {
+    convertDate(dateAsString) {
       return convertDatetimeToISO8601Format(dateAsString)
     },
   },

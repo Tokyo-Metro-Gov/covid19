@@ -60,22 +60,22 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     }
   },
   computed: {
-    date(): string {
+    date() {
       return this.$d(new Date(this.stayingPopulationData.date), 'date')
     },
-    enddate(): string {
+    enddate() {
       const baseDate = new Date(this.stayingPopulationData.date)
       baseDate.setDate(baseDate.getDate() + 6)
       return this.$d(baseDate, 'dateWithoutYear')
     },
-    placeName(): string {
+    placeName() {
       const placeToDisplay = this.stayingPopulationData.place.display
 
       return ['ja', 'ja-basic'].includes(this.$i18n.locale)
         ? placeToDisplay.ja
         : placeToDisplay.en
     },
-    formattedData(): StayingPopulationFormattedData[] {
+    formattedData() {
       return this.stayingPopulationDatasets.map((datum) => {
         const { referenceDate, increaseRate } = datum
 
@@ -93,13 +93,13 @@ export default Vue.extend<Data, Methods, Computed, Props>({
         }
       })
     },
-    stayingPopulationDatasets(): IStayingPopulationDatum[] {
+    stayingPopulationDatasets() {
       return this.stayingPopulationData.data
     },
-    stayingPopulationData(): IStayingPopulationData {
+    stayingPopulationData() {
       return this.stayingPopulation.data
     },
-    stayingPopulation(): IStayingPopulation {
+    stayingPopulation() {
       return this.$store.state.stayingPopulation
     },
   },

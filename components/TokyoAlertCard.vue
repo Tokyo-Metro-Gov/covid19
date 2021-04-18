@@ -33,7 +33,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     ActiveTokyoAlert,
   },
   computed: {
-    description(): string {
+    description() {
       const { description } = this.tokyoAlert
 
       if (['ja', 'ja-basic'].includes(this.$i18n.locale)) {
@@ -42,7 +42,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 
       return description.en
     },
-    tokyoAlert(): ITokyoAlert {
+    tokyoAlert() {
       return this.$store.state.tokyoAlertRepository
     },
   },

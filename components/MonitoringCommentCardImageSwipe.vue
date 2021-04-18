@@ -32,10 +32,10 @@ type Props = {}
 
 export default Vue.extend<Data, Methods, Computed, Props>({
   computed: {
-    images(): IImage[] {
+    images() {
       return this.monitoringCommentImage.data.images
     },
-    monitoringCommentImage(): IMonitoringCommentImage {
+    monitoringCommentImage() {
       return this.$store.state.monitoringCommentImage
     },
   },
