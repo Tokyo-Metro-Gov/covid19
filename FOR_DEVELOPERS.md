@@ -124,7 +124,7 @@ $ vagrant up
 
 ## 3. 本番環境/その他の判定
 
-`process.env.GENERATE_ENV` の値が、本番の場合は`'production'`に、それ以外の場合は `'development'` になっています。  
+`process.env.GENERATE_ENV` の値が、本番の場合は`'production'`に、それ以外の場合は `'development'` になっています。
 テスト環境のみで実行したい処理がある場合は、こちらの値をご利用ください。
 
 ---
@@ -143,7 +143,7 @@ $ vagrant up
 
 ## 5. ブランチルール
 
-development 以外は、Pull Request は禁止です。  
+development 以外は、Pull Request は禁止です。
 Pull Request を送る際のブランチは、以下のネーミングルールに従ったブランチにしてください。
 
 | 種類 | ブランチのネーミングルール |
@@ -166,3 +166,17 @@ Pull Request を送る際のブランチは、以下のネーミングルール�
 | 本番サイトHTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | 静的ビルドされたHTMLが置いてある場所 |
 | ステージングサイト HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | 静的ビルドされたHTMLが置いてある場所 |
 | OGP作業用 | deploy/new_ogp | なし | OGPの更新用 |
+
+## 6. `data` ディレクトリ以下の JSON データについて
+
+### 6-1. データの構造が変わったとき、またはデータが追加されたときは
+
+次のコマンドで、自動生成しているコード（`libraries/auto_generated` 以下のファイル）を再生成してください。
+
+```bash
+$ yarn generate-data-converters
+```
+
+また、このとき自動生成された interface の定義が変更されます。必要に応じて各コンポーネントの実装を修正してください。
+
+JSON の構造に変化がなくデータだけ更新された場合は、コマンドを実行する必要はありません。
