@@ -353,7 +353,7 @@ export default Vue.extend({
     IconPhone,
     IconBed,
   },
-  middleware: 'redirect',
+  // middleware: 'redirect',
   data(): LocalData {
     const nav = null
     const upperTrigger = null
