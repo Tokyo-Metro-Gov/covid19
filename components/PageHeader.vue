@@ -1,6 +1,6 @@
 <template>
-  <div class="header">
-    <h2 class="pageTitle">
+  <div class="PageHeader">
+    <h2 class="PageTitle">
       <v-icon v-if="iconPath" size="4rem" class="mr-2">
         {{ iconPath }}
       </v-icon>
@@ -24,24 +24,24 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.header {
+.PageHeader {
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
-}
 
-.pageTitle {
-  @include font-size(30);
+  .PageTitle {
+    @include font-size(30);
 
-  color: $gray-2;
-  display: flex;
-  align-items: center;
-  line-height: 1.35;
-  font-weight: normal;
-  margin: 0 0.5em 0 0;
+    color: $gray-2;
+    display: flex;
+    align-items: center;
+    line-height: 1.35;
+    font-weight: normal;
+    margin: 0 0.5em 0 0;
 
-  @include lessThan($small) {
-    @include font-size(20);
+    @include lessThan($small) {
+      @include font-size(20);
+    }
   }
 }
 </style>
