@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/zh-tw/cards/number-of-reports-to-tokyo-fever-consultation-center", {data:[{}],fetch:{},mutations:[]});

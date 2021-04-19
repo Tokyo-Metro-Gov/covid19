@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/cards/deaths-by-death-date", {data:[{}],fetch:{},mutations:[]});
