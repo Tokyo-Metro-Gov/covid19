@@ -73,6 +73,9 @@
         :unit="displayInfo.unit"
       />
     </template>
+    <template #footer>
+      <open-data-link v-show="url" :url="url" />
+    </template>
   </data-view>
 </template>
 
@@ -90,6 +93,7 @@ import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
@@ -137,6 +141,7 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
   unit: string
+  url: string
   yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
 }
 
@@ -160,6 +165,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     DataViewTable,
     DataViewDataSetPanel,
     ScrollableChart,
+    OpenDataLink,
   },
   props: {
     title: {
@@ -202,6 +208,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: () => [],
     },
     unit: {
+      type: String,
+      default: '',
+    },
+    url: {
       type: String,
       default: '',
     },

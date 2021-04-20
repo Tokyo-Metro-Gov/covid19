@@ -13,13 +13,13 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     diff-lcs (1.4.4)
-    mini_mime (1.0.2)
-    nokogiri (1.11.2-x86_64-darwin)
+    mini_mime (1.1.0)
+    nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.11.2-x86_64-linux)
+    nokogiri (1.11.3-x86_64-linux)
       racc (~> 1.4)
     parallel (1.20.1)
-    parallel_tests (3.5.2)
+    parallel_tests (3.7.0)
       parallel
     public_suffix (4.0.6)
     racc (1.5.2)
@@ -58,7 +58,7 @@ DEPENDENCIES
   selenium-webdriver
 
 RUBY VERSION
-   ruby 3.0.0p0
+   ruby 3.0.1p64
 
 BUNDLED WITH
-   2.2.3
+   2.2.15
