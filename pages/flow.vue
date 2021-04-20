@@ -35,7 +35,7 @@ export default Vue.extend({
   components: {
     AppLink,
   },
-  // middleware: 'redirect',
+  middleware: 'redirect',
 })
 </script>
 
