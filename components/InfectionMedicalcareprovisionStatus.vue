@@ -20,7 +20,8 @@
         {{ $t('検査数')
         }}<span>{{ statuses['検査数'].toLocaleString() }}件</span>（{{
           formatDate(statisticDate)
-        }}{{ $t('参考値') }}）、 {{ $t('うち65歳以上の高齢者数')
+        }}{{ $t('参考値') }} （{{ $t('3日間移動平均') }}））、
+        {{ $t('うち65歳以上の高齢者数')
         }}<span
           >{{ statuses['うち65歳以上の高齢者数'].toLocaleString() }}人</span
         >、 {{ $t('死亡者数')
