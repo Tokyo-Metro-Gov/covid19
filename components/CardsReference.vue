@@ -23,6 +23,8 @@ const DeathsByDeathDateCard = () =>
   import('@/components/cards/DeathsByDeathDateCard.vue')
 // 検査実施件数
 const TestedNumberCard = () => import('@/components/cards/TestedNumberCard.vue')
+// N501Y変異株スクリーニングの実施状況
+const VariantCard = () => import('@/components/cards/VariantCard.vue')
 // 新型コロナコールセンター相談件数
 const TelephoneAdvisoryReportsNumberCard = () =>
   import('@/components/cards/TelephoneAdvisoryReportsNumberCard.vue')
@@ -45,7 +47,7 @@ export default Vue.extend({
         [ConfirmedCasesAttributesCard, ConfirmedCasesByMunicipalitiesCard],
         [PositiveNumberByDevelopedDateCard, PositiveNumberByDiagnosedDateCard],
         [DeathsByDeathDateCard, TestedNumberCard],
-        [TelephoneAdvisoryReportsNumberCard],
+        [VariantCard, TelephoneAdvisoryReportsNumberCard],
         [
           MonitoringConsultationDeskReportsNumberCard,
           TokyoFeverConsultationCenterReportsNumberCard,
