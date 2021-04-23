@@ -13,7 +13,7 @@
         {{ placeName }}
       </div>
       <div class="StayingPopulation-state">
-        [ {{ date }} $t('時点') ]<br />
+        [ {{ date }}{{ $t('時点') }} ]<br />
         <span v-for="(datum, index) in formattedData" :key="index">
           {{ datum.formattedMonth }}{{ $t('比') }}
           {{ datum.increaseRateWithArrow }}<br />
