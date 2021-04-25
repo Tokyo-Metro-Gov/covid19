@@ -119,7 +119,6 @@ type Methods = {
 type DisplayInfo = {
   lText: string
   sText: string
-  sTextUnder: string
   unit: string
 }
 type Computed = {
