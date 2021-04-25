@@ -13,7 +13,7 @@
           class="WhatsNew-linkButton"
           to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine.html"
         >
-          <VaccineIcon class="WhatsNew-linkButton-icon" aria-hidden="true" />
+          <vaccine-icon class="WhatsNew-linkButton-icon" aria-hidden="true" />
           {{ $t('ワクチン情報') }}
         </app-link>
       </div>
