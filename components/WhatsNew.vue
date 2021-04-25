@@ -13,15 +13,19 @@
           class="WhatsNew-linkButton"
           to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine.html"
         >
-          <vaccine-icon class="WhatsNew-linkButton-icon" aria-hidden="true" />
-          {{ $t('ワクチン情報') }}
+          <span class="WhatsNew-linkButton-inner">
+            <vaccine-icon class="WhatsNew-linkButton-icon" aria-hidden="true" />
+            {{ $t('ワクチン情報') }}
+          </span>
         </app-link>
         <app-link
           class="WhatsNew-linkButton"
           to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/screening.html"
         >
-          <covid-icon class="WhatsNew-linkButton-icon" aria-hidden="true" />
-          {{ $t('変異株情報') }}
+          <span class="WhatsNew-linkButton-inner">
+            <covid-icon class="WhatsNew-linkButton-icon" aria-hidden="true" />
+            {{ $t('変異株情報') }}
+          </span>
         </app-link>
       </div>
     </div>
@@ -122,9 +126,14 @@ export default Vue.extend({
     .WhatsNew-linkButton {
       margin-right: 12px;
       @include button-text('sm');
+      &-inner {
+        display: inline-flex;
+        align-items: center;
+      }
       &-icon {
         width: 1em;
         height: 1em;
+        margin-right: 4px;
       }
     }
   }
