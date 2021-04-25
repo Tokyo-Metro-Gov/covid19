@@ -76,7 +76,6 @@
         :title="infoTitles[i]"
         :l-text="di.lText"
         :s-text="di.sText"
-        :s-text-under="di.sTextUnder"
         :unit="di.unit"
       />
     </template>
@@ -272,21 +271,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           dateBegin: this.$d(this.lastPeriod.begin, 'date'),
           dateEnd: this.$d(this.lastPeriod.end, 'date'),
         }
-      )}`
-      const underText = `${this.$t(
-        '（現在判明している数値であり、後日修正される場合がある）'
-      )}`
+      )}（${this.$t('現在判明している数値であり、後日修正される場合がある')}）`
       return [
         {
           lText: String(lastData(this.chartData[0])),
           sText: periodText,
-          sTextUnder: underText,
           unit: this.unit,
         },
         {
           lText: String(lastData(this.chartData[2])),
           sText: periodText,
-          sTextUnder: underText,
           unit: this.unit,
         },
       ]
