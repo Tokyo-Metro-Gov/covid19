@@ -16,6 +16,13 @@
           <vaccine-icon class="WhatsNew-linkButton-icon" aria-hidden="true" />
           {{ $t('ワクチン情報') }}
         </app-link>
+        <app-link
+          class="WhatsNew-linkButton"
+          to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/screening.html"
+        >
+          <covid-icon class="WhatsNew-linkButton-icon" aria-hidden="true" />
+          {{ $t('変異株情報') }}
+        </app-link>
       </div>
     </div>
     <ul class="WhatsNew-list">
@@ -41,6 +48,7 @@ import { mdiInformation } from '@mdi/js'
 import Vue from 'vue'
 
 import AppLink from '@/components/AppLink.vue'
+import CovidIcon from '@/static/covid.svg'
 import VaccineIcon from '@/static/vaccine.svg'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 
@@ -48,6 +56,7 @@ export default Vue.extend({
   components: {
     AppLink,
     VaccineIcon,
+    CovidIcon,
   },
   props: {
     items: {
@@ -111,6 +120,7 @@ export default Vue.extend({
     }
 
     .WhatsNew-linkButton {
+      margin-right: 12px;
       @include button-text('sm');
       &-icon {
         width: 1em;
