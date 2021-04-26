@@ -38,6 +38,8 @@ import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumber
 import DeathsByDeathDateCard from '@/components/cards/DeathsByDeathDateCard.vue'
 // 検査実施件数
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+// N501Y変異株スクリーニングの実施状況
+import VariantCard from '@/components/cards/VariantCard.vue'
 // 新型コロナコールセンター相談件数
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 // 受診相談窓口における相談件数
@@ -76,6 +78,7 @@ import { convertDateToSimpleFormat } from '@/utils/formatDate'
     PositiveNumberByDiagnosedDateCard,
     DeathsByDeathDateCard,
     TestedNumberCard,
+    VariantCard,
     TelephoneAdvisoryReportsNumberCard,
     MonitoringConsultationDeskReportsNumberCard,
     TokyoFeverConsultationCenterReportsNumberCard,
@@ -153,6 +156,10 @@ export default class CardContainer extends Vue implements NuxtConfig {
       // 検査実施件数
       case 'number-of-tested':
         cardComponent = 'tested-number-card'
+        break
+      // N501Y変異株スクリーニングの実施状況
+      case 'variant':
+        cardComponent = 'variant-card'
         break
       // 新型コロナコールセンター相談件数
       case 'number-of-reports-to-covid19-telephone-advisory-center':
