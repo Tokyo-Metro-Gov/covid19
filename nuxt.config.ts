@@ -93,7 +93,18 @@ const config: NuxtConfig = {
   buildModules: [
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
-    '@nuxt/typescript-build',
+    [
+      '@nuxt/typescript-build',
+      {
+        typeCheck: {
+          async: true,
+          typescript: {
+            enable: true,
+            memoryLimit: 16384,
+          },
+        },
+      },
+    ],
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
     'nuxt-purgecss',
