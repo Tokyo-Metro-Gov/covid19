@@ -195,19 +195,6 @@
                 "n501y_negative_rate": 71.5,
                 "variant_pcr_rate": 34.6
             }
-        },
-        {
-            "period": {
-                "begin": "2021-04-12",
-                "end": "2021-04-18"
-            },
-            "data": {
-                "variant_test_count": 600,
-                "variant_positive_count": 228,
-                "n501y_positive_rate": 38,
-                "n501y_negative_rate": 62,
-                "variant_pcr_rate": 14.6
-            }
         }
     ]
 }
