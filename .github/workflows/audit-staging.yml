@@ -53,7 +53,7 @@ jobs:
               } ] | sort_by(.metrics) | .[] | [.metrics, .score, .url] ) | @csv' \
           | csv2md | tee "${LH_SUMMARY_FILE}"
 
-      - uses: actions/github-script@0.9.0
+      - uses: actions/github-script@v4.0.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
