@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ko/cards/variant", {data:[{}],fetch:{},mutations:[]});

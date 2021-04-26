@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ja-basic/cards/variant", {data:[{}],fetch:{},mutations:[]});
