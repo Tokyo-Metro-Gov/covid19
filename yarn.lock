@@ -1668,14 +1668,7 @@
   dependencies:
     browserslist "*"
 
-"@types/chart.js@2.9.31":
-  version "2.9.31"
-  resolved "https://registry.yarnpkg.com/@types/chart.js/-/chart.js-2.9.31.tgz#e8ebc7ed18eb0e5114c69bd46ef8e0037c89d39d"
-  integrity sha512-hzS6phN/kx3jClk3iYqEHNnYIRSi4RZrIGJ8CDLjgatpHoftCezvC44uqB3o3OUm9ftU1m7sHG8+RLyPTlACrA==
-  dependencies:
-    moment "^2.10.2"
-
-"@types/chart.js@^2.7.55":
+"@types/chart.js@2.9.32", "@types/chart.js@^2.7.55":
   version "2.9.32"
   resolved "https://registry.yarnpkg.com/@types/chart.js/-/chart.js-2.9.32.tgz#b17d9a8c41ad348183a2ce041ebdeef892998251"
   integrity sha512-d45JiRQwEOlZiKwukjqmqpbqbYzUX2yrXdH9qVn6kXpPDsTYCo6YbfFOlnUaJ8S/DhJwbBJiLsMjKpW5oP8B2A==
