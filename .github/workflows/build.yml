@@ -32,7 +32,7 @@ jobs:
       - run: yarn run generate:deploy
 
       - name: archive dist
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: dist
           path: dist
