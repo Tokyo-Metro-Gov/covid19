@@ -14,7 +14,7 @@ import Vue, { PropType } from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import { DisplayData } from '@/plugins/vue-chart'
-import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus.ts'
+import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus'
 
 type Data = {
   chartWidth: number
