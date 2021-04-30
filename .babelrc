@@ -7,9 +7,15 @@
           {
             "useBuiltIns": "usage",
             "corejs": 3,
-          },
-        ],
+            "loose": true,
+            "shippedProposals": true
+          }
+        ]
+      ],
+      "plugins": [
+        ["@babel/plugin-proposal-class-properties", { "loose": true }],
+        ["@babel/plugin-proposal-private-methods", { "loose": true }]
       ]
-    },
-  },
+    }
+  }
 }
