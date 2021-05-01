@@ -70,17 +70,17 @@ export default {
   },
   methods: {
     getSliderLabels(id) {
+      let dayList = []
       let day = ''
       if (!this.chartData || this.chartData.length === 0) {
         return 1
       }
       if (!this.isObject) {
-        day = this.chartData[id]
+        dayList = this.chartData[id].split('/')
       } else {
-        day = this.chartData[id].label
-        const dataDay = this.chartData[id].label.split('/')
-        day = dataDay[1] + '/' + dataDay[2]
+        dayList = this.chartData[id].label.split('/')
       }
+      day = dayList[1] + '/' + dayList[2]
       return day
     }
   }
