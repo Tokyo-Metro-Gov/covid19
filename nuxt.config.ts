@@ -166,6 +166,9 @@ const config: NuxtConfig = {
     }
   ], */
   build: {
+    babel: {
+      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
+    },
     postcss: {
       preset: {
         autoprefixer: {
