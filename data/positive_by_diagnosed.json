@@ -1,5 +1,5 @@
 {
-    "date": "2021\/5\/1 18:45",
+    "date": "2021\/5\/2 18:30",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -1715,11 +1715,11 @@
         },
         {
             "diagnosed_date": "2021-03-26",
-            "count": 416
+            "count": 419
         },
         {
             "diagnosed_date": "2021-03-27",
-            "count": 312
+            "count": 314
         },
         {
             "diagnosed_date": "2021-03-28",
@@ -1731,7 +1731,7 @@
         },
         {
             "diagnosed_date": "2021-03-30",
-            "count": 466
+            "count": 467
         },
         {
             "diagnosed_date": "2021-03-31",
@@ -1783,7 +1783,7 @@
         },
         {
             "diagnosed_date": "2021-04-12",
-            "count": 521
+            "count": 523
         },
         {
             "diagnosed_date": "2021-04-13",
@@ -1815,15 +1815,15 @@
         },
         {
             "diagnosed_date": "2021-04-20",
-            "count": 918
+            "count": 919
         },
         {
             "diagnosed_date": "2021-04-21",
-            "count": 786
+            "count": 787
         },
         {
             "diagnosed_date": "2021-04-22",
-            "count": 795
+            "count": 796
         },
         {
             "diagnosed_date": "2021-04-23",
@@ -1839,23 +1839,31 @@
         },
         {
             "diagnosed_date": "2021-04-26",
-            "count": 730
+            "count": 731
         },
         {
             "diagnosed_date": "2021-04-27",
-            "count": 949
+            "count": 951
         },
         {
             "diagnosed_date": "2021-04-28",
-            "count": 1062
+            "count": 1066
         },
         {
             "diagnosed_date": "2021-04-29",
-            "count": 623
+            "count": 629
         },
         {
             "diagnosed_date": "2021-04-30",
-            "count": 839
+            "count": 966
+        },
+        {
+            "diagnosed_date": "2021-05-01",
+            "count": 723
+        },
+        {
+            "diagnosed_date": "2021-05-02",
+            "count": 5
         }
     ]
 }
