@@ -222,7 +222,8 @@ export default {
                 max: this.labels[this.graphRange[1]],
                 min: this.labels[this.graphRange[0]],
                 callback: label => {
-                  return label
+                  const mdList = label.split('/')
+                  return mdList[1] + '/' + mdList[2]
                 }
               }
             }
