@@ -166,6 +166,19 @@ const config: NuxtConfig = {
     }
   ], */
   build: {
+    babel: {
+      presets() {
+        return [
+          [
+            '@nuxt/babel-preset-app',
+            {
+              corejs: { version: '3.11' },
+            },
+          ],
+        ]
+      },
+      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
+    },
     postcss: {
       preset: {
         autoprefixer: {
