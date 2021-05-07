@@ -15,8 +15,8 @@
       <div class="StayingPopulation-state">
         [ {{ $t('{date}時点', { date }) }} ]<br />
         <span v-for="(datum, index) in formattedData" :key="index">
-          {{ datum.formattedMonth }}{{ $t('比') }}
-          {{ datum.increaseRateWithArrow }}<br />
+          {{ $t('{month}比 {rateWithArrow}',
+                { month: datum.formattedMonth, rateWithArrow: datum.increaseRateWithArrow}) }}<br />
         </span>
       </div>
     </div>
