@@ -1,5 +1,5 @@
 {
-    "date": "2021\/5\/6 19:00",
+    "date": "2021\/5\/7 18:15",
     "data": [
         {
             "diagnosed_date": "2020-02-15",
@@ -4854,58 +4854,69 @@
         },
         {
             "diagnosed_date": "2021-05-01",
-            "positive_count": 668,
-            "negative_count": 6995,
+            "positive_count": 682,
+            "negative_count": 7734,
             "positive_rate": 7.6,
-            "weekly_average_diagnosed_count": 8202.6,
-            "pcr_positive_count": 578,
-            "pcr_negative_count": 5955,
-            "antigen_positive_count": 90,
-            "antigen_negative_count": 1040
+            "weekly_average_diagnosed_count": 8310.1,
+            "pcr_positive_count": 589,
+            "pcr_negative_count": 6538,
+            "antigen_positive_count": 93,
+            "antigen_negative_count": 1196
         },
         {
             "diagnosed_date": "2021-05-02",
-            "positive_count": 408,
-            "negative_count": 3638,
-            "positive_rate": 7.8,
-            "weekly_average_diagnosed_count": 8336.6,
-            "pcr_positive_count": 332,
-            "pcr_negative_count": 2932,
-            "antigen_positive_count": 76,
-            "antigen_negative_count": 706
+            "positive_count": 439,
+            "negative_count": 3957,
+            "positive_rate": 7.7,
+            "weekly_average_diagnosed_count": 8494.1,
+            "pcr_positive_count": 359,
+            "pcr_negative_count": 3166,
+            "antigen_positive_count": 80,
+            "antigen_negative_count": 791
         },
         {
             "diagnosed_date": "2021-05-03",
-            "positive_count": 411,
-            "negative_count": 3672,
-            "positive_rate": 8.2,
-            "weekly_average_diagnosed_count": 7551.7,
-            "pcr_positive_count": 313,
-            "pcr_negative_count": 2752,
-            "antigen_positive_count": 98,
-            "antigen_negative_count": 920
+            "positive_count": 432,
+            "negative_count": 4152,
+            "positive_rate": 8.1,
+            "weekly_average_diagnosed_count": 7780.9,
+            "pcr_positive_count": 333,
+            "pcr_negative_count": 3144,
+            "antigen_positive_count": 99,
+            "antigen_negative_count": 1008
         },
         {
             "diagnosed_date": "2021-05-04",
-            "positive_count": 485,
-            "negative_count": 4004,
-            "positive_rate": 8.7,
-            "weekly_average_diagnosed_count": 6585.3,
-            "pcr_positive_count": 397,
-            "pcr_negative_count": 3297,
-            "antigen_positive_count": 88,
-            "antigen_negative_count": 707
+            "positive_count": 514,
+            "negative_count": 4579,
+            "positive_rate": 8.5,
+            "weekly_average_diagnosed_count": 6900.7,
+            "pcr_positive_count": 418,
+            "pcr_negative_count": 3760,
+            "antigen_positive_count": 96,
+            "antigen_negative_count": 819
         },
         {
             "diagnosed_date": "2021-05-05",
-            "positive_count": 309,
-            "negative_count": 3504,
-            "positive_rate": 9.2,
-            "weekly_average_diagnosed_count": 5513,
-            "pcr_positive_count": 248,
-            "pcr_negative_count": 2732,
-            "antigen_positive_count": 61,
-            "antigen_negative_count": 772
+            "positive_count": 381,
+            "negative_count": 4200,
+            "positive_rate": 9,
+            "weekly_average_diagnosed_count": 5938.1,
+            "pcr_positive_count": 309,
+            "pcr_negative_count": 3266,
+            "antigen_positive_count": 72,
+            "antigen_negative_count": 934
+        },
+        {
+            "diagnosed_date": "2021-05-06",
+            "positive_count": 581,
+            "negative_count": 7785,
+            "positive_rate": 8.6,
+            "weekly_average_diagnosed_count": 6331.4,
+            "pcr_positive_count": 456,
+            "pcr_negative_count": 5764,
+            "antigen_positive_count": 125,
+            "antigen_negative_count": 2021
         }
     ]
 }
