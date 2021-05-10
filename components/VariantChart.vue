@@ -274,12 +274,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       )}（${this.$t('現在判明している数値であり、後日修正される場合がある')}）`
       return [
         {
-          lText: String(lastData(this.chartData[0])),
+          lText: String(lastData(this.chartData[0])), // n501YPositiveRate（N501Y陽性例構成割合）
           sText: periodText,
           unit: this.unit,
         },
         {
-          lText: String(lastData(this.chartData[2])),
+          lText: String(lastData(this.chartData[2])), // variantPcrRate（変異株PCR検査実施割合）
           sText: periodText,
           unit: this.unit,
         },
