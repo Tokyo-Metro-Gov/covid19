@@ -435,6 +435,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
+                suggestedMin: 0,
+                suggestedMax: 100,
                 fontColor: '#808080',
                 callback: (value) => {
                   return `${value}${this.unit}`
@@ -555,6 +557,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 12,
                 maxTicksLimit: 10,
                 fontColor: '#808080',
+                suggestedMin: 0,
+                suggestedMax: 100,
                 callback: (value) => {
                   return `${value}${this.unit}`
                 },
