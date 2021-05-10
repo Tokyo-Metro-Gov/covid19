@@ -333,7 +333,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return [
         { text: this.$t('日付'), value: 'text' },
         ...(this.tableLabels as string[]).map((text, i) => {
-          return { text, value: String(i), align: 'end' }
+          return { text, value: String(i) }
         }),
       ]
     },
