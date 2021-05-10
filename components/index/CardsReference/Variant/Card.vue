@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard VariantCard">
     <client-only>
-      <variant-chart
+      <chart
         :title="$t('N501Y変異株スクリーニングの実施状況')"
         title-id="variant"
         :info-titles="[$t('N501Y陽性例構成割合'), $t('変異株PCR検査実施割合')]"
@@ -38,7 +38,7 @@
             </li>
           </ul>
         </template>
-      </variant-chart>
+      </chart>
     </client-only>
   </v-col>
 </template>
@@ -48,7 +48,7 @@ import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import Vue from 'vue'
 
-import VariantChart from '@/components/VariantChart.vue'
+import Chart from '@/components/index/CardsReference/Variant/Chart.vue'
 import {
   Dataset as IVariantDataset,
   Period as IVariantPeriod,
@@ -83,7 +83,7 @@ type Props = {}
 
 export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
-    VariantChart,
+    Chart,
   },
   data() {
     const chartLabels = [
