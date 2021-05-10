@@ -84,7 +84,7 @@
 </template>
 
 <script lang="ts">
-import { Chart } from 'chart.js'
+import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
@@ -121,9 +121,9 @@ type DisplayInfo = {
 type Computed = {
   displayInfo: DisplayInfo
   displayData: DisplayData
-  displayOption: Chart.ChartOptions
+  displayOption: ChartOptions
   displayDataHeader: DisplayData
-  displayOptionHeader: Chart.ChartOptions
+  displayOptionHeader: ChartOptions
   scaledTicksYAxisMax: number
   tableHeaders: TableHeader[]
   tableData: TableItem[]
@@ -140,7 +140,7 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
   unit: string
-  yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
+  yAxesBgPlugin: PluginServiceRegistrationOptions[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -308,7 +308,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const unit = this.unit[1]
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
 
-      const options: Chart.ChartOptions = {
+      const options: ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -440,7 +440,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOptionHeader() {
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
 
-      const options: Chart.ChartOptions = {
+      const options: ChartOptions = {
         tooltips: { enabled: false },
         maintainAspectRatio: false,
         legend: {
