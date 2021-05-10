@@ -286,7 +286,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     displayData() {
-      const graphSeries = [...getGraphSeriesStyle(2), getGraphSeriesColor('E')]
+      const graphSeries = this.colors
       return {
         labels: this.labels,
         datasets: [
