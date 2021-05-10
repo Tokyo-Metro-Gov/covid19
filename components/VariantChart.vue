@@ -3,7 +3,7 @@
     :title="title"
     :title-id="titleId"
     :date="date"
-    :head-title="title + infoTitles.join(',')"
+    :head-title="headTitle"
   >
     <ul
       :class="$style.GraphLegend"
@@ -127,6 +127,7 @@ type Computed = {
   displayOption: Chart.ChartOptions
   displayDataHeader: DisplayData
   displayOptionHeader: Chart.ChartOptions
+  headTitle: string
   tableHeaders: TableHeader[]
   tableDataItems: TableItem[]
   scaledTicksYAxisMaxRight: number
@@ -324,6 +325,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           },
         ],
       }
+    },
+    headTitle() {
+      return this.title + this.infoTitles.join(',')
     },
     tableHeaders() {
       return [
