@@ -17,7 +17,7 @@ export class VariantRepository
   /**
    * 使用箇所
    *
-   * N501Y変異株スクリーニングの実施状況 (components/cards/VariantCard.vue)
+   * N501Y変異株スクリーニングの実施状況 (components/index/CardsReference/Variant/Card.vue)
    */
   constructor() {
     super(Convert.toVariant(JSON.stringify(rawData)))

@@ -31,7 +31,8 @@ const DeathsByDeathDateCard = () =>
 const TestedNumberCard = () =>
   import('@/components/index/CardsReference/TestedNumber/Card.vue')
 // N501Y変異株スクリーニングの実施状況
-const VariantCard = () => import('@/components/cards/VariantCard.vue')
+const VariantCard = () =>
+  import('@/components/index/CardsReference/Variant/Card.vue')
 // 新型コロナコールセンター相談件数
 const TelephoneAdvisoryReportsNumberCard = () =>
   import('@/components/cards/TelephoneAdvisoryReportsNumberCard.vue')
