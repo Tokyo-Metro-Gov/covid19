@@ -130,6 +130,7 @@ type Computed = {
   headTitle: string
   tableHeaders: TableHeader[]
   tableDataItems: TableItem[]
+  scaledTicksYAxisMaxLeft: number
   scaledTicksYAxisMaxRight: number
 }
 type Period = {
@@ -142,6 +143,7 @@ type Props = {
   infoTitles: string[]
   chartId: string
   chartData: number[][]
+  tooltipData: number[][]
   tableData: number[][]
   getFormatter: Function
   date: string
@@ -150,7 +152,6 @@ type Props = {
   tableLabels: string[] | TranslateResult[]
   periods: string[]
   lastPeriod: Period
-  unit: string
   url: string
   optionUnit: string
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
@@ -198,6 +199,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: false,
       default: () => [],
     },
+    tooltipData: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     tableData: {
       type: Array,
       required: false,
@@ -233,10 +239,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Object as PropType<Period>,
       default: () => ({ begin: new Date(), end: new Date() }),
     },
-    unit: {
-      type: String,
-      default: '',
-    },
     url: {
       type: String,
       default: '',
@@ -263,7 +265,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   computed: {
     displayInfo() {
       const lastData = (dataset: number[]) => {
-        return dataset.slice(-1)[0].toFixed(1)
+        return dataset.slice(-1)[0]
       }
       const periodText = `${this.$t(
         '{dateBegin}から{dateEnd}までの期間の数値',
@@ -274,14 +276,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       )}（${this.$t('現在判明している数値であり、後日修正される場合がある')}）`
       return [
         {
-          lText: String(lastData(this.chartData[0])), // n501YPositiveRate（N501Y陽性例構成割合）
+          lText: String(lastData(this.chartData[0]).toFixed(0)), // n501YPositiveRate（N501Y陽性例構成割合）
           sText: periodText,
-          unit: this.unit,
+          unit: '件',
         },
         {
-          lText: String(lastData(this.chartData[2])), // variantPcrRate（変異株PCR検査実施割合）
+          lText: String(lastData(this.chartData[2]).toFixed(1)), // variantPcrRate（変異株PCR検査実施割合）
           sText: periodText,
-          unit: this.unit,
+          unit: '%',
         },
       ]
     },
@@ -355,6 +357,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
+      const scaledTicksYAxisMaxLeft = this.scaledTicksYAxisMaxLeft
       const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
 
       const options: ChartOptions = {
@@ -370,11 +373,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             label: (tooltipItem, data) => {
               const index = tooltipItem.datasetIndex!
               const title = this.$t(data.datasets![index].label!)
-              const num = this.getFormatter(tooltipItem.datasetIndex!)(
+              const num = this.getFormatter(index)(
                 parseFloat(tooltipItem.value!)
               )
-              const unit = this.$t(this.unit)
-              return `${title}: ${num} ${unit}`
+
+              if (index === 0 || index === 1) {
+                // 0 - variantPositiveCount（N501Y陽性例数）について
+                // 1 - variantNegativeCount（N501Y陰性例数）について
+                const indexForTooltip = tooltipItem.index!
+                return `${title}: ${num} (${this.tooltipData[index][indexForTooltip]} %)`
+              }
+
+              // index === 2 のとき - variantPcrRate（変異株PCR検査実施割合）について
+              return `${title}: ${num} %`
             },
           },
         },
@@ -436,10 +447,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 12,
                 maxTicksLimit: 10,
                 suggestedMin: 0,
-                suggestedMax: 100,
+                suggestedMax: scaledTicksYAxisMaxLeft,
                 fontColor: '#808080',
                 callback: (value) => {
-                  return `${value}${this.unit}`
+                  return value
                 },
               },
             },
@@ -458,7 +469,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
-                  return `${value}${this.unit}`
+                  return `${value}%`
                 },
               },
             },
@@ -498,6 +509,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOptionHeader() {
+      const scaledTicksYAxisMaxLeft = this.scaledTicksYAxisMaxLeft
       const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
 
       const options: ChartOptions = {
@@ -558,9 +570,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 10,
                 fontColor: '#808080',
                 suggestedMin: 0,
-                suggestedMax: 100,
+                suggestedMax: scaledTicksYAxisMaxLeft,
                 callback: (value) => {
-                  return `${value}${this.unit}`
+                  return value
                 },
               },
             },
@@ -579,7 +591,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
-                  return `${value}${this.unit}`
+                  return `${value}%`
                 },
               },
             },
@@ -589,6 +601,25 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
 
       return options
+    },
+    scaledTicksYAxisMaxLeft() {
+      if (this.displayLegends[0]) {
+        if (this.displayLegends[1]) {
+          const transpose = (a: number[][]) =>
+            a[0].map((_, i) => a.map((r) => r[i]))
+          return transpose([this.chartData[0], this.chartData[1]])
+            .map((a) => a[0] + a[1])
+            .reduce((a, b) => Math.max(a, b), 0)
+        }
+
+        return this.chartData[0].reduce((a, b) => Math.max(a, b), 0)
+      }
+
+      if (this.displayLegends[1]) {
+        return this.chartData[1].reduce((a, b) => Math.max(a, b), 0)
+      }
+
+      return 0
     },
     scaledTicksYAxisMaxRight() {
       return this.chartData[2].reduce((a, b) => Math.max(a, b), 0)

@@ -4,9 +4,10 @@
       <variant-chart
         :title="$t('N501Y変異株スクリーニングの実施状況')"
         title-id="variant"
-        :info-titles="[$t('N501Y陽性例構成割合'), $t('変異株PCR検査実施割合')]"
+        :info-titles="[$t('N501Y陽性例数'), $t('変異株PCR検査実施割合')]"
         chart-id="variant-chart"
         :chart-data="variantData.chartData"
+        :tooltip-data="variantData.tooltipData"
         :table-data="variantData.tableData"
         :get-formatter="getFormatter"
         :date="date"
@@ -53,14 +54,17 @@ import {
   Period as IVariantPeriod,
   Variant as IVariant,
 } from '@/libraries/auto_generated/data_converter/convertVariant'
-import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
+import {
+  getNumberToFixedFunction,
+  getNumberToLocaleStringFunction,
+} from '@/utils/monitoringStatusValueFormatters'
 
 dayjs.extend(duration)
 
 type Data = {
   chartLabels: string[]
   tableLabels: string[]
-  getFormatter: () => (d: number) => string | undefined
+  getFormatter: (index: number) => (d: number) => string | undefined
 }
 type Methods = {
   getWeekLabel: (begin: Date, end: Date) => string
@@ -74,6 +78,7 @@ type Computed = {
     labels: Date[]
     chartData: number[][]
     tableData: number[][]
+    tooltipData: number[][]
   }
   variant: IVariant
 }
@@ -85,8 +90,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
   data() {
     const chartLabels = [
-      this.$t('N501Y陽性例構成割合') as string,
-      this.$t('N501Y非陽性例構成割合') as string,
+      this.$t('N501Y陽性例数') as string,
+      this.$t('N501Y陰性例数') as string,
       this.$t('変異株PCR検査実施割合') as string,
     ]
 
@@ -97,9 +102,13 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       this.$t('変異株PCR検査実施割合') as string,
     ]
 
-    const getFormatter = () => {
-      // 陽性率は小数点第1位まで表示する。
-      return getNumberToFixedFunction(1)
+    const getFormatter = (index: number) => {
+      if (index === 2) {
+        // 変異株PCR検査実施割合は小数点第1位まで表示する。
+        return getNumberToFixedFunction(1)
+      }
+
+      return getNumberToLocaleStringFunction()
     }
 
     return {
@@ -132,6 +141,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       const variantPositiveCount: number[] = datasets.map(
         (d: IVariantDataset) => d.data.variantPositiveCount
       )
+      const variantNegativeCount: number[] = datasets.map(
+        (d: IVariantDataset) =>
+          d.data.variantTestCount - d.data.variantPositiveCount
+      )
       const n501YPositiveRate: number[] = datasets.map(
         (d: IVariantDataset) => d.data.n501YPositiveRate
       )
@@ -142,10 +155,11 @@ export default Vue.extend<Data, Methods, Computed, Props>({
         (d: IVariantDataset) => d.data.variantPcrRate
       )
       const chartData: number[][] = [
-        n501YPositiveRate,
-        n501YNegativeRate,
+        variantPositiveCount,
+        variantNegativeCount,
         variantPcrRate,
       ]
+      const tooltipData: number[][] = [n501YPositiveRate, n501YNegativeRate]
       const tableData: number[][] = [
         variantTestCount,
         variantPositiveCount,
@@ -158,6 +172,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
         labels,
         chartData,
         tableData,
+        tooltipData,
       }
     },
     variant() {
