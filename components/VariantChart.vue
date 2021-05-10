@@ -345,7 +345,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             ...this.tableData.map((_, j) => {
               return {
                 [j]:
-                  j === 2 || j === 3
+                  j === 2 || j === 3 // n501YPositiveRate（N501Y陽性例構成割合）, variantPcrRate（変異株PCR検査実施割合）
                     ? this.getFormatter(j)(this.tableData[j][i])
                     : this.tableData[j][i].toLocaleString(),
               }
