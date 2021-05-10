@@ -37,20 +37,6 @@
     </static-card>
     <static-card>
       <h3>
-        <app-link to="https://tokyoyachin.metro.tokyo.lg.jp" :icon-size="24"
-          >{{ $t('東京都家賃等支援給付金') }}
-        </app-link>
-      </h3>
-      <p>
-        {{
-          $t(
-            '事業者における家賃等の負担を軽減し、事業の継続を下支えするため、国の家賃支援給付金に独自の上乗せ給付（３ヶ月分）を実施します。'
-          )
-        }}
-      </p>
-    </static-card>
-    <static-card>
-      <h3>
         <app-link to="https://smooth-biz.metro.tokyo.lg.jp/" :icon-size="24"
           >{{
             $t('新しいワークスタイルや企業活動の東京モデル「スムーズビズ」')

@@ -1,5 +1,5 @@
 {
-    "date": "2021\/4\/20 18:45",
+    "date": "2021\/5\/6 19:00",
     "datasets": [
         {
             "period": {
@@ -189,11 +189,37 @@
                 "end": "2021-04-11"
             },
             "data": {
-                "variant_test_count": 1133,
-                "variant_positive_count": 323,
-                "n501y_positive_rate": 28.5,
-                "n501y_negative_rate": 71.5,
-                "variant_pcr_rate": 34.6
+                "variant_test_count": 1296,
+                "variant_positive_count": 389,
+                "n501y_positive_rate": 30,
+                "n501y_negative_rate": 70,
+                "variant_pcr_rate": 39.6
+            }
+        },
+        {
+            "period": {
+                "begin": "2021-04-12",
+                "end": "2021-04-18"
+            },
+            "data": {
+                "variant_test_count": 1693,
+                "variant_positive_count": 767,
+                "n501y_positive_rate": 45.3,
+                "n501y_negative_rate": 54.7,
+                "variant_pcr_rate": 41.2
+            }
+        },
+        {
+            "period": {
+                "begin": "2021-04-19",
+                "end": "2021-04-25"
+            },
+            "data": {
+                "variant_test_count": 1887,
+                "variant_positive_count": 1076,
+                "n501y_positive_rate": 57,
+                "n501y_negative_rate": 43,
+                "variant_pcr_rate": 37.1
             }
         }
     ]
