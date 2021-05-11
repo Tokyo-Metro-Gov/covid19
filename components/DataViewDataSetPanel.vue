@@ -57,6 +57,7 @@ export default Vue.extend({
     display: flex;
     flex-flow: column;
     margin-bottom: 10px;
+    color: $gray-2;
 
     @include largerThan($large) {
       justify-content: space-between;

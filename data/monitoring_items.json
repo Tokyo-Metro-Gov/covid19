@@ -1,31 +1,31 @@
 {
-    "date": "2021\/4\/20 18:45",
+    "date": "2021\/5\/11 19:00",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "既に人流が増加し、変異株による陽性者が著しく増加している。",
-                "@en": "An increase in the movement of people has already occurred, and the number of positive cases caused by variants is significantly increasing."
+                "@ja": "流行の主体が感染力の強い変異株（N501Y）に急速に置き換わりつつある。",
+                "@en": "The prevalent strain of the virus is rapidly being replaced by the highly infectious N501Y variant."
             },
             {
-                "@ja": "新規陽性者数の増加比が、さらに上昇することが危惧される。",
-                "@en": "It is feared that the 7-day moving average of new positive cases will rise further."
+                "@ja": "重症患者数が増加し、なかでも若年層も含めた60代以下の割合が増加傾向にある。",
+                "@en": "The number of severe cases is increasing. Notably, the percentage of severe cases among those in their 60s and under, which includes young people, is showing an upward trend."
             },
             {
-                "@ja": "重症化リスクの高い高齢者層への感染を徹底的に防止する必要がある。",
-                "@en": "There is the need to firmly protect the elderly, who are at high risk of becoming severely ill, from becoming infected."
+                "@ja": "新規陽性者数を減少させ、変異株（N501Y）による重症患者の発生を防ぐ必要がある。",
+                "@en": "There is the need to reduce the number of new positive cases and prevent severe cases caused by the N501Y variant."
             }
         ],
-        "(1)新規陽性者数": 629.3,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 55.6,
-        "(3)新規陽性者における接触歴等不明者（人数）": 377.3,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 126.9,
-        "(4)PCR・抗原検査（陽性率）": 5.5,
-        "(4)PCR・抗原検査（検査人数）": 8026.3,
-        "(5)救急医療の東京ルールの適用件数": 48.9,
-        "(6)入院患者数": 1571,
-        "(6)入院患者確保病床数": 5048,
-        "(7)重症患者数": 50,
-        "(7)重症患者確保病床数": 332,
+        "(1)新規陽性者数": 824.3,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 82,
+        "(3)新規陽性者における接触歴等不明者（人数）": 491.3,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 102.4,
+        "(4)PCR・抗原検査（陽性率）": 7.5,
+        "(4)PCR・抗原検査（検査人数）": 7760.9,
+        "(5)救急医療の東京ルールの適用件数": 61.7,
+        "(6)入院患者数": 2393,
+        "(6)入院患者確保病床数": 5594,
+        "(7)重症患者数": 78,
+        "(7)重症患者確保病床数": 373,
         "総括コメント-感染状況": {
             "date": "2021-03-04",
             "level": 4,

@@ -93,7 +93,18 @@ const config: NuxtConfig = {
   buildModules: [
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
-    '@nuxt/typescript-build',
+    [
+      '@nuxt/typescript-build',
+      {
+        typeCheck: {
+          async: true,
+          typescript: {
+            enable: true,
+            memoryLimit: 4096,
+          },
+        },
+      },
+    ],
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
     'nuxt-purgecss',
@@ -155,6 +166,19 @@ const config: NuxtConfig = {
     }
   ], */
   build: {
+    babel: {
+      presets() {
+        return [
+          [
+            '@nuxt/babel-preset-app',
+            {
+              corejs: { version: '3.11' },
+            },
+          ],
+        ]
+      },
+      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
+    },
     postcss: {
       preset: {
         autoprefixer: {
@@ -214,6 +238,7 @@ const config: NuxtConfig = {
         '/cards/positive-number-by-developed-date',
         '/cards/number-of-reports-to-tokyo-fever-consultation-center',
         '/cards/deaths-by-death-date',
+        '/cards/variant',
       ]
       const localizedPages = locales
         .map((locale) => pages.map((page) => `/${locale}${page}`))
