@@ -3,8 +3,8 @@
     <client-only>
       <chart
         :title="$t('都営地下鉄の利用者数の推移')"
-        :title-id="'predicted-number-of-toei-subway-passengers'"
-        :chart-id="'metro-line-chart'"
+        title-id="predicted-number-of-toei-subway-passengers"
+        chart-id="metro-line-chart"
         :chart-data="metroGraph"
         :date="metroGraph.date"
         :items="metroGraph.labels"
