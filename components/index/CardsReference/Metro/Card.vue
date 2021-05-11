@@ -59,13 +59,11 @@ export default {
     }
 
     // metroGraph ツールチップ title文字列
-    // this.$t を使うため metroGraphOption の外側へ
     const metroGraphTooltipTitle = (tooltipItems, _) => {
       const duration = metroGraph.periods[tooltipItems[0].index]
       return this.$t('期間: {duration}', { duration })
     }
     // metroGraph ツールチップ label文字列
-    // this.$t を使うため metroGraphOption の外側へ
     const metroGraphTooltipLabel = (tooltipItem, data) => {
       const currentData = data.datasets[tooltipItem.datasetIndex]
       const percentage = `${currentData.data[tooltipItem.index]}%`
