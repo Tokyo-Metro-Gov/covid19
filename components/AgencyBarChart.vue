@@ -334,12 +334,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
-                color: '#E5E5E5', // #E5E5E5
+                color: '#E5E5E5',
               },
               ticks: {
                 suggestedMin: 0,
                 maxTicksLimit: 10,
-                fontColor: '#808080', // #808080
+                fontColor: '#808080',
                 callback: (label) => {
                   return `${label}${this.unit}`
                 },
