@@ -9,8 +9,8 @@
           <div
             :style="{
               backgroundColor: colors[i].fillColor,
-              borderColor: colors[i].strokeColor,
-              width: '20px',
+              border: 0,
+              height: '3px',
             }"
           />
           <span
