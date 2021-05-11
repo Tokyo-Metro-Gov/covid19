@@ -155,7 +155,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     chartOption: Object,
     chartId: {
       type: String,
-      default: 'metro-bar-chart',
+      default: 'metro-line-chart',
     },
     date: {
       type: String,
