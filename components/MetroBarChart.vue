@@ -340,7 +340,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 10,
                 maxTicksLimit: 20,
-                fontColor: 'transparent',
+                fontColor: 'transparent', // displayOption では #808080
                 callback: (_, i) => {
                   return this.periods[i]
                 },
@@ -351,14 +351,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               stacked: true,
               gridLines: {
                 drawOnChartArea: false,
-                drawTicks: false, // true -> false
+                drawTicks: false, // displayOption では false
                 drawBorder: false,
                 tickMarkLength: 10,
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // #808080
-                padding: 13, // 3 + 10(tickMarkLength)
+                fontColor: 'transparent', // displayOption では #808080
+                padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
               type: 'time',
