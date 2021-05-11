@@ -66,7 +66,7 @@
 </template>
 
 <script lang="ts">
-import { Chart, ChartOptions } from 'chart.js'
+import { ChartOptions } from 'chart.js'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
@@ -285,7 +285,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOptionHeader() {
-      const options: Chart.ChartOptions = {
+      const options: ChartOptions = {
         maintainAspectRatio: false,
         legend: {
           display: false,
