@@ -191,6 +191,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   }),
   computed: {
     displayData() {
+      const labels = this.chartData.datasets!.map((d) => d.label!)
       const datasets = this.chartData.labels!.map((label, i) => {
         return {
           label: label as string,
@@ -200,8 +201,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           borderWidth: 1,
         }
       })
+
       return {
-        labels: this.chartData.datasets!.map((d) => d.label!),
+        labels,
         datasets,
       }
     },
