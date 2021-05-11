@@ -206,11 +206,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const labels = this.chartData.datasets.map((d) => this.$d(d.label))
       const datasets = this.chartData.labels.map((label, i) => {
         return {
+          type: 'line',
           label,
           data: this.chartData.datasets.map((d) => d.data[i]),
-          backgroundColor: this.colors[i].fillColor,
-          borderColor: this.colors[i].strokeColor,
-          borderWidth: 1,
+          pointBackgroundColor: 'rgba(0,0,0,0)',
+          pointBorderColor: 'rgba(0,0,0,0)',
+          borderColor: this.colors[i].fillColor,
+          borderWidth: 3,
+          fill: false,
+          order: i,
+          lineTension: 0,
         }
       })
 
