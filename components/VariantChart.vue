@@ -3,7 +3,7 @@
     :title="title"
     :title-id="titleId"
     :date="date"
-    :head-title="title + infoTitles.join(',')"
+    :head-title="headTitle"
   >
     <ul
       :class="$style.GraphLegend"
@@ -83,7 +83,7 @@
 </template>
 
 <script lang="ts">
-import { Chart } from 'chart.js'
+import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import Vue, { PropType } from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
@@ -124,9 +124,10 @@ type DisplayInfo = {
 type Computed = {
   displayInfo: DisplayInfo[]
   displayData: DisplayData
-  displayOption: Chart.ChartOptions
+  displayOption: ChartOptions
   displayDataHeader: DisplayData
-  displayOptionHeader: Chart.ChartOptions
+  displayOptionHeader: ChartOptions
+  headTitle: string
   tableHeaders: TableHeader[]
   tableDataItems: TableItem[]
   scaledTicksYAxisMaxRight: number
@@ -152,8 +153,8 @@ type Props = {
   unit: string
   url: string
   optionUnit: string
-  yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
-  yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
+  yAxesBgPlugin: PluginServiceRegistrationOptions[]
+  yAxesBgRightPlugin: PluginServiceRegistrationOptions[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -273,19 +274,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       )}（${this.$t('現在判明している数値であり、後日修正される場合がある')}）`
       return [
         {
-          lText: String(lastData(this.chartData[0])),
+          lText: String(lastData(this.chartData[0])), // n501YPositiveRate（N501Y陽性例構成割合）
           sText: periodText,
           unit: this.unit,
         },
         {
-          lText: String(lastData(this.chartData[2])),
+          lText: String(lastData(this.chartData[2])), // variantPcrRate（変異株PCR検査実施割合）
           sText: periodText,
           unit: this.unit,
         },
       ]
     },
     displayData() {
-      const graphSeries = [...getGraphSeriesStyle(2), getGraphSeriesColor('E')]
+      const graphSeries = this.colors
       return {
         labels: this.labels,
         datasets: [
@@ -325,11 +326,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         ],
       }
     },
+    headTitle() {
+      return this.title + this.infoTitles.join(',')
+    },
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
         ...(this.tableLabels as string[]).map((text, i) => {
-          return { text, value: String(i), align: 'end' }
+          return { text, value: String(i) }
         }),
       ]
     },
@@ -341,7 +345,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             ...this.tableData.map((_, j) => {
               return {
                 [j]:
-                  j === 2 || j === 3
+                  j === 2 || j === 3 // n501YPositiveRate（N501Y陽性例構成割合）, variantPcrRate（変異株PCR検査実施割合）
                     ? this.getFormatter(j)(this.tableData[j][i])
                     : this.tableData[j][i].toLocaleString(),
               }
@@ -353,7 +357,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOption() {
       const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
 
-      const options: Chart.ChartOptions = {
+      const options: ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -431,6 +435,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
+                suggestedMin: 0,
+                suggestedMax: 100,
                 fontColor: '#808080',
                 callback: (value) => {
                   return `${value}${this.unit}`
@@ -494,7 +500,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOptionHeader() {
       const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
 
-      const options: Chart.ChartOptions = {
+      const options: ChartOptions = {
         tooltips: { enabled: false },
         maintainAspectRatio: false,
         legend: {
@@ -521,14 +527,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               stacked: true,
               gridLines: {
                 drawOnChartArea: false,
-                drawTicks: false, // true -> false
+                drawTicks: false, // displayOption では true
                 drawBorder: false,
                 tickMarkLength: 10,
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // #808080
-                padding: 13,
+                fontColor: 'transparent', // displayOption では #808080
+                padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
               type: 'time',
@@ -551,6 +557,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 12,
                 maxTicksLimit: 10,
                 fontColor: '#808080',
+                suggestedMin: 0,
+                suggestedMax: 100,
                 callback: (value) => {
                   return `${value}${this.unit}`
                 },
