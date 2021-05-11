@@ -70,7 +70,7 @@ Tokyo Covid-19 response site contributors
 | ufoo68 | [@ufoo68](https://github.com/ufoo68) | | |
 | 4geru koichi uchinishi | [@4geru](https://github.com/4geru) | | |
 | Francis | [@francisfuzz](https://github.com/francisfuzz) | | |
-| KatsuyaAkasaka | | | |
+| sakas1231 | [@KatsuyaAkasaka](https://github.com/KatsuyaAkasaka) | | Coding |
 | Keiichi Watanabe | [@keiichiw](https://github.com/keiichiw) | | |
 | Kentaro Ohkouchi | [@nanasess](https://github.com/nanasess) | | |
 | Masatoshi Hanai | [@hanahana0201](https://github.com/hanahana0201) | | |

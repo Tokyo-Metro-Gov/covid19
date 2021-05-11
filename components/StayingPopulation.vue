@@ -2,7 +2,7 @@
   <v-col cols="12" md="6">
     <div class="StayingPopulation">
       <div class="StayingPopulation-title">
-        {{ $t('●緊急事態宣言中の都内の滞在人口の増減状況') }}<br />
+        {{ $t('都内の滞在人口の増減状況') }}<br />
         <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
         <app-link
           to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html#nav1"
@@ -13,11 +13,10 @@
         {{ placeName }}
       </div>
       <div class="StayingPopulation-state">
-        <!-- TODO: 「時点」は辞書を参照するようにする -->
-        [ {{ date }}時点 ]<br />
-        <span v-for="(data, index) in formattedData" :key="index">
-          <!-- TODO: 「比」は辞書を参照するようにする -->
-          {{ data.formattedMonth }}比 {{ data.increaseRateWithArrow }}<br />
+        [ {{ $t('{date}時点', { date }) }} ]<br />
+        <span v-for="(datum, index) in formattedData" :key="index">
+          {{ datum.formattedMonth }}{{ $t('比') }}
+          {{ datum.increaseRateWithArrow }}<br />
         </span>
       </div>
     </div>
@@ -28,37 +27,59 @@
 import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
-import StayingPopulation from '@/data/staying_population.json'
+import {
+  Data as IStayingPopulationData,
+  Datum as IStayingPopulationDatum,
+  StayingPopulation as IStayingPopulation,
+} from '@/libraries/auto_generated/data_converter/convertStayingPopulation'
 
-export default Vue.extend({
+interface StayingPopulationFormattedData {
+  formattedMonth: string
+  increaseRateWithArrow: string
+}
+
+type Data = {
+  mdiChevronRight: string
+}
+type Methods = {}
+type Computed = {
+  date: string
+  enddate: string
+  placeName: string
+  formattedData: StayingPopulationFormattedData[]
+  stayingPopulationDatasets: IStayingPopulationDatum[]
+  stayingPopulationData: IStayingPopulationData
+  stayingPopulation: IStayingPopulation
+}
+type Props = {}
+
+export default Vue.extend<Data, Methods, Computed, Props>({
   data() {
     return {
       mdiChevronRight,
-      StayingPopulation,
     }
   },
   computed: {
     date() {
-      return this.$d(new Date(StayingPopulation.data.date), 'date')
+      return this.$d(new Date(this.stayingPopulationData.date), 'date')
+    },
+    enddate() {
+      const baseDate = new Date(this.stayingPopulationData.date)
+      baseDate.setDate(baseDate.getDate() + 6)
+      return this.$d(baseDate, 'dateWithoutYear')
     },
     placeName() {
-      const placeToDisplay = StayingPopulation.data.place.display
+      const placeToDisplay = this.stayingPopulationData.place.display
+
       return ['ja', 'ja-basic', 'zh-cn', 'zh-tw'].includes(this.$i18n.locale)
-        ? placeToDisplay['@ja']
-        : placeToDisplay['@en']
+        ? placeToDisplay.ja
+        : placeToDisplay.en
     },
     formattedData() {
-      const data = StayingPopulation.data.data
-      const self = this
+      return this.stayingPopulationDatasets.map((datum) => {
+        const { referenceDate, increaseRate } = datum
 
-      return data.map((dataForEachMonth) => {
-        const referenceDate = dataForEachMonth.reference_date
-        const increaseRate = dataForEachMonth.increase_rate
-
-        const formattedMonth = self.$d(
-          new Date(referenceDate),
-          'dateWithoutDay'
-        )
+        const formattedMonth = this.$d(referenceDate, 'dateWithoutDay')
 
         let increaseRateWithArrow = '0'
         if (increaseRate !== 0) {
@@ -71,6 +92,15 @@ export default Vue.extend({
           increaseRateWithArrow,
         }
       })
+    },
+    stayingPopulationDatasets() {
+      return this.stayingPopulationData.data
+    },
+    stayingPopulationData() {
+      return this.stayingPopulation.data
+    },
+    stayingPopulation() {
+      return this.$store.state.stayingPopulation
     },
   },
 })

@@ -93,11 +93,14 @@
         :unit="di.unit"
       />
     </template>
+    <template #footer>
+      <open-data-link v-show="url" :url="url" />
+    </template>
   </data-view>
 </template>
 
 <script lang="ts">
-import { Chart } from 'chart.js'
+import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
@@ -109,6 +112,7 @@ import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import {
   DisplayData,
@@ -140,9 +144,9 @@ type DisplayInfo = {
 type Computed = {
   displayInfo: DisplayInfo[]
   displayData: DisplayData
-  displayOption: Chart.ChartOptions
+  displayOption: ChartOptions
   displayDataHeader: DisplayData
-  displayOptionHeader: Chart.ChartOptions
+  displayOptionHeader: ChartOptions
   scaledTicksYAxisMax: number
   scaledTicksYAxisMaxRight: number
   tableHeaders: TableHeader[]
@@ -161,9 +165,10 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
   unit: string
+  url: string
   optionUnit: string
-  yAxesBgPlugin: Chart.PluginServiceRegistrationOptions[]
-  yAxesBgRightPlugin: Chart.PluginServiceRegistrationOptions[]
+  yAxesBgPlugin: PluginServiceRegistrationOptions[]
+  yAxesBgRightPlugin: PluginServiceRegistrationOptions[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -181,6 +186,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     DataViewTable,
     DataViewDataSetPanel,
     ScrollableChart,
+    OpenDataLink,
   },
   props: {
     title: {
@@ -229,6 +235,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: () => [],
     },
     unit: {
+      type: String,
+      default: '',
+    },
+    url: {
       type: String,
       default: '',
     },
@@ -398,7 +408,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
 
-      const options: Chart.ChartOptions = {
+      const options: ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -571,7 +581,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
 
-      const options: Chart.ChartOptions = {
+      const options: ChartOptions = {
         tooltips: { enabled: false },
         maintainAspectRatio: false,
         legend: {

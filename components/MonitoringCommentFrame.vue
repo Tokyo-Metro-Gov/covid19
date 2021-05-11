@@ -4,7 +4,7 @@
       class="MonitoringCommentFrame"
       :style="{ borderColor: `${colors[level]}` }"
     >
-      <p>{{ $t(comment) }}</p>
+      <p>{{ comment }}</p>
     </div>
     <div
       class="MonitoringCommentFrameAfter"
