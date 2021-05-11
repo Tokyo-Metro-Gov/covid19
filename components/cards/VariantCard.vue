@@ -14,6 +14,7 @@
         :periods="variantLabels"
         :data-labels="chartLabels"
         :table-labels="tableLabels"
+        :scale-labels="scaleLabels"
         :last-period="variantData.lastPeriod"
         unit="%"
       >
@@ -60,6 +61,7 @@ dayjs.extend(duration)
 type Data = {
   chartLabels: string[]
   tableLabels: string[]
+  scaleLabels: string[]
   getFormatter: () => (d: number) => string | undefined
 }
 type Methods = {
@@ -97,6 +99,11 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       this.$t('変異株PCR検査実施割合') as string,
     ]
 
+    const scaleLabels = [
+      this.$t('構成割合') as string,
+      this.$t('実施割合') as string,
+    ]
+
     const getFormatter = () => {
       // 陽性率は小数点第1位まで表示する。
       return getNumberToFixedFunction(1)
@@ -105,6 +112,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     return {
       chartLabels,
       tableLabels,
+      scaleLabels,
       getFormatter,
     }
   },
