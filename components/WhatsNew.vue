@@ -29,7 +29,7 @@
         </app-link>
         <app-link
           class="WhatsNew-linkButton"
-          to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/screening.html"
+          to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/kensa/index.html"
         >
           <span class="WhatsNew-linkButton-inner">
             <v-icon size="1em" class="WhatsNew-linkButton-v-icon">
