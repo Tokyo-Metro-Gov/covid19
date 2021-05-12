@@ -32,7 +32,7 @@
           to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/screening.html"
         >
           <span class="WhatsNew-linkButton-inner">
-            <v-icon size="1em" class="mr-1 WhatsNew-linkButton-v-icon">
+            <v-icon size="1em" class="WhatsNew-linkButton-v-icon">
               {{ mdiClipboardText }}
             </v-icon>
             {{ $t('検査情報') }}
@@ -149,6 +149,7 @@ export default Vue.extend({
       }
       &-v-icon {
         color: currentColor;
+        margin-right: 4px;
       }
     }
   }
