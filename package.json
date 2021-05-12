@@ -33,7 +33,7 @@
     "*.{css,scss,vue}": "stylelint"
   },
   "dependencies": {
-    "@nuxt/types": "2.15.5",
+    "@nuxt/types": "2.15.6",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/gtm": "2.4.0",
     "@nuxtjs/pwa": "3.3.5",
@@ -42,7 +42,7 @@
     "cross-env": "7.0.3",
     "dayjs": "1.10.4",
     "netlify-lambda": "2.0.6",
-    "nuxt": "2.15.5",
+    "nuxt": "2.15.6",
     "nuxt-i18n": "6.22.3",
     "vue": "2.6.12",
     "vue-chartjs": "3.5.1",
