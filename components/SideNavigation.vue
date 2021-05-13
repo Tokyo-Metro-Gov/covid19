@@ -150,6 +150,7 @@ import {
   mdiChartTimelineVariant,
   mdiClose,
   mdiDomain,
+  mdiHumanPregnant,
   mdiMenu,
 } from '@mdi/js'
 import Vue from 'vue'
@@ -224,6 +225,12 @@ export default Vue.extend({
           svg: 'ParentIcon',
           title: this.$t('お子様をお持ちの皆様へ'),
           link: this.localePath('/parent'),
+        },
+        {
+          iconPath: mdiHumanPregnant,
+          title: this.$t('妊産婦の皆様へ'),
+          link:
+            'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/ninsanpu.html',
         },
         {
           iconPath: mdiAccountMultiple,
