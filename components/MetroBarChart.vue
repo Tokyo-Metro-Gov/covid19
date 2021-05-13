@@ -86,7 +86,7 @@
 </template>
 
 <script lang="ts">
-import { Chart, ChartData, ChartOptions } from 'chart.js'
+import { ChartData, ChartOptions, ChartTooltipCallback } from 'chart.js'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
@@ -112,9 +112,9 @@ type Computed = {
   displayData: DisplayData
   tableHeaders: TableHeader[]
   tableData: TableItem[]
-  displayOption: Chart.ChartOptions
+  displayOption: ChartOptions
   displayDataHeader: DisplayData
-  displayOptionHeader: Chart.ChartOptions
+  displayOptionHeader: ChartOptions
 }
 type Props = {
   chartData: ChartData
@@ -126,8 +126,8 @@ type Props = {
   items: string[]
   periods: string[]
   unit: string
-  tooltipsTitle: Chart.ChartTooltipCallback['title']
-  tooltipsLabel: Chart.ChartTooltipCallback['label']
+  tooltipsTitle: ChartTooltipCallback['title']
+  tooltipsLabel: ChartTooltipCallback['label']
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -322,7 +322,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOptionHeader() {
-      const options: Chart.ChartOptions = {
+      const options: ChartOptions = {
         maintainAspectRatio: false,
         legend: {
           display: false,
