@@ -27,6 +27,17 @@
             {{ $t('変異株情報') }}
           </span>
         </app-link>
+        <app-link
+          class="WhatsNew-linkButton"
+          to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/kensa/index.html"
+        >
+          <span class="WhatsNew-linkButton-inner">
+            <v-icon size="1em" class="WhatsNew-linkButton-v-icon">
+              {{ mdiClipboardText }}
+            </v-icon>
+            {{ $t('検査情報') }}
+          </span>
+        </app-link>
       </div>
     </div>
     <ul class="WhatsNew-list">
@@ -48,7 +59,7 @@
 </template>
 
 <script lang="ts">
-import { mdiInformation } from '@mdi/js'
+import { mdiClipboardText, mdiInformation } from '@mdi/js'
 import Vue from 'vue'
 
 import AppLink from '@/components/AppLink.vue'
@@ -75,6 +86,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      mdiClipboardText,
       mdiInformation,
     }
   },
@@ -124,7 +136,7 @@ export default Vue.extend({
     }
 
     .WhatsNew-linkButton {
-      margin-right: 12px;
+      margin: 8px 12px 8px 0;
       @include button-text('sm');
       &-inner {
         display: inline-flex;
@@ -133,6 +145,10 @@ export default Vue.extend({
       &-icon {
         width: 1em;
         height: 1em;
+        margin-right: 4px;
+      }
+      &-v-icon {
+        color: currentColor;
         margin-right: 4px;
       }
     }
