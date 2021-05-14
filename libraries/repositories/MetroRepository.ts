@@ -13,7 +13,8 @@ export interface IMetroRepository extends IBaseRepository<Metro> {}
 
 export class MetroRepository
   extends BaseRepository<Metro>
-  implements IMetroRepository {
+  implements IMetroRepository
+{
   /**
    * 使用箇所
    *

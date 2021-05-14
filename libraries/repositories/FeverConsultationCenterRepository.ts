@@ -14,7 +14,8 @@ export interface IFeverConsultationCenterRepository
 
 export class FeverConsultationCenterRepository
   extends BaseRepository<FeverConsultationCenter>
-  implements IFeverConsultationCenterRepository {
+  implements IFeverConsultationCenterRepository
+{
   /**
    * 使用箇所
    *

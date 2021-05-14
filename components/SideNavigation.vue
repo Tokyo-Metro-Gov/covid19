@@ -197,28 +197,24 @@ export default Vue.extend({
         {
           svg: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに.nav'),
-          link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html',
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html',
         },
         {
           svg: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症で入院・宿泊療養される方へ'),
-          link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/corona_0401.files/20210507.pdf',
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/corona_0401.files/20210507.pdf',
         },
         {
           svg: 'SupportIcon',
           title: this.$t(
             '新型コロナウイルス感染症の患者発生状況に関するよくあるご質問'
           ),
-          link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronafaq.html',
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronafaq.html',
         },
         {
           svg: 'MaskTrashIcon',
           title: this.$t('ご家庭でのマスク等の捨て方'),
-          link:
-            'https://www.kankyo.metro.tokyo.lg.jp/resource/500200a20200221162304660.files/200327_chirashi.pdf',
+          link: 'https://www.kankyo.metro.tokyo.lg.jp/resource/500200a20200221162304660.files/200327_chirashi.pdf',
           divider: true,
         },
         {
@@ -229,8 +225,7 @@ export default Vue.extend({
         {
           iconPath: mdiHumanPregnant,
           title: this.$t('妊産婦の皆様へ'),
-          link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/ninsanpu.html',
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/ninsanpu.html',
         },
         {
           iconPath: mdiAccountMultiple,
@@ -245,8 +240,7 @@ export default Vue.extend({
         },
         {
           title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
-          link:
-            'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1010035/index.html',
+          link: 'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1010035/index.html',
         },
         {
           title: this.$t('東京都 新型コロナウイルス感染症 支援情報ナビ'),
@@ -260,40 +254,33 @@ export default Vue.extend({
           title: this.$t(
             '新型コロナウイルス感染症都民向け感染予防ハンドブック'
           ),
-          link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/kannsenyobouhandbook.html',
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/kannsenyobouhandbook.html',
         },
         {
           title: this.$t('新型コロナウイルス感染症自宅療養者向けハンドブック'),
-          link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/zitakuryouyouhandbook.html',
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/zitakuryouyouhandbook.html',
         },
         {
           title: this.$t('新型コロナウイルスワクチンの接種について'),
-          link:
-            'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine.html',
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine.html',
         },
         {
           title: this.$t(
             '新型コロナウイルス感染症に罹患し回復された方の体験に基づくメッセージの紹介'
           ),
-          link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-message-for-you-02.html',
+          link: 'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-message-for-you-02.html',
         },
         {
           title: this.$t('都民利用施設・都主催イベントに関する情報'),
-          link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html',
+          link: 'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html',
         },
         {
           title: this.$t('東京都における滞在人口の増減'),
-          link:
-            'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html',
+          link: 'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html',
         },
         {
           title: this.$t('知事からのメッセージ'),
-          link:
-            'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html',
+          link: 'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html',
         },
         {
           title: this.$t('当サイトについて'),
@@ -301,8 +288,7 @@ export default Vue.extend({
         },
         {
           title: this.$t('ご意見はこちら（外部サービスを使用しています）'),
-          link:
-            'https://docs.google.com/forms/d/e/1FAIpQLSdSROCPyr6Aj6WoAoYfqcT6StDOEUB38Grug1EJjUYzppcEZg/viewform?usp=sf_link',
+          link: 'https://docs.google.com/forms/d/e/1FAIpQLSdSROCPyr6Aj6WoAoYfqcT6StDOEUB38Grug1EJjUYzppcEZg/viewform?usp=sf_link',
         },
         {
           title: this.$t('お問い合わせ先一覧'),

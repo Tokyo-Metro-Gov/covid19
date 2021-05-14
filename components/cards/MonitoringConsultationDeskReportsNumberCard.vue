@@ -67,19 +67,16 @@ export default {
     AppLink,
   },
   data() {
-    const [
-      consulationReportsCount,
-      sevendayMoveAverages,
-      labels,
-    ] = Data.querents.data.reduce(
-      (res, data) => {
-        res[0].push(data['小計'])
-        res[1].push(data['７日間平均'])
-        res[2].push(data['日付'])
-        return res
-      },
-      [[], [], []]
-    )
+    const [consulationReportsCount, sevendayMoveAverages, labels] =
+      Data.querents.data.reduce(
+        (res, data) => {
+          res[0].push(data['小計'])
+          res[1].push(data['７日間平均'])
+          res[2].push(data['日付'])
+          return res
+        },
+        [[], [], []]
+      )
     const chartData = [consulationReportsCount, sevendayMoveAverages]
     const dataLabels = [this.$t('相談件数'), this.$t('７日間移動平均')]
     const date = Data.querents.date
