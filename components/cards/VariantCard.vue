@@ -15,6 +15,7 @@
         :periods="variantLabels"
         :data-labels="chartLabels"
         :table-labels="tableLabels"
+        :scale-labels="scaleLabels"
         :last-period="variantData.lastPeriod"
         unit="%"
       >
@@ -114,6 +115,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     return {
       chartLabels,
       tableLabels,
+      scaleLabels,
       getFormatter,
     }
   },

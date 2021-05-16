@@ -86,7 +86,7 @@
 </template>
 
 <script lang="ts">
-import { Chart, ChartData, ChartOptions } from 'chart.js'
+import { ChartData, ChartOptions, ChartTooltipCallback } from 'chart.js'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
@@ -112,9 +112,9 @@ type Computed = {
   displayData: DisplayData
   tableHeaders: TableHeader[]
   tableData: TableItem[]
-  displayOption: Chart.ChartOptions
+  displayOption: ChartOptions
   displayDataHeader: DisplayData
-  displayOptionHeader: Chart.ChartOptions
+  displayOptionHeader: ChartOptions
 }
 type Props = {
   chartData: ChartData
@@ -126,8 +126,8 @@ type Props = {
   items: string[]
   periods: string[]
   unit: string
-  tooltipsTitle: Chart.ChartTooltipCallback['title']
-  tooltipsLabel: Chart.ChartTooltipCallback['label']
+  tooltipsTitle: ChartTooltipCallback['title']
+  tooltipsLabel: ChartTooltipCallback['label']
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -322,7 +322,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOptionHeader() {
-      const options: Chart.ChartOptions = {
+      const options: ChartOptions = {
         maintainAspectRatio: false,
         legend: {
           display: false,
@@ -340,7 +340,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 10,
                 maxTicksLimit: 20,
-                fontColor: 'transparent',
+                fontColor: 'transparent', // displayOption では #808080
                 callback: (_, i) => {
                   return this.periods[i]
                 },
@@ -351,14 +351,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               stacked: true,
               gridLines: {
                 drawOnChartArea: false,
-                drawTicks: false, // true -> false
+                drawTicks: false, // displayOption では false
                 drawBorder: false,
                 tickMarkLength: 10,
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // #808080
-                padding: 13, // 3 + 10(tickMarkLength)
+                fontColor: 'transparent', // displayOption では #808080
+                padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
               type: 'time',

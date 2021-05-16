@@ -150,6 +150,7 @@ type Props = {
   labels: string[]
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
+  scaleLabels: string[] | TranslateResult[]
   periods: string[]
   lastPeriod: Period
   url: string
@@ -228,6 +229,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: () => [],
     },
     tableLabels: {
+      type: Array,
+      default: () => [],
+    },
+    scaleLabels: {
       type: Array,
       default: () => [],
     },
@@ -437,6 +442,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             {
               id: 'y-axis-1',
               position: 'left',
+              scaleLabel: {
+                display: true,
+              },
               stacked: true,
               gridLines: {
                 display: true,
@@ -457,6 +465,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             {
               id: 'y-axis-2',
               position: 'right',
+              scaleLabel: {
+                display: true,
+              },
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
@@ -560,6 +571,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               id: 'y-axis-1',
               position: 'left',
               stacked: true,
+              scaleLabel: {
+                display: true,
+                labelString: this.scaleLabels[0] as string,
+              },
               gridLines: {
                 display: true,
                 drawOnChartArea: false, // displayOption では true
@@ -579,6 +594,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             {
               id: 'y-axis-2',
               position: 'right',
+              scaleLabel: {
+                display: true,
+                labelString: this.scaleLabels[1] as string,
+              },
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
