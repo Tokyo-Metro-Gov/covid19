@@ -383,6 +383,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
+              stacked: true,
               position: 'left',
               gridLines: {
                 display: true,
@@ -489,6 +490,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
+              stacked: true,
               position: 'left',
               gridLines: {
                 display: true,
