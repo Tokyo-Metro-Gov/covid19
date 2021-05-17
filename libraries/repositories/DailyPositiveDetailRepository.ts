@@ -14,7 +14,8 @@ export interface IDailyPositiveDetailRepository
 
 export class DailyPositiveDetailRepository
   extends BaseRepository<DailyPositiveDetail>
-  implements IDailyPositiveDetailRepository {
+  implements IDailyPositiveDetailRepository
+{
   /**
    * 使用箇所
    *

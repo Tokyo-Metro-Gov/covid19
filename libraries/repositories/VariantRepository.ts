@@ -12,7 +12,8 @@ import {
 export interface IVariantRepository extends IBaseRepository<Variant> {}
 export class VariantRepository
   extends BaseRepository<Variant>
-  implements IVariantRepository {
+  implements IVariantRepository
+{
   /**
    * 使用箇所
    *

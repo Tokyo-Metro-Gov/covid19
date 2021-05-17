@@ -335,16 +335,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               let casesTotal, cases, label
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index!].toLocaleString()
-                cases = data[tooltipItem.datasetIndex!][
-                  tooltipItem.index!
-                ].toLocaleString()
+                cases =
+                  data[tooltipItem.datasetIndex!][
+                    tooltipItem.index!
+                  ].toLocaleString()
               } else {
-                casesTotal = cumulativeSumArray[
-                  tooltipItem.index!
-                ].toLocaleString()
-                cases = cumulativeData[tooltipItem.datasetIndex!][
-                  tooltipItem.index!
-                ].toLocaleString()
+                casesTotal =
+                  cumulativeSumArray[tooltipItem.index!].toLocaleString()
+                cases =
+                  cumulativeData[tooltipItem.datasetIndex!][
+                    tooltipItem.index!
+                  ].toLocaleString()
               }
 
               label = `${

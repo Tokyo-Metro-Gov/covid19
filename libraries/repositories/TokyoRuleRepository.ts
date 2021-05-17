@@ -13,7 +13,8 @@ export interface ITokyoRuleRepository extends IBaseRepository<TokyoRule> {}
 
 export class TokyoRuleRepository
   extends BaseRepository<TokyoRule>
-  implements ITokyoRuleRepository {
+  implements ITokyoRuleRepository
+{
   /**
    * 使用箇所
    *

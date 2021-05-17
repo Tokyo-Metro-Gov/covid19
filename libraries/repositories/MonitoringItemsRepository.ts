@@ -14,7 +14,8 @@ export interface IMonitoringItemsRepository
 
 export class MonitoringItemsRepository
   extends BaseRepository<MonitoringItems>
-  implements IMonitoringItemsRepository {
+  implements IMonitoringItemsRepository
+{
   /**
    * 使用箇所
    *

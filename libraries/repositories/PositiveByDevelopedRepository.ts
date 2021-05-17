@@ -14,7 +14,8 @@ export interface IPositiveByDevelopedRepository
 
 export class PositiveByDevelopedRepository
   extends BaseRepository<PositiveByDeveloped>
-  implements IPositiveByDevelopedRepository {
+  implements IPositiveByDevelopedRepository
+{
   /**
    * 使用箇所
    *
