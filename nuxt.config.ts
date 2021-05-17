@@ -176,7 +176,6 @@ const config: NuxtConfig = {
           ],
         ]
       },
-      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
     },
     postcss: {
       preset: {
