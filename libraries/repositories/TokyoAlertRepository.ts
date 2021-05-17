@@ -13,7 +13,8 @@ export interface ITokyoAlertRepository extends IBaseRepository<TokyoAlert> {}
 
 export class TokyoAlertRepository
   extends BaseRepository<TokyoAlert>
-  implements ITokyoAlertRepository {
+  implements ITokyoAlertRepository
+{
   /**
    * 使用箇所
    *

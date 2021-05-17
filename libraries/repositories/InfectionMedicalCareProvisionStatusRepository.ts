@@ -18,7 +18,8 @@ export interface IInfectionMedicalcareprovisionStatusRepository
 
 export class InfectionMedicalcareprovisionStatusRepository
   extends BaseRepository<InfectionMedicalcareprovisionStatus>
-  implements IInfectionMedicalcareprovisionStatusRepository {
+  implements IInfectionMedicalcareprovisionStatusRepository
+{
   /**
    * 使用箇所
    *

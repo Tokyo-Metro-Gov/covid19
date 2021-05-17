@@ -14,7 +14,8 @@ export interface IPositiveStatusRepository
 
 export class PositiveStatusRepository
   extends BaseRepository<PositiveStatus>
-  implements IPositiveStatusRepository {
+  implements IPositiveStatusRepository
+{
   /**
    * 使用箇所
    *

@@ -14,7 +14,8 @@ export interface IPositiveByDiagnosedRepository
 
 export class PositiveByDiagnosedRepository
   extends BaseRepository<PositiveByDiagnosed>
-  implements IPositiveByDiagnosedRepository {
+  implements IPositiveByDiagnosedRepository
+{
   /**
    * 使用箇所
    *

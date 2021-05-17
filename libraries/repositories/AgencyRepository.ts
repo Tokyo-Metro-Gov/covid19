@@ -13,7 +13,8 @@ export interface IAgencyRepository extends IBaseRepository<Agency> {}
 
 export class AgencyRepository
   extends BaseRepository<Agency>
-  implements IAgencyRepository {
+  implements IAgencyRepository
+{
   /**
    * 使用箇所
    *

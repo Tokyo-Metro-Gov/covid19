@@ -792,3 +792,5 @@ TAG_ADD,構成割合
 TAG_ADD,実施割合
 RUN,2021/05/13 12:25
 TAG_ADD,検査情報
+RUN,2021/05/17 10:23
+TAG_ADD,{month}比 {rateWithArrow}
