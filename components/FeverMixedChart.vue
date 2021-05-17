@@ -304,7 +304,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
-      const unit = this.unit[1]
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
 
       const options: ChartOptions = {
@@ -314,22 +313,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             label: (tooltipItem) => {
               const formatter = this.getFormatter(tooltipItem.datasetIndex!)
               const cases = formatter(parseFloat(tooltipItem.value!))
-              let label = `${
+              return `${
                 this.dataLabels[tooltipItem.datasetIndex!]
-              } : ${cases} ${this.$t('人')}`
-              if (tooltipItem.datasetIndex! >= 3) {
-                label = `${
-                  this.dataLabels[tooltipItem.datasetIndex!]
-                } : ${cases} ${unit}`
-              }
-              return label
+              } : ${cases} ${this.unit}`
             },
             title: (tooltipItem, data) => {
-              if (tooltipItem[0].datasetIndex! < 4) {
-                const label = data.labels![tooltipItem[0].index!] as string
-                return this.$d(new Date(label), 'date')
-              }
-              return ''
+              const label = data.labels![tooltipItem[0].index!] as string
+              return this.$d(new Date(label), 'date')
             },
           },
         },
