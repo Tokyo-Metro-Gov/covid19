@@ -13,7 +13,8 @@ export interface IPatientRepository extends IBaseRepository<Patient> {}
 
 export class PatientRepository
   extends BaseRepository<Patient>
-  implements IPatientRepository {
+  implements IPatientRepository
+{
   /**
    * 使用箇所
    *

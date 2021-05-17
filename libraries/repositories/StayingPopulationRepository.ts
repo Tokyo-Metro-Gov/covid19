@@ -14,7 +14,8 @@ export interface IStayingPopulationRepository
 
 export class StayingPopulationRepository
   extends BaseRepository<StayingPopulation>
-  implements IStayingPopulationRepository {
+  implements IStayingPopulationRepository
+{
   /**
    * 使用箇所
    *

@@ -9,8 +9,8 @@ import { VariantRepository } from '@/libraries/repositories/VariantRepository'
 
 export const state = () => ({
   data: new DataRepository().data,
-  infectionMedicalCareProvisionStatus: new InfectionMedicalCareProvisionStatusRepository()
-    .data,
+  infectionMedicalCareProvisionStatus:
+    new InfectionMedicalCareProvisionStatusRepository().data,
   monitoringCommentImage: new MonitoringCommentImageRepository().data,
   news: new NewsRepository().data,
   stayingPopulation: new StayingPopulationRepository().data,

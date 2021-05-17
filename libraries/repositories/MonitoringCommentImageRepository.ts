@@ -14,7 +14,8 @@ export interface IMonitoringCommentImageRepository
 
 export class MonitoringCommentImageRepository
   extends BaseRepository<MonitoringCommentImage>
-  implements IMonitoringCommentImageRepository {
+  implements IMonitoringCommentImageRepository
+{
   /**
    * 使用箇所
    *

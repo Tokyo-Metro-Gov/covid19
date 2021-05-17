@@ -14,7 +14,8 @@ export interface IConsultationAboutFeverRepository
 
 export class ConsultationAboutFeverRepository
   extends BaseRepository<ConsultationAboutFever>
-  implements IConsultationAboutFeverRepository {
+  implements IConsultationAboutFeverRepository
+{
   /**
    * 使用箇所
    *

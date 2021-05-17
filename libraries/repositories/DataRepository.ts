@@ -13,7 +13,8 @@ export interface IDataRepository extends IBaseRepository<Data> {}
 
 export class DataRepository
   extends BaseRepository<Data>
-  implements IDataRepository {
+  implements IDataRepository
+{
   /**
    * 使用箇所
    *

@@ -12,7 +12,8 @@ import {
 export interface INewsRepository extends IBaseRepository<News> {}
 export class NewsRepository
   extends BaseRepository<News>
-  implements INewsRepository {
+  implements INewsRepository
+{
   /**
    * 使用箇所
    *
