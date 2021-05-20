@@ -393,7 +393,7 @@ function readSummaryFile() : array {
 }
 
 function readStasusFile() : array {
-  $data = xlsxToArray('Csv', __DIR__.'/downloads/status.csv', 'RAW', 'A2:M200', 'A1:M1');
+  $data = xlsxToArray('Csv', __DIR__.'/downloads/status.csv', 'RAW', 'A2:M700', 'A1:M1');
   $time = $data->filter(function ($row) {
     return $row['更新時間'] !== null;
   })->map(function ($row) {
