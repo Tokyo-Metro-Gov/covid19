@@ -28,9 +28,9 @@
       <!-- <tested-cases-details-card /> -->
       <confirmed-cases-attributes-card />
       <confirmed-cases-number-card />
-      <tested-number-card />
-      <okinawa-land-map-card />
-      <okinawa-land-dynamic-map-card />
+      <!-- <tested-number-card /> -->
+      <!-- <okinawa-land-map-card /> -->
+      <!-- <okinawa-land-dynamic-map-card /> -->
 
       <!--<telephone-advisory-reports-number-card />
       <consultation-desk-reports-number-card />
