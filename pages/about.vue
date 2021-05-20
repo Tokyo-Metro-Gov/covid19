@@ -1,8 +1,6 @@
 <template>
   <div class="About">
-    <page-header class="mb-3">
-      {{ $t('当サイトについて') }}
-    </page-header>
+    <page-header :title="$t('当サイトについて')" />
     <static-card>
       {{
         $t(

@@ -1,8 +1,6 @@
 <template>
   <div class="Worker">
-    <page-header class="mb-3">
-      {{ $t('企業の皆様・はたらく皆様へ') }}
-    </page-header>
+    <page-header :title="$t('企業の皆様・はたらく皆様へ')" />
     <static-card>
       <h3>
         <app-link
