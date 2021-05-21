@@ -110,7 +110,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     @include font-size(12);
 
     color: $gray-3;
-    margin: 0 0 0 auto;
+    margin: 0.2em 0 0 auto;
   }
 }
 </style>
