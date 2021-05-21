@@ -76,8 +76,6 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
-  row-gap: 0.2em;
-  column-gap: 1.5em;
 
   @include lessThan($small) {
     flex-direction: column;
@@ -96,6 +94,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     @include lessThan($small) {
       @include font-size(20);
     }
+
+    @include largerThan($small) {
+      margin-right: 2em;
+    }
   }
 
   .UpdatedAt {
@@ -108,10 +110,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     @include font-size(12);
 
     color: $gray-3;
-
-    @include largerThan($small) {
-      margin: 0 0 0 auto;
-    }
+    margin: 0 0 0 auto;
   }
 }
 </style>
