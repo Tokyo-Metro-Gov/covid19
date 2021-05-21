@@ -96,7 +96,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     }
 
     @include largerThan($small) {
-      margin-right: 2em;
+      margin-right: 0.5em;
     }
   }
 
