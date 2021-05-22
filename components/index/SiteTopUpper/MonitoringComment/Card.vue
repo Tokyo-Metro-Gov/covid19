@@ -18,7 +18,7 @@
               </span>
             </p>
             <h4 class="MonitoringCommentFrame-title">{{ $t('感染状況') }}</h4>
-            <monitoring-comment-frame
+            <frame
               :level="monitoringComment['総括コメント-感染状況'].level - 1"
               :comment="commentMonitoring('総括コメント-感染状況')"
             />
@@ -27,7 +27,7 @@
             <h4 class="MonitoringCommentFrame-title">
               {{ $t('医療提供体制') }}
             </h4>
-            <monitoring-comment-frame
+            <frame
               :level="monitoringComment['総括コメント-医療提供体制'].level - 1"
               :comment="commentMonitoring('総括コメント-医療提供体制')"
             />
@@ -54,8 +54,8 @@ import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
 import AppLink from '@/components/AppLink.vue'
+import Frame from '@/components/index/SiteTopUpper/MonitoringComment/Frame.vue'
 import ImageSwipe from '@/components/index/SiteTopUpper/MonitoringComment/ImageSwipe.vue'
-import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'
 import {
   formatMonitoringComment,
@@ -69,7 +69,7 @@ type CommentKey = {
 export default Vue.extend({
   components: {
     AppLink,
-    MonitoringCommentFrame,
+    Frame,
     ImageSwipe,
   },
   data(): {
