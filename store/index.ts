@@ -4,7 +4,6 @@ import { InfectionMedicalcareprovisionStatusRepository as InfectionMedicalCarePr
 import { MonitoringCommentImageRepository } from '@/libraries/repositories/MonitoringCommentImageRepository'
 import { NewsRepository } from '@/libraries/repositories/NewsRepository'
 import { StayingPopulationRepository } from '@/libraries/repositories/StayingPopulationRepository'
-import { TokyoAlertRepository } from '@/libraries/repositories/TokyoAlertRepository'
 import { VariantRepository } from '@/libraries/repositories/VariantRepository'
 
 export const state = () => ({
@@ -14,6 +13,5 @@ export const state = () => ({
   monitoringCommentImage: new MonitoringCommentImageRepository().data,
   news: new NewsRepository().data,
   stayingPopulation: new StayingPopulationRepository().data,
-  tokyoAlert: new TokyoAlertRepository().data,
   variant: new VariantRepository().data,
 })
