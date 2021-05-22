@@ -8,7 +8,6 @@
         {{ $t('最新のお知らせ') }}
       </h3>
       <div class="WhatsNew-linkGroup">
-        <lazy-link-to-information-about-emergency-measure v-if="isEmergency" />
         <app-link
           class="WhatsNew-linkButton"
           to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine.html"
@@ -77,11 +76,6 @@ export default Vue.extend({
     items: {
       type: Array,
       required: true,
-    },
-    isEmergency: {
-      type: Boolean,
-      required: false,
-      default: false,
     },
   },
   data() {
