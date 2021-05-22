@@ -31,6 +31,7 @@
 import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
+import AppLink from '@/components/_shared/AppLink.vue'
 import {
   Data as IStayingPopulationData,
   Datum as IStayingPopulationDatum,
@@ -58,6 +59,9 @@ type Computed = {
 type Props = {}
 
 export default Vue.extend<Data, Methods, Computed, Props>({
+  components: {
+    AppLink,
+  },
   data() {
     return {
       mdiChevronRight,

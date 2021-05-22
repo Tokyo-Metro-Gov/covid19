@@ -53,7 +53,7 @@
 import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
-import AppLink from '@/components/AppLink.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
 import Frame from '@/components/index/SiteTopUpper/MonitoringComment/Frame.vue'
 import ImageSwipe from '@/components/index/SiteTopUpper/MonitoringComment/ImageSwipe.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'

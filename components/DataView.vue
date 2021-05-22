@@ -81,7 +81,7 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
-import AppLink from '@/components/AppLink.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
 import DataViewExpantionPanel from '@/components/DataViewExpantionPanel.vue'
 import DataViewShare from '@/components/DataViewShare.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'

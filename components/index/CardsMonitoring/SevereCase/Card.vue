@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import AppLink from '@/components/AppLink.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
 import Chart from '@/components/index/CardsMonitoring/SevereCase/Chart.vue'
 import Data from '@/data/positive_status.json'
 import { convertDateToISO8601Format } from '@/utils/formatDate.ts'

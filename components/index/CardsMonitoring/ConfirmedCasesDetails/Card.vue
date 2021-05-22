@@ -60,7 +60,7 @@
 <script>
 import dayjs from 'dayjs'
 
-import AppLink from '@/components/AppLink.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
 import DataView from '@/components/DataView.vue'
 // table タグとの衝突を避けるため ConfirmedCasesDetailsTable とする
 import ConfirmedCasesDetailsTable from '@/components/index/CardsMonitoring/ConfirmedCasesDetails/Table.vue'

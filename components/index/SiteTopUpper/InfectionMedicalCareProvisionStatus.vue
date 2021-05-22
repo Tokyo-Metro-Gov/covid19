@@ -57,6 +57,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
+import AppLink from '@/components/_shared/AppLink.vue'
 import {
   Data as IInfectionMedicalCareProvisionStatusData,
   InfectionMedicalcareprovisionStatus as IInfectionMedicalCareProvisionStatus,
@@ -75,6 +76,9 @@ type Computed = {
 type Props = {}
 
 export default Vue.extend<Data, Methods, Computed, Props>({
+  components: {
+    AppLink,
+  },
   computed: {
     statuses() {
       return this.infectionMedicalCareProvisionStatus.data

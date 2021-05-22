@@ -61,7 +61,7 @@
 import { mdiClipboardText, mdiInformation } from '@mdi/js'
 import Vue from 'vue'
 
-import AppLink from '@/components/AppLink.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
 import CovidIcon from '@/static/covid.svg'
 import VaccineIcon from '@/static/vaccine.svg'
 import { convertDateToISO8601Format } from '@/utils/formatDate'

@@ -156,9 +156,9 @@ import {
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 
+import AppLink from '@/components/_shared/AppLink.vue'
 import LanguageSelector from '@/components/_shared/SideNavigation/LanguageSelector.vue'
 import MenuList from '@/components/_shared/SideNavigation/MenuList.vue'
-import AppLink from '@/components/AppLink.vue'
 
 type Item = {
   iconPath?: string

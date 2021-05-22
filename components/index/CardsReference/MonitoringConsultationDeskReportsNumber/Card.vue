@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import AppLink from '@/components/AppLink.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
 import Chart from '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Chart.vue'
 import Data from '@/data/data.json'
 
