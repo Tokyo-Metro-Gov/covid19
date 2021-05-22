@@ -13,7 +13,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import Consultation from '@/components/Consultation.vue'
+import Consultation from '@/components/index/SiteTopUpper/Consultation.vue'
 import InfectionMedicalCareProvisionStatus from '@/components/index/SiteTopUpper/InfectionMedicalCareProvisionStatus.vue'
 import MonitoringCommentCard from '@/components/index/SiteTopUpper/MonitoringComment/Card.vue'
 import StayingPopulation from '@/components/index/SiteTopUpper/StayingPopulation.vue'
