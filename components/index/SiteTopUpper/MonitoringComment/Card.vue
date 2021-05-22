@@ -35,7 +35,7 @@
         </v-col>
         <v-col class="MonitoringComment-col">
           <div class="MonitoringComment-description">
-            <monitoring-comment-card-image-swipe />
+            <image-swipe />
             <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
             <app-link
               to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
@@ -54,7 +54,7 @@ import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
 import AppLink from '@/components/AppLink.vue'
-import MonitoringCommentCardImageSwipe from '@/components/MonitoringCommentCardImageSwipe.vue'
+import ImageSwipe from '@/components/index/SiteTopUpper/MonitoringComment/ImageSwipe.vue'
 import MonitoringCommentFrame from '@/components/MonitoringCommentFrame.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'
 import {
@@ -70,7 +70,7 @@ export default Vue.extend({
   components: {
     AppLink,
     MonitoringCommentFrame,
-    MonitoringCommentCardImageSwipe,
+    ImageSwipe,
   },
   data(): {
     monitoringComment: CommentKey

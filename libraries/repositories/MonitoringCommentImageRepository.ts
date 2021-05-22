@@ -19,7 +19,7 @@ export class MonitoringCommentImageRepository
   /**
    * 使用箇所
    *
-   * 感染状況・医療提供体制の分析 (components/index/SiteTopUpper/MonitoringComment/Card.vue -\> components/MonitoringCommentCardImageSwipe.vue)
+   * 感染状況・医療提供体制の分析 (components/index/SiteTopUpper/MonitoringComment/Card.vue -\> components/index/SiteTopUpper/MonitoringComment/ImageSwipe.vue)
    */
   constructor() {
     super(Convert.toMonitoringCommentImage(JSON.stringify(rawData)))
