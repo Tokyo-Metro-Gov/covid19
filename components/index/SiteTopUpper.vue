@@ -16,8 +16,8 @@ import Vue from 'vue'
 import Consultation from '@/components/Consultation.vue'
 import InfectionMedicalCareProvisionStatus from '@/components/index/SiteTopUpper/InfectionMedicalCareProvisionStatus.vue'
 import MonitoringCommentCard from '@/components/index/SiteTopUpper/MonitoringComment/Card.vue'
+import StayingPopulation from '@/components/index/SiteTopUpper/StayingPopulation.vue'
 import WhatsNew from '@/components/index/SiteTopUpper/WhatsNew.vue'
-import StayingPopulation from '@/components/StayingPopulation.vue'
 import {
   News as INews,
   NewsItem as INewsItem,
