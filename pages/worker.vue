@@ -74,7 +74,7 @@ import { MetaInfo } from 'vue-meta'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import PageHeader from '@/components/_shared/PageHeader.vue'
-import StaticCard from '@/components/StaticCard.vue'
+import StaticCard from '@/components/_shared/StaticCard.vue'
 
 export default Vue.extend({
   components: {
