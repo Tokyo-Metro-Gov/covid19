@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import MixedBarAndLineChart from '@/components/MixedBarAndLineChart.vue'
+import MixedBarAndLineChart from '@/components/index/_shared/MixedBarAndLineChart.vue'
 import TokyoRule from '@/data/tokyo_rule.json'
 import {
   getNumberToFixedFunction,

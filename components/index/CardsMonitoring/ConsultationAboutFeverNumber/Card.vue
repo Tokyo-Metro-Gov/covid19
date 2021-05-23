@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import MixedBarAndLineChart from '@/components/MixedBarAndLineChart.vue'
+import MixedBarAndLineChart from '@/components/index/_shared/MixedBarAndLineChart.vue'
 import ConsultationAboutFever from '@/data/consultation_about_fever.json'
 import {
   getNumberToFixedFunction,
