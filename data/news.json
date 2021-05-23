@@ -1,10 +1,16 @@
 {
     "newsItems": [
         {
+            "date": "2021\/05\/21",
+            "url": "https://www.pref.okinawa.lg.jp/site/chijiko/koho/corona/210521.html",
+            "text": "「緊急事態 5/23〜6/20」特措法に基づく緊急事態措置に係る沖縄県対処方針",
+            "homepage": true
+        },
+        {
             "date": "2021\/04\/22",
             "url": "https://www.pref.okinawa.lg.jp/site/chijiko/koho/corona/20210227.html",
             "text": "「まん延防止等重点措置」指定に伴う沖縄県対処方針について（４月22日更新）",
-            "homepage": true
+            "homepage": false
         },
         {
             "date": "2021\/04\/12",
@@ -16,7 +22,7 @@
             "date": "2021\/04\/12",
             "url": "https://www.pref.okinawa.lg.jp/site/chijiko/kohokoryu/koho/documents/0412faq.pdf",
             "text": "「まん延防止等重点措置」に関するQ&A (PDF)",
-            "homepage": true
+            "homepage": false
         },
         {
             "date": "2021\/04\/10",
