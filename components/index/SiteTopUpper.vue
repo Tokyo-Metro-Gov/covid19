@@ -1,7 +1,7 @@
 <template>
   <div class="SiteTopUpper">
     <whats-new :items="newsItems" />
-    <infection-medicalcareprovision-status />
+    <infection-medical-care-provision-status />
     <monitoring-comment-card />
     <div class="row mb-4">
       <staying-population />
@@ -14,6 +14,7 @@
 import Vue from 'vue'
 
 import Consultation from '@/components/Consultation.vue'
+import InfectionMedicalCareProvisionStatus from '@/components/index/SiteTopUpper/InfectionMedicalCareProvisionStatus.vue'
 import WhatsNew from '@/components/index/SiteTopUpper/WhatsNew.vue'
 import MonitoringCommentCard from '@/components/MonitoringCommentCard.vue'
 import StayingPopulation from '@/components/StayingPopulation.vue'
@@ -33,6 +34,7 @@ type Props = {}
 export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     WhatsNew,
+    InfectionMedicalCareProvisionStatus,
     MonitoringCommentCard,
     Consultation,
     StayingPopulation,

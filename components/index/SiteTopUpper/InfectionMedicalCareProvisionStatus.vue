@@ -1,20 +1,20 @@
 <template>
-  <div class="InfectionMedicalcareprovisionStatus">
-    <div class="InfectionMedicalcareprovisionStatus-heading">
-      <h3 class="InfectionMedicalcareprovisionStatus-title">
+  <div class="InfectionMedicalCareProvisionStatus">
+    <div class="InfectionMedicalCareProvisionStatus-heading">
+      <h3 class="InfectionMedicalCareProvisionStatus-title">
         {{ $t('感染状況・医療提供体制（サマリ）') }}
         {{ formatDate(date) }}時点
       </h3>
     </div>
-    <div class="InfectionMedicalcareprovisionStatus-Box">
-      <div class="InfectionMedicalcareprovisionStatus-Headline">
+    <div class="InfectionMedicalCareProvisionStatus-Box">
+      <div class="InfectionMedicalCareProvisionStatus-Headline">
         <app-link
           to="https://www.fukushihoken.metro.tokyo.lg.jp/hodo/saishin/hassei.html"
         >
           {{ $t('感染状況') }}
         </app-link>
       </div>
-      <div class="InfectionMedicalcareprovisionStatus-description">
+      <div class="InfectionMedicalCareProvisionStatus-description">
         {{ $t('新規陽性者')
         }}<span>{{ statuses['新規陽性者'].toLocaleString() }}人</span> /
         {{ $t('検査数')
@@ -32,15 +32,15 @@
         }}</span>
       </div>
     </div>
-    <div class="InfectionMedicalcareprovisionStatus-Box">
-      <div class="InfectionMedicalcareprovisionStatus-Headline">
+    <div class="InfectionMedicalCareProvisionStatus-Box">
+      <div class="InfectionMedicalCareProvisionStatus-Headline">
         <app-link
           to="https://stopcovid19.metro.tokyo.lg.jp/cards/details-of-confirmed-cases/"
         >
           {{ $t('医療提供体制') }}
         </app-link>
       </div>
-      <div class="InfectionMedicalcareprovisionStatus-description">
+      <div class="InfectionMedicalCareProvisionStatus-description">
         {{ $t('入院数')
         }}<span>{{ statuses['入院数'].toLocaleString() }}人</span> （{{
           $t('確保病床数')
@@ -98,19 +98,19 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 </script>
 
 <style lang="scss">
-.InfectionMedicalcareprovisionStatus {
+.InfectionMedicalCareProvisionStatus {
   @include card-container();
 
   padding: 8px 18px;
   margin-bottom: 10px;
 
-  .InfectionMedicalcareprovisionStatus-heading {
+  .InfectionMedicalCareProvisionStatus-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 
-    .InfectionMedicalcareprovisionStatus-title {
+    .InfectionMedicalCareProvisionStatus-title {
       display: flex;
       align-items: center;
       padding: 0 0 4px 0;
@@ -121,10 +121,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     }
   }
 
-  .InfectionMedicalcareprovisionStatus-Box {
+  .InfectionMedicalCareProvisionStatus-Box {
     overflow: hidden;
 
-    .InfectionMedicalcareprovisionStatus-Headline {
+    .InfectionMedicalCareProvisionStatus-Headline {
       float: left;
       text-align: center;
       width: 10em;
@@ -136,7 +136,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       @include font-size(12);
     }
 
-    .InfectionMedicalcareprovisionStatus-description {
+    .InfectionMedicalCareProvisionStatus-description {
       @include font-size(12);
 
       padding: 3px 0 0 0;
