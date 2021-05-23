@@ -20,7 +20,7 @@ export class DataRepository
    *
    * レイアウト (layouts/default.vue)
    *
-   * トップページ上部 (components/SiteTopUpper.vue)
+   * トップページ上部 (components/index/SiteTopUpper.vue)
    *
    * 検査陽性者の状況 (components/index/CardsMonitoring/ConfirmedCasesDetails/Card.vue)
    *
