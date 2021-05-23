@@ -94,7 +94,7 @@ import DataViewTable, {
 } from '@/components/DataViewTable.vue'
 import DataSelector from '@/components/index/_shared/DataSelector.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
-import ScrollableChart from '@/components/ScrollableChart.vue'
+import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 

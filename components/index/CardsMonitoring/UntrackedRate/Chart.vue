@@ -112,7 +112,7 @@ import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
-import ScrollableChart from '@/components/ScrollableChart.vue'
+import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
 import {
   DisplayData,
   yAxesBgPlugin,
