@@ -42,8 +42,8 @@
 </template>
 
 <script>
+import TimeBarChart from '@/components/index/_shared/TimeBarChart.vue'
 import DataViewCustomInfoPanel from '@/components/index/CardsReference/PositiveNumberByDevelopedDate/DataViewCustomInfoPanel.vue'
-import TimeBarChart from '@/components/TimeBarChart.vue'
 import positiveByDeveloped from '@/data/positive_by_developed.json'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import formatGraph from '@/utils/formatGraph'
