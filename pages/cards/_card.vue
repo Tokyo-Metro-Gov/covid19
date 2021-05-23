@@ -53,10 +53,10 @@ import AgencyCard from '@/components/cards/AgencyCard.vue'
 /* eslint-enable simple-import-sort/imports */
 
 import { Vue, Component } from 'nuxt-property-decorator'
-import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
-import type { NuxtConfig } from '@nuxt/types'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
+import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
+import type { NuxtConfig } from '@nuxt/types'
 
 @Component({
   components: {
