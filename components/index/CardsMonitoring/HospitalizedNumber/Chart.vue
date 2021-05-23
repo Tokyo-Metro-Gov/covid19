@@ -68,7 +68,7 @@ import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/DataViewTable.vue'
-import OpenDataLink from '@/components/OpenDataLink.vue'
+import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import {
   DataSets,

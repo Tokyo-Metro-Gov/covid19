@@ -90,7 +90,7 @@ import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
 import DataView from '@/components/DataView.vue'
 import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
-import OpenDataLink from '@/components/OpenDataLink.vue'
+import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 
 export default Vue.extend({
   components: { DataView, DataViewDataSetPanel, OpenDataLink, ScaleLoader },
