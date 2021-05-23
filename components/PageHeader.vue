@@ -104,6 +104,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     @include font-size(14);
 
     color: $gray-3;
+
+    @include largerThan($small) {
+      margin-bottom: 0.2em;
+    }
   }
 
   .Annotation {
