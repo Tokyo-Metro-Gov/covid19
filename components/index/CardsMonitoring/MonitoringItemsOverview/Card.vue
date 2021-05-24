@@ -76,7 +76,7 @@
 
 <script>
 import AppLink from '@/components/_shared/AppLink.vue'
-import DataView from '@/components/DataView.vue'
+import DataView from '@/components/index/_shared/DataView.vue'
 import InfectionStatus from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/InfectionStatus.vue'
 import MedicalSystem from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/MedicalSystem.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'

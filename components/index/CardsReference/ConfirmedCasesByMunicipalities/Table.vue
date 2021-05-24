@@ -31,8 +31,8 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import DataView from '@/components/DataView.vue'
 import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
+import DataView from '@/components/index/_shared/DataView.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 
 export default Vue.extend({

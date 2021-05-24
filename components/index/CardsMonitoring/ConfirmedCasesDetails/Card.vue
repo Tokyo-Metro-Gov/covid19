@@ -61,7 +61,7 @@
 import dayjs from 'dayjs'
 
 import AppLink from '@/components/_shared/AppLink.vue'
-import DataView from '@/components/DataView.vue'
+import DataView from '@/components/index/_shared/DataView.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 // table タグとの衝突を避けるため ConfirmedCasesDetailsTable とする
 import ConfirmedCasesDetailsTable from '@/components/index/CardsMonitoring/ConfirmedCasesDetails/Table.vue'

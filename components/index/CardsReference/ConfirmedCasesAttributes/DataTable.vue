@@ -88,8 +88,8 @@ import { mdiAlert } from '@mdi/js'
 import Vue from 'vue'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
-import DataView from '@/components/DataView.vue'
 import DataViewDataSetPanel from '@/components/DataViewDataSetPanel.vue'
+import DataView from '@/components/index/_shared/DataView.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 
 export default Vue.extend({
