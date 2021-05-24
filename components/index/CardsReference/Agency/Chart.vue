@@ -70,11 +70,11 @@ import { ChartOptions } from 'chart.js'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
+import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
-} from '@/components/DataViewTable.vue'
-import DataView from '@/components/index/_shared/DataView.vue'
+} from '@/components/index/_shared/DataViewTable.vue'
 import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
 import { DataSets, DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'

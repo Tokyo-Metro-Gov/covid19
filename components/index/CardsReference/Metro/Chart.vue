@@ -91,11 +91,11 @@ import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import AppLink from '@/components/_shared/AppLink.vue'
+import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
-} from '@/components/DataViewTable.vue'
-import DataView from '@/components/index/_shared/DataView.vue'
+} from '@/components/index/_shared/DataViewTable.vue'
 import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
