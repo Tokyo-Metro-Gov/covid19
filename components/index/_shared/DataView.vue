@@ -45,12 +45,9 @@
         <slot name="additionalDescription" />
       </div>
 
-      <data-view-expantion-panel
-        v-if="$slots.dataTable"
-        class="DataView-ExpantionPanel"
-      >
+      <expantion-panel v-if="$slots.dataTable" class="DataView-ExpantionPanel">
         <slot name="dataTable" />
-      </data-view-expantion-panel>
+      </expantion-panel>
 
       <div class="DataView-Space" />
 
@@ -82,12 +79,12 @@ import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
 import AppLink from '@/components/_shared/AppLink.vue'
-import DataViewExpantionPanel from '@/components/DataViewExpantionPanel.vue'
 import DataViewShare from '@/components/DataViewShare.vue'
+import ExpantionPanel from '@/components/index/_shared/DataView/ExpantionPanel.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
-  components: { DataViewExpantionPanel, DataViewShare, AppLink },
+  components: { ExpantionPanel, DataViewShare, AppLink },
   props: {
     title: {
       type: String,
