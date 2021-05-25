@@ -1,0 +1,35 @@
+{
+    "date": "2021\/5\/20 19:30",
+    "datasets": [
+        {
+            "period": {
+                "begin": "2021-05-01",
+                "end": "2021-05-05"
+            },
+            "data": {
+                "cumulative_1st_dose": 7753,
+                "cumulative_2nd_dose": 0
+            }
+        },
+        {
+            "period": {
+                "begin": "2021-05-06",
+                "end": "2021-05-09"
+            },
+            "data": {
+                "cumulative_1st_dose": 20650,
+                "cumulative_2nd_dose": 219
+            }
+        },
+        {
+            "period": {
+                "begin": "2021-05-10",
+                "end": "2021-05-16"
+            },
+            "data": {
+                "cumulative_1st_dose": 72080,
+                "cumulative_2nd_dose": 2761
+            }
+        }
+    ]
+}
