@@ -1,6 +1,6 @@
 <template>
   <div class="SiteTopUpper">
-    <whats-new :items="newsItems" :is-emergency="false" />
+    <whats-new :items="newsItems" />
     <infection-medicalcareprovision-status />
     <monitoring-comment-card />
     <div class="row mb-4">
