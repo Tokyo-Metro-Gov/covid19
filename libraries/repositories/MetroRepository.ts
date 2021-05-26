@@ -18,7 +18,7 @@ export class MetroRepository
   /**
    * 使用箇所
    *
-   * 都営地下鉄の利用者数の推移 (components/cards/MetroCard.vue)
+   * 都営地下鉄の利用者数の推移 (components/index/CardsReference/Metro/Card.vue)
    */
   constructor() {
     super(Convert.toMetro(JSON.stringify(rawData)))

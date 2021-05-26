@@ -1,8 +1,6 @@
 <template>
   <div class="Worker">
-    <page-header class="mb-3">
-      {{ $t('企業の皆様・はたらく皆様へ') }}
-    </page-header>
+    <page-header :title="$t('企業の皆様・はたらく皆様へ')" />
     <static-card>
       <h3>
         <app-link
@@ -74,9 +72,9 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
-import AppLink from '@/components/AppLink.vue'
-import PageHeader from '@/components/PageHeader.vue'
-import StaticCard from '@/components/StaticCard.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
+import PageHeader from '@/components/_shared/PageHeader.vue'
+import StaticCard from '@/components/_shared/StaticCard.vue'
 
 export default Vue.extend({
   components: {

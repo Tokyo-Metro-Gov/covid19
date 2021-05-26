@@ -17,7 +17,7 @@ export class NewsRepository
   /**
    * 使用箇所
    *
-   * トップページ上部 (components/SiteTopUpper.vue)
+   * トップページ上部 (components/index/SiteTopUpper.vue)
    */
   constructor() {
     super(Convert.toNews(JSON.stringify(rawData)))

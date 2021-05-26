@@ -18,7 +18,7 @@ export class AgencyRepository
   /**
    * 使用箇所
    *
-   * 都庁来庁者数の推移 (components/cards/AgencyCard.vue)
+   * 都庁来庁者数の推移 (components/index/CardsReference/Agency/Card.vue)
    */
   constructor() {
     super(Convert.toAgency(JSON.stringify(rawData)))

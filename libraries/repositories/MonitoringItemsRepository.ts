@@ -20,7 +20,8 @@ export class MonitoringItemsRepository
    * 使用箇所
    *
    * 感染状況・医療提供体制の分析 (components/MonitoringCommentCard.vue)
-   * モニタリング項目 (components/cards/MonitoringItemsOverviewCard.vue)
+   *
+   * モニタリング項目 (components/index/CardsMonitoring/MonitoringItemsOverview/Card.vue)
    */
   constructor() {
     super(Convert.toMonitoringItems(JSON.stringify(rawData)))
