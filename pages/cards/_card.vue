@@ -6,57 +6,57 @@
 /* eslint-disable simple-import-sort/imports -- ブラウザでの表示順に合わせて各 card の component を import する */
 // ---- モニタリング項目
 // 検査陽性者の状況
-import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
+import ConfirmedCasesDetailsCard from '@/components/index/CardsMonitoring/ConfirmedCasesDetails/Card.vue'
 // 報告日別による陽性者数の推移
-import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
+import ConfirmedCasesNumberCard from '@/components/index/CardsMonitoring/ConfirmedCasesNumber/Card.vue'
 // モニタリング項目
-import MonitoringItemsOverviewCard from '@/components/cards/MonitoringItemsOverviewCard.vue'
+import MonitoringItemsOverviewCard from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Card.vue'
 // モニタリング項目(1)新規陽性者数
-import MonitoringConfirmedCasesNumberCard from '@/components/cards/MonitoringConfirmedCasesNumberCard.vue'
+import MonitoringConfirmedCasesNumberCard from '@/components/index/CardsMonitoring/MonitoringConfirmedCasesNumber/Card.vue'
 // モニタリング項目(2)#7119における発熱等相談件数
-import ConsultationAboutFeverNumberCard from '@/components/cards/ConsultationAboutFeverNumberCard.vue'
+import ConsultationAboutFeverNumberCard from '@/components/index/CardsMonitoring/ConsultationAboutFeverNumber/Card.vue'
 // モニタリング項目(3)新規陽性者における接触歴等不明者数
-import UntrackedRateCard from '@/components/cards/UntrackedRateCard.vue'
+import UntrackedRateCard from '@/components/index/CardsMonitoring/UntrackedRate/Card.vue'
 // モニタリング項目(4)検査の陽性率
-import PositiveRateCard from '@/components/cards/PositiveRateCard.vue'
+import PositiveRateCard from '@/components/index/CardsMonitoring/PositiveRate/Card.vue'
 // モニタリング項目(5)救急医療の東京ルールの適用件数
-import TokyoRulesApplicationNumberCard from '@/components/cards/TokyoRulesApplicationNumberCard.vue'
+import TokyoRulesApplicationNumberCard from '@/components/index/CardsMonitoring/TokyoRulesApplicationNumber/Card.vue'
 // モニタリング項目(6)入院患者数
-import HospitalizedNumberCard from '@/components/cards/HospitalizedNumberCard.vue'
+import HospitalizedNumberCard from '@/components/index/CardsMonitoring/HospitalizedNumber/Card.vue'
 // モニタリング項目(7)重症患者数
-import SevereCaseCard from '@/components/cards/SevereCaseCard.vue'
+import SevereCaseCard from '@/components/index/CardsMonitoring/SevereCase/Card.vue'
 // ---- その他 参考指標
 // 陽性者の属性
-import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
+import ConfirmedCasesAttributesCard from '@/components/index/CardsReference/ConfirmedCasesAttributes/Card.vue'
 // 陽性者数（区市町村別）
-import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
+import ConfirmedCasesByMunicipalitiesCard from '@/components/index/CardsReference/ConfirmedCasesByMunicipalities/Card.vue'
 // 発症日別による陽性者数の推移
-import PositiveNumberByDevelopedDateCard from '@/components/cards/PositiveNumberByDevelopedDateCard.vue'
+import PositiveNumberByDevelopedDateCard from '@/components/index/CardsReference/PositiveNumberByDevelopedDate/Card.vue'
 // 確定日別による陽性者数の推移
-import PositiveNumberByDiagnosedDateCard from '@/components/cards/PositiveNumberByDiagnosedDateCard.vue'
+import PositiveNumberByDiagnosedDateCard from '@/components/index/CardsReference/PositiveNumberByDiagnosedDate/Card.vue'
 // 死亡日別による死亡者数の推移
-import DeathsByDeathDateCard from '@/components/cards/DeathsByDeathDateCard.vue'
+import DeathsByDeathDateCard from '@/components/index/CardsReference/DeathsByDeathDate/Card.vue'
 // 検査実施件数
-import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+import TestedNumberCard from '@/components/index/CardsReference/TestedNumber/Card.vue'
 // N501Y変異株スクリーニングの実施状況
-import VariantCard from '@/components/cards/VariantCard.vue'
+import VariantCard from '@/components/index/CardsReference/Variant/Card.vue'
 // 新型コロナコールセンター相談件数
-import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
+import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsReference/TelephoneAdvisoryReportsNumber/Card.vue'
 // 受診相談窓口における相談件数
-import MonitoringConsultationDeskReportsNumberCard from '@/components/cards/MonitoringConsultationDeskReportsNumberCard.vue'
+import MonitoringConsultationDeskReportsNumberCard from '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Card.vue'
 // 東京都発熱相談センターにおける相談件数
-import TokyoFeverConsultationCenterReportsNumberCard from '@/components/cards/TokyoFeverConsultationCenterReportsNumberCard.vue'
+import TokyoFeverConsultationCenterReportsNumberCard from '@/components/index/CardsReference/TokyoFeverConsultationCenterReportsNumber/Card.vue'
 // 都営地下鉄の利用者数の推移
-import MetroCard from '@/components/cards/MetroCard.vue'
+import MetroCard from '@/components/index/CardsReference/Metro/Card.vue'
 // 都庁来庁者数の推移
-import AgencyCard from '@/components/cards/AgencyCard.vue'
+import AgencyCard from '@/components/index/CardsReference/Agency/Card.vue'
 /* eslint-enable simple-import-sort/imports */
 
 import { Vue, Component } from 'nuxt-property-decorator'
-import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
-import type { NuxtConfig } from '@nuxt/types'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
+import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
+import type { NuxtConfig } from '@nuxt/types'
 
 @Component({
   components: {

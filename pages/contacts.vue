@@ -4,9 +4,7 @@
     aria-labelledby="pageHeader"
     aria-describedby="contactsCardTable"
   >
-    <page-header id="pageHeader" class="mb-3">
-      {{ $t('お問い合わせ先一覧') }}
-    </page-header>
+    <page-header id="pageHeader" :title="$t('お問い合わせ先一覧')" />
     <div class="Contacts-Card">
       <table
         id="contactsCardTable"
@@ -182,7 +180,7 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
-import PageHeader from '@/components/PageHeader.vue'
+import PageHeader from '@/components/_shared/PageHeader.vue'
 
 export default Vue.extend({
   components: {

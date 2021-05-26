@@ -18,7 +18,7 @@ export class PatientRepository
   /**
    * 使用箇所
    *
-   * 陽性者数（区市町村別） (components/cards/ConfirmedCasesByMunicipalitiesCard.vue)
+   * 陽性者数（区市町村別） (components/index/CardsReference/ConfirmedCasesByMunicipalities/Card.vue)
    */
   constructor() {
     super(Convert.toPatient(JSON.stringify(rawData)))
