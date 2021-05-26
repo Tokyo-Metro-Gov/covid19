@@ -6,7 +6,7 @@
       :updated-at="lastUpdateAsString"
     />
     <site-top-upper />
-    <lazy-cards-tab v-if="$vuetify.breakpoint.smAndUp || showCardsTab" />
+    <cards-tab v-if="$vuetify.breakpoint.smAndUp || showCardsTab" />
   </div>
 </template>
 
@@ -16,7 +16,9 @@ import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { MetaInfo } from 'vue-meta'
 
-import PageHeader from '@/components/PageHeader.vue'
+import PageHeader from '@/components/_shared/PageHeader.vue'
+import CardsTab from '@/components/index/CardsTab.vue'
+import SiteTopUpper from '@/components/index/SiteTopUpper.vue'
 import { Data as IData } from '@/libraries/auto_generated/data_converter/convertData'
 
 type Data = {
@@ -43,7 +45,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Props
 > = {
   components: {
+    CardsTab,
     PageHeader,
+    SiteTopUpper,
   },
   data() {
     return {
