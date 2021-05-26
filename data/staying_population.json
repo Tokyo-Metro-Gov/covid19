@@ -1,17 +1,17 @@
 {
-    "date": "2021\/5\/25 12:30",
+    "date": "2021\/5\/26 12:45",
     "data": {
         "place": {
             "display": {
-                "@ja": "銀座",
-                "@en": "Ginza"
+                "@ja": "品川",
+                "@en": "Shinagawa"
             }
         },
-        "date": "2021-05-24",
+        "date": "2021-05-25",
         "data": [
             {
                 "reference_date": "2020-01-01",
-                "increase_rate": -67
+                "increase_rate": -60
             }
         ]
     }
