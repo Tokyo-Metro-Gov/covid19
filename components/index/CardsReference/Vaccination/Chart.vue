@@ -257,12 +257,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       })}`
       return [
         {
-          lText: String(lastData(this.chartData[0])),
+          lText: this.getFormatter(0)(lastData(this.chartData[0])),
           sText: periodText,
           unit: this.unit,
         },
         {
-          lText: String(lastData(this.chartData[1])),
+          lText: this.getFormatter(1)(lastData(this.chartData[1])),
           sText: periodText,
           unit: this.unit,
         },
