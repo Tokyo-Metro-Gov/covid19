@@ -20,7 +20,7 @@
       <i18n
         tag="p"
         class="InfectionMedicalCareProvisionStatus-description"
-        :path="infectionSituation"
+        path="新規陽性者{newPositiveCases}人 / 検査数{tests}件（{statisticDate}参考値 （3日間移動平均））、うち65歳以上の高齢者数{older65}人、死亡者数{deaths}人、都外からの持込検体による陽性数{samplesFromOutside}"
       >
         <template #newPositiveCases>
           <span>
@@ -63,7 +63,7 @@
       <i18n
         tag="p"
         class="InfectionMedicalCareProvisionStatus-description"
-        :path="systemProvisionHealthCare"
+        path="入院数{hospitalized}人（確保病床数{bedsSecured}床）、うち重症者数{severeCases}人（うち重症病床数{bedsSevereSymptoms}床）"
       >
         <template #hospitalized>
           <span>
@@ -99,10 +99,7 @@ import {
   InfectionMedicalcareprovisionStatus as IInfectionMedicalCareProvisionStatus,
 } from '@/libraries/auto_generated/data_converter/convertInfectionMedicalcareprovisionStatus'
 
-type Data = {
-  infectionSituation: string
-  systemProvisionHealthCare: string
-}
+type Data = {}
 type Methods = {
   formatDate(date: Date): string
 }
@@ -117,14 +114,6 @@ type Props = {}
 export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     AppLink,
-  },
-  data() {
-    return {
-      infectionSituation:
-        '新規陽性者{newPositiveCases}人 / 検査数{tests}件（{statisticDate}参考値 （3日間移動平均））、うち65歳以上の高齢者数{older65}人、死亡者数{deaths}人、都外からの持込検体による陽性数{samplesFromOutside}',
-      systemProvisionHealthCare:
-        '入院数{hospitalized}人（確保病床数{bedsSecured}床）、うち重症者数{severeCases}人（うち重症病床数{bedsSevereSymptoms}床）',
-    }
   },
   computed: {
     statuses() {
