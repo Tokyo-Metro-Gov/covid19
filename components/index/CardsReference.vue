@@ -35,6 +35,9 @@ const TestedNumberCard = () =>
 // N501Y変異株スクリーニングの実施状況
 const VariantCard = () =>
   import('@/components/index/CardsReference/Variant/Card.vue')
+// ワクチン接種回数（高齢者・累計）
+const VaccinationCard = () =>
+  import('@/components/index/CardsReference/Vaccination/Card.vue')
 // 新型コロナコールセンター相談件数
 const TelephoneAdvisoryReportsNumberCard = () =>
   import(
@@ -68,7 +71,8 @@ export default Vue.extend({
         [ConfirmedCasesAttributesCard, ConfirmedCasesByMunicipalitiesCard],
         [PositiveNumberByDevelopedDateCard, PositiveNumberByDiagnosedDateCard],
         [DeathsByDeathDateCard, TestedNumberCard],
-        [VariantCard, TelephoneAdvisoryReportsNumberCard],
+        [VariantCard, VaccinationCard],
+        [TelephoneAdvisoryReportsNumberCard],
         [
           MonitoringConsultationDeskReportsNumberCard,
           TokyoFeverConsultationCenterReportsNumberCard,
