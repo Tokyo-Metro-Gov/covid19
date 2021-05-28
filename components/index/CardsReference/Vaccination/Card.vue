@@ -84,7 +84,6 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     ]
 
     const getFormatter = () => {
-      // 陽性率は小数点第1位まで表示する。
       return getNumberToLocaleStringFunction()
     }
 
