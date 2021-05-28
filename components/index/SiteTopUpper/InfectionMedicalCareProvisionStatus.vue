@@ -35,7 +35,7 @@
         <template #statisticDate>
           {{ formatDate(statisticDate) }}
         </template>
-        <template #Older65>
+        <template #older65>
           <span>
             {{ statuses['うち65歳以上の高齢者数'].toLocaleString() }}
           </span>
@@ -121,7 +121,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   data() {
     return {
       infectionSituation:
-        '新規陽性者{newPositiveCases}人 / 検査数{tests}件（{statisticDate}参考値 （3日間移動平均））、うち65歳以上の高齢者数{Older65}人、死亡者数{deaths}人、都外からの持込検体による陽性数{samplesFromOutside}',
+        '新規陽性者{newPositiveCases}人 / 検査数{tests}件（{statisticDate}参考値 （3日間移動平均））、うち65歳以上の高齢者数{older65}人、死亡者数{deaths}人、都外からの持込検体による陽性数{samplesFromOutside}',
       systemProvisionHealthCare:
         '入院数{hospitalized}人（確保病床数{bedsSecured}床）、うち重症者数{severeCases}人（うち重症病床数{bedsSevereSymptoms}床）',
     }
