@@ -2,8 +2,11 @@
   <div class="InfectionMedicalCareProvisionStatus">
     <div class="InfectionMedicalCareProvisionStatus-heading">
       <h3 class="InfectionMedicalCareProvisionStatus-title">
-        {{ $t('感染状況・医療提供体制（サマリ）') }}
-        {{ formatDate(date) }}時点
+        {{
+          $t('感染状況・医療提供体制（サマリ） {date}時点', {
+            date: formatDate(date),
+          })
+        }}
       </h3>
     </div>
     <div class="InfectionMedicalCareProvisionStatus-Box">
@@ -14,23 +17,40 @@
           {{ $t('感染状況') }}
         </app-link>
       </div>
-      <div class="InfectionMedicalCareProvisionStatus-description">
-        {{ $t('新規陽性者')
-        }}<span>{{ statuses['新規陽性者'].toLocaleString() }}人</span> /
-        {{ $t('検査数')
-        }}<span>{{ statuses['検査数'].toLocaleString() }}件</span>（{{
-          formatDate(statisticDate)
-        }}{{ $t('参考値') }} （{{ $t('3日間移動平均') }}））、
-        {{ $t('うち65歳以上の高齢者数')
-        }}<span
-          >{{ statuses['うち65歳以上の高齢者数'].toLocaleString() }}人</span
-        >、 {{ $t('死亡者数')
-        }}<span>{{ statuses['死亡者数'].toLocaleString() }}人</span>、
-        {{ $t('都外からの持込検体による陽性数')
-        }}<span>{{
-          statuses['都外からの持込検体による陽性数'].toLocaleString()
-        }}</span>
-      </div>
+      <i18n
+        tag="p"
+        class="InfectionMedicalCareProvisionStatus-description"
+        :path="infectionSituation"
+      >
+        <template #newPositiveCases>
+          <span>
+            {{ statuses['新規陽性者'].toLocaleString() }}
+          </span>
+        </template>
+        <template #tests>
+          <span>
+            {{ statuses['検査数'].toLocaleString() }}
+          </span>
+        </template>
+        <template #statisticDate>
+          {{ formatDate(statisticDate) }}
+        </template>
+        <template #older65>
+          <span>
+            {{ statuses['うち65歳以上の高齢者数'].toLocaleString() }}
+          </span>
+        </template>
+        <template #deaths>
+          <span>
+            {{ statuses['死亡者数'].toLocaleString() }}
+          </span>
+        </template>
+        <template #samplesFromOutside>
+          <span>
+            {{ statuses['都外からの持込検体による陽性数'].toLocaleString() }}
+          </span>
+        </template>
+      </i18n>
     </div>
     <div class="InfectionMedicalCareProvisionStatus-Box">
       <div class="InfectionMedicalCareProvisionStatus-Headline">
@@ -40,16 +60,32 @@
           {{ $t('医療提供体制') }}
         </app-link>
       </div>
-      <div class="InfectionMedicalCareProvisionStatus-description">
-        {{ $t('入院数')
-        }}<span>{{ statuses['入院数'].toLocaleString() }}人</span> （{{
-          $t('確保病床数')
-        }}<span>{{ statuses['確保病床数'].toLocaleString() }}床</span>）、
-        {{ $t('うち重症者数')
-        }}<span>{{ statuses['うち重症者数'].toLocaleString() }}人</span> （{{
-          $t('うち重症病床数')
-        }}<span>{{ statuses['うち重症病床数'].toLocaleString() }}床</span>）
-      </div>
+      <i18n
+        tag="p"
+        class="InfectionMedicalCareProvisionStatus-description"
+        :path="systemProvisionHealthCare"
+      >
+        <template #hospitalized>
+          <span>
+            {{ statuses['入院数'].toLocaleString() }}
+          </span>
+        </template>
+        <template #bedsSecured>
+          <span>
+            {{ statuses['確保病床数'].toLocaleString() }}
+          </span>
+        </template>
+        <template #severeCases>
+          <span>
+            {{ statuses['うち重症者数'].toLocaleString() }}
+          </span>
+        </template>
+        <template #bedsSevereSymptoms>
+          <span>
+            {{ statuses['うち重症病床数'].toLocaleString() }}
+          </span>
+        </template>
+      </i18n>
     </div>
   </div>
 </template>
@@ -63,7 +99,10 @@ import {
   InfectionMedicalcareprovisionStatus as IInfectionMedicalCareProvisionStatus,
 } from '@/libraries/auto_generated/data_converter/convertInfectionMedicalcareprovisionStatus'
 
-type Data = {}
+type Data = {
+  infectionSituation: string
+  systemProvisionHealthCare: string
+}
 type Methods = {
   formatDate(date: Date): string
 }
@@ -78,6 +117,14 @@ type Props = {}
 export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     AppLink,
+  },
+  data() {
+    return {
+      infectionSituation:
+        '新規陽性者{newPositiveCases}人 / 検査数{tests}件（{statisticDate}参考値 （3日間移動平均））、うち65歳以上の高齢者数{older65}人、死亡者数{deaths}人、都外からの持込検体による陽性数{samplesFromOutside}',
+      systemProvisionHealthCare:
+        '入院数{hospitalized}人（確保病床数{bedsSecured}床）、うち重症者数{severeCases}人（うち重症病床数{bedsSevereSymptoms}床）',
+    }
   },
   computed: {
     statuses() {
@@ -101,7 +148,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .InfectionMedicalCareProvisionStatus {
   @include card-container();
 
@@ -147,7 +194,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       margin: 0;
 
       > span {
-        color: #008830;
+        color: $green-1;
       }
 
       > a {
