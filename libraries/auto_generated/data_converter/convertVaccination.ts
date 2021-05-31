@@ -1,13 +1,13 @@
 // To parse this data:
 //
-//   import { Convert, Variant } from "./file";
+//   import { Convert, Vaccination } from "./file";
 //
-//   const variant = Convert.toVariant(json);
+//   const vaccination = Convert.toVaccination(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface Variant {
+export interface Vaccination {
     date:     string;
     datasets: Dataset[];
 }
@@ -18,11 +18,8 @@ export interface Dataset {
 }
 
 export interface Data {
-    variantTestCount:     number;
-    variantPositiveCount: number;
-    n501YPositiveRate:    number;
-    n501YNegativeRate:    number;
-    variantPcrRate:       number;
+    cumulative1StDose: number;
+    cumulative2NdDose: number;
 }
 
 export interface Period {
@@ -33,12 +30,12 @@ export interface Period {
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toVariant(json: string): Variant {
-        return cast(JSON.parse(json), r("Variant"));
+    public static toVaccination(json: string): Vaccination {
+        return cast(JSON.parse(json), r("Vaccination"));
     }
 
-    public static variantToJson(value: Variant): string {
-        return JSON.stringify(uncast(value, r("Variant")), null, 2);
+    public static vaccinationToJson(value: Vaccination): string {
+        return JSON.stringify(uncast(value, r("Vaccination")), null, 2);
     }
 }
 
@@ -175,7 +172,7 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "Variant": o([
+    "Vaccination": o([
         { json: "date", js: "date", typ: "" },
         { json: "datasets", js: "datasets", typ: a(r("Dataset")) },
     ], false),
@@ -184,11 +181,8 @@ const typeMap: any = {
         { json: "data", js: "data", typ: r("Data") },
     ], false),
     "Data": o([
-        { json: "variant_test_count", js: "variantTestCount", typ: 0 },
-        { json: "variant_positive_count", js: "variantPositiveCount", typ: 0 },
-        { json: "n501y_positive_rate", js: "n501YPositiveRate", typ: 3.14 },
-        { json: "n501y_negative_rate", js: "n501YNegativeRate", typ: 3.14 },
-        { json: "variant_pcr_rate", js: "variantPcrRate", typ: 3.14 },
+        { json: "cumulative_1st_dose", js: "cumulative1StDose", typ: 0 },
+        { json: "cumulative_2nd_dose", js: "cumulative2NdDose", typ: 0 },
     ], false),
     "Period": o([
         { json: "begin", js: "begin", typ: Date },
