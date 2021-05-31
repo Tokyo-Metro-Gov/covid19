@@ -1,39 +1,46 @@
 // To parse this data:
 //
-//   import { Convert, InfectionMedicalcareprovisionStatus } from "./file";
+//   import { Convert, Vaccination } from "./file";
 //
-//   const infectionMedicalcareprovisionStatus = Convert.toInfectionMedicalcareprovisionStatus(json);
+//   const vaccination = Convert.toVaccination(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface InfectionMedicalcareprovisionStatus {
-    date: string;
-    data: Data;
+export interface Vaccination {
+    date:     string;
+    datasets: Dataset[];
 }
 
+export interface Dataset {
+    period: Period;
+    data:   Data;
+}
+
+/*
+ * cumulative1StDose: 接種回数（1回目・累計）
+ *
+ * cumulative2NdDose: 接種回数（2回目・累計）
+*/
 export interface Data {
-    新規陽性者:           number;
-    検査数:             number;
-    検査統計日時:          Date;
-    うち65歳以上の高齢者数:    number;
-    死亡者数:            number;
-    都外からの持込検体による陽性数: number;
-    入院数:             number;
-    確保病床数:           number;
-    うち重症者数:          number;
-    うち重症病床数:         number;
+    cumulative1StDose: number; // 接種回数（1回目・累計）
+    cumulative2NdDose: number; // 接種回数（2回目・累計）
+}
+
+export interface Period {
+    begin: Date;
+    end:   Date;
 }
 
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toInfectionMedicalcareprovisionStatus(json: string): InfectionMedicalcareprovisionStatus {
-        return cast(JSON.parse(json), r("InfectionMedicalcareprovisionStatus"));
+    public static toVaccination(json: string): Vaccination {
+        return cast(JSON.parse(json), r("Vaccination"));
     }
 
-    public static infectionMedicalcareprovisionStatusToJson(value: InfectionMedicalcareprovisionStatus): string {
-        return JSON.stringify(uncast(value, r("InfectionMedicalcareprovisionStatus")), null, 2);
+    public static vaccinationToJson(value: Vaccination): string {
+        return JSON.stringify(uncast(value, r("Vaccination")), null, 2);
     }
 }
 
@@ -170,20 +177,20 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "InfectionMedicalcareprovisionStatus": o([
+    "Vaccination": o([
         { json: "date", js: "date", typ: "" },
+        { json: "datasets", js: "datasets", typ: a(r("Dataset")) },
+    ], false),
+    "Dataset": o([
+        { json: "period", js: "period", typ: r("Period") },
         { json: "data", js: "data", typ: r("Data") },
     ], false),
     "Data": o([
-        { json: "新規陽性者", js: "新規陽性者", typ: 0 },
-        { json: "検査数", js: "検査数", typ: 3.14 },
-        { json: "検査統計日時", js: "検査統計日時", typ: Date },
-        { json: "うち65歳以上の高齢者数", js: "うち65歳以上の高齢者数", typ: 0 },
-        { json: "死亡者数", js: "死亡者数", typ: 0 },
-        { json: "都外からの持込検体による陽性数", js: "都外からの持込検体による陽性数", typ: 0 },
-        { json: "入院数", js: "入院数", typ: 0 },
-        { json: "確保病床数", js: "確保病床数", typ: 0 },
-        { json: "うち重症者数", js: "うち重症者数", typ: 0 },
-        { json: "うち重症病床数", js: "うち重症病床数", typ: 0 },
+        { json: "cumulative_1st_dose", js: "cumulative1StDose", typ: 0 },
+        { json: "cumulative_2nd_dose", js: "cumulative2NdDose", typ: 0 },
+    ], false),
+    "Period": o([
+        { json: "begin", js: "begin", typ: Date },
+        { json: "end", js: "end", typ: Date },
     ], false),
 };
