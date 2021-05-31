@@ -176,7 +176,7 @@ const typeMap: any = {
     ], false),
     "Data": o([
         { json: "新規陽性者", js: "新規陽性者", typ: 0 },
-        { json: "検査数", js: "検査数", typ: 0 },
+        { json: "検査数", js: "検査数", typ: 3.14 },
         { json: "検査統計日時", js: "検査統計日時", typ: Date },
         { json: "うち65歳以上の高齢者数", js: "うち65歳以上の高齢者数", typ: 0 },
         { json: "死亡者数", js: "死亡者数", typ: 0 },
