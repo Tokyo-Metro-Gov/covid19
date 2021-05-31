@@ -3,6 +3,16 @@
     "datasets": [
         {
             "period": {
+                "begin": "2021-04-12",
+                "end": "2021-04-18"
+            },
+            "data": {
+                "cumulative_1st_dose": 945,
+                "cumulative_2nd_dose": 0
+            }
+        },
+        {
+            "period": {
                 "begin": "2021-04-19",
                 "end": "2021-04-25"
             },
