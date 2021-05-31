@@ -40,6 +40,8 @@ import DeathsByDeathDateCard from '@/components/index/CardsReference/DeathsByDea
 import TestedNumberCard from '@/components/index/CardsReference/TestedNumber/Card.vue'
 // N501Y変異株スクリーニングの実施状況
 import VariantCard from '@/components/index/CardsReference/Variant/Card.vue'
+// ワクチン接種回数（高齢者・累計）
+import VaccinationCard from '@/components/index/CardsReference/Vaccination/Card.vue'
 // 新型コロナコールセンター相談件数
 import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsReference/TelephoneAdvisoryReportsNumber/Card.vue'
 // 受診相談窓口における相談件数
@@ -79,6 +81,7 @@ import type { NuxtConfig } from '@nuxt/types'
     DeathsByDeathDateCard,
     TestedNumberCard,
     VariantCard,
+    VaccinationCard,
     TelephoneAdvisoryReportsNumberCard,
     MonitoringConsultationDeskReportsNumberCard,
     TokyoFeverConsultationCenterReportsNumberCard,
@@ -160,6 +163,10 @@ export default class CardContainer extends Vue implements NuxtConfig {
       // N501Y変異株スクリーニングの実施状況
       case 'variant':
         cardComponent = 'variant-card'
+        break
+      // ワクチン接種回数（高齢者・累計）
+      case 'vaccination':
+        cardComponent = 'vaccination-card'
         break
       // 新型コロナコールセンター相談件数
       case 'number-of-reports-to-covid19-telephone-advisory-center':
