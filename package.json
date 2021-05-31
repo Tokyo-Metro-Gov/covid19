@@ -24,7 +24,8 @@
     "functions:dev": "netlify-lambda serve functions",
     "functions:build": "netlify-lambda build functions",
     "generate-data-converters": "ts-node --compiler-options='{\"module\":\"commonjs\"}' ./tool/generateDataConverters.ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "danger:ci": "danger ci"
   },
   "lint-staged": {
     "*.{js,ts,css,vue}": [
