@@ -786,5 +786,11 @@
   "新型コロナウイルス感染症が心配なときに.nav": "新型コロナウイルス感染症が心配なときに.nav",
   "感染状況・医療提供体制（サマリ） {date}時点": "感染状況・医療提供体制（サマリ） {date}時点",
   "新規陽性者{newPositiveCases}人 / 検査数{tests}件（{statisticDate}参考値 （3日間移動平均））、うち65歳以上の高齢者数{older65}人、死亡者数{deaths}人、都外からの持込検体による陽性数{samplesFromOutside}": "新規陽性者{newPositiveCases}人 / 検査数{tests}件（{statisticDate}参考値 （3日間移動平均））、うち65歳以上の高齢者数{older65}人、死亡者数{deaths}人、都外からの持込検体による陽性数{samplesFromOutside}",
-  "入院数{hospitalized}人（確保病床数{bedsSecured}床）、うち重症者数{severeCases}人（うち重症病床数{bedsSevereSymptoms}床）": "入院数{hospitalized}人（確保病床数{bedsSecured}床）、うち重症者数{severeCases}人（うち重症病床数{bedsSevereSymptoms}床）"
+  "入院数{hospitalized}人（確保病床数{bedsSecured}床）、うち重症者数{severeCases}人（うち重症病床数{bedsSevereSymptoms}床）": "入院数{hospitalized}人（確保病床数{bedsSecured}床）、うち重症者数{severeCases}人（うち重症病床数{bedsSevereSymptoms}床）",
+  "接種回数（１回目・累計）": "接種回数（１回目・累計）",
+  "{dateEnd}累計値": "{dateEnd}累計値",
+  "接種回数（２回目・累計）": "接種回数（２回目・累計）",
+  "対象者 約311万人": "対象者 約311万人",
+  "ワクチン接種記録システム（VRS）への報告を居住地の都道府県別に国が集計し、公表したものに基づき作成": "ワクチン接種記録システム（VRS）への報告を居住地の都道府県別に国が集計し、公表したものに基づき作成",
+  "ワクチン接種回数（高齢者・累計）": "ワクチン接種回数（高齢者・累計）"
 }
