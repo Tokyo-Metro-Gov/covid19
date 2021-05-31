@@ -17,9 +17,14 @@ export interface Dataset {
     data:   Data;
 }
 
+/*
+ * cumulative1StDose: 接種回数（1回目・累計）
+ *
+ * cumulative2NdDose: 接種回数（2回目・累計）
+*/
 export interface Data {
-    cumulative1StDose: number;
-    cumulative2NdDose: number;
+    cumulative1StDose: number; // 接種回数（1回目・累計）
+    cumulative2NdDose: number; // 接種回数（2回目・累計）
 }
 
 export interface Period {
