@@ -17,12 +17,23 @@ export interface Dataset {
     data:   Data;
 }
 
+/**
+ * variantTestCount: 変異株PCR検査実施数
+ *
+ * variantPositiveCount: N501Y陽性例数
+ *
+ * n501YPositiveRate: N501Y陽性例構成割合
+ *
+ * n501YNegativeRate: N501Y非陽性例構成割合
+ *
+ * variantPcrRate: 変異株PCR検査実施割合
+ */
 export interface Data {
-    variantTestCount:     number;
-    variantPositiveCount: number;
-    n501YPositiveRate:    number;
-    n501YNegativeRate:    number;
-    variantPcrRate:       number;
+    variantTestCount:     number; // 変異株PCR検査実施数
+    variantPositiveCount: number; // N501Y陽性例数
+    n501YPositiveRate:    number; // N501Y陽性例構成割合
+    n501YNegativeRate:    number; // N501Y非陽性例構成割合
+    variantPcrRate:       number; // 変異株PCR検査実施割合
 }
 
 export interface Period {
