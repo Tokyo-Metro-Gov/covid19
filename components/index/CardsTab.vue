@@ -51,6 +51,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+@import url('@/assets/monitoringItemsTableCommon.scss');
+
 .v-slide-group__content {
   border-bottom: 1px solid $gray-2;
   background: $gray-5;
@@ -95,10 +97,6 @@ export default Vue.extend({
 
 .v-tabs-items {
   background-color: transparent !important;
-}
-
-@function px2vw($px, $vw: 768) {
-  @return $px / $vw * 100vw;
 }
 
 @include lessThan($medium) {

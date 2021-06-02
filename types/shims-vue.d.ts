@@ -1,8 +1,8 @@
-import { NuxtI18nSeo } from 'nuxt-i18n/types/nuxt-i18n'
+import NuxtI18nHeadOptions from 'nuxt-i18n'
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $nuxtI18nSeo(): NuxtI18nSeo
+    $nuxtI18nHead(): typeof NuxtI18nHeadOptions
     $style: { [key: string]: string }
   }
 }

@@ -11,7 +11,16 @@ const config: NuxtConfig = {
   // 2) Autoprefixer has been included so that we can lessen upgrade burden.
   // mode: 'universal',
   target: 'static',
-  components: true,
+  components: [
+    {
+      path: '@/components/',
+      extensions: ['vue'],
+    },
+    {
+      path: '@/node_modules/vue-spinner/src/',
+      pattern: 'ScaleLoader.vue',
+    },
+  ],
   /*
    ** Headers of the page
    */
@@ -78,7 +87,7 @@ const config: NuxtConfig = {
    */
   plugins: [
     {
-      src: '@/plugins/vue-chart.ts',
+      src: '@/plugins/vue-chart',
       ssr: true,
     },
     {
@@ -106,26 +115,26 @@ const config: NuxtConfig = {
     ],
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
+    '@nuxtjs/pwa',
     'nuxt-purgecss',
+    'nuxt-svg-loader',
+    'nuxt-webfontloader',
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
-    '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
     ['nuxt-i18n', i18n],
-    'nuxt-svg-loader',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
-    'nuxt-webfontloader',
   ],
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    customVariables: ['@/assets/variables.scss'],
+    customVariables: ['@/assets/variables'],
     optionsPath: './plugins/vuetify.options.ts',
     treeShake: true,
     defaultAssets: false,
@@ -150,33 +159,7 @@ const config: NuxtConfig = {
     pageTracking: true,
     enabled: true,
   },
-  /*
-   * nuxt-i18n による自動リダイレクトを停止したためコメントアウト
-   * @todo 「Cookieがあるときのみ、その言語にリダイレクトする」を実装する場合は復活させる
-   * 実装しない場合は以下の記述を完全に削除する
-   */
-  /* optionalCookies: [
-    {
-      name: 'i18n_redirected',
-      label: 'i18n Redirection Cookie',
-      description:
-        'For automatically switching UI languages in accordance with locale preferences in the web browser configuration.',
-      cookies: ['i18n_redirected']
-    }
-  ], */
   build: {
-    babel: {
-      presets() {
-        return [
-          [
-            '@nuxt/babel-preset-app',
-            {
-              corejs: { version: '3.11' },
-            },
-          ],
-        ]
-      },
-    },
     postcss: {
       preset: {
         autoprefixer: {
@@ -185,9 +168,40 @@ const config: NuxtConfig = {
         },
       },
     },
+    loaders: {
+      sass: {
+        sassOptions: {
+          test: /\.(sa|s?c)ss$/,
+          loader: 'regex-replace-loader',
+          stages: [
+            {
+              // eslint-disable-next-line
+              regex: '^@use[ ]+.sass:math.;?$',
+              flags: 'g',
+              value: '',
+            },
+            {
+              // eslint-disable-next-line
+              regex: '([$$0-9a-zA-Z_]+)[ ]*/[ ]*([$$0-9a-zA-Z_]+)',
+              flags: 'g',
+              value: 'div($1, $2)',
+            },
+          ],
+        },
+      },
+      scss: {
+        sassOptions: {
+          additionalData: '@use "sass:math" as *;',
+        },
+      },
+    },
     extend(config) {
       // default externals option is undefined
-      config.externals = [{ moment: 'moment' }]
+      config.externals = [
+        {
+          moment: 'moment',
+        },
+      ]
     },
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
@@ -197,8 +211,30 @@ const config: NuxtConfig = {
       './node_modules/vuetify/dist/vuetify.js',
       './node_modules/vue-spinner/src/ScaleLoader.vue',
     ],
-    whitelist: ['DataCard', 'GraphLegend'],
-    whitelistPatterns: [/(col|row|v-window)/],
+    whitelist: [
+      'DataCard',
+      'GraphLegend',
+      'v-application',
+      'v-application--wrap',
+      'layout',
+      'row',
+      'col',
+    ],
+    whitelistPatterns: [
+      /(col|row|v-window)/,
+      /^v-((?!application).)*$/,
+      /^theme--*/,
+      /.*-transition/,
+      /^justify-*/,
+      /^p*-[0-9]/,
+      /^m*-[0-9]/,
+      /^text--*/,
+      /--text$/,
+      /^row-*/,
+      /^col-*/,
+      /^(blue|pink|lime|teal|purple|cyan|indigo|light-blue|orange|pink|amber|grey)$/,
+    ],
+    whitelistPatternsChildren: [/^v-((?!application).)*$/, /^theme--*/],
   },
   manifest: {
     name: '東京都 新型コロナウイルス感染症対策サイト',

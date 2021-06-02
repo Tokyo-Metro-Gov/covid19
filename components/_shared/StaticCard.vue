@@ -60,7 +60,7 @@ export default Vue.extend()
     margin-left: 2em;
 
     @include lessThan($medium) {
-      margin-left: 32 / 768 * 100vw;
+      margin-left: 4.16666667vw;
     }
   }
 

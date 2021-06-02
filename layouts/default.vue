@@ -33,18 +33,18 @@
 
 <script lang="ts">
 /* eslint-disable simple-import-sort/imports -- 複数の ESLint の設定の競合を回避する */
-import { Component, Vue } from 'nuxt-property-decorator'
-import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
+import Vue from 'vue'
+import { Component } from 'nuxt-property-decorator'
+import type { NuxtConfig } from '@nuxt/types'
+import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
+import { convertDateToSimpleFormat } from '@/utils/formatDate'
+import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
+import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import DevelopmentModeMark from '@/components/_shared/DevelopmentModeMark.vue'
 import NoScript from '@/components/_shared/NoScript.vue'
 import SideNavigation from '@/components/_shared/SideNavigation.vue'
 import Data from '@/data/data.json'
-import { convertDateToSimpleFormat } from '@/utils/formatDate'
-import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
-
-import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
-import type { NuxtConfig } from '@nuxt/types'
 /* eslint-enable simple-import-sort/imports */
 
 @Component({
@@ -75,11 +75,11 @@ export default class Default extends Vue implements NuxtConfig {
 
   mounted() {
     this.$data.loading = false
-    this.getMatchMedia().addListener(this.closeNavigation)
+    this.getMatchMedia().addEventListener('change', this.closeNavigation)
   }
 
   beforeDestroy() {
-    this.getMatchMedia().removeListener(this.closeNavigation)
+    this.getMatchMedia().removeEventListener('change', this.closeNavigation)
   }
 
   openNavigation() {
@@ -95,8 +95,8 @@ export default class Default extends Vue implements NuxtConfig {
   }
 
   head() {
-    const { htmlAttrs, meta } = this.$nuxtI18nSeo()
-    type LinkPropertyHref = typeof htmlAttrs
+    const { htmlAttrs, meta } = this.$nuxtI18nHead()
+    type LinkPropertyHref = MetaInfo
     const ogLocale =
       meta && meta.length > 0
         ? meta[0]
@@ -113,7 +113,7 @@ export default class Default extends Vue implements NuxtConfig {
         basename,
         this.$i18n.locales,
         this.$i18n.defaultLocale
-      )
+      ) as MetaInfo[]
     }
     const { lastUpdate } = Data
     const mInfo: MetaInfo = {

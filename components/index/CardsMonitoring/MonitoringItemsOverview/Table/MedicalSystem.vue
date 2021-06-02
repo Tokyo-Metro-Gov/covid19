@@ -117,6 +117,6 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss" module>
-@import '@/assets/monitoringItemsTableCommon.scss';
+<style lang="sass" module>
+@import '@/assets/monitoringItemsTableCommon.scss'
 </style>
