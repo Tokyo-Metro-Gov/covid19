@@ -785,6 +785,12 @@
   "{month}比 {rateWithArrow}": "{rateWithArrow} from {month}",
   "新型コロナウイルス感染症が心配なときに.nav": "To those concerned about COVID-19",
   "感染状況・医療提供体制（サマリ） {date}時点": "Infection situation and system for the provision of health care data summary (as of {date}）",
-  "新規陽性者{newPositiveCases}人 / 検査数{tests}件（{statisticDate}参考値 （3日間移動平均））、うち65歳以上の高齢者数{older65}人、死亡者数{deaths}人、都外からの持込検体による陽性数{samplesFromOutside}": "New positive cases {newPositiveCases} / Tests {tests} (Tested around {statisticDate} (Three-day moving average)), Of which {older65} are 65 or older, Deaths {deaths}, Positive cases from samples sent in from outside Tokyo {samplesFromOutside}",
-  "入院数{hospitalized}人（確保病床数{bedsSecured}床）、うち重症者数{severeCases}人（うち重症病床数{bedsSevereSymptoms}床）": "Hospitalized {hospitalized} (Beds secured {bedsSecured}), Of which {severeCases} are severe cases (Of which {bedsSevereSymptoms} are beds for patients with severe symptoms)"
+  "新規陽性者{newPositiveCases}人 / 検査数{tests}件（{statisticDate}参考値 （3日間移動平均））、うち65歳以上の高齢者数{older65}人、死亡者数{deaths}人、都外からの持込検体による陽性数{samplesFromOutside}": "New positive cases {newPositiveCases} (of which {older65} are 65 or older) / Tests {tests} (Tested around ‎{statisticDate} (Three-day moving average)) / Deaths {deaths} / Positive cases from samples sent in from outside Tokyo {samplesFromOutside}",
+  "入院数{hospitalized}人（確保病床数{bedsSecured}床）、うち重症者数{severeCases}人（うち重症病床数{bedsSevereSymptoms}床）": "Hospitalized {hospitalized} (of which {severeCases} are severe cases) / Beds secured {bedsSecured} (of which {bedsSevereSymptoms} are beds for patients with severe symptoms)",
+  "接種回数（１回目・累計）": "接種回数（１回目・累計）",
+  "{dateEnd}累計値": " Cumulative total as of {dateEnd}",
+  "接種回数（２回目・累計）": "接種回数（２回目・累計）",
+  "対象者 約311万人": "対象者 約311万人",
+  "ワクチン接種記録システム（VRS）への報告を居住地の都道府県別に国が集計し、公表したものに基づき作成": "ワクチン接種記録システム（VRS）への報告を居住地の都道府県別に国が集計し、公表したものに基づき作成",
+  "ワクチン接種回数（高齢者・累計）": "ワクチン接種回数（高齢者・累計）"
 }
