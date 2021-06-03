@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard MonitoringConfirmedCasesNumberCard">
     <client-only>
-      <monitoring-confirmed-cases-number-chart
+      <chart
         :title="$t('モニタリング項目(1)')"
         title-id="monitoring-number-of-confirmed-cases"
         :info-titles="[$t('新規陽性者数')]"
@@ -36,13 +36,13 @@
             </li>
           </ul>
         </template>
-      </monitoring-confirmed-cases-number-chart>
+      </chart>
     </client-only>
   </v-col>
 </template>
 
 <script>
-import MonitoringConfirmedCasesNumberChart from '@/components/index/CardsMonitoring/MonitoringConfirmedCasesNumber/Chart.vue'
+import Chart from '@/components/index/CardsMonitoring/MonitoringConfirmedCasesNumber/Chart.vue'
 import Data from '@/data/daily_positive_detail.json'
 import {
   getNumberToFixedFunction,
@@ -51,7 +51,7 @@ import {
 
 export default {
   components: {
-    MonitoringConfirmedCasesNumberChart,
+    Chart,
   },
   data() {
     const [patientsCount, sevenDayMoveAverages, labels] = Data.data.reduce(
