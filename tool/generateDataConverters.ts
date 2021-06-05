@@ -1,4 +1,4 @@
-import { mkdir, readdir, rmdir } from 'fs/promises'
+import { mkdir, readdir, rmdir } from 'fs-extra'
 import { camelCase, upperFirst } from 'lodash'
 // eslint-disable-next-line import/order
 import * as path from 'path'

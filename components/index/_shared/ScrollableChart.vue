@@ -2,10 +2,11 @@
   <div ref="chartContainer" class="LegendStickyChart">
     <div ref="scrollable" class="scrollable">
       <div :style="{ width: `${chartWidth}px` }">
-        <slot name="chart" :chart-width="chartWidth" />
+        <slot name="chart" :chart-width="chartWidth">
+          <slot name="sticky-chart" />
+        </slot>
       </div>
     </div>
-    <slot name="sticky-chart" />
   </div>
 </template>
 

@@ -7,7 +7,7 @@ import 'dayjs/locale/vi'
 import 'dayjs/locale/zh-cn'
 import 'dayjs/locale/zh-tw'
 
-import { NuxtAppOptions } from '@nuxt/types/app'
+import { NuxtAppOptions } from '@nuxt/types'
 import { _adapters } from 'chart.js'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
@@ -35,36 +35,36 @@ export function useDayjsAdapter(nuxtI18n: NuxtAppOptions['i18n']) {
   }
 
   _adapters._date.override({
-    _id: 'dayjs', // for debug
+    // _id: 'dayjs', for debug
 
     formats() {
       return DEFAULT_FORMATS
     },
 
-    parse(time, format) {
+    parse(time: any, format: any) {
       const value = format ? dayjs(time, format) : dayjs(time)
 
       return value.isValid() ? value.valueOf() : null
     },
 
-    format(time, format) {
+    format(time: any, format: any) {
       return dayjs(time).format(format)
     },
 
-    add(time, amount, unit) {
-      return dayjs(time).add(amount, unit)
+    add(time, amount, unit): any {
+      return dayjs(time).add(amount, unit as dayjs.OpUnitType)
     },
 
-    diff(max, min, unit) {
+    diff(max: any, min: any, unit: any) {
       return dayjs(max).diff(dayjs(min), unit)
     },
 
-    startOf(time, unit, _) {
-      return dayjs(time).startOf(unit)
+    startOf(time, unit, _): any {
+      return dayjs(time).startOf(unit as dayjs.OpUnitType)
     },
 
-    endOf(time, unit) {
-      return dayjs(time).endOf(unit)
+    endOf(time, unit): any {
+      return dayjs(time).endOf(unit as dayjs.OpUnitType)
     },
   })
 }

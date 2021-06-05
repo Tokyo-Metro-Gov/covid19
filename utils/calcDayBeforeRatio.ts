@@ -1,11 +1,10 @@
 import dayjs from 'dayjs'
 
-import { DisplayData } from '@/plugins/vue-chart'
 import { getComplementedDate } from '@/utils/formatDate'
 import { getCommaSeparatedNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
 
 interface DayBeforeRatioParameters {
-  displayData: DisplayData
+  displayData: any
   dataIndex?: number
   digit?: number
 }
@@ -26,10 +25,11 @@ export default function ({
   dataIndex = 0,
   digit = 0,
 }: DayBeforeRatioParameters): DayBeforeRatioData {
-  const lastDay = displayData.labels!.slice(-1)[0]
-  const data = displayData.datasets[dataIndex].data
-  const lastDayData = data.slice(-1)[0]
-  const lastBeforeData = data.slice(-2)[0]
+  const data = displayData.data ?? displayData
+  const lastDay = data.labels!.slice(-1)[0]
+  const datasetData = data.datasets[dataIndex].data.toString()
+  const lastDayData = parseInt(datasetData.slice(-1)[0])
+  const lastBeforeData = parseInt(datasetData.slice(-2)[0])
   const dayBeforeRatio = lastDayData - lastBeforeData
   const formatter = getCommaSeparatedNumberToFixedFunction(digit)
 

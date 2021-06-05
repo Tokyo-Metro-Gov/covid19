@@ -501,14 +501,23 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   mounted() {
-    const barChart = this.$refs.barChart as Vue
-    const barElement = barChart.$el
-    const canvas = barElement.querySelector('canvas')
-    const labelledbyId = `${this.titleId}-graph`
-
+    const canvas = this.$refs.barChart as Element
     if (canvas) {
-      canvas.setAttribute('role', 'img')
-      canvas.setAttribute('aria-labelledby', labelledbyId)
+      try {
+        canvas.setAttribute('role', 'img')
+      } catch (e) {
+        // eslint-ignore-line no-empty
+      } finally {
+        // eslint-ignore-line no-empty
+      }
+      const labelledbyId = `${this.titleId}-graph`
+      try {
+        canvas.setAttribute('aria-labelledby', labelledbyId)
+      } catch (e) {
+        // eslint-ignore-line no-empty
+      } finally {
+        // eslint-ignore-line no-empty
+      }
     }
   },
 }
