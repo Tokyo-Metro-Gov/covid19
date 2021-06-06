@@ -5,7 +5,10 @@ require 'spec_helper'
 card_classes = [
   '.DataCard.PositiveNumberByDevelopedDateCard',
   '.DataCard.PositiveNumberByDiagnosedDateCard',
+  '.DataCard.DeathsByDeathDateCard',
   '.DataCard.TestedNumberCard',
+  '.DataCard.VariantCard',
+  '.DataCard.VaccinationCard',
   '.DataCard.TelephoneAdvisoryReportsNumberCard',
   '.DataCard.MonitoringConsultationDeskReportsNumberCard',
   '.DataCard.TokyoFeverConsultationCenterReportsNumberCard',

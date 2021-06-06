@@ -262,7 +262,7 @@ export default Vue.extend({
         },
         {
           title: this.$t('新型コロナウイルスワクチンの接種について'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine.html',
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine/index.html',
         },
         {
           title: this.$t(

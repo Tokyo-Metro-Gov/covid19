@@ -10,7 +10,7 @@
       <div class="WhatsNew-linkGroup">
         <app-link
           class="WhatsNew-linkButton"
-          to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine.html"
+          to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine/index.html"
         >
           <span class="WhatsNew-linkButton-inner">
             <vaccine-icon class="WhatsNew-linkButton-icon" aria-hidden="true" />
