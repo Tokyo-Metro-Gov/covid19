@@ -8,6 +8,6 @@ const modifiedConverterFilePaths = danger.git.modified_files.filter(
 
 modifiedConverterFilePaths.forEach((modifiedConverterFilePath) => {
   warn(
-    `\`${modifiedConverterFilePath}\` が変更されています。不要な変更が加えられないよう注意してください。`
+    `\`${modifiedConverterFilePath}\` が変更されています。追加したコメントなどが削除されないよう注意してください。`
   )
 })
