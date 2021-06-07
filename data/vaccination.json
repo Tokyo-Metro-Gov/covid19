@@ -1,5 +1,5 @@
 {
-    "date": "2021\/5\/31 18:00",
+    "date": "2021\/6\/7 18:00",
     "datasets": [
         {
             "period": {
@@ -69,6 +69,16 @@
             "data": {
                 "cumulative_1st_dose": 474487,
                 "cumulative_2nd_dose": 17303
+            }
+        },
+        {
+            "period": {
+                "begin": "2021-05-31",
+                "end": "2021-06-06"
+            },
+            "data": {
+                "cumulative_1st_dose": 801060,
+                "cumulative_2nd_dose": 64631
             }
         }
     ]
