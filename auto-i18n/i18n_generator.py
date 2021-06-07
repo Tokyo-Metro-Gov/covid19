@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 ######
 
 # チェックするディレクトリのリスト
-CHECK_DIR = ["pages", "components", "layouts", "data", "utils", "csv"]
+CHECK_DIR = ["pages", "components", "layouts", "data", "utils", "auto-i18n/csv"]
 
 # チェックするjsonファイルのリスト
 JSON_FILES = ["data.json", "patient.json"]
@@ -122,7 +122,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         headers = [eval(str_header + " }")[text] for str_header in header_pattern.findall(content)]
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + headers))
-        elif "csv" in cdir:
+        elif "auto-i18n/csv" in cdir:
             # すべてのcsvファイルを検索
             csv_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.csv", recursive=True)
             # 各csvファイルについて処理
