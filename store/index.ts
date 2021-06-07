@@ -14,6 +14,6 @@ export const state = () => ({
   monitoringCommentImage: new MonitoringCommentImageRepository().data,
   news: new NewsRepository().data,
   stayingPopulation: new StayingPopulationRepository().data,
-  variant: new VariantRepository().data,
   vaccination: new VaccinationRepository().data,
+  variant: new VariantRepository().data,
 })
