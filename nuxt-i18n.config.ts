@@ -4,7 +4,7 @@ import { NuxtVueI18n } from 'nuxt-i18n/types'
 const dateTimeFormatsCommon = {
   dateTime: {
     year: 'numeric',
-    month: 'short',
+    month: 'long',
     day: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
@@ -12,7 +12,7 @@ const dateTimeFormatsCommon = {
   },
   date: {
     year: 'numeric',
-    month: 'short',
+    month: 'long',
     day: 'numeric',
   },
   dateWithoutYear: {
@@ -21,11 +21,11 @@ const dateTimeFormatsCommon = {
   },
   dateWithoutDay: {
     year: 'numeric',
-    month: 'short',
+    month: 'long',
   },
   dateWithDayOfWeek: {
     weekday: 'short',
-    month: 'short',
+    month: 'long',
     day: 'numeric',
   },
 }

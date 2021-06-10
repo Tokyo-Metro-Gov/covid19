@@ -2,6 +2,7 @@ import glob
 import re
 import os
 import json
+import csv
 from datetime import datetime, timedelta, timezone
 from bs4 import BeautifulSoup
 
@@ -14,7 +15,7 @@ from bs4 import BeautifulSoup
 ######
 
 # チェックするディレクトリのリスト
-CHECK_DIR = ["pages", "components", "layouts", "data", "utils"]
+CHECK_DIR = ["pages", "components", "layouts", "data", "utils", "auto-i18n/csv"]
 
 # チェックするjsonファイルのリスト
 JSON_FILES = ["data.json", "patient.json"]
@@ -22,6 +23,9 @@ JSON_FILES = ["data.json", "patient.json"]
 # チェックするTypeScriptファイルのリスト
 # 現状は formatConfirmedCasesAttributesTable.ts しかないが、のちに表追加や、データ追加により必要になった場合は追加しなければならない。
 TS_FILES = ["formatConfirmedCasesAttributesTable.ts"]
+
+# チェックするcsvファイルのリスト
+CSV_FILES = ["occupation.csv"]
 
 # タグの正規表現パターン
 tag_pattern_t = re.compile("\$t\([ ]*?['|`][^']*?['|`]")
@@ -62,7 +66,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
         # リポジトリのルートからのパスをauto-i18nからの相対パスに変換
         cdir = os.path.join(os.pardir, cdir)
         # データディレクトリ以外の場合
-        if "data" not in cdir and "utils" not in cdir:
+        if "data" not in cdir and "utils" not in cdir and "csv" not in cdir:
             # すべてのVueファイルを検索
             vue_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.vue", recursive=True)
             file_count += len(vue_files)
@@ -118,6 +122,22 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         headers = [eval(str_header + " }")[text] for str_header in header_pattern.findall(content)]
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + headers))
+        elif "auto-i18n/csv" in cdir:
+            # すべてのcsvファイルを検索
+            csv_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.csv", recursive=True)
+            # 各csvファイルについて処理
+            for path in csv_files:
+                file_name = os.path.basename(path)
+                # csvファイルが調べるべきcsvであるか
+                if file_name in CSV_FILES:
+                    # 調べるべきcsvの場合、ファイルをカウント
+                    file_count += 1
+                    with open(path, encoding=ENCODING, newline='') as csvfile:
+                        # ファイルの内容を文字列として取得
+                        reader = csv.reader(csvfile, delimiter=',')
+                        tags = [','.join(row) for row in reader]
+                        # タグを統合し、重複分を取り除く
+                        all_tags = list(set(all_tags + tags))
         else:
             # すべてのJsonファイルを検索
             json_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.json", recursive=True)
