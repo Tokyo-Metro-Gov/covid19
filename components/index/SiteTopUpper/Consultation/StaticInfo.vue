@@ -1,8 +1,8 @@
 <template>
   <div class="StaticInfo">
-    <span>{{ text }}</span>
+    <h3 class="StaticInfo-Text">{{ text }}</h3>
     <div v-if="btnText" class="StaticInfo-Button">
-      <app-link :to="url" class="StaticInfo">
+      <app-link :to="url" class="StaticInfo-Link">
         {{ btnText }}
       </app-link>
     </div>
@@ -42,8 +42,10 @@ export default Vue.extend({
   align-items: center;
   flex-wrap: wrap;
 
-  span {
+  &-Text {
     white-space: pre-wrap;
+    @include font-size(12);
+
     font-weight: 600;
   }
 
