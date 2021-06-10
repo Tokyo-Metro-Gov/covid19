@@ -171,7 +171,7 @@ const config: NuxtConfig = {
           [
             '@nuxt/babel-preset-app',
             {
-              corejs: { version: '3.11' },
+              corejs: { version: '3.14' },
             },
           ],
         ]
