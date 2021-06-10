@@ -1,5 +1,5 @@
 {
-    "date": "2021\/6\/4 18:15",
+    "date": "2021\/6\/10 18:30",
     "datasets": [
         {
             "period": {
@@ -228,8 +228,8 @@
                 "end": "2021-05-02"
             },
             "data": {
-                "variant_test_count": 2508,
-                "variant_positive_count": 1711,
+                "variant_test_count": 2509,
+                "variant_positive_count": 1712,
                 "n501y_positive_rate": 68.2,
                 "n501y_negative_rate": 31.8,
                 "variant_pcr_rate": 43
@@ -241,11 +241,11 @@
                 "end": "2021-05-09"
             },
             "data": {
-                "variant_test_count": 2578,
-                "variant_positive_count": 1931,
-                "n501y_positive_rate": 74.9,
-                "n501y_negative_rate": 25.1,
-                "variant_pcr_rate": 46.1
+                "variant_test_count": 2587,
+                "variant_positive_count": 1936,
+                "n501y_positive_rate": 74.8,
+                "n501y_negative_rate": 25.2,
+                "variant_pcr_rate": 46.3
             }
         },
         {
@@ -254,11 +254,11 @@
                 "end": "2021-05-16"
             },
             "data": {
-                "variant_test_count": 2668,
-                "variant_positive_count": 2174,
+                "variant_test_count": 2675,
+                "variant_positive_count": 2180,
                 "n501y_positive_rate": 81.5,
                 "n501y_negative_rate": 18.5,
-                "variant_pcr_rate": 47.3
+                "variant_pcr_rate": 47.4
             }
         },
         {
@@ -267,11 +267,24 @@
                 "end": "2021-05-23"
             },
             "data": {
-                "variant_test_count": 2300,
-                "variant_positive_count": 1899,
-                "n501y_positive_rate": 82.6,
-                "n501y_negative_rate": 17.4,
-                "variant_pcr_rate": 50.6
+                "variant_test_count": 2319,
+                "variant_positive_count": 1917,
+                "n501y_positive_rate": 82.7,
+                "n501y_negative_rate": 17.3,
+                "variant_pcr_rate": 51
+            }
+        },
+        {
+            "period": {
+                "begin": "2021-05-24",
+                "end": "2021-05-30"
+            },
+            "data": {
+                "variant_test_count": 2020,
+                "variant_positive_count": 1713,
+                "n501y_positive_rate": 84.8,
+                "n501y_negative_rate": 15.2,
+                "variant_pcr_rate": 51.7
             }
         }
     ]
