@@ -5,10 +5,11 @@
         :title="$t('都庁来庁者数の推移')"
         :title-id="'agency'"
         :chart-id="'agency'"
-        :chart-data="agencyData"
-        :date="agencyData.date"
+        :chart-data="agency"
+        :date="date"
+        :labels="labels"
+        :periods="periods"
         :items="agencyItems"
-        :periods="agencyData.periods"
         :unit="$t('人')"
       >
         <template #additionalDescription>
@@ -19,37 +20,58 @@
   </v-col>
 </template>
 
-<script>
-import dayjs from 'dayjs'
+<script lang="ts">
+import Vue from 'vue'
 
 import Chart from '@/components/index/CardsReference/Agency/Chart.vue'
-import AgencyData from '@/data/agency.json'
+import { Agency as IAgency } from '@/libraries/auto_generated/data_converter/convertAgency'
+import { convertDateToISO8601Format } from '@/utils/formatDate'
 
-export default {
+type Data = {
+  agencyItems: string[]
+}
+type Methods = {}
+type Computed = {
+  agency: IAgency
+  date: string
+  labels: string[]
+  periods: string[]
+}
+type Props = {}
+
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     Chart,
   },
   data() {
-    const labels = AgencyData.periods.map((p) => p.begin)
-    const periods = AgencyData.periods.map((p) => {
-      const from = this.$d(dayjs(p.begin).toDate(), 'dateWithoutYear')
-      const to = this.$d(dayjs(p.end).toDate(), 'dateWithoutYear')
-      return `${from}~${to}`
-    })
-    const agencyData = {
-      ...AgencyData,
-      labels,
-      periods,
-    }
     const agencyItems = [
-      this.$t('第一庁舎計'),
-      this.$t('第二庁舎計'),
-      this.$t('議事堂計'),
+      this.$t('第一庁舎計') as string,
+      this.$t('第二庁舎計') as string,
+      this.$t('議事堂計') as string,
     ]
     return {
-      agencyData,
       agencyItems,
     }
   },
-}
+  computed: {
+    agency() {
+      return this.$store.state.agency
+    },
+    date() {
+      return this.agency.date
+    },
+    labels() {
+      return this.agency.periods.map((p) => {
+        return convertDateToISO8601Format(p.begin)
+      })
+    },
+    periods() {
+      return this.agency.periods.map((p) => {
+        const from = this.$d(p.begin, 'dateWithoutYear')
+        const to = this.$d(p.end, 'dateWithoutYear')
+        return `${from}~${to}`
+      })
+    },
+  },
+})
 </script>
