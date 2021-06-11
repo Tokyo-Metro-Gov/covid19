@@ -8,7 +8,7 @@
         <div class="StayingPopulation-link">
           <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
           <app-link
-            to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html#nav1"
+            to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html#top"
             >{{ $t('詳細はこちら') }}
           </app-link>
         </div>
