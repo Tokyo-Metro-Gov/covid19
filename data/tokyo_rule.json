@@ -1,5 +1,5 @@
 {
-    "date": "2021\/6\/11 19:00",
+    "date": "2021\/6\/14 18:00",
     "data": [
         {
             "date": "2020-03-01",
@@ -2335,6 +2335,21 @@
             "date": "2021-06-10",
             "count": 38,
             "weekly_average_count": 48.1
+        },
+        {
+            "date": "2021-06-11",
+            "count": 29,
+            "weekly_average_count": 46.7
+        },
+        {
+            "date": "2021-06-12",
+            "count": 39,
+            "weekly_average_count": 44.3
+        },
+        {
+            "date": "2021-06-13",
+            "count": 50,
+            "weekly_average_count": 44.3
         }
     ]
 }
