@@ -182,14 +182,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       padding: 3px 0 0 0;
       margin: 0;
 
-      > span {
+      > em {
         color: $green-1;
-      }
-
-      > a {
-        @include text-link();
-
-        text-decoration: none;
+        font-style: normal;
       }
     }
   }
