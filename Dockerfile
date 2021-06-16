@@ -1,4 +1,4 @@
-FROM node:10.23.2-alpine
+FROM node:14.16.0-alpine
 
 ENV PROJECT_ROOTDIR /app/
 

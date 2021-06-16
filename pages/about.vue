@@ -1,8 +1,6 @@
 <template>
   <div class="About">
-    <page-header class="mb-3">
-      {{ $t('当サイトについて') }}
-    </page-header>
+    <page-header :title="$t('当サイトについて')" />
     <static-card>
       {{
         $t(
@@ -15,6 +13,59 @@
           '東京都による公式情報と客観的な数値をわかりやすく伝えることで、東京都にお住まいの方や、東京都内に拠点を持つ企業の方、東京都を訪れる方が、現状を把握して適切な対策を取れるようにすることを目的としています。'
         )
       }}
+    </static-card>
+    <static-card>
+      <h3>{{ $t('ウェブアクセシビリティ方針') }}</h3>
+      <p>
+        {{
+          $t(
+            '東京都新型コロナウイルス感染症対策サイトでは、「JISX8341-3:2016 高齢者・障害者等配慮設計指針－情報通信における機器、ソフトウェア及びサービス－第3部：ウェブコンテンツ」に対応することを目標とし、アクセシビリティの確保と向上に取り組んでいます。'
+          )
+        }}
+      </p>
+      <dl>
+        <dt>{{ $t('対象範囲') }}</dt>
+        <i18n tag="dd" path="{site}以下全ページ">
+          <template #site>
+            <app-link to="/"> https://stopcovid19.metro.tokyo.lg.jp/ </app-link>
+          </template>
+        </i18n>
+        <dt>{{ $t('適合レベル及び対応度') }}</dt>
+        <dd>{{ $t('JIS X 8341-3:2016の適合レベルAAに準拠') }}</dd>
+        <dt>{{ $t('目標を達成する期限') }}</dt>
+        <dd>{{ formatDate(new Date('2021-09-30')) }}</dd>
+        <dt>{{ $t('例外事項') }}</dt>
+        <dd>
+          <p>
+            {{
+              $t(
+                '以下は現時点では修正対応が困難であるため、目標の対象外とします。'
+              )
+            }}
+          </p>
+          <ul>
+            <i18n
+              tag="li"
+              path="本サイト外から提供されるコンテンツ（{site}の「感染状況・医療提供体制の分析」内におけるサムネイル画像）"
+            >
+              <template #site>
+                <app-link to="/">
+                  https://stopcovid19.metro.tokyo.lg.jp/
+                </app-link>
+              </template>
+            </i18n>
+            <li>
+              {{
+                $t(
+                  '外部サービスを使用しているコンテンツ及びそれに付随するコンテンツ（全ページに表示される「【東京都新型コロナ】ご質問にチャットボットがお答えします」の機能）'
+                )
+              }}
+            </li>
+          </ul>
+        </dd>
+        <dt>{{ $t('担当部署') }}</dt>
+        <dd>{{ $t('政策企画局（03-5388-2171）') }}</dd>
+      </dl>
     </static-card>
     <static-card>
       <h3>{{ $t('ブラウザ環境について') }}</h3>
@@ -152,7 +203,7 @@
         tag="p"
         path="Google Analyticsによる情報送信を回避する場合は、Google がサポートする{addon}をご利用ください。"
       >
-        <template v-slot:addon>
+        <template #addon>
           <app-link
             :to="$t('https://tools.google.com/dlpage/gaoptout?hl=ja')"
             :icon-size="16"
@@ -192,7 +243,7 @@
         tag="p"
         path="本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）"
       >
-        <template v-slot:catalogWebsite>
+        <template #catalogWebsite>
           <app-link to="https://portal.data.metro.tokyo.lg.jp/" :icon-size="16">
             {{ $t('東京都オープンデータカタログサイト') }}
           </app-link>
@@ -208,7 +259,7 @@
           )
         }}
         <i18n path="詳しくは、{githubRepo}をご確認ください。">
-          <template v-slot:githubRepo>
+          <template #githubRepo>
             <app-link
               to="https://github.com/tokyo-metropolitan-gov/covid19"
               :icon-size="16"
@@ -251,9 +302,9 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
-import AppLink from '@/components/AppLink.vue'
-import PageHeader from '@/components/PageHeader.vue'
-import StaticCard from '@/components/StaticCard.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
+import PageHeader from '@/components/_shared/PageHeader.vue'
+import StaticCard from '@/components/_shared/StaticCard.vue'
 
 export default Vue.extend({
   components: {
@@ -265,6 +316,11 @@ export default Vue.extend({
     return {
       title: this.$t('当サイトについて') as string,
     }
+  },
+  methods: {
+    formatDate(date) {
+      return `${this.$d(date, 'date')}`
+    },
   },
 })
 </script>

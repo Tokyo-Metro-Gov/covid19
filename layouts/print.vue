@@ -46,18 +46,6 @@ export default Vue.extend({
       loading: true,
     }
   },
-  mounted() {
-    this.loading = false
-    window.addEventListener('load', this.print)
-  },
-  beforeDestroy() {
-    window.removeEventListener('load', this.print)
-  },
-  methods: {
-    print() {
-      window.print()
-    },
-  },
   head(): MetaInfo {
     return {
       meta: [
@@ -74,6 +62,18 @@ export default Vue.extend({
         },
       ],
     }
+  },
+  mounted() {
+    this.loading = false
+    window.addEventListener('load', this.print)
+  },
+  beforeDestroy() {
+    window.removeEventListener('load', this.print)
+  },
+  methods: {
+    print() {
+      window.print()
+    },
   },
 })
 </script>

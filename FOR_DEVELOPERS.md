@@ -2,15 +2,17 @@
 
 ## 1. 環境構築
 
-以下のアプリケーションを開発をおこなう環境へインストールします。
+以下のアプリケーション開発をおこなう環境へインストールします。
 
 | アプリケーション名 | バージョン(指定がある場合のみ、記載する) | インストール条件 |
 | ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/ja/)|10.23.2以上|必須|
-|[Visual Studio Code](https://code.visualstudio.com/)| |Visual Studio Codeを利用する場合|
-|[yarn](https://classic.yarnpkg.com/ja/)| |本プログラムをyarnで実行する場合|
-|[docker compose](https://docs.docker.com/compose/install/)| |本プログラムをdocker composeで実行する場合|
-|[Vagrant](https://www.vagrantup.com/)| |本プログラムをVagrantで実行する場合|
+|[Node.js](https://nodejs.org/ja/)|14.16.0以上|必須|
+|[Visual Studio Code](https://code.visualstudio.com/)| |[Visual Studio Codeを利用する場合](#1-1-visual-studio-codeの拡張機能)|
+|[yarn](https://classic.yarnpkg.com/ja/)| |[本プログラムをyarnで実行する場合](#2-1-yarn-を使う場合)|
+|[docker compose](https://docs.docker.com/compose/install/)| |[本プログラムをdocker composeで実行する場合](#2-2-docker-compose-を使う場合)|
+|[Vagrant](https://www.vagrantup.com/)| |[本プログラムをVagrantで実行する場合](#2-3-vagrant-を使う場合)|
+|[Visual Studio Code](https://code.visualstudio.com/) + [Remote Containers](https://code.visualstudio.com/docs/remote/remote-overview) | |[Visual Studio Code + Remote Containersで開発する場合](#2-4-visual-studio-code--remote-containersで開発する場合)|
+|[Gitpod](https://www.gitpod.io/)| |[Gitpodで開発する場合](#2-5-gitpodで開発する場合)|
 
 ### 1-1. Visual Studio Codeの拡張機能
 
@@ -122,7 +124,7 @@ $ vagrant up
 
 ## 3. 本番環境/その他の判定
 
-`process.env.GENERATE_ENV` の値が、本番の場合は`'production'`に、それ以外の場合は `'development'` になっています。  
+`process.env.GENERATE_ENV` の値が、本番の場合は`'production'`に、それ以外の場合は `'development'` になっています。
 テスト環境のみで実行したい処理がある場合は、こちらの値をご利用ください。
 
 ---
@@ -141,7 +143,7 @@ $ vagrant up
 
 ## 5. ブランチルール
 
-development 以外は、Pull Request は禁止です。  
+development 以外は、Pull Request は禁止です。
 Pull Request を送る際のブランチは、以下のネーミングルールに従ったブランチにしてください。
 
 | 種類 | ブランチのネーミングルール |
@@ -167,17 +169,34 @@ Pull Request を送る際のブランチは、以下のネーミングルール�
 
 ---
 
-## 6. 依存性の管理
+## 6. `data` ディレクトリ以下の JSON データについて
+
+### 6-1. データの構造が変わったとき、またはデータが追加されたときは
+
+次のコマンドで、自動生成しているコード（`libraries/auto_generated` 以下のファイル）を再生成してください。
+
+```bash
+$ yarn generate-data-converters
+```
+
+また、このとき自動生成された interface の定義が変更されます。必要に応じて各コンポーネントの実装を修正してください。
+
+JSON の構造に変化がなくデータだけ更新された場合は、コマンドを実行する必要はありません。
+
+---
+
+## 7. 依存性の管理
 
 このプロジェクトでは、[Renovate](https://github.com/renovatebot/renovate)によって依存性の更新を管理しています。  
 適用されるルールについては、[renovate.json](./.github/renovate.json)を参照してください。
 
-### 6-1. Node.jsのバージョンアップ
+### 7-1. Node.jsのバージョンアップ
 
 このプロジェクトでは、Node.jsをRenovateの管理対象から除外しています。  
 Node.jsのバージョンを更新したい場合、次の手順に従ってください。
 
 1. このプロジェクトの現在のNode.jsバージョンを確認
 2. 現在のNode.jsバージョンを示す文字列（例：14.16.x）をすべて新しいバージョン（例：14.16.y）に置換
+3. 指定したNodeのバージョンを手元の環境にもセットアップしてからyarn.lockを再生成しコミットする
 
 Visual Studio Codeなどのエディタの検索機能で一括置換するのが簡単でしょう。

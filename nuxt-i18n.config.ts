@@ -1,9 +1,10 @@
-import type { NuxtVueI18n } from 'nuxt-i18n'
+import { NuxtConfig } from '@nuxt/types'
+import { NuxtVueI18n } from 'nuxt-i18n/types'
 
 const dateTimeFormatsCommon = {
   dateTime: {
     year: 'numeric',
-    month: 'short',
+    month: 'long',
     day: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
@@ -11,7 +12,7 @@ const dateTimeFormatsCommon = {
   },
   date: {
     year: 'numeric',
-    month: 'short',
+    month: 'long',
     day: 'numeric',
   },
   dateWithoutYear: {
@@ -20,21 +21,23 @@ const dateTimeFormatsCommon = {
   },
   dateWithoutDay: {
     year: 'numeric',
-    month: 'short',
+    month: 'long',
   },
   dateWithDayOfWeek: {
     weekday: 'short',
-    month: 'short',
+    month: 'long',
     day: 'numeric',
   },
 }
 
-const options: NuxtVueI18n.Options.AllOptionsInterface = {
+const options: NuxtConfig = {
   strategy: 'prefix_except_default',
   detectBrowserLanguage: false,
   defaultLocale: 'ja',
+
   vueI18n: {
     fallbackLocale: 'ja',
+    formatFallbackMessages: true,
     dateTimeFormats: {
       ja: dateTimeFormatsCommon,
       en: dateTimeFormatsCommon,
@@ -43,7 +46,6 @@ const options: NuxtVueI18n.Options.AllOptionsInterface = {
       ko: dateTimeFormatsCommon,
       'ja-basic': dateTimeFormatsCommon,
     },
-    formatFallbackMessages: true,
   },
   // vueI18nLoader: true,
   lazy: true,
@@ -104,4 +106,4 @@ const options: NuxtVueI18n.Options.AllOptionsInterface = {
   seo: false,
 }
 
-export default options
+export default options as NuxtVueI18n.Options.AllOptionsInterface

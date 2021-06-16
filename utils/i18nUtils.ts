@@ -1,9 +1,11 @@
-import type { NuxtVueI18n } from 'nuxt-i18n'
+/* eslint-disable simple-import-sort/imports */
 import { LinkPropertyHref } from 'vue-meta'
+import type { Locale, LocaleObject } from 'nuxt-i18n'
+/* eslint-enable simple-import-sort/imports */
 
 export const getLinksLanguageAlternative = (
   routeBaseName: string,
-  locales?: Array<NuxtVueI18n.Locale | NuxtVueI18n.Options.LocaleObject>,
+  locales?: Array<Locale | LocaleObject>,
   defaultLocale?: string
 ) => {
   const links: LinkPropertyHref[] = []
