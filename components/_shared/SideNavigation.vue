@@ -2,6 +2,7 @@
   <div ref="Side" class="SideNavigation" tabindex="-1">
     <header class="SideNavigation-Header">
       <v-icon
+        ref="Open"
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
         @click="$emit('open-navigation', $event)"
@@ -47,7 +48,11 @@
             <language-selector />
           </div>
         </div>
-        <menu-list :items="items" @click="$emit('close-navigation', $event)" />
+        <menu-list
+          ref="Nav"
+          :items="items"
+          @click="$emit('close-navigation', $event)"
+        />
       </nav>
 
       <footer class="SideNavigation-Footer">
@@ -329,6 +334,9 @@ export default Vue.extend({
         }
       }
     },
+    isNaviOpen(value) {
+      this.handleNavFocus(value)
+    },
   },
   methods: {
     handleChangeRoute() {
@@ -337,6 +345,17 @@ export default Vue.extend({
         const $Side = this.$refs.Side as HTMLEmbedElement | undefined
         if ($Side) {
           $Side.focus()
+        }
+      })
+    },
+    handleNavFocus(isNaviOpen: boolean) {
+      return this.$nextTick(() => {
+        if (isNaviOpen) {
+          const $Nav = this.$refs.Nav as HTMLElement
+          $Nav.focus()
+        } else {
+          const $Open = this.$refs.Open as HTMLButtonElement
+          $Open.$el.focus()
         }
       })
     },
