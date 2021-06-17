@@ -317,6 +317,18 @@ export default Vue.extend({
   },
   watch: {
     $route: 'handleChangeRoute',
+    '$vuetify.breakpoint.xsOnly'(value) {
+      const $Side = this.$refs.Side as HTMLEmbedElement | undefined
+      if ($Side) {
+        if (value) {
+          $Side.setAttribute('role', 'dialog')
+          $Side.setAttribute('aria-modal', 'true')
+        } else {
+          $Side.removeAttribute('role')
+          $Side.removeAttribute('aria-modal')
+        }
+      }
+    },
   },
   methods: {
     handleChangeRoute() {
