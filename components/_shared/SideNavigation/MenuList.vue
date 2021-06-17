@@ -6,7 +6,7 @@
       :class="['MenuList-Item', { '-border': item.divider }]"
       @click="$emit('click', $event)"
     >
-      <app-link :to="item.link" class="MenuList-Link">
+      <app-link ref="Link" :to="item.link" class="MenuList-Link">
         <span v-if="item.svg || item.iconPath" class="MenuList-Icon">
           <svg
             :is="item.svg"
@@ -47,6 +47,14 @@ export default Vue.extend({
     items: {
       type: Array as PropType<MenuItem[]>,
       required: true,
+    },
+  },
+  methods: {
+    focus() {
+      const $Link = this.$refs.Link as HTMLAnchorElement | undefined
+      if ($Link) {
+        $Link[0].$el.focus()
+      }
     },
   },
 })
