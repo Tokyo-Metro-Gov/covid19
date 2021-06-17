@@ -15,7 +15,11 @@
           @close-navigation="closeNavigation"
         />
       </div>
-      <main class="mainContainer" :class="{ open: isOpenNavigation }">
+      <main
+        class="mainContainer"
+        :class="{ open: isOpenNavigation }"
+        :inert="isOpenNavigation"
+      >
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
