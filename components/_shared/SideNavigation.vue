@@ -316,10 +316,10 @@ export default Vue.extend({
     },
   },
   watch: {
-    $route: 'handleChageRoute',
+    $route: 'handleChangeRoute',
   },
   methods: {
-    handleChageRoute() {
+    handleChangeRoute() {
       // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
       return this.$nextTick().then(() => {
         const $Side = this.$refs.Side as HTMLEmbedElement | undefined
