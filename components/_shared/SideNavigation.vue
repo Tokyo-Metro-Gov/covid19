@@ -42,17 +42,18 @@
       <nav class="SideNavigation-Menu">
         <div class="SideNavigation-Language">
           <div v-if="$i18n.locales.length > 1" class="SideNavigation-Language">
-            <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+            <label
+              ref="LanguageLabel"
+              class="SideNavigation-LanguageLabel"
+              for="LanguageSelector"
+              tabindex="-1"
+            >
               {{ $t('多言語対応選択メニュー') }}
             </label>
             <language-selector />
           </div>
         </div>
-        <menu-list
-          ref="Nav"
-          :items="items"
-          @click="$emit('close-navigation', $event)"
-        />
+        <menu-list :items="items" @click="$emit('close-navigation', $event)" />
       </nav>
 
       <footer class="SideNavigation-Footer">
@@ -351,8 +352,8 @@ export default Vue.extend({
     handleNavFocus(isNaviOpen: boolean) {
       return this.$nextTick(() => {
         if (isNaviOpen) {
-          const $Nav = this.$refs.Nav as HTMLElement
-          $Nav.focus()
+          const $LanguageLabel = this.$refs.LanguageLabel as HTMLElement
+          $LanguageLabel.focus()
         } else {
           const $Open = this.$refs.Open as HTMLButtonElement
           $Open.$el.focus()
