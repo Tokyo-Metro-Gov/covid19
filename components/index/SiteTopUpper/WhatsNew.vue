@@ -48,20 +48,22 @@
         </li>
       </ul>
     </div>
-    <div class="WhatsNew-list">
-      <dl v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
-        <dt class="WhatsNew-list-item-time px-2">
-          <time :datetime="formattedDate(item.date)">
-            {{ formattedDateForDisplay(item.date) }}
-          </time>
-        </dt>
-        <dd class="WhatsNew-list-item-anchor">
-          <app-link :to="item.url" class="WhatsNew-list-item-anchor-link">
-            {{ item.text }}
-          </app-link>
-        </dd>
-      </dl>
-    </div>
+    <ul class="WhatsNew-list">
+      <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
+        <dl class="WhatsNew-list-item-inner">
+          <dt class="WhatsNew-list-item-time px-2">
+            <time :datetime="formattedDate(item.date)">
+              {{ formattedDateForDisplay(item.date) }}
+            </time>
+          </dt>
+          <dd class="WhatsNew-list-item-anchor">
+            <app-link :to="item.url" class="WhatsNew-list-item-anchor-link">
+              {{ item.text }}
+            </app-link>
+          </dd>
+        </dl>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -163,8 +165,10 @@ export default Vue.extend({
     list-style-type: none;
 
     &-item {
-      margin: 0 5px;
-      @include font-size(14);
+      &-inner {
+        margin: 0 5px;
+        @include font-size(14);
+      }
 
       &-time {
         padding: 0;
