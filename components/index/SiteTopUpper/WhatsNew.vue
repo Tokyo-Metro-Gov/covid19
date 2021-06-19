@@ -48,21 +48,20 @@
         </li>
       </ul>
     </div>
-    <ul class="WhatsNew-list">
-      <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
-        <app-link :to="item.url" class="WhatsNew-list-item-anchor">
-          <time
-            class="WhatsNew-list-item-anchor-time px-2"
-            :datetime="formattedDate(item.date)"
-          >
+    <div class="WhatsNew-list">
+      <dl v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
+        <dt class="WhatsNew-list-item-time px-2">
+          <time :datetime="formattedDate(item.date)">
             {{ formattedDateForDisplay(item.date) }}
           </time>
-          <span class="WhatsNew-list-item-anchor-link">
+        </dt>
+        <dd class="WhatsNew-list-item-anchor">
+          <app-link :to="item.url" class="WhatsNew-list-item-anchor-link">
             {{ item.text }}
-          </span>
-        </app-link>
-      </li>
-    </ul>
+          </app-link>
+        </dd>
+      </dl>
+    </div>
   </div>
 </template>
 
@@ -164,24 +163,23 @@ export default Vue.extend({
     list-style-type: none;
 
     &-item {
+      margin: 0 5px;
+      @include font-size(14);
+
+      &-time {
+        padding: 0;
+        display: inline;
+        @include lessThan($medium) {
+          flex: 0 0 100%;
+        }
+      }
+
       &-anchor {
-        text-decoration: none;
-        margin: 5px;
-        @include font-size(14);
+        display: inline;
 
         @include lessThan($medium) {
           display: flex;
           flex-wrap: wrap;
-        }
-
-        &-time {
-          flex: 0 0 90px;
-
-          @include lessThan($medium) {
-            flex: 0 0 100%;
-          }
-
-          color: $gray-1;
         }
 
         &-link {
