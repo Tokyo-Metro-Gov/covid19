@@ -103,6 +103,11 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       this.$t('変異株PCR検査実施割合') as string,
     ]
 
+    const scaleLabels = [
+      this.$t('陽性例数') as string,
+      this.$t('実施割合') as string,
+    ]
+
     const getFormatter = (index: number) => {
       if (index === 2) {
         // 変異株PCR検査実施割合は小数点第1位まで表示する。
