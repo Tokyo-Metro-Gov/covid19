@@ -14,11 +14,12 @@ export interface IFeverConsultationCenterRepository
 
 export class FeverConsultationCenterRepository
   extends BaseRepository<FeverConsultationCenter>
-  implements IFeverConsultationCenterRepository {
+  implements IFeverConsultationCenterRepository
+{
   /**
    * 使用箇所
    *
-   * 東京都発熱相談センターにおける相談件数 (components/cards/TokyoFeverConsultationCenterReportsNumberCard.vue)
+   * 東京都発熱相談センターにおける相談件数 (components/index/CardsReference/TokyoFeverConsultationCenterReportsNumber/Card.vue)
    */
   constructor() {
     super(Convert.toFeverConsultationCenter(JSON.stringify(rawData)))

@@ -42,46 +42,49 @@ const createCustomChart = () => {
     ChartVCMethod,
     ChartVCComputed,
     ChartVCProps
-  >('GeneralChart', {
-    mixins: [reactiveProp],
-    props: {
-      displayLegends: {
-        type: Array,
-        default: () => null,
+  >(
+    'GeneralChart', // eslint-disable-next-line vue/one-component-per-file
+    {
+      mixins: [reactiveProp],
+      props: {
+        displayLegends: {
+          type: Array,
+          default: () => null,
+        },
+        options: {
+          type: Object as PropType<ChartOptions>,
+          default: () => {},
+        },
       },
-      options: {
-        type: Object as PropType<ChartOptions>,
-        default: () => {},
+      watch: {
+        displayLegends: watchDisplayLegends,
+        width() {
+          setTimeout(() => this.$data._chart.resize())
+          this.$parent.$emit('update-width')
+        },
       },
-    },
-    watch: {
-      displayLegends: watchDisplayLegends,
-      width() {
-        setTimeout(() => this.$data._chart.resize())
-        this.$parent.$emit('update-width')
+      mounted() {
+        setTimeout(() => this.renderChart(this.chartData, this.options))
       },
-    },
-    mounted() {
-      setTimeout(() => this.renderChart(this.chartData, this.options))
-    },
-  })
+    }
+  )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'LineChart',
+    'LineChart', // eslint-disable-next-line vue/one-component-per-file
     {
       mixins: [reactiveProp, Line, generalChart],
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'Bar',
+    'Bar', // eslint-disable-next-line vue/one-component-per-file
     {
       mixins: [reactiveProp, Bar, generalChart],
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
-    'DoughnutChart',
+    'DoughnutChart', // eslint-disable-next-line vue/one-component-per-file
     {
       mixins: [reactiveProp, Doughnut, generalChart],
     }

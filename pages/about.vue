@@ -1,8 +1,6 @@
 <template>
   <div class="About">
-    <page-header class="mb-3">
-      {{ $t('当サイトについて') }}
-    </page-header>
+    <page-header :title="$t('当サイトについて')" />
     <static-card>
       {{
         $t(
@@ -304,9 +302,9 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 
-import AppLink from '@/components/AppLink.vue'
-import PageHeader from '@/components/PageHeader.vue'
-import StaticCard from '@/components/StaticCard.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
+import PageHeader from '@/components/_shared/PageHeader.vue'
+import StaticCard from '@/components/_shared/StaticCard.vue'
 
 export default Vue.extend({
   components: {

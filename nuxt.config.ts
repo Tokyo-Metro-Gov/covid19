@@ -60,8 +60,7 @@ const config: NuxtConfig = {
     ],
     script: [
       {
-        src:
-          'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
+        src: 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
         defer: true,
       },
     ],
@@ -172,12 +171,11 @@ const config: NuxtConfig = {
           [
             '@nuxt/babel-preset-app',
             {
-              corejs: { version: '3.11' },
+              corejs: { version: '3.14' },
             },
           ],
         ]
       },
-      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
     },
     postcss: {
       preset: {
@@ -239,6 +237,7 @@ const config: NuxtConfig = {
         '/cards/number-of-reports-to-tokyo-fever-consultation-center',
         '/cards/deaths-by-death-date',
         '/cards/variant',
+        '/cards/vaccination',
       ]
       const localizedPages = locales
         .map((locale) => pages.map((page) => `/${locale}${page}`))

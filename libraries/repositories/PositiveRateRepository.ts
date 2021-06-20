@@ -14,11 +14,12 @@ export interface IPositiveRateRepository
 
 export class PositiveRateRepository
   extends BaseRepository<PositiveRate>
-  implements IPositiveRateRepository {
+  implements IPositiveRateRepository
+{
   /**
    * 使用箇所
    *
-   * モニタリング項目(4) 検査の陽性率／検査人数 (components/cards/PositiveRateCard.vue)
+   * モニタリング項目(4) 検査の陽性率／検査人数 (components/index/CardsMonitoring/PositiveRate/Card.vue)
    */
   constructor() {
     super(Convert.toPositiveRate(JSON.stringify(rawData)))
