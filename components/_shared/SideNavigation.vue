@@ -355,8 +355,9 @@ export default Vue.extend({
           const $LanguageLabel = this.$refs.LanguageLabel as HTMLElement
           $LanguageLabel.focus()
         } else {
-          const $Open = this.$refs.Open as HTMLButtonElement
-          $Open.$el.focus()
+          const $Open = this.$refs.Open as Vue
+          const $OpenElement = $Open.$el as HTMLButtonElement
+          $OpenElement.focus()
         }
       })
     },
