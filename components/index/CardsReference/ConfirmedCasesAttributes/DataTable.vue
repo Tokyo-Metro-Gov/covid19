@@ -157,6 +157,14 @@ export default Vue.extend({
     nodes.forEach((table: HTMLElement) => {
       table.setAttribute('tabindex', '0')
     })
+
+    const inputs = vTableElement.querySelectorAll('input[aria-readonly]')
+    Array.prototype.slice.call(inputs, 0).forEach((input: Element) => {
+      input.setAttribute(
+        'aria-readonly',
+        String(input.hasAttribute('readonly'))
+      )
+    })
   },
 })
 </script>
