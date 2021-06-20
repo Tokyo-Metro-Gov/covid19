@@ -480,7 +480,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
-                  return `${value}%`
+                  return `${value} %`
                 },
               },
             },
@@ -610,7 +610,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
-                  return `${value}%`
+                  return `${value} %`
                 },
               },
             },
