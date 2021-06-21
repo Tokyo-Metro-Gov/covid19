@@ -16,9 +16,9 @@
         />
       </div>
       <main
+        ref="Main"
         class="mainContainer"
-        :class="{ open: isOpenNavigation }"
-        :inert="isOpenNavigation"
+        :class="{ hidden: isOpenNavigation }"
       >
         <v-container class="px-4 py-8">
           <nuxt />
@@ -77,6 +77,10 @@ export default class Default extends Vue implements NuxtConfig {
     }
   }
 
+  $refs!: {
+    Main: HTMLElement
+  }
+
   mounted() {
     this.$data.loading = false
     this.getMatchMedia().addListener(this.closeNavigation)
@@ -88,10 +92,12 @@ export default class Default extends Vue implements NuxtConfig {
 
   openNavigation() {
     this.$data.isOpenNavigation = true
+    this.$refs.Main.setAttribute('aria-hidden', 'true')
   }
 
   closeNavigation() {
     this.$data.isOpenNavigation = false
+    this.$refs.Main.removeAttribute('aria-hidden')
   }
 
   getMatchMedia() {
@@ -245,6 +251,13 @@ export default class Default extends Vue implements NuxtConfig {
 }
 .naviContainer {
   background-color: $white;
+  &.open {
+    height: 100vh;
+    @include largerThan($small) {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
 }
 @include lessThan($small) {
   .naviContainer {
@@ -273,13 +286,6 @@ export default class Default extends Vue implements NuxtConfig {
     width: 325px;
   }
 }
-.open {
-  height: 100vh;
-  @include largerThan($small) {
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-}
 .mainContainer {
   grid-column: 2/3;
   overflow: hidden;
@@ -287,6 +293,9 @@ export default class Default extends Vue implements NuxtConfig {
     .container {
       padding-top: 16px;
     }
+  }
+  &.hidden {
+    visibility: hidden;
   }
 }
 .loader {
