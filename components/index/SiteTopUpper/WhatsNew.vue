@@ -50,18 +50,16 @@
     </div>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
-        <dl class="WhatsNew-list-item-inner">
-          <dt class="WhatsNew-list-item-time px-2">
-            <time :datetime="formattedDate(item.date)">
-              {{ formattedDateForDisplay(item.date) }}
-            </time>
-          </dt>
-          <dd class="WhatsNew-list-item-anchor">
-            <app-link :to="item.url" class="WhatsNew-list-item-anchor-link">
-              {{ item.text }}
-            </app-link>
-          </dd>
-        </dl>
+        <span class="WhatsNew-list-item-time px-2">
+          <time :datetime="formattedDate(item.date)">
+            {{ formattedDateForDisplay(item.date) }}
+          </time>
+        </span>
+        <span class="WhatsNew-list-item-anchor">
+          <app-link :to="item.url" class="WhatsNew-list-item-anchor-link">
+            {{ item.text }}
+          </app-link>
+        </span>
       </li>
     </ul>
   </div>
@@ -165,38 +163,32 @@ export default Vue.extend({
     list-style-type: none;
 
     &-item {
-      &-inner {
-        margin: 0 5px;
-        @include font-size(14);
+      margin: 0 5px;
+      @include font-size(14);
+
+      @include lessThan($medium) {
+        display: flex;
+        flex-wrap: wrap;
       }
 
       &-time {
-        padding: 0;
-        display: inline;
         @include lessThan($medium) {
           flex: 0 0 100%;
         }
       }
 
       &-anchor {
-        display: inline;
-
         @include lessThan($medium) {
-          display: flex;
-          flex-wrap: wrap;
+          padding-left: 8px;
         }
+
+        flex: 0 1 auto;
 
         &-link {
-          flex: 0 1 auto;
-
           @include text-link();
-
-          @include lessThan($medium) {
-            padding-left: 8px;
-          }
         }
 
-        &-ExternalLinkIcon {
+        .ExternalLinkIcon {
           margin-left: 2px;
           color: $gray-3 !important;
         }
