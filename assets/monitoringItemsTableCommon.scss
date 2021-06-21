@@ -94,7 +94,7 @@ $default-boxdiff: 35px;
 }
 
 $px: 0;
-$vw: 0;
+$vw: 1;
 $num: div($px, $vw * 1000);
 @function px2vw($px, $vw) {
   @if $vw > 0 {
