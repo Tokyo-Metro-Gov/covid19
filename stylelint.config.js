@@ -13,7 +13,7 @@ module.exports = {
     'function-calc-no-invalid': [
       true,
       {
-        patterns: ['100000vw * $num'],
+        patterns: ['$num * 100000vw'],
       },
     ],
   },

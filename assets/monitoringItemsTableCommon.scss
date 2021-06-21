@@ -98,7 +98,7 @@ $vw: 0;
 $num: div($px, $vw * 1000);
 @function px2vw($px, $vw) {
   @if $vw > 0 {
-    @return calc(100000vw * $num);
+    @return calc(#{$num} * 100000vw);
   }
   @return $px * 1px;
 }
