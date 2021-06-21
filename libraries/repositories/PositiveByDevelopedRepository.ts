@@ -14,11 +14,12 @@ export interface IPositiveByDevelopedRepository
 
 export class PositiveByDevelopedRepository
   extends BaseRepository<PositiveByDeveloped>
-  implements IPositiveByDevelopedRepository {
+  implements IPositiveByDevelopedRepository
+{
   /**
    * 使用箇所
    *
-   * 発症日別による陽性者数の推移 (components/cards/PositiveNumberByDevelopedDateCard.vue)
+   * 発症日別による陽性者数の推移 (components/index/CardsReference/PositiveNumberByDevelopedDate/Card.vue)
    */
   constructor() {
     super(Convert.toPositiveByDeveloped(JSON.stringify(rawData)))

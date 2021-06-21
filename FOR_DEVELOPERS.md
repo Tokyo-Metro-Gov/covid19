@@ -167,6 +167,8 @@ Pull Request を送る際のブランチは、以下のネーミングルール�
 | ステージングサイト HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | 静的ビルドされたHTMLが置いてある場所 |
 | OGP作業用 | deploy/new_ogp | なし | OGPの更新用 |
 
+---
+
 ## 6. `data` ディレクトリ以下の JSON データについて
 
 ### 6-1. データの構造が変わったとき、またはデータが追加されたときは
@@ -180,3 +182,21 @@ $ yarn generate-data-converters
 また、このとき自動生成された interface の定義が変更されます。必要に応じて各コンポーネントの実装を修正してください。
 
 JSON の構造に変化がなくデータだけ更新された場合は、コマンドを実行する必要はありません。
+
+---
+
+## 7. 依存性の管理
+
+このプロジェクトでは、[Renovate](https://github.com/renovatebot/renovate)によって依存性の更新を管理しています。  
+適用されるルールについては、[renovate.json](./.github/renovate.json)を参照してください。
+
+### 7-1. Node.jsのバージョンアップ
+
+このプロジェクトでは、Node.jsをRenovateの管理対象から除外しています。  
+Node.jsのバージョンを更新したい場合、次の手順に従ってください。
+
+1. このプロジェクトの現在のNode.jsバージョンを確認
+2. 現在のNode.jsバージョンを示す文字列（例：14.16.x）をすべて新しいバージョン（例：14.16.y）に置換
+3. 指定したNodeのバージョンを手元の環境にもセットアップしてからyarn.lockを再生成しコミットする
+
+Visual Studio Codeなどのエディタの検索機能で一括置換するのが簡単でしょう。

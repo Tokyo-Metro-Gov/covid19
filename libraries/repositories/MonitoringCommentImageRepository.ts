@@ -14,11 +14,12 @@ export interface IMonitoringCommentImageRepository
 
 export class MonitoringCommentImageRepository
   extends BaseRepository<MonitoringCommentImage>
-  implements IMonitoringCommentImageRepository {
+  implements IMonitoringCommentImageRepository
+{
   /**
    * 使用箇所
    *
-   * 感染状況・医療提供体制の分析 (components/MonitoringCommentCard.vue -\> components/MonitoringCommentCardImageSwipe.vue)
+   * 感染状況・医療提供体制の分析 (components/index/SiteTopUpper/MonitoringComment/Card.vue -\> components/index/SiteTopUpper/MonitoringComment/ImageSwipe.vue)
    */
   constructor() {
     super(Convert.toMonitoringCommentImage(JSON.stringify(rawData)))

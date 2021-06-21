@@ -14,11 +14,12 @@ export interface IConsultationAboutFeverRepository
 
 export class ConsultationAboutFeverRepository
   extends BaseRepository<ConsultationAboutFever>
-  implements IConsultationAboutFeverRepository {
+  implements IConsultationAboutFeverRepository
+{
   /**
    * 使用箇所
    *
-   * モニタリング項目(2) #7119における発熱等相談件数 (components/cards/ConsultationAboutFeverNumberCard.vue)
+   * モニタリング項目(2) #7119における発熱等相談件数 (components/index/CardsMonitoring/ConsultationAboutFeverNumber/Card.vue)
    */
   constructor() {
     super(Convert.toConsultationAboutFever(JSON.stringify(rawData)))

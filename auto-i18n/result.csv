@@ -771,3 +771,87 @@ TAG_ADD,新型コロナウイルス感染拡大防止のため、都の要請に
 TAG_ADD,東京都 感染拡大防止協力金
 RUN,2021/05/11 13:00
 TAG_ADD,新型コロナウイルス感染症で入院・宿泊療養される方へ
+RUN,2021/05/13 10:01
+TAG_ADD,妊産婦の皆様へ
+RUN,2021/05/13 10:02
+TAG_ADD,政策企画局（03-5388-2171）
+TAG_ADD,担当部署
+TAG_ADD,東京都新型コロナウイルス感染症対策サイトでは、「JISX8341-3:2016 高齢者・障害者等配慮設計指針－情報通信における機器、ソフトウェア及びサービス－第3部：ウェブコンテンツ」に対応することを目標とし、アクセシビリティの確保と向上に取り組んでいます。
+TAG_ADD,目標を達成する期限
+TAG_ADD,本サイト外から提供されるコンテンツ（{site}の「感染状況・医療提供体制の分析」内におけるサムネイル画像）
+TAG_ADD,対象範囲
+TAG_ADD,ウェブアクセシビリティ方針
+TAG_ADD,外部サービスを使用しているコンテンツ及びそれに付随するコンテンツ（全ページに表示される「【東京都新型コロナ】ご質問にチャットボットがお答えします」の機能）
+TAG_ADD,例外事項
+TAG_ADD,適合レベル及び対応度
+TAG_ADD,以下は現時点では修正対応が困難であるため、目標の対象外とします。
+TAG_ADD,{site}以下全ページ
+TAG_ADD,JIS X 8341-3:2016の適合レベルAAに準拠
+RUN,2021/05/13 10:03
+TAG_ADD,構成割合
+TAG_ADD,実施割合
+RUN,2021/05/13 12:25
+TAG_ADD,検査情報
+RUN,2021/05/17 10:23
+TAG_ADD,{month}比 {rateWithArrow}
+RUN,2021/05/20 10:26
+TAG_ADD,新型コロナウイルス感染症が心配なときに.nav
+RUN,2021/05/28 15:12
+TAG_ADD,感染状況・医療提供体制（サマリ） {date}時点
+RUN,2021/05/28 15:32
+TAG_ADD,新規陽性者{newPositiveCases}人 / 検査数{tests}件（{statisticDate}参考値 （3日間移動平均））、うち65歳以上の高齢者数{older65}人、死亡者数{deaths}人、都外からの持込検体による陽性数{samplesFromOutside}
+TAG_ADD,入院数{hospitalized}人（確保病床数{bedsSecured}床）、うち重症者数{severeCases}人（うち重症病床数{bedsSevereSymptoms}床）
+RUN,2021/05/31 15:29
+TAG_ADD,接種回数（１回目・累計）
+TAG_ADD,{dateEnd}累計値
+TAG_ADD,接種回数（２回目・累計）
+TAG_ADD,対象者 約311万人
+TAG_ADD,ワクチン接種記録システム（VRS）への報告を居住地の都道府県別に国が集計し、公表したものに基づき作成
+TAG_ADD,ワクチン接種回数（高齢者・累計）
+RUN,2021/06/08 17:45
+TAG_ADD,幼児
+TAG_ADD,ホテルマン
+TAG_ADD,その他運転手
+TAG_ADD,パート職員
+TAG_ADD,病院職員
+TAG_ADD,マスコミ
+TAG_ADD,歌手
+TAG_ADD,医療従事者
+TAG_ADD,施設
+TAG_ADD,その他ドライバー
+TAG_ADD,タクシー運転手
+TAG_ADD,建築士
+TAG_ADD,建設業
+TAG_ADD,会社員（営業職）
+TAG_ADD,サービス
+TAG_ADD,無職
+TAG_ADD,飲食業
+TAG_ADD,施設職員
+TAG_ADD,小学生
+TAG_ADD,公務員
+TAG_ADD,保育園
+TAG_ADD,建築業
+TAG_ADD,学生
+TAG_ADD,タクシー運転業
+TAG_ADD,接客業
+TAG_ADD,会社員（営業）
+TAG_ADD,自動販売機
+TAG_ADD,居酒屋店員
+TAG_ADD,舞台関係
+TAG_ADD,タクシー運転
+TAG_ADD,自営業
+TAG_ADD,飲食業店員
+TAG_ADD,教員
+TAG_ADD,精肉店
+TAG_ADD,会社員
+TAG_ADD,医師
+TAG_ADD,保育所事務
+TAG_ADD,アルバイト
+TAG_ADD,電気工事
+TAG_ADD,音楽系
+TAG_ADD,パートタイム
+TAG_ADD,主婦
+TAG_ADD,会社職員
+TAG_ADD,サービス業
+RUN,2021/06/21 14:32
+TAG_ADD,{date}〜{enddate}

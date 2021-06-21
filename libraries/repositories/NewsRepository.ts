@@ -12,11 +12,12 @@ import {
 export interface INewsRepository extends IBaseRepository<News> {}
 export class NewsRepository
   extends BaseRepository<News>
-  implements INewsRepository {
+  implements INewsRepository
+{
   /**
    * 使用箇所
    *
-   * トップページ上部 (components/SiteTopUpper.vue)
+   * トップページ上部 (components/index/SiteTopUpper.vue)
    */
   constructor() {
     super(Convert.toNews(JSON.stringify(rawData)))
