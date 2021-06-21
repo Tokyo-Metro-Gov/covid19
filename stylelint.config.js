@@ -10,5 +10,11 @@ module.exports = {
         ignorePseudoElements: ['v-deep'],
       },
     ],
+    'function-calc-no-invalid': [
+      true,
+      {
+        patterns: ['100000vw * $num'],
+      },
+    ],
   },
 }
