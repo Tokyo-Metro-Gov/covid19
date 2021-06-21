@@ -23,32 +23,32 @@
         path="新規陽性者{newPositiveCases}人 / 検査数{tests}件（{statisticDate}参考値 （3日間移動平均））、うち65歳以上の高齢者数{older65}人、死亡者数{deaths}人、都外からの持込検体による陽性数{samplesFromOutside}"
       >
         <template #newPositiveCases>
-          <span>
+          <em>
             {{ statuses['新規陽性者'].toLocaleString() }}
-          </span>
+          </em>
         </template>
         <template #tests>
-          <span>
+          <em>
             {{ statuses['検査数'].toLocaleString() }}
-          </span>
+          </em>
         </template>
         <template #statisticDate>
           {{ formatDate(statisticDate) }}
         </template>
         <template #older65>
-          <span>
+          <em>
             {{ statuses['うち65歳以上の高齢者数'].toLocaleString() }}
-          </span>
+          </em>
         </template>
         <template #deaths>
-          <span>
+          <em>
             {{ statuses['死亡者数'].toLocaleString() }}
-          </span>
+          </em>
         </template>
         <template #samplesFromOutside>
-          <span>
+          <em>
             {{ statuses['都外からの持込検体による陽性数'].toLocaleString() }}
-          </span>
+          </em>
         </template>
       </i18n>
     </div>
@@ -66,24 +66,24 @@
         path="入院数{hospitalized}人（確保病床数{bedsSecured}床）、うち重症者数{severeCases}人（うち重症病床数{bedsSevereSymptoms}床）"
       >
         <template #hospitalized>
-          <span>
+          <em>
             {{ statuses['入院数'].toLocaleString() }}
-          </span>
+          </em>
         </template>
         <template #bedsSecured>
-          <span>
+          <em>
             {{ statuses['確保病床数'].toLocaleString() }}
-          </span>
+          </em>
         </template>
         <template #severeCases>
-          <span>
+          <em>
             {{ statuses['うち重症者数'].toLocaleString() }}
-          </span>
+          </em>
         </template>
         <template #bedsSevereSymptoms>
-          <span>
+          <em>
             {{ statuses['うち重症病床数'].toLocaleString() }}
-          </span>
+          </em>
         </template>
       </i18n>
     </div>
@@ -182,14 +182,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       padding: 3px 0 0 0;
       margin: 0;
 
-      > span {
+      > em {
         color: $green-1;
-      }
-
-      > a {
-        @include text-link();
-
-        text-decoration: none;
+        font-style: normal;
       }
     }
   }

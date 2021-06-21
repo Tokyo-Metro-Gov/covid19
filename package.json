@@ -37,7 +37,7 @@
     "@nuxtjs/vuetify/**/sass": "1.32.12"
   },
   "dependencies": {
-    "@nuxt/types": "2.15.6",
+    "@nuxt/types": "2.15.7",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/gtm": "2.4.0",
     "@nuxtjs/pwa": "3.3.5",
@@ -45,9 +45,9 @@
     "chart.js": "2.9.4",
     "cross-env": "7.0.3",
     "dayjs": "1.10.5",
-    "netlify-lambda": "2.0.8",
-    "nuxt": "2.15.6",
-    "nuxt-i18n": "6.27.0",
+    "netlify-lambda": "2.0.9",
+    "nuxt": "2.15.7",
+    "nuxt-i18n": "6.27.1",
     "vue": "2.6.14",
     "vue-chartjs": "3.5.1",
     "vue-meta": "2.4.0",
@@ -55,15 +55,15 @@
     "vue-spinner": "1.0.4"
   },
   "devDependencies": {
-    "@babel/core": "7.14.5",
-    "@babel/runtime-corejs3": "7.14.5",
+    "@babel/core": "7.14.6",
+    "@babel/runtime-corejs3": "7.14.6",
     "@mdi/js": "5.9.55",
     "@nuxt/typescript-build": "2.1.0",
     "@nuxtjs/eslint-config": "6.0.1",
     "@nuxtjs/eslint-config-typescript": "6.0.1",
     "@nuxtjs/google-analytics": "2.4.0",
     "@nuxtjs/stylelint-module": "4.0.0",
-    "@nuxtjs/vuetify": "1.11.3",
+    "@nuxtjs/vuetify": "1.12.1",
     "@types/chart.js": "2.9.31",
     "@types/lodash": "4.14.170",
     "@types/node": "14.17.3",
@@ -89,7 +89,7 @@
     "stylelint-scss": "3.19.0",
     "ts-loader": "8.3.0",
     "ts-node": "10.0.0",
-    "typescript": "4.3.2",
+    "typescript": "4.3.4",
     "vue-axe": "2.4.4",
     "vue-template-compiler": "2.6.14"
   }

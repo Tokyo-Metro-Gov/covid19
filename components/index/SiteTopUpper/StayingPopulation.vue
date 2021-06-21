@@ -3,7 +3,7 @@
     <div class="StayingPopulation">
       <div class="StayingPopulation-title">
         <h3 class="StayingPopulation-heading">
-          {{ $t('都内の滞在人口の増減状況') }}
+          {{ $t('都内の滞在人口の増減状況（毎週月曜日更新）') }}
         </h3>
         <div class="StayingPopulation-link">
           <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
@@ -17,7 +17,7 @@
         {{ placeName }}
       </div>
       <div class="StayingPopulation-state">
-        [ {{ $t('{date}時点', { date }) }} ]<br />
+        [ {{ $t('{date}〜{enddate}', { date, enddate }) }} ]<br />
         <span v-for="(datum, index) in formattedData" :key="index">
           {{
             $t('{month}比 {rateWithArrow}', {
