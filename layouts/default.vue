@@ -251,7 +251,7 @@ export default class Default extends Vue implements NuxtConfig {
 }
 .naviContainer {
   background-color: $white;
-  &.open {
+  .open {
     height: 100vh;
     @include largerThan($small) {
       overflow-x: hidden;
