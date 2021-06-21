@@ -11,9 +11,9 @@ module.exports = {
       },
     ],
     'function-calc-no-invalid': [
-      true,
+      false,
       {
-        patterns: ['100000vw * $num'],
+        patterns: ['100000 * num'],
       },
     ],
   },
