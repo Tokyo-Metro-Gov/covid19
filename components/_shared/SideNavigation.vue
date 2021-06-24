@@ -2,6 +2,7 @@
   <div ref="Side" class="SideNavigation" tabindex="-1">
     <header class="SideNavigation-Header">
       <v-icon
+        ref="Open"
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
         @click="$emit('open-navigation', $event)"
@@ -41,7 +42,12 @@
       <nav class="SideNavigation-Menu">
         <div class="SideNavigation-Language">
           <div v-if="$i18n.locales.length > 1" class="SideNavigation-Language">
-            <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+            <label
+              ref="LanguageLabel"
+              class="SideNavigation-LanguageLabel"
+              for="LanguageSelector"
+              tabindex="-1"
+            >
               {{ $t('多言語対応選択メニュー') }}
             </label>
             <language-selector />
@@ -335,15 +341,42 @@ export default Vue.extend({
     },
   },
   watch: {
-    $route: 'handleChageRoute',
+    $route: 'handleChangeRoute',
+    '$vuetify.breakpoint.xsOnly'(value) {
+      const $Side = this.$refs.Side as HTMLEmbedElement | undefined
+      if ($Side) {
+        if (value) {
+          $Side.setAttribute('role', 'dialog')
+          $Side.setAttribute('aria-modal', 'true')
+        } else {
+          $Side.removeAttribute('role')
+          $Side.removeAttribute('aria-modal')
+        }
+      }
+    },
+    isNaviOpen(value) {
+      this.handleNavFocus(value)
+    },
   },
   methods: {
-    handleChageRoute() {
+    handleChangeRoute() {
       // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
       return this.$nextTick().then(() => {
         const $Side = this.$refs.Side as HTMLEmbedElement | undefined
         if ($Side) {
           $Side.focus()
+        }
+      })
+    },
+    handleNavFocus(isNaviOpen: boolean) {
+      return this.$nextTick(() => {
+        if (isNaviOpen) {
+          const $LanguageLabel = this.$refs.LanguageLabel as HTMLElement
+          $LanguageLabel.focus()
+        } else {
+          const $Open = this.$refs.Open as Vue
+          const $OpenElement = $Open.$el as HTMLButtonElement
+          $OpenElement.focus()
         }
       })
     },
