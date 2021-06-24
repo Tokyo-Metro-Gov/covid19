@@ -1,5 +1,6 @@
 import { AgencyRepository } from '@/libraries/repositories/AgencyRepository'
 import { ConsultationAboutFeverRepository } from '@/libraries/repositories/ConsultationAboutFeverRepository'
+import { DailyPositiveDetailRepository } from '@/libraries/repositories/DailyPositiveDetailRepository'
 import { DataRepository } from '@/libraries/repositories/DataRepository'
 // InfectionMedicalcareprovisionStatus ではなく InfectionMedicalCareProvisionStatus とする
 import { InfectionMedicalcareprovisionStatusRepository as InfectionMedicalCareProvisionStatusRepository } from '@/libraries/repositories/InfectionMedicalCareProvisionStatusRepository'
@@ -13,6 +14,7 @@ import { VariantRepository } from '@/libraries/repositories/VariantRepository'
 export const state = () => ({
   agency: new AgencyRepository().data,
   consultationAboutFever: new ConsultationAboutFeverRepository().data,
+  dailyPositiveDetail: new DailyPositiveDetailRepository().data,
   data: new DataRepository().data,
   infectionMedicalCareProvisionStatus:
     new InfectionMedicalCareProvisionStatusRepository().data,
