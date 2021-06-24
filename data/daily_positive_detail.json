@@ -5731,6 +5731,17 @@
             "weekly_average_count": 422.7,
             "weekly_average_untracked_count": 264,
             "weekly_average_untracked_increse_percent": 108.1
+        },
+        {
+            "diagnosed_date": "2021-06-24",
+            "count": 570,
+            "missing_count": 345,
+            "reported_count": 225,
+            "weekly_gain_ratio": 1.14,
+            "untracked_percent": 62,
+            "weekly_average_count": 439.6,
+            "weekly_average_untracked_count": 272.7,
+            "weekly_average_untracked_increse_percent": 110.8
         }
     ]
 }
