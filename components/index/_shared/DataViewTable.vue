@@ -1,5 +1,6 @@
 <template>
   <v-data-table
+    :ref="'displayedTable'"
     :headers="headers"
     :items="items"
     :items-per-page="-1"
@@ -83,6 +84,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .map((h) => h.value)
         .filter((h) => h !== this.headerKey)
     },
+  },
+  mounted() {
+    const vTables = this.$refs.displayedTable as Vue
+    const vTableElement = vTables.$el
+    const tables = vTableElement.querySelectorAll('table')
+    // NodeListをIE11でforEachするためのワークアラウンド
+    const nodes = Array.prototype.slice.call(tables, 0)
+    nodes.forEach((table: HTMLElement) => {
+      table.setAttribute('tabindex', '0')
+    })
   },
   methods: {
     formatDate(dateString: string): string {
