@@ -9,8 +9,8 @@
           <div
             :style="{
               backgroundColor: colors[i].fillColor,
-              borderColor: colors[i].strokeColor,
-              width: '20px',
+              border: 0,
+              height: '3px',
             }"
           />
           <span
@@ -86,7 +86,7 @@
 </template>
 
 <script lang="ts">
-import { ChartData, ChartOptions, ChartTooltipCallback } from 'chart.js'
+import { ChartOptions, ChartTooltipCallback } from 'chart.js'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
@@ -97,8 +97,20 @@ import DataViewTable, {
   TableItem,
 } from '@/components/index/_shared/DataViewTable.vue'
 import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
+import { Dataset as IMetroDataset } from '@/libraries/auto_generated/data_converter/convertMetro'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
+
+// TODO: components/index/CardsReference/Metro/Card.vue との重複を解消
+interface IMetroDatasetWithLabel extends IMetroDataset {
+  label: Date
+}
+
+// TODO: components/index/CardsReference/Metro/Card.vue との重複を解消
+interface IMetroGraph {
+  labels: string[]
+  datasets: IMetroDatasetWithLabel[]
+}
 
 type Data = {
   colors: SurfaceStyle[]
@@ -117,7 +129,7 @@ type Computed = {
   displayOptionHeader: ChartOptions
 }
 type Props = {
-  chartData: ChartData
+  chartData: IMetroGraph
   chartOption: ChartOptions
   chartId: string
   title: string
@@ -155,7 +167,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     chartOption: Object,
     chartId: {
       type: String,
-      default: 'metro-bar-chart',
+      default: 'metro-line-chart',
     },
     date: {
       type: String,
@@ -191,17 +203,24 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   }),
   computed: {
     displayData() {
-      const datasets = this.chartData.labels!.map((label, i) => {
+      const labels = this.chartData.datasets.map((d) => this.$d(d.label))
+      const datasets = this.chartData.labels.map((label, i) => {
         return {
-          label: label as string,
-          data: this.chartData.datasets!.map((d) => d.data![i]) as number[],
-          backgroundColor: this.colors[i].fillColor,
-          borderColor: this.colors[i].strokeColor,
-          borderWidth: 1,
+          type: 'line',
+          label,
+          data: this.chartData.datasets.map((d) => d.data[i]),
+          pointBackgroundColor: this.colors[i].fillColor,
+          pointBorderColor: this.colors[i].fillColor,
+          borderColor: this.colors[i].fillColor,
+          borderWidth: 3,
+          fill: false,
+          order: i,
+          lineTension: 0,
         }
       })
+
       return {
-        labels: this.chartData.datasets!.map((d) => d.label!),
+        labels,
         datasets,
       }
     },
@@ -209,7 +228,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return [
         { text: this.$t('日付'), value: 'text' },
         ...this.chartData.labels!.map((text, value) => {
-          return { text: text as string, value: String(value), align: 'end' }
+          return { text: text as string, value: String(value) }
         }),
       ]
     },
@@ -308,16 +327,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      const datasets = this.chartData.labels!.map((label, i) => {
+      const labels = this.chartData.datasets.map((d) => this.$d(d.label))
+      const datasets = this.chartData.labels.map((label, i) => {
         return {
-          label: label as string,
-          data: this.chartData.datasets!.map((d) => d.data![i]) as number[],
+          label,
+          data: this.chartData.datasets.map((d) => d.data[i]),
           backgroundColor: 'transparent',
           borderWidth: 0,
         }
       })
+
       return {
-        labels: this.chartData.datasets!.map((d) => d.label!),
+        labels,
         datasets,
       }
     },

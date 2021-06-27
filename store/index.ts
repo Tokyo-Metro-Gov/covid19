@@ -1,8 +1,10 @@
 import { AgencyRepository } from '@/libraries/repositories/AgencyRepository'
 import { ConsultationAboutFeverRepository } from '@/libraries/repositories/ConsultationAboutFeverRepository'
+import { DailyPositiveDetailRepository } from '@/libraries/repositories/DailyPositiveDetailRepository'
 import { DataRepository } from '@/libraries/repositories/DataRepository'
 // InfectionMedicalcareprovisionStatus ではなく InfectionMedicalCareProvisionStatus とする
 import { InfectionMedicalcareprovisionStatusRepository as InfectionMedicalCareProvisionStatusRepository } from '@/libraries/repositories/InfectionMedicalCareProvisionStatusRepository'
+import { MetroRepository } from '@/libraries/repositories/MetroRepository'
 import { MonitoringCommentImageRepository } from '@/libraries/repositories/MonitoringCommentImageRepository'
 import { NewsRepository } from '@/libraries/repositories/NewsRepository'
 import { StayingPopulationRepository } from '@/libraries/repositories/StayingPopulationRepository'
@@ -13,6 +15,7 @@ import { VariantRepository } from '@/libraries/repositories/VariantRepository'
 export const state = () => ({
   agency: new AgencyRepository().data,
   consultationAboutFever: new ConsultationAboutFeverRepository().data,
+  dailyPositiveDetail: new DailyPositiveDetailRepository().data,
   data: new DataRepository().data,
   infectionMedicalCareProvisionStatus:
     new InfectionMedicalCareProvisionStatusRepository().data,
@@ -22,4 +25,5 @@ export const state = () => ({
   tokyoRule: new TokyoRuleRepository().data,
   vaccination: new VaccinationRepository().data,
   variant: new VariantRepository().data,
+  metro: new MetroRepository().data,
 })
