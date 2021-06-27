@@ -3,6 +3,7 @@
     <v-tooltip left nudge-right="20" nudge-bottom="4">
       <template #activator="{ on }">
         <button
+          ref="shareOpener"
           class="DataView-Share-Opener"
           @click="toggleShareMenu"
           v-on="on"
@@ -159,6 +160,7 @@ export default Vue.extend({
     },
     closeShareMenu() {
       this.displayShare = false
+      ;(this.$refs.shareOpener as HTMLButtonElement).focus()
     },
     isCopyAvailable() {
       return !!navigator.clipboard

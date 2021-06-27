@@ -6,13 +6,13 @@
         :title-id="'untracked-rate'"
         :info-titles="[$t('新規陽性者における接触歴等不明者数'), $t('増加比')]"
         :chart-id="'untracked-rate-chart'"
-        :chart-data="graphData"
-        :get-formatter="getFormatter"
-        :date="updated"
-        :labels="dateList"
-        :unit="[$t('人'), '%']"
+        :chart-data="chartData"
+        :date="date"
+        :labels="labels"
+        :units="units"
         :data-labels="dataLabels"
         :table-labels="tableLabels"
+        :get-formatter="getFormatter"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
@@ -50,51 +50,57 @@
   </v-col>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+
 import Chart from '@/components/index/CardsMonitoring/UntrackedRate/Chart.vue'
-import Data from '@/data/daily_positive_detail.json'
+import {
+  DailyPositiveDetail as IDailyPositiveDetail,
+  Datum as IDailyPositiveDetailDatum,
+} from '@/libraries/auto_generated/data_converter/convertDailyPositiveDetail'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
 } from '@/utils/monitoringStatusValueFormatters'
 
-export default {
+type Data = {
+  dataLabels: string[]
+  tableLabels: string[]
+  getFormatter: (columnIndex: number) => (d: number) => string | undefined
+  units: string[]
+}
+type Methods = {}
+type Computed = {
+  chartData: (number | null)[][]
+  date: string
+  labels: string[]
+  filteredDailyPositiveDetailData: IDailyPositiveDetailDatum[]
+  dailyPositiveDetail: IDailyPositiveDetail
+}
+type Props = {}
+
+const firstDiagnosedDate = new Date('2020-03-27')
+
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     Chart,
   },
   data() {
-    const data = Data.data.filter(
-      (d) => new Date(d.diagnosed_date) >= new Date('2020-03-27')
-    )
-    const reportedCount = data.map((d) => d.reported_count)
-    const missingCount = data.map((d) => d.missing_count)
-    const untrackedRate = data.map((d) => d.weekly_average_untracked_count)
-    const untrackedIncreseRate = data.map(
-      (d) => d.weekly_average_untracked_increse_percent
-    )
-    const dateList = data.map((d) => d.diagnosed_date)
-    const updated = Data.date
-    const graphData = [
-      reportedCount,
-      missingCount,
-      untrackedRate,
-      untrackedIncreseRate,
-    ]
-
     const dataLabels = [
-      this.$t('接触歴等判明者数'),
-      this.$t('接触歴等不明者数'),
-      this.$t('接触歴等不明者数（７日間移動平均）'),
-      this.$t('増加比'),
-    ]
-    const tableLabels = [
-      this.$t('接触歴等判明者数'),
-      this.$t('接触歴等不明者数'),
-      this.$t('接触歴等不明者数（７日間移動平均）'),
-      this.$t('増加比'),
+      this.$t('接触歴等判明者数') as string,
+      this.$t('接触歴等不明者数') as string,
+      this.$t('接触歴等不明者数（７日間移動平均）') as string,
+      this.$t('増加比') as string,
     ]
 
-    const getFormatter = (columnIndex) => {
+    const tableLabels = [
+      this.$t('接触歴等判明者数') as string,
+      this.$t('接触歴等不明者数') as string,
+      this.$t('接触歴等不明者数（７日間移動平均）') as string,
+      this.$t('増加比') as string,
+    ]
+
+    const getFormatter = (columnIndex: number) => {
       // 7日間移動平均と増加比は小数点第1位まで表示する。
       if (columnIndex >= 2) {
         return getNumberToFixedFunction(1)
@@ -102,14 +108,51 @@ export default {
       return getNumberToLocaleStringFunction()
     }
 
+    const units = [this.$t('人') as string, '%']
+
     return {
-      updated,
-      graphData,
-      dateList,
       dataLabels,
       tableLabels,
       getFormatter,
+      units,
     }
   },
-}
+  computed: {
+    chartData() {
+      const reportedCount: (number | null)[] =
+        this.filteredDailyPositiveDetailData.map((d) => d.reportedCount)
+
+      const missingCount: (number | null)[] =
+        this.filteredDailyPositiveDetailData.map((d) => d.missingCount)
+
+      const untrackedRate: (number | null)[] =
+        this.filteredDailyPositiveDetailData.map(
+          (d) => d.weeklyAverageUntrackedCount
+        )
+
+      const untrackedIncreseRate: (number | null)[] =
+        this.filteredDailyPositiveDetailData.map(
+          (d) => d.weeklyAverageUntrackedIncresePercent
+        )
+
+      return [reportedCount, missingCount, untrackedRate, untrackedIncreseRate]
+    },
+    date() {
+      return this.dailyPositiveDetail.date
+    },
+    labels() {
+      return this.filteredDailyPositiveDetailData.map(
+        (d) => `${d.diagnosedDate}`
+      )
+    },
+    filteredDailyPositiveDetailData() {
+      return this.dailyPositiveDetail.data.filter(
+        (d) => new Date(d.diagnosedDate) >= firstDiagnosedDate
+      )
+    },
+    dailyPositiveDetail() {
+      return this.$store.state.dailyPositiveDetail
+    },
+  },
+})
 </script>

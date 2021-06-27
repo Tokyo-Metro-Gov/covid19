@@ -7,11 +7,11 @@
         :info-titles="[$t('新規陽性者数')]"
         chart-id="monitoring-confirmed-cases-number-chart"
         :chart-data="chartData"
-        :get-formatter="getFormatter"
         :date="date"
         :labels="labels"
         :data-labels="dataLabels"
         :table-labels="tableLabels"
+        :get-formatter="getFormatter"
         :unit="$t('人')"
         url="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068"
       >
@@ -41,34 +41,49 @@
   </v-col>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+
 import Chart from '@/components/index/CardsMonitoring/MonitoringConfirmedCasesNumber/Chart.vue'
-import Data from '@/data/daily_positive_detail.json'
+import {
+  DailyPositiveDetail as IDailyPositiveDetail,
+  Datum as IDailyPositiveDetailDatum,
+} from '@/libraries/auto_generated/data_converter/convertDailyPositiveDetail'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
 } from '@/utils/monitoringStatusValueFormatters'
 
-export default {
+type Data = {
+  dataLabels: string[]
+  tableLabels: string[]
+  getFormatter: (columnIndex: number) => (d: number) => string | undefined
+}
+type Methods = {}
+type Computed = {
+  chartData: [number[], (number | null)[]]
+  date: string
+  labels: string[]
+  dailyPositiveDetailData: IDailyPositiveDetailDatum[]
+  dailyPositiveDetail: IDailyPositiveDetail
+}
+type Props = {}
+
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     Chart,
   },
   data() {
-    const [patientsCount, sevenDayMoveAverages, labels] = Data.data.reduce(
-      (res, data) => {
-        res[0].push(data.count)
-        res[1].push(data.weekly_average_count)
-        res[2].push(data.diagnosed_date)
-        return res
-      },
-      [[], [], []]
-    )
-    const chartData = [patientsCount, sevenDayMoveAverages]
-    const dataLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
-    const tableLabels = [this.$t('陽性者数'), this.$t('７日間移動平均')]
-    const date = Data.date
+    const dataLabels = [
+      this.$t('陽性者数') as string,
+      this.$t('７日間移動平均') as string,
+    ]
+    const tableLabels = [
+      this.$t('陽性者数') as string,
+      this.$t('７日間移動平均') as string,
+    ]
 
-    const getFormatter = (columnIndex) => {
+    const getFormatter = (columnIndex: number) => {
       // モニタリング指標(1)新規陽性者数の7日間移動平均は小数点第1位まで表示する。
       if (columnIndex === 1) {
         return getNumberToFixedFunction(1)
@@ -77,13 +92,34 @@ export default {
     }
 
     return {
-      chartData,
-      date,
-      labels,
       dataLabels,
       tableLabels,
       getFormatter,
     }
   },
-}
+  computed: {
+    chartData() {
+      const patientsCounts: number[] = this.dailyPositiveDetailData.map(
+        (d) => d.count
+      )
+
+      const weeklyAverageCounts: (number | null)[] =
+        this.dailyPositiveDetailData.map((d) => d.weeklyAverageCount)
+
+      return [patientsCounts, weeklyAverageCounts]
+    },
+    date() {
+      return this.dailyPositiveDetail.date
+    },
+    labels() {
+      return this.dailyPositiveDetailData.map((d) => `${d.diagnosedDate}`)
+    },
+    dailyPositiveDetailData() {
+      return this.dailyPositiveDetail.data
+    },
+    dailyPositiveDetail() {
+      return this.$store.state.dailyPositiveDetail
+    },
+  },
+})
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div ref="chartContainer" class="LegendStickyChart">
-    <div ref="scrollable" class="scrollable">
+    <div ref="scrollable" class="scrollable" tabindex="0">
       <div :style="{ width: `${chartWidth}px` }">
         <slot name="chart" :chart-width="chartWidth" />
       </div>

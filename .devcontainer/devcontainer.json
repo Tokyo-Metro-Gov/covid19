@@ -3,9 +3,6 @@
     "dockerComposeFile": [
         "../docker-compose.yml"
     ],
-    "appPort": [
-        3000
-    ],
     "service": "app",
     "extensions": [
         "dbaeumer.vscode-eslint"

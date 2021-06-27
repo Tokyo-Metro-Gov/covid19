@@ -102,8 +102,7 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import Vue, { PropType } from 'vue'
 import { TranslateResult } from 'vue-i18n'
 
 import DataView from '@/components/index/_shared/DataView.vue'
@@ -124,8 +123,8 @@ import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFo
 
 type Data = {
   canvas: boolean
-  displayLegends: boolean[]
   colors: SurfaceStyle[]
+  displayLegends: boolean[]
 }
 type Methods = {
   makeLineData: (value: number) => number[]
@@ -156,26 +155,17 @@ type Props = {
   infoTitles: string[]
   chartId: string
   chartData: number[][]
-  getFormatter: Function
+  getFormatter: (_: number) => (d: number) => string | undefined
   date: string
   labels: string[]
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
-  unit: string[]
+  units: string[]
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: PluginServiceRegistrationOptions[]
 }
 
-const options: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  Data,
-  Methods,
-  Computed,
-  Props
-> = {
-  created() {
-    this.canvas = process.browser
-  },
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     DataView,
     DataViewTable,
@@ -193,7 +183,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: '',
     },
     infoTitles: {
-      type: Array,
+      type: Array as PropType<string[]>,
       required: false,
       default: () => [],
     },
@@ -202,14 +192,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: 'untracked-rate-chart',
     },
     chartData: {
-      type: Array,
+      type: Array as PropType<number[][]>,
       required: false,
-      default: () => [],
-    },
-    getFormatter: {
-      type: Function,
-      required: false,
-      default: (_: number) => getNumberToLocaleStringFunction(),
+      default: () => [[], [], [], []],
     },
     date: {
       type: String,
@@ -217,7 +202,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: '',
     },
     labels: {
-      type: Array,
+      type: Array as PropType<string[]>,
+      default: () => [],
+    },
+    units: {
+      type: Array as PropType<string[]>,
       default: () => [],
     },
     dataLabels: {
@@ -228,9 +217,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => [],
     },
-    unit: {
-      type: Array,
-      default: () => [],
+    getFormatter: {
+      type: Function,
+      required: false,
+      default: (_: number) => getNumberToLocaleStringFunction(),
     },
     yAxesBgPlugin: {
       type: Array,
@@ -242,14 +232,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   data: () => ({
-    displayLegends: [true, true, true, true],
+    canvas: true,
     colors: [
       getGraphSeriesColor('A'),
       getGraphSeriesColor('C'),
       getGraphSeriesColor('E'),
       getGraphSeriesColor('E'),
     ],
-    canvas: true,
+    displayLegends: [true, true, true, true],
   }),
   computed: {
     displayInfo() {
@@ -274,9 +264,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             date: this.$d(lastDay, 'date'),
           })}（${this.$t('７日間移動平均')}）`,
           sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
-            this.unit[0]
+            this.units[0]
           }）`,
-          unit: this.unit[0],
+          unit: this.units[0],
         },
         {
           lText: lastDayData3,
@@ -284,9 +274,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             date: this.$d(lastDay3, 'date'),
           })}（${this.$t('７日間移動平均値をもとに算出')}）`,
           sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio3} ${
-            this.unit[1]
+            this.units[1]
           }）`,
-          unit: this.unit[1],
+          unit: this.units[1],
         },
       ]
     },
@@ -380,7 +370,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
-      const unit = this.unit[1]
+      const unit = this.units[1]
 
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
@@ -646,14 +636,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.chartData[3].reduce((a, b) => Math.max(a, b), 0)
     },
   },
-  methods: {
-    onClickLegend(i) {
-      this.displayLegends[i] = !this.displayLegends[i]
-      this.displayLegends = this.displayLegends.slice()
-    },
-    makeLineData(value: number): number[] {
-      return this.chartData[0].map((_) => value)
-    },
+  created() {
+    this.canvas = process.browser
   },
   mounted() {
     const barChart = this.$refs.barChart as Vue
@@ -666,9 +650,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
   },
-}
-
-export default Vue.extend(options)
+  methods: {
+    onClickLegend(i) {
+      this.displayLegends[i] = !this.displayLegends[i]
+      this.displayLegends = this.displayLegends.slice()
+    },
+    makeLineData(value: number): number[] {
+      return this.chartData[0].map((_) => value)
+    },
+  },
+})
 </script>
 
 <style module lang="scss">
