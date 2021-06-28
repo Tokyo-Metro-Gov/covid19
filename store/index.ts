@@ -21,11 +21,11 @@ export const state = () => ({
   feverConsultationCenter: new FeverConsultationCenterRepository().data,
   infectionMedicalCareProvisionStatus:
     new InfectionMedicalCareProvisionStatusRepository().data,
+  metro: new MetroRepository().data,
   monitoringCommentImage: new MonitoringCommentImageRepository().data,
   news: new NewsRepository().data,
   stayingPopulation: new StayingPopulationRepository().data,
   tokyoRule: new TokyoRuleRepository().data,
   vaccination: new VaccinationRepository().data,
   variant: new VariantRepository().data,
-  metro: new MetroRepository().data,
 })
