@@ -562,6 +562,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               scaleLabel: {
                 display: true,
                 labelString: this.scaleLabels[0] as string,
+                fontColor: '#1b4d30',
               },
               gridLines: {
                 display: true,
@@ -571,7 +572,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
-                fontColor: '#808080',
+                fontColor: '#1b4d30',
                 suggestedMin: 0,
                 suggestedMax: 100,
                 callback: (value) => {
@@ -585,6 +586,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               scaleLabel: {
                 display: true,
                 labelString: this.scaleLabels[1] as string,
+                fontColor: '#cc7004',
               },
               gridLines: {
                 display: true,
@@ -594,7 +596,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
-                fontColor: '#808080',
+                fontColor: '#cc7004',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
