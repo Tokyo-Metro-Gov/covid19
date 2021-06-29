@@ -45,7 +45,7 @@
           :chart-data="displayData"
           :options="displayOption"
           :display-legends="displayLegends"
-          :height="240"
+          :height="280"
           :width="chartWidth"
         />
       </template>
@@ -57,7 +57,7 @@
           :options="displayOptionHeader"
           :plugins="yAxesBgRightPlugin"
           :display-legends="displayLegends"
-          :height="240"
+          :height="280"
         />
       </template>
     </scrollable-chart>
