@@ -279,7 +279,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       )}（${this.$t('現在判明している数値であり、後日修正される場合がある')}）`
       return [
         {
-          lText: String(lastData(this.chartData[0])), // n501YPositiveRate（N501Y陽性例構成割合）
+          lText: String(lastData(this.chartData[0])), // l452RPositiveRate（L452R陽性例構成割合）
           sText: periodText,
           unit: this.unit,
         },
@@ -350,7 +350,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             ...this.tableData.map((_, j) => {
               return {
                 [j]:
-                  j === 2 || j === 3 // n501YPositiveRate（N501Y陽性例構成割合）, variantPcrRate（変異株PCR検査実施割合）
+                  j === 2 || j === 3 // l452RPositiveRate（L452R陽性例構成割合）, variantPcrRate（変異株PCR検査実施割合）
                     ? this.getFormatter(j)(this.tableData[j][i])
                     : this.tableData[j][i].toLocaleString(),
               }
