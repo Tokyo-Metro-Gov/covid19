@@ -11,7 +11,7 @@ import { NewsRepository } from '@/libraries/repositories/NewsRepository'
 import { StayingPopulationRepository } from '@/libraries/repositories/StayingPopulationRepository'
 import { TokyoRuleRepository } from '@/libraries/repositories/TokyoRuleRepository'
 import { VaccinationRepository } from '@/libraries/repositories/VaccinationRepository'
-import { VariantRepository } from '@/libraries/repositories/VariantRepository'
+import { VariantsRepository } from '@/libraries/repositories/VariantsRepository'
 
 export const state = () => ({
   agency: new AgencyRepository().data,
@@ -27,5 +27,5 @@ export const state = () => ({
   stayingPopulation: new StayingPopulationRepository().data,
   tokyoRule: new TokyoRuleRepository().data,
   vaccination: new VaccinationRepository().data,
-  variant: new VariantRepository().data,
+  variants: new VariantsRepository().data,
 })
