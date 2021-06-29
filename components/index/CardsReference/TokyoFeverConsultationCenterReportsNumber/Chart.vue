@@ -86,9 +86,8 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { TranslateResult } from 'vue-i18n'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
@@ -100,7 +99,13 @@ import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
-import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
+
+type DisplayInfo = {
+  lText: string
+  sText: string
+  sTextUnder: string
+  unit: string
+}
 
 type Data = {
   canvas: boolean
@@ -110,13 +115,6 @@ type Data = {
 type Methods = {
   onClickLegend: (i: number) => void
 }
-type DisplayInfo = {
-  lText: string
-  sText: string
-  sTextUnder: string
-  unit: string
-}
-
 type Computed = {
   displayInfo: DisplayInfo
   displayData: DisplayData
@@ -127,17 +125,17 @@ type Computed = {
   tableHeaders: TableHeader[]
   tableData: TableItem[]
 }
-
 type Props = {
   title: string
   titleId: string
+  infoTitles: string[]
   chartId: string
-  chartData: number[][]
-  getFormatter: Function
+  chartData: [number[], number[], (number | null)[]]
+  getFormatter: (_: number) => (d: number) => string | undefined
   date: string
   labels: string[]
-  dataLabels: string[] | TranslateResult[]
-  tableLabels: string[] | TranslateResult[]
+  dataLabels: string[]
+  tableLabels: string[]
   unit: string
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
 }
@@ -168,6 +166,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: false,
       default: '',
     },
+    infoTitles: {
+      type: Array as PropType<string[]>,
+      required: false,
+      default: [],
+    },
     chartId: {
       type: String,
       default: 'tokyo-fever-consultation-center-chart',
@@ -179,8 +182,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     getFormatter: {
       type: Function,
-      required: false,
-      default: (_: number) => getNumberToLocaleStringFunction(),
+      default: () => (_: number) => '',
     },
     date: {
       type: String,
@@ -295,7 +297,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 }
               }
               return {
-                [j]: this.getFormatter(j)(data[i]),
+                [j]: this.getFormatter(j)(data[i]!),
               }
             })
           )
@@ -503,7 +505,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const max = Array.from(this.chartData[0].keys())
         .map((i) => this.chartData[0][i] + this.chartData[1][i])
         .reduce((a, b) => Math.max(a, b), 0)
-      return this.chartData[2].reduce((a, b) => Math.max(a, b), max)
+      return this.chartData[2].reduce((a, b) => Math.max(a!, b!), max)!
     },
   },
   methods: {
