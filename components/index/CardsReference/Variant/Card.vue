@@ -37,12 +37,10 @@
               {{ $t('検体受付日を基準とする') }}
             </li>
             <li>
-              <app-link to="https://">
-                {{
-                  $t(
-                    'N501Y変異株スクリーニングの実施状況（2021年6月13日まで）のデータはこちら'
-                  )
-                }}
+              <app-link
+                to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/screening.html"
+              >
+                {{ $t('N501Y変異株スクリーニングの実施状況のデータはこちら') }}
               </app-link>
             </li>
           </ul>

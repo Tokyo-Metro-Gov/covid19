@@ -276,7 +276,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           dateBegin: this.$d(this.lastPeriod.begin, 'date'),
           dateEnd: this.$d(this.lastPeriod.end, 'date'),
         }
-      )}（${this.$t('現在判明している数値であり、後日修正される場合がある')}）`
+      )}（${this.$t('現在判明している数値であり、後日更新される場合がある')}）`
       return [
         {
           lText: String(lastData(this.chartData[0])), // l452RPositiveRate（L452R陽性例構成割合）
