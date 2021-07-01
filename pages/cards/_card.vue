@@ -38,7 +38,7 @@ import PositiveNumberByDiagnosedDateCard from '@/components/index/CardsReference
 import DeathsByDeathDateCard from '@/components/index/CardsReference/DeathsByDeathDate/Card.vue'
 // 検査実施件数
 import TestedNumberCard from '@/components/index/CardsReference/TestedNumber/Card.vue'
-// N501Y変異株スクリーニングの実施状況
+// L452R変異株スクリーニングの実施状況
 import VariantCard from '@/components/index/CardsReference/Variant/Card.vue'
 // ワクチン接種回数（高齢者・累計）
 import VaccinationCard from '@/components/index/CardsReference/Vaccination/Card.vue'
@@ -160,7 +160,7 @@ export default class CardContainer extends Vue implements NuxtConfig {
       case 'number-of-tested':
         cardComponent = 'tested-number-card'
         break
-      // N501Y変異株スクリーニングの実施状況
+      // L452R変異株スクリーニングの実施状況
       case 'variant':
         cardComponent = 'variant-card'
         break

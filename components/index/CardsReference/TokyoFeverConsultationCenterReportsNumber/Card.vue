@@ -10,12 +10,13 @@
         :title-id="'number-of-reports-to-tokyo-fever-consultation-center'"
         :info-titles="[$t('新規陽性者における接触歴等不明者数'), $t('増加比')]"
         :chart-id="'tokyo-fever-consultation-center-chart'"
-        :chart-data="graphData"
-        :date="updated"
-        :labels="dateList"
+        :chart-data="chartData"
+        :date="date"
+        :labels="labels"
         :unit="$t('件.reports')"
-        :data-labels="labels"
-        :table-labels="labels"
+        :data-labels="labelItems"
+        :table-labels="labelItems"
+        :get-formatter="getFormatter"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
@@ -39,37 +40,75 @@
   </v-col>
 </template>
 
-<script>
-import Chart from '@/components/index/CardsReference/TokyoFeverConsultationCenterReportsNumber/Chart.vue'
-import Data from '@/data/fever_consultation_center.json'
+<script lang="ts">
+import Vue from 'vue'
 
-export default {
+import Chart from '@/components/index/CardsReference/TokyoFeverConsultationCenterReportsNumber/Chart.vue'
+import {
+  Datum as IFeverConsultationCenterDatum,
+  FeverConsultationCenter as IFeverConsultationCenter,
+} from '@/libraries/auto_generated/data_converter/convertFeverConsultationCenter'
+import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
+
+type Data = {
+  labelItems: string[]
+  getFormatter: (_: number) => (d: number) => string | undefined
+}
+type Methods = {}
+type Computed = {
+  chartData: [number[], number[], (number | null)[]]
+  date: string
+  labels: string[]
+  feverConsultationCenterData: IFeverConsultationCenterDatum[]
+  feverConsultationCenter: IFeverConsultationCenter
+}
+type Props = {}
+
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     Chart,
   },
   data() {
-    const data = Data.data
-    const feverConsultationCenter = data.map(
-      (d) => d.count.fever_consultation_center
-    )
-    const cocoaDial = data.map((d) => d.count.cocoa_dial)
-    const weeklyAverageTotal = data.map((d) => d.count.weekly_average_total)
-    const dateList = data.map((d) => d.date)
-    const updated = Data.date
-    const graphData = [feverConsultationCenter, cocoaDial, weeklyAverageTotal]
-
-    const labels = [
-      this.$t('発熱相談センター'),
-      this.$t('COCOA専用ダイヤル'),
-      this.$t('７日間移動平均'),
+    const labelItems: string[] = [
+      this.$t('発熱相談センター') as string,
+      this.$t('COCOA専用ダイヤル') as string,
+      this.$t('７日間移動平均') as string,
     ]
+    const getFormatter = (_: number) => getNumberToLocaleStringFunction()
 
     return {
-      updated,
-      graphData,
-      dateList,
-      labels,
+      labelItems,
+      getFormatter,
     }
   },
-}
+  computed: {
+    chartData(): [number[], number[], (number | null)[]] {
+      const feverConsultationCenter: number[] =
+        this.feverConsultationCenterData.map(
+          (d) => d.count.feverConsultationCenter
+        )
+
+      const cocoaDial: number[] = this.feverConsultationCenterData.map(
+        (d) => d.count.cocoaDial
+      )
+
+      const weeklyAverageTotal: (number | null)[] =
+        this.feverConsultationCenterData.map((d) => d.count.weeklyAverageTotal)
+
+      return [feverConsultationCenter, cocoaDial, weeklyAverageTotal]
+    },
+    date(): string {
+      return this.feverConsultationCenter.date
+    },
+    labels(): string[] {
+      return this.feverConsultationCenterData.map((data) => this.$d(data.date))
+    },
+    feverConsultationCenterData(): IFeverConsultationCenterDatum[] {
+      return this.feverConsultationCenter.data
+    },
+    feverConsultationCenter(): IFeverConsultationCenter {
+      return this.$store.state.feverConsultationCenter
+    },
+  },
+})
 </script>

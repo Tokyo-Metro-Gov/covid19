@@ -21,7 +21,7 @@ describe 'page [/]', type: :feature do
             expect(find('#tab-1 .DataCard.PositiveNumberByDiagnosedDateCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '確定日別による陽性者数の推移')
             expect(find('#tab-1 .DataCard.DeathsByDeathDateCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '死亡日別による死亡者数の推移')
             expect(find('#tab-1 .DataCard.TestedNumberCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '検査実施件数')
-            expect(find('#tab-1 .DataCard.VariantCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'N501Y変異株スクリーニングの実施状況')
+            expect(find('#tab-1 .DataCard.VariantCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'L452R変異株スクリーニングの実施状況')
             expect(find('#tab-1 .DataCard.VaccinationCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'ワクチン接種回数（高齢者・累計）')
             expect(find('#tab-1 .DataCard.TelephoneAdvisoryReportsNumberCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '新型コロナコールセンター相談件数')
             expect(find('#tab-1 .DataCard.MonitoringConsultationDeskReportsNumberCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '受診相談窓口における相談件数')
