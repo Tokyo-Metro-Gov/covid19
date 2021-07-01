@@ -1,10 +1,10 @@
 {
-    "date": "2021\/6\/13 18:00",
+    "date": "2021\/7\/1 18:00",
     "datasets": [
         {
             "period": {
                 "begin": "2021-04-30",
-                "end": "2021-05-02"
+                "end": "2021-05-06"
             },
             "data": {
                 "L452R": {
@@ -104,6 +104,21 @@
                 "variant_test_count": 1002,
                 "variant_pcr_rate": 37.3,
                 "negative_rate": 96.8
+            }
+        },
+        {
+            "period": {
+                "begin": "2021-06-14",
+                "end": "2021-06-20"
+            },
+            "data": {
+                "L452R": {
+                    "positive_count": 127,
+                    "positive_rate": 8.4
+                },
+                "variant_test_count": 1516,
+                "variant_pcr_rate": 55.8,
+                "negative_rate": 91.6
             }
         }
     ]

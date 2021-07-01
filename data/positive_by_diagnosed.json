@@ -1,5 +1,5 @@
 {
-    "date": "2021\/6\/30 18:30",
+    "date": "2021\/7\/1 18:00",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -1875,7 +1875,7 @@
         },
         {
             "diagnosed_date": "2021-05-05",
-            "count": 590
+            "count": 592
         },
         {
             "diagnosed_date": "2021-05-06",
@@ -1891,11 +1891,11 @@
         },
         {
             "diagnosed_date": "2021-05-09",
-            "count": 557
+            "count": 558
         },
         {
             "diagnosed_date": "2021-05-10",
-            "count": 912
+            "count": 913
         },
         {
             "diagnosed_date": "2021-05-11",
@@ -1915,7 +1915,7 @@
         },
         {
             "diagnosed_date": "2021-05-15",
-            "count": 626
+            "count": 628
         },
         {
             "diagnosed_date": "2021-05-16",
@@ -1935,7 +1935,7 @@
         },
         {
             "diagnosed_date": "2021-05-20",
-            "count": 644
+            "count": 646
         },
         {
             "diagnosed_date": "2021-05-21",
@@ -2075,31 +2075,35 @@
         },
         {
             "diagnosed_date": "2021-06-24",
-            "count": 478
+            "count": 481
         },
         {
             "diagnosed_date": "2021-06-25",
-            "count": 640
+            "count": 641
         },
         {
             "diagnosed_date": "2021-06-26",
-            "count": 371
+            "count": 383
         },
         {
             "diagnosed_date": "2021-06-27",
-            "count": 271
+            "count": 276
         },
         {
             "diagnosed_date": "2021-06-28",
-            "count": 445
+            "count": 456
         },
         {
             "diagnosed_date": "2021-06-29",
-            "count": 604
+            "count": 707
         },
         {
             "diagnosed_date": "2021-06-30",
-            "count": 11
+            "count": 533
+        },
+        {
+            "diagnosed_date": "2021-07-01",
+            "count": 6
         }
     ]
 }
