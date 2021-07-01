@@ -32,7 +32,7 @@ const DeathsByDeathDateCard = () =>
 // 検査実施件数
 const TestedNumberCard = () =>
   import('@/components/index/CardsReference/TestedNumber/Card.vue')
-// N501Y変異株スクリーニングの実施状況
+// L452R変異株スクリーニングの実施状況
 const VariantCard = () =>
   import('@/components/index/CardsReference/Variant/Card.vue')
 // ワクチン接種回数（高齢者・累計）

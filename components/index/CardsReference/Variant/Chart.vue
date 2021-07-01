@@ -45,7 +45,7 @@
           :chart-data="displayData"
           :options="displayOption"
           :display-legends="displayLegends"
-          :height="240"
+          :height="280"
           :width="chartWidth"
         />
       </template>
@@ -57,7 +57,7 @@
           :options="displayOptionHeader"
           :plugins="yAxesBgRightPlugin"
           :display-legends="displayLegends"
-          :height="240"
+          :height="280"
         />
       </template>
     </scrollable-chart>
@@ -276,10 +276,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           dateBegin: this.$d(this.lastPeriod.begin, 'date'),
           dateEnd: this.$d(this.lastPeriod.end, 'date'),
         }
-      )}（${this.$t('現在判明している数値であり、後日修正される場合がある')}）`
+      )}（${this.$t('現在判明している数値であり、後日更新される場合がある')}）`
       return [
         {
-          lText: String(lastData(this.chartData[0])), // n501YPositiveRate（N501Y陽性例構成割合）
+          lText: String(lastData(this.chartData[0])), // l452RPositiveRate（L452R陽性例構成割合）
           sText: periodText,
           unit: this.unit,
         },
@@ -350,7 +350,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             ...this.tableData.map((_, j) => {
               return {
                 [j]:
-                  j === 2 || j === 3 // n501YPositiveRate（N501Y陽性例構成割合）, variantPcrRate（変異株PCR検査実施割合）
+                  j === 2 || j === 3 // l452RPositiveRate（L452R陽性例構成割合）, variantPcrRate（変異株PCR検査実施割合）
                     ? this.getFormatter(j)(this.tableData[j][i])
                     : this.tableData[j][i].toLocaleString(),
               }
@@ -562,6 +562,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               scaleLabel: {
                 display: true,
                 labelString: this.scaleLabels[0] as string,
+                fontColor: '#1b4d30',
               },
               gridLines: {
                 display: true,
@@ -571,7 +572,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
-                fontColor: '#808080',
+                fontColor: '#1b4d30',
                 suggestedMin: 0,
                 suggestedMax: 100,
                 callback: (value) => {
@@ -585,6 +586,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               scaleLabel: {
                 display: true,
                 labelString: this.scaleLabels[1] as string,
+                fontColor: '#cc7004',
               },
               gridLines: {
                 display: true,
@@ -594,7 +596,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
-                fontColor: '#808080',
+                fontColor: '#cc7004',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
