@@ -209,6 +209,10 @@ export default Vue.extend({
         {
           title: this.$t('沖縄県医師会ホームページ'),
           link: 'http://okinawa.med.or.jp/html/covid-19.html'
+        },
+        {
+          title: this.$t('沖縄県 COVID-19 概況'),
+          link: 'https://okinawa-covid19map.netlify.app/'
         }
       ]
     }

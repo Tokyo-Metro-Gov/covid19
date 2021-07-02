@@ -7,12 +7,14 @@
             class="DataView-Title"
             :class="!!$slots.infoPanel ? 'with-infoPanel' : ''"
           >
-            {{ $t('沖縄県内感染者発生状況') }}
+            {{ $t('県警戒レベル判断指標') }}
           </h3>
-          <div class="mapImage">
-            <img :src="$t('/map/hontou.png')" alt="" />
-            <img :src="$t('/map/ritou.png')" alt="" />
-          </div>
+        </div>
+        <div class="mapImage">
+          <iframe
+            src="https://okinawa-covid19map.netlify.app/cards/indicators"
+            frameborder="0"
+          />
         </div>
       </div>
     </v-card>
@@ -41,11 +43,11 @@ export default {
 </script>
 <style lang="scss">
 .mapImage {
-  img {
-    width: 48%;
-    @include lessThan(959) {
-      width: 100%;
-    }
+  width: 100%;
+  height: 100%;
+  iframe {
+    width: 100%;
+    height: 100%;
   }
 }
 </style>
