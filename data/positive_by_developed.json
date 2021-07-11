@@ -1,6 +1,6 @@
 {
-    "date": "2021\/7\/10 18:30",
-    "unknown_count": 62607,
+    "date": "2021\/7\/11 18:00",
+    "unknown_count": 62807,
     "data": [
         {
             "developed_date": "2020-01-14",
@@ -2136,43 +2136,51 @@
         },
         {
             "developed_date": "2021-06-30",
-            "count": 453
+            "count": 457
         },
         {
             "developed_date": "2021-07-01",
-            "count": 394
+            "count": 400
         },
         {
             "developed_date": "2021-07-02",
-            "count": 447
+            "count": 452
         },
         {
             "developed_date": "2021-07-03",
-            "count": 411
+            "count": 419
         },
         {
             "developed_date": "2021-07-04",
-            "count": 386
+            "count": 398
         },
         {
             "developed_date": "2021-07-05",
-            "count": 449
+            "count": 477
         },
         {
             "developed_date": "2021-07-06",
-            "count": 454
+            "count": 498
         },
         {
             "developed_date": "2021-07-07",
-            "count": 349
+            "count": 428
         },
         {
             "developed_date": "2021-07-08",
-            "count": 167
+            "count": 287
         },
         {
             "developed_date": "2021-07-09",
-            "count": 38
+            "count": 123
+        },
+        {
+            "developed_date": "2021-07-10",
+            "count": 22
+        },
+        {
+            "developed_date": "2021-07-11",
+            "count": 1
         }
     ]
 }
