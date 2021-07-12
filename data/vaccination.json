@@ -1,5 +1,5 @@
 {
-    "date": "2021\/7\/10 18:30",
+    "date": "2021\/7\/12 18:00",
     "datasets": [
         {
             "period": {
@@ -47,7 +47,7 @@
                 "end": "2021-04-16"
             },
             "data": {
-                "cumulative_1st_dose": 1003,
+                "cumulative_1st_dose": 1005,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -57,7 +57,7 @@
                 "end": "2021-04-17"
             },
             "data": {
-                "cumulative_1st_dose": 1150,
+                "cumulative_1st_dose": 1154,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -67,7 +67,7 @@
                 "end": "2021-04-18"
             },
             "data": {
-                "cumulative_1st_dose": 1164,
+                "cumulative_1st_dose": 1168,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -77,7 +77,7 @@
                 "end": "2021-04-19"
             },
             "data": {
-                "cumulative_1st_dose": 1774,
+                "cumulative_1st_dose": 1785,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -87,7 +87,7 @@
                 "end": "2021-04-20"
             },
             "data": {
-                "cumulative_1st_dose": 2478,
+                "cumulative_1st_dose": 2490,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -97,7 +97,7 @@
                 "end": "2021-04-21"
             },
             "data": {
-                "cumulative_1st_dose": 3382,
+                "cumulative_1st_dose": 3401,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -107,7 +107,7 @@
                 "end": "2021-04-22"
             },
             "data": {
-                "cumulative_1st_dose": 4582,
+                "cumulative_1st_dose": 4608,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -117,7 +117,7 @@
                 "end": "2021-04-23"
             },
             "data": {
-                "cumulative_1st_dose": 5581,
+                "cumulative_1st_dose": 5613,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -127,7 +127,7 @@
                 "end": "2021-04-24"
             },
             "data": {
-                "cumulative_1st_dose": 6220,
+                "cumulative_1st_dose": 6252,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -137,7 +137,7 @@
                 "end": "2021-04-25"
             },
             "data": {
-                "cumulative_1st_dose": 6814,
+                "cumulative_1st_dose": 6846,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -147,7 +147,7 @@
                 "end": "2021-04-26"
             },
             "data": {
-                "cumulative_1st_dose": 8115,
+                "cumulative_1st_dose": 8148,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -157,7 +157,7 @@
                 "end": "2021-04-27"
             },
             "data": {
-                "cumulative_1st_dose": 9266,
+                "cumulative_1st_dose": 9300,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -167,7 +167,7 @@
                 "end": "2021-04-28"
             },
             "data": {
-                "cumulative_1st_dose": 10889,
+                "cumulative_1st_dose": 10923,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -177,7 +177,7 @@
                 "end": "2021-04-29"
             },
             "data": {
-                "cumulative_1st_dose": 11278,
+                "cumulative_1st_dose": 11316,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -187,7 +187,7 @@
                 "end": "2021-04-30"
             },
             "data": {
-                "cumulative_1st_dose": 12619,
+                "cumulative_1st_dose": 12658,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -197,7 +197,7 @@
                 "end": "2021-05-01"
             },
             "data": {
-                "cumulative_1st_dose": 13108,
+                "cumulative_1st_dose": 13147,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -207,7 +207,7 @@
                 "end": "2021-05-02"
             },
             "data": {
-                "cumulative_1st_dose": 13927,
+                "cumulative_1st_dose": 13966,
                 "cumulative_2nd_dose": 0
             }
         },
@@ -217,7 +217,7 @@
                 "end": "2021-05-03"
             },
             "data": {
-                "cumulative_1st_dose": 14583,
+                "cumulative_1st_dose": 14622,
                 "cumulative_2nd_dose": 5
             }
         },
@@ -227,7 +227,7 @@
                 "end": "2021-05-04"
             },
             "data": {
-                "cumulative_1st_dose": 15270,
+                "cumulative_1st_dose": 15309,
                 "cumulative_2nd_dose": 8
             }
         },
@@ -237,7 +237,7 @@
                 "end": "2021-05-05"
             },
             "data": {
-                "cumulative_1st_dose": 16242,
+                "cumulative_1st_dose": 16281,
                 "cumulative_2nd_dose": 10
             }
         },
@@ -247,7 +247,7 @@
                 "end": "2021-05-06"
             },
             "data": {
-                "cumulative_1st_dose": 18533,
+                "cumulative_1st_dose": 18586,
                 "cumulative_2nd_dose": 92
             }
         },
@@ -257,8 +257,8 @@
                 "end": "2021-05-07"
             },
             "data": {
-                "cumulative_1st_dose": 20268,
-                "cumulative_2nd_dose": 231
+                "cumulative_1st_dose": 20321,
+                "cumulative_2nd_dose": 232
             }
         },
         {
@@ -267,8 +267,8 @@
                 "end": "2021-05-08"
             },
             "data": {
-                "cumulative_1st_dose": 22227,
-                "cumulative_2nd_dose": 354
+                "cumulative_1st_dose": 22279,
+                "cumulative_2nd_dose": 359
             }
         },
         {
@@ -277,8 +277,8 @@
                 "end": "2021-05-09"
             },
             "data": {
-                "cumulative_1st_dose": 33549,
-                "cumulative_2nd_dose": 387
+                "cumulative_1st_dose": 33604,
+                "cumulative_2nd_dose": 394
             }
         },
         {
@@ -287,8 +287,8 @@
                 "end": "2021-05-10"
             },
             "data": {
-                "cumulative_1st_dose": 39588,
-                "cumulative_2nd_dose": 1118
+                "cumulative_1st_dose": 39646,
+                "cumulative_2nd_dose": 1126
             }
         },
         {
@@ -297,8 +297,8 @@
                 "end": "2021-05-11"
             },
             "data": {
-                "cumulative_1st_dose": 47724,
-                "cumulative_2nd_dose": 1577
+                "cumulative_1st_dose": 47783,
+                "cumulative_2nd_dose": 1587
             }
         },
         {
@@ -307,8 +307,8 @@
                 "end": "2021-05-12"
             },
             "data": {
-                "cumulative_1st_dose": 61557,
-                "cumulative_2nd_dose": 2266
+                "cumulative_1st_dose": 61617,
+                "cumulative_2nd_dose": 2277
             }
         },
         {
@@ -317,8 +317,8 @@
                 "end": "2021-05-13"
             },
             "data": {
-                "cumulative_1st_dose": 75058,
-                "cumulative_2nd_dose": 3503
+                "cumulative_1st_dose": 75118,
+                "cumulative_2nd_dose": 3516
             }
         },
         {
@@ -327,8 +327,8 @@
                 "end": "2021-05-14"
             },
             "data": {
-                "cumulative_1st_dose": 87988,
-                "cumulative_2nd_dose": 4645
+                "cumulative_1st_dose": 88046,
+                "cumulative_2nd_dose": 4660
             }
         },
         {
@@ -337,8 +337,8 @@
                 "end": "2021-05-15"
             },
             "data": {
-                "cumulative_1st_dose": 105015,
-                "cumulative_2nd_dose": 5245
+                "cumulative_1st_dose": 105075,
+                "cumulative_2nd_dose": 5260
             }
         },
         {
@@ -347,8 +347,8 @@
                 "end": "2021-05-16"
             },
             "data": {
-                "cumulative_1st_dose": 131234,
-                "cumulative_2nd_dose": 5831
+                "cumulative_1st_dose": 131295,
+                "cumulative_2nd_dose": 5846
             }
         },
         {
@@ -357,8 +357,8 @@
                 "end": "2021-05-17"
             },
             "data": {
-                "cumulative_1st_dose": 147986,
-                "cumulative_2nd_dose": 7014
+                "cumulative_1st_dose": 148048,
+                "cumulative_2nd_dose": 7029
             }
         },
         {
@@ -367,8 +367,8 @@
                 "end": "2021-05-18"
             },
             "data": {
-                "cumulative_1st_dose": 170097,
-                "cumulative_2nd_dose": 8031
+                "cumulative_1st_dose": 170160,
+                "cumulative_2nd_dose": 8047
             }
         },
         {
@@ -377,8 +377,8 @@
                 "end": "2021-05-19"
             },
             "data": {
-                "cumulative_1st_dose": 200276,
-                "cumulative_2nd_dose": 9361
+                "cumulative_1st_dose": 200343,
+                "cumulative_2nd_dose": 9377
             }
         },
         {
@@ -387,8 +387,8 @@
                 "end": "2021-05-20"
             },
             "data": {
-                "cumulative_1st_dose": 231181,
-                "cumulative_2nd_dose": 9899
+                "cumulative_1st_dose": 231248,
+                "cumulative_2nd_dose": 9915
             }
         },
         {
@@ -397,8 +397,8 @@
                 "end": "2021-05-21"
             },
             "data": {
-                "cumulative_1st_dose": 256277,
-                "cumulative_2nd_dose": 10865
+                "cumulative_1st_dose": 256347,
+                "cumulative_2nd_dose": 10882
             }
         },
         {
@@ -407,8 +407,8 @@
                 "end": "2021-05-22"
             },
             "data": {
-                "cumulative_1st_dose": 290134,
-                "cumulative_2nd_dose": 11337
+                "cumulative_1st_dose": 290210,
+                "cumulative_2nd_dose": 11354
             }
         },
         {
@@ -417,8 +417,8 @@
                 "end": "2021-05-23"
             },
             "data": {
-                "cumulative_1st_dose": 338037,
-                "cumulative_2nd_dose": 12025
+                "cumulative_1st_dose": 338122,
+                "cumulative_2nd_dose": 12042
             }
         },
         {
@@ -427,8 +427,8 @@
                 "end": "2021-05-24"
             },
             "data": {
-                "cumulative_1st_dose": 376520,
-                "cumulative_2nd_dose": 12691
+                "cumulative_1st_dose": 376610,
+                "cumulative_2nd_dose": 12708
             }
         },
         {
@@ -437,8 +437,8 @@
                 "end": "2021-05-25"
             },
             "data": {
-                "cumulative_1st_dose": 421115,
-                "cumulative_2nd_dose": 13184
+                "cumulative_1st_dose": 421247,
+                "cumulative_2nd_dose": 13201
             }
         },
         {
@@ -447,8 +447,8 @@
                 "end": "2021-05-26"
             },
             "data": {
-                "cumulative_1st_dose": 474950,
-                "cumulative_2nd_dose": 13988
+                "cumulative_1st_dose": 475093,
+                "cumulative_2nd_dose": 14005
             }
         },
         {
@@ -457,8 +457,8 @@
                 "end": "2021-05-27"
             },
             "data": {
-                "cumulative_1st_dose": 525985,
-                "cumulative_2nd_dose": 16102
+                "cumulative_1st_dose": 526142,
+                "cumulative_2nd_dose": 16132
             }
         },
         {
@@ -467,8 +467,8 @@
                 "end": "2021-05-28"
             },
             "data": {
-                "cumulative_1st_dose": 573012,
-                "cumulative_2nd_dose": 17672
+                "cumulative_1st_dose": 573250,
+                "cumulative_2nd_dose": 17702
             }
         },
         {
@@ -477,8 +477,8 @@
                 "end": "2021-05-29"
             },
             "data": {
-                "cumulative_1st_dose": 626747,
-                "cumulative_2nd_dose": 19234
+                "cumulative_1st_dose": 627030,
+                "cumulative_2nd_dose": 19263
             }
         },
         {
@@ -487,8 +487,8 @@
                 "end": "2021-05-30"
             },
             "data": {
-                "cumulative_1st_dose": 684262,
-                "cumulative_2nd_dose": 26954
+                "cumulative_1st_dose": 684554,
+                "cumulative_2nd_dose": 26983
             }
         },
         {
@@ -497,8 +497,8 @@
                 "end": "2021-05-31"
             },
             "data": {
-                "cumulative_1st_dose": 731348,
-                "cumulative_2nd_dose": 31503
+                "cumulative_1st_dose": 731651,
+                "cumulative_2nd_dose": 31539
             }
         },
         {
@@ -507,8 +507,8 @@
                 "end": "2021-06-01"
             },
             "data": {
-                "cumulative_1st_dose": 791604,
-                "cumulative_2nd_dose": 37872
+                "cumulative_1st_dose": 791927,
+                "cumulative_2nd_dose": 37915
             }
         },
         {
@@ -517,8 +517,8 @@
                 "end": "2021-06-02"
             },
             "data": {
-                "cumulative_1st_dose": 855907,
-                "cumulative_2nd_dose": 47987
+                "cumulative_1st_dose": 856243,
+                "cumulative_2nd_dose": 48054
             }
         },
         {
@@ -527,8 +527,8 @@
                 "end": "2021-06-03"
             },
             "data": {
-                "cumulative_1st_dose": 912421,
-                "cumulative_2nd_dose": 58632
+                "cumulative_1st_dose": 912800,
+                "cumulative_2nd_dose": 58702
             }
         },
         {
@@ -537,8 +537,8 @@
                 "end": "2021-06-04"
             },
             "data": {
-                "cumulative_1st_dose": 969159,
-                "cumulative_2nd_dose": 67636
+                "cumulative_1st_dose": 969551,
+                "cumulative_2nd_dose": 67710
             }
         },
         {
@@ -547,8 +547,8 @@
                 "end": "2021-06-05"
             },
             "data": {
-                "cumulative_1st_dose": 1027207,
-                "cumulative_2nd_dose": 80236
+                "cumulative_1st_dose": 1027618,
+                "cumulative_2nd_dose": 80311
             }
         },
         {
@@ -557,8 +557,8 @@
                 "end": "2021-06-06"
             },
             "data": {
-                "cumulative_1st_dose": 1084130,
-                "cumulative_2nd_dose": 105533
+                "cumulative_1st_dose": 1084550,
+                "cumulative_2nd_dose": 105611
             }
         },
         {
@@ -567,8 +567,8 @@
                 "end": "2021-06-07"
             },
             "data": {
-                "cumulative_1st_dose": 1135381,
-                "cumulative_2nd_dose": 119165
+                "cumulative_1st_dose": 1135814,
+                "cumulative_2nd_dose": 119254
             }
         },
         {
@@ -577,8 +577,8 @@
                 "end": "2021-06-08"
             },
             "data": {
-                "cumulative_1st_dose": 1191647,
-                "cumulative_2nd_dose": 137330
+                "cumulative_1st_dose": 1192105,
+                "cumulative_2nd_dose": 137430
             }
         },
         {
@@ -587,8 +587,8 @@
                 "end": "2021-06-09"
             },
             "data": {
-                "cumulative_1st_dose": 1248324,
-                "cumulative_2nd_dose": 161317
+                "cumulative_1st_dose": 1248800,
+                "cumulative_2nd_dose": 161439
             }
         },
         {
@@ -597,8 +597,8 @@
                 "end": "2021-06-10"
             },
             "data": {
-                "cumulative_1st_dose": 1299371,
-                "cumulative_2nd_dose": 188050
+                "cumulative_1st_dose": 1299853,
+                "cumulative_2nd_dose": 188175
             }
         },
         {
@@ -607,8 +607,8 @@
                 "end": "2021-06-11"
             },
             "data": {
-                "cumulative_1st_dose": 1353400,
-                "cumulative_2nd_dose": 209446
+                "cumulative_1st_dose": 1353924,
+                "cumulative_2nd_dose": 209576
             }
         },
         {
@@ -617,8 +617,8 @@
                 "end": "2021-06-12"
             },
             "data": {
-                "cumulative_1st_dose": 1403674,
-                "cumulative_2nd_dose": 239004
+                "cumulative_1st_dose": 1404213,
+                "cumulative_2nd_dose": 239141
             }
         },
         {
@@ -627,8 +627,8 @@
                 "end": "2021-06-13"
             },
             "data": {
-                "cumulative_1st_dose": 1450161,
-                "cumulative_2nd_dose": 282851
+                "cumulative_1st_dose": 1450716,
+                "cumulative_2nd_dose": 282990
             }
         },
         {
@@ -637,8 +637,8 @@
                 "end": "2021-06-14"
             },
             "data": {
-                "cumulative_1st_dose": 1496473,
-                "cumulative_2nd_dose": 313602
+                "cumulative_1st_dose": 1497049,
+                "cumulative_2nd_dose": 313747
             }
         },
         {
@@ -647,8 +647,8 @@
                 "end": "2021-06-15"
             },
             "data": {
-                "cumulative_1st_dose": 1547732,
-                "cumulative_2nd_dose": 349774
+                "cumulative_1st_dose": 1548323,
+                "cumulative_2nd_dose": 349936
             }
         },
         {
@@ -657,8 +657,8 @@
                 "end": "2021-06-16"
             },
             "data": {
-                "cumulative_1st_dose": 1597466,
-                "cumulative_2nd_dose": 394782
+                "cumulative_1st_dose": 1598076,
+                "cumulative_2nd_dose": 394960
             }
         },
         {
@@ -667,8 +667,8 @@
                 "end": "2021-06-17"
             },
             "data": {
-                "cumulative_1st_dose": 1643159,
-                "cumulative_2nd_dose": 437459
+                "cumulative_1st_dose": 1643784,
+                "cumulative_2nd_dose": 437641
             }
         },
         {
@@ -677,8 +677,8 @@
                 "end": "2021-06-18"
             },
             "data": {
-                "cumulative_1st_dose": 1690692,
-                "cumulative_2nd_dose": 475419
+                "cumulative_1st_dose": 1691341,
+                "cumulative_2nd_dose": 475636
             }
         },
         {
@@ -687,8 +687,8 @@
                 "end": "2021-06-19"
             },
             "data": {
-                "cumulative_1st_dose": 1735458,
-                "cumulative_2nd_dose": 519075
+                "cumulative_1st_dose": 1736068,
+                "cumulative_2nd_dose": 519305
             }
         },
         {
@@ -697,8 +697,8 @@
                 "end": "2021-06-20"
             },
             "data": {
-                "cumulative_1st_dose": 1774900,
-                "cumulative_2nd_dose": 572353
+                "cumulative_1st_dose": 1775514,
+                "cumulative_2nd_dose": 572584
             }
         },
         {
@@ -707,8 +707,8 @@
                 "end": "2021-06-21"
             },
             "data": {
-                "cumulative_1st_dose": 1818094,
-                "cumulative_2nd_dose": 607766
+                "cumulative_1st_dose": 1818716,
+                "cumulative_2nd_dose": 608006
             }
         },
         {
@@ -717,8 +717,8 @@
                 "end": "2021-06-22"
             },
             "data": {
-                "cumulative_1st_dose": 1860928,
-                "cumulative_2nd_dose": 654884
+                "cumulative_1st_dose": 1861602,
+                "cumulative_2nd_dose": 655147
             }
         },
         {
@@ -727,8 +727,8 @@
                 "end": "2021-06-23"
             },
             "data": {
-                "cumulative_1st_dose": 1901446,
-                "cumulative_2nd_dose": 708447
+                "cumulative_1st_dose": 1902173,
+                "cumulative_2nd_dose": 708767
             }
         },
         {
@@ -737,8 +737,8 @@
                 "end": "2021-06-24"
             },
             "data": {
-                "cumulative_1st_dose": 1942767,
-                "cumulative_2nd_dose": 753732
+                "cumulative_1st_dose": 1943579,
+                "cumulative_2nd_dose": 754139
             }
         },
         {
@@ -747,8 +747,8 @@
                 "end": "2021-06-25"
             },
             "data": {
-                "cumulative_1st_dose": 1981981,
-                "cumulative_2nd_dose": 799268
+                "cumulative_1st_dose": 1982886,
+                "cumulative_2nd_dose": 799797
             }
         },
         {
@@ -757,8 +757,8 @@
                 "end": "2021-06-26"
             },
             "data": {
-                "cumulative_1st_dose": 2022514,
-                "cumulative_2nd_dose": 849502
+                "cumulative_1st_dose": 2023433,
+                "cumulative_2nd_dose": 850117
             }
         },
         {
@@ -767,8 +767,8 @@
                 "end": "2021-06-27"
             },
             "data": {
-                "cumulative_1st_dose": 2056007,
-                "cumulative_2nd_dose": 909895
+                "cumulative_1st_dose": 2056933,
+                "cumulative_2nd_dose": 910618
             }
         },
         {
@@ -777,8 +777,8 @@
                 "end": "2021-06-28"
             },
             "data": {
-                "cumulative_1st_dose": 2086521,
-                "cumulative_2nd_dose": 963260
+                "cumulative_1st_dose": 2087489,
+                "cumulative_2nd_dose": 964038
             }
         },
         {
@@ -787,8 +787,8 @@
                 "end": "2021-06-29"
             },
             "data": {
-                "cumulative_1st_dose": 2119352,
-                "cumulative_2nd_dose": 1022893
+                "cumulative_1st_dose": 2120387,
+                "cumulative_2nd_dose": 1023728
             }
         },
         {
@@ -797,8 +797,8 @@
                 "end": "2021-06-30"
             },
             "data": {
-                "cumulative_1st_dose": 2151326,
-                "cumulative_2nd_dose": 1084638
+                "cumulative_1st_dose": 2152373,
+                "cumulative_2nd_dose": 1085507
             }
         },
         {
@@ -807,8 +807,8 @@
                 "end": "2021-07-01"
             },
             "data": {
-                "cumulative_1st_dose": 2172713,
-                "cumulative_2nd_dose": 1135394
+                "cumulative_1st_dose": 2173792,
+                "cumulative_2nd_dose": 1136383
             }
         },
         {
@@ -817,8 +817,8 @@
                 "end": "2021-07-02"
             },
             "data": {
-                "cumulative_1st_dose": 2191221,
-                "cumulative_2nd_dose": 1187625
+                "cumulative_1st_dose": 2192354,
+                "cumulative_2nd_dose": 1188841
             }
         },
         {
@@ -827,8 +827,8 @@
                 "end": "2021-07-03"
             },
             "data": {
-                "cumulative_1st_dose": 2216278,
-                "cumulative_2nd_dose": 1232806
+                "cumulative_1st_dose": 2217559,
+                "cumulative_2nd_dose": 1234121
             }
         },
         {
@@ -837,8 +837,8 @@
                 "end": "2021-07-04"
             },
             "data": {
-                "cumulative_1st_dose": 2230011,
-                "cumulative_2nd_dose": 1266026
+                "cumulative_1st_dose": 2231342,
+                "cumulative_2nd_dose": 1267395
             }
         },
         {
@@ -847,8 +847,8 @@
                 "end": "2021-07-05"
             },
             "data": {
-                "cumulative_1st_dose": 2251325,
-                "cumulative_2nd_dose": 1310479
+                "cumulative_1st_dose": 2252806,
+                "cumulative_2nd_dose": 1312192
             }
         },
         {
@@ -857,8 +857,8 @@
                 "end": "2021-07-06"
             },
             "data": {
-                "cumulative_1st_dose": 2273835,
-                "cumulative_2nd_dose": 1355980
+                "cumulative_1st_dose": 2275396,
+                "cumulative_2nd_dose": 1358118
             }
         },
         {
@@ -867,8 +867,8 @@
                 "end": "2021-07-07"
             },
             "data": {
-                "cumulative_1st_dose": 2293715,
-                "cumulative_2nd_dose": 1395605
+                "cumulative_1st_dose": 2295568,
+                "cumulative_2nd_dose": 1398212
             }
         },
         {
@@ -877,8 +877,8 @@
                 "end": "2021-07-08"
             },
             "data": {
-                "cumulative_1st_dose": 2310800,
-                "cumulative_2nd_dose": 1427348
+                "cumulative_1st_dose": 2313324,
+                "cumulative_2nd_dose": 1431083
             }
         },
         {
@@ -887,8 +887,28 @@
                 "end": "2021-07-09"
             },
             "data": {
-                "cumulative_1st_dose": 2324830,
-                "cumulative_2nd_dose": 1456865
+                "cumulative_1st_dose": 2328348,
+                "cumulative_2nd_dose": 1462168
+            }
+        },
+        {
+            "period": {
+                "begin": "2021-07-10",
+                "end": "2021-07-10"
+            },
+            "data": {
+                "cumulative_1st_dose": 2342721,
+                "cumulative_2nd_dose": 1488508
+            }
+        },
+        {
+            "period": {
+                "begin": "2021-07-11",
+                "end": "2021-07-11"
+            },
+            "data": {
+                "cumulative_1st_dose": 2349488,
+                "cumulative_2nd_dose": 1516824
             }
         }
     ]
