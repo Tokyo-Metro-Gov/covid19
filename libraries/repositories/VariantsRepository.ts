@@ -9,10 +9,10 @@ import {
   IBaseRepository,
 } from '@/libraries/repositories/BaseRepository'
 
-export interface IVariantRepository extends IBaseRepository<Variants> {}
+export interface IVariantsRepository extends IBaseRepository<Variants> {}
 export class VariantsRepository
   extends BaseRepository<Variants>
-  implements IVariantRepository
+  implements IVariantsRepository
 {
   /**
    * 使用箇所
