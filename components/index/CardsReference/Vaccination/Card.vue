@@ -5,9 +5,9 @@
         :title="$t('ワクチン接種数（累計）')"
         title-id="vaccination"
         :info-titles="[
-          $t('全年齢接種数（１回目・累計）'),
+          $t('全年齢接種数（１回目）'),
           $t('うち高齢者接種数'),
-          $t('全年齢接種数（２回目・累計）'),
+          $t('全年齢接種数（２回目）'),
           $t('うち高齢者接種数'),
         ]"
         :info-data="vaccinationData.infoData"
