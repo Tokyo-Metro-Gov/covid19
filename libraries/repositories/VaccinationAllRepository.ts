@@ -9,11 +9,11 @@ import {
   IBaseRepository,
 } from '@/libraries/repositories/BaseRepository'
 
-export interface IVaccinationRepository
+export interface IVaccinationAllRepository
   extends IBaseRepository<VaccinationAll> {}
 export class VaccinationAllRepository
   extends BaseRepository<VaccinationAll>
-  implements IVaccinationRepository
+  implements IVaccinationAllRepository
 {
   /**
    * 使用箇所
