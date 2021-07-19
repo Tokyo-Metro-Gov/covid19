@@ -85,7 +85,7 @@ type Computed = {
     chartData: number[][]
     tableData: number[][]
   }
-  variant: IVariants
+  variants: IVariants
 }
 type Props = {}
 
