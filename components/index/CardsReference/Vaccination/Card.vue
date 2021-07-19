@@ -2,25 +2,22 @@
   <v-col cols="12" md="6" class="DataCard VaccinationCard">
     <client-only>
       <chart
-        :title="$t('ワクチン接種回数（高齢者・累計）')"
+        :title="$t('ワクチン接種数（累計）')"
         title-id="vaccination"
         :info-titles="[
-          $t('接種回数（１回目・累計）'),
-          $t('接種回数（２回目・累計）'),
+          $t('全年齢接種数（１回目）'),
+          $t('うち高齢者接種数'),
+          $t('全年齢接種数（２回目）'),
+          $t('うち高齢者接種数'),
         ]"
+        :info-data="vaccinationData.infoData"
         chart-id="vaccination-chart"
         :chart-data="vaccinationData.chartData"
         :get-formatter="getFormatter"
         :date="date"
         :labels="vaccinationData.labels"
-        :periods="vaccinationLabels"
         :data-labels="chartLabels"
-        :last-period="vaccinationData.lastPeriod"
-        :unit="$t('人')"
       >
-        <template #description>
-          <span>{{ $t('対象者 約311万人') }}</span>
-        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
@@ -31,6 +28,12 @@
                 )
               }}
             </li>
+            <li>
+              {{ $t('データには、医療従事者等の接種記録は含まれていない') }}
+            </li>
+            <li>
+              {{ $t('高齢者の対象者数は約311万人') }}
+            </li>
           </ul>
         </template>
       </chart>
@@ -39,19 +42,14 @@
 </template>
 
 <script lang="ts">
-import dayjs from 'dayjs'
-import duration from 'dayjs/plugin/duration'
 import Vue from 'vue'
 
 import Chart from '@/components/index/CardsReference/Vaccination/Chart.vue'
 import {
   Dataset as IVaccinationDataset,
-  Period as IVaccinationPeriod,
-  Vaccination as IVaccination,
-} from '@/libraries/auto_generated/data_converter/convertVaccination'
+  VaccinationAll as IVaccination,
+} from '@/libraries/auto_generated/data_converter/convertVaccinationAll'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
-
-dayjs.extend(duration)
 
 type Data = {
   chartLabels: string[]
@@ -62,12 +60,11 @@ type Methods = {
 }
 type Computed = {
   date: string
-  vaccinationLabels: string[]
   vaccinationDatasets: IVaccinationDataset[]
   vaccinationData: {
-    lastPeriod: IVaccinationPeriod
     labels: Date[]
     chartData: number[][]
+    infoData: number[][]
   }
   vaccination: IVaccination
 }
@@ -79,8 +76,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
   data() {
     const chartLabels = [
-      this.$t('接種回数（１回目・累計）') as string,
-      this.$t('接種回数（２回目・累計）') as string,
+      this.$t('高齢者（１回目・累計）') as string,
+      this.$t('その他（１回目・累計）') as string,
+      this.$t('高齢者（２回目・累計）') as string,
+      this.$t('その他（２回目・累計）') as string,
     ]
 
     const getFormatter = () => {
@@ -96,45 +95,55 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     date() {
       return this.vaccination.date
     },
-    vaccinationLabels() {
-      return this.vaccinationDatasets.map((dataset) => {
-        const { period } = dataset
-        const { end } = period
-        return this.getWeekEndLabel(end)
-      })
-    },
     vaccinationDatasets() {
       return this.vaccination.datasets
     },
     vaccinationData() {
-      const datasets = this.vaccination.datasets
-      const lastPeriod = datasets.slice(-1)[0].period
-      const labels = datasets.map((d: IVaccinationDataset) => d.period.end)
-      const cumulative1StDose: number[] = datasets.map(
-        (d: IVaccinationDataset) => d.data.cumulative1StDose
+      const datasets = this.vaccinationDatasets
+      const labels = datasets.map((d: IVaccinationDataset) => d.date)
+      const allCumulative1StDose: number[] = datasets.map(
+        (d: IVaccinationDataset) => d.data.all.cumulative1StDose
       )
-      const cumulative2NdDose: number[] = datasets.map(
-        (d: IVaccinationDataset) => d.data.cumulative2NdDose
+      const olderPeopleCumulative1StDose: number[] = datasets.map(
+        (d: IVaccinationDataset) => d.data.olderPeople.cumulative1StDose
       )
-      const chartData: number[][] = [cumulative1StDose, cumulative2NdDose]
+      const otherCumulative1StDose: number[] = datasets.map(
+        (d: IVaccinationDataset) =>
+          d.data.all.cumulative1StDose - d.data.olderPeople.cumulative1StDose
+      )
+      const allCumulative2NdDose: number[] = datasets.map(
+        (d: IVaccinationDataset) => d.data.all.cumulative2NdDose
+      )
+      const olderPeopleCumulative2NdDose: number[] = datasets.map(
+        (d: IVaccinationDataset) => d.data.olderPeople.cumulative2NdDose
+      )
+      const otherCumulative2NdDose: number[] = datasets.map(
+        (d: IVaccinationDataset) =>
+          d.data.all.cumulative2NdDose - d.data.olderPeople.cumulative2NdDose
+      )
+
+      const chartData: number[][] = [
+        olderPeopleCumulative1StDose,
+        otherCumulative1StDose,
+        olderPeopleCumulative2NdDose,
+        otherCumulative2NdDose,
+      ]
+
+      const infoData: number[][] = [
+        allCumulative1StDose,
+        olderPeopleCumulative1StDose,
+        allCumulative2NdDose,
+        olderPeopleCumulative2NdDose,
+      ]
 
       return {
-        lastPeriod,
         labels,
         chartData,
+        infoData,
       }
     },
     vaccination() {
       return this.$store.state.vaccination
-    },
-  },
-  methods: {
-    /**
-     * 表の横軸に表示する、「~MM/DD」形式のラベルを取得する
-     */
-    getWeekEndLabel(end: Date) {
-      const to = this.$d(dayjs(end).toDate(), 'dateWithoutYear')
-      return `~${to}`
     },
   },
 })

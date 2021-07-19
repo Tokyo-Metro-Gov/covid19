@@ -1,55 +1,41 @@
 // To parse this data:
 //
-//   import { Convert, Variant } from "./file";
+//   import { Convert, VaccinationAll } from "./file";
 //
-//   const variant = Convert.toVariant(json);
+//   const vaccinationAll = Convert.toVaccinationAll(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface Variant {
+export interface VaccinationAll {
     date:     string;
     datasets: Dataset[];
 }
 
 export interface Dataset {
-    period: Period;
-    data:   Data;
+    date: Date;
+    data: Data;
 }
 
-/**
- * variantTestCount: 変異株PCR検査実施数
- *
- * variantPositiveCount: N501Y陽性例数
- *
- * n501YPositiveRate: N501Y陽性例構成割合
- *
- * n501YNegativeRate: N501Y非陽性例構成割合
- *
- * variantPcrRate: 変異株PCR検査実施割合
- */
 export interface Data {
-    variantTestCount:     number; // 変異株PCR検査実施数
-    variantPositiveCount: number; // N501Y陽性例数
-    n501YPositiveRate:    number; // N501Y陽性例構成割合
-    n501YNegativeRate:    number; // N501Y非陽性例構成割合
-    variantPcrRate:       number; // 変異株PCR検査実施割合
+    all:         All;
+    olderPeople: All;
 }
 
-export interface Period {
-    begin: Date;
-    end:   Date;
+export interface All {
+    cumulative1StDose: number;
+    cumulative2NdDose: number;
 }
 
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toVariant(json: string): Variant {
-        return cast(JSON.parse(json), r("Variant"));
+    public static toVaccinationAll(json: string): VaccinationAll {
+        return cast(JSON.parse(json), r("VaccinationAll"));
     }
 
-    public static variantToJson(value: Variant): string {
-        return JSON.stringify(uncast(value, r("Variant")), null, 2);
+    public static vaccinationAllToJson(value: VaccinationAll): string {
+        return JSON.stringify(uncast(value, r("VaccinationAll")), null, 2);
     }
 }
 
@@ -186,23 +172,20 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "Variant": o([
+    "VaccinationAll": o([
         { json: "date", js: "date", typ: "" },
         { json: "datasets", js: "datasets", typ: a(r("Dataset")) },
     ], false),
     "Dataset": o([
-        { json: "period", js: "period", typ: r("Period") },
+        { json: "date", js: "date", typ: Date },
         { json: "data", js: "data", typ: r("Data") },
     ], false),
     "Data": o([
-        { json: "variant_test_count", js: "variantTestCount", typ: 0 },
-        { json: "variant_positive_count", js: "variantPositiveCount", typ: 0 },
-        { json: "n501y_positive_rate", js: "n501YPositiveRate", typ: 3.14 },
-        { json: "n501y_negative_rate", js: "n501YNegativeRate", typ: 3.14 },
-        { json: "variant_pcr_rate", js: "variantPcrRate", typ: 3.14 },
+        { json: "all", js: "all", typ: r("All") },
+        { json: "older_people", js: "olderPeople", typ: r("All") },
     ], false),
-    "Period": o([
-        { json: "begin", js: "begin", typ: Date },
-        { json: "end", js: "end", typ: Date },
+    "All": o([
+        { json: "cumulative_1st_dose", js: "cumulative1StDose", typ: 0 },
+        { json: "cumulative_2nd_dose", js: "cumulative2NdDose", typ: 0 },
     ], false),
 };
