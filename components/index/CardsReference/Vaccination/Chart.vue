@@ -61,9 +61,6 @@
         />
       </template>
     </scrollable-chart>
-    <template #description>
-      <slot name="description" />
-    </template>
     <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
@@ -79,7 +76,6 @@
         :title="infoTitles[i]"
         :l-text="di.lText"
         :s-text="di.sText"
-        :unit="di.unit"
       />
     </template>
   </data-view>
@@ -87,7 +83,8 @@
 
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
-import Vue, { PropType } from 'vue'
+import dayjs from 'dayjs'
+import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
 
@@ -118,7 +115,6 @@ type Methods = {
 type DisplayInfo = {
   lText: string
   sText: string
-  unit: string
 }
 type Computed = {
   displayInfo: DisplayInfo[]
@@ -129,26 +125,20 @@ type Computed = {
   headTitle: string
   tableHeaders: TableHeader[]
   tableDataItems: TableItem[]
-}
-type Period = {
-  begin: Date
-  end: Date
+  scaledTicksYAxisMax: number
 }
 type Props = {
   title: string
   titleId: string
   infoTitles: string[]
+  infoData: number[][]
   chartId: string
   chartData: number[][]
   getFormatter: Function
   date: string
   labels: string[]
   dataLabels: string[] | TranslateResult[]
-  periods: string[]
-  lastPeriod: Period
-  unit: string
   url: string
-  optionUnit: string
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: PluginServiceRegistrationOptions[]
 }
@@ -185,6 +175,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: false,
       default: () => [],
     },
+    infoData: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     chartId: {
       type: String,
       default: 'VariantChart',
@@ -212,25 +207,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => [],
     },
-    periods: {
-      type: Array,
-      default: () => [],
-    },
-    lastPeriod: {
-      type: Object as PropType<Period>,
-      default: () => ({ begin: new Date(), end: new Date() }),
-    },
-    unit: {
-      type: String,
-      default: '',
-    },
     url: {
       type: String,
-      default: '',
-    },
-    optionUnit: {
-      type: String,
-      required: false,
       default: '',
     },
     yAxesBgPlugin: {
@@ -243,8 +221,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   data: () => ({
-    displayLegends: [true, true],
-    colors: [getGraphSeriesColor('C'), getGraphSeriesColor('A')],
+    displayLegends: [true, true, true, true],
+    colors: [
+      getGraphSeriesColor('C'),
+      getGraphSeriesColor('G'),
+      getGraphSeriesColor('A'),
+      getGraphSeriesColor('B'),
+    ],
     canvas: true,
   }),
   computed: {
@@ -252,21 +235,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const lastData = (dataset: number[]) => {
         return dataset.slice(-1)[0]
       }
-      const periodText = `${this.$t('{dateEnd}累計値', {
-        dateEnd: this.$d(this.lastPeriod.end, 'date'),
-      })}`
-      return [
-        {
-          lText: this.getFormatter(0)(lastData(this.chartData[0])),
-          sText: periodText,
-          unit: this.unit,
-        },
-        {
-          lText: this.getFormatter(1)(lastData(this.chartData[1])),
-          sText: periodText,
-          unit: this.unit,
-        },
-      ]
+      const lastDay = this.labels.slice(-1)[0]
+      return this.infoData.map((data) => {
+        return {
+          lText: this.getFormatter(0)(lastData(data)),
+          sText: `${this.$d(lastDay, 'date')} ${this.$t('累計値')}`,
+        }
+      })
     },
     displayData() {
       const datasets = this.dataLabels.map((_, i) => {
@@ -276,6 +251,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           backgroundColor: this.colors[i].fillColor,
           borderColor: this.colors[i].strokeColor,
           borderWidth: 1,
+          stack: i === 0 || i === 1 ? 'stack-1' : 'stack-2',
         }
       })
       return {
@@ -298,7 +274,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.displayData.datasets[0].data
         .map((_, i) => {
           return Object.assign(
-            { text: this.periods[i] },
+            { text: this.labels[i] },
             ...this.chartData.map((_, j) => {
               return {
                 [j]: this.getFormatter(j)(this.chartData[j][i]),
@@ -309,12 +285,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+
       const options: ChartOptions = {
         tooltips: {
           displayColors: false,
           callbacks: {
-            title: (tooltipItem) => {
-              return this.periods[tooltipItem[0].index!]
+            title: (tooltipItem, data) => {
+              const label = data.labels![tooltipItem[0].index!] as string
+              return this.$d(new Date(label), 'date')
             },
             label: (tooltipItem, data) => {
               const index = tooltipItem.datasetIndex!
@@ -322,8 +301,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               const num = this.getFormatter(tooltipItem.datasetIndex!)(
                 parseFloat(tooltipItem.value!)
               )
-              const unit = this.$t(this.unit)
-              return `${title}: ${num} ${unit}`
+              return `${title}: ${num}`
             },
           },
         },
@@ -334,21 +312,23 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         scales: {
           xAxes: [
             {
-              id: 'period',
-              stacked: false,
+              id: 'day',
+              stacked: true,
               gridLines: {
                 display: false,
               },
               ticks: {
                 fontSize: 9,
+                maxTicksLimit: 20,
                 fontColor: '#808080',
-                callback: (_, i) => {
-                  return this.periods[i]
+                maxRotation: 0,
+                callback: (label: string) => {
+                  return dayjs(label).format('D')
                 },
               },
             },
             {
-              id: 'year',
+              id: 'month',
               stacked: true,
               gridLines: {
                 drawOnChartArea: false,
@@ -364,16 +344,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               type: 'time',
               time: {
-                unit: 'year',
+                unit: 'month',
                 displayFormats: {
-                  year: 'YYYY',
+                  month: 'YYYY-MM',
                 },
               },
             },
           ],
           yAxes: [
             {
-              stacked: false,
+              stacked: true,
               gridLines: {
                 display: true,
                 drawOnChartArea: true,
@@ -382,10 +362,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 12,
                 maxTicksLimit: 10,
                 suggestedMin: 0,
+                suggestedMax: scaledTicksYAxisMax,
                 fontColor: '#808080',
-                callback: (value) => {
-                  return `${value}${this.unit}`
-                },
               },
             },
           ],
@@ -405,6 +383,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           data: this.chartData[i],
           backgroundColor: 'transparent',
           borderWidth: 0,
+          stack: i === 0 || i === 1 ? 'stack-1' : 'stack-2',
         }
       })
       return {
@@ -413,6 +392,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOptionHeader() {
+      const scaledTicksYAxisMax = this.scaledTicksYAxisMax
+
       const options: ChartOptions = {
         tooltips: { enabled: false },
         maintainAspectRatio: false,
@@ -422,21 +403,23 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         scales: {
           xAxes: [
             {
-              id: 'period',
-              stacked: false,
+              id: 'day',
+              stacked: true,
               gridLines: {
                 display: false,
               },
               ticks: {
                 fontSize: 9,
-                fontColor: 'transparent',
-                callback: (_, i) => {
-                  return this.periods[i]
+                maxTicksLimit: 20,
+                fontColor: 'transparent', // displayOption では '#808080'
+                maxRotation: 0,
+                callback: (label: string) => {
+                  return dayjs(label).format('D')
                 },
               },
             },
             {
-              id: 'year',
+              id: 'month',
               stacked: true,
               gridLines: {
                 drawOnChartArea: false,
@@ -446,19 +429,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // displayOption では #808080
+                fontColor: 'transparent', // displayOption では '#808080'
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
               type: 'time',
               time: {
-                unit: 'year',
+                unit: 'month',
+                displayFormats: {
+                  month: 'YYYY-MM',
+                },
               },
             },
           ],
           yAxes: [
             {
-              stacked: false,
+              stacked: true,
               gridLines: {
                 display: true,
                 drawOnChartArea: false, // displayOption では true
@@ -468,10 +454,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 12,
                 maxTicksLimit: 10,
                 suggestedMin: 0,
+                suggestedMax: scaledTicksYAxisMax,
                 fontColor: '#808080',
-                callback: (value) => {
-                  return `${value}${this.unit}`
-                },
               },
             },
           ],
@@ -480,6 +464,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
 
       return options
+    },
+    scaledTicksYAxisMax() {
+      const chartLeftMax = Array.from(this.chartData[0].keys())
+        .map((i) => this.chartData[0][i] + this.chartData[1][i])
+        .reduce((a, b) => Math.max(a, b), 0)
+      const chartRightMax = Array.from(this.chartData[0].keys())
+        .map((i) => this.chartData[2][i] + this.chartData[3][i])
+        .reduce((a, b) => Math.max(a, b), 0)
+      return Math.max(chartLeftMax, chartRightMax)
     },
   },
   methods: {
