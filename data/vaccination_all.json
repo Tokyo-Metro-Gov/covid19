@@ -1,5 +1,5 @@
 {
-    "date": "2021\/7\/19 11:00",
+    "date": "2021\/7\/19 18:30",
     "datasets": [
         {
             "date": "2021-04-12",
@@ -1259,6 +1259,19 @@
                 "older_people": {
                     "cumulative_1st_dose": 2483328,
                     "cumulative_2nd_dose": 1803830
+                }
+            }
+        },
+        {
+            "date": "2021-07-18",
+            "data": {
+                "all": {
+                    "cumulative_1st_dose": 3579442,
+                    "cumulative_2nd_dose": 1987559
+                },
+                "older_people": {
+                    "cumulative_1st_dose": 2487577,
+                    "cumulative_2nd_dose": 1823543
                 }
             }
         }
