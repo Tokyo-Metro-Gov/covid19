@@ -1274,6 +1274,19 @@
                     "cumulative_2nd_dose": 1869427
                 }
             }
+        },
+        {
+            "date": "2021-07-19",
+            "data": {
+                "all": {
+                    "cumulative_1st_dose": 3699503,
+                    "cumulative_2nd_dose": 2072937
+                },
+                "older_people": {
+                    "cumulative_1st_dose": 2507323,
+                    "cumulative_2nd_dose": 1887145
+                }
+            }
         }
     ]
 }
