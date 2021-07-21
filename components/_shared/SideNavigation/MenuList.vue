@@ -1,27 +1,36 @@
 <template>
-  <ul class="MenuList">
-    <li
-      v-for="(item, i) in items"
-      :key="i"
-      :class="['MenuList-Item', { '-border': item.divider }]"
-      @click="$emit('click', $event)"
+  <div class="Menu">
+    <section
+      v-for="(menu, i) in menuItems"
+      :key="`menu-block-${i}`"
+      class="MenuSection"
     >
-      <app-link :to="item.link" class="MenuList-Link">
-        <span v-if="item.svg || item.iconPath" class="MenuList-Icon">
-          <svg
-            :is="item.svg"
-            v-if="item.svg"
-            class="MenuList-SvgIcon"
-            aria-hidden="true"
-          />
-          <v-icon v-if="item.iconPath" size="2rem" class="MenuList-MdIcon">
-            {{ item.iconPath }}
-          </v-icon>
-        </span>
-        <span class="MenuList-Title">{{ item.title }}</span>
-      </app-link>
-    </li>
-  </ul>
+      <h2 class="MenuTitle">{{ itemTitles[i].text }}</h2>
+      <ul class="MenuList">
+        <li
+          v-for="(item, j) in menu"
+          :key="`menu-item-${j}`"
+          class="MenuList-Item"
+          @click="$emit('click', $event)"
+        >
+          <app-link :to="item.link" class="MenuList-Link">
+            <span v-if="item.svg || item.iconPath" class="MenuList-Icon">
+              <svg
+                :is="item.svg"
+                v-if="item.svg"
+                class="MenuList-SvgIcon"
+                aria-hidden="true"
+              />
+              <v-icon v-if="item.iconPath" size="2rem" class="MenuList-MdIcon">
+                {{ item.iconPath }}
+              </v-icon>
+            </span>
+            <span class="MenuList-Title">{{ item.title }}</span>
+          </app-link>
+        </li>
+      </ul>
+    </section>
+  </div>
 </template>
 
 <script lang="ts">
@@ -33,50 +42,81 @@ import MaskTrashIcon from '@/static/masktrash.svg'
 import ParentIcon from '@/static/parent.svg'
 import SupportIcon from '@/static/support.svg'
 
+type MenuItemTitle = {
+  slug: string
+  text: string
+}
+
 type MenuItem = {
   iconPath?: string
   svg?: string
   title: string
   link: string
-  divider?: boolean
+  slug: string
 }
 
 export default Vue.extend({
   components: { AppLink, CovidIcon, MaskTrashIcon, ParentIcon, SupportIcon },
   props: {
+    itemTitles: {
+      type: Array as PropType<MenuItemTitle[]>,
+      required: true,
+    },
     items: {
       type: Array as PropType<MenuItem[]>,
       required: true,
+    },
+  },
+  computed: {
+    menuItems(): MenuItem[][] {
+      const menuArray = []
+      this.itemTitles.forEach((v) => {
+        const splitItemsBySlug = this.items.filter((item) => {
+          return v.slug === item.slug
+        })
+        menuArray.push(splitItemsBySlug)
+      })
+      return menuArray
     },
   },
 })
 </script>
 
 <style lang="scss" scoped>
-.MenuList {
+.Menu {
   margin-top: 24px;
-  padding: 12px 0;
-  border-bottom: 1px solid $gray-4;
 
   @include largerThan($small) {
     border-top: 1px solid $gray-4;
   }
 }
+.MenuSection {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid $gray-4;
+
+  &:first-child {
+    padding-top: 12px;
+  }
+}
+.MenuTitle {
+  color: $gray-3;
+  padding: 12px 0;
+  font-weight: normal;
+  @include font-size(13);
+}
+.MenuList {
+  list-style: none;
+  padding: 0;
+}
 
 .MenuList-Item {
-  list-style: none;
   line-height: 1.2;
   white-space: normal;
   @include font-size(14);
   @include lessThan($small) {
     font-weight: 600;
     @include font-size(14.5);
-  }
-
-  &.-border {
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid $gray-4;
   }
 }
 
