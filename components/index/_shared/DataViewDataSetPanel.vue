@@ -5,14 +5,14 @@
       <template v-if="lText">
         <span class="DataView-DataSet-summary">
           {{ lText }}
-          <small class="DataView-DataSet-summary-unit">{{ unit }}</small>
+          <span class="DataView-DataSet-summary-unit">{{ unit }}</span>
         </span>
         <br />
       </template>
-      <small class="DataView-DataSet-date">{{ sText }}</small>
+      <span class="DataView-DataSet-date">{{ sText }}</span>
       <template v-if="sTextUnder">
         <br />
-        <small class="DataView-DataSet-date">{{ sTextUnder }}</small>
+        <span class="DataView-DataSet-date">{{ sTextUnder }}</span>
       </template>
     </div>
   </div>
