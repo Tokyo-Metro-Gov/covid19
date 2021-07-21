@@ -1,11 +1,11 @@
 <template>
   <div class="Menu">
     <section
-      v-for="(menu, i) in menuItems"
+      v-for="(menu, slug, i) in menuItemsObj"
       :key="`menu-block-${i}`"
       class="MenuSection"
     >
-      <h2 class="MenuTitle">{{ itemTitles[i].text }}</h2>
+      <h2 class="MenuTitle">{{ setMenuTitle(slug) }}</h2>
       <ul class="MenuList">
         <li
           v-for="(item, j) in menu"
@@ -55,6 +55,10 @@ type MenuItem = {
   slug: string
 }
 
+type MenuObj = {
+  [key: string]: MenuItem[]
+}
+
 export default Vue.extend({
   components: { AppLink, CovidIcon, MaskTrashIcon, ParentIcon, SupportIcon },
   props: {
@@ -68,15 +72,20 @@ export default Vue.extend({
     },
   },
   computed: {
-    menuItems(): MenuItem[][] {
-      const menuArray = []
+    menuItemsObj(): MenuObj {
+      const menuObj = {}
       this.itemTitles.forEach((v) => {
         const splitItemsBySlug = this.items.filter((item) => {
           return v.slug === item.slug
         })
-        menuArray.push(splitItemsBySlug)
+        if (splitItemsBySlug.length > 0) menuObj[v.slug] = [...splitItemsBySlug]
       })
-      return menuArray
+      return menuObj
+    },
+  },
+  methods: {
+    setMenuTitle(slug): string {
+      return this.itemTitles.find((v) => v.slug === slug).text
     },
   },
 })
