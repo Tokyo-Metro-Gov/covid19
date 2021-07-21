@@ -191,7 +191,7 @@ import MenuList from '@/components/_shared/SideNavigation/MenuList.vue'
 
 type ItemTitle = {
   slug: string
-  text: string
+  text?: string
 }
 
 type Item = {
@@ -234,6 +234,9 @@ export default Vue.extend({
         {
           slug: 'related-sites',
           text: this.$t('関連サイト'),
+        },
+        {
+          slug: 'other',
         },
       ]
     },
@@ -352,17 +355,17 @@ export default Vue.extend({
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about'),
-          slug: 'related-sites',
+          slug: 'other',
         },
         {
           title: this.$t('ご意見はこちら（外部サービスを使用しています）'),
           link: 'https://docs.google.com/forms/d/e/1FAIpQLSdSROCPyr6Aj6WoAoYfqcT6StDOEUB38Grug1EJjUYzppcEZg/viewform?usp=sf_link',
-          slug: 'related-sites',
+          slug: 'other',
         },
         {
           title: this.$t('お問い合わせ先一覧'),
           link: this.localePath('/contacts'),
-          slug: 'related-sites',
+          slug: 'other',
         },
         {
           title: this.$t('東京都公式ホームページ'),
