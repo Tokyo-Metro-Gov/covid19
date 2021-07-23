@@ -236,7 +236,8 @@ export default Vue.extend({
           text: this.$t('関連サイト'),
         },
         {
-          slug: 'other',
+          slug: 'site-info',
+          text: this.$t('サイト情報'),
         },
       ]
     },
@@ -353,24 +354,24 @@ export default Vue.extend({
           slug: 'related-sites',
         },
         {
+          title: this.$t('東京都公式ホームページ'),
+          link: 'https://www.metro.tokyo.lg.jp/',
+          slug: 'related-sites',
+        },
+        {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about'),
-          slug: 'other',
+          slug: 'site-info',
         },
         {
           title: this.$t('ご意見はこちら（外部サービスを使用しています）'),
           link: 'https://docs.google.com/forms/d/e/1FAIpQLSdSROCPyr6Aj6WoAoYfqcT6StDOEUB38Grug1EJjUYzppcEZg/viewform?usp=sf_link',
-          slug: 'other',
+          slug: 'site-info',
         },
         {
           title: this.$t('お問い合わせ先一覧'),
           link: this.localePath('/contacts'),
-          slug: 'other',
-        },
-        {
-          title: this.$t('東京都公式ホームページ'),
-          link: 'https://www.metro.tokyo.lg.jp/',
-          slug: 'related-sites',
+          slug: 'site-info',
         },
       ]
     },
