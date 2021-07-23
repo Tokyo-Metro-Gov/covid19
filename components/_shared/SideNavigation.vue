@@ -191,7 +191,7 @@ import MenuList from '@/components/_shared/SideNavigation/MenuList.vue'
 
 type ItemTitle = {
   slug: string
-  text?: string
+  text: TranslateResult
 }
 
 type Item = {

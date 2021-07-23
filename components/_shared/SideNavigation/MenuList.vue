@@ -5,7 +5,7 @@
       :key="`menu-block-${i}`"
       class="MenuSection"
     >
-      <h2 v-if="setMenuTitle(slug)" class="MenuTitle">
+      <h2 class="MenuTitle">
         {{ setMenuTitle(slug) }}
       </h2>
       <ul class="MenuList">
@@ -46,7 +46,7 @@ import SupportIcon from '@/static/support.svg'
 
 type MenuItemTitle = {
   slug: string
-  text?: string
+  text: string
 }
 
 type MenuItem = {
@@ -87,7 +87,7 @@ export default Vue.extend({
   },
   methods: {
     setMenuTitle(slug): string {
-      return this.itemTitles.find((v) => v.slug === slug).text || null
+      return this.itemTitles.find((v) => v.slug === slug).text
     },
   },
 })
