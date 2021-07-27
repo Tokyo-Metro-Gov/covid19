@@ -1,8 +1,19 @@
+/* eslint-disable simple-import-sort/imports -- `@nuxt/types` import should occur after import of `path` */
+import fs from 'fs'
+import path from 'path'
 import { NuxtConfig } from '@nuxt/types'
+/* eslint-enable simple-import-sort/imports */
+import { Settings } from '@/types/cardRoutesSettings'
 
 // eslint-disable-next-line no-restricted-imports
 import i18n from './nuxt-i18n.config'
 const environment = process.env.NODE_ENV || 'development'
+const cardData = JSON.parse(
+  fs.readFileSync(
+    path.resolve(__dirname, 'assets/json/cardRoutesSettings.json'),
+    'utf8'
+  )
+)
 
 const config: NuxtConfig = {
   // Since nuxt@2.14.5, there have been significant changes.
@@ -213,34 +224,11 @@ const config: NuxtConfig = {
     fallback: true,
     routes() {
       const locales = ['en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
-      const pages = [
-        '/cards/details-of-confirmed-cases',
-        '/cards/number-of-confirmed-cases',
-        '/cards/number-of-confirmed-cases-by-municipalities',
-        '/cards/attributes-of-confirmed-cases',
-        '/cards/number-of-tested',
-        '/cards/number-of-reports-to-covid19-telephone-advisory-center',
-        '/cards/predicted-number-of-toei-subway-passengers',
-        '/cards/agency',
-        '/cards/positive-rate',
-        '/cards/positive-number-by-diagnosed-date',
-        '/cards/monitoring-number-of-confirmed-cases',
-        '/cards/untracked-rate',
-        '/cards/positive-status-severe-case',
-        '/cards/number-of-hospitalized',
-        '/cards/monitoring-number-of-reports-to-covid19-consultation-desk',
-        '/cards/monitoring-status-overview',
-        '/cards/number-of-reports-to-consultations-about-fever-in-7119',
-        '/cards/number-of-tokyo-rules-applied',
-        '/cards/monitoring-items-overview',
-        '/cards/positive-number-by-developed-date',
-        '/cards/number-of-reports-to-tokyo-fever-consultation-center',
-        '/cards/deaths-by-death-date',
-        '/cards/variant',
-        '/cards/vaccination',
-      ]
+      const pages = cardData.map((v: Settings) => {
+        return v.path
+      })
       const localizedPages = locales
-        .map((locale) => pages.map((page) => `/${locale}${page}`))
+        .map((locale) => pages.map((page: string) => `/${locale}${page}`))
         .reduce((a, b) => [...a, ...b], [])
       return [...pages, ...localizedPages]
     },
