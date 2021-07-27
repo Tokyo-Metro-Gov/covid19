@@ -329,6 +329,10 @@ export default Vue.extend({
           title: this.$t('東京都公式ホームページ'),
           link: 'https://www.metro.tokyo.lg.jp/',
         },
+        {
+          title: this.$t('サイトマップ'),
+          link: this.localePath('/sitemap'),
+        },
       ]
     },
     logoSrc(): string {
