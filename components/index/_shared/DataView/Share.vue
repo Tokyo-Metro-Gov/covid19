@@ -34,72 +34,92 @@
       class="DataView-Share-Buttons py-2"
       @click="stopClosingShareMenu"
     >
-      <div class="Close-Button">
-        <v-icon :aria-label="$t('閉じる')" @click="closeShareMenu">
-          {{ mdiClose }}
-        </v-icon>
+      <div class="Share-Buttons-header">
+        <div class="Close-Button">
+          <v-icon :aria-label="$t('閉じる')" @click="closeShareMenu">
+            {{ mdiClose }}
+          </v-icon>
+        </div>
+
+        <h4>{{ $t('情報をシェア') }}</h4>
       </div>
 
-      <h4>{{ $t('埋め込み用コード') }}</h4>
+      <section>
+        <h5>{{ $t('埋め込み用コード') }}</h5>
+        <div class="EmbedCode">
+          <v-icon
+            v-if="isCopyAvailable()"
+            class="EmbedCode-Copy"
+            :aria-label="$t('クリップボードにコピー')"
+            @click="copyEmbedCode"
+            >{{ mdiClipboardOutline }}</v-icon
+          >
+          {{ graphEmbedValue }}
+        </div>
+      </section>
 
-      <div class="EmbedCode">
-        <v-icon
-          v-if="isCopyAvailable()"
-          class="EmbedCode-Copy"
-          :aria-label="$t('クリップボードにコピー')"
-          @click="copyEmbedCode"
-          >{{ mdiClipboardOutline }}</v-icon
-        >
-        {{ graphEmbedValue }}
-      </div>
-
-      <div class="Buttons">
-        <button
-          :aria-label="$t('LINEで{title}のグラフをシェア', { title })"
-          @click="line"
-        >
-          <picture>
-            <source
-              srcset="/line.webp"
-              type="image/webp"
-              class="icon-resize line"
-            />
-            <img src="/line.png" alt="LINE" class="icon-resize line" />
-          </picture>
-        </button>
-
-        <button
-          :aria-label="$t('Twitterで{title}のグラフをシェア', { title })"
-          @click="twitter"
-        >
-          <picture>
-            <source
-              srcset="/twitter.webp"
-              type="image/webp"
-              class="icon-resize twitter"
-            />
-            <img src="/twitter.png" alt="Twitter" class="icon-resize twitter" />
-          </picture>
-        </button>
-
-        <button
-          :aria-label="$t('facebookで{title}のグラフをシェア', { title })"
-          @click="facebook"
-        >
-          <picture>
-            <source
-              srcset="/facebook.webp"
-              type="image/webp"
-              class="icon-resize facebook"
-            />
-            <img
-              src="/facebook.png"
-              alt="facebook"
-              class="icon-resize facebook"
-            />
-          </picture>
-        </button>
-      </div>
+      <section>
+        <h5>{{ $t('SNSでシェア') }}</h5>
+        <ul class="Button-list">
+          <li class="Button-item line">
+            <button
+              class="Button"
+              :aria-label="$t('LINEで{title}のグラフをシェア', { title })"
+              @click="line"
+            >
+              <picture>
+                <source
+                  srcset="/line-square.webp"
+                  type="image/webp"
+                  class="Button-icon"
+                />
+                <img src="/line-square.png" alt="LINE" class="Button-icon" />
+              </picture>
+              <span class="Button-text">{{ $t('LINEで情報をシェア') }}</span>
+            </button>
+          </li>
+          <li class="Button-item twitter">
+            <button
+              class="Button"
+              :aria-label="$t('Twitterで{title}のグラフをシェア', { title })"
+              @click="twitter"
+            >
+              <picture>
+                <source
+                  srcset="/twitter-square.webp"
+                  type="image/webp"
+                  class="Button-icon"
+                />
+                <img
+                  src="/twitter-square.png"
+                  alt="Twitter"
+                  class="Button-icon"
+                />
+              </picture>
+              <span class="Button-text">{{ $t('Twitterで情報をシェア') }}</span>
+            </button>
+          </li>
+          <li class="Button-item facebook">
+            <button
+              class="Button"
+              :aria-label="$t('facebookで{title}のグラフをシェア', { title })"
+              @click="facebook"
+            >
+              <picture>
+                <source
+                  srcset="/facebook.webp"
+                  type="image/webp"
+                  class="Button-icon"
+                />
+                <img src="/facebook.png" alt="facebook" class="Button-icon" />
+              </picture>
+              <span class="Button-text">{{
+                $t('facebookで情報をシェア')
+              }}</span>
+            </button>
+          </li>
+        </ul>
+      </section>
     </div>
     <div v-if="showOverlay" class="overlay">
       <div class="overlay-text">
@@ -232,7 +252,7 @@ export default Vue.extend({
   padding: 8px;
   right: 2rem;
   bottom: 3em;
-  width: 240px;
+  width: 260px;
   border: solid 1px $gray-4;
   background: $white !important;
   border-radius: 8px;
@@ -244,9 +264,14 @@ export default Vue.extend({
     padding: 4px 0;
   }
 
-  > .Close-Button {
+  .Share-Buttons-header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+
+  .Close-Button {
     color: $gray-3;
 
     button {
@@ -260,7 +285,7 @@ export default Vue.extend({
     }
   }
 
-  > .EmbedCode {
+  .EmbedCode {
     position: relative;
     padding: 4px;
     padding-right: 30px;
@@ -287,39 +312,52 @@ export default Vue.extend({
     }
   }
 
-  > .Buttons {
+  .Button-list {
     display: flex;
-    justify-content: center;
-    margin-top: 4px;
+    justify-content: space-between;
+  }
 
-    .icon-resize {
-      border-radius: 50%;
+  .Button-item {
+    flex: 0 0 30%;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    margin: 4px;
 
-      &.twitter {
-        color: #fff;
-        background: #2a96eb;
-      }
-
-      &.facebook {
-        color: #364e8a;
-      }
-
-      &.line {
-        color: #1cb127;
-      }
+    &.line {
+      border-color: #06c755;
     }
 
-    button {
-      width: 30px;
-      height: 30px;
-      margin-left: 4px;
-      margin-right: 4px;
+    &.twitter {
+      border-color: #1da1f2;
+    }
+
+    &.facebook {
+      border-color: #1877f2;
+    }
+
+    .Button {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 8px 8px 8px;
 
       &:focus {
-        border-radius: 50%;
         border: 1px dotted #707070;
         outline: none;
       }
+    }
+
+    .Button-icon {
+      width: 32px;
+    }
+
+    .Button-text {
+      display: block;
+      line-height: 1.2;
+      margin-top: 8px;
+      @include font-size(10);
     }
   }
 }

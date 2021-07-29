@@ -47,14 +47,14 @@
             </li>
           </ul>
         </template>
-        <section>
+        <section :class="$style.section">
           <h4>{{ $t('感染状況') }}</h4>
           <infection-status
             :aria-label="$t('感染状況')"
             :items="monitoringItems"
           />
         </section>
-        <section>
+        <section :class="$style.section">
           <h4>{{ $t('医療提供体制') }}</h4>
           <medical-system
             :aria-label="$t('医療提供体制')"
@@ -100,7 +100,7 @@ export default {
 </script>
 
 <style lang="scss" module>
-section {
+.section {
   margin: 0 0 20px;
 
   /* h タグが連続するため DataView-Content の margin を少し打ち消す */
