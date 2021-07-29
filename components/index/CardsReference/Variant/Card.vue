@@ -38,7 +38,7 @@
             </li>
             <li>
               <app-link
-                to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/screening.html"
+                to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/henikabu/screening.html"
               >
                 {{ $t('N501Y変異株スクリーニングの実施状況のデータはこちら') }}
               </app-link>
