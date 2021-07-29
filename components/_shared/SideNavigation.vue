@@ -254,6 +254,7 @@ export default Vue.extend({
           iconPath: mdiApps,
           title: this.$t('新型コロナ保健医療情報ポータル'),
           link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/index.html',
+          slug: 'covid19-info',
         },
         {
           svg: 'CovidIcon',
