@@ -176,6 +176,7 @@
 <script lang="ts">
 import {
   mdiAccountMultiple,
+  mdiApps,
   mdiChartTimelineVariant,
   mdiClose,
   mdiDomain,
@@ -248,6 +249,11 @@ export default Vue.extend({
           title: this.$t('都内の最新感染動向'),
           link: this.localePath('/'),
           slug: 'covid19-info',
+        },
+        {
+          iconPath: mdiApps,
+          title: this.$t('新型コロナ保健医療情報ポータル'),
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/index.html',
         },
         {
           svg: 'CovidIcon',

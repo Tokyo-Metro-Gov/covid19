@@ -1,5 +1,5 @@
 {
-    "date": "2021\/7\/20 19:00",
+    "date": "2021\/7\/28 20:40",
     "data": [
         {
             "date": "2020-10-30",
@@ -2366,6 +2366,78 @@
                 "cocoa_dial": 29,
                 "total": 1736,
                 "weekly_average_total": 1742
+            }
+        },
+        {
+            "date": "2021-07-20",
+            "count": {
+                "fever_consultation_center": 1640,
+                "cocoa_dial": 40,
+                "total": 1680,
+                "weekly_average_total": 1767
+            }
+        },
+        {
+            "date": "2021-07-21",
+            "count": {
+                "fever_consultation_center": 2121,
+                "cocoa_dial": 38,
+                "total": 2159,
+                "weekly_average_total": 1856
+            }
+        },
+        {
+            "date": "2021-07-22",
+            "count": {
+                "fever_consultation_center": 3548,
+                "cocoa_dial": 41,
+                "total": 3589,
+                "weekly_average_total": 2150
+            }
+        },
+        {
+            "date": "2021-07-23",
+            "count": {
+                "fever_consultation_center": 3363,
+                "cocoa_dial": 23,
+                "total": 3386,
+                "weekly_average_total": 2409
+            }
+        },
+        {
+            "date": "2021-07-24",
+            "count": {
+                "fever_consultation_center": 3165,
+                "cocoa_dial": 27,
+                "total": 3192,
+                "weekly_average_total": 2560
+            }
+        },
+        {
+            "date": "2021-07-25",
+            "count": {
+                "fever_consultation_center": 3303,
+                "cocoa_dial": 20,
+                "total": 3323,
+                "weekly_average_total": 2724
+            }
+        },
+        {
+            "date": "2021-07-26",
+            "count": {
+                "fever_consultation_center": 2920,
+                "cocoa_dial": 43,
+                "total": 2963,
+                "weekly_average_total": 2899
+            }
+        },
+        {
+            "date": "2021-07-27",
+            "count": {
+                "fever_consultation_center": 2948,
+                "cocoa_dial": 41,
+                "total": 2989,
+                "weekly_average_total": 3086
             }
         }
     ]

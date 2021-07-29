@@ -25,7 +25,7 @@
         <li>
           <app-link
             class="WhatsNew-linkButton"
-            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/screening.html"
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/henikabu/screening.html"
           >
             <span class="WhatsNew-linkButton-inner">
               <covid-icon class="WhatsNew-linkButton-icon" aria-hidden="true" />
