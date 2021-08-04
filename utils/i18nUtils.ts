@@ -1,6 +1,6 @@
 /* eslint-disable simple-import-sort/imports */
-import { LinkPropertyHref } from 'vue-meta'
-import type { Locale, LocaleObject } from 'nuxt-i18n'
+import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
+import type { Locale, LocaleObject } from '@nuxtjs/i18n'
 /* eslint-enable simple-import-sort/imports */
 
 export const getLinksLanguageAlternative = (
@@ -8,6 +8,7 @@ export const getLinksLanguageAlternative = (
   locales?: Array<Locale | LocaleObject>,
   defaultLocale?: string
 ) => {
+  type LinkPropertyHref = MetaInfo
   const links: LinkPropertyHref[] = []
   const getFullPathWihLocale = (locale: string) => {
     const pathLocale = locale === 'ja' ? '' : `/${locale}`
@@ -28,7 +29,7 @@ export const getLinksLanguageAlternative = (
         rel: 'alternate',
         href: getFullPathWihLocale(locale.code),
         hreflang: locale.iso,
-      })
+      } as MetaInfo)
     }
   }
   if (defaultLocale) {
@@ -37,7 +38,7 @@ export const getLinksLanguageAlternative = (
       rel: 'alternate',
       href: getFullPathWihLocale(defaultLocale),
       hreflang: 'x-default',
-    })
+    } as MetaInfo)
   }
 
   return links

@@ -1,5 +1,4 @@
-import { NuxtConfig } from '@nuxt/types'
-import { NuxtVueI18n } from 'nuxt-i18n/types'
+import { NuxtAppOptions, NuxtConfig } from '@nuxt/types'
 
 const dateTimeFormatsCommon = {
   dateTime: {
@@ -106,4 +105,4 @@ const options: NuxtConfig = {
   seo: false,
 }
 
-export default options as NuxtVueI18n.Options.AllOptionsInterface
+export default options as NuxtAppOptions
