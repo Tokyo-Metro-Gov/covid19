@@ -14,6 +14,8 @@ type DataKey =
   | '(6)入院患者確保病床数'
   | '(7)重症患者数'
   | '(7)重症患者確保病床数'
+  | '入院患者病床利用率'
+  | '重症患者病床利用率'
 
 type DataCommentKey = '総括コメント-感染状況' | '総括コメント-医療提供体制'
 
@@ -140,6 +142,14 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
       unit: unitBed,
       bold: false,
     },
+    入院患者病床利用率: {
+      value: toInteger(
+        (rawDataObj['(6)入院患者数'] / rawDataObj['(6)入院患者確保病床数']) *
+          100
+      ),
+      unit: unitPercentage,
+      bold: false,
+    },
     '(7)重症患者数': {
       value: toInteger(rawDataObj['(7)重症患者数']),
       unit: unitPerson,
@@ -148,6 +158,14 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
     '(7)重症患者確保病床数': {
       value: toInteger(rawDataObj['(7)重症患者確保病床数']),
       unit: unitBed,
+      bold: false,
+    },
+    重症患者病床利用率: {
+      value: toInteger(
+        (rawDataObj['(7)重症患者数'] / rawDataObj['(7)重症患者確保病床数']) *
+          100
+      ),
+      unit: unitPercentage,
       bold: false,
     },
   }

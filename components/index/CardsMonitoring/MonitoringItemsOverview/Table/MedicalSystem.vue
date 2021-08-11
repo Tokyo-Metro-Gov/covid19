@@ -69,6 +69,16 @@
                 />
               </div>
             </li>
+            <li :class="[$style.box]">
+              <div :class="$style.content">
+                <span>{{ $t('病床利用率') }}</span>
+                <value-with-translatable-unit
+                  :value="items['入院患者病床利用率'].value"
+                  :unit="items['入院患者病床利用率'].unit"
+                  :bold="items['入院患者病床利用率'].bold"
+                />
+              </div>
+            </li>
           </ul>
         </li>
         <li :class="[$style.box, $style.parent]">
@@ -88,6 +98,16 @@
                   :value="items['(7)重症患者確保病床数'].value"
                   :unit="items['(7)重症患者確保病床数'].unit"
                   :bold="items['(7)重症患者確保病床数'].bold"
+                />
+              </div>
+            </li>
+            <li :class="[$style.box]">
+              <div :class="$style.content">
+                <span>{{ $t('病床利用率') }}</span>
+                <value-with-translatable-unit
+                  :value="items['重症患者病床利用率'].value"
+                  :unit="items['重症患者病床利用率'].unit"
+                  :bold="items['重症患者病床利用率'].bold"
                 />
               </div>
             </li>
