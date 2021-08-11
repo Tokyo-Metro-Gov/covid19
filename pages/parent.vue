@@ -1,6 +1,6 @@
 <template>
   <div class="Parent">
-    <page-header :title="$t('新型コロナウイルス感染症対応についてのお願い')" />
+    <page-header :title="$t('お子様をお持ちの皆様へ')" />
     <static-card>
       <h3>
         <app-link to="https://www.tgs.metro.tokyo.lg.jp/" :icon-size="24"
