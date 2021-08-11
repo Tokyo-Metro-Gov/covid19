@@ -1,5 +1,11 @@
 <template>
-  <component :is="cardComponent" />
+  <div>
+    <h2 v-if="cardCategory" class="card-title">
+      <v-icon>{{ mdiChartTimelineVariant }}</v-icon>
+      {{ $t(titles[cardCategory]) }}
+    </h2>
+    <component :is="cardComponent" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -54,6 +60,7 @@ import MetroCard from '@/components/index/CardsReference/Metro/Card.vue'
 import AgencyCard from '@/components/index/CardsReference/Agency/Card.vue'
 /* eslint-enable simple-import-sort/imports */
 
+import { mdiChartTimelineVariant } from '@mdi/js'
 import { Vue, Component } from 'nuxt-property-decorator'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
@@ -91,108 +98,137 @@ import type { NuxtConfig } from '@nuxt/types'
 })
 export default class CardContainer extends Vue implements NuxtConfig {
   data() {
-    let title, updatedAt, cardComponent
+    let title, updatedAt, cardComponent, cardCategory
     switch (this.$route.params.card) {
       // NOTE: 以下，ブラウザでの表示順に合わせて条件分岐を行う
       // ---- モニタリング項目
       // 検査陽性者の状況
       case 'details-of-confirmed-cases':
         cardComponent = 'confirmed-cases-details-card'
+        cardCategory = 'monitoring'
         break
       // 報告日別による陽性者数の推移
       case 'number-of-confirmed-cases':
         cardComponent = 'confirmed-cases-number-card'
+        cardCategory = 'monitoring'
         break
       // モニタリング項目
       case 'monitoring-items-overview':
         cardComponent = 'monitoring-items-overview-card'
+        cardCategory = 'monitoring'
         break
       // モニタリング項目(1)新規陽性者数
       case 'monitoring-number-of-confirmed-cases':
         cardComponent = 'monitoring-confirmed-cases-number-card'
+        cardCategory = 'monitoring'
         break
       // モニタリング項目(2)#7119における発熱等相談件数
       case 'number-of-reports-to-consultations-about-fever-in-7119':
         cardComponent = 'consultation-about-fever-number-card'
+        cardCategory = 'monitoring'
         break
       // モニタリング項目(3)新規陽性者における接触歴等不明者数
       case 'untracked-rate':
         cardComponent = 'untracked-rate-card'
+        cardCategory = 'monitoring'
         break
       // モニタリング項目(4)検査の陽性率
       case 'positive-rate':
         cardComponent = 'positive-rate-card'
+        cardCategory = 'monitoring'
         break
       // モニタリング項目(5)救急医療の東京ルールの適用件数
       case 'number-of-tokyo-rules-applied':
         cardComponent = 'tokyo-rules-application-number-card'
+        cardCategory = 'monitoring'
         break
       // モニタリング項目(6)入院患者数
       case 'number-of-hospitalized':
         cardComponent = 'hospitalized-number-card'
+        cardCategory = 'monitoring'
         break
       // モニタリング項目(7)重症患者数
       case 'positive-status-severe-case':
         cardComponent = 'severe-case-card'
+        cardCategory = 'monitoring'
         break
       // ---- その他 参考指標
       // 陽性者の属性
       case 'attributes-of-confirmed-cases':
         cardComponent = 'confirmed-cases-attributes-card'
+        cardCategory = 'reference'
         break
       // 陽性者数（区市町村別）
       case 'number-of-confirmed-cases-by-municipalities':
         cardComponent = 'confirmed-cases-by-municipalities-card'
+        cardCategory = 'reference'
         break
       // 発症日別による陽性者数の推移
       case 'positive-number-by-developed-date':
         cardComponent = 'positive-number-by-developed-date-card'
+        cardCategory = 'reference'
         break
       // 確定日別による陽性者数の推移
       case 'positive-number-by-diagnosed-date':
         cardComponent = 'positive-number-by-diagnosed-date-card'
+        cardCategory = 'reference'
         break
       // 死亡日別による死亡者数の推移
       case 'deaths-by-death-date':
         cardComponent = 'deaths-by-death-date-card'
+        cardCategory = 'reference'
         break
       // 検査実施件数
       case 'number-of-tested':
         cardComponent = 'tested-number-card'
+        cardCategory = 'reference'
         break
       // L452R変異株スクリーニングの実施状況
       case 'variant':
         cardComponent = 'variant-card'
+        cardCategory = 'reference'
         break
       // ワクチン接種回数（高齢者・累計）
       case 'vaccination':
         cardComponent = 'vaccination-card'
+        cardCategory = 'reference'
         break
       // 新型コロナコールセンター相談件数
       case 'number-of-reports-to-covid19-telephone-advisory-center':
         cardComponent = 'telephone-advisory-reports-number-card'
+        cardCategory = 'reference'
         break
       // 受診相談窓口における相談件数
       case 'monitoring-number-of-reports-to-covid19-consultation-desk':
         cardComponent = 'monitoring-consultation-desk-reports-number-card'
+        cardCategory = 'reference'
         break
       // 東京都発熱相談センターにおける相談件数
       case 'number-of-reports-to-tokyo-fever-consultation-center':
         cardComponent = 'tokyo-fever-consultation-center-reports-number-card'
+        cardCategory = 'reference'
         break
       // 都営地下鉄の利用者数の推移
       case 'predicted-number-of-toei-subway-passengers':
         cardComponent = 'metro-card'
+        cardCategory = 'reference'
         break
       // 都庁来庁者数の推移
       case 'agency':
         cardComponent = 'agency-card'
+        cardCategory = 'reference'
     }
     /* eslint-enable simple-import-sort/imports */
     return {
       cardComponent,
+      cardCategory,
       title,
       updatedAt,
+      mdiChartTimelineVariant,
+      titles: {
+        monitoring: 'モニタリング項目',
+        reference: 'その他 参考指標',
+      },
     }
   }
 
@@ -269,3 +305,17 @@ export default class CardContainer extends Vue implements NuxtConfig {
   }
 }
 </script>
+
+<style lang="scss">
+.card-title {
+  @include font-size(24);
+
+  color: $gray-2;
+  font-weight: normal;
+  padding: 8px 12px;
+
+  @include lessThan($small) {
+    @include font-size(20);
+  }
+}
+</style>
