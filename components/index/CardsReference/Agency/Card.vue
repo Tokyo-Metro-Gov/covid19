@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard AgencyCard">
+  <v-col cols="12" :md="isSingleCard || 6" class="DataCard AgencyCard">
     <client-only>
       <chart
         :title="$t('都庁来庁者数の推移')"
@@ -26,6 +26,7 @@ import Vue from 'vue'
 import Chart from '@/components/index/CardsReference/Agency/Chart.vue'
 import { Agency as IAgency } from '@/libraries/auto_generated/data_converter/convertAgency'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
+import { isSingleCard } from '@/utils/urls'
 
 type Data = {
   agencyItems: string[]
@@ -36,6 +37,7 @@ type Computed = {
   date: string
   labels: string[]
   periods: string[]
+  isSingleCard: boolean
 }
 type Props = {}
 
@@ -71,6 +73,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
         const to = this.$d(p.end, 'dateWithoutYear')
         return `${from}~${to}`
       })
+    },
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
     },
   },
 })

@@ -1,7 +1,7 @@
 <template>
   <v-col
     cols="12"
-    md="6"
+    :md="isSingleCard || 6"
     class="DataCard MonitoringConsultationDeskReportsNumberCard"
   >
     <client-only>
@@ -60,6 +60,7 @@
 import AppLink from '@/components/_shared/AppLink.vue'
 import Chart from '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Chart.vue'
 import Data from '@/data/data.json'
+import { isSingleCard } from '@/utils/urls'
 
 export default {
   components: {
@@ -87,6 +88,11 @@ export default {
       labels,
       dataLabels,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard VariantCard">
+  <v-col cols="12" :md="isSingleCard || 6" class="DataCard VariantCard">
     <client-only>
       <chart
         :title="$t('L452R変異株スクリーニングの実施状況')"
@@ -63,6 +63,7 @@ import {
   Variants as IVariants,
 } from '@/libraries/auto_generated/data_converter/convertVariants'
 import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
+import { isSingleCard } from '@/utils/urls'
 
 dayjs.extend(duration)
 
@@ -86,6 +87,7 @@ type Computed = {
     tableData: number[][]
   }
   variants: IVariants
+  isSingleCard: boolean
 }
 type Props = {}
 
@@ -179,6 +181,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     },
     variants() {
       return this.$store.state.variants
+    },
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
     },
   },
   methods: {

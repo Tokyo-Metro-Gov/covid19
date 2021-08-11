@@ -1,5 +1,9 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard MonitoringItemsOverviewCard">
+  <v-col
+    cols="12"
+    :md="isSingleCard || 6"
+    class="DataCard MonitoringItemsOverviewCard"
+  >
     <client-only>
       <data-view
         :title="$t('モニタリング項目')"
@@ -81,6 +85,7 @@ import InfectionStatus from '@/components/index/CardsMonitoring/MonitoringItemsO
 import MedicalSystem from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/MedicalSystem.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'
 import { formatMonitoringItems } from '@/utils/formatMonitoringItems'
+import { isSingleCard } from '@/utils/urls'
 
 export default {
   components: {
@@ -95,6 +100,11 @@ export default {
       monitoringItemsData,
       monitoringItems,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>

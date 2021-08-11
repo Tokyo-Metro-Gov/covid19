@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard TestedNumberCard">
+  <v-col cols="12" :md="isSingleCard || 6" class="DataCard TestedNumberCard">
     <client-only>
       <chart
         :title="$t('検査実施件数')"
@@ -53,6 +53,7 @@ import duration from 'dayjs/plugin/duration'
 
 import Chart from '@/components/index/CardsReference/TestedNumber/Chart.vue'
 import Data from '@/data/data.json'
+import { isSingleCard } from '@/utils/urls'
 dayjs.extend(duration)
 
 export default {
@@ -93,6 +94,11 @@ export default {
       inspectionsDataLabels,
       inspectionsTableLabels,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>

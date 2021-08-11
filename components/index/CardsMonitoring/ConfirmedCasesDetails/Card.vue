@@ -1,5 +1,9 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard ConfirmedCasesDetailsCard">
+  <v-col
+    cols="12"
+    :md="isSingleCard || 6"
+    class="DataCard ConfirmedCasesDetailsCard"
+  >
     <client-only>
       <data-view
         :title="$t('検査陽性者の状況')"
@@ -74,6 +78,7 @@ import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 import ConfirmedCasesDetailsTable from '@/components/index/CardsMonitoring/ConfirmedCasesDetails/Table.vue'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
+import { isSingleCard } from '@/utils/urls'
 
 const options = {
   components: {
@@ -93,6 +98,11 @@ const options = {
       confirmedCases,
       date,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 

@@ -1,5 +1,9 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard ConfirmedCasesByMunicipalitiesCard">
+  <v-col
+    cols="12"
+    :md="isSingleCard || 6"
+    class="DataCard ConfirmedCasesByMunicipalitiesCard"
+  >
     <client-only>
       <confirmed-cases-by-municipalities-table
         :title="$t('陽性者数（区市町村別）')"
@@ -31,7 +35,8 @@ import dayjs from 'dayjs'
 // table タグとの衝突を避けるため ConfirmedCasesByMunicipalitiesTable とする
 import ConfirmedCasesByMunicipalitiesTable from '@/components/index/CardsReference/ConfirmedCasesByMunicipalities/Table.vue'
 import Data from '@/data/patient.json'
-import { getCommaSeparatedNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
+import { getCommaSeparatedNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
+import { isSingleCard } from '@/utils/urls'
 
 const countFormatter = getCommaSeparatedNumberToFixedFunction()
 
@@ -111,6 +116,11 @@ export default {
       municipalitiesTable,
       info,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>

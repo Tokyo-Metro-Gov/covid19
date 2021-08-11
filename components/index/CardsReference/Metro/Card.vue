@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard MetroCard">
+  <v-col cols="12" :md="isSingleCard || 6" class="DataCard MetroCard">
     <client-only>
       <chart
         :title="$t('都営地下鉄の利用者数の推移')"
@@ -42,6 +42,7 @@ import {
   Dataset as IMetroDataset,
   Metro as IMetro,
 } from '@/libraries/auto_generated/data_converter/convertMetro'
+import { isSingleCard } from '@/utils/urls'
 
 interface IMetroDatasetWithLabel extends IMetroDataset {
   label: Date
@@ -67,6 +68,7 @@ type Computed = {
   metroGraphTooltipLabel: (tooltipItem: any, data: any) => string
   metroDatasets: IMetroDataset[]
   metro: IMetro
+  isSingleCard: boolean
 }
 type Props = {}
 
@@ -126,6 +128,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     },
     metro() {
       return this.$store.state.metro
+    },
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
     },
   },
   methods: {

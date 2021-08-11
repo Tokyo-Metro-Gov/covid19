@@ -1,7 +1,7 @@
 <template>
   <v-col
     cols="12"
-    md="6"
+    :md="isSingleCard || 6"
     class="DataCard TokyoFeverConsultationCenterReportsNumberCard"
   >
     <client-only>
@@ -49,6 +49,7 @@ import {
   FeverConsultationCenter as IFeverConsultationCenter,
 } from '@/libraries/auto_generated/data_converter/convertFeverConsultationCenter'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
+import { isSingleCard } from '@/utils/urls'
 
 type Data = {
   labelItems: string[]
@@ -61,6 +62,7 @@ type Computed = {
   labels: string[]
   feverConsultationCenterData: IFeverConsultationCenterDatum[]
   feverConsultationCenter: IFeverConsultationCenter
+  isSingleCard: boolean
 }
 type Props = {}
 
@@ -108,6 +110,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     },
     feverConsultationCenter(): IFeverConsultationCenter {
       return this.$store.state.feverConsultationCenter
+    },
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
     },
   },
 })

@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard UntrackedRateCard">
+  <v-col cols="12" :md="isSingleCard || 6" class="DataCard UntrackedRateCard">
     <client-only>
       <chart
         :title="$t('モニタリング項目(3)')"
@@ -62,6 +62,7 @@ import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
 } from '@/utils/monitoringStatusValueFormatters'
+import { isSingleCard } from '@/utils/urls'
 
 type Data = {
   dataLabels: string[]
@@ -76,6 +77,7 @@ type Computed = {
   labels: string[]
   filteredDailyPositiveDetailData: IDailyPositiveDetailDatum[]
   dailyPositiveDetail: IDailyPositiveDetail
+  isSingleCard: boolean
 }
 type Props = {}
 
@@ -152,6 +154,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     },
     dailyPositiveDetail() {
       return this.$store.state.dailyPositiveDetail
+    },
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
     },
   },
 })

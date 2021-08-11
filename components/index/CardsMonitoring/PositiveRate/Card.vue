@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard PositiveRateCard">
+  <v-col cols="12" :md="isSingleCard || 6" class="DataCard PositiveRateCard">
     <client-only>
       <chart
         :title="$t('モニタリング項目(4)')"
@@ -85,6 +85,7 @@ import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
 } from '@/utils/monitoringStatusValueFormatters'
+import { isSingleCard } from '@/utils/urls'
 dayjs.extend(duration)
 
 export default {
@@ -141,6 +142,11 @@ export default {
       positiveRateTableLabels,
       getFormatter,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>

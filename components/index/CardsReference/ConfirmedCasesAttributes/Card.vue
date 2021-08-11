@@ -1,5 +1,9 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard ConfirmedCasesAttributesCard">
+  <v-col
+    cols="12"
+    :md="isSingleCard || 6"
+    class="DataCard ConfirmedCasesAttributesCard"
+  >
     <client-only>
       <data-table
         :title="$t('陽性者の属性')"
@@ -79,6 +83,7 @@ import {
   TableDateType,
 } from '@/utils/formatConfirmedCasesAttributesTable'
 import formatGraph from '@/utils/formatGraph'
+import { isSingleCard } from '@/utils/urls'
 
 interface MetaData {
   endCursor: string
@@ -109,6 +114,7 @@ type Methods = {
 type Computed = {
   patientsTable: TableDateType
   dataMargin: number
+  isSingleCard: boolean
 }
 type Props = {}
 
@@ -151,6 +157,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     dataMargin() {
       return this.patientsData.length - this.page * this.itemsPerPage
+    },
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
     },
   },
   async fetch() {

@@ -1,5 +1,9 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard PositiveNumberByDevelopedDateCard">
+  <v-col
+    cols="12"
+    :md="isSingleCard || 6"
+    class="DataCard PositiveNumberByDevelopedDateCard"
+  >
     <client-only>
       <time-bar-chart
         :title="$t('発症日別による陽性者数の推移')"
@@ -47,7 +51,8 @@ import DataViewCustomInfoPanel from '@/components/index/CardsReference/PositiveN
 import positiveByDeveloped from '@/data/positive_by_developed.json'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import formatGraph from '@/utils/formatGraph'
-import { getCommaSeparatedNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
+import { getCommaSeparatedNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
+import { isSingleCard } from '@/utils/urls'
 
 export default {
   components: {
@@ -105,6 +110,11 @@ export default {
       sText: `${lastDay} ${this.$t('累計値')}`,
       num: unknownCount,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>

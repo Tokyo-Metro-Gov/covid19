@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard VaccinationCard">
+  <v-col cols="12" :md="isSingleCard || 6" class="DataCard VaccinationCard">
     <client-only>
       <chart
         :title="$t('ワクチン接種数（累計）')"
@@ -50,6 +50,7 @@ import {
   VaccinationAll as IVaccination,
 } from '@/libraries/auto_generated/data_converter/convertVaccinationAll'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
+import { isSingleCard } from '@/utils/urls'
 
 type Data = {
   chartLabels: string[]
@@ -67,6 +68,7 @@ type Computed = {
     infoData: number[][]
   }
   vaccination: IVaccination
+  isSingleCard: boolean
 }
 type Props = {}
 
@@ -144,6 +146,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     },
     vaccination() {
       return this.$store.state.vaccination
+    },
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
     },
   },
 })
