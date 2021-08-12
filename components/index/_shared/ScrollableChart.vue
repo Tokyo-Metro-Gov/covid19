@@ -15,6 +15,7 @@ import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import { DisplayData } from '@/plugins/vue-chart'
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus'
+import { isSingleCard } from '@/utils/urls'
 
 type Data = {
   chartWidth: number
@@ -28,6 +29,7 @@ type Methods = {
 }
 type Computed = {
   labelCount: number
+  isSingleCard: boolean
 }
 type Props = {
   displayData: DisplayData
@@ -67,6 +69,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     labelCount() {
       return this.displayData.labels?.length || 0
     },
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
   methods: {
     adjustChartWidth() {
@@ -80,7 +85,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const weeks = 24
       const yaxisWidth = 38
       const chartWidth = containerWidth - yaxisWidth
-      const barWidth = chartWidth / (this.isWeekly ? weeks : dates)
+      const barWidth =
+        chartWidth /
+        (this.isWeekly ? weeks : dates) /
+        (this.isSingleCard ? 2 : 1)
       const calcWidth = barWidth * labelCount + yaxisWidth
       return Math.max(calcWidth, containerWidth)
     },
