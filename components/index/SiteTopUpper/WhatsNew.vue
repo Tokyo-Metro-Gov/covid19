@@ -25,11 +25,13 @@
         <li>
           <app-link
             class="WhatsNew-linkButton"
-            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/henikabu/screening.html"
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/shien/index.html"
           >
             <span class="WhatsNew-linkButton-inner">
-              <covid-icon class="WhatsNew-linkButton-icon" aria-hidden="true" />
-              {{ $t('変異株情報') }}
+              <v-icon size="1.2em" class="WhatsNew-linkButton-v-icon">
+                {{ mdiHomeAccount }}
+              </v-icon>
+              {{ $t('自宅での療養') }}
             </span>
           </app-link>
         </li>
@@ -39,7 +41,7 @@
             to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/kensa/index.html"
           >
             <span class="WhatsNew-linkButton-inner">
-              <v-icon size="1em" class="WhatsNew-linkButton-v-icon">
+              <v-icon size="1.1em" class="WhatsNew-linkButton-v-icon">
                 {{ mdiClipboardText }}
               </v-icon>
               {{ $t('検査情報') }}
@@ -66,11 +68,10 @@
 </template>
 
 <script lang="ts">
-import { mdiClipboardText, mdiInformation } from '@mdi/js'
+import { mdiClipboardText, mdiHomeAccount, mdiInformation } from '@mdi/js'
 import Vue from 'vue'
 
 import AppLink from '@/components/_shared/AppLink.vue'
-import CovidIcon from '@/static/covid.svg'
 import VaccineIcon from '@/static/vaccine.svg'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 
@@ -78,7 +79,6 @@ export default Vue.extend({
   components: {
     AppLink,
     VaccineIcon,
-    CovidIcon,
   },
   props: {
     items: {
@@ -89,6 +89,7 @@ export default Vue.extend({
   data() {
     return {
       mdiClipboardText,
+      mdiHomeAccount,
       mdiInformation,
     }
   },
