@@ -109,7 +109,7 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
 
 @mixin button-text($size: 'md', $font-size: 14) {
   @if ($size == 'sm') {
-    padding: 4px 8px;
+    padding: 5px 8px;
   }
 
   @else {
@@ -118,7 +118,8 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
 
   @include font-size($font-size);
 
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   border-radius: 4px;
   background-color: $white;
   border: 1px solid $green-1;
