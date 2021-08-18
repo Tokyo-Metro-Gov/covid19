@@ -183,6 +183,7 @@ import {
   mdiMenu,
 } from '@mdi/js'
 import Vue from 'vue'
+import { TranslateResult } from 'vue-i18n' // eslint-disable-line import/named
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import LanguageSelector from '@/components/_shared/SideNavigation/LanguageSelector.vue'
@@ -190,14 +191,14 @@ import MenuList from '@/components/_shared/SideNavigation/MenuList.vue'
 
 type ItemTitle = {
   slug: string
-  text: string
+  text: TranslateResult
   isExpand?: boolean
 }
 
 type Item = {
   iconPath?: string
   svg?: string
-  title: string
+  title: TranslateResult
   link: string
   slug: string
 }
