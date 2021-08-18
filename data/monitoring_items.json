@@ -1,45 +1,45 @@
 {
-    "date": "2021\/7\/28 20:40",
+    "date": "2021\/8\/17 21:00",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の増加比は、6月から継続して上昇している。",
-                "@en": "The increase rate of new positive cases has been continuously rising since June."
+                "@ja": "かつてないほどの速度で感染拡大が進み、新規陽性者数が急増しており、制御不能な状況である。",
+                "@en": "The situation is becoming uncontrollable with the virus spreading at an unprecedented speed and a spike in new positive cases."
             },
             {
-                "@ja": "増加比がさらに上昇すると、2週間を待たずに第3波を遥かに超える危機的な感染状況になる。　",
-                "@en": "If the increase rate rises further, in less than two weeks, we will face a critical situation with the number of infections far exceeding that of the third wave. "
+                "@ja": "災害レベルで感染が猛威を振るう非常事態である。",
+                "@en": "This is an emergency situation with the infection running rampant on the level of a disaster. "
             },
             {
-                "@ja": "入院医療、宿泊及び自宅療養の危機管理体制の準備が急務である。",
-                "@en": "There is an urgent need to prepare crisis management systems for hospital care, as well as for designated hotels for recovery and at-home recovery."
+                "@ja": "重症患者が急激に増加しており、救急医療や予定手術等の通常医療も含めて医療提供体制が深刻な機能不全に陥っている。",
+                "@en": "The number of severe patients is drastically increasing, and the system for health care provision, including non-COVID health care such as emergency medical services and scheduled operations, is seriously overwhelmed."
             }
         ],
-        "(1)新規陽性者数": 1954.7,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 122.4,
-        "(3)新規陽性者における接触歴等不明者（人数）": 1258,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 157.7,
-        "(4)PCR・抗原検査（陽性率）": 16.9,
-        "(4)PCR・抗原検査（検査人数）": 8716.6,
-        "(5)救急医療の東京ルールの適用件数": 93.3,
-        "(6)入院患者数": 2995,
+        "(1)新規陽性者数": 4527.1,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 197.4,
+        "(3)新規陽性者における接触歴等不明者（人数）": 2825.7,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 112.1,
+        "(4)PCR・抗原検査（陽性率）": 24.1,
+        "(4)PCR・抗原検査（検査人数）": 12866.6,
+        "(5)救急医療の東京ルールの適用件数": 135,
+        "(6)入院患者数": 3800,
         "(6)入院患者確保病床数": 5967,
-        "(7)重症患者数": 80,
+        "(7)重症患者数": 276,
         "(7)重症患者確保病床数": 392,
         "総括コメント-感染状況": {
             "date": "2021-03-04",
             "level": 4,
             "display": {
-                "@ja": "感染が拡大していると思われる",
-                "@en": "There is a high risk of a resurgence of the virus."
+                "@ja": "感染が拡大している",
+                "@en": "The infection is spreading."
             }
         },
         "総括コメント-医療提供体制": {
             "date": "2021-03-04",
             "level": 4,
             "display": {
-                "@ja": "通常の医療が大きく制限されていると思われる",
-                "@en": "The provision of non-COVID health care is under pressure."
+                "@ja": "体制が逼迫している",
+                "@en": "The system is under strain."
             }
         }
     }
