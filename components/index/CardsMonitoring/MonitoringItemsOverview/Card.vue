@@ -69,6 +69,14 @@
             {{ $t('最新のモニタリング項目の分析・総括コメントについて') }}
           </app-link>
         </div>
+        <div>
+          <app-link
+            :class="$style.button"
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/kunishihyou.html"
+          >
+            {{ $t('国のステージ判断のための指標') }}
+          </app-link>
+        </div>
       </data-view>
     </client-only>
   </v-col>
@@ -116,6 +124,7 @@ export default {
 }
 
 .button {
+  margin-bottom: 3px;
   color: $green-1 !important;
   &:hover {
     color: $white !important;
