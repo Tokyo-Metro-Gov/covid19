@@ -108,7 +108,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       return getNumberToLocaleStringFunction()
     }
 
-    const units = [this.$t('人') as string, '%']
+    const units = [this.$t('人') as string, '%', this.$t('ポイント') as string]
 
     return {
       dataLabels,
