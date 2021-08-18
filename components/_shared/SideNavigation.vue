@@ -191,6 +191,7 @@ import MenuList from '@/components/_shared/SideNavigation/MenuList.vue'
 type ItemTitle = {
   slug: string
   text: string
+  isExpand?: boolean
 }
 
 type Item = {
@@ -225,18 +226,22 @@ export default Vue.extend({
         {
           slug: 'covid19-info',
           text: this.$t('新型コロナウイルス感染症情報'),
+          isExpand: false,
         },
         {
           slug: 'support-info',
           text: this.$t('支援情報等'),
+          isExpand: false,
         },
         {
           slug: 'notice-from-tmg',
           text: this.$t('東京都からのお知らせ'),
+          isExpand: true,
         },
         {
           slug: 'site-info',
           text: this.$t('サイト情報'),
+          isExpand: false,
         },
       ]
     },

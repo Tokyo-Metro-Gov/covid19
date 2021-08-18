@@ -5,48 +5,42 @@
       :key="`menu-block-${i}`"
       class="MenuSection"
     >
-      <h2 class="MenuTitle">
-        {{ setMenuTitle(slug) }}
-      </h2>
-      <ul class="MenuList">
-        <li
-          v-for="(item, j) in menu"
-          :key="`menu-item-${j}`"
-          class="MenuList-Item"
-          @click="$emit('click', $event)"
-        >
-          <app-link :to="item.link" class="MenuList-Link">
-            <span v-if="item.svg || item.iconPath" class="MenuList-Icon">
-              <svg
-                :is="item.svg"
-                v-if="item.svg"
-                class="MenuList-SvgIcon"
-                aria-hidden="true"
-              />
-              <v-icon v-if="item.iconPath" size="2rem" class="MenuList-MdIcon">
-                {{ item.iconPath }}
-              </v-icon>
-            </span>
-            <span class="MenuList-Title">{{ item.title }}</span>
-          </app-link>
-        </li>
-      </ul>
+      <v-expansion-panels v-if="itemTitles[i].isExpand" flat>
+        <v-expansion-panel>
+          <v-expansion-panel-header
+            :hide-actions="true"
+            :style="{ transition: 'none' }"
+          >
+            <div class="v-expansion-panel-header__icon">
+              <v-icon left size="2.4rem">{{ mdiChevronRight }}</v-icon>
+            </div>
+            <span class="MenuTitle">{{ setMenuTitle(slug) }}</span>
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <menu-list-contents :items="menu" @click="$emit('click', $event)" />
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
+      <template v-else>
+        <h2 class="MenuTitle">
+          {{ setMenuTitle(slug) }}
+        </h2>
+        <menu-list-contents :items="menu" @click="$emit('click', $event)" />
+      </template>
     </section>
   </div>
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import { mdiChevronRight } from '@mdi/js'
+import Vue, { PropType } from 'vue' // eslint-disable-line import/named
 
-import AppLink from '@/components/_shared/AppLink.vue'
-import CovidIcon from '@/static/covid.svg'
-import MaskTrashIcon from '@/static/masktrash.svg'
-import ParentIcon from '@/static/parent.svg'
-import SupportIcon from '@/static/support.svg'
+import MenuListContents from '@/components/_shared/SideNavigation/MenuListContents.vue'
 
 type MenuItemTitle = {
   slug: string
   text: string
+  isExpand?: boolean
 }
 
 type MenuItem = {
@@ -62,7 +56,7 @@ type MenuObj = {
 }
 
 export default Vue.extend({
-  components: { AppLink, CovidIcon, MaskTrashIcon, ParentIcon, SupportIcon },
+  components: { MenuListContents },
   props: {
     itemTitles: {
       type: Array as PropType<MenuItemTitle[]>,
@@ -72,6 +66,11 @@ export default Vue.extend({
       type: Array as PropType<MenuItem[]>,
       required: true,
     },
+  },
+  data() {
+    return {
+      mdiChevronRight,
+    }
   },
   computed: {
     menuItemsObj(): MenuObj {
@@ -115,91 +114,5 @@ export default Vue.extend({
   padding: 12px 0;
   font-weight: normal;
   @include font-size(13);
-}
-.MenuList {
-  list-style: none;
-  padding: 0;
-}
-
-.MenuList-Item {
-  line-height: 1.2;
-  white-space: normal;
-  @include font-size(14);
-  @include lessThan($small) {
-    font-weight: 600;
-    @include font-size(14.5);
-  }
-}
-
-.MenuList-Link {
-  display: flex;
-  align-items: center;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  color: $gray-1;
-
-  &:link,
-  &:hover,
-  &:focus,
-  &:visited,
-  &:active {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  &:hover {
-    font-weight: 600;
-  }
-
-  &:focus {
-    font-weight: 600;
-    outline: dotted $gray-3 1px;
-  }
-
-  &.nuxt-link-exact-active {
-    font-weight: 600;
-
-    &:link,
-    &:hover,
-    &:visited,
-    &:active {
-      color: $green-1;
-    }
-    &:focus {
-      color: $green-1;
-      outline: dotted $gray-3 1px;
-    }
-  }
-}
-
-.MenuList-Icon {
-  margin-right: 3px;
-  min-width: 24px;
-}
-
-.MenuList-MdIcon {
-  color: $gray-2;
-
-  .nuxt-link-exact-active & {
-    color: $green-1;
-  }
-}
-
-.MenuList-SvgIcon {
-  width: 20px;
-  height: 20px;
-  fill: $gray-2;
-
-  .nuxt-link-exact-active & {
-    fill: $green-1;
-  }
-}
-
-.MenuList ::v-deep .ExternalLinkIcon {
-  margin-left: 5px;
-  color: $gray-3;
-  @include lessThan($small) {
-    @include font-size(14, true);
-  }
 }
 </style>
