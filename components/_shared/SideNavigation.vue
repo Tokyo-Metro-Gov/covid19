@@ -176,7 +176,6 @@
 <script lang="ts">
 import {
   mdiAccountMultiple,
-  mdiApps,
   mdiChartTimelineVariant,
   mdiClose,
   mdiDomain,
@@ -184,7 +183,6 @@ import {
   mdiMenu,
 } from '@mdi/js'
 import Vue from 'vue'
-import { TranslateResult } from 'vue-i18n'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import LanguageSelector from '@/components/_shared/SideNavigation/LanguageSelector.vue'
@@ -192,13 +190,13 @@ import MenuList from '@/components/_shared/SideNavigation/MenuList.vue'
 
 type ItemTitle = {
   slug: string
-  text: TranslateResult
+  text: string
 }
 
 type Item = {
   iconPath?: string
   svg?: string
-  title: TranslateResult
+  title: string
   link: string
   slug: string
 }
@@ -230,11 +228,11 @@ export default Vue.extend({
         },
         {
           slug: 'support-info',
-          text: this.$t('支援情報'),
+          text: this.$t('支援情報等'),
         },
         {
-          slug: 'related-sites',
-          text: this.$t('関連サイト'),
+          slug: 'notice-from-tmg',
+          text: this.$t('東京都からのお知らせ'),
         },
         {
           slug: 'site-info',
@@ -248,12 +246,6 @@ export default Vue.extend({
           iconPath: mdiChartTimelineVariant,
           title: this.$t('都内の最新感染動向'),
           link: this.localePath('/'),
-          slug: 'covid19-info',
-        },
-        {
-          iconPath: mdiApps,
-          title: this.$t('新型コロナ保健医療情報ポータル'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/index.html',
           slug: 'covid19-info',
         },
         {
@@ -307,63 +299,31 @@ export default Vue.extend({
           slug: 'support-info',
         },
         {
-          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
-          link: 'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1010035/index.html',
-          slug: 'related-sites',
-        },
-        {
           title: this.$t('東京都 新型コロナウイルス感染症 支援情報ナビ'),
           link: 'https://covid19.supportnavi.metro.tokyo.lg.jp/',
-          slug: 'related-sites',
+          slug: 'support-info',
         },
         {
-          title: this.$t('東京iCDC（東京感染症対策センター）からのお知らせ'),
-          link: 'https://note.com/tokyo_icdc',
-          slug: 'related-sites',
-        },
-        {
-          title: this.$t(
-            '新型コロナウイルス感染症都民向け感染予防ハンドブック'
-          ),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/kannsenyobouhandbook.html',
-          slug: 'related-sites',
-        },
-        {
-          title: this.$t('新型コロナウイルス感染症自宅療養者向けハンドブック'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/zitakuryouyouhandbook.html',
-          slug: 'related-sites',
-        },
-        {
-          title: this.$t('新型コロナウイルスワクチンの接種について'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine/index.html',
-          slug: 'related-sites',
+          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
+          link: 'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1010035/index.html',
+          slug: 'notice-from-tmg',
         },
         {
           title: this.$t(
             '新型コロナウイルス感染症に罹患し回復された方の体験に基づくメッセージの紹介'
           ),
           link: 'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-message-for-you-02.html',
-          slug: 'related-sites',
+          slug: 'notice-from-tmg',
         },
         {
           title: this.$t('都民利用施設・都主催イベントに関する情報'),
           link: 'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html',
-          slug: 'related-sites',
-        },
-        {
-          title: this.$t('東京都における滞在人口の増減'),
-          link: 'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html',
-          slug: 'related-sites',
-        },
-        {
-          title: this.$t('知事からのメッセージ'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html',
-          slug: 'related-sites',
+          slug: 'notice-from-tmg',
         },
         {
           title: this.$t('東京都公式ホームページ'),
           link: 'https://www.metro.tokyo.lg.jp/',
-          slug: 'related-sites',
+          slug: 'notice-from-tmg',
         },
         {
           title: this.$t('当サイトについて'),
@@ -378,6 +338,11 @@ export default Vue.extend({
         {
           title: this.$t('お問い合わせ先一覧'),
           link: this.localePath('/contacts'),
+          slug: 'site-info',
+        },
+        {
+          title: this.$t('サイトマップ'),
+          link: this.localePath('/sitemap'),
           slug: 'site-info',
         },
       ]
