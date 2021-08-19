@@ -61,7 +61,7 @@
             :items="monitoringItems"
           />
         </section>
-        <div :class="$style.buttonWrap">
+        <div :class="$style['button-wrap']">
           <app-link
             :class="$style.button"
             to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
@@ -132,7 +132,7 @@ export default {
   @include button-text('sm');
 }
 
-.buttonWrap {
+.button-wrap {
   margin-bottom: 16px;
 }
 
