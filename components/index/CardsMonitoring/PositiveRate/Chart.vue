@@ -102,7 +102,7 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue, {PropType} from 'vue'
+import Vue, { PropType } from 'vue' // eslint-disable-line import/named
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { TranslateResult } from 'vue-i18n'
 
