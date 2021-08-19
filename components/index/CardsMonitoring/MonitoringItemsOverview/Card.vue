@@ -61,7 +61,7 @@
             :items="monitoringItems"
           />
         </section>
-        <div>
+        <div :class="$style.buttonMargin">
           <app-link
             :class="$style.button"
             to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
@@ -124,13 +124,16 @@ export default {
 }
 
 .button {
-  margin-bottom: 3px;
   color: $green-1 !important;
   &:hover {
     color: $white !important;
   }
 
   @include button-text('sm');
+}
+
+.buttonMargin {
+  margin-bottom: 16px;
 }
 
 dfn {
