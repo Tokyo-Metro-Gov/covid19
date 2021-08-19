@@ -40,7 +40,6 @@ export default Vue.extend({
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 
   &-Text {
     white-space: pre-wrap;
