@@ -40,12 +40,15 @@ export default Vue.extend({
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 
   &-Text {
     white-space: pre-wrap;
     @include font-size(12);
 
     font-weight: 600;
+    flex: 1 0 50%;
+    padding-right: 16px;
   }
 
   @include font-size(12);
