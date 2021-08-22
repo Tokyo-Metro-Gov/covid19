@@ -155,6 +155,7 @@ export default Vue.extend({
       &-v-icon {
         color: currentColor;
         margin-right: 4px;
+        transition: none;
       }
     }
   }
