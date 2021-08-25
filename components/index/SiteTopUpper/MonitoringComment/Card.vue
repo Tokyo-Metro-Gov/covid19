@@ -38,7 +38,7 @@
             <image-swipe />
             <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
             <app-link
-              to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
+              to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/monitoring.html"
             >
               {{ $t('専門家による分析・総括コメントの詳細はこちら') }}
             </app-link>

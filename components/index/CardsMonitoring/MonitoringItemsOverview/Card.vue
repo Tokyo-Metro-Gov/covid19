@@ -64,7 +64,7 @@
         <div>
           <app-link
             :class="$style.button"
-            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/monitoring.html"
           >
             {{ $t('最新のモニタリング項目の分析・総括コメントについて') }}
           </app-link>

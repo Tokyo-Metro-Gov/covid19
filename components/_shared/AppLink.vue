@@ -91,6 +91,11 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .ExternalLink {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
+}
+.ExternalLinkIcon {
+  margin-left: 4px;
 }
 </style>

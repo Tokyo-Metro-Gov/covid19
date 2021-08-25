@@ -165,13 +165,16 @@ const config: NuxtConfig = {
     }
   ], */
   build: {
+    filenames: {
+      chunk: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js'),
+    },
     babel: {
       presets() {
         return [
           [
             '@nuxt/babel-preset-app',
             {
-              corejs: { version: '3.14' },
+              corejs: { version: '3.16' },
             },
           ],
         ]

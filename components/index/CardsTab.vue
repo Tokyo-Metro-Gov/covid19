@@ -78,6 +78,10 @@ export default Vue.extend({
     }
   }
 
+  .TabIcon {
+    transition: none;
+  }
+
   &:not(.v-tab--active) {
     color: $green-1 !important;
     background: $white;
