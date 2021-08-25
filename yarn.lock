@@ -1482,10 +1482,10 @@
     chalk "^4.1.0"
     semver "^7.3.2"
 
-"@nuxtjs/i18n@7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/i18n/-/i18n-7.0.0.tgz#a49596223bd36884ce643b4d3e36979d715d5455"
-  integrity sha512-1HZoUH+gjHwyfNYPVYmjGYbTJ3B354Y3geEvRI1KxzQSdnfq7L+V2mP/CxY6J9lxojGx8Pn8OtiBsDqVl8IPjg==
+"@nuxtjs/i18n@7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/i18n/-/i18n-7.0.2.tgz#55f0c500949a5fde33877207e7a4f5fe3be9b2f7"
+  integrity sha512-CapZG5sNsRCLp3FO2EL5uBG4ExdgYgVQwZ7Ej6nDJKI1RBD7izkH5zElXk7z1GNKe4aHFC5vyLIr5Zd+yBYDYA==
   dependencies:
     "@babel/parser" "^7.14.9"
     "@babel/traverse" "^7.14.9"
