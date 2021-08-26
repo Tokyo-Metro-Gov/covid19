@@ -13,19 +13,21 @@
           </app-link>
         </div>
       </div>
-      <div class="StayingPopulation-place">
-        {{ placeName }}
-      </div>
-      <div class="StayingPopulation-state">
-        [ {{ $t('{date}〜{enddate}', { date, enddate }) }} ]<br />
-        <span v-for="(datum, index) in formattedData" :key="index">
-          {{
-            $t('{month}比 {rateWithArrow}', {
-              month: datum.formattedMonth,
-              rateWithArrow: datum.increaseRateWithArrow,
-            })
-          }}<br />
-        </span>
+      <div class="StayingPopulation-box">
+        <div class="StayingPopulation-place">
+          {{ placeName }}
+        </div>
+        <div class="StayingPopulation-state">
+          [ {{ $t('{date}〜{enddate}', { date, enddate }) }} ]
+          <span v-for="(datum, index) in formattedData" :key="index">
+            {{
+              $t('{month}比 {rateWithArrow}', {
+                month: datum.formattedMonth,
+                rateWithArrow: datum.increaseRateWithArrow,
+              })
+            }}
+          </span>
+        </div>
       </div>
     </div>
   </v-col>
@@ -124,14 +126,16 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 
   padding: 3px;
   min-height: 5em;
-  display: flex;
-  align-items: center;
 
   .StayingPopulation-title {
     padding: 2px 15px;
-    text-align: left;
+    display: flex;
+    align-items: start;
     @include card-h2();
 
+    .StayingPopulation-heading {
+      flex: 1;
+    }
     .StayingPopulation-heading,
     .StayingPopulation-link {
       @include font-size(12);
@@ -139,28 +143,29 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       font-weight: 600;
     }
   }
-  .StayingPopulation-place {
-    padding: 5px 5px 5px 5px;
-    margin: 2px 5px 2px 10px;
-    background-color: #008830;
-    color: #fff;
-    vertical-align: middle;
-    text-align: center;
-    writing-mode: vertical-rl;
-    font-weight: 600;
 
-    @include font-size(12);
-  }
-  .StayingPopulation-state {
-    flex: 1;
-    border: 2px solid;
-    padding: 2px;
-    margin: 2px 5px 2px 5px;
-    border-color: #008830;
-    text-align: center;
-    vertical-align: middle;
-    min-width: 15em;
-    @include font-size(11);
+  .StayingPopulation-box {
+    display: flex;
+    align-items: center;
+    .StayingPopulation-place {
+      padding: 5px 10px 5px 10px;
+      margin: 0 5px 2px 15px;
+      background-color: #008830;
+      color: #fff;
+      vertical-align: middle;
+      text-align: center;
+      font-weight: 600;
+
+      @include font-size(12);
+    }
+    .StayingPopulation-state {
+      flex: 1;
+      padding: 2px;
+      margin: 0 5px 2px 5px;
+      min-width: 15em;
+      color: #707070;
+      @include font-size(11);
+    }
   }
 }
 </style>
