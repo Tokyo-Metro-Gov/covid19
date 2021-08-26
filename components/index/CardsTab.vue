@@ -2,6 +2,7 @@
   <v-tabs v-model="tab" hide-slider>
     <v-tab
       v-for="(item, i) in items"
+      :id="`cardTab-${i}`"
       :key="i"
       v-ripple="false"
       :to="{ path: localePath(item.path) }"
