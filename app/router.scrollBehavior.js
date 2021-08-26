@@ -1,4 +1,5 @@
-export default function (to, savedPosition) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default function (to, from, savedPosition) {
   if (savedPosition) {
     return savedPosition
   }
