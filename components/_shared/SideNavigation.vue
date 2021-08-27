@@ -262,8 +262,8 @@ export default Vue.extend({
         },
         {
           svg: 'CovidIcon',
-          title: this.$t('新型コロナウイルス感染症で入院・宿泊療養される方へ'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/corona_0401.files/20210507.pdf',
+          title: this.$t('新型コロナウイルス感染症で自宅・宿泊療養される方へ'),
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/shien/index.html',
           slug: 'covid19-info',
         },
         {
