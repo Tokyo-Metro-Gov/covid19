@@ -148,10 +148,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     display: flex;
     align-items: center;
     .StayingPopulation-place {
-      padding: 5px 10px 5px 10px;
+      padding: 5px 10px;
       margin: 0 5px 2px 15px;
-      background-color: #008830;
-      color: #fff;
+      background-color: $green-1;
+      color: $white;
       vertical-align: middle;
       text-align: center;
       font-weight: 600;
@@ -161,9 +161,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     .StayingPopulation-state {
       flex: 1;
       padding: 2px;
-      margin: 0 5px 2px 5px;
+      margin: 0 5px 2px;
       min-width: 15em;
-      color: #707070;
+      color: $gray-3;
       @include font-size(11);
     }
   }
