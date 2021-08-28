@@ -265,6 +265,15 @@ const config: NuxtConfig = {
       poll: true,
     },
   },
+  router: {
+    extendRoutes(routes) {
+      routes.forEach((route) => {
+        if (route.name === 'index' || route.name === 'reference') {
+          route.meta = { tabs: true }
+        }
+      })
+    },
+  },
 }
 
 export default config
