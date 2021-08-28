@@ -2,16 +2,23 @@
   <v-tabs v-model="tab" hide-slider>
     <v-tab
       v-for="(item, i) in items"
+      :id="`cardTab-${i}`"
       :key="i"
       v-ripple="false"
-      :href="`#tab-${i}`"
+      :to="{ path: localePath(item.path) }"
+      nuxt
+      exact
       @click="change"
     >
       <v-icon class="TabIcon">{{ mdiChartTimelineVariant }}</v-icon>
       {{ item.label }}
     </v-tab>
     <v-tabs-items v-model="tab" touchless>
-      <v-tab-item v-for="(item, i) in items" :key="i" :value="`tab-${i}`">
+      <v-tab-item
+        v-for="(item, i) in items"
+        :key="i"
+        :value="localePath(item.path)"
+      >
         <lazy-component :is="item.component" />
       </v-tab-item>
     </v-tabs-items>
@@ -36,8 +43,16 @@ export default Vue.extend({
     return {
       tab: null,
       items: [
-        { label: this.$t('モニタリング項目'), component: CardsMonitoring },
-        { label: this.$t('その他 参考指標'), component: CardsReference },
+        {
+          label: this.$t('モニタリング項目'),
+          component: CardsMonitoring,
+          path: '/',
+        },
+        {
+          label: this.$t('その他 参考指標'),
+          component: CardsReference,
+          path: '/reference',
+        },
       ],
       mdiChartTimelineVariant,
     }
