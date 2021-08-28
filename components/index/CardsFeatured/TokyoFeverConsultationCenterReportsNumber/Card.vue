@@ -43,12 +43,12 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import Chart from '@/components/index/CardsReference/TokyoFeverConsultationCenterReportsNumber/Chart.vue'
+import Chart from '~/components/index/CardsFeatured/TokyoFeverConsultationCenterReportsNumber/Chart.vue'
 import {
   Datum as IFeverConsultationCenterDatum,
   FeverConsultationCenter as IFeverConsultationCenter,
-} from '@/libraries/auto_generated/data_converter/convertFeverConsultationCenter'
-import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
+} from '~/libraries/auto_generated/data_converter/convertFeverConsultationCenter'
+import { getNumberToLocaleStringFunction } from '~/utils/monitoringStatusValueFormatters'
 
 type Data = {
   labelItems: string[]

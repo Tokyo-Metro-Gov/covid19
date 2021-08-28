@@ -44,12 +44,12 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import Chart from '@/components/index/CardsReference/Vaccination/Chart.vue'
+import Chart from '~/components/index/CardsFeatured/Vaccination/Chart.vue'
 import {
   Dataset as IVaccinationDataset,
   VaccinationAll as IVaccination,
-} from '@/libraries/auto_generated/data_converter/convertVaccinationAll'
-import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
+} from '~/libraries/auto_generated/data_converter/convertVaccinationAll'
+import { getNumberToLocaleStringFunction } from '~/utils/monitoringStatusValueFormatters'
 
 type Data = {
   chartLabels: string[]

@@ -268,7 +268,11 @@ const config: NuxtConfig = {
   router: {
     extendRoutes(routes) {
       routes.forEach((route) => {
-        if (route.name === 'index' || route.name === 'reference') {
+        if (
+          route.name === 'index' ||
+          route.name === 'monitoring' ||
+          route.name === 'reference'
+        ) {
           route.meta = { tabs: true }
         }
       })

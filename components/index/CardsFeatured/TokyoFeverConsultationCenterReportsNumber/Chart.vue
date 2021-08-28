@@ -86,19 +86,19 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue, { PropType } from 'vue'
+import Vue, { PropType } from 'vue' // eslint-disable-line import/named
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
-import DataView from '@/components/index/_shared/DataView.vue'
-import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
+import DataView from '~/components/index/_shared/DataView.vue'
+import DataViewDataSetPanel from '~/components/index/_shared/DataViewDataSetPanel.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
-} from '@/components/index/_shared/DataViewTable.vue'
-import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
-import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
-import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
-import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
+} from '~/components/index/_shared/DataViewTable.vue'
+import ScrollableChart from '~/components/index/_shared/ScrollableChart.vue'
+import { DisplayData, yAxesBgPlugin } from '~/plugins/vue-chart'
+import calcDayBeforeRatio from '~/utils/calcDayBeforeRatio'
+import { getGraphSeriesColor, SurfaceStyle } from '~/utils/colors'
 
 type DisplayInfo = {
   lText: string

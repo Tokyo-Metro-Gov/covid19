@@ -12,9 +12,13 @@
 /* eslint-disable simple-import-sort/imports -- ブラウザでの表示順に合わせて各 card の component を import する */
 // ---- モニタリング項目
 // 検査陽性者の状況
-import ConfirmedCasesDetailsCard from '@/components/index/CardsMonitoring/ConfirmedCasesDetails/Card.vue'
+import { mdiChartTimelineVariant } from '@mdi/js'
+import { Vue, Component } from 'nuxt-property-decorator'
+import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
+import type { NuxtConfig } from '@nuxt/types'
+import ConfirmedCasesDetailsCard from '@/components/index/CardsFeatured/ConfirmedCasesDetails/Card.vue'
 // 報告日別による陽性者数の推移
-import ConfirmedCasesNumberCard from '@/components/index/CardsMonitoring/ConfirmedCasesNumber/Card.vue'
+import ConfirmedCasesNumberCard from '@/components/index/CardsFeatured/ConfirmedCasesNumber/Card.vue'
 // モニタリング項目
 import MonitoringItemsOverviewCard from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Card.vue'
 // モニタリング項目(1)新規陽性者数
@@ -43,29 +47,25 @@ import PositiveNumberByDiagnosedDateCard from '@/components/index/CardsReference
 // 死亡日別による死亡者数の推移
 import DeathsByDeathDateCard from '@/components/index/CardsReference/DeathsByDeathDate/Card.vue'
 // 検査実施件数
-import TestedNumberCard from '@/components/index/CardsReference/TestedNumber/Card.vue'
+import TestedNumberCard from '@/components/index/CardsFeatured/TestedNumber/Card.vue'
 // L452R変異株スクリーニングの実施状況
 import VariantCard from '@/components/index/CardsReference/Variant/Card.vue'
 // ワクチン接種回数（高齢者・累計）
-import VaccinationCard from '@/components/index/CardsReference/Vaccination/Card.vue'
+import VaccinationCard from '@/components/index/CardsFeatured/Vaccination/Card.vue'
 // 新型コロナコールセンター相談件数
-import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsReference/TelephoneAdvisoryReportsNumber/Card.vue'
+import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsFeatured/TelephoneAdvisoryReportsNumber/Card.vue'
 // 受診相談窓口における相談件数
 import MonitoringConsultationDeskReportsNumberCard from '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Card.vue'
 // 東京都発熱相談センターにおける相談件数
-import TokyoFeverConsultationCenterReportsNumberCard from '@/components/index/CardsReference/TokyoFeverConsultationCenterReportsNumber/Card.vue'
+import TokyoFeverConsultationCenterReportsNumberCard from '@/components/index/CardsFeatured/TokyoFeverConsultationCenterReportsNumber/Card.vue'
 // 都営地下鉄の利用者数の推移
 import MetroCard from '@/components/index/CardsReference/Metro/Card.vue'
 // 都庁来庁者数の推移
 import AgencyCard from '@/components/index/CardsReference/Agency/Card.vue'
 /* eslint-enable simple-import-sort/imports */
 
-import { mdiChartTimelineVariant } from '@mdi/js'
-import { Vue, Component } from 'nuxt-property-decorator'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
-import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
-import type { NuxtConfig } from '@nuxt/types'
 
 @Component({
   components: {
