@@ -3,7 +3,10 @@
     <div class="DataView-Inner">
       <div
         class="DataView-Header"
-        :class="!!$slots.dataSetPanel ? 'with-dataSetPanel' : ''"
+        :class="{
+          'with-dataSetPanel': !!$slots.dataSetPanel,
+          'title-row': isSetTitleRow,
+        }"
       >
         <h3
           class="DataView-Title"
@@ -76,7 +79,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta'
+import { MetaInfo } from 'vue-meta' // eslint-disable-line import/named
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import ExpantionPanel from '@/components/index/_shared/DataView/ExpantionPanel.vue'
@@ -101,6 +104,10 @@ export default Vue.extend({
     headTitle: {
       type: String,
       default: '',
+    },
+    isSetTitleRow: {
+      type: Boolean,
+      default: false,
     },
   },
   head(): MetaInfo {
@@ -156,6 +163,11 @@ export default Vue.extend({
 
     @include largerThan($medium) {
       padding: 0 5px;
+
+      &.title-row {
+        justify-content: space-between;
+        flex-flow: row;
+      }
     }
 
     @include largerThan($large) {
