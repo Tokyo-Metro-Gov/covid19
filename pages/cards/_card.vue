@@ -22,6 +22,8 @@ import ConfirmedCasesNumberCard from '@/components/index/CardsFeatured/Confirmed
 // ---- 注目の指標
 // 感染状況・医療提供体制（当日のサマリ）
 import InfectionMedicalCareProvisionStatusCard from '@/components/index/CardsFeatured/InfectionMedicalCareProvisionStatus/Card.vue'
+// 感染状況・医療提供体制の分析
+import MonitoringCommentCard from '@/components/index/CardsFeatured/MonitoringComment/Card.vue'
 // 新型コロナコールセンター相談件数
 import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsFeatured/TelephoneAdvisoryReportsNumber/Card.vue'
 // 検査実施件数
@@ -75,6 +77,7 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
     // ---- 注目の指標
     InfectionMedicalCareProvisionStatusCard,
     ConfirmedCasesDetailsCard,
+    MonitoringCommentCard,
     VaccinationCard,
     ConfirmedCasesNumberCard,
     TestedNumberCard,
@@ -115,6 +118,11 @@ export default class CardContainer extends Vue implements NuxtConfig {
       // 検査陽性者の状況
       case 'details-of-confirmed-cases':
         cardComponent = 'confirmed-cases-details-card'
+        cardCategory = 'featured'
+        break
+      // 感染状況・医療提供体制の分析
+      case 'monitoring-comment':
+        cardComponent = 'monitoring-comment-card'
         cardCategory = 'featured'
         break
       // ワクチン接種数（累計）

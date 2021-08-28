@@ -19,6 +19,9 @@ const ConfirmedCasesDetailsCard = () =>
 // モニタリング項目 ※「モニタリング項目」タブ内と複数配置
 const MonitoringItemsOverviewCard = () =>
   import('@/components/index/CardsMonitoring/MonitoringItemsOverview/Card.vue')
+// 感染状況・医療提供体制の分析
+const MonitoringCommentCard = () =>
+  import('@/components/index/CardsFeatured/MonitoringComment/Card.vue')
 // ワクチン接種数（累計）
 const VaccinationCard = () =>
   import('@/components/index/CardsFeatured/Vaccination/Card.vue')
@@ -48,7 +51,7 @@ export default Vue.extend({
     return {
       rows: [
         [InfectionMedicalCareProvisionStatusCard, ConfirmedCasesDetailsCard],
-        [MonitoringItemsOverviewCard],
+        [MonitoringItemsOverviewCard, MonitoringCommentCard],
         [VaccinationCard],
         [ConfirmedCasesNumberCard, TestedNumberCard],
         [
