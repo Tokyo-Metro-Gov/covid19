@@ -44,8 +44,8 @@ type Methods = {
 }
 type Computed = {
   statuses: IInfectionMedicalCareProvisionStatusData
-  date: Date
-  statisticDate: Date
+  date: string
+  statisticDate: string
   infectionMedicalCareProvisionStatus: IInfectionMedicalCareProvisionStatus
 }
 type Props = {}
@@ -61,10 +61,12 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       return this.infectionMedicalCareProvisionStatus.data
     },
     date() {
-      return new Date(this.infectionMedicalCareProvisionStatus.date)
+      return this.infectionMedicalCareProvisionStatus.date as string
     },
     statisticDate() {
-      return this.infectionMedicalCareProvisionStatus.data['検査統計日時']
+      return this.infectionMedicalCareProvisionStatus.data[
+        '検査統計日時'
+      ] as string
     },
     infectionMedicalCareProvisionStatus() {
       return this.$store.state.infectionMedicalCareProvisionStatus
@@ -72,7 +74,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
   methods: {
     formatDate(date) {
-      return this.$d(date, 'date') as string
+      return this.$d(new Date(date), 'date') as string
     },
   },
 })
