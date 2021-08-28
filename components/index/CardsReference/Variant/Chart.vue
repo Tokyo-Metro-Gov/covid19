@@ -61,6 +61,7 @@
         />
       </template>
     </scrollable-chart>
+    <slot name="additionalButton" />
     <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
