@@ -1,7 +1,6 @@
 <template>
   <div class="SiteTopUpper">
     <whats-new :items="newsItems" />
-    <monitoring-comment-card />
     <div class="row mb-4">
       <staying-population />
       <consultation />
@@ -13,7 +12,6 @@
 import Vue from 'vue'
 
 import Consultation from '@/components/index/SiteTopUpper/Consultation.vue'
-import MonitoringCommentCard from '@/components/index/SiteTopUpper/MonitoringComment/Card.vue'
 import StayingPopulation from '@/components/index/SiteTopUpper/StayingPopulation.vue'
 import WhatsNew from '@/components/index/SiteTopUpper/WhatsNew.vue'
 import {
@@ -32,7 +30,6 @@ type Props = {}
 export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     WhatsNew,
-    MonitoringCommentCard,
     Consultation,
     StayingPopulation,
   },
