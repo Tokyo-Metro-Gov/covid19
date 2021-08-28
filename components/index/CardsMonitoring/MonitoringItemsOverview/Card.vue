@@ -6,6 +6,14 @@
         title-id="monitoring-items-overview"
         :date="monitoringItemsData.date"
       >
+        <template v-if="$route.path !== localePath('/monitoring')" #description>
+          <app-link
+            :to="localePath('/monitoring')"
+            :class="[$style.button, $style['inner-link']]"
+          >
+            {{ $t('モニタリング項目の各グラフはこちら') }}
+          </app-link>
+        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
@@ -122,6 +130,10 @@ export default {
   }
 
   @include button-text('sm');
+}
+
+.inner-link {
+  text-decoration: none;
 }
 
 dfn {
