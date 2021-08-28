@@ -217,6 +217,7 @@ const config: NuxtConfig = {
     routes() {
       const locales = ['en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
       const pages = [
+        '/cards/infection-medical-care-provision-status',
         '/cards/details-of-confirmed-cases',
         '/cards/number-of-confirmed-cases',
         '/cards/number-of-confirmed-cases-by-municipalities',
