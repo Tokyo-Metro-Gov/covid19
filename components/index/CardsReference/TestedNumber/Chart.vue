@@ -58,6 +58,7 @@
         />
       </template>
     </scrollable-chart>
+    <slot name="additionalButton" />
     <template #dataTable>
       <client-only>
         <data-view-table :headers="tableHeaders" :items="tableData" />
@@ -84,7 +85,7 @@ import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { TranslateResult } from 'vue-i18n'
+import { TranslateResult } from 'vue-i18n' // eslint-disable-line import/named
 
 import DataSelector from '@/components/index/_shared/DataSelector.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
