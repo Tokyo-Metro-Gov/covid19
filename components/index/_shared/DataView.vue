@@ -41,8 +41,42 @@
         <slot />
       </div>
 
-      <div class="DataView-Description DataView-Description--Additional">
+      <div
+        class="DataView-Description DataView-Description--Additional"
+        :class="{
+          'DataView-Description--Minimized-Additional':
+            !isAdditionalDescriptionExpanded,
+        }"
+      >
         <slot name="additionalDescription" />
+      </div>
+
+      <div
+        v-if="$slots.additionalDescription"
+        class="DataView-Description DataView-Description--Toggle"
+        @click="
+          isAdditionalDescriptionExpanded = !isAdditionalDescriptionExpanded
+        "
+      >
+        <div class="DataView-Description--Toggle__Icon">
+          <v-icon
+            :style="{
+              transform: isAdditionalDescriptionExpanded
+                ? 'rotate(-90deg)'
+                : 'none',
+            }"
+            size="2.4rem"
+            >{{ mdiChevronRight }}</v-icon
+          >
+        </div>
+        <span
+          v-if="isAdditionalDescriptionExpanded"
+          class="DataView-Description--Toggle__Text"
+          >注釈を折り畳む</span
+        >
+        <span v-else class="DataView-Description--Toggle__Text"
+          >注釈を全て表示</span
+        >
       </div>
 
       <expantion-panel v-if="$slots.dataTable" class="DataView-ExpantionPanel">
@@ -75,8 +109,9 @@
 </template>
 
 <script lang="ts">
+import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta'
+import { MetaInfo } from 'vue-meta' // eslint-disable-line import/named
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import ExpantionPanel from '@/components/index/_shared/DataView/ExpantionPanel.vue'
@@ -102,6 +137,12 @@ export default Vue.extend({
       type: String,
       default: '',
     },
+  },
+  data() {
+    return {
+      mdiChevronRight,
+      isAdditionalDescriptionExpanded: false,
+    }
   },
   head(): MetaInfo {
     // カードの個別ページの場合は、タイトルと更新時刻を`page/cards/_card`に渡す
@@ -247,6 +288,36 @@ export default Vue.extend({
 
     &--Additional {
       margin-bottom: 10px;
+    }
+
+    &--Minimized-Additional {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+    }
+
+    &--Toggle {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 4px;
+      padding: 5px 8px;
+      background-color: $gray-3;
+      align-self: center;
+      cursor: pointer;
+      margin-bottom: 10px;
+
+      &__Icon {
+        margin-left: -5px;
+        .v-icon {
+          color: $white;
+        }
+      }
+
+      &__Text {
+        color: $white;
+        @include font-size(14);
+      }
     }
   }
 
