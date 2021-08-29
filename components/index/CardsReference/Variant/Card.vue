@@ -23,8 +23,8 @@
             to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/henikabu/screening.html"
             :class="$style.button"
           >
-            <span :class="$style.buttonInner">
-              <covid-icon :class="$style.buttonIcon" aria-hidden="true" />
+            <span :class="$style['button-inner']">
+              <covid-icon :class="$style['button-icon']" aria-hidden="true" />
               {{ $t('変異株情報') }}
             </span>
           </app-link>
@@ -216,11 +216,11 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     color: $white !important;
   }
   @include button-text('sm');
-  &Inner {
+  &-inner {
     display: inline-flex;
     align-items: center;
   }
-  &Icon {
+  &-icon {
     width: 1em;
     height: 1em;
     margin-right: 4px;
