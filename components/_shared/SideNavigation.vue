@@ -346,11 +346,11 @@ export default Vue.extend({
           link: this.localePath('/contacts'),
           slug: 'site-info',
         },
-        {
-          title: this.$t('サイトマップ'),
-          link: this.localePath('/sitemap'),
-          slug: 'site-info',
-        },
+        // {
+        //   title: this.$t('サイトマップ'),
+        //   link: this.localePath('/sitemap'),
+        //   slug: 'site-info',
+        // },
       ]
     },
     logoSrc(): string {
