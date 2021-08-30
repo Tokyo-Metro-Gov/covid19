@@ -316,7 +316,7 @@ export default Vue.extend({
         background: linear-gradient(
           to bottom,
           rgba(250, 252, 252, 0) 0%,
-          rgba(250, 252, 252, 0.95) 80%
+          rgba(255, 255, 255, 1) 80%
         );
       }
     }
