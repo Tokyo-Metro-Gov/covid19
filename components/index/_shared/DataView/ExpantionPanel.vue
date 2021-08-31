@@ -41,7 +41,7 @@ export default Vue.extend({
   },
   methods: {
     toggleDetails() {
-      EventBus.$emit(TOGGLE_EVENT, { dataView: this.$parent })
+      EventBus.$emit(TOGGLE_EVENT, { dataView: this.$parent, item: 'details' })
     },
   },
 })

@@ -64,9 +64,7 @@
             'DataView-Description DataView-Description--Toggle',
             isAdditionalDescriptionExpanded ? 'expand' : '',
           ]"
-          @click="
-            isAdditionalDescriptionExpanded = !isAdditionalDescriptionExpanded
-          "
+          @click="toggleDescription"
         >
           <div class="DataView-Description--Toggle__Icon">
             <v-icon
@@ -128,6 +126,7 @@ import { MetaInfo } from 'vue-meta' // eslint-disable-line import/named
 import AppLink from '@/components/_shared/AppLink.vue'
 import ExpantionPanel from '@/components/index/_shared/DataView/ExpantionPanel.vue'
 import Share from '@/components/index/_shared/DataView/Share.vue'
+import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({
@@ -201,6 +200,16 @@ export default Vue.extend({
   mounted() {
     const $Description = this.$refs.Description as HTMLElement
     this.isAlreadyShowingDescription = $Description.clientHeight <= 70
+  },
+  methods: {
+    toggleDescription() {
+      this.isAdditionalDescriptionExpanded =
+        !this.isAdditionalDescriptionExpanded
+      EventBus.$emit(TOGGLE_EVENT, {
+        dataView: this.$parent,
+        item: 'description',
+      })
+    },
   },
 })
 </script>
