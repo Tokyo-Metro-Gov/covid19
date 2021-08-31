@@ -130,7 +130,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   .StayingPopulation-title {
     padding: 2px 15px;
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     @include card-h2();
 
     .StayingPopulation-heading {
