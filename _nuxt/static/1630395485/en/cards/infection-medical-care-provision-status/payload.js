@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/en/cards/infection-medical-care-provision-status", {data:[{}],fetch:{},mutations:[]});
