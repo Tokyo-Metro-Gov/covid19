@@ -31,11 +31,13 @@ import Vue from 'vue'
 
 import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus'
 
+const CardsFeatured = () => import('@/components/index/CardsFeatured.vue')
 const CardsMonitoring = () => import('@/components/index/CardsMonitoring.vue')
 const CardsReference = () => import('@/components/index/CardsReference.vue')
 
 export default Vue.extend({
   components: {
+    CardsFeatured,
     CardsMonitoring,
     CardsReference,
   },
@@ -44,9 +46,14 @@ export default Vue.extend({
       tab: null,
       items: [
         {
+          label: this.$t('注目の指標'),
+          component: CardsFeatured,
+          path: '/',
+        },
+        {
           label: this.$t('モニタリング項目'),
           component: CardsMonitoring,
-          path: '/',
+          path: '/monitoring',
         },
         {
           label: this.$t('その他 参考指標'),
@@ -120,26 +127,32 @@ export default Vue.extend({
   @return $px / $vw * 100vw;
 }
 
-@include lessThan($medium) {
+@include lessThan(900) {
   .v-slide-group__content {
     width: 100%;
   }
   .v-tab {
-    font-size: px2vw(16) !important;
+    font-size: px2vw(14) !important;
     font-weight: normal !important;
     flex: 1 1 auto;
     width: 100%;
     padding: 0 8px !important;
+    margin: 0 6px;
   }
 }
 
 @include lessThan($small) {
   .v-tab {
-    font-size: px2vw(20, 600) !important;
+    font-size: px2vw(16, 600) !important;
     padding: 0 4px !important;
+    margin: 0 4px;
   }
   .TabIcon {
-    font-size: px2vw(24, 600) !important;
+    font-size: px2vw(16, 600) !important;
+    .v-icon__svg {
+      width: px2vw(16, 600) !important;
+      height: px2vw(16, 600) !important;
+    }
   }
 }
 </style>

@@ -61,6 +61,7 @@
         />
       </template>
     </scrollable-chart>
+    <slot name="additionalButton" />
     <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
@@ -86,23 +87,23 @@ import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { TranslateResult } from 'vue-i18n'
+import { TranslateResult } from 'vue-i18n' // eslint-disable-line import/named
 
-import DataView from '@/components/index/_shared/DataView.vue'
-import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
+import DataView from '~/components/index/_shared/DataView.vue'
+import DataViewDataSetPanel from '~/components/index/_shared/DataViewDataSetPanel.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
-} from '@/components/index/_shared/DataViewTable.vue'
-import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
-import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
+} from '~/components/index/_shared/DataViewTable.vue'
+import OpenDataLink from '~/components/index/_shared/OpenDataLink.vue'
+import ScrollableChart from '~/components/index/_shared/ScrollableChart.vue'
 import {
   DisplayData,
   yAxesBgPlugin,
   yAxesBgRightPlugin,
-} from '@/plugins/vue-chart'
-import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
-import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
+} from '~/plugins/vue-chart'
+import { getGraphSeriesColor, SurfaceStyle } from '~/utils/colors'
+import { getNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
 
 type Data = {
   canvas: boolean
