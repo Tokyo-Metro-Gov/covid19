@@ -44,8 +44,51 @@
         <slot />
       </div>
 
-      <div class="DataView-Description DataView-Description--Additional">
+      <div
+        ref="Description"
+        class="DataView-Description DataView-Description--Additional"
+        :class="{
+          'DataView-Description--Minimized-Additional':
+            !isAdditionalDescriptionExpanded && !isAlreadyShowingDescription,
+        }"
+      >
         <slot name="additionalDescription" />
+
+        <div
+          v-if="
+            $slots.additionalDescription &&
+            !$route.params.card &&
+            !isAlreadyShowingDescription
+          "
+          :class="[
+            'DataView-Description DataView-Description--Toggle',
+            isAdditionalDescriptionExpanded ? 'expand' : '',
+          ]"
+          @click="
+            isAdditionalDescriptionExpanded = !isAdditionalDescriptionExpanded
+          "
+        >
+          <div class="DataView-Description--Toggle__Icon">
+            <v-icon
+              :style="{
+                transform: isAdditionalDescriptionExpanded
+                  ? 'rotate(-90deg)'
+                  : 'none',
+              }"
+              size="2.4rem"
+              >{{ mdiChevronRight }}</v-icon
+            >
+          </div>
+          <span
+            v-if="isAdditionalDescriptionExpanded"
+            class="DataView-Description--Toggle__Text"
+          >
+            {{ $t('注釈を折り畳む') }}
+          </span>
+          <span v-else class="DataView-Description--Toggle__Text">
+            {{ $t('注釈を全て表示') }}
+          </span>
+        </div>
       </div>
 
       <expantion-panel v-if="$slots.dataTable" class="DataView-ExpantionPanel">
@@ -78,6 +121,7 @@
 </template>
 
 <script lang="ts">
+import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta' // eslint-disable-line import/named
 
@@ -109,6 +153,13 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+  },
+  data() {
+    return {
+      mdiChevronRight,
+      isAdditionalDescriptionExpanded: !!this.$route.params.card,
+      isAlreadyShowingDescription: true,
+    }
   },
   head(): MetaInfo {
     // カードの個別ページの場合は、タイトルと更新時刻を`page/cards/_card`に渡す
@@ -146,6 +197,10 @@ export default Vue.extend({
       const permalink = `/cards/${this.titleId}`
       return this.localePath(permalink)
     },
+  },
+  mounted() {
+    const $Description = this.$refs.Description as HTMLElement
+    this.isAlreadyShowingDescription = $Description.clientHeight <= 70
   },
 })
 </script>
@@ -232,7 +287,8 @@ export default Vue.extend({
   }
 
   &-Description {
-    margin-top: 10px;
+    position: relative;
+    margin: 10px 0;
     color: $gray-3;
     @include font-size(12);
 
@@ -257,8 +313,55 @@ export default Vue.extend({
       }
     }
 
-    &--Additional {
-      margin-bottom: 10px;
+    &--Minimized-Additional {
+      position: relative;
+      height: 100px;
+      overflow: hidden;
+      &::after {
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 70px;
+        background: linear-gradient(
+          to bottom,
+          rgba(250, 252, 252, 0) 0%,
+          rgba(255, 255, 255, 1) 80%
+        );
+      }
+    }
+
+    &--Toggle {
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: inline-flex;
+      align-items: center;
+      border-radius: 4px;
+      padding: 5px 8px;
+      background-color: $gray-3;
+      align-self: center;
+      cursor: pointer;
+
+      &.expand {
+        position: relative;
+      }
+
+      &__Icon {
+        margin-left: -5px;
+        .v-icon {
+          color: $white;
+        }
+      }
+
+      &__Text {
+        color: $white;
+        @include font-size(14);
+      }
     }
   }
 

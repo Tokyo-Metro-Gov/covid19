@@ -69,12 +69,20 @@
             :items="monitoringItems"
           />
         </section>
-        <div>
+        <div :class="$style['button-wrap']">
           <app-link
             :class="$style.button"
             to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/monitoring.html"
           >
             {{ $t('最新のモニタリング項目の分析・総括コメントについて') }}
+          </app-link>
+        </div>
+        <div>
+          <app-link
+            :class="$style.button"
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/kunishihyou.html"
+          >
+            {{ $t('国のステージ判断のための指標') }}
           </app-link>
         </div>
       </data-view>
@@ -130,6 +138,10 @@ export default {
   }
 
   @include button-text('sm');
+}
+
+.button-wrap {
+  margin-bottom: 16px;
 }
 
 .inner-link {

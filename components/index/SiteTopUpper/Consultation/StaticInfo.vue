@@ -47,6 +47,8 @@ export default Vue.extend({
     @include font-size(12);
 
     font-weight: 600;
+    flex: 1 0 50%;
+    padding-right: 16px;
   }
 
   @include font-size(12);

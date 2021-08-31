@@ -58,6 +58,7 @@
         />
       </template>
     </scrollable-chart>
+    <slot name="additionalButton" />
     <template #dataTable>
       <client-only>
         <data-view-table :headers="tableHeaders" :items="tableData" />

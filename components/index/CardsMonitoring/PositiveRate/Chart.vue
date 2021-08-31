@@ -102,9 +102,9 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue from 'vue'
+import Vue, { PropType } from 'vue' // eslint-disable-line import/named
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { TranslateResult } from 'vue-i18n'
+import { TranslateResult } from 'vue-i18n' // eslint-disable-line import/named
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
@@ -164,7 +164,7 @@ type Props = {
   labels: string[]
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
-  unit: string
+  units: string[]
   url: string
   optionUnit: string
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
@@ -234,9 +234,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => [],
     },
-    unit: {
-      type: String,
-      default: '',
+    units: {
+      type: Array as PropType<string[]>,
+      default: () => [],
     },
     url: {
       type: String,
@@ -285,9 +285,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             date: this.$d(lastDay, 'date'),
           })}（${this.$t('７日間移動平均値をもとに算出')}）`,
           sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
-            this.unit
+            this.units[0]
           }）`,
-          unit: this.unit,
+          unit: this.units[1],
         },
         {
           lText: lastDayData4,
@@ -404,7 +404,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
-      const unit = this.unit
+      const unit = this.units[0]
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
 
