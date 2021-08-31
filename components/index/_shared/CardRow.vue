@@ -65,9 +65,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         this.item !== item ? side.dataset.height : `${side.offsetHeight}`
 
       self.style.maxHeight =
-        self.style.maxHeight === '100%' ? `${selfHeight}px` : '100%'
+        self.style.maxHeight === '100%' && this.item !== item
+          ? `${selfHeight}px`
+          : '100%'
       side.style.maxHeight =
-        side.style.maxHeight === '100%' ? '100%' : `${sideHeight}px`
+        side.style.maxHeight === '100%' && this.item !== item
+          ? '100%'
+          : `${sideHeight}px`
 
       setTimeout(() => {
         this.item = item
