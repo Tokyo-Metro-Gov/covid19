@@ -206,7 +206,7 @@ export default Vue.extend({
       this.isAdditionalDescriptionExpanded =
         !this.isAdditionalDescriptionExpanded
       EventBus.$emit(TOGGLE_EVENT, {
-        dataView: this.$parent,
+        dataView: this.$el,
         item: 'description',
       })
     },
