@@ -65,11 +65,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         this.item !== item ? side.dataset.height : `${side.offsetHeight}`
 
       self.style.maxHeight =
-        self.style.maxHeight === '100%' ? `${selfHeight}px` : '100%'
+        self.style.maxHeight === '100%' && this.item !== item
+          ? `${selfHeight}px`
+          : '100%'
       side.style.maxHeight =
-        side.style.maxHeight === '100%' ? '100%' : `${sideHeight}px`
+        side.style.maxHeight === '100%' && this.item !== item
+          ? '100%'
+          : `${sideHeight}px`
 
-      this.item = item
+      setTimeout(() => {
+        this.item = item
+      }, 500)
     },
   },
   computed: {
@@ -77,7 +83,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       if (!this.payload.dataView) return [null, null]
 
       const cards = this.$el.children
-      const self = this.payload.dataView.$el.parentElement
+      const self = this.payload.dataView.parentElement
       const index = Array.prototype.indexOf.call(cards, self) + 1
       if (index === 0) return [null, null]
 
