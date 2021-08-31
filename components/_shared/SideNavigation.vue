@@ -53,7 +53,11 @@
             <language-selector />
           </div>
         </div>
-        <menu-list :items="items" @click="$emit('close-navigation', $event)" />
+        <menu-list
+          :items="items"
+          :item-titles="itemTitles"
+          @click="$emit('close-navigation', $event)"
+        />
       </nav>
 
       <footer class="SideNavigation-Footer">
@@ -172,7 +176,6 @@
 <script lang="ts">
 import {
   mdiAccountMultiple,
-  mdiApps,
   mdiChartTimelineVariant,
   mdiClose,
   mdiDomain,
@@ -180,18 +183,24 @@ import {
   mdiMenu,
 } from '@mdi/js'
 import Vue from 'vue'
-import { TranslateResult } from 'vue-i18n'
+import { TranslateResult } from 'vue-i18n' // eslint-disable-line import/named
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import LanguageSelector from '@/components/_shared/SideNavigation/LanguageSelector.vue'
 import MenuList from '@/components/_shared/SideNavigation/MenuList.vue'
+
+type ItemTitle = {
+  slug: string
+  text: TranslateResult
+  isExpand?: boolean
+}
 
 type Item = {
   iconPath?: string
   svg?: string
   title: TranslateResult
   link: string
-  divider?: boolean
+  slug: string
 }
 
 export default Vue.extend({
@@ -213,27 +222,49 @@ export default Vue.extend({
     }
   },
   computed: {
+    itemTitles(): ItemTitle[] {
+      return [
+        {
+          slug: 'covid19-info',
+          text: this.$t('新型コロナウイルス感染症情報'),
+          isExpand: false,
+        },
+        {
+          slug: 'support-info',
+          text: this.$t('支援情報等'),
+          isExpand: false,
+        },
+        {
+          slug: 'notice-from-tmg',
+          text: this.$t('東京都からのお知らせ'),
+          isExpand: true,
+        },
+        {
+          slug: 'site-info',
+          text: this.$t('サイト情報'),
+          isExpand: false,
+        },
+      ]
+    },
     items(): Item[] {
       return [
         {
           iconPath: mdiChartTimelineVariant,
           title: this.$t('都内の最新感染動向'),
           link: this.localePath('/'),
-        },
-        {
-          iconPath: mdiApps,
-          title: this.$t('新型コロナ保健医療情報ポータル'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/index.html',
+          slug: 'covid19-info',
         },
         {
           svg: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに.nav'),
           link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html',
+          slug: 'covid19-info',
         },
         {
           svg: 'CovidIcon',
-          title: this.$t('新型コロナウイルス感染症で入院・宿泊療養される方へ'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/corona_0401.files/20210507.pdf',
+          title: this.$t('新型コロナウイルス感染症で自宅・宿泊療養される方へ'),
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/shien/index.html',
+          slug: 'covid19-info',
         },
         {
           svg: 'SupportIcon',
@@ -241,94 +272,85 @@ export default Vue.extend({
             '新型コロナウイルス感染症の患者発生状況に関するよくあるご質問'
           ),
           link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronafaq.html',
+          slug: 'covid19-info',
         },
         {
           svg: 'MaskTrashIcon',
           title: this.$t('ご家庭でのマスク等の捨て方'),
           link: 'https://www.kankyo.metro.tokyo.lg.jp/resource/500200a20200221162304660.files/200327_chirashi.pdf',
-          divider: true,
+          slug: 'covid19-info',
         },
         {
           svg: 'ParentIcon',
           title: this.$t('お子様をお持ちの皆様へ'),
           link: this.localePath('/parent'),
+          slug: 'support-info',
         },
         {
           iconPath: mdiHumanPregnant,
           title: this.$t('妊産婦の皆様へ'),
           link: 'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/ninsanpu.html',
+          slug: 'support-info',
         },
         {
           iconPath: mdiAccountMultiple,
           title: this.$t('都民の皆様へ'),
           link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
+          slug: 'support-info',
         },
         {
           iconPath: mdiDomain,
           title: this.$t('企業の皆様・はたらく皆様へ'),
           link: this.localePath('/worker'),
-          divider: true,
-        },
-        {
-          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
-          link: 'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1010035/index.html',
+          slug: 'support-info',
         },
         {
           title: this.$t('東京都 新型コロナウイルス感染症 支援情報ナビ'),
           link: 'https://covid19.supportnavi.metro.tokyo.lg.jp/',
+          slug: 'support-info',
         },
         {
-          title: this.$t('東京iCDC（東京感染症対策センター）からのお知らせ'),
-          link: 'https://note.com/tokyo_icdc',
-        },
-        {
-          title: this.$t(
-            '新型コロナウイルス感染症都民向け感染予防ハンドブック'
-          ),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/kannsenyobouhandbook.html',
-        },
-        {
-          title: this.$t('新型コロナウイルス感染症自宅療養者向けハンドブック'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/zitakuryouyouhandbook.html',
-        },
-        {
-          title: this.$t('新型コロナウイルスワクチンの接種について'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine/index.html',
+          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
+          link: 'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1010035/index.html',
+          slug: 'notice-from-tmg',
         },
         {
           title: this.$t(
             '新型コロナウイルス感染症に罹患し回復された方の体験に基づくメッセージの紹介'
           ),
           link: 'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-message-for-you-02.html',
+          slug: 'notice-from-tmg',
         },
         {
           title: this.$t('都民利用施設・都主催イベントに関する情報'),
           link: 'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html',
-        },
-        {
-          title: this.$t('東京都における滞在人口の増減'),
-          link: 'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html',
-        },
-        {
-          title: this.$t('知事からのメッセージ'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html',
-        },
-        {
-          title: this.$t('当サイトについて'),
-          link: this.localePath('/about'),
-        },
-        {
-          title: this.$t('ご意見はこちら（外部サービスを使用しています）'),
-          link: 'https://docs.google.com/forms/d/e/1FAIpQLSdSROCPyr6Aj6WoAoYfqcT6StDOEUB38Grug1EJjUYzppcEZg/viewform?usp=sf_link',
-        },
-        {
-          title: this.$t('お問い合わせ先一覧'),
-          link: this.localePath('/contacts'),
+          slug: 'notice-from-tmg',
         },
         {
           title: this.$t('東京都公式ホームページ'),
           link: 'https://www.metro.tokyo.lg.jp/',
+          slug: 'notice-from-tmg',
         },
+        {
+          title: this.$t('当サイトについて'),
+          link: this.localePath('/about'),
+          slug: 'site-info',
+        },
+        {
+          title: this.$t('ご意見はこちら（外部サービスを使用しています）'),
+          link: 'https://docs.google.com/forms/d/e/1FAIpQLSdSROCPyr6Aj6WoAoYfqcT6StDOEUB38Grug1EJjUYzppcEZg/viewform?usp=sf_link',
+          slug: 'site-info',
+        },
+        {
+          title: this.$t('お問い合わせ先一覧'),
+          link: this.localePath('/contacts'),
+          slug: 'site-info',
+        },
+        // {
+        //   title: this.$t('サイトマップ'),
+        //   link: this.localePath('/sitemap'),
+        //   slug: 'site-info',
+        // },
       ]
     },
     logoSrc(): string {
@@ -448,7 +470,7 @@ export default Vue.extend({
 
 .SideNavigation-HeaderTitle {
   width: 100%;
-  color: #707070;
+  color: $gray-3;
   font-weight: 600;
   @include font-size(13);
   @include largerThan($small) {
