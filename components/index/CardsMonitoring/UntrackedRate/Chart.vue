@@ -102,8 +102,8 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue, { PropType } from 'vue'
-import { TranslateResult } from 'vue-i18n'
+import Vue, { PropType } from 'vue' // eslint-disable-line import/named
+import { TranslateResult } from 'vue-i18n' // eslint-disable-line import/named
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'

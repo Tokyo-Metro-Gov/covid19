@@ -3,7 +3,10 @@
     <div class="DataView-Inner">
       <div
         class="DataView-Header"
-        :class="!!$slots.dataSetPanel ? 'with-dataSetPanel' : ''"
+        :class="{
+          'with-dataSetPanel': !!$slots.dataSetPanel,
+          'title-row': isSetTitleRow,
+        }"
       >
         <h3
           class="DataView-Title"
@@ -146,6 +149,10 @@ export default Vue.extend({
       type: String,
       default: '',
     },
+    isSetTitleRow: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -211,6 +218,11 @@ export default Vue.extend({
 
     @include largerThan($medium) {
       padding: 0 5px;
+
+      &.title-row {
+        justify-content: space-between;
+        flex-flow: row;
+      }
     }
 
     @include largerThan($large) {

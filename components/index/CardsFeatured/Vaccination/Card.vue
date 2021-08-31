@@ -56,7 +56,7 @@
 import Vue from 'vue'
 
 import AppLink from '@/components/_shared/AppLink.vue'
-import Chart from '@/components/index/CardsReference/Vaccination/Chart.vue'
+import Chart from '@/components/index/CardsFeatured/Vaccination/Chart.vue'
 import {
   Dataset as IVaccinationDataset,
   VaccinationAll as IVaccination,

@@ -66,7 +66,7 @@ import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 
 import AppLink from '@/components/_shared/AppLink.vue'
-import Chart from '@/components/index/CardsReference/TestedNumber/Chart.vue'
+import Chart from '@/components/index/CardsFeatured/TestedNumber/Chart.vue'
 import Data from '@/data/data.json'
 dayjs.extend(duration)
 

@@ -9,69 +9,81 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable simple-import-sort/imports -- ブラウザでの表示順に合わせて各 card の component を import する */
-// ---- モニタリング項目
+import { mdiChartTimelineVariant } from '@mdi/js'
+import type { NuxtConfig } from '@nuxt/types'
+import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
+import { Component, Vue } from 'nuxt-property-decorator'
+
 // 検査陽性者の状況
-import ConfirmedCasesDetailsCard from '@/components/index/CardsMonitoring/ConfirmedCasesDetails/Card.vue'
+import ConfirmedCasesDetailsCard from '@/components/index/CardsFeatured/ConfirmedCasesDetails/Card.vue'
 // 報告日別による陽性者数の推移
-import ConfirmedCasesNumberCard from '@/components/index/CardsMonitoring/ConfirmedCasesNumber/Card.vue'
-// モニタリング項目
-import MonitoringItemsOverviewCard from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Card.vue'
-// モニタリング項目(1)新規陽性者数
-import MonitoringConfirmedCasesNumberCard from '@/components/index/CardsMonitoring/MonitoringConfirmedCasesNumber/Card.vue'
+import ConfirmedCasesNumberCard from '@/components/index/CardsFeatured/ConfirmedCasesNumber/Card.vue'
+/* eslint-disable simple-import-sort/imports -- ブラウザでの表示順に合わせて各 card の component を import する */
+// ---- 注目の指標
+// 感染状況・医療提供体制（当日のサマリ）
+import InfectionMedicalCareProvisionStatusCard from '@/components/index/CardsFeatured/InfectionMedicalCareProvisionStatus/Card.vue'
+// 感染状況・医療提供体制の分析
+import MonitoringCommentCard from '@/components/index/CardsFeatured/MonitoringComment/Card.vue'
+// 新型コロナコールセンター相談件数
+import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsFeatured/TelephoneAdvisoryReportsNumber/Card.vue'
+// 検査実施件数
+import TestedNumberCard from '@/components/index/CardsFeatured/TestedNumber/Card.vue'
+// 東京都発熱相談センターにおける相談件数
+import TokyoFeverConsultationCenterReportsNumberCard from '@/components/index/CardsFeatured/TokyoFeverConsultationCenterReportsNumber/Card.vue'
+// ワクチン接種数（累計）
+import VaccinationCard from '@/components/index/CardsFeatured/Vaccination/Card.vue'
 // モニタリング項目(2)#7119における発熱等相談件数
 import ConsultationAboutFeverNumberCard from '@/components/index/CardsMonitoring/ConsultationAboutFeverNumber/Card.vue'
-// モニタリング項目(3)新規陽性者における接触歴等不明者数
-import UntrackedRateCard from '@/components/index/CardsMonitoring/UntrackedRate/Card.vue'
-// モニタリング項目(4)検査の陽性率
-import PositiveRateCard from '@/components/index/CardsMonitoring/PositiveRate/Card.vue'
-// モニタリング項目(5)救急医療の東京ルールの適用件数
-import TokyoRulesApplicationNumberCard from '@/components/index/CardsMonitoring/TokyoRulesApplicationNumber/Card.vue'
 // モニタリング項目(6)入院患者数
 import HospitalizedNumberCard from '@/components/index/CardsMonitoring/HospitalizedNumber/Card.vue'
+// モニタリング項目(1)新規陽性者数
+import MonitoringConfirmedCasesNumberCard from '@/components/index/CardsMonitoring/MonitoringConfirmedCasesNumber/Card.vue'
+// ---- モニタリング項目
+// モニタリング項目
+import MonitoringItemsOverviewCard from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Card.vue'
+// モニタリング項目(4)検査の陽性率
+import PositiveRateCard from '@/components/index/CardsMonitoring/PositiveRate/Card.vue'
 // モニタリング項目(7)重症患者数
 import SevereCaseCard from '@/components/index/CardsMonitoring/SevereCase/Card.vue'
+// モニタリング項目(5)救急医療の東京ルールの適用件数
+import TokyoRulesApplicationNumberCard from '@/components/index/CardsMonitoring/TokyoRulesApplicationNumber/Card.vue'
+// モニタリング項目(3)新規陽性者における接触歴等不明者数
+import UntrackedRateCard from '@/components/index/CardsMonitoring/UntrackedRate/Card.vue'
+// 都庁来庁者数の推移
+import AgencyCard from '@/components/index/CardsReference/Agency/Card.vue'
 // ---- その他 参考指標
 // 陽性者の属性
 import ConfirmedCasesAttributesCard from '@/components/index/CardsReference/ConfirmedCasesAttributes/Card.vue'
 // 陽性者数（区市町村別）
 import ConfirmedCasesByMunicipalitiesCard from '@/components/index/CardsReference/ConfirmedCasesByMunicipalities/Card.vue'
+// 死亡日別による死亡者数の推移
+import DeathsByDeathDateCard from '@/components/index/CardsReference/DeathsByDeathDate/Card.vue'
+// 都営地下鉄の利用者数の推移
+import MetroCard from '@/components/index/CardsReference/Metro/Card.vue'
+// 受診相談窓口における相談件数
+import MonitoringConsultationDeskReportsNumberCard from '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Card.vue'
 // 発症日別による陽性者数の推移
 import PositiveNumberByDevelopedDateCard from '@/components/index/CardsReference/PositiveNumberByDevelopedDate/Card.vue'
 // 確定日別による陽性者数の推移
 import PositiveNumberByDiagnosedDateCard from '@/components/index/CardsReference/PositiveNumberByDiagnosedDate/Card.vue'
-// 死亡日別による死亡者数の推移
-import DeathsByDeathDateCard from '@/components/index/CardsReference/DeathsByDeathDate/Card.vue'
-// 検査実施件数
-import TestedNumberCard from '@/components/index/CardsReference/TestedNumber/Card.vue'
 // L452R変異株スクリーニングの実施状況
 import VariantCard from '@/components/index/CardsReference/Variant/Card.vue'
-// ワクチン接種回数（高齢者・累計）
-import VaccinationCard from '@/components/index/CardsReference/Vaccination/Card.vue'
-// 新型コロナコールセンター相談件数
-import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsReference/TelephoneAdvisoryReportsNumber/Card.vue'
-// 受診相談窓口における相談件数
-import MonitoringConsultationDeskReportsNumberCard from '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Card.vue'
-// 東京都発熱相談センターにおける相談件数
-import TokyoFeverConsultationCenterReportsNumberCard from '@/components/index/CardsReference/TokyoFeverConsultationCenterReportsNumber/Card.vue'
-// 都営地下鉄の利用者数の推移
-import MetroCard from '@/components/index/CardsReference/Metro/Card.vue'
-// 都庁来庁者数の推移
-import AgencyCard from '@/components/index/CardsReference/Agency/Card.vue'
-/* eslint-enable simple-import-sort/imports */
-
-import { mdiChartTimelineVariant } from '@mdi/js'
-import { Vue, Component } from 'nuxt-property-decorator'
-import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
-import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
-import type { NuxtConfig } from '@nuxt/types'
+/* eslint-enable simple-import-sort/imports */
+import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
 @Component({
   components: {
-    // ---- モニタリング項目
+    // ---- 注目の指標
+    InfectionMedicalCareProvisionStatusCard,
     ConfirmedCasesDetailsCard,
+    MonitoringCommentCard,
+    VaccinationCard,
     ConfirmedCasesNumberCard,
+    TestedNumberCard,
+    TokyoFeverConsultationCenterReportsNumberCard,
+    TelephoneAdvisoryReportsNumberCard,
+    // ---- モニタリング項目
     MonitoringItemsOverviewCard,
     MonitoringConfirmedCasesNumberCard,
     ConsultationAboutFeverNumberCard,
@@ -86,14 +98,10 @@ import type { NuxtConfig } from '@nuxt/types'
     PositiveNumberByDevelopedDateCard,
     PositiveNumberByDiagnosedDateCard,
     DeathsByDeathDateCard,
-    TestedNumberCard,
     VariantCard,
-    VaccinationCard,
-    TelephoneAdvisoryReportsNumberCard,
-    MonitoringConsultationDeskReportsNumberCard,
-    TokyoFeverConsultationCenterReportsNumberCard,
     MetroCard,
     AgencyCard,
+    MonitoringConsultationDeskReportsNumberCard,
   },
 })
 export default class CardContainer extends Vue implements NuxtConfig {
@@ -101,17 +109,48 @@ export default class CardContainer extends Vue implements NuxtConfig {
     let title, updatedAt, cardComponent, cardCategory
     switch (this.$route.params.card) {
       // NOTE: 以下，ブラウザでの表示順に合わせて条件分岐を行う
-      // ---- モニタリング項目
+      // ---- 注目の指標
+      // 感染状況・医療提供体制（当日のサマリ）
+      case 'infection-medical-care-provision-status':
+        cardComponent = 'infection-medical-care-provision-status-card'
+        cardCategory = 'featured'
+        break
       // 検査陽性者の状況
       case 'details-of-confirmed-cases':
         cardComponent = 'confirmed-cases-details-card'
-        cardCategory = 'monitoring'
+        cardCategory = 'featured'
+        break
+      // 感染状況・医療提供体制の分析
+      case 'monitoring-comment':
+        cardComponent = 'monitoring-comment-card'
+        cardCategory = 'featured'
+        break
+      // ワクチン接種数（累計）
+      case 'vaccination':
+        cardComponent = 'vaccination-card'
+        cardCategory = 'featured'
         break
       // 報告日別による陽性者数の推移
       case 'number-of-confirmed-cases':
         cardComponent = 'confirmed-cases-number-card'
-        cardCategory = 'monitoring'
+        cardCategory = 'featured'
         break
+      // 検査実施件数
+      case 'number-of-tested':
+        cardComponent = 'tested-number-card'
+        cardCategory = 'featured'
+        break
+      // 東京都発熱相談センターにおける相談件数
+      case 'number-of-reports-to-tokyo-fever-consultation-center':
+        cardComponent = 'tokyo-fever-consultation-center-reports-number-card'
+        cardCategory = 'featured'
+        break
+      // 新型コロナコールセンター相談件数
+      case 'number-of-reports-to-covid19-telephone-advisory-center':
+        cardComponent = 'telephone-advisory-reports-number-card'
+        cardCategory = 'featured'
+        break
+      // ---- モニタリング項目
       // モニタリング項目
       case 'monitoring-items-overview':
         cardComponent = 'monitoring-items-overview-card'
@@ -178,34 +217,9 @@ export default class CardContainer extends Vue implements NuxtConfig {
         cardComponent = 'deaths-by-death-date-card'
         cardCategory = 'reference'
         break
-      // 検査実施件数
-      case 'number-of-tested':
-        cardComponent = 'tested-number-card'
-        cardCategory = 'reference'
-        break
       // L452R変異株スクリーニングの実施状況
       case 'variant':
         cardComponent = 'variant-card'
-        cardCategory = 'reference'
-        break
-      // ワクチン接種回数（高齢者・累計）
-      case 'vaccination':
-        cardComponent = 'vaccination-card'
-        cardCategory = 'reference'
-        break
-      // 新型コロナコールセンター相談件数
-      case 'number-of-reports-to-covid19-telephone-advisory-center':
-        cardComponent = 'telephone-advisory-reports-number-card'
-        cardCategory = 'reference'
-        break
-      // 受診相談窓口における相談件数
-      case 'monitoring-number-of-reports-to-covid19-consultation-desk':
-        cardComponent = 'monitoring-consultation-desk-reports-number-card'
-        cardCategory = 'reference'
-        break
-      // 東京都発熱相談センターにおける相談件数
-      case 'number-of-reports-to-tokyo-fever-consultation-center':
-        cardComponent = 'tokyo-fever-consultation-center-reports-number-card'
         cardCategory = 'reference'
         break
       // 都営地下鉄の利用者数の推移
@@ -217,6 +231,11 @@ export default class CardContainer extends Vue implements NuxtConfig {
       case 'agency':
         cardComponent = 'agency-card'
         cardCategory = 'reference'
+        break
+      // 受診相談窓口における相談件数
+      case 'monitoring-number-of-reports-to-covid19-consultation-desk':
+        cardComponent = 'monitoring-consultation-desk-reports-number-card'
+        cardCategory = 'reference'
     }
     /* eslint-enable simple-import-sort/imports */
     return {
@@ -226,6 +245,7 @@ export default class CardContainer extends Vue implements NuxtConfig {
       updatedAt,
       mdiChartTimelineVariant,
       titles: {
+        featured: '注目の指標',
         monitoring: 'モニタリング項目',
         reference: 'その他 参考指標',
       },

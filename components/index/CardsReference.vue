@@ -1,5 +1,8 @@
 <template>
-  <cards-lazy-row :rows="rows" />
+  <div>
+    <cards-lazy-row :rows="rows" />
+    <cards-lazy-row :rows="hideRows" hide-cards />
+  </div>
 </template>
 
 <script lang="ts">
@@ -29,36 +32,20 @@ const PositiveNumberByDiagnosedDateCard = () =>
 // 死亡日別による死亡者数の推移
 const DeathsByDeathDateCard = () =>
   import('@/components/index/CardsReference/DeathsByDeathDate/Card.vue')
-// 検査実施件数
-const TestedNumberCard = () =>
-  import('@/components/index/CardsReference/TestedNumber/Card.vue')
 // L452R変異株スクリーニングの実施状況
 const VariantCard = () =>
   import('@/components/index/CardsReference/Variant/Card.vue')
-// ワクチン接種回数（高齢者・累計）
-const VaccinationCard = () =>
-  import('@/components/index/CardsReference/Vaccination/Card.vue')
-// 新型コロナコールセンター相談件数
-const TelephoneAdvisoryReportsNumberCard = () =>
-  import(
-    '@/components/index/CardsReference/TelephoneAdvisoryReportsNumber/Card.vue'
-  )
-// 受診相談窓口における相談件数
-const MonitoringConsultationDeskReportsNumberCard = () =>
-  import(
-    '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Card.vue'
-  )
-// 東京都発熱相談センターにおける相談件数
-const TokyoFeverConsultationCenterReportsNumberCard = () =>
-  import(
-    '@/components/index/CardsReference/TokyoFeverConsultationCenterReportsNumber/Card.vue'
-  )
 // 都営地下鉄の利用者数の推移
 const MetroCard = () =>
   import('@/components/index/CardsReference/Metro/Card.vue')
 // 都庁来庁者数の推移
 const AgencyCard = () =>
   import('@/components/index/CardsReference/Agency/Card.vue')
+// 受診相談窓口における相談件数
+const MonitoringConsultationDeskReportsNumberCard = () =>
+  import(
+    '@/components/index/CardsReference/MonitoringConsultationDeskReportsNumber/Card.vue'
+  )
 /* eslint-enable simple-import-sort/imports */
 
 export default Vue.extend({
@@ -70,15 +57,10 @@ export default Vue.extend({
       rows: [
         [ConfirmedCasesAttributesCard, ConfirmedCasesByMunicipalitiesCard],
         [PositiveNumberByDevelopedDateCard, PositiveNumberByDiagnosedDateCard],
-        [DeathsByDeathDateCard, TestedNumberCard],
-        [VariantCard, VaccinationCard],
-        [TelephoneAdvisoryReportsNumberCard],
-        [
-          MonitoringConsultationDeskReportsNumberCard,
-          TokyoFeverConsultationCenterReportsNumberCard,
-        ],
+        [DeathsByDeathDateCard, VariantCard],
         [MetroCard, AgencyCard],
       ],
+      hideRows: [[MonitoringConsultationDeskReportsNumberCard]],
     }
   },
 })
