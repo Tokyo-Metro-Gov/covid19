@@ -257,7 +257,7 @@ export default Vue.extend({
         {
           svg: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに.nav'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html',
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/soudan/coronasodan.html',
           slug: 'covid19-info',
         },
         {
@@ -271,7 +271,7 @@ export default Vue.extend({
           title: this.$t(
             '新型コロナウイルス感染症の患者発生状況に関するよくあるご質問'
           ),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronafaq.html',
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/coronafaq.html',
           slug: 'covid19-info',
         },
         {
