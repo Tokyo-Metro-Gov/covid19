@@ -6,6 +6,14 @@
         title-id="monitoring-items-overview"
         :date="monitoringItemsData.date"
       >
+        <template v-if="$route.path !== localePath('/monitoring')" #description>
+          <app-link
+            :to="localePath('/monitoring')"
+            :class="[$style.button, $style['inner-link']]"
+          >
+            {{ $t('モニタリング項目の各グラフはこちら') }}
+          </app-link>
+        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
@@ -61,12 +69,20 @@
             :items="monitoringItems"
           />
         </section>
-        <div>
+        <div :class="$style['button-wrap']">
           <app-link
             :class="$style.button"
             to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/monitoring.html"
           >
             {{ $t('最新のモニタリング項目の分析・総括コメントについて') }}
+          </app-link>
+        </div>
+        <div>
+          <app-link
+            :class="$style.button"
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/kunishihyou.html"
+          >
+            {{ $t('国のステージ判断のための指標') }}
           </app-link>
         </div>
       </data-view>
@@ -122,6 +138,14 @@ export default {
   }
 
   @include button-text('sm');
+}
+
+.button-wrap {
+  margin-bottom: 16px;
+}
+
+.inner-link {
+  text-decoration: none;
 }
 
 dfn {

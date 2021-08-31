@@ -3,26 +3,20 @@
     <template #description>
       <slot name="description" />
     </template>
+    <template #button>
+      <data-selector
+        v-model="dataKind"
+        :target-id="chartId"
+        :style="{ display: canvas ? 'inline-block' : 'none' }"
+      />
+    </template>
     <ul
       :class="$style.GraphLegend"
       :style="{ display: canvas ? 'block' : 'none' }"
     >
-      <li
-        v-for="(dataLabel, i) in dataLabels"
-        :key="i"
-        @click="onClickLegend(i)"
-      >
+      <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
           <div
-            v-if="i === 2"
-            :style="{
-              backgroundColor: colors[i].fillColor,
-              border: 0,
-              height: '3px',
-            }"
-          />
-          <div
-            v-else
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor,
@@ -32,7 +26,7 @@
             :style="{
               textDecoration: displayLegends[i] ? 'none' : 'line-through',
             }"
-            >{{ dataLabel }}</span
+            >{{ item }}</span
           >
         </button>
       </li>
@@ -64,21 +58,24 @@
         />
       </template>
     </scrollable-chart>
-    <template #additionalDescription>
-      <slot name="additionalDescription" />
-    </template>
+    <slot name="additionalButton" />
     <template #dataTable>
       <client-only>
         <data-view-table :headers="tableHeaders" :items="tableData" />
       </client-only>
     </template>
+    <template #additionalDescription>
+      <slot name="additionalDescription" />
+    </template>
     <template #infoPanel>
       <data-view-data-set-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
-        :s-text-under="displayInfo.sTextUnder"
         :unit="displayInfo.unit"
       />
+    </template>
+    <template #footer>
+      <open-data-link v-show="url" :url="url" />
     </template>
   </data-view>
 </template>
@@ -86,37 +83,45 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue, { PropType } from 'vue'
+import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import { TranslateResult } from 'vue-i18n' // eslint-disable-line import/named
 
-import DataView from '@/components/index/_shared/DataView.vue'
-import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
+import DataSelector from '~/components/index/_shared/DataSelector.vue'
+import DataView from '~/components/index/_shared/DataView.vue'
+import DataViewDataSetPanel from '~/components/index/_shared/DataViewDataSetPanel.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
-} from '@/components/index/_shared/DataViewTable.vue'
-import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
-import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
-import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
-import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
-
-type DisplayInfo = {
-  lText: string
-  sText: string
-  sTextUnder: string
-  unit: string
-}
+} from '~/components/index/_shared/DataViewTable.vue'
+import OpenDataLink from '~/components/index/_shared/OpenDataLink.vue'
+import ScrollableChart from '~/components/index/_shared/ScrollableChart.vue'
+import { DisplayData, yAxesBgPlugin } from '~/plugins/vue-chart'
+import { getGraphSeriesStyle, SurfaceStyle } from '~/utils/colors'
 
 type Data = {
+  dataKind: 'transition' | 'cumulative'
   canvas: boolean
   displayLegends: boolean[]
   colors: SurfaceStyle[]
+  isSmall: boolean
 }
 type Methods = {
+  sum: (array: number[]) => number
+  cumulative: (array: number[]) => number[]
+  pickLastNumber: (chartDataArray: number[][]) => number[]
+  cumulativeSum: (chartDataArray: number[][]) => number[]
+  eachArraySum: (chartDataArray: number[][]) => number[]
   onClickLegend: (i: number) => void
+  handleResize: () => void
 }
+
 type Computed = {
-  displayInfo: DisplayInfo
+  displayInfo: {
+    lText: string
+    sText: string
+    unit: string
+  }
   displayData: DisplayData
   displayOption: ChartOptions
   displayDataHeader: DisplayData
@@ -125,18 +130,19 @@ type Computed = {
   tableHeaders: TableHeader[]
   tableData: TableItem[]
 }
+
 type Props = {
   title: string
   titleId: string
-  infoTitles: string[]
   chartId: string
-  chartData: [number[], number[], (number | null)[]]
-  getFormatter: (_: number) => (d: number) => string | undefined
+  chartData: number[][]
   date: string
+  items: string[]
   labels: string[]
-  dataLabels: string[]
-  tableLabels: string[]
+  dataLabels: string[] | TranslateResult[]
+  tableLabels: string[] | TranslateResult[]
   unit: string
+  url: string
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
 }
 
@@ -149,12 +155,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 > = {
   created() {
     this.canvas = process.browser
+    this.dataKind =
+      this.$route.query.embed && this.$route.query.dataKind === 'cumulative'
+        ? 'cumulative'
+        : 'transition'
   },
   components: {
     DataView,
+    DataSelector,
     DataViewTable,
     DataViewDataSetPanel,
     ScrollableChart,
+    OpenDataLink,
   },
   props: {
     title: {
@@ -166,28 +178,23 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: false,
       default: '',
     },
-    infoTitles: {
-      type: Array as PropType<string[]>,
-      required: false,
-      default: [],
-    },
     chartId: {
       type: String,
-      default: 'tokyo-fever-consultation-center-chart',
+      default: 'time-stacked-bar-chart',
     },
     chartData: {
       type: Array,
       required: false,
       default: () => [],
     },
-    getFormatter: {
-      type: Function,
-      default: () => (_: number) => '',
-    },
     date: {
       type: String,
       required: true,
       default: '',
+    },
+    items: {
+      type: Array,
+      default: () => [],
     },
     labels: {
       type: Array,
@@ -205,83 +212,89 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       default: '',
     },
+    url: {
+      type: String,
+      default: '',
+    },
     yAxesBgPlugin: {
       type: Array,
       default: () => yAxesBgPlugin,
     },
   },
   data: () => ({
-    displayLegends: [true, true, true],
-    colors: [
-      getGraphSeriesColor('A'),
-      getGraphSeriesColor('C'),
-      getGraphSeriesColor('E'),
-    ],
+    dataKind: 'transition',
+    displayLegends: [true, true],
+    colors: getGraphSeriesStyle(2),
     canvas: true,
+    isSmall: false,
   }),
   computed: {
     displayInfo() {
-      const { lastDay, lastDayData, dayBeforeRatio } = calcDayBeforeRatio({
-        displayData: this.displayData,
-        dataIndex: 2,
-      })
+      const lastDay: string = this.labels[this.labels.length - 1]
+      const date = this.$d(new Date(lastDay), 'date')
+
+      if (this.dataKind === 'transition') {
+        return {
+          lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
+          sText: `${this.$t('{date}の合計', { date })}`,
+          unit: this.unit,
+        }
+      }
       return {
-        lText: lastDayData,
-        sText: `${this.$t('{date} の数値', {
-          date: this.$d(lastDay, 'date'),
-        })}（${this.$t('７日間移動平均')}）`,
-        sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${this.unit}）`,
+        lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
+        sText: `${this.$t('{date}の合計', { date })}`,
         unit: this.unit,
       }
     },
     displayData() {
-      const graphSeries = [
-        getGraphSeriesColor('A'),
-        getGraphSeriesColor('C'),
-        getGraphSeriesColor('E'),
-      ]
+      const graphSeries = getGraphSeriesStyle(this.chartData.length)
+      if (this.dataKind === 'transition') {
+        return {
+          labels: this.labels,
+          datasets: this.chartData.map((item, index) => {
+            return {
+              label: this.items[index],
+              data: item,
+              backgroundColor: graphSeries[index].fillColor,
+              borderColor: graphSeries[index].strokeColor,
+              borderWidth: 1,
+            }
+          }),
+        }
+      }
       return {
         labels: this.labels,
-        datasets: [
-          {
-            type: 'bar',
-            label: this.dataLabels[0],
-            data: this.chartData[0],
-            backgroundColor: graphSeries[0].fillColor,
-            borderColor: graphSeries[0].strokeColor,
+        datasets: this.chartData.map((item, index) => {
+          return {
+            label: this.items[index],
+            data: this.cumulative(item),
+            backgroundColor: graphSeries[index].fillColor,
+            borderColor: graphSeries[index].strokeColor,
             borderWidth: 1,
-            order: 1,
-          },
-          {
-            type: 'bar',
-            label: this.dataLabels[1],
-            data: this.chartData[1],
-            backgroundColor: graphSeries[1].fillColor,
-            borderColor: graphSeries[1].strokeColor,
-            borderWidth: 1,
-            order: 2,
-          },
-          {
-            type: 'line',
-            label: this.dataLabels[2],
-            data: this.chartData[2],
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: graphSeries[2].strokeColor,
-            borderWidth: 3,
-            fill: false,
-            order: 0,
-            lineTension: 0,
-          },
-        ],
+          }
+        }),
       }
     },
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
-        ...(this.tableLabels as string[]).map((text, i) => {
-          return { text, value: String(i), align: 'end' }
-        }),
+        ...(this.tableLabels as string[])
+          .reduce((arr, text) => {
+            arr.push(
+              ...[this.$t('日別'), this.$t('累計')].map(
+                (label) => `${text} (${label})`
+              )
+            )
+            return arr
+          }, [] as string[])
+          .map((text, i) => {
+            return {
+              text,
+              value: String(i),
+              align: 'end',
+              width: this.isSmall ? '6em' : 'auto',
+            }
+          }),
       ]
     },
     tableData() {
@@ -289,15 +302,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .map((label, i) => {
           return Object.assign(
             { text: label },
-            ...this.chartData.map((_, j) => {
-              const data = this.chartData[j]
-              if (data[i] === null) {
-                return {
-                  [j]: '',
-                }
-              }
+            ...this.tableHeaders.map((_, j) => {
+              const index = j < 2 ? 0 : 1
+              const transition = this.chartData[index]
+              const cumulative = this.cumulative(transition)
               return {
-                [j]: this.getFormatter(j)(data[i]!),
+                [j]:
+                  j % 2 === 0
+                    ? transition[i].toLocaleString()
+                    : cumulative[i].toLocaleString(),
               }
             })
           )
@@ -306,6 +319,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
+      const unit = this.unit
+      const sumArray = this.eachArraySum(this.chartData)
+      const data = this.chartData
+      const cumulativeData = this.chartData.map((item) => {
+        return this.cumulative(item)
+      })
+      const cumulativeSumArray = this.eachArraySum(cumulativeData)
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
 
       const options: ChartOptions = {
@@ -313,11 +333,29 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             label: (tooltipItem) => {
-              const formatter = this.getFormatter(tooltipItem.datasetIndex!)
-              const cases = formatter(parseFloat(tooltipItem.value!))
-              return `${
+              let casesTotal, cases, label
+              if (this.dataKind === 'transition') {
+                casesTotal = sumArray[tooltipItem.index!].toLocaleString()
+                cases =
+                  data[tooltipItem.datasetIndex!][
+                    tooltipItem.index!
+                  ].toLocaleString()
+              } else {
+                casesTotal =
+                  cumulativeSumArray[tooltipItem.index!].toLocaleString()
+                cases =
+                  cumulativeData[tooltipItem.datasetIndex!][
+                    tooltipItem.index!
+                  ].toLocaleString()
+              }
+
+              label = `${
                 this.dataLabels[tooltipItem.datasetIndex!]
-              } : ${cases} ${this.unit}`
+              } : ${cases} ${unit}`
+              if (this.dataKind === 'cumulative') {
+                label = `${label} (${this.$t('合計')}: ${casesTotal} ${unit})`
+              }
+              return label
             },
             title: (tooltipItem, data) => {
               const label = data.labels![tooltipItem[0].index!] as string
@@ -375,7 +413,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
+              position: 'left',
               gridLines: {
                 display: true,
                 drawOnChartArea: true,
@@ -399,12 +437,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      const { datasets } = this.displayData
-      const sums = Array.from(datasets[0].data.keys()).map(
-        (i) => datasets[0].data[i] + datasets[1].data[i]
-      )
-      const max = sums.reduce((a, b) => Math.max(a, b), 0)
-      const n = sums.indexOf(max)
+      let n = 0
+      let max = 0
+      for (const i in this.displayData.datasets[0].data) {
+        const current =
+          this.displayData.datasets[0].data[i] +
+          this.displayData.datasets[1].data[i]
+        if (current > max) {
+          max = current
+          n = Number(i)
+        }
+      }
       return {
         labels: ['2020-01-01'],
         datasets: [
@@ -416,13 +459,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           {
             data: [this.displayData.datasets[1].data[n]],
             backgroundColor: 'transparent',
-            borderWidth: 0,
-          },
-          {
-            type: 'line',
-            data: [this.displayData.datasets[2].data[n]],
-            backgroundColor: 'transparent',
-            borderColor: 'transparent',
             borderWidth: 0,
           },
         ],
@@ -481,7 +517,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
+              position: 'left',
               gridLines: {
                 display: true,
                 drawOnChartArea: false, // displayOption では true
@@ -502,16 +538,51 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     scaledTicksYAxisMax() {
-      const max = Array.from(this.chartData[0].keys())
+      return Array.from(this.chartData[0].keys())
         .map((i) => this.chartData[0][i] + this.chartData[1][i])
         .reduce((a, b) => Math.max(a, b), 0)
-      return this.chartData[2].reduce((a, b) => Math.max(a!, b!), max)!
     },
   },
   methods: {
     onClickLegend(i) {
       this.displayLegends[i] = !this.displayLegends[i]
       this.displayLegends = this.displayLegends.slice()
+    },
+    cumulative(array: number[]): number[] {
+      const cumulativeArray: number[] = []
+      let patSum = 0
+      array.forEach((d) => {
+        patSum += d
+        cumulativeArray.push(patSum)
+      })
+      return cumulativeArray
+    },
+    sum(array: number[]): number {
+      return array.reduce((acc, cur) => {
+        return acc + cur
+      })
+    },
+    pickLastNumber(chartDataArray: number[][]) {
+      return chartDataArray.map((array) => {
+        return array[array.length - 1]
+      })
+    },
+    cumulativeSum(chartDataArray: number[][]) {
+      return chartDataArray.map((array) => {
+        return array.reduce((acc, cur) => {
+          return acc + cur
+        })
+      })
+    },
+    eachArraySum(chartDataArray: number[][]) {
+      const sumArray: number[] = []
+      for (let i = 0; i < chartDataArray[0].length; i++) {
+        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
+      }
+      return sumArray
+    },
+    handleResize() {
+      this.isSmall = window.innerWidth <= 400
     },
   },
   mounted() {
@@ -524,6 +595,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
+
+    window.addEventListener('resize', this.handleResize)
+    this.handleResize()
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize)
   },
 }
 
