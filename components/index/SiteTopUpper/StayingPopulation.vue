@@ -1,32 +1,34 @@
 <template>
   <v-col cols="12" md="6">
     <div class="StayingPopulation">
-      <div class="StayingPopulation-title">
-        <h3 class="StayingPopulation-heading">
-          {{ $t('都内の滞在人口の増減状況（毎週月曜日更新）') }}
-        </h3>
-        <div class="StayingPopulation-link">
-          <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
-          <app-link
-            to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html#top"
-            >{{ $t('詳細はこちら') }}
-          </app-link>
+      <div class="StayingPopulation-inner">
+        <div class="StayingPopulation-title">
+          <h3 class="StayingPopulation-heading">
+            {{ $t('都内の滞在人口の増減状況（毎週月曜日更新）') }}
+          </h3>
+          <div class="StayingPopulation-link">
+            <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
+            <app-link
+              to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html#top"
+              >{{ $t('詳細はこちら') }}
+            </app-link>
+          </div>
         </div>
-      </div>
-      <div class="StayingPopulation-box">
-        <div class="StayingPopulation-place">
-          {{ placeName }}
-        </div>
-        <div class="StayingPopulation-state">
-          [ {{ $t('{date}〜{enddate}', { date, enddate }) }} ]
-          <span v-for="(datum, index) in formattedData" :key="index">
-            {{
-              $t('{month}比 {rateWithArrow}', {
-                month: datum.formattedMonth,
-                rateWithArrow: datum.increaseRateWithArrow,
-              })
-            }}
-          </span>
+        <div class="StayingPopulation-box">
+          <div class="StayingPopulation-place">
+            {{ placeName }}
+          </div>
+          <div class="StayingPopulation-state">
+            [ {{ $t('{date}〜{enddate}', { date, enddate }) }} ]
+            <span v-for="(datum, index) in formattedData" :key="index">
+              {{
+                $t('{month}比 {rateWithArrow}', {
+                  month: datum.formattedMonth,
+                  rateWithArrow: datum.increaseRateWithArrow,
+                })
+              }}
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -124,13 +126,19 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 .StayingPopulation {
   @include card-container();
 
-  padding: 3px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 10px 20px;
   min-height: 5em;
 
+  .StayingPopulation-inner {
+    flex: 1;
+  }
+
   .StayingPopulation-title {
-    padding: 2px 15px;
     display: flex;
-    align-items: start;
+    justify-content: space-between;
     @include card-h2();
 
     .StayingPopulation-heading {
@@ -149,7 +157,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     align-items: center;
     .StayingPopulation-place {
       padding: 5px 10px;
-      margin: 0 5px 2px 15px;
+      margin: 0 5px 2px 0;
       background-color: $green-1;
       color: $white;
       vertical-align: middle;

@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" md="6">
-    <v-lazy>
+    <div class="ConsultationWrap">
       <static-info
         class="Consultation"
         url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/index.html"
@@ -9,7 +9,7 @@
         "
         :btn-text="$t('新型コロナ保健医療情報ポータル')"
       />
-    </v-lazy>
+    </div>
   </v-col>
 </template>
 
@@ -31,7 +31,13 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 </script>
 
 <style lang="scss" scoped>
+.ConsultationWrap {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
 .Consultation {
+  height: 100%;
   padding: 3px 18px;
   min-height: 5.5em;
 }
