@@ -8,12 +8,6 @@ import Vue from 'vue'
 
 import CardsLazyRow from '@/components/index/_shared/CardsLazyRow.vue'
 
-// 検査陽性者の状況
-const ConfirmedCasesDetailsCard = () =>
-  import('@/components/index/CardsMonitoring/ConfirmedCasesDetails/Card.vue')
-// 報告日別による陽性者数の推移
-const ConfirmedCasesNumberCard = () =>
-  import('@/components/index/CardsMonitoring/ConfirmedCasesNumber/Card.vue')
 // モニタリング項目
 const MonitoringItemsOverviewCard = () =>
   import('@/components/index/CardsMonitoring/MonitoringItemsOverview/Card.vue')
@@ -53,7 +47,6 @@ export default Vue.extend({
   data() {
     return {
       rows: [
-        [ConfirmedCasesDetailsCard, ConfirmedCasesNumberCard],
         [MonitoringItemsOverviewCard, MonitoringConfirmedCasesNumberCard],
         [ConsultationAboutFeverNumberCard, UntrackedRateCard],
         [PositiveRateCard, TokyoRulesApplicationNumberCard],
