@@ -25,7 +25,7 @@
           >
             <span :class="$style['button-inner']">
               <vaccine-icon :class="$style['button-icon']" aria-hidden="true" />
-              {{ $t('ワクチン情報') }}
+              {{ $t('ワクチン接種ポータルサイト') }}
             </span>
           </app-link>
         </template>

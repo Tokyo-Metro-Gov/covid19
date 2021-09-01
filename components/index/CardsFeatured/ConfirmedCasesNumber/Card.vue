@@ -24,7 +24,7 @@
         <template #additionalDescription>
           <div class="Description-ExternalLink">
             <app-link
-              to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/todokedehcyouseisya.html"
+              to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/todokedehcyouseisya.html"
             >
               {{ $t('65歳以上の新規陽性者数の推移及び届出保健所別の内訳') }}
             </app-link>
