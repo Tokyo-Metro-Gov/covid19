@@ -38,6 +38,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     return {
       payload: {},
       item: '',
+      className: '',
     }
   },
   methods: {
@@ -59,23 +60,24 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
       if (!self || !side) return
 
-      const selfHeight =
-        this.item !== item ? self.dataset.height : `${self.offsetHeight}`
-      const sideHeight =
-        this.item !== item ? side.dataset.height : `${side.offsetHeight}`
+      const selfHeight = self.dataset.height || `${self.offsetHeight}`
+      const sideHeight = side.dataset.height || `${side.offsetHeight}`
 
       self.style.maxHeight =
-        self.style.maxHeight === '100%' && this.item !== item
+        self.style.maxHeight === '100%' &&
+        this.item !== item &&
+        this.className !== self.className
           ? `${selfHeight}px`
           : '100%'
       side.style.maxHeight =
-        side.style.maxHeight === '100%' && this.item !== item
+        side.style.maxHeight === '100%' &&
+        this.item !== item &&
+        this.className !== self.className
           ? '100%'
           : `${sideHeight}px`
 
-      setTimeout(() => {
-        this.item = item
-      }, 500)
+      this.item = item
+      this.className = self.className
     },
   },
   computed: {
