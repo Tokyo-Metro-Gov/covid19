@@ -1,5 +1,5 @@
 {
-    "date": "2021\/8\/26 19:00",
+    "date": "2021\/9\/2 19:15",
     "datasets": [
         {
             "period": {
@@ -233,12 +233,27 @@
             },
             "data": {
                 "L452R": {
-                    "positive_count": 13976,
-                    "positive_rate": 91.6
+                    "positive_count": 15037,
+                    "positive_rate": 91.8
                 },
-                "variant_test_count": 15253,
-                "variant_pcr_rate": 51.1,
-                "negative_rate": 8.4
+                "variant_test_count": 16374,
+                "variant_pcr_rate": 54.9,
+                "negative_rate": 8.2
+            }
+        },
+        {
+            "period": {
+                "begin": "2021-08-16",
+                "end": "2021-08-22"
+            },
+            "data": {
+                "L452R": {
+                    "positive_count": 14280,
+                    "positive_rate": 94.2
+                },
+                "variant_test_count": 15153,
+                "variant_pcr_rate": 45.7,
+                "negative_rate": 5.8
             }
         }
     ]
