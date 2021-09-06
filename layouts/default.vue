@@ -105,7 +105,7 @@ export default class Default extends Vue implements NuxtConfig {
   }
 
   head() {
-    const { htmlAttrs, meta } = { addSeoAttributes: true } as MetaInfo
+    const { htmlAttrs, meta } = this.$nuxtI18nHead({ addSeoAttributes: true })
     const ogLocale =
       meta && meta.length > 0
         ? meta[0]
