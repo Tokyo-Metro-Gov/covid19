@@ -8,7 +8,6 @@ export const getLinksLanguageAlternative = (
   locales?: Array<Locale | LocaleObject>,
   defaultLocale?: string
 ) => {
-  type LinkPropertyHref = MetaInfo
   const links: LinkPropertyHref[] = []
   const getFullPathWihLocale = (locale: string) => {
     const pathLocale = locale === 'ja' ? '' : `/${locale}`
