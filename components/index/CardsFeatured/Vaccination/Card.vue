@@ -18,6 +18,17 @@
         :labels="vaccinationData.labels"
         :data-labels="chartLabels"
       >
+        <template #additionalButton>
+          <app-link
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine/index.html"
+            :class="$style.button"
+          >
+            <span :class="$style['button-inner']">
+              <vaccine-icon :class="$style['button-icon']" aria-hidden="true" />
+              {{ $t('ワクチン接種ポータルサイト') }}
+            </span>
+          </app-link>
+        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
@@ -44,11 +55,13 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import Chart from '@/components/index/CardsReference/Vaccination/Chart.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
+import Chart from '@/components/index/CardsFeatured/Vaccination/Chart.vue'
 import {
   Dataset as IVaccinationDataset,
   VaccinationAll as IVaccination,
 } from '@/libraries/auto_generated/data_converter/convertVaccinationAll'
+import VaccineIcon from '@/static/vaccine.svg'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type Data = {
@@ -72,7 +85,9 @@ type Props = {}
 
 export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
+    AppLink,
     Chart,
+    VaccineIcon,
   },
   data() {
     const chartLabels = [
@@ -148,3 +163,24 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
 })
 </script>
+
+<style lang="scss" module>
+.button {
+  margin-top: 4px;
+  color: $green-1 !important;
+  text-decoration: none;
+  &:hover {
+    color: $white !important;
+  }
+  @include button-text('sm');
+  &-inner {
+    display: inline-flex;
+    align-items: center;
+  }
+  &-icon {
+    width: 1em;
+    height: 1em;
+    margin-right: 4px;
+  }
+}
+</style>

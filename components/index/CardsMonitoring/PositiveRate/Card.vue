@@ -10,7 +10,7 @@
         :get-formatter="getFormatter"
         :date="PositiveRate.date"
         :labels="positiveRateLabels"
-        unit="%"
+        :units="units"
         :option-unit="$t('人')"
         :data-labels="positiveRateDataLabels"
         :table-labels="positiveRateTableLabels"
@@ -133,6 +133,8 @@ export default {
       }
     }
 
+    const units = [this.$t('ポイント'), '%']
+
     return {
       PositiveRate,
       positiveRateGraph,
@@ -140,6 +142,7 @@ export default {
       positiveRateDataLabels,
       positiveRateTableLabels,
       getFormatter,
+      units,
     }
   },
 }

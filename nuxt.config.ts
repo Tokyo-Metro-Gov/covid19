@@ -217,6 +217,8 @@ const config: NuxtConfig = {
     routes() {
       const locales = ['en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
       const pages = [
+        '/cards/infection-medical-care-provision-status',
+        '/cards/monitoring-comment',
         '/cards/details-of-confirmed-cases',
         '/cards/number-of-confirmed-cases',
         '/cards/number-of-confirmed-cases-by-municipalities',
@@ -263,6 +265,19 @@ const config: NuxtConfig = {
   watchers: {
     webpack: {
       poll: true,
+    },
+  },
+  router: {
+    extendRoutes(routes) {
+      routes.forEach((route) => {
+        if (
+          route.name === 'index' ||
+          route.name === 'monitoring' ||
+          route.name === 'reference'
+        ) {
+          route.meta = { tabs: true }
+        }
+      })
     },
   },
 }
