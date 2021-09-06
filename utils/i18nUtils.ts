@@ -28,7 +28,7 @@ export const getLinksLanguageAlternative = (
         rel: 'alternate',
         href: getFullPathWihLocale(locale.code),
         hreflang: locale.iso,
-      } as MetaInfo)
+      })
     }
   }
   if (defaultLocale) {
