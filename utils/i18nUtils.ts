@@ -1,5 +1,5 @@
 /* eslint-disable simple-import-sort/imports */
-import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
+import { LinkPropertyHref } from 'vue-meta'
 import type { Locale, LocaleObject } from '@nuxtjs/i18n'
 /* eslint-enable simple-import-sort/imports */
 
