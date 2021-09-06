@@ -106,7 +106,6 @@ export default class Default extends Vue implements NuxtConfig {
 
   head() {
     const { htmlAttrs, meta } = { addSeoAttributes: true } as MetaInfo
-    type LinkPropertyHref = typeof htmlAttrs
     const ogLocale =
       meta && meta.length > 0
         ? meta[0]
