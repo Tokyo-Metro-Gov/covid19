@@ -1,4 +1,5 @@
-import { NuxtAppOptions, NuxtConfig } from '@nuxt/types'
+import type { NuxtConfig } from '@nuxt/types'
+import type { DateTimeFormat } from 'vue-i18n'
 
 const dateTimeFormatsCommon = {
   dateTime: {
