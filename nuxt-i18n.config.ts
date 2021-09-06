@@ -1,7 +1,7 @@
 import type { NuxtConfig } from '@nuxt/types'
 import type { DateTimeFormat } from 'vue-i18n'
 
-const dateTimeFormatsCommon = {
+const dateTimeFormatsCommon: DateTimeFormat = {
   dateTime: {
     year: 'numeric',
     month: 'short',
