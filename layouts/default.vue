@@ -40,7 +40,9 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
-import { NuxtConfig, NuxtOptionsHead as MetaInfo } from '@nuxt/types'
+import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
+import type { NuxtConfig } from '@nuxt/types'
+import type { LinkPropertyHref } from 'vue-meta'
 import DevelopmentModeMark from '@/components/_shared/DevelopmentModeMark.vue'
 import NoScript from '@/components/_shared/NoScript.vue'
 import SideNavigation from '@/components/_shared/SideNavigation.vue'
