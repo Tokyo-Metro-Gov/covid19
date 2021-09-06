@@ -14,7 +14,7 @@
 import { mdiChartTimelineVariant } from '@mdi/js'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { MetaInfo } from 'vue-meta'
+import { MetaInfo } from 'vue-meta' // eslint-disable-line import/named
 
 import PageHeader from '@/components/_shared/PageHeader.vue'
 import CardsTab from '@/components/index/CardsTab.vue'
