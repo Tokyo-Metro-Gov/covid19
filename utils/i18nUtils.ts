@@ -37,7 +37,7 @@ export const getLinksLanguageAlternative = (
       rel: 'alternate',
       href: getFullPathWihLocale(defaultLocale),
       hreflang: 'x-default',
-    } as MetaInfo)
+    })
   }
 
   return links
