@@ -106,4 +106,4 @@ const options: NuxtConfig = {
   seo: false,
 }
 
-export default options as NuxtAppOptions
+export default options
