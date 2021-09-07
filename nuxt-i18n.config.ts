@@ -30,7 +30,7 @@ const dateTimeFormatsCommon: DateTimeFormat = {
   },
 }
 
-const options: NuxtConfig = {
+const options: NuxtConfig['i18n'] = {
   strategy: 'prefix_except_default',
   detectBrowserLanguage: false,
   defaultLocale: 'ja',
@@ -103,7 +103,6 @@ const options: NuxtConfig = {
       description: 'Easy Japanese',
     },
   ],
-  seo: false,
 }
 
 export default options
