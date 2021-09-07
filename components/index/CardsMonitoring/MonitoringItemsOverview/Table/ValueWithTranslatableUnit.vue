@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import Vue, { PropType } from 'vue' // eslint-disable-line import/named
 
 import { Unit } from '@/utils/formatMonitoringItems'
 

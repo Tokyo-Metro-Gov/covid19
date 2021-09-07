@@ -1,6 +1,6 @@
 import { Plugin } from '@nuxt/types'
 import { Chart, ChartData, ChartOptions } from 'chart.js'
-import Vue, { PropType } from 'vue'
+import Vue, { PropType } from 'vue' // eslint-disable-line import/named
 import { Bar, Doughnut, Line, mixins } from 'vue-chartjs'
 
 import { useDayjsAdapter } from '@/plugins/chartjs-adapter-dayjs'
