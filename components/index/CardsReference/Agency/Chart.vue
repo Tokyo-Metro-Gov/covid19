@@ -67,7 +67,7 @@
 
 <script lang="ts">
 import { ChartData, ChartOptions, ChartTooltipItem } from 'chart.js'
-import Vue, { PropType } from 'vue'
+import Vue, { PropType } from 'vue' // eslint-disable-line import/named
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewTable, {
