@@ -10,7 +10,7 @@ import { MonitoringCommentImageRepository } from '@/libraries/repositories/Monit
 import { NewsRepository } from '@/libraries/repositories/NewsRepository'
 import { StayingPopulationRepository } from '@/libraries/repositories/StayingPopulationRepository'
 import { TokyoRuleRepository } from '@/libraries/repositories/TokyoRuleRepository'
-import { VaccinationAllRepository } from '@/libraries/repositories/VaccinationAllRepository'
+import { VaccinationRepository } from '@/libraries/repositories/VaccinationRepository'
 import { VariantsRepository } from '@/libraries/repositories/VariantsRepository'
 
 export const state = () => ({
@@ -26,6 +26,6 @@ export const state = () => ({
   news: new NewsRepository().data,
   stayingPopulation: new StayingPopulationRepository().data,
   tokyoRule: new TokyoRuleRepository().data,
-  vaccination: new VaccinationAllRepository().data,
+  vaccination: new VaccinationRepository().data,
   variants: new VariantsRepository().data,
 })
