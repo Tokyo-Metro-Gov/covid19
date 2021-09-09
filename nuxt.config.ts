@@ -243,6 +243,7 @@ const config: NuxtConfig = {
         '/cards/deaths-by-death-date',
         '/cards/variant',
         '/cards/vaccination',
+        '/cards/positive-number-over65',
       ]
       const localizedPages = locales
         .map((locale) => pages.map((page) => `/${locale}${page}`))
