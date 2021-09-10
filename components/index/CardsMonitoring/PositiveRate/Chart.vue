@@ -404,7 +404,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
-      const unit = this.units[0]
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
 
@@ -422,7 +421,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               if (tooltipItem.datasetIndex! >= 5) {
                 label = `${
                   this.dataLabels[tooltipItem.datasetIndex!]
-                } : ${cases} ${unit}`
+                } : ${cases} %`
               }
               return label
             },

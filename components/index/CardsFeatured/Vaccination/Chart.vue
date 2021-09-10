@@ -132,7 +132,6 @@ type Props = {
   title: string
   titleId: string
   infoTitles: string[]
-  infoData: number[][]
   chartId: string
   chartData: number[][]
   getFormatter: Function
@@ -172,11 +171,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: '',
     },
     infoTitles: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-    infoData: {
       type: Array,
       required: false,
       default: () => [],
@@ -222,13 +216,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   data: () => ({
-    displayLegends: [true, true, true, true],
-    colors: [
-      getGraphSeriesColor('C'),
-      getGraphSeriesColor('G'),
-      getGraphSeriesColor('A'),
-      getGraphSeriesColor('B'),
-    ],
+    displayLegends: [true, true],
+    colors: [getGraphSeriesColor('G'), getGraphSeriesColor('B')],
     canvas: true,
   }),
   computed: {
@@ -237,7 +226,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return dataset.slice(-1)[0]
       }
       const lastDay = this.labels.slice(-1)[0]
-      return this.infoData.map((data) => {
+      return this.chartData.map((data) => {
         return {
           lText: this.getFormatter(0)(lastData(data)),
           sText: `${this.$d(lastDay, 'date')} ${this.$t('累計値')}`,
@@ -252,7 +241,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           backgroundColor: this.colors[i].fillColor,
           borderColor: this.colors[i].strokeColor,
           borderWidth: 1,
-          stack: i === 0 || i === 1 ? 'stack-1' : 'stack-2',
         }
       })
       return {
@@ -314,7 +302,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           xAxes: [
             {
               id: 'day',
-              stacked: true,
               gridLines: {
                 display: false,
               },
@@ -330,7 +317,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             {
               id: 'month',
-              stacked: true,
               gridLines: {
                 drawOnChartArea: false,
                 drawTicks: true,
@@ -354,7 +340,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
               gridLines: {
                 display: true,
                 drawOnChartArea: true,
@@ -384,7 +369,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           data: this.chartData[i],
           backgroundColor: 'transparent',
           borderWidth: 0,
-          stack: i === 0 || i === 1 ? 'stack-1' : 'stack-2',
         }
       })
       return {
@@ -405,7 +389,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           xAxes: [
             {
               id: 'day',
-              stacked: true,
               gridLines: {
                 display: false,
               },
@@ -421,7 +404,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             {
               id: 'month',
-              stacked: true,
               gridLines: {
                 drawOnChartArea: false,
                 drawTicks: false, // displayOption では true
@@ -445,7 +427,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
               gridLines: {
                 display: true,
                 drawOnChartArea: false, // displayOption では true
@@ -467,12 +448,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     scaledTicksYAxisMax() {
-      const chartLeftMax = Array.from(this.chartData[0].keys())
-        .map((i) => this.chartData[0][i] + this.chartData[1][i])
-        .reduce((a, b) => Math.max(a, b), 0)
-      const chartRightMax = Array.from(this.chartData[0].keys())
-        .map((i) => this.chartData[2][i] + this.chartData[3][i])
-        .reduce((a, b) => Math.max(a, b), 0)
+      const chartLeftMax = this.chartData[0].reduce((a, b) => Math.max(a, b), 0)
+      const chartRightMax = this.chartData[1].reduce(
+        (a, b) => Math.max(a, b),
+        0
+      )
       return Math.max(chartLeftMax, chartRightMax)
     },
   },
