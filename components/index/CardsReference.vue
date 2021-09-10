@@ -19,6 +19,9 @@ const ConfirmedCasesByMunicipalitiesCard = () =>
   import(
     '@/components/index/CardsReference/ConfirmedCasesByMunicipalities/Card.vue'
   )
+// 報告日別による陽性者数（65歳以上）の推移
+const PositiveNumberOver65Card = () =>
+  import('@/components/index/CardsReference/PositiveNumberOver65/Card.vue')
 // 発症日別による陽性者数の推移
 const PositiveNumberByDevelopedDateCard = () =>
   import(
@@ -56,6 +59,7 @@ export default Vue.extend({
     return {
       rows: [
         [ConfirmedCasesAttributesCard, ConfirmedCasesByMunicipalitiesCard],
+        [PositiveNumberOver65Card],
         [PositiveNumberByDevelopedDateCard, PositiveNumberByDiagnosedDateCard],
         [DeathsByDeathDateCard, VariantCard],
         [MetroCard, AgencyCard],

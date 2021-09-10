@@ -1,36 +1,31 @@
 // To parse this data:
 //
-//   import { Convert, Vaccination } from "./file";
+//   import { Convert, PositiveOver65 } from "./file";
 //
-//   const vaccination = Convert.toVaccination(json);
+//   const positiveOver65 = Convert.toPositiveOver65(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface Vaccination {
-    date:     string;
-    datasets: Dataset[];
+export interface PositiveOver65 {
+    date: string;
+    data: Datum[];
 }
 
-export interface Dataset {
-    date: Date;
-    data: Data;
-}
-
-export interface Data {
-    cumulative1StDose: number;
-    cumulative2NdDose: number;
+export interface Datum {
+    date:  Date;
+    count: number;
 }
 
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toVaccination(json: string): Vaccination {
-        return cast(JSON.parse(json), r("Vaccination"));
+    public static toPositiveOver65(json: string): PositiveOver65 {
+        return cast(JSON.parse(json), r("PositiveOver65"));
     }
 
-    public static vaccinationToJson(value: Vaccination): string {
-        return JSON.stringify(uncast(value, r("Vaccination")), null, 2);
+    public static positiveOver65ToJson(value: PositiveOver65): string {
+        return JSON.stringify(uncast(value, r("PositiveOver65")), null, 2);
     }
 }
 
@@ -167,16 +162,12 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "Vaccination": o([
+    "PositiveOver65": o([
         { json: "date", js: "date", typ: "" },
-        { json: "datasets", js: "datasets", typ: a(r("Dataset")) },
+        { json: "data", js: "data", typ: a(r("Datum")) },
     ], false),
-    "Dataset": o([
+    "Datum": o([
         { json: "date", js: "date", typ: Date },
-        { json: "data", js: "data", typ: r("Data") },
-    ], false),
-    "Data": o([
-        { json: "cumulative_1st_dose", js: "cumulative1StDose", typ: 0 },
-        { json: "cumulative_2nd_dose", js: "cumulative2NdDose", typ: 0 },
+        { json: "count", js: "count", typ: 0 },
     ], false),
 };
