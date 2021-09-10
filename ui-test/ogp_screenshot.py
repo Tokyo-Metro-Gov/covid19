@@ -33,6 +33,7 @@ PATHS = {
     "/cards/deaths-by-death-date": (959, 570),
     "/cards/variant": (959, 730),
     "/cards/vaccination": (959, 730),
+    "/cards/positive-number-over65": (959, 500),
 }
 
 options = webdriver.ChromeOptions()
