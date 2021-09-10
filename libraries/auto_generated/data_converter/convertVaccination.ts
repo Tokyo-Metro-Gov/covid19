@@ -7,30 +7,19 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-// test comment: Vaccination
 export interface Vaccination {
     date:     string;
     datasets: Dataset[];
 }
 
 export interface Dataset {
-    period: Period;
-    data:   Data;
+    date: Date;
+    data: Data;
 }
 
-/*
- * cumulative1StDose: 接種回数（1回目・累計）
- *
- * cumulative2NdDose: 接種回数（2回目・累計）
-*/
 export interface Data {
-    cumulative1StDose: number; // 接種回数（1回目・累計）
-    cumulative2NdDose: number; // 接種回数（2回目・累計）
-}
-
-export interface Period {
-    begin: Date;
-    end:   Date;
+    cumulative1StDose: number;
+    cumulative2NdDose: number;
 }
 
 // Converts JSON strings to/from your types
@@ -183,15 +172,11 @@ const typeMap: any = {
         { json: "datasets", js: "datasets", typ: a(r("Dataset")) },
     ], false),
     "Dataset": o([
-        { json: "period", js: "period", typ: r("Period") },
+        { json: "date", js: "date", typ: Date },
         { json: "data", js: "data", typ: r("Data") },
     ], false),
     "Data": o([
         { json: "cumulative_1st_dose", js: "cumulative1StDose", typ: 0 },
         { json: "cumulative_2nd_dose", js: "cumulative2NdDose", typ: 0 },
-    ], false),
-    "Period": o([
-        { json: "begin", js: "begin", typ: Date },
-        { json: "end", js: "end", typ: Date },
     ], false),
 };
