@@ -1,5 +1,5 @@
 <template>
-  <div ref="Side" class="SideNavigation" tabindex="-1">
+  <div class="SideNavigation" tabindex="-1">
     <header class="SideNavigation-Header">
       <v-icon
         ref="Open"
@@ -369,33 +369,11 @@ export default Vue.extend({
     },
   },
   watch: {
-    $route: 'handleChangeRoute',
-    '$vuetify.breakpoint.xsOnly'(value) {
-      const $Side = this.$refs.Side as HTMLEmbedElement | undefined
-      if ($Side) {
-        if (value) {
-          $Side.setAttribute('role', 'dialog')
-          $Side.setAttribute('aria-modal', 'true')
-        } else {
-          $Side.removeAttribute('role')
-          $Side.removeAttribute('aria-modal')
-        }
-      }
-    },
     isNaviOpen(value) {
       this.handleNavFocus(value)
     },
   },
   methods: {
-    handleChangeRoute() {
-      // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
-      return this.$nextTick().then(() => {
-        const $Side = this.$refs.Side as HTMLEmbedElement | undefined
-        if ($Side) {
-          $Side.focus()
-        }
-      })
-    },
     handleNavFocus(isNaviOpen: boolean) {
       return this.$nextTick(() => {
         if (isNaviOpen) {
