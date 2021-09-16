@@ -1,30 +1,30 @@
 {
-    "date": "2021\/9\/15 18:30",
+    "date": "2021\/9\/16 18:00",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数は減少したが、依然として第3波のピーク時を上回る極めて高い値である。",
-                "@en": "The number of new positive cases has gone down. However, this number is still extremely high, exceeding that recorded at the peak of the third wave."
+                "@ja": "新規陽性者数が減少した後の最小値は、第1波以降、感染拡大の波を繰り返すたびに、前回の最小値より高くなっている。",
+                "@en": "新規陽性者数が減少した後の最小値は、第1波以降、感染拡大の波を繰り返すたびに、前回の最小値より高くなっている。"
             },
             {
-                "@ja": "累積した入院患者数と重症患者数は過去最多を更新した後、高い水準にとどまっており、医療提供体制の逼迫が継続している。",
-                "@en": "After hitting record numbers, the cumulative number of hospitalized patients and severe cases remains high, and the health care provision system continues to be strained."
+                "@ja": "感染の拡大が懸念される冬に備え、新規陽性者数を十分に減少させる必要がある。",
+                "@en": "感染の拡大が懸念される冬に備え、新規陽性者数を十分に減少させる必要がある。"
             },
             {
-                "@ja": "新規陽性者数が再び増加に転じれば、危機的状況となる。この危機感を現実のものとして共有し、社会全体で協力して立ち向かう必要がある。",
-                "@en": "If there is a resurgence in new cases, we will face a critical situation. It is essential that everyone shares this sense of crisis as a grim reality, and for all of society to cooperate in addressing the situation."
+                "@ja": "新規陽性者数が増加に転じれば、医療提供体制は再び危機的状況となる。",
+                "@en": "新規陽性者数が増加に転じれば、医療提供体制は再び危機的状況となる。"
             }
         ],
-        "(1)新規陽性者数": 1132,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 78.6,
-        "(3)新規陽性者における接触歴等不明者（人数）": 618.9,
+        "(1)新規陽性者数": 1011.4,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 78.3,
+        "(3)新規陽性者における接触歴等不明者（人数）": 555.9,
         "(3)新規陽性者における接触歴等不明者（増加比）": 56.1,
-        "(4)PCR・抗原検査（陽性率）": 8.6,
-        "(4)PCR・抗原検査（検査人数）": 9816.7,
-        "(5)救急医療の東京ルールの適用件数": 80.6,
-        "(6)入院患者数": 3097,
+        "(4)PCR・抗原検査（陽性率）": 8,
+        "(4)PCR・抗原検査（検査人数）": 9484.1,
+        "(5)救急医療の東京ルールの適用件数": 78.6,
+        "(6)入院患者数": 2879,
         "(6)入院患者確保病床数": 6583,
-        "(7)重症患者数": 198,
+        "(7)重症患者数": 182,
         "(7)重症患者確保病床数": 503,
         "総括コメント-感染状況": {
             "date": "2021-09-08",
