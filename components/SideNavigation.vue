@@ -118,7 +118,8 @@ export default {
         {
           icon: 'mdi-account-multiple',
           title: this.$t('イベントに関する情報'),
-          link: 'https://sakura.mbc.co.jp/dbsites/poster/poster15.php',
+          link:
+            'https://www.pref.kagoshima.jp/cgi-bin/event_cal_multi/calendar.cgi',
           divider: true
         },
         // {
