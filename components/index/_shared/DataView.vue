@@ -45,6 +45,7 @@
       </div>
 
       <div
+        :id="titleId + '--description'"
         ref="Description"
         class="DataView-Description DataView-Description--Additional"
         :class="{
@@ -54,7 +55,7 @@
       >
         <slot name="additionalDescription" />
 
-        <div
+        <button
           v-if="
             $slots.additionalDescription &&
             !$route.params.card &&
@@ -64,6 +65,8 @@
             'DataView-Description DataView-Description--Toggle',
             isAdditionalDescriptionExpanded ? 'expand' : '',
           ]"
+          :aria-expanded="[isAdditionalDescriptionExpanded ? true : false]"
+          :aria-controls="titleId + '--description'"
           @click="toggleDescription"
         >
           <div class="DataView-Description--Toggle__Icon">
@@ -86,7 +89,7 @@
           <span v-else class="DataView-Description--Toggle__Text">
             {{ $t('注釈を全て表示') }}
           </span>
-        </div>
+        </button>
       </div>
 
       <expantion-panel v-if="$slots.dataTable" class="DataView-ExpantionPanel">
