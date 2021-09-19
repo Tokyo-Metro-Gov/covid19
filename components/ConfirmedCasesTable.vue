@@ -95,6 +95,7 @@
 
 <script>
 export default {
+  /* eslint-disable */
   props: [
     '検査実施件数',
     '陽性物数',
@@ -104,6 +105,7 @@ export default {
     '死亡',
     '退院'
   ],
+  /* eslint-enable */
   methods: {
     /** 桁数に応じて位置の調整をする */
     getAdjustX(input) {
