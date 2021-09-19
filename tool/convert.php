@@ -276,7 +276,7 @@ foreach ($data as $key => &$arr) {
 $data['lastUpdate'] = $lastUpdate;
 
 $data['main_summary'] = [
-  'attr' => '検査実施人数',
+  'attr' => '検査実施件数',
   'value' => xlsxToArray(__DIR__.'/downloads/検査実施サマリ.xlsx', '検査実施サマリ', 'A2')[0][0],
   'children' => [
     [

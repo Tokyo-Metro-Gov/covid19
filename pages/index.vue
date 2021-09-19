@@ -17,7 +17,7 @@
     <v-row class="DataBlock">
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
-      <confirmed-cases-attributes-card />
+      <!-- <confirmed-cases-attributes-card /> -->
       <tested-number-card />
       <consultation-desk-reports-number-card />
     </v-row>
@@ -36,7 +36,7 @@ import formatGraph from '@/utils/formatGraph'
 import News from '@/data/news.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
-import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
+// import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 
@@ -47,7 +47,7 @@ export default {
     StaticInfo,
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
-    ConfirmedCasesAttributesCard,
+    // ConfirmedCasesAttributesCard,
     TestedNumberCard,
     ConsultationDeskReportsNumberCard
   },

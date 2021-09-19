@@ -4,11 +4,11 @@
       <div class="gutter">
         <div class="box tall">
           <!-- eslint-disable vue/no-v-html-->
-          <span v-html="$t('検査実施<br />人数')" />
+          <span v-html="$t('検査実施<br />件数')" />
           <!-- eslint-enable vue/no-v-html-->
           <span>
-            <b>{{ 検査実施人数 }}</b>
-            <span class="unit">{{ $t('人') }}</span>
+            <b>{{ 検査実施件数 }}</b>
+            <span class="unit">{{ $t('件') }}</span>
           </span>
         </div>
       </div>
@@ -42,7 +42,7 @@
               <div class="gutter">
                 <div class="box short">
                   <!-- eslint-disable vue/no-v-html-->
-                  <span v-html="$t('軽症・<br />中等症')" />
+                  <span v-html="$t('中等症')" />
                   <!-- eslint-enable vue/no-v-html-->
                   <span>
                     <b>{{ 軽症中等症 }}</b>
@@ -95,8 +95,9 @@
 
 <script>
 export default {
+  /* eslint-disable */
   props: [
-    '検査実施人数',
+    '検査実施件数',
     '陽性物数',
     '入院中',
     '軽症中等症',
@@ -104,6 +105,7 @@ export default {
     '死亡',
     '退院'
   ],
+  /* eslint-enable */
   methods: {
     /** 桁数に応じて位置の調整をする */
     getAdjustX(input) {
@@ -136,7 +138,7 @@ export default {
       deceased,
       discharged
     ) {
-      const ariaLabel = `検査陽性者の状況: 検査実施人数は${inspected}人、うち累積の陽性者数は${positive}人です。入院中は${hospitalized}人で、うち軽症・中等症は${mild}人、また重症は${critically}人です。さらに死亡は${deceased}人、退院は${discharged}人です。`
+      const ariaLabel = `検査陽性者の状況: 検査実施件数は${inspected}人、うち累積の陽性者数は${positive}人です。入院中は${hospitalized}人で、うち中等症は${mild}人、また重症は${critically}人です。さらに死亡は${deceased}人、退院は${discharged}人です。`
       return ariaLabel
     }
   }
@@ -227,7 +229,7 @@ export default {
     width: calc(100% / 3 * 2);
   }
 }
-// 軽症・中等症
+// 中等症
 .item.mild {
   width: calc(100% / 2);
 }
