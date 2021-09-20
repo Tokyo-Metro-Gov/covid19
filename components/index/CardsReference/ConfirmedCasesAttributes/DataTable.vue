@@ -26,6 +26,7 @@
         :height="240"
         fixed-header
         :hide-default-header="true"
+        :hide-default-footer="true"
         :mobile-breakpoint="0"
         :footer-props="{
           'items-per-page-options': [15, 30, 50, 100, 200, 300, 500, 1000],
@@ -53,14 +54,54 @@
         <template #body="{ items, headers }">
           <slot name="tableBody" :items="items" :headers="headers" />
         </template>
-        <template slot="footer.page-text" slot-scope="props">
-          {{
-            $t('{itemsLength} 項目中 {pageStart} - {pageStop} ', {
-              itemsLength: props.itemsLength,
-              pageStart: props.pageStart,
-              pageStop: props.pageStop,
-            })
-          }}
+        <template #footer="{ attr, on, props }">
+          <div class="cardTableFooter">
+            <div class="cardTableFooterItem">
+              <label for="perPageSelector" class="cardTableFooterLabel">
+                {{ props.itemsPerPageText }}
+              </label>
+              <select
+                id="perPageSelector"
+                v-model="itemsPerPage"
+                v-bind="attr"
+                class="perPageSelectBox"
+                v-on="on"
+              >
+                <option
+                  v-for="(item, i) in props.itemsPerPageOptions"
+                  :key="i"
+                  :value="item"
+                >
+                  {{ item }}
+                </option>
+              </select>
+            </div>
+            <div class="cardTableFooterItem">
+              <span class="cardTableFooterLabel">
+                {{
+                  $t('{itemsLength} 項目中 {pageStart} - {pageStop} ', {
+                    itemsLength: props.pagination.itemsLength,
+                    pageStart: props.pagination.pageStart + 1,
+                    pageStop: props.pagination.pageStop,
+                  })
+                }}
+              </span>
+              <div>
+                <v-icon v-model="page" :disabled="page <= 1" @click="page--">
+                  {{ mdiChevronLeft }}
+                </v-icon>
+                <v-icon
+                  v-model="page"
+                  :disabled="
+                    props.pagination.itemsLength <= props.pagination.pageStop
+                  "
+                  @click="page++"
+                >
+                  {{ mdiChevronRight }}
+                </v-icon>
+              </div>
+            </div>
+          </div>
         </template>
       </v-data-table>
     </v-layout>
@@ -84,7 +125,7 @@
 </template>
 
 <script lang="ts">
-import { mdiAlert } from '@mdi/js'
+import { mdiAlert, mdiChevronLeft, mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
@@ -137,6 +178,8 @@ export default Vue.extend({
       itemsPerPage: 15,
       page: 1,
       mdiAlert,
+      mdiChevronLeft,
+      mdiChevronRight,
     }
   },
   watch: {
@@ -244,5 +287,39 @@ export default Vue.extend({
 }
 .DataTable-header {
   white-space: nowrap;
+}
+.cardTableFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 12px 0;
+  @include font-size(14);
+}
+.cardTableFooterItem {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}
+.cardTableFooterLabel {
+  padding-right: 8px;
+}
+.perPageSelectBox {
+  // select 要素のリセット
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  // IEで矢印ボタンを消す
+  &::-ms-expand {
+    display: none;
+  }
+
+  border: 1px solid $gray-4;
+  padding: 0 8px;
+
+  &:focus {
+    border: 1px dotted $gray-3;
+    outline: none;
+  }
 }
 </style>
