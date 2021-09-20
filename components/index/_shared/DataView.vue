@@ -301,6 +301,7 @@ export default Vue.extend({
   &-Description {
     position: relative;
     margin: 10px 0;
+    outline-offset: 4px;
     color: $gray-3;
     @include font-size(12);
 
