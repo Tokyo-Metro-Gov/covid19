@@ -302,18 +302,8 @@ export default Vue.extend({
   padding-right: 8px;
 }
 .perPageSelectBox {
-  // select 要素のリセット
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: transparent;
-  // IEで矢印ボタンを消す
-  &::-ms-expand {
-    display: none;
-  }
-
+  appearance: auto;
   border: 1px solid $gray-4;
-  padding: 0 8px;
 
   &:focus {
     border: 1px dotted $gray-3;
