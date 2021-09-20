@@ -10,7 +10,8 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue' // eslint-disable-line import/named
+import type { PropType } from 'vue'
+import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import { DisplayData } from '@/plugins/vue-chart'
