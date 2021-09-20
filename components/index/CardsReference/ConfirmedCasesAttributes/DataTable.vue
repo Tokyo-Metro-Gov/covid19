@@ -9,7 +9,7 @@
     >
       <scale-loader color="#00A040" />
     </v-overlay>
-    <v-overlay v-if="error" absolute justify-center align-center>
+    <v-overlay v-if="error" absolute>
       <v-alert color="#AD2121">
         <v-icon>
           {{ mdiAlert }}
