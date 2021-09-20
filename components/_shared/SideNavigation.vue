@@ -395,7 +395,7 @@ export default Vue.extend({
     handleChangeRoute() {
       // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
       return this.$nextTick().then(() => {
-        const $Side = this.$refs.Side as HTMLEmbedElement | undefined
+        const $Side = this.$refs.Side as HTMLElement | undefined
         if ($Side) {
           $Side.focus()
         }
