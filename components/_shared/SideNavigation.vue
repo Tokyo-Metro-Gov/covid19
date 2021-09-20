@@ -5,6 +5,7 @@
         ref="Open"
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
+        :aria-haspopup="true"
         @click="$emit('open-navigation', $event)"
       >
         {{ mdiMenu }}
