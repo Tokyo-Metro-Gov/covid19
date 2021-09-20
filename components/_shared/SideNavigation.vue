@@ -18,11 +18,11 @@
             height="28"
             :alt="$t('東京都')"
           />
-          <div class="SideNavigation-HeaderText">
+          <span class="SideNavigation-HeaderText">
             {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
               $t('menu/対策サイト')
             }}
-          </div>
+          </span>
         </app-link>
       </h1>
     </header>
@@ -520,6 +520,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-HeaderText {
+  display: block;
   margin: 10px 0 0 0;
   @include lessThan($small) {
     margin: 0 0 0 10px;
