@@ -54,7 +54,7 @@
         <template #body="{ items, headers }">
           <slot name="tableBody" :items="items" :headers="headers" />
         </template>
-        <template #footer="{ attr, on, props }">
+        <template #footer="{ props }">
           <div class="cardTableFooter">
             <div class="cardTableFooterItem">
               <label for="perPageSelector" class="cardTableFooterLabel">
@@ -63,9 +63,7 @@
               <select
                 id="perPageSelector"
                 v-model="itemsPerPage"
-                v-bind="attr"
                 class="perPageSelectBox"
-                v-on="on"
               >
                 <option
                   v-for="(item, i) in props.itemsPerPageOptions"
