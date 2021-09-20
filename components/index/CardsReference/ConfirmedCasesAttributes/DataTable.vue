@@ -85,11 +85,25 @@
                 }}
               </span>
               <div>
-                <v-icon v-model="page" :disabled="page <= 1" @click="page--">
+                <v-icon
+                  v-model="page"
+                  :aria-label="
+                    $t('前の{perPage}件', {
+                      perPage: itemsPerPage,
+                    })
+                  "
+                  :disabled="page <= 1"
+                  @click="page--"
+                >
                   {{ mdiChevronLeft }}
                 </v-icon>
                 <v-icon
                   v-model="page"
+                  :aria-label="
+                    $t('次の{perPage}件', {
+                      perPage: itemsPerPage,
+                    })
+                  "
                   :disabled="
                     props.pagination.itemsLength <= props.pagination.pageStop
                   "
