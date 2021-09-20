@@ -18,24 +18,27 @@
         @click="onClickLegend(i)"
       >
         <button>
-          <div
+          <span
             v-if="i === 2"
+            :class="$style.area"
             :style="{
               background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
               border: 0,
               height: '3px',
             }"
           />
-          <div
+          <span
             v-else-if="i === 3"
+            :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
               border: 0,
               height: '3px',
             }"
           />
-          <div
+          <span
             v-else
+            :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor,
@@ -672,7 +675,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     li {
       display: inline-block;
       margin: 0 3px;
-      div {
+      .area {
         height: 12px;
         margin: 2px 4px;
         width: 40px;
