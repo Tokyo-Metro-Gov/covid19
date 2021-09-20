@@ -30,6 +30,7 @@
 
     <div
       v-if="isNaviOpen || $vuetify.breakpoint.smAndUp"
+      ref="SideBody"
       :class="['SideNavigation-Body', { '-opened': isNaviOpen }]"
     >
       <v-icon
@@ -371,23 +372,26 @@ export default Vue.extend({
   },
   watch: {
     $route: 'handleChangeRoute',
-    '$vuetify.breakpoint.xsOnly'(value) {
-      const $Side = this.$refs.Side as HTMLEmbedElement | undefined
-      if ($Side) {
-        if (value) {
-          $Side.setAttribute('role', 'dialog')
-          $Side.setAttribute('aria-modal', 'true')
-        } else {
-          $Side.removeAttribute('role')
-          $Side.removeAttribute('aria-modal')
-        }
-      }
-    },
     isNaviOpen(value) {
+      this.handleChangeAttribute(value)
       this.handleNavFocus(value)
     },
   },
   methods: {
+    handleChangeAttribute(isNaviOpen: boolean) {
+      return this.$nextTick().then(() => {
+        const $SideBody = this.$refs.SideBody as HTMLElement | undefined
+        if ($SideBody) {
+          if (isNaviOpen) {
+            $SideBody.setAttribute('role', 'dialog')
+            $SideBody.setAttribute('aria-modal', 'true')
+          } else {
+            $SideBody.removeAttribute('role')
+            $SideBody.removeAttribute('aria-modal')
+          }
+        }
+      })
+    },
     handleChangeRoute() {
       // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
       return this.$nextTick().then(() => {
