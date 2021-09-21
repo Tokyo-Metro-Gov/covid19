@@ -69,7 +69,7 @@
           :aria-controls="titleId + '--description'"
           @click="toggleDescription"
         >
-          <div class="DataView-Description--Toggle__Icon">
+          <span class="DataView-Description--Toggle__Icon">
             <v-icon
               :style="{
                 transform: isAdditionalDescriptionExpanded
@@ -79,7 +79,7 @@
               size="2.4rem"
               >{{ mdiChevronRight }}</v-icon
             >
-          </div>
+          </span>
           <span
             v-if="isAdditionalDescriptionExpanded"
             class="DataView-Description--Toggle__Text"
