@@ -1,7 +1,9 @@
 <template>
-  <div ref="chartContainer" class="LegendStickyChart" tabindex="0">
-    <div :style="{ width: `${chartWidth}px` }">
-      <slot name="chart" :chart-width="chartWidth" />
+  <div ref="chartContainer" class="LegendStickyChart">
+    <div ref="scrollable" class="scrollable" tabindex="0">
+      <div :style="{ width: `${chartWidth}px` }">
+        <slot name="chart" :chart-width="chartWidth" />
+      </div>
     </div>
     <slot name="sticky-chart" />
   </div>
@@ -84,9 +86,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return Math.max(calcWidth, containerWidth)
     },
     scrollRightSide() {
-      const container = this.$refs.chartContainer as HTMLElement
-      if (!container) return
-      container.scrollLeft = this.chartWidth
+      const scrollable = this.$refs.scrollable as HTMLElement
+      if (!scrollable) return
+      scrollable.scrollLeft = this.chartWidth
     },
     handleResize() {
       clearTimeout(this.timerId)
@@ -113,8 +115,11 @@ export default options
 .LegendStickyChart {
   margin: 16px 0;
   position: relative;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow: hidden;
+
+  .scrollable {
+    overflow-x: scroll;
+  }
 
   .sticky-legend {
     position: absolute;

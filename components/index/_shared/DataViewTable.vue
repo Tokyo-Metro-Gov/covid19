@@ -88,7 +88,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   mounted() {
     const vTables = this.$refs.displayedTable as Vue
     const vTableElement = vTables.$el
-    const tables = vTableElement.querySelectorAll('.v-data-table__wrapper')
+    const tables = vTableElement.querySelectorAll('table')
     // NodeListをIE11でforEachするためのワークアラウンド
     const nodes = Array.prototype.slice.call(tables, 0)
     nodes.forEach((table: HTMLElement) => {
