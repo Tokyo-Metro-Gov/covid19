@@ -66,16 +66,17 @@ export default Vue.extend({
   },
   mounted() {
     this.$nextTick().then(() => {
-      const tabs = this.$refs.tabs as HTMLElement | undefined
-      const tabsElement = tabs.$el
-      const tabDiv = tabsElement.querySelector('div')
-      const tabItems = tabsElement.querySelectorAll('a')
+      const tabs = this.$refs.tabs as Vue
       if (tabs) {
-        tabDiv.removeAttribute('role')
-        for (const item of tabItems) {
-          item.removeAttribute('role')
-          item.removeAttribute('aria-selected')
-        }
+        const tabsElement = tabs.$el
+        const tabDiv = tabsElement.querySelectorAll('div')
+        tabDiv[0].removeAttribute('role')
+        const tabItems = tabsElement.querySelectorAll('a')
+        const nodes = Array.prototype.slice.call(tabItems, 0)
+        nodes.forEach((tabItem: HTMLElement) => {
+          tabItem.removeAttribute('role')
+          tabItem.removeAttribute('aria-selected')
+        })
       }
     })
   },
