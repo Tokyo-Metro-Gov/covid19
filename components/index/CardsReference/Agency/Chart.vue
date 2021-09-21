@@ -223,7 +223,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 9,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 callback: (_, i) => {
                   return this.periods[i]
                 },
@@ -240,7 +240,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 11,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 padding: 3,
                 fontStyle: 'bold',
               },
@@ -261,7 +261,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 9,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 maxTicksLimit: 10,
                 callback: (label) => {
                   return `${label}${this.unit}`
@@ -308,7 +308,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 9,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 callback: (_, i) => {
                   return this.periods[i]
                 },
@@ -325,7 +325,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
@@ -345,7 +345,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 suggestedMin: 0, // displayOption では定義なし
-                fontColor: '#808080',
+                fontColor: '#707070',
                 maxTicksLimit: 10,
                 callback: (label) => {
                   return `${label}${this.unit}`

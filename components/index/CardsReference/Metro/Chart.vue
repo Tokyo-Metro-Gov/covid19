@@ -264,7 +264,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 10,
                 maxTicksLimit: 20,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 callback: (_, i) => {
                   return this.periods[i]
                 },
@@ -281,7 +281,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 padding: 3,
                 fontStyle: 'bold',
               },
@@ -303,7 +303,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 callback: (value) => {
                   const valueCasted =
                     typeof value === 'number' ? value : Number(value)
@@ -361,7 +361,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 10,
                 maxTicksLimit: 20,
-                fontColor: 'transparent', // displayOption では #808080
+                fontColor: 'transparent', // displayOption では #707070
                 callback: (_, i) => {
                   return this.periods[i]
                 },
@@ -378,7 +378,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // displayOption では #808080
+                fontColor: 'transparent', // displayOption では #707070
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
@@ -399,7 +399,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 callback: (value) => {
                   const valueCasted =
                     typeof value === 'number' ? value : Number(value)
