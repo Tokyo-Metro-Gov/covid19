@@ -57,7 +57,7 @@ export default Vue.extend({
     this.isOpen = this.$props.defaultOpen
   },
   methods: {
-    enter(element) {
+    enter(element: Element) {
       element.style.width = getComputedStyle(element).width
       element.style.position = 'absolute'
       element.style.visibility = 'hidden'
