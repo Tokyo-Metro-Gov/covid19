@@ -5,7 +5,7 @@
       class="custom-expansion-panel-button"
       :aria-expanded="isOpen"
       :aria-controls="`${id}-content`"
-      @click="isOpen = !isOpen"
+      @click="clickButton"
     >
       <span
         class="custom-expansion-panel-icon"
@@ -57,6 +57,10 @@ export default Vue.extend({
     this.isOpen = this.$props.defaultOpen
   },
   methods: {
+    clickButton($event) {
+      this.isOpen = !this.isOpen
+      this.$emit('click', $event)
+    },
     enter(element: Element) {
       element.style.width = getComputedStyle(element).width
       element.style.position = 'absolute'
