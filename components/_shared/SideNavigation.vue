@@ -5,6 +5,7 @@
         ref="Open"
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
+        :aria-haspopup="true"
         @click="$emit('open-navigation', $event)"
       >
         {{ mdiMenu }}
@@ -18,17 +19,18 @@
             height="28"
             :alt="$t('東京都')"
           />
-          <div class="SideNavigation-HeaderText">
+          <span class="SideNavigation-HeaderText">
             {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
               $t('menu/対策サイト')
             }}
-          </div>
+          </span>
         </app-link>
       </h1>
     </header>
 
     <div
       v-if="isNaviOpen || $vuetify.breakpoint.smAndUp"
+      ref="SideBody"
       :class="['SideNavigation-Body', { '-opened': isNaviOpen }]"
     >
       <v-icon
@@ -183,7 +185,7 @@ import {
   mdiMenu,
 } from '@mdi/js'
 import Vue from 'vue'
-import { TranslateResult } from 'vue-i18n' // eslint-disable-line import/named
+import type { TranslateResult } from 'vue-i18n'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import LanguageSelector from '@/components/_shared/SideNavigation/LanguageSelector.vue'
@@ -370,27 +372,30 @@ export default Vue.extend({
   },
   watch: {
     $route: 'handleChangeRoute',
-    '$vuetify.breakpoint.xsOnly'(value) {
-      const $Side = this.$refs.Side as HTMLEmbedElement | undefined
-      if ($Side) {
-        if (value) {
-          $Side.setAttribute('role', 'dialog')
-          $Side.setAttribute('aria-modal', 'true')
-        } else {
-          $Side.removeAttribute('role')
-          $Side.removeAttribute('aria-modal')
-        }
-      }
-    },
     isNaviOpen(value) {
+      this.handleChangeAttribute(value)
       this.handleNavFocus(value)
     },
   },
   methods: {
+    handleChangeAttribute(isNaviOpen: boolean) {
+      return this.$nextTick().then(() => {
+        const $SideBody = this.$refs.SideBody as HTMLElement | undefined
+        if ($SideBody) {
+          if (isNaviOpen) {
+            $SideBody.setAttribute('role', 'dialog')
+            $SideBody.setAttribute('aria-modal', 'true')
+          } else {
+            $SideBody.removeAttribute('role')
+            $SideBody.removeAttribute('aria-modal')
+          }
+        }
+      })
+    },
     handleChangeRoute() {
       // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
       return this.$nextTick().then(() => {
-        const $Side = this.$refs.Side as HTMLEmbedElement | undefined
+        const $Side = this.$refs.Side as HTMLElement | undefined
         if ($Side) {
           $Side.focus()
         }
@@ -520,6 +525,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-HeaderText {
+  display: block;
   margin: 10px 0 0 0;
   @include lessThan($small) {
     margin: 0 0 0 10px;

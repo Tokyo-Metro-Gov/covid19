@@ -722,8 +722,8 @@
   "ご意見はこちら（外部サービスを使用しています）": "Leave website feedback (external link)",
   "新型コロナウイルス感染症自宅療養者向けハンドブック": "Self-Isolation Handbook for COVID-19 Patients",
   "うち65歳以上の高齢者数": "Of whom, 65 or older",
-  "うち重症者数": "Of which XX are severe cases",
-  "うち重症病床数": "Of which XX are beds for patients with severe symptoms",
+  "うち重症者数": "Of which, number of severe cases",
+  "うち重症病床数": "Of which, beds for patients with severe symptoms",
   "検査数": "Tests",
   "入院数": "Hospitalized",
   "詳細はこちら": "Click here for details. ",
@@ -883,5 +883,9 @@
   "モニタリング項目の各グラフはこちら": "Click here for graphs of monitoring indexes",
   "新型コロナウイルスに関連した患者の発生について（過去1週間分）": "Occurrence information of COVID-19 related patients (for the past week)",
   "ワクチン接種ポータルサイト": "Vaccination portal site",
-  "検査情報サイト": "Test information site"
+  "検査情報サイト": "Test information site",
+  "年代別ワクチン接種状況・接種推計等の詳細はこちら": "Click here for detailed vaccination status and prospect by ages",
+  "全年齢接種数（２回目・累計）": "Second vaccinations to all ages (cumulative)",
+  "全年齢接種数（１回目・累計）": "First vaccinations to all ages (cumulative)",
+  "報告日別による陽性者数（65歳以上）の推移": "Change in positive cases (65 or older) by reported day"
 }

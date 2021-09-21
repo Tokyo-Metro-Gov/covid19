@@ -1,16 +1,15 @@
 <template>
-  <div ref="chartContainer" class="LegendStickyChart">
-    <div ref="scrollable" class="scrollable" tabindex="0">
-      <div :style="{ width: `${chartWidth}px` }">
-        <slot name="chart" :chart-width="chartWidth" />
-      </div>
+  <div ref="chartContainer" class="LegendStickyChart" tabindex="0">
+    <div :style="{ width: `${chartWidth}px` }">
+      <slot name="chart" :chart-width="chartWidth" />
     </div>
     <slot name="sticky-chart" />
   </div>
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue' // eslint-disable-line import/named
+import type { PropType } from 'vue'
+import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import { DisplayData } from '@/plugins/vue-chart'
@@ -85,9 +84,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return Math.max(calcWidth, containerWidth)
     },
     scrollRightSide() {
-      const scrollable = this.$refs.scrollable as HTMLElement
-      if (!scrollable) return
-      scrollable.scrollLeft = this.chartWidth
+      const container = this.$refs.chartContainer as HTMLElement
+      if (!container) return
+      container.scrollLeft = this.chartWidth
     },
     handleResize() {
       clearTimeout(this.timerId)
@@ -114,11 +113,8 @@ export default options
 .LegendStickyChart {
   margin: 16px 0;
   position: relative;
-  overflow: hidden;
-
-  .scrollable {
-    overflow-x: scroll;
-  }
+  overflow-x: scroll;
+  overflow-y: hidden;
 
   .sticky-legend {
     position: absolute;

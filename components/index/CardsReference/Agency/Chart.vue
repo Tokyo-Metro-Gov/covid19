@@ -6,7 +6,8 @@
     >
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
-          <div
+          <span
+            :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor,
@@ -67,7 +68,8 @@
 
 <script lang="ts">
 import { ChartData, ChartOptions, ChartTooltipItem } from 'chart.js'
-import Vue, { PropType } from 'vue' // eslint-disable-line import/named
+import type { PropType } from 'vue'
+import Vue from 'vue'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewTable, {
@@ -222,7 +224,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 9,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 callback: (_, i) => {
                   return this.periods[i]
                 },
@@ -239,7 +241,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 11,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 padding: 3,
                 fontStyle: 'bold',
               },
@@ -260,7 +262,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 9,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 maxTicksLimit: 10,
                 callback: (label) => {
                   return `${label}${this.unit}`
@@ -307,7 +309,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 9,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 callback: (_, i) => {
                   return this.periods[i]
                 },
@@ -324,7 +326,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
@@ -344,7 +346,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 suggestedMin: 0, // displayOption では定義なし
-                fontColor: '#808080',
+                fontColor: '#707070',
                 maxTicksLimit: 10,
                 callback: (label) => {
                   return `${label}${this.unit}`
@@ -411,7 +413,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     li {
       display: inline-block;
       margin: 0 3px;
-      div {
+      .area {
         height: 12px;
         margin: 2px 4px;
         width: 40px;
