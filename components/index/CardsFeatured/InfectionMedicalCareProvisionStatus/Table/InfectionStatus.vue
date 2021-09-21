@@ -58,7 +58,8 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue' // eslint-disable-line import/named
+import type { PropType } from 'vue'
+import Vue from 'vue'
 
 import ValueWithTranslatableUnit from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/ValueWithTranslatableUnit.vue'
 import { InfectionMedicalcareprovisionStatus as IInfectionMedicalCareProvisionStatus } from '@/libraries/auto_generated/data_converter/convertInfectionMedicalcareprovisionStatus'

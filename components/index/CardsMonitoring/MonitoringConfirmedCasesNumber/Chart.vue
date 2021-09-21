@@ -11,16 +11,18 @@
     >
       <li v-for="(item, i) in dataLabels" :key="i" @click="onClickLegend(i)">
         <button>
-          <div
+          <span
             v-if="i === 1"
+            :class="$style.area"
             :style="{
               background: colors[i].fillColor,
               border: 0,
               height: '3px',
             }"
           />
-          <div
+          <span
             v-else
+            :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor,
@@ -88,7 +90,8 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue, { PropType } from 'vue' // eslint-disable-line import/named
+import type { PropType } from 'vue'
+import Vue from 'vue'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
@@ -322,7 +325,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 maxRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
@@ -342,7 +345,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 11,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 padding: 3,
                 fontStyle: 'bold',
               },
@@ -365,7 +368,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
               },
@@ -410,7 +413,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 maxRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
@@ -428,7 +431,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
@@ -451,7 +454,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
               },
@@ -526,7 +529,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     li {
       display: inline-block;
       margin: 0 3px;
-      div {
+      .area {
         height: 12px;
         margin: 2px 4px;
         width: 40px;

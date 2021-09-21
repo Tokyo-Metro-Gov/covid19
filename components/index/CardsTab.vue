@@ -78,6 +78,10 @@ export default Vue.extend({
   background: $gray-5;
 }
 
+.v-tabs {
+  min-height: 100vh;
+}
+
 .v-tab {
   top: 1px;
   margin: 0 8px;
