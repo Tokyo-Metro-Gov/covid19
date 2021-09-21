@@ -11,9 +11,9 @@
             :hide-actions="true"
             :style="{ transition: 'none' }"
           >
-            <div class="v-expansion-panel-header__icon">
+            <span class="v-expansion-panel-header__icon">
               <v-icon left size="2.4rem">{{ mdiChevronRight }}</v-icon>
-            </div>
+            </span>
             <span class="MenuTitle">{{ setMenuTitle(slug) }}</span>
           </v-expansion-panel-header>
           <v-expansion-panel-content>

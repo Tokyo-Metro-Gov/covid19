@@ -6,7 +6,8 @@
     >
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
-          <div
+          <span
+            :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor,
@@ -412,7 +413,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     li {
       display: inline-block;
       margin: 0 3px;
-      div {
+      .area {
         height: 12px;
         margin: 2px 4px;
         width: 40px;
