@@ -3,7 +3,7 @@
     <button
       type="button"
       class="custom-expansion-panel-button"
-      :aria-expanded="isOpen"
+      :aria-expanded="`${isOpen}`"
       :aria-controls="`${id}-content`"
       @click="clickButton"
     >
