@@ -115,7 +115,6 @@ export default options
 .LegendStickyChart {
   margin: 16px 0;
   position: relative;
-  overflow: hidden;
 
   .scrollable {
     overflow-x: scroll;

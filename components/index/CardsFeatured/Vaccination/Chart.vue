@@ -52,6 +52,7 @@
       </template>
       <template #sticky-chart>
         <bar
+          :ref="'stickyChart'"
           class="sticky-legend"
           :chart-id="`${chartId}-header-right`"
           :chart-data="displayDataHeader"
@@ -472,6 +473,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     if (canvas) {
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
+    }
+
+    const stickyChart = this.$refs.stickyChart as Vue
+    const stickyElement = stickyChart.$el
+    const stickyCanvas = stickyElement.querySelector('canvas')
+
+    if (stickyCanvas) {
+      stickyCanvas.setAttribute('aria-hidden', 'true')
     }
   },
 }
