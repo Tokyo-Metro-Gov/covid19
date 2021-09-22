@@ -89,7 +89,11 @@
         </div>
       </div>
 
-      <expantion-panel v-if="$slots.dataTable" class="DataView-ExpantionPanel">
+      <expantion-panel
+        v-if="$slots.dataTable"
+        :id="titleId"
+        class="DataView-ExpantionPanel"
+      >
         <slot name="dataTable" />
       </expantion-panel>
 

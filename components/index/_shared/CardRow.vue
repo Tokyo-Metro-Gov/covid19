@@ -14,13 +14,16 @@ const cardClassName = '.DataCard'
 
 type Payload = {
   dataView?: Vue
+  item: string
 }
 type Data = {
   payload: Payload
+  item: string
+  className: string
 }
 type Methods = {
   handleCardHeight: () => void
-  alignHeight: () => void
+  alignHeight: (item: string) => void
 }
 type Computed = {
   cardElements: (HTMLElement | null)[]
@@ -55,7 +58,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         side.dataset.height = `${side.offsetHeight}`
       }
     },
-    alignHeight(item) {
+    alignHeight(item: string) {
       const [self, side] = this.cardElements
 
       if (!self || !side) return
