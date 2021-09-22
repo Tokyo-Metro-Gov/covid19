@@ -45,6 +45,7 @@
       </div>
 
       <div
+        :id="titleId + '--description'"
         ref="Description"
         class="DataView-Description DataView-Description--Additional"
         :class="{
@@ -54,7 +55,7 @@
       >
         <slot name="additionalDescription" />
 
-        <div
+        <button
           v-if="
             $slots.additionalDescription &&
             !$route.params.card &&
@@ -64,9 +65,11 @@
             'DataView-Description DataView-Description--Toggle',
             isAdditionalDescriptionExpanded ? 'expand' : '',
           ]"
+          :aria-expanded="[isAdditionalDescriptionExpanded ? true : false]"
+          :aria-controls="titleId + '--description'"
           @click="toggleDescription"
         >
-          <div class="DataView-Description--Toggle__Icon">
+          <span class="DataView-Description--Toggle__Icon">
             <v-icon
               :style="{
                 transform: isAdditionalDescriptionExpanded
@@ -76,7 +79,7 @@
               size="2.4rem"
               >{{ mdiChevronRight }}</v-icon
             >
-          </div>
+          </span>
           <span
             v-if="isAdditionalDescriptionExpanded"
             class="DataView-Description--Toggle__Text"
@@ -86,7 +89,7 @@
           <span v-else class="DataView-Description--Toggle__Text">
             {{ $t('注釈を全て表示') }}
           </span>
-        </div>
+        </button>
       </div>
 
       <expantion-panel
@@ -302,6 +305,7 @@ export default Vue.extend({
   &-Description {
     position: relative;
     margin: 10px 0;
+    outline-offset: 4px;
     color: $gray-3;
     @include font-size(12);
 
