@@ -5,22 +5,17 @@
       :key="`menu-block-${i}`"
       class="MenuSection"
     >
-      <v-expansion-panels v-if="itemTitles[i].isExpand" flat>
-        <v-expansion-panel>
-          <v-expansion-panel-header
-            :hide-actions="true"
-            :style="{ transition: 'none' }"
-          >
-            <div class="v-expansion-panel-header__icon">
-              <v-icon left size="2.4rem">{{ mdiChevronRight }}</v-icon>
-            </div>
-            <span class="MenuTitle">{{ setMenuTitle(slug) }}</span>
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
-            <menu-list-contents :items="menu" @click="$emit('click', $event)" />
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-      </v-expansion-panels>
+      <custom-expansion-panel v-if="itemTitles[i].isExpand" :id="`menu-${i}`">
+        <template #icon>
+          <v-icon size="2.4rem">{{ mdiChevronRight }}</v-icon>
+        </template>
+        <template #title>
+          <span class="MenuTitle">{{ setMenuTitle(slug) }}</span>
+        </template>
+        <template #content>
+          <menu-list-contents :items="menu" @click="$emit('click', $event)" />
+        </template>
+      </custom-expansion-panel>
       <template v-else>
         <h2 class="MenuTitle">
           {{ setMenuTitle(slug) }}
@@ -33,8 +28,10 @@
 
 <script lang="ts">
 import { mdiChevronRight } from '@mdi/js'
-import Vue, { PropType } from 'vue' // eslint-disable-line import/named
+import type { PropType } from 'vue'
+import Vue from 'vue'
 
+import CustomExpansionPanel from '@/components/_shared/CustomExpansionPanel.vue'
 import MenuListContents from '@/components/_shared/SideNavigation/MenuListContents.vue'
 
 type MenuItemTitle = {
@@ -56,7 +53,7 @@ type MenuObj = {
 }
 
 export default Vue.extend({
-  components: { MenuListContents },
+  components: { CustomExpansionPanel, MenuListContents },
   props: {
     itemTitles: {
       type: Array as PropType<MenuItemTitle[]>,

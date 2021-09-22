@@ -18,24 +18,27 @@
         @click="onClickLegend(i)"
       >
         <button>
-          <div
+          <span
             v-if="i === 2"
+            :class="$style.area"
             :style="{
               background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
               border: 0,
               height: '3px',
             }"
           />
-          <div
+          <span
             v-else-if="i === 3"
+            :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
               border: 0,
               height: '3px',
             }"
           />
-          <div
+          <span
             v-else
+            :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor,
@@ -67,6 +70,7 @@
       </template>
       <template #sticky-chart>
         <bar
+          :ref="'stickyChart'"
           class="sticky-legend"
           :chart-id="`${chartId}-header-right`"
           :chart-data="displayDataHeader"
@@ -102,8 +106,9 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue, { PropType } from 'vue' // eslint-disable-line import/named
-import { TranslateResult } from 'vue-i18n' // eslint-disable-line import/named
+import type { PropType } from 'vue'
+import Vue from 'vue'
+import type { TranslateResult } from 'vue-i18n'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
@@ -417,7 +422,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 maxRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
@@ -437,7 +442,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 11,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 padding: 3,
                 fontStyle: 'bold',
               },
@@ -462,7 +467,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
               },
@@ -477,7 +482,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
@@ -553,7 +558,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 maxRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
@@ -571,7 +576,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
@@ -596,7 +601,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
               },
@@ -611,7 +616,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
@@ -649,6 +654,14 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
+
+    const stickyChart = this.$refs.stickyChart as Vue
+    const stickyElement = stickyChart.$el
+    const stickyCanvas = stickyElement.querySelector('canvas')
+
+    if (stickyCanvas) {
+      stickyCanvas.setAttribute('aria-hidden', 'true')
+    }
   },
   methods: {
     onClickLegend(i) {
@@ -671,7 +684,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     li {
       display: inline-block;
       margin: 0 3px;
-      div {
+      .area {
         height: 12px;
         margin: 2px 4px;
         width: 40px;

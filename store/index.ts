@@ -8,9 +8,10 @@ import { InfectionMedicalcareprovisionStatusRepository as InfectionMedicalCarePr
 import { MetroRepository } from '@/libraries/repositories/MetroRepository'
 import { MonitoringCommentImageRepository } from '@/libraries/repositories/MonitoringCommentImageRepository'
 import { NewsRepository } from '@/libraries/repositories/NewsRepository'
+import { PositiveOver65Repository } from '@/libraries/repositories/PositiveOver65Repository'
 import { StayingPopulationRepository } from '@/libraries/repositories/StayingPopulationRepository'
 import { TokyoRuleRepository } from '@/libraries/repositories/TokyoRuleRepository'
-import { VaccinationAllRepository } from '@/libraries/repositories/VaccinationAllRepository'
+import { VaccinationRepository } from '@/libraries/repositories/VaccinationRepository'
 import { VariantsRepository } from '@/libraries/repositories/VariantsRepository'
 
 export const state = () => ({
@@ -26,6 +27,7 @@ export const state = () => ({
   news: new NewsRepository().data,
   stayingPopulation: new StayingPopulationRepository().data,
   tokyoRule: new TokyoRuleRepository().data,
-  vaccination: new VaccinationAllRepository().data,
+  vaccination: new VaccinationRepository().data,
   variants: new VariantsRepository().data,
+  positiveOver65: new PositiveOver65Repository().data,
 })

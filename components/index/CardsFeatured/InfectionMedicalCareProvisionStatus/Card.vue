@@ -18,6 +18,18 @@
             :date="formatDate(statisticDate)"
           />
         </section>
+        <div :class="$style.link">
+          <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
+          <app-link
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/hodo/saishin/hassei.html"
+          >
+            {{
+              $t(
+                '新型コロナウイルスに関連した患者の発生について（過去1週間分）'
+              )
+            }}
+          </app-link>
+        </div>
         <section :class="$style.section">
           <h4>{{ $t('医療提供体制') }}</h4>
           <medical-system :aria-label="$t('医療提供体制')" :items="statuses" />
@@ -28,8 +40,10 @@
 </template>
 
 <script lang="ts">
+import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
+import AppLink from '@/components/_shared/AppLink.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
 import InfectionStatus from '@/components/index/CardsFeatured/InfectionMedicalCareProvisionStatus/Table/InfectionStatus.vue'
 import MedicalSystem from '@/components/index/CardsFeatured/InfectionMedicalCareProvisionStatus/Table/MedicalSystem.vue'
@@ -38,7 +52,9 @@ import {
   InfectionMedicalcareprovisionStatus as IInfectionMedicalCareProvisionStatus,
 } from '@/libraries/auto_generated/data_converter/convertInfectionMedicalcareprovisionStatus'
 
-type Data = {}
+type Data = {
+  mdiChevronRight: string
+}
 type Methods = {
   formatDate(date: Date): string
 }
@@ -52,9 +68,15 @@ type Props = {}
 
 export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
+    AppLink,
     DataView,
     InfectionStatus,
     MedicalSystem,
+  },
+  data() {
+    return {
+      mdiChevronRight,
+    }
   },
   computed: {
     statuses() {
@@ -82,7 +104,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 
 <style lang="scss" module>
 .section {
-  margin: 0 0 20px;
+  margin: 20px 0;
 
   /* h タグが連続するため DataView-Content の margin を少し打ち消す */
   &:first-child {
@@ -99,5 +121,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 dfn {
   font-style: normal;
   font-weight: 600;
+}
+
+.link {
+  @include font-size(14);
 }
 </style>

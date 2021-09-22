@@ -24,7 +24,7 @@
               <v-icon size="1.1em" :class="$style['button-v-icon']">
                 {{ mdiClipboardText }}
               </v-icon>
-              {{ $t('検査情報') }}
+              {{ $t('検査情報サイト') }}
             </span>
           </app-link>
         </template>

@@ -1,5 +1,5 @@
 <template>
-  <v-tabs v-model="tab" hide-slider>
+  <v-tabs ref="tabs" v-model="tab" hide-slider>
     <v-tab
       v-for="(item, i) in items"
       :id="`cardTab-${i}`"
@@ -64,6 +64,22 @@ export default Vue.extend({
       mdiChartTimelineVariant,
     }
   },
+  mounted() {
+    this.$nextTick().then(() => {
+      const tabs = this.$refs.tabs as Vue
+      if (tabs) {
+        const tabsElement = tabs.$el
+        const tabDiv = tabsElement.querySelectorAll('div')
+        tabDiv[0].removeAttribute('role')
+        const tabItems = tabsElement.querySelectorAll('a')
+        const nodes = Array.prototype.slice.call(tabItems, 0)
+        nodes.forEach((tabItem: HTMLElement) => {
+          tabItem.removeAttribute('role')
+          tabItem.removeAttribute('aria-selected')
+        })
+      }
+    })
+  },
   methods: {
     change() {
       EventBus.$emit(TOGGLE_EVENT)
@@ -76,6 +92,10 @@ export default Vue.extend({
 .v-slide-group__content {
   border-bottom: 1px solid $gray-2;
   background: $gray-5;
+}
+
+.v-tabs {
+  min-height: 100vh;
 }
 
 .v-tab {

@@ -14,13 +14,16 @@ const cardClassName = '.DataCard'
 
 type Payload = {
   dataView?: Vue
+  item: string
 }
 type Data = {
   payload: Payload
+  item: string
+  className: string
 }
 type Methods = {
   handleCardHeight: () => void
-  alignHeight: () => void
+  alignHeight: (item: string) => void
 }
 type Computed = {
   cardElements: (HTMLElement | null)[]
@@ -38,6 +41,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     return {
       payload: {},
       item: '',
+      className: '',
     }
   },
   methods: {
@@ -54,28 +58,29 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         side.dataset.height = `${side.offsetHeight}`
       }
     },
-    alignHeight(item) {
+    alignHeight(item: string) {
       const [self, side] = this.cardElements
 
       if (!self || !side) return
 
-      const selfHeight =
-        this.item !== item ? self.dataset.height : `${self.offsetHeight}`
-      const sideHeight =
-        this.item !== item ? side.dataset.height : `${side.offsetHeight}`
+      const selfHeight = self.dataset.height || `${self.offsetHeight}`
+      const sideHeight = side.dataset.height || `${side.offsetHeight}`
 
       self.style.maxHeight =
-        self.style.maxHeight === '100%' && this.item !== item
+        self.style.maxHeight === '100%' &&
+        this.item !== item &&
+        this.className !== self.className
           ? `${selfHeight}px`
           : '100%'
       side.style.maxHeight =
-        side.style.maxHeight === '100%' && this.item !== item
+        side.style.maxHeight === '100%' &&
+        this.item !== item &&
+        this.className !== self.className
           ? '100%'
           : `${sideHeight}px`
 
-      setTimeout(() => {
-        this.item = item
-      }, 500)
+      this.item = item
+      this.className = self.className
     },
   },
   computed: {

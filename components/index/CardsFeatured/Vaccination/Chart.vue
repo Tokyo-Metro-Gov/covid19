@@ -15,7 +15,8 @@
         @click="onClickLegend(i)"
       >
         <button>
-          <div
+          <span
+            :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor,
@@ -51,6 +52,7 @@
       </template>
       <template #sticky-chart>
         <bar
+          :ref="'stickyChart'"
           class="sticky-legend"
           :chart-id="`${chartId}-header-right`"
           :chart-data="displayDataHeader"
@@ -87,7 +89,7 @@ import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { TranslateResult } from 'vue-i18n' // eslint-disable-line import/named
+import type { TranslateResult } from 'vue-i18n'
 
 import DataView from '~/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '~/components/index/_shared/DataViewDataSetPanel.vue'
@@ -132,7 +134,6 @@ type Props = {
   title: string
   titleId: string
   infoTitles: string[]
-  infoData: number[][]
   chartId: string
   chartData: number[][]
   getFormatter: Function
@@ -172,11 +173,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: '',
     },
     infoTitles: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-    infoData: {
       type: Array,
       required: false,
       default: () => [],
@@ -222,13 +218,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   data: () => ({
-    displayLegends: [true, true, true, true],
-    colors: [
-      getGraphSeriesColor('C'),
-      getGraphSeriesColor('G'),
-      getGraphSeriesColor('A'),
-      getGraphSeriesColor('B'),
-    ],
+    displayLegends: [true, true],
+    colors: [getGraphSeriesColor('G'), getGraphSeriesColor('B')],
     canvas: true,
   }),
   computed: {
@@ -237,7 +228,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return dataset.slice(-1)[0]
       }
       const lastDay = this.labels.slice(-1)[0]
-      return this.infoData.map((data) => {
+      return this.chartData.map((data) => {
         return {
           lText: this.getFormatter(0)(lastData(data)),
           sText: `${this.$d(lastDay, 'date')} ${this.$t('累計値')}`,
@@ -252,7 +243,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           backgroundColor: this.colors[i].fillColor,
           borderColor: this.colors[i].strokeColor,
           borderWidth: 1,
-          stack: i === 0 || i === 1 ? 'stack-1' : 'stack-2',
         }
       })
       return {
@@ -314,14 +304,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           xAxes: [
             {
               id: 'day',
-              stacked: true,
               gridLines: {
                 display: false,
               },
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 maxRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
@@ -330,7 +319,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             {
               id: 'month',
-              stacked: true,
               gridLines: {
                 drawOnChartArea: false,
                 drawTicks: true,
@@ -339,7 +327,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 padding: 3,
                 fontStyle: 'bold',
               },
@@ -354,7 +342,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
               gridLines: {
                 display: true,
                 drawOnChartArea: true,
@@ -364,7 +351,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 10,
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
-                fontColor: '#808080',
+                fontColor: '#707070',
               },
             },
           ],
@@ -384,7 +371,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           data: this.chartData[i],
           backgroundColor: 'transparent',
           borderWidth: 0,
-          stack: i === 0 || i === 1 ? 'stack-1' : 'stack-2',
         }
       })
       return {
@@ -405,14 +391,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           xAxes: [
             {
               id: 'day',
-              stacked: true,
               gridLines: {
                 display: false,
               },
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 maxRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
@@ -421,7 +406,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             {
               id: 'month',
-              stacked: true,
               gridLines: {
                 drawOnChartArea: false,
                 drawTicks: false, // displayOption では true
@@ -430,7 +414,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
@@ -445,7 +429,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
               gridLines: {
                 display: true,
                 drawOnChartArea: false, // displayOption では true
@@ -456,7 +439,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 10,
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
-                fontColor: '#808080',
+                fontColor: '#707070',
               },
             },
           ],
@@ -467,12 +450,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     scaledTicksYAxisMax() {
-      const chartLeftMax = Array.from(this.chartData[0].keys())
-        .map((i) => this.chartData[0][i] + this.chartData[1][i])
-        .reduce((a, b) => Math.max(a, b), 0)
-      const chartRightMax = Array.from(this.chartData[0].keys())
-        .map((i) => this.chartData[2][i] + this.chartData[3][i])
-        .reduce((a, b) => Math.max(a, b), 0)
+      const chartLeftMax = this.chartData[0].reduce((a, b) => Math.max(a, b), 0)
+      const chartRightMax = this.chartData[1].reduce(
+        (a, b) => Math.max(a, b),
+        0
+      )
       return Math.max(chartLeftMax, chartRightMax)
     },
   },
@@ -492,6 +474,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
+
+    const stickyChart = this.$refs.stickyChart as Vue
+    const stickyElement = stickyChart.$el
+    const stickyCanvas = stickyElement.querySelector('canvas')
+
+    if (stickyCanvas) {
+      stickyCanvas.setAttribute('aria-hidden', 'true')
+    }
   },
 }
 
@@ -507,7 +497,7 @@ export default Vue.extend(options)
     li {
       display: inline-block;
       margin: 0 3px;
-      div {
+      .area {
         height: 12px;
         margin: 2px 4px;
         width: 40px;
