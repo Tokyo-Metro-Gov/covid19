@@ -16,19 +16,10 @@
       >
         <button>
           <span
-            v-if="i === 4"
+            v-if="i === 4 || i === 5"
             :class="$style.area"
             :style="{
-              background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0,
-              height: '3px',
-            }"
-          />
-          <span
-            v-else-if="i === 5"
-            :class="$style.area"
-            :style="{
-              backgroundColor: colors[4].fillColor,
+              backgroundColor: colors[i].fillColor,
               border: 0,
               height: '3px',
             }"
@@ -262,7 +253,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     displayLegends: [true, true, true, true, true, true],
-    colors: [...getGraphSeriesStyle(4), getGraphSeriesColor('E')],
+    colors: [
+      ...getGraphSeriesStyle(4),
+      getGraphSeriesColor('E'),
+      getGraphSeriesColor('H'),
+    ],
     canvas: true,
   }),
   computed: {
@@ -306,7 +301,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     displayData() {
-      const graphSeries = [...getGraphSeriesStyle(4), getGraphSeriesColor('E')]
       return {
         labels: this.labels,
         datasets: [
@@ -315,8 +309,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             yAxisID: 'y-axis-1',
             label: this.dataLabels[0],
             data: this.chartData[0],
-            backgroundColor: graphSeries[0].fillColor,
-            borderColor: graphSeries[0].strokeColor,
+            backgroundColor: this.colors[0].fillColor,
+            borderColor: this.colors[0].strokeColor,
             borderWidth: 1,
             order: 1,
           },
@@ -325,8 +319,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             yAxisID: 'y-axis-1',
             label: this.dataLabels[1],
             data: this.chartData[1],
-            backgroundColor: graphSeries[1].fillColor,
-            borderColor: graphSeries[1].strokeColor,
+            backgroundColor: this.colors[1].fillColor,
+            borderColor: this.colors[1].strokeColor,
             borderWidth: 1,
             order: 2,
           },
@@ -335,8 +329,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             yAxisID: 'y-axis-1',
             label: this.dataLabels[2],
             data: this.chartData[2],
-            backgroundColor: graphSeries[2].fillColor,
-            borderColor: graphSeries[2].strokeColor,
+            backgroundColor: this.colors[2].fillColor,
+            borderColor: this.colors[2].strokeColor,
             borderWidth: 1,
             order: 3,
           },
@@ -345,8 +339,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             yAxisID: 'y-axis-1',
             label: this.dataLabels[3],
             data: this.chartData[3],
-            backgroundColor: graphSeries[3].fillColor,
-            borderColor: graphSeries[3].strokeColor,
+            backgroundColor: this.colors[3].fillColor,
+            borderColor: this.colors[3].strokeColor,
             borderWidth: 1,
             order: 4,
           },
@@ -357,11 +351,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             data: this.chartData[4],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: graphSeries[4].strokeColor,
+            borderColor: this.colors[4].strokeColor,
             borderWidth: 3,
             fill: false,
             order: 0,
-            borderDash: [4, 4],
+            lineTension: 0,
           },
           {
             type: 'line',
@@ -370,7 +364,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             data: this.chartData[5],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: graphSeries[4].strokeColor,
+            borderColor: this.colors[5].strokeColor,
             borderWidth: 3,
             fill: false,
             order: 0,
