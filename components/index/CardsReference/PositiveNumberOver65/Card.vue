@@ -1,5 +1,10 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard PositiveNumberOver65Card">
+  <v-col
+    id="positive-number-over65"
+    cols="12"
+    md="6"
+    class="DataCard PositiveNumberOver65Card"
+  >
     <client-only>
       <time-bar-chart
         :title="$t('報告日別による陽性者数（65歳以上）の推移')"

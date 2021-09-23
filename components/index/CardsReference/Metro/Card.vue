@@ -1,5 +1,10 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard MetroCard">
+  <v-col
+    id="predicted-number-of-toei-subway-passengers"
+    cols="12"
+    md="6"
+    class="DataCard MetroCard"
+  >
     <client-only>
       <chart
         :title="$t('都営地下鉄の利用者数の推移')"

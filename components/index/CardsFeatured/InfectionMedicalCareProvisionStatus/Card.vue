@@ -1,5 +1,6 @@
 <template>
   <v-col
+    id="infection-medical-care-provision-status"
     cols="12"
     md="6"
     class="DataCard InfectionMedicalCareProvisionStatusCard"

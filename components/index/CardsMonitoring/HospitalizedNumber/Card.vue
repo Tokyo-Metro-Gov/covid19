@@ -1,5 +1,10 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard HospitalizedNumberCard">
+  <v-col
+    id="number-of-hospitalized"
+    cols="12"
+    md="6"
+    class="DataCard HospitalizedNumberCard"
+  >
     <client-only>
       <chart
         :title="$t('モニタリング項目(6)')"

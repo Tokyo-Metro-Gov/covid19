@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard PositiveRateCard">
+  <v-col id="positive-rate" cols="12" md="6" class="DataCard PositiveRateCard">
     <client-only>
       <chart
         :title="$t('モニタリング項目(4)')"

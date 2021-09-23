@@ -1,5 +1,6 @@
 <template>
   <v-col
+    id="monitoring-number-of-reports-to-covid19-consultation-desk"
     cols="12"
     md="6"
     class="DataCard MonitoringConsultationDeskReportsNumberCard"

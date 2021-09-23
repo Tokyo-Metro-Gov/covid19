@@ -1,5 +1,10 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard MonitoringItemsOverviewCard">
+  <v-col
+    id="monitoring-items-overview"
+    cols="12"
+    md="6"
+    class="DataCard MonitoringItemsOverviewCard"
+  >
     <client-only>
       <data-view
         :title="$t('モニタリング項目')"

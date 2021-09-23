@@ -1,5 +1,10 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard TelephoneAdvisoryReportsNumberCard">
+  <v-col
+    id="number-of-reports-to-covid19-telephone-advisory-center"
+    cols="12"
+    md="6"
+    class="DataCard TelephoneAdvisoryReportsNumberCard"
+  >
     <client-only>
       <time-bar-chart
         :title="$t('新型コロナコールセンター相談件数')"

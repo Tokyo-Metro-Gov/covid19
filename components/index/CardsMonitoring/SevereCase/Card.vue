@@ -1,5 +1,10 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard SevereCaseCard">
+  <v-col
+    id="positive-status-severe-case"
+    cols="12"
+    md="6"
+    class="DataCard SevereCaseCard"
+  >
     <client-only>
       <chart
         :title="$t('モニタリング項目(7)')"

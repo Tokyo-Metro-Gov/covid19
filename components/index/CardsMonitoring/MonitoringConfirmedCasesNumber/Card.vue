@@ -1,5 +1,10 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard MonitoringConfirmedCasesNumberCard">
+  <v-col
+    id="monitoring-number-of-confirmed-cases"
+    cols="12"
+    md="6"
+    class="DataCard MonitoringConfirmedCasesNumberCard"
+  >
     <client-only>
       <chart
         :title="$t('モニタリング項目(1)')"

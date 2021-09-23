@@ -1,5 +1,10 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard ConfirmedCasesDetailsCard">
+  <v-col
+    id="details-of-confirmed-cases"
+    cols="12"
+    md="6"
+    class="DataCard ConfirmedCasesDetailsCard"
+  >
     <client-only>
       <data-view
         :title="$t('検査陽性者の状況')"

@@ -1,5 +1,10 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard DeathsByDeathDateCard">
+  <v-col
+    id="deaths-by-death-date"
+    cols="12"
+    md="6"
+    class="DataCard DeathsByDeathDateCard"
+  >
     <client-only>
       <time-bar-chart
         :title="$t('死亡日別による死亡者数の推移')"

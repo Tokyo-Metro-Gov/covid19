@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard VariantCard">
+  <v-col id="variant" cols="12" md="6" class="DataCard VariantCard">
     <client-only>
       <chart
         :title="$t('L452R変異株スクリーニングの実施状況')"

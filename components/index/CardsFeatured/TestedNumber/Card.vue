@@ -1,5 +1,10 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard TestedNumberCard">
+  <v-col
+    id="number-of-tested"
+    cols="12"
+    md="6"
+    class="DataCard TestedNumberCard"
+  >
     <client-only>
       <chart
         :title="$t('検査実施件数')"

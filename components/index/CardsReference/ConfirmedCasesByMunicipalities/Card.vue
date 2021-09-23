@@ -1,5 +1,10 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard ConfirmedCasesByMunicipalitiesCard">
+  <v-col
+    id="number-of-confirmed-cases-by-municipalities"
+    cols="12"
+    md="6"
+    class="DataCard ConfirmedCasesByMunicipalitiesCard"
+  >
     <client-only>
       <confirmed-cases-by-municipalities-table
         :title="$t('陽性者数（区市町村別）')"

@@ -1,5 +1,10 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard MonitoringCommentCard">
+  <v-col
+    id="monitoring-comment"
+    cols="12"
+    md="6"
+    class="DataCard MonitoringCommentCard"
+  >
     <client-only>
       <data-view
         :title="'感染状況・医療提供体制の分析'"

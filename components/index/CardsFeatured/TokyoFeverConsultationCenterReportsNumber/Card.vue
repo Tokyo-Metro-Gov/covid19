@@ -1,5 +1,6 @@
 <template>
   <v-col
+    id="number-of-reports-to-tokyo-fever-consultation-center"
     cols="12"
     md="6"
     class="DataCard TokyoFeverConsultationCenterReportsNumberCard"
