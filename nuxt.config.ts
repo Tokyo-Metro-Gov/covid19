@@ -4,6 +4,7 @@ import path from 'path'
 import { NuxtConfig } from '@nuxt/types'
 // eslint-disable-next-line no-restricted-imports
 import i18n from './nuxt-i18n.config'
+// @ts-ignore
 import { Settings } from '@/types/cardRoutesSettings'
 const environment = process.env.NODE_ENV || 'development'
 const cardData = JSON.parse(
