@@ -11,7 +11,29 @@
         </app-link>
       </h3>
       <section>
-        <h4>{{ $t('モニタリング項目') }}</h4>
+        <h4>
+          <app-link :to="localePath('/')" class="Sitemap-titleLink">
+            {{ $t('注目の指標') }}
+          </app-link>
+        </h4>
+        <ul class="Sitemap-list">
+          <li
+            v-for="(card, i) in getCardRoutes('注目の指標')"
+            :key="`cards-monitoring${i}`"
+            class="Sitemap-item"
+          >
+            <app-link class="Sitemap-linkButton" :to="localePath(card.path)">
+              {{ $t(card.title) }}
+            </app-link>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h4>
+          <app-link :to="localePath('/monitoring')" class="Sitemap-titleLink">
+            {{ $t('モニタリング項目') }}
+          </app-link>
+        </h4>
         <ul class="Sitemap-list">
           <li
             v-for="(card, i) in getCardRoutes('モニタリング項目')"
@@ -25,7 +47,11 @@
         </ul>
       </section>
       <section>
-        <h4>{{ $t('その他 参考指標') }}</h4>
+        <h4>
+          <app-link :to="localePath('/reference')" class="Sitemap-titleLink">
+            {{ $t('その他 参考指標') }}
+          </app-link>
+        </h4>
         <ul class="Sitemap-list">
           <li
             v-for="(card, i) in getCardRoutes('その他 参考指標')"
@@ -49,9 +75,7 @@
         </app-link>
       </h3>
       <p>
-        {{
-          $t('子供たちの学びを支援するコンテンツの紹介および感染症対応について')
-        }}
+        {{ $t('子供たちの学びを支援するコンテンツ等について') }}
       </p>
     </static-card>
     <static-card>
@@ -64,7 +88,7 @@
         </app-link>
       </h3>
       <p>
-        {{ $t('事業者の皆様に対する支援情報およびテレワークの推進について') }}
+        {{ $t('事業者の皆様に対する支援情報およびテレワーク等の推進について') }}
       </p>
     </static-card>
     <static-card>
@@ -74,7 +98,7 @@
         </app-link>
       </h3>
       <p>
-        {{ $t('サイトの目的、アクセシビリティ方針、ブラウザ環境など') }}
+        {{ $t('サイトの目的、アクセシビリティ方針、ブラウザ環境等について') }}
       </p>
     </static-card>
     <static-card>
@@ -84,9 +108,7 @@
         </app-link>
       </h3>
       <p>
-        {{
-          $t('お問い合わせ内容別対応局名、電話番号とお問い合わせ対応時間など')
-        }}
+        {{ $t('当サイトに関する各種お問い合わせ先一覧') }}
       </p>
     </static-card>
   </div>
@@ -95,7 +117,7 @@
 <script lang="ts">
 import { mdiChartTimelineVariant, mdiDomain } from '@mdi/js'
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta'
+import type { MetaInfo } from 'vue-meta'
 
 import cardData from '@/assets/json/cardRoutesSettings.json'
 import AppLink from '@/components/_shared/AppLink.vue'
@@ -159,6 +181,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 }
 .Sitemap-list {
   list-style: none;
+  margin-top: 12px;
 }
 .Sitemap-item {
   display: inline-block;
