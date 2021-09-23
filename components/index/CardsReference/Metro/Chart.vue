@@ -100,7 +100,7 @@ import DataViewTable, {
 import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
 import { Dataset as IMetroDataset } from '@/libraries/auto_generated/data_converter/convertMetro'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
-import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
+import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 
 // TODO: components/index/CardsReference/Metro/Card.vue との重複を解消
 interface IMetroDatasetWithLabel extends IMetroDataset {
@@ -197,7 +197,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   data: () => ({
-    colors: getGraphSeriesStyle(3),
+    colors: [
+      getGraphSeriesColor('A'),
+      getGraphSeriesColor('B'),
+      getGraphSeriesColor('E'),
+    ],
     canvas: true,
     yAxesBgPlugin,
     displayLegends: [true, true, true],
