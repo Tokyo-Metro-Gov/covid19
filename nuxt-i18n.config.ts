@@ -1,10 +1,10 @@
-import { NuxtConfig } from '@nuxt/types'
-import { NuxtVueI18n } from 'nuxt-i18n/types'
+import type { NuxtConfig } from '@nuxt/types'
+import type { DateTimeFormat } from 'vue-i18n'
 
-const dateTimeFormatsCommon = {
+const dateTimeFormatsCommon: DateTimeFormat = {
   dateTime: {
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     day: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
@@ -12,7 +12,7 @@ const dateTimeFormatsCommon = {
   },
   date: {
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     day: 'numeric',
   },
   dateWithoutYear: {
@@ -21,16 +21,16 @@ const dateTimeFormatsCommon = {
   },
   dateWithoutDay: {
     year: 'numeric',
-    month: 'long',
+    month: 'short',
   },
   dateWithDayOfWeek: {
     weekday: 'short',
-    month: 'long',
+    month: 'short',
     day: 'numeric',
   },
 }
 
-const options: NuxtConfig = {
+const options: NuxtConfig['i18n'] = {
   strategy: 'prefix_except_default',
   detectBrowserLanguage: false,
   defaultLocale: 'ja',
@@ -103,7 +103,6 @@ const options: NuxtConfig = {
       description: 'Easy Japanese',
     },
   ],
-  seo: false,
 }
 
-export default options as NuxtVueI18n.Options.AllOptionsInterface
+export default options

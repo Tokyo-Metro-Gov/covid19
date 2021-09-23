@@ -14,13 +14,16 @@ const cardClassName = '.DataCard'
 
 type Payload = {
   dataView?: Vue
+  item: string
 }
 type Data = {
   payload: Payload
+  item: string
+  className: string
 }
 type Methods = {
   handleCardHeight: () => void
-  alignHeight: () => void
+  alignHeight: (item: string) => void
 }
 type Computed = {
   cardElements: (HTMLElement | null)[]
@@ -37,6 +40,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   data() {
     return {
       payload: {},
+      item: '',
+      className: '',
     }
   },
   methods: {
@@ -53,18 +58,29 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         side.dataset.height = `${side.offsetHeight}`
       }
     },
-    alignHeight() {
+    alignHeight(item: string) {
       const [self, side] = this.cardElements
 
       if (!self || !side) return
 
-      self.dataset.height = self.dataset.height || `${self.offsetHeight}`
-      side.dataset.height = side.dataset.height || `${side.offsetHeight}`
+      const selfHeight = self.dataset.height || `${self.offsetHeight}`
+      const sideHeight = side.dataset.height || `${side.offsetHeight}`
 
       self.style.maxHeight =
-        self.style.maxHeight === '100%' ? `${self.dataset.height}px` : '100%'
+        self.style.maxHeight === '100%' &&
+        this.item !== item &&
+        this.className !== self.className
+          ? `${selfHeight}px`
+          : '100%'
       side.style.maxHeight =
-        side.style.maxHeight === '100%' ? '100%' : `${side.dataset.height}px`
+        side.style.maxHeight === '100%' &&
+        this.item !== item &&
+        this.className !== self.className
+          ? '100%'
+          : `${sideHeight}px`
+
+      this.item = item
+      this.className = self.className
     },
   },
   computed: {
@@ -72,7 +88,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       if (!this.payload.dataView) return [null, null]
 
       const cards = this.$el.children
-      const self = this.payload.dataView.$el.parentElement
+      const self = this.payload.dataView.parentElement
       const index = Array.prototype.indexOf.call(cards, self) + 1
       if (index === 0) return [null, null]
 
@@ -87,7 +103,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     window.addEventListener('resize', this.handleCardHeight)
     EventBus.$on(TOGGLE_EVENT, (payload: Payload) => {
       this.payload = payload
-      this.alignHeight()
+      this.alignHeight(this.payload.item)
     })
   },
   beforeDestroy() {

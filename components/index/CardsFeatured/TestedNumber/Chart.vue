@@ -16,7 +16,8 @@
     >
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
         <button>
-          <div
+          <span
+            :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor,
@@ -48,6 +49,7 @@
       </template>
       <template #sticky-chart>
         <bar
+          :ref="'stickyChart'"
           class="sticky-legend"
           :chart-id="`${chartId}-header`"
           :chart-data="displayDataHeader"
@@ -58,6 +60,7 @@
         />
       </template>
     </scrollable-chart>
+    <slot name="additionalButton" />
     <template #dataTable>
       <client-only>
         <data-view-table :headers="tableHeaders" :items="tableData" />
@@ -84,19 +87,19 @@ import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { TranslateResult } from 'vue-i18n'
+import type { TranslateResult } from 'vue-i18n'
 
-import DataSelector from '@/components/index/_shared/DataSelector.vue'
-import DataView from '@/components/index/_shared/DataView.vue'
-import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
+import DataSelector from '~/components/index/_shared/DataSelector.vue'
+import DataView from '~/components/index/_shared/DataView.vue'
+import DataViewDataSetPanel from '~/components/index/_shared/DataViewDataSetPanel.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
-} from '@/components/index/_shared/DataViewTable.vue'
-import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
-import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
-import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
-import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
+} from '~/components/index/_shared/DataViewTable.vue'
+import OpenDataLink from '~/components/index/_shared/OpenDataLink.vue'
+import ScrollableChart from '~/components/index/_shared/ScrollableChart.vue'
+import { DisplayData, yAxesBgPlugin } from '~/plugins/vue-chart'
+import { getGraphSeriesStyle, SurfaceStyle } from '~/utils/colors'
 
 type Data = {
   dataKind: 'transition' | 'cumulative'
@@ -377,7 +380,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 maxRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
@@ -397,7 +400,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 padding: 3,
                 fontStyle: 'bold',
               },
@@ -420,7 +423,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
               },
@@ -483,7 +486,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 maxRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
@@ -501,7 +504,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
@@ -524,7 +527,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
               },
@@ -595,6 +598,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
 
+    const stickyChart = this.$refs.stickyChart as Vue
+    const stickyElement = stickyChart.$el
+    const stickyCanvas = stickyElement.querySelector('canvas')
+
+    if (stickyCanvas) {
+      stickyCanvas.setAttribute('aria-hidden', 'true')
+    }
+
     window.addEventListener('resize', this.handleResize)
     this.handleResize()
   },
@@ -615,7 +626,7 @@ export default Vue.extend(options)
     li {
       display: inline-block;
       margin: 0 3px;
-      div {
+      .area {
         height: 12px;
         margin: 2px 4px;
         width: 40px;

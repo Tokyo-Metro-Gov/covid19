@@ -40,15 +40,15 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
+import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
+import type { NuxtConfig } from '@nuxt/types'
+import type { LinkPropertyHref } from 'vue-meta'
 import DevelopmentModeMark from '@/components/_shared/DevelopmentModeMark.vue'
 import NoScript from '@/components/_shared/NoScript.vue'
 import SideNavigation from '@/components/_shared/SideNavigation.vue'
 import Data from '@/data/data.json'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
-
-import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
-import type { NuxtConfig } from '@nuxt/types'
 /* eslint-enable simple-import-sort/imports */
 
 @Component({
@@ -105,8 +105,7 @@ export default class Default extends Vue implements NuxtConfig {
   }
 
   head() {
-    const { htmlAttrs, meta } = this.$nuxtI18nSeo()
-    type LinkPropertyHref = typeof htmlAttrs
+    const { htmlAttrs, meta } = this.$nuxtI18nHead({ addSeoAttributes: true })
     const ogLocale =
       meta && meta.length > 0
         ? meta[0]

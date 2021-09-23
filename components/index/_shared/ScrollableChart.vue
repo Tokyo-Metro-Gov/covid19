@@ -10,7 +10,8 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import type { PropType } from 'vue'
+import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import { DisplayData } from '@/plugins/vue-chart'
@@ -114,7 +115,6 @@ export default options
 .LegendStickyChart {
   margin: 16px 0;
   position: relative;
-  overflow: hidden;
 
   .scrollable {
     overflow-x: scroll;

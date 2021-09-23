@@ -2,11 +2,9 @@
 import fs from 'fs'
 import path from 'path'
 import { NuxtConfig } from '@nuxt/types'
-/* eslint-enable simple-import-sort/imports */
-import { Settings } from '@/types/cardRoutesSettings'
-
 // eslint-disable-next-line no-restricted-imports
 import i18n from './nuxt-i18n.config'
+import { Settings } from '@/types/cardRoutesSettings'
 const environment = process.env.NODE_ENV || 'development'
 const cardData = JSON.parse(
   fs.readFileSync(
@@ -31,7 +29,6 @@ const config: NuxtConfig = {
       prefix: 'og: http://ogp.me/ns#',
     },
     meta: [
-      { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -126,7 +123,7 @@ const config: NuxtConfig = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
-    ['nuxt-i18n', i18n],
+    ['@nuxtjs/i18n', i18n],
     'nuxt-svg-loader',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
     'nuxt-webfontloader',
@@ -176,13 +173,16 @@ const config: NuxtConfig = {
     }
   ], */
   build: {
+    filenames: {
+      chunk: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js'),
+    },
     babel: {
       presets() {
         return [
           [
             '@nuxt/babel-preset-app',
             {
-              corejs: { version: '3.14' },
+              corejs: { version: '3.16' },
             },
           ],
         ]
@@ -248,6 +248,19 @@ const config: NuxtConfig = {
   watchers: {
     webpack: {
       poll: true,
+    },
+  },
+  router: {
+    extendRoutes(routes) {
+      routes.forEach((route) => {
+        if (
+          route.name === 'index' ||
+          route.name === 'monitoring' ||
+          route.name === 'reference'
+        ) {
+          route.meta = { tabs: true }
+        }
+      })
     },
   },
 }

@@ -27,6 +27,13 @@
             <li>
               {{
                 $t(
+                  '「入院・療養等調整中」は、当日の新規陽性者及び前日までの陽性者のうち、入院・宿泊療養・自宅療養の調整中や保健所間の移管手続中の陽性者等の人数'
+                )
+              }}
+            </li>
+            <li>
+              {{
+                $t(
                   '退院者数の把握には一定の期間を要しており、確認次第数値を更新している'
                 )
               }}
@@ -64,7 +71,7 @@ import AppLink from '@/components/_shared/AppLink.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 // table タグとの衝突を避けるため ConfirmedCasesDetailsTable とする
-import ConfirmedCasesDetailsTable from '@/components/index/CardsMonitoring/ConfirmedCasesDetails/Table.vue'
+import ConfirmedCasesDetailsTable from '@/components/index/CardsFeatured/ConfirmedCasesDetails/Table.vue'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 

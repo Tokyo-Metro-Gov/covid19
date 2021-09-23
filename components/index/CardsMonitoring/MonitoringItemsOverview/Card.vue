@@ -6,6 +6,14 @@
         title-id="monitoring-items-overview"
         :date="monitoringItemsData.date"
       >
+        <template v-if="$route.path !== localePath('/monitoring')" #description>
+          <app-link
+            :to="localePath('/monitoring')"
+            :class="[$style.button, $style['inner-link']]"
+          >
+            {{ $t('モニタリング項目の各グラフはこちら') }}
+          </app-link>
+        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
@@ -47,26 +55,34 @@
             </li>
           </ul>
         </template>
-        <section>
+        <section :class="$style.section">
           <h4>{{ $t('感染状況') }}</h4>
           <infection-status
             :aria-label="$t('感染状況')"
             :items="monitoringItems"
           />
         </section>
-        <section>
+        <section :class="$style.section">
           <h4>{{ $t('医療提供体制') }}</h4>
           <medical-system
             :aria-label="$t('医療提供体制')"
             :items="monitoringItems"
           />
         </section>
+        <div :class="$style['button-wrap']">
+          <app-link
+            :class="$style.button"
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/monitoring.html"
+          >
+            {{ $t('最新のモニタリング項目の分析・総括コメントについて') }}
+          </app-link>
+        </div>
         <div>
           <app-link
             :class="$style.button"
-            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/monitoring.html"
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/kunishihyou.html"
           >
-            {{ $t('最新のモニタリング項目の分析・総括コメントについて') }}
+            {{ $t('国のステージ判断のための指標') }}
           </app-link>
         </div>
       </data-view>
@@ -100,7 +116,7 @@ export default {
 </script>
 
 <style lang="scss" module>
-section {
+.section {
   margin: 0 0 20px;
 
   /* h タグが連続するため DataView-Content の margin を少し打ち消す */
@@ -122,6 +138,14 @@ section {
   }
 
   @include button-text('sm');
+}
+
+.button-wrap {
+  margin-bottom: 16px;
+}
+
+.inner-link {
+  text-decoration: none;
 }
 
 dfn {

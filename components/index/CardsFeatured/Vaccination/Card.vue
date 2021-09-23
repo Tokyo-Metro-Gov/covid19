@@ -6,11 +6,8 @@
         title-id="vaccination"
         :info-titles="[
           $t('全年齢接種数（１回目）'),
-          $t('うち高齢者接種数'),
           $t('全年齢接種数（２回目）'),
-          $t('うち高齢者接種数'),
         ]"
-        :info-data="vaccinationData.infoData"
         chart-id="vaccination-chart"
         :chart-data="vaccinationData.chartData"
         :get-formatter="getFormatter"
@@ -18,6 +15,17 @@
         :labels="vaccinationData.labels"
         :data-labels="chartLabels"
       >
+        <template #additionalButton>
+          <app-link
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine/jisseki.html"
+            :class="$style.button"
+          >
+            <span :class="$style['button-inner']">
+              <vaccine-icon :class="$style['button-icon']" aria-hidden="true" />
+              {{ $t('年代別ワクチン接種状況・接種推計等の詳細はこちら') }}
+            </span>
+          </app-link>
+        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
@@ -31,9 +39,6 @@
             <li>
               {{ $t('データには、医療従事者等の接種記録は含まれていない') }}
             </li>
-            <li>
-              {{ $t('高齢者の対象者数は約311万人') }}
-            </li>
           </ul>
         </template>
       </chart>
@@ -44,11 +49,13 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import Chart from '@/components/index/CardsReference/Vaccination/Chart.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
+import Chart from '@/components/index/CardsFeatured/Vaccination/Chart.vue'
 import {
   Dataset as IVaccinationDataset,
-  VaccinationAll as IVaccination,
-} from '@/libraries/auto_generated/data_converter/convertVaccinationAll'
+  Vaccination as IVaccination,
+} from '@/libraries/auto_generated/data_converter/convertVaccination'
+import VaccineIcon from '@/static/vaccine.svg'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type Data = {
@@ -64,7 +71,6 @@ type Computed = {
   vaccinationData: {
     labels: Date[]
     chartData: number[][]
-    infoData: number[][]
   }
   vaccination: IVaccination
 }
@@ -72,14 +78,14 @@ type Props = {}
 
 export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
+    AppLink,
     Chart,
+    VaccineIcon,
   },
   data() {
     const chartLabels = [
-      this.$t('高齢者（１回目・累計）') as string,
-      this.$t('その他（１回目・累計）') as string,
-      this.$t('高齢者（２回目・累計）') as string,
-      this.$t('その他（２回目・累計）') as string,
+      this.$t('全年齢接種数（１回目・累計）') as string,
+      this.$t('全年齢接種数（２回目・累計）') as string,
     ]
 
     const getFormatter = () => {
@@ -101,45 +107,18 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     vaccinationData() {
       const datasets = this.vaccinationDatasets
       const labels = datasets.map((d: IVaccinationDataset) => d.date)
-      const allCumulative1StDose: number[] = datasets.map(
-        (d: IVaccinationDataset) => d.data.all.cumulative1StDose
+      const cumulative1StDose: number[] = datasets.map(
+        (d: IVaccinationDataset) => d.data.cumulative1StDose
       )
-      const olderPeopleCumulative1StDose: number[] = datasets.map(
-        (d: IVaccinationDataset) => d.data.olderPeople.cumulative1StDose
-      )
-      const otherCumulative1StDose: number[] = datasets.map(
-        (d: IVaccinationDataset) =>
-          d.data.all.cumulative1StDose - d.data.olderPeople.cumulative1StDose
-      )
-      const allCumulative2NdDose: number[] = datasets.map(
-        (d: IVaccinationDataset) => d.data.all.cumulative2NdDose
-      )
-      const olderPeopleCumulative2NdDose: number[] = datasets.map(
-        (d: IVaccinationDataset) => d.data.olderPeople.cumulative2NdDose
-      )
-      const otherCumulative2NdDose: number[] = datasets.map(
-        (d: IVaccinationDataset) =>
-          d.data.all.cumulative2NdDose - d.data.olderPeople.cumulative2NdDose
+      const cumulative2NdDose: number[] = datasets.map(
+        (d: IVaccinationDataset) => d.data.cumulative2NdDose
       )
 
-      const chartData: number[][] = [
-        olderPeopleCumulative1StDose,
-        otherCumulative1StDose,
-        olderPeopleCumulative2NdDose,
-        otherCumulative2NdDose,
-      ]
-
-      const infoData: number[][] = [
-        allCumulative1StDose,
-        olderPeopleCumulative1StDose,
-        allCumulative2NdDose,
-        olderPeopleCumulative2NdDose,
-      ]
+      const chartData: number[][] = [cumulative1StDose, cumulative2NdDose]
 
       return {
         labels,
         chartData,
-        infoData,
       }
     },
     vaccination() {
@@ -148,3 +127,24 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
 })
 </script>
+
+<style lang="scss" module>
+.button {
+  margin-top: 4px;
+  color: $green-1 !important;
+  text-decoration: none;
+  &:hover {
+    color: $white !important;
+  }
+  @include button-text('sm');
+  &-inner {
+    display: inline-flex;
+    align-items: center;
+  }
+  &-icon {
+    width: 1em;
+    height: 1em;
+    margin-right: 4px;
+  }
+}
+</style>

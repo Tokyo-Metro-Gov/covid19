@@ -1,154 +1,115 @@
 <template>
-  <ul class="MenuList">
-    <li
-      v-for="(item, i) in items"
-      :key="i"
-      :class="['MenuList-Item', { '-border': item.divider }]"
-      @click="$emit('click', $event)"
+  <div class="Menu">
+    <section
+      v-for="(menu, slug, i) in menuItemsObj"
+      :key="`menu-block-${i}`"
+      class="MenuSection"
     >
-      <app-link :to="item.link" class="MenuList-Link">
-        <span v-if="item.svg || item.iconPath" class="MenuList-Icon">
-          <svg
-            :is="item.svg"
-            v-if="item.svg"
-            class="MenuList-SvgIcon"
-            aria-hidden="true"
-          />
-          <v-icon v-if="item.iconPath" size="2rem" class="MenuList-MdIcon">
-            {{ item.iconPath }}
-          </v-icon>
-        </span>
-        <span class="MenuList-Title">{{ item.title }}</span>
-      </app-link>
-    </li>
-  </ul>
+      <custom-expansion-panel v-if="itemTitles[i].isExpand" :id="`menu-${i}`">
+        <template #icon>
+          <v-icon size="2.4rem">{{ mdiChevronRight }}</v-icon>
+        </template>
+        <template #title>
+          <span class="MenuTitle">{{ setMenuTitle(slug) }}</span>
+        </template>
+        <template #content>
+          <menu-list-contents :items="menu" @click="$emit('click', $event)" />
+        </template>
+      </custom-expansion-panel>
+      <template v-else>
+        <h2 class="MenuTitle">
+          {{ setMenuTitle(slug) }}
+        </h2>
+        <menu-list-contents :items="menu" @click="$emit('click', $event)" />
+      </template>
+    </section>
+  </div>
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import { mdiChevronRight } from '@mdi/js'
+import type { PropType } from 'vue'
+import Vue from 'vue'
 
-import AppLink from '@/components/_shared/AppLink.vue'
-import CovidIcon from '@/static/covid.svg'
-import MaskTrashIcon from '@/static/masktrash.svg'
-import ParentIcon from '@/static/parent.svg'
-import SupportIcon from '@/static/support.svg'
+import CustomExpansionPanel from '@/components/_shared/CustomExpansionPanel.vue'
+import MenuListContents from '@/components/_shared/SideNavigation/MenuListContents.vue'
+
+type MenuItemTitle = {
+  slug: string
+  text: string
+  isExpand?: boolean
+}
 
 type MenuItem = {
   iconPath?: string
   svg?: string
   title: string
   link: string
-  divider?: boolean
+  slug: string
+}
+
+type MenuObj = {
+  [key: string]: MenuItem[]
 }
 
 export default Vue.extend({
-  components: { AppLink, CovidIcon, MaskTrashIcon, ParentIcon, SupportIcon },
+  components: { CustomExpansionPanel, MenuListContents },
   props: {
+    itemTitles: {
+      type: Array as PropType<MenuItemTitle[]>,
+      required: true,
+    },
     items: {
       type: Array as PropType<MenuItem[]>,
       required: true,
+    },
+  },
+  data() {
+    return {
+      mdiChevronRight,
+    }
+  },
+  computed: {
+    menuItemsObj(): MenuObj {
+      const menuObj = {}
+      this.itemTitles.forEach((v) => {
+        const splitItemsBySlug = this.items.filter((item) => {
+          return v.slug === item.slug
+        })
+        if (splitItemsBySlug.length > 0) menuObj[v.slug] = [...splitItemsBySlug]
+      })
+      return menuObj
+    },
+  },
+  methods: {
+    setMenuTitle(slug): string {
+      return this.itemTitles.find((v) => v.slug === slug).text
     },
   },
 })
 </script>
 
 <style lang="scss" scoped>
-.MenuList {
+.Menu {
   margin-top: 24px;
-  padding: 12px 0;
-  border-bottom: 1px solid $gray-4;
 
   @include largerThan($small) {
     border-top: 1px solid $gray-4;
   }
 }
-
-.MenuList-Item {
-  list-style: none;
-  line-height: 1.2;
-  white-space: normal;
-  @include font-size(14);
-  @include lessThan($small) {
-    font-weight: 600;
-    @include font-size(14.5);
-  }
-
-  &.-border {
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid $gray-4;
-  }
-}
-
-.MenuList-Link {
-  display: flex;
-  align-items: center;
-  padding-top: 12px;
+.MenuSection {
+  margin-bottom: 12px;
   padding-bottom: 12px;
-  color: $gray-1;
+  border-bottom: 1px solid $gray-4;
 
-  &:link,
-  &:hover,
-  &:focus,
-  &:visited,
-  &:active {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  &:hover {
-    font-weight: 600;
-  }
-
-  &:focus {
-    font-weight: 600;
-    outline: dotted $gray-3 1px;
-  }
-
-  &.nuxt-link-exact-active {
-    font-weight: 600;
-
-    &:link,
-    &:hover,
-    &:visited,
-    &:active {
-      color: $green-1;
-    }
-    &:focus {
-      color: $green-1;
-      outline: dotted $gray-3 1px;
-    }
+  &:first-child {
+    padding-top: 12px;
   }
 }
-
-.MenuList-Icon {
-  margin-right: 3px;
-  min-width: 24px;
-}
-
-.MenuList-MdIcon {
-  color: $gray-2;
-
-  .nuxt-link-exact-active & {
-    color: $green-1;
-  }
-}
-
-.MenuList-SvgIcon {
-  width: 20px;
-  height: 20px;
-  fill: $gray-2;
-
-  .nuxt-link-exact-active & {
-    fill: $green-1;
-  }
-}
-
-.MenuList ::v-deep .ExternalLinkIcon {
-  margin-left: 5px;
+.MenuTitle {
   color: $gray-3;
-  @include lessThan($small) {
-    @include font-size(14, true);
-  }
+  padding: 12px 0;
+  font-weight: normal;
+  @include font-size(13);
 }
 </style>

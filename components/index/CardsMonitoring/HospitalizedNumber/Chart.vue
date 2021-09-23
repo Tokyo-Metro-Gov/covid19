@@ -24,6 +24,7 @@
       </template>
       <template #sticky-chart>
         <bar
+          :ref="'stickyChart'"
           class="sticky-legend"
           :chart-id="`${chartId}-header`"
           :chart-data="displayDataHeader"
@@ -60,7 +61,7 @@ import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { TranslateResult } from 'vue-i18n'
+import type { TranslateResult } from 'vue-i18n'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
@@ -289,7 +290,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 maxRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
@@ -309,7 +310,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 padding: 3,
                 fontStyle: 'bold',
               },
@@ -332,7 +333,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
               },
@@ -379,7 +380,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 maxRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
@@ -397,7 +398,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
@@ -420,7 +421,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
               },
@@ -467,6 +468,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     if (canvas) {
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
+    }
+
+    const stickyChart = this.$refs.stickyChart as Vue
+    const stickyElement = stickyChart.$el
+    const stickyCanvas = stickyElement.querySelector('canvas')
+
+    if (stickyCanvas) {
+      stickyCanvas.setAttribute('aria-hidden', 'true')
     }
   },
 }

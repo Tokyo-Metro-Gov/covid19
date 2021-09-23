@@ -15,6 +15,19 @@
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000086'"
       >
         <!-- 件.tested = 検査数 -->
+        <template #additionalButton>
+          <app-link
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/kensa/index.html"
+            :class="$style.button"
+          >
+            <span :class="$style['button-inner']">
+              <v-icon size="1.1em" :class="$style['button-v-icon']">
+                {{ mdiClipboardText }}
+              </v-icon>
+              {{ $t('検査情報サイト') }}
+            </span>
+          </app-link>
+        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
@@ -48,15 +61,18 @@
 </template>
 
 <script>
+import { mdiClipboardText } from '@mdi/js'
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 
-import Chart from '@/components/index/CardsReference/TestedNumber/Chart.vue'
+import AppLink from '@/components/_shared/AppLink.vue'
+import Chart from '@/components/index/CardsFeatured/TestedNumber/Chart.vue'
 import Data from '@/data/data.json'
 dayjs.extend(duration)
 
 export default {
   components: {
+    AppLink,
     Chart,
   },
   data() {
@@ -92,7 +108,29 @@ export default {
       inspectionsLabels,
       inspectionsDataLabels,
       inspectionsTableLabels,
+      mdiClipboardText,
     }
   },
 }
 </script>
+
+<style lang="scss" module>
+.button {
+  margin-top: 4px;
+  color: $green-1 !important;
+  text-decoration: none;
+  &:hover {
+    color: $white !important;
+  }
+  @include button-text('sm');
+  &-inner {
+    display: inline-flex;
+    align-items: center;
+  }
+  &-v-icon {
+    color: currentColor !important;
+    margin-right: 4px;
+    transition: none !important;
+  }
+}
+</style>

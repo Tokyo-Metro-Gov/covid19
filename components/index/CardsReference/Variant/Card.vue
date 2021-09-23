@@ -18,6 +18,17 @@
         :last-period="variantData.lastPeriod"
         unit="%"
       >
+        <template #additionalButton>
+          <app-link
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/henikabu/screening.html"
+            :class="$style.button"
+          >
+            <span :class="$style['button-inner']">
+              <covid-icon :class="$style['button-icon']" aria-hidden="true" />
+              {{ $t('変異株情報') }}
+            </span>
+          </app-link>
+        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
@@ -38,7 +49,7 @@
             </li>
             <li>
               <app-link
-                to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/screening.html"
+                to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/henikabu/screening.html"
               >
                 {{ $t('N501Y変異株スクリーニングの実施状況のデータはこちら') }}
               </app-link>
@@ -62,6 +73,7 @@ import {
   Period as IVariantsPeriod,
   Variants as IVariants,
 } from '@/libraries/auto_generated/data_converter/convertVariants'
+import CovidIcon from '@/static/covid.svg'
 import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
 
 dayjs.extend(duration)
@@ -93,6 +105,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     Chart,
     AppLink,
+    CovidIcon,
   },
   data() {
     const chartLabels = [
@@ -193,3 +206,24 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
 })
 </script>
+
+<style lang="scss" module>
+.button {
+  margin-top: 4px;
+  color: $green-1 !important;
+  text-decoration: none;
+  &:hover {
+    color: $white !important;
+  }
+  @include button-text('sm');
+  &-inner {
+    display: inline-flex;
+    align-items: center;
+  }
+  &-icon {
+    width: 1em;
+    height: 1em;
+    margin-right: 4px;
+  }
+}
+</style>

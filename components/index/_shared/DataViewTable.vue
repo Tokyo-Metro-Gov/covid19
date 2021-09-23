@@ -31,7 +31,7 @@
 import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { TranslateResult } from 'vue-i18n'
+import type { TranslateResult } from 'vue-i18n'
 
 export type TableHeader = {
   text: TranslateResult
@@ -88,7 +88,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   mounted() {
     const vTables = this.$refs.displayedTable as Vue
     const vTableElement = vTables.$el
-    const tables = vTableElement.querySelectorAll('table')
+    const tables = vTableElement.querySelectorAll('.v-data-table__wrapper')
     // NodeListをIE11でforEachするためのワークアラウンド
     const nodes = Array.prototype.slice.call(tables, 0)
     nodes.forEach((table: HTMLElement) => {
