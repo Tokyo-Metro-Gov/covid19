@@ -220,7 +220,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   data() {
     const colors: SurfaceStyle[] = [
       getGraphSeriesColor('B'),
-      getGraphSeriesColor('A'),
+      getGraphSeriesColor('E'),
     ]
     return {
       displayLegends: [true, true],
