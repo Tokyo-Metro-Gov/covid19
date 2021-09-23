@@ -19,16 +19,7 @@
       >
         <button>
           <span
-            v-if="i === 2"
-            :class="$style.area"
-            :style="{
-              background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
-              border: 0,
-              height: '3px',
-            }"
-          />
-          <span
-            v-else-if="i === 3"
+            v-if="i === 2 || i === 3"
             :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
@@ -241,7 +232,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       getGraphSeriesColor('A'),
       getGraphSeriesColor('C'),
       getGraphSeriesColor('E'),
-      getGraphSeriesColor('E'),
+      getGraphSeriesColor('H'),
     ],
     displayLegends: [true, true, true, true],
   }),
@@ -285,12 +276,6 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       ]
     },
     displayData() {
-      const graphSeries = [
-        getGraphSeriesColor('A'),
-        getGraphSeriesColor('C'),
-        getGraphSeriesColor('E'),
-        getGraphSeriesColor('E'),
-      ]
       return {
         labels: this.labels,
         datasets: [
@@ -299,8 +284,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
             yAxisID: 'y-axis-1',
             label: this.dataLabels[0],
             data: this.chartData[0],
-            backgroundColor: graphSeries[0].fillColor,
-            borderColor: graphSeries[0].strokeColor,
+            backgroundColor: this.colors[0].fillColor,
+            borderColor: this.colors[0].strokeColor,
             borderWidth: 1,
             order: 4,
           },
@@ -309,8 +294,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
             yAxisID: 'y-axis-1',
             label: this.dataLabels[1],
             data: this.chartData[1],
-            backgroundColor: graphSeries[1].fillColor,
-            borderColor: graphSeries[1].strokeColor,
+            backgroundColor: this.colors[1].fillColor,
+            borderColor: this.colors[1].strokeColor,
             borderWidth: 1,
             order: 3,
           },
@@ -321,9 +306,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
             data: this.chartData[2],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: graphSeries[2].strokeColor,
+            borderColor: this.colors[2].strokeColor,
             borderWidth: 3,
-            borderDash: [4],
             fill: false,
             order: 2,
             lineTension: 0,
@@ -335,7 +319,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
             data: this.chartData[3],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: graphSeries[3].strokeColor,
+            borderColor: this.colors[3].strokeColor,
             borderWidth: 3,
             fill: false,
             order: 1,
