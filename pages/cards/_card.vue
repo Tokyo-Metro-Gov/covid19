@@ -205,9 +205,9 @@ export default class CardContainer extends Vue implements NuxtConfig {
         cardComponent = 'confirmed-cases-by-municipalities-card'
         cardCategory = 'reference'
         break
-      // 発症日別による陽性者数の推移
+      // 報告日別による陽性者数（65歳以上）の推移
       case 'positive-number-over65':
-        cardComponent = 'positive-number-over65'
+        cardComponent = 'positive-number-over65-card'
         cardCategory = 'reference'
         break
       // 発症日別による陽性者数の推移

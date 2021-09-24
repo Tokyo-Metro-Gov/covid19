@@ -87,9 +87,15 @@ export default Vue.extend()
   }
 
   a {
-    @include text-link();
+    @include font-size(14);
 
+    color: $link;
     font-size: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
 
     .ExternalLinkIcon {
       display: inline-block;
