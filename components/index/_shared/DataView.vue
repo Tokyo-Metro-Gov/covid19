@@ -425,7 +425,7 @@ export default Vue.extend({
   &-AttentionNote {
     margin: 10px 0;
     padding: 12px;
-    background-color: $emergency;
+    background-color: $notice;
     border-radius: 4px;
     color: $gray-2;
     @include font-size(12);
