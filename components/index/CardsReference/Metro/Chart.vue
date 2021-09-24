@@ -210,20 +210,45 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   computed: {
     displayData() {
       const labels = this.chartData.datasets.map((d) => this.$d(d.label))
-      const datasets = this.chartData.labels.map((label, i) => {
-        return {
+      const datasets = [
+        {
           type: 'line',
-          label,
-          data: this.chartData.datasets.map((d) => d.data[i]),
-          pointBackgroundColor: this.colors[i].fillColor,
-          pointBorderColor: this.colors[i].fillColor,
-          borderColor: this.colors[i].fillColor,
+          label: this.chartData.labels[0],
+          data: this.chartData.datasets.map((d) => d.data[0]),
+          pointBackgroundColor: this.colors[0].fillColor,
+          pointBorderColor: this.colors[0].fillColor,
+          borderColor: this.colors[0].fillColor,
           borderWidth: 3,
           fill: false,
-          order: i,
+          order: 0,
           lineTension: 0,
-        }
-      })
+        },
+        {
+          type: 'line',
+          label: this.chartData.labels[1],
+          data: this.chartData.datasets.map((d) => d.data[1]),
+          pointBackgroundColor: this.colors[1].fillColor,
+          pointBorderColor: this.colors[1].fillColor,
+          borderColor: this.colors[1].fillColor,
+          borderWidth: 3,
+          fill: false,
+          order: 1,
+          lineTension: 0,
+        },
+        {
+          type: 'line',
+          label: this.chartData.labels[2],
+          data: this.chartData.datasets.map((d) => d.data[2]),
+          borderColor: this.colors[2].fillColor,
+          borderWidth: 2,
+          fill: false,
+          order: 2,
+          lineTension: 0,
+          pointStyle: 'rectRot',
+          pointRadius: 5,
+          pointBorderColor: this.colors[2].fillColor,
+        },
+      ]
 
       return {
         labels,
