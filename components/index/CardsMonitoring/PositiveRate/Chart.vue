@@ -16,10 +16,19 @@
       >
         <button>
           <span
-            v-if="i === 4 || i === 5"
+            v-if="i === 4"
             :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
+              border: 0,
+              height: '3px',
+            }"
+          />
+          <span
+            v-else-if="i === 5"
+            :class="$style.area"
+            :style="{
+              background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
               border: 0,
               height: '3px',
             }"
@@ -370,6 +379,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             fill: false,
             order: 0,
             lineTension: 0,
+            borderDash: [4],
           },
         ],
       }

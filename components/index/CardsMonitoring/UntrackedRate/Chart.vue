@@ -19,10 +19,19 @@
       >
         <button>
           <span
-            v-if="i === 2 || i === 3"
+            v-if="i === 2"
             :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
+              border: 0,
+              height: '3px',
+            }"
+          />
+          <span
+            v-else-if="i === 3"
+            :class="$style.area"
+            :style="{
+              background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
               border: 0,
               height: '3px',
             }"
@@ -325,6 +334,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
             fill: false,
             order: 1,
             lineTension: 0,
+            borderDash: [4],
           },
         ],
       }
