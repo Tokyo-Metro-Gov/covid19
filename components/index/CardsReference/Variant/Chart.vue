@@ -590,7 +590,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               scaleLabel: {
                 display: true,
                 labelString: this.scaleLabels[1] as string,
-                fontColor: '#cc7004',
+                fontColor: '#B19201',
               },
               gridLines: {
                 display: true,
@@ -600,7 +600,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
-                fontColor: '#cc7004',
+                fontColor: '#B19201',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
