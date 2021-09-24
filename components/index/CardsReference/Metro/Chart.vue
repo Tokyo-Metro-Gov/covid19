@@ -201,7 +201,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     colors: [
       getGraphSeriesColor('A'),
       getGraphSeriesColor('B'),
-      getGraphSeriesColor('E'),
+      getGraphSeriesColor('H'),
     ],
     canvas: true,
     yAxesBgPlugin,
