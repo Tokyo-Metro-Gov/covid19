@@ -64,6 +64,7 @@ type Data = {
   actives: boolean[]
   scroll: boolean
   mdiChevronRight: string
+  hash: string
 }
 type Methods = {
   handler: (
@@ -72,6 +73,7 @@ type Methods = {
     isIntersecting: boolean
   ) => void
   onScroll: () => void
+  lazyHashLink: () => void
 }
 type Computed = {}
 type Props = {
@@ -97,6 +99,13 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       actives: Array.from({ length: this.rows.length }, () => false),
       scroll: false,
       mdiChevronRight,
+      hash: null,
+    }
+  },
+  mounted() {
+    if (this.$route.hash && !this.hash) {
+      this.hash = this.$route.hash
+      this.lazyHashLink()
     }
   },
   methods: {
@@ -109,6 +118,21 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       this.scroll = true
       this.$set(this.actives, 0, true)
       this.$set(this.actives, 1, true)
+    },
+    lazyHashLink() {
+      if (process.client) {
+        this.$nextTick(function () {
+          // ハッシュで指定されたIDがあればそこにスクロール、なければ次の行を表示して再帰処理
+          const element = document.getElementById(this.hash.slice(1))
+          if (element != null) {
+            this.$scrollTo(this.hash)
+          } else {
+            if (!this.actives.includes(false)) return
+            this.$set(this.actives, this.actives.indexOf(false), true)
+            this.lazyHashLink()
+          }
+        }, 500)
+      }
     },
   },
 })
