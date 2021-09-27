@@ -1,6 +1,6 @@
 {
-    "date": "2021\/9\/26 18:00",
-    "unknown_count": 115526,
+    "date": "2021\/9\/27 18:00",
+    "unknown_count": 115581,
     "data": [
         {
             "developed_date": "2020-01-14",
@@ -2388,7 +2388,7 @@
         },
         {
             "developed_date": "2021-09-01",
-            "count": 1595
+            "count": 1596
         },
         {
             "developed_date": "2021-09-02",
@@ -2400,7 +2400,7 @@
         },
         {
             "developed_date": "2021-09-04",
-            "count": 962
+            "count": 965
         },
         {
             "developed_date": "2021-09-05",
@@ -2408,11 +2408,11 @@
         },
         {
             "developed_date": "2021-09-06",
-            "count": 1024
+            "count": 1025
         },
         {
             "developed_date": "2021-09-07",
-            "count": 881
+            "count": 882
         },
         {
             "developed_date": "2021-09-08",
@@ -2420,15 +2420,15 @@
         },
         {
             "developed_date": "2021-09-09",
-            "count": 678
+            "count": 679
         },
         {
             "developed_date": "2021-09-10",
-            "count": 751
+            "count": 753
         },
         {
             "developed_date": "2021-09-11",
-            "count": 537
+            "count": 538
         },
         {
             "developed_date": "2021-09-12",
@@ -2440,11 +2440,11 @@
         },
         {
             "developed_date": "2021-09-14",
-            "count": 480
+            "count": 481
         },
         {
             "developed_date": "2021-09-15",
-            "count": 454
+            "count": 455
         },
         {
             "developed_date": "2021-09-16",
@@ -2452,7 +2452,7 @@
         },
         {
             "developed_date": "2021-09-17",
-            "count": 282
+            "count": 286
         },
         {
             "developed_date": "2021-09-18",
@@ -2460,31 +2460,35 @@
         },
         {
             "developed_date": "2021-09-19",
-            "count": 219
+            "count": 225
         },
         {
             "developed_date": "2021-09-20",
-            "count": 192
+            "count": 203
         },
         {
             "developed_date": "2021-09-21",
-            "count": 173
+            "count": 180
         },
         {
             "developed_date": "2021-09-22",
-            "count": 136
+            "count": 143
         },
         {
             "developed_date": "2021-09-23",
-            "count": 118
+            "count": 134
         },
         {
             "developed_date": "2021-09-24",
-            "count": 57
+            "count": 75
         },
         {
             "developed_date": "2021-09-25",
-            "count": 10
+            "count": 25
+        },
+        {
+            "developed_date": "2021-09-26",
+            "count": 3
         }
     ]
 }
