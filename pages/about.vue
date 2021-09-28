@@ -33,7 +33,7 @@
         <dt>{{ $t('適合レベル及び対応度') }}</dt>
         <dd>{{ $t('JIS X 8341-3:2016の適合レベルAAに準拠') }}</dd>
         <dt>{{ $t('目標を達成する期限') }}</dt>
-        <dd>{{ formatDate(new Date('2021-09-30')) }}</dd>
+        <dd>{{ formatDate('2021-09-30') }}</dd>
         <dt>{{ $t('例外事項') }}</dt>
         <dd>
           <p>
@@ -318,8 +318,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    formatDate(date) {
-      return `${this.$d(date, 'date')}`
+    formatDate(date: string) {
+      return `${this.$d(new Date(date), 'date')}`
     },
   },
 })
