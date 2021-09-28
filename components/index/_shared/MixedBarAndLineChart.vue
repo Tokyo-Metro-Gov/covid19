@@ -10,7 +10,7 @@
       :style="{ display: canvas ? 'block' : 'none' }"
     >
       <li v-for="(item, i) in dataLabels" :key="i" @click="onClickLegend(i)">
-        <button>
+        <button role="checkbox" :aria-checked="`${displayLegends[i]}`">
           <span
             v-if="i === 1"
             :class="$style.area"
