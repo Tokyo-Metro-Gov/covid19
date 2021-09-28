@@ -5,6 +5,8 @@
         <button
           ref="shareOpener"
           class="DataView-Share-Opener"
+          aria-haspopup="true"
+          :aria-expanded="`${displayShare}`"
           @click="toggleShareMenu"
           v-on="on"
         >
