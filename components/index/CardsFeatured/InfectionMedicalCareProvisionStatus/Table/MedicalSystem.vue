@@ -27,7 +27,7 @@
         <span>{{ $t('確保病床数') }}</span>
         <value-with-translatable-unit
           :value="items['確保病床数'].toLocaleString()"
-          :unit="{ text: '床', translatable: true }"
+          :unit="{ text: '床', translatable: true, except: ['en'] }"
           :bold="true"
         />
       </div>
@@ -37,7 +37,7 @@
             <span>{{ $t('うち重症病床数') }}</span>
             <value-with-translatable-unit
               :value="items['うち重症病床数'].toLocaleString()"
-              :unit="{ text: '床', translatable: true }"
+              :unit="{ text: '床', translatable: true, except: ['en'] }"
               :bold="true"
             />
           </div>

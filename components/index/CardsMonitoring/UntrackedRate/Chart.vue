@@ -17,7 +17,7 @@
         :key="i"
         @click="onClickLegend(i)"
       >
-        <button>
+        <button role="checkbox" :aria-checked="`${displayLegends[i]}`">
           <span
             v-if="i === 2"
             :class="$style.area"
