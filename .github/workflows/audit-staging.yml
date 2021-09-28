@@ -59,7 +59,7 @@ jobs:
           script: |
             const fs = require('fs')
             const table = fs.readFileSync(process.env.LH_SUMMARY_FILE, 'utf8')
-            github.issues.createComment({
+            github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
