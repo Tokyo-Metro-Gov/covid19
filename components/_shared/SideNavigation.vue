@@ -339,11 +339,6 @@ export default Vue.extend({
           slug: 'site-info',
         },
         {
-          title: this.$t('ウェブアクセシビリティ試験結果（2021年度）'),
-          link: this.localePath('/accessibility-results'),
-          slug: 'site-info',
-        },
-        {
           title: this.$t('ご意見はこちら（外部サービスを使用しています）'),
           link: 'https://docs.google.com/forms/d/e/1FAIpQLSdSROCPyr6Aj6WoAoYfqcT6StDOEUB38Grug1EJjUYzppcEZg/viewform?usp=sf_link',
           slug: 'site-info',
