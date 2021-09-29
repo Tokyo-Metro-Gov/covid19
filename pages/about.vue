@@ -63,6 +63,12 @@
             </li>
           </ul>
         </dd>
+        <dt>{{ $t('試験結果') }}</dt>
+        <dd>
+          <app-link :to="localePath('/accessibility-results')">
+            {{ $t('ウェブアクセシビリティ試験結果（2021年度）') }}
+          </app-link>
+        </dd>
         <dt>{{ $t('担当部署') }}</dt>
         <dd>{{ $t('政策企画局（03-5388-2171）') }}</dd>
       </dl>
