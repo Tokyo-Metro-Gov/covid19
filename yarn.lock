@@ -1894,9 +1894,9 @@
     "@types/node" "*"
 
 "@types/node@*", "@types/node@>= 8":
-  version "16.10.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.10.1.tgz#f3647623199ca920960006b3dccf633ea905f243"
-  integrity sha512-4/Z9DMPKFexZj/Gn3LylFgamNKHm4K3QDi0gz9B26Uk0c8izYf97B5fxfpspMNkWlFupblKM/nV8+NA9Ffvr+w==
+  version "16.10.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.10.2.tgz#5764ca9aa94470adb4e1185fe2e9f19458992b2e"
+  integrity sha512-zCclL4/rx+W5SQTzFs9wyvvyCwoK9QtBpratqz2IYJ3O8Umrn0m3nsTv0wQBk9sRGpvUe9CwPDrQFB10f1FIjQ==
 
 "@types/node@12.20.12":
   version "12.20.12"
@@ -3365,7 +3365,7 @@ ci-info@^2.0.0:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
   integrity sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==
 
-ci-info@^3.0.0, ci-info@^3.1.1:
+ci-info@^3.1.1:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-3.2.0.tgz#2876cb948a498797b5236f0095bc057d0dca38b6"
   integrity sha512-dVqRX7fLUm8J6FgHJ418XuIgDLZDkYcDFTeL6TA2gt5WlIZUQrrH6EZrNClwT/H0FateUsZkGIOPRrLbP+PR9A==
@@ -4477,9 +4477,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.846:
-  version "1.3.853"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.853.tgz#f3ed1d31f092cb3a17af188bca6c6a3ec91c3e82"
-  integrity sha512-W4U8n+U8I5/SUaFcqZgbKRmYZwcyEIQVBDf+j5QQK6xChjXnQD+wj248eGR9X4u+dDmDR//8vIfbu4PrdBBIoQ==
+  version "1.3.854"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.854.tgz#003f0b9c80eccc35be0ef04a0e0b1c31a10b90d5"
+  integrity sha512-00/IIC1mFPkq32MhUJyLdcTp7+wsKK2G3Sb65GSas9FKJQGYkDcZ4GwJkkxf5YyM3ETvl6n+toV8OmtXl4IA/g==
 
 elliptic@^6.5.3:
   version "6.5.4"
@@ -4715,9 +4715,9 @@ eslint-plugin-import@^2.23.3:
     tsconfig-paths "^3.11.0"
 
 eslint-plugin-jest@^24.3.6:
-  version "24.4.3"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-24.4.3.tgz#dd59e32a7d233a92672468082c24c337a5954873"
-  integrity sha512-cZPTqF/35/usP9gvjslj6pE+2lpr1KoZvjvDWRlfCP27LSRHBUhJV6hBPk47TksH3lSt28sDpIlp8owK0hWtsA==
+  version "24.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-24.5.0.tgz#a223a0040a19af749a161807254f0e47f5bfdcc3"
+  integrity sha512-Cm+XdX7Nms2UXGRnivHFVcM3ZmlKheHvc9VD78iZLO1XcqB59WbVjrMSiesCbHDlToxWjMJDiJMgc1CzFE13Vg==
   dependencies:
     "@typescript-eslint/experimental-utils" "^4.0.1"
 
@@ -6449,9 +6449,9 @@ is-glob@^3.1.0:
     is-extglob "^2.1.0"
 
 is-glob@^4.0.0, is-glob@^4.0.1, is-glob@~4.0.1:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/is-glob/-/is-glob-4.0.2.tgz#859fc2e731e58c902f99fcabccb75a7dd07d29d8"
-  integrity sha512-ZZTOjRcDjuAAAv2cTBQP/lL59ZTArx77+7UzHdWW/XB1mrfp7DEaVpKmZ0XIzx+M7AxfhKcqV+nMetUQmFifwg==
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/is-glob/-/is-glob-4.0.3.tgz#64f61e42cbbb2eec2071a9dac0b28ba1e65d5084"
+  integrity sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==
   dependencies:
     is-extglob "^2.1.1"
 
@@ -6650,9 +6650,9 @@ jest-worker@^26.5.0:
     supports-color "^7.0.0"
 
 jest-worker@^27.0.2:
-  version "27.2.3"
-  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-27.2.3.tgz#396e83d04ca575230a9bcb255c2b66aec07cb931"
-  integrity sha512-ZwOvv4GCIPviL+Ie4pVguz4N5w/6IGbTaHBYOl3ZcsZZktaL7d8JOU0rmovoED7AJZKA8fvmLbBg8yg80u/tGA==
+  version "27.2.4"
+  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-27.2.4.tgz#881455df75e22e7726a53f43703ab74d6b36f82d"
+  integrity sha512-Zq9A2Pw59KkVjBBKD1i3iE2e22oSjXhUKKuAK1HGX8flGwkm6NMozyEYzKd41hXc64dbd/0eWFeEEuxqXyhM+g==
   dependencies:
     "@types/node" "*"
     merge-stream "^2.0.0"
@@ -6664,9 +6664,9 @@ jimp-compact@^0.16.1:
   integrity sha512-F/r0L283J46xiGUEvUb3jxUsei7aB94g3NRIMuJ4WhbpEcJV2U5GpaUNJLnBiOP2+x4lLTI4UiRVrmbrXQAOMA==
 
 jiti@^1.9.2:
-  version "1.12.3"
-  resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.12.3.tgz#fe6f9cb066aa2c37981231dffb1d3f04ab4ebdb2"
-  integrity sha512-p88jl9WzvZYekMS5ZOB61bJ1SPV69o7nEpAU+mFpGzXErqLEg3WvNz3jeXylAiSfLZzvqZssrAu08N3AuvaqwQ==
+  version "1.12.5"
+  resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.12.5.tgz#67ee49e95299ed6c18ffdcc2cfe0d2f65432d22b"
+  integrity sha512-+K46njcZW6E/OPWWHImm3G1u+fYVcKU7vqc8b36oVtfi9l3moaSGtsPydaRf2gPuVxh13G1KSCVlW0DfyYUjPQ==
 
 jju@~1.4.0:
   version "1.4.0"
@@ -10324,9 +10324,9 @@ side-channel@^1.0.4:
     object-inspect "^1.9.0"
 
 signal-exit@^3.0.0, signal-exit@^3.0.2, signal-exit@^3.0.3:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.4.tgz#366a4684d175b9cab2081e3681fda3747b6c51d7"
-  integrity sha512-rqYhcAnZ6d/vTPGghdrw7iumdcbXpsk1b8IG/rz+VWV51DM0p7XCtMoJ3qhPLIbp3tvyt3pKRbaaEMZYpHto8Q==
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.5.tgz#9e3e8cc0c75a99472b44321033a7702e7738252f"
+  integrity sha512-KWcOiKeQj6ZyXx7zq4YxSMgHRlod4czeBQZrPb8OKcohcqAXShm7E20kEMle9WBt26hFcAf0qLOcp5zmY7kOqQ==
 
 simple-swizzle@^0.2.2:
   version "0.2.2"
@@ -10585,11 +10585,11 @@ std-env@^1.1.0:
     is-ci "^1.1.0"
 
 std-env@^2.2.1, std-env@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/std-env/-/std-env-2.3.0.tgz#66d4a4a4d5224242ed8e43f5d65cfa9095216eee"
-  integrity sha512-4qT5B45+Kjef2Z6pE0BkskzsH0GO7GrND0wGlTM1ioUe3v0dGYx9ZJH0Aro/YyA8fqQ5EyIKDRjZojJYMFTflw==
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/std-env/-/std-env-2.3.1.tgz#d42271908819c243f8defc77a140fc1fcee336a1"
+  integrity sha512-eOsoKTWnr6C8aWrqJJ2KAReXoa7Vn5Ywyw6uCXgA/xDhxPoaIsBa5aNJmISY04dLwXPBnDHW4diGM7Sn5K4R/g==
   dependencies:
-    ci-info "^3.0.0"
+    ci-info "^3.1.1"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
