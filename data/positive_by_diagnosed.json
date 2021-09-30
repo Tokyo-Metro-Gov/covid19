@@ -1,5 +1,5 @@
 {
-    "date": "2021\/9\/29 18:30",
+    "date": "2021\/9\/30 18:00",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -2279,7 +2279,7 @@
         },
         {
             "diagnosed_date": "2021-08-14",
-            "count": 4252
+            "count": 4253
         },
         {
             "diagnosed_date": "2021-08-15",
@@ -2351,7 +2351,7 @@
         },
         {
             "diagnosed_date": "2021-09-01",
-            "count": 2964
+            "count": 2965
         },
         {
             "diagnosed_date": "2021-09-02",
@@ -2359,7 +2359,7 @@
         },
         {
             "diagnosed_date": "2021-09-03",
-            "count": 2234
+            "count": 2235
         },
         {
             "diagnosed_date": "2021-09-04",
@@ -2371,15 +2371,15 @@
         },
         {
             "diagnosed_date": "2021-09-06",
-            "count": 1573
+            "count": 1575
         },
         {
             "diagnosed_date": "2021-09-07",
-            "count": 1898
+            "count": 1899
         },
         {
             "diagnosed_date": "2021-09-08",
-            "count": 1536
+            "count": 1537
         },
         {
             "diagnosed_date": "2021-09-09",
@@ -2399,11 +2399,11 @@
         },
         {
             "diagnosed_date": "2021-09-13",
-            "count": 975
+            "count": 976
         },
         {
             "diagnosed_date": "2021-09-14",
-            "count": 1030
+            "count": 1031
         },
         {
             "diagnosed_date": "2021-09-15",
@@ -2415,7 +2415,7 @@
         },
         {
             "diagnosed_date": "2021-09-17",
-            "count": 699
+            "count": 700
         },
         {
             "diagnosed_date": "2021-09-18",
@@ -2431,7 +2431,7 @@
         },
         {
             "diagnosed_date": "2021-09-21",
-            "count": 440
+            "count": 441
         },
         {
             "diagnosed_date": "2021-09-22",
@@ -2443,23 +2443,31 @@
         },
         {
             "diagnosed_date": "2021-09-24",
-            "count": 311
+            "count": 314
         },
         {
             "diagnosed_date": "2021-09-25",
-            "count": 281
+            "count": 288
         },
         {
             "diagnosed_date": "2021-09-26",
-            "count": 103
+            "count": 104
         },
         {
             "diagnosed_date": "2021-09-27",
-            "count": 232
+            "count": 240
         },
         {
             "diagnosed_date": "2021-09-28",
-            "count": 209
+            "count": 252
+        },
+        {
+            "diagnosed_date": "2021-09-29",
+            "count": 143
+        },
+        {
+            "diagnosed_date": "2021-09-30",
+            "count": 2
         }
     ]
 }
