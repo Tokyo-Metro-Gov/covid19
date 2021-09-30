@@ -103,6 +103,19 @@
     </static-card>
     <static-card>
       <h3>
+        <app-link
+          :to="localePath('/accessibility-results')"
+          class="Sitemap-titleLink"
+        >
+          {{ $t('ウェブアクセシビリティ試験結果（2021年度）') }}
+        </app-link>
+      </h3>
+      <p>
+        {{ $t('ウェブアクセシビリティ試験結果（2021年度）について') }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
         <app-link :to="localePath('/contacts')" class="Sitemap-titleLink">
           {{ $t('お問い合わせ先一覧') }}
         </app-link>
