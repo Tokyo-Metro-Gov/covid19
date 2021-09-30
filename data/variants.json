@@ -1,5 +1,5 @@
 {
-    "date": "2021\/9\/27 18:00",
+    "date": "2021\/9\/30 18:00",
     "datasets": [
         {
             "period": {
@@ -278,12 +278,12 @@
             },
             "data": {
                 "L452R": {
-                    "positive_count": 8601,
-                    "positive_rate": 93.7
+                    "positive_count": 8639,
+                    "positive_rate": 93.6
                 },
-                "variant_test_count": 9177,
-                "variant_pcr_rate": 51.4,
-                "negative_rate": 6.3
+                "variant_test_count": 9234,
+                "variant_pcr_rate": 51.7,
+                "negative_rate": 6.4
             }
         },
         {
@@ -299,6 +299,21 @@
                 "variant_test_count": 4385,
                 "variant_pcr_rate": 45.3,
                 "negative_rate": 7.1
+            }
+        },
+        {
+            "period": {
+                "begin": "2021-09-13",
+                "end": "2021-09-19"
+            },
+            "data": {
+                "L452R": {
+                    "positive_count": 2048,
+                    "positive_rate": 90.4
+                },
+                "variant_test_count": 2265,
+                "variant_pcr_rate": 39.7,
+                "negative_rate": 9.6
             }
         }
     ]
