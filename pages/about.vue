@@ -33,7 +33,7 @@
         <dt>{{ $t('適合レベル及び対応度') }}</dt>
         <dd>{{ $t('JIS X 8341-3:2016の適合レベルAAに準拠') }}</dd>
         <dt>{{ $t('目標を達成する期限') }}</dt>
-        <dd>{{ formatDate(new Date('2021-09-30')) }}</dd>
+        <dd>{{ formatDate('2021-09-30') }}</dd>
         <dt>{{ $t('例外事項') }}</dt>
         <dd>
           <p>
@@ -62,6 +62,12 @@
               }}
             </li>
           </ul>
+        </dd>
+        <dt>{{ $t('試験結果') }}</dt>
+        <dd>
+          <app-link :to="localePath('/accessibility-results')">
+            {{ $t('ウェブアクセシビリティ試験結果（2021年度）') }}
+          </app-link>
         </dd>
         <dt>{{ $t('担当部署') }}</dt>
         <dd>{{ $t('政策企画局（03-5388-2171）') }}</dd>
@@ -318,8 +324,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    formatDate(date) {
-      return `${this.$d(date, 'date')}`
+    formatDate(date: string) {
+      return `${this.$d(new Date(date), 'date')}`
     },
   },
 })
