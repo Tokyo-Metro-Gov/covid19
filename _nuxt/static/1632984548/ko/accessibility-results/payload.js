@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ko/accessibility-results", {data:[{}],fetch:{},mutations:[]});
