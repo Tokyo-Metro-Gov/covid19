@@ -1,41 +1,37 @@
 {
-    "date": "2021\/9\/29 18:30",
+    "date": "2021\/9\/30 18:00",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の7日間平均は、第5波のピーク時から減少を続けている。",
-                "@en": "The 7-day moving average of new positive cases continues to decline from the peak of the fifth wave."
+                "@ja": "新規陽性者数の増加比は、6週間連続して低下を続けている。",
+                "@en": "The rate of increase for new positive cases has been dropping for six consecutive weeks."
             },
             {
-                "@ja": "感染の拡大が懸念される冬に備え、新規陽性者数をさらに減少させる必要がある。",
-                "@en": "To prepare for the winter months, during which the spread of the virus is of concern, it is essential to further reduce the number of new cases."
-            },
-            {
-                "@ja": "新規陽性者数が増加に転じれば、医療提供体制は再び危機的状況となる。",
-                "@en": "If the number of new cases starts to rise, the health care system will again face a critical situation."
+                "@ja": "感染拡大のリスクが高くなる冬に備え、再び増加比が上昇に転じないよう、感染防止対策及びワクチン接種を推進し、感染拡大を抑える必要がある。",
+                "@en": "It is essential to continue promoting infection prevention measures and vaccinations to prevent a resurge in infections in the lead up to the winter months when there is a higher risk for the spread of infection."
             }
         ],
-        "(1)新規陽性者数": 302.3,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 66,
-        "(3)新規陽性者における接触歴等不明者（人数）": 180.1,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 53.8,
-        "(4)PCR・抗原検査（陽性率）": 3.3,
-        "(4)PCR・抗原検査（検査人数）": 7038.9,
-        "(5)救急医療の東京ルールの適用件数": 59,
-        "(6)入院患者数": 1181,
-        "(6)入院患者確保病床数": 6583,
-        "(7)重症患者数": 107,
+        "(1)新規陽性者数": 257.6,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 67.4,
+        "(3)新規陽性者における接触歴等不明者（人数）": 154.9,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 49.7,
+        "(4)PCR・抗原検査（陽性率）": 2.9,
+        "(4)PCR・抗原検査（検査人数）": 6644.9,
+        "(5)救急医療の東京ルールの適用件数": 56.3,
+        "(6)入院患者数": 1080,
+        "(6)入院患者確保病床数": 6651,
+        "(7)重症患者数": 100,
         "(7)重症患者確保病床数": 503,
         "総括コメント-感染状況": {
-            "date": "2021-09-22",
-            "level": 4,
+            "date": "2021-09-30",
+            "level": 3,
             "display": {
-                "@ja": "感染の再拡大の危険性が高いと思われる",
-                "@en": "There is a high risk of a resurgence of the virus."
+                "@ja": "感染の再拡大に警戒が必要であると思われる",
+                "@en": "Vigilance against a resurgence of the virus is needed."
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2021-09-22",
+            "date": "2021-09-30",
             "level": 4,
             "display": {
                 "@ja": "通常の医療が大きく制限されていると思われる",
