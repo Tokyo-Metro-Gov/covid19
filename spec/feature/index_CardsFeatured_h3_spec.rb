@@ -11,7 +11,7 @@ describe 'page [/]', type: :feature do
           render_lazy_contents
         end
 
-        context 'CardsMonitoring' do
+        context 'CardsFeatured' do
           it 'has cardTab' do
             expect(find('.v-tabs a#cardTab-0.v-tab--active').text).to eq t(lang, '注目の指標').upcase
           end
