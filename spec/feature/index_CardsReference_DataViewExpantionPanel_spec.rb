@@ -3,42 +3,44 @@
 require 'spec_helper'
 
 card_classes = [
+  '.DataCard.PositiveNumberOver65Card',
   '.DataCard.PositiveNumberByDevelopedDateCard',
   '.DataCard.PositiveNumberByDiagnosedDateCard',
   '.DataCard.DeathsByDeathDateCard',
-  '.DataCard.TestedNumberCard',
   '.DataCard.VariantCard',
-  '.DataCard.VaccinationCard',
-  '.DataCard.TelephoneAdvisoryReportsNumberCard',
-  '.DataCard.MonitoringConsultationDeskReportsNumberCard',
-  '.DataCard.TokyoFeverConsultationCenterReportsNumberCard',
   '.DataCard.MetroCard',
-  '.DataCard.AgencyCard'
+  '.DataCard.AgencyCard',
 ]
 
 describe 'page [/]', type: :feature do
   context 'ja' do
-    describe 'CardsMonitoring' do
+    describe 'CardsReference' do
       before do
-        visit '/'
-        render_lazy_contents
-        find('a[href="#tab-1"]').click
+        visit '/reference'
         render_lazy_contents
       end
 
       shared_examples 'DataViewExpansionPanel' do
         example 'Open Panel -> Close Panel' do
+          # Before Open Panel
+          expect(page).to have_selector("#{card_class} .DataView-ExpantionPanel button.custom-expansion-panel-button[aria-expanded='false']")
+          expect(page).not_to have_selector("#{card_class} .DataView-ExpantionPanel button.custom-expansion-panel-button[aria-expanded='true']")
+          expect(page).not_to have_selector("#{card_class} .DataView-ExpantionPanel button.custom-expansion-panel-button[aria-expanded='true'] > span.custom-expansion-panel-icon.with-content-open")
+
           # Open Panel
-          expect(page).not_to have_selector("#{card_class} .DataView-ExpantionPanel .v-expansion-panel--active")
-          expect(page).not_to have_selector("#{card_class} .DataView-ExpantionPanel button.v-expansion-panel-header.v-expansion-panel-header--active")
-          find("#{card_class} .DataView-ExpantionPanel button.v-expansion-panel-header").click
-          expect(page).to have_selector("#{card_class} .DataView-ExpantionPanel .v-expansion-panel--active")
-          expect(page).to have_selector("#{card_class} .DataView-ExpantionPanel button.v-expansion-panel-header.v-expansion-panel-header--active")
+          find("#{card_class} .DataView-ExpantionPanel button.custom-expansion-panel-button[aria-expanded='false']").click
+
+          # After Open Panel
+          expect(page).to have_selector("#{card_class} .DataView-ExpantionPanel button.custom-expansion-panel-button[aria-expanded='true']")
+          expect(page).to have_selector("#{card_class} .DataView-ExpantionPanel button.custom-expansion-panel-button[aria-expanded='true'] > span.custom-expansion-panel-icon.with-content-open")
 
           # Close Panel
-          find("#{card_class} .DataView-ExpantionPanel button.v-expansion-panel-header.v-expansion-panel-header--active").click
-          expect(page).not_to have_selector("#{card_class} .DataView-ExpantionPanel .v-expansion-panel--active")
-          expect(page).not_to have_selector("#{card_class} .DataView-ExpantionPanel button.v-expansion-panel-header.v-expansion-panel-header--active")
+          find("#{card_class} .DataView-ExpantionPanel button.custom-expansion-panel-button[aria-expanded='true']").click
+
+          # After Close Panel
+          expect(page).to have_selector("#{card_class} .DataView-ExpantionPanel button.custom-expansion-panel-button[aria-expanded='false']")
+          expect(page).not_to have_selector("#{card_class} .DataView-ExpantionPanel button.custom-expansion-panel-button[aria-expanded='true']")
+          expect(page).not_to have_selector("#{card_class} .DataView-ExpantionPanel button.custom-expansion-panel-button[aria-expanded='true'] > span.custom-expansion-panel-icon.with-content-open")
         end
       end
 
