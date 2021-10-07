@@ -1,4 +1,4 @@
-import type { NuxtConfig } from '@nuxt/types'
+import { NuxtConfig } from '@nuxt/types'
 
 const dateTimeFormatsCommon = {
   dateTime: {
@@ -102,6 +102,7 @@ const options: NuxtConfig['i18n'] = {
       description: 'Easy Japanese',
     },
   ],
+  seo: false,
 }
 
 export default options
