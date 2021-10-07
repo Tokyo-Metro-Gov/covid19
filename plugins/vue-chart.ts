@@ -1,13 +1,14 @@
+/* eslint-disable simple-import-sort/imports */
 import { Plugin } from '@nuxt/types'
 import { defineComponent, ref, ssrRef } from '@nuxtjs/composition-api'
 import {
   ArcElement,
   BarController,
   BarElement,
-  ChartComponentLike, // eslint-disable-line import/named
-  ChartData, // eslint-disable-line import/named
-  ChartOptions, // eslint-disable-line import/named
   CategoryScale,
+  ChartComponentLike /* eslint-disable-line import/named */,
+  ChartData /* eslint-disable-line import/named */,
+  ChartOptions /* eslint-disable-line import/named */,
   Filler,
   Legend,
   LinearScale,
@@ -21,9 +22,9 @@ import Chart from 'chart.js/auto/auto.esm'
 import Vue from 'vue'
 import { BarChart, DoughnutChart, LineChart } from 'vue-chart-3'
 
-// eslint-disable-next-line no-restricted-imports
-import { useDayjsAdapter } from './chartjs-adapter-dayjs'
+import { useDayjsAdapter } from '@/plugins/chartjs-adapter-dayjs'
 import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
+/* eslint-enable simple-import-sort/imports */
 
 Chart.register(
   LineController,
