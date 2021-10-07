@@ -71,7 +71,7 @@
     "vuex": "3.6.2"
   },
   "devDependencies": {
-    "@babel/core": "7.15.5",
+    "@babel/core": "7.15.8",
     "@babel/runtime-corejs3": "7.15.4",
     "@mdi/js": "6.2.95",
     "@nuxt/typescript-build": "2.1.0",
@@ -82,7 +82,7 @@
     "@nuxtjs/vuetify": "1.12.1",
     "@types/fs-extra": "9.0.13",
     "@types/lodash": "4.14.175",
-    "@types/node": "12.20.28",
+    "@types/node": "14.17.21",
     "@types/regenerator-runtime": "0.13.1",
     "@vue/server-renderer": "3.2.19",
     "core-js": "3.18.2",
