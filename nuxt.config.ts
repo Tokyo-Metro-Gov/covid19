@@ -87,8 +87,8 @@ const config: NuxtConfig = {
    */
   plugins: [
     {
-      src: '@/plugins/vue-chart.ts',
-      ssr: true,
+      src: '@/plugins/vue-chart',
+      mode: 'client',
     },
     {
       src: '@/plugins/axe',
@@ -99,6 +99,7 @@ const config: NuxtConfig = {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    '@nuxtjs/composition-api/module',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     [
@@ -159,20 +160,6 @@ const config: NuxtConfig = {
     pageTracking: true,
     enabled: true,
   },
-  /*
-   * nuxt-i18n による自動リダイレクトを停止したためコメントアウト
-   * @todo 「Cookieがあるときのみ、その言語にリダイレクトする」を実装する場合は復活させる
-   * 実装しない場合は以下の記述を完全に削除する
-   */
-  /* optionalCookies: [
-    {
-      name: 'i18n_redirected',
-      label: 'i18n Redirection Cookie',
-      description:
-        'For automatically switching UI languages in accordance with locale preferences in the web browser configuration.',
-      cookies: ['i18n_redirected']
-    }
-  ], */
   build: {
     filenames: {
       chunk: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js'),
