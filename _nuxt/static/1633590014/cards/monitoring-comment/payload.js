@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/cards/monitoring-comment", {data:[{}],fetch:{},mutations:[]});
