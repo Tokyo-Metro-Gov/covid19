@@ -1,41 +1,41 @@
 {
-    "date": "2021\/10\/6 18:15",
+    "date": "2021\/10\/7 18:00",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の増加比は、6週間連続して低下を続けている。",
-                "@en": "The rate of increase for new positive cases has been dropping for six consecutive weeks."
+                "@ja": "新規陽性者数の7日間平均は8月下旬から連続して減少した。昨年の同時期に近い値であり、昨年末の第3波と同じ経過をたどらないよう、今のうちに新型コロナウイルスをさらに抑え込み、新規陽性者数を減らしておく必要がある。",
+                "@en": null
             },
             {
-                "@ja": "感染拡大のリスクが高くなる冬に備え、再び増加比が上昇に転じないよう、感染防止対策及びワクチン接種を推進し、感染拡大を抑える必要がある。",
-                "@en": "It is essential to continue promoting infection prevention measures and vaccinations to prevent a resurge in infections in the lead up to the winter months when there is a higher risk for the spread of infection."
+                "@ja": "通常医療の制限を段階的に解除しながら、新型コロナウイルス感染症医療との両立を図る必要がある。",
+                "@en": null
             }
         ],
-        "(1)新規陽性者数": 165,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 64.3,
-        "(3)新規陽性者における接触歴等不明者（人数）": 100,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 55.5,
-        "(4)PCR・抗原検査（陽性率）": 1.8,
-        "(4)PCR・抗原検査（検査人数）": 6582,
+        "(1)新規陽性者数": 154.3,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 60.7,
+        "(3)新規陽性者における接触歴等不明者（人数）": 93,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 60.1,
+        "(4)PCR・抗原検査（陽性率）": 1.7,
+        "(4)PCR・抗原検査（検査人数）": 6444.4,
         "(5)救急医療の東京ルールの適用件数": 48.1,
-        "(6)入院患者数": 751,
+        "(6)入院患者数": 688,
         "(6)入院患者確保病床数": 6651,
-        "(7)重症患者数": 77,
+        "(7)重症患者数": 70,
         "(7)重症患者確保病床数": 503,
         "総括コメント-感染状況": {
-            "date": "2021-09-29",
-            "level": 3,
+            "date": "2021-10-06",
+            "level": 2,
             "display": {
-                "@ja": "感染の再拡大に警戒が必要であると思われる",
-                "@en": "Vigilance against a resurgence of the virus is needed."
+                "@ja": "感染状況は改善傾向にあるが、注意が必要である",
+                "@en": "Although the infection situation is improving, caution against the virus is needed."
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2021-09-29",
-            "level": 4,
+            "date": "2021-10-06",
+            "level": 3,
             "display": {
-                "@ja": "通常の医療が大きく制限されていると思われる",
-                "@en": "The provision of non-COVID health care is under pressure."
+                "@ja": "通常の医療が一部制限されている状況である",
+                "@en": "The provision of non-COVID health care is partially under pressure."
             }
         }
     }
