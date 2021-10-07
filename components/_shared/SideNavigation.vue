@@ -149,7 +149,6 @@
             <app-link
               :to="$t('https://creativecommons.org/licenses/by/4.0/deed.ja')"
               :icon-size="12"
-              class="SideNavigation-LicenseLink"
             >
               {{ $t('クリエイティブ・コモンズ 表示 4.0 ライセンス') }}
             </app-link>
@@ -423,9 +422,6 @@ export default Vue.extend({
   @include lessThan($small) {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
   }
-  &:focus {
-    outline: 1px dotted $gray-3;
-  }
 }
 
 .SideNavigation-Header {
@@ -506,10 +502,6 @@ export default Vue.extend({
   &:hover,
   &:focus {
     font-weight: 600;
-  }
-
-  &:focus {
-    outline: dotted $gray-3 1px;
   }
 
   @include largerThan($small) {
@@ -596,7 +588,7 @@ export default Vue.extend({
         &:focus {
           color: inherit;
           text-decoration: none;
-          border: 1px dotted $gray-3;
+          border: 2px solid $focus;
           outline: none;
         }
 
@@ -620,12 +612,6 @@ export default Vue.extend({
   line-height: 1.3;
   font-weight: 600;
   @include font-size(10);
-}
-
-.SideNavigation-LicenseLink {
-  &:focus {
-    outline: 1px dotted $gray-3;
-  }
 }
 
 .SideNavigation-GMarkWrapper {

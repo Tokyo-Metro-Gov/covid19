@@ -263,9 +263,6 @@ export default Vue.extend({
     .v-select {
       margin-left: 10px;
     }
-    &:focus {
-      outline: dotted $gray-3 1px;
-    }
   }
   .v-data-table__wrapper {
     box-shadow: 0 -20px 12px -12px #0003 inset;
@@ -320,7 +317,7 @@ export default Vue.extend({
   border: 1px solid $gray-4;
 
   &:focus {
-    border: 1px dotted $gray-3;
+    border: 2px solid $focus;
     outline: none;
   }
 }
