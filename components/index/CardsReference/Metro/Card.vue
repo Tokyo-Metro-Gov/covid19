@@ -3,12 +3,12 @@
     <client-only>
       <chart
         :title="$t('都営地下鉄の利用者数の推移')"
-        :title-id="'predicted-number-of-toei-subway-passengers'"
-        :chart-id="'metro-bar-chart'"
+        title-id="predicted-number-of-toei-subway-passengers"
+        chart-id="metro-line-chart"
         :chart-data="metroGraph"
-        :date="metroGraph.date"
-        :items="metroGraph.labels"
-        :periods="metroGraph.periods"
+        :date="date"
+        :items="labels"
+        :periods="periods"
         :tooltips-title="metroGraphTooltipTitle"
         :tooltips-label="metroGraphTooltipLabel"
         unit="%"
@@ -16,7 +16,7 @@
         <template #additionalDescription>
           {{
             $t('{range}の利用者数*の平均値を基準としたときの相対値', {
-              range: metroGraph.base_period,
+              range: basePeriod,
             })
           }}
           <br />
@@ -33,55 +33,100 @@
   </v-col>
 </template>
 
-<script>
+<script lang="ts">
 import dayjs from 'dayjs'
+import Vue from 'vue'
 
 import Chart from '@/components/index/CardsReference/Metro/Chart.vue'
-import MetroData from '@/data/metro.json'
+import {
+  Dataset as IMetroDataset,
+  Metro as IMetro,
+} from '@/libraries/auto_generated/data_converter/convertMetro'
 
-export default {
+interface IMetroDatasetWithLabel extends IMetroDataset {
+  label: Date
+}
+
+interface IMetroGraph {
+  labels: string[]
+  datasets: IMetroDatasetWithLabel[]
+}
+
+type Data = {}
+type Methods = {
+  getWeekLabel: (begin: Date, end: Date) => string
+}
+type Computed = {
+  date: string
+  labels: string[]
+  datasetsWithLabels: IMetroDatasetWithLabel[]
+  periods: string[]
+  metroGraph: IMetroGraph
+  basePeriod: string
+  metroGraphTooltipTitle: (tooltipItems: any) => string
+  metroGraphTooltipLabel: (tooltipItem: any, data: any) => string
+  metroDatasets: IMetroDataset[]
+  metro: IMetro
+}
+type Props = {}
+
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     Chart,
   },
-  data() {
-    // 都営地下鉄の利用者数の推移
-    const datasets = MetroData.datasets.map((d) => ({
-      ...d,
-      label: d.period.begin,
-    }))
-    const periods = MetroData.datasets.map((d) =>
-      this.getWeekLabel(d.period.begin, d.period.end)
-    )
-    const metroGraph = {
-      ...MetroData,
-      datasets,
-      periods,
-    }
-
+  computed: {
+    date() {
+      return this.metro.date
+    },
+    labels() {
+      return this.metro.labels
+    },
+    datasetsWithLabels() {
+      return this.metroDatasets.map((d) => ({
+        ...d,
+        label: d.period.begin,
+      }))
+    },
+    periods() {
+      return this.metroDatasets.map((d) =>
+        this.getWeekLabel(d.period.begin, d.period.end)
+      )
+    },
+    metroGraph() {
+      return {
+        labels: this.labels,
+        datasets: this.datasetsWithLabels,
+      }
+    },
+    basePeriod() {
+      // 2020/1/20~2020/1/24
+      return this.metro.basePeriod
+    },
     // metroGraph ツールチップ title文字列
-    // this.$t を使うため metroGraphOption の外側へ
-    const metroGraphTooltipTitle = (tooltipItems, _) => {
-      const duration = metroGraph.periods[tooltipItems[0].index]
-      return this.$t('期間: {duration}', { duration })
-    }
+    metroGraphTooltipTitle() {
+      return (tooltipItems) => {
+        const duration = this.periods[tooltipItems[0].index]
+        return this.$t('期間: {duration}', { duration }) as string
+      }
+    },
     // metroGraph ツールチップ label文字列
-    // this.$t を使うため metroGraphOption の外側へ
-    const metroGraphTooltipLabel = (tooltipItem, data) => {
-      const currentData = data.datasets[tooltipItem.datasetIndex]
-      const percentage = `${currentData.data[tooltipItem.index]}%`
+    metroGraphTooltipLabel() {
+      return (tooltipItem, data) => {
+        const currentData = data.datasets[tooltipItem.datasetIndex]
+        const percentage = `${currentData.data[tooltipItem.index]}%`
 
-      return this.$t('{duration}の利用者数との相対値: {percentage}', {
-        // duration = metroGraph.base_period = '2020\/1\/20~2020\/1\/24'
-        duration: this.$t(metroGraph.base_period),
-        percentage,
-      })
-    }
-
-    return {
-      metroGraph,
-      metroGraphTooltipTitle,
-      metroGraphTooltipLabel,
-    }
+        return this.$t('{duration}の利用者数との相対値: {percentage}', {
+          duration: this.$t(this.basePeriod),
+          percentage,
+        }) as string
+      }
+    },
+    metroDatasets() {
+      return this.metro.datasets
+    },
+    metro() {
+      return this.$store.state.metro
+    },
   },
   methods: {
     /**
@@ -93,5 +138,5 @@ export default {
       return `${from}~${to}`
     },
   },
-}
+})
 </script>

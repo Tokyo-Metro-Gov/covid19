@@ -1,22 +1,16 @@
 <template>
   <div>
-    <v-expansion-panels v-if="showDetails" flat>
-      <v-expansion-panel>
-        <v-expansion-panel-header
-          :hide-actions="true"
-          :style="{ transition: 'none' }"
-          @click="toggleDetails"
-        >
-          <div class="v-expansion-panel-header__icon">
-            <v-icon left size="2.4rem">{{ mdiChevronRight }}</v-icon>
-          </div>
-          <span class="expansion-panel-text">{{ $t('テーブルを表示') }}</span>
-        </v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <slot />
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-    </v-expansion-panels>
+    <custom-expansion-panel v-if="showDetails" :id="id" @click="toggleDetails">
+      <template #icon>
+        <v-icon size="2.4rem">{{ mdiChevronRight }}</v-icon>
+      </template>
+      <template #title>
+        <span class="expansion-panel-text">{{ $t('テーブルを表示') }}</span>
+      </template>
+      <template #content>
+        <slot />
+      </template>
+    </custom-expansion-panel>
     <template v-else>
       <slot />
     </template>
@@ -27,9 +21,17 @@
 import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
+import CustomExpansionPanel from '@/components/_shared/CustomExpansionPanel.vue'
 import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 
 export default Vue.extend({
+  components: { CustomExpansionPanel },
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       showDetails: false,
@@ -41,25 +43,16 @@ export default Vue.extend({
   },
   methods: {
     toggleDetails() {
-      EventBus.$emit(TOGGLE_EVENT, { dataView: this.$parent })
+      EventBus.$emit(TOGGLE_EVENT, {
+        dataView: this.$parent.$el,
+        item: 'details',
+      })
     },
   },
 })
 </script>
 
 <style lang="scss">
-.v-expansion-panel-header__icon {
-  margin-left: -5px !important;
-
-  & .v-icon--left {
-    margin-right: 5px;
-  }
-
-  .v-expansion-panel--active & .v-icon {
-    transform: rotate(90deg) !important;
-  }
-}
-
 .expansion-panel-text {
   color: $gray-1;
   @include font-size(14);

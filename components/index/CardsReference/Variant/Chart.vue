@@ -14,8 +14,9 @@
         :key="i"
         @click="onClickLegend(i)"
       >
-        <button>
-          <div
+        <button role="checkbox" :aria-checked="`${displayLegends[i]}`">
+          <span
+            :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor,
@@ -45,22 +46,24 @@
           :chart-data="displayData"
           :options="displayOption"
           :display-legends="displayLegends"
-          :height="240"
+          :height="280"
           :width="chartWidth"
         />
       </template>
       <template #sticky-chart>
         <bar
+          :ref="'stickyChart'"
           class="sticky-legend"
           :chart-id="`${chartId}-header-right`"
           :chart-data="displayDataHeader"
           :options="displayOptionHeader"
           :plugins="yAxesBgRightPlugin"
           :display-legends="displayLegends"
-          :height="240"
+          :height="280"
         />
       </template>
     </scrollable-chart>
+    <slot name="additionalButton" />
     <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
@@ -84,9 +87,10 @@
 
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
-import Vue, { PropType } from 'vue'
+import type { PropType } from 'vue'
+import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { TranslateResult } from 'vue-i18n'
+import type { TranslateResult } from 'vue-i18n'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
@@ -276,10 +280,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           dateBegin: this.$d(this.lastPeriod.begin, 'date'),
           dateEnd: this.$d(this.lastPeriod.end, 'date'),
         }
-      )}（${this.$t('現在判明している数値であり、後日修正される場合がある')}）`
+      )}（${this.$t('現在判明している数値であり、後日更新される場合がある')}）`
       return [
         {
-          lText: String(lastData(this.chartData[0])), // n501YPositiveRate（N501Y陽性例構成割合）
+          lText: String(lastData(this.chartData[0])), // l452RPositiveRate（L452R陽性例構成割合）
           sText: periodText,
           unit: this.unit,
         },
@@ -350,7 +354,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             ...this.tableData.map((_, j) => {
               return {
                 [j]:
-                  j === 2 || j === 3 // n501YPositiveRate（N501Y陽性例構成割合）, variantPcrRate（変異株PCR検査実施割合）
+                  j === 2 || j === 3 // l452RPositiveRate（L452R陽性例構成割合）, variantPcrRate（変異株PCR検査実施割合）
                     ? this.getFormatter(j)(this.tableData[j][i])
                     : this.tableData[j][i].toLocaleString(),
               }
@@ -397,7 +401,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 9,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 callback: (_, i) => {
                   return this.periods[i]
                 },
@@ -414,7 +418,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 padding: 3,
                 fontStyle: 'bold',
               },
@@ -445,7 +449,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 10,
                 suggestedMin: 0,
                 suggestedMax: 100,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 callback: (value) => {
                   return `${value}${this.unit}`
                 },
@@ -465,7 +469,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
@@ -544,7 +548,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // displayOption では #808080
+                fontColor: 'transparent', // displayOption では #707070
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
@@ -562,6 +566,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               scaleLabel: {
                 display: true,
                 labelString: this.scaleLabels[0] as string,
+                fontColor: '#1b4d30',
               },
               gridLines: {
                 display: true,
@@ -571,7 +576,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
-                fontColor: '#808080',
+                fontColor: '#1b4d30',
                 suggestedMin: 0,
                 suggestedMax: 100,
                 callback: (value) => {
@@ -585,6 +590,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               scaleLabel: {
                 display: true,
                 labelString: this.scaleLabels[1] as string,
+                fontColor: '#B19201',
               },
               gridLines: {
                 display: true,
@@ -594,7 +600,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
-                fontColor: '#808080',
+                fontColor: '#B19201',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
@@ -629,6 +635,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
+
+    const stickyChart = this.$refs.stickyChart as Vue
+    const stickyElement = stickyChart.$el
+    const stickyCanvas = stickyElement.querySelector('canvas')
+
+    if (stickyCanvas) {
+      stickyCanvas.setAttribute('aria-hidden', 'true')
+    }
   },
 }
 
@@ -644,7 +658,7 @@ export default Vue.extend(options)
     li {
       display: inline-block;
       margin: 0 3px;
-      div {
+      .area {
         height: 12px;
         margin: 2px 4px;
         width: 40px;

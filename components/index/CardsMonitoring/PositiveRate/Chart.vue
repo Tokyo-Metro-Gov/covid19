@@ -14,25 +14,28 @@
         :key="i"
         @click="onClickLegend(i)"
       >
-        <button>
-          <div
+        <button role="checkbox" :aria-checked="`${displayLegends[i]}`">
+          <span
             v-if="i === 4"
+            :class="$style.area"
+            :style="{
+              backgroundColor: colors[i].fillColor,
+              border: 0,
+              height: '3px',
+            }"
+          />
+          <span
+            v-else-if="i === 5"
+            :class="$style.area"
             :style="{
               background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
               border: 0,
               height: '3px',
             }"
           />
-          <div
-            v-else-if="i === 5"
-            :style="{
-              backgroundColor: colors[4].fillColor,
-              border: 0,
-              height: '3px',
-            }"
-          />
-          <div
+          <span
             v-else
+            :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor,
@@ -64,6 +67,7 @@
       </template>
       <template #sticky-chart>
         <bar
+          :ref="'stickyChart'"
           class="sticky-legend"
           :chart-id="`${chartId}-header-right`"
           :chart-data="displayDataHeader"
@@ -102,9 +106,10 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
+import type { PropType } from 'vue'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import { TranslateResult } from 'vue-i18n'
+import type { TranslateResult } from 'vue-i18n'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
@@ -164,7 +169,7 @@ type Props = {
   labels: string[]
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
-  unit: string
+  units: string[]
   url: string
   optionUnit: string
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
@@ -234,9 +239,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => [],
     },
-    unit: {
-      type: String,
-      default: '',
+    units: {
+      type: Array as PropType<string[]>,
+      default: () => [],
     },
     url: {
       type: String,
@@ -258,7 +263,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data: () => ({
     displayLegends: [true, true, true, true, true, true],
-    colors: [...getGraphSeriesStyle(4), getGraphSeriesColor('E')],
+    colors: [
+      ...getGraphSeriesStyle(4),
+      getGraphSeriesColor('E'),
+      getGraphSeriesColor('H'),
+    ],
     canvas: true,
   }),
   computed: {
@@ -285,9 +294,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             date: this.$d(lastDay, 'date'),
           })}（${this.$t('７日間移動平均値をもとに算出')}）`,
           sTextUnder: `（${this.$t('前日比')}: ${dayBeforeRatio} ${
-            this.unit
+            this.units[0]
           }）`,
-          unit: this.unit,
+          unit: this.units[1],
         },
         {
           lText: lastDayData4,
@@ -302,7 +311,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     displayData() {
-      const graphSeries = [...getGraphSeriesStyle(4), getGraphSeriesColor('E')]
       return {
         labels: this.labels,
         datasets: [
@@ -311,8 +319,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             yAxisID: 'y-axis-1',
             label: this.dataLabels[0],
             data: this.chartData[0],
-            backgroundColor: graphSeries[0].fillColor,
-            borderColor: graphSeries[0].strokeColor,
+            backgroundColor: this.colors[0].fillColor,
+            borderColor: this.colors[0].strokeColor,
             borderWidth: 1,
             order: 1,
           },
@@ -321,8 +329,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             yAxisID: 'y-axis-1',
             label: this.dataLabels[1],
             data: this.chartData[1],
-            backgroundColor: graphSeries[1].fillColor,
-            borderColor: graphSeries[1].strokeColor,
+            backgroundColor: this.colors[1].fillColor,
+            borderColor: this.colors[1].strokeColor,
             borderWidth: 1,
             order: 2,
           },
@@ -331,8 +339,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             yAxisID: 'y-axis-1',
             label: this.dataLabels[2],
             data: this.chartData[2],
-            backgroundColor: graphSeries[2].fillColor,
-            borderColor: graphSeries[2].strokeColor,
+            backgroundColor: this.colors[2].fillColor,
+            borderColor: this.colors[2].strokeColor,
             borderWidth: 1,
             order: 3,
           },
@@ -341,8 +349,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             yAxisID: 'y-axis-1',
             label: this.dataLabels[3],
             data: this.chartData[3],
-            backgroundColor: graphSeries[3].fillColor,
-            borderColor: graphSeries[3].strokeColor,
+            backgroundColor: this.colors[3].fillColor,
+            borderColor: this.colors[3].strokeColor,
             borderWidth: 1,
             order: 4,
           },
@@ -353,11 +361,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             data: this.chartData[4],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: graphSeries[4].strokeColor,
+            borderColor: this.colors[4].strokeColor,
             borderWidth: 3,
             fill: false,
             order: 0,
-            borderDash: [4, 4],
+            lineTension: 0,
           },
           {
             type: 'line',
@@ -366,11 +374,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             data: this.chartData[5],
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: graphSeries[4].strokeColor,
+            borderColor: this.colors[5].strokeColor,
             borderWidth: 3,
             fill: false,
             order: 0,
             lineTension: 0,
+            borderDash: [4],
           },
         ],
       }
@@ -404,7 +413,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
-      const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
 
@@ -422,7 +430,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               if (tooltipItem.datasetIndex! >= 5) {
                 label = `${
                   this.dataLabels[tooltipItem.datasetIndex!]
-                } : ${cases} ${unit}`
+                } : ${cases} %`
               }
               return label
             },
@@ -447,7 +455,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 maxRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
@@ -467,7 +475,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 padding: 3,
                 fontStyle: 'bold',
               },
@@ -492,7 +500,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
               },
@@ -507,7 +515,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
@@ -598,7 +606,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 9,
                 maxTicksLimit: 20,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 maxRotation: 0,
                 callback: (label: string) => {
                   return dayjs(label).format('D')
@@ -616,7 +624,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // displayOption では '#808080'
+                fontColor: 'transparent', // displayOption では '#707070'
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
@@ -641,7 +649,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax,
               },
@@ -656,7 +664,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 maxTicksLimit: 8,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
@@ -702,6 +710,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
+
+    const stickyChart = this.$refs.stickyChart as Vue
+    const stickyElement = stickyChart.$el
+    const stickyCanvas = stickyElement.querySelector('canvas')
+
+    if (stickyCanvas) {
+      stickyCanvas.setAttribute('aria-hidden', 'true')
+    }
   },
 }
 
@@ -717,7 +733,7 @@ export default Vue.extend(options)
     li {
       display: inline-block;
       margin: 0 3px;
-      div {
+      .area {
         height: 12px;
         margin: 2px 4px;
         width: 40px;

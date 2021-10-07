@@ -18,7 +18,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v7
+        uses: treosh/lighthouse-ci-action@v8
         with:
           urls: |
             https://stopcovid19.metro.tokyo.lg.jp/
@@ -53,13 +53,13 @@ jobs:
               } ] | sort_by(.metrics) | .[] | [.metrics, .score, .url] ) | @csv' \
           | csv2md | tee "${LH_SUMMARY_FILE}"
 
-      - uses: actions/github-script@0.9.0
+      - uses: actions/github-script@v5.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs')
             const table = fs.readFileSync(process.env.LH_SUMMARY_FILE, 'utf8')
-            github.issues.createComment({
+            github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,

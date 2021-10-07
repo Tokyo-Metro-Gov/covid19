@@ -12,10 +12,10 @@ export const convertDatetimeToISO8601Format = (dateString: string): string => {
 /**
  * Get date string formatted ISO8601(YYYY-MM-DD)
  *
- * @param dateString- Parsable string by dayjs
+ * @param date- Parsable string or date by dayjs
  */
-export const convertDateToISO8601Format = (dateString: string): string => {
-  return dayjs(dateString).format('YYYY-MM-DD')
+export const convertDateToISO8601Format = (date: string | Date): string => {
+  return dayjs(date).format('YYYY-MM-DD')
 }
 
 /**

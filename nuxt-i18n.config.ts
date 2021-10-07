@@ -1,5 +1,5 @@
-import { NuxtConfig } from '@nuxt/types'
-import { NuxtI18nMeta } from '@nuxtjs/i18n/types/vue'
+import type { NuxtConfig } from '@nuxt/types'
+import type { NuxtI18nMeta } from '@nuxtjs/i18n/types/vue'
 
 const dateTimeFormatsCommon = {
   dateTime: {
@@ -30,7 +30,7 @@ const dateTimeFormatsCommon = {
   },
 }
 
-const options: NuxtConfig = {
+const options: NuxtConfig['i18n'] = {
   strategy: 'prefix_except_default',
   detectBrowserLanguage: false,
   defaultLocale: 'ja',
@@ -103,7 +103,6 @@ const options: NuxtConfig = {
       description: 'Easy Japanese',
     },
   ],
-  seo: false,
 }
 
-export default options as NuxtI18nMeta
+export default options

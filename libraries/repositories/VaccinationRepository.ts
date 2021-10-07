@@ -17,7 +17,7 @@ export class VaccinationRepository
   /**
    * 使用箇所
    *
-   * ワクチン接種回数（高齢者・累計） (components/index/CardsReference/Vaccination/Card.vue)
+   * ワクチン接種数（累計） (components/index/CardsReference/Vaccination/Card.vue)
    */
   constructor() {
     super(Convert.toVaccination(JSON.stringify(rawData)))

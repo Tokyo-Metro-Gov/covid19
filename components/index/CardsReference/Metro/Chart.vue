@@ -5,12 +5,13 @@
       :style="{ display: canvas ? 'block' : 'none' }"
     >
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
-        <button>
-          <div
+        <button role="checkbox" :aria-checked="`${displayLegends[i]}`">
+          <span
+            :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
-              borderColor: colors[i].strokeColor,
-              width: '20px',
+              border: 0,
+              height: '3px',
             }"
           />
           <span
@@ -44,6 +45,7 @@
       </template>
       <template #sticky-chart>
         <bar
+          :ref="'stickyChart'"
           class="sticky-legend"
           :chart-id="`${chartId}-header-right`"
           :chart-data="displayDataHeader"
@@ -86,7 +88,7 @@
 </template>
 
 <script lang="ts">
-import { ChartData, ChartOptions, ChartTooltipCallback } from 'chart.js'
+import { ChartOptions, ChartTooltipCallback } from 'chart.js'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
@@ -97,8 +99,20 @@ import DataViewTable, {
   TableItem,
 } from '@/components/index/_shared/DataViewTable.vue'
 import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
+import { Dataset as IMetroDataset } from '@/libraries/auto_generated/data_converter/convertMetro'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
-import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
+import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
+
+// TODO: components/index/CardsReference/Metro/Card.vue との重複を解消
+interface IMetroDatasetWithLabel extends IMetroDataset {
+  label: Date
+}
+
+// TODO: components/index/CardsReference/Metro/Card.vue との重複を解消
+interface IMetroGraph {
+  labels: string[]
+  datasets: IMetroDatasetWithLabel[]
+}
 
 type Data = {
   colors: SurfaceStyle[]
@@ -117,7 +131,7 @@ type Computed = {
   displayOptionHeader: ChartOptions
 }
 type Props = {
-  chartData: ChartData
+  chartData: IMetroGraph
   chartOption: ChartOptions
   chartId: string
   title: string
@@ -155,7 +169,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     chartOption: Object,
     chartId: {
       type: String,
-      default: 'metro-bar-chart',
+      default: 'metro-line-chart',
     },
     date: {
       type: String,
@@ -184,24 +198,65 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   data: () => ({
-    colors: getGraphSeriesStyle(3),
+    colors: [
+      getGraphSeriesColor('A'),
+      getGraphSeriesColor('B'),
+      getGraphSeriesColor('H'),
+    ],
     canvas: true,
     yAxesBgPlugin,
     displayLegends: [true, true, true],
   }),
   computed: {
     displayData() {
-      const datasets = this.chartData.labels!.map((label, i) => {
-        return {
-          label: label as string,
-          data: this.chartData.datasets!.map((d) => d.data![i]) as number[],
-          backgroundColor: this.colors[i].fillColor,
-          borderColor: this.colors[i].strokeColor,
-          borderWidth: 1,
-        }
-      })
+      const labels = this.chartData.datasets.map((d) => this.$d(d.label))
+      const datasets = [
+        {
+          type: 'line',
+          label: this.chartData.labels[0],
+          data: this.chartData.datasets.map((d) => d.data[0]),
+          pointStyle: 'circle',
+          pointRadius: 4,
+          pointBackgroundColor: this.colors[0].fillColor,
+          pointBorderColor: this.colors[0].fillColor,
+          borderColor: this.colors[0].fillColor,
+          borderWidth: 2,
+          fill: false,
+          order: 0,
+          lineTension: 0,
+        },
+        {
+          type: 'line',
+          label: this.chartData.labels[1],
+          data: this.chartData.datasets.map((d) => d.data[1]),
+          pointStyle: 'triangle',
+          pointRadius: 4,
+          pointBackgroundColor: this.colors[1].fillColor,
+          pointBorderColor: this.colors[1].fillColor,
+          borderColor: this.colors[1].fillColor,
+          borderWidth: 2,
+          fill: false,
+          order: 1,
+          lineTension: 0,
+        },
+        {
+          type: 'line',
+          label: this.chartData.labels[2],
+          data: this.chartData.datasets.map((d) => d.data[2]),
+          pointStyle: 'rect',
+          pointRadius: 4,
+          pointBackgroundColor: this.colors[2].fillColor,
+          pointBorderColor: this.colors[2].fillColor,
+          borderColor: this.colors[2].fillColor,
+          borderWidth: 2,
+          fill: false,
+          order: 2,
+          lineTension: 0,
+        },
+      ]
+
       return {
-        labels: this.chartData.datasets!.map((d) => d.label!),
+        labels,
         datasets,
       }
     },
@@ -209,7 +264,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return [
         { text: this.$t('日付'), value: 'text' },
         ...this.chartData.labels!.map((text, value) => {
-          return { text: text as string, value: String(value), align: 'end' }
+          return { text: text as string, value: String(value) }
         }),
       ]
     },
@@ -245,7 +300,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 10,
                 maxTicksLimit: 20,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 callback: (_, i) => {
                   return this.periods[i]
                 },
@@ -262,7 +317,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 padding: 3,
                 fontStyle: 'bold',
               },
@@ -284,7 +339,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 callback: (value) => {
                   const valueCasted =
                     typeof value === 'number' ? value : Number(value)
@@ -308,16 +363,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      const datasets = this.chartData.labels!.map((label, i) => {
+      const labels = this.chartData.datasets.map((d) => this.$d(d.label))
+      const datasets = this.chartData.labels.map((label, i) => {
         return {
-          label: label as string,
-          data: this.chartData.datasets!.map((d) => d.data![i]) as number[],
+          label,
+          data: this.chartData.datasets.map((d) => d.data[i]),
           backgroundColor: 'transparent',
           borderWidth: 0,
         }
       })
+
       return {
-        labels: this.chartData.datasets!.map((d) => d.label!),
+        labels,
         datasets,
       }
     },
@@ -340,7 +397,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 10,
                 maxTicksLimit: 20,
-                fontColor: 'transparent', // displayOption では #808080
+                fontColor: 'transparent', // displayOption では #707070
                 callback: (_, i) => {
                   return this.periods[i]
                 },
@@ -357,7 +414,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // displayOption では #808080
+                fontColor: 'transparent', // displayOption では #707070
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
@@ -378,7 +435,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 12,
                 maxTicksLimit: 10,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 callback: (value) => {
                   const valueCasted =
                     typeof value === 'number' ? value : Number(value)
@@ -409,6 +466,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
+
+    const stickyChart = this.$refs.stickyChart as Vue
+    const stickyElement = stickyChart.$el
+    const stickyCanvas = stickyElement.querySelector('canvas')
+
+    if (stickyCanvas) {
+      stickyCanvas.setAttribute('aria-hidden', 'true')
+    }
   },
 }
 
@@ -424,7 +489,7 @@ export default Vue.extend(options)
     li {
       display: inline-block;
       margin: 0 3px;
-      div {
+      .area {
         height: 12px;
         margin: 2px 4px;
         width: 40px;

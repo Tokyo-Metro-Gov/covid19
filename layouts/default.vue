@@ -15,7 +15,11 @@
           @close-navigation="closeNavigation"
         />
       </div>
-      <main class="mainContainer" :class="{ open: isOpenNavigation }">
+      <main
+        ref="Main"
+        class="mainContainer"
+        :class="{ hidden: isOpenNavigation }"
+      >
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
@@ -38,13 +42,13 @@ import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
 import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
 import type { NuxtConfig } from '@nuxt/types'
+import type { LinkPropertyHref } from 'vue-meta'
 import DevelopmentModeMark from '@/components/_shared/DevelopmentModeMark.vue'
 import NoScript from '@/components/_shared/NoScript.vue'
 import SideNavigation from '@/components/_shared/SideNavigation.vue'
 import Data from '@/data/data.json'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
-
 /* eslint-enable simple-import-sort/imports */
 
 @Component({
@@ -73,6 +77,10 @@ export default class Default extends Vue implements NuxtConfig {
     }
   }
 
+  $refs!: {
+    Main: HTMLElement
+  }
+
   mounted() {
     this.$data.loading = false
     this.getMatchMedia().addListener(this.closeNavigation)
@@ -84,10 +92,12 @@ export default class Default extends Vue implements NuxtConfig {
 
   openNavigation() {
     this.$data.isOpenNavigation = true
+    this.$refs.Main.setAttribute('aria-hidden', 'true')
   }
 
   closeNavigation() {
     this.$data.isOpenNavigation = false
+    this.$refs.Main.removeAttribute('aria-hidden')
   }
 
   getMatchMedia() {
@@ -95,8 +105,7 @@ export default class Default extends Vue implements NuxtConfig {
   }
 
   head() {
-    const { htmlAttrs, meta } = {} as MetaInfo
-    type LinkPropertyHref = typeof htmlAttrs
+    const { htmlAttrs, meta } = this.$nuxtI18nHead({ addSeoAttributes: true })
     const ogLocale =
       meta && meta.length > 0
         ? meta[0]
@@ -241,6 +250,13 @@ export default class Default extends Vue implements NuxtConfig {
 }
 .naviContainer {
   background-color: $white;
+  .open {
+    height: 100vh;
+    @include largerThan($small) {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
 }
 @include lessThan($small) {
   .naviContainer {
@@ -269,13 +285,6 @@ export default class Default extends Vue implements NuxtConfig {
     width: 325px;
   }
 }
-.open {
-  height: 100vh;
-  @include largerThan($small) {
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-}
 .mainContainer {
   grid-column: 2/3;
   overflow: hidden;
@@ -283,6 +292,9 @@ export default class Default extends Vue implements NuxtConfig {
     .container {
       padding-top: 16px;
     }
+  }
+  &.hidden {
+    visibility: hidden;
   }
 }
 .loader {

@@ -31,27 +31,43 @@
   </v-col>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+
 import MixedBarAndLineChart from '@/components/index/_shared/MixedBarAndLineChart.vue'
-import ConsultationAboutFever from '@/data/consultation_about_fever.json'
+import {
+  ConsultationAboutFever as IConsultationAboutFever,
+  Datum as IConsultationAboutFeverDatum,
+} from '@/libraries/auto_generated/data_converter/convertConsultationAboutFever'
 import {
   getNumberToFixedFunction,
   getNumberToLocaleStringFunction,
 } from '@/utils/monitoringStatusValueFormatters'
 
-export default {
+type Data = {
+  dataLabels: string[]
+  getFormatter: (columnIndex: number) => (d: number) => string | undefined
+}
+type Methods = {}
+type Computed = {
+  chartData: [number[], (number | null)[]]
+  date: string
+  labels: string[]
+  consultationAboutFeverData: IConsultationAboutFeverDatum[]
+  consultationAboutFever: IConsultationAboutFever
+}
+type Props = {}
+
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     MixedBarAndLineChart,
   },
   data() {
-    const data = ConsultationAboutFever.data
-    const consulationReportsCount = data.map((d) => d.count)
-    const sevendayMoveAverages = data.map((d) => d.weekly_average_count)
-    const labels = data.map((d) => d.date)
-    const chartData = [consulationReportsCount, sevendayMoveAverages]
-    const dataLabels = [this.$t('相談件数'), this.$t('７日間移動平均')]
-    const date = ConsultationAboutFever.date
-    const getFormatter = (columnIndex) => {
+    const dataLabels = [
+      this.$t('相談件数') as string,
+      this.$t('７日間移動平均') as string,
+    ]
+    const getFormatter = (columnIndex: number) => {
       // ７日間移動平均は小数点第1位まで表示する。
       if (columnIndex === 1) {
         return getNumberToFixedFunction(1)
@@ -60,12 +76,35 @@ export default {
     }
 
     return {
-      chartData,
-      date,
-      labels,
       dataLabels,
       getFormatter,
     }
   },
-}
+  computed: {
+    chartData() {
+      const consulationReportsCount = this.consultationAboutFeverData.map(
+        (d) => d.count
+      )
+      const sevendayMoveAverages = this.consultationAboutFeverData.map(
+        (d) => d.weeklyAverageCount
+      )
+
+      return [consulationReportsCount, sevendayMoveAverages]
+    },
+    date() {
+      return this.consultationAboutFever.date
+    },
+    labels() {
+      return this.consultationAboutFeverData.map(
+        (data) => this.$d(data.date) as string
+      )
+    },
+    consultationAboutFeverData() {
+      return this.consultationAboutFever.data
+    },
+    consultationAboutFever() {
+      return this.$store.state.consultationAboutFever
+    },
+  },
+})
 </script>

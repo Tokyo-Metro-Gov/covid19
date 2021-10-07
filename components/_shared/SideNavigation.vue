@@ -2,8 +2,10 @@
   <div ref="Side" class="SideNavigation" tabindex="-1">
     <header class="SideNavigation-Header">
       <v-icon
+        ref="Open"
         class="SideNavigation-OpenIcon"
         :aria-label="$t('サイドメニュー項目を開く')"
+        :aria-haspopup="true"
         @click="$emit('open-navigation', $event)"
       >
         {{ mdiMenu }}
@@ -17,17 +19,18 @@
             height="28"
             :alt="$t('東京都')"
           />
-          <div class="SideNavigation-HeaderText">
+          <span class="SideNavigation-HeaderText">
             {{ $t('menu/新型コロナウイルス感染症') }}<br />{{
               $t('menu/対策サイト')
             }}
-          </div>
+          </span>
         </app-link>
       </h1>
     </header>
 
     <div
       v-if="isNaviOpen || $vuetify.breakpoint.smAndUp"
+      ref="SideBody"
       :class="['SideNavigation-Body', { '-opened': isNaviOpen }]"
     >
       <v-icon
@@ -41,73 +44,102 @@
       <nav class="SideNavigation-Menu">
         <div class="SideNavigation-Language">
           <div v-if="$i18n.locales.length > 1" class="SideNavigation-Language">
-            <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+            <label
+              ref="LanguageLabel"
+              class="SideNavigation-LanguageLabel"
+              for="LanguageSelector"
+              tabindex="-1"
+            >
               {{ $t('多言語対応選択メニュー') }}
             </label>
             <language-selector />
           </div>
         </div>
-        <menu-list :items="items" @click="$emit('close-navigation', $event)" />
+        <menu-list
+          :items="items"
+          :item-titles="itemTitles"
+          @click="$emit('close-navigation', $event)"
+        />
       </nav>
 
       <footer class="SideNavigation-Footer">
-        <div class="SideNavigation-Social">
-          <app-link
-            to="https://line.me/R/ti/p/%40822sysfc"
-            :show-icon="false"
-            class="SideNavigation-SocialLink"
-          >
-            <picture>
-              <source srcset="/line.webp" type="image/webp" />
-              <img src="/line.png" width="130" height="130" alt="LINE" />
-            </picture>
-          </app-link>
-          <app-link
-            to="https://twitter.com/tokyo_bousai"
-            :show-icon="false"
-            class="SideNavigation-SocialLink"
-          >
-            <picture>
-              <source srcset="/twitter.webp" type="image/webp" />
-              <img src="/twitter.png" width="130" height="130" alt="Twitter" />
-            </picture>
-          </app-link>
-          <app-link
-            to="https://www.facebook.com/tochokoho"
-            :show-icon="false"
-            class="SideNavigation-SocialLink"
-          >
-            <picture>
-              <source srcset="/facebook.webp" type="image/webp" />
-              <img
-                src="/facebook.png"
-                width="130"
-                height="130"
-                alt="Facebook"
-              />
-            </picture>
-          </app-link>
-          <app-link
-            to="https://github.com/tokyo-metropolitan-gov/covid19"
-            :show-icon="false"
-            class="SideNavigation-SocialLink"
-          >
-            <picture>
-              <source srcset="/github.webp" type="image/webp" />
-              <img src="/github.png" width="130" height="130" alt="GitHub" />
-            </picture>
-          </app-link>
-          <app-link
-            to="https://www.youtube.com/user/tokyo/videos"
-            :show-icon="false"
-            class="SideNavigation-SocialLink"
-          >
-            <picture>
-              <source srcset="/youtube.webp" type="image/webp" />
-              <img src="/youtube.png" width="130" height="130" alt="YouTube" />
-            </picture>
-          </app-link>
-        </div>
+        <ul class="SideNavigation-Social">
+          <li class="SideNavigation-SocialLink-ListItem">
+            <app-link
+              to="https://line.me/R/ti/p/%40822sysfc"
+              :show-icon="false"
+              class="SideNavigation-SocialLink"
+            >
+              <picture>
+                <source srcset="/line.webp" type="image/webp" />
+                <img src="/line.png" width="130" height="130" alt="LINE" />
+              </picture>
+            </app-link>
+          </li>
+          <li class="SideNavigation-SocialLink-ListItem">
+            <app-link
+              to="https://twitter.com/tokyo_bousai"
+              :show-icon="false"
+              class="SideNavigation-SocialLink"
+            >
+              <picture>
+                <source srcset="/twitter.webp" type="image/webp" />
+                <img
+                  src="/twitter.png"
+                  width="130"
+                  height="130"
+                  alt="Twitter"
+                />
+              </picture>
+            </app-link>
+          </li>
+          <li class="SideNavigation-SocialLink-ListItem">
+            <app-link
+              to="https://www.facebook.com/tochokoho"
+              :show-icon="false"
+              class="SideNavigation-SocialLink"
+            >
+              <picture>
+                <source srcset="/facebook.webp" type="image/webp" />
+                <img
+                  src="/facebook.png"
+                  width="130"
+                  height="130"
+                  alt="Facebook"
+                />
+              </picture>
+            </app-link>
+          </li>
+          <li class="SideNavigation-SocialLink-ListItem">
+            <app-link
+              to="https://github.com/tokyo-metropolitan-gov/covid19"
+              :show-icon="false"
+              class="SideNavigation-SocialLink"
+            >
+              <picture>
+                <source srcset="/github.webp" type="image/webp" />
+                <img src="/github.png" width="130" height="130" alt="GitHub" />
+              </picture>
+            </app-link>
+          </li>
+          <li class="SideNavigation-SocialLink-ListItem">
+            <app-link
+              to="https://www.youtube.com/user/tokyo/videos"
+              :show-icon="false"
+              class="SideNavigation-SocialLink"
+            >
+              <picture>
+                <source srcset="/youtube.webp" type="image/webp" />
+                <img
+                  src="/youtube.png"
+                  width="130"
+                  height="130"
+                  alt="YouTube"
+                />
+              </picture>
+            </app-link>
+          </li>
+        </ul>
         <i18n
           tag="small"
           path="このサイトの内容物は{creativeCommons}の下に提供されています（ただし商標等の他団体が権利を持つものは除く）。"
@@ -123,7 +155,6 @@
             </app-link>
           </template>
         </i18n>
-        <br />
         <small class="SideNavigation-Copyright">
           &copy; 2020 Tokyo Metropolitan Government
         </small>
@@ -154,18 +185,24 @@ import {
   mdiMenu,
 } from '@mdi/js'
 import Vue from 'vue'
-import { TranslateResult } from 'vue-i18n'
+import type { TranslateResult } from 'vue-i18n'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import LanguageSelector from '@/components/_shared/SideNavigation/LanguageSelector.vue'
 import MenuList from '@/components/_shared/SideNavigation/MenuList.vue'
+
+type ItemTitle = {
+  slug: string
+  text: TranslateResult
+  isExpand?: boolean
+}
 
 type Item = {
   iconPath?: string
   svg?: string
   title: TranslateResult
   link: string
-  divider?: boolean
+  slug: string
 }
 
 export default Vue.extend({
@@ -187,116 +224,134 @@ export default Vue.extend({
     }
   },
   computed: {
+    itemTitles(): ItemTitle[] {
+      return [
+        {
+          slug: 'covid19-info',
+          text: this.$t('新型コロナウイルス感染症情報'),
+          isExpand: false,
+        },
+        {
+          slug: 'support-info',
+          text: this.$t('支援情報等'),
+          isExpand: false,
+        },
+        {
+          slug: 'notice-from-tmg',
+          text: this.$t('東京都からのお知らせ'),
+          isExpand: true,
+        },
+        {
+          slug: 'site-info',
+          text: this.$t('サイト情報'),
+          isExpand: false,
+        },
+      ]
+    },
     items(): Item[] {
       return [
         {
           iconPath: mdiChartTimelineVariant,
           title: this.$t('都内の最新感染動向'),
           link: this.localePath('/'),
+          slug: 'covid19-info',
         },
         {
           svg: 'CovidIcon',
           title: this.$t('新型コロナウイルス感染症が心配なときに.nav'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html',
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/soudan/coronasodan.html',
+          slug: 'covid19-info',
         },
         {
           svg: 'CovidIcon',
-          title: this.$t('新型コロナウイルス感染症で入院・宿泊療養される方へ'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/corona_0401.files/20210507.pdf',
+          title: this.$t('新型コロナウイルス感染症で自宅・宿泊療養される方へ'),
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/shien/index.html',
+          slug: 'covid19-info',
         },
         {
           svg: 'SupportIcon',
           title: this.$t(
             '新型コロナウイルス感染症の患者発生状況に関するよくあるご質問'
           ),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronafaq.html',
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/coronafaq.html',
+          slug: 'covid19-info',
         },
         {
           svg: 'MaskTrashIcon',
           title: this.$t('ご家庭でのマスク等の捨て方'),
           link: 'https://www.kankyo.metro.tokyo.lg.jp/resource/500200a20200221162304660.files/200327_chirashi.pdf',
-          divider: true,
+          slug: 'covid19-info',
         },
         {
           svg: 'ParentIcon',
           title: this.$t('お子様をお持ちの皆様へ'),
           link: this.localePath('/parent'),
+          slug: 'support-info',
         },
         {
           iconPath: mdiHumanPregnant,
           title: this.$t('妊産婦の皆様へ'),
           link: 'https://www.fukushihoken.metro.tokyo.lg.jp/oshirase/ninsanpu.html',
+          slug: 'support-info',
         },
         {
           iconPath: mdiAccountMultiple,
           title: this.$t('都民の皆様へ'),
           link: 'https://www.metro.tokyo.lg.jp/tosei/tosei/news/2019-ncov.html',
+          slug: 'support-info',
         },
         {
           iconPath: mdiDomain,
           title: this.$t('企業の皆様・はたらく皆様へ'),
           link: this.localePath('/worker'),
-          divider: true,
-        },
-        {
-          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
-          link: 'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1010035/index.html',
+          slug: 'support-info',
         },
         {
           title: this.$t('東京都 新型コロナウイルス感染症 支援情報ナビ'),
           link: 'https://covid19.supportnavi.metro.tokyo.lg.jp/',
+          slug: 'support-info',
         },
         {
-          title: this.$t('東京iCDC（東京感染症対策センター）からのお知らせ'),
-          link: 'https://note.com/tokyo_icdc',
-        },
-        {
-          title: this.$t(
-            '新型コロナウイルス感染症都民向け感染予防ハンドブック'
-          ),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/kannsenyobouhandbook.html',
-        },
-        {
-          title: this.$t('新型コロナウイルス感染症自宅療養者向けハンドブック'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/zitakuryouyouhandbook.html',
-        },
-        {
-          title: this.$t('新型コロナウイルスワクチンの接種について'),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronavaccine/index.html',
+          title: this.$t('東京都新型コロナウイルス感染症対策本部報'),
+          link: 'https://www.bousai.metro.tokyo.lg.jp/taisaku/saigai/1010035/index.html',
+          slug: 'notice-from-tmg',
         },
         {
           title: this.$t(
             '新型コロナウイルス感染症に罹患し回復された方の体験に基づくメッセージの紹介'
           ),
           link: 'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-message-for-you-02.html',
+          slug: 'notice-from-tmg',
         },
         {
           title: this.$t('都民利用施設・都主催イベントに関する情報'),
           link: 'https://www.seisakukikaku.metro.tokyo.lg.jp/information/event00.html',
-        },
-        {
-          title: this.$t('東京都における滞在人口の増減'),
-          link: 'https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html',
-        },
-        {
-          title: this.$t('知事からのメッセージ'),
-          link: 'https://www.metro.tokyo.lg.jp/tosei/governor/governor/katsudo/2020/03/03_00.html',
-        },
-        {
-          title: this.$t('当サイトについて'),
-          link: this.localePath('/about'),
-        },
-        {
-          title: this.$t('ご意見はこちら（外部サービスを使用しています）'),
-          link: 'https://docs.google.com/forms/d/e/1FAIpQLSdSROCPyr6Aj6WoAoYfqcT6StDOEUB38Grug1EJjUYzppcEZg/viewform?usp=sf_link',
-        },
-        {
-          title: this.$t('お問い合わせ先一覧'),
-          link: this.localePath('/contacts'),
+          slug: 'notice-from-tmg',
         },
         {
           title: this.$t('東京都公式ホームページ'),
           link: 'https://www.metro.tokyo.lg.jp/',
+          slug: 'notice-from-tmg',
+        },
+        {
+          title: this.$t('当サイトについて'),
+          link: this.localePath('/about'),
+          slug: 'site-info',
+        },
+        {
+          title: this.$t('ご意見はこちら（外部サービスを使用しています）'),
+          link: 'https://docs.google.com/forms/d/e/1FAIpQLSdSROCPyr6Aj6WoAoYfqcT6StDOEUB38Grug1EJjUYzppcEZg/viewform?usp=sf_link',
+          slug: 'site-info',
+        },
+        {
+          title: this.$t('お問い合わせ先一覧'),
+          link: this.localePath('/contacts'),
+          slug: 'site-info',
+        },
+        {
+          title: this.$t('サイトマップ'),
+          link: this.localePath('/sitemap'),
+          slug: 'site-info',
         },
       ]
     },
@@ -316,15 +371,45 @@ export default Vue.extend({
     },
   },
   watch: {
-    $route: 'handleChageRoute',
+    $route: 'handleChangeRoute',
+    isNaviOpen(value) {
+      this.handleChangeAttribute(value)
+      this.handleNavFocus(value)
+    },
   },
   methods: {
-    handleChageRoute() {
+    handleChangeAttribute(isNaviOpen: boolean) {
+      return this.$nextTick().then(() => {
+        const $SideBody = this.$refs.SideBody as HTMLElement | undefined
+        if ($SideBody) {
+          if (isNaviOpen) {
+            $SideBody.setAttribute('role', 'dialog')
+            $SideBody.setAttribute('aria-modal', 'true')
+          } else {
+            $SideBody.removeAttribute('role')
+            $SideBody.removeAttribute('aria-modal')
+          }
+        }
+      })
+    },
+    handleChangeRoute() {
       // nuxt-link で遷移するとフォーカスが残り続けるので $route を監視して SideNavigation にフォーカスする
       return this.$nextTick().then(() => {
-        const $Side = this.$refs.Side as HTMLEmbedElement | undefined
+        const $Side = this.$refs.Side as HTMLElement | undefined
         if ($Side) {
           $Side.focus()
+        }
+      })
+    },
+    handleNavFocus(isNaviOpen: boolean) {
+      return this.$nextTick(() => {
+        if (isNaviOpen) {
+          const $LanguageLabel = this.$refs.LanguageLabel as HTMLElement
+          $LanguageLabel.focus()
+        } else {
+          const $Open = this.$refs.Open as Vue
+          const $OpenElement = $Open.$el as HTMLButtonElement
+          $OpenElement.focus()
         }
       })
     },
@@ -390,7 +475,7 @@ export default Vue.extend({
 
 .SideNavigation-HeaderTitle {
   width: 100%;
-  color: #707070;
+  color: $gray-3;
   font-weight: 600;
   @include font-size(13);
   @include largerThan($small) {
@@ -440,6 +525,7 @@ export default Vue.extend({
 }
 
 .SideNavigation-HeaderText {
+  display: block;
   margin: 10px 0 0 0;
   @include lessThan($small) {
     margin: 0 0 0 10px;
@@ -485,39 +571,46 @@ export default Vue.extend({
 
 .SideNavigation-Footer {
   padding-top: 20px;
-}
 
-.SideNavigation-Social {
-  display: flex;
-}
+  .SideNavigation-Social {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
 
-.SideNavigation-SocialLink {
-  border: 1px dotted transparent;
-  border-radius: 30px;
-  color: $gray-3;
-  margin-bottom: 15px;
+    .SideNavigation-SocialLink-ListItem {
+      .SideNavigation-SocialLink {
+        display: block;
+        border: 1px dotted transparent;
+        border-radius: 15px;
+        color: $gray-3;
 
-  &:link,
-  &:hover,
-  &:visited,
-  &:active {
-    color: inherit;
-    text-decoration: none;
-  }
+        &:link,
+        &:hover,
+        &:visited,
+        &:active {
+          color: inherit;
+          text-decoration: none;
+        }
 
-  &:focus {
-    color: inherit;
-    text-decoration: none;
-    border: 1px dotted $gray-3;
-    outline: none;
-  }
+        &:focus {
+          color: inherit;
+          text-decoration: none;
+          border: 1px dotted $gray-3;
+          outline: none;
+        }
 
-  & + & {
-    margin-left: 10px;
-  }
+        picture {
+          img {
+            width: 30px;
+          }
+        }
+      }
 
-  img {
-    width: 30px;
+      & + .SideNavigation-SocialLink-ListItem {
+        margin-left: 10px;
+      }
+    }
   }
 }
 

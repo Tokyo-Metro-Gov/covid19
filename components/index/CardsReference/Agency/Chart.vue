@@ -5,8 +5,9 @@
       :style="{ display: canvas ? 'block' : 'none' }"
     >
       <li v-for="(item, i) in items" :key="i" @click="onClickLegend(i)">
-        <button>
-          <div
+        <button role="checkbox" :aria-checked="`${displayLegends[i]}`">
+          <span
+            :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
               borderColor: colors[i].strokeColor,
@@ -44,6 +45,7 @@
       </template>
       <template #sticky-chart>
         <bar
+          :ref="'stickyChart'"
           class="sticky-legend"
           :chart-id="`${chartId}-header-right`"
           :chart-data="displayDataHeader"
@@ -66,9 +68,9 @@
 </template>
 
 <script lang="ts">
-import { ChartOptions } from 'chart.js'
+import { ChartData, ChartOptions, ChartTooltipItem } from 'chart.js'
+import type { PropType } from 'vue'
 import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewTable, {
@@ -76,6 +78,7 @@ import DataViewTable, {
   TableItem,
 } from '@/components/index/_shared/DataViewTable.vue'
 import ScrollableChart from '@/components/index/_shared/ScrollableChart.vue'
+import { Agency as IAgency } from '@/libraries/auto_generated/data_converter/convertAgency'
 import { DataSets, DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '@/utils/colors'
 
@@ -83,10 +86,8 @@ interface AgencyDataSets extends DataSets {
   label: string
 }
 interface AgencyDisplayData extends DisplayData {
-  datasets: AgencyDataSets[]
-}
-interface AgencyData extends AgencyDisplayData {
   labels: string[]
+  datasets: AgencyDataSets[]
 }
 
 type Data = {
@@ -105,28 +106,19 @@ type Computed = {
   tableHeaders: TableHeader[]
   tableData: TableItem[]
 }
-
 type Props = {
   title: string
   titleId: string
   chartId: string
-  chartData: AgencyData
+  chartData: IAgency
   date: string
-  items: string[]
+  labels: string[]
   periods: string[]
+  items: string[]
   unit: string
 }
 
-const options: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  Data,
-  Methods,
-  Computed,
-  Props
-> = {
-  created() {
-    this.canvas = process.browser
-  },
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: { DataView, DataViewTable, ScrollableChart },
   props: {
     title: {
@@ -144,17 +136,28 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: false,
       default: 'agency-bar-chart',
     },
-    chartData: Object,
+    chartData: {
+      type: Object as PropType<IAgency>,
+      default: () => ({
+        date: '',
+        periods: [],
+        datasets: [],
+      }),
+    },
     date: {
       type: String,
       default: '',
     },
-    items: {
-      type: Array,
+    labels: {
+      type: Array as PropType<string[]>,
       default: () => [],
     },
     periods: {
-      type: Array,
+      type: Array as PropType<string[]>,
+      default: () => [],
+    },
+    items: {
+      type: Array as PropType<string[]>,
       default: () => [],
     },
     unit: {
@@ -170,33 +173,37 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayLegends: [true, true, true],
   }),
   computed: {
-    displayData() {
+    displayData(): AgencyDisplayData {
       return {
-        labels: this.chartData.labels,
-        datasets: this.chartData.datasets.map((item, index) => {
+        labels: this.labels,
+        datasets: this.chartData.datasets.map((dataset, index) => {
+          const label = this.items[index]
+          const { data } = dataset
+          const color = this.colors[index]
+
           return {
-            label: this.items[index] as string,
-            data: item.data,
-            backgroundColor: this.colors[index].fillColor,
-            borderColor: this.colors[index].strokeColor,
+            label,
+            data,
+            backgroundColor: color.fillColor,
+            borderColor: color.strokeColor,
             borderWidth: 1,
           }
         }),
       }
     },
-    displayOption() {
+    displayOption(): ChartOptions {
       const options: ChartOptions = {
         maintainAspectRatio: false,
         tooltips: {
           displayColors: false,
           callbacks: {
-            title: (tooltipItem) => {
-              const dateString = this.periods[tooltipItem[0].index!]
+            title: (tooltipItems: ChartTooltipItem[]) => {
+              const dateString = this.periods[tooltipItems[0].index!]
               return this.$t('期間: {duration}', {
                 duration: dateString!,
               }) as string
             },
-            label: (tooltipItem, data) => {
+            label: (tooltipItem: ChartTooltipItem, data: ChartData) => {
               const index = tooltipItem.datasetIndex!
               const title = this.$t(data.datasets![index].label!)
               const num = parseInt(tooltipItem.value!).toLocaleString()
@@ -218,7 +225,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 9,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 callback: (_, i) => {
                   return this.periods[i]
                 },
@@ -235,7 +242,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 padding: 3,
                 fontStyle: 'bold',
               },
@@ -256,7 +263,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 9,
-                fontColor: '#808080',
+                fontColor: '#707070',
                 maxTicksLimit: 10,
                 callback: (label) => {
                   return `${label}${this.unit}`
@@ -266,14 +273,16 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
         },
       }
+
       if (this.$route.query.ogp === 'true') {
         Object.assign(options, { animation: { duration: 0 } })
       }
+
       return options
     },
-    displayDataHeader() {
+    displayDataHeader(): AgencyDisplayData {
       return {
-        labels: this.chartData.labels,
+        labels: this.labels,
         datasets: this.chartData.datasets.map((item, index) => {
           return {
             label: this.items[index] as string,
@@ -284,8 +293,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }),
       }
     },
-    displayOptionHeader() {
-      const options: ChartOptions = {
+    displayOptionHeader(): ChartOptions {
+      return {
         maintainAspectRatio: false,
         legend: {
           display: false,
@@ -301,7 +310,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 9,
-                fontColor: 'transparent',
+                fontColor: 'transparent', // displayOption では '#707070'
                 callback: (_, i) => {
                   return this.periods[i]
                 },
@@ -318,7 +327,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               },
               ticks: {
                 fontSize: 11,
-                fontColor: 'transparent', // displayOption では #808080
+                fontColor: 'transparent', // displayOption では '#707070'
                 padding: 13, // 3 + 10(tickMarkLength)，displayOption では 3
                 fontStyle: 'bold',
               },
@@ -333,13 +342,13 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               stacked: true,
               gridLines: {
                 display: true,
-                drawOnChartArea: false,
-                color: '#E5E5E5',
+                drawOnChartArea: false, // displayOption では定義なし
+                color: '#E5E5E5', // displayOption では定義なし
               },
               ticks: {
-                suggestedMin: 0,
+                suggestedMin: 0, // displayOption では定義なし
+                fontColor: '#707070',
                 maxTicksLimit: 10,
-                fontColor: '#808080',
                 callback: (label) => {
                   return `${label}${this.unit}`
                 },
@@ -349,9 +358,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         },
         animation: { duration: 0 },
       }
-      return options
     },
-    tableHeaders() {
+    tableHeaders(): TableHeader[] {
       return [
         { text: this.$t('日付'), value: 'text' },
         ...this.displayData.datasets.map((text, value) => {
@@ -359,7 +367,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         }),
       ]
     },
-    tableData() {
+    tableData(): TableItem[] {
       return this.displayData.datasets[0].data
         .map((_, i) => {
           return Object.assign(
@@ -374,11 +382,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
   },
-  methods: {
-    onClickLegend(i) {
-      this.displayLegends[i] = !this.displayLegends[i]
-      this.displayLegends = this.displayLegends.slice()
-    },
+  created() {
+    this.canvas = process.browser
   },
   mounted() {
     const barChart = this.$refs.barChart as Vue
@@ -390,10 +395,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
-  },
-}
 
-export default Vue.extend(options)
+    const stickyChart = this.$refs.stickyChart as Vue
+    const stickyElement = stickyChart.$el
+    const stickyCanvas = stickyElement.querySelector('canvas')
+
+    if (stickyCanvas) {
+      stickyCanvas.setAttribute('aria-hidden', 'true')
+    }
+  },
+  methods: {
+    onClickLegend(i) {
+      this.displayLegends[i] = !this.displayLegends[i]
+      this.displayLegends = this.displayLegends.slice()
+    },
+  },
+})
 </script>
 
 <style module lang="scss">
@@ -405,7 +422,7 @@ export default Vue.extend(options)
     li {
       display: inline-block;
       margin: 0 3px;
-      div {
+      .area {
         height: 12px;
         margin: 2px 4px;
         width: 40px;

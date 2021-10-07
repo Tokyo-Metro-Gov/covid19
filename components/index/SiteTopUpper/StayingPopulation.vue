@@ -1,27 +1,35 @@
 <template>
   <v-col cols="12" md="6">
     <div class="StayingPopulation">
-      <div class="StayingPopulation-title">
-        {{ $t('都内の滞在人口の増減状況') }}<br />
-        <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
-        <app-link
-          to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html#nav1"
-          >{{ $t('詳細はこちら') }}
-        </app-link>
-      </div>
-      <div class="StayingPopulation-place">
-        {{ placeName }}
-      </div>
-      <div class="StayingPopulation-state">
-        [ {{ $t('{date}時点', { date }) }} ]<br />
-        <span v-for="(datum, index) in formattedData" :key="index">
-          {{
-            $t('{month}比 {rateWithArrow}', {
-              month: datum.formattedMonth,
-              rateWithArrow: datum.increaseRateWithArrow,
-            })
-          }}<br />
-        </span>
+      <div class="StayingPopulation-inner">
+        <div class="StayingPopulation-title">
+          <h3 class="StayingPopulation-heading">
+            {{ $t('都内の滞在人口の増減状況（毎週月曜日更新）') }}
+          </h3>
+          <div class="StayingPopulation-link">
+            <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
+            <app-link
+              to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html#top"
+              >{{ $t('詳細はこちら') }}
+            </app-link>
+          </div>
+        </div>
+        <div class="StayingPopulation-box">
+          <div class="StayingPopulation-place">
+            {{ placeName }}
+          </div>
+          <div class="StayingPopulation-state">
+            [ {{ $t('{date}〜{enddate}', { date, enddate }) }} ]
+            <span v-for="(datum, index) in formattedData" :key="index">
+              {{
+                $t('{month}比 {rateWithArrow}', {
+                  month: datum.formattedMonth,
+                  rateWithArrow: datum.increaseRateWithArrow,
+                })
+              }}
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </v-col>
@@ -79,7 +87,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     placeName() {
       const placeToDisplay = this.stayingPopulationData.place.display
 
-      return ['ja', 'ja-basic'].includes(this.$i18n.locale)
+      return ['ja', 'ja-basic', 'zh-cn', 'zh-tw'].includes(this.$i18n.locale)
         ? placeToDisplay.ja
         : placeToDisplay.en
     },
@@ -118,39 +126,54 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 .StayingPopulation {
   @include card-container();
 
-  padding: 3px;
-  min-height: 5em;
   display: flex;
   align-items: center;
+  height: 100%;
+  padding: 10px 20px;
+  min-height: 5em;
+
+  .StayingPopulation-inner {
+    flex: 1;
+  }
 
   .StayingPopulation-title {
-    padding: 2px 15px;
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
     @include card-h2();
-    @include font-size(12);
-  }
-  .StayingPopulation-place {
-    padding: 5px 5px 5px 5px;
-    margin: 2px 5px 2px 10px;
-    background-color: #008830;
-    color: #fff;
-    vertical-align: middle;
-    text-align: center;
-    writing-mode: vertical-rl;
-    font-weight: 600;
 
-    @include font-size(12);
+    .StayingPopulation-heading {
+      flex: 1;
+    }
+    .StayingPopulation-heading,
+    .StayingPopulation-link {
+      @include font-size(12);
+
+      font-weight: 600;
+    }
   }
-  .StayingPopulation-state {
-    flex: 1;
-    border: 2px solid;
-    padding: 2px;
-    margin: 2px 5px 2px 5px;
-    border-color: #008830;
-    text-align: center;
-    vertical-align: middle;
-    min-width: 15em;
-    @include font-size(11);
+
+  .StayingPopulation-box {
+    display: flex;
+    align-items: center;
+    .StayingPopulation-place {
+      padding: 5px 10px;
+      margin: 0 5px 2px 0;
+      background-color: $green-1;
+      color: $white;
+      vertical-align: middle;
+      text-align: center;
+      font-weight: 600;
+
+      @include font-size(12);
+    }
+    .StayingPopulation-state {
+      flex: 1;
+      padding: 2px;
+      margin: 0 5px 2px;
+      min-width: 15em;
+      color: $gray-3;
+      @include font-size(11);
+    }
   }
 }
 </style>

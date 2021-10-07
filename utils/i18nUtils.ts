@@ -1,6 +1,6 @@
 /* eslint-disable simple-import-sort/imports */
-import { LinkPropertyHref } from 'vue-meta'
 import type { Locale, LocaleObject } from '@nuxtjs/i18n'
+import type { LinkPropertyHref } from 'vue-meta'
 /* eslint-enable simple-import-sort/imports */
 
 export const getLinksLanguageAlternative = (

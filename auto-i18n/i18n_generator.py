@@ -2,6 +2,7 @@ import glob
 import re
 import os
 import json
+import csv
 from datetime import datetime, timedelta, timezone
 from bs4 import BeautifulSoup
 
@@ -14,14 +15,18 @@ from bs4 import BeautifulSoup
 ######
 
 # チェックするディレクトリのリスト
-CHECK_DIR = ["pages", "components", "layouts", "data", "utils"]
+CHECK_DIR = ["pages", "components", "layouts", "data", "utils", "auto-i18n/csv"]
 
 # チェックするjsonファイルのリスト
 JSON_FILES = ["data.json", "patient.json"]
 
 # チェックするTypeScriptファイルのリスト
-# 現状は formatConfirmedCasesAttributesTable.ts しかないが、のちに表追加や、データ追加により必要になった場合は追加しなければならない。
-TS_FILES = ["formatConfirmedCasesAttributesTable.ts"]
+# 現状は formatConfirmedCasesAttributesTable.ts と formatMonitoringItems.ts しかないが、
+# のちに表追加や、データ追加により必要になった場合は追加しなければならない。
+TS_FILES = ["formatConfirmedCasesAttributesTable.ts", "formatMonitoringItems.ts"]
+
+# チェックするcsvファイルのリスト
+CSV_FILES = ["occupation.csv"]
 
 # タグの正規表現パターン
 tag_pattern_t = re.compile("\$t\([ ]*?['|`][^']*?['|`]")
@@ -29,6 +34,9 @@ tag_pattern_tc = re.compile("\$tc\([ ]*?['|`][^']*?['|`]")
 
 # tsファイル内のヘッダーの正規表現パターン
 header_pattern = re.compile("\{ text: '[^']*?', value: '[^']*?'")
+
+# tsファイル内のtranslatable unitの正規表現パターン
+translatable_pattern = re.compile("\{[ ]*?text: '[^']*?',[ ]*?translatable: true")
 
 # 文字エンコーディング
 ENCODING = "UTF-8"
@@ -55,6 +63,14 @@ file_count = 0
 # 作られたjson
 made_json = {}
 
+# 処理の中で抽出されるヘッダー内のtextとvalueと、translatable unitのtext、translatable、true/falseは
+# 変数として読み込まれることになるので、あらかじめ設定しておく
+text = "text"
+value = "value"
+translatable = "translatable"
+true = True
+false = False
+
 with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=ENCODING) as result, \
         open(JA_JSON_PATH, mode="r", encoding=ENCODING) as ja_file:
     # ディレクトリ毎にチェック
@@ -62,7 +78,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
         # リポジトリのルートからのパスをauto-i18nからの相対パスに変換
         cdir = os.path.join(os.pardir, cdir)
         # データディレクトリ以外の場合
-        if "data" not in cdir and "utils" not in cdir:
+        if "data" not in cdir and "utils" not in cdir and "csv" not in cdir:
             # すべてのVueファイルを検索
             vue_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.vue", recursive=True)
             file_count += len(vue_files)
@@ -91,11 +107,25 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         if tag[0] == "'":
                             start = 1
                         fixed_tags.append(tag[start:])
+
                     # i18nタグ内のpathを取得
                     soup = BeautifulSoup(content, "html.parser")
                     i18n_tags = [tag.get("path") for tag in soup.find_all("i18n")]
+
+                    # value-with-translatable-unitタグ内のunitを取得
+                    # exceptが文字列内に含まれていることがあるが、pythonの予約語なので、あらかじめ置き換える
+                    # また、すでに別の場所で作られたunitが変数となって代入されることがあり、その時はNameErrorを吐くのでパスする
+                    translatable_tags = []
+                    for base_tag in soup.find_all("value-with-translatable-unit"):
+                        try:
+                            tag = eval(base_tag.get(":unit").replace("except", '"except"'))[text]
+                            # 文字列長0のものが取得されるので、それを除外する
+                            if len(tag):
+                                translatable_tags.append(tag)
+                        except NameError:
+                            pass
                     # タグを統合し、重複分を取り除く
-                    all_tags = list(set(all_tags + fixed_tags + i18n_tags))
+                    all_tags = list(set(all_tags + fixed_tags + i18n_tags + translatable_tags))
         elif "utils" in cdir:
             # すべてのtsファイルを検索
             ts_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.ts", recursive=True)
@@ -110,14 +140,28 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                     with open(path, encoding=ENCODING) as file:
                         # ファイルの内容を文字列として取得
                         content = ''.join([l.strip() for l in file])
-                        # 抽出したヘッダー内のtextとvalueは変数として読み込まれることになるので、
-                        # あらかじめ設定しておく
-                        text = "text"
-                        value = "value"
                         # ヘッダーを正規表現で取得し、textを抽出
                         headers = [eval(str_header + " }")[text] for str_header in header_pattern.findall(content)]
+                        # translatable unitを正規表現で取得し、textを抽出
+                        translatable_tags = [eval(str_unit + " }")[text] for str_unit in translatable_pattern.findall(content)]
                         # タグを統合し、重複分を取り除く
-                        all_tags = list(set(all_tags + headers))
+                        all_tags = list(set(all_tags + headers + translatable_tags))
+        elif "auto-i18n/csv" in cdir:
+            # すべてのcsvファイルを検索
+            csv_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.csv", recursive=True)
+            # 各csvファイルについて処理
+            for path in csv_files:
+                file_name = os.path.basename(path)
+                # csvファイルが調べるべきcsvであるか
+                if file_name in CSV_FILES:
+                    # 調べるべきcsvの場合、ファイルをカウント
+                    file_count += 1
+                    with open(path, encoding=ENCODING, newline='') as csvfile:
+                        # ファイルの内容を文字列として取得
+                        reader = csv.reader(csvfile, delimiter=',')
+                        tags = [','.join(row) for row in reader]
+                        # タグを統合し、重複分を取り除く
+                        all_tags = list(set(all_tags + tags))
         else:
             # すべてのJsonファイルを検索
             json_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.json", recursive=True)

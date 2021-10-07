@@ -44,7 +44,7 @@
       <p>
         {{
           $t(
-            'テレワーク・時差出勤などスムーズビズの取組は、新型コロナウイルス感染症の対策としても効果的です。感染症対策として、東京2020大会時の交通混雑緩和に向けた取組の前倒しをお願いします。'
+            '新型コロナウイルス感染症の感染拡大防止を図るため、テレワーク、時差出勤等の一層の推進にご協力をお願いいたします。'
           )
         }}
       </p>
@@ -70,7 +70,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { MetaInfo } from 'vue-meta'
+import type { MetaInfo } from 'vue-meta'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import PageHeader from '@/components/_shared/PageHeader.vue'

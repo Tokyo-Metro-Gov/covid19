@@ -2,9 +2,9 @@
   <v-col cols="12" md="6" class="DataCard VariantCard">
     <client-only>
       <chart
-        :title="$t('N501Y変異株スクリーニングの実施状況')"
+        :title="$t('L452R変異株スクリーニングの実施状況')"
         title-id="variant"
-        :info-titles="[$t('N501Y陽性例構成割合'), $t('変異株PCR検査実施割合')]"
+        :info-titles="[$t('L452R陽性例構成割合'), $t('変異株PCR検査実施割合')]"
         chart-id="variant-chart"
         :chart-data="variantData.chartData"
         :table-data="variantData.tableData"
@@ -18,12 +18,23 @@
         :last-period="variantData.lastPeriod"
         unit="%"
       >
+        <template #additionalButton>
+          <app-link
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/henikabu/screening.html"
+            :class="$style.button"
+          >
+            <span :class="$style['button-inner']">
+              <covid-icon :class="$style['button-icon']" aria-hidden="true" />
+              {{ $t('変異株情報') }}
+            </span>
+          </app-link>
+        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
             <li>
               {{
-                $t('N501Y陽性例構成割合：N501Y陽性例の数／変異株PCR検査実施数')
+                $t('L452R陽性例構成割合：L452R陽性例の数／変異株PCR検査実施数')
               }}
             </li>
             <li>
@@ -35,6 +46,13 @@
             </li>
             <li>
               {{ $t('検体受付日を基準とする') }}
+            </li>
+            <li>
+              <app-link
+                to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/henikabu/screening.html"
+              >
+                {{ $t('N501Y変異株スクリーニングの実施状況のデータはこちら') }}
+              </app-link>
             </li>
           </ul>
         </template>
@@ -48,12 +66,14 @@ import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import Vue from 'vue'
 
+import AppLink from '@/components/_shared/AppLink.vue'
 import Chart from '@/components/index/CardsReference/Variant/Chart.vue'
 import {
-  Dataset as IVariantDataset,
-  Period as IVariantPeriod,
-  Variant as IVariant,
-} from '@/libraries/auto_generated/data_converter/convertVariant'
+  Dataset as IVariantsDataset,
+  Period as IVariantsPeriod,
+  Variants as IVariants,
+} from '@/libraries/auto_generated/data_converter/convertVariants'
+import CovidIcon from '@/static/covid.svg'
 import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
 
 dayjs.extend(duration)
@@ -70,32 +90,34 @@ type Methods = {
 type Computed = {
   date: string
   variantLabels: string[]
-  variantDatasets: IVariantDataset[]
+  variantDatasets: IVariantsDataset[]
   variantData: {
-    lastPeriod: IVariantPeriod
+    lastPeriod: IVariantsPeriod
     labels: Date[]
     chartData: number[][]
     tableData: number[][]
   }
-  variant: IVariant
+  variants: IVariants
 }
 type Props = {}
 
 export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     Chart,
+    AppLink,
+    CovidIcon,
   },
   data() {
     const chartLabels = [
-      this.$t('N501Y陽性例構成割合') as string,
-      this.$t('N501Y非陽性例構成割合') as string,
+      this.$t('L452R陽性例構成割合') as string,
+      this.$t('L452R非陽性例構成割合') as string,
       this.$t('変異株PCR検査実施割合') as string,
     ]
 
     const tableLabels = [
       this.$t('変異株PCR検査実施数') as string,
-      this.$t('N501Y陽性例数') as string,
-      this.$t('N501Y陽性例構成割合') as string,
+      this.$t('L452R陽性例数') as string,
+      this.$t('L452R陽性例構成割合') as string,
       this.$t('変異株PCR検査実施割合') as string,
     ]
 
@@ -118,7 +140,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
   computed: {
     date() {
-      return this.variant.date
+      return this.variants.date
     },
     variantLabels() {
       return this.variantDatasets.map((dataset) => {
@@ -128,36 +150,36 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       })
     },
     variantDatasets() {
-      return this.variant.datasets
+      return this.variants.datasets
     },
     variantData() {
-      const datasets = this.variant.datasets
+      const datasets = this.variants.datasets
       const lastPeriod = datasets.slice(-1)[0].period
-      const labels = datasets.map((d: IVariantDataset) => d.period.begin)
+      const labels = datasets.map((d: IVariantsDataset) => d.period.begin)
       const variantTestCount: number[] = datasets.map(
-        (d: IVariantDataset) => d.data.variantTestCount
+        (d: IVariantsDataset) => d.data.variantTestCount
       )
-      const variantPositiveCount: number[] = datasets.map(
-        (d: IVariantDataset) => d.data.variantPositiveCount
+      const l452RPositiveCount: number[] = datasets.map(
+        (d: IVariantsDataset) => d.data.l452R.positiveCount
       )
-      const n501YPositiveRate: number[] = datasets.map(
-        (d: IVariantDataset) => d.data.n501YPositiveRate
+      const l452RPositiveRate: number[] = datasets.map(
+        (d: IVariantsDataset) => d.data.l452R.positiveRate
       )
-      const n501YNegativeRate: number[] = datasets.map(
-        (d: IVariantDataset) => d.data.n501YNegativeRate
+      const negativeRate: number[] = datasets.map(
+        (d: IVariantsDataset) => d.data.negativeRate
       )
       const variantPcrRate: number[] = datasets.map(
-        (d: IVariantDataset) => d.data.variantPcrRate
+        (d: IVariantsDataset) => d.data.variantPcrRate
       )
       const chartData: number[][] = [
-        n501YPositiveRate,
-        n501YNegativeRate,
+        l452RPositiveRate,
+        negativeRate,
         variantPcrRate,
       ]
       const tableData: number[][] = [
         variantTestCount,
-        variantPositiveCount,
-        n501YPositiveRate,
+        l452RPositiveCount,
+        l452RPositiveRate,
         variantPcrRate,
       ]
 
@@ -168,8 +190,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
         tableData,
       }
     },
-    variant() {
-      return this.$store.state.variant
+    variants() {
+      return this.$store.state.variants
     },
   },
   methods: {
@@ -184,3 +206,24 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
 })
 </script>
+
+<style lang="scss" module>
+.button {
+  margin-top: 4px;
+  color: $green-1 !important;
+  text-decoration: none;
+  &:hover {
+    color: $white !important;
+  }
+  @include button-text('sm');
+  &-inner {
+    display: inline-flex;
+    align-items: center;
+  }
+  &-icon {
+    width: 1em;
+    height: 1em;
+    margin-right: 4px;
+  }
+}
+</style>

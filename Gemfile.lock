@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     capybara (3.35.3)
       addressable
@@ -13,13 +13,13 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     diff-lcs (1.4.4)
-    mini_mime (1.1.0)
-    nokogiri (1.11.6-x86_64-darwin)
+    mini_mime (1.1.1)
+    nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.11.6-x86_64-linux)
+    nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
-    parallel (1.20.1)
-    parallel_tests (3.7.0)
+    parallel (1.21.0)
+    parallel_tests (3.7.3)
       parallel
     public_suffix (4.0.6)
     racc (1.5.2)
@@ -40,7 +40,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubyzip (2.3.0)
+    rubyzip (2.3.2)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -58,7 +58,7 @@ DEPENDENCIES
   selenium-webdriver
 
 RUBY VERSION
-   ruby 3.0.1p64
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.2.15
