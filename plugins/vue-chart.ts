@@ -5,9 +5,6 @@ import {
   BarController,
   BarElement,
   CategoryScale,
-  ChartComponentLike,
-  ChartData,
-  ChartOptions,
   Filler,
   Legend,
   LinearScale,
@@ -17,14 +14,17 @@ import {
   Title,
   Tooltip,
 } from 'chart.js'
-import Chart from 'chart.js/auto/auto.esm'
+import Chart, {
+  ChartComponentLike,
+  ChartData,
+  ChartOptions
+} from 'chart.js/auto/auto.esm'
 import Vue from 'vue'
 import { BarChart, DoughnutChart, LineChart } from 'vue-chart-3'
 
-import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
-
 // eslint-disable-next-line no-restricted-imports
 import { useDayjsAdapter } from './chartjs-adapter-dayjs'
+import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 
 Chart.register(
   LineController,
