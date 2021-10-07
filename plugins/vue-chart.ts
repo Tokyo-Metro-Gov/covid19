@@ -4,9 +4,9 @@ import {
   ArcElement,
   BarController,
   BarElement,
-  ChartComponentLike,
-  ChartData,
-  ChartOptions,
+  ChartComponentLike, // eslint-disable-line import/named
+  ChartData, // eslint-disable-line import/named
+  ChartOptions, // eslint-disable-line import/named
   CategoryScale,
   Filler,
   Legend,
