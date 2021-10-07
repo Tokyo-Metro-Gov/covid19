@@ -4,6 +4,9 @@ import {
   ArcElement,
   BarController,
   BarElement,
+  ChartComponentLike,
+  ChartData,
+  ChartOptions,
   CategoryScale,
   Filler,
   Legend,
@@ -14,11 +17,7 @@ import {
   Title,
   Tooltip,
 } from 'chart.js'
-import Chart, {
-  ChartComponentLike,
-  ChartData,
-  ChartOptions
-} from 'chart.js/auto/auto.esm'
+import Chart from 'chart.js/auto/auto.esm'
 import Vue from 'vue'
 import { BarChart, DoughnutChart, LineChart } from 'vue-chart-3'
 
