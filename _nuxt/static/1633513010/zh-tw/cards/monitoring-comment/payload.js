@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/zh-tw/cards/monitoring-comment", {data:[{}],fetch:{},mutations:[]});
