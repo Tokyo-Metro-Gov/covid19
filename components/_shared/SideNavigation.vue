@@ -573,6 +573,8 @@ export default Vue.extend({
     .SideNavigation-SocialLink-ListItem {
       .SideNavigation-SocialLink {
         display: block;
+        width: 30px;
+        height: 30px;
         border: 1px dotted transparent;
         border-radius: 15px;
         color: $gray-3;
