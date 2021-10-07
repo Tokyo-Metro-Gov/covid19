@@ -143,9 +143,9 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                         # ヘッダーを正規表現で取得し、textを抽出
                         headers = [eval(str_header + " }")[text] for str_header in header_pattern.findall(content)]
                         # translatable unitを正規表現で取得し、textを抽出
-                        translatable = [eval(str_unit + " }")[text] for str_unit in translatable_pattern.findall(content)]
+                        translatable_tags = [eval(str_unit + " }")[text] for str_unit in translatable_pattern.findall(content)]
                         # タグを統合し、重複分を取り除く
-                        all_tags = list(set(all_tags + headers + translatable))
+                        all_tags = list(set(all_tags + headers + translatable_tags))
         elif "auto-i18n/csv" in cdir:
             # すべてのcsvファイルを検索
             csv_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.csv", recursive=True)
