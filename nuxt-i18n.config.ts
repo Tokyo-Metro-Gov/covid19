@@ -1,6 +1,6 @@
 import { NuxtConfig } from '@nuxt/types'
 
-const dateTimeFormatsCommon = {
+type dateTimeFormatsCommon = {
   dateTime: {
     year: 'numeric',
     month: 'short',
@@ -38,12 +38,12 @@ const options: NuxtConfig['i18n'] = {
     fallbackLocale: 'ja',
     formatFallbackMessages: true,
     dateTimeFormats: {
-      ja: dateTimeFormatsCommon,
-      en: dateTimeFormatsCommon,
-      'zh-cn': dateTimeFormatsCommon,
-      'zh-tw': dateTimeFormatsCommon,
-      ko: dateTimeFormatsCommon,
-      'ja-basic': dateTimeFormatsCommon,
+      ja: {} = {} as dateTimeFormatsCommon,
+      en: {} = {} as dateTimeFormatsCommon,
+      'zh-cn': {} = {} as dateTimeFormatsCommon,
+      'zh-tw': {} = {} as dateTimeFormatsCommon,
+      ko: {} = {} as dateTimeFormatsCommon,
+      'ja-basic': {} = {} as dateTimeFormatsCommon,
     },
   },
   // vueI18nLoader: true,
@@ -102,7 +102,6 @@ const options: NuxtConfig['i18n'] = {
       description: 'Easy Japanese',
     },
   ],
-  seo: false,
 }
 
 export default options
