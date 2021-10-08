@@ -2,31 +2,31 @@ import { NuxtConfig } from '@nuxt/types'
 
 type dateTimeFormatsCommon = {
   dateTime: {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    hour12: false,
-  },
+    year: 'numeric'
+    month: 'short'
+    day: 'numeric'
+    hour: 'numeric'
+    minute: 'numeric'
+    hour12: false
+  }
   date: {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  },
+    year: 'numeric'
+    month: 'short'
+    day: 'numeric'
+  }
   dateWithoutYear: {
-    month: 'long',
-    day: 'numeric',
-  },
+    month: 'long'
+    day: 'numeric'
+  }
   dateWithoutDay: {
-    year: 'numeric',
-    month: 'short',
-  },
+    year: 'numeric'
+    month: 'short'
+  }
   dateWithDayOfWeek: {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-  },
+    weekday: 'short'
+    month: 'short'
+    day: 'numeric'
+  }
 }
 
 const options: NuxtConfig['i18n'] = {
@@ -37,14 +37,14 @@ const options: NuxtConfig['i18n'] = {
   vueI18n: {
     fallbackLocale: 'ja',
     formatFallbackMessages: true,
-    dateTimeFormats: {
-      ja: {} = {} as dateTimeFormatsCommon,
-      en: {} = {} as dateTimeFormatsCommon,
-      'zh-cn': {} = {} as dateTimeFormatsCommon,
-      'zh-tw': {} = {} as dateTimeFormatsCommon,
-      ko: {} = {} as dateTimeFormatsCommon,
-      'ja-basic': {} = {} as dateTimeFormatsCommon,
-    },
+    dateTimeFormats: { /* eslint-disable no-empty-pattern */
+      ja: ({} = {} as dateTimeFormatsCommon),
+      en: ({} = {} as dateTimeFormatsCommon),
+      'zh-cn': ({} = {} as dateTimeFormatsCommon),
+      'zh-tw': ({} = {} as dateTimeFormatsCommon),
+      ko: ({} = {} as dateTimeFormatsCommon),
+      'ja-basic': ({} = {} as dateTimeFormatsCommon),
+    }, /* eslint-enable no-empty-pattern */
   },
   // vueI18nLoader: true,
   lazy: true,
