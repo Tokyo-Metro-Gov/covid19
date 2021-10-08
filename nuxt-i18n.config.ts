@@ -37,14 +37,15 @@ const options: NuxtConfig['i18n'] = {
   vueI18n: {
     fallbackLocale: 'ja',
     formatFallbackMessages: true,
-    dateTimeFormats: { /* eslint-disable no-empty-pattern */
+    dateTimeFormats: {
+      /* eslint-disable no-empty-pattern */
       ja: ({} = {} as dateTimeFormatsCommon),
       en: ({} = {} as dateTimeFormatsCommon),
       'zh-cn': ({} = {} as dateTimeFormatsCommon),
       'zh-tw': ({} = {} as dateTimeFormatsCommon),
       ko: ({} = {} as dateTimeFormatsCommon),
       'ja-basic': ({} = {} as dateTimeFormatsCommon),
-    }, /* eslint-enable no-empty-pattern */
+    } /* eslint-enable no-empty-pattern */,
   },
   // vueI18nLoader: true,
   lazy: true,
