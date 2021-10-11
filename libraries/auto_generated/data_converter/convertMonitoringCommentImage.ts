@@ -7,7 +7,6 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-// test comment: MonitoringCommentImage
 export interface MonitoringCommentImage {
     date: string;
     data: Data;

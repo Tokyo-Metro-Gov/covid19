@@ -3,20 +3,18 @@
 require 'spec_helper'
 
 card_classes = [
-  '.DataCard.PositiveNumberOver65Card',
-  '.DataCard.PositiveNumberByDevelopedDateCard',
-  '.DataCard.PositiveNumberByDiagnosedDateCard',
-  '.DataCard.DeathsByDeathDateCard',
-  '.DataCard.VariantCard',
-  '.DataCard.MetroCard',
-  '.DataCard.AgencyCard',
+  '.DataCard.VaccinationCard',
+  '.DataCard.ConfirmedCasesNumberCard',
+  '.DataCard.TestedNumberCard',
+  '.DataCard.TokyoFeverConsultationCenterReportsNumberCard',
+  '.DataCard.TelephoneAdvisoryReportsNumberCard',
 ]
 
 describe 'page [/]', type: :feature do
   context 'ja' do
-    describe 'CardsReference' do
+    describe 'CardsFeatured' do
       before do
-        visit '/reference'
+        visit '/'
         render_lazy_contents
       end
 

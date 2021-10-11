@@ -15,7 +15,7 @@ describe 'page [/]', type: :feature do
         end
 
         it 'has HeaderText' do
-          expect(find('h1.SideNavigation-HeaderTitle > a.SideNavigation-HeaderLink > div.SideNavigation-HeaderText').text).to eq "#{t(lang, 'menu/新型コロナウイルス感染症')}\n#{t(lang, 'menu/対策サイト')}"
+          expect(find('h1.SideNavigation-HeaderTitle > a.SideNavigation-HeaderLink > span.SideNavigation-HeaderText').text).to eq "#{t(lang, 'menu/新型コロナウイルス感染症')}\n#{t(lang, 'menu/対策サイト')}"
         end
       end
     end

@@ -111,7 +111,7 @@ export default Vue.extend({
   @include font-size(12);
 
   &:focus {
-    border: 1px dotted $gray-3;
+    border: 2px solid $focus;
     outline: none;
   }
   @include lessThan($small) {

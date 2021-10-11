@@ -2,7 +2,7 @@
   <v-col cols="12" md="6" class="DataCard MonitoringCommentCard">
     <client-only>
       <data-view
-        :title="'感染状況・医療提供体制の分析'"
+        :title="$t('感染状況・医療提供体制の分析')"
         title-id="monitoring-comment"
         :date="date"
         is-set-title-row

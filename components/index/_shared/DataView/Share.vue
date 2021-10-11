@@ -243,10 +243,6 @@ export default Vue.extend({
   cursor: pointer;
   margin: -14px;
   padding: 14px;
-
-  &:focus {
-    outline: dotted $gray-3 1px;
-  }
 }
 
 .DataView-Share-Buttons {
@@ -281,7 +277,7 @@ export default Vue.extend({
       border: 1px solid #fff;
 
       &:focus {
-        border: 1px dotted #707070;
+        border: 2px solid $focus;
         outline: none;
       }
     }
@@ -308,7 +304,7 @@ export default Vue.extend({
       border: solid 1px #eee;
 
       &:focus {
-        border: 1px dotted #707070;
+        border: 2px solid $focus;
         outline: none;
       }
     }
@@ -344,9 +340,10 @@ export default Vue.extend({
       justify-content: center;
       align-items: center;
       padding: 16px 8px 8px 8px;
+      height: 100%;
 
       &:focus {
-        border: 1px dotted #707070;
+        border: 2px solid $focus;
         outline: none;
       }
     }

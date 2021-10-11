@@ -14,8 +14,8 @@ describe 'page [/]', type: :feature do
         context 'SiteTopUpper' do
           it 'has h3' do
             expect(find('.WhatsNew h3.WhatsNew-title').text).to eq t(lang, '最新のお知らせ')
-            expect(find('.InfectionMedicalCareProvisionStatus h3.InfectionMedicalCareProvisionStatus-title').text).to match /^#{t(lang, '感染状況・医療提供体制（サマリ）')}/
-            expect(find('.MonitoringComment h3.MonitoringComment-title').text).to eq t(lang, '感染状況・医療提供体制の分析')
+            expect(find('.StayingPopulation h3.StayingPopulation-heading').text).to eq t(lang, '都内の滞在人口の増減状況（毎週月曜日更新）')
+            expect(find('.ConsultationWrap h3.StaticInfo-Text').text).to eq t(lang, 'ワクチン情報・変異株情報・検査情報等の新型コロナ関連情報はこちら')
           end
         end
       end
