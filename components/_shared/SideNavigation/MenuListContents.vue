@@ -91,7 +91,6 @@ export default Vue.extend({
 
   &:focus {
     font-weight: 600;
-    outline: dotted $gray-3 1px;
   }
 
   &.nuxt-link-exact-active {
@@ -105,7 +104,6 @@ export default Vue.extend({
     }
     &:focus {
       color: $green-1;
-      outline: dotted $gray-3 1px;
     }
   }
 }

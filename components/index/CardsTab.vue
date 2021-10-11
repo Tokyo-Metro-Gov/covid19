@@ -107,7 +107,7 @@ export default Vue.extend({
   @include font-size(16, true);
 
   &:focus {
-    outline: dotted $gray-3 1px;
+    outline: 2px solid $focus;
   }
 
   &--active {

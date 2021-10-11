@@ -32,7 +32,7 @@
         <slot name="attentionNote" />
       </div>
 
-      <div class="DataView-Description">
+      <div v-if="$slots.description" class="DataView-Description">
         <slot name="description" />
       </div>
 
@@ -47,13 +47,15 @@
       <div
         :id="titleId + '--description'"
         ref="Description"
-        class="DataView-Description DataView-Description--Additional"
+        class="DataView-Description"
         :class="{
           'DataView-Description--Minimized-Additional':
             !isAdditionalDescriptionExpanded && !isAlreadyShowingDescription,
         }"
       >
-        <slot name="additionalDescription" />
+        <div class="DataView-Description--Inner">
+          <slot name="additionalDescription" />
+        </div>
 
         <button
           v-if="
@@ -62,7 +64,7 @@
             !isAlreadyShowingDescription
           "
           :class="[
-            'DataView-Description DataView-Description--Toggle',
+            'DataView-Description--Toggle',
             isAdditionalDescriptionExpanded ? 'expand' : '',
           ]"
           :aria-expanded="[isAdditionalDescriptionExpanded ? true : false]"
@@ -305,7 +307,6 @@ export default Vue.extend({
   &-Description {
     position: relative;
     margin: 10px 0;
-    outline-offset: 4px;
     color: $gray-3;
     @include font-size(12);
 
@@ -328,6 +329,10 @@ export default Vue.extend({
         margin-left: 0;
         text-indent: 0;
       }
+    }
+
+    &--Inner {
+      padding: 4px 4px 20px;
     }
 
     &--Minimized-Additional {
@@ -353,7 +358,7 @@ export default Vue.extend({
     &--Toggle {
       position: absolute;
       z-index: 2;
-      bottom: 0;
+      bottom: 4px;
       left: 50%;
       transform: translateX(-50%);
       display: inline-flex;
@@ -363,6 +368,7 @@ export default Vue.extend({
       background-color: $gray-3;
       align-self: center;
       cursor: pointer;
+      outline-offset: 2px;
 
       &.expand {
         position: relative;
