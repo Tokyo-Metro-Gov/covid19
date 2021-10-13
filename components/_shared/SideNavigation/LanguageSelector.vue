@@ -79,7 +79,9 @@ export default Vue.extend({
     content: 'Lang:';
     margin-left: 4px;
     color: $gray-1;
+
     @include font-size(12);
+
     @include lessThan($small) {
       @include font-size(16);
     }
@@ -108,14 +110,17 @@ export default Vue.extend({
   width: 100%;
   height: 28px;
   line-height: 28px;
+
   @include font-size(12);
 
   &:focus {
     border: 2px solid $focus;
     outline: none;
   }
+
   @include lessThan($small) {
     padding-left: 70px;
+
     @include font-size(16);
   }
 }

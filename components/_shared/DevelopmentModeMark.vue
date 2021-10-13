@@ -46,6 +46,7 @@ export default {
   color: #4d4d4d;
   line-height: 20px;
   opacity: 0.9;
+
   @include font-size(12);
 
   // mobile view

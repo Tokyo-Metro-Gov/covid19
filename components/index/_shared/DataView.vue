@@ -226,6 +226,7 @@ export default Vue.extend({
 <style lang="scss">
 .DataView {
   height: 100%;
+
   @include card-container();
 
   &-Header {
@@ -267,6 +268,7 @@ export default Vue.extend({
     line-height: 1.5;
     font-weight: normal;
     color: $gray-2;
+
     @include font-size(20);
 
     &.with-dataSetPanel {
@@ -308,6 +310,7 @@ export default Vue.extend({
     position: relative;
     margin: 10px 0;
     color: $gray-3;
+
     @include font-size(12);
 
     ul,
@@ -339,6 +342,7 @@ export default Vue.extend({
       position: relative;
       height: 100px;
       overflow: hidden;
+
       &::after {
         position: absolute;
         z-index: 1;
@@ -376,6 +380,7 @@ export default Vue.extend({
 
       &__Icon {
         margin-left: -5px;
+
         .v-icon {
           color: $white;
         }
@@ -383,6 +388,7 @@ export default Vue.extend({
 
       &__Text {
         color: $white;
+
         @include font-size(14);
       }
     }
@@ -395,6 +401,7 @@ export default Vue.extend({
       .text-end {
         text-align: right;
       }
+
       .text-nowrap {
         white-space: nowrap;
       }
@@ -410,6 +417,7 @@ export default Vue.extend({
     justify-content: space-between;
     margin-top: auto;
     color: $gray-3;
+
     @include font-size(12);
 
     ul,
@@ -434,6 +442,7 @@ export default Vue.extend({
     background-color: $notice;
     border-radius: 4px;
     color: $gray-2;
+
     @include font-size(12);
 
     p {

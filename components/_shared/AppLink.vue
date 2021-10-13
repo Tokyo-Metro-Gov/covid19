@@ -95,6 +95,7 @@ export default Vue.extend({
   align-items: center;
   text-decoration: none;
 }
+
 .ExternalLinkIcon {
   margin-left: 4px;
 }

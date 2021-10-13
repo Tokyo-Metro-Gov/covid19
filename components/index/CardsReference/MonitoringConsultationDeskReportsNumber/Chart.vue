@@ -504,9 +504,11 @@ export default Vue.extend(options)
     text-align: center;
     list-style: none;
     padding: 0 !important;
+
     li {
       display: inline-block;
       margin: 0 3px;
+
       .area {
         height: 12px;
         margin: 2px 4px;
@@ -516,8 +518,10 @@ export default Vue.extend(options)
         border-width: 1px;
         border-style: solid;
       }
+
       button {
         color: $gray-3;
+
         @include font-size(12);
       }
     }

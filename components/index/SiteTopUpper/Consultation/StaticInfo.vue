@@ -44,6 +44,7 @@ export default Vue.extend({
 
   &-Text {
     white-space: pre-wrap;
+
     @include font-size(12);
 
     font-weight: 600;
@@ -61,6 +62,7 @@ export default Vue.extend({
     > a {
       text-decoration: none;
       color: $green-1 !important;
+
       @include button-text('sm');
 
       &:hover {

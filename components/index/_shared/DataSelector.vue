@@ -58,6 +58,7 @@ export default Vue.extend({
     height: 24px !important;
     color: $gray-1 !important;
     background-color: $white !important;
+
     @include font-size(12, true);
 
     &::before {

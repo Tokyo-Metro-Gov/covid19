@@ -104,6 +104,7 @@ export default Vue.extend({
   border-style: solid;
   border-radius: 4px 4px 0 0;
   font-weight: 600 !important;
+
   @include font-size(16, true);
 
   &:focus {
@@ -115,6 +116,7 @@ export default Vue.extend({
     background: $gray-5;
     border-color: $gray-2 $gray-2 $gray-5 $gray-2;
     border-width: 1px 1px 2px 1px;
+
     &::before {
       background-color: transparent;
     }
@@ -129,10 +131,12 @@ export default Vue.extend({
     background: $white;
     border-color: $green-1 $green-1 $gray-2 $green-1;
     border-width: 1px;
+
     &:hover {
       color: $white !important;
       background: $green-1;
     }
+
     .TabIcon {
       color: inherit !important;
     }
@@ -151,6 +155,7 @@ export default Vue.extend({
   .v-slide-group__content {
     width: 100%;
   }
+
   .v-tab {
     font-size: px2vw(14) !important;
     font-weight: normal !important;
@@ -167,8 +172,10 @@ export default Vue.extend({
     padding: 0 4px !important;
     margin: 0 4px;
   }
+
   .TabIcon {
     font-size: px2vw(16, 600) !important;
+
     .v-icon__svg {
       width: px2vw(16, 600) !important;
       height: px2vw(16, 600) !important;
