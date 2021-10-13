@@ -114,6 +114,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   h4 {
     margin: 5px 0 10px;
     font-weight: normal;
+
     @include font-size(16);
   }
 }

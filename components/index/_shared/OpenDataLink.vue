@@ -23,6 +23,7 @@ export default Vue.extend({
 <style lang="scss">
 .OpenDataLink {
   text-decoration: none;
+
   .ExternalLinkIcon {
     vertical-align: text-bottom;
   }

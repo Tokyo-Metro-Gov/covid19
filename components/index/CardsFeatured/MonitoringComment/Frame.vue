@@ -45,6 +45,7 @@ export default Vue.extend({
   border: solid 1px;
   text-align: center;
   margin-bottom: 10px;
+
   > p {
     margin-top: auto;
     margin-bottom: auto;

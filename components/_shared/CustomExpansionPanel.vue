@@ -98,27 +98,33 @@ export default Vue.extend({
   transition: height 0.2s ease;
   overflow: hidden;
 }
+
 .expand-enter,
 .expand-leave-to {
   height: 0;
 }
+
 .custom-expansion-panel-button {
   display: flex;
   align-items: center;
   padding: 4px 8px 4px 0;
   margin-bottom: 4px;
 }
+
 .custom-expansion-panel-icon {
   display: inline-block;
   margin-right: 4px;
   transform: rotate(0);
   transition: all 0.2s;
+
   &.with-content-open {
     transform: rotate(90deg);
   }
 }
+
 .custom-expansion-panel-content {
   display: flex;
+
   &__wrap {
     flex: 1 1 auto;
     max-width: 100%;

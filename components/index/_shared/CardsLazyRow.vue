@@ -117,6 +117,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 
 .expansion-panel-text {
   color: $gray-1;
+
   @include font-size(16);
 }
 </style>

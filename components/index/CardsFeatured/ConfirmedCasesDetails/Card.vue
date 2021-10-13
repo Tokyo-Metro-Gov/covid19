@@ -104,6 +104,7 @@ export default options
   margin: 20px 0 0;
   color: $green-1 !important;
   text-decoration: none;
+
   &:hover {
     color: $white !important;
   }

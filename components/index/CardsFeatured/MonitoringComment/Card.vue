@@ -129,11 +129,13 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .MonitoringComment-date {
   text-align: right;
+
   @include font-size(14);
 }
 
 .MonitoringComment-summary-item {
   margin-bottom: 8px;
+
   @include font-size(14);
 }
 
@@ -158,6 +160,7 @@ export default Vue.extend({
   justify-content: center;
   align-items: center;
   margin-top: 12px;
+
   @include font-size(14);
 }
 </style>

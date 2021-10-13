@@ -55,6 +55,7 @@ export default Vue.extend({
 <style lang="scss">
 .expansion-panel-text {
   color: $gray-1;
+
   @include font-size(14);
 }
 </style>

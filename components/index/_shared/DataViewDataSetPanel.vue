@@ -66,6 +66,7 @@ export default Vue.extend({
     &-title {
       font-weight: normal;
       flex: 1 1 50%;
+
       @include font-size(18);
     }
 
@@ -84,10 +85,12 @@ export default Vue.extend({
       font-style: normal;
       line-height: 30px;
       margin-bottom: 0 !important;
+
       @include font-size(30);
 
       &-unit {
         width: 100%;
+
         @include font-size(18);
       }
     }
@@ -97,6 +100,7 @@ export default Vue.extend({
       width: 100%;
       color: $gray-3;
       line-height: initial;
+
       @include font-size(12);
     }
   }
