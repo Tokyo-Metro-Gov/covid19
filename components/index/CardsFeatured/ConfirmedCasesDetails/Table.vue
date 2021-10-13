@@ -239,9 +239,7 @@ $default-boxdiff: 35px;
 @function px2vw($px, $vw: 0) {
   @if $vw > 0 {
     @return ceil($px / $vw * 100000vw) / 1000;
-  }
-
- @else {
+  } @else {
     @return $px * 1px;
   }
 }
