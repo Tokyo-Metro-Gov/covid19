@@ -107,7 +107,9 @@ export default Vue.extend({
       display: flex;
       align-items: center;
       margin: 8px 12px 8px 0;
+
       @include card-h2();
+
       &-icon {
         margin: 3px;
       }
@@ -128,16 +130,20 @@ export default Vue.extend({
 
     .WhatsNew-linkButton {
       margin: 8px 12px 8px 0;
+
       @include button-text('sm');
+
       &-inner {
         display: inline-flex;
         align-items: center;
       }
+
       &-icon {
         width: 1em;
         height: 1em;
         margin-right: 4px;
       }
+
       &-v-icon {
         color: currentColor;
         margin-right: 4px;
@@ -152,6 +158,7 @@ export default Vue.extend({
 
     &-item {
       margin: 0 5px;
+
       @include font-size(14);
 
       @include lessThan($medium) {

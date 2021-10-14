@@ -256,6 +256,7 @@ export default Vue.extend({
   border-radius: 8px;
   text-align: left;
   z-index: 2;
+
   @include font-size(16);
 
   > * {
@@ -290,6 +291,7 @@ export default Vue.extend({
     color: rgb(3, 3, 3);
     border: solid 1px #eee;
     border-radius: 8px;
+
     @include font-size(12);
 
     .EmbedCode-Copy {
@@ -356,6 +358,7 @@ export default Vue.extend({
       display: block;
       line-height: 1.2;
       margin-top: 8px;
+
       @include font-size(10);
     }
   }
@@ -381,6 +384,7 @@ export default Vue.extend({
     background: $gray-2;
     border-radius: 8px;
     color: $white !important;
+
     @include font-size(16);
   }
 }

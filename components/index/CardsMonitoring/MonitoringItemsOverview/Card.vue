@@ -127,12 +127,14 @@ export default {
   h4 {
     margin: 5px 0 10px;
     font-weight: normal;
+
     @include font-size(16);
   }
 }
 
 .button {
   color: $green-1 !important;
+
   &:hover {
     color: $white !important;
   }

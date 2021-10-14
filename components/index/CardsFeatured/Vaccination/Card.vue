@@ -133,14 +133,18 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   margin-top: 4px;
   color: $green-1 !important;
   text-decoration: none;
+
   &:hover {
     color: $white !important;
   }
+
   @include button-text('sm');
+
   &-inner {
     display: inline-flex;
     align-items: center;
   }
+
   &-icon {
     width: 1em;
     height: 1em;

@@ -36,6 +36,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   align-items: center;
   height: 100%;
 }
+
 .Consultation {
   height: 100%;
   padding: 3px 18px;

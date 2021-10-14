@@ -210,54 +210,69 @@ export default class Default extends Vue implements NuxtConfig {
   margin: 0 auto;
   background-color: inherit !important;
 }
+
 .app:lang(en) {
   font-family: $western, sans-serif;
 }
+
 .app:lang(ja) {
   font-family: $western, $japanese, sans-serif;
 }
+
 .app:lang(zh-CN) {
   font-family: $western, $chinese-hans, sans-serif;
 }
+
 .app:lang(zh-TW) {
   font-family: $western, $chinese-hant, sans-serif;
 }
+
 .app:lang(ko) {
   font-family: $western, $korean, sans-serif;
 }
+
 .v-application--wrap {
   width: 100%;
 }
+
 .embed {
   .container {
     padding: 0 !important;
   }
+
   .DataCard {
     padding: 0 !important;
   }
 }
+
 .appContainer {
   position: relative;
+
   @include largerThan($small) {
     display: grid;
     grid-template-columns: 240px 1fr;
     grid-template-rows: auto;
   }
+
   @include largerThan($huge) {
     grid-template-columns: 325px 1fr;
     grid-template-rows: auto;
   }
 }
+
 .naviContainer {
   background-color: $white;
+
   .open {
     height: 100vh;
+
     @include largerThan($small) {
       overflow-x: hidden;
       overflow-y: auto;
     }
   }
 }
+
 @include lessThan($small) {
   .naviContainer {
     position: sticky;
@@ -266,6 +281,7 @@ export default class Default extends Vue implements NuxtConfig {
     z-index: z-index-of(sp-navigation);
   }
 }
+
 @include largerThan($small) {
   .naviContainer {
     grid-column: 1/2;
@@ -280,23 +296,28 @@ export default class Default extends Vue implements NuxtConfig {
     overscroll-behavior: contain;
   }
 }
+
 @include largerThan($huge) {
   .naviContainer {
     width: 325px;
   }
 }
+
 .mainContainer {
   grid-column: 2/3;
   overflow: hidden;
+
   @include lessThan($small) {
     .container {
       padding-top: 16px;
     }
   }
+
   &.hidden {
     visibility: hidden;
   }
 }
+
 .loader {
   height: 200px;
   width: 150px;
@@ -304,6 +325,7 @@ export default class Default extends Vue implements NuxtConfig {
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
+
   img {
     display: block;
     margin: 0 auto 20px;

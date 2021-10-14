@@ -419,6 +419,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .SideNavigation {
   position: relative;
+
   @include lessThan($small) {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
   }
@@ -427,13 +428,16 @@ export default Vue.extend({
 .SideNavigation-Header {
   height: 64px;
   padding-left: 52px;
+
   @include largerThan($small) {
     height: auto;
     padding: 20px;
   }
+
   @include lessThan($small) {
     display: flex;
   }
+
   @include lessThan($tiny) {
     padding-left: 44px;
   }
@@ -445,10 +449,12 @@ export default Vue.extend({
   left: 0;
   padding: 18px 8px 18px 16px;
   font-size: 28px;
+
   @include lessThan($tiny) {
     font-size: 24px;
     padding: 20px 10px;
   }
+
   @include largerThan($small) {
     display: none;
   }
@@ -460,10 +466,12 @@ export default Vue.extend({
   left: 0;
   padding: 18px 8px 18px 16px;
   font-size: 28px;
+
   @include lessThan($tiny) {
     font-size: 24px;
     padding: 20px 10px;
   }
+
   @include largerThan($small) {
     display: none;
   }
@@ -473,7 +481,9 @@ export default Vue.extend({
   width: 100%;
   color: $gray-3;
   font-weight: 600;
+
   @include font-size(13);
+
   @include largerThan($small) {
     margin: 0;
     margin-top: 10px;
@@ -484,12 +494,15 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   padding-right: 10px;
+
   @include lessThan($small) {
     height: 64px;
   }
+
   @include lessThan($tiny) {
     justify-content: space-between;
   }
+
   &:link,
   &:hover,
   &:focus,
@@ -519,6 +532,7 @@ export default Vue.extend({
 .SideNavigation-HeaderText {
   display: block;
   margin: 10px 0 0 0;
+
   @include lessThan($small) {
     margin: 0 0 0 10px;
   }
@@ -530,9 +544,11 @@ export default Vue.extend({
 
 .SideNavigation-Body {
   padding: 0 20px 20px;
+
   @include lessThan($small) {
     display: none;
     padding: 0 36px 36px;
+
     &.-opened {
       position: fixed;
       top: 0;
@@ -558,6 +574,7 @@ export default Vue.extend({
 .SideNavigation-LanguageLabel {
   display: block;
   margin-bottom: 5px;
+
   @include font-size(14);
 }
 
@@ -613,6 +630,7 @@ export default Vue.extend({
   color: $gray-1;
   line-height: 1.3;
   font-weight: 600;
+
   @include font-size(10);
 }
 

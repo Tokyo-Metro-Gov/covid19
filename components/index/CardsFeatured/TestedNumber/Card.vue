@@ -119,14 +119,18 @@ export default {
   margin-top: 4px;
   color: $green-1 !important;
   text-decoration: none;
+
   &:hover {
     color: $white !important;
   }
+
   @include button-text('sm');
+
   &-inner {
     display: inline-flex;
     align-items: center;
   }
+
   &-v-icon {
     color: currentColor !important;
     margin-right: 4px;

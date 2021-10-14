@@ -971,23 +971,29 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .section {
   margin-bottom: 60px;
+
   p {
     margin-bottom: 10px;
   }
+
   li {
     margin-bottom: 8px;
   }
+
   dd ul,
   li ul {
     margin-top: 8px;
   }
 }
+
 .sub-section {
   margin-bottom: 24px;
 }
+
 .section-title {
   margin-bottom: 0.8em;
 }
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -996,11 +1002,13 @@ export default Vue.extend({
     padding: 1em 0;
     white-space: nowrap;
     min-width: 5em;
+
     @include font-size(14, true);
   }
 
   td {
     padding: 1em 16px;
+
     @include font-size(14);
   }
 
