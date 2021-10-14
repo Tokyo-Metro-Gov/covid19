@@ -10763,10 +10763,10 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
-stylelint-config-prettier@9.0.2:
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/stylelint-config-prettier/-/stylelint-config-prettier-9.0.2.tgz#f1d591f7f973169fe5186f8aa4d70f174e9832dc"
-  integrity sha512-M93Q+8+t0Z5LFb7B32cDfuPd3rbvvln2WNRF0n9RQDujXEz7+LANVTpZIG1fb7t2BwiZ+vibuongFIc3fEwrXQ==
+stylelint-config-prettier@9.0.3:
+  version "9.0.3"
+  resolved "https://registry.yarnpkg.com/stylelint-config-prettier/-/stylelint-config-prettier-9.0.3.tgz#0dccebeff359dcc393c9229184408b08964d561c"
+  integrity sha512-5n9gUDp/n5tTMCq1GLqSpA30w2sqWITSSEiAWQlpxkKGAUbjcemQ0nbkRvRUa0B1LgD3+hCvdL7B1eTxy1QHJg==
 
 stylelint-config-recommended@^5.0.0:
   version "5.0.0"
