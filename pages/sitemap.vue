@@ -181,27 +181,34 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 .Sitemap-titleLink {
   display: flex;
   color: $green-1;
+
   ::v-deep .v-icon {
     color: $green-1;
   }
+
   svg {
     fill: $green-1;
   }
 }
+
 .Sitemap-titleIcon {
   margin-right: 4px;
   min-width: 24px;
 }
+
 .Sitemap-list {
   list-style: none;
   margin-top: 12px;
 }
+
 .Sitemap-item {
   display: inline-block;
   margin: 0 12px 12px 0;
 }
+
 .Sitemap-linkButton {
   @include button-text('sm');
+
   &:hover {
     text-decoration: none;
   }

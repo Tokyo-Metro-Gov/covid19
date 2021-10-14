@@ -74,8 +74,10 @@ export default {
 <style lang="scss" scoped>
 .Description-Link {
   text-decoration: none;
+
   @include button-text('sm');
 }
+
 .Description-ExternalLink {
   margin-bottom: 10px;
 }

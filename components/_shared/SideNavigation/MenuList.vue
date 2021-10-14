@@ -97,6 +97,7 @@ export default Vue.extend({
     border-top: 1px solid $gray-4;
   }
 }
+
 .MenuSection {
   margin-bottom: 12px;
   padding-bottom: 12px;
@@ -106,10 +107,12 @@ export default Vue.extend({
     padding-top: 12px;
   }
 }
+
 .MenuTitle {
   color: $gray-3;
   padding: 12px 0;
   font-weight: normal;
+
   @include font-size(13);
 }
 </style>

@@ -110,14 +110,17 @@ export default Vue.extend({
   padding: 12px 12px 0 12px;
   margin-right: auto;
   margin-left: auto;
+
   @media screen {
     @media (min-width: 960px) {
       max-width: 900px;
     }
+
     @media (min-width: 1264px) {
       max-width: 1185px;
     }
   }
+
   @media print {
     width: 1050px;
   }
@@ -146,6 +149,7 @@ export default Vue.extend({
     color: #898989;
     padding: 0.5em 0;
     text-decoration: none;
+
     @include font-size(13);
   }
 
@@ -170,6 +174,7 @@ export default Vue.extend({
     margin-bottom: 0;
     padding-top: 1em;
     width: max-content;
+
     @include font-size(13);
   }
 
@@ -177,6 +182,7 @@ export default Vue.extend({
     color: gray;
     margin-bottom: 0;
     width: max-content;
+
     @include font-size(13);
   }
 }

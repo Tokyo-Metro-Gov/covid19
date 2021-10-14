@@ -229,6 +229,7 @@ export default Vue.extend({
       height: auto !important;
       border-bottom: 1px solid $gray-4 !important;
       color: $gray-2 !important;
+
       @include font-size(12, true);
 
       &.text-center {
@@ -239,12 +240,15 @@ export default Vue.extend({
     tbody {
       tr {
         color: $gray-1;
+
         th {
           font-weight: normal;
         }
+
         td {
           padding: 8px 10px !important;
           height: auto !important;
+
           @include font-size(12, true);
 
           &.text-center {
@@ -260,30 +264,38 @@ export default Vue.extend({
         }
       }
     }
+
     .v-select {
       margin-left: 10px;
     }
   }
+
   .v-data-table__wrapper {
     box-shadow: 0 -20px 12px -12px #0003 inset;
   }
+
   .v-data-footer {
     @include font-size(12);
+
     &__pagination {
       margin-left: 0;
       margin-right: 5px;
     }
   }
+
   .v-data-footer__select .v-select__selections .v-select__selection--comma {
     font-size: 1.2rem;
   }
 }
+
 .v-menu__content {
   width: 80px;
+
   .v-list-item {
     padding: 0 8px;
   }
 }
+
 .v-list-item__title {
   font-size: 1.5rem;
 }
@@ -291,27 +303,34 @@ export default Vue.extend({
 .loading {
   visibility: hidden;
 }
+
 .FooterNote {
   margin: 0 !important;
 }
+
 .DataTable-header {
   white-space: nowrap;
 }
+
 .cardTableFooter {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   margin: 12px 0;
+
   @include font-size(14);
 }
+
 .cardTableFooterItem {
   display: flex;
   align-items: center;
   margin-left: 12px;
 }
+
 .cardTableFooterLabel {
   padding-right: 8px;
 }
+
 .perPageSelectBox {
   appearance: auto;
   border: 1px solid $gray-4;

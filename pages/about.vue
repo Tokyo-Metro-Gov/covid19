@@ -65,8 +65,8 @@
         </dd>
         <dt>{{ $t('試験結果') }}</dt>
         <dd>
-          <app-link :to="localePath('/accessibility-results')">
-            {{ $t('ウェブアクセシビリティ試験結果（2021年度）') }}
+          <app-link to="/accessibility-results">
+            {{ $t('ウェブアクセシビリティ試験結果（2021年度・日本語のみ）') }}
           </app-link>
         </dd>
         <dt>{{ $t('担当部署') }}</dt>

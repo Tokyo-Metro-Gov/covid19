@@ -234,16 +234,19 @@ export default Vue.extend({
 
       th {
         padding: 1em 0;
+
         @include font-size(14, true);
       }
 
       td {
         padding: 1em 16px;
+
         @include font-size(14);
       }
 
       .importantContact {
         font-weight: 600;
+
         @include font-size(16, true);
       }
 
@@ -260,6 +263,7 @@ export default Vue.extend({
         th.tel {
           width: 35%;
         }
+
         th,
         tr:not(:last-child) {
           border-top: none;
@@ -310,6 +314,7 @@ export default Vue.extend({
 
       p.caution {
         margin: 0;
+
         @include font-size(12);
       }
     }

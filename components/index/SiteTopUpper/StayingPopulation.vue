@@ -139,11 +139,13 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   .StayingPopulation-title {
     display: flex;
     justify-content: space-between;
+
     @include card-h2();
 
     .StayingPopulation-heading {
       flex: 1;
     }
+
     .StayingPopulation-heading,
     .StayingPopulation-link {
       @include font-size(12);
@@ -155,6 +157,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   .StayingPopulation-box {
     display: flex;
     align-items: center;
+
     .StayingPopulation-place {
       padding: 5px 10px;
       margin: 0 5px 2px 0;
@@ -166,12 +169,14 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 
       @include font-size(12);
     }
+
     .StayingPopulation-state {
       flex: 1;
       padding: 2px;
       margin: 0 5px 2px;
       min-width: 15em;
       color: $gray-3;
+
       @include font-size(11);
     }
   }
