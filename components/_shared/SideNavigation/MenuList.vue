@@ -7,7 +7,9 @@
     >
       <custom-expansion-panel v-if="itemTitles[i].isExpand" :id="`menu-${i}`">
         <template #icon>
-          <v-icon size="2.4rem">{{ mdiChevronRight }}</v-icon>
+          <v-icon size="2.4rem">
+            {{ mdiChevronRight }}
+          </v-icon>
         </template>
         <template #title>
           <span class="MenuTitle">{{ setMenuTitle(slug) }}</span>

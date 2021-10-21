@@ -137,6 +137,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" module>
+@import '@/assets/_monitoringItemsTableCommon.scss';
+
 $default-bdw: 3px;
 $default-boxdiff: 35px;
 
@@ -234,81 +236,5 @@ $default-boxdiff: 35px;
       border-bottom: none;
     }
   }
-}
-
-@function px2vw($px, $vw: 0) {
-  @if $vw > 0 {
-    @return ceil($px / $vw * 100000vw) / 1000;
-  } @else {
-    @return $px * 1px;
-  }
-}
-
-@mixin override($vw, $bdw, $fz, $boxdiff) {
-  .group {
-    padding-left: px2vw($bdw, $vw) !important;
-    border-top: px2vw($bdw, $vw) solid $green-1;
-    border-left: px2vw($bdw, $vw) solid $green-1;
-  }
-
-  .content {
-    padding: px2vw(5, $vw) px2vw(10, $vw);
-    border: px2vw($bdw, $vw) solid $green-1;
-
-    > span {
-      @include font-size($fz);
-
-      &:first-child {
-        margin-top: px2vw(1, $vw);
-      }
-
-      &:last-child {
-        margin-left: 10px;
-      }
-    }
-
-    strong {
-      @include font-size($fz + 2);
-    }
-
-    span.unit {
-      @include font-size($fz);
-    }
-  }
-
-  .box {
-    margin-top: px2vw($bdw, $vw);
-
-    &.parent {
-      border-top: px2vw($bdw, $vw) solid $green-1;
-      border-left: px2vw($bdw, $vw) solid $green-1;
-      padding-left: px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2;
-
-      &::after {
-        width: px2vw($boxdiff - $bdw, $vw);
-        border-bottom: px2vw($bdw, $vw) solid $green-1;
-      }
-
-      > .content {
-        margin-left: -(px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2);
-        width: calc(100% + #{(px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2)});
-      }
-    }
-  }
-}
-
-// Vuetify Breakpoints: Large (1264)
-@include lessThan(1263) {
-  @include override(1263, 3, 14, 35);
-}
-
-// Vuetify Breakpoints: Small (960)
-@include lessThan(959) {
-  @include override(960, 3, 14, 35);
-}
-
-// Vuetify Breakpoints: Extra Small (600)
-@include lessThan(600) {
-  @include override(600, 3, 14, 35);
 }
 </style>

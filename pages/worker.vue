@@ -6,7 +6,8 @@
         <app-link
           to="https://covid19.supportnavi.metro.tokyo.lg.jp/"
           :icon-size="24"
-          >{{ $t('東京都 新型コロナウイルス感染症 支援情報ナビ') }}
+        >
+          {{ $t('東京都 新型コロナウイルス感染症 支援情報ナビ') }}
         </app-link>
       </h3>
       <p>
@@ -22,7 +23,8 @@
         <app-link
           to="https://www.sangyo-rodo.metro.tokyo.lg.jp/topics/jitan/index.html"
           :icon-size="24"
-          >{{ $t('東京都 感染拡大防止協力金') }}
+        >
+          {{ $t('東京都 感染拡大防止協力金') }}
         </app-link>
       </h3>
       <p>
@@ -35,10 +37,8 @@
     </static-card>
     <static-card>
       <h3>
-        <app-link to="https://smooth-biz.metro.tokyo.lg.jp/" :icon-size="24"
-          >{{
-            $t('新しいワークスタイルや企業活動の東京モデル「スムーズビズ」')
-          }}
+        <app-link to="https://smooth-biz.metro.tokyo.lg.jp/" :icon-size="24">
+          {{ $t('新しいワークスタイルや企業活動の東京モデル「スムーズビズ」') }}
         </app-link>
       </h3>
       <p>
@@ -54,7 +54,8 @@
         <app-link
           to="https://tokyo-telework.jp/lp/2002app/index.html"
           :icon-size="24"
-          >{{ $t('TOKYOテレワークアプリ') }}
+        >
+          {{ $t('TOKYOテレワークアプリ') }}
         </app-link>
       </h3>
       <p>

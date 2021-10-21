@@ -2,7 +2,9 @@
   <div>
     <custom-expansion-panel v-if="showDetails" :id="id" @click="toggleDetails">
       <template #icon>
-        <v-icon size="2.4rem">{{ mdiChevronRight }}</v-icon>
+        <v-icon size="2.4rem">
+          {{ mdiChevronRight }}
+        </v-icon>
       </template>
       <template #title>
         <span class="expansion-panel-text">{{ $t('テーブルを表示') }}</span>

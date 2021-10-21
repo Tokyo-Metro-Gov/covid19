@@ -92,8 +92,10 @@ $default-boxdiff: 35px;
 
 @function px2vw($px, $vw: 0) {
   @if $vw > 0 {
-    @return ceil($px / $vw * 100000vw) / 1000;
-  } @else {
+    $shft-px: 100000 * $px;
+    @return div(#{$shft-px % $vw == 0} + div($shft-px, $vw), 1000)
+  }
+  @else {
     @return $px * 1px;
   }
 }
@@ -132,7 +134,7 @@ $default-boxdiff: 35px;
     &.parent {
       border-top: px2vw($bdw, $vw) solid $green-1;
       border-left: px2vw($bdw, $vw) solid $green-1;
-      padding-left: px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2;
+      padding-left: px2vw($boxdiff, $vw) - px2vw($bdw * 2, $vw);
 
       &::after {
         width: px2vw($boxdiff - $bdw, $vw);
@@ -140,8 +142,8 @@ $default-boxdiff: 35px;
       }
 
       > .content {
-        margin-left: -(px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2);
-        width: calc(100% + #{(px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2)});
+        margin-left: px2vw($bdw * 2, $vw) - px2vw($boxdiff, $vw);
+        width: calc(100% + #{(px2vw($boxdiff, $vw) - px2vw($bdw * 2, $vw))});
       }
     }
   }

@@ -1,5 +1,5 @@
 import Vue from 'vue'
-const VueAxe = () => import('vue-axe')
+const VueAxe = () => import('axe-core')
 const AXE_LOCALE_JA = () => import('axe-core/locales/ja.json')
 
 const NODE_ENV = process.env.NODE_ENV

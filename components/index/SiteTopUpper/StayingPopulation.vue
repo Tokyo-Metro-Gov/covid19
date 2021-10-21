@@ -7,10 +7,13 @@
             {{ $t('都内の滞在人口の増減状況（毎週月曜日更新）') }}
           </h3>
           <div class="StayingPopulation-link">
-            <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
+            <v-icon color="#D9D9D9">
+              {{ mdiChevronRight }}
+            </v-icon>
             <app-link
               to="https://www.seisakukikaku.metro.tokyo.lg.jp/information/corona-people-flow-analysis.html#top"
-              >{{ $t('詳細はこちら') }}
+            >
+              {{ $t('詳細はこちら') }}
             </app-link>
           </div>
         </div>

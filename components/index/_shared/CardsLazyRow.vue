@@ -18,7 +18,9 @@
   <div v-else class="DataBlock">
     <custom-expansion-panel id="hide-cards">
       <template #icon>
-        <v-icon size="2.4rem">{{ mdiChevronRight }}</v-icon>
+        <v-icon size="2.4rem">
+          {{ mdiChevronRight }}
+        </v-icon>
       </template>
       <template #title>
         <span class="expansion-panel-text">

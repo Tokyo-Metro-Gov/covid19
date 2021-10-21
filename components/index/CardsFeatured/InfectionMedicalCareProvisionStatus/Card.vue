@@ -19,7 +19,9 @@
           />
         </section>
         <div :class="$style.link">
-          <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
+          <v-icon color="#D9D9D9">
+            {{ mdiChevronRight }}
+          </v-icon>
           <app-link
             to="https://www.fukushihoken.metro.tokyo.lg.jp/hodo/saishin/hassei.html"
           >

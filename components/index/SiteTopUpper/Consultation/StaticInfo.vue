@@ -1,6 +1,8 @@
 <template>
   <div class="StaticInfo">
-    <h3 class="StaticInfo-Text">{{ text }}</h3>
+    <h3 class="StaticInfo-Text">
+      {{ text }}
+    </h3>
     <div v-if="btnText" class="StaticInfo-Button">
       <app-link :to="url" class="StaticInfo-Link">
         {{ btnText }}

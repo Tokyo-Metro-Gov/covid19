@@ -1,9 +1,15 @@
 /* eslint-disable simple-import-sort/imports -- `@nuxt/types` import should occur after import of `path` */
-import fs from 'fs'
-import path from 'path'
+import 'regenerator-runtime/runtime'
+import 'core-js/stable'
+import fs, {
+  readFileSync /* eslint-disable-line @typescript-eslint/no-unused-vars */,
+} from 'fs'
+import path, {
+  resolve /* eslint-disable-line @typescript-eslint/no-unused-vars */,
+} from 'path'
+
 import { NuxtConfig } from '@nuxt/types'
-// eslint-disable-next-line no-restricted-imports
-import i18n from './nuxt-i18n.config'
+import i18n from './nuxt-i18n.config' /* eslint-disable-line no-restricted-imports */
 // @ts-ignore
 import { Settings } from '@/types/cardRoutesSettings'
 const environment = process.env.NODE_ENV || 'development'
@@ -15,11 +21,6 @@ const cardData = JSON.parse(
 )
 
 const config: NuxtConfig = {
-  // Since nuxt@2.14.5, there have been significant changes.
-  // We dealt with typical two (2) out of them:
-  // 1) The "mode:" directive got deprecated (seen right below);
-  // 2) Autoprefixer has been included so that we can lessen upgrade burden.
-  // mode: 'universal',
   target: 'static',
   components: true,
   /*
@@ -62,6 +63,10 @@ const config: NuxtConfig = {
         property: 'note:card',
         content: 'summary_large_image',
       },
+      {
+        name: 'tabs',
+        content: 'no',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -78,21 +83,39 @@ const config: NuxtConfig = {
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
-  /*
-   ** Global CSS
-   */
-  css: ['@/assets/global.scss'],
+  styleResources: {
+    /*
+     ** Global CSS/SCSS/SASS
+     */
+    css: ['@/assets/global.scss'],
+    /*
+     ** Pulled out from vuild.styleResources block w/ according module uninstalled
+     ** https://github.com/nuxt-community/style-resources-module/issues/88
+     */
+    scss: [
+      '@/assets/global.scss',
+      '@/assets/variables.scss',
+      '@/assets/monitoringItemsTableCommon.scss',
+      '*.vue',
+    ],
+    sass: [
+      '@/assets/global.scss',
+      '@/assets/variables.scss',
+      '@/assets/monitoringItemsTableCommon.scss',
+    ],
+    hoistUseStatements: true,
+  },
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
     {
-      src: '@/plugins/vue-chart.ts',
-      ssr: true,
+      src: '@/plugins/vue-chart',
+      mode: 'all',
     },
     {
       src: '@/plugins/axe',
-      ssr: true,
+      mode: 'all',
     },
   ],
   /*
@@ -108,14 +131,13 @@ const config: NuxtConfig = {
           async: true,
           typescript: {
             enable: true,
-            memoryLimit: 4096,
+            memoryLimit: 5120,
           },
         },
       },
     ],
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
-    'nuxt-purgecss',
   ],
   /*
    ** Nuxt.js modules
@@ -125,7 +147,7 @@ const config: NuxtConfig = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
     ['@nuxtjs/i18n', i18n],
-    'nuxt-svg-loader',
+    '@nuxtjs/svg',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
     'nuxt-webfontloader',
   ],
@@ -159,23 +181,22 @@ const config: NuxtConfig = {
     pageTracking: true,
     enabled: true,
   },
-  /*
-   * nuxt-i18n による自動リダイレクトを停止したためコメントアウト
-   * @todo 「Cookieがあるときのみ、その言語にリダイレクトする」を実装する場合は復活させる
-   * 実装しない場合は以下の記述を完全に削除する
-   */
-  /* optionalCookies: [
-    {
-      name: 'i18n_redirected',
-      label: 'i18n Redirection Cookie',
-      description:
-        'For automatically switching UI languages in accordance with locale preferences in the web browser configuration.',
-      cookies: ['i18n_redirected']
-    }
-  ], */
   build: {
-    filenames: {
-      chunk: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js'),
+    loaders: {
+      file: {
+        regExp: /\.[mc]?js$/,
+        name: ({ isDev }: any): string => {
+          return isDev ? '[name].[ext]' : '[id].[contenthash].[ext]'
+        },
+      },
+      sass: {
+        sassOptions: {
+          loader: 'sass-loader',
+          sassOptions: {
+            indentedSyntax: true,
+          },
+        },
+      },
     },
     babel: {
       presets() {
@@ -183,11 +204,20 @@ const config: NuxtConfig = {
           [
             '@nuxt/babel-preset-app',
             {
-              corejs: { version: '3.16' },
+              corejs: {
+                version: 3,
+                useBuiltins: 'entry',
+              },
             },
           ],
         ]
       },
+      /*
+      plugins: [
+        // https://github.com/altgifted/babel-plugin-transform-scss/blob/master/lib/index.js
+        ['babel-plugin-transform-scss', { 'indentedSyntax': true }],
+      ],
+      */
     },
     postcss: {
       preset: {
@@ -217,7 +247,7 @@ const config: NuxtConfig = {
     theme_color: '#00a040',
     background_color: '#ffffff',
     display: 'standalone',
-    Scope: '/',
+    scope: '/',
     start_url: '/',
     splash_pages: null,
   },
@@ -254,13 +284,15 @@ const config: NuxtConfig = {
   router: {
     extendRoutes(routes) {
       routes.forEach((route) => {
-        if (
-          route.name === 'index' ||
-          route.name === 'monitoring' ||
-          route.name === 'reference'
-        ) {
-          route.meta = { tabs: true }
-        }
+        return (route.meta = {
+          tabs: {
+            type: Boolean,
+            default:
+              route.name === 'index' ||
+              route.name === 'monitoring' ||
+              route.name === 'reference',
+          },
+        })
       })
     },
   },

@@ -10,7 +10,9 @@
       exact
       @click="change"
     >
-      <v-icon class="TabIcon">{{ mdiChartTimelineVariant }}</v-icon>
+      <v-icon class="TabIcon">
+        {{ mdiChartTimelineVariant }}
+      </v-icon>
       {{ item.label }}
     </v-tab>
     <v-tabs-items v-model="tab" touchless>
@@ -89,6 +91,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+@import '@/assets/_monitoringItemsTableCommon.scss';
+
 .v-slide-group__content {
   border-bottom: 1px solid $gray-2;
   background: $gray-5;
@@ -145,41 +149,5 @@ export default Vue.extend({
 
 .v-tabs-items {
   background-color: transparent !important;
-}
-
-@function px2vw($px, $vw: 768) {
-  @return $px / $vw * 100vw;
-}
-
-@include lessThan(900) {
-  .v-slide-group__content {
-    width: 100%;
-  }
-
-  .v-tab {
-    font-size: px2vw(14) !important;
-    font-weight: normal !important;
-    flex: 1 1 auto;
-    width: 100%;
-    padding: 0 8px !important;
-    margin: 0 6px;
-  }
-}
-
-@include lessThan($small) {
-  .v-tab {
-    font-size: px2vw(16, 600) !important;
-    padding: 0 4px !important;
-    margin: 0 4px;
-  }
-
-  .TabIcon {
-    font-size: px2vw(16, 600) !important;
-
-    .v-icon__svg {
-      width: px2vw(16, 600) !important;
-      height: px2vw(16, 600) !important;
-    }
-  }
 }
 </style>

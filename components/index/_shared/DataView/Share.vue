@@ -54,8 +54,9 @@
             class="EmbedCode-Copy"
             :aria-label="$t('クリップボードにコピー')"
             @click="copyEmbedCode"
-            >{{ mdiClipboardOutline }}</v-icon
           >
+            {{ mdiClipboardOutline }}
+          </v-icon>
           {{ graphEmbedValue }}
         </div>
       </section>

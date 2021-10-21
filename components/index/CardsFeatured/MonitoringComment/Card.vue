@@ -30,7 +30,9 @@
             </li>
           </ul>
           <section class="MonitoringCommentFrame">
-            <h4 class="MonitoringCommentFrame-title">{{ $t('感染状況') }}</h4>
+            <h4 class="MonitoringCommentFrame-title">
+              {{ $t('感染状況') }}
+            </h4>
             <frame
               :level="monitoringComment['総括コメント-感染状況'].level - 1"
               :comment="commentMonitoring('総括コメント-感染状況')"
@@ -48,7 +50,9 @@
           <div class="MonitoringCommentImage">
             <random-image />
             <div class="MonitoringCommentLink">
-              <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
+              <v-icon color="#D9D9D9">
+                {{ mdiChevronRight }}
+              </v-icon>
               <app-link
                 to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/monitoring.html"
               >

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // ==================
 // color
 $green-1: #008830;
@@ -12,8 +14,8 @@ $gray-5: #f8f9fa;
 $white: #fff;
 $link: #006ca8;
 $focus: #1976d2;
-$notice: #B19201;
-$alert: #AD2121;
+$notice: #b19201;
+$alert: #ad2121;
 
 // ==================
 // shadow
@@ -63,7 +65,7 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
 // ==================
 // font-size
 @mixin font-size($size, $important: false) {
-  font-size: ($size / 10) + rem #{if($important, "!important", "")};
+  font-size: math.div($size, 10) + rem #{if($important, "!important", "")};
 }
 
 @mixin card-h1 {
@@ -111,7 +113,8 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
 @mixin button-text($size: 'md', $font-size: 14) {
   @if ($size == 'sm') {
     padding: 5px 8px;
-  } @else {
+  }
+  @else {
     padding: 24px 36px;
   }
 
@@ -183,5 +186,5 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
 $expansion-panel-content-padding: 0;
 $expansion-panel-header-padding: 10px 0;
 $expansion-panel-header-min-height: 26px;
-$expansion-panel-active-header-min-height: 26px;
+$expansion-panel-active-header-min-height: 026px;
 $expansion-panel-header-font-size: .875rem;

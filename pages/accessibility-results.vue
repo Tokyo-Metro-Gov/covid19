@@ -820,7 +820,9 @@
           </ul>
         </section>
         <section id="supplement-1-4-1" class="sub-section">
-          <h4 class="section-title">{{ $t('1.4.1 色の使用の達成基準') }}</h4>
+          <h4 class="section-title">
+            {{ $t('1.4.1 色の使用の達成基準') }}
+          </h4>
           <ul>
             <i18n
               tag="li"
@@ -871,7 +873,9 @@
           </ul>
         </section>
         <section id="supplement-3-2-2" class="sub-section">
-          <h4 class="section-title">{{ $t('3.2.2 入力時の達成基準') }}</h4>
+          <h4 class="section-title">
+            {{ $t('3.2.2 入力時の達成基準') }}
+          </h4>
           <ul>
             <li>
               {{
@@ -902,7 +906,9 @@
           </ul>
         </section>
         <section id="supplement-4-1-1" class="sub-section">
-          <h4 class="section-title">{{ $t('4.1.1 構文解析の達成基準') }}</h4>
+          <h4 class="section-title">
+            {{ $t('4.1.1 構文解析の達成基準') }}
+          </h4>
           <ul>
             <li>
               {{ $t('以下を満たしていれば適合と判断した') }}
