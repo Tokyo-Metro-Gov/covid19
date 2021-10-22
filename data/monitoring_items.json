@@ -1,30 +1,30 @@
 {
-    "date": "2021\/10\/21 19:00",
+    "date": "2021\/10\/22 17:45",
     "data": {
         "専門家3行コメント": [
             {
                 "@ja": "ワクチンを2回接種した後も感染する可能性があり、軽症や無症状でも周囲の人に感染させるリスクがある。",
-                "@en": "ワクチンを2回接種した後も感染する可能性があり、軽症や無症状でも周囲の人に感染させるリスクがある。"
+                "@en": "Even if you are fully vaccinated, it is still possible to get COVID-19. Even those with mild or no observable symptoms run the risk of infecting the people around them."
             },
             {
                 "@ja": "ワクチン接種後も、感染リスクの高い行動を引き続き避けるとともに、基本的な感染防止対策を徹底する必要がある。",
-                "@en": "ワクチン接種後も、感染リスクの高い行動を引き続き避けるとともに、基本的な感染防止対策を徹底する必要がある。"
+                "@en": "Along with continuing to avoid high infection risk situations and behavior, it is also necessary to continue firmly implementing basic steps to prevent infection, even after being vaccinated."
             },
             {
                 "@ja": "入院患者数と重症患者数は継続して減少しており、通常医療との両立が可能になりつつある。",
-                "@en": "入院患者数と重症患者数は継続して減少しており、通常医療との両立が可能になりつつある。"
+                "@en": "With the number of patients hospitalized and the number of severe cases continuing to decrease, it is becoming possible to achieve a balance between COVID and non-COVID medical care."
             }
         ],
-        "(1)新規陽性者数": 43.6,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 53.6,
-        "(3)新規陽性者における接触歴等不明者（人数）": 27.1,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 60.3,
-        "(4)PCR・抗原検査（陽性率）": 0.7,
-        "(4)PCR・抗原検査（検査人数）": 5822.4,
-        "(5)救急医療の東京ルールの適用件数": 45.3,
-        "(6)入院患者数": 256,
+        "(1)新規陽性者数": 39.1,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 56.1,
+        "(3)新規陽性者における接触歴等不明者（人数）": 24,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 60.4,
+        "(4)PCR・抗原検査（陽性率）": 0.6,
+        "(4)PCR・抗原検査（検査人数）": 5861.3,
+        "(5)救急医療の東京ルールの適用件数": 44,
+        "(6)入院患者数": 240,
         "(6)入院患者確保病床数": 6651,
-        "(7)重症患者数": 24,
+        "(7)重症患者数": 21,
         "(7)重症患者確保病床数": 503,
         "総括コメント-感染状況": {
             "date": "2021-10-21",
