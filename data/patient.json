@@ -1,7 +1,7 @@
 {
-    "date": "2021\/10\/21 19:00",
+    "date": "2021\/10\/22 17:45",
     "datasets": {
-        "date": "2021\/10\/20",
+        "date": "2021\/10\/21",
         "data": [
             {
                 "code": 131016,
@@ -15,21 +15,21 @@
                 "area": "特別区",
                 "label": "中央区",
                 "ruby": "ちゅうおうく",
-                "count": 5629
+                "count": 5631
             },
             {
                 "code": 131032,
                 "area": "特別区",
                 "label": "港区",
                 "ruby": "みなとく",
-                "count": 9918
+                "count": 9920
             },
             {
                 "code": 131041,
                 "area": "特別区",
                 "label": "新宿区",
                 "ruby": "しんじゅくく",
-                "count": 17736
+                "count": 17738
             },
             {
                 "code": 131059,
@@ -43,7 +43,7 @@
                 "area": "特別区",
                 "label": "台東区",
                 "ruby": "たいとうく",
-                "count": 6504
+                "count": 6505
             },
             {
                 "code": 131075,
@@ -57,21 +57,21 @@
                 "area": "特別区",
                 "label": "江東区",
                 "ruby": "こうとうく",
-                "count": 13119
+                "count": 13120
             },
             {
                 "code": 131091,
                 "area": "特別区",
                 "label": "品川区",
                 "ruby": "しながわく",
-                "count": 11453
+                "count": 11454
             },
             {
                 "code": 131105,
                 "area": "特別区",
                 "label": "目黒区",
                 "ruby": "めぐろく",
-                "count": 10141
+                "count": 10142
             },
             {
                 "code": 131113,
@@ -99,28 +99,28 @@
                 "area": "特別区",
                 "label": "中野区",
                 "ruby": "なかのく",
-                "count": 11966
+                "count": 11967
             },
             {
                 "code": 131156,
                 "area": "特別区",
                 "label": "杉並区",
                 "ruby": "すぎなみく",
-                "count": 15455
+                "count": 15456
             },
             {
                 "code": 131164,
                 "area": "特別区",
                 "label": "豊島区",
                 "ruby": "としまく",
-                "count": 10595
+                "count": 10596
             },
             {
                 "code": 131172,
                 "area": "特別区",
                 "label": "北区",
                 "ruby": "きたく",
-                "count": 9302
+                "count": 9303
             },
             {
                 "code": 131181,
@@ -134,14 +134,14 @@
                 "area": "特別区",
                 "label": "板橋区",
                 "ruby": "いたばしく",
-                "count": 14436
+                "count": 14439
             },
             {
                 "code": 131202,
                 "area": "特別区",
                 "label": "練馬区",
                 "ruby": "ねりまく",
-                "count": 17325
+                "count": 17330
             },
             {
                 "code": 131211,
@@ -155,21 +155,21 @@
                 "area": "特別区",
                 "label": "葛飾区",
                 "ruby": "かつしかく",
-                "count": 12313
+                "count": 12315
             },
             {
                 "code": 131237,
                 "area": "特別区",
                 "label": "江戸川区",
                 "ruby": "えどがわく",
-                "count": 18132
+                "count": 18133
             },
             {
                 "code": 132012,
                 "area": "多摩地域",
                 "label": "八王子市",
                 "ruby": "はちおうじし",
-                "count": 9676
+                "count": 9677
             },
             {
                 "code": 132021,
@@ -218,14 +218,14 @@
                 "area": "多摩地域",
                 "label": "調布市",
                 "ruby": "ちょうふし",
-                "count": 4580
+                "count": 4581
             },
             {
                 "code": 132098,
                 "area": "多摩地域",
                 "label": "町田市",
                 "ruby": "まちだし",
-                "count": 7005
+                "count": 7007
             },
             {
                 "code": 132101,
@@ -295,7 +295,7 @@
                 "area": "多摩地域",
                 "label": "清瀬市",
                 "ruby": "きよせし",
-                "count": 1032
+                "count": 1033
             },
             {
                 "code": 132225,
@@ -344,7 +344,7 @@
                 "area": "多摩地域",
                 "label": "西東京市",
                 "ruby": "にしとうきょうし",
-                "count": 4058
+                "count": 4059
             },
             {
                 "code": 133035,
@@ -442,21 +442,21 @@
                 "area": null,
                 "label": "都外",
                 "ruby": null,
-                "count": 28698
+                "count": 28704
             },
             {
                 "code": null,
                 "area": null,
                 "label": "調査中",
                 "ruby": null,
-                "count": 183
+                "count": 182
             },
             {
                 "code": null,
                 "area": null,
                 "label": "小計",
                 "ruby": null,
-                "count": 377305
+                "count": 377341
             }
         ]
     }
