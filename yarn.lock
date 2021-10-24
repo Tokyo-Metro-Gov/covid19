@@ -1040,10 +1040,10 @@
     brfs "^1.4.0"
     unicode-trie "^0.3.0"
 
-"@mdi/js@6.3.95":
-  version "6.3.95"
-  resolved "https://registry.yarnpkg.com/@mdi/js/-/js-6.3.95.tgz#cffd5f04502fe5d8a65656e6c437d66963d3836d"
-  integrity sha512-/EI+ao3caXcYTWGYwwOylZKmO0ilywwE8CsEZl5L82Rgsv1eLUlCmLIrViE5A9pISsaTZELkzgbP1lQSGwRY8A==
+"@mdi/js@6.4.95":
+  version "6.4.95"
+  resolved "https://registry.yarnpkg.com/@mdi/js/-/js-6.4.95.tgz#3ba2c04b702f1f7b71c41d5c86d2849868c866c8"
+  integrity sha512-b1/P//1D2KOzta8YRGyoSLGsAlWyUHfxzVBhV4e/ppnjM4DfBgay/vWz7Eg5Ee80JZ4zsQz8h54X+KOahtBk5Q==
 
 "@microsoft/tsdoc-config@0.14.0":
   version "0.14.0"
