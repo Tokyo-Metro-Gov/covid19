@@ -1,7 +1,7 @@
-@use "sass:math";
-
-// ==================
-// color
+@use "sass:math" as math;
+/* ==================
+* color
+*/
 $green-1: #008830;
 $green-2: #00b849;
 $green-3: #00d154;
@@ -17,20 +17,26 @@ $focus: #1976d2;
 $notice: #b19201;
 $alert: #ad2121;
 
-// ==================
-// shadow
+/* ==================
+** shadow
+*/
+
 $shadow: 0 0 2px rgba(0, 0, 0, 0.15);
 
-// ==================
-// break-points
+/* ==================
+** break-points
+*/
+
 $huge: 1440;
 $large: 1170;
 $medium: 768;
 $small: 600;
 $tiny: 320;
 
-// ==================
-// z-index
+/* ==================
+** z-index
+*/
+
 $z-index-map: (
   opened-side-navigation: 101,
   sp-navigation: 100,
@@ -40,32 +46,38 @@ $z-index-map: (
   @return map-get($z-index-map, $key);
 }
 
-// ==================
-// media-query
+/* ==================
+** media-query
+*/
+
 @mixin largerThan($width) {
-  @media screen and (min-width: $width + 1 + px) {
+  @media screen and (min-width: #{$width}px) {
     @content;
   }
 }
 
 @mixin lessThan($width) {
-  @media screen and (max-width: $width + px) {
+  @media screen and (max-width: #{$width}px) {
     @content;
   }
 }
 
-// ==================
-// font-family
+/* ==================
+** font-family
+*/
+
 $western: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue";
 $japanese: "Hiragino Sans", "Meiryo", "Source Han Sans", "Noto Sans CJK JP", "Yu Gothic";
 $korean: "Apple SD Gothic Neo", "Malgun Gothic", "Source Han Sans K", "Noto Sans CJK KR";
 $chinese-hans: "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC";
 $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto Sans CJK TC";
 
-// ==================
-// font-size
+/* ==================
+** font-size
+*/
+
 @mixin font-size($size, $important: false) {
-  font-size: math.div($size, 10) + rem #{if($important, "!important", "")};
+  font-size: #{div($size, 10)}rem + if($important, "!important", "");
 }
 
 @mixin card-h1 {
@@ -97,8 +109,10 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
   font-weight: normal;
 }
 
-// ===================
-// button
+/* ===================
+** button
+*/
+
 @mixin text-link {
   @include font-size(14);
 
@@ -138,8 +152,10 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
   }
 }
 
-// ===================
-// card
+/* ===================
+** card
+*/
+
 @mixin card-container($withDivider: false) {
   background-color: $white;
   box-shadow: $shadow;
@@ -159,9 +175,10 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
   }
 }
 
-// ===================
-// Visually Hidden (for screen reader)
-// https://github.com/ampproject/amphtml/blob/2e9a940e78df8de38a6c06a0772aeaa4839a24d1/css/ampshared.css#L164-L204
+/* ===================
+** Visually Hidden (for screen reader)
+** https://github.com/ampproject/amphtml/blob/2e9a940e78df8de38a6c06a0772aeaa4839a24d1/css/ampshared.css#L164-L204
+*/
 
 @mixin visually-hidden() {
   position: fixed !important;
@@ -178,11 +195,13 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
   visibility: visible !important;
 }
 
-// ===================
-// Vuetify
+/* ===================
+** Vuetify
 
-// Expansion Panels
-// https://vuetifyjs.com/en/components/expansion-panels/
+** Expansion Panels
+** https://vuetifyjs.com/en/components/expansion-panels/
+*/
+
 $expansion-panel-content-padding: 0;
 $expansion-panel-header-padding: 10px 0;
 $expansion-panel-header-min-height: 26px;

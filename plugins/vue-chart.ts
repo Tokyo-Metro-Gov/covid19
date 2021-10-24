@@ -2,7 +2,12 @@ import { Plugin } from '@nuxt/types'
 import { ChartData, ChartOptions } from 'chart.js'
 import type { PropType } from 'vue'
 import Vue from 'vue'
-import { Bar, Doughnut, Line, mixins } from 'vue-chartjs'
+import {
+  Bar /* eslint-disable-line import/named */,
+  Doughnut /* eslint-disable-line import/named */,
+  Line /* eslint-disable-line import/named */,
+  mixins /* eslint-disable-line import/named */,
+} from 'vue-chartjs' /* eslint-disable-line import/named */
 
 import { useDayjsAdapter } from '@/plugins/chartjs-adapter-dayjs'
 

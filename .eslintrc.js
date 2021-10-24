@@ -1,33 +1,14 @@
 module.exports = {
-  plugins: ['eslint-plugin-tsdoc', 'simple-import-sort'],
-  extends: [
-    '@nuxtjs/eslint-config-typescript',
-    'prettier',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['stylelint-config-standard', 'plugin:vue-scoped-css/recommended'],
+  plugins: ['stylelint-scss'],
   rules: {
-    'vue/max-attributes-per-line': 'off',
-    'vue/html-self-closing': [
-      'error',
+    'at-rule-empty-line-before': null,
+    'at-rule-no-unknown': null,
+    'scss/at-rule-no-unknown': true,
+    'selector-pseudo-element-no-unknown': [
+      true,
       {
-        html: {
-          void: 'always',
-        },
-      },
-    ],
-    'prettier/prettier': [
-      'error',
-      {
-        semi: false,
-        singleQuote: true,
-      },
-    ],
-    'tsdoc/syntax': 'error',
-    'simple-import-sort/imports': 'error',
-    'no-restricted-imports': [
-      'error',
-      {
-        patterns: ['./', '../'],
+        ignorePseudoElements: ['v-deep'],
       },
     ],
   },

@@ -8,7 +8,7 @@ import 'dayjs/locale/zh-cn'
 import 'dayjs/locale/zh-tw'
 
 import { NuxtAppOptions } from '@nuxt/types/app'
-import { _adapters } from 'chart.js'
+import { _adapters } from 'chart.js' /* eslint-disable-line import/named */
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 
@@ -26,7 +26,9 @@ const DEFAULT_FORMATS = {
 }
 
 export function useDayjsAdapter(nuxtI18n: NuxtAppOptions['i18n']) {
-  dayjs.extend(customParseFormat)
+  dayjs.extend(
+    customParseFormat /* eslint-disabled-line import/no-named-as-default-member */
+  )
 
   // set locale when page onload
   setLocale(nuxtI18n.locale)
@@ -76,5 +78,7 @@ function setLocale(newLocale: string) {
     locale = 'ja'
   }
 
-  dayjs.locale(locale)
+  dayjs.locale(
+    locale /* eslint-disabled-line import/no-named-as-default-member */
+  )
 }

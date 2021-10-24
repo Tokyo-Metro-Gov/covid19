@@ -1,5 +1,12 @@
-import { mkdir, readdir, rmdir } from 'fs/promises'
-import { camelCase, upperFirst } from 'lodash'
+import {
+  mkdir /* eslint-disable-line import/named */,
+  readdir /* eslint-disable-line import/named */,
+  rmdir /* eslint-disable-line import/named */,
+} from 'fs/promises'
+import {
+  camelCase /* eslint-disable-line import/named */,
+  upperFirst /* eslint-disable-line import/named */,
+} from 'lodash'
 // eslint-disable-next-line import/order
 import * as path from 'path'
 import * as quicktype from 'quicktype'

@@ -7,7 +7,6 @@ import fs, {
 import path, {
   resolve /* eslint-disable-line @typescript-eslint/no-unused-vars */,
 } from 'path'
-
 import { NuxtConfig } from '@nuxt/types'
 import i18n from './nuxt-i18n.config' /* eslint-disable-line no-restricted-imports */
 // @ts-ignore
@@ -94,14 +93,14 @@ const config: NuxtConfig = {
      */
     scss: [
       '@/assets/global.scss',
-      '@/assets/variables.scss',
-      '@/assets/monitoringItemsTableCommon.scss',
+      '@/assets/_variables.scss',
+      '@/assets/_monitoringItemsTableCommon.scss',
       '*.vue',
     ],
     sass: [
       '@/assets/global.scss',
-      '@/assets/variables.scss',
-      '@/assets/monitoringItemsTableCommon.scss',
+      '@/assets/_variables.scss',
+      '@/assets/_monitoringItemsTableCommon.scss',
     ],
     hoistUseStatements: true,
   },
@@ -122,6 +121,7 @@ const config: NuxtConfig = {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    '@nuxtjs/pwa',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     [
@@ -131,32 +131,31 @@ const config: NuxtConfig = {
           async: true,
           typescript: {
             enable: true,
-            memoryLimit: 5120,
+            memoryLimit: 2048,
           },
         },
       },
     ],
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
+    'nuxt-svg-loader',
+    'nuxt-webfontloader',
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
-    '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     ['@nuxtjs/dotenv', { filename: `.env.${environment}` }],
     ['@nuxtjs/i18n', i18n],
-    '@nuxtjs/svg',
     ['vue-scrollto/nuxt', { duration: 1000, offset: -72 }],
-    'nuxt-webfontloader',
   ],
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    customVariables: ['@/assets/variables.scss'],
+    customVariables: ['@/assets/_variables.scss'],
     optionsPath: './plugins/vuetify.options.ts',
     treeShake: true,
     defaultAssets: false,
@@ -189,12 +188,19 @@ const config: NuxtConfig = {
           return isDev ? '[name].[ext]' : '[id].[contenthash].[ext]'
         },
       },
-      sass: {
+      sass: {    
         sassOptions: {
-          loader: 'sass-loader',
-          sassOptions: {
-            indentedSyntax: true,
-          },
+          use: ['stylus-loader', 'ts-loader', 'css-loader', 'sass-loader'],
+          hoistUseStatements: true,
+          exclude: (file: any) => /node_modules/.test(file),
+        },
+      },
+      scss: {
+        sassOptions: {
+          additionalData: '@use "sass:math";',
+          use: ['stylus-loader', 'ts-loader', 'css-loader', 'sass-loader'],
+          hoistUseStatements: true,
+          exclude: (file: any) => /node_modules/.test(file),
         },
       },
     },
@@ -212,17 +218,10 @@ const config: NuxtConfig = {
           ],
         ]
       },
-      /*
-      plugins: [
-        // https://github.com/altgifted/babel-plugin-transform-scss/blob/master/lib/index.js
-        ['babel-plugin-transform-scss', { 'indentedSyntax': true }],
-      ],
-      */
     },
     postcss: {
       preset: {
         autoprefixer: {
-          // Built-in since nuxt@2.14.5
           grid: 'autoplace',
         },
       },

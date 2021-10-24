@@ -12,13 +12,13 @@
         }
 
         @media screen and (max-width: 600px) {
-          .appContainer {
+          .app-container {
             margin-bottom: 150px;
           }
         }
 
         @media screen and (min-width: 601px) {
-          .appContainer {
+          .app-container {
             margin-top: 100px;
           }
         }

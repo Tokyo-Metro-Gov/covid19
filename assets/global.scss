@@ -1,4 +1,4 @@
-/* stylelint-enable no-unknown */
+@use "sass:math" as math;
 
 :root {
   box-sizing: border-box;
@@ -33,7 +33,7 @@ img {
   left: 0 !important;
   width: 4px !important;
   height: 4px !important;
-  opacity: 0 !important;
+  opacity: 0% !important;
   overflow: hidden !important;
   border: none !important;
   margin: 0 !important;

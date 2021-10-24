@@ -205,6 +205,8 @@ export default class Default extends Vue implements NuxtConfig {
 }
 </script>
 <style lang="scss">
+@use 'sass:math';
+
 .app {
   max-width: 1440px;
   margin: 0 auto;

@@ -1,9 +1,6 @@
 $default-bdw: 3px;
 $default-boxdiff: 35px;
-
-// .container > .box > (.group > .box > ...) .pillar > .content
-
-.container {
+.container { /* .container > .box > (.group > .box > ...) .pillar > .content */
   width: 100%;
   box-sizing: border-box;
   color: $green-1;
