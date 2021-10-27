@@ -6,7 +6,7 @@
 
 | アプリケーション名 | バージョン(指定がある場合のみ、記載する) | インストール条件 |
 | ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/ja/)|14.16.0以上|必須|
+|[Node.js](https://nodejs.org/ja/)|16.13.0以上|必須|
 |[Visual Studio Code](https://code.visualstudio.com/)| |[Visual Studio Codeを利用する場合](#1-1-visual-studio-codeの拡張機能)|
 |[yarn](https://classic.yarnpkg.com/ja/)| |[本プログラムをyarnで実行する場合](#2-1-yarn-を使う場合)|
 |[docker compose](https://docs.docker.com/compose/install/)| |[本プログラムをdocker composeで実行する場合](#2-2-docker-compose-を使う場合)|
