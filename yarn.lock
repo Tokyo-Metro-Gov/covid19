@@ -9200,17 +9200,6 @@ postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2, postcss-selector
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
 
-postcss-styl@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/postcss-styl/-/postcss-styl-0.8.0.tgz#55ab00b92bb2fdc41a6f996afc9c665aed19276b"
-  integrity sha512-W6LFRRkVPT4qEQsF320wXbV1uss8YJT5Y+wX6LZKziVFXkQ1rUK+hRl6Q9O4sgq7MwWQMq0VFcuPTLri9RHFqg==
-  dependencies:
-    debug "^4.1.1"
-    fast-diff "^1.2.0"
-    lodash.sortedlastindex "^4.1.0"
-    postcss "^7.0.27 || ^8.0.0"
-    stylus "^0.54.7"
-
 postcss-svgo@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/postcss-svgo/-/postcss-svgo-4.0.3.tgz#343a2cdbac9505d416243d496f724f38894c941e"
