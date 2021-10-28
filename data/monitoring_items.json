@@ -1,41 +1,37 @@
 {
-    "date": "2021\/10\/24 17:30",
+    "date": "2021\/10\/28 17:45",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "ワクチンを2回接種した後も感染する可能性があり、軽症や無症状でも周囲の人に感染させるリスクがある。",
-                "@en": "Even if you are fully vaccinated, it is still possible to get COVID-19. Even those with mild or no observable symptoms run the risk of infecting the people around them."
+                "@ja": "新規陽性者数の7日間平均は、2週間連続して50人を下回った。引き続きワクチン接種を推進するとともに、友人や同僚等との会食、公園や路上での飲み会等は、感染リスクが高まることを繰り返し啓発する必要がある。",
+                "@en": "新規陽性者数の7日間平均は、2週間連続して50人を下回った。引き続きワクチン接種を推進するとともに、友人や同僚等との会食、公園や路上での飲み会等は、感染リスクが高まることを繰り返し啓発する必要がある。"
             },
             {
-                "@ja": "ワクチン接種後も、感染リスクの高い行動を引き続き避けるとともに、基本的な感染防止対策を徹底する必要がある。",
-                "@en": "Along with continuing to avoid high infection risk situations and behavior, it is also necessary to continue firmly implementing basic steps to prevent infection, even after being vaccinated."
-            },
-            {
-                "@ja": "入院患者数と重症患者数は継続して減少しており、通常医療との両立が可能になりつつある。",
-                "@en": "With the number of patients hospitalized and the number of severe cases continuing to decrease, it is becoming possible to achieve a balance between COVID and non-COVID medical care."
+                "@ja": "入院患者数と重症患者数は継続して減少しており、通常医療との両立が可能になりつつあるものの、感染拡大に備えた人員及び病床確保により、救急患者の受入れ体制に未だ影響を及ぼしている。",
+                "@en": "入院患者数と重症患者数は継続して減少しており、通常医療との両立が可能になりつつあるものの、感染拡大に備えた人員及び病床確保により、救急患者の受入れ体制に未だ影響を及ぼしている。"
             }
         ],
-        "(1)新規陽性者数": 31.3,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 56.1,
-        "(3)新規陽性者における接触歴等不明者（人数）": 19.7,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 52.1,
-        "(4)PCR・抗原検査（陽性率）": 0.5,
-        "(4)PCR・抗原検査（検査人数）": 5480.7,
-        "(5)救急医療の東京ルールの適用件数": 44,
-        "(6)入院患者数": 237,
+        "(1)新規陽性者数": 25.7,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 51.3,
+        "(3)新規陽性者における接触歴等不明者（人数）": 17.9,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 65.8,
+        "(4)PCR・抗原検査（陽性率）": 0.4,
+        "(4)PCR・抗原検査（検査人数）": 5753.9,
+        "(5)救急医療の東京ルールの適用件数": 48.4,
+        "(6)入院患者数": 179,
         "(6)入院患者確保病床数": 6651,
-        "(7)重症患者数": 22,
+        "(7)重症患者数": 15,
         "(7)重症患者確保病床数": 503,
         "総括コメント-感染状況": {
-            "date": "2021-10-21",
-            "level": 2,
+            "date": "2021-10-27",
+            "level": 1,
             "display": {
-                "@ja": "感染状況は改善傾向にあるが、注意が必要である",
-                "@en": "Although the infection situation is improving, caution against the virus is needed."
+                "@ja": "感染者数が一定程度に収まっていると思われる",
+                "@en": "The increase in new infected cases is being contained to a certain degree."
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2021-10-21",
+            "date": "2021-10-27",
             "level": 2,
             "display": {
                 "@ja": "通常の医療との両立が可能な状況である\n",
