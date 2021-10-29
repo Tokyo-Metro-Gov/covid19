@@ -182,12 +182,6 @@ const config: NuxtConfig = {
   },
   build: {
     loaders: {
-      file: {
-        regExp: /\.[mc]?js$/,
-        name: ({ isDev }: any): string => {
-          return isDev ? '[name].[ext]' : '[id].[contenthash].[ext]'
-        },
-      },
       sass: {    
         sassOptions: {
           use: ['stylus-loader', 'ts-loader', 'css-loader', 'sass-loader'],
