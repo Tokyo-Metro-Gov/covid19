@@ -1129,7 +1129,6 @@
   resolved "https://registry.yarnpkg.com/@nuxt/cli/-/cli-2.15.8.tgz#3b946ee08c7b5b3223c8952873c65727e775ec30"
   integrity sha512-KcGIILW/dAjBKea1DHsuLCG1sNzhzETShwT23DhXWO304qL8ljf4ndYKzn2RenzauGRGz7MREta80CbJCkLSHw==
   dependencies:
-    "@nuxt/config" "2.15.8"
     "@nuxt/utils" "2.15.8"
     boxen "^5.0.1"
     chalk "^4.1.1"
@@ -1168,27 +1167,11 @@
     upath "^2.0.1"
     vue-template-compiler "^2.6.14"
 
-"@nuxt/config@2.15.8":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@nuxt/config/-/config-2.15.8.tgz#56cc1b052871072a26f76c6d3b69d9b53808ce52"
-  integrity sha512-KMQbjmUf9RVHeTZEf7zcuFnh03XKZioYhok6GOCY+leu3g5n/UhyPvLnTsgTfsLWohqoRoOm94u4A+tNYwn9VQ==
-  dependencies:
-    "@nuxt/utils" "2.15.8"
-    consola "^2.15.3"
-    defu "^4.0.1"
-    destr "^1.1.0"
-    dotenv "^9.0.2"
-    lodash "^4.17.21"
-    rc9 "^1.2.0"
-    std-env "^2.3.0"
-    ufo "^0.7.4"
-
 "@nuxt/core@2.15.8":
   version "2.15.8"
   resolved "https://registry.yarnpkg.com/@nuxt/core/-/core-2.15.8.tgz#443d13da9edc5c4ae47d7902f1d6504a8cce27a2"
   integrity sha512-31pipWRvwHiyB5VDqffgSO7JtmHxyzgshIzuZzSinxMbVmK3BKsOwacD/51oEyELgrPlUgLqcY9dg+RURgmHGQ==
   dependencies:
-    "@nuxt/config" "2.15.8"
     "@nuxt/server" "2.15.8"
     "@nuxt/utils" "2.15.8"
     consola "^2.15.3"
@@ -1446,21 +1429,8 @@
   resolved "https://registry.yarnpkg.com/@nuxtjs/eslint-config-typescript/-/eslint-config-typescript-6.0.1.tgz#11e91a5e25aca6855ec7525080da694c4b3cd4d4"
   integrity sha512-ZK/C2ZtXrc2FlQwssc3gqc3K9RAtGF+OLGXRDtDxyrlhgPwAC4bc9McBGqUokdbE+pup0OA38PylPOhbWHZkrg==
   dependencies:
-    "@nuxtjs/eslint-config" "6.0.1"
     "@typescript-eslint/eslint-plugin" "^4.25.0"
     "@typescript-eslint/parser" "^4.25.0"
-
-"@nuxtjs/eslint-config@6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/eslint-config/-/eslint-config-6.0.1.tgz#305450a71e362c26f99b3a7130be960015a96c9b"
-  integrity sha512-NISrmMx4J2usVDVLG7WFwTdfQaznHf/b2aKTb1o0TCxxXdY30UHLqEH+3MqpjY+0+UPM06YswFmOBjOg5y2BXQ==
-  dependencies:
-    eslint-plugin-import "^2.23.3"
-    eslint-plugin-jest "^24.3.6"
-    eslint-plugin-node "^11.1.0"
-    eslint-plugin-promise "^5.1.0"
-    eslint-plugin-unicorn "^28.0.2"
-    eslint-plugin-vue "^7.9.0"
 
 "@nuxtjs/google-analytics@2.4.0":
   version "2.4.0"
