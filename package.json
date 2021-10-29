@@ -5,7 +5,7 @@
   "author": "東京都",
   "private": true,
   "engines": {
-    "node": ">=14.16.0"
+    "node": ">=16.13.0"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development GENERATE_ENV=development nuxt",
