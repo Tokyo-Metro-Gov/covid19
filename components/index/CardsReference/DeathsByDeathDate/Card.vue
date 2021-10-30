@@ -19,6 +19,16 @@
                 )
               }}
             </li>
+            <i18n
+              tag="li"
+              path="死亡日不明者はグラフから除いているため、累計値が「{confirmed}」の死亡者数と一致しない"
+            >
+              <template #comfirmed>
+                <app-link to="/cards/details-of-confirmed-cases/">
+                  {{ $t('検査陽性者の状況') }}
+                </app-link>
+              </template>
+            </i18n>
           </ul>
         </template>
       </time-bar-chart>
