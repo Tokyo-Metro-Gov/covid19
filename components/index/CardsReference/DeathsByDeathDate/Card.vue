@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import AppLink from '@/components/_shared/AppLink.vue'
 import TimeBarChart from '@/components/index/_shared/TimeBarChart.vue'
 import deaths from '@/data/deaths.json'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
@@ -70,7 +71,9 @@ export default {
         },
       },
     },
+    AppLink,
   },
+
   data() {
     const formatData = deaths.data.map((data) => {
       return {
