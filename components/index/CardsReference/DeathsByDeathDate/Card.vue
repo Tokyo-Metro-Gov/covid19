@@ -24,7 +24,7 @@
               path="死亡日不明者はグラフから除いているため、累計値が「{confirmed}」の死亡者数と一致しない"
             >
               <template #confirmed>
-                <app-link to="/cards/details-of-confirmed-cases/">
+                <app-link :to="localePath('/cards/details-of-confirmed-cases/')">
                   {{ $t('検査陽性者の状況') }}
                 </app-link>
               </template>
