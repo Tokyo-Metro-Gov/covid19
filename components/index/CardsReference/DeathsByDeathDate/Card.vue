@@ -19,6 +19,18 @@
                 )
               }}
             </li>
+            <i18n
+              tag="li"
+              path="死亡日不明者はグラフから除いているため、累計値が「{confirmed}」の死亡者数と一致しない"
+            >
+              <template #confirmed>
+                <app-link
+                  :to="localePath('/cards/details-of-confirmed-cases/')"
+                >
+                  {{ $t('検査陽性者の状況') }}
+                </app-link>
+              </template>
+            </i18n>
           </ul>
         </template>
       </time-bar-chart>
@@ -27,6 +39,7 @@
 </template>
 
 <script>
+import AppLink from '@/components/_shared/AppLink.vue'
 import TimeBarChart from '@/components/index/_shared/TimeBarChart.vue'
 import deaths from '@/data/deaths.json'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
@@ -60,7 +73,9 @@ export default {
         },
       },
     },
+    AppLink,
   },
+
   data() {
     const formatData = deaths.data.map((data) => {
       return {
