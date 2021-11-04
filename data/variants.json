@@ -1,5 +1,5 @@
 {
-    "date": "2021\/10\/29 19:00",
+    "date": "2021\/11\/4 17:30",
     "datasets": [
         {
             "period": {
@@ -117,7 +117,7 @@
                     "positive_rate": 8.4
                 },
                 "variant_test_count": 1516,
-                "variant_pcr_rate": 55.8,
+                "variant_pcr_rate": 55.9,
                 "negative_rate": 91.6
             }
         },
@@ -132,7 +132,7 @@
                     "positive_rate": 14.7
                 },
                 "variant_test_count": 1770,
-                "variant_pcr_rate": 53,
+                "variant_pcr_rate": 52.9,
                 "negative_rate": 85.3
             }
         },
@@ -192,7 +192,7 @@
                     "positive_rate": 64.6
                 },
                 "variant_test_count": 5689,
-                "variant_pcr_rate": 55.9,
+                "variant_pcr_rate": 55.6,
                 "negative_rate": 35.4
             }
         },
@@ -207,7 +207,7 @@
                     "positive_rate": 81.7
                 },
                 "variant_test_count": 12249,
-                "variant_pcr_rate": 56.4,
+                "variant_pcr_rate": 55.3,
                 "negative_rate": 18.3
             }
         },
@@ -222,7 +222,7 @@
                     "positive_rate": 89
                 },
                 "variant_test_count": 15096,
-                "variant_pcr_rate": 53.4,
+                "variant_pcr_rate": 52,
                 "negative_rate": 11
             }
         },
@@ -237,7 +237,7 @@
                     "positive_rate": 91.8
                 },
                 "variant_test_count": 16411,
-                "variant_pcr_rate": 55,
+                "variant_pcr_rate": 53.2,
                 "negative_rate": 8.2
             }
         },
@@ -252,7 +252,7 @@
                     "positive_rate": 94.2
                 },
                 "variant_test_count": 16657,
-                "variant_pcr_rate": 50.3,
+                "variant_pcr_rate": 48.7,
                 "negative_rate": 5.8
             }
         },
@@ -267,7 +267,7 @@
                     "positive_rate": 93.8
                 },
                 "variant_test_count": 14253,
-                "variant_pcr_rate": 53.8,
+                "variant_pcr_rate": 52.5,
                 "negative_rate": 6.2
             }
         },
@@ -282,7 +282,7 @@
                     "positive_rate": 93.4
                 },
                 "variant_test_count": 9282,
-                "variant_pcr_rate": 52,
+                "variant_pcr_rate": 51.8,
                 "negative_rate": 6.6
             }
         },
@@ -297,7 +297,7 @@
                     "positive_rate": 92.7
                 },
                 "variant_test_count": 4435,
-                "variant_pcr_rate": 45.8,
+                "variant_pcr_rate": 45.6,
                 "negative_rate": 7.3
             }
         },
@@ -312,7 +312,7 @@
                     "positive_rate": 90.5
                 },
                 "variant_test_count": 2281,
-                "variant_pcr_rate": 40,
+                "variant_pcr_rate": 39.8,
                 "negative_rate": 9.5
             }
         },
@@ -327,7 +327,7 @@
                     "positive_rate": 88.8
                 },
                 "variant_test_count": 738,
-                "variant_pcr_rate": 29.1,
+                "variant_pcr_rate": 28.9,
                 "negative_rate": 11.2
             }
         },
@@ -342,7 +342,7 @@
                     "positive_rate": 83.6
                 },
                 "variant_test_count": 506,
-                "variant_pcr_rate": 35,
+                "variant_pcr_rate": 34.9,
                 "negative_rate": 16.4
             }
         },
@@ -368,12 +368,27 @@
             },
             "data": {
                 "L452R": {
-                    "positive_count": 90,
-                    "positive_rate": 79.6
+                    "positive_count": 91,
+                    "positive_rate": 79.8
                 },
-                "variant_test_count": 113,
-                "variant_pcr_rate": 26.7,
-                "negative_rate": 20.4
+                "variant_test_count": 114,
+                "variant_pcr_rate": 27,
+                "negative_rate": 20.2
+            }
+        },
+        {
+            "period": {
+                "begin": "2021-10-18",
+                "end": "2021-10-24"
+            },
+            "data": {
+                "L452R": {
+                    "positive_count": 48,
+                    "positive_rate": 71.6
+                },
+                "variant_test_count": 67,
+                "variant_pcr_rate": 30.6,
+                "negative_rate": 28.4
             }
         }
     ]
