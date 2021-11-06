@@ -1,10 +1,11 @@
 module.exports = {
-  extends: {
-    'stylelint-config-standard': {
-      configFile: '@/stylelint.config.cjs',
-    },
-    'stylelint-prettier': 1,
-  },
+  extends: [
+    'stylelint-config-standard',
+      {
+        'configFile': 'stylelint.config.cjs',
+      },
+    'plugin:vue-scoped-css/recommended',
+  ],
   plugins: ['stylelint-scss'],
   rules: {
     'at-rule-empty-line-before': null,

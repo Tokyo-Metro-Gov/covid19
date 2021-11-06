@@ -19,7 +19,7 @@ const cardData = JSON.parse(
   )
 )
 
-const config: NuxtConfig = {
+const options: NuxtConfig = {
   target: 'static',
   components: true,
   /*
@@ -101,7 +101,6 @@ const config: NuxtConfig = {
       '@/assets/_variables.scss',
       '@/assets/_monitoringItemsTableCommon.scss',
     ],
-    hoistUseStatements: true,
   },
   /*
    ** Plugins to load before mounting the App
@@ -109,20 +108,17 @@ const config: NuxtConfig = {
   plugins: [
     {
       src: '@/plugins/vue-chart',
-      mode: 'all',
+      mode: 'server',
     },
     {
       src: '@/plugins/axe',
-      mode: 'all',
+      mode: 'server',
     },
   ],
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
-    '@nuxtjs/pwa',
-    '@nuxtjs/stylelint-module',
-    '@nuxtjs/vuetify',
     [
       '@nuxt/typescript-build',
       {
@@ -137,6 +133,10 @@ const config: NuxtConfig = {
     ],
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
+    '@nuxtjs/pwa',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/vuetify',
     'nuxt-svg-loader',
     'nuxt-webfontloader',
   ],
@@ -180,23 +180,6 @@ const config: NuxtConfig = {
     enabled: true,
   },
   build: {
-    loaders: {
-      sass: {    
-        sassOptions: {
-          use: ['stylus-loader', 'ts-loader', 'css-loader', 'sass-loader'],
-          hoistUseStatements: true,
-          exclude: (file: any) => /node_modules/.test(file),
-        },
-      },
-      scss: {
-        sassOptions: {
-          additionalData: '@use "sass:math";',
-          use: ['stylus-loader', 'ts-loader', 'css-loader', 'sass-loader'],
-          hoistUseStatements: true,
-          exclude: (file: any) => /node_modules/.test(file),
-        },
-      },
-    },
     babel: {
       presets() {
         return [
@@ -221,10 +204,21 @@ const config: NuxtConfig = {
     },
     extend(config) {
       // default externals option is undefined
-      config.externals = [{ moment: 'moment' }]
-    },
+      config = {
+        externals: [
+          {
+            moment: 'moment',
+          },
+        ],
+      }
+      config = {
+        output: {
+          hashFunction: 'ossl_md5_sha1',
+        },
+      }
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
+    }
   },
   purgeCSS: {
     paths: [
@@ -274,8 +268,8 @@ const config: NuxtConfig = {
     },
   },
   router: {
-    extendRoutes(routes) {
-      routes.forEach((route) => {
+    extendRoutes(routes: any) {
+      routes.forEach((route: any) => {
         return (route.meta = {
           tabs: {
             type: Boolean,
@@ -290,4 +284,7 @@ const config: NuxtConfig = {
   },
 }
 
-export default config
+export default {
+  requirejs: () => { import('requirejs').then(this.config({ options })) },
+  function () {},
+}
