@@ -95,7 +95,6 @@ const config: NuxtConfig = {
       '@/assets/global.scss',
       '@/assets/_variables.scss',
       '@/assets/_monitoringItemsTableCommon.scss',
-      '*.vue',
     ],
     sass: [
       '@/assets/global.scss',
