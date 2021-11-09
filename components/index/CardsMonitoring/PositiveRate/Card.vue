@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
+import * as dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 
 import Chart from '@/components/index/CardsMonitoring/PositiveRate/Chart.vue'
