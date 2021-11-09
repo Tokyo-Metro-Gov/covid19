@@ -1,13 +1,13 @@
-import { danger, warn } from 'danger'
+import Danger from 'danger'
 
-const modifiedConverterFilePaths = danger.git.modified_files.filter(
+const modifiedConverterFilePaths = Danger.danger.git.modified_files.filter(
   (filePath) => {
     return /^libraries\/auto_generated\/data_converter\/.*\.ts$/.test(filePath)
   }
 )
 
 modifiedConverterFilePaths.forEach((modifiedConverterFilePath) => {
-  warn(
+  Danger.warn(
     `\`${modifiedConverterFilePath}\` が変更されています。追加したコメントなどが削除されないよう注意してください。`
   )
 })

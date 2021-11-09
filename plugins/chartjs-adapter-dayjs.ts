@@ -8,8 +8,8 @@ import 'dayjs/locale/zh-cn'
 import 'dayjs/locale/zh-tw'
 
 import { NuxtAppOptions } from '@nuxt/types/app'
-import { _adapters } from 'chart.js'
-import dayjs from 'dayjs'
+import Chart from 'chart.js'
+import * as dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 
 const DEFAULT_FORMATS = {
@@ -34,7 +34,7 @@ export function useDayjsAdapter(nuxtI18n: NuxtAppOptions['i18n']) {
     setLocale(newLocale)
   }
 
-  _adapters._date.override({
+  Chart._adapters._date.override({
     _id: 'dayjs', // for debug
 
     formats() {
