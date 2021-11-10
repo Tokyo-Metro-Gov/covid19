@@ -58,7 +58,7 @@ jobs:
           name: ogp
       - name: Commit files
         run: |
-          cp -rp ogp static/
+          cp -rp ${{ github.workspace }}/ogp ${{ github.workspace }}/static/
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add static
