@@ -6,7 +6,7 @@ module.exports = {
       },
     'plugin:vue-scoped-css/recommended',
   ],
-  plugins: ['stylelint-scss'],
+  plugins: ['stylelint-scss', 'dependencies'],
   rules: {
     'at-rule-empty-line-before': null,
     'at-rule-no-unknown': null,
@@ -17,5 +17,9 @@ module.exports = {
         ignorePseudoElements: ['v-deep'],
       },
     ],
+    'dependencies/case-sensitive': 1,
+    'dependencies/no-cycles': 1,
+    'dependencies/no-unresolved': 1,
+    'dependencies/require-json-ext': 1,
   },
 }

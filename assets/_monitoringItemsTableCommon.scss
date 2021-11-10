@@ -1,3 +1,5 @@
+@use "global";
+
 $default-bdw: 3px;
 $default-boxdiff: 35px;
 .container { /* .container > .box > (.group > .box > ...) .pillar > .content */

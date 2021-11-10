@@ -11,6 +11,7 @@ import { NuxtConfig } from '@nuxt/types'
 import i18n from './nuxt-i18n.config' /* eslint-disable-line no-restricted-imports */
 // @ts-ignore
 import { Settings } from '@/types/cardRoutesSettings'
+import requirejs from  'webpack' /* eslint-disable-line no-restricted-imports */
 const environment = process.env.NODE_ENV || 'development'
 const cardData = JSON.parse(
   fs.readFileSync(
@@ -82,26 +83,6 @@ const options: NuxtConfig = {
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
-  styleResources: {
-    /*
-     ** Global CSS/SCSS/SASS
-     */
-    css: ['@/assets/global.scss'],
-    /*
-     ** Pulled out from vuild.styleResources block w/ according module uninstalled
-     ** https://github.com/nuxt-community/style-resources-module/issues/88
-     */
-    scss: [
-      '@/assets/global.scss',
-      '@/assets/_variables.scss',
-      '@/assets/_monitoringItemsTableCommon.scss',
-    ],
-    sass: [
-      '@/assets/global.scss',
-      '@/assets/_variables.scss',
-      '@/assets/_monitoringItemsTableCommon.scss',
-    ],
-  },
   /*
    ** Plugins to load before mounting the App
    */
@@ -116,25 +97,23 @@ const options: NuxtConfig = {
     },
   ],
   /*
+  ** Global CSS/SCSS/SASS
+  */
+  styleResources: {
+    css: [
+      '~assets/global',
+      '~assets/_variables',
+      '~assets/_monitoringItemsTableCommon',
+    ],
+  },
+  /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
-    [
-      '@nuxt/typescript-build',
-      {
-        typeCheck: {
-          async: true,
-          typescript: {
-            enable: true,
-            memoryLimit: 2048,
-          },
-        },
-      },
-    ],
+    '@nuxt/typescript-build',
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
     '@nuxtjs/pwa',
-    '@nuxtjs/style-resources',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     'nuxt-svg-loader',
@@ -154,7 +133,7 @@ const options: NuxtConfig = {
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    customVariables: ['@/assets/_variables.scss'],
+    customVariables: ['@/assets/_variables'],
     optionsPath: './plugins/vuetify.options.ts',
     treeShake: true,
     defaultAssets: false,
@@ -180,6 +159,32 @@ const options: NuxtConfig = {
     enabled: true,
   },
   build: {
+    loaders: {
+      sass: {
+        sassOptions:{
+          test: /^[^(vuetify)]*\.(s[ac]ss|vue)$/i,
+          use: [
+            'vue-loader',
+            'stylus-loader',
+            'css-loader',
+            'sass-loader',
+            {
+              sassOptions: {
+                prependData: [ 
+                  '@use "~assets/variables"',
+                  '@use "~assets/global"',
+                ],
+                hoistUseStatements: true,
+              },
+            },
+          ],
+          define: function (key: any) {
+            requirejs.configure({ require }),
+            function () {}
+          },
+        },
+      },
+    },
     babel: {
       presets() {
         return [
@@ -204,21 +209,13 @@ const options: NuxtConfig = {
     },
     extend(config) {
       // default externals option is undefined
-      config = {
-        externals: [
-          {
-            moment: 'moment',
-          },
-        ],
+      config.externals = [{ moment: 'moment' }]
+      config.output = {
+        hashFunction: 'rmd160',
       }
-      config = {
-        output: {
-          hashFunction: 'ossl_md5_sha1',
-        },
-      }
+    },
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
-    }
   },
   purgeCSS: {
     paths: [
@@ -284,7 +281,4 @@ const options: NuxtConfig = {
   },
 }
 
-export default {
-  requirejs: () => { import('requirejs').then(this.config({ options })) },
-  function () {},
-}
+export default options
