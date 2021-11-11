@@ -7,7 +7,7 @@
       v-ripple="false"
       :to="{ path: localePath(item.path) }"
       nuxt
-      exact
+      exact-path
       @click="change"
     >
       <v-icon class="TabIcon">
