@@ -1,13 +1,9 @@
 import { Plugin } from '@nuxt/types'
-import { ChartData, ChartOptions } from 'chart.js'
+import Chart, { ChartData, ChartOptions } from 'chart.js'
 import type { PropType } from 'vue'
 import Vue from 'vue'
-import {
-  Bar /* eslint-disable-line import/named */,
-  Doughnut /* eslint-disable-line import/named */,
-  Line /* eslint-disable-line import/named */,
-  mixins /* eslint-disable-line import/named */,
-} from 'vue-chartjs' /* eslint-disable-line import/named */
+// eslint-disable-next-line import/default
+import VueChartJs from 'vue-chartjs'
 
 import { useDayjsAdapter } from '@/plugins/chartjs-adapter-dayjs'
 
@@ -27,7 +23,7 @@ const rgba0 = 'rgba(255,255,255,0)'
 const rgba1 = 'rgba(255,255,255,1)'
 
 const createCustomChart = () => {
-  const { reactiveProp } = mixins
+  const { reactiveProp } = VueChartJs.mixins
 
   const watchDisplayLegends = function (this: Vue, v?: boolean[] | null) {
     if (v == null) {
@@ -78,21 +74,21 @@ const createCustomChart = () => {
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'LineChart', // eslint-disable-next-line vue/one-component-per-file
     {
-      mixins: [reactiveProp, Line, generalChart],
+      mixins: [reactiveProp, VueChartJs.Line, generalChart],
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'Bar', // eslint-disable-next-line vue/one-component-per-file
     {
-      mixins: [reactiveProp, Bar, generalChart],
+      mixins: [reactiveProp, VueChartJs.Bar, generalChart],
     }
   )
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'DoughnutChart', // eslint-disable-next-line vue/one-component-per-file
     {
-      mixins: [reactiveProp, Doughnut, generalChart],
+      mixins: [reactiveProp, VueChartJs.Doughnut, generalChart],
     }
   )
 }

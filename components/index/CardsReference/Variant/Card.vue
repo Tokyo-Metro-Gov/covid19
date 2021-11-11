@@ -62,7 +62,7 @@
 </template>
 
 <script lang="ts">
-import dayjs from 'dayjs'
+import * as dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import Vue from 'vue'
 
