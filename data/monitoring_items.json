@@ -1,29 +1,29 @@
 {
-    "date": "2021\/11\/10 17:15",
+    "date": "2021\/11\/12 17:30",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の7日間平均は、3週間連続して50人を下回った。引き続きワクチン接種を推進するとともに、手洗い、マスクの着用、3密の回避等、基本的な感染防止対策を徹底することにより、新型コロナウイルス感染症を抑え込む必要がある。",
-                "@en": "The 7-day moving average for new positive cases has been below 50 for three consecutive weeks. While continuing to urge vaccinations, there is the need to contain the spread of COVID-19 by firmly implementing basic prevention measures such as handwashing, wearing a mask, and avoiding the “three Cs” (closed spaces, crowded places, and close conversation)."
+                "@ja": "新規陽性者数の7日間平均は横ばいであるが、増加比は100％を超えた。今後の動向に注目すべきである。引き続きワクチン接種を推進するとともに、基本的な感染防止対策を徹底することにより、新型コロナウイルス感染症を抑え込む必要がある。",
+                "@en": "The 7-day moving average of new positive cases remains unchanged. However, the rate of increase now exceeds 100%. We must continue to closely watch the direction these numbers take. While continuing to urge vaccinations, there is the need to contain the spread of COVID-19 by firmly implementing basic infection prevention measures."
             },
             {
-                "@ja": "入院患者数と重症患者数は継続して減少しており、通常医療との両立が可能になりつつあるものの、感染拡大に備えた人員及び病床確保により、救急患者の受入れ体制は未だ影響を受けている。",
-                "@en": "With the number of hospitalized and severe patients continuing to decline, it is becoming possible to achieve a balance between COVID and non-COVID medical care. However, due to the need to secure personnel and beds in preparation for a surge in infections, the emergency medical care system remains impacted."
+                "@ja": "入院患者数と重症患者数は継続して減少しており、通常医療との両立が可能な状況にあるものの、感染拡大に備えた人員及び病床確保により、救急患者の受入れ体制は未だ影響を受けている。",
+                "@en": "The number of hospitalized and severe patients continues to decline, making it possible to maintain a balance between COVID and non-COVID medical care. However, due to the need to secure personnel and beds in preparation for a surge in infections, the emergency medical care system remains impacted."
             }
         ],
-        "(1)新規陽性者数": 23.1,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 55.4,
-        "(3)新規陽性者における接触歴等不明者（人数）": 14.9,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 107.2,
-        "(4)PCR・抗原検査（陽性率）": 0.4,
-        "(4)PCR・抗原検査（検査人数）": 5579.3,
+        "(1)新規陽性者数": 25.1,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 52.1,
+        "(3)新規陽性者における接触歴等不明者（人数）": 15.4,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 113.7,
+        "(4)PCR・抗原検査（陽性率）": 0.3,
+        "(4)PCR・抗原検査（検査人数）": 5966.3,
         "(5)救急医療の東京ルールの適用件数": 50.1,
-        "(6)入院患者数": 118,
-        "(6)入院患者確保病床数": 4868,
-        "(7)重症患者数": 10,
-        "(7)重症患者確保病床数": 366,
+        "(6)入院患者数": 109,
+        "(6)入院患者確保病床数": 4834,
+        "(7)重症患者数": 8,
+        "(7)重症患者確保病床数": 356,
         "総括コメント-感染状況": {
-            "date": "2021-11-02",
+            "date": "2021-11-10",
             "level": 1,
             "display": {
                 "@ja": "感染者数が一定程度に収まっていると思われる",
@@ -31,7 +31,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2021-11-02",
+            "date": "2021-11-10",
             "level": 2,
             "display": {
                 "@ja": "通常の医療との両立が可能な状況である\n",
