@@ -11,6 +11,8 @@ export default Vue.extend()
 </script>
 
 <style lang="scss">
+@import "~/assets/monitoringItemsTableCommon";
+
 .StaticCard {
   @include card-container();
   @include font-size(16);
@@ -61,7 +63,7 @@ export default Vue.extend()
     margin-left: 2em;
 
     @include lessThan($medium) {
-      margin-left: math.div(32 * 100vw, 768);
+      margin-left: div(32 * 100vw, 768);
     }
   }
 

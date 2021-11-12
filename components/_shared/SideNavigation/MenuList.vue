@@ -85,7 +85,7 @@ export default Vue.extend({
   },
   methods: {
     setMenuTitle(slug): string {
-      return this.itemTitles.find((v) => v.slug === slug).text
+      return this.itemTitles.find((v) => v.slug === slug)!.text
     },
   },
 })

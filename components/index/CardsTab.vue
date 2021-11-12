@@ -91,7 +91,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@import '@/assets/_monitoringItemsTableCommon.scss';
+@import "~/assets/monitoringItemsTableCommon.scss";
 
 .v-slide-group__content {
   border-bottom: 1px solid $gray-2;

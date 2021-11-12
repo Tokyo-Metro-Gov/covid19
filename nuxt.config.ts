@@ -11,7 +11,7 @@ import { NuxtConfig } from '@nuxt/types'
 import i18n from './nuxt-i18n.config' /* eslint-disable-line no-restricted-imports */
 // @ts-ignore
 import { Settings } from '@/types/cardRoutesSettings'
-import requirejs from  'webpack' /* eslint-disable-line no-restricted-imports */
+import __webpack_require__ from  'webpack' /* eslint-disable-line no-restricted-imports */
 const environment = process.env.NODE_ENV || 'development'
 const cardData = JSON.parse(
   fs.readFileSync(
@@ -23,6 +23,7 @@ const cardData = JSON.parse(
 const options: NuxtConfig = {
   target: 'static',
   components: true,
+  moduleId: 'covid19',
   /*
    ** Headers of the page
    */
@@ -101,9 +102,9 @@ const options: NuxtConfig = {
   */
   styleResources: {
     css: [
-      '~assets/global',
-      '~assets/_variables',
-      '~assets/_monitoringItemsTableCommon',
+      '~/assets/global.scss',
+      '~/assets/_variables.scss',
+      '~/assets/_monitoringItemsTableCommon.scss',
     ],
   },
   /*
@@ -178,9 +179,13 @@ const options: NuxtConfig = {
               },
             },
           ],
-          define: function (key: any) {
-            requirejs.configure({ require }),
-            function () {}
+          define: function (moduleId: string) {
+            return { 
+              moduleId: 'covid19',
+              target: 'node',
+              __webpack_require__ () {},
+              function () {},
+            }
           },
         },
       },

@@ -199,8 +199,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
      * 表の横軸に表示する、「MM/DD~MM/DD」形式のラベルを取得する
      */
     getWeekLabel(begin: Date, end: Date) {
-      const from = this.$d(dayjs(begin).toDate(), 'dateWithoutYear')
-      const to = this.$d(dayjs(end).toDate(), 'dateWithoutYear')
+      const from = this.$d(this['dayjs'](this, begin), 'dateWithoutYear')
+      const to = this.$d(this['dayjs'](this, end), 'dateWithoutYear')
       return `${from}~${to}`
     },
   },

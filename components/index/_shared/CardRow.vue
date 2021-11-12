@@ -5,8 +5,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
+import Vue from '@nuxt/types'
 
 import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 
@@ -28,15 +27,8 @@ type Methods = {
 type Computed = {
   cardElements: (HTMLElement | null)[]
 }
-type Props = {}
 
-const options: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  Data,
-  Methods,
-  Computed,
-  Props
-> = {
+const options: Vue.NuxtConfig = {
   data() {
     return {
       payload: {},
@@ -88,7 +80,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       if (!this.payload.dataView) return [null, null]
 
       const cards = this.$el.children
-      const self = this.payload.dataView.parentElement
+      const self = this.$el.payload.dataView.parentElement
       const index = Array.prototype.indexOf.call(cards, self) + 1
       if (index === 0) return [null, null]
 
@@ -112,10 +104,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
 }
 
-export default Vue.extend(options)
+export default options as Vue.NuxtAppOptions
 </script>
 
-<style lang="scss">
+<style lang = "scss">
 .DataCard {
   transition: max-height 0.3s;
 }

@@ -35,9 +35,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from '@nuxt/types'
 
-export default Vue.extend({
+const options: Vue.NuxtConfig = {
   props: {
     defaultOpen: {
       type: Boolean,
@@ -54,14 +54,14 @@ export default Vue.extend({
     }
   },
   mounted() {
-    this.isOpen = this.$props.defaultOpen
+    this.isOpen = this.defaultOpen
   },
   methods: {
     clickButton($event) {
       this.isOpen = !this.isOpen
       this.$emit('click', $event)
     },
-    enter(element: Element) {
+    enter(element) {
       element.style.width = getComputedStyle(element).width
       element.style.position = 'absolute'
       element.style.visibility = 'hidden'
@@ -89,7 +89,9 @@ export default Vue.extend({
       })
     },
   },
-})
+}
+
+export default options as Vue.NuxtAppOptions
 </script>
 
 <style lang="scss" scoped>

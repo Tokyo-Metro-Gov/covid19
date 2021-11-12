@@ -63,7 +63,7 @@ type Methods = {
 type Computed = {
   statuses: IInfectionMedicalCareProvisionStatusData
   date: string
-  statisticDate: string
+  statisticDate: Date
   infectionMedicalCareProvisionStatus: IInfectionMedicalCareProvisionStatus
 }
 type Props = {}
@@ -90,7 +90,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     statisticDate() {
       return this.infectionMedicalCareProvisionStatus.data[
         '検査統計日時'
-      ] as string
+      ]
     },
     infectionMedicalCareProvisionStatus() {
       return this.$store.state.infectionMedicalCareProvisionStatus

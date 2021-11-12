@@ -50,9 +50,6 @@
 import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
-import CustomExpansionPanel from '@/components/_shared/CustomExpansionPanel.vue'
-import CardRow from '@/components/index/_shared/CardRow.vue'
-
 type Data = {
   actives: boolean[]
   scroll: boolean
@@ -66,15 +63,14 @@ type Methods = {
   ) => void
   onScroll: () => void
 }
-type Computed = {}
 type Props = {
   rows: Vue[][]
   hideCards: boolean
 }
-export default Vue.extend<Data, Methods, Computed, Props>({
+export default Vue.extend<Data, Methods, {}, Props>({
   components: {
-    CardRow,
-    CustomExpansionPanel,
+    CardRow () { '@/components/_index/_shared/CardRow.vue' },
+    CustomExpansionPanel () { '@/components/_shared/CustomExpansionPanel.vue' },
   },
   props: {
     rows: {

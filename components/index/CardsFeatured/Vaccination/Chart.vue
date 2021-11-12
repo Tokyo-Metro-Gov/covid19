@@ -227,7 +227,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const lastData = (dataset: number[]) => {
         return dataset.slice(-1)[0]
       }
-      const lastDay = this.labels.slice(-1)[0]
+      const lastDay = new Date(this.labels.slice(-1)[0])
       return this.chartData.map((data) => {
         return {
           lText: this.getFormatter(0)(lastData(data)),

@@ -180,10 +180,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: 'tokyo-fever-consultation-center-chart',
     },
     chartData: {
-      type: Array,
+      type: Number[3],
       required: false,
-      default: () => [],
-    },
+      default: [] = [ 0, 0, 0 ],
+    } [3],
     getFormatter: {
       type: Function,
       default: () => (_: number) => '',
@@ -238,7 +238,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         unit: this.unit,
       }
     },
-    displayData() {
+    displayData(): any {
       const graphSeries = [
         getGraphSeriesColor('A'),
         getGraphSeriesColor('C'),

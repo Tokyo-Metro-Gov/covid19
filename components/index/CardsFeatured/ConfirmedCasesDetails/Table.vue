@@ -137,7 +137,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" module>
-@import '@/assets/_monitoringItemsTableCommon.scss';
+@import "~/assets/_monitoringItemsTableCommon.scss";
 
 $default-bdw: 3px;
 $default-boxdiff: 35px;
