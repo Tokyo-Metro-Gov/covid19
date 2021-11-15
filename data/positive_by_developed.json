@@ -1,6 +1,6 @@
 {
-    "date": "2021\/11\/14 17:15",
-    "unknown_count": 117201,
+    "date": "2021\/11\/15 17:30",
+    "unknown_count": 117206,
     "data": [
         {
             "developed_date": "2020-01-14",
@@ -2680,7 +2680,15 @@
         },
         {
             "developed_date": "2021-11-13",
+            "count": 2
+        },
+        {
+            "developed_date": "2021-11-14",
             "count": 1
+        },
+        {
+            "developed_date": "2021-11-15",
+            "count": 0
         }
     ]
 }
