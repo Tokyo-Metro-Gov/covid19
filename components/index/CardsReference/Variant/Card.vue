@@ -18,6 +18,13 @@
         :last-period="variantData.lastPeriod"
         unit="%"
       >
+        <template #attentionNote>
+          {{
+            $t(
+              '全国的にデルタ株に置き換わったこと等の理由により、厚生労働省から全ての自治体におけるL452R変異株PCR検査を終了する方針が示されたことに伴い、都モニタリング会議におけるL452R変異株スクリーニング検査の報告が終了したことから、同年11月11日（木曜日）をもって本グラフの数値更新を終了しました。'
+            )
+          }}
+        </template>
         <template #additionalButton>
           <app-link
             to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/henikabu/screening.html"
