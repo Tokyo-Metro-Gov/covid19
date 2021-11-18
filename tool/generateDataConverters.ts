@@ -1,5 +1,5 @@
 import { mkdir, readdir, rmdir } from 'fs/promises'
-import { camelCase, upperFirst } from 'lodash'
+import Lodash from 'lodash'
 // eslint-disable-next-line import/order
 import * as path from 'path'
 import * as quicktype from 'quicktype'
@@ -25,7 +25,7 @@ rmdir(outputPath, { recursive: true })
   for (let index = 0; index < dataFileNames.length; index++) {
     const dataFileName = dataFileNames[index]
     const dataFileBaseName = path.parse(dataFileName).name
-    const pascalFileName = upperFirst(camelCase(dataFileBaseName))
+    const pascalFileName = Lodash.upperFirst(Lodash.camelCase(dataFileBaseName))
 
     const converterFilePath = path.resolve(
       outputPath,
