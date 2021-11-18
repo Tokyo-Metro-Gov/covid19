@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import { danger, warn } from 'danger'
 
 const modifiedConverterFilePaths = danger.git.modified_files.filter(
