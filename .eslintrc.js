@@ -43,7 +43,7 @@ var eslintoptions = {
         'patterns': ['./', '../'],
       },
     ],
-  }],
+  },
 }
 
 module.exports.eslintoptions

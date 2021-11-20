@@ -1,4 +1,4 @@
-@use "global.scss";
+@import "global.scss";
 
 $default-bdw: 3px;
 $default-boxdiff: 35px;
@@ -11,7 +11,6 @@ $default-boxdiff: 35px;
   * {
     box-sizing: border-box;
   }
-
   /* override default styles */
   padding-left: 0 !important;
 
@@ -82,7 +81,7 @@ $default-boxdiff: 35px;
 
     > .content {
       margin-left: $default-bdw * 2 - $default-boxdiff;
-      width: $default-boxdiff - $default-bdw * 2 + 100%;
+      width: calc($default-boxdiff - $default-bdw * 2) + 100%;
       border-top: none;
       border-left: none;
       border-bottom: none;
@@ -95,7 +94,7 @@ $default-boxdiff: 35px;
     $shft-px: 100000 * $px;
     @return div(div($shft-px, $vw) + $shft-px % $vw != 0, 1000);
   } @else {
-    @return #{$px}px;
+    @return $px + "px";
   }
 }
 

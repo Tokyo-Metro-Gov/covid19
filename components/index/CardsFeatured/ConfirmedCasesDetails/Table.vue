@@ -282,7 +282,7 @@ $default-boxdiff: 35px;
     &.parent {
       border-top: px2vw($bdw, $vw) solid $green-1;
       border-left: px2vw($bdw, $vw) solid $green-1;
-      padding-left: px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2;
+      padding-left: px2vw($boxdiff, $vw) - px2vw($bdw * 2, $vw);
 
       &::after {
         width: px2vw($boxdiff - $bdw, $vw);
@@ -290,8 +290,8 @@ $default-boxdiff: 35px;
       }
 
       > .content {
-        margin-left: -(px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2);
-        width: calc(100% + #{(px2vw($boxdiff, $vw) - px2vw($bdw, $vw) * 2)});
+        margin-left: -(px2vw($boxdiff, $vw) - px2vw($bdw * 2, $vw));
+        width: calc(100% + #{(px2vw($boxdiff, $vw) - px2vw($bdw * 2, $vw))});
       }
     }
   }

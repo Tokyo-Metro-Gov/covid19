@@ -2,7 +2,7 @@ module.exports = {
   files: /\.(vue|s[ac]ss)$/i,
   'extends': 'stylelint-config-recommended-vue',
   plugins: ['stylelint-scss'],
-  syntax: 'scss',
+  syntax: ['scss', 'postcss-scss'],
   rules: {
     'at-rule-empty-line-before': null,
     'scss/at-import-partial-extension': 'always',
