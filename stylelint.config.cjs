@@ -1,21 +1,24 @@
 module.exports = {
-  extends: [
-    'stylelint-config-standard',
-      {
-        'configFile': 'stylelint.config.cjs',
-      },
-    'plugin:vue-scoped-css/recommended',
-  ],
+  extends: 'stylelint-config-recommended-vue',
+  files: ['*.vue'],
+  customSyntax: ['postcss-html'],
   plugins: ['stylelint-scss'],
+  overrides: [
+    {
+      files: ['*.vue'],
+      'stylelint-config-recommended-vue';
+      'postcss-html';
+    },
+  ],
   rules: {
-    'at-rule-empty-line-before': null,
-    'at-rule-no-unknown': null,
-    'scss/at-rule-no-unknown': true,
+    'at-rule-empty-line-before': 0,
+    'at-rule-no-unknown': 0,
+    'scss/at-rule-no-unknown': 1,
     'selector-pseudo-element-no-unknown': [
-      true,
+      1,
       {
         ignorePseudoElements: ['v-deep'],
       },
     ],
   },
-};
+}
