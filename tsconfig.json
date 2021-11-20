@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "module": "es6",
-    "moduleResolution": "node",
     "target": "esnext",
+    "module": "es2022",
+    "moduleResolution": "node",
     "lib": [
-      "esnext",
+      "es6",
       "esnext.asynciterable",
       "dom"
     ],
@@ -34,7 +34,7 @@
     "types": [
       "@types/node",
       "@nuxt/types",
-      "@nuxtjs/i18n",
+      "@nuxtjs/i18n/types",
       "@nuxtjs/vuetify"
     ]
   },

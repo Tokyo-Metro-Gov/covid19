@@ -7,6 +7,12 @@
   "engines": {
     "node": ">=16.13.0"
   },
+  "node-options": {
+    "experimental-json-modules": true,
+    "heapsnapshot-near-heap-limit": 3,
+    "max-old-space-size": 4096,
+    "fail-on-error": true
+  },
   "scripts": {
     "dev": "cross-env -C=development NODE_OPTIONS=--max_old_space_size=2048 nuxt dev",
     "dev-no-axe": "cross-env -C=dev-no-axe NODE_OPTIONS=--max_old_space_size=2048 nuxt dev",

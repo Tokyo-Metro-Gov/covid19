@@ -1,9 +1,21 @@
-module.exports = {
-  plugins: ['eslint-plugin-tsdoc', 'simple-import-sort'],
-  extends: [
-    '@nuxtjs/eslint-config-typescript',
+var eslintoptions = {
+  'parseOptions': {
+    'ecmaVersion': 'es6',
+  },
+  'env': {
+    es6: true,
+  },
+  'plugins': [
+    'tsdoc',
+    'simple-import-sort',
+    'vue',
+    'nuxt',
+  ],
+  'extends': [
     'prettier',
     'plugin:prettier/recommended',
+    'plugin:nuxt/recommended',
+    'plugin:vue/recommended',
   ],
   rules: {
     'vue/max-attributes-per-line': 0,
@@ -11,16 +23,16 @@ module.exports = {
     'vue/html-self-closing': [
       2,
       {
-        html: {
-          void: 'always',
+        'html': {
+          'void': 'always',
         },
       },
     ],
     'prettier/prettier': [
       2,
       {
-        semi: false,
-        singleQuote: true,
+        'semi': false,
+        'singleQuote': true,
       },
     ],
     'tsdoc/syntax': 2,
@@ -28,8 +40,10 @@ module.exports = {
     'no-restricted-imports': [
       2,
       {
-        patterns: ['./', '../'],
+        'patterns': ['./', '../'],
       },
     ],
-  },
+  }],
 }
+
+module.exports.eslintoptions

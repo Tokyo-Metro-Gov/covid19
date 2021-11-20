@@ -1,9 +1,8 @@
+@use "global.scss";
+
 $default-bdw: 3px;
 $default-boxdiff: 35px;
-
-/* .container > .box > (.group > .box > ...) .pillar > .content */
-
-.container {
+.container { /* .container > .box > (.group > .box > ...) .pillar > .content */
   width: 100%;
   box-sizing: border-box;
   color: $green-1;
@@ -13,7 +12,7 @@ $default-boxdiff: 35px;
     box-sizing: border-box;
   }
 
-  // override default styles
+  /* override default styles */
   padding-left: 0 !important;
 
   ul {
@@ -82,8 +81,8 @@ $default-boxdiff: 35px;
     }
 
     > .content {
-      margin-left: -($default-boxdiff - $default-bdw * 2);
-      width: calc(100% + #{($default-boxdiff - $default-bdw * 2)});
+      margin-left: $default-bdw * 2 - $default-boxdiff;
+      width: $default-boxdiff - $default-bdw * 2 + 100%;
       border-top: none;
       border-left: none;
       border-bottom: none;
