@@ -5,17 +5,6 @@
         mdi-information
       </v-icon>
       <a
-        href="https://www.pref.kagoshima.jp/ae06/r3_zyakunennsou-daikibosessyukaizyou2.html"
-        target="_blank"
-      >
-        {{ $t('新型コロナワクチン大規模接種に関する情報はこちら') }}
-      </a>
-    </h3>
-    <h3 class="WhatsNew-heading">
-      <v-icon size="24" class="WhatsNew-heading-icon">
-        mdi-information
-      </v-icon>
-      <a
         href="https://www.pref.kagoshima.jp/ae06/az-wkuthin.html"
         target="_blank"
       >
