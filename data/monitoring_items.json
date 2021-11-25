@@ -1,29 +1,29 @@
 {
-    "date": "2021\/11\/24 17:30",
+    "date": "2021\/11\/25 18:00",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の7日間平均及び増加比の今後の動向に注目する必要がある。引き続きワクチン接種を推進するとともに、基本的な感染防止対策を徹底することにより、新型コロナウイルス感染症を抑え込む必要がある。",
-                "@en": "We must continue to closely monitor trends in the 7-day moving average of new positive cases and the rate of increase. While continuing to urge vaccinations, there is the need to contain the spread of COVID-19 by firmly implementing basic infection prevention measures.\n"
+                "@ja": "新規陽性者数等の動向を注意深く観察する必要がある。引き続きワクチン接種を推進するとともに、基本的な感染防止対策を徹底することにより、新型コロナウイルス感染症を抑え込む必要がある。",
+                "@en": "新規陽性者数等の動向を注意深く観察する必要がある。引き続きワクチン接種を推進するとともに、基本的な感染防止対策を徹底することにより、新型コロナウイルス感染症を抑え込む必要がある。"
             },
             {
-                "@ja": "入院患者数は継続して減少し、通常医療との両立が可能な状況にあるものの、感染拡大に備えた人員及び病床確保により、救急患者の受入れ体制は未だ影響を受けている。",
-                "@en": "The number of people hospitalized continues to decline, making it possible to maintain a balance between COVID and non-COVID medical care. However, due to the need to secure personnel and beds in preparation for a surge in infections, the emergency medical care system remains impacted."
+                "@ja": "救急患者の受入れ体制は未だ影響を受けているものの、通常医療との両立が可能な状況にあると思われる。感染拡大のリスクが高くなる冬に備えた体制整備が必要である。",
+                "@en": "救急患者の受入れ体制は未だ影響を受けているものの、通常医療との両立が可能な状況にあると思われる。感染拡大のリスクが高くなる冬に備えた体制整備が必要である。"
             }
         ],
-        "(1)新規陽性者数": 14.3,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 56.3,
-        "(3)新規陽性者における接触歴等不明者（人数）": 8.7,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 61.6,
+        "(1)新規陽性者数": 15.3,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 57.4,
+        "(3)新規陽性者における接触歴等不明者（人数）": 9.9,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 78.4,
         "(4)PCR・抗原検査（陽性率）": 0.3,
-        "(4)PCR・抗原検査（検査人数）": 4583.1,
-        "(5)救急医療の東京ルールの適用件数": 51.6,
+        "(4)PCR・抗原検査（検査人数）": 4689.6,
+        "(5)救急医療の東京ルールの適用件数": 51.4,
         "(6)入院患者数": 72,
-        "(6)入院患者確保病床数": 4823,
+        "(6)入院患者確保病床数": 4820,
         "(7)重症患者数": 8,
         "(7)重症患者確保病床数": 356,
         "総括コメント-感染状況": {
-            "date": "2021-11-17",
+            "date": "2021-11-24",
             "level": 1,
             "display": {
                 "@ja": "感染者数が一定程度に収まっていると思われる",
@@ -31,11 +31,11 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2021-11-17",
-            "level": 2,
+            "date": "2021-11-24",
+            "level": 1,
             "display": {
-                "@ja": "通常の医療との両立が可能な状況である\n",
-                "@en": "A balance between the provision of COVID and non-COVID health care is possible."
+                "@ja": "通常の医療との両立が安定的に可能な状況である",
+                "@en": "A balance between the provision of COVID and non-COVID health care is firmly possible."
             }
         }
     }
