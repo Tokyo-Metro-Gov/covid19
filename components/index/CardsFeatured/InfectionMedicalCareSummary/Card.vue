@@ -2,7 +2,7 @@
   <v-col cols="12" md="6" class="DataCard InfectionMedicalCareSummaryCard">
     <client-only>
       <data-view
-        :title="$t(`{date}の状況`, { date: formatDate(date) })"
+        :title="$t(`{date}の状況`, { date: formatDate(publicationDate) })"
         title-id="infection-medical-care-summary"
         :date="date"
       >
@@ -67,6 +67,7 @@ type Methods = {
 type Computed = {
   statuses: IInfectionMedicalCareSummaryData
   date: string
+  publicationDate: string
   statisticDate: string
   infectionMedicalCareSummary: IInfectionMedicalCareSummary
 }
@@ -90,6 +91,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       return this.infectionMedicalCareSummary.data
     },
     date() {
+      return this.infectionMedicalCareSummary.date as string
+    },
+    publicationDate() {
       return this.infectionMedicalCareSummary.data['日付'] as unknown as string
     },
     statisticDate() {
