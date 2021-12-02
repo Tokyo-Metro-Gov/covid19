@@ -4,7 +4,9 @@
       class="MonitoringCommentFrame"
       :style="{ borderColor: `${colors[floorLevel]}` }"
     >
-      <p>{{ $t('レベル') }}{{ level }}</p>
+      <p>
+        {{ $t('レベル') }}<span>{{ level }}</span>
+      </p>
     </div>
     <div
       class="MonitoringCommentFrameAfter"
@@ -55,7 +57,11 @@ export default Vue.extend({
     color: $gray-2;
     padding: 10px 0 10px 0;
 
-    @include font-size(13);
+    @include font-size(14);
+
+    > span {
+      @include font-size(15);
+    }
   }
 }
 
