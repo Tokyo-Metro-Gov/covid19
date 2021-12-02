@@ -8,10 +8,10 @@ import Vue from 'vue'
 
 import CardsLazyRow from '@/components/index/_shared/CardsLazyRow.vue'
 
-// 感染状況・医療提供体制（当日のサマリ）
-const InfectionMedicalCareProvisionStatusCard = () =>
+// 病床使用率等・患者の発生状況等（サマリ）
+const InfectionMedicalCareSummaryCard = () =>
   import(
-    '@/components/index/CardsFeatured/InfectionMedicalCareProvisionStatus/Card.vue'
+    '@/components/index/CardsFeatured/InfectionMedicalCareSummary/Card.vue'
   )
 // 検査陽性者の状況
 const ConfirmedCasesDetailsCard = () =>
@@ -50,7 +50,7 @@ export default Vue.extend({
   data() {
     return {
       rows: [
-        [InfectionMedicalCareProvisionStatusCard, ConfirmedCasesDetailsCard],
+        [InfectionMedicalCareSummaryCard, ConfirmedCasesDetailsCard],
         [MonitoringItemsOverviewCard, MonitoringCommentCard],
         [VaccinationCard],
         [ConfirmedCasesNumberCard, TestedNumberCard],
