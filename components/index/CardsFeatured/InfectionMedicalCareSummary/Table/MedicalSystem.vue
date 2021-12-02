@@ -66,7 +66,7 @@
         </ul>
       </li>
     </ul>
-    <p :class="$style.note">
+    <p :class="$style.reference">
       {{
         $t(
           '（参考）国基準 重症者病床使用率 {percentage}%（{persons}人/{bed}床）',
@@ -104,7 +104,7 @@ export default Vue.extend({
 <style lang="scss" module>
 @import '@/assets/monitoringItemsTableCommon.scss';
 
-.note {
+.reference {
   color: $gray-3;
   margin: 16px 0;
 
