@@ -78,6 +78,18 @@
         )
       }}
     </p>
+    <div :class="$style.description">
+      <span>{{ $t('（注）') }}</span>
+      <ul>
+        <li>
+          {{
+            $t(
+              '病床使用率等の分母の病床数は現時点の最大確保見込数、分子の人数は確保病床を使用している人数'
+            )
+          }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -109,5 +121,22 @@ export default Vue.extend({
   margin: 16px 0;
 
   @include font-size(14);
+}
+
+.description {
+  margin: 10px 0;
+  color: $gray-3;
+
+  @include font-size(12);
+
+  ul {
+    list-style: disc inside;
+    padding-left: 1em;
+
+    li {
+      margin-left: 1.5em;
+      text-indent: -1.5em;
+    }
+  }
 }
 </style>
