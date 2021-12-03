@@ -3,8 +3,7 @@ import { ConsultationAboutFeverRepository } from '@/libraries/repositories/Consu
 import { DailyPositiveDetailRepository } from '@/libraries/repositories/DailyPositiveDetailRepository'
 import { DataRepository } from '@/libraries/repositories/DataRepository'
 import { FeverConsultationCenterRepository } from '@/libraries/repositories/FeverConsultationCenterRepository'
-// InfectionMedicalcareprovisionStatus ではなく InfectionMedicalCareProvisionStatus とする
-import { InfectionMedicalcareprovisionStatusRepository as InfectionMedicalCareProvisionStatusRepository } from '@/libraries/repositories/InfectionMedicalCareProvisionStatusRepository'
+import { InfectionMedicalCareSummaryRepository } from '@/libraries/repositories/InfectionMedicalCareSummaryRepository'
 import { MetroRepository } from '@/libraries/repositories/MetroRepository'
 import { MonitoringCommentImageRepository } from '@/libraries/repositories/MonitoringCommentImageRepository'
 import { NewsRepository } from '@/libraries/repositories/NewsRepository'
@@ -20,8 +19,7 @@ export const state = () => ({
   dailyPositiveDetail: new DailyPositiveDetailRepository().data,
   data: new DataRepository().data,
   feverConsultationCenter: new FeverConsultationCenterRepository().data,
-  infectionMedicalCareProvisionStatus:
-    new InfectionMedicalCareProvisionStatusRepository().data,
+  infectionMedicalCareSummary: new InfectionMedicalCareSummaryRepository().data,
   metro: new MetroRepository().data,
   monitoringCommentImage: new MonitoringCommentImageRepository().data,
   news: new NewsRepository().data,
