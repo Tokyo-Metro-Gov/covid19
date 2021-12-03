@@ -125,6 +125,7 @@ export default {
   }
 
   h4 {
+    color: $gray-2;
     margin: 5px 0 10px;
     font-weight: normal;
 

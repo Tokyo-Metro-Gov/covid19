@@ -2,7 +2,7 @@
   <ul :class="$style.container">
     <li :class="[$style.box, $style.parent]">
       <div :class="$style.content">
-        <span>{{ $t('新規陽性者') }}</span>
+        <span>{{ $t('新規陽性者数') }}</span>
         <value-with-translatable-unit
           :value="items['新規陽性者'].toLocaleString()"
           :unit="{ text: '人', translatable: true }"
@@ -62,7 +62,7 @@ import type { PropType } from 'vue'
 import Vue from 'vue'
 
 import ValueWithTranslatableUnit from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/ValueWithTranslatableUnit.vue'
-import { InfectionMedicalcareprovisionStatus as IInfectionMedicalCareProvisionStatus } from '@/libraries/auto_generated/data_converter/convertInfectionMedicalcareprovisionStatus'
+import { InfectionMedicalcareSummary as IInfectionMedicalCareSummary } from '@/libraries/auto_generated/data_converter/convertInfectionMedicalcareSummary'
 
 export default Vue.extend({
   components: {
@@ -70,7 +70,7 @@ export default Vue.extend({
   },
   props: {
     items: {
-      type: Object as PropType<IInfectionMedicalCareProvisionStatus>,
+      type: Object as PropType<IInfectionMedicalCareSummary>,
       required: true,
     },
     date: {
