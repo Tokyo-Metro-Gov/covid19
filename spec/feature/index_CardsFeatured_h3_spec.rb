@@ -17,7 +17,7 @@ describe 'page [/]', type: :feature do
           end
 
           it 'has h3' do
-            expect(find('.DataCard.InfectionMedicalCareProvisionStatusCard > div > div > div.DataView-Header > h3').text).to match /#{t(lang, '{date}の状況').gsub('{date}', '')}/
+            expect(find('.DataCard.InfectionMedicalCareSummaryCard > div > div > div.DataView-Header > h3').text).to match /#{t(lang, '{date}の状況').gsub('{date}', '')}/
             expect(find('.DataCard.ConfirmedCasesDetailsCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '検査陽性者の状況')
             expect(find('.DataCard.MonitoringItemsOverviewCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'モニタリング項目')
             expect(find('.DataCard.MonitoringCommentCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '感染状況・医療提供体制の分析')
