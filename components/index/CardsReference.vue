@@ -61,10 +61,10 @@ export default Vue.extend({
         [ConfirmedCasesAttributesCard, ConfirmedCasesByMunicipalitiesCard],
         [PositiveNumberOver65Card],
         [PositiveNumberByDevelopedDateCard, PositiveNumberByDiagnosedDateCard],
-        [DeathsByDeathDateCard, VariantCard],
+        [DeathsByDeathDateCard],
         [MetroCard, AgencyCard],
       ],
-      hideRows: [[MonitoringConsultationDeskReportsNumberCard]],
+      hideRows: [[VariantCard, MonitoringConsultationDeskReportsNumberCard]],
     }
   },
 })
