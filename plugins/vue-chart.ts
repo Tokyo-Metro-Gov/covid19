@@ -64,6 +64,9 @@ const createCustomChart = () => {
           setTimeout(() => this.$data._chart.resize())
           this.$parent.$emit('update-width')
         },
+        options() {
+          this.renderChart(this.chartData, this.options)
+        },
       },
       mounted() {
         setTimeout(() => this.renderChart(this.chartData, this.options))

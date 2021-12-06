@@ -19,13 +19,16 @@ import { EventBus, TOGGLE_EVENT } from '@/utils/tab-event-bus'
 
 type Data = {
   chartWidth: number
-  timerId: number
+  timerIdForResize: number
+  timerIdForScroll: number
+  firstScroll: boolean
 }
 type Methods = {
   adjustChartWidth: () => void
   calcChartWidth: (containerWidth: number, labelCount: number) => number
   scrollRightSide: () => void
   handleResize: () => void
+  onScroll: () => void
 }
 type Computed = {
   labelCount: number
@@ -33,6 +36,7 @@ type Computed = {
 type Props = {
   displayData: DisplayData
   isWeekly: boolean
+  isCumulative: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -52,11 +56,18 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: false,
       default: false,
     },
+    isCumulative: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
       chartWidth: 300,
-      timerId: 0,
+      timerIdForResize: 0,
+      timerIdForScroll: 0,
+      firstScroll: true,
     }
   },
   watch: {
@@ -91,19 +102,47 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       scrollable.scrollLeft = this.chartWidth
     },
     handleResize() {
-      clearTimeout(this.timerId)
-      this.timerId = window.setTimeout(this.adjustChartWidth, 500)
+      clearTimeout(this.timerIdForResize)
+      this.timerIdForResize = window.setTimeout(this.adjustChartWidth, 500)
+    },
+    onScroll() {
+      if (this.firstScroll) {
+        this.firstScroll = false
+        return
+      }
+      clearTimeout(this.timerIdForScroll)
+      const scrollable = this.$refs.scrollable as HTMLElement
+      if (!scrollable) return
+      const scrollWidth = scrollable.scrollWidth - scrollable.clientWidth
+      const dates = 60
+      const weeks = 24
+      const barCount = this.isWeekly ? weeks : dates
+      const start = Math.floor(
+        (scrollable.scrollLeft / scrollWidth) * (this.labelCount - barCount)
+      )
+      const end = start + barCount
+      this.timerIdForScroll = window.setTimeout(() => {
+        if (!this.isCumulative) {
+          this.$emit('update-scroll', start, end)
+        }
+      }, 500)
     },
   },
   mounted() {
     this.adjustChartWidth()
     this.$on('update-width', this.scrollRightSide)
     window.addEventListener('resize', this.handleResize)
+    const scrollable = this.$refs.scrollable as HTMLElement
+    if (!scrollable) return
+    scrollable.addEventListener('scroll', this.onScroll)
     // タブ切り替え時にグラフ幅を再計算
     EventBus.$on(TOGGLE_EVENT, () => setTimeout(() => this.adjustChartWidth()))
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize)
+    const scrollable = this.$refs.scrollable as HTMLElement
+    if (!scrollable) return
+    scrollable.removeEventListener('scroll', this.onScroll)
     EventBus.$off(TOGGLE_EVENT)
   },
 }

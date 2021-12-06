@@ -16,7 +16,12 @@
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
       {{ $t(`{title}のグラフ`, { title }) }}
     </h4>
-    <scrollable-chart v-show="canvas" :display-data="displayData">
+    <scrollable-chart
+      v-show="canvas"
+      :display-data="displayData"
+      :is-cumulative="isCumulative"
+      @update-scroll="scrollPos"
+    >
       <template #chart="{ chartWidth }">
         <bar
           :ref="'barChart'"
@@ -84,8 +89,13 @@ import { GraphDataType } from '@/utils/formatGraph'
 type Data = {
   dataKind: 'transition' | 'cumulative'
   canvas: boolean
+  scrollStart: number
+  scrollEnd: number
 }
-type Methods = {}
+
+type Methods = {
+  scrollPos: (start: number, end: number) => void
+}
 
 type Computed = {
   displayInfo: {
@@ -100,6 +110,7 @@ type Computed = {
   scaledTicksYAxisMax: number
   tableHeaders: TableHeader[]
   tableData: TableItem[]
+  isCumulative: boolean
 }
 type Props = {
   title: string
@@ -176,6 +187,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   data: () => ({
     dataKind: 'transition',
     canvas: true,
+    scrollStart: 0,
+    scrollEnd: 0,
   }),
   computed: {
     displayInfo() {
@@ -357,7 +370,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 8,
                 fontColor: '#707070',
                 suggestedMin: 0,
-                suggestedMax: scaledTicksYAxisMax,
+                max: scaledTicksYAxisMax,
               },
             },
           ],
@@ -457,7 +470,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 8,
                 fontColor: '#707070',
                 suggestedMin: 0,
-                suggestedMax: scaledTicksYAxisMax,
+                max: scaledTicksYAxisMax,
               },
             },
           ],
@@ -471,7 +484,23 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const dataKind =
         this.dataKind === 'transition' ? 'transition' : 'cumulative'
       const values = this.chartData.map((d) => d[dataKind])
-      return Math.max(...values)
+      if (this.scrollStart === 0 && this.scrollEnd === 0) {
+        const dates = 60
+        // @TODO: weekly判定
+        // const weeks = 24
+        // const barCount = this.isWeekly ? weeks : dates
+        const barCount = dates
+        this.scrollEnd = values.length
+        this.scrollStart = this.scrollEnd - barCount
+      }
+      const filtered =
+        dataKind === 'transition'
+          ? values.slice(this.scrollStart, this.scrollEnd)
+          : values
+      const max = Math.max(...filtered)
+      const digits = String(max).length
+      const base = 10 ** (digits - 1)
+      return Math.ceil(max / base) * base
     },
     tableHeaders() {
       return [
@@ -499,6 +528,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         })
         .sort((a, b) => dayjs(a.text).unix() - dayjs(b.text).unix())
         .reverse()
+    },
+    isCumulative() {
+      return this.dataKind === 'cumulative'
+    },
+  },
+  methods: {
+    scrollPos(start: number, end: number) {
+      this.scrollStart = start
+      this.scrollEnd = end
     },
   },
   mounted() {
