@@ -59,12 +59,11 @@ export default Vue.extend({
     return {
       rows: [
         [ConfirmedCasesAttributesCard, ConfirmedCasesByMunicipalitiesCard],
-        [PositiveNumberOver65Card],
         [PositiveNumberByDevelopedDateCard, PositiveNumberByDiagnosedDateCard],
-        [DeathsByDeathDateCard, VariantCard],
+        [PositiveNumberOver65Card, DeathsByDeathDateCard],
         [MetroCard, AgencyCard],
       ],
-      hideRows: [[MonitoringConsultationDeskReportsNumberCard]],
+      hideRows: [[VariantCard, MonitoringConsultationDeskReportsNumberCard]],
     }
   },
 })
