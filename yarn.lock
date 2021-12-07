@@ -1902,7 +1902,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*", "@types/node@16.11.11", "@types/node@>= 8":
+"@types/node@*", "@types/node@>= 8":
   version "16.11.11"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.11.tgz#6ea7342dfb379ea1210835bada87b3c512120234"
   integrity sha512-KB0sixD67CeecHC33MYn+eYARkqTheIRNuu97y2XMjR7Wu3XibO1vaY6VBV6O/a89SPI81cEUIYT87UqUWlZNw==
@@ -1911,6 +1911,11 @@
   version "12.20.12"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.20.12.tgz#fd9c1c2cfab536a2383ed1ef70f94adea743a226"
   integrity sha512-KQZ1al2hKOONAs2MFv+yTQP1LkDWMrRJ9YCVRalXltOfXsBmH5IownLxQaiq0lnAHwAViLnh2aTYqrPcRGEbgg==
+
+"@types/node@16.11.12":
+  version "16.11.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.12.tgz#ac7fb693ac587ee182c3780c26eb65546a1a3c10"
+  integrity sha512-+2Iggwg7PxoO5Kyhvsq9VarmPbIelXP070HMImEpbtGCoyWNINQj4wzjbQCXzdHTRXnqufutJb5KAURZANNBAw==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
