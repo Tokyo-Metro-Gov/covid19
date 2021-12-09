@@ -1,27 +1,27 @@
 {
-    "date": "2021\/12\/8 18:00",
+    "date": "2021\/12\/9 18:00",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数等の動向を注意深く観察しなければならない。引き続きワクチン接種を推進するとともに、換気の励行等の基本的な感染防止対策を徹底し、新型コロナウイルス感染症を抑え込むことが重要である。また、新たな変異株が確認されており、今後の動向を注視する必要がある。",
-                "@en": "We must closely monitor trends in the number of new positive cases and other data. While continuing to urge vaccinations, it is important to contain the spread of COVID-19 by firmly implementing basic infection prevention measures, such as ventilating rooms. A new variant has been confirmed, making it necessary to closely watch future trends. "
+                "@ja": "ワクチン接種の推進、換気の励行等の基本的な感染防止対策を徹底する必要がある。また、新たな変異株が確認されており、今後の動向を注視する必要がある。",
+                "@en": "ワクチン接種の推進、換気の励行等の基本的な感染防止対策を徹底する必要がある。また、新たな変異株が確認されており、今後の動向を注視する必要がある。"
             },
             {
-                "@ja": "救急患者の受入れ体制は未だ影響を受けているものの、通常医療との両立が可能な状況にあると思われる。今後懸念される感染拡大に備えた体制整備が急務である。新たな変異株の感染者に対する、個室隔離等の入院医療体制の確保が必要である。\n",
-                "@en": "Although the emergency medical care system remains impacted, it is thought that a balance between COVID and non-COVID health care can be maintained under the current situation. A matter requiring immediate attention is building up the system in preparation for a feared future spread of the virus. It will be necessary to secure health care systems for hospitalization of patients infected with the new variant, such as having them isolated in private rooms."
+                "@ja": "今後懸念される感染拡大に備えた体制整備を進めるとともに、新たな変異株の感染者に対する、個室隔離等の入院医療体制の確保が必要である。",
+                "@en": "今後懸念される感染拡大に備えた体制整備を進めるとともに、新たな変異株の感染者に対する、個室隔離等の入院医療体制の確保が必要である。"
             }
         ],
-        "(1)新規陽性者数": 15.9,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 41.4,
-        "(3)新規陽性者における接触歴等不明者（人数）": 10.3,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 84.7,
+        "(1)新規陽性者数": 16.7,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 41.1,
+        "(3)新規陽性者における接触歴等不明者（人数）": 10.4,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 92.4,
         "(4)PCR・抗原検査（陽性率）": 0.3,
-        "(4)PCR・抗原検査（検査人数）": 5491,
-        "(5)救急医療の東京ルールの適用件数": 47.9,
-        "(6)入院患者数": 70,
-        "(6)入院患者確保病床数": 4723,
+        "(4)PCR・抗原検査（検査人数）": 5495.7,
+        "(5)救急医療の東京ルールの適用件数": 48.3,
+        "(6)入院患者数": 69,
+        "(6)入院患者確保病床数": 4703,
         "(7)重症患者数": 3,
-        "(7)重症患者確保病床数": 352,
+        "(7)重症患者確保病床数": 349,
         "総括コメント-感染状況": {
             "date": "2021-12-01",
             "level": 1,
