@@ -4,11 +4,11 @@
         "専門家3行コメント": [
             {
                 "@ja": "ワクチン接種の推進、換気の励行等の基本的な感染防止対策を徹底する必要がある。また、新たな変異株が確認されており、今後の動向を注視する必要がある。",
-                "@en": "ワクチン接種の推進、換気の励行等の基本的な感染防止対策を徹底する必要がある。また、新たな変異株が確認されており、今後の動向を注視する必要がある。"
+                "@en": "It is necessary to continue urging vaccinations and firmly implementing basic infection prevention measures, such as ventilating rooms. A new variant has been confirmed, making it necessary to closely watch future trends."
             },
             {
                 "@ja": "今後懸念される感染拡大に備えた体制整備を進めるとともに、新たな変異株の感染者に対する、個室隔離等の入院医療体制の確保が必要である。",
-                "@en": "今後懸念される感染拡大に備えた体制整備を進めるとともに、新たな変異株の感染者に対する、個室隔離等の入院医療体制の確保が必要である。"
+                "@en": "In addition to building up the system in preparation for a feared future spread of the virus, it will be necessary to secure health care systems for hospitalization of patients infected with the new variant, such as having them isolated in private rooms."
             }
         ],
         "(1)新規陽性者数": 16.7,
@@ -23,7 +23,7 @@
         "(7)重症患者数": 3,
         "(7)重症患者確保病床数": 349,
         "総括コメント-感染状況": {
-            "date": "2021-12-01",
+            "date": "2021-12-08",
             "level": 1,
             "display": {
                 "@ja": "感染者数が一定程度に収まっていると思われる",
@@ -31,7 +31,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2021-12-01",
+            "date": "2021-12-08",
             "level": 1,
             "display": {
                 "@ja": "通常の医療との両立が安定的に可能な状況である",
