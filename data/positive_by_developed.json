@@ -1,6 +1,6 @@
 {
-    "date": "2021\/12\/12 18:00",
-    "unknown_count": 117316,
+    "date": "2021\/12\/13 18:45",
+    "unknown_count": 117319,
     "data": [
         {
             "developed_date": "2020-01-14",
@@ -2776,11 +2776,11 @@
         },
         {
             "developed_date": "2021-12-07",
-            "count": 16
+            "count": 18
         },
         {
             "developed_date": "2021-12-08",
-            "count": 12
+            "count": 13
         },
         {
             "developed_date": "2021-12-09",
@@ -2788,7 +2788,7 @@
         },
         {
             "developed_date": "2021-12-10",
-            "count": 1
+            "count": 2
         },
         {
             "developed_date": "2021-12-11",
@@ -2796,6 +2796,10 @@
         },
         {
             "developed_date": "2021-12-12",
+            "count": 0
+        },
+        {
+            "developed_date": "2021-12-13",
             "count": 0
         }
     ]
