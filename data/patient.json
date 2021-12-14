@@ -1,7 +1,7 @@
 {
-    "date": "2021\/12\/13 18:45",
+    "date": "2021\/12\/14 18:30",
     "datasets": {
-        "date": "2021\/12\/12",
+        "date": "2021\/12\/13",
         "data": [
             {
                 "code": 131016,
@@ -78,7 +78,7 @@
                 "area": "特別区",
                 "label": "大田区",
                 "ruby": "おおたく",
-                "count": 19370
+                "count": 19372
             },
             {
                 "code": 131121,
@@ -92,7 +92,7 @@
                 "area": "特別区",
                 "label": "渋谷区",
                 "ruby": "しぶやく",
-                "count": 9890
+                "count": 9891
             },
             {
                 "code": 131148,
@@ -106,7 +106,7 @@
                 "area": "特別区",
                 "label": "杉並区",
                 "ruby": "すぎなみく",
-                "count": 15573
+                "count": 15574
             },
             {
                 "code": 131164,
@@ -169,7 +169,7 @@
                 "area": "多摩地域",
                 "label": "八王子市",
                 "ruby": "はちおうじし",
-                "count": 9837
+                "count": 9838
             },
             {
                 "code": 132021,
@@ -442,21 +442,21 @@
                 "area": null,
                 "label": "都外",
                 "ruby": null,
-                "count": 29322
+                "count": 29323
             },
             {
                 "code": null,
                 "area": null,
                 "label": "調査中",
                 "ruby": null,
-                "count": 185
+                "count": 186
             },
             {
                 "code": null,
                 "area": null,
                 "label": "小計",
                 "ruby": null,
-                "count": 382382
+                "count": 382389
             }
         ]
     }
