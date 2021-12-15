@@ -1,5 +1,5 @@
 {
-    "date": "2021\/12\/14 18:30",
+    "date": "2021\/12\/15 18:30",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -2755,19 +2755,23 @@
         },
         {
             "diagnosed_date": "2021-12-11",
-            "count": 12
+            "count": 13
         },
         {
             "diagnosed_date": "2021-12-12",
-            "count": 9
+            "count": 10
         },
         {
             "diagnosed_date": "2021-12-13",
-            "count": 16
+            "count": 21
         },
         {
             "diagnosed_date": "2021-12-14",
-            "count": 1
+            "count": 23
+        },
+        {
+            "diagnosed_date": "2021-12-15",
+            "count": 0
         }
     ]
 }
