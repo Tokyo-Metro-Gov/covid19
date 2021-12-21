@@ -99,20 +99,9 @@ const config: NuxtConfig = {
    ** Nuxt.js dev-modules
    */
   buildModules: [
-    '@nuxtjs/stylelint-module',
+    '@nuxt/postcss8',
     '@nuxtjs/vuetify',
-    [
-      '@nuxt/typescript-build',
-      {
-        typeCheck: {
-          async: true,
-          typescript: {
-            enable: true,
-            memoryLimit: 4096,
-          },
-        },
-      },
-    ],
+    '@nuxt/typescript-build',
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
     'nuxt-purgecss',
@@ -159,21 +148,15 @@ const config: NuxtConfig = {
     pageTracking: true,
     enabled: true,
   },
-  /*
-   * nuxt-i18n による自動リダイレクトを停止したためコメントアウト
-   * @todo 「Cookieがあるときのみ、その言語にリダイレクトする」を実装する場合は復活させる
-   * 実装しない場合は以下の記述を完全に削除する
-   */
-  /* optionalCookies: [
-    {
-      name: 'i18n_redirected',
-      label: 'i18n Redirection Cookie',
-      description:
-        'For automatically switching UI languages in accordance with locale preferences in the web browser configuration.',
-      cookies: ['i18n_redirected']
-    }
-  ], */
   build: {
+    loaders: {
+      scss: {
+        sassOptions: {
+          file: '@/assets/global.scss',
+          additionalData: '@use "sass:math" as math;',
+        },
+      },
+    },
     filenames: {
       chunk: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js'),
     },
@@ -183,7 +166,7 @@ const config: NuxtConfig = {
           [
             '@nuxt/babel-preset-app',
             {
-              corejs: { version: '3.19' },
+              corejs: { version: 3 },
             },
           ],
         ]

@@ -1,3 +1,6 @@
+/* stylelint-disable-next-line no-invalid-position-at-import-rule */
+@import 'variables';
+
 :root {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -15,7 +18,7 @@ img {
 
 .clearfix {
   &::after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }
