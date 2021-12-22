@@ -64,7 +64,6 @@
 
 <script lang="ts">
 import { mdiChevronRight } from '@mdi/js'
-import Vue from 'vue'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
@@ -80,7 +79,7 @@ type CommentKey = {
   [key: string]: MonitoringComment
 }
 
-export default Vue.extend({
+const options = {
   components: {
     AppLink,
     DataView,
@@ -119,11 +118,13 @@ export default Vue.extend({
         ? this.monitoringComment[item].display['@ja']
         : this.monitoringComment[item].display['@en']
     },
-    formattedDate(date): string {
+    formattedDate(date: any): string {
       return this.$d(new Date(date), 'date')
     },
   },
-})
+}
+
+export default options
 </script>
 
 <style lang="scss" scoped>

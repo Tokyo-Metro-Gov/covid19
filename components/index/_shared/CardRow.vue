@@ -6,12 +6,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
 
 const cardClassName = '.DataCard'
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 type Payload = {
   dataView?: Vue
   item: string
@@ -28,15 +28,9 @@ type Methods = {
 type Computed = {
   cardElements: (HTMLElement | null)[]
 }
-type Props = {}
+/* eslint-enable @typescript-eslint/no-unused-vars */
 
-const options: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  Data,
-  Methods,
-  Computed,
-  Props
-> = {
+const options = {
   data() {
     return {
       payload: {},
@@ -88,15 +82,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       if (!this.payload.dataView) return [null, null]
 
       const cards = this.$el.children
-      const self = this.payload.dataView.parentElement
-      const index = Array.prototype.indexOf.call(cards, self) + 1
+      const index = Array.prototype.indexOf.call(cards, this.payload) + 1
       if (index === 0) return [null, null]
 
       const sideIndex = index % 2 === 0 ? index - 1 : index + 1
-      const side = this.$el.querySelector(
+      const side = this.$refs[
         `${cardClassName}:nth-child(${sideIndex}`
-      ) as HTMLElement
-      return [self, side]
+      ] as Element
+      return [this.payload, side]
     },
   },
   mounted() {
@@ -112,7 +105,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
 }
 
-export default Vue.extend(options)
+export default options
 </script>
 
 <style lang="scss">

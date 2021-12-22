@@ -17,6 +17,7 @@
     </button>
     <transition
       name="expand"
+      :style="style"
       @enter="enter"
       @after-enter="afterEnter"
       @leave="leave"
@@ -35,9 +36,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
+const options = {
   props: {
     defaultOpen: {
       type: Boolean,
@@ -57,7 +56,7 @@ export default Vue.extend({
     this.isOpen = this.$props.defaultOpen
   },
   methods: {
-    clickButton($event) {
+    clickButton($event: any) {
       this.isOpen = !this.isOpen
       this.$emit('click', $event)
     },
@@ -78,10 +77,10 @@ export default Vue.extend({
         element.style.height = height
       })
     },
-    afterEnter(element) {
+    afterEnter(element: Element) {
       element.style.height = 'auto'
     },
-    leave(element) {
+    leave(element: Element) {
       element.style.height = getComputedStyle(element).height
 
       requestAnimationFrame(() => {
@@ -89,10 +88,12 @@ export default Vue.extend({
       })
     },
   },
-})
+}
+
+export default options
 </script>
 
-<style lang="scss" scoped>
+<style module lang="scss" scoped>
 .expand-enter-active,
 .expand-leave-active {
   transition: height 0.2s ease;

@@ -29,7 +29,6 @@
 <script lang="ts">
 import { mdiChevronRight } from '@mdi/js'
 import type { PropType } from 'vue'
-import Vue from 'vue'
 
 import CustomExpansionPanel from '@/components/_shared/CustomExpansionPanel.vue'
 import MenuListContents from '@/components/_shared/SideNavigation/MenuListContents.vue'
@@ -52,7 +51,7 @@ type MenuObj = {
   [key: string]: MenuItem[]
 }
 
-export default Vue.extend({
+const options = {
   components: { CustomExpansionPanel, MenuListContents },
   props: {
     itemTitles: {
@@ -71,9 +70,9 @@ export default Vue.extend({
   },
   computed: {
     menuItemsObj(): MenuObj {
-      const menuObj = {}
-      this.itemTitles.forEach((v) => {
-        const splitItemsBySlug = this.items.filter((item) => {
+      const menuObj = {} as MenuObj
+      this.itemTitles.forEach((v: any) => {
+        const splitItemsBySlug = this.items.filter((item: any) => {
           return v.slug === item.slug
         })
         if (splitItemsBySlug.length > 0) menuObj[v.slug] = [...splitItemsBySlug]
@@ -82,11 +81,13 @@ export default Vue.extend({
     },
   },
   methods: {
-    setMenuTitle(slug): string {
-      return this.itemTitles.find((v) => v.slug === slug).text
+    setMenuTitle(slug: any): string {
+      return this.itemTitles.find((v: any) => v.slug === slug).text
     },
   },
-})
+}
+
+export default options
 </script>
 
 <style lang="scss" scoped>

@@ -88,7 +88,6 @@
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
 import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import type { TranslateResult } from 'vue-i18n'
 
 import DataView from '~/components/index/_shared/DataView.vue'
@@ -107,6 +106,7 @@ import {
 import { getGraphSeriesColor, SurfaceStyle } from '~/utils/colors'
 import { getNumberToFixedFunction } from '~/utils/monitoringStatusValueFormatters'
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 type Data = {
   canvas: boolean
   displayLegends: boolean[]
@@ -144,14 +144,9 @@ type Props = {
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: PluginServiceRegistrationOptions[]
 }
+/* eslint-enable @typescript-eslint/no-unused-vars */
 
-const options: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  Data,
-  Methods,
-  Computed,
-  Props
-> = {
+const options = {
   created() {
     this.canvas = process.browser
   },
@@ -236,7 +231,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       })
     },
     displayData() {
-      const datasets = this.dataLabels.map((_, i) => {
+      const datasets = this.dataLabels.map((_: any, i) => {
         return {
           label: this.dataLabels[i],
           data: this.chartData[i],
@@ -263,10 +258,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     tableDataItems() {
       return this.displayData.datasets[0].data
-        .map((_, i) => {
+        .map((_: any, i) => {
           return Object.assign(
             { text: this.labels[i] },
-            ...this.chartData.map((_, j) => {
+            ...this.chartData.map((_: any, j) => {
               return {
                 [j]: this.getFormatter(j)(this.chartData[j][i]),
               }
@@ -365,7 +360,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     displayDataHeader() {
-      const datasets = this.dataLabels.map((_, i) => {
+      const datasets = this.dataLabels.map((_: any, i) => {
         return {
           label: this.dataLabels[i],
           data: this.chartData[i],
@@ -485,7 +480,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
 }
 
-export default Vue.extend(options)
+export default options
 </script>
 
 <style module lang="scss">

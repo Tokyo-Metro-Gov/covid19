@@ -91,7 +91,6 @@ import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
 import type { PropType } from 'vue'
 import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import DataView from '~/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '~/components/index/_shared/DataViewDataSetPanel.vue'
@@ -104,6 +103,7 @@ import { DisplayData, yAxesBgPlugin } from '~/plugins/vue-chart'
 import calcDayBeforeRatio from '~/utils/calcDayBeforeRatio'
 import { getGraphSeriesColor, SurfaceStyle } from '~/utils/colors'
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 type DisplayInfo = {
   lText: string
   sText: string
@@ -143,14 +143,9 @@ type Props = {
   unit: string
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
 }
+/* eslint-enable @typescript-eslint/no-unused-vars */
 
-const options: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  Data,
-  Methods,
-  Computed,
-  Props
-> = {
+const options = {
   created() {
     this.canvas = process.browser
   },

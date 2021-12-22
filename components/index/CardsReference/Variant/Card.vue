@@ -71,7 +71,6 @@
 <script lang="ts">
 import * as dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
-import Vue from 'vue'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import Chart from '@/components/index/CardsReference/Variant/Chart.vue'
@@ -85,6 +84,7 @@ import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatter
 
 dayjs.extend(duration)
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 type Data = {
   chartLabels: string[]
   tableLabels: string[]
@@ -106,9 +106,9 @@ type Computed = {
   }
   variants: IVariants
 }
-type Props = {}
+/* eslint-enable @typescript-eslint/no-unused-vars */
 
-export default Vue.extend<Data, Methods, Computed, Props>({
+const options = {
   components: {
     Chart,
     AppLink,
@@ -206,12 +206,14 @@ export default Vue.extend<Data, Methods, Computed, Props>({
      * 表の横軸に表示する、「MM/DD~MM/DD」形式のラベルを取得する
      */
     getWeekLabel(begin: Date, end: Date) {
-      const from = this.$d(dayjs(begin).toDate(), 'dateWithoutYear')
-      const to = this.$d(dayjs(end).toDate(), 'dateWithoutYear')
+      const from = this.$d(begin, 'dateWithoutYear')
+      const to = this.$d(end, 'dateWithoutYear')
       return `${from}~${to}`
     },
   },
-})
+}
+
+export default options
 </script>
 
 <style lang="scss" module>
