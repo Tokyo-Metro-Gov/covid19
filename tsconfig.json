@@ -15,6 +15,9 @@
     "strict": true,
     "noEmit": true,
     "noImplicitThis": true,
+    "allowSyntheticDefaultImports": true,
+    "suppressExcessPropertyErrors": true,
+    "suppressImplicitAnyIndexErrors": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
