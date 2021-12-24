@@ -13,7 +13,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (4.1.0)
-    diff-lcs (1.4.4)
+    diff-lcs (1.5.0)
     matrix (0.4.2)
     mini_mime (1.1.2)
     nokogiri (1.12.5-x86_64-darwin)

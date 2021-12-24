@@ -87,8 +87,6 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue from 'vue'
-import type { TranslateResult } from 'vue-i18n'
 
 import DataView from '~/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '~/components/index/_shared/DataViewDataSetPanel.vue'
@@ -139,7 +137,7 @@ type Props = {
   getFormatter: Function
   date: string
   labels: string[]
-  dataLabels: string[] | TranslateResult[]
+  dataLabels: string[]
   url: string
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: PluginServiceRegistrationOptions[]

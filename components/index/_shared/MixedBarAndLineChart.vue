@@ -91,9 +91,6 @@
 <script lang="ts">
 import { ChartOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import type { TranslateResult } from 'vue-i18n'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
@@ -108,6 +105,7 @@ import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { getNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 type Data = {
   canvas: boolean
   displayLegends: boolean[]
@@ -145,18 +143,13 @@ type Props = {
   getFormatter: Function
   date: string
   labels: string[]
-  dataLabels: string[] | TranslateResult[]
+  dataLabels: string[]
   unit: string
   url: string
 }
+/* eslint-enable @typescript-eslint/no-unused-vars */
 
-const options: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  Data,
-  Methods,
-  Computed,
-  Props
-> = {
+const options = {
   created() {
     this.canvas = process.browser
   },
@@ -520,7 +513,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
 }
 
-export default Vue.extend(options)
+export default options
 </script>
 
 <style module lang="scss">

@@ -1,5 +1,5 @@
 {
-    "date": "2021\/12\/21 18:00",
+    "date": "2021\/12\/24 17:30",
     "data": [
         {
             "date": "2020-02-28",
@@ -3315,6 +3315,21 @@
             "date": "2021-12-21",
             "hospitalized": 144,
             "severe_case": 3
+        },
+        {
+            "date": "2021-12-22",
+            "hospitalized": 155,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-23",
+            "hospitalized": 160,
+            "severe_case": 2
+        },
+        {
+            "date": "2021-12-24",
+            "hospitalized": 176,
+            "severe_case": 2
         }
     ]
 }

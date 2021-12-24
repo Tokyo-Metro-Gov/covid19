@@ -1,25 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es2018",
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
+    "target": "esnext",
     "lib": [
       "esnext",
       "esnext.asynciterable",
       "dom"
     ],
     "esModuleInterop": true,
-    "resolveJsonModule": true,
+    // "resolveJsonModule": true,
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
-    "noImplicitAny": false,
-    "noImplicitThis": false,
     "suppressExcessPropertyErrors": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noPropertyAccessFromIndexSignature": false,
-    "noUncheckedIndexedAccess": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {

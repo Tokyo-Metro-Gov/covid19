@@ -85,9 +85,6 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import type { TranslateResult } from 'vue-i18n'
 
 import DataSelector from '~/components/index/_shared/DataSelector.vue'
 import DataView from '~/components/index/_shared/DataView.vue'
@@ -101,6 +98,7 @@ import ScrollableChart from '~/components/index/_shared/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '~/plugins/vue-chart'
 import { getGraphSeriesStyle, SurfaceStyle } from '~/utils/colors'
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 type Data = {
   dataKind: 'transition' | 'cumulative'
   canvas: boolean
@@ -141,20 +139,15 @@ type Props = {
   date: string
   items: string[]
   labels: string[]
-  dataLabels: string[] | TranslateResult[]
-  tableLabels: string[] | TranslateResult[]
+  dataLabels: string[]
+  tableLabels: string[]
   unit: string
   url: string
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
 }
+/* eslint-enable @typescript-eslint/no-unused-vars */
 
-const options: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  Data,
-  Methods,
-  Computed,
-  Props
-> = {
+const options = {
   created() {
     this.canvas = process.browser
     this.dataKind =
@@ -614,7 +607,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
 }
 
-export default Vue.extend(options)
+export default options
 </script>
 
 <style module lang="scss">

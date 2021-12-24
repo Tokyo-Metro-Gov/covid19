@@ -89,8 +89,6 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import type { PropType } from 'vue'
-import Vue from 'vue'
 
 import DataView from '~/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '~/components/index/_shared/DataViewDataSetPanel.vue'
@@ -166,7 +164,7 @@ const options = {
       default: '',
     },
     infoTitles: {
-      type: Array as PropType<string[]>,
+      type: Array,
       required: false,
       default: [],
     },
@@ -311,14 +309,14 @@ const options = {
         tooltips: {
           displayColors: false,
           callbacks: {
-            label: (tooltipItem) => {
+            label: (tooltipItem: DisplayData[]) => {
               const formatter = this.getFormatter(tooltipItem.datasetIndex!)
               const cases = formatter(parseFloat(tooltipItem.value!))
               return `${
                 this.dataLabels[tooltipItem.datasetIndex!]
               } : ${cases} ${this.unit}`
             },
-            title: (tooltipItem, data) => {
+            title: (tooltipItem, data: DisplayData) => {
               const label = data.labels![tooltipItem[0].index!] as string
               return this.$d(new Date(label), 'date')
             },
@@ -534,7 +532,7 @@ const options = {
   },
 }
 
-export default Vue.extend(options)
+export default options
 </script>
 
 <style module lang="scss">

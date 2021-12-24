@@ -59,9 +59,6 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
-import type { TranslateResult } from 'vue-i18n'
 
 import DataView from '@/components/index/_shared/DataView.vue'
 import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
@@ -81,11 +78,11 @@ import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import { GraphDataType } from '@/utils/formatGraph'
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 type Data = {
   dataKind: 'transition'
   canvas: boolean
 }
-type Methods = {}
 
 type Computed = {
   makeDashedRectangleData: {
@@ -122,17 +119,12 @@ type Props = {
   url: string
   dashedRectangleRange: string
   addedValue: number
-  tableLabels: string[] | TranslateResult[]
+  tableLabels: string[]
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
 }
+/* eslint-ensable @typescript-eslint/no-unused-vars */
 
-const options: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  Data,
-  Methods,
-  Computed,
-  Props
-> = {
+const options = {
   created() {
     this.canvas = process.browser
   },
@@ -223,7 +215,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         },
       ]
     },
-    displayData() {
+    displayData(): DisplayData {
       const style = getGraphSeriesStyle(1)[0]
       return {
         labels: this.chartData.map((d) => d.label),
@@ -255,7 +247,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         ],
       }
     },
-    displayOption() {
+    displayOption(): ChartOptions {
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
 
@@ -266,10 +258,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             return tooltipItem.datasetIndex !== 1
           },
           callbacks: {
-            label: (tooltipItem) => {
+            label: (tooltipItem: DisplayData[]) => {
               return `${parseInt(tooltipItem.value!).toLocaleString()} ${unit}`
             },
-            title: (tooltipItem, data) => {
+            title: (tooltipItem, data: DisplayData) => {
               const label = data.labels![tooltipItem[0].index!] as string
               return this.$d(new Date(label), 'date')
             },
@@ -480,5 +472,5 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
 }
 
-export default Vue.extend(options)
+export default options
 </script>

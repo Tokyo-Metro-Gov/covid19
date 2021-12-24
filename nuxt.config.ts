@@ -1,7 +1,6 @@
 /* eslint-disable simple-import-sort/imports -- `@nuxt/types` import should occur after import of `path` */
 import fs from 'fs'
 import path from 'path'
-import { NuxtConfig } from '@nuxt/types'
 // eslint-disable-next-line no-restricted-imports
 import i18n from './nuxt-i18n.config'
 // @ts-ignore
@@ -14,7 +13,7 @@ const cardData = JSON.parse(
   )
 )
 
-const config: NuxtConfig = {
+const config = {
   // Since nuxt@2.14.5, there have been significant changes.
   // We dealt with typical two (2) out of them:
   // 1) The "mode:" directive got deprecated (seen right below);
@@ -101,7 +100,28 @@ const config: NuxtConfig = {
   buildModules: [
     '@nuxt/postcss8',
     '@nuxtjs/vuetify',
-    '@nuxt/typescript-build',
+    [
+      '@nuxt/typescript-build',
+      {
+        ForkTsCheckerWebpackPlugin: {
+          typescript: {
+            config: {
+              extensions: [
+                'vue',
+                'js',
+                'jsx',
+                'ts',
+                'tsx',
+                'sass',
+                'scss',
+                'json',
+              ],
+              memoryLimit: 2048,
+            },
+          },
+        },
+      },
+    ],
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
     'nuxt-purgecss',

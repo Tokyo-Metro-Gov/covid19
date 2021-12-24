@@ -1,8 +1,9 @@
 module.exports = {
   extends: [
-    'stylelint-config-standard-scss',
-    'stylelint-config-prettier',
+    'stylelint-config-recommended-scss',
     'stylelint-config-html',
+    'stylelint-scss',
+    'prettier',
   ],
   rules: {
     'at-rule-empty-line-before': null,

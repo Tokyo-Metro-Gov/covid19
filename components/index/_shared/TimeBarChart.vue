@@ -64,8 +64,6 @@
 <script lang="ts">
 import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
 import dayjs from 'dayjs'
-import Vue from 'vue'
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 
 import DataSelector from '@/components/index/_shared/DataSelector.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
@@ -81,11 +79,11 @@ import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import { GraphDataType } from '@/utils/formatGraph'
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 type Data = {
   dataKind: 'transition' | 'cumulative'
   canvas: boolean
 }
-type Methods = {}
 
 type Computed = {
   displayInfo: {
@@ -112,14 +110,9 @@ type Props = {
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
   byDate: boolean
 }
+/* eslint-enable @typescript-eslint/no-unused-vars */
 
-const options: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  Data,
-  Methods,
-  Computed,
-  Props
-> = {
+const options = {
   created() {
     this.canvas = process.browser
     this.dataKind =
@@ -522,5 +515,5 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
 }
 
-export default Vue.extend(options)
+export default options
 </script>
