@@ -6,9 +6,10 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
-    'vue/max-attributes-per-line': 'off',
+    'vue/max-attributes-per-line': 0,
+    'vue/multi-word-component-names': 0,
     'vue/html-self-closing': [
-      'error',
+      2,
       {
         html: {
           void: 'always',
@@ -16,16 +17,16 @@ module.exports = {
       },
     ],
     'prettier/prettier': [
-      'error',
+      2,
       {
         semi: false,
         singleQuote: true,
       },
     ],
-    'tsdoc/syntax': 'error',
-    'simple-import-sort/imports': 'error',
+    'tsdoc/syntax': 2,
+    'simple-import-sort/imports': 2,
     'no-restricted-imports': [
-      'error',
+      2,
       {
         patterns: ['./', '../'],
       },

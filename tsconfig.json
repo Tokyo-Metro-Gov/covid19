@@ -16,9 +16,10 @@
     "noEmit": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
-    "allowSyntheticDefaultImports": true,
     "suppressExcessPropertyErrors": true,
     "suppressImplicitAnyIndexErrors": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noUncheckedIndexedAccess": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {

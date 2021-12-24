@@ -60,7 +60,7 @@ const options = {
       this.isOpen = !this.isOpen
       this.$emit('click', $event)
     },
-    enter(element: Element) {
+    enter(element: HTMLElement) {
       element.style.width = getComputedStyle(element).width
       element.style.position = 'absolute'
       element.style.visibility = 'hidden'
@@ -68,23 +68,23 @@ const options = {
 
       const height = getComputedStyle(element).height
 
-      element.style.width = null
-      element.style.position = null
-      element.style.visibility = null
-      element.style.height = 0
+      element.style.width = ''
+      element.style.position = ''
+      element.style.visibility = ''
+      element.style.height = ''
 
       requestAnimationFrame(() => {
         element.style.height = height
       })
     },
-    afterEnter(element: Element) {
+    afterEnter(element: HTMLElement) {
       element.style.height = 'auto'
     },
-    leave(element: Element) {
+    leave(element: HTMLElement) {
       element.style.height = getComputedStyle(element).height
 
       requestAnimationFrame(() => {
-        element.style.height = 0
+        element.style.height = ''
       })
     },
   },
