@@ -8,18 +8,18 @@
     "node": ">=16.13.0"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development GENERATE_ENV=development nuxt",
-    "dev-no-axe": "cross-env NODE_ENV=dev-no-axe GENERATE_ENV=development nuxt",
-    "build": "nuxt build",
-    "start": "cross-env NODE_ENV=production nuxt start",
-    "generate:deploy": "cross-env GENERATE_ENV=production NODE_OPTIONS=--max_old_space_size=2048 nuxt generate --fail-on-page-error && yarn functions:build",
-    "generate:dev": "cross-env GENERATE_ENV=development NODE_OPTIONS=--max_old_space_size=2048 nuxt generate --fail-on-page-error && yarn functions:build",
-    "generate": "eslint \"./**/*.{js,ts,vue}\" && nuxt generate",
+    "dev": "cross-env -C=development NODE_OPTIONS=--max_old_space_size=2048 nuxt dev",
+    "dev-no-axe": "cross-env -C=dev-no-axe NODE_OPTIONS=--max_old_space_size=2048 nuxt dev",
+    "build": "nuxt generate",
+    "start": "cross-env -C=production nuxt start",
+    "generate:deploy": "cross-env -C=production NODE_OPTIONS=--max_old_space_size=2048 yarn build --fail-on-page-error && yarn functions:build",
+    "generate:dev": "cross-env -C=development NODE_OPTIONS=--max_old_space_size=2048 yarn build --fail-on-page-error && yarn functions:build",
+    "generate": "eslint \"./**/*.{js,jsx,cjs,mjs,ts,tsx,vue}\" && yarn build",
     "test": "echo 'skip tests (there is no test)'",
-    "lint": "eslint \"./**/*.{js,ts,vue}\"",
-    "lint:fix": "eslint \"./**/*.{js,ts,vue}\" --fix",
-    "stylelint": "stylelint '**/*.{css,scss,vue}'",
-    "stylelint:fix": "stylelint --fix '**/*.{css,scss,vue}'",
+    "lint": "eslint \"./**/*.{js,jsx,cjs,mjs,ts,tsx,vue}\"",
+    "lint:fix": "eslint \"./**/*.{js,jsx,cjs,mjs,ts,tsx,vue}\" --fix",
+    "stylelint": "stylelint '**/*.{css,scss,sass,vue}'",
+    "stylelint:fix": "stylelint --fix '**/*.{css,scss,sass,vue}'",
     "clean-hardsource": "rimraf ./node_modules/.cache/hard-source",
     "functions:dev": "netlify-lambda serve functions",
     "functions:build": "netlify-lambda build functions",
@@ -28,17 +28,16 @@
     "danger:ci": "danger ci"
   },
   "lint-staged": {
-    "*.{js,ts,css,vue}": [
+    "*.{js,jsx,cjs,mjs,ts,tsx,vue}": [
       "eslint --fix"
     ],
-    "*.{css,scss,vue}": "stylelint"
+    "*.{css,scss,sass,vue}": "stylelint"
   },
   "dependencies": {
     "@nuxt/types": "2.15.8",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/gtm": "2.4.0",
     "@nuxtjs/i18n": "7.2.0",
-    "@nuxtjs/pwa": "3.3.5",
     "axe-core": "4.3.5",
     "chart.js": "2.9.4",
     "cross-env": "7.0.3",
@@ -49,7 +48,8 @@
     "vue-chartjs": "3.5.1",
     "vue-meta": "2.4.0",
     "vue-scrollto": "2.20.0",
-    "vue-spinner": "1.0.4"
+    "vue-spinner": "1.0.4",
+    "workbox-webpack-plugin": "6.4.2"
   },
   "devDependencies": {
     "@babel/core": "7.16.5",

@@ -17,7 +17,7 @@
     </button>
     <transition
       name="expand"
-      :style="style"
+      style
       @enter="enter"
       @after-enter="afterEnter"
       @leave="leave"
@@ -126,9 +126,9 @@ export default options
 .custom-expansion-panel-content {
   display: flex;
 
-  &__wrap {
+  &__wrap: {
     flex: 1 1 auto;
     max-width: 100%;
   }
-}
+};
 </style>

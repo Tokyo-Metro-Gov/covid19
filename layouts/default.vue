@@ -36,10 +36,12 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable simple-import-sort/imports -- 複数の ESLint の設定の競合を回避する */
-import { Component, Vue } from 'nuxt-property-decorator'
+/* eslint-disable simple-import-sort/imports */
+/* -- 複数の ESLint の設定の競合を回避する */
+
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
+import { Component, Vue } from 'nuxt-property-decorator';
 import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
 import type { NuxtConfig } from '@nuxt/types'
 import type { LinkPropertyHref } from 'vue-meta'
@@ -77,10 +79,6 @@ export default class Default extends Vue implements NuxtConfig {
     }
   }
 
-  $refs!: {
-    Main: HTMLElement
-  }
-
   mounted() {
     this.$data.loading = false
     this.getMatchMedia().addListener(this.closeNavigation)
@@ -92,12 +90,12 @@ export default class Default extends Vue implements NuxtConfig {
 
   openNavigation() {
     this.$data.isOpenNavigation = true
-    this.$refs.Main.setAttribute('aria-hidden', 'true')
+    this.Main.setAttribute('aria-hidden', 'true')
   }
 
   closeNavigation() {
     this.$data.isOpenNavigation = false
-    this.$refs.Main.removeAttribute('aria-hidden')
+    this.Main.removeAttribute('aria-hidden')
   }
 
   getMatchMedia() {
