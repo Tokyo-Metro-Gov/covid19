@@ -1,5 +1,3 @@
-// ==================
-// color
 $green-1: #008830;
 $green-2: #00b849;
 $green-3: #00d154;
@@ -12,23 +10,26 @@ $gray-5: #f8f9fa;
 $white: #fff;
 $link: #006ca8;
 $focus: #1976d2;
-$notice: #FFDB1D;
-$alert: #AD2121;
+$notice: #ffdb1d;
+$alert: #ad2121;
 
-// ==================
-// shadow
-$shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+/* ================== */
 
-// ==================
-// break-points
+/* shadow */
+$shadow: 0 0 2px rgb(0 0 0 / 15%);
+
+/* ================== */
+
+/* break-points */
 $huge: 1440;
 $large: 1170;
 $medium: 768;
 $small: 600;
 $tiny: 320;
 
-// ==================
-// z-index
+/* ================== */
+
+/* z-index */
 $z-index-map: (
   opened-side-navigation: 101,
   sp-navigation: 100,
@@ -38,32 +39,55 @@ $z-index-map: (
   @return map-get($z-index-map, $key);
 }
 
-// ==================
-// media-query
+/* ================== */
+
+/* media-query */
+
+/* TODO: switch to kebab-case early */
+
+/* @include larger-than { */
+
+/* stylelint-disable-next-line scss/at-mixin-pattern */
 @mixin largerThan($width) {
-  @media screen and (min-width: $width + 1 + px) {
+  @media screen and (min-width: #{$width + 1}px) {
     @content;
   }
 }
 
+/* } */
+
+/* TODO: switch to kebab-case early */
+
+/* @include less-than { */
+
+/* stylelint-disable-next-line scss/at-mixin-pattern */
 @mixin lessThan($width) {
-  @media screen and (max-width: $width + px) {
+  @media screen and (max-width: #{$width}px) {
     @content;
   }
 }
 
-// ==================
-// font-family
-$western: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue";
-$japanese: "Hiragino Sans", "Meiryo", "Source Han Sans", "Noto Sans CJK JP", "Yu Gothic";
-$korean: "Apple SD Gothic Neo", "Malgun Gothic", "Source Han Sans K", "Noto Sans CJK KR";
-$chinese-hans: "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC";
-$chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto Sans CJK TC";
+/* } */
 
-// ==================
-// font-size
+/* ================== */
+
+/* font-family */
+$western: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
+  'Helvetica Neue';
+$japanese: 'Hiragino Sans', 'Meiryo', 'Source Han Sans', 'Noto Sans CJK JP',
+  'Yu Gothic';
+$korean: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Source Han Sans K',
+  'Noto Sans CJK KR';
+$chinese-hans: 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC',
+  'Noto Sans CJK SC';
+$chinese-hant: 'PingFang TC', 'Microsoft JhengHei', 'Source Han Sans TC',
+  'Noto Sans CJK TC';
+
+/* ================== */
+
+/* font-size */
 @mixin font-size($size, $important: false) {
-  font-size: ($size / 10) + rem #{if($important, "!important", "")};
+  @include font-size($size / 10 + rem(if($important, '!important', '')));
 }
 
 @mixin card-h1 {
@@ -95,8 +119,9 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
   font-weight: normal;
 }
 
-// ===================
-// button
+/* =================== */
+
+/* button */
 @mixin text-link {
   @include font-size(14);
 
@@ -109,7 +134,7 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
 }
 
 @mixin button-text($size: 'md', $font-size: 14) {
-  @if ($size == 'sm') {
+  @if $size == 'sm' {
     padding: 5px 8px;
   } @else {
     padding: 24px 36px;
@@ -135,15 +160,16 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
   }
 }
 
-// ===================
-// card
+/* =================== */
+
+/* card */
 @mixin card-container($withDivider: false) {
   background-color: $white;
   box-shadow: $shadow;
   border: 0.5px solid $gray-4 !important;
   border-radius: 4px;
 
-  @if ($withDivider) {
+  @if $withDivider {
     &::before {
       content: '';
       position: absolute;
@@ -156,9 +182,11 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
   }
 }
 
-// ===================
-// Visually Hidden (for screen reader)
-// https://github.com/ampproject/amphtml/blob/2e9a940e78df8de38a6c06a0772aeaa4839a24d1/css/ampshared.css#L164-L204
+/* =================== */
+
+/* Visually Hidden (for screen reader) */
+
+/* https://github.com/ampproject/amphtml/blob/2e9a940e78df8de38a6c06a0772aeaa4839a24d1/css/ampshared.css#L164-L204 */
 
 @mixin visually-hidden() {
   position: fixed !important;
@@ -175,13 +203,15 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
   visibility: visible !important;
 }
 
-// ===================
-// Vuetify
+/* =================== */
 
-// Expansion Panels
-// https://vuetifyjs.com/en/components/expansion-panels/
+/* Vuetify */
+
+/* Expansion Panels */
+
+/* https://vuetifyjs.com/en/components/expansion-panels/ */
 $expansion-panel-content-padding: 0;
 $expansion-panel-header-padding: 10px 0;
 $expansion-panel-header-min-height: 26px;
 $expansion-panel-active-header-min-height: 26px;
-$expansion-panel-header-font-size: .875rem;
+$expansion-panel-header-font-size: 0.875rem;

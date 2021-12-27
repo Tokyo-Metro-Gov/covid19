@@ -2,7 +2,7 @@
 import fs from 'fs'
 import path from 'path'
 import { NuxtConfig } from '@nuxt/types'
-// eslint-disable-next-line no-restricted-imports
+/* eslint-disable-next-line no-restricted-imports */
 import i18n from './nuxt-i18n.config'
 // @ts-ignore
 import { Settings } from '@/types/cardRoutesSettings'
@@ -17,7 +17,7 @@ const cardData = JSON.parse(
 const config: NuxtConfig = {
   // Since nuxt@2.14.5, there have been significant changes.
   // We dealt with typical two (2) out of them:
-  // 1) The "mode:" directive got deprecated (seen right below);
+  // 1) The 'mode:' directive got deprecated (seen right below);
   // 2) Autoprefixer has been included so that we can lessen upgrade burden.
   // mode: 'universal',
   target: 'static',
@@ -99,20 +99,10 @@ const config: NuxtConfig = {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    '@nuxt/postcss8',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
-    [
-      '@nuxt/typescript-build',
-      {
-        typeCheck: {
-          async: true,
-          typescript: {
-            enable: true,
-            memoryLimit: 4096,
-          },
-        },
-      },
-    ],
+    '@nuxt/typescript-build',
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
     'nuxt-purgecss',
@@ -130,11 +120,25 @@ const config: NuxtConfig = {
     'nuxt-webfontloader',
   ],
   /*
+   * Block section for @nuxt/typescript-build + ForkTsCheckerWebpackPlugin()
+   * may the Plugin (ForkTs...BlahBlah) not do TS checking - just transplie!
+   */
+  typescript: {
+    transpileOnly: true,
+    files:
+      /^(^[/node_modules/|/.nuxt/])*.([jt]sx?|[cm]js|s?css|sass|vue|json)$/i,
+    memoryLimit: 2048,
+    async: true,
+    extensions: {
+      vue: true,
+    },
+  },
+  /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    customVariables: ['@/assets/variables.scss'],
+    customVariables: ['./assets/variables.scss'],
     optionsPath: './plugins/vuetify.options.ts',
     treeShake: true,
     defaultAssets: false,
@@ -172,22 +176,59 @@ const config: NuxtConfig = {
         'For automatically switching UI languages in accordance with locale preferences in the web browser configuration.',
       cookies: ['i18n_redirected']
     }
-  ], */
+  ], 
+  */
   build: {
     filenames: {
       chunk: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js'),
     },
+    cache: true,
     babel: {
-      presets() {
-        return [
-          [
-            '@nuxt/babel-preset-app',
-            {
-              corejs: { version: '3.19' },
-            },
-          ],
-        ]
+      module: {
+        exports(api) {
+          return api.cache(true)
+        },
       },
+      babelrc: false,
+      plugins: [
+        [
+          'transform-scss',
+          {
+            sassExt: /\.(s[ac]ss|vue)/i,
+          },
+        ],
+        [
+          'tsconfig-paths',
+          {
+            relative: true,
+            extensions: ['.js', '.jsx', '.ts', '.tsx', '.es', '.es6', '.mjs'],
+            rootDir: '.',
+            tsconfig: 'tsconfig.json',
+            transformFunctions: [
+              'require',
+              'require.resolve',
+              'System.import',
+              'jest.genMockFromModule',
+              'jest.mock',
+              'jest.unmock',
+              'jest.doMock',
+              'jest.dontMock',
+              'jest.setMock',
+              'require.requireActual',
+              'require.requireMock',
+            ],
+          },
+        ],
+      ],
+      extends: '@nuxtjs/babel-preset-app',
+      presets: [
+        [
+          '@nuxtjs/babel-preset-env',
+          {
+            corejs: 3,
+          },
+        ],
+      ],
     },
     postcss: {
       preset: {
@@ -200,14 +241,35 @@ const config: NuxtConfig = {
     extend(config) {
       // default externals option is undefined
       config.externals = [{ moment: 'moment' }]
+      config = {
+        module: {
+          rules: [
+            {
+              test: /\.([jt]sx?|s[ac]ss|vue)$/i,
+              use: [
+                'vue-loader',
+                'stylus-loader',
+                'css-loader',
+                'sass-resources-loader!sass-loader',
+                {
+                  options: {
+                    hoistUseStatements: true,
+                    additionalData: '@use "./global.scss"',
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      }
     },
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
   },
   purgeCSS: {
     paths: [
-      './node_modules/vuetify/dist/vuetify.js',
-      './node_modules/vue-spinner/src/ScaleLoader.vue',
+      'node_modules/vuetify/dist/vuetify.js',
+      'node_modules/vue-spinner/src/ScaleLoader.vue',
     ],
     whitelist: ['DataCard', 'GraphLegend'],
     whitelistPatterns: [/(col|row|v-window)/],
@@ -251,18 +313,22 @@ const config: NuxtConfig = {
       poll: true,
     },
   },
-  router: {
-    extendRoutes(routes) {
-      routes.forEach((route) => {
-        if (
-          route.name === 'index' ||
-          route.name === 'monitoring' ||
-          route.name === 'reference'
-        ) {
-          route.meta = { tabs: true }
-        }
-      })
-    },
+  '@nuxt/types/config/router': () => {
+    return {
+      router: {
+        extendRoutes(routes) {
+          routes.forEach((route) => {
+            if (
+              route.name === 'index' ||
+              route.name === 'monitoring' ||
+              route.name === 'reference'
+            ) {
+              route.meta = { tabs: true }
+            }
+          })
+        },
+      },
+    }
   },
 }
 

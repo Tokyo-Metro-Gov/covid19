@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2018",
-    "module": "esnext",
+    "target": "es2015",
+    "module": "es2020",
     "moduleResolution": "node",
     "lib": [
+      "es2018",
       "esnext",
       "esnext.asynciterable",
       "dom"
@@ -14,16 +15,20 @@
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
-    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "strictFunctionTypes": false,
+    "noUncheckedIndexedAccess": false,
+    "allowSyntheticDefaultImports": true,
+    "importsNotUsedAsValues": "remove",
+    "noPropertyAccessFromIndexSignature": false,
+    "suppressExcessPropertyErrors": true,
+    "suppressImplicitAnyIndexErrors": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "./*"
-      ],
-      "@/*": [
-        "./*"
-      ]
+      "~/*": ["./*"],
+      "@/*": ["./*"]
     },
     "types": [
       "@types/node",
@@ -32,7 +37,14 @@
       "@nuxtjs/vuetify"
     ]
   },
+  "exactOptionalPropertyTypes": false,
+  "useUnknownInCatchVariables": false,
+  "rootDir": ".",
   "exclude": [
-    "node_modules"
+    "node_modules",
+    ".nuxt"
+  ],
+  "include": [
+    "."
   ]
 }

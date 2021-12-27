@@ -22,7 +22,7 @@ import { mdiChevronRight } from '@mdi/js'
 import Vue from 'vue'
 
 import CustomExpansionPanel from '@/components/_shared/CustomExpansionPanel.vue'
-import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
+import EventBus, { TOGGLE_EVENT } from '@/utils/card-event-bus'
 
 export default Vue.extend({
   components: { CustomExpansionPanel },

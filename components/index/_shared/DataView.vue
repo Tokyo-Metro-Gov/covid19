@@ -135,7 +135,7 @@ import type { MetaInfo } from 'vue-meta'
 import AppLink from '@/components/_shared/AppLink.vue'
 import ExpantionPanel from '@/components/index/_shared/DataView/ExpantionPanel.vue'
 import Share from '@/components/index/_shared/DataView/Share.vue'
-import { EventBus, TOGGLE_EVENT } from '@/utils/card-event-bus'
+import EventBus, { TOGGLE_EVENT } from '@/utils/card-event-bus'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
 
 export default Vue.extend({

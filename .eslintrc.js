@@ -1,4 +1,5 @@
-module.exports = {
+const eslintConfig = {
+  root: true,
   plugins: ['eslint-plugin-tsdoc', 'simple-import-sort'],
   extends: [
     '@nuxtjs/eslint-config-typescript',
@@ -6,9 +7,11 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
-    'vue/max-attributes-per-line': 'off',
+    semi: 0,
+    '@typescript-eslint/semi': 0,
+    'vue/max-attributes-per-line': 0,
     'vue/html-self-closing': [
-      'error',
+      2,
       {
         html: {
           void: 'always',
@@ -16,19 +19,30 @@ module.exports = {
       },
     ],
     'prettier/prettier': [
-      'error',
+      2,
       {
         semi: false,
         singleQuote: true,
       },
     ],
-    'tsdoc/syntax': 'error',
-    'simple-import-sort/imports': 'error',
+    'tsdoc/syntax': 2,
+    'simple-import-sort/imports': 2,
     'no-restricted-imports': [
-      'error',
+      2,
       {
         patterns: ['./', '../'],
       },
     ],
+    'no-mixed-operators': [
+      2,
+      {
+        groups: [
+          ['||', '&&'],
+          ['?:', '??'],
+        ],
+      },
+    ],
   },
 }
+
+module.exports = eslintConfig
