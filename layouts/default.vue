@@ -41,7 +41,7 @@
 
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
-import { Component, Vue } from 'nuxt-property-decorator';
+import { Component, Vue } from 'nuxt-property-decorator'
 import type { NuxtOptionsHead as MetaInfo } from '@nuxt/types/config/head'
 import type { NuxtConfig } from '@nuxt/types'
 import type { LinkPropertyHref } from 'vue-meta'
@@ -53,15 +53,14 @@ import { convertDateToSimpleFormat } from '@/utils/formatDate'
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 /* eslint-enable simple-import-sort/imports */
 
-@Component({
-  components: {
-    DevelopmentModeMark,
-    ScaleLoader,
-    SideNavigation,
-    NoScript,
-  },
-})
 export default class Default extends Vue implements NuxtConfig {
+  components: {
+    DevelopmentModeMark
+    ScaleLoader
+    SideNavigation
+    NoScript
+  }
+
   data() {
     let hasNavigation = true
     let loading = true

@@ -1,45 +1,50 @@
 {
+  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "es2020",
-    "moduleResolution": "node",
-    "lib": [
-      "es2018",
-      "esnext.asynciterable",
-      "dom"
-    ],
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "allowJs": true,
-    "sourceMap": true,
-    "strict": true,
-    "noEmit": true,
-    "noImplicitThis": false,
-    "noImplicitAny": false,
-    "noUncheckedIndexedAccess": true,
-    "noPropertyAccessFromIndexSignature": false,
-    "allowSyntheticDefaultImports": true,
-    "suppressExcessPropertyErrors": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "strictNullChecks": false,
-    "experimentalDecorators": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": [
-        "./*"
+      "target": "es6",
+      "module": "es2022",
+      "moduleResolution": "node",
+      "lib": [
+        "esnext",
+        "esnext.asynciterable",
+        "dom"
       ],
-      "@/*": [
-        "./*"
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "allowJs": true,
+      "sourceMap": true,
+      "strict": true,
+      "noEmit": true,
+      "noImplicitThis": true,
+      "noStrictGenericChecks": true,
+      "noUncheckedIndexedAccess": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "allowSyntheticDefaultImports": true,
+      "suppressExcessPropertyErrors": true,
+      "suppressImplicitAnyIndexErrors": true,
+      "strictNullChecks": false,
+      "strictFunctionTypes": false,
+      "strictBindCallApply": false,
+      "strictPropertyInitialization": false,
+      "experimentalDecorators": true,
+      "baseUrl": ".",
+      "paths": {
+        "~/*": [
+          "./*"
+        ],
+        "@/*": [
+          "./*"
+        ]
+      },
+      "types": [
+        "@types/node",
+        "nuxt/types",
+        "@nuxtjs/i18n/types",
+        "@nuxtjs/vuetify/types"
       ]
     },
-    "types": [
-      "@types/node",
-      "@nuxt/types",
-      "@nuxtjs/i18n/types",
-      "@nuxtjs/vuetify"
+    "exclude": [
+      ".nuxt",
+      "node_modules"
     ]
-  },
-  "exclude": [
-    "node_modules"
-  ]
-}
+  }

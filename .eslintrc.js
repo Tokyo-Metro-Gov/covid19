@@ -1,38 +1,38 @@
-var eslintoptions = {
-  'parseOptions': {
-    'ecmaVersion': 'es6',
-  },
-  'env': {
+const eslintoptions = {
+  env: {
+    browser: true,
+    node: true,
     es6: true,
   },
-  'plugins': [
+  plugins: [
+    '@getify/proper-ternary',
+    'prettier',
     'tsdoc',
     'simple-import-sort',
     'vue',
-    'nuxt',
   ],
-  'extends': [
-    'prettier',
+  extends: [
+    '@nuxtjs/eslint-config-typescript',
     'plugin:prettier/recommended',
-    'plugin:nuxt/recommended',
     'plugin:vue/recommended',
   ],
   rules: {
+    'import/no-named-as-default': 0,
     'vue/max-attributes-per-line': 0,
     'vue/multi-word-component-names': 0,
     'vue/html-self-closing': [
       2,
       {
-        'html': {
-          'void': 'always',
+        html: {
+          void: 'always',
         },
       },
     ],
     'prettier/prettier': [
       2,
       {
-        'semi': false,
-        'singleQuote': true,
+        semi: false,
+        singleQuote: true,
       },
     ],
     'tsdoc/syntax': 2,
@@ -40,10 +40,13 @@ var eslintoptions = {
     'no-restricted-imports': [
       2,
       {
-        'patterns': ['./', '../'],
+        patterns: ['./', '../'],
       },
     ],
+    '@getify/proper-ternary/nested': 1,
+    '@getify/proper-ternary/parens': 1,
+    '@getify/proper-ternary/where': 1,
   },
 }
 
-module.exports.eslintoptions
+module.exports = eslintoptions

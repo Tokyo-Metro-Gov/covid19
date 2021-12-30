@@ -74,40 +74,39 @@ import { convertDateToSimpleFormat } from '@/utils/formatDate'
 /* eslint-enable simple-import-sort/imports */
 import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 
-@Component({
+export default class CardContainer extends Vue implements NuxtConfig {
   components: {
     // ---- 注目の指標
-    InfectionMedicalCareSummaryCard,
-    ConfirmedCasesDetailsCard,
-    MonitoringCommentCard,
-    VaccinationCard,
-    ConfirmedCasesNumberCard,
-    TestedNumberCard,
-    TokyoFeverConsultationCenterReportsNumberCard,
-    TelephoneAdvisoryReportsNumberCard,
+    InfectionMedicalCareSummaryCard
+    ConfirmedCasesDetailsCard
+    MonitoringCommentCard
+    VaccinationCard
+    ConfirmedCasesNumberCard
+    TestedNumberCard
+    TokyoFeverConsultationCenterReportsNumberCard
+    TelephoneAdvisoryReportsNumberCard
     // ---- モニタリング項目
-    MonitoringItemsOverviewCard,
-    MonitoringConfirmedCasesNumberCard,
-    ConsultationAboutFeverNumberCard,
-    UntrackedRateCard,
-    PositiveRateCard,
-    TokyoRulesApplicationNumberCard,
-    HospitalizedNumberCard,
-    SevereCaseCard,
+    MonitoringItemsOverviewCard
+    MonitoringConfirmedCasesNumberCard
+    ConsultationAboutFeverNumberCard
+    UntrackedRateCard
+    PositiveRateCard
+    TokyoRulesApplicationNumberCard
+    HospitalizedNumberCard
+    SevereCaseCard
     // ---- その他 参考指標
-    ConfirmedCasesAttributesCard,
-    ConfirmedCasesByMunicipalitiesCard,
-    PositiveNumberOver65Card,
-    PositiveNumberByDevelopedDateCard,
-    PositiveNumberByDiagnosedDateCard,
-    DeathsByDeathDateCard,
-    VariantCard,
-    MetroCard,
-    AgencyCard,
-    MonitoringConsultationDeskReportsNumberCard,
-  },
-})
-export default class CardContainer extends Vue implements NuxtConfig {
+    ConfirmedCasesAttributesCard
+    ConfirmedCasesByMunicipalitiesCard
+    PositiveNumberOver65Card
+    PositiveNumberByDevelopedDateCard
+    PositiveNumberByDiagnosedDateCard
+    DeathsByDeathDateCard
+    VariantCard
+    MetroCard
+    AgencyCard
+    MonitoringConsultationDeskReportsNumberCard
+  }
+
   data() {
     let title, updatedAt, cardComponent, cardCategory
     switch (this.$route.params.card) {

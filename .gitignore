@@ -70,6 +70,7 @@ typings/
 
 # Nuxt generate
 dist/*
+.output
 # data
 !dist/data
 

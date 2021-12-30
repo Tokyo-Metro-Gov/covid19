@@ -1,11 +1,13 @@
 /* eslint-disable simple-import-sort/imports -- `@nuxt/types` import should occur after import of `path` */
 import fs from 'fs'
 import path from 'path'
+import Vue, { defineNuxtConfig } from '@nuxt/bridge'
+import defineConfig from '@vitejs/plugin-vue'
 // eslint-disable-next-line no-restricted-imports
 import i18n from './nuxt-i18n.config'
 // @ts-ignore
 import { Settings } from '@/types/cardRoutesSettings'
-const environment = process.env.NODE_ENV || 'development'
+const environment = process.env['NODE_ENV'] || process.env['C'] || 'development'
 const cardData = JSON.parse(
   fs.readFileSync(
     path.resolve(__dirname, 'assets/json/cardRoutesSettings.json'),
@@ -13,7 +15,15 @@ const cardData = JSON.parse(
   )
 )
 
-const config = {
+const vite = defineConfig, {
+  plugins: [
+    {
+      legacy: <default>{ Vue }</default>
+    }
+  ]
+}
+
+const config = defineNuxtConfig({
   // Since nuxt@2.14.5, there have been significant changes.
   // We dealt with typical two (2) out of them:
   // 1) The "mode:" directive got deprecated (seen right below);
@@ -21,6 +31,7 @@ const config = {
   // mode: 'universal',
   target: 'static',
   components: true,
+  vite: vite,
   /*
    ** Headers of the page
    */
@@ -86,12 +97,12 @@ const config = {
    */
   plugins: [
     {
-      src: '@/plugins/vue-chart.ts',
-      ssr: true,
+      src: '@/plugins/vue-chart',
+      mode: 'server',
     },
     {
       src: '@/plugins/axe',
-      ssr: true,
+      mode: 'server',
     },
   ],
   /*
@@ -100,6 +111,7 @@ const config = {
   buildModules: [
     '@nuxt/postcss8',
     '@nuxtjs/vuetify',
+    /* Went to webpack plugin area
     [
       '@nuxt/typescript-build',
       {
@@ -122,6 +134,7 @@ const config = {
         },
       },
     ],
+    */
     '@nuxtjs/google-analytics',
     '@nuxtjs/gtm',
     'nuxt-purgecss',
@@ -158,13 +171,13 @@ const config = {
     },
   },
   googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID, // .env.production などに設定してください。
+    id: process.env['GOOGLE_ANALYTICS_ID'], // .env.production などに設定してください。
   },
   /*
    ** @nuxtjs/gtm config
    */
   gtm: {
-    id: process.env.GTM_CONTAINER_ID,
+    id: process.env['GTM_CONTAINER_ID'],
     pageTracking: true,
     enabled: true,
   },
@@ -184,7 +197,7 @@ const config = {
       presets() {
         return [
           [
-            '@nuxt/babel-preset-app',
+            '@babel/preset-typescript',
             {
               corejs: { version: 3 },
             },
@@ -192,26 +205,49 @@ const config = {
         ]
       },
     },
-    postcss: {
-      preset: {
-        autoprefixer: {
-          // Built-in since nuxt@2.14.5
-          grid: 'autoplace',
-        },
-      },
+    autoprefixer: {
+      // Built-in since nuxt@2.14.5
+      grid: 'autoplace',
     },
     extend(config) {
       // default externals option is undefined
-      config.externals = [{ moment: 'moment' }]
+      config = {
+        externals: [{ moment: 'moment' }],
+        plugins: [
+          {
+            'fork-ts-config-webpack-plugin': {
+              typescript: {
+                config: {
+                  extensions: [
+                    'vue',
+                    'js',
+                    'jsx',
+                    'ts',
+                    'tsx',
+                    'sass',
+                    'scss',
+                    'json',
+                  ],
+                  memoryLimit: 4096,
+                },
+              },
+            },
+          },
+          {
+            'await-event-emitter': {
+              EventEmitter: {
+                defaultMaxListeners: 32,
+              },
+            },
+          },
+        ],
+      }
     },
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
   },
   purgeCSS: {
-    paths: [
-      './node_modules/vuetify/dist/vuetify.js',
-      './node_modules/vue-spinner/src/ScaleLoader.vue',
-    ],
+    paths: ['vuetify/dist/vuetify.js', 'vue-spinner/src/ScaleLoader.vue'],
     whitelist: ['DataCard', 'GraphLegend'],
     whitelistPatterns: [/(col|row|v-window)/],
   },
@@ -225,7 +261,7 @@ const config = {
     splash_pages: null,
   },
   generate: {
-    fallback: true,
+    fallback: 'true',
     routes() {
       const locales = ['en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
       const pages = cardData.map((v: Settings) => {
@@ -267,6 +303,6 @@ const config = {
       })
     },
   },
-}
+})
 
 export default config
