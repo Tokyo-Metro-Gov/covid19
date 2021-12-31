@@ -1,5 +1,5 @@
 {
-    "date": "2021\/12\/30 18:45",
+    "date": "2021\/12\/31 18:30",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -2599,7 +2599,7 @@
         },
         {
             "diagnosed_date": "2021-11-02",
-            "count": 32
+            "count": 31
         },
         {
             "diagnosed_date": "2021-11-03",
@@ -2615,7 +2615,7 @@
         },
         {
             "diagnosed_date": "2021-11-06",
-            "count": 31
+            "count": 26
         },
         {
             "diagnosed_date": "2021-11-07",
@@ -2623,11 +2623,11 @@
         },
         {
             "diagnosed_date": "2021-11-08",
-            "count": 26
+            "count": 23
         },
         {
             "diagnosed_date": "2021-11-09",
-            "count": 23
+            "count": 21
         },
         {
             "diagnosed_date": "2021-11-10",
@@ -2635,11 +2635,11 @@
         },
         {
             "diagnosed_date": "2021-11-11",
-            "count": 24
+            "count": 21
         },
         {
             "diagnosed_date": "2021-11-12",
-            "count": 24
+            "count": 23
         },
         {
             "diagnosed_date": "2021-11-13",
@@ -2655,7 +2655,7 @@
         },
         {
             "diagnosed_date": "2021-11-16",
-            "count": 27
+            "count": 26
         },
         {
             "diagnosed_date": "2021-11-17",
@@ -2675,7 +2675,7 @@
         },
         {
             "diagnosed_date": "2021-11-21",
-            "count": 5
+            "count": 4
         },
         {
             "diagnosed_date": "2021-11-22",
@@ -2687,7 +2687,7 @@
         },
         {
             "diagnosed_date": "2021-11-24",
-            "count": 24
+            "count": 23
         },
         {
             "diagnosed_date": "2021-11-25",
@@ -2699,7 +2699,7 @@
         },
         {
             "diagnosed_date": "2021-11-27",
-            "count": 9
+            "count": 8
         },
         {
             "diagnosed_date": "2021-11-28",
@@ -2707,7 +2707,7 @@
         },
         {
             "diagnosed_date": "2021-11-29",
-            "count": 19
+            "count": 18
         },
         {
             "diagnosed_date": "2021-11-30",
@@ -2807,7 +2807,7 @@
         },
         {
             "diagnosed_date": "2021-12-24",
-            "count": 49
+            "count": 50
         },
         {
             "diagnosed_date": "2021-12-25",
@@ -2819,19 +2819,23 @@
         },
         {
             "diagnosed_date": "2021-12-27",
-            "count": 57
+            "count": 59
         },
         {
             "diagnosed_date": "2021-12-28",
-            "count": 66
+            "count": 77
         },
         {
             "diagnosed_date": "2021-12-29",
-            "count": 50
+            "count": 62
         },
         {
             "diagnosed_date": "2021-12-30",
-            "count": 1
+            "count": 53
+        },
+        {
+            "diagnosed_date": "2021-12-31",
+            "count": 0
         }
     ]
 }
