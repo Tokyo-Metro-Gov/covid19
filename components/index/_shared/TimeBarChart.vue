@@ -59,7 +59,7 @@
 
 <script lang="ts">
 import { ChartOptions } from 'chart.js'
-import dayjs from 'dayjs'
+import dayjs, { extend } from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
@@ -78,7 +78,7 @@ import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import { GraphDataType } from '@/utils/formatGraph'
 
-dayjs.extend(isBetween)
+extend(isBetween)
 
 type Data = {
   dataKind: 'transition' | 'cumulative'
