@@ -27,6 +27,7 @@
         :min="startDate"
         :max="endDate"
         :y-axis-max="scaledTicksYAxisMax"
+        :switch="dataKind"
       />
       <date-range-slider
         :min-date="chartData[0].label"

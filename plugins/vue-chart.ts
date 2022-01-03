@@ -18,6 +18,7 @@ type ChartVCProps = {
   min?: string
   max?: string
   yAxisMax?: number
+  switch?: string
 }
 
 const VueChartPlugin: Plugin = ({ app }) => {
@@ -75,6 +76,10 @@ const createCustomChart = () => {
           type: Number,
           default: 0,
         },
+        switch: {
+          type: String,
+          default: '',
+        },
       },
       watch: {
         displayLegends: watchDisplayLegends,
@@ -99,6 +104,17 @@ const createCustomChart = () => {
             v.ticks.max = value
           })
           this.$data._chart.update()
+        },
+        switch(newValue, oldValue) {
+          if (newValue !== oldValue) {
+            this.$data._chart.options.scales.xAxes.forEach((v: any) => {
+              v.ticks.min = this.min
+            })
+            this.$data._chart.options.scales.xAxes.forEach((v: any) => {
+              v.ticks.max = this.max
+            })
+            this.$data._chart.update()
+          }
         },
       },
       mounted() {
