@@ -12,7 +12,13 @@ type ChartVCMethod = {
   renderChart(chartData: ChartData, options: ChartOptions): void
 }
 type ChartVCComputed = unknown
-type ChartVCProps = { options: Object; displayLegends: boolean[] | null }
+type ChartVCProps = {
+  options: Object
+  displayLegends: boolean[] | null
+  min?: string
+  max?: string
+  yAxisMax?: number
+}
 
 const VueChartPlugin: Plugin = ({ app }) => {
   useDayjsAdapter(app.i18n)
@@ -57,12 +63,42 @@ const createCustomChart = () => {
           type: Object as PropType<ChartOptions>,
           default: () => {},
         },
+        min: {
+          type: String,
+          default: '',
+        },
+        max: {
+          type: String,
+          default: '',
+        },
+        yAxisMax: {
+          type: Number,
+          default: 0,
+        },
       },
       watch: {
         displayLegends: watchDisplayLegends,
         width() {
           setTimeout(() => this.$data._chart.resize())
           this.$parent.$emit('update-width')
+        },
+        min(value) {
+          this.$data._chart.options.scales.xAxes.forEach((v: any) => {
+            v.ticks.min = value
+          })
+          this.$data._chart.update()
+        },
+        max(value) {
+          this.$data._chart.options.scales.xAxes.forEach((v: any) => {
+            v.ticks.max = value
+          })
+          this.$data._chart.update()
+        },
+        yAxisMax(value) {
+          this.$data._chart.options.scales.yAxes.forEach((v: any) => {
+            v.ticks.max = value
+          })
+          this.$data._chart.update()
         },
       },
       mounted() {
