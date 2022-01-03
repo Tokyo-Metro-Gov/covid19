@@ -26,6 +26,7 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable import/no-named-as-default-member */
 import dayjs from 'dayjs'
 import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
