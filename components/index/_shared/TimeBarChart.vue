@@ -96,8 +96,6 @@ type Computed = {
   }
   displayData: DisplayData
   displayOption: ChartOptions
-  displayDataHeader: DisplayData
-  displayOptionHeader: ChartOptions
   scaledTicksYAxisMax: number
   tableHeaders: TableHeader[]
   tableData: TableItem[]
