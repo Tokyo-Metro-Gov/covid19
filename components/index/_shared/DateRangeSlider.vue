@@ -94,12 +94,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   watch: {
     start(value) {
-      if (value >= 0 && value > this.end)
-        this.start = dayjs.unix(this.end).subtract(2, 'day').unix()
+      if (value >= 0 && value >= this.end)
+        this.start = dayjs.unix(this.end).subtract(14, 'day').unix()
     },
     end(value) {
-      if (value >= 0 && value < this.start)
-        this.end = dayjs.unix(this.start).add(2, 'day').unix()
+      if (value >= 0 && value <= this.start)
+        this.end = dayjs.unix(this.start).add(14, 'day').unix()
     },
   },
   computed: {
@@ -129,14 +129,14 @@ $h: 1.2rem;
 @mixin track() {
   width: 100%;
   height: 100%;
-  background: none; /* get rid of Firefox track background */
+  background: none;
 }
 
 @mixin thumb() {
-  border: none; /* get rid of Firefox thumb border */
+  border: none;
   width: $h;
   height: $h;
-  border-radius: 3em; /* get rid of Firefox corner rounding */
+  border-radius: 3em;
   background: currentColor;
   pointer-events: auto;
 }
@@ -156,9 +156,9 @@ input[type='range'] {
   grid-column: 1;
   grid-row: 2;
   margin: 0;
-  background: none; /* get rid of white Chrome background */
+  background: none;
   color: $gray-1;
-  font: inherit; /* fix too small font-size in both Chrome & Firefox */
+  font: inherit;
   pointer-events: none;
   width: 100%;
 
@@ -198,6 +198,7 @@ input[type='range'] {
 .range-slider-inner {
   display: grid;
   grid-template-rows: max-content $h;
+  grid-template-columns: auto;
   overflow: hidden;
   position: relative;
   margin: 1em auto;
