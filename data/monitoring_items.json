@@ -1,26 +1,26 @@
 {
-    "date": "2022\/1\/3 18:45",
+    "date": "2022\/1\/4 18:30",
     "data": {
         "専門家3行コメント": [
             {
                 "@ja": "新規陽性者数の7日間平均は4週間連続して増加傾向にあり、注視する必要がある。都内でも、海外への渡航歴がなく、感染経路が不明な変異株（オミクロン株）の陽性者が報告されており、感染経路が追えない事例からの感染拡大に警戒する必要がある。",
-                "@en": "新規陽性者数の7日間平均は4週間連続して増加傾向にあり、注視する必要がある。都内でも、海外への渡航歴がなく、感染経路が不明な変異株（オミクロン株）の陽性者が報告されており、感染経路が追えない事例からの感染拡大に警戒する必要がある。\n"
+                "@en": "The 7-day average of new positive cases has been on an increasing trend for four consecutive weeks, making it essential to closely monitor the situation. Untraceable cases of people infected with the Omicron variant, those with no recent overseas travel history, have also been reported in Tokyo. As such, there is the need to be vigilant against a surge in infections driven by untraceable cases."
             },
             {
                 "@ja": "変異株（オミクロン株）の陽性者は、現時点では、重症度にかかわらず個室隔離等の入院が必要とされており、入院患者数の増加に影響を与えている。疑い患者も同様な取扱いを行う必要があるため、病床がひっ迫する恐れがある。\n",
-                "@en": "変異株（オミクロン株）の陽性者は、現時点では、重症度にかかわらず個室隔離等の入院が必要とされており、入院患者数の増加に影響を与えている。疑い患者も同様な取扱いを行う必要があるため、病床がひっ迫する恐れがある。\n"
+                "@en": "Currently, it is necessary for patients infected with the Omicron variant to be hospitalized and kept isolated in private rooms, etc., regardless of the severity of illness. This is resulting in a rise in hospitalizations. Since suspected cases must be handled in the same way, this could lead to a shortage of hospital beds. "
             }
         ],
-        "(1)新規陽性者数": 75.7,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 59.3,
-        "(3)新規陽性者における接触歴等不明者（人数）": 47.7,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 206.2,
-        "(4)PCR・抗原検査（陽性率）": 1.3,
-        "(4)PCR・抗原検査（検査人数）": 3902.3,
-        "(5)救急医療の東京ルールの適用件数": 63,
-        "(6)入院患者数": 263,
+        "(1)新規陽性者数": 90.7,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 79.9,
+        "(3)新規陽性者における接触歴等不明者（人数）": 59.6,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 254.3,
+        "(4)PCR・抗原検査（陽性率）": 1.7,
+        "(4)PCR・抗原検査（検査人数）": 4297.3,
+        "(5)救急医療の東京ルールの適用件数": 62,
+        "(6)入院患者数": 314,
         "(6)入院患者確保病床数": 4669,
-        "(7)重症患者数": 1,
+        "(7)重症患者数": 2,
         "(7)重症患者確保病床数": 346,
         "総括コメント-感染状況": {
             "date": "2021-12-29",
