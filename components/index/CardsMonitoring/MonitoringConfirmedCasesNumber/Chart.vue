@@ -297,7 +297,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 
       const rangeDate = this.labels.filter((item) => {
         const date = dayjs(item)
-        return date.isBetween(this.startDate, this.endDate)
+        return date.isBetween(this.startDate, this.endDate, null, '[]')
       })
 
       return {

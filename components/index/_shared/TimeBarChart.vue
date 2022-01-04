@@ -371,7 +371,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const values = this.chartData
         .filter((item) => {
           const date = dayjs(item.label)
-          return date.isBetween(this.startDate, this.endDate)
+          return date.isBetween(this.startDate, this.endDate, null, '[]')
         })
         .map((d) => d[dataKind])
       const max = Math.max(...values)
