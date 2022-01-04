@@ -1,25 +1,29 @@
 <template>
-  <div class="range-slider">
-    <span class="range-slider-title">{{ $t('表示期間') }}</span>
-    <div class="range-slider-inner">
-      <input
-        :id="`start-${id}`"
-        v-model="start"
-        type="range"
-        :min="min"
-        :max="max"
-        :step="step"
-        @change="$emit('start-date', getDateFormat($event.target.value))"
-      />
-      <input
-        :id="`end-${id}`"
-        v-model="end"
-        type="range"
-        :min="min"
-        :max="max"
-        :step="step"
-        @change="$emit('end-date', getDateFormat($event.target.value))"
-      />
+  <div class="range-slider" role="group" aria-labelledby="date-range">
+    <span id="date-range" class="range-slider-title">{{ $t('表示期間') }}</span>
+    <div class="range-slider-container">
+      <div class="range-slider-inner">
+        <label class="sr-only" :for="`start-${id}`">{{ $t('開始') }}</label>
+        <input
+          :id="`start-${id}`"
+          v-model="start"
+          type="range"
+          :min="min"
+          :max="max"
+          :step="step"
+          @change="$emit('start-date', getDateFormat($event.target.value))"
+        />
+        <label class="sr-only" :for="`end-${id}`">{{ $t('終了') }}</label>
+        <input
+          :id="`end-${id}`"
+          v-model="end"
+          type="range"
+          :min="min"
+          :max="max"
+          :step="step"
+          @change="$emit('end-date', getDateFormat($event.target.value))"
+        />
+      </div>
       <div class="range-slider-label">
         <output :for="`start-${id}`">
           {{ $t(`{date}から`, { date: getDisplayDate(start) }) }}
@@ -120,51 +124,64 @@ export default options
 </script>
 
 <style scoped lang="scss">
+$h: 1.2rem;
+
+@mixin track() {
+  width: 100%;
+  height: 100%;
+  background: none; /* get rid of Firefox track background */
+}
+
+@mixin thumb() {
+  border: none; /* get rid of Firefox thumb border */
+  width: $h;
+  height: $h;
+  border-radius: 3em; /* get rid of Firefox corner rounding */
+  background: currentColor;
+  pointer-events: auto;
+}
+
+.sr-only {
+  position: absolute;
+  clip-path: inset(50%);
+}
+
 input[type='range'] {
+  &::-webkit-slider-runnable-track,
+  &::-webkit-slider-thumb,
+  & {
+    -webkit-appearance: none;
+  }
+
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+  background: none; /* get rid of white Chrome background */
+  color: $gray-1;
+  font: inherit; /* fix too small font-size in both Chrome & Firefox */
+  pointer-events: none;
   width: 100%;
-  height: 30px;
-  overflow: hidden;
-  cursor: pointer;
-  outline: none;
-}
 
-input[type='range'],
-input[type='range']::-webkit-slider-runnable-track,
-input[type='range']::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  background: none;
-}
+  &::-webkit-slider-runnable-track {
+    @include track;
+  }
 
-input[type='range']::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 2px;
-  background: $green-1;
-}
+  &::-moz-range-track {
+    @include track;
+  }
 
-input[type='range']:nth-child(2)::-webkit-slider-runnable-track {
-  background: none;
-}
+  &::-webkit-slider-thumb {
+    @include thumb;
+  }
 
-input[type='range']::-webkit-slider-thumb {
-  position: relative;
-  height: 15px;
-  width: 15px;
-  margin-top: -7px;
-  background: #fff;
-  border: 1px solid $green-1;
-  border-radius: 25px;
-  z-index: 1;
-}
-
-input[type='range']:nth-child(1)::-webkit-slider-thumb {
-  z-index: 2;
+  &::-moz-range-thumb {
+    @include thumb;
+  }
 }
 
 .range-slider {
   width: 100%;
-  height: 60px;
   display: flex;
-  justify-content: space-between;
   margin-top: 16px;
 }
 
@@ -174,9 +191,18 @@ input[type='range']:nth-child(1)::-webkit-slider-thumb {
   @include font-size(14);
 }
 
-.range-slider-inner {
-  position: relative;
+.range-slider-container {
   flex: 1 1 auto;
+}
+
+.range-slider-inner {
+  display: grid;
+  grid-template-rows: max-content $h;
+  overflow: hidden;
+  position: relative;
+  margin: 1em auto;
+  width: 100%;
+  background: linear-gradient(0deg, $gray-4 $h, transparent 0);
 }
 
 .range-slider input {
@@ -184,10 +210,9 @@ input[type='range']:nth-child(1)::-webkit-slider-thumb {
 }
 
 .range-slider-label {
-  flex: 0 0 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 28px;
+  margin: 10px 0;
 
   @include font-size(14);
 }
