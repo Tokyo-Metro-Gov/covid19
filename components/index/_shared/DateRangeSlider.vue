@@ -1,7 +1,9 @@
 <template>
   <div class="range-slider">
+    <span class="range-slider-title">{{ $t('表示期間') }}</span>
     <div class="range-slider-inner">
       <input
+        :id="`start-${id}`"
         v-model="start"
         type="range"
         :min="min"
@@ -10,6 +12,7 @@
         @change="$emit('start-date', getDateFormat($event.target.value))"
       />
       <input
+        :id="`end-${id}`"
         v-model="end"
         type="range"
         :min="min"
@@ -17,9 +20,13 @@
         :step="step"
         @change="$emit('end-date', getDateFormat($event.target.value))"
       />
-      <div class="label">
-        <span>{{ getDisplayDate(start) }}</span>
-        <span>{{ getDisplayDate(end) }}</span>
+      <div class="range-slider-label">
+        <output :for="`start-${id}`">
+          {{ $t(`{date}から`, { date: getDisplayDate(start) }) }}
+        </output>
+        <output :for="`end-${id}`">
+          {{ $t(`{date}まで`, { date: getDisplayDate(end) }) }}
+        </output>
       </div>
     </div>
   </div>
@@ -48,6 +55,7 @@ type Computed = {
 }
 
 type Props = {
+  id: string
   minDate: string
   maxDate: string
 }
@@ -60,6 +68,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Props
 > = {
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     minDate: {
       type: String,
       default: '2020-01-01',
@@ -152,19 +164,26 @@ input[type='range']:nth-child(1)::-webkit-slider-thumb {
   width: 100%;
   height: 60px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.range-slider-title {
+  margin: 6px 12px 0 0;
+
+  @include font-size(14);
 }
 
 .range-slider-inner {
   position: relative;
-  flex: 0 0 90%;
+  flex: 1 1 auto;
 }
 
 .range-slider input {
   position: absolute;
 }
 
-.label {
+.range-slider-label {
   flex: 0 0 100%;
   display: flex;
   justify-content: space-between;
