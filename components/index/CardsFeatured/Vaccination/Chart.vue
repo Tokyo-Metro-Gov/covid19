@@ -48,6 +48,7 @@
         :y-axis-max="scaledTicksYAxisMax"
       />
       <date-range-slider
+        :id="titleId"
         :min-date="minDate"
         :max-date="maxDate"
         @start-date="startDate = $event"
