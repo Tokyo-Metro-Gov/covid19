@@ -53,7 +53,7 @@
 </template>
 
 <script lang="ts">
-import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
+import { ChartOptions } from 'chart.js'
 import dayjs, { extend } from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
 import Vue from 'vue'
@@ -68,12 +68,7 @@ import DataViewTable, {
 } from '@/components/index/_shared/DataViewTable.vue'
 import DateRangeSlider from '@/components/index/_shared/DateRangeSlider.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
-import {
-  DataSets,
-  DataSetsPoint,
-  DisplayData,
-  yAxesBgPlugin,
-} from '@/plugins/vue-chart'
+import { DataSets, DataSetsPoint, DisplayData } from '@/plugins/vue-chart'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesStyle } from '@/utils/colors'
 import { GraphDataType } from '@/utils/formatGraph'
@@ -122,7 +117,6 @@ type Props = {
   dashedRectangleRange: string
   addedValue: number
   tableLabels: string[] | TranslateResult[]
-  yAxesBgPlugin: PluginServiceRegistrationOptions[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -186,10 +180,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableLabels: {
       type: Array,
       default: () => [],
-    },
-    yAxesBgPlugin: {
-      type: Array,
-      default: () => yAxesBgPlugin,
     },
   },
   data: () => ({

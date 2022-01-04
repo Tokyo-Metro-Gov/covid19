@@ -54,8 +54,8 @@
         :y-axis-max="scaledTicksYAxisMax"
       />
       <date-range-slider
-        :min-date="labels[0]"
-        :max-date="labels[labels.length - 1]"
+        :min-date="minDate"
+        :max-date="maxDate"
         @start-date="startDate = $event"
         @end-date="endDate = $event"
       />
@@ -84,7 +84,7 @@
 </template>
 
 <script lang="ts">
-import { ChartOptions, PluginServiceRegistrationOptions } from 'chart.js'
+import { ChartOptions } from 'chart.js'
 import dayjs, { extend } from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
 import type { PropType } from 'vue'
@@ -98,7 +98,7 @@ import DataViewTable, {
 } from '@/components/index/_shared/DataViewTable.vue'
 import DateRangeSlider from '@/components/index/_shared/DateRangeSlider.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
-import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
+import { DisplayData } from '@/plugins/vue-chart'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
@@ -120,7 +120,6 @@ type Data = {
   canvas: boolean
   displayLegends: boolean[]
   colors: SurfaceStyle[]
-  yAxesBgPlugin: PluginServiceRegistrationOptions[]
   startDate: string
   endDate: string
   minDate: string
@@ -233,7 +232,6 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       canvas: true,
       displayLegends: [true, true],
       colors,
-      yAxesBgPlugin,
       startDate: '2020-01-01',
       endDate: dayjs().format('YYYY-MM-DD'),
       minDate: dayjs(this.labels[0]).format('YYYY-MM-DD'),
