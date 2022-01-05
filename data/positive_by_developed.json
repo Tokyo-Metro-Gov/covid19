@@ -1,6 +1,6 @@
 {
-    "date": "2022\/1\/4 18:30",
-    "unknown_count": 117566,
+    "date": "2022\/1\/5 19:00",
+    "unknown_count": 117635,
     "data": [
         {
             "developed_date": "2020-01-14",
@@ -2848,46 +2848,50 @@
         },
         {
             "developed_date": "2021-12-25",
-            "count": 38
+            "count": 39
         },
         {
             "developed_date": "2021-12-26",
-            "count": 55
-        },
-        {
-            "developed_date": "2021-12-27",
-            "count": 46
-        },
-        {
-            "developed_date": "2021-12-28",
-            "count": 57
-        },
-        {
-            "developed_date": "2021-12-29",
-            "count": 52
-        },
-        {
-            "developed_date": "2021-12-30",
-            "count": 62
-        },
-        {
-            "developed_date": "2021-12-31",
             "count": 56
         },
         {
+            "developed_date": "2021-12-27",
+            "count": 48
+        },
+        {
+            "developed_date": "2021-12-28",
+            "count": 59
+        },
+        {
+            "developed_date": "2021-12-29",
+            "count": 57
+        },
+        {
+            "developed_date": "2021-12-30",
+            "count": 71
+        },
+        {
+            "developed_date": "2021-12-31",
+            "count": 83
+        },
+        {
             "developed_date": "2022-01-01",
-            "count": 68
+            "count": 106
         },
         {
             "developed_date": "2022-01-02",
-            "count": 53
+            "count": 128
         },
         {
             "developed_date": "2022-01-03",
-            "count": 16
+            "count": 134
         },
         {
             "developed_date": "2022-01-04",
+            "count": 43
+        },
+        {
+            "developed_date": "2022-01-05",
             "count": 0
         }
     ]
