@@ -5,10 +5,32 @@
         mdi-information
       </v-icon>
       <a
+        href="https://www.pref.kagoshima.jp/ae06/documents/vaccine-tuikasessyu.html"
+        target="_blank"
+      >
+        {{ $t('追加(3回目)接種に関する情報はこちら') }}
+      </a>
+    </h3>
+    <h3 class="WhatsNew-heading">
+      <v-icon size="24" class="WhatsNew-heading-icon">
+        mdi-information
+      </v-icon>
+      <a
         href="https://www.pref.kagoshima.jp/ae06/az-wkuthin.html"
         target="_blank"
       >
         {{ $t('アストラゼネカ社ワクチン接種会場に関する情報はこちら') }}
+      </a>
+    </h3>
+    <h3 class="WhatsNew-heading">
+      <v-icon size="24" class="WhatsNew-heading-icon">
+        mdi-information
+      </v-icon>
+      <a
+        href="https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/covid19-vacine-syokaisessyu.html"
+        target="_blank"
+      >
+        {{ $t('1回目2回目接種に関する情報はこちら') }}
       </a>
     </h3>
     <h3 class="WhatsNew-heading">
