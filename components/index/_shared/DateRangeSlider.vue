@@ -11,6 +11,8 @@
           :min="min"
           :max="max"
           :step="step"
+          tabindex="0"
+          :aria-valuetext="$t(`{date}から`, { date: getDisplayDate(start) })"
           @change="$emit('start-date', getDateFormat($event.target.value))"
         />
         <label class="sr-only" :for="`end-${id}`">{{ $t('終了') }}</label>
@@ -21,6 +23,8 @@
           :min="min"
           :max="max"
           :step="step"
+          tabindex="0"
+          :aria-valuetext="$t(`{date}まで`, { date: getDisplayDate(end) })"
           @change="$emit('end-date', getDateFormat($event.target.value))"
         />
       </div>
@@ -199,7 +203,6 @@ input[type='range'] {
   display: grid;
   grid-template-rows: max-content $h;
   grid-template-columns: auto;
-  overflow: hidden;
   position: relative;
   margin: 1em auto;
   width: 100%;
