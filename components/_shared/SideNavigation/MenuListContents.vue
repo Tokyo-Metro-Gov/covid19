@@ -97,7 +97,7 @@ export default Vue.extend({
   }
 
   &.nuxt-link-exact-active {
-    text-shadow: 0 0 1px $gray-1;
+    text-shadow: 0 0 1px $green-1;
 
     &:link,
     &:hover,
