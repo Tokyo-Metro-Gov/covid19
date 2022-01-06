@@ -11,7 +11,6 @@
           :min="min"
           :max="max"
           :step="step"
-          tabindex="0"
           :aria-valuetext="$t(`{date}から`, { date: getDisplayDate(start) })"
           @change="$emit('start-date', getDateFormat($event.target.value))"
         />
@@ -23,7 +22,6 @@
           :min="min"
           :max="max"
           :step="step"
-          tabindex="0"
           :aria-valuetext="$t(`{date}まで`, { date: getDisplayDate(end) })"
           @change="$emit('end-date', getDateFormat($event.target.value))"
         />
@@ -145,6 +143,11 @@ $h: 1.2rem;
   pointer-events: auto;
 }
 
+@mixin thumb-focus() {
+  outline-offset: 2px;
+  outline: 2px solid $focus;
+}
+
 .sr-only {
   position: absolute;
   clip-path: inset(50%);
@@ -155,6 +158,10 @@ input[type='range'] {
   &::-webkit-slider-thumb,
   & {
     -webkit-appearance: none;
+  }
+
+  &:focus-visible {
+    outline: none;
   }
 
   grid-column: 1;
@@ -180,6 +187,14 @@ input[type='range'] {
 
   &::-moz-range-thumb {
     @include thumb;
+  }
+
+  &:focus-visible::-webkit-slider-thumb {
+    @include thumb-focus;
+  }
+
+  &:focus-visible::-moz-range-thumb {
+    @include thumb-focus;
   }
 }
 
@@ -207,10 +222,6 @@ input[type='range'] {
   margin: 1em auto;
   width: 100%;
   background: linear-gradient(0deg, $gray-4 $h, transparent 0);
-}
-
-.range-slider input {
-  position: absolute;
 }
 
 .range-slider-label {
