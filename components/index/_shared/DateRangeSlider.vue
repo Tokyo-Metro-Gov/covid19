@@ -160,7 +160,7 @@ input[type='range'] {
     -webkit-appearance: none;
   }
 
-  &:focus-visible {
+  &:focus {
     outline: none;
   }
 
