@@ -24,10 +24,14 @@
         <tbody>
           <tr>
             <td class="content importantContact" v-bind="headingAttrs">
-              {{ $t('新型コロナウイルス感染症の予防・検査・医療に関すること') }}
+              {{
+                $t(
+                  '感染の予防に関することや、心配な症状が出た時の対応など、新型コロナウイルス感染症に関する相談'
+                )
+              }}
             </td>
             <td class="bureau importantContact">
-              {{ $t('新型コロナコールセンター') }}
+              {{ $t('新型コロナ・オミクロン株コールセンター') }}
             </td>
             <td class="tel">
               <a href="tel:0570-550571" class="importantContact">0570-550571</a

@@ -13,7 +13,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (4.1.0)
-    diff-lcs (1.4.4)
+    diff-lcs (1.5.0)
     matrix (0.4.2)
     mini_mime (1.1.2)
     nokogiri (1.12.5-x86_64-darwin)
@@ -28,7 +28,7 @@ GEM
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    regexp_parser (2.1.1)
+    regexp_parser (2.2.0)
     rexml (3.2.5)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
@@ -44,7 +44,7 @@ GEM
       rspec-support (~> 3.10.0)
     rspec-support (3.10.3)
     rubyzip (2.3.2)
-    selenium-webdriver (4.0.3)
+    selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
@@ -62,7 +62,7 @@ DEPENDENCIES
   selenium-webdriver
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 3.0.3p157
 
 BUNDLED WITH
    2.2.15

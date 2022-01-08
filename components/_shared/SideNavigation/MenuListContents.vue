@@ -89,15 +89,15 @@ export default Vue.extend({
   }
 
   &:hover {
-    font-weight: 600;
+    text-shadow: 0 0 1px $gray-1;
   }
 
   &:focus {
-    font-weight: 600;
+    text-shadow: 0 0 1px $gray-1;
   }
 
   &.nuxt-link-exact-active {
-    font-weight: 600;
+    text-shadow: 0 0 1px $green-1;
 
     &:link,
     &:hover,

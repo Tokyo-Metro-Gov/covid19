@@ -1,5 +1,5 @@
 {
-    "date": "2021\/11\/19 17:30",
+    "date": "2022\/1\/8 19:00",
     "data": [
         {
             "date": "2020-02-28",
@@ -3155,6 +3155,256 @@
             "date": "2021-11-19",
             "hospitalized": 90,
             "severe_case": 9
+        },
+        {
+            "date": "2021-11-20",
+            "hospitalized": 86,
+            "severe_case": 9
+        },
+        {
+            "date": "2021-11-21",
+            "hospitalized": 82,
+            "severe_case": 9
+        },
+        {
+            "date": "2021-11-22",
+            "hospitalized": 82,
+            "severe_case": 8
+        },
+        {
+            "date": "2021-11-23",
+            "hospitalized": 79,
+            "severe_case": 8
+        },
+        {
+            "date": "2021-11-24",
+            "hospitalized": 72,
+            "severe_case": 8
+        },
+        {
+            "date": "2021-11-25",
+            "hospitalized": 72,
+            "severe_case": 8
+        },
+        {
+            "date": "2021-11-26",
+            "hospitalized": 72,
+            "severe_case": 7
+        },
+        {
+            "date": "2021-11-27",
+            "hospitalized": 66,
+            "severe_case": 7
+        },
+        {
+            "date": "2021-11-28",
+            "hospitalized": 66,
+            "severe_case": 7
+        },
+        {
+            "date": "2021-11-29",
+            "hospitalized": 67,
+            "severe_case": 6
+        },
+        {
+            "date": "2021-11-30",
+            "hospitalized": 69,
+            "severe_case": 6
+        },
+        {
+            "date": "2021-12-01",
+            "hospitalized": 74,
+            "severe_case": 4
+        },
+        {
+            "date": "2021-12-02",
+            "hospitalized": 76,
+            "severe_case": 4
+        },
+        {
+            "date": "2021-12-03",
+            "hospitalized": 74,
+            "severe_case": 2
+        },
+        {
+            "date": "2021-12-04",
+            "hospitalized": 72,
+            "severe_case": 2
+        },
+        {
+            "date": "2021-12-05",
+            "hospitalized": 76,
+            "severe_case": 2
+        },
+        {
+            "date": "2021-12-06",
+            "hospitalized": 75,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-07",
+            "hospitalized": 69,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-08",
+            "hospitalized": 70,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-09",
+            "hospitalized": 69,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-10",
+            "hospitalized": 66,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-11",
+            "hospitalized": 72,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-12",
+            "hospitalized": 76,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-13",
+            "hospitalized": 77,
+            "severe_case": 4
+        },
+        {
+            "date": "2021-12-14",
+            "hospitalized": 88,
+            "severe_case": 4
+        },
+        {
+            "date": "2021-12-15",
+            "hospitalized": 80,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-16",
+            "hospitalized": 87,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-17",
+            "hospitalized": 93,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-18",
+            "hospitalized": 101,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-19",
+            "hospitalized": 96,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-20",
+            "hospitalized": 119,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-21",
+            "hospitalized": 144,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-22",
+            "hospitalized": 155,
+            "severe_case": 3
+        },
+        {
+            "date": "2021-12-23",
+            "hospitalized": 160,
+            "severe_case": 2
+        },
+        {
+            "date": "2021-12-24",
+            "hospitalized": 176,
+            "severe_case": 2
+        },
+        {
+            "date": "2021-12-25",
+            "hospitalized": 178,
+            "severe_case": 2
+        },
+        {
+            "date": "2021-12-26",
+            "hospitalized": 180,
+            "severe_case": 2
+        },
+        {
+            "date": "2021-12-27",
+            "hospitalized": 202,
+            "severe_case": 2
+        },
+        {
+            "date": "2021-12-28",
+            "hospitalized": 203,
+            "severe_case": 2
+        },
+        {
+            "date": "2021-12-29",
+            "hospitalized": 206,
+            "severe_case": 1
+        },
+        {
+            "date": "2021-12-30",
+            "hospitalized": 223,
+            "severe_case": 1
+        },
+        {
+            "date": "2021-12-31",
+            "hospitalized": 223,
+            "severe_case": 1
+        },
+        {
+            "date": "2022-01-01",
+            "hospitalized": 226,
+            "severe_case": 1
+        },
+        {
+            "date": "2022-01-02",
+            "hospitalized": 241,
+            "severe_case": 1
+        },
+        {
+            "date": "2022-01-03",
+            "hospitalized": 263,
+            "severe_case": 1
+        },
+        {
+            "date": "2022-01-04",
+            "hospitalized": 314,
+            "severe_case": 2
+        },
+        {
+            "date": "2022-01-05",
+            "hospitalized": 373,
+            "severe_case": 3
+        },
+        {
+            "date": "2022-01-06",
+            "hospitalized": 484,
+            "severe_case": 3
+        },
+        {
+            "date": "2022-01-07",
+            "hospitalized": 554,
+            "severe_case": 3
+        },
+        {
+            "date": "2022-01-08",
+            "hospitalized": 659,
+            "severe_case": 4
         }
     ]
 }

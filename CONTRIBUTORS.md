@@ -181,6 +181,7 @@ Tokyo Covid-19 response site contributors
 | MATSUNO Tomoo | [@tmatsuno](https://github.com/tmatsuno) | | Frontend / TMG-DevRel |
 | Daichi Hata (Atria) | [@Atria64](https://github.com/Atria64) | [@AtriaSoft](https://twitter.com/AtriaSoft) | Coding |
 | [Meiryo7743](https://meiryo7743.net) | [@Meiryo7743](https://github.com/Meiryo7743) | | Coding |
+| knknk98 | [@knknk98](https://github.com/knknk98) | | Coding |
 
 ご協力に感謝です！！！
 
