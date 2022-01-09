@@ -1,0 +1,36 @@
+name: Copy summary
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 12 * * *'
+
+jobs:
+  copy-target:
+      name: copy target.yml
+      runs-on: ubuntu-latest
+      steps:
+        - name: checkout
+          uses: actions/checkout@v2
+        - name: clone parser-covid19-oka-summary
+          uses: actions/checkout@v2
+          with:
+            repository: t-ube/parser-covid19-oka-summary
+            path: parser-covid19-oka-summary
+            token: ${{ secrets.GITHUB_TOKEN }}
+        - name: copy data
+          run:
+            cp -f parser-covid19-oka-summary/data/stopcovid19-data.json data/stopcovid19-data.json
+        - name: clean parser-covid19-oka-summary
+          run: rm -rf parser-covid19-oka-summary
+        - name: Commit files
+          run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add data/stopcovid19-data.json
+            git diff-index --quiet HEAD || git commit -m "[BOT] Copy from repo"
+        - name: Push changes
+          uses: ad-m/github-push-action@master
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: ${{ steps.extract_branch.outputs.branch }}
