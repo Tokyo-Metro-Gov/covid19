@@ -1,5 +1,5 @@
 {
-    "date": "2022\/1\/8 19:00",
+    "date": "2022\/1\/11 19:15",
     "data": [
         {
             "diagnosed_date": "2020-02-15",
@@ -7550,79 +7550,112 @@
         {
             "diagnosed_date": "2022-01-01",
             "positive_count": 65,
-            "negative_count": 3339,
+            "negative_count": 3346,
             "positive_rate": 1.2,
-            "weekly_average_diagnosed_count": 5412.6,
+            "weekly_average_diagnosed_count": 5413.6,
             "pcr_positive_count": 50,
-            "pcr_negative_count": 2376,
+            "pcr_negative_count": 2379,
             "antigen_positive_count": 15,
-            "antigen_negative_count": 963
+            "antigen_negative_count": 967
         },
         {
             "diagnosed_date": "2022-01-02",
             "positive_count": 93,
-            "negative_count": 3633,
+            "negative_count": 3629,
             "positive_rate": 1.3,
-            "weekly_average_diagnosed_count": 5531.4,
+            "weekly_average_diagnosed_count": 5531.9,
             "pcr_positive_count": 56,
-            "pcr_negative_count": 2553,
+            "pcr_negative_count": 2547,
             "antigen_positive_count": 37,
-            "antigen_negative_count": 1080
+            "antigen_negative_count": 1082
         },
         {
             "diagnosed_date": "2022-01-03",
-            "positive_count": 144,
-            "negative_count": 4014,
+            "positive_count": 145,
+            "negative_count": 4066,
             "positive_rate": 1.6,
-            "weekly_average_diagnosed_count": 5035.1,
-            "pcr_positive_count": 91,
-            "pcr_negative_count": 2653,
+            "weekly_average_diagnosed_count": 5043.1,
+            "pcr_positive_count": 92,
+            "pcr_negative_count": 2699,
             "antigen_positive_count": 53,
-            "antigen_negative_count": 1361
+            "antigen_negative_count": 1367
         },
         {
             "diagnosed_date": "2022-01-04",
-            "positive_count": 382,
-            "negative_count": 9439,
+            "positive_count": 392,
+            "negative_count": 9640,
             "positive_rate": 2.5,
-            "weekly_average_diagnosed_count": 5171.3,
-            "pcr_positive_count": 230,
-            "pcr_negative_count": 6659,
-            "antigen_positive_count": 152,
-            "antigen_negative_count": 2780
+            "weekly_average_diagnosed_count": 5209.4,
+            "pcr_positive_count": 239,
+            "pcr_negative_count": 6707,
+            "antigen_positive_count": 153,
+            "antigen_negative_count": 2933
         },
         {
             "diagnosed_date": "2022-01-05",
-            "positive_count": 588,
-            "negative_count": 10341,
+            "positive_count": 591,
+            "negative_count": 10516,
             "positive_rate": 3.4,
-            "weekly_average_diagnosed_count": 5872.6,
-            "pcr_positive_count": 426,
-            "pcr_negative_count": 7701,
-            "antigen_positive_count": 162,
-            "antigen_negative_count": 2640
+            "weekly_average_diagnosed_count": 5936.1,
+            "pcr_positive_count": 428,
+            "pcr_negative_count": 7814,
+            "antigen_positive_count": 163,
+            "antigen_negative_count": 2702
         },
         {
             "diagnosed_date": "2022-01-06",
-            "positive_count": 713,
-            "negative_count": 8872,
+            "positive_count": 762,
+            "negative_count": 9334,
             "positive_rate": 4.5,
-            "weekly_average_diagnosed_count": 6541.4,
-            "pcr_positive_count": 510,
-            "pcr_negative_count": 6668,
-            "antigen_positive_count": 203,
-            "antigen_negative_count": 2204
+            "weekly_average_diagnosed_count": 6678,
+            "pcr_positive_count": 548,
+            "pcr_negative_count": 7025,
+            "antigen_positive_count": 214,
+            "antigen_negative_count": 2309
         },
         {
             "diagnosed_date": "2022-01-07",
-            "positive_count": 845,
-            "negative_count": 6709,
-            "positive_rate": 5.8,
-            "weekly_average_diagnosed_count": 7025.3,
-            "pcr_positive_count": 623,
-            "pcr_negative_count": 4931,
-            "antigen_positive_count": 222,
-            "antigen_negative_count": 1778
+            "positive_count": 1014,
+            "negative_count": 10232,
+            "positive_rate": 5.7,
+            "weekly_average_diagnosed_count": 7689.3,
+            "pcr_positive_count": 763,
+            "pcr_negative_count": 7653,
+            "antigen_positive_count": 251,
+            "antigen_negative_count": 2579
+        },
+        {
+            "diagnosed_date": "2022-01-08",
+            "positive_count": 920,
+            "negative_count": 7214,
+            "positive_rate": 6.7,
+            "weekly_average_diagnosed_count": 8364,
+            "pcr_positive_count": 746,
+            "pcr_negative_count": 5497,
+            "antigen_positive_count": 174,
+            "antigen_negative_count": 1717
+        },
+        {
+            "diagnosed_date": "2022-01-09",
+            "positive_count": 592,
+            "negative_count": 3795,
+            "positive_rate": 7.5,
+            "weekly_average_diagnosed_count": 8459,
+            "pcr_positive_count": 461,
+            "pcr_negative_count": 2879,
+            "antigen_positive_count": 131,
+            "antigen_negative_count": 916
+        },
+        {
+            "diagnosed_date": "2022-01-10",
+            "positive_count": 421,
+            "negative_count": 2932,
+            "positive_rate": 8,
+            "weekly_average_diagnosed_count": 8336.4,
+            "pcr_positive_count": 303,
+            "pcr_negative_count": 1954,
+            "antigen_positive_count": 118,
+            "antigen_negative_count": 978
         }
     ]
 }
