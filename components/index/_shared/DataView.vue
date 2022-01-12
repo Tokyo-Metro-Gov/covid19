@@ -53,7 +53,10 @@
             !isAdditionalDescriptionExpanded && !isAlreadyShowingDescription,
         }"
       >
-        <div class="DataView-Description--Inner">
+        <div
+          v-if="$slots.additionalDescription"
+          class="DataView-Description--Inner"
+        >
           <slot name="additionalDescription" />
         </div>
 
