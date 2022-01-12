@@ -19,7 +19,7 @@
           <h4>{{ $t('ワクチン接種状況') }}</h4>
           <vaccination-status
             :aria-label="$t('ワクチン接種状況')"
-            :items="statuses['ワクチン接種状況']"
+            :items="statuses"
           />
         </section>
         <div :class="$style.link">

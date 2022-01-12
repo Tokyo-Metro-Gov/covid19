@@ -5,7 +5,7 @@
         <div :class="$style.content">
           <span>{{ $t('2回接種') }}</span>
           <value-with-translatable-unit
-            :value="items['2回接種'].toLocaleString()"
+            :value="items['ワクチン接種状況']['2回接種'].toLocaleString()"
             :unit="{ text: '人', translatable: true }"
             :bold="true"
           />
@@ -15,7 +15,7 @@
         <div :class="$style.content">
           <span>{{ $t('1回接種') }}</span>
           <value-with-translatable-unit
-            :value="items['1回接種'].toLocaleString()"
+            :value="items['ワクチン接種状況']['1回接種'].toLocaleString()"
             :unit="{ text: '人', translatable: true }"
             :bold="true"
           />
@@ -25,7 +25,7 @@
         <div :class="$style.content">
           <span>{{ $t('接種なし') }}</span>
           <value-with-translatable-unit
-            :value="items['接種なし'].toLocaleString()"
+            :value="items['ワクチン接種状況']['接種なし'].toLocaleString()"
             :unit="{ text: '人', translatable: true }"
             :bold="true"
           />
@@ -35,7 +35,7 @@
         <div :class="$style.content">
           <span>{{ $t('不明') }}</span>
           <value-with-translatable-unit
-            :value="items['不明'].toLocaleString()"
+            :value="items['ワクチン接種状況']['不明'].toLocaleString()"
             :unit="{ text: '人', translatable: true }"
             :bold="true"
           />
@@ -50,7 +50,7 @@ import type { PropType } from 'vue'
 import Vue from 'vue'
 
 import ValueWithTranslatableUnit from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/ValueWithTranslatableUnit.vue'
-import { InfectionMedicalcareSummary as IInfectionMedicalCareSummary } from '@/libraries/auto_generated/data_converter/convertInfectionMedicalcareSummary'
+import { Data as IInfectionMedicalCareSummaryData } from '@/libraries/auto_generated/data_converter/convertInfectionMedicalcareSummary'
 
 export default Vue.extend({
   components: {
@@ -58,7 +58,7 @@ export default Vue.extend({
   },
   props: {
     items: {
-      type: Object as PropType<IInfectionMedicalCareSummary>,
+      type: Object as PropType<IInfectionMedicalCareSummaryData>,
       required: true,
     },
   },
