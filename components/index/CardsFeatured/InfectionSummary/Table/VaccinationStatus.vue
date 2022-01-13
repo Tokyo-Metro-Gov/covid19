@@ -1,6 +1,16 @@
 <template>
   <div>
     <ul :class="$style.container">
+      <li v-if="items['ワクチン接種状況']['3回接種']" :class="[$style.box]">
+        <div :class="$style.content">
+          <span>{{ $t('3回接種') }}</span>
+          <value-with-translatable-unit
+            :value="items['ワクチン接種状況']['3回接種'].toLocaleString()"
+            :unit="{ text: '人', translatable: true }"
+            :bold="true"
+          />
+        </div>
+      </li>
       <li :class="[$style.box]">
         <div :class="$style.content">
           <span>{{ $t('2回接種') }}</span>
