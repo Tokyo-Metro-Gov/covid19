@@ -98,7 +98,7 @@ import type { PropType } from 'vue'
 import Vue from 'vue'
 
 import ValueWithTranslatableUnit from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/ValueWithTranslatableUnit.vue'
-import { InfectionMedicalcareSummary as IInfectionMedicalCareSummary } from '@/libraries/auto_generated/data_converter/convertInfectionMedicalcareSummary'
+import { Data as IInfectionMedicalCareSummaryData } from '@/libraries/auto_generated/data_converter/convertInfectionMedicalcareSummary'
 
 export default Vue.extend({
   components: {
@@ -106,7 +106,7 @@ export default Vue.extend({
   },
   props: {
     items: {
-      type: Object as PropType<IInfectionMedicalCareSummary>,
+      type: Object as PropType<IInfectionMedicalCareSummaryData>,
       required: true,
     },
   },
