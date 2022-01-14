@@ -30,6 +30,7 @@ export interface Data {
     うち65歳以上の高齢者数:    number;
     死亡者数:            number;
     都外からの持込検体による陽性数: number;
+    ワクチン接種状況:        { [key: string]: number | null };
 }
 
 // Converts JSON strings to/from your types
@@ -184,7 +185,7 @@ const typeMap: any = {
     "Data": o([
         { json: "日付", js: "日付", typ: Date },
         { json: "レベル", js: "レベル", typ: 0 },
-        { json: "病床使用率", js: "病床使用率", typ: 0 },
+        { json: "病床使用率", js: "病床使用率", typ: 3.14 },
         { json: "入院数", js: "入院数", typ: 0 },
         { json: "確保病床数", js: "確保病床数", typ: 0 },
         { json: "都基準重症病床使用率", js: "都基準重症病床使用率", typ: 3.14 },
@@ -199,5 +200,6 @@ const typeMap: any = {
         { json: "うち65歳以上の高齢者数", js: "うち65歳以上の高齢者数", typ: 0 },
         { json: "死亡者数", js: "死亡者数", typ: 0 },
         { json: "都外からの持込検体による陽性数", js: "都外からの持込検体による陽性数", typ: 0 },
+        { json: "ワクチン接種状況", js: "ワクチン接種状況", typ: m(u(0, null)) },
     ], false),
 };
