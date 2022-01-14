@@ -1,44 +1,39 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard InfectionMedicalCareSummaryCard">
+  <v-col cols="12" md="6" class="DataCard InfectionSummaryCard">
     <client-only>
       <data-view
-        :title="$t(`{date}の状況`, { date: formatDate(publicationDate) })"
-        title-id="infection-medical-care-summary"
+        :title="
+          $t(`{date}の患者の発生状況等`, { date: formatDate(publicationDate) })
+        "
+        title-id="infection-summary"
         :date="date"
       >
         <section :class="$style.section">
-          <h4>{{ $t('病床使用率等') }}</h4>
-          <frame :class="$style.frame" :level="statuses['レベル']" />
-          <medical-system :aria-label="$t('病床使用率等')" :items="statuses" />
-          <div :class="$style.link">
-            <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
-            <app-link
-              to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/kunishihyou.html"
-            >
-              {{ $t('国の新しいレベル分類のための指標について') }}
-            </app-link>
-          </div>
-        </section>
-        <section :class="$style.section">
-          <h4>{{ $t('患者の発生状況等') }}</h4>
           <infection-status
             :aria-label="$t('患者の発生状況等')"
             :items="statuses"
             :date="formatDate(statisticDate)"
           />
-          <div :class="$style.link">
-            <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
-            <app-link
-              to="https://www.fukushihoken.metro.tokyo.lg.jp/hodo/saishin/hassei.html"
-            >
-              {{
-                $t(
-                  '新型コロナウイルスに関連した患者の発生について（過去1週間分）'
-                )
-              }}
-            </app-link>
-          </div>
         </section>
+        <section :class="$style.section">
+          <h4>{{ $t('ワクチン接種状況') }}</h4>
+          <vaccination-status
+            :aria-label="$t('ワクチン接種状況')"
+            :items="statuses"
+          />
+        </section>
+        <div :class="$style.link">
+          <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
+          <app-link
+            to="https://www.fukushihoken.metro.tokyo.lg.jp/hodo/saishin/hassei.html"
+          >
+            {{
+              $t(
+                '新型コロナウイルスに関連した患者の発生について（過去1週間分）'
+              )
+            }}
+          </app-link>
+        </div>
       </data-view>
     </client-only>
   </v-col>
@@ -50,9 +45,8 @@ import Vue from 'vue'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
-import Frame from '@/components/index/CardsFeatured/InfectionMedicalCareSummary/Frame.vue'
-import InfectionStatus from '@/components/index/CardsFeatured/InfectionMedicalCareSummary/Table/InfectionStatus.vue'
-import MedicalSystem from '@/components/index/CardsFeatured/InfectionMedicalCareSummary/Table/MedicalSystem.vue'
+import InfectionStatus from '@/components/index/CardsFeatured/InfectionSummary/Table/InfectionStatus.vue'
+import VaccinationStatus from '@/components/index/CardsFeatured/InfectionSummary/Table/VaccinationStatus.vue'
 import {
   Data as IInfectionMedicalCareSummaryData,
   InfectionMedicalcareSummary as IInfectionMedicalCareSummary,
@@ -78,8 +72,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     AppLink,
     DataView,
     InfectionStatus,
-    MedicalSystem,
-    Frame,
+    VaccinationStatus,
   },
   data() {
     return {
@@ -115,12 +108,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 
 <style lang="scss" module>
 .section {
-  margin: 20px 0;
-
-  /* h タグが連続するため DataView-Content の margin を少し打ち消す */
-  &:first-child {
-    margin-top: -10px;
-  }
+  margin: 10px 0 20px;
 
   h4 {
     color: $gray-2;

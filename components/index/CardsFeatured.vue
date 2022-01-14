@@ -8,11 +8,12 @@ import Vue from 'vue'
 
 import CardsLazyRow from '@/components/index/_shared/CardsLazyRow.vue'
 
-// 病床使用率等・患者の発生状況等（サマリ）
-const InfectionMedicalCareSummaryCard = () =>
-  import(
-    '@/components/index/CardsFeatured/InfectionMedicalCareSummary/Card.vue'
-  )
+// 病床使用率等（サマリ）
+const MedicalCareSummaryCard = () =>
+  import('@/components/index/CardsFeatured/MedicalCareSummary/Card.vue')
+// 患者の発生状況等（サマリ）
+const InfectionSummaryCard = () =>
+  import('@/components/index/CardsFeatured/InfectionSummary/Card.vue')
 // 検査陽性者の状況
 const ConfirmedCasesDetailsCard = () =>
   import('@/components/index/CardsFeatured/ConfirmedCasesDetails/Card.vue')
@@ -50,9 +51,9 @@ export default Vue.extend({
   data() {
     return {
       rows: [
-        [InfectionMedicalCareSummaryCard, ConfirmedCasesDetailsCard],
-        [MonitoringItemsOverviewCard, MonitoringCommentCard],
-        [VaccinationCard],
+        [MedicalCareSummaryCard, InfectionSummaryCard],
+        [ConfirmedCasesDetailsCard, MonitoringItemsOverviewCard],
+        [MonitoringCommentCard, VaccinationCard],
         [ConfirmedCasesNumberCard, TestedNumberCard],
         [
           TokyoFeverConsultationCenterReportsNumberCard,
