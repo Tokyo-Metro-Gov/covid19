@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/en/cards/medical-care-summary", {data:[{}],fetch:{},mutations:[]});
