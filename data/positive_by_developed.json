@@ -1,6 +1,6 @@
 {
-    "date": "2022\/1\/15 19:30",
-    "unknown_count": 121316,
+    "date": "2022\/1\/16 20:00",
+    "unknown_count": 122178,
     "data": [
         {
             "developed_date": "2020-01-14",
@@ -1468,7 +1468,7 @@
         },
         {
             "developed_date": "2021-01-14",
-            "count": 737
+            "count": 739
         },
         {
             "developed_date": "2021-01-15",
@@ -2808,7 +2808,7 @@
         },
         {
             "developed_date": "2021-12-15",
-            "count": 21
+            "count": 22
         },
         {
             "developed_date": "2021-12-16",
@@ -2836,7 +2836,7 @@
         },
         {
             "developed_date": "2021-12-22",
-            "count": 31
+            "count": 32
         },
         {
             "developed_date": "2021-12-23",
@@ -2876,63 +2876,67 @@
         },
         {
             "developed_date": "2022-01-01",
-            "count": 253
+            "count": 254
         },
         {
             "developed_date": "2022-01-02",
-            "count": 396
+            "count": 397
         },
         {
             "developed_date": "2022-01-03",
-            "count": 631
+            "count": 634
         },
         {
             "developed_date": "2022-01-04",
-            "count": 822
+            "count": 827
         },
         {
             "developed_date": "2022-01-05",
-            "count": 950
+            "count": 956
         },
         {
             "developed_date": "2022-01-06",
-            "count": 1084
+            "count": 1094
         },
         {
             "developed_date": "2022-01-07",
-            "count": 1127
+            "count": 1152
         },
         {
             "developed_date": "2022-01-08",
-            "count": 1156
+            "count": 1187
         },
         {
             "developed_date": "2022-01-09",
-            "count": 1323
-        },
-        {
-            "developed_date": "2022-01-10",
-            "count": 2047
-        },
-        {
-            "developed_date": "2022-01-11",
-            "count": 2567
-        },
-        {
-            "developed_date": "2022-01-12",
-            "count": 2313
-        },
-        {
-            "developed_date": "2022-01-13",
             "count": 1379
         },
         {
+            "developed_date": "2022-01-10",
+            "count": 2143
+        },
+        {
+            "developed_date": "2022-01-11",
+            "count": 2817
+        },
+        {
+            "developed_date": "2022-01-12",
+            "count": 2888
+        },
+        {
+            "developed_date": "2022-01-13",
+            "count": 2449
+        },
+        {
             "developed_date": "2022-01-14",
-            "count": 318
+            "count": 1258
         },
         {
             "developed_date": "2022-01-15",
-            "count": 1
+            "count": 238
+        },
+        {
+            "developed_date": "2022-01-16",
+            "count": 0
         }
     ]
 }
