@@ -1,41 +1,41 @@
 {
-    "date": "2022\/1\/19 19:30",
+    "date": "2022\/1\/20 20:00",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "感染が急速に拡大すると、医療従事者、エッセンシャルワーカーを含むすべての都民が、感染者や濃厚接触者となるリスクが高まり、社会活動の停止を余儀なくされる可能性がある。都民の生活を守るための対策を早急に検討する必要がある。",
-                "@en": "If there is a rapid surge in infections, all Tokyo citizens, including health care workers and essential workers, will be at higher risk of getting infected and becoming close contacts, leading to the possibility that social activity will be forced to come to a halt.There is the need to immediately examine measures to maintain everyday life for Tokyo citizens."
+                "@ja": "感染拡大が急速に進んでおり、社会活動の停止を余儀なくされる可能性がある。社会活動を維持し、都民の生活を守るための対策を早急に講じる必要がある。65歳以上の新規陽性者数が大幅に増加しており、今後の動向を注視する必要がある。",
+                "@en": "感染拡大が急速に進んでおり、社会活動の停止を余儀なくされる可能性がある。社会活動を維持し、都民の生活を守るための対策を早急に講じる必要がある。65歳以上の新規陽性者数が大幅に増加しており、今後の動向を注視する必要がある。"
             },
             {
-                "@ja": "第5波を超える感染状況に対応できるよう、感染者の入院医療、宿泊及び自宅療養の療養先をより効率的に選定し、円滑に療養生活へ移行できる体制を迅速に構築する必要がある。",
-                "@en": "To facilitate a response to an infection situation that surpasses that of the fifth wave, there is the need to promptly establish systems to more efficiently determine where recovery of persons infected should take place (in a hospital, designated hotel for recovery, or at home), so that they can smoothly transition to recovery."
+                "@ja": "高齢者の重症患者が増加しており、警戒する必要がある。第5波をはるかに超える療養者数の増加が危惧される。療養者の重症度、緊急度、年齢構成等に応じ、入院医療、宿泊及び自宅療養体制を柔軟に活用する必要がある。",
+                "@en": "高齢者の重症患者が増加しており、警戒する必要がある。第5波をはるかに超える療養者数の増加が危惧される。療養者の重症度、緊急度、年齢構成等に応じ、入院医療、宿泊及び自宅療養体制を柔軟に活用する必要がある。"
             }
         ],
-        "(1)新規陽性者数": 4598.4,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 105.7,
-        "(3)新規陽性者における接触歴等不明者（人数）": 3014.6,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 406.5,
-        "(4)PCR・抗原検査（陽性率）": 21.3,
-        "(4)PCR・抗原検査（検査人数）": 17274.9,
-        "(5)救急医療の東京ルールの適用件数": 203,
-        "(6)入院患者数": 1805,
-        "(6)入院患者確保病床数": 4863,
-        "(7)重症患者数": 10,
-        "(7)重症患者確保病床数": 353,
+        "(1)新規陽性者数": 5386.1,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 111.4,
+        "(3)新規陽性者における接触歴等不明者（人数）": 3506.4,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 357,
+        "(4)PCR・抗原検査（陽性率）": 23.4,
+        "(4)PCR・抗原検査（検査人数）": 18542.4,
+        "(5)救急医療の東京ルールの適用件数": 209.1,
+        "(6)入院患者数": 2024,
+        "(6)入院患者確保病床数": 5015,
+        "(7)重症患者数": 9,
+        "(7)重症患者確保病床数": 358,
         "総括コメント-感染状況": {
-            "date": "2022-01-12",
-            "level": 3,
+            "date": "2022-01-19",
+            "level": 4,
             "display": {
-                "@ja": "感染が拡大している",
-                "@en": "The infection is spreading."
+                "@ja": "大規模な感染拡大が継続している",
+                "@en": "Extensive spread of the virus continues."
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-01-12",
-            "level": 2,
+            "date": "2022-01-19",
+            "level": 3,
             "display": {
-                "@ja": "体制強化の準備が必要な状況である",
-                "@en": "The situation necessitates preparations to build up the system."
+                "@ja": "通常の医療を制限し、体制強化が必要な状況である",
+                "@en": "Restrictions must be placed on non-COVID health care, and there is the need to build up the system."
             }
         }
     }
