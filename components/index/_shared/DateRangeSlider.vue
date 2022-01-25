@@ -64,6 +64,7 @@ type Props = {
   id: string
   minDate: string
   maxDate: string
+  defaultDayPeriod: number
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -86,10 +87,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: String,
       default: dayjs().format('YYYY-MM-DD'),
     },
+    defaultDayPeriod: {
+      type: Number,
+      default: 60,
+    },
   },
   data() {
     return {
-      start: dayjs(this.minDate).unix(),
+      start: dayjs(this.maxDate).subtract(this.defaultDayPeriod, 'day').unix(),
       end: dayjs(this.maxDate).unix(),
       step: 86400,
     }
