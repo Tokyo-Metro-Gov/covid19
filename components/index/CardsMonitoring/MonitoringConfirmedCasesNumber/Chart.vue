@@ -57,6 +57,7 @@
         :id="titleId"
         :min-date="minDate"
         :max-date="maxDate"
+        :default-day-period="dayPeriod"
         @start-date="startDate = $event"
         @end-date="endDate = $event"
       />
@@ -156,6 +157,7 @@ type Props = {
   getFormatter: (columnIndex: number) => (d: number) => string | undefined
   unit: string
   url: string
+  dayPeriod: number
 }
 
 export default Vue.extend<Data, Methods, Computed, Props>({
@@ -221,6 +223,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     url: {
       type: String,
       default: '',
+    },
+    dayPeriod: {
+      type: Number,
+      default: 60,
     },
   },
   data() {
@@ -469,6 +475,12 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
+
+    this.$nextTick().then(() => {
+      this.startDate = dayjs()
+        .subtract(this.dayPeriod, 'day')
+        .format('YYYY-MM-DD')
+    })
   },
   methods: {
     onClickLegend(i) {

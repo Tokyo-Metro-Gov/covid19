@@ -27,6 +27,7 @@
         :id="titleId"
         :min-date="chartData[0].label"
         :max-date="chartData[chartData.length - 1].label"
+        :default-day-period="dayPeriod"
         @start-date="startDate = $event"
         @end-date="endDate = $event"
       />
@@ -118,6 +119,7 @@ type Props = {
   dashedRectangleRange: string
   addedValue: number
   tableLabels: string[] | TranslateResult[]
+  dayPeriod: number
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -181,6 +183,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableLabels: {
       type: Array,
       default: () => [],
+    },
+    dayPeriod: {
+      type: Number,
+      default: 60,
     },
   },
   data: () => ({
@@ -382,6 +388,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
+
+    this.$nextTick().then(() => {
+      this.startDate = dayjs()
+        .subtract(this.dayPeriod, 'day')
+        .format('YYYY-MM-DD')
+    })
   },
 }
 

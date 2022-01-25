@@ -53,6 +53,7 @@
         :id="titleId"
         :min-date="minDate"
         :max-date="maxDate"
+        :default-day-period="dayPeriod"
         @start-date="startDate = $event"
         @end-date="endDate = $event"
       />
@@ -149,6 +150,7 @@ type Props = {
   tableLabels: string[] | TranslateResult[]
   unit: string
   url: string
+  dayPeriod: number
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -220,6 +222,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     url: {
       type: String,
       default: '',
+    },
+    dayPeriod: {
+      type: Number,
+      default: 60,
     },
   },
   data() {
@@ -340,7 +346,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return this.cumulative(item)
       })
       const cumulativeSumArray = this.eachArraySum(cumulativeData)
-      const searchIndex = (obj) => {
+      const searchIndex = (obj: any) => {
         return this.labels.findIndex((v) => {
           return v === obj.label
         })
@@ -530,6 +536,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
     window.addEventListener('resize', this.handleResize)
     this.handleResize()
+
+    this.$nextTick().then(() => {
+      this.startDate = dayjs()
+        .subtract(this.dayPeriod, 'day')
+        .format('YYYY-MM-DD')
+    })
   },
   destroyed() {
     window.removeEventListener('resize', this.handleResize)

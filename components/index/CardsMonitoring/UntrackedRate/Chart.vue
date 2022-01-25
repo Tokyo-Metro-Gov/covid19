@@ -73,6 +73,7 @@
         :id="titleId"
         :min-date="minDate"
         :max-date="maxDate"
+        :default-day-period="dayPeriod"
         @start-date="startDate = $event"
         @end-date="endDate = $event"
       />
@@ -165,6 +166,7 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   tableLabels: string[] | TranslateResult[]
   units: string[]
+  dayPeriod: number
 }
 
 export default Vue.extend<Data, Methods, Computed, Props>({
@@ -223,6 +225,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       type: Function,
       required: false,
       default: (_: number) => getNumberToLocaleStringFunction(),
+    },
+    dayPeriod: {
+      type: Number,
+      default: 60,
     },
   },
   data() {
@@ -552,6 +558,12 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
+
+    this.$nextTick().then(() => {
+      this.startDate = dayjs()
+        .subtract(this.dayPeriod, 'day')
+        .format('YYYY-MM-DD')
+    })
   },
   methods: {
     onClickLegend(i) {
