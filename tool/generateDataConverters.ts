@@ -1,4 +1,4 @@
-import { mkdir, readdir, rmdir } from 'fs/promises'
+import { mkdir, readdir } from 'fs/promises'
 import Lodash from 'lodash'
 // eslint-disable-next-line import/order
 import * as path from 'path'
@@ -15,7 +15,7 @@ const outputPath = path.resolve(
 )
 
 // ディレクトリ libraries/auto_generated/data_converter を削除する
-rmdir(outputPath, { recursive: true })
+// rmdir(outputPath, { recursive: true })
 ;(async () => {
   // ディレクトリ libraries/auto_generated/data_converter を作成する
   await mkdir(outputPath, { recursive: true })

@@ -64,7 +64,7 @@
 |[](40)福岡市|https://stopcovid19.codeforfukuoka.org/|Code for Fukuoka|[Code-for-Fukuoka/covid19](https://github.com/Code-for-Fukuoka/covid19)||
 |[](40)北九州市|https://stopcovid19-kitakyushu.jp/|Code for Kitakyushu|[covid19-kitakyushu/covid19](https://github.com/covid19-kitakyushu/covid19)||
 |[](41)佐賀県|https://stopcovid19.code4saga.org/|Code for Saga|[codeforsaga/covid19](https://github.com/codeforsaga/covid19)||
-|[](42)長崎県|https://stopcovid19-nagasaki.netlify.app/|Code for Nagasaki|[CodeForNagasaki/covid19](https://github.com/CodeForNagasaki/covid19)||
+|[](42)長崎県|https://nagasaki.stopcovid19.jp/|Code for Nagasaki|[CodeForNagasaki/covid19](https://github.com/CodeForNagasaki/covid19)||
 |[](43)熊本県|https://kumamoto.stopcovid19.jp/|Code for Kumamoto|[codeforkumamoto/covid19](https://github.com/codeforkumamoto/covid19)||
 |[](44)大分県|https://oita.stopcovid19.jp/|有志|[covid19-oita/covid19](https://github.com/covid19-oita/covid19)||
 |[](45)宮崎県|https://covid19-miyazaki.netlify.app/|有志|[covid19-miyazaki/covid19](https://github.com/covid19-miyazaki/covid19)||
