@@ -118,7 +118,9 @@ const createCustomChart = () => {
         },
       },
       mounted() {
-        setTimeout(() => this.renderChart(this.chartData, this.options))
+        this.$nextTick().then(() => {
+          this.renderChart(this.chartData, this.options)
+        })
       },
     }
   )
