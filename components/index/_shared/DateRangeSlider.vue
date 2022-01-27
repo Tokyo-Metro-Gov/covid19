@@ -146,6 +146,7 @@ $h: 1.2rem;
   border-radius: 3em;
   background: currentColor;
   pointer-events: auto;
+  cursor: pointer;
 }
 
 @mixin thumb-focus() {
