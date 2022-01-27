@@ -124,8 +124,6 @@ type Data = {
   colors: SurfaceStyle[]
   startDate: string
   endDate: string
-  minDate: string
-  maxDate: string
 }
 
 type Methods = {
@@ -134,6 +132,8 @@ type Methods = {
 }
 
 type Computed = {
+  minDate: string
+  maxDate: string
   displayInfos: DisplayInfo[]
   displayData: DisplayData<PatientsCount | WeeklyAverageCount>
   displayOption: ChartOptions
@@ -241,11 +241,15 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       colors,
       startDate: '2020-01-01',
       endDate: dayjs().format('YYYY-MM-DD'),
-      minDate: dayjs(this.labels[0]).format('YYYY-MM-DD'),
-      maxDate: dayjs(this.labels[this.labels?.length - 1]).format('YYYY-MM-DD'),
     }
   },
   computed: {
+    minDate() {
+      return dayjs(this.labels[0]).format('YYYY-MM-DD')
+    },
+    maxDate() {
+      return dayjs(this.labels[this.labels?.length - 1]).format('YYYY-MM-DD')
+    },
     displayInfos() {
       const data = {
         labels: this.labels,
@@ -477,7 +481,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     }
 
     this.$nextTick().then(() => {
-      this.startDate = dayjs()
+      this.startDate = dayjs(this.maxDate)
         .subtract(this.dayPeriod, 'day')
         .format('YYYY-MM-DD')
     })

@@ -31,8 +31,8 @@
       />
       <date-range-slider
         :id="titleId"
-        :min-date="chartData[0].label"
-        :max-date="chartData[chartData.length - 1].label"
+        :min-date="minDate"
+        :max-date="maxDate"
         :default-day-period="dayPeriod"
         @start-date="startDate = $event"
         @end-date="endDate = $event"
@@ -92,6 +92,8 @@ type Data = {
 type Methods = {}
 
 type Computed = {
+  minDate: string
+  maxDate: string
   displayInfo: {
     lText: string
     sText: string
@@ -182,6 +184,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     endDate: dayjs().format('YYYY-MM-DD'),
   }),
   computed: {
+    minDate() {
+      return this.chartData[0].label
+    },
+    maxDate() {
+      return this.chartData[this.chartData.length - 1].label
+    },
     displayInfo() {
       const { lastDay, lastDayData, dayBeforeRatio } = calcDayBeforeRatio({
         displayData: this.displayData,
@@ -427,7 +435,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
 
     this.$nextTick().then(() => {
-      this.startDate = dayjs()
+      this.startDate = dayjs(this.maxDate)
         .subtract(this.dayPeriod, 'day')
         .format('YYYY-MM-DD')
     })

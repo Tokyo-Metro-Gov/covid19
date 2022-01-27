@@ -134,8 +134,6 @@ type Data = {
   colors: SurfaceStyle[]
   startDate: string
   endDate: string
-  minDate: string
-  maxDate: string
 }
 type Methods = {
   onClickLegend: (i: number) => void
@@ -147,6 +145,8 @@ type DisplayInfo = {
   unit: string
 }
 type Computed = {
+  minDate: string
+  maxDate: string
   displayInfo: DisplayInfo[]
   displayData: DisplayData
   displayOption: ChartOptions
@@ -267,11 +267,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas: true,
       startDate: '2020-01-01',
       endDate: dayjs().format('YYYY-MM-DD'),
-      minDate: dayjs(this.labels[0]).format('YYYY-MM-DD'),
-      maxDate: dayjs(this.labels[this.labels?.length - 1]).format('YYYY-MM-DD'),
     }
   },
   computed: {
+    minDate() {
+      return dayjs(this.labels[0]).format('YYYY-MM-DD')
+    },
+    maxDate() {
+      return dayjs(this.labels[this.labels?.length - 1]).format('YYYY-MM-DD')
+    },
     displayInfo() {
       const data = {
         labels: this.labels,
@@ -616,7 +620,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     }
 
     this.$nextTick().then(() => {
-      this.startDate = dayjs()
+      this.startDate = dayjs(this.maxDate)
         .subtract(this.dayPeriod, 'day')
         .format('YYYY-MM-DD')
     })

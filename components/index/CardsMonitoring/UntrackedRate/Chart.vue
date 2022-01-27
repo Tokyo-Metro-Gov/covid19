@@ -128,8 +128,6 @@ type Data = {
   displayLegends: boolean[]
   startDate: string
   endDate: string
-  minDate: string
-  maxDate: string
 }
 type Methods = {
   makeLineData: (value: number) => number[]
@@ -143,6 +141,8 @@ type DisplayInfo = {
 }
 
 type Computed = {
+  minDate: string
+  maxDate: string
   displayInfo: DisplayInfo[]
   displayData: DisplayData
   displayOption: ChartOptions
@@ -243,11 +243,15 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       displayLegends: [true, true, true, true],
       startDate: '2020-01-01',
       endDate: dayjs().format('YYYY-MM-DD'),
-      minDate: dayjs(this.labels[0]).format('YYYY-MM-DD'),
-      maxDate: dayjs(this.labels[this.labels?.length - 1]).format('YYYY-MM-DD'),
     }
   },
   computed: {
+    minDate() {
+      return dayjs(this.labels[0]).format('YYYY-MM-DD')
+    },
+    maxDate() {
+      return dayjs(this.labels[this.labels?.length - 1]).format('YYYY-MM-DD')
+    },
     displayInfo() {
       const data = {
         labels: this.labels,
@@ -560,7 +564,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     }
 
     this.$nextTick().then(() => {
-      this.startDate = dayjs()
+      this.startDate = dayjs(this.maxDate)
         .subtract(this.dayPeriod, 'day')
         .format('YYYY-MM-DD')
     })

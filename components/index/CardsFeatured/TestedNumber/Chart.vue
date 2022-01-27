@@ -110,8 +110,6 @@ type Data = {
   isSmall: boolean
   startDate: string
   endDate: string
-  minDate: string
-  maxDate: string
 }
 type Methods = {
   sum: (array: number[]) => number
@@ -124,6 +122,8 @@ type Methods = {
 }
 
 type Computed = {
+  minDate: string
+  maxDate: string
   displayInfo: {
     lText: string
     sText: string
@@ -237,11 +237,15 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       isSmall: false,
       startDate: '2020-01-01',
       endDate: dayjs().format('YYYY-MM-DD'),
-      minDate: dayjs(this.labels[0]).format('YYYY-MM-DD'),
-      maxDate: dayjs(this.labels[this.labels.length - 1]).format('YYYY-MM-DD'),
     }
   },
   computed: {
+    minDate() {
+      return dayjs(this.labels[0]).format('YYYY-MM-DD')
+    },
+    maxDate() {
+      return dayjs(this.labels[this.labels.length - 1]).format('YYYY-MM-DD')
+    },
     displayInfo() {
       const lastDay: string = this.labels[this.labels.length - 1]
       const date = this.$d(new Date(lastDay), 'date')
@@ -538,7 +542,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     this.handleResize()
 
     this.$nextTick().then(() => {
-      this.startDate = dayjs()
+      this.startDate = dayjs(this.maxDate)
         .subtract(this.dayPeriod, 'day')
         .format('YYYY-MM-DD')
     })
