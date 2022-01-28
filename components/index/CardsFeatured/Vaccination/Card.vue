@@ -14,6 +14,7 @@
         :date="date"
         :labels="vaccinationData.labels"
         :data-labels="chartLabels"
+        :day-period="24"
       >
         <template #additionalButton>
           <app-link
