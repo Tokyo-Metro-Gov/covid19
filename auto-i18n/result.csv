@@ -1061,3 +1061,9 @@ TAG_ADD,ワクチン接種状況
 TAG_ADD,1回接種
 TAG_ADD,接種なし
 TAG_ADD,3回接種
+RUN,2022/01/28 10:16
+TAG_ADD,終了
+TAG_ADD,開始
+TAG_ADD,{date}まで
+TAG_ADD,表示期間
+TAG_ADD,{date}から
