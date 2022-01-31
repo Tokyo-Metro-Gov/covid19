@@ -9,6 +9,7 @@
         :date="date"
         :by-date="true"
         :unit="$t('人')"
+        :day-period="120"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>

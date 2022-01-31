@@ -10,6 +10,7 @@
         :unit="$t('人')"
         :by-date="true"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+        :day-period="120"
       >
         <template #description>
           <app-link

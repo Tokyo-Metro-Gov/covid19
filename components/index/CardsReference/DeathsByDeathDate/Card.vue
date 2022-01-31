@@ -8,6 +8,7 @@
         :chart-data="graphData"
         :date="date"
         :unit="$t('人')"
+        :day-period="120"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>

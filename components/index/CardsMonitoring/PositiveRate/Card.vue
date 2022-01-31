@@ -15,6 +15,7 @@
         :data-labels="positiveRateDataLabels"
         :table-labels="positiveRateTableLabels"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000088'"
+        :day-period="120"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>

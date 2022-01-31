@@ -17,6 +17,7 @@
         :data-labels="labelItems"
         :table-labels="labelItems"
         :get-formatter="getFormatter"
+        :day-period="120"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>

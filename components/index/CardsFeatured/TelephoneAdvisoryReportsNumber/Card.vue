@@ -9,6 +9,7 @@
         :date="date"
         :unit="$t('件.reports')"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000071'"
+        :day-period="120"
       />
       <!-- 件.reports = 窓口相談件数 -->
     </client-only>

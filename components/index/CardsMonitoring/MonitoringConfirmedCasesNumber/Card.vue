@@ -14,6 +14,7 @@
         :get-formatter="getFormatter"
         :unit="$t('人')"
         url="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068"
+        :day-period="120"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
