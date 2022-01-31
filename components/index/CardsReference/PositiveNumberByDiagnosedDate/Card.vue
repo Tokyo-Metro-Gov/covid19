@@ -1,5 +1,9 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard PositiveNumberByDiagnosedDateCard">
+  <v-col
+    cols="12"
+    :md="isSingleCard || 6"
+    class="DataCard PositiveNumberByDiagnosedDateCard"
+  >
     <client-only>
       <time-bar-chart
         :title="$t('確定日別による陽性者数の推移')"
@@ -9,7 +13,7 @@
         :date="date"
         :unit="$t('人')"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000087'"
-        :day-period="120"
+        :day-period="isSingleCard ? 120 : 60"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
@@ -33,6 +37,7 @@ import TimeBarChart from '@/components/index/_shared/TimeBarChart.vue'
 import Data from '@/data/positive_by_diagnosed.json'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import formatGraph from '@/utils/formatGraph'
+import { isSingleCard } from '@/utils/urls'
 
 export default {
   components: {
@@ -80,6 +85,11 @@ export default {
       date,
       graphData,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>

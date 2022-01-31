@@ -1,5 +1,9 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard TelephoneAdvisoryReportsNumberCard">
+  <v-col
+    cols="12"
+    :md="isSingleCard || 6"
+    class="DataCard TelephoneAdvisoryReportsNumberCard"
+  >
     <client-only>
       <time-bar-chart
         :title="$t('新型コロナコールセンター相談件数')"
@@ -9,7 +13,7 @@
         :date="date"
         :unit="$t('件.reports')"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000071'"
-        :day-period="120"
+        :day-period="isSingleCard ? 120 : 60"
       />
       <!-- 件.reports = 窓口相談件数 -->
     </client-only>
@@ -20,6 +24,7 @@
 import TimeBarChart from '@/components/index/_shared/TimeBarChart.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
+import { isSingleCard } from '@/utils/urls'
 
 export default {
   components: {
@@ -35,6 +40,11 @@ export default {
       contactsGraph,
       date,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>

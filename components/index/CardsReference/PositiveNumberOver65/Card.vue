@@ -1,5 +1,9 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard PositiveNumberOver65Card">
+  <v-col
+    cols="12"
+    :md="isSingleCard || 6"
+    class="DataCard PositiveNumberOver65Card"
+  >
     <client-only>
       <time-bar-chart
         :title="$t('報告日別による陽性者数（65歳以上）の推移')"
@@ -9,7 +13,7 @@
         :date="date"
         :by-date="true"
         :unit="$t('人')"
-        :day-period="120"
+        :day-period="isSingleCard ? 120 : 60"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
@@ -40,6 +44,7 @@ import {
 } from '@/libraries/auto_generated/data_converter/convertPositiveOver65'
 import { convertDateToISO8601Format } from '@/utils/formatDate'
 import formatGraph, { GraphDataType } from '@/utils/formatGraph'
+import { isSingleCard } from '@/utils/urls'
 
 type Data = {}
 type Methods = {}
@@ -47,6 +52,7 @@ type Computed = {
   date: string
   positiveOver65Data: GraphDataType[]
   positiveOver65: IPositiveOver65
+  isSingleCard: boolean
 }
 type Props = {}
 type DataType = {
@@ -73,6 +79,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     },
     positiveOver65() {
       return this.$store.state.positiveOver65
+    },
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
     },
   },
 })
