@@ -1,5 +1,5 @@
 {
-    "date": "2022\/1\/28 20:45",
+    "date": "2022\/1\/31 20:00",
     "data": [
         {
             "date": "2020-03-01",
@@ -3490,6 +3490,21 @@
             "date": "2022-01-27",
             "count": 252,
             "weekly_average_count": 255.1
+        },
+        {
+            "date": "2022-01-28",
+            "count": 229,
+            "weekly_average_count": 254
+        },
+        {
+            "date": "2022-01-29",
+            "count": 241,
+            "weekly_average_count": 259
+        },
+        {
+            "date": "2022-01-30",
+            "count": 232,
+            "weekly_average_count": 257
         }
     ]
 }
