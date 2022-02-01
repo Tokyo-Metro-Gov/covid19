@@ -237,6 +237,7 @@ export default Vue.extend({
     align-items: flex-start;
     flex-flow: column;
     padding: 0 10px;
+    max-width: 650px;
 
     @include largerThan($medium) {
       padding: 0 5px;
@@ -313,6 +314,7 @@ export default Vue.extend({
     position: relative;
     margin: 10px 0;
     color: $gray-3;
+    max-width: 650px;
 
     @include font-size(12);
 
