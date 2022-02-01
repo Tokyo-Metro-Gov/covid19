@@ -9,7 +9,7 @@
 |東京都（このサイト）|https://stopcovid19.metro.tokyo.lg.jp/|東京都（**公式**）|[tokyo-metropolitan-gov/covid19](https://github.com/tokyo-metropolitan-gov/covid19)||
 |[](01)北海道|https://stopcovid19.hokkaido.dev/|JUST道IT（有志団体）|[codeforsapporo/covid19](https://github.com/codeforsapporo/covid19)||
 |[](02)青森県|https://stopcovid19.pref.aomori.lg.jp/|青森県（**公式**）|[covid19-aomori/website](https://github.com/covid19-aomori/website)||
-|[](02)青森県|https://covid19.codeforaomori.org/|Code for Aomori|[CodeForAomori/covid19](https://github.com/CodeForAomori/covid19)||
+|[](02)青森県|https://covid19.codeforaomori.org/|Code for Aomori|[CodeForAomori/covid19](https://github.com/CodeForAomori/covid19)|**リンク切れ**|
 |[](02)青森県|https://covid19-daily-tohoku.news/|デーリー東北新聞社|[momujin/covid19](https://github.com/momujin/covid19)||
 |[](03)岩手県|https://iwate.stopcovid19.jp/|有志|[MeditationDuck/covid19](https://github.com/MeditationDuck/covid19)||
 |[](04)宮城県|https://miyagi.stopcovid19.jp/|Code for Shiogama|[code4shiogama/covid19-miyagi](https://github.com/code4shiogama/covid19-miyagi)||
@@ -48,7 +48,7 @@
 |[](27)大阪府|https://covid19-osaka.info/|大阪府（**公式**）|[codeforosaka/covid19](https://github.com/codeforosaka/covid19)||
 |[](28)兵庫県|https://stop-covid19-hyogo.org/|有志|[stop-covid19-hyogo/covid19](https://github.com/stop-covid19-hyogo/covid19)||
 |[](29)奈良県|https://stopcovid19.code4nara.org/|有志|[code4nara/covid19](https://github.com/code4nara/covid19)||
-|[](30)和歌山県|https://stopcovid19.wakayama.jp/|エフエム和歌山|[sys-cube/covid19](https://github.com/sys-cube/covid19)||
+|[](30)和歌山県|https://stopcovid19.wakayama.jp/|エフエム和歌山|[sys-cube/covid19](https://github.com/sys-cube/covid19)|**リンク切れ**|
 |[](31)鳥取県|https://tottori-covid19.netlify.app/|有志|[tottori-covid19/covid19](https://github.com/tottori-covid19/covid19)||
 |[](32)島根県|https://shimane-covid19.netlify.app/|島根出身学生有志|[TaigaMikami/covid19](https://github.com/TaigaMikami)||
 |[](33)岡山県|https://okayama.stopcovid19.jp/|学生エンジニア（有志）|[stopcovid19-okayama/covid19](https://github.com/stopcovid19-okayama/covid19)||
