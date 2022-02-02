@@ -34,6 +34,18 @@
             }}
           </app-link>
         </div>
+        <template #additionalDescription>
+          <span>{{ $t('（注）') }}</span>
+          <ul>
+            <li>
+              {{
+                $t(
+                  '新規陽性者には、感染者の濃厚接触者が有症状となった場合で、検査を実施せずに医師の判断により臨床診断された患者を含む'
+                )
+              }}
+            </li>
+          </ul>
+        </template>
       </data-view>
     </client-only>
   </v-col>
