@@ -1,5 +1,5 @@
 <template>
-  <div class="DataView-DataSet">
+  <div class="DataView-DataSet" :class="{ 'title-column': isSingleCard }">
     <h4 v-if="title" class="DataView-DataSet-title">{{ title }}</h4>
     <div class="DataView-DataSet-info">
       <template v-if="lText">
@@ -46,6 +46,10 @@ export default Vue.extend({
       required: false,
       default: '',
     },
+    isSingleCard: {
+      type: Boolean,
+      default: false,
+    },
   },
 })
 </script>
@@ -63,6 +67,11 @@ export default Vue.extend({
       flex-flow: row;
     }
 
+    &.title-column {
+      justify-content: flex-start;
+      flex-flow: column;
+    }
+
     &-title {
       font-weight: normal;
       flex: 1 1 50%;
@@ -75,6 +84,10 @@ export default Vue.extend({
 
       @include largerThan($large) {
         text-align: right;
+      }
+
+      .title-column & {
+        text-align: left;
       }
     }
 
