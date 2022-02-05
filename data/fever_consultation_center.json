@@ -1,5 +1,5 @@
 {
-    "date": "2022\/1\/28 20:45",
+    "date": "2022\/2\/4 20:30",
     "data": [
         {
             "date": "2020-10-30",
@@ -4094,6 +4094,69 @@
                 "cocoa_dial": 346,
                 "total": 6804,
                 "weekly_average_total": 6366
+            }
+        },
+        {
+            "date": "2022-01-28",
+            "count": {
+                "fever_consultation_center": 6004,
+                "cocoa_dial": 385,
+                "total": 6389,
+                "weekly_average_total": 6410
+            }
+        },
+        {
+            "date": "2022-01-29",
+            "count": {
+                "fever_consultation_center": 5733,
+                "cocoa_dial": 306,
+                "total": 6039,
+                "weekly_average_total": 6465
+            }
+        },
+        {
+            "date": "2022-01-30",
+            "count": {
+                "fever_consultation_center": 6357,
+                "cocoa_dial": 392,
+                "total": 6749,
+                "weekly_average_total": 6566
+            }
+        },
+        {
+            "date": "2022-01-31",
+            "count": {
+                "fever_consultation_center": 6048,
+                "cocoa_dial": 357,
+                "total": 6405,
+                "weekly_average_total": 6527
+            }
+        },
+        {
+            "date": "2022-02-01",
+            "count": {
+                "fever_consultation_center": 6058,
+                "cocoa_dial": 281,
+                "total": 6339,
+                "weekly_average_total": 6521
+            }
+        },
+        {
+            "date": "2022-02-02",
+            "count": {
+                "fever_consultation_center": 6402,
+                "cocoa_dial": 435,
+                "total": 6837,
+                "weekly_average_total": 6509
+            }
+        },
+        {
+            "date": "2022-02-03",
+            "count": {
+                "fever_consultation_center": 6013,
+                "cocoa_dial": 333,
+                "total": 6346,
+                "weekly_average_total": 6443
             }
         }
     ]
