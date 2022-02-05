@@ -14,6 +14,7 @@
         :table-labels="inspectionsTableLabels"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000086'"
         :day-period="isSingleCard ? 120 : 60"
+        :is-single-card="isSingleCard"
       >
         <!-- 件.tested = 検査数 -->
         <template #additionalButton>

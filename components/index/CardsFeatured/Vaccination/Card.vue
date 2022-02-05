@@ -15,6 +15,7 @@
         :labels="vaccinationData.labels"
         :data-labels="chartLabels"
         :day-period="isSingleCard ? 48 : 24"
+        :is-single-card="isSingleCard"
       >
         <template #additionalButton>
           <app-link

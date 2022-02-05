@@ -13,6 +13,7 @@
         :date="date"
         :unit="$t('人')"
         :day-period="isSingleCard ? 120 : 60"
+        :is-single-card="isSingleCard"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
