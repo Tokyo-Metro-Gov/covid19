@@ -70,6 +70,11 @@ export default Vue.extend({
     &.title-column {
       justify-content: flex-start;
       flex-flow: column;
+
+      @include lessThan($large) {
+        justify-content: space-between;
+        flex-flow: row;
+      }
     }
 
     &-title {
@@ -88,6 +93,10 @@ export default Vue.extend({
 
       .title-column & {
         text-align: left;
+
+        @include lessThan($large) {
+          text-align: right;
+        }
       }
     }
 
