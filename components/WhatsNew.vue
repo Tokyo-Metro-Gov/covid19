@@ -19,7 +19,7 @@
         href="https://www.pref.kagoshima.jp/ae06/kenko-fukushi/kenko-iryo/kansen/kansensho/coronavirus.html"
         target="_blank"
       >
-        {{ $t('鹿児島県発表の新型コロナウイルス感染症に関する情報はこちら') }}
+        {{ $t('鹿児島県発表の新型コロナウイルス感染症に関する情報はこちら ') }}
       </a>
     </h3>
   </div>
