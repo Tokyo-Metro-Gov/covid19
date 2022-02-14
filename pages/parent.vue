@@ -3,6 +3,22 @@
     <page-header :title="$t('お子様をお持ちの皆様へ')" />
     <static-card>
       <h3>
+        <app-link
+          to="https://www.fukushihoken.metro.tokyo.lg.jp/kodomo/hoiku/bs/bscorona.html"
+          :icon-size="24"
+          >{{ $t('ベビーシッターの利用') }}
+        </app-link>
+      </h3>
+      <p>
+        {{
+          $t(
+            '新型コロナウイルス感染症の影響により、保育所や小学校が臨時休業等となった場合の、ベビーシッターの利用についてご案内しています。'
+          )
+        }}
+      </p>
+    </static-card>
+    <static-card>
+      <h3>
         <app-link to="https://www.tgs.metro.tokyo.lg.jp/" :icon-size="24"
           >{{ $t('TokyoGlobalStudio') }}
         </app-link>
