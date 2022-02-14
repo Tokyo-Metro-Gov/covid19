@@ -1,5 +1,9 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard ConfirmedCasesNumberCard">
+  <v-col
+    cols="12"
+    :md="isSingleCard || 6"
+    class="DataCard ConfirmedCasesNumberCard"
+  >
     <client-only>
       <time-bar-chart
         :title="$t('報告日別による陽性者数の推移')"
@@ -10,6 +14,8 @@
         :unit="$t('人')"
         :by-date="true"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+        :day-period="isSingleCard ? 120 : 60"
+        :is-single-card="isSingleCard"
       >
         <template #description>
           <app-link
@@ -59,6 +65,7 @@ import AppLink from '@/components/_shared/AppLink.vue'
 import TimeBarChart from '@/components/index/_shared/TimeBarChart.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
+import { isSingleCard } from '@/utils/urls'
 
 export default {
   components: {
@@ -74,6 +81,11 @@ export default {
       patientsGraph,
       date,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>

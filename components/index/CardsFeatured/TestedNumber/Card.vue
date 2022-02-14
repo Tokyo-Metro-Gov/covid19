@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard TestedNumberCard">
+  <v-col cols="12" :md="isSingleCard || 6" class="DataCard TestedNumberCard">
     <client-only>
       <chart
         :title="$t('検査実施件数')"
@@ -13,6 +13,8 @@
         :data-labels="inspectionsDataLabels"
         :table-labels="inspectionsTableLabels"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000086'"
+        :day-period="isSingleCard ? 120 : 60"
+        :is-single-card="isSingleCard"
       >
         <!-- 件.tested = 検査数 -->
         <template #additionalButton>
@@ -68,6 +70,7 @@ import duration from 'dayjs/plugin/duration'
 import AppLink from '@/components/_shared/AppLink.vue'
 import Chart from '@/components/index/CardsFeatured/TestedNumber/Chart.vue'
 import Data from '@/data/data.json'
+import { isSingleCard } from '@/utils/urls'
 dayjs.extend(duration)
 
 export default {
@@ -110,6 +113,11 @@ export default {
       inspectionsTableLabels,
       mdiClipboardText,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>

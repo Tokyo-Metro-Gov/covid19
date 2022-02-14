@@ -1,5 +1,9 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard DeathsByDeathDateCard">
+  <v-col
+    cols="12"
+    :md="isSingleCard || 6"
+    class="DataCard DeathsByDeathDateCard"
+  >
     <client-only>
       <time-bar-chart
         :title="$t('死亡日別による死亡者数の推移')"
@@ -8,6 +12,8 @@
         :chart-data="graphData"
         :date="date"
         :unit="$t('人')"
+        :day-period="isSingleCard ? 120 : 60"
+        :is-single-card="isSingleCard"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
@@ -44,6 +50,7 @@ import TimeBarChart from '@/components/index/_shared/TimeBarChart.vue'
 import deaths from '@/data/deaths.json'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import formatGraph from '@/utils/formatGraph'
+import { isSingleCard } from '@/utils/urls'
 
 export default {
   components: {
@@ -93,6 +100,11 @@ export default {
       date,
       graphData,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>

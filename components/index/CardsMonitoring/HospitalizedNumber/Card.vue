@@ -1,5 +1,9 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard HospitalizedNumberCard">
+  <v-col
+    cols="12"
+    :md="isSingleCard || 6"
+    class="DataCard HospitalizedNumberCard"
+  >
     <client-only>
       <chart
         :title="$t('モニタリング項目(6)')"
@@ -13,6 +17,8 @@
         :added-value="200"
         :table-labels="tableLabels"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000092'"
+        :day-period="isSingleCard ? 120 : 60"
+        :is-single-card="isSingleCard"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
@@ -42,6 +48,7 @@
 import Chart from '@/components/index/CardsMonitoring/HospitalizedNumber/Chart.vue'
 import positiveStatus from '@/data/positive_status.json'
 import formatGraph from '@/utils/formatGraph'
+import { isSingleCard } from '@/utils/urls'
 
 export default {
   components: {
@@ -63,6 +70,11 @@ export default {
       patientsGraph,
       tableLabels,
     }
+  },
+  computed: {
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
+    },
   },
 }
 </script>
