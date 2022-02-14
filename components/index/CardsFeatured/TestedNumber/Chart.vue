@@ -72,6 +72,7 @@
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
         :unit="displayInfo.unit"
+        :is-single-card="isSingleCard"
       />
     </template>
     <template #footer>
@@ -151,6 +152,7 @@ type Props = {
   unit: string
   url: string
   dayPeriod: number
+  isSingleCard: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -226,6 +228,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     dayPeriod: {
       type: Number,
       default: 60,
+    },
+    isSingleCard: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

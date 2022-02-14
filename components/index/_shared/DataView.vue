@@ -313,6 +313,7 @@ export default Vue.extend({
     position: relative;
     margin: 10px 0;
     color: $gray-3;
+    max-width: 600px;
 
     @include font-size(12);
 

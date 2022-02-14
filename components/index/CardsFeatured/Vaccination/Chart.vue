@@ -72,6 +72,7 @@
         :title="infoTitles[i]"
         :l-text="di.lText"
         :s-text="di.sText"
+        :is-single-card="isSingleCard"
       />
     </template>
   </data-view>
@@ -138,6 +139,7 @@ type Props = {
   dataLabels: string[] | TranslateResult[]
   url: string
   dayPeriod: number
+  isSingleCard: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -207,6 +209,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Number,
       default: 60,
     },
+    isSingleCard: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -272,7 +278,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableDataItems() {
-      return this.displayData.datasets[0].data
+      const datasets = this.dataLabels.map((_, i) => {
+        return this.chartData[i]
+      })
+      return datasets[0]
         .map((_, i) => {
           return Object.assign(
             { text: this.labels[i] },

@@ -77,6 +77,7 @@
         :s-text="displayInfos[0].sText"
         :s-text-under="displayInfos[0].sTextUnder"
         :unit="displayInfos[0].unit"
+        :is-single-card="isSingleCard"
       />
     </template>
     <template #footer>
@@ -158,6 +159,7 @@ type Props = {
   unit: string
   url: string
   dayPeriod: number
+  isSingleCard: boolean
 }
 
 export default Vue.extend<Data, Methods, Computed, Props>({
@@ -227,6 +229,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     dayPeriod: {
       type: Number,
       default: 60,
+    },
+    isSingleCard: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

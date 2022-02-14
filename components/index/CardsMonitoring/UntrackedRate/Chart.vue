@@ -95,6 +95,7 @@
         :s-text="di.sText"
         :s-text-under="di.sTextUnder"
         :unit="di.unit"
+        :is-single-card="isSingleCard"
       />
     </template>
   </data-view>
@@ -167,6 +168,7 @@ type Props = {
   tableLabels: string[] | TranslateResult[]
   units: string[]
   dayPeriod: number
+  isSingleCard: boolean
 }
 
 export default Vue.extend<Data, Methods, Computed, Props>({
@@ -229,6 +231,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     dayPeriod: {
       type: Number,
       default: 60,
+    },
+    isSingleCard: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

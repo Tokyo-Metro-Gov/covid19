@@ -1,7 +1,7 @@
 <template>
   <v-col
     cols="12"
-    md="6"
+    :md="isSingleCard || 6"
     class="DataCard TokyoFeverConsultationCenterReportsNumberCard"
   >
     <client-only>
@@ -17,6 +17,8 @@
         :data-labels="labelItems"
         :table-labels="labelItems"
         :get-formatter="getFormatter"
+        :day-period="isSingleCard ? 120 : 60"
+        :is-single-card="isSingleCard"
       >
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
@@ -43,6 +45,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
+import { isSingleCard } from '@/utils/urls'
 import Chart from '~/components/index/CardsFeatured/TokyoFeverConsultationCenterReportsNumber/Chart.vue'
 import {
   Datum as IFeverConsultationCenterDatum,
@@ -61,6 +64,7 @@ type Computed = {
   labels: string[]
   feverConsultationCenterData: IFeverConsultationCenterDatum[]
   feverConsultationCenter: IFeverConsultationCenter
+  isSingleCard: boolean
 }
 type Props = {}
 
@@ -108,6 +112,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     },
     feverConsultationCenter(): IFeverConsultationCenter {
       return this.$store.state.feverConsultationCenter
+    },
+    isSingleCard() {
+      return isSingleCard(this.$route.path)
     },
   },
 })

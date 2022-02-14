@@ -51,6 +51,7 @@
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
         :unit="displayInfo.unit"
+        :is-single-card="isSingleCard"
       />
       <slot v-if="dataKind === 'cumulative'" name="additionalInfoPanel" />
     </template>
@@ -115,6 +116,7 @@ type Props = {
   url: string
   byDate: boolean
   dayPeriod: number
+  isSingleCard: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -175,6 +177,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     dayPeriod: {
       type: Number,
       default: 60,
+    },
+    isSingleCard: {
+      type: Boolean,
+      default: false,
     },
   },
   data: () => ({
