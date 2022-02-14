@@ -278,7 +278,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableDataItems() {
-      return this.displayData.datasets[0].data
+      const datasets = this.dataLabels.map((_, i) => {
+        return this.chartData[i]
+      })
+      return datasets[0]
         .map((_, i) => {
           return Object.assign(
             { text: this.labels[i] },
