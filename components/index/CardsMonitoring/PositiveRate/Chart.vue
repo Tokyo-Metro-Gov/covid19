@@ -92,6 +92,7 @@
         :s-text="di.sText"
         :s-text-under="di.sTextUnder"
         :unit="di.unit"
+        :is-single-card="isSingleCard"
       />
     </template>
     <template #footer>
@@ -173,6 +174,7 @@ type Props = {
   url: string
   optionUnit: string
   dayPeriod: number
+  isSingleCard: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -254,6 +256,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     dayPeriod: {
       type: Number,
       default: 60,
+    },
+    isSingleCard: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

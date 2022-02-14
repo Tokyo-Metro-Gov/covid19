@@ -83,6 +83,7 @@
         :l-text="di.lText"
         :s-text="di.sText"
         :unit="di.unit"
+        :is-single-card="isSingleCard"
       />
     </template>
   </data-view>
@@ -163,6 +164,7 @@ type Props = {
   optionUnit: string
   yAxesBgPlugin: PluginServiceRegistrationOptions[]
   yAxesBgRightPlugin: PluginServiceRegistrationOptions[]
+  isSingleCard: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -265,6 +267,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     yAxesBgRightPlugin: {
       type: Array,
       default: () => yAxesBgRightPlugin,
+    },
+    isSingleCard: {
+      type: Boolean,
+      default: false,
     },
   },
   data: () => ({

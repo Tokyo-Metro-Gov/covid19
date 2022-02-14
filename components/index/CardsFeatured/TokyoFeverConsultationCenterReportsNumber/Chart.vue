@@ -78,6 +78,7 @@
         :s-text="displayInfo.sText"
         :s-text-under="displayInfo.sTextUnder"
         :unit="displayInfo.unit"
+        :is-single-card="isSingleCard"
       />
     </template>
   </data-view>
@@ -146,6 +147,7 @@ type Props = {
   tableLabels: string[]
   unit: string
   dayPeriod: number
+  isSingleCard: boolean
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -216,6 +218,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     dayPeriod: {
       type: Number,
       default: 60,
+    },
+    isSingleCard: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
