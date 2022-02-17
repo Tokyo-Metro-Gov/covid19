@@ -1,5 +1,5 @@
 {
-    "date": "2022\/2\/16 20:45",
+    "date": "2022\/2\/17 20:30",
     "data": {
         "専門家3行コメント": [
             {
@@ -11,19 +11,19 @@
                 "@en": "We are seeing an upward trend in hospitalizations and severe cases. The number of medical institutions finding it difficult to admit patients even if beds are available is growing. This is due to factors such as staff shortages caused by infection or exposure to the virus. It is feared that the system for the provision of health care, including non-COVID health care, will be strained."
             }
         ],
-        "(1)新規陽性者数": 15082.9,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 128.6,
-        "(3)新規陽性者における接触歴等不明者（人数）": 9512.3,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 80.7,
-        "(4)PCR・抗原検査（陽性率）": 40.7,
-        "(4)PCR・抗原検査（検査人数）": 18893.7,
-        "(5)救急医療の東京ルールの適用件数": 255.3,
-        "(6)入院患者数": 4154,
+        "(1)新規陽性者数": 14936.1,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 130.3,
+        "(3)新規陽性者における接触歴等不明者（人数）": 9348.6,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 81.1,
+        "(4)PCR・抗原検査（陽性率）": 40.2,
+        "(4)PCR・抗原検査（検査人数）": 18968.9,
+        "(5)救急医療の東京ルールの適用件数": 253.9,
+        "(6)入院患者数": 4213,
         "(6)入院患者確保病床数": 6529,
         "(7)重症患者数": 81,
         "(7)重症患者確保病床数": 397,
         "総括コメント-感染状況": {
-            "date": "2022-02-09",
+            "date": "2022-02-16",
             "level": 4,
             "display": {
                 "@ja": "大規模な感染拡大が継続している",
@@ -31,7 +31,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-02-09",
+            "date": "2022-02-16",
             "level": 4,
             "display": {
                 "@ja": "医療体制がひっ迫している",
