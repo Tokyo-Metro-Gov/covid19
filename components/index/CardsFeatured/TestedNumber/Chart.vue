@@ -273,7 +273,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const graphSeries = getGraphSeriesStyle(this.chartData.length)
       const rangeDate = this.labels.filter((item) => {
         const date = dayjs(item)
-        return date.isBetween(this.startDate, this.endDate, null, '[]')
+        return date.isBetween(this.startDate, this.endDate, 'day', '[]')
       })
       if (this.dataKind === 'transition') {
         return {
