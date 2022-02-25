@@ -1,29 +1,29 @@
 {
-    "date": "2022\/2\/24 20:45",
+    "date": "2022\/2\/25 20:15",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "危機的な感染状況が続いている。ワクチンの効果は、接種から長期間が経過すると低下することが懸念されている。3回目のワクチン追加接種は、オミクロン株に対しても効果が期待できることから、希望する都民に対する接種を推進する必要がある。",
-                "@en": "The infection situation remains critical. There is concern that the effectiveness of vaccines decreases over time following vaccination. Since the booster shot (third dose) is also effective against the Omicron variant, there is the need to encourage Tokyo citizens who wish to be vaccinated to get the booster."
+                "@ja": "新規陽性者数の7日間平均は、依然として極めて高い値で留まっており、同規模の感染状況が長期化する危機に直面している。もし増加比がわずかでも上昇すれば、感染の再拡大の恐れがある。また、感染性がより高いとされているオミクロン株BA.2の今後の動向を注視する必要がある。",
+                "@en": "The 7-day moving average of new positive cases remains extremely high. As such, we face the risk of the number of cases hovering around this level for an extended period. If the rate of increase rises even slightly, there is the risk of a resurgence in infections. Furthermore, there is the need to continue closely monitoring trends related to the Omicron BA.2 sub-variant, which is said to be even more transmissible."
             },
             {
-                "@ja": "入院患者数が高い水準で推移し、重症患者数も増加しており、通常の医療も含めた医療提供体制がひっ迫している。重症患者数は、新規陽性者数よりも遅れて増加し、その影響が長引くことに警戒する必要がある。",
-                "@en": "The number of hospitalizations remains high, and the number of severe cases is growing, putting stress on the health care system, including non-COVID health care. Since severe cases rise well after new positive cases surge, there is the need for caution against the effects of this situation becoming prolonged."
+                "@ja": "入院患者数及び重症患者数が高い値で推移しており、現状の感染状況が長期化すれば、医療提供体制が危機に直面する。併存する他の疾患のため集中治療を要する患者数も高い値で推移しており、警戒する必要がある。",
+                "@en": "Hospitalizations and the number of severe cases remain high. If the current infection situation is prolonged, the health care provision system will face a critical situation. Since the number of patients requiring intensive care for COVID-19 in combination with pre-existing medical conditions also remains high, there is the need for caution."
             }
         ],
-        "(1)新規陽性者数": 12509.1,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 97.4,
-        "(3)新規陽性者における接触歴等不明者（人数）": 7529.4,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 80.5,
-        "(4)PCR・抗原検査（陽性率）": 37.3,
-        "(4)PCR・抗原検査（検査人数）": 16641.7,
-        "(5)救急医療の東京ルールの適用件数": 233.6,
-        "(6)入院患者数": 4163,
+        "(1)新規陽性者数": 11794.3,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 96.6,
+        "(3)新規陽性者における接触歴等不明者（人数）": 7123.9,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 78.7,
+        "(4)PCR・抗原検査（陽性率）": 37.1,
+        "(4)PCR・抗原検査（検査人数）": 17498,
+        "(5)救急医療の東京ルールの適用件数": 226.9,
+        "(6)入院患者数": 4132,
         "(6)入院患者確保病床数": 6599,
-        "(7)重症患者数": 81,
+        "(7)重症患者数": 79,
         "(7)重症患者確保病床数": 397,
         "総括コメント-感染状況": {
-            "date": "2022-02-16",
+            "date": "2022-02-23",
             "level": 4,
             "display": {
                 "@ja": "大規模な感染拡大が継続している",
@@ -31,7 +31,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-02-16",
+            "date": "2022-02-23",
             "level": 4,
             "display": {
                 "@ja": "医療体制がひっ迫している",
