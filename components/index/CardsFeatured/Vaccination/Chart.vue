@@ -19,7 +19,8 @@
             :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
-              borderColor: colors[i].strokeColor,
+              border: 0,
+              height: '3px',
             }"
           />
           <span
@@ -45,7 +46,6 @@
         :width="300"
         :min="startDate"
         :max="endDate"
-        :y-axis-max="scaledTicksYAxisMax"
       />
       <date-range-slider
         :id="titleId"
@@ -123,7 +123,6 @@ type Computed = {
   headTitle: string
   tableHeaders: TableHeader[]
   tableDataItems: TableItem[]
-  scaledTicksYAxisMax: number
   startDateIndex: number
   endDateIndex: number
 }
@@ -133,10 +132,12 @@ type Props = {
   infoTitles: string[]
   chartId: string
   chartData: number[][]
+  tableData: number[][]
   getFormatter: Function
   date: string
   labels: string[]
   dataLabels: string[] | TranslateResult[]
+  tableLabels: string[] | TranslateResult[]
   url: string
   dayPeriod: number
   isSingleCard: boolean
@@ -183,6 +184,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       required: false,
       default: () => [],
     },
+    tableData: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     getFormatter: {
       type: Function,
       required: false,
@@ -201,6 +207,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => [],
     },
+    tableLabels: {
+      type: Array,
+      default: () => [],
+    },
     url: {
       type: String,
       default: '',
@@ -216,8 +226,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data() {
     return {
-      displayLegends: [true, true],
-      colors: [getGraphSeriesColor('G'), getGraphSeriesColor('B')],
+      displayLegends: [true, true, true],
+      colors: [
+        getGraphSeriesColor('A'),
+        getGraphSeriesColor('B'),
+        getGraphSeriesColor('H'),
+      ],
       canvas: true,
       startDate: '2020-01-01',
       endDate: dayjs().format('YYYY-MM-DD'),
@@ -235,24 +249,31 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return dataset.slice(-1)[0]
       }
       const lastDay = this.labels.slice(-1)[0]
-      return this.chartData.map((data) => {
+      return this.chartData.map((data, i) => {
         return {
-          lText: this.getFormatter(0)(lastData(data)),
-          sText: `${this.$d(lastDay, 'date')} ${this.$t('累計値')}`,
+          lText: `${this.getFormatter(i * 2)(
+            lastData(this.tableData[i * 2])
+          )}(${this.getFormatter(i * 2 + 1)(lastData(data))}%)`,
+          sText: `${this.$d(new Date(lastDay), 'date')} ${this.$t('累計値')}`,
         }
       })
     },
     displayData() {
       const datasets = this.dataLabels.map((_, i) => {
         return {
+          type: 'line',
           label: this.dataLabels[i],
           data: this.chartData[i].slice(
             this.startDateIndex,
             this.endDateIndex + 1
           ),
-          backgroundColor: this.colors[i].fillColor,
-          borderColor: this.colors[i].strokeColor,
-          borderWidth: 1,
+          pointBackgroundColor: 'rgba(0,0,0,0)',
+          pointBorderColor: 'rgba(0,0,0,0)',
+          borderColor: this.colors[i].fillColor,
+          borderWidth: 3,
+          fill: false,
+          order: i,
+          lineTension: 0,
         }
       })
 
@@ -272,22 +293,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     tableHeaders() {
       return [
         { text: this.$t('日付'), value: 'text' },
-        ...(this.dataLabels as string[]).map((text, i) => {
+        ...(this.tableLabels as string[]).map((text, i) => {
           return { text, value: String(i) }
         }),
       ]
     },
     tableDataItems() {
-      const datasets = this.dataLabels.map((_, i) => {
-        return this.chartData[i]
+      const datasets = this.tableLabels.map((_, i) => {
+        return this.tableData[i]
       })
       return datasets[0]
         .map((_, i) => {
           return Object.assign(
             { text: this.labels[i] },
-            ...this.chartData.map((_, j) => {
+            ...this.tableData.map((_, j) => {
               return {
-                [j]: this.getFormatter(j)(this.chartData[j][i]),
+                [j]: this.getFormatter(j)(this.tableData[j][i]),
               }
             })
           )
@@ -306,10 +327,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             label: (tooltipItem, data) => {
               const index = tooltipItem.datasetIndex!
               const title = this.$t(data.datasets![index].label!)
-              const num = this.getFormatter(tooltipItem.datasetIndex!)(
+              const num = this.getFormatter(tooltipItem.datasetIndex! * 2 + 1)(
                 parseFloat(tooltipItem.value!)
               )
-              return `${title}: ${num}`
+              return `${title}: ${num}%`
             },
           },
         },
@@ -367,7 +388,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontSize: 12,
                 maxTicksLimit: 10,
                 suggestedMin: 0,
+                suggestedMax: 100,
                 fontColor: '#707070',
+                callback: (value) => {
+                  return `${value.toFixed(1)}%`
+                },
               },
             },
           ],
@@ -379,17 +404,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
 
       return options
-    },
-    scaledTicksYAxisMax() {
-      const chartLeftMax = this.chartData[0].reduce((a, b) => Math.max(a, b), 0)
-      const chartRightMax = this.chartData[1].reduce(
-        (a, b) => Math.max(a, b),
-        0
-      )
-      const max = Math.max(chartLeftMax, chartRightMax)
-      const digits = String(max).length
-      const base = 10 ** (digits - 1)
-      return Math.ceil(max / base) * base
     },
     startDateIndex() {
       const searchIndex = this.labels.findIndex((item) => {
