@@ -253,7 +253,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return {
           lText: `${this.getFormatter(i * 2)(
             lastData(this.tableData[i * 2])
-          )}(${this.getFormatter(i * 2 + 1)(lastData(data))}%)`,
+          )} (${this.getFormatter(i * 2 + 1)(lastData(data))}%)`,
           sText: `${this.$d(new Date(lastDay), 'date')} ${this.$t('累計値')}`,
         }
       })
