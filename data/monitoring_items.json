@@ -1,29 +1,29 @@
 {
-    "date": "2022\/3\/2 19:45",
+    "date": "2022\/3\/3 19:15",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の7日間平均は、依然として極めて高い値で留まっており、同規模の感染状況が長期化する危機に直面している。もし増加比がわずかでも上昇すれば、感染の再拡大の恐れがある。また、感染性がより高いとされているオミクロン株BA.2の今後の動向を注視する必要がある。",
-                "@en": "The 7-day moving average of new positive cases remains extremely high. As such, we face the risk of the number of cases hovering around this level for an extended period. If the rate of increase rises even slightly, there is the risk of a resurgence in infections. Furthermore, there is the need to continue closely monitoring trends related to the Omicron BA.2 sub-variant, which is said to be even more transmissible."
+                "@ja": "1万人規模の新規陽性者が発生する危機的な感染状況のさらなる長期化が懸念される。歓送迎会、卒業パーティー等、年度末前後のイベントによる人の移動の増加やオミクロン株BA.2の影響で、もし増加比が上昇すれば、感染が再拡大する恐れがある。",
+                "@en": "1万人規模の新規陽性者が発生する危機的な感染状況のさらなる長期化が懸念される。歓送迎会、卒業パーティー等、年度末前後のイベントによる人の移動の増加やオミクロン株BA.2の影響で、もし増加比が上昇すれば、感染が再拡大する恐れがある。"
             },
             {
-                "@ja": "入院患者数及び重症患者数が高い値で推移しており、現状の感染状況が長期化すれば、医療提供体制が危機に直面する。併存する他の疾患のため集中治療を要する患者数も高い値で推移しており、警戒する必要がある。",
-                "@en": "Hospitalizations and the number of severe cases remain high. If the current infection situation is prolonged, the health care provision system will face a critical situation. Since the number of patients requiring intensive care for COVID-19 in combination with pre-existing medical conditions also remains high, there is the need for caution."
+                "@ja": "救急患者の入院受入れが、極めて困難な危機的状況が続いている。入院患者数及び重症患者数に占める高齢者の割合が、高い値で推移しており、この状況が長期化すれば、医療従事者への負担も長期化し、医療提供体制がさらにひっ迫する。",
+                "@en": "救急患者の入院受入れが、極めて困難な危機的状況が続いている。入院患者数及び重症患者数に占める高齢者の割合が、高い値で推移しており、この状況が長期化すれば、医療従事者への負担も長期化し、医療提供体制がさらにひっ迫する。"
             }
         ],
-        "(1)新規陽性者数": 11045,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 97.9,
-        "(3)新規陽性者における接触歴等不明者（人数）": 6702.3,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 81.4,
-        "(4)PCR・抗原検査（陽性率）": 36,
-        "(4)PCR・抗原検査（検査人数）": 16897,
-        "(5)救急医療の東京ルールの適用件数": 227,
-        "(6)入院患者数": 3808,
-        "(6)入院患者確保病床数": 6739,
-        "(7)重症患者数": 68,
-        "(7)重症患者確保病床数": 469,
+        "(1)新規陽性者数": 11342.4,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 94.4,
+        "(3)新規陽性者における接触歴等不明者（人数）": 6933.7,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 92.1,
+        "(4)PCR・抗原検査（陽性率）": 35.2,
+        "(4)PCR・抗原検査（検査人数）": 18466.7,
+        "(5)救急医療の東京ルールの適用件数": 228,
+        "(6)入院患者数": 3766,
+        "(6)入院患者確保病床数": 6815,
+        "(7)重症患者数": 70,
+        "(7)重症患者確保病床数": 471,
         "総括コメント-感染状況": {
-            "date": "2022-02-23",
+            "date": "2022-03-02",
             "level": 4,
             "display": {
                 "@ja": "大規模な感染拡大が継続している",
@@ -31,7 +31,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-02-23",
+            "date": "2022-03-02",
             "level": 4,
             "display": {
                 "@ja": "医療体制がひっ迫している",
