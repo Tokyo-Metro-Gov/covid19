@@ -2,7 +2,7 @@
   <v-col cols="12" :md="isSingleCard || 6" class="DataCard VaccinationCard">
     <client-only>
       <chart
-        :title="$t('ワクチン接種数及び接種率（都内全年齢・累計）')"
+        :title="$t('ワクチン接種数及び接種率（都内全人口・累計）')"
         title-id="vaccination"
         :info-titles="[
           $t('１回目接種数（接種率）'),
