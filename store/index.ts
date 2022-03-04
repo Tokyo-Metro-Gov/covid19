@@ -10,7 +10,7 @@ import { NewsRepository } from '@/libraries/repositories/NewsRepository'
 import { PositiveOver65Repository } from '@/libraries/repositories/PositiveOver65Repository'
 import { StayingPopulationRepository } from '@/libraries/repositories/StayingPopulationRepository'
 import { TokyoRuleRepository } from '@/libraries/repositories/TokyoRuleRepository'
-import { VaccinationRepository } from '@/libraries/repositories/VaccinationRepository'
+import { VaccinationCountRepository } from '@/libraries/repositories/VaccinationCountRepository'
 import { VariantsRepository } from '@/libraries/repositories/VariantsRepository'
 
 export const state = () => ({
@@ -25,7 +25,7 @@ export const state = () => ({
   news: new NewsRepository().data,
   stayingPopulation: new StayingPopulationRepository().data,
   tokyoRule: new TokyoRuleRepository().data,
-  vaccination: new VaccinationRepository().data,
+  vaccination: new VaccinationCountRepository().data,
   variants: new VariantsRepository().data,
   positiveOver65: new PositiveOver65Repository().data,
 })

@@ -41,7 +41,7 @@
 |[](22)静岡市|https://stopcovid19.city.shizuoka.lg.jp/|静岡市（**公式**）|[kazuomatz/covid19](https://github.com/kazuomatz/covid19)||
 |[](22)浜松市|https://stopcovid19.code4hamamatsu.org/|浜松市（**公式**）|[code-for-hamamatsu/covid19](https://github.com/code-for-hamamatsu/covid19)||
 |[](23)愛知県|https://stopcovid19.code4.nagoya/|有志|[code4nagoya/covid19](https://github.com/code4nagoya/covid19)||
-|[](24)三重県|https://mie.stopcovid19.jp/|高専生チーム（有志）|[FlexiblePrintedCircuits/covid19-mie](https://github.com/FlexiblePrintedCircuits/covid19-mie)||
+|[](24)三重県|https://mie.stopcovid19.jp/|高専生チーム（有志）|[FlexiblePrintedCircuits/covid19-mie](https://github.com/FlexiblePrintedCircuits/covid19-mie)|**リンク切れ**|
 |[](25)滋賀県|https://stopcovid19.pref.shiga.jp/|滋賀県（**公式**）|[Shiga-pref-org/covid19](https://github.com/Shiga-pref-org/covid19)|**リンク切れ**|
 |[](26)京都府|https://stopcovid19-kyoto.netlify.app/|有志|[stopcovid19-kyoto/covid19](https://github.com/stopcovid19-kyoto/covid19)||
 |[](26)京都府|https://kyoto.stopcovid19.jp/|京都府（**公式**）|[stop-covid19-kyoto/covid19-kyoto](https://github.com/stop-covid19-kyoto/covid19-kyoto)||
@@ -63,7 +63,7 @@
 |[](40)福岡県|https://fukuoka.stopcovid19.jp/|Code for Fukuoka, Code for Kurume|[Code-for-Fukuoka/covid19-fukuoka](https://github.com/Code-for-Fukuoka/covid19-fukuoka)||
 |[](40)福岡市|https://stopcovid19.codeforfukuoka.org/|Code for Fukuoka|[Code-for-Fukuoka/covid19](https://github.com/Code-for-Fukuoka/covid19)||
 |[](40)北九州市|https://stopcovid19-kitakyushu.jp/|Code for Kitakyushu|[covid19-kitakyushu/covid19](https://github.com/covid19-kitakyushu/covid19)||
-|[](41)佐賀県|https://stopcovid19.code4saga.org/|Code for Saga|[codeforsaga/covid19](https://github.com/codeforsaga/covid19)||
+|[](41)佐賀県|https://stopcovid19.code4saga.org/|Code for Saga|[codeforsaga/covid19](https://github.com/codeforsaga/covid19)|**リンク切れ**|
 |[](42)長崎県|https://nagasaki.stopcovid19.jp/|Code for Nagasaki|[CodeForNagasaki/covid19](https://github.com/CodeForNagasaki/covid19)||
 |[](43)熊本県|https://kumamoto.stopcovid19.jp/|Code for Kumamoto|[codeforkumamoto/covid19](https://github.com/codeforkumamoto/covid19)||
 |[](44)大分県|https://oita.stopcovid19.jp/|有志|[covid19-oita/covid19](https://github.com/covid19-oita/covid19)||

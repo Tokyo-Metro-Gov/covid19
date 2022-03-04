@@ -2,19 +2,22 @@
   <v-col cols="12" :md="isSingleCard || 6" class="DataCard VaccinationCard">
     <client-only>
       <chart
-        :title="$t('ワクチン接種数（累計）')"
+        :title="$t('ワクチン接種数及び接種率（都内全人口・累計）')"
         title-id="vaccination"
         :info-titles="[
-          $t('全年齢接種数（１回目）'),
-          $t('全年齢接種数（２回目）'),
+          $t('１回目接種数（接種率）'),
+          $t('２回目接種数（接種率）'),
+          $t('３回目接種数（接種率）'),
         ]"
         chart-id="vaccination-chart"
         :chart-data="vaccinationData.chartData"
+        :table-data="vaccinationData.tableData"
         :get-formatter="getFormatter"
         :date="date"
         :labels="vaccinationData.labels"
         :data-labels="chartLabels"
-        :day-period="isSingleCard ? 48 : 24"
+        :table-labels="tableLabels"
+        :day-period="isSingleCard ? 120 : 60"
         :is-single-card="isSingleCard"
       >
         <template #additionalButton>
@@ -39,7 +42,11 @@
               }}
             </li>
             <li>
-              {{ $t('データには、医療従事者等の接種記録は含まれていない') }}
+              {{
+                $t(
+                  '1回目及び2回目のデータには、医療従事者等の接種記録は含まれていない'
+                )
+              }}
             </li>
           </ul>
         </template>
@@ -54,28 +61,31 @@ import Vue from 'vue'
 import AppLink from '@/components/_shared/AppLink.vue'
 import Chart from '@/components/index/CardsFeatured/Vaccination/Chart.vue'
 import {
-  Dataset as IVaccinationDataset,
-  Vaccination as IVaccination,
-} from '@/libraries/auto_generated/data_converter/convertVaccination'
+  Dataset as IVaccinationCountDataset,
+  VaccinationCount as IVaccinationCount,
+} from '@/libraries/auto_generated/data_converter/convertVaccinationCount'
 import VaccineIcon from '@/static/vaccine.svg'
-import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
+import {
+  getNumberToFixedFunction,
+  getNumberToLocaleStringFunction,
+} from '@/utils/monitoringStatusValueFormatters'
 import { isSingleCard } from '@/utils/urls'
 
 type Data = {
   chartLabels: string[]
-  getFormatter: () => (d: number) => string | undefined
+  tableLabels: string[]
+  getFormatter: () => (columnIndex: number) => string | undefined
 }
-type Methods = {
-  getWeekEndLabel: (end: Date) => string
-}
+type Methods = {}
 type Computed = {
   date: string
-  vaccinationDatasets: IVaccinationDataset[]
+  vaccinationDatasets: IVaccinationCountDataset[]
   vaccinationData: {
     labels: Date[]
     chartData: number[][]
+    tableData: number[][]
   }
-  vaccination: IVaccination
+  vaccination: IVaccinationCount
   isSingleCard: boolean
 }
 type Props = {}
@@ -88,16 +98,32 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   },
   data() {
     const chartLabels = [
-      this.$t('全年齢接種数（１回目・累計）') as string,
-      this.$t('全年齢接種数（２回目・累計）') as string,
+      this.$t('接種率（１回目）') as string,
+      this.$t('接種率（２回目）') as string,
+      this.$t('接種率（３回目）') as string,
     ]
 
-    const getFormatter = () => {
-      return getNumberToLocaleStringFunction()
+    const tableLabels = [
+      this.$t('接種数（１回目）') as string,
+      this.$t('接種率（１回目）') as string,
+      this.$t('接種数（２回目）') as string,
+      this.$t('接種率（２回目）') as string,
+      this.$t('接種数（３回目）') as string,
+      this.$t('接種率（３回目）') as string,
+    ]
+
+    const getFormatter = (columnIndex: number) => {
+      if (columnIndex === 0 || columnIndex === 2 || columnIndex === 4) {
+        return getNumberToLocaleStringFunction()
+      } else {
+        // 接種率は小数点第1位まで表示する。
+        return getNumberToFixedFunction(1)
+      }
     }
 
     return {
       chartLabels,
+      tableLabels,
       getFormatter,
     }
   },
@@ -110,19 +136,44 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     },
     vaccinationData() {
       const datasets = this.vaccinationDatasets
-      const labels = datasets.map((d: IVaccinationDataset) => d.date)
+      const labels = datasets.map((d: IVaccinationCountDataset) => d.date)
       const cumulative1StDose: number[] = datasets.map(
-        (d: IVaccinationDataset) => d.data.cumulative1StDose
+        (d: IVaccinationCountDataset) => d.data.cumulative1StDose
       )
       const cumulative2NdDose: number[] = datasets.map(
-        (d: IVaccinationDataset) => d.data.cumulative2NdDose
+        (d: IVaccinationCountDataset) => d.data.cumulative2NdDose
+      )
+      const cumulative3RDDose: number[] = datasets.map(
+        (d: IVaccinationCountDataset) => d.data.cumulative3RDDose
+      )
+      const coverage1StDose: number[] = datasets.map(
+        (d: IVaccinationCountDataset) => d.data.coverage1StDose
+      )
+      const coverage2NdDose: number[] = datasets.map(
+        (d: IVaccinationCountDataset) => d.data.coverage2NdDose
+      )
+      const coverage3RDDose: number[] = datasets.map(
+        (d: IVaccinationCountDataset) => d.data.coverage3RDDose
       )
 
-      const chartData: number[][] = [cumulative1StDose, cumulative2NdDose]
+      const chartData: number[][] = [
+        coverage1StDose,
+        coverage2NdDose,
+        coverage3RDDose,
+      ]
+      const tableData: number[][] = [
+        cumulative1StDose,
+        coverage1StDose,
+        cumulative2NdDose,
+        coverage2NdDose,
+        cumulative3RDDose,
+        coverage3RDDose,
+      ]
 
       return {
         labels,
         chartData,
+        tableData,
       }
     },
     vaccination() {
