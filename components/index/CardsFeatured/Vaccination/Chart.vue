@@ -16,6 +16,16 @@
       >
         <button role="checkbox" :aria-checked="`${displayLegends[i]}`">
           <span
+            v-if="i === 1"
+            :class="$style.area"
+            :style="{
+              background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
+              border: 0,
+              height: '3px',
+            }"
+          />
+          <span
+            v-else
             :class="$style.area"
             :style="{
               backgroundColor: colors[i].fillColor,
@@ -274,6 +284,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           fill: false,
           order: i,
           lineTension: 0,
+          borderDash: i === 1 ? [4] : null,
         }
       })
 
