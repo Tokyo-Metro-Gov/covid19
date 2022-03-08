@@ -5,9 +5,9 @@
         :title="$t('ワクチン接種数及び接種率（都内全人口・累計）')"
         title-id="vaccination"
         :info-titles="[
-          $t('１回目接種数（接種率）'),
-          $t('２回目接種数（接種率）'),
           $t('３回目接種数（接種率）'),
+          $t('２回目接種数（接種率）'),
+          $t('１回目接種数（接種率）'),
         ]"
         chart-id="vaccination-chart"
         :chart-data="vaccinationData.chartData"
