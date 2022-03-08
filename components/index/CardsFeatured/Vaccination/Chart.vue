@@ -121,6 +121,7 @@ type Methods = {
   onClickLegend: (i: number) => void
 }
 type DisplayInfo = {
+  index: number
   lText: string
   sText: string
 }
@@ -259,14 +260,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return dataset.slice(-1)[0]
       }
       const lastDay = this.labels.slice(-1)[0]
-      return this.chartData.map((data, i) => {
-        return {
-          lText: `${this.getFormatter(i * 2)(
-            lastData(this.tableData[i * 2])
-          )} (${this.getFormatter(i * 2 + 1)(lastData(data))}%)`,
-          sText: `${this.$d(new Date(lastDay), 'date')} ${this.$t('累計値')}`,
-        }
-      })
+      return this.chartData
+        .map((data, i) => {
+          return {
+            index: i,
+            lText: `${this.getFormatter(i * 2)(
+              lastData(this.tableData[i * 2])
+            )} (${this.getFormatter(i * 2 + 1)(lastData(data))}%)`,
+            sText: `${this.$d(new Date(lastDay), 'date')} ${this.$t('累計値')}`,
+          }
+        })
+        .sort((a, b) => (a.index > b.index ? -1 : 1))
     },
     displayData() {
       const datasets = this.dataLabels.map((_, i) => {
