@@ -4473,6 +4473,33 @@
                 "total": 2870,
                 "weekly_average_total": 3565
             }
+        },
+        {
+            "date": "2022-03-11",
+            "count": {
+                "fever_consultation_center": 2520,
+                "cocoa_dial": 164,
+                "total": 2684,
+                "weekly_average_total": 3493
+            }
+        },
+        {
+            "date": "2022-03-12",
+            "count": {
+                "fever_consultation_center": 3580,
+                "cocoa_dial": 131,
+                "total": 3711,
+                "weekly_average_total": 3373
+            }
+        },
+        {
+            "date": "2022-03-13",
+            "count": {
+                "fever_consultation_center": 4180,
+                "cocoa_dial": 131,
+                "total": 4311,
+                "weekly_average_total": 3331
+            }
         }
     ]
 }
