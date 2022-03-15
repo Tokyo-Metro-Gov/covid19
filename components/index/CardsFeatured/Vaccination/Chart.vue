@@ -77,13 +77,23 @@
     </template>
     <template #dataSetPanel>
       <data-view-data-set-panel
-        v-for="(di, i) in displayInfo"
-        :key="i"
-        :title="infoTitles[i]"
+        v-for="(di, i) in displayInfoForTitle"
+        :key="`title-${i}`"
+        :title="infoTitles[di.index]"
         :l-text="di.lText"
         :s-text="di.sText"
         :is-single-card="isSingleCard"
       />
+    </template>
+    <template #description>
+      <ul>
+        <li
+          v-for="(di, i) in displayInfoForDescription"
+          :key="`description-${i}`"
+        >
+          {{ `${infoTitles[di.index]} ${di.lText}（${di.sText}）` }}
+        </li>
+      </ul>
     </template>
   </data-view>
 </template>
@@ -121,6 +131,7 @@ type Methods = {
   onClickLegend: (i: number) => void
 }
 type DisplayInfo = {
+  index: number
   lText: string
   sText: string
 }
@@ -128,6 +139,8 @@ type Computed = {
   minDate: string
   maxDate: string
   displayInfo: DisplayInfo[]
+  displayInfoForTitle: DisplayInfo[]
+  displayInfoForDescription: DisplayInfo[]
   displayData: DisplayData
   displayOption: ChartOptions
   headTitle: string
@@ -261,11 +274,22 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const lastDay = this.labels.slice(-1)[0]
       return this.chartData.map((data, i) => {
         return {
+          index: i,
           lText: `${this.getFormatter(i * 2)(
             lastData(this.tableData[i * 2])
           )} (${this.getFormatter(i * 2 + 1)(lastData(data))}%)`,
           sText: `${this.$d(new Date(lastDay), 'date')} ${this.$t('累計値')}`,
         }
+      })
+    },
+    displayInfoForTitle() {
+      return this.displayInfo.filter((_, i) => {
+        return i === 2
+      })
+    },
+    displayInfoForDescription() {
+      return this.displayInfo.filter((_, i) => {
+        return i !== 2
       })
     },
     displayData() {
@@ -401,7 +425,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 suggestedMin: 0,
                 suggestedMax: 100,
                 fontColor: '#707070',
-                callback: (value) => {
+                callback: (value: number) => {
                   return `${value.toFixed(1)}%`
                 },
               },
