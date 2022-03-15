@@ -1,5 +1,5 @@
 {
-    "date": "2022\/3\/14 19:30",
+    "date": "2022\/3\/15 19:15",
     "datasets": [
         {
             "date": "2021-04-12",
@@ -59,7 +59,7 @@
         {
             "date": "2021-04-17",
             "data": {
-                "cumulative_1st_dose": 5032,
+                "cumulative_1st_dose": 5031,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0,
@@ -70,7 +70,7 @@
         {
             "date": "2021-04-18",
             "data": {
-                "cumulative_1st_dose": 5637,
+                "cumulative_1st_dose": 5636,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0,
@@ -81,7 +81,7 @@
         {
             "date": "2021-04-19",
             "data": {
-                "cumulative_1st_dose": 9119,
+                "cumulative_1st_dose": 9118,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.1,
@@ -103,7 +103,7 @@
         {
             "date": "2021-04-21",
             "data": {
-                "cumulative_1st_dose": 20855,
+                "cumulative_1st_dose": 20854,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.2,
@@ -114,7 +114,7 @@
         {
             "date": "2021-04-22",
             "data": {
-                "cumulative_1st_dose": 27125,
+                "cumulative_1st_dose": 27127,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.2,
@@ -125,7 +125,7 @@
         {
             "date": "2021-04-23",
             "data": {
-                "cumulative_1st_dose": 33846,
+                "cumulative_1st_dose": 33848,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.2,
@@ -136,7 +136,7 @@
         {
             "date": "2021-04-24",
             "data": {
-                "cumulative_1st_dose": 38042,
+                "cumulative_1st_dose": 38047,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.3,
@@ -147,7 +147,7 @@
         {
             "date": "2021-04-25",
             "data": {
-                "cumulative_1st_dose": 39873,
+                "cumulative_1st_dose": 39878,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.3,
@@ -158,7 +158,7 @@
         {
             "date": "2021-04-26",
             "data": {
-                "cumulative_1st_dose": 45542,
+                "cumulative_1st_dose": 45548,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.3,
@@ -169,7 +169,7 @@
         {
             "date": "2021-04-27",
             "data": {
-                "cumulative_1st_dose": 52392,
+                "cumulative_1st_dose": 52395,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.4,
@@ -180,7 +180,7 @@
         {
             "date": "2021-04-28",
             "data": {
-                "cumulative_1st_dose": 61187,
+                "cumulative_1st_dose": 61191,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.4,
@@ -191,7 +191,7 @@
         {
             "date": "2021-04-29",
             "data": {
-                "cumulative_1st_dose": 63280,
+                "cumulative_1st_dose": 63282,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.5,
@@ -202,7 +202,7 @@
         {
             "date": "2021-04-30",
             "data": {
-                "cumulative_1st_dose": 69517,
+                "cumulative_1st_dose": 69511,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.5,
@@ -213,7 +213,7 @@
         {
             "date": "2021-05-01",
             "data": {
-                "cumulative_1st_dose": 73998,
+                "cumulative_1st_dose": 73995,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.5,
@@ -224,7 +224,7 @@
         {
             "date": "2021-05-02",
             "data": {
-                "cumulative_1st_dose": 76998,
+                "cumulative_1st_dose": 76995,
                 "cumulative_2nd_dose": null,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.6,
@@ -235,7 +235,7 @@
         {
             "date": "2021-05-03",
             "data": {
-                "cumulative_1st_dose": 78161,
+                "cumulative_1st_dose": 78158,
                 "cumulative_2nd_dose": 2,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.6,
@@ -246,7 +246,7 @@
         {
             "date": "2021-05-04",
             "data": {
-                "cumulative_1st_dose": 79327,
+                "cumulative_1st_dose": 79324,
                 "cumulative_2nd_dose": 16,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.6,
@@ -257,7 +257,7 @@
         {
             "date": "2021-05-05",
             "data": {
-                "cumulative_1st_dose": 80910,
+                "cumulative_1st_dose": 80907,
                 "cumulative_2nd_dose": 29,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.6,
@@ -268,8 +268,8 @@
         {
             "date": "2021-05-06",
             "data": {
-                "cumulative_1st_dose": 85213,
-                "cumulative_2nd_dose": 954,
+                "cumulative_1st_dose": 85210,
+                "cumulative_2nd_dose": 955,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.6,
                 "coverage_2nd_dose": 0,
@@ -279,8 +279,8 @@
         {
             "date": "2021-05-07",
             "data": {
-                "cumulative_1st_dose": 89141,
-                "cumulative_2nd_dose": 2346,
+                "cumulative_1st_dose": 89138,
+                "cumulative_2nd_dose": 2347,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.6,
                 "coverage_2nd_dose": 0,
@@ -290,7 +290,7 @@
         {
             "date": "2021-05-08",
             "data": {
-                "cumulative_1st_dose": 93517,
+                "cumulative_1st_dose": 93514,
                 "cumulative_2nd_dose": 3628,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.7,
@@ -301,7 +301,7 @@
         {
             "date": "2021-05-09",
             "data": {
-                "cumulative_1st_dose": 107359,
+                "cumulative_1st_dose": 107356,
                 "cumulative_2nd_dose": 4143,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.8,
@@ -312,7 +312,7 @@
         {
             "date": "2021-05-10",
             "data": {
-                "cumulative_1st_dose": 116020,
+                "cumulative_1st_dose": 116017,
                 "cumulative_2nd_dose": 7256,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.8,
@@ -323,7 +323,7 @@
         {
             "date": "2021-05-11",
             "data": {
-                "cumulative_1st_dose": 127104,
+                "cumulative_1st_dose": 127101,
                 "cumulative_2nd_dose": 11793,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 0.9,
@@ -334,8 +334,8 @@
         {
             "date": "2021-05-12",
             "data": {
-                "cumulative_1st_dose": 144399,
-                "cumulative_2nd_dose": 17516,
+                "cumulative_1st_dose": 144396,
+                "cumulative_2nd_dose": 17515,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 1,
                 "coverage_2nd_dose": 0.1,
@@ -345,8 +345,8 @@
         {
             "date": "2021-05-13",
             "data": {
-                "cumulative_1st_dose": 161580,
-                "cumulative_2nd_dose": 23422,
+                "cumulative_1st_dose": 161578,
+                "cumulative_2nd_dose": 23420,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 1.2,
                 "coverage_2nd_dose": 0.2,
@@ -356,8 +356,8 @@
         {
             "date": "2021-05-14",
             "data": {
-                "cumulative_1st_dose": 176201,
-                "cumulative_2nd_dose": 30270,
+                "cumulative_1st_dose": 176202,
+                "cumulative_2nd_dose": 30268,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 1.3,
                 "coverage_2nd_dose": 0.2,
@@ -367,8 +367,8 @@
         {
             "date": "2021-05-15",
             "data": {
-                "cumulative_1st_dose": 196140,
-                "cumulative_2nd_dose": 34364,
+                "cumulative_1st_dose": 196142,
+                "cumulative_2nd_dose": 34365,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 1.4,
                 "coverage_2nd_dose": 0.2,
@@ -378,8 +378,8 @@
         {
             "date": "2021-05-16",
             "data": {
-                "cumulative_1st_dose": 225071,
-                "cumulative_2nd_dose": 36072,
+                "cumulative_1st_dose": 225073,
+                "cumulative_2nd_dose": 36074,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 1.6,
                 "coverage_2nd_dose": 0.3,
@@ -389,8 +389,8 @@
         {
             "date": "2021-05-17",
             "data": {
-                "cumulative_1st_dose": 244275,
-                "cumulative_2nd_dose": 41100,
+                "cumulative_1st_dose": 244277,
+                "cumulative_2nd_dose": 41104,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 1.8,
                 "coverage_2nd_dose": 0.3,
@@ -400,8 +400,8 @@
         {
             "date": "2021-05-18",
             "data": {
-                "cumulative_1st_dose": 269907,
-                "cumulative_2nd_dose": 47292,
+                "cumulative_1st_dose": 269908,
+                "cumulative_2nd_dose": 47296,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 1.9,
                 "coverage_2nd_dose": 0.3,
@@ -411,8 +411,8 @@
         {
             "date": "2021-05-19",
             "data": {
-                "cumulative_1st_dose": 304191,
-                "cumulative_2nd_dose": 54707,
+                "cumulative_1st_dose": 304194,
+                "cumulative_2nd_dose": 54711,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 2.2,
                 "coverage_2nd_dose": 0.4,
@@ -422,8 +422,8 @@
         {
             "date": "2021-05-20",
             "data": {
-                "cumulative_1st_dose": 338538,
-                "cumulative_2nd_dose": 58114,
+                "cumulative_1st_dose": 338541,
+                "cumulative_2nd_dose": 58116,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 2.4,
                 "coverage_2nd_dose": 0.4,
@@ -433,8 +433,8 @@
         {
             "date": "2021-05-21",
             "data": {
-                "cumulative_1st_dose": 367117,
-                "cumulative_2nd_dose": 64732,
+                "cumulative_1st_dose": 367120,
+                "cumulative_2nd_dose": 64728,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 2.7,
                 "coverage_2nd_dose": 0.5,
@@ -444,8 +444,8 @@
         {
             "date": "2021-05-22",
             "data": {
-                "cumulative_1st_dose": 403470,
-                "cumulative_2nd_dose": 69600,
+                "cumulative_1st_dose": 403473,
+                "cumulative_2nd_dose": 69597,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 2.9,
                 "coverage_2nd_dose": 0.5,
@@ -455,8 +455,8 @@
         {
             "date": "2021-05-23",
             "data": {
-                "cumulative_1st_dose": 453966,
-                "cumulative_2nd_dose": 72514,
+                "cumulative_1st_dose": 453969,
+                "cumulative_2nd_dose": 72511,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 3.3,
                 "coverage_2nd_dose": 0.5,
@@ -466,8 +466,8 @@
         {
             "date": "2021-05-24",
             "data": {
-                "cumulative_1st_dose": 496622,
-                "cumulative_2nd_dose": 74096,
+                "cumulative_1st_dose": 496625,
+                "cumulative_2nd_dose": 74093,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 3.6,
                 "coverage_2nd_dose": 0.5,
@@ -477,8 +477,8 @@
         {
             "date": "2021-05-25",
             "data": {
-                "cumulative_1st_dose": 546129,
-                "cumulative_2nd_dose": 75401,
+                "cumulative_1st_dose": 546135,
+                "cumulative_2nd_dose": 75397,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 3.9,
                 "coverage_2nd_dose": 0.5,
@@ -488,8 +488,8 @@
         {
             "date": "2021-05-26",
             "data": {
-                "cumulative_1st_dose": 605508,
-                "cumulative_2nd_dose": 77213,
+                "cumulative_1st_dose": 605513,
+                "cumulative_2nd_dose": 77209,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 4.4,
                 "coverage_2nd_dose": 0.6,
@@ -499,8 +499,8 @@
         {
             "date": "2021-05-27",
             "data": {
-                "cumulative_1st_dose": 661380,
-                "cumulative_2nd_dose": 81547,
+                "cumulative_1st_dose": 661385,
+                "cumulative_2nd_dose": 81544,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 4.8,
                 "coverage_2nd_dose": 0.6,
@@ -510,8 +510,8 @@
         {
             "date": "2021-05-28",
             "data": {
-                "cumulative_1st_dose": 713167,
-                "cumulative_2nd_dose": 85784,
+                "cumulative_1st_dose": 713172,
+                "cumulative_2nd_dose": 85781,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 5.2,
                 "coverage_2nd_dose": 0.6,
@@ -521,8 +521,8 @@
         {
             "date": "2021-05-29",
             "data": {
-                "cumulative_1st_dose": 771020,
-                "cumulative_2nd_dose": 90002,
+                "cumulative_1st_dose": 771027,
+                "cumulative_2nd_dose": 89998,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 5.6,
                 "coverage_2nd_dose": 0.7,
@@ -532,8 +532,8 @@
         {
             "date": "2021-05-30",
             "data": {
-                "cumulative_1st_dose": 831306,
-                "cumulative_2nd_dose": 99899,
+                "cumulative_1st_dose": 831313,
+                "cumulative_2nd_dose": 99896,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 6,
                 "coverage_2nd_dose": 0.7,
@@ -543,8 +543,8 @@
         {
             "date": "2021-05-31",
             "data": {
-                "cumulative_1st_dose": 882274,
-                "cumulative_2nd_dose": 107205,
+                "cumulative_1st_dose": 882282,
+                "cumulative_2nd_dose": 107189,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 6.4,
                 "coverage_2nd_dose": 0.8,
@@ -554,8 +554,8 @@
         {
             "date": "2021-06-01",
             "data": {
-                "cumulative_1st_dose": 949011,
-                "cumulative_2nd_dose": 116383,
+                "cumulative_1st_dose": 949022,
+                "cumulative_2nd_dose": 116364,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 6.9,
                 "coverage_2nd_dose": 0.8,
@@ -565,8 +565,8 @@
         {
             "date": "2021-06-02",
             "data": {
-                "cumulative_1st_dose": 1021286,
-                "cumulative_2nd_dose": 130148,
+                "cumulative_1st_dose": 1021299,
+                "cumulative_2nd_dose": 130125,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 7.4,
                 "coverage_2nd_dose": 0.9,
@@ -576,8 +576,8 @@
         {
             "date": "2021-06-03",
             "data": {
-                "cumulative_1st_dose": 1084217,
-                "cumulative_2nd_dose": 144449,
+                "cumulative_1st_dose": 1084235,
+                "cumulative_2nd_dose": 144426,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 7.8,
                 "coverage_2nd_dose": 1,
@@ -587,8 +587,8 @@
         {
             "date": "2021-06-04",
             "data": {
-                "cumulative_1st_dose": 1147707,
-                "cumulative_2nd_dose": 157174,
+                "cumulative_1st_dose": 1147725,
+                "cumulative_2nd_dose": 157143,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 8.3,
                 "coverage_2nd_dose": 1.1,
@@ -598,8 +598,8 @@
         {
             "date": "2021-06-05",
             "data": {
-                "cumulative_1st_dose": 1211666,
-                "cumulative_2nd_dose": 172961,
+                "cumulative_1st_dose": 1211685,
+                "cumulative_2nd_dose": 172933,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 8.8,
                 "coverage_2nd_dose": 1.2,
@@ -609,8 +609,8 @@
         {
             "date": "2021-06-06",
             "data": {
-                "cumulative_1st_dose": 1274268,
-                "cumulative_2nd_dose": 201647,
+                "cumulative_1st_dose": 1274288,
+                "cumulative_2nd_dose": 201619,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 9.2,
                 "coverage_2nd_dose": 1.5,
@@ -620,8 +620,8 @@
         {
             "date": "2021-06-07",
             "data": {
-                "cumulative_1st_dose": 1331770,
-                "cumulative_2nd_dose": 217880,
+                "cumulative_1st_dose": 1331791,
+                "cumulative_2nd_dose": 217850,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 9.6,
                 "coverage_2nd_dose": 1.6,
@@ -631,8 +631,8 @@
         {
             "date": "2021-06-08",
             "data": {
-                "cumulative_1st_dose": 1397719,
-                "cumulative_2nd_dose": 240245,
+                "cumulative_1st_dose": 1397741,
+                "cumulative_2nd_dose": 240205,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 10.1,
                 "coverage_2nd_dose": 1.7,
@@ -642,8 +642,8 @@
         {
             "date": "2021-06-09",
             "data": {
-                "cumulative_1st_dose": 1464585,
-                "cumulative_2nd_dose": 269572,
+                "cumulative_1st_dose": 1464608,
+                "cumulative_2nd_dose": 269527,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 10.6,
                 "coverage_2nd_dose": 1.9,
@@ -653,8 +653,8 @@
         {
             "date": "2021-06-10",
             "data": {
-                "cumulative_1st_dose": 1524787,
-                "cumulative_2nd_dose": 301755,
+                "cumulative_1st_dose": 1524811,
+                "cumulative_2nd_dose": 301710,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 11,
                 "coverage_2nd_dose": 2.2,
@@ -664,8 +664,8 @@
         {
             "date": "2021-06-11",
             "data": {
-                "cumulative_1st_dose": 1592032,
-                "cumulative_2nd_dose": 327742,
+                "cumulative_1st_dose": 1592058,
+                "cumulative_2nd_dose": 327685,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 11.5,
                 "coverage_2nd_dose": 2.4,
@@ -675,8 +675,8 @@
         {
             "date": "2021-06-12",
             "data": {
-                "cumulative_1st_dose": 1653178,
-                "cumulative_2nd_dose": 360783,
+                "cumulative_1st_dose": 1653204,
+                "cumulative_2nd_dose": 360727,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 11.9,
                 "coverage_2nd_dose": 2.6,
@@ -686,8 +686,8 @@
         {
             "date": "2021-06-13",
             "data": {
-                "cumulative_1st_dose": 1708924,
-                "cumulative_2nd_dose": 407684,
+                "cumulative_1st_dose": 1708951,
+                "cumulative_2nd_dose": 407662,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 12.3,
                 "coverage_2nd_dose": 2.9,
@@ -697,8 +697,8 @@
         {
             "date": "2021-06-14",
             "data": {
-                "cumulative_1st_dose": 1767447,
-                "cumulative_2nd_dose": 442697,
+                "cumulative_1st_dose": 1767477,
+                "cumulative_2nd_dose": 442675,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 12.8,
                 "coverage_2nd_dose": 3.2,
@@ -708,8 +708,8 @@
         {
             "date": "2021-06-15",
             "data": {
-                "cumulative_1st_dose": 1831829,
-                "cumulative_2nd_dose": 484400,
+                "cumulative_1st_dose": 1831861,
+                "cumulative_2nd_dose": 484379,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 13.2,
                 "coverage_2nd_dose": 3.5,
@@ -719,8 +719,8 @@
         {
             "date": "2021-06-16",
             "data": {
-                "cumulative_1st_dose": 1894553,
-                "cumulative_2nd_dose": 533279,
+                "cumulative_1st_dose": 1894588,
+                "cumulative_2nd_dose": 533258,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 13.7,
                 "coverage_2nd_dose": 3.9,
@@ -730,8 +730,8 @@
         {
             "date": "2021-06-17",
             "data": {
-                "cumulative_1st_dose": 1956736,
-                "cumulative_2nd_dose": 580834,
+                "cumulative_1st_dose": 1956775,
+                "cumulative_2nd_dose": 580814,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 14.1,
                 "coverage_2nd_dose": 4.2,
@@ -741,8 +741,8 @@
         {
             "date": "2021-06-18",
             "data": {
-                "cumulative_1st_dose": 2024946,
-                "cumulative_2nd_dose": 624067,
+                "cumulative_1st_dose": 2024988,
+                "cumulative_2nd_dose": 624012,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 14.6,
                 "coverage_2nd_dose": 4.5,
@@ -752,8 +752,8 @@
         {
             "date": "2021-06-19",
             "data": {
-                "cumulative_1st_dose": 2090146,
-                "cumulative_2nd_dose": 672020,
+                "cumulative_1st_dose": 2090197,
+                "cumulative_2nd_dose": 671965,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 15.1,
                 "coverage_2nd_dose": 4.9,
@@ -763,8 +763,8 @@
         {
             "date": "2021-06-20",
             "data": {
-                "cumulative_1st_dose": 2150560,
-                "cumulative_2nd_dose": 729091,
+                "cumulative_1st_dose": 2150614,
+                "cumulative_2nd_dose": 729036,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 15.5,
                 "coverage_2nd_dose": 5.3,
@@ -774,8 +774,8 @@
         {
             "date": "2021-06-21",
             "data": {
-                "cumulative_1st_dose": 2235529,
-                "cumulative_2nd_dose": 768498,
+                "cumulative_1st_dose": 2235588,
+                "cumulative_2nd_dose": 768444,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 16.1,
                 "coverage_2nd_dose": 5.6,
@@ -785,8 +785,8 @@
         {
             "date": "2021-06-22",
             "data": {
-                "cumulative_1st_dose": 2328156,
-                "cumulative_2nd_dose": 822777,
+                "cumulative_1st_dose": 2328223,
+                "cumulative_2nd_dose": 822724,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 16.8,
                 "coverage_2nd_dose": 5.9,
@@ -796,8 +796,8 @@
         {
             "date": "2021-06-23",
             "data": {
-                "cumulative_1st_dose": 2420406,
-                "cumulative_2nd_dose": 883194,
+                "cumulative_1st_dose": 2420479,
+                "cumulative_2nd_dose": 883144,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 17.5,
                 "coverage_2nd_dose": 6.4,
@@ -807,8 +807,8 @@
         {
             "date": "2021-06-24",
             "data": {
-                "cumulative_1st_dose": 2508928,
-                "cumulative_2nd_dose": 935261,
+                "cumulative_1st_dose": 2509009,
+                "cumulative_2nd_dose": 935212,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 18.1,
                 "coverage_2nd_dose": 6.8,
@@ -818,8 +818,8 @@
         {
             "date": "2021-06-25",
             "data": {
-                "cumulative_1st_dose": 2603607,
-                "cumulative_2nd_dose": 989139,
+                "cumulative_1st_dose": 2603696,
+                "cumulative_2nd_dose": 989091,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 18.8,
                 "coverage_2nd_dose": 7.1,
@@ -829,8 +829,8 @@
         {
             "date": "2021-06-26",
             "data": {
-                "cumulative_1st_dose": 2688078,
-                "cumulative_2nd_dose": 1045060,
+                "cumulative_1st_dose": 2688169,
+                "cumulative_2nd_dose": 1045019,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 19.4,
                 "coverage_2nd_dose": 7.5,
@@ -840,8 +840,8 @@
         {
             "date": "2021-06-27",
             "data": {
-                "cumulative_1st_dose": 2762347,
-                "cumulative_2nd_dose": 1111725,
+                "cumulative_1st_dose": 2762440,
+                "cumulative_2nd_dose": 1111685,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 20,
                 "coverage_2nd_dose": 8,
@@ -851,8 +851,8 @@
         {
             "date": "2021-06-28",
             "data": {
-                "cumulative_1st_dose": 2855589,
-                "cumulative_2nd_dose": 1172941,
+                "cumulative_1st_dose": 2855689,
+                "cumulative_2nd_dose": 1172901,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 20.6,
                 "coverage_2nd_dose": 8.5,
@@ -862,8 +862,8 @@
         {
             "date": "2021-06-29",
             "data": {
-                "cumulative_1st_dose": 2958916,
-                "cumulative_2nd_dose": 1241807,
+                "cumulative_1st_dose": 2959019,
+                "cumulative_2nd_dose": 1241768,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 21.4,
                 "coverage_2nd_dose": 9,
@@ -873,8 +873,8 @@
         {
             "date": "2021-06-30",
             "data": {
-                "cumulative_1st_dose": 3071105,
-                "cumulative_2nd_dose": 1314298,
+                "cumulative_1st_dose": 3071226,
+                "cumulative_2nd_dose": 1314259,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 22.2,
                 "coverage_2nd_dose": 9.5,
@@ -884,8 +884,8 @@
         {
             "date": "2021-07-01",
             "data": {
-                "cumulative_1st_dose": 3172144,
-                "cumulative_2nd_dose": 1378222,
+                "cumulative_1st_dose": 3172278,
+                "cumulative_2nd_dose": 1378184,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 22.9,
                 "coverage_2nd_dose": 10,
@@ -895,8 +895,8 @@
         {
             "date": "2021-07-02",
             "data": {
-                "cumulative_1st_dose": 3276778,
-                "cumulative_2nd_dose": 1447104,
+                "cumulative_1st_dose": 3276913,
+                "cumulative_2nd_dose": 1447068,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 23.7,
                 "coverage_2nd_dose": 10.5,
@@ -906,8 +906,8 @@
         {
             "date": "2021-07-03",
             "data": {
-                "cumulative_1st_dose": 3369751,
-                "cumulative_2nd_dose": 1505327,
+                "cumulative_1st_dose": 3369893,
+                "cumulative_2nd_dose": 1505292,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 24.3,
                 "coverage_2nd_dose": 10.9,
@@ -917,8 +917,8 @@
         {
             "date": "2021-07-04",
             "data": {
-                "cumulative_1st_dose": 3432888,
-                "cumulative_2nd_dose": 1547861,
+                "cumulative_1st_dose": 3433031,
+                "cumulative_2nd_dose": 1547828,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 24.8,
                 "coverage_2nd_dose": 11.2,
@@ -928,8 +928,8 @@
         {
             "date": "2021-07-05",
             "data": {
-                "cumulative_1st_dose": 3558227,
-                "cumulative_2nd_dose": 1610332,
+                "cumulative_1st_dose": 3558351,
+                "cumulative_2nd_dose": 1610303,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 25.7,
                 "coverage_2nd_dose": 11.6,
@@ -939,8 +939,8 @@
         {
             "date": "2021-07-06",
             "data": {
-                "cumulative_1st_dose": 3695456,
-                "cumulative_2nd_dose": 1678994,
+                "cumulative_1st_dose": 3695588,
+                "cumulative_2nd_dose": 1678970,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 26.7,
                 "coverage_2nd_dose": 12.1,
@@ -950,8 +950,8 @@
         {
             "date": "2021-07-07",
             "data": {
-                "cumulative_1st_dose": 3832066,
-                "cumulative_2nd_dose": 1747229,
+                "cumulative_1st_dose": 3832204,
+                "cumulative_2nd_dose": 1747205,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 27.7,
                 "coverage_2nd_dose": 12.6,
@@ -961,8 +961,8 @@
         {
             "date": "2021-07-08",
             "data": {
-                "cumulative_1st_dose": 3971412,
-                "cumulative_2nd_dose": 1806184,
+                "cumulative_1st_dose": 3971563,
+                "cumulative_2nd_dose": 1806161,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 28.7,
                 "coverage_2nd_dose": 13,
@@ -972,8 +972,8 @@
         {
             "date": "2021-07-09",
             "data": {
-                "cumulative_1st_dose": 4116042,
-                "cumulative_2nd_dose": 1872396,
+                "cumulative_1st_dose": 4116208,
+                "cumulative_2nd_dose": 1872375,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 29.7,
                 "coverage_2nd_dose": 13.5,
@@ -983,8 +983,8 @@
         {
             "date": "2021-07-10",
             "data": {
-                "cumulative_1st_dose": 4238734,
-                "cumulative_2nd_dose": 1939582,
+                "cumulative_1st_dose": 4238901,
+                "cumulative_2nd_dose": 1939571,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 30.6,
                 "coverage_2nd_dose": 14,
@@ -994,8 +994,8 @@
         {
             "date": "2021-07-11",
             "data": {
-                "cumulative_1st_dose": 4337782,
-                "cumulative_2nd_dose": 2002424,
+                "cumulative_1st_dose": 4337951,
+                "cumulative_2nd_dose": 2002413,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 31.3,
                 "coverage_2nd_dose": 14.5,
@@ -1005,8 +1005,8 @@
         {
             "date": "2021-07-12",
             "data": {
-                "cumulative_1st_dose": 4449819,
-                "cumulative_2nd_dose": 2065580,
+                "cumulative_1st_dose": 4449996,
+                "cumulative_2nd_dose": 2065569,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 32.1,
                 "coverage_2nd_dose": 14.9,
@@ -1016,8 +1016,8 @@
         {
             "date": "2021-07-13",
             "data": {
-                "cumulative_1st_dose": 4573927,
-                "cumulative_2nd_dose": 2131948,
+                "cumulative_1st_dose": 4574104,
+                "cumulative_2nd_dose": 2131938,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 33,
                 "coverage_2nd_dose": 15.4,
@@ -1027,8 +1027,8 @@
         {
             "date": "2021-07-14",
             "data": {
-                "cumulative_1st_dose": 4699876,
-                "cumulative_2nd_dose": 2198525,
+                "cumulative_1st_dose": 4700057,
+                "cumulative_2nd_dose": 2198515,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 34,
                 "coverage_2nd_dose": 15.9,
@@ -1038,8 +1038,8 @@
         {
             "date": "2021-07-15",
             "data": {
-                "cumulative_1st_dose": 4820868,
-                "cumulative_2nd_dose": 2263339,
+                "cumulative_1st_dose": 4821053,
+                "cumulative_2nd_dose": 2263336,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 34.8,
                 "coverage_2nd_dose": 16.3,
@@ -1049,8 +1049,8 @@
         {
             "date": "2021-07-16",
             "data": {
-                "cumulative_1st_dose": 4947339,
-                "cumulative_2nd_dose": 2335330,
+                "cumulative_1st_dose": 4947531,
+                "cumulative_2nd_dose": 2335328,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 35.7,
                 "coverage_2nd_dose": 16.9,
@@ -1060,7 +1060,7 @@
         {
             "date": "2021-07-17",
             "data": {
-                "cumulative_1st_dose": 5050833,
+                "cumulative_1st_dose": 5051039,
                 "cumulative_2nd_dose": 2408853,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 36.5,
@@ -1071,8 +1071,8 @@
         {
             "date": "2021-07-18",
             "data": {
-                "cumulative_1st_dose": 5140254,
-                "cumulative_2nd_dose": 2475696,
+                "cumulative_1st_dose": 5140461,
+                "cumulative_2nd_dose": 2475700,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 37.1,
                 "coverage_2nd_dose": 17.9,
@@ -1082,8 +1082,8 @@
         {
             "date": "2021-07-19",
             "data": {
-                "cumulative_1st_dose": 5225526,
-                "cumulative_2nd_dose": 2554165,
+                "cumulative_1st_dose": 5225738,
+                "cumulative_2nd_dose": 2554172,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 37.7,
                 "coverage_2nd_dose": 18.5,
@@ -1093,8 +1093,8 @@
         {
             "date": "2021-07-20",
             "data": {
-                "cumulative_1st_dose": 5332025,
-                "cumulative_2nd_dose": 2642310,
+                "cumulative_1st_dose": 5332243,
+                "cumulative_2nd_dose": 2642319,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 38.5,
                 "coverage_2nd_dose": 19.1,
@@ -1104,8 +1104,8 @@
         {
             "date": "2021-07-21",
             "data": {
-                "cumulative_1st_dose": 5442457,
-                "cumulative_2nd_dose": 2737263,
+                "cumulative_1st_dose": 5442681,
+                "cumulative_2nd_dose": 2737283,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 39.3,
                 "coverage_2nd_dose": 19.8,
@@ -1115,8 +1115,8 @@
         {
             "date": "2021-07-22",
             "data": {
-                "cumulative_1st_dose": 5493701,
-                "cumulative_2nd_dose": 2787846,
+                "cumulative_1st_dose": 5493925,
+                "cumulative_2nd_dose": 2787866,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 39.7,
                 "coverage_2nd_dose": 20.1,
@@ -1126,8 +1126,8 @@
         {
             "date": "2021-07-23",
             "data": {
-                "cumulative_1st_dose": 5537392,
-                "cumulative_2nd_dose": 2832429,
+                "cumulative_1st_dose": 5537617,
+                "cumulative_2nd_dose": 2832449,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 40,
                 "coverage_2nd_dose": 20.5,
@@ -1137,8 +1137,8 @@
         {
             "date": "2021-07-24",
             "data": {
-                "cumulative_1st_dose": 5609971,
-                "cumulative_2nd_dose": 2925761,
+                "cumulative_1st_dose": 5610197,
+                "cumulative_2nd_dose": 2925788,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 40.5,
                 "coverage_2nd_dose": 21.1,
@@ -1148,8 +1148,8 @@
         {
             "date": "2021-07-25",
             "data": {
-                "cumulative_1st_dose": 5679674,
-                "cumulative_2nd_dose": 2992622,
+                "cumulative_1st_dose": 5679899,
+                "cumulative_2nd_dose": 2992650,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 41,
                 "coverage_2nd_dose": 21.6,
@@ -1159,8 +1159,8 @@
         {
             "date": "2021-07-26",
             "data": {
-                "cumulative_1st_dose": 5759894,
-                "cumulative_2nd_dose": 3111957,
+                "cumulative_1st_dose": 5760126,
+                "cumulative_2nd_dose": 3111992,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 41.6,
                 "coverage_2nd_dose": 22.5,
@@ -1170,8 +1170,8 @@
         {
             "date": "2021-07-27",
             "data": {
-                "cumulative_1st_dose": 5838461,
-                "cumulative_2nd_dose": 3238132,
+                "cumulative_1st_dose": 5838695,
+                "cumulative_2nd_dose": 3238173,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 42.2,
                 "coverage_2nd_dose": 23.4,
@@ -1181,8 +1181,8 @@
         {
             "date": "2021-07-28",
             "data": {
-                "cumulative_1st_dose": 5920711,
-                "cumulative_2nd_dose": 3367238,
+                "cumulative_1st_dose": 5920943,
+                "cumulative_2nd_dose": 3367290,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 42.8,
                 "coverage_2nd_dose": 24.3,
@@ -1192,8 +1192,8 @@
         {
             "date": "2021-07-29",
             "data": {
-                "cumulative_1st_dose": 6002516,
-                "cumulative_2nd_dose": 3496118,
+                "cumulative_1st_dose": 6002747,
+                "cumulative_2nd_dose": 3496178,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 43.4,
                 "coverage_2nd_dose": 25.3,
@@ -1203,8 +1203,8 @@
         {
             "date": "2021-07-30",
             "data": {
-                "cumulative_1st_dose": 6086273,
-                "cumulative_2nd_dose": 3639896,
+                "cumulative_1st_dose": 6086505,
+                "cumulative_2nd_dose": 3639981,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 44,
                 "coverage_2nd_dose": 26.3,
@@ -1214,8 +1214,8 @@
         {
             "date": "2021-07-31",
             "data": {
-                "cumulative_1st_dose": 6155719,
-                "cumulative_2nd_dose": 3756714,
+                "cumulative_1st_dose": 6155955,
+                "cumulative_2nd_dose": 3756805,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 44.5,
                 "coverage_2nd_dose": 27.1,
@@ -1225,8 +1225,8 @@
         {
             "date": "2021-08-01",
             "data": {
-                "cumulative_1st_dose": 6226258,
-                "cumulative_2nd_dose": 3833711,
+                "cumulative_1st_dose": 6226495,
+                "cumulative_2nd_dose": 3833809,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 45,
                 "coverage_2nd_dose": 27.7,
@@ -1236,8 +1236,8 @@
         {
             "date": "2021-08-02",
             "data": {
-                "cumulative_1st_dose": 6297468,
-                "cumulative_2nd_dose": 3956135,
+                "cumulative_1st_dose": 6297707,
+                "cumulative_2nd_dose": 3956241,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 45.5,
                 "coverage_2nd_dose": 28.6,
@@ -1247,8 +1247,8 @@
         {
             "date": "2021-08-03",
             "data": {
-                "cumulative_1st_dose": 6373966,
-                "cumulative_2nd_dose": 4084251,
+                "cumulative_1st_dose": 6374204,
+                "cumulative_2nd_dose": 4084378,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 46,
                 "coverage_2nd_dose": 29.5,
@@ -1258,8 +1258,8 @@
         {
             "date": "2021-08-04",
             "data": {
-                "cumulative_1st_dose": 6449754,
-                "cumulative_2nd_dose": 4215084,
+                "cumulative_1st_dose": 6449995,
+                "cumulative_2nd_dose": 4215219,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 46.6,
                 "coverage_2nd_dose": 30.4,
@@ -1269,8 +1269,8 @@
         {
             "date": "2021-08-05",
             "data": {
-                "cumulative_1st_dose": 6522691,
-                "cumulative_2nd_dose": 4346616,
+                "cumulative_1st_dose": 6522940,
+                "cumulative_2nd_dose": 4346754,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 47.1,
                 "coverage_2nd_dose": 31.4,
@@ -1280,8 +1280,8 @@
         {
             "date": "2021-08-06",
             "data": {
-                "cumulative_1st_dose": 6592252,
-                "cumulative_2nd_dose": 4487797,
+                "cumulative_1st_dose": 6592507,
+                "cumulative_2nd_dose": 4487934,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 47.6,
                 "coverage_2nd_dose": 32.4,
@@ -1291,8 +1291,8 @@
         {
             "date": "2021-08-07",
             "data": {
-                "cumulative_1st_dose": 6664863,
-                "cumulative_2nd_dose": 4593221,
+                "cumulative_1st_dose": 6665119,
+                "cumulative_2nd_dose": 4593362,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 48.1,
                 "coverage_2nd_dose": 33.2,
@@ -1302,8 +1302,8 @@
         {
             "date": "2021-08-08",
             "data": {
-                "cumulative_1st_dose": 6732580,
-                "cumulative_2nd_dose": 4670741,
+                "cumulative_1st_dose": 6732837,
+                "cumulative_2nd_dose": 4670888,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 48.6,
                 "coverage_2nd_dose": 33.7,
@@ -1313,8 +1313,8 @@
         {
             "date": "2021-08-09",
             "data": {
-                "cumulative_1st_dose": 6764919,
-                "cumulative_2nd_dose": 4712073,
+                "cumulative_1st_dose": 6765176,
+                "cumulative_2nd_dose": 4712220,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 48.9,
                 "coverage_2nd_dose": 34,
@@ -1324,8 +1324,8 @@
         {
             "date": "2021-08-10",
             "data": {
-                "cumulative_1st_dose": 6825898,
-                "cumulative_2nd_dose": 4830334,
+                "cumulative_1st_dose": 6826157,
+                "cumulative_2nd_dose": 4830492,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 49.3,
                 "coverage_2nd_dose": 34.9,
@@ -1335,8 +1335,8 @@
         {
             "date": "2021-08-11",
             "data": {
-                "cumulative_1st_dose": 6889937,
-                "cumulative_2nd_dose": 4942777,
+                "cumulative_1st_dose": 6890198,
+                "cumulative_2nd_dose": 4942948,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 49.8,
                 "coverage_2nd_dose": 35.7,
@@ -1346,8 +1346,8 @@
         {
             "date": "2021-08-12",
             "data": {
-                "cumulative_1st_dose": 6952187,
-                "cumulative_2nd_dose": 5027202,
+                "cumulative_1st_dose": 6952448,
+                "cumulative_2nd_dose": 5027382,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 50.2,
                 "coverage_2nd_dose": 36.3,
@@ -1357,8 +1357,8 @@
         {
             "date": "2021-08-13",
             "data": {
-                "cumulative_1st_dose": 7008975,
-                "cumulative_2nd_dose": 5108329,
+                "cumulative_1st_dose": 7009238,
+                "cumulative_2nd_dose": 5108515,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 50.6,
                 "coverage_2nd_dose": 36.9,
@@ -1368,8 +1368,8 @@
         {
             "date": "2021-08-14",
             "data": {
-                "cumulative_1st_dose": 7070459,
-                "cumulative_2nd_dose": 5184688,
+                "cumulative_1st_dose": 7070722,
+                "cumulative_2nd_dose": 5184880,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 51.1,
                 "coverage_2nd_dose": 37.5,
@@ -1379,8 +1379,8 @@
         {
             "date": "2021-08-15",
             "data": {
-                "cumulative_1st_dose": 7139702,
-                "cumulative_2nd_dose": 5252802,
+                "cumulative_1st_dose": 7139964,
+                "cumulative_2nd_dose": 5252998,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 51.6,
                 "coverage_2nd_dose": 37.9,
@@ -1390,8 +1390,8 @@
         {
             "date": "2021-08-16",
             "data": {
-                "cumulative_1st_dose": 7197016,
-                "cumulative_2nd_dose": 5342779,
+                "cumulative_1st_dose": 7197277,
+                "cumulative_2nd_dose": 5342984,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 52,
                 "coverage_2nd_dose": 38.6,
@@ -1401,8 +1401,8 @@
         {
             "date": "2021-08-17",
             "data": {
-                "cumulative_1st_dose": 7260363,
-                "cumulative_2nd_dose": 5440445,
+                "cumulative_1st_dose": 7260625,
+                "cumulative_2nd_dose": 5440660,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 52.4,
                 "coverage_2nd_dose": 39.3,
@@ -1412,8 +1412,8 @@
         {
             "date": "2021-08-18",
             "data": {
-                "cumulative_1st_dose": 7329200,
-                "cumulative_2nd_dose": 5538771,
+                "cumulative_1st_dose": 7329466,
+                "cumulative_2nd_dose": 5538989,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 52.9,
                 "coverage_2nd_dose": 40,
@@ -1423,10 +1423,10 @@
         {
             "date": "2021-08-19",
             "data": {
-                "cumulative_1st_dose": 7399077,
-                "cumulative_2nd_dose": 5628048,
+                "cumulative_1st_dose": 7399343,
+                "cumulative_2nd_dose": 5628267,
                 "cumulative_3rd_dose": null,
-                "coverage_1st_dose": 53.4,
+                "coverage_1st_dose": 53.5,
                 "coverage_2nd_dose": 40.7,
                 "coverage_3rd_dose": null
             }
@@ -1434,8 +1434,8 @@
         {
             "date": "2021-08-20",
             "data": {
-                "cumulative_1st_dose": 7470742,
-                "cumulative_2nd_dose": 5726156,
+                "cumulative_1st_dose": 7471007,
+                "cumulative_2nd_dose": 5726378,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 54,
                 "coverage_2nd_dose": 41.4,
@@ -1445,8 +1445,8 @@
         {
             "date": "2021-08-21",
             "data": {
-                "cumulative_1st_dose": 7547653,
-                "cumulative_2nd_dose": 5808599,
+                "cumulative_1st_dose": 7547919,
+                "cumulative_2nd_dose": 5808827,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 54.5,
                 "coverage_2nd_dose": 42,
@@ -1456,8 +1456,8 @@
         {
             "date": "2021-08-22",
             "data": {
-                "cumulative_1st_dose": 7618260,
-                "cumulative_2nd_dose": 5881069,
+                "cumulative_1st_dose": 7618526,
+                "cumulative_2nd_dose": 5881300,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 55,
                 "coverage_2nd_dose": 42.5,
@@ -1467,8 +1467,8 @@
         {
             "date": "2021-08-23",
             "data": {
-                "cumulative_1st_dose": 7678938,
-                "cumulative_2nd_dose": 5967591,
+                "cumulative_1st_dose": 7679206,
+                "cumulative_2nd_dose": 5967825,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 55.5,
                 "coverage_2nd_dose": 43.1,
@@ -1478,8 +1478,8 @@
         {
             "date": "2021-08-24",
             "data": {
-                "cumulative_1st_dose": 7747596,
-                "cumulative_2nd_dose": 6054824,
+                "cumulative_1st_dose": 7747866,
+                "cumulative_2nd_dose": 6055063,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 56,
                 "coverage_2nd_dose": 43.7,
@@ -1489,8 +1489,8 @@
         {
             "date": "2021-08-25",
             "data": {
-                "cumulative_1st_dose": 7822090,
-                "cumulative_2nd_dose": 6141444,
+                "cumulative_1st_dose": 7822362,
+                "cumulative_2nd_dose": 6141685,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 56.5,
                 "coverage_2nd_dose": 44.4,
@@ -1500,8 +1500,8 @@
         {
             "date": "2021-08-26",
             "data": {
-                "cumulative_1st_dose": 7889471,
-                "cumulative_2nd_dose": 6218247,
+                "cumulative_1st_dose": 7889743,
+                "cumulative_2nd_dose": 6218492,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 57,
                 "coverage_2nd_dose": 44.9,
@@ -1511,8 +1511,8 @@
         {
             "date": "2021-08-27",
             "data": {
-                "cumulative_1st_dose": 7964105,
-                "cumulative_2nd_dose": 6301818,
+                "cumulative_1st_dose": 7964378,
+                "cumulative_2nd_dose": 6302074,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 57.5,
                 "coverage_2nd_dose": 45.5,
@@ -1522,8 +1522,8 @@
         {
             "date": "2021-08-28",
             "data": {
-                "cumulative_1st_dose": 8034207,
-                "cumulative_2nd_dose": 6384232,
+                "cumulative_1st_dose": 8034482,
+                "cumulative_2nd_dose": 6384487,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 58,
                 "coverage_2nd_dose": 46.1,
@@ -1533,8 +1533,8 @@
         {
             "date": "2021-08-29",
             "data": {
-                "cumulative_1st_dose": 8093074,
-                "cumulative_2nd_dose": 6458020,
+                "cumulative_1st_dose": 8093349,
+                "cumulative_2nd_dose": 6458277,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 58.5,
                 "coverage_2nd_dose": 46.7,
@@ -1544,8 +1544,8 @@
         {
             "date": "2021-08-30",
             "data": {
-                "cumulative_1st_dose": 8147161,
-                "cumulative_2nd_dose": 6508582,
+                "cumulative_1st_dose": 8147437,
+                "cumulative_2nd_dose": 6508841,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 58.9,
                 "coverage_2nd_dose": 47,
@@ -1555,8 +1555,8 @@
         {
             "date": "2021-08-31",
             "data": {
-                "cumulative_1st_dose": 8216511,
-                "cumulative_2nd_dose": 6578013,
+                "cumulative_1st_dose": 8216789,
+                "cumulative_2nd_dose": 6578299,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 59.4,
                 "coverage_2nd_dose": 47.5,
@@ -1566,8 +1566,8 @@
         {
             "date": "2021-09-01",
             "data": {
-                "cumulative_1st_dose": 8288247,
-                "cumulative_2nd_dose": 6642467,
+                "cumulative_1st_dose": 8288531,
+                "cumulative_2nd_dose": 6642760,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 59.9,
                 "coverage_2nd_dose": 48,
@@ -1577,8 +1577,8 @@
         {
             "date": "2021-09-02",
             "data": {
-                "cumulative_1st_dose": 8342407,
-                "cumulative_2nd_dose": 6708533,
+                "cumulative_1st_dose": 8342693,
+                "cumulative_2nd_dose": 6708834,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 60.3,
                 "coverage_2nd_dose": 48.5,
@@ -1588,19 +1588,19 @@
         {
             "date": "2021-09-03",
             "data": {
-                "cumulative_1st_dose": 8413895,
-                "cumulative_2nd_dose": 6776090,
+                "cumulative_1st_dose": 8414181,
+                "cumulative_2nd_dose": 6776395,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 60.8,
-                "coverage_2nd_dose": 48.9,
+                "coverage_2nd_dose": 49,
                 "coverage_3rd_dose": null
             }
         },
         {
             "date": "2021-09-04",
             "data": {
-                "cumulative_1st_dose": 8480782,
-                "cumulative_2nd_dose": 6844747,
+                "cumulative_1st_dose": 8481069,
+                "cumulative_2nd_dose": 6845054,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 61.3,
                 "coverage_2nd_dose": 49.4,
@@ -1610,8 +1610,8 @@
         {
             "date": "2021-09-05",
             "data": {
-                "cumulative_1st_dose": 8538619,
-                "cumulative_2nd_dose": 6911589,
+                "cumulative_1st_dose": 8538906,
+                "cumulative_2nd_dose": 6911897,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 61.7,
                 "coverage_2nd_dose": 49.9,
@@ -1621,8 +1621,8 @@
         {
             "date": "2021-09-06",
             "data": {
-                "cumulative_1st_dose": 8600245,
-                "cumulative_2nd_dose": 6965207,
+                "cumulative_1st_dose": 8600533,
+                "cumulative_2nd_dose": 6965518,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 62.1,
                 "coverage_2nd_dose": 50.3,
@@ -1632,8 +1632,8 @@
         {
             "date": "2021-09-07",
             "data": {
-                "cumulative_1st_dose": 8664698,
-                "cumulative_2nd_dose": 7025900,
+                "cumulative_1st_dose": 8664991,
+                "cumulative_2nd_dose": 7026215,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 62.6,
                 "coverage_2nd_dose": 50.8,
@@ -1643,8 +1643,8 @@
         {
             "date": "2021-09-08",
             "data": {
-                "cumulative_1st_dose": 8727511,
-                "cumulative_2nd_dose": 7090735,
+                "cumulative_1st_dose": 8727806,
+                "cumulative_2nd_dose": 7091055,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 63,
                 "coverage_2nd_dose": 51.2,
@@ -1654,8 +1654,8 @@
         {
             "date": "2021-09-09",
             "data": {
-                "cumulative_1st_dose": 8786540,
-                "cumulative_2nd_dose": 7153423,
+                "cumulative_1st_dose": 8786836,
+                "cumulative_2nd_dose": 7153745,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 63.5,
                 "coverage_2nd_dose": 51.7,
@@ -1665,8 +1665,8 @@
         {
             "date": "2021-09-10",
             "data": {
-                "cumulative_1st_dose": 8851554,
-                "cumulative_2nd_dose": 7222107,
+                "cumulative_1st_dose": 8851853,
+                "cumulative_2nd_dose": 7222430,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 63.9,
                 "coverage_2nd_dose": 52.2,
@@ -1676,8 +1676,8 @@
         {
             "date": "2021-09-11",
             "data": {
-                "cumulative_1st_dose": 8911346,
-                "cumulative_2nd_dose": 7301292,
+                "cumulative_1st_dose": 8911647,
+                "cumulative_2nd_dose": 7301617,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 64.4,
                 "coverage_2nd_dose": 52.7,
@@ -1687,8 +1687,8 @@
         {
             "date": "2021-09-12",
             "data": {
-                "cumulative_1st_dose": 8965222,
-                "cumulative_2nd_dose": 7366935,
+                "cumulative_1st_dose": 8965527,
+                "cumulative_2nd_dose": 7367262,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 64.8,
                 "coverage_2nd_dose": 53.2,
@@ -1698,8 +1698,8 @@
         {
             "date": "2021-09-13",
             "data": {
-                "cumulative_1st_dose": 9009643,
-                "cumulative_2nd_dose": 7422552,
+                "cumulative_1st_dose": 9009949,
+                "cumulative_2nd_dose": 7422880,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 65.1,
                 "coverage_2nd_dose": 53.6,
@@ -1709,10 +1709,10 @@
         {
             "date": "2021-09-14",
             "data": {
-                "cumulative_1st_dose": 9060446,
-                "cumulative_2nd_dose": 7485325,
+                "cumulative_1st_dose": 9060753,
+                "cumulative_2nd_dose": 7485653,
                 "cumulative_3rd_dose": null,
-                "coverage_1st_dose": 65.4,
+                "coverage_1st_dose": 65.5,
                 "coverage_2nd_dose": 54.1,
                 "coverage_3rd_dose": null
             }
@@ -1720,8 +1720,8 @@
         {
             "date": "2021-09-15",
             "data": {
-                "cumulative_1st_dose": 9111638,
-                "cumulative_2nd_dose": 7553229,
+                "cumulative_1st_dose": 9111945,
+                "cumulative_2nd_dose": 7553558,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 65.8,
                 "coverage_2nd_dose": 54.6,
@@ -1731,8 +1731,8 @@
         {
             "date": "2021-09-16",
             "data": {
-                "cumulative_1st_dose": 9158376,
-                "cumulative_2nd_dose": 7622370,
+                "cumulative_1st_dose": 9158683,
+                "cumulative_2nd_dose": 7622703,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 66.2,
                 "coverage_2nd_dose": 55.1,
@@ -1742,8 +1742,8 @@
         {
             "date": "2021-09-17",
             "data": {
-                "cumulative_1st_dose": 9210276,
-                "cumulative_2nd_dose": 7698795,
+                "cumulative_1st_dose": 9210584,
+                "cumulative_2nd_dose": 7699130,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 66.5,
                 "coverage_2nd_dose": 55.6,
@@ -1753,8 +1753,8 @@
         {
             "date": "2021-09-18",
             "data": {
-                "cumulative_1st_dose": 9263617,
-                "cumulative_2nd_dose": 7774334,
+                "cumulative_1st_dose": 9263926,
+                "cumulative_2nd_dose": 7774673,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 66.9,
                 "coverage_2nd_dose": 56.2,
@@ -1764,8 +1764,8 @@
         {
             "date": "2021-09-19",
             "data": {
-                "cumulative_1st_dose": 9311062,
-                "cumulative_2nd_dose": 7840353,
+                "cumulative_1st_dose": 9311371,
+                "cumulative_2nd_dose": 7840692,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 67.3,
                 "coverage_2nd_dose": 56.6,
@@ -1775,8 +1775,8 @@
         {
             "date": "2021-09-20",
             "data": {
-                "cumulative_1st_dose": 9327646,
-                "cumulative_2nd_dose": 7865776,
+                "cumulative_1st_dose": 9327955,
+                "cumulative_2nd_dose": 7866117,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 67.4,
                 "coverage_2nd_dose": 56.8,
@@ -1786,8 +1786,8 @@
         {
             "date": "2021-09-21",
             "data": {
-                "cumulative_1st_dose": 9364121,
-                "cumulative_2nd_dose": 7942272,
+                "cumulative_1st_dose": 9364431,
+                "cumulative_2nd_dose": 7942616,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 67.6,
                 "coverage_2nd_dose": 57.4,
@@ -1797,8 +1797,8 @@
         {
             "date": "2021-09-22",
             "data": {
-                "cumulative_1st_dose": 9403147,
-                "cumulative_2nd_dose": 8022606,
+                "cumulative_1st_dose": 9403457,
+                "cumulative_2nd_dose": 8022959,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 67.9,
                 "coverage_2nd_dose": 58,
@@ -1808,8 +1808,8 @@
         {
             "date": "2021-09-23",
             "data": {
-                "cumulative_1st_dose": 9430684,
-                "cumulative_2nd_dose": 8057101,
+                "cumulative_1st_dose": 9430995,
+                "cumulative_2nd_dose": 8057456,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 68.1,
                 "coverage_2nd_dose": 58.2,
@@ -1819,8 +1819,8 @@
         {
             "date": "2021-09-24",
             "data": {
-                "cumulative_1st_dose": 9472293,
-                "cumulative_2nd_dose": 8138792,
+                "cumulative_1st_dose": 9472604,
+                "cumulative_2nd_dose": 8139149,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 68.4,
                 "coverage_2nd_dose": 58.8,
@@ -1830,8 +1830,8 @@
         {
             "date": "2021-09-25",
             "data": {
-                "cumulative_1st_dose": 9520715,
-                "cumulative_2nd_dose": 8217239,
+                "cumulative_1st_dose": 9521026,
+                "cumulative_2nd_dose": 8217601,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 68.8,
                 "coverage_2nd_dose": 59.4,
@@ -1841,8 +1841,8 @@
         {
             "date": "2021-09-26",
             "data": {
-                "cumulative_1st_dose": 9561294,
-                "cumulative_2nd_dose": 8276586,
+                "cumulative_1st_dose": 9561605,
+                "cumulative_2nd_dose": 8276948,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 69.1,
                 "coverage_2nd_dose": 59.8,
@@ -1852,8 +1852,8 @@
         {
             "date": "2021-09-27",
             "data": {
-                "cumulative_1st_dose": 9589863,
-                "cumulative_2nd_dose": 8339883,
+                "cumulative_1st_dose": 9590174,
+                "cumulative_2nd_dose": 8340246,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 69.3,
                 "coverage_2nd_dose": 60.2,
@@ -1863,8 +1863,8 @@
         {
             "date": "2021-09-28",
             "data": {
-                "cumulative_1st_dose": 9621924,
-                "cumulative_2nd_dose": 8405486,
+                "cumulative_1st_dose": 9622236,
+                "cumulative_2nd_dose": 8405853,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 69.5,
                 "coverage_2nd_dose": 60.7,
@@ -1874,8 +1874,8 @@
         {
             "date": "2021-09-29",
             "data": {
-                "cumulative_1st_dose": 9657104,
-                "cumulative_2nd_dose": 8471431,
+                "cumulative_1st_dose": 9657416,
+                "cumulative_2nd_dose": 8471801,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 69.8,
                 "coverage_2nd_dose": 61.2,
@@ -1885,8 +1885,8 @@
         {
             "date": "2021-09-30",
             "data": {
-                "cumulative_1st_dose": 9691280,
-                "cumulative_2nd_dose": 8539855,
+                "cumulative_1st_dose": 9691592,
+                "cumulative_2nd_dose": 8540227,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 70,
                 "coverage_2nd_dose": 61.7,
@@ -1896,8 +1896,8 @@
         {
             "date": "2021-10-01",
             "data": {
-                "cumulative_1st_dose": 9722219,
-                "cumulative_2nd_dose": 8605218,
+                "cumulative_1st_dose": 9722531,
+                "cumulative_2nd_dose": 8605591,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 70.2,
                 "coverage_2nd_dose": 62.2,
@@ -1907,8 +1907,8 @@
         {
             "date": "2021-10-02",
             "data": {
-                "cumulative_1st_dose": 9763512,
-                "cumulative_2nd_dose": 8663146,
+                "cumulative_1st_dose": 9763824,
+                "cumulative_2nd_dose": 8663520,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 70.5,
                 "coverage_2nd_dose": 62.6,
@@ -1918,8 +1918,8 @@
         {
             "date": "2021-10-03",
             "data": {
-                "cumulative_1st_dose": 9795055,
-                "cumulative_2nd_dose": 8708084,
+                "cumulative_1st_dose": 9795367,
+                "cumulative_2nd_dose": 8708459,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 70.8,
                 "coverage_2nd_dose": 62.9,
@@ -1929,8 +1929,8 @@
         {
             "date": "2021-10-04",
             "data": {
-                "cumulative_1st_dose": 9820094,
-                "cumulative_2nd_dose": 8756881,
+                "cumulative_1st_dose": 9820406,
+                "cumulative_2nd_dose": 8757258,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 70.9,
                 "coverage_2nd_dose": 63.3,
@@ -1940,8 +1940,8 @@
         {
             "date": "2021-10-05",
             "data": {
-                "cumulative_1st_dose": 9846038,
-                "cumulative_2nd_dose": 8808698,
+                "cumulative_1st_dose": 9846349,
+                "cumulative_2nd_dose": 8809076,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 71.1,
                 "coverage_2nd_dose": 63.6,
@@ -1951,8 +1951,8 @@
         {
             "date": "2021-10-06",
             "data": {
-                "cumulative_1st_dose": 9872717,
-                "cumulative_2nd_dose": 8860836,
+                "cumulative_1st_dose": 9873029,
+                "cumulative_2nd_dose": 8861222,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 71.3,
                 "coverage_2nd_dose": 64,
@@ -1962,8 +1962,8 @@
         {
             "date": "2021-10-07",
             "data": {
-                "cumulative_1st_dose": 9897767,
-                "cumulative_2nd_dose": 8912419,
+                "cumulative_1st_dose": 9898079,
+                "cumulative_2nd_dose": 8912807,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 71.5,
                 "coverage_2nd_dose": 64.4,
@@ -1973,19 +1973,19 @@
         {
             "date": "2021-10-08",
             "data": {
-                "cumulative_1st_dose": 9924441,
-                "cumulative_2nd_dose": 8977272,
+                "cumulative_1st_dose": 9924753,
+                "cumulative_2nd_dose": 8977663,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 71.7,
-                "coverage_2nd_dose": 64.8,
+                "coverage_2nd_dose": 64.9,
                 "coverage_3rd_dose": null
             }
         },
         {
             "date": "2021-10-09",
             "data": {
-                "cumulative_1st_dose": 9956181,
-                "cumulative_2nd_dose": 9037014,
+                "cumulative_1st_dose": 9956494,
+                "cumulative_2nd_dose": 9037408,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 71.9,
                 "coverage_2nd_dose": 65.3,
@@ -1995,8 +1995,8 @@
         {
             "date": "2021-10-10",
             "data": {
-                "cumulative_1st_dose": 9979089,
-                "cumulative_2nd_dose": 9085220,
+                "cumulative_1st_dose": 9979402,
+                "cumulative_2nd_dose": 9085616,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 72.1,
                 "coverage_2nd_dose": 65.6,
@@ -2006,8 +2006,8 @@
         {
             "date": "2021-10-11",
             "data": {
-                "cumulative_1st_dose": 9996971,
-                "cumulative_2nd_dose": 9111020,
+                "cumulative_1st_dose": 9997284,
+                "cumulative_2nd_dose": 9111416,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 72.2,
                 "coverage_2nd_dose": 65.8,
@@ -2017,8 +2017,8 @@
         {
             "date": "2021-10-12",
             "data": {
-                "cumulative_1st_dose": 10015734,
-                "cumulative_2nd_dose": 9151619,
+                "cumulative_1st_dose": 10016047,
+                "cumulative_2nd_dose": 9152015,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 72.4,
                 "coverage_2nd_dose": 66.1,
@@ -2028,8 +2028,8 @@
         {
             "date": "2021-10-13",
             "data": {
-                "cumulative_1st_dose": 10030302,
-                "cumulative_2nd_dose": 9190319,
+                "cumulative_1st_dose": 10030617,
+                "cumulative_2nd_dose": 9190715,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 72.5,
                 "coverage_2nd_dose": 66.4,
@@ -2039,8 +2039,8 @@
         {
             "date": "2021-10-14",
             "data": {
-                "cumulative_1st_dose": 10049689,
-                "cumulative_2nd_dose": 9224121,
+                "cumulative_1st_dose": 10050003,
+                "cumulative_2nd_dose": 9224518,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 72.6,
                 "coverage_2nd_dose": 66.6,
@@ -2050,8 +2050,8 @@
         {
             "date": "2021-10-15",
             "data": {
-                "cumulative_1st_dose": 10071230,
-                "cumulative_2nd_dose": 9275824,
+                "cumulative_1st_dose": 10071543,
+                "cumulative_2nd_dose": 9276224,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 72.8,
                 "coverage_2nd_dose": 67,
@@ -2061,8 +2061,8 @@
         {
             "date": "2021-10-16",
             "data": {
-                "cumulative_1st_dose": 10093766,
-                "cumulative_2nd_dose": 9329181,
+                "cumulative_1st_dose": 10094079,
+                "cumulative_2nd_dose": 9329584,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 72.9,
                 "coverage_2nd_dose": 67.4,
@@ -2072,8 +2072,8 @@
         {
             "date": "2021-10-17",
             "data": {
-                "cumulative_1st_dose": 10108738,
-                "cumulative_2nd_dose": 9371814,
+                "cumulative_1st_dose": 10109051,
+                "cumulative_2nd_dose": 9372218,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 73,
                 "coverage_2nd_dose": 67.7,
@@ -2083,8 +2083,8 @@
         {
             "date": "2021-10-18",
             "data": {
-                "cumulative_1st_dose": 10121939,
-                "cumulative_2nd_dose": 9401300,
+                "cumulative_1st_dose": 10122252,
+                "cumulative_2nd_dose": 9401705,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 73.1,
                 "coverage_2nd_dose": 67.9,
@@ -2094,8 +2094,8 @@
         {
             "date": "2021-10-19",
             "data": {
-                "cumulative_1st_dose": 10134886,
-                "cumulative_2nd_dose": 9434288,
+                "cumulative_1st_dose": 10135199,
+                "cumulative_2nd_dose": 9434694,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 73.2,
                 "coverage_2nd_dose": 68.2,
@@ -2105,8 +2105,8 @@
         {
             "date": "2021-10-20",
             "data": {
-                "cumulative_1st_dose": 10148627,
-                "cumulative_2nd_dose": 9467921,
+                "cumulative_1st_dose": 10148941,
+                "cumulative_2nd_dose": 9468329,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 73.3,
                 "coverage_2nd_dose": 68.4,
@@ -2116,8 +2116,8 @@
         {
             "date": "2021-10-21",
             "data": {
-                "cumulative_1st_dose": 10161362,
-                "cumulative_2nd_dose": 9505539,
+                "cumulative_1st_dose": 10161677,
+                "cumulative_2nd_dose": 9505947,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 73.4,
                 "coverage_2nd_dose": 68.7,
@@ -2127,8 +2127,8 @@
         {
             "date": "2021-10-22",
             "data": {
-                "cumulative_1st_dose": 10174717,
-                "cumulative_2nd_dose": 9546795,
+                "cumulative_1st_dose": 10175033,
+                "cumulative_2nd_dose": 9547207,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 73.5,
                 "coverage_2nd_dose": 69,
@@ -2138,8 +2138,8 @@
         {
             "date": "2021-10-23",
             "data": {
-                "cumulative_1st_dose": 10191884,
-                "cumulative_2nd_dose": 9596985,
+                "cumulative_1st_dose": 10192200,
+                "cumulative_2nd_dose": 9597398,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 73.6,
                 "coverage_2nd_dose": 69.3,
@@ -2149,8 +2149,8 @@
         {
             "date": "2021-10-24",
             "data": {
-                "cumulative_1st_dose": 10204582,
-                "cumulative_2nd_dose": 9634968,
+                "cumulative_1st_dose": 10204898,
+                "cumulative_2nd_dose": 9635382,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 73.7,
                 "coverage_2nd_dose": 69.6,
@@ -2160,8 +2160,8 @@
         {
             "date": "2021-10-25",
             "data": {
-                "cumulative_1st_dose": 10212744,
-                "cumulative_2nd_dose": 9661517,
+                "cumulative_1st_dose": 10213061,
+                "cumulative_2nd_dose": 9661931,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 73.8,
                 "coverage_2nd_dose": 69.8,
@@ -2171,8 +2171,8 @@
         {
             "date": "2021-10-26",
             "data": {
-                "cumulative_1st_dose": 10220824,
-                "cumulative_2nd_dose": 9689330,
+                "cumulative_1st_dose": 10221141,
+                "cumulative_2nd_dose": 9689745,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 73.8,
                 "coverage_2nd_dose": 70,
@@ -2182,8 +2182,8 @@
         {
             "date": "2021-10-27",
             "data": {
-                "cumulative_1st_dose": 10229872,
-                "cumulative_2nd_dose": 9719748,
+                "cumulative_1st_dose": 10230189,
+                "cumulative_2nd_dose": 9720166,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 73.9,
                 "coverage_2nd_dose": 70.2,
@@ -2193,8 +2193,8 @@
         {
             "date": "2021-10-28",
             "data": {
-                "cumulative_1st_dose": 10239289,
-                "cumulative_2nd_dose": 9747783,
+                "cumulative_1st_dose": 10239607,
+                "cumulative_2nd_dose": 9748201,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74,
                 "coverage_2nd_dose": 70.4,
@@ -2204,8 +2204,8 @@
         {
             "date": "2021-10-29",
             "data": {
-                "cumulative_1st_dose": 10249501,
-                "cumulative_2nd_dose": 9780757,
+                "cumulative_1st_dose": 10249820,
+                "cumulative_2nd_dose": 9781174,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74,
                 "coverage_2nd_dose": 70.7,
@@ -2215,19 +2215,19 @@
         {
             "date": "2021-10-30",
             "data": {
-                "cumulative_1st_dose": 10262644,
-                "cumulative_2nd_dose": 9821530,
+                "cumulative_1st_dose": 10262963,
+                "cumulative_2nd_dose": 9821950,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.1,
-                "coverage_2nd_dose": 70.9,
+                "coverage_2nd_dose": 71,
                 "coverage_3rd_dose": null
             }
         },
         {
             "date": "2021-10-31",
             "data": {
-                "cumulative_1st_dose": 10271343,
-                "cumulative_2nd_dose": 9852873,
+                "cumulative_1st_dose": 10271662,
+                "cumulative_2nd_dose": 9853293,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.2,
                 "coverage_2nd_dose": 71.2,
@@ -2237,8 +2237,8 @@
         {
             "date": "2021-11-01",
             "data": {
-                "cumulative_1st_dose": 10275788,
-                "cumulative_2nd_dose": 9873747,
+                "cumulative_1st_dose": 10276107,
+                "cumulative_2nd_dose": 9874167,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.2,
                 "coverage_2nd_dose": 71.3,
@@ -2248,8 +2248,8 @@
         {
             "date": "2021-11-02",
             "data": {
-                "cumulative_1st_dose": 10279708,
-                "cumulative_2nd_dose": 9893890,
+                "cumulative_1st_dose": 10280027,
+                "cumulative_2nd_dose": 9894310,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.3,
                 "coverage_2nd_dose": 71.5,
@@ -2259,8 +2259,8 @@
         {
             "date": "2021-11-03",
             "data": {
-                "cumulative_1st_dose": 10282397,
-                "cumulative_2nd_dose": 9904265,
+                "cumulative_1st_dose": 10282716,
+                "cumulative_2nd_dose": 9904685,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.3,
                 "coverage_2nd_dose": 71.5,
@@ -2270,8 +2270,8 @@
         {
             "date": "2021-11-04",
             "data": {
-                "cumulative_1st_dose": 10287171,
-                "cumulative_2nd_dose": 9925748,
+                "cumulative_1st_dose": 10287490,
+                "cumulative_2nd_dose": 9926168,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.3,
                 "coverage_2nd_dose": 71.7,
@@ -2281,8 +2281,8 @@
         {
             "date": "2021-11-05",
             "data": {
-                "cumulative_1st_dose": 10293356,
-                "cumulative_2nd_dose": 9950108,
+                "cumulative_1st_dose": 10293676,
+                "cumulative_2nd_dose": 9950528,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.4,
                 "coverage_2nd_dose": 71.9,
@@ -2292,8 +2292,8 @@
         {
             "date": "2021-11-06",
             "data": {
-                "cumulative_1st_dose": 10301626,
-                "cumulative_2nd_dose": 9976583,
+                "cumulative_1st_dose": 10301946,
+                "cumulative_2nd_dose": 9977004,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.4,
                 "coverage_2nd_dose": 72.1,
@@ -2303,8 +2303,8 @@
         {
             "date": "2021-11-07",
             "data": {
-                "cumulative_1st_dose": 10307531,
-                "cumulative_2nd_dose": 9992348,
+                "cumulative_1st_dose": 10307851,
+                "cumulative_2nd_dose": 9992770,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.5,
                 "coverage_2nd_dose": 72.2,
@@ -2314,8 +2314,8 @@
         {
             "date": "2021-11-08",
             "data": {
-                "cumulative_1st_dose": 10310504,
-                "cumulative_2nd_dose": 10006096,
+                "cumulative_1st_dose": 10310824,
+                "cumulative_2nd_dose": 10006518,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.5,
                 "coverage_2nd_dose": 72.3,
@@ -2325,8 +2325,8 @@
         {
             "date": "2021-11-09",
             "data": {
-                "cumulative_1st_dose": 10313733,
-                "cumulative_2nd_dose": 10021162,
+                "cumulative_1st_dose": 10314053,
+                "cumulative_2nd_dose": 10021585,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.5,
                 "coverage_2nd_dose": 72.4,
@@ -2336,8 +2336,8 @@
         {
             "date": "2021-11-10",
             "data": {
-                "cumulative_1st_dose": 10316473,
-                "cumulative_2nd_dose": 10037550,
+                "cumulative_1st_dose": 10316793,
+                "cumulative_2nd_dose": 10037974,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.5,
                 "coverage_2nd_dose": 72.5,
@@ -2347,8 +2347,8 @@
         {
             "date": "2021-11-11",
             "data": {
-                "cumulative_1st_dose": 10319320,
-                "cumulative_2nd_dose": 10051311,
+                "cumulative_1st_dose": 10319639,
+                "cumulative_2nd_dose": 10051736,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.5,
                 "coverage_2nd_dose": 72.6,
@@ -2358,8 +2358,8 @@
         {
             "date": "2021-11-12",
             "data": {
-                "cumulative_1st_dose": 10323281,
-                "cumulative_2nd_dose": 10071294,
+                "cumulative_1st_dose": 10323600,
+                "cumulative_2nd_dose": 10071722,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.6,
                 "coverage_2nd_dose": 72.8,
@@ -2369,8 +2369,8 @@
         {
             "date": "2021-11-13",
             "data": {
-                "cumulative_1st_dose": 10327723,
-                "cumulative_2nd_dose": 10090153,
+                "cumulative_1st_dose": 10328040,
+                "cumulative_2nd_dose": 10090582,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.6,
                 "coverage_2nd_dose": 72.9,
@@ -2380,8 +2380,8 @@
         {
             "date": "2021-11-14",
             "data": {
-                "cumulative_1st_dose": 10330270,
-                "cumulative_2nd_dose": 10103683,
+                "cumulative_1st_dose": 10330587,
+                "cumulative_2nd_dose": 10104112,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.6,
                 "coverage_2nd_dose": 73,
@@ -2391,8 +2391,8 @@
         {
             "date": "2021-11-15",
             "data": {
-                "cumulative_1st_dose": 10332424,
-                "cumulative_2nd_dose": 10113569,
+                "cumulative_1st_dose": 10332741,
+                "cumulative_2nd_dose": 10113999,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.6,
                 "coverage_2nd_dose": 73.1,
@@ -2402,8 +2402,8 @@
         {
             "date": "2021-11-16",
             "data": {
-                "cumulative_1st_dose": 10334713,
-                "cumulative_2nd_dose": 10123219,
+                "cumulative_1st_dose": 10335031,
+                "cumulative_2nd_dose": 10123649,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.7,
                 "coverage_2nd_dose": 73.1,
@@ -2413,8 +2413,8 @@
         {
             "date": "2021-11-17",
             "data": {
-                "cumulative_1st_dose": 10337285,
-                "cumulative_2nd_dose": 10134309,
+                "cumulative_1st_dose": 10337603,
+                "cumulative_2nd_dose": 10134740,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.7,
                 "coverage_2nd_dose": 73.2,
@@ -2424,8 +2424,8 @@
         {
             "date": "2021-11-18",
             "data": {
-                "cumulative_1st_dose": 10340060,
-                "cumulative_2nd_dose": 10145099,
+                "cumulative_1st_dose": 10340378,
+                "cumulative_2nd_dose": 10145532,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.7,
                 "coverage_2nd_dose": 73.3,
@@ -2435,8 +2435,8 @@
         {
             "date": "2021-11-19",
             "data": {
-                "cumulative_1st_dose": 10344280,
-                "cumulative_2nd_dose": 10158984,
+                "cumulative_1st_dose": 10344598,
+                "cumulative_2nd_dose": 10159417,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.7,
                 "coverage_2nd_dose": 73.4,
@@ -2446,8 +2446,8 @@
         {
             "date": "2021-11-20",
             "data": {
-                "cumulative_1st_dose": 10349077,
-                "cumulative_2nd_dose": 10176784,
+                "cumulative_1st_dose": 10349395,
+                "cumulative_2nd_dose": 10177219,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.8,
                 "coverage_2nd_dose": 73.5,
@@ -2457,8 +2457,8 @@
         {
             "date": "2021-11-21",
             "data": {
-                "cumulative_1st_dose": 10351653,
-                "cumulative_2nd_dose": 10187864,
+                "cumulative_1st_dose": 10351971,
+                "cumulative_2nd_dose": 10188299,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.8,
                 "coverage_2nd_dose": 73.6,
@@ -2468,8 +2468,8 @@
         {
             "date": "2021-11-22",
             "data": {
-                "cumulative_1st_dose": 10353923,
-                "cumulative_2nd_dose": 10193871,
+                "cumulative_1st_dose": 10354242,
+                "cumulative_2nd_dose": 10194306,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.8,
                 "coverage_2nd_dose": 73.6,
@@ -2479,8 +2479,8 @@
         {
             "date": "2021-11-23",
             "data": {
-                "cumulative_1st_dose": 10354607,
-                "cumulative_2nd_dose": 10196632,
+                "cumulative_1st_dose": 10354926,
+                "cumulative_2nd_dose": 10197068,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.8,
                 "coverage_2nd_dose": 73.7,
@@ -2490,8 +2490,8 @@
         {
             "date": "2021-11-24",
             "data": {
-                "cumulative_1st_dose": 10357058,
-                "cumulative_2nd_dose": 10202076,
+                "cumulative_1st_dose": 10357377,
+                "cumulative_2nd_dose": 10202512,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.8,
                 "coverage_2nd_dose": 73.7,
@@ -2501,8 +2501,8 @@
         {
             "date": "2021-11-25",
             "data": {
-                "cumulative_1st_dose": 10359270,
-                "cumulative_2nd_dose": 10207874,
+                "cumulative_1st_dose": 10359589,
+                "cumulative_2nd_dose": 10208310,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.8,
                 "coverage_2nd_dose": 73.7,
@@ -2512,8 +2512,8 @@
         {
             "date": "2021-11-26",
             "data": {
-                "cumulative_1st_dose": 10363013,
-                "cumulative_2nd_dose": 10217222,
+                "cumulative_1st_dose": 10363332,
+                "cumulative_2nd_dose": 10217657,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.9,
                 "coverage_2nd_dose": 73.8,
@@ -2523,8 +2523,8 @@
         {
             "date": "2021-11-27",
             "data": {
-                "cumulative_1st_dose": 10367009,
-                "cumulative_2nd_dose": 10229265,
+                "cumulative_1st_dose": 10367328,
+                "cumulative_2nd_dose": 10229700,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.9,
                 "coverage_2nd_dose": 73.9,
@@ -2534,19 +2534,19 @@
         {
             "date": "2021-11-28",
             "data": {
-                "cumulative_1st_dose": 10369015,
-                "cumulative_2nd_dose": 10237046,
+                "cumulative_1st_dose": 10369334,
+                "cumulative_2nd_dose": 10237482,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.9,
-                "coverage_2nd_dose": 73.9,
+                "coverage_2nd_dose": 74,
                 "coverage_3rd_dose": null
             }
         },
         {
             "date": "2021-11-29",
             "data": {
-                "cumulative_1st_dose": 10370929,
-                "cumulative_2nd_dose": 10241270,
+                "cumulative_1st_dose": 10371248,
+                "cumulative_2nd_dose": 10241706,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.9,
                 "coverage_2nd_dose": 74,
@@ -2556,8 +2556,8 @@
         {
             "date": "2021-11-30",
             "data": {
-                "cumulative_1st_dose": 10372986,
-                "cumulative_2nd_dose": 10245627,
+                "cumulative_1st_dose": 10373305,
+                "cumulative_2nd_dose": 10246064,
                 "cumulative_3rd_dose": null,
                 "coverage_1st_dose": 74.9,
                 "coverage_2nd_dose": 74,
@@ -2567,8 +2567,8 @@
         {
             "date": "2021-12-01",
             "data": {
-                "cumulative_1st_dose": 10374410,
-                "cumulative_2nd_dose": 10248143,
+                "cumulative_1st_dose": 10374729,
+                "cumulative_2nd_dose": 10248580,
                 "cumulative_3rd_dose": 371,
                 "coverage_1st_dose": 74.9,
                 "coverage_2nd_dose": 74,
@@ -2578,19 +2578,19 @@
         {
             "date": "2021-12-02",
             "data": {
-                "cumulative_1st_dose": 10375981,
-                "cumulative_2nd_dose": 10250746,
+                "cumulative_1st_dose": 10376300,
+                "cumulative_2nd_dose": 10251183,
                 "cumulative_3rd_dose": 713,
                 "coverage_1st_dose": 75,
-                "coverage_2nd_dose": 74,
+                "coverage_2nd_dose": 74.1,
                 "coverage_3rd_dose": 0
             }
         },
         {
             "date": "2021-12-03",
             "data": {
-                "cumulative_1st_dose": 10378967,
-                "cumulative_2nd_dose": 10254920,
+                "cumulative_1st_dose": 10379286,
+                "cumulative_2nd_dose": 10255355,
                 "cumulative_3rd_dose": 1822,
                 "coverage_1st_dose": 75,
                 "coverage_2nd_dose": 74.1,
@@ -2600,8 +2600,8 @@
         {
             "date": "2021-12-04",
             "data": {
-                "cumulative_1st_dose": 10382986,
-                "cumulative_2nd_dose": 10259598,
+                "cumulative_1st_dose": 10383305,
+                "cumulative_2nd_dose": 10260034,
                 "cumulative_3rd_dose": 2039,
                 "coverage_1st_dose": 75,
                 "coverage_2nd_dose": 74.1,
@@ -2611,8 +2611,8 @@
         {
             "date": "2021-12-05",
             "data": {
-                "cumulative_1st_dose": 10384650,
-                "cumulative_2nd_dose": 10262119,
+                "cumulative_1st_dose": 10384969,
+                "cumulative_2nd_dose": 10262555,
                 "cumulative_3rd_dose": 2098,
                 "coverage_1st_dose": 75,
                 "coverage_2nd_dose": 74.1,
@@ -2622,8 +2622,8 @@
         {
             "date": "2021-12-06",
             "data": {
-                "cumulative_1st_dose": 10385831,
-                "cumulative_2nd_dose": 10264237,
+                "cumulative_1st_dose": 10386150,
+                "cumulative_2nd_dose": 10264673,
                 "cumulative_3rd_dose": 3294,
                 "coverage_1st_dose": 75,
                 "coverage_2nd_dose": 74.1,
@@ -2633,8 +2633,8 @@
         {
             "date": "2021-12-07",
             "data": {
-                "cumulative_1st_dose": 10386909,
-                "cumulative_2nd_dose": 10266419,
+                "cumulative_1st_dose": 10387228,
+                "cumulative_2nd_dose": 10266855,
                 "cumulative_3rd_dose": 4554,
                 "coverage_1st_dose": 75,
                 "coverage_2nd_dose": 74.2,
@@ -2644,9 +2644,9 @@
         {
             "date": "2021-12-08",
             "data": {
-                "cumulative_1st_dose": 10387592,
-                "cumulative_2nd_dose": 10268553,
-                "cumulative_3rd_dose": 5800,
+                "cumulative_1st_dose": 10387912,
+                "cumulative_2nd_dose": 10268989,
+                "cumulative_3rd_dose": 5801,
                 "coverage_1st_dose": 75,
                 "coverage_2nd_dose": 74.2,
                 "coverage_3rd_dose": 0
@@ -2655,9 +2655,9 @@
         {
             "date": "2021-12-09",
             "data": {
-                "cumulative_1st_dose": 10388481,
-                "cumulative_2nd_dose": 10271088,
-                "cumulative_3rd_dose": 7682,
+                "cumulative_1st_dose": 10388801,
+                "cumulative_2nd_dose": 10271524,
+                "cumulative_3rd_dose": 7689,
                 "coverage_1st_dose": 75,
                 "coverage_2nd_dose": 74.2,
                 "coverage_3rd_dose": 0.1
@@ -2666,9 +2666,9 @@
         {
             "date": "2021-12-10",
             "data": {
-                "cumulative_1st_dose": 10389684,
-                "cumulative_2nd_dose": 10275473,
-                "cumulative_3rd_dose": 11238,
+                "cumulative_1st_dose": 10390003,
+                "cumulative_2nd_dose": 10275911,
+                "cumulative_3rd_dose": 11256,
                 "coverage_1st_dose": 75.1,
                 "coverage_2nd_dose": 74.2,
                 "coverage_3rd_dose": 0.1
@@ -2677,9 +2677,9 @@
         {
             "date": "2021-12-11",
             "data": {
-                "cumulative_1st_dose": 10391530,
-                "cumulative_2nd_dose": 10280600,
-                "cumulative_3rd_dose": 11850,
+                "cumulative_1st_dose": 10391849,
+                "cumulative_2nd_dose": 10281038,
+                "cumulative_3rd_dose": 11873,
                 "coverage_1st_dose": 75.1,
                 "coverage_2nd_dose": 74.3,
                 "coverage_3rd_dose": 0.1
@@ -2688,9 +2688,9 @@
         {
             "date": "2021-12-12",
             "data": {
-                "cumulative_1st_dose": 10392476,
-                "cumulative_2nd_dose": 10283506,
-                "cumulative_3rd_dose": 11999,
+                "cumulative_1st_dose": 10392795,
+                "cumulative_2nd_dose": 10283945,
+                "cumulative_3rd_dose": 12025,
                 "coverage_1st_dose": 75.1,
                 "coverage_2nd_dose": 74.3,
                 "coverage_3rd_dose": 0.1
@@ -2699,9 +2699,9 @@
         {
             "date": "2021-12-13",
             "data": {
-                "cumulative_1st_dose": 10392965,
-                "cumulative_2nd_dose": 10285556,
-                "cumulative_3rd_dose": 14629,
+                "cumulative_1st_dose": 10393284,
+                "cumulative_2nd_dose": 10285996,
+                "cumulative_3rd_dose": 14669,
                 "coverage_1st_dose": 75.1,
                 "coverage_2nd_dose": 74.3,
                 "coverage_3rd_dose": 0.1
@@ -2710,9 +2710,9 @@
         {
             "date": "2021-12-14",
             "data": {
-                "cumulative_1st_dose": 10393640,
-                "cumulative_2nd_dose": 10286707,
-                "cumulative_3rd_dose": 17502,
+                "cumulative_1st_dose": 10393955,
+                "cumulative_2nd_dose": 10287142,
+                "cumulative_3rd_dose": 17549,
                 "coverage_1st_dose": 75.1,
                 "coverage_2nd_dose": 74.3,
                 "coverage_3rd_dose": 0.1
@@ -2721,9 +2721,9 @@
         {
             "date": "2021-12-15",
             "data": {
-                "cumulative_1st_dose": 10394790,
-                "cumulative_2nd_dose": 10289229,
-                "cumulative_3rd_dose": 20939,
+                "cumulative_1st_dose": 10395104,
+                "cumulative_2nd_dose": 10289665,
+                "cumulative_3rd_dose": 21020,
                 "coverage_1st_dose": 75.1,
                 "coverage_2nd_dose": 74.3,
                 "coverage_3rd_dose": 0.2
@@ -2732,9 +2732,9 @@
         {
             "date": "2021-12-16",
             "data": {
-                "cumulative_1st_dose": 10396060,
-                "cumulative_2nd_dose": 10291609,
-                "cumulative_3rd_dose": 24559,
+                "cumulative_1st_dose": 10396374,
+                "cumulative_2nd_dose": 10292046,
+                "cumulative_3rd_dose": 24660,
                 "coverage_1st_dose": 75.1,
                 "coverage_2nd_dose": 74.3,
                 "coverage_3rd_dose": 0.2
@@ -2743,9 +2743,9 @@
         {
             "date": "2021-12-17",
             "data": {
-                "cumulative_1st_dose": 10398053,
-                "cumulative_2nd_dose": 10296110,
-                "cumulative_3rd_dose": 29474,
+                "cumulative_1st_dose": 10398369,
+                "cumulative_2nd_dose": 10296548,
+                "cumulative_3rd_dose": 29606,
                 "coverage_1st_dose": 75.1,
                 "coverage_2nd_dose": 74.4,
                 "coverage_3rd_dose": 0.2
@@ -2754,9 +2754,9 @@
         {
             "date": "2021-12-18",
             "data": {
-                "cumulative_1st_dose": 10401382,
-                "cumulative_2nd_dose": 10301402,
-                "cumulative_3rd_dose": 30535,
+                "cumulative_1st_dose": 10401698,
+                "cumulative_2nd_dose": 10301841,
+                "cumulative_3rd_dose": 30674,
                 "coverage_1st_dose": 75.1,
                 "coverage_2nd_dose": 74.4,
                 "coverage_3rd_dose": 0.2
@@ -2765,9 +2765,9 @@
         {
             "date": "2021-12-19",
             "data": {
-                "cumulative_1st_dose": 10402919,
-                "cumulative_2nd_dose": 10304220,
-                "cumulative_3rd_dose": 30795,
+                "cumulative_1st_dose": 10403235,
+                "cumulative_2nd_dose": 10304659,
+                "cumulative_3rd_dose": 30935,
                 "coverage_1st_dose": 75.1,
                 "coverage_2nd_dose": 74.4,
                 "coverage_3rd_dose": 0.2
@@ -2776,20 +2776,20 @@
         {
             "date": "2021-12-20",
             "data": {
-                "cumulative_1st_dose": 10403529,
-                "cumulative_2nd_dose": 10306076,
-                "cumulative_3rd_dose": 36298,
+                "cumulative_1st_dose": 10403845,
+                "cumulative_2nd_dose": 10306515,
+                "cumulative_3rd_dose": 36465,
                 "coverage_1st_dose": 75.2,
-                "coverage_2nd_dose": 74.4,
+                "coverage_2nd_dose": 74.5,
                 "coverage_3rd_dose": 0.3
             }
         },
         {
             "date": "2021-12-21",
             "data": {
-                "cumulative_1st_dose": 10404435,
-                "cumulative_2nd_dose": 10308213,
-                "cumulative_3rd_dose": 41983,
+                "cumulative_1st_dose": 10404751,
+                "cumulative_2nd_dose": 10308652,
+                "cumulative_3rd_dose": 42169,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.5,
                 "coverage_3rd_dose": 0.3
@@ -2798,9 +2798,9 @@
         {
             "date": "2021-12-22",
             "data": {
-                "cumulative_1st_dose": 10405559,
-                "cumulative_2nd_dose": 10309959,
-                "cumulative_3rd_dose": 48890,
+                "cumulative_1st_dose": 10405875,
+                "cumulative_2nd_dose": 10310398,
+                "cumulative_3rd_dose": 49107,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.5,
                 "coverage_3rd_dose": 0.4
@@ -2809,9 +2809,9 @@
         {
             "date": "2021-12-23",
             "data": {
-                "cumulative_1st_dose": 10406690,
-                "cumulative_2nd_dose": 10311711,
-                "cumulative_3rd_dose": 55634,
+                "cumulative_1st_dose": 10407006,
+                "cumulative_2nd_dose": 10312150,
+                "cumulative_3rd_dose": 55868,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.5,
                 "coverage_3rd_dose": 0.4
@@ -2820,9 +2820,9 @@
         {
             "date": "2021-12-24",
             "data": {
-                "cumulative_1st_dose": 10408519,
-                "cumulative_2nd_dose": 10315211,
-                "cumulative_3rd_dose": 65195,
+                "cumulative_1st_dose": 10408835,
+                "cumulative_2nd_dose": 10315649,
+                "cumulative_3rd_dose": 65442,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.5,
                 "coverage_3rd_dose": 0.5
@@ -2831,20 +2831,20 @@
         {
             "date": "2021-12-25",
             "data": {
-                "cumulative_1st_dose": 10411488,
-                "cumulative_2nd_dose": 10320075,
-                "cumulative_3rd_dose": 70727,
+                "cumulative_1st_dose": 10411804,
+                "cumulative_2nd_dose": 10320513,
+                "cumulative_3rd_dose": 70983,
                 "coverage_1st_dose": 75.2,
-                "coverage_2nd_dose": 74.5,
+                "coverage_2nd_dose": 74.6,
                 "coverage_3rd_dose": 0.5
             }
         },
         {
             "date": "2021-12-26",
             "data": {
-                "cumulative_1st_dose": 10413078,
-                "cumulative_2nd_dose": 10322558,
-                "cumulative_3rd_dose": 71977,
+                "cumulative_1st_dose": 10413394,
+                "cumulative_2nd_dose": 10322996,
+                "cumulative_3rd_dose": 72235,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.6,
                 "coverage_3rd_dose": 0.5
@@ -2853,9 +2853,9 @@
         {
             "date": "2021-12-27",
             "data": {
-                "cumulative_1st_dose": 10413849,
-                "cumulative_2nd_dose": 10323979,
-                "cumulative_3rd_dose": 77015,
+                "cumulative_1st_dose": 10414165,
+                "cumulative_2nd_dose": 10324417,
+                "cumulative_3rd_dose": 77279,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.6,
                 "coverage_3rd_dose": 0.6
@@ -2864,9 +2864,9 @@
         {
             "date": "2021-12-28",
             "data": {
-                "cumulative_1st_dose": 10414531,
-                "cumulative_2nd_dose": 10325118,
-                "cumulative_3rd_dose": 83662,
+                "cumulative_1st_dose": 10414846,
+                "cumulative_2nd_dose": 10325556,
+                "cumulative_3rd_dose": 83926,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.6,
                 "coverage_3rd_dose": 0.6
@@ -2875,9 +2875,9 @@
         {
             "date": "2021-12-29",
             "data": {
-                "cumulative_1st_dose": 10414951,
-                "cumulative_2nd_dose": 10325530,
-                "cumulative_3rd_dose": 87898,
+                "cumulative_1st_dose": 10415266,
+                "cumulative_2nd_dose": 10325969,
+                "cumulative_3rd_dose": 88176,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.6,
                 "coverage_3rd_dose": 0.6
@@ -2886,9 +2886,9 @@
         {
             "date": "2021-12-30",
             "data": {
-                "cumulative_1st_dose": 10415139,
-                "cumulative_2nd_dose": 10325734,
-                "cumulative_3rd_dose": 89191,
+                "cumulative_1st_dose": 10415454,
+                "cumulative_2nd_dose": 10326173,
+                "cumulative_3rd_dose": 89476,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.6,
                 "coverage_3rd_dose": 0.6
@@ -2897,9 +2897,9 @@
         {
             "date": "2021-12-31",
             "data": {
-                "cumulative_1st_dose": 10415287,
-                "cumulative_2nd_dose": 10325846,
-                "cumulative_3rd_dose": 89475,
+                "cumulative_1st_dose": 10415602,
+                "cumulative_2nd_dose": 10326285,
+                "cumulative_3rd_dose": 89759,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.6,
                 "coverage_3rd_dose": 0.6
@@ -2908,9 +2908,9 @@
         {
             "date": "2022-01-01",
             "data": {
-                "cumulative_1st_dose": 10415290,
-                "cumulative_2nd_dose": 10325849,
-                "cumulative_3rd_dose": 89493,
+                "cumulative_1st_dose": 10415605,
+                "cumulative_2nd_dose": 10326288,
+                "cumulative_3rd_dose": 89777,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.6,
                 "coverage_3rd_dose": 0.6
@@ -2919,20 +2919,20 @@
         {
             "date": "2022-01-02",
             "data": {
-                "cumulative_1st_dose": 10415386,
-                "cumulative_2nd_dose": 10325960,
-                "cumulative_3rd_dose": 89748,
+                "cumulative_1st_dose": 10415701,
+                "cumulative_2nd_dose": 10326399,
+                "cumulative_3rd_dose": 90032,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.6,
-                "coverage_3rd_dose": 0.6
+                "coverage_3rd_dose": 0.7
             }
         },
         {
             "date": "2022-01-03",
             "data": {
-                "cumulative_1st_dose": 10415450,
-                "cumulative_2nd_dose": 10326050,
-                "cumulative_3rd_dose": 90020,
+                "cumulative_1st_dose": 10415765,
+                "cumulative_2nd_dose": 10326489,
+                "cumulative_3rd_dose": 90304,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.6,
                 "coverage_3rd_dose": 0.7
@@ -2941,9 +2941,9 @@
         {
             "date": "2022-01-04",
             "data": {
-                "cumulative_1st_dose": 10415707,
-                "cumulative_2nd_dose": 10326453,
-                "cumulative_3rd_dose": 91091,
+                "cumulative_1st_dose": 10416022,
+                "cumulative_2nd_dose": 10326892,
+                "cumulative_3rd_dose": 91381,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.6,
                 "coverage_3rd_dose": 0.7
@@ -2952,9 +2952,9 @@
         {
             "date": "2022-01-05",
             "data": {
-                "cumulative_1st_dose": 10416242,
-                "cumulative_2nd_dose": 10327413,
-                "cumulative_3rd_dose": 93916,
+                "cumulative_1st_dose": 10416557,
+                "cumulative_2nd_dose": 10327852,
+                "cumulative_3rd_dose": 94208,
                 "coverage_1st_dose": 75.2,
                 "coverage_2nd_dose": 74.6,
                 "coverage_3rd_dose": 0.7
@@ -2963,10 +2963,10 @@
         {
             "date": "2022-01-06",
             "data": {
-                "cumulative_1st_dose": 10416982,
-                "cumulative_2nd_dose": 10328558,
-                "cumulative_3rd_dose": 98052,
-                "coverage_1st_dose": 75.2,
+                "cumulative_1st_dose": 10417297,
+                "cumulative_2nd_dose": 10328997,
+                "cumulative_3rd_dose": 98346,
+                "coverage_1st_dose": 75.3,
                 "coverage_2nd_dose": 74.6,
                 "coverage_3rd_dose": 0.7
             }
@@ -2974,9 +2974,9 @@
         {
             "date": "2022-01-07",
             "data": {
-                "cumulative_1st_dose": 10418626,
-                "cumulative_2nd_dose": 10330805,
-                "cumulative_3rd_dose": 106621,
+                "cumulative_1st_dose": 10418941,
+                "cumulative_2nd_dose": 10331244,
+                "cumulative_3rd_dose": 106919,
                 "coverage_1st_dose": 75.3,
                 "coverage_2nd_dose": 74.6,
                 "coverage_3rd_dose": 0.8
@@ -2985,9 +2985,9 @@
         {
             "date": "2022-01-08",
             "data": {
-                "cumulative_1st_dose": 10421053,
-                "cumulative_2nd_dose": 10334687,
-                "cumulative_3rd_dose": 118505,
+                "cumulative_1st_dose": 10421371,
+                "cumulative_2nd_dose": 10335126,
+                "cumulative_3rd_dose": 118813,
                 "coverage_1st_dose": 75.3,
                 "coverage_2nd_dose": 74.7,
                 "coverage_3rd_dose": 0.9
@@ -2996,9 +2996,9 @@
         {
             "date": "2022-01-09",
             "data": {
-                "cumulative_1st_dose": 10422391,
-                "cumulative_2nd_dose": 10336271,
-                "cumulative_3rd_dose": 121843,
+                "cumulative_1st_dose": 10422709,
+                "cumulative_2nd_dose": 10336710,
+                "cumulative_3rd_dose": 122151,
                 "coverage_1st_dose": 75.3,
                 "coverage_2nd_dose": 74.7,
                 "coverage_3rd_dose": 0.9
@@ -3007,9 +3007,9 @@
         {
             "date": "2022-01-10",
             "data": {
-                "cumulative_1st_dose": 10422584,
-                "cumulative_2nd_dose": 10336487,
-                "cumulative_3rd_dose": 122582,
+                "cumulative_1st_dose": 10422902,
+                "cumulative_2nd_dose": 10336926,
+                "cumulative_3rd_dose": 122890,
                 "coverage_1st_dose": 75.3,
                 "coverage_2nd_dose": 74.7,
                 "coverage_3rd_dose": 0.9
@@ -3018,9 +3018,9 @@
         {
             "date": "2022-01-11",
             "data": {
-                "cumulative_1st_dose": 10423453,
-                "cumulative_2nd_dose": 10337585,
-                "cumulative_3rd_dose": 130203,
+                "cumulative_1st_dose": 10423771,
+                "cumulative_2nd_dose": 10338024,
+                "cumulative_3rd_dose": 130520,
                 "coverage_1st_dose": 75.3,
                 "coverage_2nd_dose": 74.7,
                 "coverage_3rd_dose": 0.9
@@ -3029,9 +3029,9 @@
         {
             "date": "2022-01-12",
             "data": {
-                "cumulative_1st_dose": 10424355,
-                "cumulative_2nd_dose": 10338854,
-                "cumulative_3rd_dose": 141566,
+                "cumulative_1st_dose": 10424675,
+                "cumulative_2nd_dose": 10339293,
+                "cumulative_3rd_dose": 141906,
                 "coverage_1st_dose": 75.3,
                 "coverage_2nd_dose": 74.7,
                 "coverage_3rd_dose": 1
@@ -3040,9 +3040,9 @@
         {
             "date": "2022-01-13",
             "data": {
-                "cumulative_1st_dose": 10425274,
-                "cumulative_2nd_dose": 10340076,
-                "cumulative_3rd_dose": 152252,
+                "cumulative_1st_dose": 10425594,
+                "cumulative_2nd_dose": 10340515,
+                "cumulative_3rd_dose": 152597,
                 "coverage_1st_dose": 75.3,
                 "coverage_2nd_dose": 74.7,
                 "coverage_3rd_dose": 1.1
@@ -3051,9 +3051,9 @@
         {
             "date": "2022-01-14",
             "data": {
-                "cumulative_1st_dose": 10426927,
-                "cumulative_2nd_dose": 10342018,
-                "cumulative_3rd_dose": 171556,
+                "cumulative_1st_dose": 10427248,
+                "cumulative_2nd_dose": 10342458,
+                "cumulative_3rd_dose": 171946,
                 "coverage_1st_dose": 75.3,
                 "coverage_2nd_dose": 74.7,
                 "coverage_3rd_dose": 1.2
@@ -3062,9 +3062,9 @@
         {
             "date": "2022-01-15",
             "data": {
-                "cumulative_1st_dose": 10429544,
-                "cumulative_2nd_dose": 10345781,
-                "cumulative_3rd_dose": 189382,
+                "cumulative_1st_dose": 10429865,
+                "cumulative_2nd_dose": 10346221,
+                "cumulative_3rd_dose": 189822,
                 "coverage_1st_dose": 75.3,
                 "coverage_2nd_dose": 74.7,
                 "coverage_3rd_dose": 1.4
@@ -3073,20 +3073,20 @@
         {
             "date": "2022-01-16",
             "data": {
-                "cumulative_1st_dose": 10431348,
-                "cumulative_2nd_dose": 10347451,
-                "cumulative_3rd_dose": 195425,
+                "cumulative_1st_dose": 10431669,
+                "cumulative_2nd_dose": 10347892,
+                "cumulative_3rd_dose": 195866,
                 "coverage_1st_dose": 75.4,
-                "coverage_2nd_dose": 74.7,
+                "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 1.4
             }
         },
         {
             "date": "2022-01-17",
             "data": {
-                "cumulative_1st_dose": 10432422,
-                "cumulative_2nd_dose": 10348542,
-                "cumulative_3rd_dose": 208906,
+                "cumulative_1st_dose": 10432744,
+                "cumulative_2nd_dose": 10348984,
+                "cumulative_3rd_dose": 209591,
                 "coverage_1st_dose": 75.4,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 1.5
@@ -3095,9 +3095,9 @@
         {
             "date": "2022-01-18",
             "data": {
-                "cumulative_1st_dose": 10433541,
-                "cumulative_2nd_dose": 10349401,
-                "cumulative_3rd_dose": 225787,
+                "cumulative_1st_dose": 10433865,
+                "cumulative_2nd_dose": 10349843,
+                "cumulative_3rd_dose": 226590,
                 "coverage_1st_dose": 75.4,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 1.6
@@ -3106,9 +3106,9 @@
         {
             "date": "2022-01-19",
             "data": {
-                "cumulative_1st_dose": 10434581,
-                "cumulative_2nd_dose": 10350033,
-                "cumulative_3rd_dose": 245985,
+                "cumulative_1st_dose": 10434905,
+                "cumulative_2nd_dose": 10350475,
+                "cumulative_3rd_dose": 246920,
                 "coverage_1st_dose": 75.4,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 1.8
@@ -3117,9 +3117,9 @@
         {
             "date": "2022-01-20",
             "data": {
-                "cumulative_1st_dose": 10435743,
-                "cumulative_2nd_dose": 10350716,
-                "cumulative_3rd_dose": 266315,
+                "cumulative_1st_dose": 10436070,
+                "cumulative_2nd_dose": 10351159,
+                "cumulative_3rd_dose": 267290,
                 "coverage_1st_dose": 75.4,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 1.9
@@ -3128,9 +3128,9 @@
         {
             "date": "2022-01-21",
             "data": {
-                "cumulative_1st_dose": 10437276,
-                "cumulative_2nd_dose": 10351910,
-                "cumulative_3rd_dose": 300881,
+                "cumulative_1st_dose": 10437603,
+                "cumulative_2nd_dose": 10352354,
+                "cumulative_3rd_dose": 301898,
                 "coverage_1st_dose": 75.4,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 2.2
@@ -3139,9 +3139,9 @@
         {
             "date": "2022-01-22",
             "data": {
-                "cumulative_1st_dose": 10439680,
-                "cumulative_2nd_dose": 10352863,
-                "cumulative_3rd_dose": 334037,
+                "cumulative_1st_dose": 10440007,
+                "cumulative_2nd_dose": 10353306,
+                "cumulative_3rd_dose": 335128,
                 "coverage_1st_dose": 75.4,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 2.4
@@ -3150,9 +3150,9 @@
         {
             "date": "2022-01-23",
             "data": {
-                "cumulative_1st_dose": 10440994,
-                "cumulative_2nd_dose": 10353658,
-                "cumulative_3rd_dose": 351664,
+                "cumulative_1st_dose": 10441321,
+                "cumulative_2nd_dose": 10354101,
+                "cumulative_3rd_dose": 352761,
                 "coverage_1st_dose": 75.4,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 2.5
@@ -3161,9 +3161,9 @@
         {
             "date": "2022-01-24",
             "data": {
-                "cumulative_1st_dose": 10442060,
-                "cumulative_2nd_dose": 10354108,
-                "cumulative_3rd_dose": 377216,
+                "cumulative_1st_dose": 10442387,
+                "cumulative_2nd_dose": 10354551,
+                "cumulative_3rd_dose": 378382,
                 "coverage_1st_dose": 75.4,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 2.7
@@ -3172,9 +3172,9 @@
         {
             "date": "2022-01-25",
             "data": {
-                "cumulative_1st_dose": 10442990,
-                "cumulative_2nd_dose": 10354574,
-                "cumulative_3rd_dose": 408591,
+                "cumulative_1st_dose": 10443317,
+                "cumulative_2nd_dose": 10355017,
+                "cumulative_3rd_dose": 409828,
                 "coverage_1st_dose": 75.4,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 3
@@ -3183,9 +3183,9 @@
         {
             "date": "2022-01-26",
             "data": {
-                "cumulative_1st_dose": 10443881,
-                "cumulative_2nd_dose": 10355168,
-                "cumulative_3rd_dose": 441257,
+                "cumulative_1st_dose": 10444208,
+                "cumulative_2nd_dose": 10355614,
+                "cumulative_3rd_dose": 442526,
                 "coverage_1st_dose": 75.4,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 3.2
@@ -3194,9 +3194,9 @@
         {
             "date": "2022-01-27",
             "data": {
-                "cumulative_1st_dose": 10444949,
-                "cumulative_2nd_dose": 10355967,
-                "cumulative_3rd_dose": 475789,
+                "cumulative_1st_dose": 10445277,
+                "cumulative_2nd_dose": 10356412,
+                "cumulative_3rd_dose": 477056,
                 "coverage_1st_dose": 75.5,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 3.4
@@ -3205,9 +3205,9 @@
         {
             "date": "2022-01-28",
             "data": {
-                "cumulative_1st_dose": 10446467,
-                "cumulative_2nd_dose": 10357420,
-                "cumulative_3rd_dose": 523471,
+                "cumulative_1st_dose": 10446797,
+                "cumulative_2nd_dose": 10357865,
+                "cumulative_3rd_dose": 524821,
                 "coverage_1st_dose": 75.5,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 3.8
@@ -3216,9 +3216,9 @@
         {
             "date": "2022-01-29",
             "data": {
-                "cumulative_1st_dose": 10448532,
-                "cumulative_2nd_dose": 10359895,
-                "cumulative_3rd_dose": 570503,
+                "cumulative_1st_dose": 10448863,
+                "cumulative_2nd_dose": 10360340,
+                "cumulative_3rd_dose": 571965,
                 "coverage_1st_dose": 75.5,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 4.1
@@ -3227,9 +3227,9 @@
         {
             "date": "2022-01-30",
             "data": {
-                "cumulative_1st_dose": 10449469,
-                "cumulative_2nd_dose": 10361164,
-                "cumulative_3rd_dose": 600367,
+                "cumulative_1st_dose": 10449800,
+                "cumulative_2nd_dose": 10361609,
+                "cumulative_3rd_dose": 601838,
                 "coverage_1st_dose": 75.5,
                 "coverage_2nd_dose": 74.8,
                 "coverage_3rd_dose": 4.3
@@ -3238,20 +3238,20 @@
         {
             "date": "2022-01-31",
             "data": {
-                "cumulative_1st_dose": 10450274,
-                "cumulative_2nd_dose": 10361583,
-                "cumulative_3rd_dose": 641874,
+                "cumulative_1st_dose": 10450605,
+                "cumulative_2nd_dose": 10362028,
+                "cumulative_3rd_dose": 643380,
                 "coverage_1st_dose": 75.5,
-                "coverage_2nd_dose": 74.8,
+                "coverage_2nd_dose": 74.9,
                 "coverage_3rd_dose": 4.6
             }
         },
         {
             "date": "2022-02-01",
             "data": {
-                "cumulative_1st_dose": 10451080,
-                "cumulative_2nd_dose": 10362249,
-                "cumulative_3rd_dose": 708114,
+                "cumulative_1st_dose": 10451414,
+                "cumulative_2nd_dose": 10362694,
+                "cumulative_3rd_dose": 709697,
                 "coverage_1st_dose": 75.5,
                 "coverage_2nd_dose": 74.9,
                 "coverage_3rd_dose": 5.1
@@ -3260,9 +3260,9 @@
         {
             "date": "2022-02-02",
             "data": {
-                "cumulative_1st_dose": 10451796,
-                "cumulative_2nd_dose": 10362927,
-                "cumulative_3rd_dose": 771908,
+                "cumulative_1st_dose": 10452129,
+                "cumulative_2nd_dose": 10363373,
+                "cumulative_3rd_dose": 773734,
                 "coverage_1st_dose": 75.5,
                 "coverage_2nd_dose": 74.9,
                 "coverage_3rd_dose": 5.6
@@ -3271,9 +3271,9 @@
         {
             "date": "2022-02-03",
             "data": {
-                "cumulative_1st_dose": 10452626,
-                "cumulative_2nd_dose": 10363715,
-                "cumulative_3rd_dose": 841187,
+                "cumulative_1st_dose": 10452959,
+                "cumulative_2nd_dose": 10364161,
+                "cumulative_3rd_dose": 843084,
                 "coverage_1st_dose": 75.5,
                 "coverage_2nd_dose": 74.9,
                 "coverage_3rd_dose": 6.1
@@ -3282,9 +3282,9 @@
         {
             "date": "2022-02-04",
             "data": {
-                "cumulative_1st_dose": 10453811,
-                "cumulative_2nd_dose": 10364973,
-                "cumulative_3rd_dose": 927174,
+                "cumulative_1st_dose": 10454144,
+                "cumulative_2nd_dose": 10365420,
+                "cumulative_3rd_dose": 929160,
                 "coverage_1st_dose": 75.5,
                 "coverage_2nd_dose": 74.9,
                 "coverage_3rd_dose": 6.7
@@ -3293,9 +3293,9 @@
         {
             "date": "2022-02-05",
             "data": {
-                "cumulative_1st_dose": 10455714,
-                "cumulative_2nd_dose": 10367099,
-                "cumulative_3rd_dose": 1003663,
+                "cumulative_1st_dose": 10456056,
+                "cumulative_2nd_dose": 10367550,
+                "cumulative_3rd_dose": 1005742,
                 "coverage_1st_dose": 75.5,
                 "coverage_2nd_dose": 74.9,
                 "coverage_3rd_dose": 7.3
@@ -3304,9 +3304,9 @@
         {
             "date": "2022-02-06",
             "data": {
-                "cumulative_1st_dose": 10456395,
-                "cumulative_2nd_dose": 10368516,
-                "cumulative_3rd_dose": 1063985,
+                "cumulative_1st_dose": 10456737,
+                "cumulative_2nd_dose": 10368967,
+                "cumulative_3rd_dose": 1066073,
                 "coverage_1st_dose": 75.5,
                 "coverage_2nd_dose": 74.9,
                 "coverage_3rd_dose": 7.7
@@ -3315,9 +3315,9 @@
         {
             "date": "2022-02-07",
             "data": {
-                "cumulative_1st_dose": 10457448,
-                "cumulative_2nd_dose": 10369352,
-                "cumulative_3rd_dose": 1142996,
+                "cumulative_1st_dose": 10457791,
+                "cumulative_2nd_dose": 10369803,
+                "cumulative_3rd_dose": 1145325,
                 "coverage_1st_dose": 75.5,
                 "coverage_2nd_dose": 74.9,
                 "coverage_3rd_dose": 8.3
@@ -3326,9 +3326,9 @@
         {
             "date": "2022-02-08",
             "data": {
-                "cumulative_1st_dose": 10458257,
-                "cumulative_2nd_dose": 10370200,
-                "cumulative_3rd_dose": 1234996,
+                "cumulative_1st_dose": 10458604,
+                "cumulative_2nd_dose": 10370651,
+                "cumulative_3rd_dose": 1237529,
                 "coverage_1st_dose": 75.5,
                 "coverage_2nd_dose": 74.9,
                 "coverage_3rd_dose": 8.9
@@ -3337,9 +3337,9 @@
         {
             "date": "2022-02-09",
             "data": {
-                "cumulative_1st_dose": 10459069,
-                "cumulative_2nd_dose": 10371081,
-                "cumulative_3rd_dose": 1327371,
+                "cumulative_1st_dose": 10459416,
+                "cumulative_2nd_dose": 10371532,
+                "cumulative_3rd_dose": 1330061,
                 "coverage_1st_dose": 75.6,
                 "coverage_2nd_dose": 74.9,
                 "coverage_3rd_dose": 9.6
@@ -3348,20 +3348,20 @@
         {
             "date": "2022-02-10",
             "data": {
-                "cumulative_1st_dose": 10460070,
-                "cumulative_2nd_dose": 10372200,
-                "cumulative_3rd_dose": 1417740,
+                "cumulative_1st_dose": 10460418,
+                "cumulative_2nd_dose": 10372653,
+                "cumulative_3rd_dose": 1420564,
                 "coverage_1st_dose": 75.6,
                 "coverage_2nd_dose": 74.9,
-                "coverage_3rd_dose": 10.2
+                "coverage_3rd_dose": 10.3
             }
         },
         {
             "date": "2022-02-11",
             "data": {
-                "cumulative_1st_dose": 10460942,
-                "cumulative_2nd_dose": 10372722,
-                "cumulative_3rd_dose": 1476357,
+                "cumulative_1st_dose": 10461290,
+                "cumulative_2nd_dose": 10373175,
+                "cumulative_3rd_dose": 1479200,
                 "coverage_1st_dose": 75.6,
                 "coverage_2nd_dose": 74.9,
                 "coverage_3rd_dose": 10.7
@@ -3370,9 +3370,9 @@
         {
             "date": "2022-02-12",
             "data": {
-                "cumulative_1st_dose": 10462660,
-                "cumulative_2nd_dose": 10374579,
-                "cumulative_3rd_dose": 1573727,
+                "cumulative_1st_dose": 10463012,
+                "cumulative_2nd_dose": 10375033,
+                "cumulative_3rd_dose": 1576698,
                 "coverage_1st_dose": 75.6,
                 "coverage_2nd_dose": 74.9,
                 "coverage_3rd_dose": 11.4
@@ -3381,9 +3381,9 @@
         {
             "date": "2022-02-13",
             "data": {
-                "cumulative_1st_dose": 10463615,
-                "cumulative_2nd_dose": 10375770,
-                "cumulative_3rd_dose": 1645685,
+                "cumulative_1st_dose": 10463967,
+                "cumulative_2nd_dose": 10376224,
+                "cumulative_3rd_dose": 1648666,
                 "coverage_1st_dose": 75.6,
                 "coverage_2nd_dose": 75,
                 "coverage_3rd_dose": 11.9
@@ -3392,9 +3392,9 @@
         {
             "date": "2022-02-14",
             "data": {
-                "cumulative_1st_dose": 10464326,
-                "cumulative_2nd_dose": 10376638,
-                "cumulative_3rd_dose": 1729404,
+                "cumulative_1st_dose": 10464684,
+                "cumulative_2nd_dose": 10377090,
+                "cumulative_3rd_dose": 1732630,
                 "coverage_1st_dose": 75.6,
                 "coverage_2nd_dose": 75,
                 "coverage_3rd_dose": 12.5
@@ -3403,31 +3403,31 @@
         {
             "date": "2022-02-15",
             "data": {
-                "cumulative_1st_dose": 10465231,
-                "cumulative_2nd_dose": 10377533,
-                "cumulative_3rd_dose": 1832140,
+                "cumulative_1st_dose": 10465590,
+                "cumulative_2nd_dose": 10377986,
+                "cumulative_3rd_dose": 1835498,
                 "coverage_1st_dose": 75.6,
                 "coverage_2nd_dose": 75,
-                "coverage_3rd_dose": 13.2
+                "coverage_3rd_dose": 13.3
             }
         },
         {
             "date": "2022-02-16",
             "data": {
-                "cumulative_1st_dose": 10466074,
-                "cumulative_2nd_dose": 10378431,
-                "cumulative_3rd_dose": 1930460,
+                "cumulative_1st_dose": 10466436,
+                "cumulative_2nd_dose": 10378885,
+                "cumulative_3rd_dose": 1933989,
                 "coverage_1st_dose": 75.6,
                 "coverage_2nd_dose": 75,
-                "coverage_3rd_dose": 13.9
+                "coverage_3rd_dose": 14
             }
         },
         {
             "date": "2022-02-17",
             "data": {
-                "cumulative_1st_dose": 10467080,
-                "cumulative_2nd_dose": 10379613,
-                "cumulative_3rd_dose": 2028599,
+                "cumulative_1st_dose": 10467444,
+                "cumulative_2nd_dose": 10380069,
+                "cumulative_3rd_dose": 2032476,
                 "coverage_1st_dose": 75.6,
                 "coverage_2nd_dose": 75,
                 "coverage_3rd_dose": 14.7
@@ -3436,9 +3436,9 @@
         {
             "date": "2022-02-18",
             "data": {
-                "cumulative_1st_dose": 10468348,
-                "cumulative_2nd_dose": 10381130,
-                "cumulative_3rd_dose": 2148367,
+                "cumulative_1st_dose": 10468717,
+                "cumulative_2nd_dose": 10381592,
+                "cumulative_3rd_dose": 2152543,
                 "coverage_1st_dose": 75.6,
                 "coverage_2nd_dose": 75,
                 "coverage_3rd_dose": 15.5
@@ -3447,9 +3447,9 @@
         {
             "date": "2022-02-19",
             "data": {
-                "cumulative_1st_dose": 10469968,
-                "cumulative_2nd_dose": 10383130,
-                "cumulative_3rd_dose": 2259072,
+                "cumulative_1st_dose": 10470338,
+                "cumulative_2nd_dose": 10383596,
+                "cumulative_3rd_dose": 2263349,
                 "coverage_1st_dose": 75.6,
                 "coverage_2nd_dose": 75,
                 "coverage_3rd_dose": 16.3
@@ -3458,20 +3458,20 @@
         {
             "date": "2022-02-20",
             "data": {
-                "cumulative_1st_dose": 10470696,
-                "cumulative_2nd_dose": 10384238,
-                "cumulative_3rd_dose": 2342186,
+                "cumulative_1st_dose": 10471067,
+                "cumulative_2nd_dose": 10384703,
+                "cumulative_3rd_dose": 2346463,
                 "coverage_1st_dose": 75.6,
                 "coverage_2nd_dose": 75,
-                "coverage_3rd_dose": 16.9
+                "coverage_3rd_dose": 17
             }
         },
         {
             "date": "2022-02-21",
             "data": {
-                "cumulative_1st_dose": 10471516,
-                "cumulative_2nd_dose": 10385089,
-                "cumulative_3rd_dose": 2430138,
+                "cumulative_1st_dose": 10471891,
+                "cumulative_2nd_dose": 10385556,
+                "cumulative_3rd_dose": 2434610,
                 "coverage_1st_dose": 75.6,
                 "coverage_2nd_dose": 75,
                 "coverage_3rd_dose": 17.6
@@ -3480,10 +3480,10 @@
         {
             "date": "2022-02-22",
             "data": {
-                "cumulative_1st_dose": 10472343,
-                "cumulative_2nd_dose": 10386057,
-                "cumulative_3rd_dose": 2541411,
-                "coverage_1st_dose": 75.6,
+                "cumulative_1st_dose": 10472723,
+                "cumulative_2nd_dose": 10386525,
+                "cumulative_3rd_dose": 2546170,
+                "coverage_1st_dose": 75.7,
                 "coverage_2nd_dose": 75,
                 "coverage_3rd_dose": 18.4
             }
@@ -3491,42 +3491,42 @@
         {
             "date": "2022-02-23",
             "data": {
-                "cumulative_1st_dose": 10472845,
-                "cumulative_2nd_dose": 10386457,
-                "cumulative_3rd_dose": 2605961,
+                "cumulative_1st_dose": 10473225,
+                "cumulative_2nd_dose": 10386939,
+                "cumulative_3rd_dose": 2610818,
                 "coverage_1st_dose": 75.7,
                 "coverage_2nd_dose": 75,
-                "coverage_3rd_dose": 18.8
+                "coverage_3rd_dose": 18.9
             }
         },
         {
             "date": "2022-02-24",
             "data": {
-                "cumulative_1st_dose": 10473713,
-                "cumulative_2nd_dose": 10387428,
-                "cumulative_3rd_dose": 2705086,
+                "cumulative_1st_dose": 10474095,
+                "cumulative_2nd_dose": 10387914,
+                "cumulative_3rd_dose": 2710287,
                 "coverage_1st_dose": 75.7,
                 "coverage_2nd_dose": 75,
-                "coverage_3rd_dose": 19.5
+                "coverage_3rd_dose": 19.6
             }
         },
         {
             "date": "2022-02-25",
             "data": {
-                "cumulative_1st_dose": 10474771,
-                "cumulative_2nd_dose": 10388812,
-                "cumulative_3rd_dose": 2829129,
+                "cumulative_1st_dose": 10475154,
+                "cumulative_2nd_dose": 10389302,
+                "cumulative_3rd_dose": 2834667,
                 "coverage_1st_dose": 75.7,
                 "coverage_2nd_dose": 75,
-                "coverage_3rd_dose": 20.4
+                "coverage_3rd_dose": 20.5
             }
         },
         {
             "date": "2022-02-26",
             "data": {
-                "cumulative_1st_dose": 10476038,
-                "cumulative_2nd_dose": 10390718,
-                "cumulative_3rd_dose": 2944365,
+                "cumulative_1st_dose": 10476423,
+                "cumulative_2nd_dose": 10391213,
+                "cumulative_3rd_dose": 2950309,
                 "coverage_1st_dose": 75.7,
                 "coverage_2nd_dose": 75.1,
                 "coverage_3rd_dose": 21.3
@@ -3535,9 +3535,9 @@
         {
             "date": "2022-02-27",
             "data": {
-                "cumulative_1st_dose": 10476833,
-                "cumulative_2nd_dose": 10391724,
-                "cumulative_3rd_dose": 3025367,
+                "cumulative_1st_dose": 10477223,
+                "cumulative_2nd_dose": 10392226,
+                "cumulative_3rd_dose": 3032127,
                 "coverage_1st_dose": 75.7,
                 "coverage_2nd_dose": 75.1,
                 "coverage_3rd_dose": 21.9
@@ -3546,9 +3546,9 @@
         {
             "date": "2022-02-28",
             "data": {
-                "cumulative_1st_dose": 10477352,
-                "cumulative_2nd_dose": 10392647,
-                "cumulative_3rd_dose": 3110565,
+                "cumulative_1st_dose": 10477757,
+                "cumulative_2nd_dose": 10393171,
+                "cumulative_3rd_dose": 3118898,
                 "coverage_1st_dose": 75.7,
                 "coverage_2nd_dose": 75.1,
                 "coverage_3rd_dose": 22.5
@@ -3557,144 +3557,155 @@
         {
             "date": "2022-03-01",
             "data": {
-                "cumulative_1st_dose": 10478128,
-                "cumulative_2nd_dose": 10393305,
-                "cumulative_3rd_dose": 3213139,
+                "cumulative_1st_dose": 10478549,
+                "cumulative_2nd_dose": 10393848,
+                "cumulative_3rd_dose": 3223434,
                 "coverage_1st_dose": 75.7,
                 "coverage_2nd_dose": 75.1,
-                "coverage_3rd_dose": 23.2
+                "coverage_3rd_dose": 23.3
             }
         },
         {
             "date": "2022-03-02",
             "data": {
-                "cumulative_1st_dose": 10478853,
-                "cumulative_2nd_dose": 10393999,
-                "cumulative_3rd_dose": 3313787,
+                "cumulative_1st_dose": 10479283,
+                "cumulative_2nd_dose": 10394550,
+                "cumulative_3rd_dose": 3325321,
                 "coverage_1st_dose": 75.7,
                 "coverage_2nd_dose": 75.1,
-                "coverage_3rd_dose": 23.9
+                "coverage_3rd_dose": 24
             }
         },
         {
             "date": "2022-03-03",
             "data": {
-                "cumulative_1st_dose": 10479588,
-                "cumulative_2nd_dose": 10394699,
-                "cumulative_3rd_dose": 3417128,
+                "cumulative_1st_dose": 10480024,
+                "cumulative_2nd_dose": 10395255,
+                "cumulative_3rd_dose": 3429857,
                 "coverage_1st_dose": 75.7,
                 "coverage_2nd_dose": 75.1,
-                "coverage_3rd_dose": 24.7
+                "coverage_3rd_dose": 24.8
             }
         },
         {
             "date": "2022-03-04",
             "data": {
-                "cumulative_1st_dose": 10480614,
-                "cumulative_2nd_dose": 10395446,
-                "cumulative_3rd_dose": 3547237,
+                "cumulative_1st_dose": 10481184,
+                "cumulative_2nd_dose": 10396009,
+                "cumulative_3rd_dose": 3562572,
                 "coverage_1st_dose": 75.7,
                 "coverage_2nd_dose": 75.1,
-                "coverage_3rd_dose": 25.6
+                "coverage_3rd_dose": 25.7
             }
         },
         {
             "date": "2022-03-05",
             "data": {
-                "cumulative_1st_dose": 10483535,
-                "cumulative_2nd_dose": 10396936,
-                "cumulative_3rd_dose": 3657058,
+                "cumulative_1st_dose": 10484130,
+                "cumulative_2nd_dose": 10397517,
+                "cumulative_3rd_dose": 3673887,
                 "coverage_1st_dose": 75.7,
                 "coverage_2nd_dose": 75.1,
-                "coverage_3rd_dose": 26.4
+                "coverage_3rd_dose": 26.5
             }
         },
         {
             "date": "2022-03-06",
             "data": {
-                "cumulative_1st_dose": 10486029,
-                "cumulative_2nd_dose": 10397772,
-                "cumulative_3rd_dose": 3734435,
-                "coverage_1st_dose": 75.7,
+                "cumulative_1st_dose": 10486630,
+                "cumulative_2nd_dose": 10398355,
+                "cumulative_3rd_dose": 3751455,
+                "coverage_1st_dose": 75.8,
                 "coverage_2nd_dose": 75.1,
-                "coverage_3rd_dose": 27
+                "coverage_3rd_dose": 27.1
             }
         },
         {
             "date": "2022-03-07",
             "data": {
-                "cumulative_1st_dose": 10487267,
-                "cumulative_2nd_dose": 10398443,
-                "cumulative_3rd_dose": 3813353,
+                "cumulative_1st_dose": 10487896,
+                "cumulative_2nd_dose": 10399035,
+                "cumulative_3rd_dose": 3831424,
                 "coverage_1st_dose": 75.8,
                 "coverage_2nd_dose": 75.1,
-                "coverage_3rd_dose": 27.5
+                "coverage_3rd_dose": 27.7
             }
         },
         {
             "date": "2022-03-08",
             "data": {
-                "cumulative_1st_dose": 10488514,
-                "cumulative_2nd_dose": 10399018,
-                "cumulative_3rd_dose": 3901560,
+                "cumulative_1st_dose": 10489165,
+                "cumulative_2nd_dose": 10399616,
+                "cumulative_3rd_dose": 3920686,
                 "coverage_1st_dose": 75.8,
                 "coverage_2nd_dose": 75.1,
-                "coverage_3rd_dose": 28.2
+                "coverage_3rd_dose": 28.3
             }
         },
         {
             "date": "2022-03-09",
             "data": {
-                "cumulative_1st_dose": 10491424,
-                "cumulative_2nd_dose": 10402618,
-                "cumulative_3rd_dose": 3984747,
+                "cumulative_1st_dose": 10492242,
+                "cumulative_2nd_dose": 10404086,
+                "cumulative_3rd_dose": 4004611,
                 "coverage_1st_dose": 75.8,
-                "coverage_2nd_dose": 75.1,
-                "coverage_3rd_dose": 28.8
+                "coverage_2nd_dose": 75.2,
+                "coverage_3rd_dose": 28.9
             }
         },
         {
             "date": "2022-03-10",
             "data": {
-                "cumulative_1st_dose": 10491424,
-                "cumulative_2nd_dose": 10400228,
-                "cumulative_3rd_dose": 4066279,
+                "cumulative_1st_dose": 10492242,
+                "cumulative_2nd_dose": 10400949,
+                "cumulative_3rd_dose": 4089673,
                 "coverage_1st_dose": 75.8,
                 "coverage_2nd_dose": 75.1,
-                "coverage_3rd_dose": 29.4
+                "coverage_3rd_dose": 29.5
             }
         },
         {
             "date": "2022-03-11",
             "data": {
-                "cumulative_1st_dose": 10493347,
-                "cumulative_2nd_dose": 10401014,
-                "cumulative_3rd_dose": 4165178,
+                "cumulative_1st_dose": 10494276,
+                "cumulative_2nd_dose": 10401848,
+                "cumulative_3rd_dose": 4199570,
                 "coverage_1st_dose": 75.8,
                 "coverage_2nd_dose": 75.1,
-                "coverage_3rd_dose": 30.1
+                "coverage_3rd_dose": 30.3
             }
         },
         {
             "date": "2022-03-12",
             "data": {
-                "cumulative_1st_dose": 10499710,
-                "cumulative_2nd_dose": 10402190,
-                "cumulative_3rd_dose": 4241756,
-                "coverage_1st_dose": 75.8,
+                "cumulative_1st_dose": 10501484,
+                "cumulative_2nd_dose": 10403245,
+                "cumulative_3rd_dose": 4284950,
+                "coverage_1st_dose": 75.9,
                 "coverage_2nd_dose": 75.1,
-                "coverage_3rd_dose": 30.6
+                "coverage_3rd_dose": 31
             }
         },
         {
             "date": "2022-03-13",
             "data": {
-                "cumulative_1st_dose": 10503071,
-                "cumulative_2nd_dose": 10402618,
-                "cumulative_3rd_dose": 4288558,
+                "cumulative_1st_dose": 10505370,
+                "cumulative_2nd_dose": 10403762,
+                "cumulative_3rd_dose": 4341717,
                 "coverage_1st_dose": 75.9,
-                "coverage_2nd_dose": 75.1,
-                "coverage_3rd_dose": 31
+                "coverage_2nd_dose": 75.2,
+                "coverage_3rd_dose": 31.4
+            }
+        },
+        {
+            "date": "2022-03-14",
+            "data": {
+                "cumulative_1st_dose": 10506326,
+                "cumulative_2nd_dose": 10404086,
+                "cumulative_3rd_dose": 4394681,
+                "coverage_1st_dose": 75.9,
+                "coverage_2nd_dose": 75.2,
+                "coverage_3rd_dose": 31.7
             }
         }
     ]
