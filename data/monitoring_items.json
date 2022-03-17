@@ -1,41 +1,41 @@
 {
-    "date": "2022\/3\/16 19:15",
+    "date": "2022\/3\/17 20:00",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数は緩やかな減少傾向にあるものの、医療提供体制への影響が極めて大きい水準で推移している。年度末前後のイベントによる人の移動、接触機会の増加やオミクロン株BA.2の影響で、増加比が上昇すれば、感染が再拡大する恐れがある。",
-                "@en": "While the number of new positive cases is showing a gradual decline, the pandemic continues to have an extremely large impact on the provision of health care. If the increased movement of people and opportunities for contact due to events held around the end of the fiscal\/academic year, and the Omicron BA.2 sub-variant cause a rise in the rate of increase, there may be a resurgence in infections."
+                "@ja": "新規陽性者数は緩やかな減少傾向にあるものの、年度末前後のイベントによる人の移動、接触機会の増加やオミクロン株BA.2系統の影響を受ければ、感染が再拡大する恐れがある。10歳未満の新規陽性者数が高い値で推移しており、警戒が必要である。",
+                "@en": "新規陽性者数は緩やかな減少傾向にあるものの、年度末前後のイベントによる人の移動、接触機会の増加やオミクロン株BA.2系統の影響を受ければ、感染が再拡大する恐れがある。10歳未満の新規陽性者数が高い値で推移しており、警戒が必要である。"
             },
             {
-                "@ja": "一般病床の満床が継続していることに加え、マンパワー不足が常態化しており、救急患者の入院受入れが極めて困難な危機的状況が続いている。高齢者への対応等で医療従事者への負担も長期化し、医療提供体制がひっ迫している。",
-                "@en": "As full occupancy of general beds and the steady shortage of manpower continue, the situation remains critical with hospitals having extreme difficulty admitting emergency patients. The prolonged burden placed on health care workers, such as caring for the elderly, is also straining the health care delivery system."
+                "@ja": "東京ルールの適用件数は、減少傾向にあるものの、未だ高い値で推移している。入院患者数及び重症患者数に占める高齢者の割合が、高い値で推移しており、高齢者への対応等で医療従事者への負担が長期化している。",
+                "@en": "東京ルールの適用件数は、減少傾向にあるものの、未だ高い値で推移している。入院患者数及び重症患者数に占める高齢者の割合が、高い値で推移しており、高齢者への対応等で医療従事者への負担が長期化している。"
             }
         ],
-        "(1)新規陽性者数": 8390.3,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 84.6,
-        "(3)新規陽性者における接触歴等不明者（人数）": 5003.6,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 84.3,
-        "(4)PCR・抗原検査（陽性率）": 31.4,
-        "(4)PCR・抗原検査（検査人数）": 15033.6,
-        "(5)救急医療の東京ルールの適用件数": 154.1,
-        "(6)入院患者数": 2817,
-        "(6)入院患者確保病床数": 6815,
-        "(7)重症患者数": 54,
+        "(1)新規陽性者数": 8159,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 83.9,
+        "(3)新規陽性者における接触歴等不明者（人数）": 4880.6,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 85.5,
+        "(4)PCR・抗原検査（陽性率）": 31.2,
+        "(4)PCR・抗原検査（検査人数）": 14756.9,
+        "(5)救急医療の東京ルールの適用件数": 152.6,
+        "(6)入院患者数": 2736,
+        "(6)入院患者確保病床数": 6946,
+        "(7)重症患者数": 53,
         "(7)重症患者確保病床数": 471,
         "総括コメント-感染状況": {
-            "date": "2022-03-09",
+            "date": "2022-03-16",
             "level": 4,
             "display": {
-                "@ja": "大規模な感染拡大が継続している",
-                "@en": "Extensive spread of the virus continues."
+                "@ja": "感染の再拡大の危険性が高いと思われる",
+                "@en": "There is a high risk of a resurgence of the virus."
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-03-09",
+            "date": "2022-03-16",
             "level": 4,
             "display": {
-                "@ja": "医療体制がひっ迫している",
-                "@en": "The health care delivery system is under strain."
+                "@ja": "通常の医療が大きく制限されている",
+                "@en": "The provision of non-COVID health care is under pressure."
             }
         }
     }
