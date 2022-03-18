@@ -74,6 +74,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
     "eslint-plugin-tsdoc": "0.2.14",
+    "eslint-plugin-vuejs-accessibility": "^1.1.1",
     "husky": "7.0.4",
     "lint-staged": "12.3.4",
     "lodash": "4.17.21",
