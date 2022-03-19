@@ -1,5 +1,5 @@
 {
-    "date": "2022\/3\/18 19:15",
+    "date": "2022\/3\/19 18:15",
     "data": [
         {
             "diagnosed_date": "2020-01-20",
@@ -8679,6 +8679,17 @@
             "weekly_average_count": 8067.7,
             "weekly_average_untracked_count": 4844.6,
             "weekly_average_untracked_increse_percent": 87.7
+        },
+        {
+            "diagnosed_date": "2022-03-19",
+            "count": 7444,
+            "missing_count": 4691,
+            "reported_count": 2753,
+            "weekly_gain_ratio": 0.88,
+            "untracked_percent": 60.7,
+            "weekly_average_count": 7822,
+            "weekly_average_untracked_count": 4745.9,
+            "weekly_average_untracked_increse_percent": 88.8
         }
     ]
 }
