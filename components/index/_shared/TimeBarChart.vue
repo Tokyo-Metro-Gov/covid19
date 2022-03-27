@@ -199,7 +199,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayInfo() {
       const { lastDay, lastDayData, dayBeforeRatio } = calcDayBeforeRatio({
         displayData: this.displayData,
-        dataIndex: 1,
+        dataIndex: 0,
       })
       const formattedLastDay = this.$d(lastDay, 'date')
       if (this.dataKind === 'transition' && this.byDate) {
@@ -229,8 +229,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayData() {
       const style = getGraphSeriesStyle(1)[0]
-      const zeroMouseOverHeight = 5
-      const transparentWhite = 'rgba(255,255,255,0)'
 
       if (this.dataKind === 'transition') {
         return {
@@ -238,21 +236,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             return d.label
           }),
           datasets: [
-            {
-              label: this.dataKind,
-              data: this.chartData.map((_d) => {
-                return 0
-              }),
-              backgroundColor: transparentWhite,
-              borderColor: transparentWhite,
-              borderWidth: 0,
-              minBarLength: this.chartData.map((d) => {
-                if (d.transition <= 0) {
-                  return zeroMouseOverHeight
-                }
-                return 0
-              }),
-            },
             {
               label: this.dataKind,
               data: this.chartData.map((d) => {
@@ -268,21 +251,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return {
         labels: this.chartData.map((d) => d.label),
         datasets: [
-          {
-            label: this.dataKind,
-            data: this.chartData.map((_d) => {
-              return 0
-            }),
-            backgroundColor: transparentWhite,
-            borderColor: transparentWhite,
-            borderWidth: 0,
-            minBarLength: this.chartData.map((d) => {
-              if (d.cumulative <= 0) {
-                return zeroMouseOverHeight
-              }
-              return 0
-            }),
-          },
           {
             label: this.dataKind,
             data: this.chartData.map((d) => {
