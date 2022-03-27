@@ -195,6 +195,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       const options: ChartOptions = {
         maintainAspectRatio: false,
         tooltips: {
+          intersect: false,
+          mode: 'index',
           displayColors: false,
           callbacks: {
             title: (tooltipItems: ChartTooltipItem[]) => {
