@@ -31,10 +31,10 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run test
       - run: yarn run generate:dev
-      - run: "echo \"User-agent: *\nDisallow: /\" > ./dist/robots.txt"
+      - run: "echo \"User-agent: *\nDisallow: /\" > ${{ github.workspace }}/dist/robots.txt"
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ${{ github.workspace }}/dist

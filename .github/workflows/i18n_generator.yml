@@ -23,8 +23,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install BeautifulSoup4
       - name: Run script
+        # Since i18n_generator.py uses os.pardir, the cd command is used to move the directory.
         run: |
-          cd auto-i18n
+          cd ${{ github.workspace }}/auto-i18n
           python i18n_generator.py
           cd ..
       - name: Create Pull Request

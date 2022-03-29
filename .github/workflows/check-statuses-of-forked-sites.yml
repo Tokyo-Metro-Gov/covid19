@@ -30,7 +30,7 @@ jobs:
 
       - name: Run scripts
         run: |
-          python ./audit-forked-sites/check_status.py
+          python ${{ github.workspace }}/audit-forked-sites/check_status.py
 
       - name: Create a pull request
         uses: peter-evans/create-pull-request@v3
