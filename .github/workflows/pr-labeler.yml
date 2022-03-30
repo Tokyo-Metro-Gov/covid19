@@ -8,6 +8,6 @@ jobs:
     steps:
       - name: Label for Transifex
         if: github.actor == 'transifex-integration[bot]' && !endsWith(github.event.pull_request.title, '[manual sync]')
-        uses: actions/labeler@v2
+        uses: actions/labeler@v4
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
