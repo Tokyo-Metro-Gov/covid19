@@ -4971,7 +4971,7 @@ eslint-plugin-vue@^7.20.0:
     semver "^6.3.0"
     vue-eslint-parser "^7.10.0"
 
-eslint-plugin-vuejs-accessibility@^1.1.1:
+eslint-plugin-vuejs-accessibility@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-vuejs-accessibility/-/eslint-plugin-vuejs-accessibility-1.1.1.tgz#bb7bd0462b6a7be86514a8fc651c1b9d0c8b356f"
   integrity sha512-vmXfZQMlVLLhoEd9WWOzzhwLKRFVOnteSsrWD/DGvIMUDZ9MkwB3gQ+sdSpjqYMC+bb68BPsp3YpNZBzygp9Xg==
