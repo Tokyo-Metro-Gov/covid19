@@ -55,8 +55,8 @@
     "vue-spinner": "1.0.4"
   },
   "devDependencies": {
-    "@babel/core": "7.17.5",
-    "@babel/runtime-corejs3": "7.17.2",
+    "@babel/core": "7.17.8",
+    "@babel/runtime-corejs3": "7.17.8",
     "@mdi/js": "6.5.95",
     "@nuxt/typescript-build": "2.1.0",
     "@nuxtjs/eslint-config": "7.0.0",
