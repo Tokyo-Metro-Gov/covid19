@@ -8792,6 +8792,17 @@
         },
         {
             "diagnosed_date": "2022-03-29",
+            "count": 7846,
+            "missing_count": 5067,
+            "reported_count": 2779,
+            "weekly_gain_ratio": 1.05,
+            "untracked_percent": 64.2,
+            "weekly_average_count": 7181.1,
+            "weekly_average_untracked_count": 4607.6,
+            "weekly_average_untracked_increse_percent": 111.1
+        },
+        {
+            "diagnosed_date": "2022-03-30",
             "count": 9520,
             "missing_count": 5954,
             "reported_count": 3566,
