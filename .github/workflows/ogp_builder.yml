@@ -17,7 +17,7 @@ jobs:
         with:
           ref: ${{ steps.extract_branch.outputs.branch }}
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: '16.13.0'
       - name: Get yarn cache directory path
