@@ -10,10 +10,10 @@ jobs:
   screenshot:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: cp ui-test\dummy.json dist\data/\data.json
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: '16.13.0'
 
