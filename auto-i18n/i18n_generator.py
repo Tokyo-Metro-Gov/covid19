@@ -15,10 +15,10 @@ from bs4 import BeautifulSoup
 ######
 
 # チェックするディレクトリのリスト
-CHECK_DIR = ["pages", "components", "layouts", "data", "utils", "auto-i18n/csv"]
+CHECK_DIR = ["pages", "components", "layouts", "data", "utils", "auto-i18n/csv", "assets/json"]
 
 # チェックするjsonファイルのリスト
-JSON_FILES = ["data.json", "patient.json"]
+JSON_FILES = ["data.json", "patient.json", "cardRoutesSettings.json"]
 
 # チェックするTypeScriptファイルのリスト
 # 現状は formatConfirmedCasesAttributesTable.ts と formatMonitoringItems.ts しかないが、
@@ -78,7 +78,7 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
         # リポジトリのルートからのパスをauto-i18nからの相対パスに変換
         cdir = os.path.join(os.pardir, cdir)
         # データディレクトリ以外の場合
-        if "data" not in cdir and "utils" not in cdir and "csv" not in cdir:
+        if "data" not in cdir and "utils" not in cdir and "csv" not in cdir and "json" not in cdir:
             # すべてのVueファイルを検索
             vue_files = glob.glob(cdir + os.sep + "**" + os.sep + "*.vue", recursive=True)
             file_count += len(vue_files)
@@ -186,10 +186,17 @@ with open(os.path.join(os.pardir, OUTPUT_DIR, CHECK_RESULT), mode="a", encoding=
                                 tags.append(city["label"]) if city["label"] != "小計" else None
                                 # ルビを取得
                                 tags.append(city["ruby"])
+                        if file_name == JSON_FILES[2]:  # cardRoutesSettings.jsonの場合
+                            for card in json_content:
+                                # タイトルを取得
+                                tags.append(card["title"])
+                                # カテゴリを取得
+                                tags.append(card["category"])
                         # タグを統合し、重複分を取り除く
                         all_tags = list(set(all_tags + tags))
             # Noneが混じっているので、取り除く
-            all_tags.pop(all_tags.index(None))
+            if None in all_tags:
+              all_tags.pop(all_tags.index(None))
             # 全角のハイフン、半角のハイフン、全角のダッシュ、全角ハイフンマイナスが混じっているので、取り除く
             # 理由は components/index/CardsReference/ConfirmedCasesAttributes/Card.vue の translateWord メソッドを参照。
             for x in ["-", "‐", "―", "－"]:
