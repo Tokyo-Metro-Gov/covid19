@@ -89,7 +89,7 @@
             :class="$style.button"
             to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/kunishihyou.html"
           >
-            {{ $t('国のステージ判断のための指標') }}
+            {{ $t('国の新しいレベル分類のための指標') }}
           </app-link>
         </div>
       </data-view>
