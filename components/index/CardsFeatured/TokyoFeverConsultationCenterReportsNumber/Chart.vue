@@ -355,6 +355,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayOption() {
       const options: ChartOptions = {
         tooltips: {
+          intersect: false,
+          mode: 'index',
           displayColors: false,
           callbacks: {
             label: (tooltipItem) => {

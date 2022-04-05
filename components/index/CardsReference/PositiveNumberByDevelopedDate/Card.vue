@@ -71,7 +71,6 @@ export default {
         displayInfo() {
           const { lastDay, lastDayData } = calcDayBeforeRatio({
             displayData: this.displayData,
-            dataIndex: 1,
           })
           const formattedLastDay = this.$d(lastDay, 'date')
           if (this.dataKind === 'transition') {

@@ -272,6 +272,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
       const options: ChartOptions = {
         tooltips: {
+          intersect: false,
+          mode: 'index',
           displayColors: false,
           filter(tooltipItem) {
             return tooltipItem.datasetIndex !== 1
