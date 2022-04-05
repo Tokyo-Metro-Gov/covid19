@@ -350,6 +350,8 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
         },
         tooltips: {
+          intersect: false,
+          mode: 'index',
           displayColors: false,
           callbacks: {
             title: this.tooltipsTitle,

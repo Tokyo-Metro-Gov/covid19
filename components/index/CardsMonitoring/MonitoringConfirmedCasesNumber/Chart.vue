@@ -327,6 +327,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 
       const options: ChartOptions = {
         tooltips: {
+          intersect: false,
+          mode: 'index',
           displayColors: false,
           callbacks: {
             label: (tooltipItem) => {
