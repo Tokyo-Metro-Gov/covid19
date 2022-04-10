@@ -1,5 +1,5 @@
 {
-    "date": "2022\/4\/9 18:45",
+    "date": "2022\/4\/10 20:45",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -3159,7 +3159,7 @@
         },
         {
             "diagnosed_date": "2022-03-22",
-            "count": 8663
+            "count": 8664
         },
         {
             "diagnosed_date": "2022-03-23",
@@ -3179,7 +3179,7 @@
         },
         {
             "diagnosed_date": "2022-03-27",
-            "count": 3792
+            "count": 3793
         },
         {
             "diagnosed_date": "2022-03-28",
@@ -3195,43 +3195,47 @@
         },
         {
             "diagnosed_date": "2022-03-31",
-            "count": 7527
+            "count": 7530
         },
         {
             "diagnosed_date": "2022-04-01",
-            "count": 8395
+            "count": 8436
         },
         {
             "diagnosed_date": "2022-04-02",
-            "count": 6599
-        },
-        {
-            "diagnosed_date": "2022-04-03",
-            "count": 3317
-        },
-        {
-            "diagnosed_date": "2022-04-04",
-            "count": 8083
-        },
-        {
-            "diagnosed_date": "2022-04-05",
-            "count": 9012
-        },
-        {
-            "diagnosed_date": "2022-04-06",
-            "count": 8190
-        },
-        {
-            "diagnosed_date": "2022-04-07",
             "count": 6639
         },
         {
+            "diagnosed_date": "2022-04-03",
+            "count": 3434
+        },
+        {
+            "diagnosed_date": "2022-04-04",
+            "count": 8179
+        },
+        {
+            "diagnosed_date": "2022-04-05",
+            "count": 9096
+        },
+        {
+            "diagnosed_date": "2022-04-06",
+            "count": 8335
+        },
+        {
+            "diagnosed_date": "2022-04-07",
+            "count": 7292
+        },
+        {
             "diagnosed_date": "2022-04-08",
-            "count": 4518
+            "count": 7476
         },
         {
             "diagnosed_date": "2022-04-09",
-            "count": 10
+            "count": 3895
+        },
+        {
+            "diagnosed_date": "2022-04-10",
+            "count": 2
         }
     ]
 }
