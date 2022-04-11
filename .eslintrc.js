@@ -6,6 +6,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
+    'vue/multi-word-component-names': 'off',
     'vue/max-attributes-per-line': 'off',
     'vue/html-self-closing': [
       'error',
