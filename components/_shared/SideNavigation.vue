@@ -403,7 +403,7 @@ export default Vue.extend({
       })
     },
     handleNavFocus(isNaviOpen: boolean) {
-      return this.$nextTick(() => {
+      return this.$nextTick().then(() => {
         if (isNaviOpen) {
           const $LanguageLabel = this.$refs.LanguageLabel as HTMLElement
           $LanguageLabel.focus()
