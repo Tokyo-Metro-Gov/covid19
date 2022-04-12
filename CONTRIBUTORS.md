@@ -184,6 +184,7 @@ Tokyo Covid-19 response site contributors
 | knknk98 | [@knknk98](https://github.com/knknk98) | | Coding |
 | kyon-00 | [@kyon-00](https://github.com/kyon-00) | | Frontend |
 | osaguild | [@osaguild](https://github.com/osaguild) | [@osaguild](https://twitter.com/osaguild) | Reporter |
+| Akira Aso | [@akiraaso](https://github.com/akiraaso) | | Coding |
 
 ご協力に感謝です！！！
 
