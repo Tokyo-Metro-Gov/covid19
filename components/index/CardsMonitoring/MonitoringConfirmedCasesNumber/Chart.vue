@@ -455,7 +455,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
           ),
         0
       )
-      const digits = String(max).length
+      const digits = String(Math.ceil(max)).length
       const base = 10 ** (digits - 1)
       return Math.ceil(max / base) * base
     },
