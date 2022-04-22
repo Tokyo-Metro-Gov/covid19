@@ -4161,10 +4161,10 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
-danger@11.0.4:
-  version "11.0.4"
-  resolved "https://registry.yarnpkg.com/danger/-/danger-11.0.4.tgz#8075e7c8b3d4ec61e52b4bf15511963bbf10996e"
-  integrity sha512-/MpODepUdiU6lo+K2EECS0oqAKtcRcXPPwu5lIrwsFaZP9L1TiJgA1zbox+gAhtRe3jzgqdWpiksbJvlhtSoBw==
+danger@11.0.5:
+  version "11.0.5"
+  resolved "https://registry.yarnpkg.com/danger/-/danger-11.0.5.tgz#d6dd93ee92236535443c65ad32ca10e1e361ae56"
+  integrity sha512-3EzH9bDlSeDK+2EDe/0xD3JTiaotWK6lrtS91rK8z9pq440Tq9c050uylrkA0tXv0lr/T/8iK8Cp4kw0R+TNAA==
   dependencies:
     "@octokit/rest" "^18.12.0"
     async-retry "1.2.3"
