@@ -34,7 +34,7 @@
     "*.{css,scss,vue}": "stylelint"
   },
   "resolutions": {
-    "@nuxtjs/vuetify/**/sass": "1.32.12"
+    "@nuxtjs/vuetify/**/sass": "1.51.0"
   },
   "dependencies": {
     "@nuxt/types": "2.15.8",
