@@ -56,6 +56,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ogp
+          path: ./ogp
       - name: Commit files
         run: |
           cp -rp ogp static/
