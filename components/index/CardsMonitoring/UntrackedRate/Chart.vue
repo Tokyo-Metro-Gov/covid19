@@ -148,7 +148,6 @@ type Computed = {
   displayData: DisplayData
   displayOption: ChartOptions
   scaledTicksYAxisMax: number
-  scaledTicksYAxisMaxRight: number
   tableHeaders: TableHeader[]
   tableData: TableItem[]
   startDateIndex: number
@@ -407,7 +406,6 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     },
     displayOption() {
       const unit = this.units[1]
-      const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
 
       const options: ChartOptions = {
         tooltips: {
@@ -514,10 +512,6 @@ export default Vue.extend<Data, Methods, Computed, Props>({
                 maxTicksLimit: 8,
                 fontColor: '#707070',
                 suggestedMin: 0,
-                suggestedMax: scaledTicksYAxisMaxRight,
-                callback: (value) => {
-                  return `${value}%`
-                },
               },
             },
           ],
@@ -538,9 +532,6 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       const digits = String(maxTotal).length
       const base = 10 ** (digits - 1)
       return Math.ceil(max / base) * base
-    },
-    scaledTicksYAxisMaxRight() {
-      return this.chartData[3].reduce((a, b) => Math.max(a, b), 0)
     },
     startDateIndex() {
       const searchIndex = this.labels?.findIndex((item) => {
