@@ -559,6 +559,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 8,
                 fontColor: '#707070',
                 suggestedMin: 0,
+                callback: (value) => {
+                  return `${value}%`
+                },
               },
             },
           ],
