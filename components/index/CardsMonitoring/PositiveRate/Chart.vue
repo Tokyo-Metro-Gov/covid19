@@ -152,7 +152,6 @@ type Computed = {
   displayData: DisplayData
   displayOption: ChartOptions
   scaledTicksYAxisMax: number
-  scaledTicksYAxisMaxRight: number
   tableHeaders: TableHeader[]
   tableData: TableItem[]
   startDateIndex: number
@@ -458,8 +457,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         .reverse()
     },
     displayOption() {
-      const scaledTicksYAxisMaxRight = this.scaledTicksYAxisMaxRight
-
       const options: ChartOptions = {
         tooltips: {
           intersect: false,
@@ -562,7 +559,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 8,
                 fontColor: '#707070',
                 suggestedMin: 0,
-                suggestedMax: scaledTicksYAxisMaxRight,
                 callback: (value) => {
                   return `${value}%`
                 },
@@ -591,9 +587,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const digits = String(max).length
       const base = 10 ** (digits - 1)
       return Math.ceil(max / base) * base
-    },
-    scaledTicksYAxisMaxRight() {
-      return this.chartData[5].reduce((a, b) => Math.max(a, b), 0)
     },
     startDateIndex() {
       const searchIndex = this.labels?.findIndex((item) => {
