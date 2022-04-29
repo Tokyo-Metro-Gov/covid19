@@ -6,25 +6,25 @@
 
 Install the following application to the environment for development.
 
-| Application name | Application version(Fill in only if specified) | Installation conditions |
-| ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/zh-cn/)|16.13.0以上|Required|
-|[Visual Studio Code](https://code.visualstudio.com/)| |If you use Visual Studio Code|
-|[yarn](https://classic.yarnpkg.com/zh-Hans/)| |When executing this program with `yarn`|
-|[docker compose](https://docs.docker.com/compose/install/)| |When executing this program with `docker compose`|
-|[Vagrant](https://www.vagrantup.com/)| |When executing this program with `Vagrant`|
+| Application name                                           | Application version(Fill in only if specified) | Installation conditions                           |
+| ---------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------- |
+| [Node.js](https://nodejs.org/zh-cn/)                       | 16.13.0 以上                                   | Required                                          |
+| [Visual Studio Code](https://code.visualstudio.com/)       |                                                | If you use Visual Studio Code                     |
+| [yarn](https://classic.yarnpkg.com/zh-Hans/)               |                                                | When executing this program with `yarn`           |
+| [docker compose](https://docs.docker.com/compose/install/) |                                                | When executing this program with `docker compose` |
+| [Vagrant](https://www.vagrantup.com/)                      |                                                | When executing this program with `Vagrant`        |
 
 ### 1-1. Extensions for Visual Studio Code
 
 To use Visual Studio Code, install the following extension.
 
-| Extensions | Installation conditions |
-| ------- | ------- |
-|[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)|Any|
-|[Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)|Any|
-|[TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)|Any|
-|[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)|Any|
-|[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)|When developing with Visual Studio Code and Remote Containers|
+| Extensions                                                                                                             | Installation conditions                                       |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)                                   | Any                                                           |
+| [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)                                              | Any                                                           |
+| [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)                | Any                                                           |
+| [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)                | Any                                                           |
+| [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) | When developing with Visual Studio Code and Remote Containers |
 
 ---
 
@@ -77,7 +77,7 @@ $ yarn dev-no-axe
 
 [/PLEASE TRANSLATE ME]
 
-#### 2-1-3-1. 出现 `Cannot find module ****` 的error時
+#### 2-1-3-1. 出现 `Cannot find module ****` 的 error 時
 
 [PLEASE TRANSLATE ME]
 
@@ -106,7 +106,7 @@ $ docker-compose up --build
 
 [/PLEASE TRANSLATE ME]
 
-#### 2-2-2-1. 出现 `Cannot find module ****` 的error時
+#### 2-2-2-1. 出现 `Cannot find module ****` 的 error 時
 
 [PLEASE TRANSLATE ME]
 
@@ -152,9 +152,9 @@ You can check the program under development by accessing http://localhost:3000 a
 #### 2-4-2. 提示
 
 - 如果想要更改设定，请更改 `.devcontainer/devcontainer.json` 文件。
-详情请参考 [devcontainer.json reference（外部链接）](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)。
+  详情请参考 [devcontainer.json reference（外部链接）](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)。
 - Remote Container 启动时插件只导入了 「ESlint」。如有必要，请在 `.devcontainer/devcontainer.json` 的 `extensions` 中新增。
-详细步骤请参考 [Managing extensions（外部链接）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)。
+  详细步骤请参考 [Managing extensions（外部链接）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)。
 - 如需重新建立开发环境，请点击左下角的 「Rebuild Container」。
 
 ---
@@ -166,17 +166,17 @@ You can check the program under development by accessing http://localhost:3000 a
 
 ---
 
-## 4. 发布到 Staging环境以及正式环境的方法
+## 4. 发布到 Staging 环境以及正式环境的方法
 
 [PLEASE TRANSLATE ME]
 
 When the branch listed in the left column of the table below is updated, the branch and website will be updated automatically.
 
-| branch | A branch where HTML is built and updated | Website updated |
-| ---- | ---- | ---- |
-|`master`|`production`|The production site https://stopcovid19.metro.tokyo.lg.jp/|
-|`staging`|`gh-pages`|The staging site https://stg-covid19-tokyo.netlify.app/|
-|`development`|`dev-pages`|The development site https://dev-covid19-tokyo.netlify.app/|
+| branch        | A branch where HTML is built and updated | Website updated                                             |
+| ------------- | ---------------------------------------- | ----------------------------------------------------------- |
+| `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/  |
+| `staging`     | `gh-pages`                               | The staging site https://stg-covid19-tokyo.netlify.app/     |
+| `development` | `dev-pages`                              | The development site https://dev-covid19-tokyo.netlify.app/ |
 
 [/PLEASE TRANSLATE ME]
 
@@ -189,10 +189,10 @@ When the branch listed in the left column of the table below is updated, the bra
 
 [PLEASE TRANSLATE ME]
 
-| Types of changes | Naming rules for the branch |
-| ---- | ---- |
-|新增功能|`feature/#{ISSUE_ID}-#{branch_title_name}`|
-|Hotfix commit|`hotfix/#{ISSUE_ID}-#{branch_title_name}`|
+| Types of changes | Naming rules for the branch                |
+| ---------------- | ------------------------------------------ |
+| 新增功能         | `feature/#{ISSUE_ID}-#{branch_title_name}` |
+| Hotfix commit    | `hotfix/#{ISSUE_ID}-#{branch_title_name}`  |
 
 [/PLEASE TRANSLATE ME]
 
@@ -200,19 +200,19 @@ When the branch listed in the left column of the table below is updated, the bra
 
 [PLEASE TRANSLATE ME]
 
-| 目的 | 分支 | 预览用 URL | People who can make pull requests | 备注 |
-| ---- | ---- | ---- | ---- | ---- |
-| 开发 | development | https://dev-covid19-tokyo.netlify.app/ | All developers | 基本上请推送 Pull Request 到这里 |
-| 紧急修复 | dev-hotfix | 无 | 对正式版的紧急修复。在管理员的要求下使用。 |
-| 正式版预览 | staging | https://stg-covid19-tokyo.netlify.app/ | Only administrators | 对于正式版发布前的最终确认，禁止管理员以外的人推送 Pull Request。 |
-| 正式版 | master | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators | 禁止管理员以外的人推送 Pull Request |
+| 目的       | 分支        | 预览用 URL                             | People who can make pull requests          | 备注                                                              |
+| ---------- | ----------- | -------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------- |
+| 开发       | development | https://dev-covid19-tokyo.netlify.app/ | All developers                             | 基本上请推送 Pull Request 到这里                                  |
+| 紧急修复   | dev-hotfix  | 无                                     | 对正式版的紧急修复。在管理员的要求下使用。 |
+| 正式版预览 | staging     | https://stg-covid19-tokyo.netlify.app/ | Only administrators                        | 对于正式版发布前的最终确认，禁止管理员以外的人推送 Pull Request。 |
+| 正式版     | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators                        | 禁止管理员以外的人推送 Pull Request                               |
 
 [/PLEASE TRANSLATE ME]
 
 ### 5-2. 系统所使用的分支
 
-| 目的 | 分支 | 预览用 URL | 备注 |
-| ---- | ---- | ---- | ---- |
-| 正式网站 HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | 生成静态网站 HTML 的位置 |
-| 正式版预览 HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | 生成静态网站 HTML 的位置 |
-| OGP 工作用 | deploy / new_ogp | 无 | OGP 更新用 |
+| 目的            | 分支             | 预览用 URL                             | 备注                     |
+| --------------- | ---------------- | -------------------------------------- | ------------------------ |
+| 正式网站 HTML   | production       | https://stopcovid19.metro.tokyo.lg.jp/ | 生成静态网站 HTML 的位置 |
+| 正式版预览 HTML | gh-pages         | https://stg-covid19-tokyo.netlify.app/ | 生成静态网站 HTML 的位置 |
+| OGP 工作用      | deploy / new_ogp | 无                                     | OGP 更新用               |

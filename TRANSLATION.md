@@ -23,7 +23,7 @@ You will see the translation editor. Search the text you want to translate from 
 
 ![](./.github/img/2020-03-16-16-11-14.png)
 
-After editing, please press `Save Translation` button. 
+After editing, please press `Save Translation` button.
 
 After the translation completed, the dev team will update the language resources with latest texts.
 
