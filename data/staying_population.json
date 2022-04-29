@@ -1,18 +1,18 @@
 {
-  "date": "2022/4/25 14:15",
-  "data": {
-    "place": {
-      "display": {
-        "@ja": "品川",
-        "@en": "Shinagawa"
-      }
-    },
-    "date": "2022-04-18",
-    "data": [
-      {
-        "reference_date": "2020-01-01",
-        "increase_rate": -56
-      }
-    ]
-  }
+    "date": "2022\/4\/25 14:15",
+    "data": {
+        "place": {
+            "display": {
+                "@ja": "品川",
+                "@en": "Shinagawa"
+            }
+        },
+        "date": "2022-04-18",
+        "data": [
+            {
+                "reference_date": "2020-01-01",
+                "increase_rate": -56
+            }
+        ]
+    }
 }
