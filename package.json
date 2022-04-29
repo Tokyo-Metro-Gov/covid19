@@ -31,7 +31,8 @@
     "*.{js,ts,css,vue}": [
       "eslint --fix"
     ],
-    "*.{css,scss,vue}": "stylelint"
+    "*.{css,scss,vue}": "stylelint",
+    "*": "prettier --ignore-unknown --write"
   },
   "resolutions": {
     "@nuxtjs/vuetify/**/sass": "1.32.12"
