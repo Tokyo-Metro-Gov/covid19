@@ -1,6 +1,16 @@
 {
   "editor.renderControlCharacters": true,
-  "editor.formatOnSave": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false
+  },
+  "[vue]": {
+    "editor.formatOnSave": false
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
