@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/reference", {data:[{}],fetch:{},mutations:[]});

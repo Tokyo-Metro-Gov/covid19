@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/en/accessibility-results", {data:[{}],fetch:{},mutations:[]});

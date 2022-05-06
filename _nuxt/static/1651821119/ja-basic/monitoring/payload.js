@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/ja-basic/monitoring", {data:[{}],fetch:{},mutations:[]});
