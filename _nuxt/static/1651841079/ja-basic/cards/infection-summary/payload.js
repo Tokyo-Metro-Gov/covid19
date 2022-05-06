@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ja-basic/cards/infection-summary", {data:[{}],fetch:{},mutations:[]});
