@@ -1,5 +1,5 @@
 {
-    "date": "2022\/5\/10 19:30",
+    "date": "2022\/5\/11 19:00",
     "data": {
         "専門家3行コメント": [
             {
@@ -11,19 +11,19 @@
                 "@en": "The number of cases that do not fulfill the Tokyo Rule for Emergency Medical Care remains high, indicating that the pandemic is still affecting emergency medical services. While hospitalizations and severe patients have declined this week, and impacts on non-COVID health care are decreasing, future trends must be closely watched."
             }
         ],
-        "(1)新規陽性者数": 3426,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 75.3,
-        "(3)新規陽性者における接触歴等不明者（人数）": 2276.9,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 92.2,
-        "(4)PCR・抗原検査（陽性率）": 21.3,
-        "(4)PCR・抗原検査（検査人数）": 9158.6,
-        "(5)救急医療の東京ルールの適用件数": 92.7,
-        "(6)入院患者数": 1132,
+        "(1)新規陽性者数": 3678.1,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 72.7,
+        "(3)新規陽性者における接触歴等不明者（人数）": 2455,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 111.4,
+        "(4)PCR・抗原検査（陽性率）": 20.3,
+        "(4)PCR・抗原検査（検査人数）": 10559.3,
+        "(5)救急医療の東京ルールの適用件数": 93.3,
+        "(6)入院患者数": 1146,
         "(6)入院患者確保病床数": 6555,
-        "(7)重症患者数": 9,
+        "(7)重症患者数": 8,
         "(7)重症患者確保病床数": 417,
         "総括コメント-感染状況": {
-            "date": "2022-05-05",
+            "date": "2022-05-04",
             "level": 3,
             "display": {
                 "@ja": "感染状況は拡大傾向にないが、警戒が必要である",
@@ -31,7 +31,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-05-05",
+            "date": "2022-05-04",
             "level": 3,
             "display": {
                 "@ja": "通常の医療が制限されている状況である",
