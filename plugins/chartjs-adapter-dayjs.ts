@@ -9,7 +9,7 @@ import 'dayjs/locale/zh-tw'
 
 import { NuxtAppOptions } from '@nuxt/types/app'
 import Chart from 'chart.js'
-import * as dayjs from 'dayjs'
+import dayjs, { extend, locale } from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 
 const DEFAULT_FORMATS = {
@@ -26,7 +26,7 @@ const DEFAULT_FORMATS = {
 }
 
 export function useDayjsAdapter(nuxtI18n: NuxtAppOptions['i18n']) {
-  dayjs.extend(customParseFormat)
+  extend(customParseFormat)
 
   // set locale when page onload
   setLocale(nuxtI18n.locale)
@@ -76,5 +76,5 @@ function setLocale(newLocale: string) {
     loc = 'ja'
   }
 
-  dayjs.locale(loc)
+  locale(loc)
 }
