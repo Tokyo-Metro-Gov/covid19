@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/ja-basic/cards/monitoring-comment", {data:[{}],fetch:{},mutations:[]});
