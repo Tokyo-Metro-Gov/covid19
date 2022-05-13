@@ -4349,12 +4349,12 @@
         {
             "date": "2022-05-12",
             "data": {
-                "cumulative_1st_dose": null,
-                "cumulative_2nd_dose": null,
-                "cumulative_3rd_dose": null,
-                "coverage_1st_dose": null,
-                "coverage_2nd_dose": null,
-                "coverage_3rd_dose": null
+                "cumulative_1st_dose": 10646563,
+                "cumulative_2nd_dose": 10545001,
+                "cumulative_3rd_dose": 7610812,
+                "coverage_1st_dose": 76.9,
+                "coverage_2nd_dose": 76.2,
+                "coverage_3rd_dose": 55
             }
         }
     ]
