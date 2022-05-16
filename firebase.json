@@ -1,6 +1,7 @@
 {
   "functions": {
-    "source": "functions"
+    "source": "functions",
+    "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build"
   },
   "hosting": {
     "public": "/",
@@ -9,6 +10,12 @@
       "**/.*",
       "**/node_modules/**",
       "**/.git/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/g-mark",
+        "function": "gMark"
+      }
     ]
   }
 }
