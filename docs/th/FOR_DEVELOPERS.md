@@ -6,25 +6,25 @@
 
 Install the following application to the environment for development.
 
-| Application name | Application version(Fill in only if specified) | Installation conditions |
-| ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/en/)|16.13.0 หรือสูงกว่า|Required|
-|[Visual Studio Code](https://code.visualstudio.com/)| |If you use Visual Studio Code|
-|[yarn](https://classic.yarnpkg.com/en/)| |When executing this program with `yarn`|
-|[docker compose](https://docs.docker.com/compose/install/)| |When executing this program with `docker compose`|
-|[Vagrant](https://www.vagrantup.com/)| |When executing this program with `Vagrant`|
+| Application name                                           | Application version(Fill in only if specified) | Installation conditions                           |
+| ---------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------- |
+| [Node.js](https://nodejs.org/en/)                          | 16.13.0 หรือสูงกว่า                            | Required                                          |
+| [Visual Studio Code](https://code.visualstudio.com/)       |                                                | If you use Visual Studio Code                     |
+| [yarn](https://classic.yarnpkg.com/en/)                    |                                                | When executing this program with `yarn`           |
+| [docker compose](https://docs.docker.com/compose/install/) |                                                | When executing this program with `docker compose` |
+| [Vagrant](https://www.vagrantup.com/)                      |                                                | When executing this program with `Vagrant`        |
 
 ### 1-1. Extensions for Visual Studio Code
 
 To use Visual Studio Code, install the following extension.
 
-| Extensions | Installation conditions |
-| ------- | ------- |
-|[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)|Any|
-|[Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)|Any|
-|[TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)|Any|
-|[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)|Any|
-|[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)|When developing with Visual Studio Code and Remote Containers|
+| Extensions                                                                                                             | Installation conditions                                       |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)                                   | Any                                                           |
+| [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)                                              | Any                                                           |
+| [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)                | Any                                                           |
+| [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)                | Any                                                           |
+| [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) | When developing with Visual Studio Code and Remote Containers |
 
 ---
 
@@ -178,11 +178,11 @@ Please use the variable to detect which enviroinment is used at the runtime.
 
 When the branch listed in the left column of the table below is updated, the branch and website will be updated automatically.
 
-| branch | A branch where HTML is built and updated | Website updated |
-| ---- | ---- | ---- |
-|`master`|`production`|The production site https://stopcovid19.metro.tokyo.lg.jp/|
-|`staging`|`gh-pages`|The staging site https://stg-covid19-tokyo.netlify.app/|
-|`development`|`dev-pages`|The development site https://dev-covid19-tokyo.netlify.app/|
+| branch        | A branch where HTML is built and updated | Website updated                                             |
+| ------------- | ---------------------------------------- | ----------------------------------------------------------- |
+| `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/  |
+| `staging`     | `gh-pages`                               | The staging site https://stg-covid19-tokyo.netlify.app/     |
+| `development` | `dev-pages`                              | The development site https://dev-covid19-tokyo.netlify.app/ |
 
 [/PLEASE TRANSLATE ME]
 
@@ -195,25 +195,25 @@ pull request เปิดรับได้ที่ `development` เท่า�
 
 [PLEASE TRANSLATE ME]
 
-| Types of changes | Naming rules for the branch |
-| ---- | ---- |
-|การสร้างฟีเจอร์|`feature/#{ISSUE_ID}-#{branch_title_name}`|
-|Hotfix commit|`hotfix/#{ISSUE_ID}-#{branch_title_name}`|
+| Types of changes | Naming rules for the branch                |
+| ---------------- | ------------------------------------------ |
+| การสร้างฟีเจอร์  | `feature/#{ISSUE_ID}-#{branch_title_name}` |
+| Hotfix commit    | `hotfix/#{ISSUE_ID}-#{branch_title_name}`  |
 
 [/PLEASE TRANSLATE ME]
 
 ### 5-1. branch หลัก
 
-| จุดประสงค์ | branch | URL | People who can make pull requests | หมายเหตุ |
-| ---- | ---- | ---- | ---- | ---- |
-| Development | development | https://dev-covid19-tokyo.netlify.app/ | All developers | branch หลัก ใช้ในการรับ pull request |
-| Staging | staging | https://stg-covid19-tokyo.netlify.app/ | Only administrators | ใช้สำหรับ staging ทดสอบตัวปรับปรุง ก่อน deploy ลง production - ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
-| Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators | ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
+| จุดประสงค์  | branch      | URL                                    | People who can make pull requests | หมายเหตุ                                                                                                  |
+| ----------- | ----------- | -------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Development | development | https://dev-covid19-tokyo.netlify.app/ | All developers                    | branch หลัก ใช้ในการรับ pull request                                                                      |
+| Staging     | staging     | https://stg-covid19-tokyo.netlify.app/ | Only administrators               | ใช้สำหรับ staging ทดสอบตัวปรับปรุง ก่อน deploy ลง production - ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
+| Production  | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators               | ห้ามสร้าง pull request ยกเว้นจาก admin เอง                                                                |
 
 ### 5-2. branch ที่ถูกใช้โดยระบบ
 
-| จุดประสงค์ | branch | URL | หมายเหตุ |
-| ---- | ---- | ---- | ---- |
-| Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | HTML สำหรับ production |
-| Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | HTML สำหรับ staging |
-| สำหรับ OGP working directory | deploy / new_ogp | None | สำหรับปรับปรุง OGP |
+| จุดประสงค์                   | branch           | URL                                    | หมายเหตุ               |
+| ---------------------------- | ---------------- | -------------------------------------- | ---------------------- |
+| Production site HTML         | production       | https://stopcovid19.metro.tokyo.lg.jp/ | HTML สำหรับ production |
+| Staging site HTML            | gh-pages         | https://stg-covid19-tokyo.netlify.app/ | HTML สำหรับ staging    |
+| สำหรับ OGP working directory | deploy / new_ogp | None                                   | สำหรับปรับปรุง OGP     |

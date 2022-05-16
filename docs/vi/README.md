@@ -9,14 +9,16 @@
 ### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | Tiếng Việt | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md) | [Português](./../pt_BR/README.md)
 
 ## Làm thế nào để đóng góp
+
 Mọi đóng góp của các bạn đều được chào đón.
 Xin vui lòng đọc [tại đây](./CONTRIBUTING.md) để biết thêm chi tiết.
 
-
 ## Quy tắc ứng xử
+
 Chi tiết vui lòng xem [tại đây](./CODE_OF_CONDUCT.md)
 
 ## Giấy phép
+
 Phần mềm này được phân phối dưới giấy phép [MIT](./../../LICENSE.txt)
 
 [PLEASE TRANSLATE ME]

@@ -6,25 +6,25 @@
 
 Install the following application to the environment for development.
 
-| Application name | Application version(Fill in only if specified) | Installation conditions |
-| ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/fr/)|16.13.0 or plus récent|Required|
-|[Visual Studio Code](https://code.visualstudio.com/)| |If you use Visual Studio Code|
-|[yarn](https://classic.yarnpkg.com/fr/)| |When executing this program with `yarn`|
-|[docker compose](https://docs.docker.com/compose/install/)| |When executing this program with `docker compose`|
-|[Vagrant](https://www.vagrantup.com/)| |When executing this program with `Vagrant`|
+| Application name                                           | Application version(Fill in only if specified) | Installation conditions                           |
+| ---------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------- |
+| [Node.js](https://nodejs.org/fr/)                          | 16.13.0 or plus récent                         | Required                                          |
+| [Visual Studio Code](https://code.visualstudio.com/)       |                                                | If you use Visual Studio Code                     |
+| [yarn](https://classic.yarnpkg.com/fr/)                    |                                                | When executing this program with `yarn`           |
+| [docker compose](https://docs.docker.com/compose/install/) |                                                | When executing this program with `docker compose` |
+| [Vagrant](https://www.vagrantup.com/)                      |                                                | When executing this program with `Vagrant`        |
 
 ### 1-1. Extensions for Visual Studio Code
 
 To use Visual Studio Code, install the following extension.
 
-| Extensions | Installation conditions |
-| ------- | ------- |
-|[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)|Any|
-|[Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)|Any|
-|[TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)|Any|
-|[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)|Any|
-|[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)|When developing with Visual Studio Code and Remote Containers|
+| Extensions                                                                                                             | Installation conditions                                       |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)                                   | Any                                                           |
+| [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)                                              | Any                                                           |
+| [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)                | Any                                                           |
+| [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)                | Any                                                           |
+| [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) | When developing with Visual Studio Code and Remote Containers |
 
 ---
 
@@ -163,11 +163,11 @@ Veuillez utiliser cette variable pour détecter quel type d'environnement est ex
 
 When the branch listed in the left column of the table below is updated, the branch and website will be updated automatically.
 
-| branch | A branch where HTML is built and updated | Website updated |
-| ---- | ---- | ---- |
-|`master`|`production`|The production site https://stopcovid19.metro.tokyo.lg.jp/|
-|`staging`|`gh-pages`|The staging site https://stg-covid19-tokyo.netlify.app/|
-|`development`|`dev-pages`|The development site https://dev-covid19-tokyo.netlify.app/|
+| branch        | A branch where HTML is built and updated | Website updated                                             |
+| ------------- | ---------------------------------------- | ----------------------------------------------------------- |
+| `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/  |
+| `staging`     | `gh-pages`                               | The staging site https://stg-covid19-tokyo.netlify.app/     |
+| `development` | `dev-pages`                              | The development site https://dev-covid19-tokyo.netlify.app/ |
 
 [/PLEASE TRANSLATE ME]
 
@@ -180,27 +180,27 @@ Veuillez utiliser le schema suivant pour nommer vos Pull Request.
 
 [PLEASE TRANSLATE ME]
 
-| Types of changes | Naming rules for the branch |
-| ---- | ---- |
-|Nouvelle feature|`feature/#{ISSUE_ID}-#{branch_title_name}`|
-|Hotfix|`hotfix/#{ISSUE_ID}-#{branch_title_name}`|
+| Types of changes | Naming rules for the branch                |
+| ---------------- | ------------------------------------------ |
+| Nouvelle feature | `feature/#{ISSUE_ID}-#{branch_title_name}` |
+| Hotfix           | `hotfix/#{ISSUE_ID}-#{branch_title_name}`  |
 
 [/PLEASE TRANSLATE ME]
 
 ### 5-1. Branches basiques
 
-| But | Branche | URL | People who can make pull requests | Notes |
-| ---- | ---- | ---- | ---- | ---- |
-| Development | development | https://dev-covid19-tokyo.netlify.app/ | All developers | Branche de base. Faites votre Pull Request ici. |
-| Staging | staging | https://stg-covid19-tokyo.netlify.app/ | Only administrators | Pour confirmation avant production. Pull request d'utilisateurs non-admin sont defendues. |
-| Production | master | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators | Pull request d'utilisateurs non-admin sont defendues. |
+| But         | Branche     | URL                                    | People who can make pull requests | Notes                                                                                     |
+| ----------- | ----------- | -------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------- |
+| Development | development | https://dev-covid19-tokyo.netlify.app/ | All developers                    | Branche de base. Faites votre Pull Request ici.                                           |
+| Staging     | staging     | https://stg-covid19-tokyo.netlify.app/ | Only administrators               | Pour confirmation avant production. Pull request d'utilisateurs non-admin sont defendues. |
+| Production  | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators               | Pull request d'utilisateurs non-admin sont defendues.                                     |
 
 [/PLEASE TRANSLATE ME]
 
 ### 5-2. Branches utilisees par le systeme
 
-| But | Branche | URL | Notes |
-| ---- | -------- | ---- | ---- |
-| Production site HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | Place ou les pages HTML statiques sont stockees. |
-| Staging site HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | Ou trouver l'HTML statiquement construit. |
-| Dossier de travail OGP | deploy / new_ogp | None | Pour mettre a jour OGP |
+| But                    | Branche          | URL                                    | Notes                                            |
+| ---------------------- | ---------------- | -------------------------------------- | ------------------------------------------------ |
+| Production site HTML   | production       | https://stopcovid19.metro.tokyo.lg.jp/ | Place ou les pages HTML statiques sont stockees. |
+| Staging site HTML      | gh-pages         | https://stg-covid19-tokyo.netlify.app/ | Ou trouver l'HTML statiquement construit.        |
+| Dossier de travail OGP | deploy / new_ogp | None                                   | Pour mettre a jour OGP                           |

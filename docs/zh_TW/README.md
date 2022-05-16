@@ -8,17 +8,18 @@
 
 ### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | [한국어](./../ko/README.md) | 繁體中文 | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md) | [Português](./../pt_BR/README.md)
 
-
 ## 如何貢獻
+
 如果您能對 Issues 中做出各式各樣的修正協助，我們將不勝感激。
 
 詳情請洽[如何貢獻](./CONTRIBUTING.md)。
 
-
 ## 行動原則
+
 詳情請洽[建立網站的行動原則](./CODE_OF_CONDUCT.md)。
 
 ## 授權
+
 本軟體採 [MIT 授權條款](./../../LICENSE.txt)釋出。
 
 ## 從這個網站衍生出來的東西

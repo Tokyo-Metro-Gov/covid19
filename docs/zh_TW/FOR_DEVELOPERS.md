@@ -4,32 +4,31 @@
 
 安裝下列的應用程式來建構開發環境：
 
-| 應用程式名稱 | 應用程式版本(有特定版本才填寫) | 安裝要求 |
-| ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/zh-tw/)|16.13.0 以上|必要|
-|[Visual Studio Code](https://code.visualstudio.com/)| |如果你使用 Visual Studio Code|
-|[yarn](https://classic.yarnpkg.com/zh-Hant/)| |使用 `yarn` 執行本專案時|
-|[docker compose](https://docs.docker.com/compose/install/)| |使用 `docker compose` 直襲本專案時|
-|[Vagrant](https://www.vagrantup.com/)| |使用 `Vagrant` 執行本專案時|
+| 應用程式名稱                                               | 應用程式版本(有特定版本才填寫) | 安裝要求                           |
+| ---------------------------------------------------------- | ------------------------------ | ---------------------------------- |
+| [Node.js](https://nodejs.org/zh-tw/)                       | 16.13.0 以上                   | 必要                               |
+| [Visual Studio Code](https://code.visualstudio.com/)       |                                | 如果你使用 Visual Studio Code      |
+| [yarn](https://classic.yarnpkg.com/zh-Hant/)               |                                | 使用 `yarn` 執行本專案時           |
+| [docker compose](https://docs.docker.com/compose/install/) |                                | 使用 `docker compose` 直襲本專案時 |
+| [Vagrant](https://www.vagrantup.com/)                      |                                | 使用 `Vagrant` 執行本專案時        |
 
 ### 1-1. Visual Studio Code 的套件
 
 要使用 Visual Studio Code，請安裝以下套件。
 
-| 套件 | 安裝要求 |
-| ------- | ------- |
-|[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)|任意|
-|[Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)|任意|
-|[TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)|任意|
-|[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)|任意|
-|[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)|當使用 Visual Studio Code 和遠端容器來開發|
+| 套件                                                                                                                   | 安裝要求                                   |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)                                   | 任意                                       |
+| [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)                                              | 任意                                       |
+| [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)                | 任意                                       |
+| [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)                | 任意                                       |
+| [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) | 當使用 Visual Studio Code 和遠端容器來開發 |
 
 ---
 
 ## 2. 執行此專案
 
 請在根目錄(root)下執行此命令。
-
 
 ### 2-1. 使用 `yarn` 的做法
 
@@ -109,9 +108,9 @@ $ vagrant up
 #### 2-4-2. 提示
 
 - 如果想要變更設定，請更改 `.devcontainer/devcontainer.json` 這隻檔案。
-詳細請參考 [devcontainer.json reference（外部連結）](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)。
+  詳細請參考 [devcontainer.json reference（外部連結）](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference)。
 - Remote Container 啟動時擴充套件只有導入 「ESlint」、如果有必要，請在 `.devcontainer/devcontainer.json` 的 `extensions` 中新增。
-詳細的步驟請參考 [Managing extensions（外部連結）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)。
+  詳細的步驟請參考 [Managing extensions（外部連結）](https://code.visualstudio.com/docs/remote/containers#_managing-extensions)。
 - 如果要重新建立開發環境，請執行左下角的 「Rebuild Container」。
 
 ---
@@ -127,11 +126,11 @@ $ vagrant up
 
 當下表左欄所列的分支更新後，分支和網站將會自動被更新。
 
-| 分支 | HTML 建置與更新的分支 | 網站更新 |
-| ---- | ---- | ---- |
-|`master`|`production`|The production site https://stopcovid19.metro.tokyo.lg.jp/|
-|`staging`|`gh-pages`|The staging site https://stg-covid19-tokyo.netlify.app/|
-|`development`|`dev-pages`|The development site https://dev-covid19-tokyo.netlify.app/|
+| 分支          | HTML 建置與更新的分支 | 網站更新                                                    |
+| ------------- | --------------------- | ----------------------------------------------------------- |
+| `master`      | `production`          | The production site https://stopcovid19.metro.tokyo.lg.jp/  |
+| `staging`     | `gh-pages`            | The staging site https://stg-covid19-tokyo.netlify.app/     |
+| `development` | `dev-pages`           | The development site https://dev-covid19-tokyo.netlify.app/ |
 
 ---
 
@@ -140,25 +139,23 @@ $ vagrant up
 只允許推送 Pull Request 到 `development` 。
 在推送 Pull Request 時，請依照以下命名規則為您的分支命名
 
-| 變更種類 | 分支的命名規則 |
-| ---- | ---- |
-|新增功能|`feature/#{ISSUE_ID}-#{branch_title_name}`|
-|Hotfix commit|`hotfix/#{ISSUE_ID}-#{branch_title_name}`|
+| 變更種類      | 分支的命名規則                             |
+| ------------- | ------------------------------------------ |
+| 新增功能      | `feature/#{ISSUE_ID}-#{branch_title_name}` |
+| Hotfix commit | `hotfix/#{ISSUE_ID}-#{branch_title_name}`  |
 
 ### 5-1. 基本分支
 
-
-| 目的 | 分支 | 預覽用 URL | 誰可以發 Pull Request | 備註 |
-| ---- | ---- | ---- | ---- | ---- |
-| 開發 | development | https://dev-covid19-tokyo.netlify.app/ | All developers | 基本上請推送 Pull Request 到這裡 |
-| 正式版預覽 | staging | https://stg-covid19-tokyo.netlify.app/ | Only administrators | 對於正式版釋出前的最終確認，禁止管理員以外的人推送 Pull Request。 |
-| 正式版 | master | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators | 禁止管理員以外的人推送 Pull Request |
-
+| 目的       | 分支        | 預覽用 URL                             | 誰可以發 Pull Request | 備註                                                              |
+| ---------- | ----------- | -------------------------------------- | --------------------- | ----------------------------------------------------------------- |
+| 開發       | development | https://dev-covid19-tokyo.netlify.app/ | All developers        | 基本上請推送 Pull Request 到這裡                                  |
+| 正式版預覽 | staging     | https://stg-covid19-tokyo.netlify.app/ | Only administrators   | 對於正式版釋出前的最終確認，禁止管理員以外的人推送 Pull Request。 |
+| 正式版     | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators   | 禁止管理員以外的人推送 Pull Request                               |
 
 ### 5-2. 系統所使用的分支
 
-| 目的 | 分支 | 預覽用 URL | 備註 |
-| ---- | -------- | ---- | ---- |
-| 正式網站 HTML | production | https://stopcovid19.metro.tokyo.lg.jp/ | 生成靜態網站 HTML 的位置 |
-| 正式版預覽 HTML | gh-pages | https://stg-covid19-tokyo.netlify.app/ | 生成靜態網站 HTML 的位置 |
-| OGP 工作用 | deploy / new_ogp | 無 | OGP 更新用 |
+| 目的            | 分支             | 預覽用 URL                             | 備註                     |
+| --------------- | ---------------- | -------------------------------------- | ------------------------ |
+| 正式網站 HTML   | production       | https://stopcovid19.metro.tokyo.lg.jp/ | 生成靜態網站 HTML 的位置 |
+| 正式版預覽 HTML | gh-pages         | https://stg-covid19-tokyo.netlify.app/ | 生成靜態網站 HTML 的位置 |
+| OGP 工作用      | deploy / new_ogp | 無                                     | OGP 更新用               |
