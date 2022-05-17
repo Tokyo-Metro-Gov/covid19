@@ -51,7 +51,6 @@ jobs:
           github_token: ${{ secrets.WORKFLOW_TOKEN }}
           publish_dir: ./dist
           publish_branch: production
-          exclude_assets: ''
 
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
