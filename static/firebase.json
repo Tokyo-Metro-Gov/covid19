@@ -1,0 +1,25 @@
+{
+  "functions": {
+    "source": "functions",
+    "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build"
+  },
+  "hosting": {
+    "public": "/",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "**/.git/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/g-mark",
+        "function": "gMark"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
