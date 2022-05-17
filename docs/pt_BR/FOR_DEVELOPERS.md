@@ -6,25 +6,25 @@
 
 Install the following application to the environment for development.
 
-| Application name | Application version(Fill in only if specified) | Installation conditions |
-| ------- | ------- | ------- |
-|[Node.js](https://nodejs.org/pt-br/)|16.13.0 ou mais nova|Required|
-|[Visual Studio Code](https://code.visualstudio.com/)| |If you use Visual Studio Code|
-|[yarn](https://classic.yarnpkg.com/pt-BR/)| |When executing this program with `yarn`|
-|[docker compose](https://docs.docker.com/compose/install/)| |When executing this program with `docker compose`|
-|[Vagrant](https://www.vagrantup.com/)| |When executing this program with `Vagrant`|
+| Application name                                           | Application version(Fill in only if specified) | Installation conditions                           |
+| ---------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------- |
+| [Node.js](https://nodejs.org/pt-br/)                       | 16.13.0 ou mais nova                           | Required                                          |
+| [Visual Studio Code](https://code.visualstudio.com/)       |                                                | If you use Visual Studio Code                     |
+| [yarn](https://classic.yarnpkg.com/pt-BR/)                 |                                                | When executing this program with `yarn`           |
+| [docker compose](https://docs.docker.com/compose/install/) |                                                | When executing this program with `docker compose` |
+| [Vagrant](https://www.vagrantup.com/)                      |                                                | When executing this program with `Vagrant`        |
 
 ### 1-1. Extensions for Visual Studio Code
 
 To use Visual Studio Code, install the following extension.
 
-| Extensions | Installation conditions |
-| ------- | ------- |
-|[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)|Any|
-|[Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)|Any|
-|[TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)|Any|
-|[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)|Any|
-|[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)|When developing with Visual Studio Code and Remote Containers|
+| Extensions                                                                                                             | Installation conditions                                       |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)                                   | Any                                                           |
+| [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)                                              | Any                                                           |
+| [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)                | Any                                                           |
+| [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)                | Any                                                           |
+| [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) | When developing with Visual Studio Code and Remote Containers |
 
 ---
 
@@ -152,7 +152,7 @@ You can check the program under development by accessing http://localhost:3000 a
 
 ## 3. Detectar ambiente de produção/outros
 
-No ambiente de produção, é dado o valor de `'production'` à variável `process.env.GENERATE_ENV`. Em outros casos, o valor dado à variável é  `'development'`.
+No ambiente de produção, é dado o valor de `'production'` à variável `process.env.GENERATE_ENV`. Em outros casos, o valor dado à variável é `'development'`.
 Por favor, use esta variável para detectar qual ambiente está sendo usado durante a execução.
 
 ---
@@ -163,11 +163,11 @@ Por favor, use esta variável para detectar qual ambiente está sendo usado dura
 
 When the branch listed in the left column of the table below is updated, the branch and website will be updated automatically.
 
-| branch | A branch where HTML is built and updated | Website updated |
-| ---- | ---- | ---- |
-|`master`|`production`|The production site https://stopcovid19.metro.tokyo.lg.jp/|
-|`staging`|`gh-pages`|The staging site https://stg-covid19-tokyo.netlify.app/|
-|`development`|`dev-pages`|The development site https://dev-covid19-tokyo.netlify.app/|
+| branch        | A branch where HTML is built and updated | Website updated                                             |
+| ------------- | ---------------------------------------- | ----------------------------------------------------------- |
+| `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/  |
+| `staging`     | `gh-pages`                               | The staging site https://stg-covid19-tokyo.netlify.app/     |
+| `development` | `dev-pages`                              | The development site https://dev-covid19-tokyo.netlify.app/ |
 
 [/PLEASE TRANSLATE ME]
 
@@ -180,10 +180,10 @@ Por favor, use as seguintes regras para nomeação de branch quando estiver envi
 
 [PLEASE TRANSLATE ME]
 
-| Types of changes | Naming rules for the branch |
-| ---- | ---- |
-|Feature implementation|`feature/#{ISSUE_ID}-#{branch_title_name}`|
-|Hotfix commit|`hotfix/#{ISSUE_ID}-#{branch_title_name}`|
+| Types of changes       | Naming rules for the branch                |
+| ---------------------- | ------------------------------------------ |
+| Feature implementation | `feature/#{ISSUE_ID}-#{branch_title_name}` |
+| Hotfix commit          | `hotfix/#{ISSUE_ID}-#{branch_title_name}`  |
 
 [/PLEASE TRANSLATE ME]
 
@@ -191,19 +191,19 @@ Por favor, use as seguintes regras para nomeação de branch quando estiver envi
 
 [PLEASE TRANSLATE ME]
 
-| Propósito | Branch | URL de Confirmação | People who can make pull requests | | Detalhes |
-| ---- | ---- | ---- | ---- | ---- |
-| Desenvolvimento | development | https://dev-covid19-tokyo.netlify.app/ | All developers | base branch. Basically send a Pull Request here |
-| Hotfix branch | dev-hotfix | Nenhum | Consertos para aplicar diretamente em produção. Utilize se requisitado pelo administrator |
-| Staging | staging | https://stg-covid19-tokyo.netlify.app/ | Only administrators | Para confirmação final antes de ir para produção. Pull Requests de não-administratores são proibidos |
-| Produção | master | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators | Pull Requests de não administrator são proibidos |
+| Propósito       | Branch      | URL de Confirmação                     | People who can make pull requests                                                         |                                                                                                      | Detalhes |
+| --------------- | ----------- | -------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | -------- |
+| Desenvolvimento | development | https://dev-covid19-tokyo.netlify.app/ | All developers                                                                            | base branch. Basically send a Pull Request here                                                      |
+| Hotfix branch   | dev-hotfix  | Nenhum                                 | Consertos para aplicar diretamente em produção. Utilize se requisitado pelo administrator |
+| Staging         | staging     | https://stg-covid19-tokyo.netlify.app/ | Only administrators                                                                       | Para confirmação final antes de ir para produção. Pull Requests de não-administratores são proibidos |
+| Produção        | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators                                                                       | Pull Requests de não administrator são proibidos                                                     |
 
 [/PLEASE TRANSLATE ME]
 
 ### 5-2. Branches usadas pelo sistema
 
-| Propósito | Branch | URL de Confirmação | Detalhes |
-| ---- | -------- | ---- | ---- |
-| HTML do site de Produção | production | https://stopcovid19.metro.tokyo.lg.jp/ | Onde se encontram os HTML estáticos |
-| HTML do site de Staging | gh-pages | https://stg-covid19-tokyo.netlify.app/ | Onde se encontram os HTML estáticos |
-| Para o diretório de trabalho do OGP | deploy / new_ogp | Nenhum | Para atualizar OGP |
+| Propósito                           | Branch           | URL de Confirmação                     | Detalhes                            |
+| ----------------------------------- | ---------------- | -------------------------------------- | ----------------------------------- |
+| HTML do site de Produção            | production       | https://stopcovid19.metro.tokyo.lg.jp/ | Onde se encontram os HTML estáticos |
+| HTML do site de Staging             | gh-pages         | https://stg-covid19-tokyo.netlify.app/ | Onde se encontram os HTML estáticos |
+| Para o diretório de trabalho do OGP | deploy / new_ogp | Nenhum                                 | Para atualizar OGP                  |

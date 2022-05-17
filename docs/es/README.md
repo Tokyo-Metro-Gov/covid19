@@ -8,7 +8,6 @@
 
 ### [日本語](./../../README.md) | [English](./../en/README.md) | Español | [한국어](./../ko/README.md) | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md) | [Português](./../pt_BR/README.md)
 
-
 ## Cómo Contribuir
 
 ¡Todas las contribuciones son bienvenidas!
@@ -20,10 +19,10 @@ Por favor, consulte [Cómo contribuir](./CONTRIBUTING.md) para obtener más deta
 Por favor, consulte el [Código de conducta para desarrolladores](./CODE_OF_CONDUCT.md) para más detalles.
 
 ## Licencia
+
 Este software se publica bajo la [licencia MIT](./../../LICENSE.txt).
 
 Por favor consulte [Cómo traducir](./../../TRANSLATION.md) doc.
-
 
 ## Para Desarrolladores
 

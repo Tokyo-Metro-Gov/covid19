@@ -8,18 +8,18 @@
 
 ### [日本語](./../../README.md) | [English](./../en/README.md) | [Español](./../es/README.md) | 한국어 | [繁體中文](./../zh_TW/README.md) | [简体中文](./../zh_CN/README.md) | [Tiếng Việt](./../vi/README.md) | [ภาษาไทย](./../th/README.md) | [Français](./../fr/README.md) | [Português](./../pt_BR/README.md)
 
-
 ## 기여방법
+
 오픈상태의 Issue에 여러 가지 내용 추가 및 수정등으로 기여해주시면, 매우 감사하겠습니다.
 
 자세한 내용은 다음의 [기여방법](./CONTRIBUTING.md) 링크를 참고해주세요.
 
-
 ## 행동강령
+
 자세한 내용은 [사이트 구축 행동강령](./CODE_OF_CONDUCT.md)를 참고해주세요.
 
-
 ## 라이선스
+
 이 소프트웨어는 [MIT 라이선스](./../../LICENSE.txt)를 따르고 있습니다.
 
 ## 이 사이트에서 파생된 사이트
