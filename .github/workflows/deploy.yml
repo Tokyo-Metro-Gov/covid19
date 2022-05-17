@@ -50,6 +50,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: production
+          exclude_assets: ''
 
       - name: Create GitHub release
         uses: rymndhng/release-on-push-action@master
