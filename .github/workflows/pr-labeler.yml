@@ -10,4 +10,4 @@ jobs:
         if: github.actor == 'transifex-integration[bot]' && !endsWith(github.event.pull_request.title, '[manual sync]')
         uses: actions/labeler@v4
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'

@@ -31,7 +31,8 @@
     "*.{js,ts,css,vue}": [
       "eslint --fix"
     ],
-    "*.{css,scss,vue}": "stylelint"
+    "*.{css,scss,vue}": "stylelint",
+    "*": "prettier --ignore-unknown --write"
   },
   "resolutions": {
     "@nuxtjs/vuetify/**/sass": "1.32.12"
@@ -42,10 +43,10 @@
     "@nuxtjs/gtm": "2.4.0",
     "@nuxtjs/i18n": "7.2.2",
     "@nuxtjs/pwa": "3.3.5",
-    "axe-core": "4.4.1",
+    "axe-core": "4.4.2",
     "chart.js": "2.9.4",
     "cross-env": "7.0.3",
-    "dayjs": "1.11.1",
+    "dayjs": "1.11.2",
     "netlify-lambda": "2.0.15",
     "nuxt": "2.15.8",
     "vue": "2.6.14",
@@ -55,27 +56,27 @@
     "vue-spinner": "1.0.4"
   },
   "devDependencies": {
-    "@babel/core": "7.17.9",
+    "@babel/core": "7.17.12",
     "@babel/runtime-corejs3": "7.17.9",
     "@mdi/js": "6.6.96",
     "@nuxt/typescript-build": "2.1.0",
-    "@nuxtjs/eslint-config": "9.0.0",
-    "@nuxtjs/eslint-config-typescript": "9.0.0",
+    "@nuxtjs/eslint-config": "10.0.0",
+    "@nuxtjs/eslint-config-typescript": "10.0.0",
     "@nuxtjs/google-analytics": "2.4.0",
     "@nuxtjs/stylelint-module": "4.1.0",
     "@nuxtjs/vuetify": "1.12.3",
     "@types/chart.js": "2.9.37",
     "@types/lodash": "4.14.182",
-    "@types/node": "16.11.31",
-    "core-js": "3.22.2",
-    "danger": "11.0.5",
-    "eslint": "8.14.0",
+    "@types/node": "16.11.35",
+    "core-js": "3.22.5",
+    "danger": "11.0.6",
+    "eslint": "8.15.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
     "eslint-plugin-tsdoc": "0.2.16",
     "eslint-plugin-vuejs-accessibility": "1.1.1",
-    "husky": "7.0.4",
+    "husky": "8.0.1",
     "lint-staged": "12.4.1",
     "lodash": "4.17.21",
     "nuxt-property-decorator": "2.9.1",
@@ -88,9 +89,9 @@
     "stylelint-config-prettier": "9.0.3",
     "stylelint-config-standard": "22.0.0",
     "stylelint-scss": "4.2.0",
-    "ts-loader": "8.3.0",
+    "ts-loader": "8.4.0",
     "ts-node": "10.7.0",
-    "typescript": "4.6.3",
+    "typescript": "4.6.4",
     "vue-axe": "2.4.4",
     "vue-template-compiler": "2.6.14"
   }
