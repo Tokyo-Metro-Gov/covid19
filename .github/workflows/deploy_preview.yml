@@ -1,8 +1,8 @@
 name: Preview Deploy (only development)
 
 on:
-  push:
-    pull_request:
+  pull_request:
+    branches:
       - development
 
 jobs:
