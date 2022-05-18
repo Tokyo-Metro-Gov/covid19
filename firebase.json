@@ -3,18 +3,33 @@
     "source": "functions",
     "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build"
   },
-  "hosting": {
-    "public": "dist",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "rewrites": [
-      {
-        "source": "/g-mark",
-        "function": "gMark"
-      },
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
+  "hosting": [
+    {
+      "target": "development",
+      "public": "dist",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        { "source": "/g-mark", "function": "gMark" },
+        { "source": "**", "destination": "/index.html" }
+      ]
+    },
+    {
+      "target": "staging",
+      "public": "dist",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        { "source": "/g-mark", "function": "gMark" },
+        { "source": "**", "destination": "/index.html" }
+      ]
+    },
+    {
+      "target": "production",
+      "public": "dist",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        { "source": "/g-mark", "function": "gMark" },
+        { "source": "**", "destination": "/index.html" }
+      ]
+    }
+  ]
 }
