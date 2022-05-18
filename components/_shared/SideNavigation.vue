@@ -163,7 +163,7 @@
             :show-icon="false"
           >
             <img
-              src="/.netlify/functions/g-mark"
+              src="/g-mark"
               width="200"
               alt="GOOD DESIGN AWARD 2020年度受賞"
             />
