@@ -1,4 +1,4 @@
-name: staging deploy
+name: Deploy (staging)
 
 on:
   push:
@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: staging
+          lfs: true
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -33,8 +36,18 @@ jobs:
       - run: yarn run generate:dev
       - run: "echo \"User-agent: *\nDisallow: /\" > ./dist/robots.txt"
 
-      - name: deploy
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          publish_branch: gh-pages
+
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_STOPCOVID19_TOKYO }}'
+          channelId: live
+          projectId: stopcovid19-tokyo
+          target: staging
