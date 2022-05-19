@@ -1,4 +1,4 @@
-name: production deploy
+name: Deploy (production)
 
 on:
   push:
@@ -8,8 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -48,7 +46,7 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.WORKFLOW_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: production
 
@@ -59,6 +57,7 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_STOPCOVID19_TOKYO }}'
           channelId: live
           projectId: stopcovid19-tokyo
+          target: production
 
       - name: Create GitHub release
         uses: rymndhng/release-on-push-action@master
