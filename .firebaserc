@@ -1,0 +1,20 @@
+{
+  "projects": {
+    "default": "stopcovid19-tokyo"
+  },
+  "targets": {
+    "stopcovid19-tokyo": {
+      "hosting": {
+        "production": [
+          "stopcovid19-tokyo"
+        ],
+        "staging": [
+          "stopcovid19-tokyo-staging"
+        ],
+        "development": [
+          "stopcovid19-tokyo-development"
+        ]
+      }
+    }
+  }
+}
