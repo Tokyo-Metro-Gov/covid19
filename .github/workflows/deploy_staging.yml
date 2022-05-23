@@ -36,13 +36,6 @@ jobs:
       - run: yarn run generate:dev
       - run: "echo \"User-agent: *\nDisallow: /\" > ./dist/robots.txt"
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
-
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
