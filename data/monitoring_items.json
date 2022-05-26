@@ -1,29 +1,29 @@
 {
-    "date": "2022\/5\/25 19:00",
+    "date": "2022\/5\/26 20:15",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者のうち、30代以下の割合が、高い値で推移している。これまでは、まず若年層に感染が広がり、その後、中高年層に波及しており、全世代における基本的な感染防止対策を徹底・継続する必要がある。",
-                "@en": "The percentage of new positive cases in their 30s and younger remains high. Thus far, infections have first spread among younger age groups, then reaching middle-aged and older adults. Therefore, it is necessary for all age groups to continue firmly practicing basic infection prevention measures."
+                "@ja": "新規陽性者数は緩やかな減少傾向にある。換気を励行し、3密の回避、マスクを場面に応じて適切に着用すること、手洗い等、引き続き基本的な感染防止対策を徹底し、さらに新規陽性者数を減らす必要がある。",
+                "@en": "新規陽性者数は緩やかな減少傾向にある。換気を励行し、3密の回避、マスクを場面に応じて適切に着用すること、手洗い等、引き続き基本的な感染防止対策を徹底し、さらに新規陽性者数を減らす必要がある。"
             },
             {
-                "@ja": "重症患者数及びオミクロン株の特性を踏まえた重症者用病床使用率は低下している。感染状況と入院を必要とする患者数にあわせて、新型コロナウイルス感染症医療と通常医療との両立を図っていく必要がある。",
-                "@en": "The number of severe cases, as well as the hospital bed occupancy rate for severe cases defined according to the characteristics of the Omicron variant, are declining. There is the need to consider both the infection situation and the number of patients who require hospitalization to achieve a balance between COVID and non-COVID health care."
+                "@ja": "入院患者数は横ばい、重症患者数は低い値で推移している。病床使用率や救急医療体制の状況などに応じて、通常医療とのバランスをとりながら、柔軟な病床運用を行う必要がある。",
+                "@en": "入院患者数は横ばい、重症患者数は低い値で推移している。病床使用率や救急医療体制の状況などに応じて、通常医療とのバランスをとりながら、柔軟な病床運用を行う必要がある。"
             }
         ],
-        "(1)新規陽性者数": 3393,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 59.7,
-        "(3)新規陽性者における接触歴等不明者（人数）": 2103.9,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 88,
-        "(4)PCR・抗原検査（陽性率）": 17,
-        "(4)PCR・抗原検査（検査人数）": 11602.9,
-        "(5)救急医療の東京ルールの適用件数": 82.3,
-        "(6)入院患者数": 1176,
+        "(1)新規陽性者数": 3281.4,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 60.9,
+        "(3)新規陽性者における接触歴等不明者（人数）": 2044.7,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 86.7,
+        "(4)PCR・抗原検査（陽性率）": 16.5,
+        "(4)PCR・抗原検査（検査人数）": 11656.4,
+        "(5)救急医療の東京ルールの適用件数": 78.1,
+        "(6)入院患者数": 1142,
         "(6)入院患者確保病床数": 6384,
-        "(7)重症患者数": 4,
+        "(7)重症患者数": 3,
         "(7)重症患者確保病床数": 416,
         "総括コメント-感染状況": {
-            "date": "2022-05-18",
+            "date": "2022-05-25",
             "level": 3,
             "display": {
                 "@ja": "感染状況は拡大傾向にないが、警戒が必要である",
@@ -31,7 +31,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-05-18",
+            "date": "2022-05-25",
             "level": 2,
             "display": {
                 "@ja": "通常の医療との両立が可能な状況である",
