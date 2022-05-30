@@ -108,7 +108,7 @@ const config: NuxtConfig = {
           async: true,
           typescript: {
             enable: true,
-            memoryLimit: 8192,
+            memoryLimit: 16384,
           },
         },
       },
