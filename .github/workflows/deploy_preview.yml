@@ -2,12 +2,12 @@ name: Preview Deploy (only development)
 
 on:
   pull_request_target:
-    type: [labeled]
+    types: [opened, synchronize, labeled]
     branches:
       - development
 
 jobs:
-  deploy:
+  preview-deploy:
     runs-on: ubuntu-18.04
     if: contains(github.event.pull_request.labels.*.name, 'preview-deploy')
     steps:
