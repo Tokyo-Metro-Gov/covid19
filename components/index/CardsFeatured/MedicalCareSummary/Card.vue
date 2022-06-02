@@ -8,7 +8,6 @@
         title-id="medical-care-summary"
         :date="date"
       >
-        <frame :class="$style.frame" :level="statuses['レベル']" />
         <medical-system :aria-label="$t('病床使用率等')" :items="statuses" />
         <div :class="$style.link">
           <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
@@ -29,7 +28,6 @@ import Vue from 'vue'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
-import Frame from '@/components/index/CardsFeatured/MedicalCareSummary/Frame.vue'
 import MedicalSystem from '@/components/index/CardsFeatured/MedicalCareSummary/Table/MedicalSystem.vue'
 import {
   Data as IInfectionMedicalCareSummaryData,
@@ -56,7 +54,6 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     AppLink,
     DataView,
     MedicalSystem,
-    Frame,
   },
   data() {
     return {
@@ -91,10 +88,6 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 </script>
 
 <style lang="scss" module>
-.frame {
-  margin: 10px 0 20px;
-}
-
 .link {
   display: flex;
   margin: 16px 0;

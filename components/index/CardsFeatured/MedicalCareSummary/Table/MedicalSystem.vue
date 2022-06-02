@@ -35,7 +35,9 @@
       </li>
       <li :class="[$style.box, $style.parent]">
         <div :class="$style.content">
-          <span>{{ $t('重症者病床使用率（都基準）') }}</span>
+          <span>{{
+            $t('オミクロン株の特性を踏まえた重症者用病床使用率')
+          }}</span>
           <value-with-translatable-unit
             :value="items['都基準重症病床使用率'].toLocaleString()"
             :unit="{ text: '%', translatable: false }"
@@ -45,7 +47,7 @@
         <ul :class="$style.group">
           <li :class="[$style.box]">
             <div :class="$style.content">
-              <span>{{ $t('重症者数') }}</span>
+              <span>{{ $t('オミクロン株の特性を踏まえた重症者数') }}</span>
               <value-with-translatable-unit
                 :value="items['都基準重症者数'].toLocaleString()"
                 :unit="{ text: '人', translatable: true }"
@@ -55,7 +57,9 @@
           </li>
           <li :class="[$style.box]">
             <div :class="$style.content">
-              <span>{{ $t('重症病床数') }}</span>
+              <span>{{
+                $t('オミクロン株の特性を踏まえた重症者用病床数')
+              }}</span>
               <value-with-translatable-unit
                 :value="items['都基準重症病床数'].toLocaleString()"
                 :unit="{ text: '床', translatable: true, except: ['en'] }"
@@ -66,25 +70,35 @@
         </ul>
       </li>
     </ul>
-    <p :class="$style.reference">
-      {{
-        $t(
-          '（参考）国基準 重症者病床使用率 {percentage}%（{persons}人/{bed}床）',
-          {
+    <div :class="$style.reference">
+      <span>{{ $t('（参考）') }}</span>
+      <p>
+        {{
+          $t('国基準 重症者用病床使用率 {percentage}%（{persons}人/{bed}床）', {
             percentage: items['国基準重症病床使用率'].toLocaleString(),
             persons: items['国基準重症者数'].toLocaleString(),
             bed: items['国基準重症病床数'].toLocaleString(),
-          }
-        )
-      }}
-    </p>
+          })
+        }}<br />
+        <app-link :to="localePath('/cards/positive-status-severe-case/')">
+          {{ $t('従来の都基準による重症者数はこちら') }}
+        </app-link>
+      </p>
+    </div>
     <div :class="$style.description">
       <span>{{ $t('（注）') }}</span>
       <ul>
         <li>
           {{
             $t(
-              '病床使用率等の分母の病床数は現時点の最大確保見込数、分子の人数は確保病床を使用している人数'
+              '病床使用率等の分母の病床数は現時点の確保見込数（「国基準 重症者用病床使用率」の分母の病床数は最大確保見込数）、分子の人数は確保病床を使用している人数'
+            )
+          }}
+        </li>
+        <li>
+          {{
+            $t(
+              'オミクロン株の特性を踏まえた重症者数は、特定集中治療室管理料又は救命救急入院料を算定する病床の患者数及び人工呼吸器又はＥＣＭＯの装着又はハイフローセラピーを実施する患者数'
             )
           }}
         </li>
@@ -97,11 +111,13 @@
 import type { PropType } from 'vue'
 import Vue from 'vue'
 
+import AppLink from '@/components/_shared/AppLink.vue'
 import ValueWithTranslatableUnit from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/ValueWithTranslatableUnit.vue'
 import { Data as IInfectionMedicalCareSummaryData } from '@/libraries/auto_generated/data_converter/convertInfectionMedicalcareSummary'
 
 export default Vue.extend({
   components: {
+    AppLink,
     ValueWithTranslatableUnit,
   },
   props: {
