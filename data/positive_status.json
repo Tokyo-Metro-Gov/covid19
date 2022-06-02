@@ -1,5 +1,5 @@
 {
-    "date": "2022\/5\/29 18:15",
+    "date": "2022\/6\/1 19:45",
     "data": [
         {
             "date": "2020-02-28",
@@ -4109,6 +4109,21 @@
         {
             "date": "2022-05-29",
             "hospitalized": 1104,
+            "severe_case": 3
+        },
+        {
+            "date": "2022-05-30",
+            "hospitalized": 1078,
+            "severe_case": 4
+        },
+        {
+            "date": "2022-05-31",
+            "hospitalized": 1010,
+            "severe_case": 3
+        },
+        {
+            "date": "2022-06-01",
+            "hospitalized": 949,
             "severe_case": 3
         }
     ]
