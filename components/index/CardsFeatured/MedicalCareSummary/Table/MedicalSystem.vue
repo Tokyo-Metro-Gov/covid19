@@ -70,21 +70,21 @@
         </ul>
       </li>
     </ul>
-    <p :class="$style.reference">
-      {{
-        $t(
-          '（参考）国基準 重症者用病床使用率 {percentage}%（{persons}人/{bed}床）',
-          {
+    <div :class="$style.reference">
+      <span>{{ $t('（参考）') }}</span>
+      <p>
+        {{
+          $t('国基準 重症者用病床使用率 {percentage}%（{persons}人/{bed}床）', {
             percentage: items['国基準重症病床使用率'].toLocaleString(),
             persons: items['国基準重症者数'].toLocaleString(),
             bed: items['国基準重症病床数'].toLocaleString(),
-          }
-        )
-      }}<br />
-      <app-link :to="localePath('/cards/positive-status-severe-case/')">
-        {{ $t('従来の都基準による重症者数はこちら') }}
-      </app-link>
-    </p>
+          })
+        }}<br />
+        <app-link :to="localePath('/cards/positive-status-severe-case/')">
+          {{ $t('従来の都基準による重症者数はこちら') }}
+        </app-link>
+      </p>
+    </div>
     <div :class="$style.description">
       <span>{{ $t('（注）') }}</span>
       <ul>
