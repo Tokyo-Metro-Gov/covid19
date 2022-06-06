@@ -35,7 +35,7 @@
     "*": "prettier --ignore-unknown --write"
   },
   "resolutions": {
-    "@nuxtjs/vuetify/**/sass": "1.32.12"
+    "@nuxtjs/vuetify/**/sass": "1.52.2"
   },
   "dependencies": {
     "@nuxt/types": "2.15.8",
