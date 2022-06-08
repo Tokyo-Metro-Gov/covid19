@@ -1,5 +1,5 @@
 {
-    "date": "2022\/6\/7 18:30",
+    "date": "2022\/6\/8 19:15",
     "data": [
         {
             "date": "2020-10-30",
@@ -5264,6 +5264,15 @@
                 "cocoa_dial": 32,
                 "total": 1061,
                 "weekly_average_total": 1126
+            }
+        },
+        {
+            "date": "2022-06-07",
+            "count": {
+                "fever_consultation_center": 943,
+                "cocoa_dial": 27,
+                "total": 970,
+                "weekly_average_total": 1084
             }
         }
     ]
