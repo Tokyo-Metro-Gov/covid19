@@ -1,5 +1,5 @@
 {
-    "date": "2022\/6\/8 19:15",
+    "date": "2022\/6\/9 18:15",
     "data": {
         "専門家3行コメント": [
             {
@@ -11,19 +11,19 @@
                 "@en": "This week, new hospitalizations, as well as the number of hospitalized patients, declined. In line with the decrease in hospitalized patients, the Tokyo Metropolitan Government has requested that medical institutions lower the share of beds secured for COVID-19 patients to Level 1. There is the continued need for flexible provision of beds to maintain a balance with non-COVID health care."
             }
         ],
-        "(1)新規陽性者数": 1835.6,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 64,
-        "(3)新規陽性者における接触歴等不明者（人数）": 1139.6,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 76.6,
-        "(4)PCR・抗原検査（陽性率）": 10.9,
-        "(4)PCR・抗原検査（検査人数）": 9908.4,
-        "(5)救急医療の東京ルールの適用件数": 72.1,
-        "(6)入院患者数": 819,
-        "(6)入院患者確保病床数": 5029,
-        "(7)重症患者数": 3,
-        "(7)重症患者確保病床数": 277,
+        "(1)新規陽性者数": 1770,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 63.9,
+        "(3)新規陽性者における接触歴等不明者（人数）": 1099.9,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 79.3,
+        "(4)PCR・抗原検査（陽性率）": 10.6,
+        "(4)PCR・抗原検査（検査人数）": 9715.6,
+        "(5)救急医療の東京ルールの適用件数": 71,
+        "(6)入院患者数": 784,
+        "(6)入院患者確保病床数": 4866,
+        "(7)重症患者数": 2,
+        "(7)重症患者確保病床数": 271,
         "総括コメント-感染状況": {
-            "date": "2022-06-01",
+            "date": "2022-06-08",
             "level": 3,
             "display": {
                 "@ja": "感染状況は拡大傾向にないが、警戒が必要である",
@@ -31,7 +31,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-06-01",
+            "date": "2022-06-08",
             "level": 2,
             "display": {
                 "@ja": "通常の医療との両立が可能な状況である",
