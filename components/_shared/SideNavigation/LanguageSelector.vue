@@ -4,6 +4,7 @@
       <earth-icon class="EarthIcon" aria-hidden="true" />
       <select-menu-icon class="SelectMenuIcon" aria-hidden="true" />
     </div>
+    <!-- eslint-disable vuejs-accessibility/form-control-has-label-->
     <select
       id="LanguageSelector"
       v-model="currentLocaleCode"
@@ -19,6 +20,7 @@
         {{ locale.name }}
       </option>
     </select>
+    <!-- eslint-enable vuejs-accessibility/form-control-has-label-->
   </div>
 </template>
 
