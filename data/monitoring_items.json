@@ -1,37 +1,37 @@
 {
-    "date": "2022\/6\/29 18:45",
+    "date": "2022\/6\/30 19:15",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の7日間平均は、継続して減少していたが、今回は増加した。変異株を含め、今後の動向に注意する必要がある。基本的な感染防止対策を徹底することにより、新規陽性者数の増加を抑制する必要がある。",
-                "@en": "Although the seven-day moving average of new positive cases had been continuously declining, this time, it has increased. It is essential to closely monitor future trends, including variants. There is the need to curb the increase in new positive cases by firmly taking basic steps to prevent the spread of infection."
+                "@ja": "新規陽性者数の増加比は、2週間連続して100％を上回って上昇しており、感染が再拡大している。幅広い世代に対して、3回目ワクチン接種を促進するとともに、高齢者や重症化リスクが高い方への4回目ワクチン接種を加速する必要がある。",
+                "@en": "新規陽性者数の増加比は、2週間連続して100％を上回って上昇しており、感染が再拡大している。幅広い世代に対して、3回目ワクチン接種を促進するとともに、高齢者や重症化リスクが高い方への4回目ワクチン接種を加速する必要がある。"
             },
             {
-                "@ja": "入院患者数は、継続して減少してきたが、今回は横ばいとなった。引き続き感染状況やウイルスの特性に応じた医療提供体制を確保するための検討を進める必要がある。",
-                "@en": "The number of hospitalized patients had been continuously decreasing. This time, however, it has leveled off. It is necessary to continue studies on securing health care delivery systems according to the infection situation and the characteristics of the virus."
+                "@ja": "新たに入院した患者数は、2週間連続して増加している。熱中症による搬送件数の増加もあり、東京ルールの適用件数が増加している。今後の動向を警戒する必要がある。",
+                "@en": "新たに入院した患者数は、2週間連続して増加している。熱中症による搬送件数の増加もあり、東京ルールの適用件数が増加している。今後の動向を警戒する必要がある。"
             }
         ],
-        "(1)新規陽性者数": 2370.3,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 73,
-        "(3)新規陽性者における接触歴等不明者（人数）": 1512.3,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 142.7,
-        "(4)PCR・抗原検査（陽性率）": 14.4,
-        "(4)PCR・抗原検査（検査人数）": 10353.9,
-        "(5)救急医療の東京ルールの適用件数": 85.6,
-        "(6)入院患者数": 857,
-        "(6)入院患者確保病床数": 4813,
-        "(7)重症患者数": 5,
-        "(7)重症患者確保病床数": 267,
+        "(1)新規陽性者数": 2542.9,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 77,
+        "(3)新規陽性者における接触歴等不明者（人数）": 1643,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 147,
+        "(4)PCR・抗原検査（陽性率）": 15.1,
+        "(4)PCR・抗原検査（検査人数）": 10624.1,
+        "(5)救急医療の東京ルールの適用件数": 91.6,
+        "(6)入院患者数": 907,
+        "(6)入院患者確保病床数": 4785,
+        "(7)重症患者数": 3,
+        "(7)重症患者確保病床数": 264,
         "総括コメント-感染状況": {
-            "date": "2022-06-22",
-            "level": 2,
+            "date": "2022-06-29",
+            "level": 3,
             "display": {
-                "@ja": "感染状況は改善傾向にあるが、注意が必要である",
-                "@en": "Although the infection situation is improving, caution against the virus is needed."
+                "@ja": "感染が拡大している",
+                "@en": "The infection is spreading."
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-06-22",
+            "date": "2022-06-29",
             "level": 2,
             "display": {
                 "@ja": "通常の医療との両立が可能な状況である",
