@@ -1,5 +1,5 @@
 {
-    "date": "2022\/7\/5 19:15",
+    "date": "2022\/7\/6 19:00",
     "data": [
         {
             "diagnosed_date": "2020-01-23",
@@ -3083,7 +3083,7 @@
         },
         {
             "diagnosed_date": "2022-03-03",
-            "count": 9761
+            "count": 9762
         },
         {
             "diagnosed_date": "2022-03-04",
@@ -3207,7 +3207,7 @@
         },
         {
             "diagnosed_date": "2022-04-03",
-            "count": 3469
+            "count": 3470
         },
         {
             "diagnosed_date": "2022-04-04",
@@ -3427,7 +3427,7 @@
         },
         {
             "diagnosed_date": "2022-05-28",
-            "count": 1903
+            "count": 1904
         },
         {
             "diagnosed_date": "2022-05-29",
@@ -3471,7 +3471,7 @@
         },
         {
             "diagnosed_date": "2022-06-08",
-            "count": 1703
+            "count": 1704
         },
         {
             "diagnosed_date": "2022-06-09",
@@ -3551,35 +3551,39 @@
         },
         {
             "diagnosed_date": "2022-06-28",
-            "count": 3911
+            "count": 3913
         },
         {
             "diagnosed_date": "2022-06-29",
-            "count": 3775
+            "count": 3836
         },
         {
             "diagnosed_date": "2022-06-30",
-            "count": 3577
+            "count": 3617
         },
         {
             "diagnosed_date": "2022-07-01",
-            "count": 3981
+            "count": 4049
         },
         {
             "diagnosed_date": "2022-07-02",
-            "count": 3577
+            "count": 3728
         },
         {
             "diagnosed_date": "2022-07-03",
-            "count": 2233
+            "count": 2348
         },
         {
             "diagnosed_date": "2022-07-04",
-            "count": 3774
+            "count": 6374
         },
         {
             "diagnosed_date": "2022-07-05",
-            "count": 7
+            "count": 5286
+        },
+        {
+            "diagnosed_date": "2022-07-06",
+            "count": 21
         }
     ]
 }
