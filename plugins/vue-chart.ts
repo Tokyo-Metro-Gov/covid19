@@ -54,6 +54,7 @@ const createCustomChart = () => {
     | Chart.LogarithmicScale
     | Chart.TimeScale
     | undefined = _chart?.options?.scales
+  // @ts-ignore
 
   const generalChart = Vue.component<
     ChartVCData,
@@ -123,12 +124,14 @@ const createCustomChart = () => {
               v.ticks.max = this.max
             })
             _chart?.update()
+            // @ts-ignore
           }
         },
       },
       mounted() {
         _this.$nextTick().then(() => {
           this.renderChart(this.chartData, this.options)
+          // @ts-ignore
         })
       },
     }
@@ -136,6 +139,7 @@ const createCustomChart = () => {
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'LineChart', // eslint-disable-next-line vue/one-component-per-file
+    // @ts-ignore
     {
       mixins: [reactiveProp, VueChartJs.Line, generalChart],
     }
@@ -143,6 +147,7 @@ const createCustomChart = () => {
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'Bar', // eslint-disable-next-line vue/one-component-per-file
+    // @ts-ignore
     {
       mixins: [reactiveProp, VueChartJs.Bar, generalChart],
     }
