@@ -13,7 +13,7 @@ type ChartVCMethod = {
 }
 type ChartVCComputed = unknown
 type ChartVCProps = {
-  options: Object
+  options: ChartOptions
   displayLegends: boolean[] | null
   min?: string
   max?: string
@@ -45,6 +45,15 @@ const createCustomChart = () => {
     })
     chart.update()
   }
+
+  const _this = new Vue()
+  const _chart: Chart = _this.$data._chart
+  const _scales:
+    | Chart.ChartScales
+    | Chart.LinearScale
+    | Chart.LogarithmicScale
+    | Chart.TimeScale
+    | undefined = _chart?.options?.scales
 
   const generalChart = Vue.component<
     ChartVCData,
@@ -84,41 +93,41 @@ const createCustomChart = () => {
       watch: {
         displayLegends: watchDisplayLegends,
         width() {
-          setTimeout(() => this.$data._chart.resize())
-          this.$parent.$emit('update-width')
+          setTimeout(() => _chart?.resize())
+          _this.$parent?.$emit('update-width')
         },
         min(value: string) {
-          this.$data._chart.options.scales.xAxes.forEach((v: any) => {
+          _scales?.xAxes?.forEach((v: any) => {
             v.ticks.min = value
           })
-          this.$data._chart.update()
+          _chart?.update()
         },
         max(value: string) {
-          this.$data._chart.options.scales.xAxes.forEach((v: any) => {
+          _scales?.xAxes?.forEach((v: any) => {
             v.ticks.max = value
           })
-          this.$data._chart.update()
+          _chart?.update()
         },
         yAxisMax(value: number) {
-          this.$data._chart.options.scales.yAxes.forEach((v: any) => {
+          _scales?.yAxes?.forEach((v: any) => {
             v.ticks.max = value
           })
-          this.$data._chart.update()
+          _chart?.update()
         },
         switch(newValue: string, oldValue: string) {
           if (newValue !== oldValue) {
-            this.$data._chart.options.scales.xAxes.forEach((v: any) => {
+            _scales?.xAxes?.forEach((v: any) => {
               v.ticks.min = this.min
             })
-            this.$data._chart.options.scales.xAxes.forEach((v: any) => {
+            _scales?.xAxes?.forEach((v: any) => {
               v.ticks.max = this.max
             })
-            this.$data._chart.update()
+            _chart?.update()
           }
         },
       },
       mounted() {
-        this.$nextTick().then(() => {
+        _this.$nextTick().then(() => {
           this.renderChart(this.chartData, this.options)
         })
       },
