@@ -93,7 +93,7 @@ const createCustomChart = () => {
         },
         min(value: string) {
           // @ts-ignore
-          this.$data._chart.options.scales.xAxes?.forEach((v: any) => {
+          this.$data._chart.options.scales.xAxes.forEach((v: any) => {
             v.ticks.min = value
           })
           // @ts-ignore
@@ -101,7 +101,7 @@ const createCustomChart = () => {
         },
         max(value: string) {
           // @ts-ignore
-          this.$data._chart.options.scales.xAxes?.forEach((v: any) => {
+          this.$data._chart.options.scales.xAxes.forEach((v: any) => {
             v.ticks.max = value
           })
           // @ts-ignore
@@ -109,7 +109,7 @@ const createCustomChart = () => {
         },
         yAxisMax(value: number) {
           // @ts-ignore
-          this.$data._chart.options.scales.yAxes?.forEach((v: any) => {
+          this.$data._chart.options.scales.yAxes.forEach((v: any) => {
             v.ticks.max = value
           })
           // @ts-ignore
@@ -118,11 +118,11 @@ const createCustomChart = () => {
         switch(newValue: string, oldValue: string) {
           if (newValue !== oldValue) {
             // @ts-ignore
-            this.$data._chart.options.scales.xAxes?.forEach((v: any) => {
+            this.$data._chart.options.scales.xAxes.forEach((v: any) => {
               v.ticks.min = this.min
             })
             // @ts-ignore
-            this.$data._chart.options.scales.xAxes?.forEach((v: any) => {
+            this.$data._chart.options.scales.xAxes.forEach((v: any) => {
               v.ticks.max = this.max
             })
             // @ts-ignore
