@@ -87,25 +87,25 @@ const createCustomChart = () => {
           setTimeout(() => this.$data._chart.resize())
           this.$parent.$emit('update-width')
         },
-        min(value) {
+        min(value: string) {
           this.$data._chart.options.scales.xAxes.forEach((v: any) => {
             v.ticks.min = value
           })
           this.$data._chart.update()
         },
-        max(value) {
+        max(value: string) {
           this.$data._chart.options.scales.xAxes.forEach((v: any) => {
             v.ticks.max = value
           })
           this.$data._chart.update()
         },
-        yAxisMax(value) {
+        yAxisMax(value: number) {
           this.$data._chart.options.scales.yAxes.forEach((v: any) => {
             v.ticks.max = value
           })
           this.$data._chart.update()
         },
-        switch(newValue, oldValue) {
+        switch(newValue: string, oldValue: string) {
           if (newValue !== oldValue) {
             this.$data._chart.options.scales.xAxes.forEach((v: any) => {
               v.ticks.min = this.min
