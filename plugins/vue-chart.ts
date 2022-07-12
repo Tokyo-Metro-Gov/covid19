@@ -29,6 +29,7 @@ const VueChartPlugin: Plugin = ({ app }) => {
 const rgba0 = 'rgba(255,255,255,0)'
 const rgba1 = 'rgba(255,255,255,1)'
 
+// prettier-ignore
 const createCustomChart = () => {
   const { reactiveProp } = VueChartJs.mixins
 
@@ -54,12 +55,12 @@ const createCustomChart = () => {
     | Chart.LogarithmicScale
     | Chart.TimeScale
     | undefined = _chart?.options?.scales
-  // @ts-ignore
 
   const generalChart = Vue.component<
     ChartVCData,
     ChartVCMethod,
     ChartVCComputed,
+    // @ts-ignore
     ChartVCProps
   >(
     'GeneralChart', // eslint-disable-next-line vue/one-component-per-file
@@ -130,29 +131,30 @@ const createCustomChart = () => {
       },
       mounted() {
         _this.$nextTick().then(() => {
-          this.renderChart(this.chartData, this.options)
           // @ts-ignore
+          this.renderChart(this.chartData, this.options)
         })
       },
     }
   )
 
+  // @ts-ignore
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'LineChart', // eslint-disable-next-line vue/one-component-per-file
-    // @ts-ignore
     {
       mixins: [reactiveProp, VueChartJs.Line, generalChart],
     }
   )
 
+  // @ts-ignore
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'Bar', // eslint-disable-next-line vue/one-component-per-file
-    // @ts-ignore
     {
       mixins: [reactiveProp, VueChartJs.Bar, generalChart],
     }
   )
 
+  // @ts-ignore
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'DoughnutChart', // eslint-disable-next-line vue/one-component-per-file
     {
