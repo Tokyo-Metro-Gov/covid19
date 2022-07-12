@@ -125,7 +125,6 @@ const createCustomChart = () => {
               v.ticks.max = this.max
             })
             _chart?.update()
-            // @ts-ignore
           }
         },
       },
