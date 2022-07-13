@@ -49,7 +49,7 @@
     "dayjs": "1.11.3",
     "netlify-lambda": "2.0.15",
     "nuxt": "2.15.8",
-    "vue": "2.7.4",
+    "vue": "2.7.5",
     "vue-chartjs": "3.5.1",
     "vue-meta": "2.4.0",
     "vue-scrollto": "2.20.0",
@@ -93,6 +93,6 @@
     "ts-node": "10.8.2",
     "typescript": "4.7.4",
     "vue-axe": "2.4.4",
-    "vue-template-compiler": "2.7.4"
+    "vue-template-compiler": "2.7.5"
   }
 }
