@@ -22,7 +22,7 @@ jobs:
         with:
           urls: |
             https://stopcovid19.metro.tokyo.lg.jp/
-            https://stg-covid19-tokyo.netlify.app/
+            https://stopcovid19-tokyo-staging.web.app/
           uploadArtifacts: true
 
       - name: Use Node.js
