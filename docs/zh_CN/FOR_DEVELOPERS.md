@@ -175,8 +175,8 @@ When the branch listed in the left column of the table below is updated, the bra
 | branch        | A branch where HTML is built and updated | Website updated                                             |
 | ------------- | ---------------------------------------- | ----------------------------------------------------------- |
 | `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/  |
-| `staging`     | `gh-pages`                               | The staging site https://stg-covid19-tokyo.netlify.app/     |
-| `development` | `dev-pages`                              | The development site https://dev-covid19-tokyo.netlify.app/ |
+| `staging`     | `gh-pages`                               | The staging site https://stopcovid19-tokyo-staging.web.app/     |
+| `development` | `dev-pages`                              | The development site https://stopcovid19-tokyo-development.web.app/ |
 
 [/PLEASE TRANSLATE ME]
 
@@ -202,9 +202,9 @@ When the branch listed in the left column of the table below is updated, the bra
 
 | 目的       | 分支        | 预览用 URL                             | People who can make pull requests          | 备注                                                              |
 | ---------- | ----------- | -------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------- |
-| 开发       | development | https://dev-covid19-tokyo.netlify.app/ | All developers                             | 基本上请推送 Pull Request 到这里                                  |
+| 开发       | development | https://stopcovid19-tokyo-development.web.app/ | All developers                             | 基本上请推送 Pull Request 到这里                                  |
 | 紧急修复   | dev-hotfix  | 无                                     | 对正式版的紧急修复。在管理员的要求下使用。 |
-| 正式版预览 | staging     | https://stg-covid19-tokyo.netlify.app/ | Only administrators                        | 对于正式版发布前的最终确认，禁止管理员以外的人推送 Pull Request。 |
+| 正式版预览 | staging     | https://stopcovid19-tokyo-staging.web.app/ | Only administrators                        | 对于正式版发布前的最终确认，禁止管理员以外的人推送 Pull Request。 |
 | 正式版     | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators                        | 禁止管理员以外的人推送 Pull Request                               |
 
 [/PLEASE TRANSLATE ME]
@@ -214,5 +214,5 @@ When the branch listed in the left column of the table below is updated, the bra
 | 目的            | 分支             | 预览用 URL                             | 备注                     |
 | --------------- | ---------------- | -------------------------------------- | ------------------------ |
 | 正式网站 HTML   | production       | https://stopcovid19.metro.tokyo.lg.jp/ | 生成静态网站 HTML 的位置 |
-| 正式版预览 HTML | gh-pages         | https://stg-covid19-tokyo.netlify.app/ | 生成静态网站 HTML 的位置 |
+| 正式版预览 HTML | gh-pages         | https://stopcovid19-tokyo-staging.web.app/ | 生成静态网站 HTML 的位置 |
 | OGP 工作用      | deploy / new_ogp | 无                                     | OGP 更新用               |

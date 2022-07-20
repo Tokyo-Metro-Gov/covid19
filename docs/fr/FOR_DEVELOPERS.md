@@ -166,8 +166,8 @@ When the branch listed in the left column of the table below is updated, the bra
 | branch        | A branch where HTML is built and updated | Website updated                                             |
 | ------------- | ---------------------------------------- | ----------------------------------------------------------- |
 | `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/  |
-| `staging`     | `gh-pages`                               | The staging site https://stg-covid19-tokyo.netlify.app/     |
-| `development` | `dev-pages`                              | The development site https://dev-covid19-tokyo.netlify.app/ |
+| `staging`     | `gh-pages`                               | The staging site https://stopcovid19-tokyo-staging.web.app/     |
+| `development` | `dev-pages`                              | The development site https://stopcovid19-tokyo-development.web.app/ |
 
 [/PLEASE TRANSLATE ME]
 
@@ -191,8 +191,8 @@ Veuillez utiliser le schema suivant pour nommer vos Pull Request.
 
 | But         | Branche     | URL                                    | People who can make pull requests | Notes                                                                                     |
 | ----------- | ----------- | -------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------- |
-| Development | development | https://dev-covid19-tokyo.netlify.app/ | All developers                    | Branche de base. Faites votre Pull Request ici.                                           |
-| Staging     | staging     | https://stg-covid19-tokyo.netlify.app/ | Only administrators               | Pour confirmation avant production. Pull request d'utilisateurs non-admin sont defendues. |
+| Development | development | https://stopcovid19-tokyo-development.web.app/ | All developers                    | Branche de base. Faites votre Pull Request ici.                                           |
+| Staging     | staging     | https://stopcovid19-tokyo-staging.web.app/ | Only administrators               | Pour confirmation avant production. Pull request d'utilisateurs non-admin sont defendues. |
 | Production  | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators               | Pull request d'utilisateurs non-admin sont defendues.                                     |
 
 [/PLEASE TRANSLATE ME]
@@ -202,5 +202,5 @@ Veuillez utiliser le schema suivant pour nommer vos Pull Request.
 | But                    | Branche          | URL                                    | Notes                                            |
 | ---------------------- | ---------------- | -------------------------------------- | ------------------------------------------------ |
 | Production site HTML   | production       | https://stopcovid19.metro.tokyo.lg.jp/ | Place ou les pages HTML statiques sont stockees. |
-| Staging site HTML      | gh-pages         | https://stg-covid19-tokyo.netlify.app/ | Ou trouver l'HTML statiquement construit.        |
+| Staging site HTML      | gh-pages         | https://stopcovid19-tokyo-staging.web.app/ | Ou trouver l'HTML statiquement construit.        |
 | Dossier de travail OGP | deploy / new_ogp | None                                   | Pour mettre a jour OGP                           |

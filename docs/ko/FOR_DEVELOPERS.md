@@ -175,8 +175,8 @@ When the branch listed in the left column of the table below is updated, the bra
 | branch        | A branch where HTML is built and updated | Website updated                                             |
 | ------------- | ---------------------------------------- | ----------------------------------------------------------- |
 | `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/  |
-| `staging`     | `gh-pages`                               | The staging site https://stg-covid19-tokyo.netlify.app/     |
-| `development` | `dev-pages`                              | The development site https://dev-covid19-tokyo.netlify.app/ |
+| `staging`     | `gh-pages`                               | The staging site https://stopcovid19-tokyo-staging.web.app/     |
+| `development` | `dev-pages`                              | The development site https://stopcovid19-tokyo-development.web.app/ |
 
 [/PLEASE TRANSLATE ME]
 
@@ -202,8 +202,8 @@ When the branch listed in the left column of the table below is updated, the bra
 
 | 목적                 | 브랜치      | 확인 URL                               | People who can make pull requests | 비고                                                                                                           |
 | -------------------- | ----------- | -------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| 개발                 | development | https://dev-covid19-tokyo.netlify.app/ | All developers                    | 기본 브랜치(branch). 기본은 여기로 풀 리퀘스트를 전달하세요.                                                   |
-| 스테이징(Staging)    | staging     | https://stg-covid19-tokyo.netlify.app/ | Only administrators               | 프로덕션(production) 적용 전에 최종 확인용 브랜치입니다. 관리자가 아닌 풀 리퀘스트(Pull Request)는 금지입니다. |
+| 개발                 | development | https://stopcovid19-tokyo-development.web.app/ | All developers                    | 기본 브랜치(branch). 기본은 여기로 풀 리퀘스트를 전달하세요.                                                   |
+| 스테이징(Staging)    | staging     | https://stopcovid19-tokyo-staging.web.app/ | Only administrators               | 프로덕션(production) 적용 전에 최종 확인용 브랜치입니다. 관리자가 아닌 풀 리퀘스트(Pull Request)는 금지입니다. |
 | 프로덕션(Production) | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators               | 관리자 이외의 풀 리퀘스트(Pull Request)는 금지입니다.                                                          |
 
 [/PLEASE TRANSLATE ME]
@@ -213,5 +213,5 @@ When the branch listed in the left column of the table below is updated, the bra
 | 목적                             | 브랜치           | 확인 URL                               | 비고                               |
 | -------------------------------- | ---------------- | -------------------------------------- | ---------------------------------- |
 | 프로덕션(Production) 사이트 HTML | production       | https://stopcovid19.metro.tokyo.lg.jp/ | 정적 빌드된 HTML이 있는 위치       |
-| 스테이징(Staging) 사이트 HTML    | gh-pages         | https://stg-covid19-tokyo.netlify.app/ | 정적 빌드된 HTML를 찾을 수 있는 곳 |
+| 스테이징(Staging) 사이트 HTML    | gh-pages         | https://stopcovid19-tokyo-staging.web.app/ | 정적 빌드된 HTML를 찾을 수 있는 곳 |
 | OGP 작업용 디렉토리              | deploy / new_ogp | 없음                                   | OGP 업데이트용                     |
