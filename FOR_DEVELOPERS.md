@@ -9,7 +9,7 @@
 | [Node.js](https://nodejs.org/ja/)                                                                                                     | 16.13.0 以上                             | 必須                                                                                                              |
 | [Visual Studio Code](https://code.visualstudio.com/)                                                                                  |                                          | [Visual Studio Code を利用する場合](#1-1-visual-studio-codeの拡張機能)                                            |
 | [yarn](https://classic.yarnpkg.com/ja/)                                                                                               |                                          | [本プログラムを yarn で実行する場合](#2-1-yarn-を使う場合)                                                        |
-| [docker compose](https://docs.docker.com/compose/install/)                                                                            |                                          | [本プログラムを docker compose で実行する場合](#2-2-docker-compose-を使う場合)                                    |
+| [docker compose](https://docs.docker.com/compose/install/)                                                                            |                                          | [本プログラムを docker compose で実行する場合](#2-2-docker compose-を使う場合)                                    |
 | [Vagrant](https://www.vagrantup.com/)                                                                                                 |                                          | [本プログラムを Vagrant で実行する場合](#2-3-vagrant-を使う場合)                                                  |
 | [Visual Studio Code](https://code.visualstudio.com/) + [Remote Containers](https://code.visualstudio.com/docs/remote/remote-overview) |                                          | [Visual Studio Code + Remote Containers で開発する場合](#2-4-visual-studio-code--remote-containersで開発する場合) |
 | [Gitpod](https://www.gitpod.io/)                                                                                                      |                                          | [Gitpod で開発する場合](#2-5-gitpodで開発する場合)                                                                |
@@ -75,7 +75,7 @@ $ yarn dev-no-axe
 
 ```bash
 # serve with hot reload at localhost:3000
-$ docker-compose up --build
+$ docker compose up --build
 ```
 
 #### 2-2-2. トラブルシュート
@@ -86,7 +86,7 @@ $ docker-compose up --build
 
 ```bash
 # serve with hot reload at localhost:3000
-$ docker-compose run --rm app yarn install
+$ docker compose run --rm app yarn install
 ```
 
 ### 2-3. `Vagrant` を使う場合
