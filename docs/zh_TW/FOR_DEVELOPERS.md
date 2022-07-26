@@ -73,7 +73,7 @@ $ yarn dev-no-axe
 
 ```bash
 # serve with hot reload at localhost:3000
-$ docker-compose up --build
+$ docker compose up --build
 ```
 
 ### 2-2-2. Troubleshoot
@@ -83,7 +83,7 @@ $ docker-compose up --build
 停止程式並執行下列指令。
 
 ```bash
-$ docker-compose run --rm app yarn install
+$ docker compose run --rm app yarn install
 ```
 
 ### 2-3. 使用 `Vagrant` 的做法

@@ -73,7 +73,7 @@ Después de ejecutar el siguiente comando, puedes revisar el programa en desarro
 
 ```bash
 # serve with hot reload at localhost:3000
-$ docker-compose up --build
+$ docker compose up --build
 ```
 
 ### 2-2-2. Solución de problemas
@@ -83,7 +83,7 @@ $ docker-compose up --build
 Detener el programa y eejecutar el siguiente comando.
 
 ```bash
-$ docker-compose run --rm app yarn install
+$ docker compose run --rm app yarn install
 ```
 
 ### 2-3. Usando `Vagrant`

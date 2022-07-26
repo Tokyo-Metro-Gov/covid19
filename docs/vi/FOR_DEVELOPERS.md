@@ -97,7 +97,7 @@ After executing the following command, you can check the program under developme
 
 ```bash
 # serve with hot reload at localhost:3000
-$ docker-compose up --build
+$ docker compose up --build
 ```
 
 [PLEASE TRANSLATE ME]
@@ -111,7 +111,7 @@ Stop the program and execute the following command.
 [/PLEASE TRANSLATE ME]
 
 ```bash
-$ docker-compose run --rm app yarn install
+$ docker compose run --rm app yarn install
 ```
 
 ### 2-3. Nếu dùng `Vagrant`
