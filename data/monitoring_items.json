@@ -1,29 +1,29 @@
 {
-    "date": "2022\/7\/27 20:15",
+    "date": "2022\/7\/28 20:45",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の7日間平均は、第6波のピーク時に近い値となり、今回の増加比が継続すると、これまでに経験したことのない爆発的な感染状況になる。基本的な感染防止対策を今一度再点検し、徹底する必要がある。",
-                "@en": "The 7-day average of new positive cases is nearing that at the peak of the sixth wave. If this rate of increase continues, this will be an explosive rise in infections of a scale never before experienced. There is the need to once again review and thoroughly implement basic infection prevention measures."
+                "@ja": "新規陽性者数の7日間平均は、過去最多となり、爆発的な感染状況が続いている。感染の拡大に伴い、就業制限を受ける者が多数発生しており、医療をはじめとした社会機能の維持に影響を及ぼしている。",
+                "@en": "新規陽性者数の7日間平均は、過去最多となり、爆発的な感染状況が続いている。感染の拡大に伴い、就業制限を受ける者が多数発生しており、医療をはじめとした社会機能の維持に影響を及ぼしている。"
             },
             {
-                "@ja": "検査の陽性率は急速に上昇し、過去最高値を上回った。診療・検査医療機関に、検査・受診の相談が集中するなど、検査が受けにくくなっている。東京ルールの適用件数が大きく増加するなど、救急医療体制への影響が生じている。",
-                "@en": "The positivity rate of tests has risen rapidly to a record high. Due to factors such as a high volume of inquiries to healthcare and testing facilities regarding testing and consulting a doctor, it is becoming difficult to get tested. And, the situation is having an impact on the system for emergency medical care, including a large increase in the number of cases that did not fulfill the Tokyo Rule for Emergency Medical Care."
+                "@ja": "爆発的な感染拡大に伴い、東京ルールの適用件数が急増している。入院患者数は、6週間連続で増加し続けており、医療機関への負荷が増大している。",
+                "@en": "爆発的な感染拡大に伴い、東京ルールの適用件数が急増している。入院患者数は、6週間連続で増加し続けており、医療機関への負荷が増大している。"
             }
         ],
-        "(1)新規陽性者数": 30099.9,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 248,
-        "(3)新規陽性者における接触歴等不明者（人数）": 22441,
-        "(3)新規陽性者における接触歴等不明者（増加比）": 186.7,
-        "(4)PCR・抗原検査（陽性率）": 50.5,
-        "(4)PCR・抗原検査（検査人数）": 33086.3,
-        "(5)救急医療の東京ルールの適用件数": 292.7,
-        "(6)入院患者数": 3725,
-        "(6)入院患者確保病床数": 5775,
-        "(7)重症患者数": 24,
-        "(7)重症患者確保病床数": 264,
+        "(1)新規陽性者数": 31318.1,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 247.1,
+        "(3)新規陽性者における接触歴等不明者（人数）": 23399.7,
+        "(3)新規陽性者における接触歴等不明者（増加比）": 170.7,
+        "(4)PCR・抗原検査（陽性率）": 50.2,
+        "(4)PCR・抗原検査（検査人数）": 32333.9,
+        "(5)救急医療の東京ルールの適用件数": 286.7,
+        "(6)入院患者数": 3794,
+        "(6)入院患者確保病床数": 6539,
+        "(7)重症患者数": 27,
+        "(7)重症患者確保病床数": 287,
         "総括コメント-感染状況": {
-            "date": "2022-07-20",
+            "date": "2022-07-27",
             "level": 4,
             "display": {
                 "@ja": "大規模な感染拡大が継続している",
@@ -31,7 +31,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-07-20",
+            "date": "2022-07-27",
             "level": 4,
             "display": {
                 "@ja": "医療体制がひっ迫している",
