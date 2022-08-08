@@ -437,18 +437,19 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
+      const chartData = this.chartData;
       return this.labels
         .map((label, i) => {
           return Object.assign(
             { text: label },
             ...(this.dataLabels as string[]).map((_, j) => {
-              if (this.chartData[j][i] === null) {
+              if (chartData[j][i] === null) {
                 return {
                   [j]: '',
                 }
               }
               return {
-                [j]: this.getFormatter(j)(this.chartData[j][i]),
+                [j]: this.getFormatter(j)(chartData[j][i]),
               }
             })
           )
@@ -575,13 +576,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     scaledTicksYAxisMax() {
-      const max = Array.from(this.chartData[0].keys())
+      const chartData = this.chartData;
+      const max = Array.from(chartData[0].keys())
         .map(
           (i) =>
-            this.chartData[0][i] +
-            this.chartData[1][i] +
-            this.chartData[2][i] +
-            this.chartData[3][i]
+            chartData[0][i] +
+            chartData[1][i] +
+            chartData[2][i] +
+            chartData[3][i]
         )
         .reduce((a, b) => Math.max(a, b), 0)
       const digits = String(max).length
