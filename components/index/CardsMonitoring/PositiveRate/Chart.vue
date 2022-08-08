@@ -437,7 +437,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       ]
     },
     tableData() {
-      const chartData = this.chartData;
+      const chartData = this.chartData
       return this.labels
         .map((label, i) => {
           return Object.assign(
@@ -576,7 +576,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return options
     },
     scaledTicksYAxisMax() {
-      const chartData = this.chartData;
+      const chartData = this.chartData
       const max = Array.from(chartData[0].keys())
         .map(
           (i) =>
