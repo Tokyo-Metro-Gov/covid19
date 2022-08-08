@@ -1,5 +1,5 @@
 {
-    "date": "2022\/8\/5 21:00",
+    "date": "2022\/8\/8 19:15",
     "data": [
         {
             "date": "2020-10-30",
@@ -5795,6 +5795,33 @@
                 "cocoa_dial": 231,
                 "total": 12027,
                 "weekly_average_total": 13910
+            }
+        },
+        {
+            "date": "2022-08-05",
+            "count": {
+                "fever_consultation_center": 10452,
+                "cocoa_dial": 205,
+                "total": 10657,
+                "weekly_average_total": 13647
+            }
+        },
+        {
+            "date": "2022-08-06",
+            "count": {
+                "fever_consultation_center": 11978,
+                "cocoa_dial": 140,
+                "total": 12118,
+                "weekly_average_total": 13290
+            }
+        },
+        {
+            "date": "2022-08-07",
+            "count": {
+                "fever_consultation_center": 12028,
+                "cocoa_dial": 169,
+                "total": 12197,
+                "weekly_average_total": 12949
             }
         }
     ]
