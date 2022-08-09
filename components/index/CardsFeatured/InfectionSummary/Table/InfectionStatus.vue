@@ -38,7 +38,7 @@
         <value-with-translatable-unit
           :value="items['都外からの持込検体による陽性数'].toLocaleString()"
           :unit="{
-            text: 'cases',
+            text: '件.cases',
             translatable: true,
             except: ['ja', 'ko', 'zh-cn', 'zh-tw', 'ja-basic'],
           }"
