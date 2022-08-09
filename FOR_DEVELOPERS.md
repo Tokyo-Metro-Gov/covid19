@@ -75,7 +75,7 @@ $ yarn dev-no-axe
 
 ```bash
 # serve with hot reload at localhost:3000
-$ docker-compose up --build
+$ docker compose up --build
 ```
 
 #### 2-2-2. トラブルシュート
@@ -86,7 +86,7 @@ $ docker-compose up --build
 
 ```bash
 # serve with hot reload at localhost:3000
-$ docker-compose run --rm app yarn install
+$ docker compose run --rm app yarn install
 ```
 
 ### 2-3. `Vagrant` を使う場合

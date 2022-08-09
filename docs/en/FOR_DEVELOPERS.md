@@ -73,7 +73,7 @@ After executing the following command, you can check the program under developme
 
 ```bash
 # serve with hot reload at localhost:3000
-$ docker-compose up --build
+$ docker compose up --build
 ```
 
 ### 2-2-2. Troubleshoot
@@ -83,7 +83,7 @@ $ docker-compose up --build
 Stop the program and execute the following command.
 
 ```bash
-$ docker-compose run --rm app yarn install
+$ docker compose run --rm app yarn install
 ```
 
 ### 2-3. Using `Vagrant`
@@ -128,8 +128,8 @@ When the branch listed in the left column of the table below is updated, the bra
 | branch        | A branch where HTML is built and updated | Website updated                                             |
 | ------------- | ---------------------------------------- | ----------------------------------------------------------- |
 | `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/  |
-| `staging`     | `gh-pages`                               | The staging site https://stg-covid19-tokyo.netlify.app/     |
-| `development` | `dev-pages`                              | The development site https://dev-covid19-tokyo.netlify.app/ |
+| `staging`     | `gh-pages`                               | The staging site https://stopcovid19-tokyo-staging.web.app/     |
+| `development` | `dev-pages`                              | The development site https://stopcovid19-tokyo-development.web.app/ |
 
 ---
 
@@ -147,8 +147,8 @@ Please use the following naming rules for the branch when sending a Pull Request
 
 | Purpose     | Branch      | Confirmation URL                       | People who can make pull requests | Remarks                                                                           |
 | ----------- | ----------- | -------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------- |
-| Development | development | https://dev-covid19-tokyo.netlify.app/ | All developers                    | base branch. Basically send a Pull Request here                                   |
-| Staging     | staging     | https://stg-covid19-tokyo.netlify.app/ | Only administrators               | For final confirmation before production. Non-admin pull requests are prohibited. |
+| Development | development | https://stopcovid19-tokyo-development.web.app/ | All developers                    | base branch. Basically send a Pull Request here                                   |
+| Staging     | staging     | https://stopcovid19-tokyo-staging.web.app/ | Only administrators               | For final confirmation before production. Non-admin pull requests are prohibited. |
 | Production  | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators               | Pull Requests other than Administrators are prohibited                            |
 
 ### 5-2. Branch used by the system
@@ -156,7 +156,7 @@ Please use the following naming rules for the branch when sending a Pull Request
 | Purpose                   | Branch           | Confirmation URL                       | Remarks                                         |
 | ------------------------- | ---------------- | -------------------------------------- | ----------------------------------------------- |
 | Production site HTML      | production       | https://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
-| Staging site HTML         | gh-pages         | https://stg-covid19-tokyo.netlify.app/ | Where to find statically built HTML             |
+| Staging site HTML         | gh-pages         | https://stopcovid19-tokyo-staging.web.app/ | Where to find statically built HTML             |
 | For OGP working directory | deploy / new_ogp | None                                   | For updating OGP                                |
 
 ---

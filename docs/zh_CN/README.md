@@ -109,9 +109,9 @@ $ docker-compose run --rm app yarn install
 
 `master` 分支更新时，自动将 `production` 分支中的 HTML 类(build)后发布到正式版 https://stopcovid19.metro.tokyo.lg.jp/
 
-`staging` 分支更新时，自动将 `gh-pages` 分支中的 HTML 类(build)后发布到 Staging 版 https://stg-covid19-tokyo.netlify.app/
+`staging` 分支更新时，自动将 `gh-pages` 分支中的 HTML 类(build)后发布到 Staging 版 https://stopcovid19-tokyo-staging.web.app/
 
-`development` 分支更新时，自动将 `dev-pages` 分支中的 HTML 类(build)后发布到开发版 https://dev-covid19-tokyo.netlify.app/
+`development` 分支更新时，自动将 `dev-pages` 分支中的 HTML 类(build)后发布到开发版 https://stopcovid19-tokyo-development.web.app/
 
 ### 规则
 
@@ -125,9 +125,9 @@ Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 | 目的       | 分支        | 预览用 URL                             | 备注                                                              |
 | ---------- | ----------- | -------------------------------------- | ----------------------------------------------------------------- |
-| 开发       | development | https://dev-covid19-tokyo.netlify.app/ | 基本上请推送 Pull Request 到这里                                  |
+| 开发       | development | https://stopcovid19-tokyo-development.web.app/ | 基本上请推送 Pull Request 到这里                                  |
 | 紧急修复   | dev-hotfix  | 无                                     | 对正式版的紧急修复。在管理员的要求下使用。                        |
-| 正式版预览 | staging     | https://stg-covid19-tokyo.netlify.app/ | 对于正式版发布前的最终确认，禁止管理员以外的人推送 Pull Request。 |
+| 正式版预览 | staging     | https://stopcovid19-tokyo-staging.web.app/ | 对于正式版发布前的最终确认，禁止管理员以外的人推送 Pull Request。 |
 | 正式版     | master      | https://stopcovid19.metro.tokyo.lg.jp/ | 禁止管理员以外的人推送 Pull Request                               |
 
 #### 系统所使用的分支
@@ -135,5 +135,5 @@ Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 | 目的            | 分支             | 预览用 URL                             | 备注                     |
 | --------------- | ---------------- | -------------------------------------- | ------------------------ |
 | 正式网站 HTML   | production       | https://stopcovid19.metro.tokyo.lg.jp/ | 生成静态网站 HTML 的位置 |
-| 正式版预览 HTML | gh-pages         | https://stg-covid19-tokyo.netlify.app/ | 生成静态网站 HTML 的位置 |
+| 正式版预览 HTML | gh-pages         | https://stopcovid19-tokyo-staging.web.app/ | 生成静态网站 HTML 的位置 |
 | OGP 工作用      | deploy / new_ogp | 无                                     | OGP 更新用               |
