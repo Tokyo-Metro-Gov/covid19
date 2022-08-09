@@ -1108,3 +1108,5 @@ TAG_ADD,オミクロン株の特性を踏まえた重症者数
 TAG_ADD,オミクロン株の特性を踏まえた重症者用病床使用率
 TAG_ADD,国基準 重症者用病床使用率 {percentage}%（{persons}人/{bed}床）
 TAG_ADD,従来の都基準による重症者数はこちら
+RUN,2022/08/09 15:56
+TAG_ADD,{'tested': '件', 'calls': '件', 'reports': '件', 'cases': '件', 'consultations': '件'}
