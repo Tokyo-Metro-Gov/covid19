@@ -15,7 +15,7 @@
         :date="date"
         :labels="labels"
         :data-labels="dataLabels"
-        :unit="$t('件.reports')"
+        :unit="$t('件.cases')"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000091'"
         :day-period="isSingleCard ? 120 : 60"
         :is-single-card="isSingleCard"
