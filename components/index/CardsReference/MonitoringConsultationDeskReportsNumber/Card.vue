@@ -13,7 +13,7 @@
         :date="date"
         :labels="labels"
         :data-labels="dataLabels"
-        :unit="$t('件.consultations')"
+        :unit="$t('件.calls')"
         url="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000070"
       >
         <template #description>
