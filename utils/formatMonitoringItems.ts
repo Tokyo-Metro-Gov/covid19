@@ -69,8 +69,12 @@ export type MonitoringItems = Record<DataKey, MonitoringItemValue>
  */
 export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
   const unitPerson: Unit = { text: '人', translatable: true }
-  const unitReports: Unit = {
-    text: '件.reports',
+  const unitCalls: Unit = {
+    text: '件.calls',
+    translatable: true,
+  }
+  const unitCases: Unit = {
+    text: '件.cases',
     translatable: true,
   }
   const unitPercentage: Unit = { text: '%', translatable: false }
@@ -96,7 +100,7 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
           '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
         ]
       ),
-      unit: unitReports,
+      unit: unitCalls,
       bold: true,
     },
     '(3)新規陽性者における接触歴等不明者（人数）': {
@@ -127,7 +131,7 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
       value: toNumberIn10thPlace(
         rawDataObj['(5)救急医療の東京ルールの適用件数']
       ),
-      unit: unitReports,
+      unit: unitCases,
       bold: true,
     },
     '(6)入院患者数': {

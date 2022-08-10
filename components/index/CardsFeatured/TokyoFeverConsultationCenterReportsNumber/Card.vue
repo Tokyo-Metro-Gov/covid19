@@ -13,7 +13,7 @@
         :chart-data="chartData"
         :date="date"
         :labels="labels"
-        :unit="$t('件.reports')"
+        :unit="$t('件.consultations')"
         :data-labels="labelItems"
         :table-labels="labelItems"
         :get-formatter="getFormatter"
