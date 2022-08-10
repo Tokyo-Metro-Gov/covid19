@@ -36,10 +36,6 @@
   "期間: {duration}": " Period: {duration}",
   "{duration}の利用者数との相対値: {percentage}": "Relative value based on the number of users {duration}: {percentage}",
   "人": "people",
-  "件": {
-    "tested": "tests",
-    "reports": "tests"
-  },
   "公表日": "Date released",
   "居住地": "Residence",
   "年代": "Age",
@@ -994,7 +990,7 @@
   "国の新しいレベル分類のための指標について": "About indicators used by the national government for its new classification levels",
   "病床使用率": "Hospital bed occupancy rate",
   "病床使用率等の分母の病床数は現時点の最大確保見込数、分子の人数は確保病床を使用している人数": "Hospital bed occupancy rates are derived by dividing the number of people using beds secured by the current estimated maximum number of secured beds.",
-  "（参考）国基準 重症者病床使用率 {percentage}%（{persons}人/{bed}床）": "（参考）国基準 重症者病床使用率 {percentage}%（{persons}人/{bed}床）",
+  "（参考）国基準 重症者病床使用率 {percentage}%（{persons}人/{bed}床）": "(Reference) Occupancy rate of hospital beds for severe cases according to criteria set by the national government {percentage}% ( {persons} / {bed} )",
   "重症者病床使用率（都基準）": "Occupancy rate of hospital beds for severe cases (Tokyo Metropolitan Government criteria)",
   "患者の発生状況等": "Today's breakdown of COVID-19 patient related information",
   "レベル": "Level",
@@ -1053,5 +1049,12 @@
   "オミクロン株の特性を踏まえた重症者数": "Patients with severe symptoms (as defined according to the characteristics of the Omicron variant)",
   "オミクロン株の特性を踏まえた重症者用病床使用率": "Occupancy rate of beds for severe cases (as defined according to the characteristics of the Omicron variant)",
   "国基準 重症者用病床使用率 {percentage}%（{persons}人/{bed}床）": "Occupancy rate of hospital beds for severe cases according to criteria set by the national government {percentage}% ( {persons} / {bed} )",
-  "従来の都基準による重症者数はこちら": "View the number of patients with severe symptoms calculated according to the Tokyo Metropolitan Government's criteria for severe patients as of April 27, 2020."
+  "従来の都基準による重症者数はこちら": "View the number of patients with severe symptoms calculated according to the Tokyo Metropolitan Government's criteria for severe patients as of April 27, 2020.",
+  "件": {
+    "tested": "tests",
+    "calls": "calls",
+    "reports": "tests",
+    "cases": "cases",
+    "consultations": "consultations"
+  }
 }
