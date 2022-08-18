@@ -34,7 +34,9 @@
     </li>
     <li :class="[$style.box]">
       <div :class="$style.content">
-        <span>{{ $t('都外からの持込検体による陽性数') }}</span>
+        <span>{{
+          $t('都外からの持込検体・他県陽性者登録センターによる陽性数')
+        }}</span>
         <value-with-translatable-unit
           :value="items['都外からの持込検体による陽性数'].toLocaleString()"
           :unit="{
