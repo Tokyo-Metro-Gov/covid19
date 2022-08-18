@@ -1110,3 +1110,5 @@ TAG_ADD,国基準 重症者用病床使用率 {percentage}%（{persons}人/{bed}
 TAG_ADD,従来の都基準による重症者数はこちら
 RUN,2022/08/09 15:56
 TAG_ADD,{'tested': '件', 'calls': '件', 'reports': '件', 'cases': '件', 'consultations': '件'}
+RUN,2022/08/18 10:35
+TAG_ADD,都外からの持込検体・他県陽性者登録センターによる陽性数
