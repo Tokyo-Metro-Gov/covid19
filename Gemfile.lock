@@ -1,8 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.8.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -23,7 +23,7 @@ GEM
     parallel (1.22.1)
     parallel_tests (3.11.1)
       parallel
-    public_suffix (4.0.7)
+    public_suffix (5.0.0)
     racc (1.6.0)
     rack (2.2.4)
     rack-test (2.0.2)
