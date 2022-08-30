@@ -1,1 +1,2 @@
 130001_tokyo_covid19_patients.csv filter=lfs diff=lfs merge=lfs -text
+130001_tokyo_covid19_patients_*.csv filter=lfs diff=lfs merge=lfs -text
