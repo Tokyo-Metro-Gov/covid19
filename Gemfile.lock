@@ -21,7 +21,7 @@ GEM
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     parallel (1.22.1)
-    parallel_tests (3.11.1)
+    parallel_tests (3.12.0)
       parallel
     public_suffix (5.0.0)
     racc (1.6.0)
