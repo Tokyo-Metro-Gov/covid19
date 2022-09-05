@@ -1,5 +1,5 @@
 {
-    "date": "2022\/9\/2 19:30",
+    "date": "2022\/9\/5 19:15",
     "data": [
         {
             "date": "2020-03-01",
@@ -4575,6 +4575,21 @@
             "date": "2022-09-01",
             "count": 120,
             "weekly_average_count": 134.9
+        },
+        {
+            "date": "2022-09-02",
+            "count": 116,
+            "weekly_average_count": 129.6
+        },
+        {
+            "date": "2022-09-03",
+            "count": 149,
+            "weekly_average_count": 129.1
+        },
+        {
+            "date": "2022-09-04",
+            "count": 166,
+            "weekly_average_count": 131.6
         }
     ]
 }
