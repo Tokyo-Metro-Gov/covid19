@@ -47,10 +47,7 @@
             </li>
           </ul>
         </template>
-        <confirmed-cases-details-table
-          :aria-label="$t('検査陽性者の状況')"
-          v-bind="confirmedCases"
-        />
+        <confirmed-cases-details-table v-bind="confirmedCases" />
         <div>
           <app-link
             :class="$style.button"

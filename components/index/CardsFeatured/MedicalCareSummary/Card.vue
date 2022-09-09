@@ -8,7 +8,7 @@
         title-id="medical-care-summary"
         :date="date"
       >
-        <medical-system :aria-label="$t('病床使用率等')" :items="statuses" />
+        <medical-system :items="statuses" />
         <div :class="$style.link">
           <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
           <app-link
