@@ -6,7 +6,7 @@
         <label class="sr-only" :for="`start-${id}`">{{ $t('開始') }}</label>
         <input
           :id="`start-${id}`"
-          v-model="start"
+          v-model.lazy="start"
           type="range"
           :min="min"
           :max="max"
@@ -17,7 +17,7 @@
         <label class="sr-only" :for="`end-${id}`">{{ $t('終了') }}</label>
         <input
           :id="`end-${id}`"
-          v-model="end"
+          v-model.lazy="end"
           type="range"
           :min="min"
           :max="max"
