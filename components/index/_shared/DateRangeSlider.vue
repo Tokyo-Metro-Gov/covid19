@@ -3,7 +3,15 @@
     <span id="date-range" class="range-slider-title">{{ $t('表示期間') }}</span>
     <div class="range-slider-container">
       <div class="range-slider-inner">
-        <label class="sr-only" :for="`start-${id}`">{{ $t('開始') }}</label>
+        <label
+          :for="`start-${id}`"
+          :style="{
+            transform: `translateX(${((start - min) / (max - min)) * 100}%)`,
+          }"
+          class="range-slider-inner-label label-start"
+        >
+          {{ getDateFormat(start) }}
+        </label>
         <input
           :id="`start-${id}`"
           v-model="start"
@@ -14,7 +22,15 @@
           :aria-valuetext="$t(`{date}から`, { date: getDisplayDate(start) })"
           @change="$emit('start-date', getDateFormat($event.target.value))"
         />
-        <label class="sr-only" :for="`end-${id}`">{{ $t('終了') }}</label>
+        <label
+          :for="`end-${id}`"
+          :style="{
+            transform: `translateX(${((end - min) / (max - min)) * 100}%)`,
+          }"
+          class="range-slider-inner-label label-end"
+        >
+          {{ getDateFormat(end) }}
+        </label>
         <input
           :id="`end-${id}`"
           v-model="end"
@@ -211,7 +227,7 @@ input[type='range'] {
 }
 
 .range-slider-title {
-  margin: 6px 12px 0 0;
+  margin: 23px 12px 0 0;
 
   @include font-size(14);
 }
@@ -227,7 +243,29 @@ input[type='range'] {
   position: relative;
   margin: 1em auto;
   width: 100%;
-  background: linear-gradient(0deg, $gray-4 $h, transparent 0);
+  background-image: linear-gradient(
+    0deg,
+    transparent 33%,
+    $gray-4 33%,
+    $gray-4 66%,
+    transparent 66%
+  );
+}
+
+.range-slider-inner-label {
+  position: relative;
+  grid-column: 1;
+  left: -5em;
+
+  @include font-size(12);
+
+  &.label-start {
+    grid-row: 1;
+  }
+
+  &.label-end {
+    grid-row: 3;
+  }
 }
 
 .range-slider-label {
