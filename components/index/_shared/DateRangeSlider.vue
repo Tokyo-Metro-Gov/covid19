@@ -170,11 +170,6 @@ $h: 1.2rem;
   outline: 2px solid $focus;
 }
 
-.sr-only {
-  position: absolute;
-  clip-path: inset(50%);
-}
-
 input[type='range'] {
   &::-webkit-slider-runnable-track,
   &::-webkit-slider-thumb,
