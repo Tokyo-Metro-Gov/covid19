@@ -15,6 +15,7 @@
         <input
           :id="`start-${id}`"
           v-model="start"
+          class="input-range-start"
           type="range"
           :min="min"
           :max="max"
@@ -35,6 +36,7 @@
           :id="`end-${id}`"
           v-model="end"
           type="range"
+          class="input-range-end"
           :min="min"
           :max="max"
           :step="step"
@@ -181,14 +183,33 @@ input[type='range'] {
     outline: none;
   }
 
+  position: relative;
   grid-column: 1;
   grid-row: 2;
   margin: 0;
   background: none;
   color: $gray-1;
   font: inherit;
+  cursor: pointer;
   pointer-events: none;
   width: 100%;
+
+  &::after {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 15px;
+    content: '';
+    pointer-events: auto;
+  }
+
+  &.input-range-start::after {
+    top: -15px;
+  }
+
+  &.input-range-end::after {
+    bottom: -15px;
+  }
 
   &::-webkit-slider-runnable-track {
     @include track;
