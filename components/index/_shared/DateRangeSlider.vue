@@ -6,31 +6,37 @@
         <label class="sr-only" :for="`start-${id}`">{{ $t('開始') }}</label>
         <input
           :id="`start-${id}`"
-          v-model.lazy="start"
+          :value="start"
           type="range"
           :min="min"
           :max="max"
           :step="step"
           :aria-valuetext="$t(`{date}から`, { date: getDisplayDate(start) })"
-          @change="$emit('start-date', getDateFormat($event.target.value))"
+          @change="
+            $emit('start-date', getDateFormat($event.target.value))
+            start = $event.target.value
+          "
         />
         <label class="sr-only" :for="`end-${id}`">{{ $t('終了') }}</label>
         <input
           :id="`end-${id}`"
-          v-model.lazy="end"
+          :value="end"
           type="range"
           :min="min"
           :max="max"
           :step="step"
           :aria-valuetext="$t(`{date}まで`, { date: getDisplayDate(end) })"
-          @change="$emit('end-date', getDateFormat($event.target.value))"
+          @change="
+            $emit('end-date', getDateFormat($event.target.value))
+            end = $event.target.value
+          "
         />
       </div>
       <div class="range-slider-label">
-        <output :for="`start-${id}`">
+        <output aria-hidden="true" :for="`start-${id}`">
           {{ $t(`{date}から`, { date: getDisplayDate(start) }) }}
         </output>
-        <output :for="`end-${id}`">
+        <output aria-hidden="true" :for="`end-${id}`">
           {{ $t(`{date}まで`, { date: getDisplayDate(end) }) }}
         </output>
       </div>
