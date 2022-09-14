@@ -23,7 +23,6 @@ describe 'page [/]', type: :feature do
             expect(find('.DataCard.PositiveNumberByDevelopedDateCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '発症日別による陽性者数の推移')
             expect(find('.DataCard.PositiveNumberByDiagnosedDateCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '確定日別による陽性者数の推移')
             expect(find('.DataCard.DeathsByDeathDateCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '死亡日別による死亡者数の推移')
-            expect(find('.DataCard.VariantCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'L452R変異株スクリーニングの実施状況')
             expect(find('.DataCard.MetroCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '都営地下鉄の利用者数の推移')
             expect(find('.DataCard.AgencyCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '都庁来庁者数の推移')
           end

@@ -7,7 +7,6 @@ card_classes = [
   '.DataCard.PositiveNumberByDevelopedDateCard',
   '.DataCard.PositiveNumberByDiagnosedDateCard',
   '.DataCard.DeathsByDeathDateCard',
-  '.DataCard.VariantCard',
   '.DataCard.MetroCard',
   '.DataCard.AgencyCard',
 ]
