@@ -62,14 +62,6 @@
           @change="$emit('end-date', getDateFormat($event.target.value))"
         />
       </div>
-      <div class="range-slider-label">
-        <output :for="`start-${id}`">
-          {{ $t(`{date}から`, { date: getDisplayDate(start) }) }}
-        </output>
-        <output :for="`end-${id}`">
-          {{ $t(`{date}まで`, { date: getDisplayDate(end) }) }}
-        </output>
-      </div>
     </div>
   </div>
 </template>
@@ -316,13 +308,5 @@ input[type='range'] {
   &.label-value-end {
     grid-row: 3;
   }
-}
-
-.range-slider-label {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-
-  @include font-size(14);
 }
 </style>
