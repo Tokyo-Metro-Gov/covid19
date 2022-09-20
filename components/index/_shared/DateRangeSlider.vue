@@ -154,10 +154,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   methods: {
-    getDateFormat(seconds: number) {
+    getDateFormat(seconds: number): string {
       return dayjs.unix(seconds).format('YYYY-MM-DD')
     },
-    getDisplayDate(seconds: number) {
+    getDisplayDate(seconds: number): string {
       const date = this.getDateFormat(seconds)
       return this.$d(dayjs(date).toDate(), 'date')
     },
