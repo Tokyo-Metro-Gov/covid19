@@ -10,8 +10,17 @@
           }"
           class="range-slider-inner-label label-start"
         >
-          {{ getDateFormat(start) }}
+          <span role="img" :aria-label="$t('開始日')">▶</span>
         </label>
+        <span
+          aria-hidden="true"
+          :style="{
+            transform: `translateX(${((start - min) / (max - min)) * 100}%)`,
+          }"
+          class="range-slider-inner-label-value label-value-start"
+        >
+          {{ getDisplayDate(start) }}
+        </span>
         <input
           :id="`start-${id}`"
           v-model="start"
@@ -20,7 +29,7 @@
           :min="min"
           :max="max"
           :step="step"
-          :aria-valuetext="$t(`{date}から`, { date: getDisplayDate(start) })"
+          :aria-valuetext="getDisplayDate(start)"
           @change="$emit('start-date', getDateFormat($event.target.value))"
         />
         <label
@@ -30,8 +39,17 @@
           }"
           class="range-slider-inner-label label-end"
         >
-          {{ getDateFormat(end) }}
+          <span role="img" :aria-label="$t('終了日')">◀</span>
         </label>
+        <span
+          aria-hidden="true"
+          :style="{
+            transform: `translateX(${((end - min) / (max - min)) * 100}%)`,
+          }"
+          class="range-slider-inner-label-value label-value-end"
+        >
+          {{ getDisplayDate(end) }}
+        </span>
         <input
           :id="`end-${id}`"
           v-model="end"
@@ -40,7 +58,7 @@
           :min="min"
           :max="max"
           :step="step"
-          :aria-valuetext="$t(`{date}まで`, { date: getDisplayDate(end) })"
+          :aria-valuetext="getDisplayDate(end)"
           @change="$emit('end-date', getDateFormat($event.target.value))"
         />
       </div>
@@ -269,17 +287,33 @@ input[type='range'] {
 }
 
 .range-slider-inner-label {
-  position: relative;
-  grid-column: 1;
-  left: -5em;
+  position: absolute;
+  width: 100%;
+  left: -7em;
 
   @include font-size(12);
 
   &.label-start {
-    grid-row: 1;
+    top: 0;
   }
 
   &.label-end {
+    bottom: 0;
+  }
+}
+
+.range-slider-inner-label-value {
+  position: relative;
+  grid-column: 1;
+  left: -6em;
+
+  @include font-size(12);
+
+  &.label-value-start {
+    grid-row: 1;
+  }
+
+  &.label-value-end {
     grid-row: 3;
   }
 }
