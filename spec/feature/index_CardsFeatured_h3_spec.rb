@@ -17,11 +17,12 @@ describe 'page [/]', type: :feature do
           end
 
           it 'has h3' do
-            expect(find('.DataCard.InfectionMedicalCareSummaryCard > div > div > div.DataView-Header > h3').text).to match /#{t(lang, '{date}の状況').gsub('{date}', '')}/
+            expect(find('.DataCard.MedicalCareSummaryCard > div > div > div.DataView-Header > h3').text).to match /#{t(lang, '{date}の病床使用率等').gsub('{date}', '')}/
+            expect(find('.DataCard.InfectionSummaryCard > div > div > div.DataView-Header > h3').text).to match /#{t(lang, '{date}の患者の発生状況等').gsub('{date}', '')}/
             expect(find('.DataCard.ConfirmedCasesDetailsCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '検査陽性者の状況')
             expect(find('.DataCard.MonitoringItemsOverviewCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'モニタリング項目')
             expect(find('.DataCard.MonitoringCommentCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '感染状況・医療提供体制の分析')
-            expect(find('.DataCard.VaccinationCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'ワクチン接種数（累計）')
+            expect(find('.DataCard.VaccinationCard > div > div > div.DataView-Header > h3').text).to eq t(lang, 'ワクチン接種数及び接種率（都内全人口・累計）')
             expect(find('.DataCard.ConfirmedCasesNumberCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '報告日別による陽性者数の推移')
             expect(find('.DataCard.TestedNumberCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '検査実施件数')
             expect(find('.DataCard.TokyoFeverConsultationCenterReportsNumberCard > div > div > div.DataView-Header > h3').text).to eq t(lang, '東京都発熱相談センターにおける相談件数')
