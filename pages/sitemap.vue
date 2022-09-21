@@ -182,7 +182,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
   display: flex;
   color: $green-1;
 
-  ::v-deep .v-icon {
+  ::v-deep(.v-icon) {
     color: $green-1;
   }
 

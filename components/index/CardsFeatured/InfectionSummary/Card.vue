@@ -10,7 +10,6 @@
       >
         <section :class="$style.section">
           <infection-status
-            :aria-label="$t('患者の発生状況等')"
             :items="statuses"
             :date="formatDate(statisticDate)"
           />

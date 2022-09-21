@@ -3,36 +3,64 @@
     <span id="date-range" class="range-slider-title">{{ $t('表示期間') }}</span>
     <div class="range-slider-container">
       <div class="range-slider-inner">
-        <label class="sr-only" :for="`start-${id}`">{{ $t('開始') }}</label>
+        <label
+          :for="`start-${id}`"
+          :style="{
+            transform: `translateX(${((start - min) / (max - min)) * 100}%)`,
+          }"
+          class="range-slider-inner-label label-start"
+        >
+          <span role="img" :aria-label="$t('開始日')">▶</span>
+        </label>
+        <span
+          aria-hidden="true"
+          :style="{
+            transform: `translateX(${((start - min) / (max - min)) * 100}%)`,
+          }"
+          class="range-slider-inner-label-value label-value-start"
+        >
+          {{ getDisplayDate(start) }}
+        </span>
         <input
           :id="`start-${id}`"
           v-model="start"
+          class="input-range-start"
           type="range"
           :min="min"
           :max="max"
           :step="step"
-          :aria-valuetext="$t(`{date}から`, { date: getDisplayDate(start) })"
+          :aria-valuetext="getDisplayDate(start)"
           @change="$emit('start-date', getDateFormat($event.target.value))"
         />
-        <label class="sr-only" :for="`end-${id}`">{{ $t('終了') }}</label>
+        <label
+          :for="`end-${id}`"
+          :style="{
+            transform: `translateX(${((end - min) / (max - min)) * 100}%)`,
+          }"
+          class="range-slider-inner-label label-end"
+        >
+          <span role="img" :aria-label="$t('終了日')">◀</span>
+        </label>
+        <span
+          aria-hidden="true"
+          :style="{
+            transform: `translateX(${((end - min) / (max - min)) * 100}%)`,
+          }"
+          class="range-slider-inner-label-value label-value-end"
+        >
+          {{ getDisplayDate(end) }}
+        </span>
         <input
           :id="`end-${id}`"
           v-model="end"
           type="range"
+          class="input-range-end"
           :min="min"
           :max="max"
           :step="step"
-          :aria-valuetext="$t(`{date}まで`, { date: getDisplayDate(end) })"
+          :aria-valuetext="getDisplayDate(end)"
           @change="$emit('end-date', getDateFormat($event.target.value))"
         />
-      </div>
-      <div class="range-slider-label">
-        <output :for="`start-${id}`">
-          {{ $t(`{date}から`, { date: getDisplayDate(start) }) }}
-        </output>
-        <output :for="`end-${id}`">
-          {{ $t(`{date}まで`, { date: getDisplayDate(end) }) }}
-        </output>
       </div>
     </div>
   </div>
@@ -118,10 +146,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
   },
   methods: {
-    getDateFormat(seconds: number) {
+    getDateFormat(seconds: number): string {
       return dayjs.unix(seconds).format('YYYY-MM-DD')
     },
-    getDisplayDate(seconds: number) {
+    getDisplayDate(seconds: number): string {
       const date = this.getDateFormat(seconds)
       return this.$d(dayjs(date).toDate(), 'date')
     },
@@ -154,11 +182,6 @@ $h: 1.2rem;
   outline: 2px solid $focus;
 }
 
-.sr-only {
-  position: absolute;
-  clip-path: inset(50%);
-}
-
 input[type='range'] {
   &::-webkit-slider-runnable-track,
   &::-webkit-slider-thumb,
@@ -170,14 +193,33 @@ input[type='range'] {
     outline: none;
   }
 
+  position: relative;
   grid-column: 1;
   grid-row: 2;
   margin: 0;
   background: none;
   color: $gray-1;
   font: inherit;
+  cursor: pointer;
   pointer-events: none;
   width: 100%;
+
+  &::after {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 15px;
+    content: '';
+    pointer-events: auto;
+  }
+
+  &.input-range-start::after {
+    top: -15px;
+  }
+
+  &.input-range-end::after {
+    bottom: -15px;
+  }
 
   &::-webkit-slider-runnable-track {
     @include track;
@@ -211,7 +253,7 @@ input[type='range'] {
 }
 
 .range-slider-title {
-  margin: 6px 12px 0 0;
+  margin: 23px 12px 0 0;
 
   @include font-size(14);
 }
@@ -227,14 +269,44 @@ input[type='range'] {
   position: relative;
   margin: 1em auto;
   width: 100%;
-  background: linear-gradient(0deg, $gray-4 $h, transparent 0);
+  background-image: linear-gradient(
+    0deg,
+    transparent 33%,
+    $gray-4 33%,
+    $gray-4 66%,
+    transparent 66%
+  );
 }
 
-.range-slider-label {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
+.range-slider-inner-label {
+  position: absolute;
+  width: 100%;
+  left: -7em;
 
-  @include font-size(14);
+  @include font-size(12);
+
+  &.label-start {
+    top: 0;
+  }
+
+  &.label-end {
+    bottom: 0;
+  }
+}
+
+.range-slider-inner-label-value {
+  position: relative;
+  grid-column: 1;
+  left: -6em;
+
+  @include font-size(12);
+
+  &.label-value-start {
+    grid-row: 1;
+  }
+
+  &.label-value-end {
+    grid-row: 3;
+  }
 }
 </style>

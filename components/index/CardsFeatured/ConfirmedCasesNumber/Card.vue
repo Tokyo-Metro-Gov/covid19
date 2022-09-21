@@ -9,7 +9,7 @@
         :title="$t('報告日別による陽性者数の推移')"
         :title-id="'number-of-confirmed-cases'"
         :chart-id="'time-bar-chart-patients'"
-        :chart-data="patientsGraph"
+        :chart-data="chartData"
         :date="date"
         :unit="$t('人')"
         :by-date="true"
@@ -60,34 +60,79 @@
   </v-col>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+
 import AppLink from '@/components/_shared/AppLink.vue'
 import TimeBarChart from '@/components/index/_shared/TimeBarChart.vue'
-import Data from '@/data/data.json'
-import formatGraph from '@/utils/formatGraph'
+import {
+  DailyPositiveDetail as IDailyPositiveDetail,
+  Datum as IDailyPositiveDetailDatum,
+} from '@/libraries/auto_generated/data_converter/convertDailyPositiveDetail'
+import { convertDateToISO8601Format } from '@/utils/formatDate'
+import { GraphDataType } from '@/utils/formatGraph'
 import { isSingleCard } from '@/utils/urls'
 
-export default {
+type Data = {}
+type Methods = {}
+type Computed = {
+  chartData: GraphDataType[]
+  date: string
+  dailyPositiveDetailData: IDailyPositiveDetailDatum[]
+  dailyPositiveDetail: IDailyPositiveDetail
+  isSingleCard: boolean
+}
+type Props = {}
+
+type patients = {
+  count: number
+  label: string
+}
+
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     TimeBarChart,
     AppLink,
   },
-  data() {
-    // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.patients_summary.data)
-    const date = Data.patients_summary.date
-
-    return {
-      patientsGraph,
-      date,
-    }
-  },
   computed: {
+    chartData() {
+      const patients: patients[] = this.dailyPositiveDetailData.map((d) => {
+        return {
+          count: d.count,
+          label: convertDateToISO8601Format(d.diagnosedDate),
+        }
+      })
+
+      const graphData: GraphDataType[] = []
+      let patSum = 0
+      patients.forEach((d) => {
+        const subTotal = d.count
+        if (!isNaN(subTotal)) {
+          patSum += subTotal
+          graphData.push({
+            label: d.label,
+            transition: subTotal,
+            cumulative: patSum,
+          })
+        }
+      })
+
+      return graphData
+    },
+    date() {
+      return this.dailyPositiveDetail.date
+    },
+    dailyPositiveDetailData() {
+      return this.dailyPositiveDetail.data
+    },
+    dailyPositiveDetail() {
+      return this.$store.state.dailyPositiveDetail
+    },
     isSingleCard() {
       return isSingleCard(this.$route.path)
     },
   },
-}
+})
 </script>
 
 <style lang="scss" scoped>
