@@ -8,18 +8,24 @@
         title-id="infection-summary"
         :date="date"
       >
+        <template #attentionNote>
+          <i18n
+            path="都外からの持込検体・他県陽性者登録センターによる陽性数」及び新規陽性者の「ワクチン接種状況」 は、全数把握の見直しにより、 2022年9月26日(月曜日)をもって公表を終了しました。なお、検査件数の詳細は{fukushi_web}をご覧ください。"
+          >
+            <template #fukushi_web>
+              <app-link
+                to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/kensa/kensuu.html"
+              >
+                {{ $t('福祉保健局のページ') }}
+              </app-link>
+            </template>
+          </i18n>
+        </template>
         <section :class="$style.section">
           <infection-status
             :aria-label="$t('患者の発生状況等')"
             :items="statuses"
             :date="formatDate(statisticDate)"
-          />
-        </section>
-        <section :class="$style.section">
-          <h4>{{ $t('ワクチン接種状況') }}</h4>
-          <vaccination-status
-            :aria-label="$t('ワクチン接種状況')"
-            :items="statuses"
           />
         </section>
         <div :class="$style.link">
@@ -37,6 +43,9 @@
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
+            <li>
+              {{ $t('新規陽性者数は総数のみの集計である') }}
+            </li>
             <li>
               {{
                 $t(
@@ -58,7 +67,6 @@ import Vue from 'vue'
 import AppLink from '@/components/_shared/AppLink.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
 import InfectionStatus from '@/components/index/CardsFeatured/InfectionSummary/Table/InfectionStatus.vue'
-import VaccinationStatus from '@/components/index/CardsFeatured/InfectionSummary/Table/VaccinationStatus.vue'
 import {
   Data as IInfectionMedicalCareSummaryData,
   InfectionMedicalcareSummary as IInfectionMedicalCareSummary,
@@ -84,7 +92,6 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     AppLink,
     DataView,
     InfectionStatus,
-    VaccinationStatus,
   },
   data() {
     return {
