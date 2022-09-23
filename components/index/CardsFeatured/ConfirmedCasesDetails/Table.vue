@@ -1,6 +1,13 @@
 <template>
   <ul :class="$style.container">
-    <li :class="[$style.box, $style.parent]">
+    <div :class="$style.caution">
+      {{
+        $t(
+          '「自宅療養」「入院・療養等調整中」 「退院等」 は、全数届出の見直しにより、 2022年9月26日(月曜日)をもって公表を終了しました。'
+        )
+      }}
+    </div>
+    <li :class="[$style.box]">
       <div :class="$style.content">
         <span> {{ $t('陽性者数') }} ({{ $t('累計') }}) </span>
         <span>
@@ -8,84 +15,53 @@
           <span :class="$style.unit">{{ $t('人') }}</span>
         </span>
       </div>
+    </li>
+    <li :class="[$style.box, $style.parent, $style.space]">
+      <div :class="$style.content">
+        <span>{{ $t('入院') }}</span>
+        <span>
+          <strong>{{ 入院中.toLocaleString() }}</strong>
+          <span :class="$style.unit">{{ $t('人') }}</span>
+        </span>
+      </div>
       <ul :class="$style.group">
-        <li :class="[$style.box, $style.parent]">
-          <div :class="$style.content">
-            <span>{{ $t('入院') }}</span>
-            <span>
-              <strong>{{ 入院中.toLocaleString() }}</strong>
-              <span :class="$style.unit">{{ $t('人') }}</span>
-            </span>
-          </div>
-          <ul :class="$style.group">
-            <li :class="[$style.box]">
-              <div :class="$style.content">
-                <!-- eslint-disable vue/no-v-html-->
-                <span v-html="$t('軽症・中等症')" />
-                <!-- eslint-enable vue/no-v-html-->
-                <span>
-                  <strong>{{ 軽症中等症.toLocaleString() }}</strong>
-                  <span :class="$style.unit">{{ $t('人') }}</span>
-                </span>
-              </div>
-            </li>
-            <li :class="[$style.box]">
-              <div :class="$style.content">
-                <span>{{ $t('重症') }}</span>
-                <span>
-                  <strong>{{ 重症.toLocaleString() }}</strong>
-                  <span :class="$style.unit">{{ $t('人') }}</span>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </li>
         <li :class="[$style.box]">
           <div :class="$style.content">
-            <span>{{ $t('宿泊療養') }}</span>
+            <!-- eslint-disable vue/no-v-html-->
+            <span v-html="$t('軽症・中等症')" />
+            <!-- eslint-enable vue/no-v-html-->
             <span>
-              <strong>{{ 宿泊療養.toLocaleString() }}</strong>
+              <strong>{{ 軽症中等症.toLocaleString() }}</strong>
               <span :class="$style.unit">{{ $t('人') }}</span>
             </span>
           </div>
         </li>
         <li :class="[$style.box]">
           <div :class="$style.content">
-            <span>{{ $t('自宅療養') }}</span>
+            <span>{{ $t('重症') }}</span>
             <span>
-              <strong>{{ 自宅療養.toLocaleString() }}</strong>
-              <span :class="$style.unit">{{ $t('人') }}</span>
-            </span>
-          </div>
-        </li>
-        <li :class="[$style.box]">
-          <div :class="$style.content">
-            <span>{{ $t('入院・療養等調整中') }}</span>
-            <span>
-              <strong>{{ 調査中.toLocaleString() }}</strong>
-              <span :class="$style.unit">{{ $t('人') }}</span>
-            </span>
-          </div>
-        </li>
-        <li :class="[$style.box]">
-          <div :class="$style.content">
-            <span>{{ $t('死亡') }}</span>
-            <span>
-              <strong>{{ 死亡.toLocaleString() }}</strong>
-              <span :class="$style.unit">{{ $t('人') }}</span>
-            </span>
-          </div>
-        </li>
-        <li :class="[$style.box]">
-          <div :class="$style.content">
-            <span>{{ $t('退院等（療養期間経過を含む）') }}</span>
-            <span>
-              <strong>{{ 退院.toLocaleString() }}</strong>
+              <strong>{{ 重症.toLocaleString() }}</strong>
               <span :class="$style.unit">{{ $t('人') }}</span>
             </span>
           </div>
         </li>
       </ul>
+    </li>
+    <li :class="[$style.box]">
+      <div :class="$style.content">
+        <span> {{ $t('宿泊療養') }} </span>
+        <span>
+          <strong>{{ 宿泊療養.toLocaleString() }}</strong>
+          <span :class="$style.unit">{{ $t('人') }}</span>
+        </span>
+      </div>
+      <div :class="[$style.content, $style.space]">
+        <span> {{ $t('死亡者数') }} ({{ $t('累計') }}) </span>
+        <span>
+          <strong>{{ 死亡.toLocaleString() }}</strong>
+          <span :class="$style.unit">{{ $t('人') }}</span>
+        </span>
+      </div>
     </li>
   </ul>
 </template>
@@ -166,6 +142,17 @@ $default-boxdiff: 35px;
   border-left: $default-bdw solid $green-1;
 }
 
+.caution {
+  @include font-size(16);
+
+  color: $gray-1;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: $notice;
+  margin-bottom: 24px;
+}
+
 .content {
   padding: 5px 10px;
   display: flex;
@@ -204,6 +191,10 @@ $default-boxdiff: 35px;
   span.unit {
     @include font-size(14);
   }
+
+  &.space {
+    margin-top: 18px;
+  }
 }
 
 .box {
@@ -233,6 +224,10 @@ $default-boxdiff: 35px;
       border-left: none;
       border-bottom: none;
     }
+  }
+
+  &.space {
+    margin-top: 18px;
   }
 }
 
