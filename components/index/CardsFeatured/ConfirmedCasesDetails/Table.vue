@@ -1,12 +1,5 @@
 <template>
   <ul :class="$style.container">
-    <div :class="$style.caution">
-      {{
-        $t(
-          '「自宅療養」「入院・療養等調整中」 「退院等」 は、全数届出の見直しにより、 2022年9月26日(月曜日)をもって公表を終了しました。'
-        )
-      }}
-    </div>
     <li :class="[$style.box]">
       <div :class="$style.content">
         <span> {{ $t('陽性者数') }} ({{ $t('累計') }}) </span>
@@ -140,17 +133,6 @@ $default-boxdiff: 35px;
   padding-left: $default-bdw !important;
   border-top: $default-bdw solid $green-1;
   border-left: $default-bdw solid $green-1;
-}
-
-.caution {
-  @include font-size(16);
-
-  color: $gray-1;
-  font-weight: 600;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: $notice;
-  margin-bottom: 24px;
 }
 
 .content {

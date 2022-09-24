@@ -6,6 +6,13 @@
         :title-id="'details-of-confirmed-cases'"
         :date="date"
       >
+        <template #attentionNote>
+          {{
+            $t(
+              '「自宅療養」「入院・療養等調整中」 「退院等」 は、全数届出の見直しにより、 2022年9月26日(月曜日)をもって公表を終了しました。'
+            )
+          }}
+        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
