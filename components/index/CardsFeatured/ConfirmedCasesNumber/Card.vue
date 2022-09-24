@@ -13,7 +13,7 @@
         :date="date"
         :unit="$t('人')"
         :by-date="true"
-        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000001d0000000011'"
         :day-period="isSingleCard ? 120 : 60"
         :is-single-card="isSingleCard"
       >
@@ -38,7 +38,11 @@
           <span>{{ $t('（注）') }}</span>
           <ul>
             <li>
-              {{ $t('保健所から発生届が提出された日を基準とする') }}
+              {{
+                $t(
+                  '2022年9月27日以降は総数のみの集計であり、2022年9月26日以前は保健所からの発生届の報告日を基準とした集計である'
+                )
+              }}
             </li>
             <li>
               {{ $t('医療機関等が行った検査も含む') }}

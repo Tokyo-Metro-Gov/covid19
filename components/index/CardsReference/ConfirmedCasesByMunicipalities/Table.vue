@@ -12,6 +12,9 @@
       :disable-sort="true"
       class="cardTable"
     />
+    <template #attentionNote>
+      <slot name="attentionNote" />
+    </template>
     <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
