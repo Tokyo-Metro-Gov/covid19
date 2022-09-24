@@ -78,6 +78,9 @@
         @end-date="endDate = $event"
       />
     </div>
+    <template #attentionNote>
+      <slot name="attentionNote" />
+    </template>
     <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
@@ -98,6 +101,9 @@
         :is-single-card="isSingleCard"
       />
     </template>
+    <template #footer>
+      <open-data-link v-show="url" :url="url" />
+    </template>
   </data-view>
 </template>
 
@@ -116,6 +122,7 @@ import DataViewTable, {
   TableItem,
 } from '@/components/index/_shared/DataViewTable.vue'
 import DateRangeSlider from '@/components/index/_shared/DateRangeSlider.vue'
+import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 import { DisplayData } from '@/plugins/vue-chart'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
@@ -168,6 +175,7 @@ type Props = {
   units: string[]
   dayPeriod: number
   isSingleCard: boolean
+  url: string
 }
 
 export default Vue.extend<Data, Methods, Computed, Props>({
@@ -176,6 +184,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     DataViewTable,
     DataViewDataSetPanel,
     DateRangeSlider,
+    OpenDataLink,
   },
   props: {
     title: {
@@ -234,6 +243,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     isSingleCard: {
       type: Boolean,
       default: false,
+    },
+    url: {
+      type: String,
+      default: '',
     },
   },
   data() {
