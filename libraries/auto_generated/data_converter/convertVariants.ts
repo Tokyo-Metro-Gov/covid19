@@ -19,14 +19,14 @@ export interface Dataset {
 
 export interface Data {
     l452R:            L452R;
-    variantTestCount: number; // 変異株PCR検査実施数
-    variantPcrRate:   number; // 変異株PCR検査実施割合
-    negativeRate:     number; // 変異株非陽性例構成割合
+    variantTestCount: number;
+    variantPcrRate:   number;
+    negativeRate:     number;
 }
 
 export interface L452R {
-    positiveCount: number; // L452R陽性例数
-    positiveRate:  number; // L452R陽性例構成割合
+    positiveCount: number;
+    positiveRate:  number;
 }
 
 export interface Period {

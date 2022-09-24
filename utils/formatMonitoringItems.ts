@@ -5,30 +5,26 @@ import { getCommaSeparatedNumberToFixedFunction } from '@/utils/monitoringStatus
 type DataKey =
   | '(1)新規陽性者数'
   | '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
-  | '(3)新規陽性者における接触歴等不明者（人数）'
-  | '(3)新規陽性者における接触歴等不明者（増加比）'
-  | '(4)PCR・抗原検査（陽性率）'
-  | '(4)PCR・抗原検査（検査人数）'
-  | '(5)救急医療の東京ルールの適用件数'
-  | '(6)入院患者数'
-  | '(6)入院患者確保病床数'
-  | '(7)重症患者数'
-  | '(7)重症患者確保病床数'
+  | '(3)PCR・抗原検査（陽性率）'
+  | '(3)PCR・抗原検査（検査人数）'
+  | '(4)救急医療の東京ルールの適用件数'
+  | '(5)入院患者数'
+  | '(5)入院患者確保病床数'
+  | '(6)重症患者数'
+  | '(6)重症患者確保病床数'
 
 type DataCommentKey = '総括コメント-感染状況' | '総括コメント-医療提供体制'
 
 type RawData = {
   '(1)新規陽性者数': number
   '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ': number
-  '(3)新規陽性者における接触歴等不明者（人数）': number
-  '(3)新規陽性者における接触歴等不明者（増加比）': number
-  '(4)PCR・抗原検査（陽性率）': number
-  '(4)PCR・抗原検査（検査人数）': number
-  '(5)救急医療の東京ルールの適用件数': number
-  '(6)入院患者数': number
-  '(6)入院患者確保病床数': number
-  '(7)重症患者数': number
-  '(7)重症患者確保病床数': number
+  '(3)PCR・抗原検査（陽性率）': number
+  '(3)PCR・抗原検査（検査人数）': number
+  '(4)救急医療の東京ルールの適用件数': number
+  '(5)入院患者数': number
+  '(5)入院患者確保病床数': number
+  '(6)重症患者数': number
+  '(6)重症患者確保病床数': number
 }
 
 interface Comment {
@@ -103,54 +99,40 @@ export const formatMonitoringItems = (rawDataObj: RawData): MonitoringItems => {
       unit: unitCalls,
       bold: true,
     },
-    '(3)新規陽性者における接触歴等不明者（人数）': {
-      value: toNumberIn10thPlace(
-        rawDataObj['(3)新規陽性者における接触歴等不明者（人数）']
-      ),
+    '(3)PCR・抗原検査（検査人数）': {
+      value: toNumberIn10thPlace(rawDataObj['(3)PCR・抗原検査（検査人数）']),
       unit: unitPerson,
       bold: true,
     },
-    '(3)新規陽性者における接触歴等不明者（増加比）': {
-      value: toNumberIn10thPlace(
-        rawDataObj['(3)新規陽性者における接触歴等不明者（増加比）']
-      ),
+    '(3)PCR・抗原検査（陽性率）': {
+      value: toNumberIn10thPlace(rawDataObj['(3)PCR・抗原検査（陽性率）']),
       unit: unitPercentage,
       bold: true,
     },
-    '(4)PCR・抗原検査（検査人数）': {
-      value: toNumberIn10thPlace(rawDataObj['(4)PCR・抗原検査（検査人数）']),
-      unit: unitPerson,
-      bold: true,
-    },
-    '(4)PCR・抗原検査（陽性率）': {
-      value: toNumberIn10thPlace(rawDataObj['(4)PCR・抗原検査（陽性率）']),
-      unit: unitPercentage,
-      bold: true,
-    },
-    '(5)救急医療の東京ルールの適用件数': {
+    '(4)救急医療の東京ルールの適用件数': {
       value: toNumberIn10thPlace(
-        rawDataObj['(5)救急医療の東京ルールの適用件数']
+        rawDataObj['(4)救急医療の東京ルールの適用件数']
       ),
       unit: unitCases,
       bold: true,
     },
-    '(6)入院患者数': {
-      value: toInteger(rawDataObj['(6)入院患者数']),
+    '(5)入院患者数': {
+      value: toInteger(rawDataObj['(5)入院患者数']),
       unit: unitPerson,
       bold: true,
     },
-    '(6)入院患者確保病床数': {
-      value: toInteger(rawDataObj['(6)入院患者確保病床数']),
+    '(5)入院患者確保病床数': {
+      value: toInteger(rawDataObj['(5)入院患者確保病床数']),
       unit: unitBed,
       bold: false,
     },
-    '(7)重症患者数': {
-      value: toInteger(rawDataObj['(7)重症患者数']),
+    '(6)重症患者数': {
+      value: toInteger(rawDataObj['(6)重症患者数']),
       unit: unitPerson,
       bold: true,
     },
-    '(7)重症患者確保病床数': {
-      value: toInteger(rawDataObj['(7)重症患者確保病床数']),
+    '(6)重症患者確保病床数': {
+      value: toInteger(rawDataObj['(6)重症患者確保病床数']),
       unit: unitBed,
       bold: false,
     },
