@@ -1,6 +1,5 @@
 <template>
   <data-view
-    :title="title"
     :title-id="titleId"
     :date="date"
     :head-title="title + infoTitles.join(',')"
@@ -116,13 +115,13 @@ import Vue from 'vue'
 import type { TranslateResult } from 'vue-i18n'
 
 import DataView from '@/components/index/_shared/DataView.vue'
-import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/index/_shared/DataViewTable.vue'
 import DateRangeSlider from '@/components/index/_shared/DateRangeSlider.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
+import DataViewDataSetPanel from '@/components/index/CardsMonitoring/UntrackedRate/DataViewDataSetPanel.vue'
 import { DisplayData } from '@/plugins/vue-chart'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
@@ -162,7 +161,6 @@ type Computed = {
 }
 
 type Props = {
-  title: string
   titleId: string
   infoTitles: string[]
   chartId: string
@@ -187,10 +185,6 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     OpenDataLink,
   },
   props: {
-    title: {
-      type: String,
-      default: '',
-    },
     titleId: {
       type: String,
       required: false,
