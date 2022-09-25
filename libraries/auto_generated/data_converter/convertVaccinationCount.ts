@@ -21,7 +21,7 @@ export interface Data {
     cumulative1StDose: number;
     cumulative2NdDose: number | null;
     cumulative3RDDose: number | null;
-    coverage1StDose:   number;
+    coverage1StDose:   number | null;
     coverage2NdDose:   number | null;
     coverage3RDDose:   number | null;
 }
@@ -183,7 +183,7 @@ const typeMap: any = {
         { json: "cumulative_1st_dose", js: "cumulative1StDose", typ: 0 },
         { json: "cumulative_2nd_dose", js: "cumulative2NdDose", typ: u(0, null) },
         { json: "cumulative_3rd_dose", js: "cumulative3RDDose", typ: u(0, null) },
-        { json: "coverage_1st_dose", js: "coverage1StDose", typ: 3.14 },
+        { json: "coverage_1st_dose", js: "coverage1StDose", typ: u(3.14, null) },
         { json: "coverage_2nd_dose", js: "coverage2NdDose", typ: u(3.14, null) },
         { json: "coverage_3rd_dose", js: "coverage3RDDose", typ: u(3.14, null) },
     ], false),
