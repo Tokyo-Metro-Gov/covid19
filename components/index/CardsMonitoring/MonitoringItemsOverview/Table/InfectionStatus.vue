@@ -47,7 +47,7 @@
             <value-with-translatable-unit
               :value="items['(4)PCR・抗原検査（陽性率）'].value"
               :unit="items['(4)PCR・抗原検査（陽性率）'].unit"
-              :bold="items['(4)PCR・抗原検査（検査人数）'].bold"
+              :bold="items['(4)PCR・抗原検査（陽性率）'].bold"
             />
           </div>
         </li>
