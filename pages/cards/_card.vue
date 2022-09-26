@@ -36,20 +36,20 @@ import TokyoFeverConsultationCenterReportsNumberCard from '@/components/index/Ca
 import VaccinationCard from '@/components/index/CardsFeatured/Vaccination/Card.vue'
 // モニタリング項目(2)#7119における発熱等相談件数
 import ConsultationAboutFeverNumberCard from '@/components/index/CardsMonitoring/ConsultationAboutFeverNumber/Card.vue'
-// モニタリング項目(6)入院患者数
+// モニタリング項目(5)入院患者数
 import HospitalizedNumberCard from '@/components/index/CardsMonitoring/HospitalizedNumber/Card.vue'
 // モニタリング項目(1)新規陽性者数
 import MonitoringConfirmedCasesNumberCard from '@/components/index/CardsMonitoring/MonitoringConfirmedCasesNumber/Card.vue'
 // ---- モニタリング項目
 // モニタリング項目
 import MonitoringItemsOverviewCard from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Card.vue'
-// モニタリング項目(4)検査の陽性率
+// モニタリング項目(3)検査の陽性率
 import PositiveRateCard from '@/components/index/CardsMonitoring/PositiveRate/Card.vue'
-// モニタリング項目(7)重症患者数
+// モニタリング項目(6)重症患者数
 import SevereCaseCard from '@/components/index/CardsMonitoring/SevereCase/Card.vue'
-// モニタリング項目(5)救急医療の東京ルールの適用件数
+// モニタリング項目(4)救急医療の東京ルールの適用件数
 import TokyoRulesApplicationNumberCard from '@/components/index/CardsMonitoring/TokyoRulesApplicationNumber/Card.vue'
-// モニタリング項目(3)新規陽性者における接触歴等不明者数
+// 新規陽性者における接触歴等不明者数
 import UntrackedRateCard from '@/components/index/CardsMonitoring/UntrackedRate/Card.vue'
 // 都庁来庁者数の推移
 import AgencyCard from '@/components/index/CardsReference/Agency/Card.vue'
@@ -177,27 +177,27 @@ export default class CardContainer extends Vue implements NuxtConfig {
         cardComponent = 'consultation-about-fever-number-card'
         cardCategory = 'monitoring'
         break
-      // モニタリング項目(3)新規陽性者における接触歴等不明者数
+      // 新規陽性者における接触歴等不明者数
       case 'untracked-rate':
         cardComponent = 'untracked-rate-card'
         cardCategory = 'monitoring'
         break
-      // モニタリング項目(4)検査の陽性率
+      // モニタリング項目(3)検査の陽性率
       case 'positive-rate':
         cardComponent = 'positive-rate-card'
         cardCategory = 'monitoring'
         break
-      // モニタリング項目(5)救急医療の東京ルールの適用件数
+      // モニタリング項目(4)救急医療の東京ルールの適用件数
       case 'number-of-tokyo-rules-applied':
         cardComponent = 'tokyo-rules-application-number-card'
         cardCategory = 'monitoring'
         break
-      // モニタリング項目(6)入院患者数
+      // モニタリング項目(5)入院患者数
       case 'number-of-hospitalized':
         cardComponent = 'hospitalized-number-card'
         cardCategory = 'monitoring'
         break
-      // モニタリング項目(7)重症患者数
+      // モニタリング項目(6)重症患者数
       case 'positive-status-severe-case':
         cardComponent = 'severe-case-card'
         cardCategory = 'monitoring'

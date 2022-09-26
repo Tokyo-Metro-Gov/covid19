@@ -2,7 +2,7 @@
   <v-col cols="12" :md="isSingleCard || 6" class="DataCard PositiveRateCard">
     <client-only>
       <chart
-        :title="$t('モニタリング項目(4)')"
+        :title="$t('モニタリング項目(3)')"
         :title-id="'positive-rate'"
         :info-titles="[$t('検査の陽性率'), $t('検査人数')]"
         :chart-id="'positive-rate-chart'"
