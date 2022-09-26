@@ -165,11 +165,13 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       )
     },
     filteredDailyPositiveDetailData() {
-      return this.dailyPositiveDetail.data.filter(
-        (d) =>
-          new Date(d.diagnosedDate) >= firstDiagnosedDate &&
-          new Date(d.diagnosedDate) <= lastDiagnosedDate
-      )
+      return this.dailyPositiveDetail.data.filter((d) => {
+        const diagnosedDate = new Date(d.diagnosedDate)
+        return (
+          diagnosedDate >= firstDiagnosedDate &&
+          diagnosedDate <= lastDiagnosedDate
+        )
+      })
     },
     dailyPositiveDetail() {
       return this.$store.state.dailyPositiveDetail
