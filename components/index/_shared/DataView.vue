@@ -9,6 +9,7 @@
         }"
       >
         <h3
+          v-if="title"
           class="DataView-Title"
           :class="
             !!$slots.infoPanel

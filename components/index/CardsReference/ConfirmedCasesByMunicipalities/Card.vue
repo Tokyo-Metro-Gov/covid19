@@ -9,6 +9,13 @@
         :info="info"
         :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000085'"
       >
+        <template #attentionNote>
+          {{
+            $t(
+              '「陽性者数（区市町村別）」 は、全数届出の見直しにより、 2022年9月26日(月曜日)分をもって更新を終了しました。'
+            )
+          }}
+        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>

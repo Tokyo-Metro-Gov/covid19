@@ -1,6 +1,5 @@
 <template>
   <data-view
-    :title="title"
     :title-id="titleId"
     :date="date"
     :head-title="title + infoTitles.join(',')"
@@ -78,6 +77,9 @@
         @end-date="endDate = $event"
       />
     </div>
+    <template #attentionNote>
+      <slot name="attentionNote" />
+    </template>
     <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
@@ -98,6 +100,9 @@
         :is-single-card="isSingleCard"
       />
     </template>
+    <template #footer>
+      <open-data-link v-show="url" :url="url" />
+    </template>
   </data-view>
 </template>
 
@@ -110,12 +115,13 @@ import Vue from 'vue'
 import type { TranslateResult } from 'vue-i18n'
 
 import DataView from '@/components/index/_shared/DataView.vue'
-import DataViewDataSetPanel from '@/components/index/_shared/DataViewDataSetPanel.vue'
 import DataViewTable, {
   TableHeader,
   TableItem,
 } from '@/components/index/_shared/DataViewTable.vue'
 import DateRangeSlider from '@/components/index/_shared/DateRangeSlider.vue'
+import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
+import DataViewDataSetPanel from '@/components/index/CardsMonitoring/UntrackedRate/DataViewDataSetPanel.vue'
 import { DisplayData } from '@/plugins/vue-chart'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'
@@ -155,7 +161,6 @@ type Computed = {
 }
 
 type Props = {
-  title: string
   titleId: string
   infoTitles: string[]
   chartId: string
@@ -168,6 +173,7 @@ type Props = {
   units: string[]
   dayPeriod: number
   isSingleCard: boolean
+  url: string
 }
 
 export default Vue.extend<Data, Methods, Computed, Props>({
@@ -176,12 +182,9 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     DataViewTable,
     DataViewDataSetPanel,
     DateRangeSlider,
+    OpenDataLink,
   },
   props: {
-    title: {
-      type: String,
-      default: '',
-    },
     titleId: {
       type: String,
       required: false,
@@ -234,6 +237,10 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     isSingleCard: {
       type: Boolean,
       default: false,
+    },
+    url: {
+      type: String,
+      default: '',
     },
   },
   data() {
