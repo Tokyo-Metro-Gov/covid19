@@ -25,12 +25,20 @@ export interface Data {
     国基準重症者数:         number;
     国基準重症病床数:        number;
     新規陽性者:           number;
-    検査数:             number;
-    検査統計日時:          Date;
+    検査数:             null;
+    検査統計日時:          null;
     うち65歳以上の高齢者数:    number;
     死亡者数:            number;
-    都外からの持込検体による陽性数: number;
-    ワクチン接種状況:        { [key: string]: number | null };
+    都外からの持込検体による陽性数: null;
+    ワクチン接種状況:        ワクチン接種状況;
+}
+
+export interface ワクチン接種状況 {
+    the3回接種: null;
+    the2回接種: null;
+    the1回接種: null;
+    接種なし:    null;
+    不明:      null;
 }
 
 // Converts JSON strings to/from your types
@@ -195,11 +203,18 @@ const typeMap: any = {
         { json: "国基準重症者数", js: "国基準重症者数", typ: 0 },
         { json: "国基準重症病床数", js: "国基準重症病床数", typ: 0 },
         { json: "新規陽性者", js: "新規陽性者", typ: 0 },
-        { json: "検査数", js: "検査数", typ: 0 },
-        { json: "検査統計日時", js: "検査統計日時", typ: Date },
+        { json: "検査数", js: "検査数", typ: null },
+        { json: "検査統計日時", js: "検査統計日時", typ: null },
         { json: "うち65歳以上の高齢者数", js: "うち65歳以上の高齢者数", typ: 0 },
         { json: "死亡者数", js: "死亡者数", typ: 0 },
-        { json: "都外からの持込検体による陽性数", js: "都外からの持込検体による陽性数", typ: 0 },
-        { json: "ワクチン接種状況", js: "ワクチン接種状況", typ: m(u(0, null)) },
+        { json: "都外からの持込検体による陽性数", js: "都外からの持込検体による陽性数", typ: null },
+        { json: "ワクチン接種状況", js: "ワクチン接種状況", typ: r("ワクチン接種状況") },
+    ], false),
+    "ワクチン接種状況": o([
+        { json: "3回接種", js: "the3回接種", typ: null },
+        { json: "2回接種", js: "the2回接種", typ: null },
+        { json: "1回接種", js: "the1回接種", typ: null },
+        { json: "接種なし", js: "接種なし", typ: null },
+        { json: "不明", js: "不明", typ: null },
     ], false),
 };
