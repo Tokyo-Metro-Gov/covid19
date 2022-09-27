@@ -14,6 +14,13 @@
         @on-change-items-per-page="onChangeItemsPerPage"
         @on-change-page="onChangePage"
       >
+        <template #attentionNote>
+          {{
+            $t(
+              '「陽性者の属性」 は、全数届出の見直しにより、 2022年9月26日(月曜日)分をもって更新を終了しました。'
+            )
+          }}
+        </template>
         <template #tableBody="{ items, headers }">
           <tbody>
             <tr v-for="(item, i) in items" :key="i">

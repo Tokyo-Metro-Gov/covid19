@@ -16,6 +16,13 @@
         :day-period="isSingleCard ? 120 : 60"
         :is-single-card="isSingleCard"
       >
+        <template #attentionNote>
+          {{
+            $t(
+              '「確定日別による陽性者数の推移」  は、全数届出の見直しにより、 2022年9月26日(月曜日)分をもって更新を終了しました。'
+            )
+          }}
+        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>

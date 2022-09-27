@@ -117,6 +117,9 @@
         </template>
       </v-data-table>
     </v-layout>
+    <template #attentionNote>
+      <slot name="attentionNote" />
+    </template>
     <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>

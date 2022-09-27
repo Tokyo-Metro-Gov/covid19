@@ -2,7 +2,6 @@
   <v-col cols="12" :md="isSingleCard || 6" class="DataCard UntrackedRateCard">
     <client-only>
       <chart
-        :title="$t('モニタリング項目(3)')"
         :title-id="'untracked-rate'"
         :info-titles="[$t('新規陽性者における接触歴等不明者数'), $t('増加比')]"
         :chart-id="'untracked-rate-chart'"
@@ -15,7 +14,15 @@
         :get-formatter="getFormatter"
         :day-period="isSingleCard ? 120 : 60"
         :is-single-card="isSingleCard"
+        url="https://catalog.data.metro.tokyo.lg.jp/dataset/t000001d0000000010"
       >
+        <template #attentionNote>
+          {{
+            $t(
+              '「新規陽性者における接触歴等不明者」 は、全数届出の見直しにより、 2022年9月26日(月曜日)分をもって更新を終了しました。'
+            )
+          }}
+        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
@@ -91,6 +98,7 @@ type Computed = {
 type Props = {}
 
 const firstDiagnosedDate = new Date('2020-03-27')
+const lastDiagnosedDate = new Date('2022-09-26')
 
 export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
@@ -157,9 +165,13 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       )
     },
     filteredDailyPositiveDetailData() {
-      return this.dailyPositiveDetail.data.filter(
-        (d) => new Date(d.diagnosedDate) >= firstDiagnosedDate
-      )
+      return this.dailyPositiveDetail.data.filter((d) => {
+        const diagnosedDate = new Date(d.diagnosedDate)
+        return (
+          diagnosedDate >= firstDiagnosedDate &&
+          diagnosedDate <= lastDiagnosedDate
+        )
+      })
     },
     dailyPositiveDetail() {
       return this.$store.state.dailyPositiveDetail

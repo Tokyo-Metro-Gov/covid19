@@ -2,7 +2,7 @@
   <v-col cols="12" :md="isSingleCard || 6" class="DataCard SevereCaseCard">
     <client-only>
       <chart
-        :title="$t('モニタリング項目(7)')"
+        :title="$t('モニタリング項目(6)')"
         title-id="positive-status-severe-case"
         :info-titles="[$t('重症患者数')]"
         chart-id="time-bar-chart-positive-status-severe-case"
