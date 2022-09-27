@@ -98,6 +98,7 @@ type Computed = {
 type Props = {}
 
 const firstDiagnosedDate = new Date('2020-03-27')
+const lastDiagnosedDate = new Date('2022-09-26')
 
 export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
@@ -164,9 +165,13 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       )
     },
     filteredDailyPositiveDetailData() {
-      return this.dailyPositiveDetail.data.filter(
-        (d) => new Date(d.diagnosedDate) >= firstDiagnosedDate
-      )
+      return this.dailyPositiveDetail.data.filter((d) => {
+        const diagnosedDate = new Date(d.diagnosedDate)
+        return (
+          diagnosedDate >= firstDiagnosedDate &&
+          diagnosedDate <= lastDiagnosedDate
+        )
+      })
     },
     dailyPositiveDetail() {
       return this.$store.state.dailyPositiveDetail

@@ -32,34 +32,6 @@
         />
       </div>
     </li>
-    <li :class="[$style.box]">
-      <div :class="$style.content">
-        <span>{{
-          $t('都外からの持込検体・他県陽性者登録センターによる陽性数')
-        }}</span>
-        <value-with-translatable-unit
-          :value="items['都外からの持込検体による陽性数'].toLocaleString()"
-          :unit="{
-            text: '件.cases',
-            translatable: true,
-            except: ['ja', 'ko', 'zh-cn', 'zh-tw', 'ja-basic'],
-          }"
-          :bold="true"
-        />
-      </div>
-    </li>
-    <li :class="[$style.box]">
-      <div :class="$style.content">
-        <span>{{
-          $t('検査数（{date}参考値（3日間移動平均））', { date: date })
-        }}</span>
-        <value-with-translatable-unit
-          :value="items['検査数'].toLocaleString()"
-          :unit="{ text: '件.reports', translatable: true }"
-          :bold="true"
-        />
-      </div>
-    </li>
   </ul>
 </template>
 

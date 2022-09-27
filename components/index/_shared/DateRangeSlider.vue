@@ -23,14 +23,17 @@
         </span>
         <input
           :id="`start-${id}`"
-          v-model="start"
+          :value="start"
           class="input-range-start"
           type="range"
           :min="min"
           :max="max"
           :step="step"
           :aria-valuetext="getDisplayDate(start)"
-          @change="$emit('start-date', getDateFormat($event.target.value))"
+          @change="
+            $emit('start-date', getDateFormat($event.target.value))
+            start = $event.target.value
+          "
         />
         <label
           :for="`end-${id}`"
@@ -52,14 +55,17 @@
         </span>
         <input
           :id="`end-${id}`"
-          v-model="end"
+          :value="end"
           type="range"
           class="input-range-end"
           :min="min"
           :max="max"
           :step="step"
           :aria-valuetext="getDisplayDate(end)"
-          @change="$emit('end-date', getDateFormat($event.target.value))"
+          @change="
+            $emit('end-date', getDateFormat($event.target.value))
+            end = $event.target.value
+          "
         />
       </div>
     </div>

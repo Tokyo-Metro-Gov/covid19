@@ -61,7 +61,7 @@ export interface MainSummaryChild {
 
 export interface PurpleChild {
     attr:      string;
-    value:     number;
+    value:     number | null;
     children?: FluffyChild[];
 }
 
@@ -279,7 +279,7 @@ const typeMap: any = {
     ], false),
     "PurpleChild": o([
         { json: "attr", js: "attr", typ: "" },
-        { json: "value", js: "value", typ: 0 },
+        { json: "value", js: "value", typ: u(0, null) },
         { json: "children", js: "children", typ: u(undefined, a(r("FluffyChild"))) },
     ], false),
     "FluffyChild": o([
