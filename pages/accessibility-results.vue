@@ -2,7 +2,7 @@
   <div class="Worker">
     <page-header :title="$t('ウェブアクセシビリティ試験結果')" />
     <static-card>
-      <section class="section">
+      <section id="results2021" class="section">
         <h3 class="section-title">
           {{
             $t(
@@ -941,7 +941,7 @@
       </section>
     </static-card>
     <static-card>
-      <section class="section">
+      <section id="results2022" class="section">
         <h3 class="section-title">
           {{
             $t(
@@ -1379,6 +1379,12 @@ export default Vue.extend({
   head(): MetaInfo {
     return {
       title: this.$t('ウェブアクセシビリティ試験結果') as string,
+    }
+  },
+  mounted() {
+    const hash = this.$route.hash
+    if (hash && hash.match(/^#.+$/)) {
+      this.$scrollTo(hash)
     }
   },
   methods: {
