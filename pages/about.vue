@@ -33,7 +33,7 @@
         <dt>{{ $t('適合レベル及び対応度') }}</dt>
         <dd>{{ $t('JIS X 8341-3:2016の適合レベルAAに準拠') }}</dd>
         <dt>{{ $t('目標を達成する期限') }}</dt>
-        <dd>{{ formatDate('2021-09-30') }}</dd>
+        <dd>{{ formatDate('2022-09-30') }}</dd>
         <dt>{{ $t('例外事項') }}</dt>
         <dd>
           <p>
@@ -65,8 +65,13 @@
         </dd>
         <dt>{{ $t('試験結果') }}</dt>
         <dd>
-          <app-link to="/accessibility-results">
+          <app-link to="/accessibility-results#results2021">
             {{ $t('ウェブアクセシビリティ試験結果（2021年度・日本語のみ）') }}
+          </app-link>
+        </dd>
+        <dd>
+          <app-link to="/accessibility-results#results2022">
+            {{ $t('ウェブアクセシビリティ試験結果（2022年度・日本語のみ）') }}
           </app-link>
         </dd>
         <dt>{{ $t('担当部署') }}</dt>

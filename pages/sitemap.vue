@@ -107,11 +107,11 @@
           :to="localePath('/accessibility-results')"
           class="Sitemap-titleLink"
         >
-          {{ $t('ウェブアクセシビリティ試験結果（2021年度）') }}
+          {{ $t('ウェブアクセシビリティ試験結果') }}
         </app-link>
       </h3>
       <p>
-        {{ $t('ウェブアクセシビリティ試験結果（2021年度）について') }}
+        {{ $t('ウェブアクセシビリティ試験結果について') }}
       </p>
     </static-card>
     <static-card>

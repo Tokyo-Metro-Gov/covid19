@@ -94,6 +94,10 @@ const config: NuxtConfig = {
       src: '@/plugins/axe',
       ssr: true,
     },
+    {
+      src: '@/plugins/vue-scrollto',
+      ssr: true,
+    },
   ],
   /*
    ** Nuxt.js dev-modules
