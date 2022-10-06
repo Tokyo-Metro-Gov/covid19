@@ -193,14 +193,7 @@ const config: NuxtConfig = {
         ]
       },
     },
-    postcss: {
-      preset: {
-        autoprefixer: {
-          // Built-in since nuxt@2.14.5
-          grid: 'autoplace',
-        },
-      },
-    },
+    postcss: false,
     extend(config) {
       // default externals option is undefined
       config.externals = [{ moment: 'moment' }]
