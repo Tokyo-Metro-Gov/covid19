@@ -262,7 +262,7 @@ export default Vue.extend({
         &:nth-child(odd) {
           th,
           td {
-            background: rgba($gray-4, 0.3);
+            background: rgb($gray-4 0.3);
           }
         }
       }

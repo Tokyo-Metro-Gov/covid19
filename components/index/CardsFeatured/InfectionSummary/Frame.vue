@@ -55,7 +55,7 @@ export default Vue.extend({
     font-style: normal;
     font-weight: 600;
     color: $gray-2;
-    padding: 10px 0 10px 0;
+    padding: 10px 0;
 
     @include font-size(14);
 

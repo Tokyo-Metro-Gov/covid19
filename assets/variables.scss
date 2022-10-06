@@ -17,7 +17,7 @@ $alert: #AD2121;
 
 // ==================
 // shadow
-$shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+$shadow: 0 0 2px rgb(0 0 0 / 15%);
 
 // ==================
 // break-points
@@ -109,7 +109,7 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
 }
 
 @mixin button-text($size: 'md', $font-size: 14) {
-  @if ($size == 'sm') {
+  @if  $size == 'sm' {
     padding: 5px 8px;
   } @else {
     padding: 24px 36px;
@@ -143,7 +143,7 @@ $chinese-hant: "PingFang TC", "Microsoft JhengHei", "Source Han Sans TC", "Noto 
   border: 0.5px solid $gray-4 !important;
   border-radius: 4px;
 
-  @if ($withDivider) {
+  @if  $withDivider {
     &::before {
       content: '';
       position: absolute;

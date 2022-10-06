@@ -62,13 +62,13 @@ export default Vue.extend({
   &-BodyContainer {
     margin-top: 12px;
 
-    @include card-container();
+    @include card-container;
 
     padding: 20px;
   }
 
   &-Body {
-    @include body-text();
+    @include body-text;
   }
 
   &-ButtonContainer {

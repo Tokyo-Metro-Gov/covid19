@@ -115,7 +115,7 @@ export default Vue.extend({
     color: $gray-2 !important;
     background: $gray-5;
     border-color: $gray-2 $gray-2 $gray-5 $gray-2;
-    border-width: 1px 1px 2px 1px;
+    border-width: 1px 1px 2px;
 
     &::before {
       background-color: transparent;

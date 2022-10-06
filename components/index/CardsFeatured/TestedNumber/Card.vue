@@ -140,7 +140,7 @@ export default {
   }
 
   &-v-icon {
-    color: currentColor !important;
+    color: currentcolor !important;
     margin-right: 4px;
     transition: none !important;
   }
