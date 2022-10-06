@@ -3,12 +3,12 @@
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の増加比は継続して100％を下回っている。今週の新規陽性者数は、連休中の検査数の減少等の影響を受けた数値となっており、その評価には注意が必要である。",
-                "@en": "The week-by-week change in new positive cases continues to fall below 100 percent. As the figures for new cases this week are affected by factors such as the drop in tests conducted during the three-day holiday, caution is required in the evaluation of the reported figures."
+                "@ja": "新規陽性者数の7日間平均は、連続して減少しているが、未だ高い水準である。\n今冬は、季節性インフルエンザと新型コロナウイルス感染症との同時流行が懸念されており、これらの流行状況に注意が必要である。\n",
+                "@en": "Although the 7-day moving average of new positive cases continues to decrease, it remains high. There is concern that this winter will bring with it the simultaneous spread of seasonal influenza and COVID-19. Therefore, there is the need to closely monitor the future spread of both."
             },
             {
-                "@ja": "入院患者数は減少し、オミクロン株の特性を踏まえた重症患者数も減少している。通常医療との両立を可能とするために、病床を柔軟に活用する必要がある。",
-                "@en": "The number of hospitalized patients is decreasing, and so is the number of severe patients as defined according to the characteristics of the Omicron variant. Flexible use of hospital beds is needed to ensure a balance between COVID and non-COVID healthcare."
+                "@ja": "今週新たに入院した患者数及び入院患者数はともに減少した。\n病床使用率や救急医療体制の状況などに応じて、通常医療とのバランスをとりながら、柔軟な病床運用を行っていく必要がある。\n",
+                "@en": "This week, the number of new hospital admissions and number of hospitalized patients both decreased. While maintaining a balance between COVID and non-COVID health care based on factors such as hospital bed occupancy rates and the status of the emergency medical care system, there is the need for flexible use of hospital beds."
             }
         ],
         "(1)新規陽性者数": 3563.4,
