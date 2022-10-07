@@ -92,10 +92,9 @@ export default Vue.extend({
 
 .LauguageSelector-Menu {
   // select 要素のリセット
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   background: transparent;
+
   // IEで矢印ボタンを消す
   &::-ms-expand {
     display: none;

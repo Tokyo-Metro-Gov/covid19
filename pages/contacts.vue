@@ -226,7 +226,7 @@ export default Vue.extend({
 <style lang="scss">
 .Contacts {
   &-Card {
-    @include card-container();
+    @include card-container;
 
     &-Table {
       width: 100%;
@@ -269,7 +269,7 @@ export default Vue.extend({
           border-top: none;
           border-left: none;
           border-right: none;
-          border-bottom: thin solid rgba(0, 0, 0, 0.12);
+          border-bottom: thin solid rgb(0 0 0 / 12%);
         }
 
         tr:last-child {
@@ -303,7 +303,7 @@ export default Vue.extend({
           }
 
           tr:not(:last-child) {
-            border-bottom: thin solid rgba(0, 0, 0, 0.12);
+            border-bottom: thin solid rgb(0 0 0 / 12%);
           }
         }
 

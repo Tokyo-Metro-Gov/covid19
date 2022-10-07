@@ -278,7 +278,6 @@ export default class Default extends Vue implements NuxtConfig {
 @include lessThan($small) {
   .naviContainer {
     position: sticky;
-    position: -webkit-sticky;
     top: 0;
     z-index: z-index-of(sp-navigation);
   }
@@ -294,7 +293,7 @@ export default class Default extends Vue implements NuxtConfig {
     height: 100%;
     border-right: 1px solid $gray-4;
     border-left: 1px solid $gray-4;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 2px rgb(0 0 0 / 15%);
     overscroll-behavior: contain;
   }
 }

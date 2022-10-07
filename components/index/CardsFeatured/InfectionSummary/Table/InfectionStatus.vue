@@ -60,5 +60,5 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" module>
-@import '@/assets/monitoringItemsTableCommon.scss';
+@import '@/assets/monitoringItemsTableCommon';
 </style>

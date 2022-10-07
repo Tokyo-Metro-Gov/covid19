@@ -2,7 +2,7 @@
   <data-view
     :title-id="titleId"
     :date="date"
-    :head-title="title + infoTitles.join(',')"
+    :head-title="infoTitles.join(',')"
   >
     <template #description>
       <slot name="description" />
@@ -53,7 +53,7 @@
       </li>
     </ul>
     <h4 :id="`${titleId}-graph`" class="visually-hidden">
-      {{ $t(`{title}のグラフ`, { title }) }}
+      {{ $t(`{title}のグラフ`, { title: infoTitles.join(',') }) }}
     </h4>
     <div v-show="canvas">
       <bar

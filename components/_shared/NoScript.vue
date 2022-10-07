@@ -54,7 +54,7 @@ export default Vue.extend({
   .noscript-body {
     position: fixed;
     bottom: 0;
-    color: rgba(0, 0, 0, 0.87);
+    color: rgb(0 0 0 / 87%);
   }
 }
 
@@ -77,7 +77,7 @@ export default Vue.extend({
 
 .noscript-body {
   @include font-size(13);
-  @include card-container();
+  @include card-container;
 
   background-color: #ffe200;
   border-radius: 4px;

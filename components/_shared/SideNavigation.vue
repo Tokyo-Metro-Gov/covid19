@@ -423,7 +423,7 @@ export default Vue.extend({
   position: relative;
 
   @include lessThan($small) {
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 2px rgb(0 0 0 / 15%);
   }
 }
 
@@ -533,7 +533,7 @@ export default Vue.extend({
 
 .SideNavigation-HeaderText {
   display: block;
-  margin: 10px 0 0 0;
+  margin: 10px 0 0;
 
   @include lessThan($small) {
     margin: 0 0 0 10px;

@@ -102,12 +102,12 @@ export default Vue.extend({
 * {
   // Chromeでbackgroundを印刷する設定
   // FirefoxはCSSでの設定では無理そうなので、いったん諦めました
-  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 .print-container {
   // v-containerの仕様のうち必要なものを書く
-  padding: 12px 12px 0 12px;
+  padding: 12px 12px 0;
   margin-right: auto;
   margin-left: auto;
 
