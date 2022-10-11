@@ -120,6 +120,7 @@ $default-boxdiff: 35px;
   * {
     box-sizing: border-box;
   }
+
   // override default styles
   padding-left: 0 !important;
 
@@ -157,6 +158,7 @@ $default-boxdiff: 35px;
     &:last-child {
       margin-left: 10px;
       text-align: right;
+
       // white-space: nowrap;
       flex-shrink: 1;
     }

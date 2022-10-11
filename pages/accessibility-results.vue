@@ -1445,7 +1445,7 @@ export default Vue.extend({
       border-top: none;
       border-left: none;
       border-right: none;
-      border-bottom: thin solid rgba(0, 0, 0, 0.12);
+      border-bottom: thin solid rgb(0 0 0 / 12%);
     }
 
     tr:last-child {
@@ -1464,7 +1464,7 @@ export default Vue.extend({
       }
 
       tr:not(:last-child) {
-        border-bottom: thin solid rgba(0, 0, 0, 0.12);
+        border-bottom: thin solid rgb(0 0 0 / 12%);
       }
     }
 

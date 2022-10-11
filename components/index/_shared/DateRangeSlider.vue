@@ -178,7 +178,7 @@ $h: 1.2rem;
   width: $h;
   height: $h;
   border-radius: 3em;
-  background: currentColor;
+  background: currentcolor;
   pointer-events: auto;
   cursor: pointer;
 }
@@ -192,7 +192,7 @@ input[type='range'] {
   &::-webkit-slider-runnable-track,
   &::-webkit-slider-thumb,
   & {
-    -webkit-appearance: none;
+    appearance: none;
   }
 
   &:focus {

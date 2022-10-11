@@ -288,7 +288,7 @@ export default Vue.extend({
     position: relative;
     padding: 4px;
     padding-right: 30px;
-    color: rgb(3, 3, 3);
+    color: rgb(3 3 3);
     border: solid 1px #eee;
     border-radius: 8px;
 
@@ -341,7 +341,7 @@ export default Vue.extend({
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 16px 8px 8px 8px;
+      padding: 16px 8px 8px;
       height: 100%;
 
       &:focus {
