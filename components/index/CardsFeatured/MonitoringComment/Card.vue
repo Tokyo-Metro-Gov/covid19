@@ -31,7 +31,7 @@
           </ul>
           <section class="MonitoringCommentFrame">
             <h4 class="MonitoringCommentFrame-title">{{ $t('感染状況') }}</h4>
-            <frame
+            <comment-frame
               :level="monitoringComment['総括コメント-感染状況'].level - 1"
               :comment="commentMonitoring('総括コメント-感染状況')"
             />
@@ -40,7 +40,7 @@
             <h4 class="MonitoringCommentFrame-title">
               {{ $t('医療提供体制') }}
             </h4>
-            <frame
+            <comment-frame
               :level="monitoringComment['総括コメント-医療提供体制'].level - 1"
               :comment="commentMonitoring('総括コメント-医療提供体制')"
             />
@@ -68,12 +68,12 @@ import Vue from 'vue'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
-import Frame from '@/components/index/CardsFeatured/MonitoringComment/Frame.vue'
 import monitoringItemsData from '@/data/monitoring_items.json'
 import {
   formatMonitoringComment,
   MonitoringComment,
 } from '@/utils/formatMonitoringItems'
+import CommentFrame from '~/components/index/CardsFeatured/MonitoringComment/CommentFrame.vue'
 import RandomImage from '~/components/index/CardsFeatured/MonitoringComment/RandomImage.vue'
 
 type CommentKey = {
@@ -84,7 +84,7 @@ export default Vue.extend({
   components: {
     AppLink,
     DataView,
-    Frame,
+    CommentFrame,
     RandomImage,
   },
   data(): {

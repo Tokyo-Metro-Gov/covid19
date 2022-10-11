@@ -146,3 +146,16 @@ timestamp,url,exists,status
 2022-09-01T09:20:03+09:00,https://covid19-kagawa.jp/,False,[Errno -2] Name or service not known
 2022-09-01T09:20:04+09:00,https://covid19-kochi.netlify.app/,False,404
 2022-09-01T09:20:07+09:00,https://stopcovid19.code4saga.org/,False,[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1131)
+2022-10-01T09:26:24+09:00,https://covid19.codeforaomori.org/,False,"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'covid19.codeforaomori.org'. (_ssl.c:1131)"
+2022-10-01T09:26:36+09:00,https://covid19.civictech.chiba.jp/,False,[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1131)
+2022-10-01T09:26:38+09:00,https://yachiyo-covid19.netlify.app/,False,404
+2022-10-01T09:28:52+09:00,https://niigata.stopcovid19.jp/,False,[Errno 110] Connection timed out
+2022-10-01T09:28:56+09:00,https://ishikawa-covid19.netlify.app/,False,404
+2022-10-01T09:28:58+09:00,https://stopcovid19.city.shizuoka.lg.jp/,False,[Errno -2] Name or service not known
+2022-10-01T09:28:59+09:00,https://mie.stopcovid19.jp/,False,[Errno -2] Name or service not known
+2022-10-01T09:28:59+09:00,https://stopcovid19.pref.shiga.jp/,False,"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'stopcovid19.pref.shiga.jp'. (_ssl.c:1131)"
+2022-10-01T09:29:03+09:00,https://stopcovid19.wakayama.jp/,False,410
+2022-10-01T09:29:09+09:00,https://kagawa.stopcovid19.jp/,False,[Errno -2] Name or service not known
+2022-10-01T09:29:09+09:00,https://covid19-kagawa.jp/,False,[Errno -2] Name or service not known
+2022-10-01T09:29:10+09:00,https://covid19-kochi.netlify.app/,False,404
+2022-10-01T09:29:14+09:00,https://stopcovid19.code4saga.org/,False,[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1131)

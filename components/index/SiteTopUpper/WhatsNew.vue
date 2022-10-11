@@ -105,7 +105,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .WhatsNew {
-  @include card-container();
+  @include card-container;
 
   padding: 5px 18px;
   margin-bottom: 10px;
@@ -121,7 +121,7 @@ export default Vue.extend({
       align-items: center;
       margin: 8px 12px 8px 0;
 
-      @include card-h2();
+      @include card-h2;
 
       &-icon {
         margin: 3px;
@@ -158,7 +158,7 @@ export default Vue.extend({
       }
 
       &-v-icon {
-        color: currentColor;
+        color: currentcolor;
         margin-right: 4px;
         transition: none;
       }
@@ -193,7 +193,7 @@ export default Vue.extend({
         flex: 0 1 auto;
 
         &-link {
-          @include text-link();
+          @include text-link;
         }
 
         .ExternalLinkIcon {

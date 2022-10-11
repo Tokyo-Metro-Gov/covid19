@@ -124,7 +124,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 
 <style lang="scss" scoped>
 .StayingPopulation {
-  @include card-container();
+  @include card-container;
 
   display: flex;
   align-items: center;
@@ -140,7 +140,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     display: flex;
     justify-content: space-between;
 
-    @include card-h2();
+    @include card-h2;
 
     .StayingPopulation-heading {
       flex: 1;

@@ -12,7 +12,7 @@ export default Vue.extend()
 
 <style lang="scss">
 .StaticCard {
-  @include card-container();
+  @include card-container;
   @include font-size(16);
 
   padding: 20px;
@@ -25,17 +25,17 @@ export default Vue.extend()
 
   h3,
   &-Heading1 {
-    @include card-h1();
+    @include card-h1;
   }
 
   h4,
   &-Heading2 {
-    @include card-h2();
+    @include card-h2;
   }
 
   h5,
   &-Heading3 {
-    @include card-h3();
+    @include card-h3;
   }
 
   p {

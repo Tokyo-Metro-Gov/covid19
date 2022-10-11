@@ -35,7 +35,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .StaticInfo {
-  @include card-container();
+  @include card-container;
 
   display: flex;
   justify-content: space-between;
