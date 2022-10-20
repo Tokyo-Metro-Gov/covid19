@@ -1,37 +1,37 @@
 {
-    "date": "2022\/10\/19 17:15",
+    "date": "2022\/10\/20 17:15",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "感染状況は改善傾向にあるが、引き続きその動向を注視する必要がある。新型コロナウイルスに感染したと疑う時の相談や検査・受診の方法等について、繰り返し都民に分かりやすく周知する必要がある。",
-                "@en": "The infection situation is improving but its trends must still be closely watched.\nIt is necessary to repeatedly provide the residents of Tokyo with easy-to-understand information concerning matters such as where to consult when they think they might be infected and how to receive tests and hospital examinations. "
+                "@ja": "新規陽性者数の7日間平均は11週間ぶりに増加し、今週先週比も100％を上回った。基本的な感染防止対策を徹底することにより、新規陽性者数をできる限り抑制していくとともに、早期のワクチン接種を呼び掛ける必要がある。",
+                "@en": "新規陽性者数の7日間平均は11週間ぶりに増加し、今週先週比も100％を上回った。基本的な感染防止対策を徹底することにより、新規陽性者数をできる限り抑制していくとともに、早期のワクチン接種を呼び掛ける必要がある。"
             },
             {
-                "@ja": "入院患者数は継続して減少している。今冬に向け、季節性インフルエンザと新型コロナウイルス感染症との同時流行を見据えた医療提供体制を確保していく必要がある。",
-                "@en": "The number of hospitalized patients continues to drop. However, in preparation for the upcoming winter season, it will be essential to secure a healthcare delivery system that can respond to a simultaneous spread of the seasonal flu and COVID-19. "
+                "@ja": "減少傾向が続いていた入院患者数は、今回はほぼ横ばいとなった。入院患者数が十分下がりきらないまま感染が拡大すると、医療提供体制に影響が生じることから、今後の動向を注視する必要がある。",
+                "@en": "減少傾向が続いていた入院患者数は、今回はほぼ横ばいとなった。入院患者数が十分下がりきらないまま感染が拡大すると、医療提供体制に影響が生じることから、今後の動向を注視する必要がある。\n"
             }
         ],
-        "(1)新規陽性者数": 3398.7,
-        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 61.7,
+        "(1)新規陽性者数": 3277.4,
+        "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ": 64.3,
         "(3)新規陽性者における接触歴等不明者（人数）": 4436,
         "(3)新規陽性者における接触歴等不明者（増加比）": 78.7,
-        "(4)PCR・抗原検査（陽性率）": 17.8,
-        "(4)PCR・抗原検査（検査人数）": 10707.3,
-        "(5)救急医療の東京ルールの適用件数": 86.4,
-        "(6)入院患者数": 1100,
-        "(6)入院患者確保病床数": 5190,
-        "(7)重症患者数": 11,
-        "(7)重症患者確保病床数": 267,
+        "(4)PCR・抗原検査（陽性率）": 17.2,
+        "(4)PCR・抗原検査（検査人数）": 10466.4,
+        "(5)救急医療の東京ルールの適用件数": 82.7,
+        "(6)入院患者数": 1139,
+        "(6)入院患者確保病床数": 4569,
+        "(7)重症患者数": 9,
+        "(7)重症患者確保病床数": 238,
         "総括コメント-感染状況": {
-            "date": "2022-10-12",
+            "date": "2022-10-19",
             "level": 2,
             "display": {
-                "@ja": "感染状況は改善傾向にあるが、注意が必要である",
-                "@en": "Although the infection situation is improving, caution against the virus is needed."
+                "@ja": "感染状況の推移に注意が必要である",
+                "@en": "Infection trends need to be closely observed."
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-10-12",
+            "date": "2022-10-19",
             "level": 2,
             "display": {
                 "@ja": "通常の医療との両立が可能な状況である",
