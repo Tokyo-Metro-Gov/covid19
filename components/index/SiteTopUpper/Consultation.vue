@@ -5,7 +5,9 @@
         class="Consultation"
         url="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/index.html"
         :text="
-          $t('ワクチン情報・変異株情報・検査情報等の新型コロナ関連情報はこちら')
+          $t(
+            '相談窓口・ワクチン情報・変異株情報・検査情報等の新型コロナ関連情報はこちら'
+          )
         "
         :btn-text="$t('新型コロナ保健医療情報ポータル')"
       />

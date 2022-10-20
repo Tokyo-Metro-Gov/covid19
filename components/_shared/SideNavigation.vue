@@ -260,7 +260,7 @@ export default Vue.extend({
           title: this.$t(
             '発熱症状がある方・新型コロナウイルス感染症が心配な方へ'
           ),
-          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/soudan/coronasodan.html',
+          link: 'https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/soudan/index.html',
           slug: 'covid19-info',
         },
         {
