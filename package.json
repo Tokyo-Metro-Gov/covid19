@@ -46,7 +46,7 @@
     "axe-core": "4.4.3",
     "chart.js": "2.9.4",
     "cross-env": "7.0.3",
-    "dayjs": "1.11.5",
+    "dayjs": "1.11.6",
     "netlify-lambda": "2.0.15",
     "nuxt": "2.15.8",
     "vue": "2.7.13",
@@ -56,8 +56,8 @@
     "vue-spinner": "1.0.4"
   },
   "devDependencies": {
-    "@babel/core": "7.19.3",
-    "@babel/runtime-corejs3": "7.19.4",
+    "@babel/core": "7.19.6",
+    "@babel/runtime-corejs3": "7.19.6",
     "@mdi/js": "7.0.96",
     "@nuxt/typescript-build": "2.1.0",
     "@nuxtjs/eslint-config": "11.0.0",
