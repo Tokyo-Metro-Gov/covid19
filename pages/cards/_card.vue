@@ -26,6 +26,8 @@ import InfectionSummaryCard from '@/components/index/CardsFeatured/InfectionSumm
 import MedicalCareSummaryCard from '@/components/index/CardsFeatured/MedicalCareSummary/Card.vue'
 // 感染状況・医療提供体制の分析
 import MonitoringCommentCard from '@/components/index/CardsFeatured/MonitoringComment/Card.vue'
+// 年代別新規陽性者数
+import PositiveNumberByAgeCard from '@/components/index/CardsFeatured/PositiveNumberByAge/Card.vue'
 // 新型コロナコールセンター相談件数
 import TelephoneAdvisoryReportsNumberCard from '@/components/index/CardsFeatured/TelephoneAdvisoryReportsNumber/Card.vue'
 // 検査実施件数
@@ -81,6 +83,7 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
     // ---- 注目の指標
     MedicalCareSummaryCard,
     InfectionSummaryCard,
+    PositiveNumberByAgeCard,
     ConfirmedCasesDetailsCard,
     MonitoringCommentCard,
     VaccinationCard,
@@ -124,6 +127,11 @@ export default class CardContainer extends Vue implements NuxtConfig {
       // 患者の発生状況等（サマリ）
       case 'infection-summary':
         cardComponent = 'infection-summary-card'
+        cardCategory = 'featured'
+        break
+      // 年代別新規陽性者数
+      case 'positive-number-by-age':
+        cardComponent = 'positive-number-by-age-card'
         cardCategory = 'featured'
         break
       // 検査陽性者の状況

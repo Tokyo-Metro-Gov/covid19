@@ -14,6 +14,9 @@ const MedicalCareSummaryCard = () =>
 // 患者の発生状況等（サマリ）
 const InfectionSummaryCard = () =>
   import('@/components/index/CardsFeatured/InfectionSummary/Card.vue')
+// 年代別新規陽性者数
+const PositiveNumberByAgeCard = () =>
+  import('@/components/index/CardsFeatured/PositiveNumberByAge/Card.vue')
 // 検査陽性者の状況
 const ConfirmedCasesDetailsCard = () =>
   import('@/components/index/CardsFeatured/ConfirmedCasesDetails/Card.vue')
@@ -52,6 +55,7 @@ export default Vue.extend({
     return {
       rows: [
         [MedicalCareSummaryCard, InfectionSummaryCard],
+        [PositiveNumberByAgeCard],
         [ConfirmedCasesDetailsCard, MonitoringItemsOverviewCard],
         [MonitoringCommentCard, VaccinationCard],
         [ConfirmedCasesNumberCard, TestedNumberCard],
