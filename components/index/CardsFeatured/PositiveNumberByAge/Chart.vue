@@ -21,6 +21,45 @@
         :width="300"
       />
     </div>
+    <v-row class="mt-2">
+      <v-col cols="12" md="6">
+        <v-menu
+          ref="menu"
+          v-model="datepicker"
+          :close-on-content-click="false"
+          transition="scale-transition"
+          offset-y
+          :min-width="290"
+        >
+          <template #activator="{ on, attrs }">
+            <v-text-field
+              v-model="dateFormatted"
+              :label="$t('表示日')"
+              :append-icon="mdiCalendar"
+              readonly
+              outlined
+              v-bind="attrs"
+              v-on="on"
+            />
+          </template>
+          <v-date-picker
+            v-model="pickerDate"
+            no-title
+            scrollable
+            :locale="$i18n.locale"
+            :allowed-dates="allowedDates"
+          >
+            <v-spacer />
+            <v-btn text color="primary" @click="datepicker = false">
+              Cancel
+            </v-btn>
+            <v-btn text color="primary" @click="$refs.menu.save(pickerDate)">
+              OK
+            </v-btn>
+          </v-date-picker>
+        </v-menu>
+      </v-col>
+    </v-row>
     <template #additionalDescription>
       <slot name="additionalDescription" />
     </template>
@@ -44,9 +83,9 @@
 </template>
 
 <script lang="ts">
+import { mdiCalendar } from '@mdi/js'
 import { ChartOptions } from 'chart.js'
-import dayjs, { extend } from 'dayjs'
-import isBetween from 'dayjs/plugin/isBetween'
+import dayjs from 'dayjs'
 import Vue, { PropType } from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import type { TranslateResult } from 'vue-i18n'
@@ -61,14 +100,18 @@ import DateRangeSlider from '@/components/index/_shared/DateRangeSlider.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 import { DataSets, DataSetsPoint } from '@/plugins/vue-chart'
 import { getGraphSeriesStyle } from '@/utils/colors'
-import { getNumberToLocaleStringFunction } from '~/utils/monitoringStatusValueFormatters'
-
-extend(isBetween)
+import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
 
 type Data = {
   canvas: boolean
+  datepicker: boolean
+  pickerDate: string
 }
-type Methods = {}
+
+type Methods = {
+  allowedDates: (val: any) => any
+}
 
 type Computed = {
   displayInfo: [
@@ -85,7 +128,6 @@ type Computed = {
   displayOption: ChartOptions
   tableHeaders: TableHeader[]
   tableDataItems: TableItem[]
-  selectedDate: string
 }
 
 type Props = {
@@ -191,12 +233,17 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       default: false,
     },
   },
-  data: () => ({
-    canvas: true,
-  }),
+  data() {
+    return {
+      canvas: true,
+      datepicker: false,
+      pickerDate: convertDatetimeToISO8601Format(this.displayValue.date),
+      mdiCalendar,
+    }
+  },
   computed: {
-    selectedDate() {
-      return dayjs(this.displayValue.date)
+    dateFormatted() {
+      return this.$d(new Date(this.pickerDate), 'date')
     },
     displayInfo() {
       return [
@@ -212,7 +259,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayData() {
       const style = getGraphSeriesStyle(1)[0]
       const dateIndex = this.dateLabels.findIndex((v) =>
-        dayjs(v).isSame(this.selectedDate, 'day')
+        dayjs(v).isSame(this.pickerDate, 'day')
       )
       return {
         labels: this.labels,
@@ -331,6 +378,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       canvas.setAttribute('role', 'img')
       canvas.setAttribute('aria-labelledby', labelledbyId)
     }
+  },
+  methods: {
+    allowedDates(val) {
+      const formatedDateLabels = this.dateLabels.map((v) =>
+        dayjs(v).format('YYYY-MM-DD')
+      )
+      return formatedDateLabels.some((v) => dayjs(v).isSame(val))
+    },
   },
 }
 
