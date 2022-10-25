@@ -6,13 +6,6 @@
         :title-id="'details-of-confirmed-cases'"
         :date="date"
       >
-        <template #attentionNote>
-          {{
-            $t(
-              '「自宅療養」「入院・療養等調整中」 「退院等」 は、全数届出の見直しにより、 2022年9月26日(月曜日)をもって公表を終了しました。'
-            )
-          }}
-        </template>
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
@@ -29,6 +22,9 @@
               </app-link>
             </li>
             <li>
+              {{ $t('「重症確保病床」は東京都基準の重症患者用確保病床数') }}
+            </li>
+            <li>
               {{ $t('チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
             </li>
             <li>
@@ -40,7 +36,7 @@
             </li>
           </ul>
         </template>
-        <confirmed-cases-details-table v-bind="confirmedCases" />
+        <confirmed-cases-details-table :items="statuses" />
         <div>
           <app-link
             :class="$style.button"
@@ -61,39 +57,54 @@
   </v-col>
 </template>
 
-<script>
-import dayjs from 'dayjs'
+<script lang="ts">
+import Vue from 'vue'
 
 import AppLink from '@/components/_shared/AppLink.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
 // table タグとの衝突を避けるため ConfirmedCasesDetailsTable とする
 import ConfirmedCasesDetailsTable from '@/components/index/CardsFeatured/ConfirmedCasesDetails/Table.vue'
-import Data from '@/data/data.json'
-import formatConfirmedCases from '@/utils/formatConfirmedCases'
+import {
+  Data as IPositiveStatusSummaryData,
+  PositiveStatusSummary as IPositiveStatusSummary,
+} from '@/libraries/auto_generated/data_converter/convertPositiveStatusSummary'
 
-const options = {
-  components: {
-    DataView,
-    ConfirmedCasesDetailsTable,
-    AppLink,
-    OpenDataLink,
-  },
-  data() {
-    const mainSummary = Data.main_summary
-    // 検査陽性者の状況
-    const confirmedCases = formatConfirmedCases(mainSummary)
-
-    const date = dayjs(mainSummary.children[0].date).format('YYYY/MM/DD HH:mm')
-
-    return {
-      confirmedCases,
-      date,
-    }
-  },
+type Data = {}
+type Methods = {
+  formatDate(date: Date): string
 }
+type Computed = {
+  statuses: IPositiveStatusSummaryData
+  date: string
+  positiveStatusSummary: IPositiveStatusSummary
+}
+type Props = {}
 
-export default options
+export default Vue.extend<Data, Methods, Computed, Props>({
+  components: {
+    AppLink,
+    DataView,
+    OpenDataLink,
+    ConfirmedCasesDetailsTable,
+  },
+  computed: {
+    statuses() {
+      return this.positiveStatusSummary.data
+    },
+    date() {
+      return this.positiveStatusSummary.date as string
+    },
+    positiveStatusSummary() {
+      return this.$store.state.positiveStatusSummary
+    },
+  },
+  methods: {
+    formatDate(date) {
+      return this.$d(new Date(date), 'date') as string
+    },
+  },
+})
 </script>
 
 <style lang="scss" module>
