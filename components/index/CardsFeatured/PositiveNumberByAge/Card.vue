@@ -86,57 +86,12 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       return this.positiveByAgegroupData.map((c) => Object.values(c.counts))
     },
     tableData() {
-      const countAge0 = this.positiveByAgegroupCount.map((c) => c['0歳'])
-      const countAge1to4 = this.positiveByAgegroupCount.map((c) => c['1-4歳'])
-      const countAge5to9 = this.positiveByAgegroupCount.map((c) => c['5-9歳'])
-      const countAge10to19 = this.positiveByAgegroupCount.map(
-        (c) => c['10-19歳']
-      )
-      const countAge20to29 = this.positiveByAgegroupCount.map(
-        (c) => c['20-29歳']
-      )
-      const countAge30to39 = this.positiveByAgegroupCount.map(
-        (c) => c['30-39歳']
-      )
-      const countAge40to49 = this.positiveByAgegroupCount.map(
-        (c) => c['40-49歳']
-      )
-      const countAge50to59 = this.positiveByAgegroupCount.map(
-        (c) => c['50-59歳']
-      )
-      const countAge60to64 = this.positiveByAgegroupCount.map(
-        (c) => c['60-64歳']
-      )
-      const countAge65to69 = this.positiveByAgegroupCount.map(
-        (c) => c['65-69歳']
-      )
-      const countAge70to79 = this.positiveByAgegroupCount.map(
-        (c) => c['70-79歳']
-      )
-      const countAge80to89 = this.positiveByAgegroupCount.map(
-        (c) => c['80-89歳']
-      )
-      const countAge90over = this.positiveByAgegroupCount.map(
-        (c) => c['90歳以上']
-      )
-      const countAgeUnknown = this.positiveByAgegroupCount.map((c) => c['不明'])
-
-      return [
-        countAge0,
-        countAge1to4,
-        countAge5to9,
-        countAge10to19,
-        countAge20to29,
-        countAge30to39,
-        countAge40to49,
-        countAge50to59,
-        countAge60to64,
-        countAge65to69,
-        countAge70to79,
-        countAge80to89,
-        countAge90over,
-        countAgeUnknown,
-      ]
+      const tableData: number[][] = []
+      this.labels.forEach((label) => {
+        const dataByLabel = this.positiveByAgegroupCount.map((c) => c[label])
+        tableData.push(dataByLabel)
+      })
+      return tableData
     },
     date() {
       return this.positiveByAgegroup.date
