@@ -10,7 +10,7 @@
         />
       </div>
     </li>
-    <li :class="[$style.box, $style.parent]">
+    <li :class="[$style.box]">
       <div :class="$style.content">
         <span>{{ $t('(5)入院患者数') }}</span>
         <value-with-translatable-unit
@@ -19,20 +19,8 @@
           :bold="items['(6)入院患者数'].bold"
         />
       </div>
-      <ul :class="$style.group">
-        <li :class="[$style.box]">
-          <div :class="$style.content">
-            <span>{{ $t('確保病床') }}</span>
-            <value-with-translatable-unit
-              :value="items['(6)入院患者確保病床数'].value"
-              :unit="items['(6)入院患者確保病床数'].unit"
-              :bold="items['(6)入院患者確保病床数'].bold"
-            />
-          </div>
-        </li>
-      </ul>
     </li>
-    <li :class="[$style.box, $style.parent]">
+    <li :class="[$style.box]">
       <div :class="$style.content">
         <span>{{ $t('(6)重症患者数') }}</span>
         <value-with-translatable-unit
@@ -41,18 +29,6 @@
           :bold="items['(7)重症患者数'].bold"
         />
       </div>
-      <ul :class="$style.group">
-        <li :class="[$style.box]">
-          <div :class="$style.content">
-            <span>{{ $t('確保病床') }}</span>
-            <value-with-translatable-unit
-              :value="items['(7)重症患者確保病床数'].value"
-              :unit="items['(7)重症患者確保病床数'].unit"
-              :bold="items['(7)重症患者確保病床数'].bold"
-            />
-          </div>
-        </li>
-      </ul>
     </li>
   </ul>
 </template>

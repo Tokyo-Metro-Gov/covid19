@@ -6,13 +6,6 @@
         title-id="monitoring-items-overview"
         :date="monitoringItemsData.date"
       >
-        <template #attentionNote>
-          {{
-            $t(
-              '「新規陽性者における接触歴等不明者」 は、全数届出の見直しにより、2022年9月26日(月曜日)をもって公表を終了しました。'
-            )
-          }}
-        </template>
         <template v-if="$route.path !== localePath('/monitoring')" #description>
           <app-link
             :to="localePath('/monitoring')"
