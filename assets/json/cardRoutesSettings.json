@@ -1,14 +1,7 @@
 [
   {
-    "path": "/cards/medical-care-summary",
-    "title": "本日の病床使用率等",
-    "category": "注目の指標",
-    "ogpWidth": 959,
-    "ogpHeight": 500
-  },
-  {
     "path": "/cards/infection-summary",
-    "title": "本日の患者の発生状況等",
+    "title": "本日の状況",
     "category": "注目の指標",
     "ogpWidth": 959,
     "ogpHeight": 500

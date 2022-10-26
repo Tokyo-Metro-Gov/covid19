@@ -9,6 +9,7 @@ import { MonitoringCommentImageRepository } from '@/libraries/repositories/Monit
 import { NewsRepository } from '@/libraries/repositories/NewsRepository'
 import { PositiveByAgegroupRepository } from '@/libraries/repositories/PositiveByAgegroupRepository'
 import { PositiveOver65Repository } from '@/libraries/repositories/PositiveOver65Repository'
+import { PositiveStatusSummaryRepository } from '@/libraries/repositories/PositiveStatusSummaryRepository'
 import { StayingPopulationRepository } from '@/libraries/repositories/StayingPopulationRepository'
 import { TokyoRuleRepository } from '@/libraries/repositories/TokyoRuleRepository'
 import { VaccinationCountRepository } from '@/libraries/repositories/VaccinationCountRepository'
@@ -30,4 +31,5 @@ export const state = () => ({
   variants: new VariantsRepository().data,
   positiveOver65: new PositiveOver65Repository().data,
   positiveByAgegroup: new PositiveByAgegroupRepository().data,
+  positiveStatusSummary: new PositiveStatusSummaryRepository().data,
 })
