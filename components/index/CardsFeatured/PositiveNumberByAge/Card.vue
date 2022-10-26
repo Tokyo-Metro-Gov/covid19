@@ -48,7 +48,7 @@ import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFo
 import { isSingleCard } from '@/utils/urls'
 
 type Data = {
-  getFormatter: (columnIndex: number) => (d: number) => string | undefined
+  getFormatter: () => (d: number) => string | undefined
 }
 type Methods = {}
 type Computed = {
