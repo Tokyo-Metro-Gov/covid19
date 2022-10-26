@@ -78,7 +78,7 @@ import Vue from 'vue'
 import AppLink from '@/components/_shared/AppLink.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
 import InfectionStatus from '@/components/index/CardsFeatured/InfectionSummary/Table/InfectionStatus.vue'
-import MedicalSystem from '@/components/index/CardsFeatured/MedicalCareSummary/Table/MedicalSystem.vue'
+import MedicalSystem from '@/components/index/CardsFeatured/InfectionSummary/Table/MedicalSystem.vue'
 import {
   Data as IInfectionMedicalCareSummaryData,
   InfectionMedicalcareSummary as IInfectionMedicalCareSummary,

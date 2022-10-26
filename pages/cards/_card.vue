@@ -22,8 +22,6 @@ import ConfirmedCasesNumberCard from '@/components/index/CardsFeatured/Confirmed
 import InfectionSummaryCard from '@/components/index/CardsFeatured/InfectionSummary/Card.vue'
 /* eslint-disable simple-import-sort/imports -- ブラウザでの表示順に合わせて各 card の component を import する */
 // ---- 注目の指標
-// 病床使用率等（サマリ）
-import MedicalCareSummaryCard from '@/components/index/CardsFeatured/MedicalCareSummary/Card.vue'
 // 感染状況・医療提供体制の分析
 import MonitoringCommentCard from '@/components/index/CardsFeatured/MonitoringComment/Card.vue'
 // 新型コロナコールセンター相談件数
@@ -79,7 +77,6 @@ import { getLinksLanguageAlternative } from '@/utils/i18nUtils'
 @Component({
   components: {
     // ---- 注目の指標
-    MedicalCareSummaryCard,
     InfectionSummaryCard,
     ConfirmedCasesDetailsCard,
     MonitoringCommentCard,
@@ -116,11 +113,6 @@ export default class CardContainer extends Vue implements NuxtConfig {
     switch (this.$route.params.card) {
       // NOTE: 以下，ブラウザでの表示順に合わせて条件分岐を行う
       // ---- 注目の指標
-      // 病床使用率等（サマリ）
-      case 'medical-care-summary':
-        cardComponent = 'medical-care-summary-card'
-        cardCategory = 'featured'
-        break
       // 患者の発生状況等（サマリ）
       case 'infection-summary':
         cardComponent = 'infection-summary-card'
