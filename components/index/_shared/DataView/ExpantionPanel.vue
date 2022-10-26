@@ -1,6 +1,10 @@
 <template>
   <div>
-    <custom-expansion-panel v-if="showDetails" :id="id" @click="toggleDetails">
+    <custom-expansion-panel
+      v-if="showDetails"
+      :id="id"
+      @click.self="toggleDetails"
+    >
       <template #icon>
         <v-icon size="2.4rem">{{ mdiChevronRight }}</v-icon>
       </template>
