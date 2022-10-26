@@ -2,26 +2,24 @@
   <v-col cols="12" md="6" class="DataCard InfectionSummaryCard">
     <client-only>
       <data-view
-        :title="
-          $t(`{date}の患者の発生状況等`, { date: formatDate(publicationDate) })
-        "
+        :title="$t(`{date}の状況`, { date: formatDate(publicationDate) })"
         title-id="infection-summary"
         :date="date"
       >
-        <template #attentionNote>
-          <i18n
-            path="「都外からの持込検体・他県陽性者登録センターによる陽性数」及び新規陽性者の「ワクチン接種状況」 は、全数届出の見直しにより、 2022年9月26日(月曜日)をもって公表を終了しました。なお、検査件数の詳細は{fukushi_web}をご覧ください。"
-          >
-            <template #fukushi_web>
-              <app-link
-                to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/kensa/kensuu.html"
-              >
-                {{ $t('福祉保健局のページ') }}
-              </app-link>
-            </template>
-          </i18n>
-        </template>
         <section :class="$style.section">
+          <h4>{{ $t('病床使用率等') }}</h4>
+          <medical-system :items="statuses" />
+          <div :class="$style.link">
+            <v-icon color="#D9D9D9">{{ mdiChevronRight }}</v-icon>
+            <app-link
+              to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/kunishihyou.html"
+            >
+              {{ $t('国の新しいレベル分類のための指標について') }}
+            </app-link>
+          </div>
+        </section>
+        <section :class="$style.section">
+          <h4>{{ $t('患者の発生状況等') }}</h4>
           <infection-status
             :items="statuses"
             :date="formatDate(statisticDate)"
@@ -42,6 +40,20 @@
         <template #additionalDescription>
           <span>{{ $t('（注）') }}</span>
           <ul>
+            <li>
+              {{
+                $t(
+                  '病床使用率等の分母の病床数は現時点の確保見込数（「国基準 重症者用病床使用率」の分母の病床数は最大確保見込数）、分子の人数は確保病床を使用している人数'
+                )
+              }}
+            </li>
+            <li>
+              {{
+                $t(
+                  'オミクロン株の特性を踏まえた重症者数は、特定集中治療室管理料又は救命救急入院料を算定する病床の患者数及び人工呼吸器又はＥＣＭＯの装着又はハイフローセラピーを実施する患者数'
+                )
+              }}
+            </li>
             <li>
               {{ $t('新規陽性者数は総数のみの集計である') }}
             </li>
@@ -66,6 +78,7 @@ import Vue from 'vue'
 import AppLink from '@/components/_shared/AppLink.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
 import InfectionStatus from '@/components/index/CardsFeatured/InfectionSummary/Table/InfectionStatus.vue'
+import MedicalSystem from '@/components/index/CardsFeatured/InfectionSummary/Table/MedicalSystem.vue'
 import {
   Data as IInfectionMedicalCareSummaryData,
   InfectionMedicalcareSummary as IInfectionMedicalCareSummary,
@@ -91,6 +104,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     AppLink,
     DataView,
     InfectionStatus,
+    MedicalSystem,
   },
   data() {
     return {
