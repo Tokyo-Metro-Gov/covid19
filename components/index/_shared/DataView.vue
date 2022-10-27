@@ -73,7 +73,7 @@
           ]"
           :aria-expanded="[isAdditionalDescriptionExpanded ? true : false]"
           :aria-controls="titleId + '--description'"
-          @click="toggleDescription"
+          @click.stop="toggleDescription"
         >
           <span class="DataView-Description--Toggle__Icon">
             <v-icon
