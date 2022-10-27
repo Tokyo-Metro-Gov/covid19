@@ -17,7 +17,7 @@
         :unit="$t('人')"
         :table-labels="labels"
         :date-labels="dateLabels"
-        :display-value="displayValue"
+        :display-values="displayValues"
         :url="''"
         :day-period="isSingleCard ? 120 : 60"
         :is-single-card="isSingleCard"
@@ -43,7 +43,6 @@ import {
   Datum as IDatum,
   PositiveByAgegroup as IPositiveByAgegroup,
 } from '@/libraries/auto_generated/data_converter/convertPositiveByAgegroup'
-import { convertDateToISO8601Format } from '@/utils/formatDate'
 import { getNumberToLocaleStringFunction } from '@/utils/monitoringStatusValueFormatters'
 import { isSingleCard } from '@/utils/urls'
 
@@ -57,10 +56,7 @@ type Computed = {
   date: string
   labels: string[]
   dateLabels: Date[]
-  displayValue: {
-    value: number
-    date: string
-  }
+  displayValues: number[]
   positiveByAgegroupCount: { [key: string]: number }[]
   positiveByAgegroupData: IDatum[]
   positiveByAgegroup: IPositiveByAgegroup
@@ -102,13 +98,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     dateLabels() {
       return this.positiveByAgegroupData.map((d) => d.date)
     },
-    displayValue() {
-      const lastData =
-        this.positiveByAgegroupData[this.positiveByAgegroupData.length - 1]
-      return {
-        value: lastData.total,
-        date: convertDateToISO8601Format(lastData.date),
-      }
+    displayValues() {
+      return this.positiveByAgegroupData.map((d) => d.total)
     },
     positiveByAgegroupCount() {
       return this.positiveByAgegroupData.map((d) => d.counts)

@@ -143,10 +143,7 @@ type Props = {
   url: string
   tableLabels: string[] | TranslateResult[]
   dateLabels: Date[]
-  displayValue: {
-    value: number
-    date: string
-  }
+  displayValues: number[]
   dayPeriod: number
   isSingleCard: boolean
 }
@@ -220,9 +217,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => [],
     },
-    displayValue: {
-      type: Object,
-      default: () => {},
+    displayValues: {
+      type: Array,
+      default: () => [],
     },
     dayPeriod: {
       type: Number,
@@ -237,7 +234,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     return {
       canvas: true,
       datepicker: false,
-      pickerDate: convertDatetimeToISO8601Format(this.displayValue.date),
+      pickerDate: convertDatetimeToISO8601Format(
+        this.dateLabels[this.dateLabels.length - 1]
+      ),
       mdiCalendar,
     }
   },
@@ -246,11 +245,14 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       return this.$d(new Date(this.pickerDate), 'date')
     },
     displayInfo() {
+      const dateIndex = this.dateLabels.findIndex((v) =>
+        dayjs(v).isSame(this.pickerDate, 'day')
+      )
       return [
         {
-          lText: this.displayValue.value.toLocaleString(),
+          lText: this.displayValues[dateIndex].toLocaleString(),
           sText: `${this.$t('{date} の合計', {
-            date: this.$d(new Date(this.displayValue.date), 'date'),
+            date: this.$d(new Date(this.pickerDate), 'date'),
           })}`,
           unit: this.unit,
         },
