@@ -49,8 +49,6 @@ import PositiveRateCard from '@/components/index/CardsMonitoring/PositiveRate/Ca
 import SevereCaseCard from '@/components/index/CardsMonitoring/SevereCase/Card.vue'
 // モニタリング項目(4)救急医療の東京ルールの適用件数
 import TokyoRulesApplicationNumberCard from '@/components/index/CardsMonitoring/TokyoRulesApplicationNumber/Card.vue'
-// 新規陽性者における接触歴等不明者数
-import UntrackedRateCard from '@/components/index/CardsMonitoring/UntrackedRate/Card.vue'
 // 都庁来庁者数の推移
 import AgencyCard from '@/components/index/CardsReference/Agency/Card.vue'
 // ---- その他 参考指標
@@ -70,6 +68,8 @@ import PositiveNumberByDevelopedDateCard from '@/components/index/CardsReference
 import PositiveNumberByDiagnosedDateCard from '@/components/index/CardsReference/PositiveNumberByDiagnosedDate/Card.vue'
 // 報告日別による陽性者数（65歳以上）の推移
 import PositiveNumberOver65Card from '@/components/index/CardsReference/PositiveNumberOver65/Card.vue'
+// 新規陽性者における接触歴等不明者数
+import UntrackedRateCard from '@/components/index/CardsReference/UntrackedRate/Card.vue'
 // L452R変異株スクリーニングの実施状況
 import VariantCard from '@/components/index/CardsReference/Variant/Card.vue'
 import { convertDateToSimpleFormat } from '@/utils/formatDate'
