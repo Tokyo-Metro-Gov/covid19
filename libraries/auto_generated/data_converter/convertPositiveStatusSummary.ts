@@ -14,16 +14,16 @@ export interface PositiveStatusSummary {
 
 export interface Data {
     日付:        Date;
-    陽性者数累計:    number;
-    入院中:       number;
-    軽症中等症:    number;
-    確保病床:      number;
-    重症:        number;
-    確保病床重症:    number;
-    宿泊療養:      number;
-    受入可能室数:    number;
-    感染拡大時療養施設: number;
-    死亡:        number;
+    陽性者数累計:    number | null;
+    入院中:       number | null;
+    '軽症・中等症':    number | null;
+    確保病床:      number | null;
+    重症:        number | null;
+    確保病床重症:    number | null;
+    宿泊療養:      number | null;
+    受入可能室数:    number | null;
+    感染拡大時療養施設: number | null;
+    死亡:        number | null;
 }
 
 // Converts JSON strings to/from your types
@@ -177,15 +177,15 @@ const typeMap: any = {
     ], false),
     "Data": o([
         { json: "日付", js: "日付", typ: Date },
-        { json: "陽性者数（累計）", js: "陽性者数累計", typ: 0 },
-        { json: "入院中", js: "入院中", typ: 0 },
-        { json: "軽症・中等症", js: "軽症中等症", typ: 0 },
-        { json: "確保病床", js: "確保病床", typ: 0 },
-        { json: "重症", js: "重症", typ: 0 },
-        { json: "確保病床（重症）", js: "確保病床重症", typ: 0 },
-        { json: "宿泊療養", js: "宿泊療養", typ: 0 },
-        { json: "受入可能室数", js: "受入可能室数", typ: 0 },
-        { json: "感染拡大時療養施設", js: "感染拡大時療養施設", typ: 0 },
-        { json: "死亡", js: "死亡", typ: 0 },
+        { json: "陽性者数（累計）", js: "陽性者数累計", typ: u(0, null) },
+        { json: "入院中", js: "入院中", typ: u(0, null) },
+        { json: "軽症・中等症", js: "軽症・中等症", typ: u(0, null) },
+        { json: "確保病床", js: "確保病床", typ: u(0, null) },
+        { json: "重症", js: "重症", typ: u(0, null) },
+        { json: "確保病床（重症）", js: "確保病床重症", typ: u(0, null) },
+        { json: "宿泊療養", js: "宿泊療養", typ: u(0, null) },
+        { json: "受入可能室数", js: "受入可能室数", typ: u(0, null) },
+        { json: "感染拡大時療養施設", js: "感染拡大時療養施設", typ: u(0, null) },
+        { json: "死亡", js: "死亡", typ: u(0, null) },
     ], false),
 };
