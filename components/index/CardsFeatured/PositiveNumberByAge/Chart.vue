@@ -50,10 +50,10 @@
             :allowed-dates="allowedDates"
           >
             <v-spacer />
-            <v-btn text color="primary" @click="datepicker = false">
+            <v-btn text color="#008830" @click="datepicker = false">
               Cancel
             </v-btn>
-            <v-btn text color="primary" @click="$refs.menu.save(pickerDate)">
+            <v-btn text color="#008830" @click="$refs.menu.save(pickerDate)">
               OK
             </v-btn>
           </v-date-picker>
