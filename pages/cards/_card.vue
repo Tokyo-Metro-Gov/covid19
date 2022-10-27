@@ -177,11 +177,6 @@ export default class CardContainer extends Vue implements NuxtConfig {
         cardComponent = 'consultation-about-fever-number-card'
         cardCategory = 'monitoring'
         break
-      // 新規陽性者における接触歴等不明者数
-      case 'untracked-rate':
-        cardComponent = 'untracked-rate-card'
-        cardCategory = 'monitoring'
-        break
       // モニタリング項目(3)検査の陽性率
       case 'positive-rate':
         cardComponent = 'positive-rate-card'
@@ -246,6 +241,11 @@ export default class CardContainer extends Vue implements NuxtConfig {
       // 都庁来庁者数の推移
       case 'agency':
         cardComponent = 'agency-card'
+        cardCategory = 'reference'
+        break
+      // 新規陽性者における接触歴等不明者数
+      case 'untracked-rate':
+        cardComponent = 'untracked-rate-card'
         cardCategory = 'reference'
         break
       // 受診相談窓口における相談件数
