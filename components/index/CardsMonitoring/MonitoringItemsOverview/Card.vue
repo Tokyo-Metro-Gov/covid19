@@ -4,7 +4,7 @@
       <data-view
         :title="$t('モニタリング項目')"
         title-id="monitoring-items-overview"
-        :date="monitoringItemsData.date"
+        :date="date"
       >
         <template v-if="$route.path !== localePath('/monitoring')" #description>
           <app-link
@@ -66,14 +66,19 @@
           <h4>{{ $t('感染状況') }}</h4>
           <infection-status
             :aria-label="$t('感染状況')"
-            :items="monitoringItems"
+            :daily-positive="dailyPositiveDetailLastItem"
+            :consultation="consultationAboutFeverLastItem"
+            :positive-rate-percent="positiveRatePercentLastItem"
+            :positive-rate-people="positiveRatePeopleLastItem"
           />
         </section>
         <section :class="$style.section">
           <h4>{{ $t('医療提供体制') }}</h4>
           <medical-system
             :aria-label="$t('医療提供体制')"
-            :items="monitoringItems"
+            :tokyo-rule="tokyoRuleLastItem"
+            :positive-hospitalized="positiveHospitalizedLastItem"
+            :positive-serve="positiveServeLastItem"
           />
         </section>
         <div :class="$style['button-wrap']">
@@ -97,29 +102,140 @@
   </v-col>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+
 import AppLink from '@/components/_shared/AppLink.vue'
 import DataView from '@/components/index/_shared/DataView.vue'
 import InfectionStatus from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/InfectionStatus.vue'
 import MedicalSystem from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/MedicalSystem.vue'
-import monitoringItemsData from '@/data/monitoring_items.json'
-import { formatMonitoringItems } from '@/utils/formatMonitoringItems'
+import {
+  ConsultationAboutFever as IConsultationAboutFever,
+  Datum as IConsultationAboutFeverDatum,
+} from '@/libraries/auto_generated/data_converter/convertConsultationAboutFever'
+import {
+  DailyPositiveDetail as IDailyPositiveDetail,
+  Datum as IDailyPositiveDetailDatum,
+} from '@/libraries/auto_generated/data_converter/convertDailyPositiveDetail'
+import { MonitoringItems as IMonitoringItems } from '@/libraries/auto_generated/data_converter/convertMonitoringItems'
+import {
+  Datum as IPositiveRateDatum,
+  PositiveRate as IPositiveRate,
+} from '@/libraries/auto_generated/data_converter/convertPositiveRate'
+import {
+  Datum as IPositiveStatusDatum,
+  PositiveStatus as IPositiveStatus,
+} from '@/libraries/auto_generated/data_converter/convertPositiveStatus'
+import {
+  Datum as ITokyoRuleDatum,
+  TokyoRule as ITokyoRule,
+} from '@/libraries/auto_generated/data_converter/convertTokyoRule'
 
-export default {
+type Data = {}
+
+type Methods = {}
+
+type Computed = {
+  date: string
+  dailyPositiveDetailData: IDailyPositiveDetailDatum[]
+  consultationAboutFeverData: IConsultationAboutFeverDatum[]
+  positiveRateData: IPositiveRateDatum[]
+  tokyoRuleData: ITokyoRuleDatum[]
+  positiveStatusData: IPositiveStatusDatum[]
+  monitoringItems: IMonitoringItems
+  dailyPositiveDetail: IDailyPositiveDetail
+  consultationAboutFever: IConsultationAboutFever
+  positiveRate: IPositiveRate
+  tokyoRule: ITokyoRule
+  positiveStatus: IPositiveStatus
+  dailyPositiveDetailLastItem: number | null
+  consultationAboutFeverLastItem: number | null
+  positiveRatePercentLastItem: number | null
+  positiveRatePeopleLastItem: number | null
+  tokyoRuleLastItem: number | null
+  positiveHospitalizedLastItem: number | null
+  positiveServeLastItem: number | null
+}
+
+type Props = {}
+
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     DataView,
     InfectionStatus,
     MedicalSystem,
     AppLink,
   },
-  data() {
-    const monitoringItems = formatMonitoringItems(monitoringItemsData.data)
-    return {
-      monitoringItemsData,
-      monitoringItems,
-    }
+
+  computed: {
+    date() {
+      return this.monitoringItems.date
+    },
+    dailyPositiveDetailData() {
+      return this.dailyPositiveDetail.data
+    },
+    consultationAboutFeverData() {
+      return this.consultationAboutFever.data
+    },
+    positiveRateData() {
+      return this.positiveRate.data
+    },
+    tokyoRuleData() {
+      return this.tokyoRule.data
+    },
+    positiveStatusData() {
+      return this.positiveStatus.data
+    },
+    monitoringItems() {
+      return this.$store.state.monitoringItems
+    },
+    dailyPositiveDetail() {
+      return this.$store.state.dailyPositiveDetail
+    },
+    consultationAboutFever() {
+      return this.$store.state.consultationAboutFever
+    },
+    positiveRate() {
+      return this.$store.state.positiveRate
+    },
+    tokyoRule() {
+      return this.$store.state.tokyoRule
+    },
+    positiveStatus() {
+      return this.$store.state.positiveStatus
+    },
+    dailyPositiveDetailLastItem() {
+      return this.dailyPositiveDetailData[
+        this.dailyPositiveDetailData.length - 1
+      ].weeklyAverageCount
+    },
+    consultationAboutFeverLastItem() {
+      return this.consultationAboutFeverData[
+        this.consultationAboutFeverData.length - 1
+      ].weeklyAverageCount
+    },
+    positiveRatePercentLastItem() {
+      return this.positiveRateData[this.positiveRateData.length - 1]
+        .positiveRate
+    },
+    positiveRatePeopleLastItem() {
+      return this.positiveRateData[this.positiveRateData.length - 1]
+        .weeklyAverageDiagnosedCount
+    },
+    tokyoRuleLastItem() {
+      return this.tokyoRuleData[this.tokyoRuleData.length - 1]
+        .weeklyAverageCount
+    },
+    positiveHospitalizedLastItem() {
+      return this.positiveStatusData[this.positiveStatusData.length - 1]
+        .hospitalized
+    },
+    positiveServeLastItem() {
+      return this.positiveStatusData[this.positiveStatusData.length - 1]
+        .severeCase
+    },
   },
-}
+})
 </script>
 
 <style lang="scss" module>

@@ -6,8 +6,11 @@ import { FeverConsultationCenterRepository } from '@/libraries/repositories/Feve
 import { InfectionMedicalCareSummaryRepository } from '@/libraries/repositories/InfectionMedicalCareSummaryRepository'
 import { MetroRepository } from '@/libraries/repositories/MetroRepository'
 import { MonitoringCommentImageRepository } from '@/libraries/repositories/MonitoringCommentImageRepository'
+import { MonitoringItemsRepository } from '@/libraries/repositories/MonitoringItemsRepository'
 import { NewsRepository } from '@/libraries/repositories/NewsRepository'
 import { PositiveOver65Repository } from '@/libraries/repositories/PositiveOver65Repository'
+import { PositiveRateRepository } from '@/libraries/repositories/PositiveRateRepository'
+import { PositiveStatusRepository } from '@/libraries/repositories/PositiveStatusRepository'
 import { StayingPopulationRepository } from '@/libraries/repositories/StayingPopulationRepository'
 import { TokyoRuleRepository } from '@/libraries/repositories/TokyoRuleRepository'
 import { VaccinationCountRepository } from '@/libraries/repositories/VaccinationCountRepository'
@@ -28,4 +31,7 @@ export const state = () => ({
   vaccination: new VaccinationCountRepository().data,
   variants: new VariantsRepository().data,
   positiveOver65: new PositiveOver65Repository().data,
+  positiveRate: new PositiveRateRepository().data,
+  positiveStatus: new PositiveStatusRepository().data,
+  monitoringItems: new MonitoringItemsRepository().data,
 })

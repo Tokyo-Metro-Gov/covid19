@@ -1,9 +1,8 @@
 <template>
   <span :class="$style.parent">
-    <span v-if="bold"
+    <span
       ><strong>{{ value }}</strong></span
     >
-    <span v-else>{{ value }}</span>
     <span v-if="translatedUnit">{{ translatedUnit }}</span>
   </span>
 </template>
@@ -22,10 +21,6 @@ export default Vue.extend({
     },
     unit: {
       type: Object as PropType<Unit>,
-      required: true,
-    },
-    bold: {
-      type: Boolean,
       required: true,
     },
   },
