@@ -5,7 +5,7 @@
       class="custom-expansion-panel-button"
       :aria-expanded="`${isOpen}`"
       :aria-controls="`${id}-content`"
-      @click="clickButton"
+      @click.stop="clickButton"
     >
       <span
         class="custom-expansion-panel-icon"

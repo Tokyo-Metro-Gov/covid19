@@ -121,7 +121,7 @@ import DataViewTable, {
 } from '@/components/index/_shared/DataViewTable.vue'
 import DateRangeSlider from '@/components/index/_shared/DateRangeSlider.vue'
 import OpenDataLink from '@/components/index/_shared/OpenDataLink.vue'
-import DataViewDataSetPanel from '@/components/index/CardsMonitoring/UntrackedRate/DataViewDataSetPanel.vue'
+import DataViewDataSetPanel from '@/components/index/CardsReference/UntrackedRate/DataViewDataSetPanel.vue'
 import { DisplayData } from '@/plugins/vue-chart'
 import calcDayBeforeRatio from '@/utils/calcDayBeforeRatio'
 import { getGraphSeriesColor, SurfaceStyle } from '@/utils/colors'

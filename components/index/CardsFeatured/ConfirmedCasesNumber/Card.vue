@@ -17,22 +17,10 @@
         :day-period="isSingleCard ? 120 : 60"
         :is-single-card="isSingleCard"
       >
-        <template #description>
-          <app-link
-            :to="`${
-              $i18n.locale !== 'ja' ? $i18n.locale : ''
-            }/cards/positive-number-by-developed-date`"
-            class="Description-Link"
-          >
-            {{ $t('発症日別による陽性者数の推移はこちら') }}
-          </app-link>
-        </template>
         <template #additionalDescription>
-          <div class="Description-ExternalLink">
-            <app-link
-              to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/todokedehcyouseisya.html"
-            >
-              {{ $t('65歳以上の新規陽性者数の推移及び届出保健所別の内訳') }}
+          <div class="Description-Link">
+            <app-link :to="localePath('/cards/positive-number-over65/')">
+              {{ $t('65歳以上の新規陽性者数の推移') }}
             </app-link>
           </div>
           <span>{{ $t('（注）') }}</span>
@@ -141,12 +129,6 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 
 <style lang="scss" scoped>
 .Description-Link {
-  text-decoration: none;
-
-  @include button-text('sm');
-}
-
-.Description-ExternalLink {
   margin-bottom: 10px;
 }
 </style>

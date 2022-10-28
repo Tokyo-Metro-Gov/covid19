@@ -26,7 +26,7 @@ export default Vue.extend({
     },
     bold: {
       type: Boolean,
-      required: true,
+      default: true,
     },
   },
   data() {

@@ -21,9 +21,6 @@ const ConsultationAboutFeverNumberCard = () =>
   import(
     '@/components/index/CardsMonitoring/ConsultationAboutFeverNumber/Card.vue'
   )
-// 新規陽性者における接触歴等不明者数
-const UntrackedRateCard = () =>
-  import('@/components/index/CardsMonitoring/UntrackedRate/Card.vue')
 // モニタリング項目(3)検査の陽性率
 const PositiveRateCard = () =>
   import('@/components/index/CardsMonitoring/PositiveRate/Card.vue')
@@ -48,9 +45,9 @@ export default Vue.extend({
     return {
       rows: [
         [MonitoringItemsOverviewCard, MonitoringConfirmedCasesNumberCard],
-        [ConsultationAboutFeverNumberCard, UntrackedRateCard],
-        [PositiveRateCard, TokyoRulesApplicationNumberCard],
-        [HospitalizedNumberCard, SevereCaseCard],
+        [ConsultationAboutFeverNumberCard, PositiveRateCard],
+        [TokyoRulesApplicationNumberCard, HospitalizedNumberCard],
+        [SevereCaseCard],
       ],
     }
   },

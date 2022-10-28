@@ -1,54 +1,32 @@
 // To parse this data:
 //
-//   import { Convert, MonitoringItems } from "./file";
+//   import { Convert, PositiveByAgegroup } from "./file";
 //
-//   const monitoringItems = Convert.toMonitoringItems(json);
+//   const positiveByAgegroup = Convert.toPositiveByAgegroup(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface MonitoringItems {
+export interface PositiveByAgegroup {
     date: string;
-    data: Data;
+    data: Datum[];
 }
 
-export interface Data {
-    専門家3行コメント:                        専門家3行コメント[];
-    the1新規陽性者数:                       number;
-    the27119東京消防庁救急相談センターにおける発熱等相談件数: number;
-    the3新規陽性者における接触歴等不明者人数:           number;
-    the3新規陽性者における接触歴等不明者増加比:          number;
-    the4Pcr抗原検査陽性率:                   number;
-    the4Pcr抗原検査検査人数:                  number;
-    the5救急医療の東京ルールの適用件数:              number;
-    the6入院患者数:                        number;
-    the6入院患者確保病床数:                    number;
-    the7重症患者数:                        number;
-    the7重症患者確保病床数:                    number;
-    総括コメント感染状況:                       総括コメント;
-    総括コメント医療提供体制:                     総括コメント;
-}
-
-export interface 専門家3行コメント {
-    ja: string;
-    en: string;
-}
-
-export interface 総括コメント {
-    date:    Date;
-    level:   number;
-    display: 専門家3行コメント;
+export interface Datum {
+    date:   Date;
+    total:  number;
+    counts: { [key: string]: number };
 }
 
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toMonitoringItems(json: string): MonitoringItems {
-        return cast(JSON.parse(json), r("MonitoringItems"));
+    public static toPositiveByAgegroup(json: string): PositiveByAgegroup {
+        return cast(JSON.parse(json), r("PositiveByAgegroup"));
     }
 
-    public static monitoringItemsToJson(value: MonitoringItems): string {
-        return JSON.stringify(uncast(value, r("MonitoringItems")), null, 2);
+    public static positiveByAgegroupToJson(value: PositiveByAgegroup): string {
+        return JSON.stringify(uncast(value, r("PositiveByAgegroup")), null, 2);
     }
 }
 
@@ -185,33 +163,13 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "MonitoringItems": o([
+    "PositiveByAgegroup": o([
         { json: "date", js: "date", typ: "" },
-        { json: "data", js: "data", typ: r("Data") },
+        { json: "data", js: "data", typ: a(r("Datum")) },
     ], false),
-    "Data": o([
-        { json: "専門家3行コメント", js: "専門家3行コメント", typ: a(r("専門家3行コメント")) },
-        { json: "(1)新規陽性者数", js: "the1新規陽性者数", typ: 3.14 },
-        { json: "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ", js: "the27119東京消防庁救急相談センターにおける発熱等相談件数", typ: 3.14 },
-        { json: "(3)新規陽性者における接触歴等不明者（人数）", js: "the3新規陽性者における接触歴等不明者人数", typ: 0 },
-        { json: "(3)新規陽性者における接触歴等不明者（増加比）", js: "the3新規陽性者における接触歴等不明者増加比", typ: 3.14 },
-        { json: "(4)PCR・抗原検査（陽性率）", js: "the4Pcr抗原検査陽性率", typ: 3.14 },
-        { json: "(4)PCR・抗原検査（検査人数）", js: "the4Pcr抗原検査検査人数", typ: 3.14 },
-        { json: "(5)救急医療の東京ルールの適用件数", js: "the5救急医療の東京ルールの適用件数", typ: 3.14 },
-        { json: "(6)入院患者数", js: "the6入院患者数", typ: 0 },
-        { json: "(6)入院患者確保病床数", js: "the6入院患者確保病床数", typ: 0 },
-        { json: "(7)重症患者数", js: "the7重症患者数", typ: 0 },
-        { json: "(7)重症患者確保病床数", js: "the7重症患者確保病床数", typ: 0 },
-        { json: "総括コメント-感染状況", js: "総括コメント感染状況", typ: r("総括コメント") },
-        { json: "総括コメント-医療提供体制", js: "総括コメント医療提供体制", typ: r("総括コメント") },
-    ], false),
-    "専門家3行コメント": o([
-        { json: "@ja", js: "ja", typ: "" },
-        { json: "@en", js: "en", typ: "" },
-    ], false),
-    "総括コメント": o([
+    "Datum": o([
         { json: "date", js: "date", typ: Date },
-        { json: "level", js: "level", typ: 0 },
-        { json: "display", js: "display", typ: r("専門家3行コメント") },
+        { json: "total", js: "total", typ: 0 },
+        { json: "counts", js: "counts", typ: m(0) },
     ], false),
 };

@@ -4,73 +4,52 @@
       <div :class="$style.content">
         <span>{{ $t('(4)救急医療の東京ルールの適用件数') }}</span>
         <value-with-translatable-unit
-          :value="items['(5)救急医療の東京ルールの適用件数'].value"
-          :unit="items['(5)救急医療の東京ルールの適用件数'].unit"
-          :bold="items['(5)救急医療の東京ルールの適用件数'].bold"
+          :value="tokyoRule.toLocaleString()"
+          :unit="{ text: '件.cases', translatable: true }"
         />
       </div>
     </li>
-    <li :class="[$style.box, $style.parent]">
+    <li :class="[$style.box]">
       <div :class="$style.content">
         <span>{{ $t('(5)入院患者数') }}</span>
         <value-with-translatable-unit
-          :value="items['(6)入院患者数'].value"
-          :unit="items['(6)入院患者数'].unit"
-          :bold="items['(6)入院患者数'].bold"
+          :value="positiveHospitalized.toLocaleString()"
+          :unit="{ text: '人', translatable: true }"
         />
       </div>
-      <ul :class="$style.group">
-        <li :class="[$style.box]">
-          <div :class="$style.content">
-            <span>{{ $t('確保病床') }}</span>
-            <value-with-translatable-unit
-              :value="items['(6)入院患者確保病床数'].value"
-              :unit="items['(6)入院患者確保病床数'].unit"
-              :bold="items['(6)入院患者確保病床数'].bold"
-            />
-          </div>
-        </li>
-      </ul>
     </li>
-    <li :class="[$style.box, $style.parent]">
+    <li :class="[$style.box]">
       <div :class="$style.content">
         <span>{{ $t('(6)重症患者数') }}</span>
         <value-with-translatable-unit
-          :value="items['(7)重症患者数'].value"
-          :unit="items['(7)重症患者数'].unit"
-          :bold="items['(7)重症患者数'].bold"
+          :value="positiveServe.toLocaleString()"
+          :unit="{ text: '人', translatable: true }"
         />
       </div>
-      <ul :class="$style.group">
-        <li :class="[$style.box]">
-          <div :class="$style.content">
-            <span>{{ $t('確保病床') }}</span>
-            <value-with-translatable-unit
-              :value="items['(7)重症患者確保病床数'].value"
-              :unit="items['(7)重症患者確保病床数'].unit"
-              :bold="items['(7)重症患者確保病床数'].bold"
-            />
-          </div>
-        </li>
-      </ul>
     </li>
   </ul>
 </template>
 
 <script lang="ts">
-import type { PropType } from 'vue'
 import Vue from 'vue'
 
 import ValueWithTranslatableUnit from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/ValueWithTranslatableUnit.vue'
-import { MonitoringItems } from '@/utils/formatMonitoringItems'
 
 export default Vue.extend({
   components: {
     ValueWithTranslatableUnit,
   },
   props: {
-    items: {
-      type: Object as PropType<MonitoringItems>,
+    tokyoRule: {
+      type: Number,
+      required: true,
+    },
+    positiveHospitalized: {
+      type: Number,
+      required: true,
+    },
+    positiveServe: {
+      type: Number,
       required: true,
     },
   },
