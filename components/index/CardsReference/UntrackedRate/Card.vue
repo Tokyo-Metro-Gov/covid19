@@ -69,7 +69,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import Chart from '@/components/index/CardsMonitoring/UntrackedRate/Chart.vue'
+import Chart from '@/components/index/CardsReference/UntrackedRate/Chart.vue'
 import {
   DailyPositiveDetail as IDailyPositiveDetail,
   Datum as IDailyPositiveDetailDatum,

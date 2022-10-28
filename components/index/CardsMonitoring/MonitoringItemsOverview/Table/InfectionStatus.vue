@@ -4,9 +4,8 @@
       <div :class="$style.content">
         <span>{{ $t('(1)新規陽性者数') }}</span>
         <value-with-translatable-unit
-          :value="items['(1)新規陽性者数'].value"
-          :unit="items['(1)新規陽性者数'].unit"
-          :bold="items['(1)新規陽性者数'].bold"
+          :value="dailyPositiveValueFormatter"
+          :unit="{ text: '人', translatable: true }"
         />
       </div>
     </li>
@@ -18,21 +17,8 @@
           }}
         </span>
         <value-with-translatable-unit
-          :value="
-            items[
-              '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
-            ].value
-          "
-          :unit="
-            items[
-              '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
-            ].unit
-          "
-          :bold="
-            items[
-              '(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 '
-            ].bold
-          "
+          :value="consultation.toLocaleString()"
+          :unit="{ text: '件.calls', translatable: true }"
         />
       </div>
     </li>
@@ -45,9 +31,8 @@
           <div :class="$style.content">
             <span>{{ $t('陽性率') }}</span>
             <value-with-translatable-unit
-              :value="items['(4)PCR・抗原検査（陽性率）'].value"
-              :unit="items['(4)PCR・抗原検査（陽性率）'].unit"
-              :bold="items['(4)PCR・抗原検査（陽性率）'].bold"
+              :value="positiveRatePercent.toLocaleString()"
+              :unit="{ text: '%', translatable: false }"
             />
           </div>
         </li>
@@ -55,9 +40,8 @@
           <div :class="$style.content">
             <span>{{ $t('検査人数') }}</span>
             <value-with-translatable-unit
-              :value="items['(4)PCR・抗原検査（検査人数）'].value"
-              :unit="items['(4)PCR・抗原検査（検査人数）'].unit"
-              :bold="items['(4)PCR・抗原検査（検査人数）'].bold"
+              :value="positiveRatePeople.toLocaleString()"
+              :unit="{ text: '人', translatable: true }"
             />
           </div>
         </li>
@@ -67,20 +51,51 @@
 </template>
 
 <script lang="ts">
-import type { PropType } from 'vue'
 import Vue from 'vue'
 
 import ValueWithTranslatableUnit from '@/components/index/CardsMonitoring/MonitoringItemsOverview/Table/ValueWithTranslatableUnit.vue'
-import { MonitoringItems } from '@/utils/formatMonitoringItems'
+import { getCommaSeparatedNumberToFixedFunction } from '@/utils/monitoringStatusValueFormatters'
 
-export default Vue.extend({
+type Data = {}
+
+type Methods = {}
+
+type Computed = {
+  dailyPositiveValueFormatter: String
+}
+
+type Props = {
+  dailyPositive: number
+  consultation: number
+  positiveRatePercent: number
+  positiveRatePeople: number
+}
+
+export default Vue.extend<Data, Methods, Computed, Props>({
   components: {
     ValueWithTranslatableUnit,
   },
   props: {
-    items: {
-      type: Object as PropType<MonitoringItems>,
+    dailyPositive: {
+      type: Number,
       required: true,
+    },
+    consultation: {
+      type: Number,
+      required: true,
+    },
+    positiveRatePercent: {
+      type: Number,
+      required: true,
+    },
+    positiveRatePeople: {
+      type: Number,
+      required: true,
+    },
+  },
+  computed: {
+    dailyPositiveValueFormatter() {
+      return getCommaSeparatedNumberToFixedFunction(1)(this.dailyPositive)
     },
   },
 })

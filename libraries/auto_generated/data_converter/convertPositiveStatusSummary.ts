@@ -1,54 +1,40 @@
 // To parse this data:
 //
-//   import { Convert, MonitoringItems } from "./file";
+//   import { Convert, PositiveStatusSummary } from "./file";
 //
-//   const monitoringItems = Convert.toMonitoringItems(json);
+//   const positiveStatusSummary = Convert.toPositiveStatusSummary(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface MonitoringItems {
+export interface PositiveStatusSummary {
     date: string;
     data: Data;
 }
 
 export interface Data {
-    専門家3行コメント:                        専門家3行コメント[];
-    the1新規陽性者数:                       number;
-    the27119東京消防庁救急相談センターにおける発熱等相談件数: number;
-    the3新規陽性者における接触歴等不明者人数:           number;
-    the3新規陽性者における接触歴等不明者増加比:          number;
-    the4Pcr抗原検査陽性率:                   number;
-    the4Pcr抗原検査検査人数:                  number;
-    the5救急医療の東京ルールの適用件数:              number;
-    the6入院患者数:                        number;
-    the6入院患者確保病床数:                    number;
-    the7重症患者数:                        number;
-    the7重症患者確保病床数:                    number;
-    総括コメント感染状況:                       総括コメント;
-    総括コメント医療提供体制:                     総括コメント;
-}
-
-export interface 専門家3行コメント {
-    ja: string;
-    en: string;
-}
-
-export interface 総括コメント {
-    date:    Date;
-    level:   number;
-    display: 専門家3行コメント;
+    日付:        Date;
+    陽性者数累計:    number | null;
+    入院中:       number | null;
+    '軽症・中等症':    number | null;
+    確保病床:      number | null;
+    重症:        number | null;
+    確保病床重症:    number | null;
+    宿泊療養:      number | null;
+    受入可能室数:    number | null;
+    感染拡大時療養施設: number | null;
+    死亡:        number | null;
 }
 
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toMonitoringItems(json: string): MonitoringItems {
-        return cast(JSON.parse(json), r("MonitoringItems"));
+    public static toPositiveStatusSummary(json: string): PositiveStatusSummary {
+        return cast(JSON.parse(json), r("PositiveStatusSummary"));
     }
 
-    public static monitoringItemsToJson(value: MonitoringItems): string {
-        return JSON.stringify(uncast(value, r("MonitoringItems")), null, 2);
+    public static positiveStatusSummaryToJson(value: PositiveStatusSummary): string {
+        return JSON.stringify(uncast(value, r("PositiveStatusSummary")), null, 2);
     }
 }
 
@@ -185,33 +171,21 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "MonitoringItems": o([
+    "PositiveStatusSummary": o([
         { json: "date", js: "date", typ: "" },
         { json: "data", js: "data", typ: r("Data") },
     ], false),
     "Data": o([
-        { json: "専門家3行コメント", js: "専門家3行コメント", typ: a(r("専門家3行コメント")) },
-        { json: "(1)新規陽性者数", js: "the1新規陽性者数", typ: 3.14 },
-        { json: "(2)#7119（東京消防庁救急相談センター）における発熱等相談件数 ", js: "the27119東京消防庁救急相談センターにおける発熱等相談件数", typ: 3.14 },
-        { json: "(3)新規陽性者における接触歴等不明者（人数）", js: "the3新規陽性者における接触歴等不明者人数", typ: 0 },
-        { json: "(3)新規陽性者における接触歴等不明者（増加比）", js: "the3新規陽性者における接触歴等不明者増加比", typ: 3.14 },
-        { json: "(4)PCR・抗原検査（陽性率）", js: "the4Pcr抗原検査陽性率", typ: 3.14 },
-        { json: "(4)PCR・抗原検査（検査人数）", js: "the4Pcr抗原検査検査人数", typ: 3.14 },
-        { json: "(5)救急医療の東京ルールの適用件数", js: "the5救急医療の東京ルールの適用件数", typ: 3.14 },
-        { json: "(6)入院患者数", js: "the6入院患者数", typ: 0 },
-        { json: "(6)入院患者確保病床数", js: "the6入院患者確保病床数", typ: 0 },
-        { json: "(7)重症患者数", js: "the7重症患者数", typ: 0 },
-        { json: "(7)重症患者確保病床数", js: "the7重症患者確保病床数", typ: 0 },
-        { json: "総括コメント-感染状況", js: "総括コメント感染状況", typ: r("総括コメント") },
-        { json: "総括コメント-医療提供体制", js: "総括コメント医療提供体制", typ: r("総括コメント") },
-    ], false),
-    "専門家3行コメント": o([
-        { json: "@ja", js: "ja", typ: "" },
-        { json: "@en", js: "en", typ: "" },
-    ], false),
-    "総括コメント": o([
-        { json: "date", js: "date", typ: Date },
-        { json: "level", js: "level", typ: 0 },
-        { json: "display", js: "display", typ: r("専門家3行コメント") },
+        { json: "日付", js: "日付", typ: Date },
+        { json: "陽性者数（累計）", js: "陽性者数累計", typ: u(0, null) },
+        { json: "入院中", js: "入院中", typ: u(0, null) },
+        { json: "軽症・中等症", js: "軽症・中等症", typ: u(0, null) },
+        { json: "確保病床", js: "確保病床", typ: u(0, null) },
+        { json: "重症", js: "重症", typ: u(0, null) },
+        { json: "確保病床（重症）", js: "確保病床重症", typ: u(0, null) },
+        { json: "宿泊療養", js: "宿泊療養", typ: u(0, null) },
+        { json: "受入可能室数", js: "受入可能室数", typ: u(0, null) },
+        { json: "感染拡大時療養施設", js: "感染拡大時療養施設", typ: u(0, null) },
+        { json: "死亡", js: "死亡", typ: u(0, null) },
     ], false),
 };
