@@ -18,7 +18,7 @@
         :table-labels="labels"
         :date-labels="dateLabels"
         :display-values="displayValues"
-        :url="''"
+        :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000103'"
         :day-period="isSingleCard ? 120 : 60"
         :is-single-card="isSingleCard"
       >
