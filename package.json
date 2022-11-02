@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.19.6",
-    "@babel/runtime-corejs3": "7.19.6",
+    "@babel/runtime-corejs3": "7.20.1",
     "@mdi/js": "7.0.96",
     "@nuxt/typescript-build": "2.1.0",
     "@nuxtjs/eslint-config": "11.0.0",
