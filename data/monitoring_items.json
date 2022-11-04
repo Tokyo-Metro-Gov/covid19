@@ -1,18 +1,18 @@
 {
-    "date": "2022\/11\/2 16:45",
+    "date": "2022\/11\/4 16:45",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の7日間平均は、横ばいとなった。基本的な感染防止対策を徹底することにより、新規陽性者数をできる限り抑制していくとともに、早期のワクチン接種を呼び掛ける必要がある。\n",
-                "@en": "The 7-day average of new COVID cases has leveled off. Along with keeping the number of new cases down to all possible extent by having the public thoroughly take the basic steps to prevent infection, it would be essential to call out to them to get vaccinated early."
+                "@ja": "新規陽性者数の7日間平均は増加しており、今後の急激な増加に注意を払う必要がある。人の集まる屋内では、気温が低い中でも定期的な換気を励行するなど、基本的な感染防止対策を徹底する必要がある。\n",
+                "@en": "新規陽性者数の7日間平均は増加しており、今後の急激な増加に注意を払う必要がある。人の集まる屋内では、気温が低い中でも定期的な換気を励行するなど、基本的な感染防止対策を徹底する必要がある。\n"
             },
             {
-                "@ja": "前回横ばいとなった入院患者数は、今回は増加した。今週新たに入院した患者数も先週と比べて増加しており、今後の医療提供体制への影響を注視する必要がある。\n",
-                "@en": "The number of hospitalized patients, which had leveled off last time, increased this time. The number of newly hospitalized patients this week also rose in comparison with last week. Therefore, the impact on the health care delivery system must be watched closely."
+                "@ja": "入院患者数は2週間連続して増加し、新規入院患者数も増加している。重症患者数は横ばいで推移しているものの、新規陽性者数の増加から少し遅れて増加する傾向があり、今後の動向を注視する必要がある。\n",
+                "@en": "入院患者数は2週間連続して増加し、新規入院患者数も増加している。重症患者数は横ばいで推移しているものの、新規陽性者数の増加から少し遅れて増加する傾向があり、今後の動向を注視する必要がある。\n"
             }
         ],
         "総括コメント-感染状況": {
-            "date": "2022-10-26",
+            "date": "2022-11-02",
             "level": 2,
             "display": {
                 "@ja": "感染状況の推移に注意が必要である",
@@ -20,7 +20,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-10-26",
+            "date": "2022-11-02",
             "level": 2,
             "display": {
                 "@ja": "通常の医療との両立が可能な状況である",
