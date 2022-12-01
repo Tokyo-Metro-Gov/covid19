@@ -14,7 +14,7 @@
             <app-link
               to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/info/kunishihyou.html"
             >
-              {{ $t('国の新しいレベル分類のための指標について') }}
+              {{ $t('国の新レベル分類における事象・指標について') }}
             </app-link>
           </div>
         </section>
