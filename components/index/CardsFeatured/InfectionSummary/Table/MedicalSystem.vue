@@ -58,7 +58,7 @@
           <li :class="[$style.box]">
             <div :class="$style.content">
               <span>{{
-                $t('オミクロン株の特性を踏まえた重症者用病床数')
+                $t('オミクロン株の特性を踏まえた重症者用確保病床数')
               }}</span>
               <value-with-translatable-unit
                 :value="items['都基準重症病床数'].toLocaleString()"

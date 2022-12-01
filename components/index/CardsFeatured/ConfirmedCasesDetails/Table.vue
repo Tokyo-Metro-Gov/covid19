@@ -31,7 +31,7 @@
           <ul :class="$style.group">
             <li :class="[$style.box]">
               <div :class="$style.content">
-                <span>{{ $t('確保病床') }}</span>
+                <span>{{ $t('即応病床') }}</span>
                 <span>
                   <strong>{{ items['確保病床']?.toLocaleString() }}</strong>
                   <span :class="$style.unit">{{ $t('床') }}</span>
@@ -51,7 +51,7 @@
           <ul :class="$style.group">
             <li :class="[$style.box]">
               <div :class="$style.content">
-                <span>{{ $t('確保病床') }}</span>
+                <span>{{ $t('即応病床') }}</span>
                 <span>
                   <strong>{{ items['確保病床重症']?.toLocaleString() }}</strong>
                   <span :class="$style.unit">{{ $t('床') }}</span>
@@ -77,17 +77,6 @@
             <span>
               <strong>{{ items['受入可能室数']?.toLocaleString() }}</strong>
               <span :class="$style.unit">{{ $t('室') }}</span>
-            </span>
-          </div>
-        </li>
-        <li :class="[$style.box]">
-          <div :class="$style.content">
-            <span>{{ $t('感染時拡大時療養施設 床数') }}</span>
-            <span>
-              <strong>{{
-                items['感染拡大時療養施設']?.toLocaleString()
-              }}</strong>
-              <span :class="$style.unit">{{ $t('床') }}</span>
             </span>
           </div>
         </li>
