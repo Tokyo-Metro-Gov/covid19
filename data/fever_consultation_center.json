@@ -6867,6 +6867,33 @@
                 "total": 2812,
                 "weekly_average_total": 3136
             }
+        },
+        {
+            "date": "2022-12-02",
+            "count": {
+                "fever_consultation_center": 2232,
+                "cocoa_dial": 0,
+                "total": 2232,
+                "weekly_average_total": 3087
+            }
+        },
+        {
+            "date": "2022-12-03",
+            "count": {
+                "fever_consultation_center": 3203,
+                "cocoa_dial": 0,
+                "total": 3203,
+                "weekly_average_total": 3049
+            }
+        },
+        {
+            "date": "2022-12-04",
+            "count": {
+                "fever_consultation_center": 3563,
+                "cocoa_dial": 0,
+                "total": 3563,
+                "weekly_average_total": 3065
+            }
         }
     ]
 }
