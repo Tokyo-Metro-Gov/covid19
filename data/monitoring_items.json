@@ -1,18 +1,18 @@
 {
-    "date": "2022\/12\/14 16:45",
+    "date": "2022\/12\/15 16:45",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の7日間平均は、高い水準のまま推移している。年末年始に向けて、人と人との接触機会が増えると、感染が急拡大する可能性もあるため、今後の動向に十分な警戒が必要である。\n\n",
-                "@en": "The 7-day moving average of new positive cases remains high. \nIn the lead-up to the year-end and New Year period, opportunities for contact between people increase, which could lead to a rapid surge in infections. Therefore, it is necessary to closely watch future trends."
+                "@ja": "新規陽性者数の7日間平均は、7週間連続して増加傾向にある。本格的な冬を迎える中、換気の励行等の基本的な感染防止対策の徹底や、ワクチン接種の促進により、感染拡大をできる限り抑制する必要がある。\n",
+                "@en": "新規陽性者数の7日間平均は、7週間連続して増加傾向にある。本格的な冬を迎える中、換気の励行等の基本的な感染防止対策の徹底や、ワクチン接種の促進により、感染拡大をできる限り抑制する必要がある。\n"
             },
             {
-                "@ja": "入院患者数は、増加傾向が継続している。入院患者のうち重症化リスクが高い高齢者の割合は、高い値のまま推移しており、今後の動向を注視する必要がある。\n",
-                "@en": "An upward trend in hospitalized patients continues to be seen. Of those hospitalized, the share of elderly patients at high risk of developing severe symptoms remains high, making it necessary to closely monitor changes in the situation.  "
+                "@ja": "入院患者数は、約2か月間にわたり増加傾向が続いている。医療機関では、病床の確保を進めているが、就業制限により人員確保が困難になりつつあり、負荷が増大している。\n",
+                "@en": "入院患者数は、約2か月間にわたり増加傾向が続いている。医療機関では、病床の確保を進めているが、就業制限により人員確保が困難になりつつあり、負荷が増大している。\n"
             }
         ],
         "総括コメント-感染状況": {
-            "date": "2022-12-07",
+            "date": "2022-12-14",
             "level": 3,
             "display": {
                 "@ja": "感染が拡大している",
@@ -20,7 +20,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-12-07",
+            "date": "2022-12-14",
             "level": 3,
             "display": {
                 "@ja": "体制強化が必要な状況である",
