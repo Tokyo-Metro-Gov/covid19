@@ -1,5 +1,5 @@
 {
-    "date": "2022\/12\/21 16:45",
+    "date": "2022\/12\/22 16:45",
     "data": {
         "専門家3行コメント": [
             {
@@ -12,7 +12,7 @@
             }
         ],
         "総括コメント-感染状況": {
-            "date": "2022-12-14",
+            "date": "2022-12-21",
             "level": 3,
             "display": {
                 "@ja": "感染が拡大している",
@@ -20,11 +20,11 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-12-14",
-            "level": 3,
+            "date": "2022-12-21",
+            "level": 4,
             "display": {
-                "@ja": "体制強化が必要な状況である",
-                "@en": "There is the need to build up the system."
+                "@ja": "医療体制がひっ迫している",
+                "@en": "The health care delivery system is under strain."
             }
         }
     }
