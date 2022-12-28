@@ -1,18 +1,18 @@
 {
-    "date": "2022\/12\/27 16:45",
+    "date": "2022\/12\/28 16:45",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の7日間平均は、8週間連続して増加傾向にあり、感染拡大が継続している。\nオミクロン株の亜系統の割合が上昇しており、 BA.5系統からの置き換わりが進む過程で、新規陽性者数が急激に増加することに警戒が必要である。\n",
-                "@en": "The 7-day moving average of new positive cases has been on an increasing trend for 8 consecutive weeks, and the virus continues to spread.\nThe percentage of infections from new Omicron subvariants is rising, necessitating caution against a surge in new COVID cases as the BA.5 subvariant becomes replaced by these new subvariants.\n"
+                "@ja": "新規陽性者数の7日間平均は、9週間連続して増加傾向にある。季節性インフルエンザが流行入りした中、年末年始は警戒感が薄れるおそれもあり、新規陽性者数の増加をできる限り抑制するため、基本に立ち返って、感染防止対策を徹底する必要がある。",
+                "@en": "新規陽性者数の7日間平均は、9週間連続して増加傾向にある。季節性インフルエンザが流行入りした中、年末年始は警戒感が薄れるおそれもあり、新規陽性者数の増加をできる限り抑制するため、基本に立ち返って、感染防止対策を徹底する必要がある。"
             },
             {
-                "@ja": "入院患者数は高い水準で推移し、重症患者数も大きく増加した。就業制限を受ける医療従事者等が多数発生しており、患者の受入体制の確保が困難になってきている。\n一般救急患者の増加も相まって、医療提供体制がひっ迫し始めている。\n",
-                "@en": "The number of hospitalized patients remains high, and the number of severe cases has also increased substantially. Many health care workers are becoming unable to report to work due to work restrictions, and this is making it difficult for hospitals to secure systems to receive patients. Coupled with the increase in non-COVID emergency patients, this is beginning to strain the health care delivery system."
+                "@ja": "入院患者数は、約4か月ぶりに4,000人を上回った。医療機関では、一般救急受診等の増加や、医療従事者等の就業制限により、通常の医療との両立に支障が生じつつあり、医療提供体制がひっ迫してきている。",
+                "@en": "入院患者数は、約4か月ぶりに4,000人を上回った。医療機関では、一般救急受診等の増加や、医療従事者等の就業制限により、通常の医療との両立に支障が生じつつあり、医療提供体制がひっ迫してきている。"
             }
         ],
         "総括コメント-感染状況": {
-            "date": "2022-12-21",
+            "date": "2022-12-27",
             "level": 3,
             "display": {
                 "@ja": "感染が拡大している",
@@ -20,7 +20,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-12-21",
+            "date": "2022-12-27",
             "level": 4,
             "display": {
                 "@ja": "医療体制がひっ迫している",
