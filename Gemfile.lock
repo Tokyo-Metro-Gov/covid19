@@ -15,9 +15,9 @@ GEM
     diff-lcs (1.5.0)
     matrix (0.4.2)
     mini_mime (1.1.2)
-    nokogiri (1.13.10-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.10-x86_64-linux)
+    mini_portile2 (2.8.1)
+    nokogiri (1.13.10)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     parallel (1.22.1)
     parallel_tests (4.0.0)
@@ -62,7 +62,7 @@ DEPENDENCIES
   selenium-webdriver
 
 RUBY VERSION
-   ruby 3.1.3p185
+   ruby 3.2.0p0
 
 BUNDLED WITH
    2.2.15
