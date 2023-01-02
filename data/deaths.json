@@ -1,5 +1,5 @@
 {
-    "date": "2023\/1\/1 16:45",
+    "date": "2023\/1\/2 16:45",
     "data": [
         {
             "death_date": "2020-02-26",
@@ -4067,7 +4067,7 @@
         },
         {
             "death_date": "2022-12-08",
-            "count": 23
+            "count": 24
         },
         {
             "death_date": "2022-12-09",
@@ -4083,7 +4083,7 @@
         },
         {
             "death_date": "2022-12-12",
-            "count": 23
+            "count": 24
         },
         {
             "death_date": "2022-12-13",
@@ -4099,7 +4099,7 @@
         },
         {
             "death_date": "2022-12-16",
-            "count": 17
+            "count": 18
         },
         {
             "death_date": "2022-12-17",
@@ -4127,35 +4127,35 @@
         },
         {
             "death_date": "2022-12-23",
-            "count": 25
+            "count": 29
         },
         {
             "death_date": "2022-12-24",
-            "count": 22
-        },
-        {
-            "death_date": "2022-12-25",
-            "count": 16
-        },
-        {
-            "death_date": "2022-12-26",
             "count": 23
         },
         {
+            "death_date": "2022-12-25",
+            "count": 17
+        },
+        {
+            "death_date": "2022-12-26",
+            "count": 28
+        },
+        {
             "death_date": "2022-12-27",
-            "count": 15
+            "count": 19
         },
         {
             "death_date": "2022-12-28",
-            "count": 4
+            "count": 6
         },
         {
             "death_date": "2022-12-29",
-            "count": 3
+            "count": 6
         },
         {
             "death_date": "2022-12-30",
-            "count": 0
+            "count": 1
         },
         {
             "death_date": "2022-12-31",
@@ -4163,6 +4163,10 @@
         },
         {
             "death_date": "2023-01-01",
+            "count": 0
+        },
+        {
+            "death_date": "2023-01-02",
             "count": 0
         }
     ]
