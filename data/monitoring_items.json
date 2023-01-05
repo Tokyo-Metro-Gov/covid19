@@ -1,18 +1,18 @@
 {
-    "date": "2023\/1\/4 16:45",
+    "date": "2023\/1\/5 16:45",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の7日間平均は、9週間連続して増加傾向にある。季節性インフルエンザが流行入りした中、年末年始は警戒感が薄れるおそれもあり、新規陽性者数の増加をできる限り抑制するため、基本に立ち返って、感染防止対策を徹底する必要がある。",
-                "@en": "The 7-day moving average of new positive cases has been on an increasing trend for 9 consecutive weeks. With the seasonal flu season having already started in Tokyo and the risk of people letting their guard down over the year-end and new year period, there is the need to return to basics and firmly implement infection prevention measures in order to curb the rise in new COVID-19 cases as much as possible."
+                "@ja": "報告された新規陽性者数の7日間平均は10週間ぶりに減少した。ただし、今週の新規陽性者数は、年末年始中の検査数の減少等の影響を受けた数値となっているため、多数の感染者が潜在していることも考えられる。\n",
+                "@en": "報告された新規陽性者数の7日間平均は10週間ぶりに減少した。ただし、今週の新規陽性者数は、年末年始中の検査数の減少等の影響を受けた数値となっているため、多数の感染者が潜在していることも考えられる。\n"
             },
             {
-                "@ja": "入院患者数は、約4か月ぶりに4,000人を上回った。医療機関では、一般救急受診等の増加や、医療従事者等の就業制限により、通常の医療との両立に支障が生じつつあり、医療提供体制がひっ迫してきている。",
-                "@en": "The number of hospitalized patients topped 4,000 for the first time in approximately 4 months. An increase in non-COVID emergency patients, along with COVID-19 related work restrictions preventing health care workers and others from reporting to work, is beginning to make it difficult to maintain a balance with the provision of non-COVID health care. This situation is starting to strain the health care delivery system."
+                "@ja": "入院患者数は、年末年始中も4,000人を上回り、増加傾向が続いている。医療機関では、感染拡大により、就業制限を受ける医療従事者等が増加している。体制確保が困難な中、一般の救急受診等の対応もあり、厳しい状況が続いている。\n",
+                "@en": "入院患者数は、年末年始中も4,000人を上回り、増加傾向が続いている。医療機関では、感染拡大により、就業制限を受ける医療従事者等が増加している。体制確保が困難な中、一般の救急受診等の対応もあり、厳しい状況が続いている。\n"
             }
         ],
         "総括コメント-感染状況": {
-            "date": "2022-12-27",
+            "date": "2023-01-04",
             "level": 3,
             "display": {
                 "@ja": "感染が拡大している",
@@ -20,7 +20,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2022-12-27",
+            "date": "2023-01-04",
             "level": 4,
             "display": {
                 "@ja": "医療体制がひっ迫している",
