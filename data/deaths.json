@@ -1,5 +1,5 @@
 {
-    "date": "2023\/1\/14 16:45",
+    "date": "2023\/1\/15 16:45",
     "data": [
         {
             "death_date": "2020-02-26",
@@ -4103,11 +4103,11 @@
         },
         {
             "death_date": "2022-12-17",
-            "count": 20
+            "count": 21
         },
         {
             "death_date": "2022-12-18",
-            "count": 23
+            "count": 24
         },
         {
             "death_date": "2022-12-19",
@@ -4119,11 +4119,11 @@
         },
         {
             "death_date": "2022-12-21",
-            "count": 18
+            "count": 20
         },
         {
             "death_date": "2022-12-22",
-            "count": 22
+            "count": 25
         },
         {
             "death_date": "2022-12-23",
@@ -4131,19 +4131,19 @@
         },
         {
             "death_date": "2022-12-24",
-            "count": 25
-        },
-        {
-            "death_date": "2022-12-25",
             "count": 26
         },
         {
+            "death_date": "2022-12-25",
+            "count": 27
+        },
+        {
             "death_date": "2022-12-26",
-            "count": 35
+            "count": 36
         },
         {
             "death_date": "2022-12-27",
-            "count": 29
+            "count": 30
         },
         {
             "death_date": "2022-12-28",
@@ -4151,7 +4151,7 @@
         },
         {
             "death_date": "2022-12-29",
-            "count": 30
+            "count": 32
         },
         {
             "death_date": "2022-12-30",
@@ -4163,7 +4163,7 @@
         },
         {
             "death_date": "2023-01-01",
-            "count": 25
+            "count": 27
         },
         {
             "death_date": "2023-01-02",
@@ -4171,7 +4171,7 @@
         },
         {
             "death_date": "2023-01-03",
-            "count": 30
+            "count": 31
         },
         {
             "death_date": "2023-01-04",
@@ -4179,7 +4179,7 @@
         },
         {
             "death_date": "2023-01-05",
-            "count": 16
+            "count": 17
         },
         {
             "death_date": "2023-01-06",
@@ -4187,34 +4187,38 @@
         },
         {
             "death_date": "2023-01-07",
-            "count": 15
+            "count": 16
         },
         {
             "death_date": "2023-01-08",
-            "count": 22
+            "count": 24
         },
         {
             "death_date": "2023-01-09",
-            "count": 12
+            "count": 14
         },
         {
             "death_date": "2023-01-10",
-            "count": 14
+            "count": 16
         },
         {
             "death_date": "2023-01-11",
-            "count": 14
+            "count": 15
         },
         {
             "death_date": "2023-01-12",
-            "count": 5
+            "count": 9
         },
         {
             "death_date": "2023-01-13",
-            "count": 2
+            "count": 3
         },
         {
             "death_date": "2023-01-14",
+            "count": 0
+        },
+        {
+            "death_date": "2023-01-15",
             "count": 0
         }
     ]
