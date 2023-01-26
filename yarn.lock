@@ -4235,10 +4235,10 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha512-NJGVKPS81XejHcLhaLJS7plab0fK3slPh11mESeeDq2W4ZI5kUKK/LRRdVDvjJseojbPB7ZwjnyOybg3Igea/A==
 
-danger@11.2.2:
-  version "11.2.2"
-  resolved "https://registry.yarnpkg.com/danger/-/danger-11.2.2.tgz#916ef20150b8f2513aab7ca1a42f01c5f374c35f"
-  integrity sha512-T/MV1wyPpzIW19uXNKiMKrwOMbBNvgepLNieJ93XcKUCipH4WB63EZhQf34uK0swfJsJRkaSBDu3B5x3dcuuqA==
+danger@11.2.3:
+  version "11.2.3"
+  resolved "https://registry.yarnpkg.com/danger/-/danger-11.2.3.tgz#2a0a6d3581478005d0f2abf5b3995a8409165067"
+  integrity sha512-NNDOUDZWCi1fqEicSWbnk8lOOoqY+vwekB8twUiknEyyvDDKypWEcUolq6SNg9Kd6HMqnX80K8U8nqzmDRC1QQ==
   dependencies:
     "@gitbeaker/node" "^21.3.0"
     "@octokit/rest" "^18.12.0"
