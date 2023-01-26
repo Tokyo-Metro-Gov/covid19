@@ -1,5 +1,5 @@
 {
-    "date": "2023\/1\/25 16:45",
+    "date": "2023\/1\/26 16:45",
     "data": {
         "専門家3行コメント": [
             {
@@ -12,19 +12,19 @@
             }
         ],
         "総括コメント-感染状況": {
-            "date": "2023-01-18",
+            "date": "2023-01-25",
             "level": 3,
             "display": {
-                "@ja": "感染が拡大している",
-                "@en": "The infection is spreading."
+                "@ja": "感染状況は拡大傾向にないが、警戒が必要である",
+                "@en": "Although the infection situation is not trending upward, vigilance against the virus is needed."
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2023-01-18",
+            "date": "2023-01-25",
             "level": 4,
             "display": {
-                "@ja": "医療体制がひっ迫している",
-                "@en": "The health care delivery system is under strain."
+                "@ja": "通常の医療が大きく制限されている",
+                "@en": "The provision of non-COVID health care is under substantial pressure."
             }
         }
     }
