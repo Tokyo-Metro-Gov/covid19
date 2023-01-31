@@ -200,7 +200,7 @@ export default Vue.extend({
     stopClosingShareMenu(e: Event) {
       e.stopPropagation()
     },
-    permalink(host: boolean = false, embed: boolean = false) {
+    permalink(host = false, embed = false) {
       let permalink = `/cards/${this.titleId}`
       if (embed) {
         permalink = `${permalink}?embed=true`
