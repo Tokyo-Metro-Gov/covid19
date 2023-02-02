@@ -1,4 +1,3 @@
-/* eslint-disable simple-import-sort/imports */
 import type { Locale, LocaleObject } from '@nuxtjs/i18n'
 import type { LinkPropertyHref } from 'vue-meta'
 /* eslint-enable simple-import-sort/imports */
