@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '3.1.2'
+ruby '3.2.0'
 
 gem 'capybara'
 gem 'parallel_tests'

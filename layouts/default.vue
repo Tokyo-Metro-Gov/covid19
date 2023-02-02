@@ -135,7 +135,7 @@ export default class Default extends Vue implements NuxtConfig {
         ...(linksAlternate as []),
       ],
       // Disable prettier for readability purposes
-      // eslint-disable-next-line prettier/prettier
+
       titleTemplate: `%s | ${this.$t('東京都')} ${this.$t(
         '新型コロナウイルス感染症'
       )}${this.$t('対策サイト')}`,
