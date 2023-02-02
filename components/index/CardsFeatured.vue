@@ -3,7 +3,6 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable simple-import-sort/imports -- ブラウザでの表示順に合わせて各 card の component を import する */
 import Vue from 'vue'
 
 import CardsLazyRow from '@/components/index/_shared/CardsLazyRow.vue'

@@ -20,7 +20,6 @@ import ConfirmedCasesDetailsCard from '@/components/index/CardsFeatured/Confirme
 import ConfirmedCasesNumberCard from '@/components/index/CardsFeatured/ConfirmedCasesNumber/Card.vue'
 // 患者の発生状況等（サマリ）
 import InfectionSummaryCard from '@/components/index/CardsFeatured/InfectionSummary/Card.vue'
-/* eslint-disable simple-import-sort/imports -- ブラウザでの表示順に合わせて各 card の component を import する */
 // ---- 注目の指標
 // 感染状況・医療提供体制の分析
 import MonitoringCommentCard from '@/components/index/CardsFeatured/MonitoringComment/Card.vue'
