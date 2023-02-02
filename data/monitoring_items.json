@@ -21,10 +21,10 @@
         },
         "総括コメント-医療提供体制": {
             "date": "2023-02-01",
-            "level": 4,
+            "level": 3,
             "display": {
-                "@ja": "通常の医療が大きく制限されている",
-                "@en": "The provision of non-COVID health care is under substantial pressure."
+                "@ja": "通常の医療が制限されている状況である",
+                "@en": "The provision of non-COVID health care is under pressure."
             }
         }
     }
