@@ -1,18 +1,18 @@
 {
-    "date": "2023\/2\/1 16:45",
+    "date": "2023\/2\/2 16:45",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "新規陽性者数の7日間平均は、減少したものの、報告に表れない感染者が多数潜在している状況が想定される。変異株の置き換わり等に伴い、新規陽性者数が十分に下がりきらないまま増加に転じることに、引き続き警戒が必要である。\n",
-                "@en": "Although the seven-day average of newly reported COVID cases has decreased, it is assumed that there are a great number of cases not reflected in the numbers reported.It is necessary to continue closely watching the situation as there could be a shift to an increase in cases, which have not yet sufficiently declined, due to factors such as the replacement of the dominant subvariant by new subvariants."
+                "@ja": "新規陽性者数の7日間平均は、3週間連続して減少し、感染は拡大傾向にはない。新規陽性者数が十分に下がりきらない状況から再び増加に転じることがないよう、引き続き基本的な感染防止対策を徹底する必要がある。",
+                "@en": "新規陽性者数の7日間平均は、3週間連続して減少し、感染は拡大傾向にはない。新規陽性者数が十分に下がりきらない状況から再び増加に転じることがないよう、引き続き基本的な感染防止対策を徹底する必要がある。"
             },
             {
-                "@ja": "救急医療体制は、深刻な状況が続いており、医療機関の負担は長期化している。新型コロナウイルス感染症のための病床は、病床使用率や救急医療の状況に応じて、柔軟な運用を行う必要がある。\n",
-                "@en": "The situation with regard to the emergency care system remains severe, prolonging the strain on medical institutions. Flexible use of hospital beds designated for COVID patients is needed in line with hospital bed occupancy rates and the emergency care situation."
+                "@ja": "入院患者数は継続して減少しているものの、入院受入医療機関は一般の救急患者にも対応するため、緊急を要する患者の救急搬送や受入れなど、救急医療のひっ迫は継続しており、通常の医療体制は未だ影響を受けている。",
+                "@en": "入院患者数は継続して減少しているものの、入院受入医療機関は一般の救急患者にも対応するため、緊急を要する患者の救急搬送や受入れなど、救急医療のひっ迫は継続しており、通常の医療体制は未だ影響を受けている。"
             }
         ],
         "総括コメント-感染状況": {
-            "date": "2023-01-25",
+            "date": "2023-02-01",
             "level": 3,
             "display": {
                 "@ja": "感染状況は拡大傾向にないが、警戒が必要である",
@@ -20,7 +20,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2023-01-25",
+            "date": "2023-02-01",
             "level": 4,
             "display": {
                 "@ja": "通常の医療が大きく制限されている",
