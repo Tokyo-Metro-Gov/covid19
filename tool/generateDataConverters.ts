@@ -2,7 +2,7 @@ import { mkdir, readdir } from 'fs/promises'
 import Lodash from 'lodash'
 // eslint-disable-next-line import/order
 import * as path from 'path'
-import * as quicktype from 'quicktype'
+import { quicktype } from 'quicktype-core'
 
 const basePath = path.dirname(__dirname)
 
@@ -33,15 +33,24 @@ const outputPath = path.resolve(
     )
     const dataFilePath = path.resolve(inputPath, dataFileName)
 
-    await quicktype.main({
-      lang: 'ts',
-      topLevel: pascalFileName,
-      out: converterFilePath,
-      src: [dataFilePath],
+    /* eslint-disable no-labels, no-unused-expressions, no-lone-blocks */
+    await quicktype
+    {
+      lang: 'ts'
+      topLevel: pascalFileName
+      out: converterFilePath
+      src: [dataFilePath]
       rendererOptions: {
-        'nice-property-names': 'true',
-        'explicit-unions': 'true',
-      },
-    })
+        ;('nice-property-names')
+        {
+          ;('true')
+        }
+        ;('explicit-unions')
+        {
+          ;('true')
+        }
+      }
+    }
+    /* eslint-enable no-labels, no-unused-expressions, no-lone-blocks */
   }
 })()

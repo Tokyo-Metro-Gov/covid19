@@ -1,11 +1,14 @@
-/* eslint-disable simple-import-sort/imports -- `@nuxt/types` import should occur after import of `path` */
+/* eslint-disable simple-import-sort/imports */
 import fs from 'fs'
 import path from 'path'
 import { NuxtConfig } from '@nuxt/types'
-// eslint-disable-next-line no-restricted-imports
-import i18n from './nuxt-i18n.config'
+
 // @ts-ignore
+/* eslint-disable-next-line no-restricted-imports */
+import i18n from './nuxt-i18n.config'
 import { Settings } from '@/types/cardRoutesSettings'
+/* eslint-enable simple-import-sort/imports */
+
 const environment = process.env.NODE_ENV || 'development'
 const cardData = JSON.parse(
   fs.readFileSync(
@@ -103,6 +106,7 @@ const config: NuxtConfig = {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    '@nuxt/postcss8',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     [
@@ -178,7 +182,7 @@ const config: NuxtConfig = {
   ], */
   build: {
     filenames: {
-      chunk: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js'),
+      chunk: ({ isDev }) => (isDev ? '[name].js' : '[id].[contentHash].js'),
     },
     babel: {
       presets() {
@@ -203,8 +207,9 @@ const config: NuxtConfig = {
     extend(config) {
       // default externals option is undefined
       config.externals = [{ moment: 'moment' }]
+      config.output = { hashFunction: 'SHA224' } as object
     },
-    // https://ja.nuxtjs.org/api/configuration-build/#hardsource
+    // https://ja.nuxtjs.org/api/configuratißon-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
   },
   purgeCSS: {
