@@ -209,7 +209,7 @@ const config: NuxtConfig = {
       config.externals = [{ moment: 'moment' }]
       config.output = { hashFunction: 'SHA224' } as object
     },
-    // https://ja.nuxtjs.org/api/configuratißon-build/#hardsource
+    // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     // hardSource: process.env.NODE_ENV === 'development'
   },
   purgeCSS: {
