@@ -1,5 +1,5 @@
 {
-    "date": "2023\/2\/8 16:45",
+    "date": "2023\/2\/9 16:45",
     "data": {
         "専門家3行コメント": [
             {
@@ -12,15 +12,15 @@
             }
         ],
         "総括コメント-感染状況": {
-            "date": "2023-02-01",
-            "level": 3,
+            "date": "2023-02-08",
+            "level": 2,
             "display": {
-                "@ja": "感染状況は拡大傾向にないが、警戒が必要である",
+                "@ja": "感染状況の推移に注意が必要である",
                 "@en": "Although the infection situation is not trending upward, vigilance against the virus is needed."
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2023-02-01",
+            "date": "2023-02-08",
             "level": 3,
             "display": {
                 "@ja": "通常の医療が制限されている状況である",
