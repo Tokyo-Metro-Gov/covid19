@@ -18,7 +18,7 @@ This page shows how you can contribute to the development of this site.
 
 ## How to participate in communications
 
-- If you do not have a "Code for Japan" Slack account, please register [here](https://cfjslackin.herokuapp.com/)
+- If you do not have a "Code for Japan" Slack account, please register [here](https://cfj.slack.com/join/shared_invite/zt-w2soa7jo-ZhVLNk5HjBMYm1GD72i36g#/shared-invite/email)
 - Join `#covid19` Channel
 
 ## For participation
