@@ -16,7 +16,7 @@
       >
         <button role="checkbox" :aria-checked="`${displayLegends[i]}`">
           <span
-            v-if="i === 1"
+            v-if="i === 1 || i === 3"
             :class="$style.area"
             :style="{
               background: `repeating-linear-gradient(90deg, ${colors[i].fillColor}, ${colors[i].fillColor} 2px, #fff 2px, #fff 4px)`,
@@ -249,10 +249,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   },
   data() {
     return {
-      displayLegends: [true, true, true],
+      displayLegends: [true, true, true, true],
       colors: [
         getGraphSeriesColor('A'),
         getGraphSeriesColor('B'),
+        getGraphSeriesColor('H'),
         getGraphSeriesColor('H'),
       ],
       canvas: true,
@@ -272,6 +273,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         return dataset.slice(-1)[0]
       }
       const lastDay = this.labels.slice(-1)[0]
+
       return this.chartData.map((data, i) => {
         return {
           index: i,
@@ -284,12 +286,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     },
     displayInfoForTitle() {
       return this.displayInfo.filter((_, i) => {
-        return i === 2
+        return i === 3
       })
     },
     displayInfoForDescription() {
       return this.displayInfo.filter((_, i) => {
-        return i !== 2
+        return i !== 3
       })
     },
     displayData() {
@@ -313,7 +315,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           fill: false,
           order: i,
           lineTension: 0,
-          borderDash: i === 1 ? [4] : null,
+          borderDash: i === 1 || i === 3 ? [4] : null,
         }
       })
 
