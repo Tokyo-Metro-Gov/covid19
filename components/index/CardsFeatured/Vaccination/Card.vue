@@ -8,6 +8,7 @@
           $t('１回目接種数（接種率）'),
           $t('２回目接種数（接種率）'),
           $t('３回目接種数（接種率）'),
+          $t('オミクロン株対応ワクチン接種数 (接種率）'),
         ]"
         chart-id="vaccination-chart"
         :chart-data="vaccinationData.chartData"
@@ -27,7 +28,7 @@
           >
             <span :class="$style['button-inner']">
               <vaccine-icon :class="$style['button-icon']" aria-hidden="true" />
-              {{ $t('年代別ワクチン接種状況・接種推計等の詳細はこちら') }}
+              {{ $t('年代別ワクチン接種状況等の詳細はこちら') }}
             </span>
           </app-link>
         </template>
@@ -37,7 +38,7 @@
             <li>
               {{
                 $t(
-                  'ワクチン接種記録システム（VRS）への報告を居住地の都道府県別に国が集計し、公表したものに基づき作成（本データは過日の数値が修正されることがある）'
+                  'ワクチン接種記録システム（VRS）への報告を居住地の都道府県別に国が集計したものに基づき作成（本データは過日の数値が修正されることがある）'
                 )
               }}
             </li>
@@ -61,9 +62,9 @@ import Vue from 'vue'
 import AppLink from '@/components/_shared/AppLink.vue'
 import Chart from '@/components/index/CardsFeatured/Vaccination/Chart.vue'
 import {
-  Dataset as IVaccinationCountDataset,
-  VaccinationCount as IVaccinationCount,
-} from '@/libraries/auto_generated/data_converter/convertVaccinationCount'
+  Dataset as IVaccinationCountWithOmicronDataset,
+  VaccinationCountWithOmicron as IVaccinationCountWithOmicron,
+} from '@/libraries/auto_generated/data_converter/convertVaccinationCountWithOmicron'
 import VaccineIcon from '@/static/vaccine.svg'
 import {
   getNumberToFixedFunction,
@@ -79,13 +80,13 @@ type Data = {
 type Methods = {}
 type Computed = {
   date: string
-  vaccinationDatasets: IVaccinationCountDataset[]
+  vaccinationDatasets: IVaccinationCountWithOmicronDataset[]
   vaccinationData: {
     labels: Date[]
     chartData: number[][]
     tableData: number[][]
   }
-  vaccination: IVaccinationCount
+  vaccination: IVaccinationCountWithOmicron
   isSingleCard: boolean
 }
 type Props = {}
@@ -101,6 +102,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       this.$t('接種率（１回目）') as string,
       this.$t('接種率（２回目）') as string,
       this.$t('接種率（３回目）') as string,
+      this.$t('接種率（オミクロン株対応ワクチン）') as string,
     ]
 
     const tableLabels = [
@@ -110,10 +112,17 @@ export default Vue.extend<Data, Methods, Computed, Props>({
       this.$t('接種率（２回目）') as string,
       this.$t('接種数（３回目）') as string,
       this.$t('接種率（３回目）') as string,
+      this.$t('接種数（オミクロン株対応ワクチン）') as string,
+      this.$t('接種率（オミクロン株対応ワクチン）') as string,
     ]
 
     const getFormatter = (columnIndex: number) => {
-      if (columnIndex === 0 || columnIndex === 2 || columnIndex === 4) {
+      if (
+        columnIndex === 0 ||
+        columnIndex === 2 ||
+        columnIndex === 4 ||
+        columnIndex === 6
+      ) {
         return getNumberToLocaleStringFunction()
       } else {
         // 接種率は小数点第1位まで表示する。
@@ -136,30 +145,39 @@ export default Vue.extend<Data, Methods, Computed, Props>({
     },
     vaccinationData() {
       const datasets = this.vaccinationDatasets
-      const labels = datasets.map((d: IVaccinationCountDataset) => d.date)
+      const labels = datasets.map(
+        (d: IVaccinationCountWithOmicronDataset) => d.date
+      )
       const cumulative1StDose: number[] = datasets.map(
-        (d: IVaccinationCountDataset) => d.data.cumulative1StDose
+        (d: IVaccinationCountWithOmicronDataset) => d.data.cumulative1StDose
       )
       const cumulative2NdDose: number[] = datasets.map(
-        (d: IVaccinationCountDataset) => d.data.cumulative2NdDose
+        (d: IVaccinationCountWithOmicronDataset) => d.data.cumulative2NdDose
       )
       const cumulative3RDDose: number[] = datasets.map(
-        (d: IVaccinationCountDataset) => d.data.cumulative3RDDose
+        (d: IVaccinationCountWithOmicronDataset) => d.data.cumulative3RDDose
       )
       const coverage1StDose: number[] = datasets.map(
-        (d: IVaccinationCountDataset) => d.data.coverage1StDose
+        (d: IVaccinationCountWithOmicronDataset) => d.data.coverage1StDose
       )
       const coverage2NdDose: number[] = datasets.map(
-        (d: IVaccinationCountDataset) => d.data.coverage2NdDose
+        (d: IVaccinationCountWithOmicronDataset) => d.data.coverage2NdDose
       )
       const coverage3RDDose: number[] = datasets.map(
-        (d: IVaccinationCountDataset) => d.data.coverage3RDDose
+        (d: IVaccinationCountWithOmicronDataset) => d.data.coverage3RDDose
+      )
+      const cumulativeOmicron: number[] = datasets.map(
+        (d: IVaccinationCountWithOmicronDataset) => d.data.cumulativeOmicron
+      )
+      const coverageOmicron: number[] = datasets.map(
+        (d: IVaccinationCountWithOmicronDataset) => d.data.coverageOmicron
       )
 
       const chartData: number[][] = [
         coverage1StDose,
         coverage2NdDose,
         coverage3RDDose,
+        coverageOmicron,
       ]
       const tableData: number[][] = [
         cumulative1StDose,
@@ -168,6 +186,8 @@ export default Vue.extend<Data, Methods, Computed, Props>({
         coverage2NdDose,
         cumulative3RDDose,
         coverage3RDDose,
+        cumulativeOmicron,
+        coverageOmicron,
       ]
 
       return {
