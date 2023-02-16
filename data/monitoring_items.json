@@ -1,5 +1,5 @@
 {
-    "date": "2023\/2\/15 16:45",
+    "date": "2023\/2\/16 16:45",
     "data": {
         "専門家3行コメント": [
             {
@@ -12,19 +12,19 @@
             }
         ],
         "総括コメント-感染状況": {
-            "date": "2023-02-08",
+            "date": "2023-02-15",
             "level": 2,
             "display": {
                 "@ja": "感染状況の推移に注意が必要である",
-                "@en": "Although the infection situation is not trending upward, vigilance against the virus is needed."
+                "@en": "Infection trends need to be closely observed."
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2023-02-08",
-            "level": 3,
+            "date": "2023-02-15",
+            "level": 2,
             "display": {
-                "@ja": "通常の医療が制限されている状況である",
-                "@en": "The provision of non-COVID health care is under pressure."
+                "@ja": "通常の医療との両立が可能な状況である",
+                "@en": "A balance between the provision of COVID and non-COVID health care is possible. "
             }
         }
     }
