@@ -8,7 +8,7 @@ on:
 jobs:
   i18n-builder:
     if: false == contains(github.event.commits[0].message, 'Update assets/locales/ja.json')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout development branch
         uses: actions/checkout@v3
