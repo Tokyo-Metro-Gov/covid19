@@ -4,7 +4,7 @@ on:
   - pull_request
 jobs:
   triage:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Label for Transifex
         if: github.actor == 'transifex-integration[bot]' && !endsWith(github.event.pull_request.title, '[manual sync]')

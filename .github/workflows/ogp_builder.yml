@@ -43,7 +43,7 @@ jobs:
           path: ogp
   upload:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Extract branch name
         shell: bash
