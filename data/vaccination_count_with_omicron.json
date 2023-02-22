@@ -8827,19 +8827,6 @@
                 "cumulative_omicron": 5615698,
                 "coverage_omicron": 40.7
             }
-        },
-        {
-            "date": "2023-02-20",
-            "data": {
-                "cumulative_1st_dose": 10812570,
-                "cumulative_2nd_dose": 10734974,
-                "cumulative_3rd_dose": 9263658,
-                "coverage_1st_dose": 78.4,
-                "coverage_2nd_dose": 77.8,
-                "coverage_3rd_dose": 67.2,
-                "cumulative_omicron": null,
-                "coverage_omicron": null
-            }
         }
     ]
 }
