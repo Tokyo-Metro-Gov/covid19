@@ -36,7 +36,7 @@
     "@nuxtjs/vuetify/**/sass": "1.32.12"
   },
   "dependencies": {
-    "@nuxt/types": "2.15.8",
+    "@nuxt/types": "2.16.0",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/gtm": "2.4.0",
     "@nuxtjs/i18n": "7.3.1",
