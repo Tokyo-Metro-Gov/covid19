@@ -118,4 +118,10 @@ export default Vue.extend(options)
 .v-data-table .text-end {
   text-align: right;
 }
+
+.v-data-table-header {
+  th {
+    white-space: nowrap;
+  }
+}
 </style>
