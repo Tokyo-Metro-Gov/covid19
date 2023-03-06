@@ -1,7 +1,7 @@
 name: Preview Deploy (only development)
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, synchronize, labeled]
     branches:
       - development
