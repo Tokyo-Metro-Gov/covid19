@@ -12,10 +12,10 @@ jobs:
     if: contains(github.event.pull_request.labels.*.name, 'preview-deploy')
     steps:
       - uses: actions/checkout@v3
-      #        with:
-      #          repository: '${{ github.event.pull_request.head.repo.full_name }}'
-      #          ref: '${{ github.event.pull_request.head.sha }}'
-      #          lfs: true
+        with:
+          repository: '${{ github.event.pull_request.head.repo.full_name }}'
+          ref: '${{ github.event.pull_request.head.sha }}'
+          lfs: true
 
       - name: Setup Node
         uses: actions/setup-node@v3
