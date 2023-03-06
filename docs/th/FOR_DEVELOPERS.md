@@ -8,7 +8,7 @@ Install the following application to the environment for development.
 
 | Application name                                           | Application version(Fill in only if specified) | Installation conditions                           |
 | ---------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------- |
-| [Node.js](https://nodejs.org/en/)                          | 16.13.0 หรือสูงกว่า                            | Required                                          |
+| [Node.js](https://nodejs.org/en/)                          | 18.14.2 หรือสูงกว่า                            | Required                                          |
 | [Visual Studio Code](https://code.visualstudio.com/)       |                                                | If you use Visual Studio Code                     |
 | [yarn](https://classic.yarnpkg.com/en/)                    |                                                | When executing this program with `yarn`           |
 | [docker compose](https://docs.docker.com/compose/install/) |                                                | When executing this program with `docker compose` |
@@ -178,10 +178,10 @@ Please use the variable to detect which enviroinment is used at the runtime.
 
 When the branch listed in the left column of the table below is updated, the branch and website will be updated automatically.
 
-| branch        | A branch where HTML is built and updated | Website updated                                             |
-| ------------- | ---------------------------------------- | ----------------------------------------------------------- |
-| `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/  |
-| `staging`     | `gh-pages`                               | The staging site https://stopcovid19-tokyo-staging.web.app/     |
+| branch        | A branch where HTML is built and updated | Website updated                                                     |
+| ------------- | ---------------------------------------- | ------------------------------------------------------------------- |
+| `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/          |
+| `staging`     | `gh-pages`                               | The staging site https://stopcovid19-tokyo-staging.web.app/         |
 | `development` | `dev-pages`                              | The development site https://stopcovid19-tokyo-development.web.app/ |
 
 [/PLEASE TRANSLATE ME]
@@ -204,16 +204,16 @@ pull request เปิดรับได้ที่ `development` เท่า�
 
 ### 5-1. branch หลัก
 
-| จุดประสงค์  | branch      | URL                                    | People who can make pull requests | หมายเหตุ                                                                                                  |
-| ----------- | ----------- | -------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| จุดประสงค์  | branch      | URL                                            | People who can make pull requests | หมายเหตุ                                                                                                  |
+| ----------- | ----------- | ---------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | Development | development | https://stopcovid19-tokyo-development.web.app/ | All developers                    | branch หลัก ใช้ในการรับ pull request                                                                      |
-| Staging     | staging     | https://stopcovid19-tokyo-staging.web.app/ | Only administrators               | ใช้สำหรับ staging ทดสอบตัวปรับปรุง ก่อน deploy ลง production - ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
-| Production  | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators               | ห้ามสร้าง pull request ยกเว้นจาก admin เอง                                                                |
+| Staging     | staging     | https://stopcovid19-tokyo-staging.web.app/     | Only administrators               | ใช้สำหรับ staging ทดสอบตัวปรับปรุง ก่อน deploy ลง production - ห้ามสร้าง pull request ยกเว้นจาก admin เอง |
+| Production  | master      | https://stopcovid19.metro.tokyo.lg.jp/         | Only administrators               | ห้ามสร้าง pull request ยกเว้นจาก admin เอง                                                                |
 
 ### 5-2. branch ที่ถูกใช้โดยระบบ
 
-| จุดประสงค์                   | branch           | URL                                    | หมายเหตุ               |
-| ---------------------------- | ---------------- | -------------------------------------- | ---------------------- |
-| Production site HTML         | production       | https://stopcovid19.metro.tokyo.lg.jp/ | HTML สำหรับ production |
+| จุดประสงค์                   | branch           | URL                                        | หมายเหตุ               |
+| ---------------------------- | ---------------- | ------------------------------------------ | ---------------------- |
+| Production site HTML         | production       | https://stopcovid19.metro.tokyo.lg.jp/     | HTML สำหรับ production |
 | Staging site HTML            | gh-pages         | https://stopcovid19-tokyo-staging.web.app/ | HTML สำหรับ staging    |
-| สำหรับ OGP working directory | deploy / new_ogp | None                                   | สำหรับปรับปรุง OGP     |
+| สำหรับ OGP working directory | deploy / new_ogp | None                                       | สำหรับปรับปรุง OGP     |

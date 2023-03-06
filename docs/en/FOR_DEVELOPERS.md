@@ -6,7 +6,7 @@ Install the following application to the environment for development.
 
 | Application name                                           | Application version(Fill in only if specified) | Installation conditions                           |
 | ---------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------- |
-| [Node.js](https://nodejs.org/en/)                          | 16.13.0 or higher                              | Required                                          |
+| [Node.js](https://nodejs.org/en/)                          | 18.14.2 or higher                              | Required                                          |
 | [Visual Studio Code](https://code.visualstudio.com/)       |                                                | If you use Visual Studio Code                     |
 | [yarn](https://classic.yarnpkg.com/en/)                    |                                                | When executing this program with `yarn`           |
 | [docker compose](https://docs.docker.com/compose/install/) |                                                | When executing this program with `docker compose` |
@@ -125,10 +125,10 @@ Please use the variable to detect which enviroinment is used at the runtime.
 
 When the branch listed in the left column of the table below is updated, the branch and website will be updated automatically.
 
-| branch        | A branch where HTML is built and updated | Website updated                                             |
-| ------------- | ---------------------------------------- | ----------------------------------------------------------- |
-| `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/  |
-| `staging`     | `gh-pages`                               | The staging site https://stopcovid19-tokyo-staging.web.app/     |
+| branch        | A branch where HTML is built and updated | Website updated                                                     |
+| ------------- | ---------------------------------------- | ------------------------------------------------------------------- |
+| `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/          |
+| `staging`     | `gh-pages`                               | The staging site https://stopcovid19-tokyo-staging.web.app/         |
 | `development` | `dev-pages`                              | The development site https://stopcovid19-tokyo-development.web.app/ |
 
 ---
@@ -145,19 +145,19 @@ Please use the following naming rules for the branch when sending a Pull Request
 
 ### 5-1. Basic branch
 
-| Purpose     | Branch      | Confirmation URL                       | People who can make pull requests | Remarks                                                                           |
-| ----------- | ----------- | -------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------- |
+| Purpose     | Branch      | Confirmation URL                               | People who can make pull requests | Remarks                                                                           |
+| ----------- | ----------- | ---------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------- |
 | Development | development | https://stopcovid19-tokyo-development.web.app/ | All developers                    | base branch. Basically send a Pull Request here                                   |
-| Staging     | staging     | https://stopcovid19-tokyo-staging.web.app/ | Only administrators               | For final confirmation before production. Non-admin pull requests are prohibited. |
-| Production  | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators               | Pull Requests other than Administrators are prohibited                            |
+| Staging     | staging     | https://stopcovid19-tokyo-staging.web.app/     | Only administrators               | For final confirmation before production. Non-admin pull requests are prohibited. |
+| Production  | master      | https://stopcovid19.metro.tokyo.lg.jp/         | Only administrators               | Pull Requests other than Administrators are prohibited                            |
 
 ### 5-2. Branch used by the system
 
-| Purpose                   | Branch           | Confirmation URL                       | Remarks                                         |
-| ------------------------- | ---------------- | -------------------------------------- | ----------------------------------------------- |
-| Production site HTML      | production       | https://stopcovid19.metro.tokyo.lg.jp/ | Location where statically built HTML is located |
+| Purpose                   | Branch           | Confirmation URL                           | Remarks                                         |
+| ------------------------- | ---------------- | ------------------------------------------ | ----------------------------------------------- |
+| Production site HTML      | production       | https://stopcovid19.metro.tokyo.lg.jp/     | Location where statically built HTML is located |
 | Staging site HTML         | gh-pages         | https://stopcovid19-tokyo-staging.web.app/ | Where to find statically built HTML             |
-| For OGP working directory | deploy / new_ogp | None                                   | For updating OGP                                |
+| For OGP working directory | deploy / new_ogp | None                                       | For updating OGP                                |
 
 ---
 
