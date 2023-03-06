@@ -6,7 +6,7 @@ Instale las siguientes aplicaciones para el ambiente de desarrollo.
 
 | Nombre de la aplicación                                    | Versión de la aplicación (Proporcionar sólo si se especifica) | Condiciones de instalación                           |
 | ---------------------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------------------- |
-| [Node.js](https://nodejs.org/es/)                          | 16.13.0 o superior                                            | Requerido                                            |
+| [Node.js](https://nodejs.org/es/)                          | 18.12.1 o superior                                            | Requerido                                            |
 | [Visual Studio Code](https://code.visualstudio.com/)       |                                                               | si usas Visual Studio Code                           |
 | [yarn](https://classic.yarnpkg.com/es-ES/)                 |                                                               | Cuando se ejecuta este programa con `yarn`           |
 | [docker compose](https://docs.docker.com/compose/install/) |                                                               | Cuando se ejecuta este programa con `docker compose` |
@@ -125,10 +125,10 @@ Por favor usa la variable para detectar qué ambiente es usado en tiempo de ejec
 
 Cuando se actualiza alguna rama en la columna izquierda de la tabla inferior, la rama y el sitio web serán actualizados automáticamente.
 
-| Rama          | Una rama donde el HTML es construido y actualizado | Sitio web actualizado                                         |
-| ------------- | -------------------------------------------------- | ------------------------------------------------------------- |
-| `master`      | `production`                                       | El sitio de producción https://stopcovid19.metro.tokyo.lg.jp/ |
-| `staging`     | `gh-pages`                                         | El sitio de staging https://stopcovid19-tokyo-staging.web.app/    |
+| Rama          | Una rama donde el HTML es construido y actualizado | Sitio web actualizado                                                 |
+| ------------- | -------------------------------------------------- | --------------------------------------------------------------------- |
+| `master`      | `production`                                       | El sitio de producción https://stopcovid19.metro.tokyo.lg.jp/         |
+| `staging`     | `gh-pages`                                         | El sitio de staging https://stopcovid19-tokyo-staging.web.app/        |
 | `development` | `dev-pages`                                        | El sitio de desarrollo https://stopcovid19-tokyo-development.web.app/ |
 
 ---
@@ -145,16 +145,16 @@ Por favor usa las siguientes reglas de nombrado para la rama al enviar un Pull R
 
 ### 5-1. Rama básica
 
-| Propósito  | Rama        | URL de confirmación                    | Personas que pueden hace Pull Request | Observaciones                                                                                          |
-| ---------- | ----------- | -------------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Propósito  | Rama        | URL de confirmación                            | Personas que pueden hace Pull Request | Observaciones                                                                                          |
+| ---------- | ----------- | ---------------------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | Desarrollo | development | https://stopcovid19-tokyo-development.web.app/ | Todos los desarrolladores             | Rama base. Envía los Pull Request aquí                                                                 |
-| Staging    | staging     | https://stopcovid19-tokyo-staging.web.app/ | Sólo administradores                  | Para confirmación final antes de producción. Prohibidos los Pull Request de quien no sea administrador |
-| Producción | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Sólo administradores                  | Prohibidos los Pull Request de quien no sea administrador                                              |
+| Staging    | staging     | https://stopcovid19-tokyo-staging.web.app/     | Sólo administradores                  | Para confirmación final antes de producción. Prohibidos los Pull Request de quien no sea administrador |
+| Producción | master      | https://stopcovid19.metro.tokyo.lg.jp/         | Sólo administradores                  | Prohibidos los Pull Request de quien no sea administrador                                              |
 
 ### 5-2. Rama usada por el sistema
 
-| Propósito                         | Rama             | URL de confirmación                    | Observaciones                                              |
-| --------------------------------- | ---------------- | -------------------------------------- | ---------------------------------------------------------- |
-| HTML del sitio de producción      | production       | https://stopcovid19.metro.tokyo.lg.jp/ | Ubicación donde se localiza el HTML generado estáticamente |
+| Propósito                         | Rama             | URL de confirmación                        | Observaciones                                              |
+| --------------------------------- | ---------------- | ------------------------------------------ | ---------------------------------------------------------- |
+| HTML del sitio de producción      | production       | https://stopcovid19.metro.tokyo.lg.jp/     | Ubicación donde se localiza el HTML generado estáticamente |
 | Sitio HTML de staging             | gh-pages         | https://stopcovid19-tokyo-staging.web.app/ | Dónde encontrar el HTML generado estáticamente             |
-| Para el directorio de trabajo OGP | deploy / new_ogp | Ninguna                                | Para actualizar OGP                                        |
+| Para el directorio de trabajo OGP | deploy / new_ogp | Ninguna                                    | Para actualizar OGP                                        |

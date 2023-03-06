@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '16.13.0'
+          node-version: '18.12.1'
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
