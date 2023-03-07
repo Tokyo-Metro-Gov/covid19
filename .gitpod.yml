@@ -1,4 +1,4 @@
-image: node:16.13.0-buster
+image: node:18.14.2-buster
 
 tasks:
   - init: yarn install
