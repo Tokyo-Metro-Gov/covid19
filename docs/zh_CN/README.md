@@ -38,7 +38,7 @@
 
 ### 开发环境搭建
 
-- Node.js 版本最低需求: 16.13.0 以上
+- Node.js 版本最低需求: 18.14.2 以上
 
 **使用 yarn 时**
 
@@ -123,17 +123,17 @@ Hotfix: hotfix/#{ISSUE_ID}-{branch_title_name}
 
 #### 基本分支
 
-| 目的       | 分支        | 预览用 URL                             | 备注                                                              |
-| ---------- | ----------- | -------------------------------------- | ----------------------------------------------------------------- |
+| 目的       | 分支        | 预览用 URL                                     | 备注                                                              |
+| ---------- | ----------- | ---------------------------------------------- | ----------------------------------------------------------------- |
 | 开发       | development | https://stopcovid19-tokyo-development.web.app/ | 基本上请推送 Pull Request 到这里                                  |
-| 紧急修复   | dev-hotfix  | 无                                     | 对正式版的紧急修复。在管理员的要求下使用。                        |
-| 正式版预览 | staging     | https://stopcovid19-tokyo-staging.web.app/ | 对于正式版发布前的最终确认，禁止管理员以外的人推送 Pull Request。 |
-| 正式版     | master      | https://stopcovid19.metro.tokyo.lg.jp/ | 禁止管理员以外的人推送 Pull Request                               |
+| 紧急修复   | dev-hotfix  | 无                                             | 对正式版的紧急修复。在管理员的要求下使用。                        |
+| 正式版预览 | staging     | https://stopcovid19-tokyo-staging.web.app/     | 对于正式版发布前的最终确认，禁止管理员以外的人推送 Pull Request。 |
+| 正式版     | master      | https://stopcovid19.metro.tokyo.lg.jp/         | 禁止管理员以外的人推送 Pull Request                               |
 
 #### 系统所使用的分支
 
-| 目的            | 分支             | 预览用 URL                             | 备注                     |
-| --------------- | ---------------- | -------------------------------------- | ------------------------ |
-| 正式网站 HTML   | production       | https://stopcovid19.metro.tokyo.lg.jp/ | 生成静态网站 HTML 的位置 |
+| 目的            | 分支             | 预览用 URL                                 | 备注                     |
+| --------------- | ---------------- | ------------------------------------------ | ------------------------ |
+| 正式网站 HTML   | production       | https://stopcovid19.metro.tokyo.lg.jp/     | 生成静态网站 HTML 的位置 |
 | 正式版预览 HTML | gh-pages         | https://stopcovid19-tokyo-staging.web.app/ | 生成静态网站 HTML 的位置 |
-| OGP 工作用      | deploy / new_ogp | 无                                     | OGP 更新用               |
+| OGP 工作用      | deploy / new_ogp | 无                                         | OGP 更新用               |

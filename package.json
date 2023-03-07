@@ -5,7 +5,7 @@
   "author": "東京都",
   "private": true,
   "engines": {
-    "node": ">=16.13.0"
+    "node": ">=18.14.2"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development GENERATE_ENV=development nuxt",
@@ -36,7 +36,7 @@
     "@nuxtjs/vuetify/**/sass": "1.32.12"
   },
   "dependencies": {
-    "@nuxt/types": "2.15.8",
+    "@nuxt/types": "2.16.0",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/gtm": "2.4.0",
     "@nuxtjs/i18n": "7.3.1",
@@ -45,7 +45,7 @@
     "chart.js": "2.9.4",
     "cross-env": "7.0.3",
     "dayjs": "1.11.7",
-    "nuxt": "2.15.8",
+    "nuxt": "2.16.2",
     "vue": "2.7.14",
     "vue-chartjs": "3.5.1",
     "vue-meta": "2.4.0",
@@ -64,10 +64,10 @@
     "@nuxtjs/vuetify": "1.12.3",
     "@types/chart.js": "2.9.37",
     "@types/lodash": "4.14.191",
-    "@types/node": "16.18.13",
-    "core-js": "3.28.0",
-    "danger": "11.2.3",
-    "eslint": "8.33.0",
+    "@types/node": "18.14.6",
+    "core-js": "3.29.0",
+    "danger": "11.2.4",
+    "eslint": "8.35.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-simple-import-sort": "10.0.0",
@@ -83,7 +83,7 @@
     "postcss": "8.4.21",
     "postcss-html": "1.5.0",
     "prettier": "2.8.4",
-    "quicktype": "15.1.0",
+    "quicktype": "23.0.11",
     "stylelint": "14.16.1",
     "stylelint-config-prettier-scss": "0.0.1",
     "stylelint-config-standard-scss": "6.1.0",
