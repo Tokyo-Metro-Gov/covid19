@@ -6,7 +6,7 @@
 
 | 應用程式名稱                                               | 應用程式版本(有特定版本才填寫) | 安裝要求                           |
 | ---------------------------------------------------------- | ------------------------------ | ---------------------------------- |
-| [Node.js](https://nodejs.org/zh-tw/)                       | 16.13.0 以上                   | 必要                               |
+| [Node.js](https://nodejs.org/zh-tw/)                       | 18.14.2 以上                   | 必要                               |
 | [Visual Studio Code](https://code.visualstudio.com/)       |                                | 如果你使用 Visual Studio Code      |
 | [yarn](https://classic.yarnpkg.com/zh-Hant/)               |                                | 使用 `yarn` 執行本專案時           |
 | [docker compose](https://docs.docker.com/compose/install/) |                                | 使用 `docker compose` 直襲本專案時 |
@@ -126,10 +126,10 @@ $ vagrant up
 
 當下表左欄所列的分支更新後，分支和網站將會自動被更新。
 
-| 分支          | HTML 建置與更新的分支 | 網站更新                                                    |
-| ------------- | --------------------- | ----------------------------------------------------------- |
-| `master`      | `production`          | The production site https://stopcovid19.metro.tokyo.lg.jp/  |
-| `staging`     | `gh-pages`            | The staging site https://stopcovid19-tokyo-staging.web.app/     |
+| 分支          | HTML 建置與更新的分支 | 網站更新                                                            |
+| ------------- | --------------------- | ------------------------------------------------------------------- |
+| `master`      | `production`          | The production site https://stopcovid19.metro.tokyo.lg.jp/          |
+| `staging`     | `gh-pages`            | The staging site https://stopcovid19-tokyo-staging.web.app/         |
 | `development` | `dev-pages`           | The development site https://stopcovid19-tokyo-development.web.app/ |
 
 ---
@@ -146,16 +146,16 @@ $ vagrant up
 
 ### 5-1. 基本分支
 
-| 目的       | 分支        | 預覽用 URL                             | 誰可以發 Pull Request | 備註                                                              |
-| ---------- | ----------- | -------------------------------------- | --------------------- | ----------------------------------------------------------------- |
+| 目的       | 分支        | 預覽用 URL                                     | 誰可以發 Pull Request | 備註                                                              |
+| ---------- | ----------- | ---------------------------------------------- | --------------------- | ----------------------------------------------------------------- |
 | 開發       | development | https://stopcovid19-tokyo-development.web.app/ | All developers        | 基本上請推送 Pull Request 到這裡                                  |
-| 正式版預覽 | staging     | https://stopcovid19-tokyo-staging.web.app/ | Only administrators   | 對於正式版釋出前的最終確認，禁止管理員以外的人推送 Pull Request。 |
-| 正式版     | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators   | 禁止管理員以外的人推送 Pull Request                               |
+| 正式版預覽 | staging     | https://stopcovid19-tokyo-staging.web.app/     | Only administrators   | 對於正式版釋出前的最終確認，禁止管理員以外的人推送 Pull Request。 |
+| 正式版     | master      | https://stopcovid19.metro.tokyo.lg.jp/         | Only administrators   | 禁止管理員以外的人推送 Pull Request                               |
 
 ### 5-2. 系統所使用的分支
 
-| 目的            | 分支             | 預覽用 URL                             | 備註                     |
-| --------------- | ---------------- | -------------------------------------- | ------------------------ |
-| 正式網站 HTML   | production       | https://stopcovid19.metro.tokyo.lg.jp/ | 生成靜態網站 HTML 的位置 |
+| 目的            | 分支             | 預覽用 URL                                 | 備註                     |
+| --------------- | ---------------- | ------------------------------------------ | ------------------------ |
+| 正式網站 HTML   | production       | https://stopcovid19.metro.tokyo.lg.jp/     | 生成靜態網站 HTML 的位置 |
 | 正式版預覽 HTML | gh-pages         | https://stopcovid19-tokyo-staging.web.app/ | 生成靜態網站 HTML 的位置 |
-| OGP 工作用      | deploy / new_ogp | 無                                     | OGP 更新用               |
+| OGP 工作用      | deploy / new_ogp | 無                                         | OGP 更新用               |

@@ -8,7 +8,7 @@ Install the following application to the environment for development.
 
 | Application name                                           | Application version(Fill in only if specified) | Installation conditions                           |
 | ---------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------- |
-| [Node.js](https://nodejs.org/en/)                          | 16.13.0 이상                                   | Required                                          |
+| [Node.js](https://nodejs.org/en/)                          | 18.14.2 이상                                   | Required                                          |
 | [Visual Studio Code](https://code.visualstudio.com/)       |                                                | If you use Visual Studio Code                     |
 | [yarn](https://classic.yarnpkg.com/en/)                    |                                                | When executing this program with `yarn`           |
 | [docker compose](https://docs.docker.com/compose/install/) |                                                | When executing this program with `docker compose` |
@@ -172,10 +172,10 @@ You can check the program under development by accessing http://localhost:3000 a
 
 When the branch listed in the left column of the table below is updated, the branch and website will be updated automatically.
 
-| branch        | A branch where HTML is built and updated | Website updated                                             |
-| ------------- | ---------------------------------------- | ----------------------------------------------------------- |
-| `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/  |
-| `staging`     | `gh-pages`                               | The staging site https://stopcovid19-tokyo-staging.web.app/     |
+| branch        | A branch where HTML is built and updated | Website updated                                                     |
+| ------------- | ---------------------------------------- | ------------------------------------------------------------------- |
+| `master`      | `production`                             | The production site https://stopcovid19.metro.tokyo.lg.jp/          |
+| `staging`     | `gh-pages`                               | The staging site https://stopcovid19-tokyo-staging.web.app/         |
 | `development` | `dev-pages`                              | The development site https://stopcovid19-tokyo-development.web.app/ |
 
 [/PLEASE TRANSLATE ME]
@@ -200,18 +200,18 @@ When the branch listed in the left column of the table below is updated, the bra
 
 [PLEASE TRANSLATE ME]
 
-| 목적                 | 브랜치      | 확인 URL                               | People who can make pull requests | 비고                                                                                                           |
-| -------------------- | ----------- | -------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| 목적                 | 브랜치      | 확인 URL                                       | People who can make pull requests | 비고                                                                                                           |
+| -------------------- | ----------- | ---------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | 개발                 | development | https://stopcovid19-tokyo-development.web.app/ | All developers                    | 기본 브랜치(branch). 기본은 여기로 풀 리퀘스트를 전달하세요.                                                   |
-| 스테이징(Staging)    | staging     | https://stopcovid19-tokyo-staging.web.app/ | Only administrators               | 프로덕션(production) 적용 전에 최종 확인용 브랜치입니다. 관리자가 아닌 풀 리퀘스트(Pull Request)는 금지입니다. |
-| 프로덕션(Production) | master      | https://stopcovid19.metro.tokyo.lg.jp/ | Only administrators               | 관리자 이외의 풀 리퀘스트(Pull Request)는 금지입니다.                                                          |
+| 스테이징(Staging)    | staging     | https://stopcovid19-tokyo-staging.web.app/     | Only administrators               | 프로덕션(production) 적용 전에 최종 확인용 브랜치입니다. 관리자가 아닌 풀 리퀘스트(Pull Request)는 금지입니다. |
+| 프로덕션(Production) | master      | https://stopcovid19.metro.tokyo.lg.jp/         | Only administrators               | 관리자 이외의 풀 리퀘스트(Pull Request)는 금지입니다.                                                          |
 
 [/PLEASE TRANSLATE ME]
 
 ### 5-2. 시스템에서 사용하는 브랜치(Branch)
 
-| 목적                             | 브랜치           | 확인 URL                               | 비고                               |
-| -------------------------------- | ---------------- | -------------------------------------- | ---------------------------------- |
-| 프로덕션(Production) 사이트 HTML | production       | https://stopcovid19.metro.tokyo.lg.jp/ | 정적 빌드된 HTML이 있는 위치       |
+| 목적                             | 브랜치           | 확인 URL                                   | 비고                               |
+| -------------------------------- | ---------------- | ------------------------------------------ | ---------------------------------- |
+| 프로덕션(Production) 사이트 HTML | production       | https://stopcovid19.metro.tokyo.lg.jp/     | 정적 빌드된 HTML이 있는 위치       |
 | 스테이징(Staging) 사이트 HTML    | gh-pages         | https://stopcovid19-tokyo-staging.web.app/ | 정적 빌드된 HTML를 찾을 수 있는 곳 |
-| OGP 작업용 디렉토리              | deploy / new_ogp | 없음                                   | OGP 업데이트용                     |
+| OGP 작업용 디렉토리              | deploy / new_ogp | 없음                                       | OGP 업데이트용                     |
