@@ -1,18 +1,18 @@
 {
-    "date": "2023\/3\/8 16:45",
+    "date": "2023\/3\/9 16:45",
     "data": {
         "専門家3行コメント": [
             {
-                "@ja": "感染状況は改善傾向が続いている。感染機会を減らすためには、定期的な換気、3密の回避、適切なマスクの着用、手指衛生などの基本的な感染防止対策を継続する必要がある。\n",
-                "@en": "The infection situation continues to improve.\nTo reduce the chance of infection, basic steps to prevent infection should continue to be taken, such as regularly airing out rooms, avoiding the three Cs, wearing a mask as appropriate, and keeping hands clean."
+                "@ja": "新規陽性者数の今週先週比は、8週間連続して100％を下回って推移しているものの、減少傾向は鈍化しており、今後の動向に注意が必要である。\n引き続き、基本的な感染防止対策を継続する必要がある。\n\n",
+                "@en": "Although the week-by-week change in new positive cases has remained below 100% for 8 consecutive weeks, the declining trend is slowing. Therefore, it is necessary to closely monitor future trends. \nThere is the need to continue taking basic steps to prevent infection.\n"
             },
             {
-                "@ja": "入院患者数は減少傾向が続き、約8か月ぶりに1,000人を下回った。医療機関では、新型コロナウイルス感染症のための病床を通常医療用の病床に振り替えるなど、柔軟な病床運用を行っている。\n",
-                "@en": "The number of hospitalized patients continues to show a declining trend, and has fallen to below 1,000 for the first time in about eight months.\nHospitals are using their beds in a flexible manner, such as switching over their beds secured for new COVID cases to accommodate non-COVID patients. "
+                "@ja": "入院患者数は、8週間連続して減少している。\n医療機関では、病床使用率や救急医療体制の状況などに応じて、通常医療とのバランスを取りながら、柔軟な病床運用に取り組んでいる。\n",
+                "@en": "The number of hospitalized patients has fallen for 8 consecutive weeks.\nHospitals are working to balance care for COVID and non-COVID patients and use their beds in a flexible manner according to factors such as bed occupancy rates and the state of the system for the provision of emergency medical care.\n"
             }
         ],
         "総括コメント-感染状況": {
-            "date": "2023-03-01",
+            "date": "2023-03-08",
             "level": 2,
             "display": {
                 "@ja": "感染状況の推移に注意が必要である",
@@ -20,7 +20,7 @@
             }
         },
         "総括コメント-医療提供体制": {
-            "date": "2023-03-01",
+            "date": "2023-03-08",
             "level": 2,
             "display": {
                 "@ja": "通常の医療との両立が可能な状況である",
