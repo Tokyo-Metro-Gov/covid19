@@ -1,5 +1,5 @@
 {
-    "date": "2023\/3\/10 16:45",
+    "date": "2023\/3\/13 16:45",
     "data": [
         {
             "date": "2020-03-01",
@@ -5520,6 +5520,21 @@
             "date": "2023-03-09",
             "count": 75,
             "weekly_average_count": 66.7
+        },
+        {
+            "date": "2023-03-10",
+            "count": 48,
+            "weekly_average_count": 65
+        },
+        {
+            "date": "2023-03-11",
+            "count": 71,
+            "weekly_average_count": 67.3
+        },
+        {
+            "date": "2023-03-12",
+            "count": 73,
+            "weekly_average_count": 67.3
         }
     ]
 }
