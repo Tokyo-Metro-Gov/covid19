@@ -42,9 +42,10 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .MonitoringCommentFrame {
-  border: solid 1px;
+  border: solid 3.5px;
   text-align: center;
   margin-bottom: 10px;
+  margin-top: 10px;
 
   > p {
     margin-top: auto;
@@ -62,7 +63,7 @@ export default Vue.extend({
 .MonitoringCommentFrameAfter {
   margin-top: -11px;
   content: '';
-  padding: 7px;
+  padding: 5.5px;
   border: solid 1px;
 }
 </style>
