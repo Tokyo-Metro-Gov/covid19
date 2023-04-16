@@ -23023,21 +23023,21 @@
             "2023-04-14"
         ]
     },
-    "lastUpdate": "2023\/04\/15 16:45",
+    "lastUpdate": "2023\/04\/16 16:45",
     "main_summary": {
         "children": [
             {
                 "attr": "陽性患者数",
                 "date": "2022\/11\/7 17:15",
-                "value": 4354166,
+                "value": 4355057,
                 "children": [
                     {
                         "attr": "入院中",
-                        "value": 574,
+                        "value": 583,
                         "children": [
                             {
                                 "attr": "軽症・中等症",
-                                "value": 569
+                                "value": 578
                             },
                             {
                                 "attr": "重症",
@@ -23051,11 +23051,11 @@
                     },
                     {
                         "attr": "死亡",
-                        "value": 8080
+                        "value": 8081
                     },
                     {
                         "attr": "宿泊療養",
-                        "value": 342
+                        "value": 329
                     },
                     {
                         "attr": "自宅療養",
