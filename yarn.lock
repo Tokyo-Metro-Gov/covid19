@@ -9481,10 +9481,10 @@ quick-lru@^5.1.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
-quicktype-core@23.0.19:
-  version "23.0.19"
-  resolved "https://registry.yarnpkg.com/quicktype-core/-/quicktype-core-23.0.19.tgz#2e28620636345a5138ad9e707bb2d21045d1e53e"
-  integrity sha512-CjJdvbVhj7g0+V+guS67+lc8RyuiRDAMe4eKEULyOL3bWBcSnFzGpnkYA/iCLi/g5ujsMmKr+DSCuloCSG+kOw==
+quicktype-core@23.0.30:
+  version "23.0.30"
+  resolved "https://registry.yarnpkg.com/quicktype-core/-/quicktype-core-23.0.30.tgz#b2078b0b91ff215dae3c3b087cc1a95153b2bcaa"
+  integrity sha512-OpUSZz84i1GUL/1AVbb7URr21polZ3775QAiHaSjull0AQe13Yh5Sc5zEiH15nDr3cgc0ik4Rq3F0EdIZxLJQQ==
   dependencies:
     "@glideapps/ts-necessities" "2.1.2"
     "@types/urijs" "^1.19.19"
@@ -9500,30 +9500,30 @@ quicktype-core@23.0.19:
     unicode-properties "^1.4.1"
     urijs "^1.19.1"
     wordwrap "^1.0.0"
-    yaml "^2.2.1"
+    yaml "^2.2.2"
 
-quicktype-graphql-input@23.0.19:
-  version "23.0.19"
-  resolved "https://registry.yarnpkg.com/quicktype-graphql-input/-/quicktype-graphql-input-23.0.19.tgz#f2b90c326427592af6acec06c566c970187cc2ed"
-  integrity sha512-cnfEj9YyyFk8gC05lMpPCXWfMCYh0UyslL3lkIDZUEZjotEcbudv+p6/+l20/4fEidqnlR2WAaf8FgSeT5gi2g==
+quicktype-graphql-input@23.0.30:
+  version "23.0.30"
+  resolved "https://registry.yarnpkg.com/quicktype-graphql-input/-/quicktype-graphql-input-23.0.30.tgz#9f79efce0c97c178899af4043d4c67bdc522c984"
+  integrity sha512-PVkoqVyz+8eUzf60yN5zlE5+GG6QMIHSsru2EmV0VIEbUulDXuwlQIFQ3MRPVTuMBp8wcGMMgVRViVgVUcYZrQ==
   dependencies:
     collection-utils "^1.0.1"
     graphql "^0.11.7"
-    quicktype-core "23.0.19"
+    quicktype-core "23.0.30"
 
-quicktype-typescript-input@23.0.19:
-  version "23.0.19"
-  resolved "https://registry.yarnpkg.com/quicktype-typescript-input/-/quicktype-typescript-input-23.0.19.tgz#20be82f49b60c1000b0f6b089fb3e3df768129a8"
-  integrity sha512-+XdU700L4ASgwyg933q4tWW1oab3AtWyJwEGurYNCXHeDUZmbcKr+jCq0iPumbNzuJOC2sWwEpdt3gS1L2aYWg==
+quicktype-typescript-input@23.0.30:
+  version "23.0.30"
+  resolved "https://registry.yarnpkg.com/quicktype-typescript-input/-/quicktype-typescript-input-23.0.30.tgz#aea5571512931fb186e8f484d8eb2df89034e63a"
+  integrity sha512-s7rI5HlLRdFaQ/x30WtPnxANzVHUW/z/JSpvHc3JvuHo3GX0ltnxEnPSm7XXGYheX2OUfy8Uq6awruTdqX6JZg==
   dependencies:
     "@mark.probst/typescript-json-schema" "0.55.0"
-    quicktype-core "23.0.19"
+    quicktype-core "23.0.30"
     typescript "4.9.5"
 
-quicktype@23.0.19:
-  version "23.0.19"
-  resolved "https://registry.yarnpkg.com/quicktype/-/quicktype-23.0.19.tgz#218cabede05d476784b8973e5440d2006ba82093"
-  integrity sha512-yM2DvLTyyAtFzsN68W8LtaRwhjLNasx1o64R2PaYsapfVIkEdGB2KYhxB0+YR1IEC5QKnbvFn95gg4CEpE/HdA==
+quicktype@23.0.30:
+  version "23.0.30"
+  resolved "https://registry.yarnpkg.com/quicktype/-/quicktype-23.0.30.tgz#6f8cf6d78ad97587f408dac6321906ba8b7553ae"
+  integrity sha512-1EQPiFvqaLwKJ+ynhqXshud4Yqi1By9aLviylOmnXF8AYuEaFWyJ4zvtafKUhC7TDhIublYzG9uXeHhW3VnROQ==
   dependencies:
     "@glideapps/ts-necessities" "^2.1.2"
     chalk "^4.1.2"
@@ -9534,9 +9534,9 @@ quicktype@23.0.19:
     graphql "^0.11.7"
     lodash "^4.17.21"
     moment "^2.29.4"
-    quicktype-core "23.0.19"
-    quicktype-graphql-input "23.0.19"
-    quicktype-typescript-input "23.0.19"
+    quicktype-core "23.0.30"
+    quicktype-graphql-input "23.0.30"
+    quicktype-typescript-input "23.0.30"
     readable-stream "^4.3.0"
     stream-json "1.7.5"
     string-to-stream "^3.0.1"
@@ -11955,11 +11955,6 @@ yaml@^1.10.0, yaml@^1.10.2, yaml@^1.7.2:
   version "1.10.2"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.2.tgz#2301c5ffbf12b467de8da2333a459e29e7920e4b"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
-
-yaml@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.2.1.tgz#3014bf0482dcd15147aa8e56109ce8632cd60ce4"
-  integrity sha512-e0WHiYql7+9wr4cWMx3TVQrNwejKaEe7/rHNmQmqRjazfOP5W8PB6Jpebb5o6fIapbz9o9+2ipcaTM2ZwDI6lw==
 
 yaml@^2.2.2:
   version "2.2.2"
