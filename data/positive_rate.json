@@ -1,5 +1,5 @@
 {
-    "date": "2023\/4\/29 16:45",
+    "date": "2023\/5\/1 16:45",
     "data": [
         {
             "diagnosed_date": "2020-02-15",
@@ -12859,6 +12859,28 @@
             "pcr_negative_count": 1757,
             "antigen_positive_count": 679,
             "antigen_negative_count": 3480
+        },
+        {
+            "diagnosed_date": "2023-04-29",
+            "positive_count": 540,
+            "negative_count": 3317,
+            "positive_rate": 11.1,
+            "weekly_average_diagnosed_count": 8532.6,
+            "pcr_positive_count": 180,
+            "pcr_negative_count": 1475,
+            "antigen_positive_count": 360,
+            "antigen_negative_count": 1842
+        },
+        {
+            "diagnosed_date": "2023-04-30",
+            "positive_count": 462,
+            "negative_count": 2760,
+            "positive_rate": 11.3,
+            "weekly_average_diagnosed_count": 8443.1,
+            "pcr_positive_count": 142,
+            "pcr_negative_count": 1027,
+            "antigen_positive_count": 320,
+            "antigen_negative_count": 1733
         }
     ]
 }
