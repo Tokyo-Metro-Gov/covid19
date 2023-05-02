@@ -17,7 +17,7 @@
         :table-labels="tableLabels"
         :get-formatter="getFormatter"
         :unit="$t('人')"
-        url="https://catalog.data.metro.tokyo.lg.jp/dataset/t000001d0000000011"
+        url="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000109"
         :day-period="isSingleCard ? 120 : 60"
         :is-single-card="isSingleCard"
       >
