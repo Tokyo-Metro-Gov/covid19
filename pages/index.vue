@@ -1,5 +1,36 @@
 <template>
   <div>
+    <div class="AttentionNote">
+      <div class="AttentionNote-Emphasis">
+        <p>
+          新型コロナ感染症の５類移行に伴い、5月8日をもって本サイトの更新は停止いたします。
+        </p>
+        <i18n
+          tag="p"
+          path="新型コロナ感染症の感染動向等に関する情報については、{covid19portal}からご確認ください。"
+        >
+          <template #covid19portal>
+            <app-link
+              to="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/index.html"
+            >
+              {{ $t('新型コロナ保健医療情報ポータル') }}
+            </app-link>
+          </template>
+        </i18n>
+      </div>
+
+      <p>なお、本サイトは、５月末をもって閉鎖いたします。</p>
+      <i18n
+        tag="p"
+        path="過去のオープンデータについては、引き続き、{opendatacatalog}からご覧いただけます。"
+      >
+        <template #opendatacatalog>
+          <app-link to="https://portal.data.metro.tokyo.lg.jp/1097/">
+            {{ $t('東京都オープンデータカタログサイト') }}
+          </app-link>
+        </template>
+      </i18n>
+    </div>
     <page-header
       :icon-path="headerItem.iconPath"
       :title="headerItem.title"
@@ -16,6 +47,7 @@ import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import type { MetaInfo } from 'vue-meta'
 
+import AppLink from '@/components/_shared/AppLink.vue'
 import PageHeader from '@/components/_shared/PageHeader.vue'
 import CardsTab from '@/components/index/CardsTab.vue'
 import SiteTopUpper from '@/components/index/SiteTopUpper.vue'
@@ -44,6 +76,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
   Props
 > = {
   components: {
+    AppLink,
     CardsTab,
     PageHeader,
     SiteTopUpper,
@@ -73,3 +106,25 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
 export default options
 </script>
+
+<style lang="scss" scoped>
+.AttentionNote {
+  margin-bottom: 28px;
+  padding: 18px;
+  background-color: $notice;
+  border-radius: 4px;
+  color: $gray-2;
+
+  @include font-size(14);
+
+  p {
+    margin: 0;
+  }
+
+  &-Emphasis {
+    @include font-size(16);
+
+    margin-bottom: 16px;
+  }
+}
+</style>
