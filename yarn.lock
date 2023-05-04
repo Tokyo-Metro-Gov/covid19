@@ -1679,15 +1679,15 @@
     "@types/webpack-bundle-analyzer" "3.9.5"
     "@types/webpack-hot-middleware" "2.25.5"
 
-"@nuxt/typescript-build@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@nuxt/typescript-build/-/typescript-build-2.1.0.tgz#191fe60e942ce84a01468ba6e255744e01c7c538"
-  integrity sha512-7TLMpfzgOckf3cBkzoPFns6Xl8FzY6MoFfm/5HUE47QeTWAdOG9ZFxMrVhHWieZHYUuV+k6byRtaRv4S/3R8zA==
+"@nuxt/typescript-build@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@nuxt/typescript-build/-/typescript-build-3.0.1.tgz#5faf34119885d5b15a53f55bf6f2f42ced863893"
+  integrity sha512-+9mQuLlwYSDTesyt5lYjWzUit/DD78V+OSzaqGJUkybjS63YZUBcUw6Fr4jAeRreMlseFnJFIjtQQV1osunrhg==
   dependencies:
     consola "^2.15.3"
-    fork-ts-checker-webpack-plugin "^6.1.1"
-    ts-loader "^8.0.17"
-    typescript "~4.2"
+    defu "^6.0.0"
+    fork-ts-checker-webpack-plugin "6.5.3"
+    ts-loader "8.4.0"
 
 "@nuxt/utils@2.16.3", "@nuxt/utils@2.x":
   version "2.16.3"
@@ -5690,7 +5690,7 @@ for-own@^0.1.3:
   dependencies:
     for-in "^1.0.1"
 
-fork-ts-checker-webpack-plugin@^6.1.1:
+fork-ts-checker-webpack-plugin@6.5.3:
   version "6.5.3"
   resolved "https://registry.yarnpkg.com/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-6.5.3.tgz#eda2eff6e22476a2688d10661688c47f611b37f3"
   integrity sha512-SbH/l9ikmMWycd5puHJKTkZJKddF4iRLyW3DeZ08HTI7NGyLS38MXd/KGgeWumQO7YNQbW2u/NtPT2YowbPaGQ==
@@ -11038,7 +11038,7 @@ trim-newlines@^3.0.0:
   resolved "https://registry.yarnpkg.com/trim-newlines/-/trim-newlines-3.0.1.tgz#260a5d962d8b752425b32f3a7db0dcacd176c144"
   integrity sha512-c1PTsA3tYrIsLGkJkzHF+w9F2EyxfXGo4UyJc4pFL++FMjnq0HJS69T3M7d//gKrFKwy429bouPescbjecU+Zw==
 
-ts-loader@8.4.0, ts-loader@^8.0.17:
+ts-loader@8.4.0:
   version "8.4.0"
   resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-8.4.0.tgz#e845ea0f38d140bdc3d7d60293ca18d12ff2720f"
   integrity sha512-6nFY3IZ2//mrPc+ImY3hNWx1vCHyEhl6V+wLmL4CZcm6g1CqX7UKrkc6y0i4FwcfOhxyMPCfaEvh20f4r9GNpw==
@@ -11165,11 +11165,6 @@ typescript@5.0.4:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.4.tgz#b217fd20119bd61a94d4011274e0ab369058da3b"
   integrity sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==
-
-typescript@~4.2:
-  version "4.2.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
-  integrity sha512-V+evlYHZnQkaz8TRBuxTA92yZBPotr5H+WhQ7bD3hZUndx5tGOa1fuCgeSjxAzM1RiN5IzvadIXTVefuuwZCRg==
 
 typical@^4.0.0:
   version "4.0.0"
