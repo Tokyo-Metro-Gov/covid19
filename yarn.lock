@@ -2052,13 +2052,13 @@
     serve-static "^1.14.1"
     workbox-cdn "^5.1.4"
 
-"@nuxtjs/stylelint-module@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/stylelint-module/-/stylelint-module-4.1.0.tgz#2d69dc882a0b2b4391311c405b07d4b39a975ff5"
-  integrity sha512-XeUZobXlSVW5VDbZBDktB3oFkBm+4JhYlyvZqu4tD7F3Qf4IU5aFwlELbK+VLVewbGgKSEg4QaT5nZdWpgXQBw==
+"@nuxtjs/stylelint-module@4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/stylelint-module/-/stylelint-module-4.2.1.tgz#2db8d911ab3fdc6d6241c472d7a169b381f9fd54"
+  integrity sha512-uXgZ2xv1/iCKxvh9Y+EoYAM06dKZNrwqlDr1XwvwjjZ+kM87AbFWG3z3VxQ4ffzSU95KQUeR2VFGTjfJMBOzlg==
   dependencies:
     consola "^2.15.3"
-    stylelint-webpack-plugin "^2.3.1"
+    stylelint-webpack-plugin "^2.5.0"
 
 "@nuxtjs/vuetify@1.12.3":
   version "1.12.3"
@@ -7104,7 +7104,7 @@ jest-worker@^26.5.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jest-worker@^28.1.0:
+jest-worker@^28.1.3:
   version "28.1.3"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-28.1.3.tgz#7e3c4ce3fa23d1bb6accb169e7f396f98ed4bb98"
   integrity sha512-CqRA220YV/6jCo8VWvAt1KKx6eek1VIHMPeLEbpcfSfkEeWyBNppynM/o6q+Wmw+sOhos2ml34wZbSX3G13//g==
@@ -10825,14 +10825,14 @@ stylelint-scss@^4.0.0:
     postcss-selector-parser "^6.0.6"
     postcss-value-parser "^4.1.0"
 
-stylelint-webpack-plugin@^2.3.1:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/stylelint-webpack-plugin/-/stylelint-webpack-plugin-2.4.0.tgz#04d96096e6a5d146b32b2fb66b0464a9118b81e5"
-  integrity sha512-MhXDqd8HPXdY51nGeDeUEXToximoIbc0Z5TQC1M0ApR0ejrOwj9dRZKiL/00MDRrQfuAGkjcJ6sOVvc4gRzbgQ==
+stylelint-webpack-plugin@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/stylelint-webpack-plugin/-/stylelint-webpack-plugin-2.5.0.tgz#8dd1e8db5adfea7895c475af9ff0e9e386b6a93e"
+  integrity sha512-UX+A4FzHM98VI+mnN4ZGDXnDOf3RC4+xk26nyveUQmIDx43dFYbZQHsZNVFl17La9+VQFpwOHh3c5Zv/kwAI3g==
   dependencies:
     arrify "^2.0.1"
-    globby "^11.0.4"
-    jest-worker "^28.1.0"
+    globby "^11.1.0"
+    jest-worker "^28.1.3"
     micromatch "^4.0.5"
     normalize-path "^3.0.0"
     schema-utils "^3.1.1"
