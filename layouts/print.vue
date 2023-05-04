@@ -112,11 +112,11 @@ export default Vue.extend({
   margin-left: auto;
 
   @media screen {
-    @media (min-width: 960px) {
+    @media (width >= 960px) {
       max-width: 900px;
     }
 
-    @media (min-width: 1264px) {
+    @media (width >= 1264px) {
       max-width: 1185px;
     }
   }
