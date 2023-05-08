@@ -11,13 +11,13 @@
           display: none;
         }
 
-        @media screen and (max-width: 600px) {
+        @media screen and (width <= 600px) {
           .appContainer {
             margin-bottom: 150px;
           }
         }
 
-        @media screen and (min-width: 601px) {
+        @media screen and (width >= 601px) {
           .appContainer {
             margin-top: 100px;
           }
