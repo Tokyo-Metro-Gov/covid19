@@ -99,7 +99,7 @@
   "当サイトに掲載されている情報は、予告なしに変更又は削除することがあります。": "The information on this site may be subject to change or deletion without prior notice. ",
   "データについて": "About the data",
   "本サイトで公表しているデータは、{catalogWebsite}より誰でも自由にダウンロードが可能です。（データは順次追加予定です）": "Anyone can download the data made available on this website from {catalogWebsite}. (Data is planned to be added as it becomes available.). ",
-  "東京都オープンデータカタログサイト": "the Tokyo Metropolitan Government Open Data Catalogue site",
+  "東京都オープンデータカタログサイト": "Tokyo Metropolitan Government Open Data Catalogue Website (Japanese language only)",
   "ソースコードについて": "About the source code",
   "当サイトのソースコードはMITライセンスで公開されており、誰でも自由に利用することができます。": "The source code of this site is MIT licensed code and can be used by anyone for free.",
   "詳しくは、{githubRepo}をご確認ください。": " For details: See {githubRepo}.",
@@ -852,7 +852,7 @@
   "全年齢接種数（１回目）": "All eligible ages (first dose)",
   "高齢者（２回目・累計）": "Second vaccinations to elderly (cumulative)",
   "その他（１回目・累計）": "First vaccinations to others (cumulative)",
-  "新型コロナ保健医療情報ポータル": "COVID-19 Health Care Information Portal",
+  "新型コロナ保健医療情報ポータル": "COVID-19 Health Care Information Portal Site",
   "facebookで情報をシェア": "Share information on Facebook",
   "Twitterで情報をシェア": "Share information on Twitter",
   "LINEで情報をシェア": "Share information on LINE",
@@ -1111,5 +1111,9 @@
   "オミクロン株対応ワクチン接種数 (接種率）": "No. of Omicron boosters given (vaccination rate)",
   "接種率（オミクロン株対応ワクチン）": "接種率（オミクロン株対応ワクチン）",
   "接種数（オミクロン株対応ワクチン）": "接種数（オミクロン株対応ワクチン）",
-  "年代別ワクチン接種状況等の詳細はこちら": "Click here for vaccination data. "
+  "年代別ワクチン接種状況等の詳細はこちら": "Click here for vaccination data. ",
+  "新型コロナ感染症の感染動向等に関する情報については、{covid19portal}からご確認ください。": "For information on COVID-19 infection trends and other matters, please visit the {covid19portal}. ",
+  "新型コロナ感染症の５類移行に伴い、5月8日をもって本サイトの更新は停止いたします。": "As of May 8th, this site is no longer updated due to the downgrading of COVID-19 to a Class 5 infectious disease. ",
+  "過去のオープンデータについては、引き続き、{opendatacatalog}からご覧いただけます。": "Past open data will continue to be available on the {opendatacatalog}.",
+  "なお、本サイトは、５月末をもって閉鎖いたします。": "Furthermore, this site will close at the end of May."
 }
