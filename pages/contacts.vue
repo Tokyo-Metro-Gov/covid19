@@ -50,10 +50,10 @@
           </tr>
           <tr>
             <td class="content importantContact" v-bind="headingAttrs">
-              {{ $t('東京都緊急事態措置等・感染拡大防止協力金等に関すること') }}
+              {{ $t('飲食店等における感染対策に関すること') }}
             </td>
             <td class="bureau importantContact">
-              {{ $t('東京都緊急事態措置等・感染拡大防止協力金相談センター') }}
+              {{ $t('東京都新型コロナ感染対策コールセンター') }}
             </td>
             <td class="tel">
               <a href="tel:03-5388-0567" class="importantContact"
