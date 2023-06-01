@@ -8,6 +8,13 @@
       "target": "development",
       "public": "dist",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "redirects": [
+        {
+          "source": "**",
+          "destination": "https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/index.html",
+          "type": 301
+        }
+      ],
       "rewrites": [
         { "source": "/g-mark", "function": "gMark" },
         { "source": "**", "destination": "/index.html" }
@@ -17,6 +24,13 @@
       "target": "staging",
       "public": "dist",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "redirects": [
+        {
+          "source": "**",
+          "destination": "https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/index.html",
+          "type": 301
+        }
+      ],
       "rewrites": [
         { "source": "/g-mark", "function": "gMark" },
         { "source": "**", "destination": "/index.html" }
@@ -26,6 +40,13 @@
       "target": "production",
       "public": "dist",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "redirects": [
+        {
+          "source": "**",
+          "destination": "https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/corona_portal/index.html",
+          "type": 301
+        }
+      ],
       "rewrites": [
         { "source": "/g-mark", "function": "gMark" },
         { "source": "**", "destination": "/index.html" }
